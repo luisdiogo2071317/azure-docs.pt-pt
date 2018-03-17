@@ -2,19 +2,20 @@
 title: "Saiba como integrar soluções de gestão de atualizações, controlo de alterações e inventário na automatização do Azure"
 description: "Saiba como para carregar uma Azure Virtual máquina com soluções de gestão de atualizações, controlo de alterações e inventário que fazem parte da automatização do Azure"
 services: automation
-keywords: 
+ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.topic: article
-ms.service: automation
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 670a0c2a11ebfe09406233ab4b454b2e9c2ba0e0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.custom: mvc
+ms.openlocfilehash: 65bf0d98da8111e986d5dbdfd58f1692d40ee286
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de gestão de atualizações, controlo de alterações e inventário
 
@@ -22,23 +23,23 @@ A automatização do Azure fornece soluções para gerir atualizações de segur
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Azure em https://portal.azure.com
+Inicie sessão no Azure https://portal.azure.com
 
-## <a name="enable-solutions"></a>Permitir soluções
+## <a name="enable-solutions"></a>Ativar soluções
 
 Navegue até à sua conta de automatização e selecione **inventário** ou **alterações** em **gestão de configuração**.
 
-Escolha a área de trabalho de análise de registo e a conta de automatização e clique em **ativar** para ativar a solução. A solução tira até 15 minutos a ativar.
+Escolha a área de trabalho de análise de registo e a conta de automatização e clique em **ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
 
 ![Integrar soluções de inventário](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-A solução de controlo de alterações e de inventário fornece a capacidade de [controlar as alterações](automation-vm-change-tracking.md) e [inventário](automation-vm-inventory.md) nas suas máquinas virtuais. Neste passo, ative a solução numa máquina virtual.
+A solução de Controlo de Alterações e Inventário fornece a capacidade de [controlar as alterações](automation-vm-change-tracking.md) e [inventário](automation-vm-inventory.md) nas suas máquinas virtuais. Neste passo, vai ativar a solução numa máquina virtual.
 
-Quando o controlo e de inventário de solução integração notificação de alteração estiver concluída, clique em **gestão de atualizações** em **gestão de configuração**.
+Quando a notificação de inclusão da solução de controlo de alterações e inventário estiver concluída, clique em **Gestão de Atualizações**, em **GESTÃO DE CONFIGURAÇÃO**.
 
-A solução de gestão de atualizações permite-lhe gerir as atualizações e correções de erros para as suas VMs do Windows Azure. Pode avaliar o estado das atualizações disponíveis, agendar a instalação de atualizações necessárias, e reveja os resultados de implementação para verificar atualizações foram aplicados com êxito para a VM. Esta ação ativada a solução para a VM.
+A solução de Gestão de Atualizações permite gerir atualizações e correções para as VMs do Azure. Pode avaliar o estado das atualizações disponíveis, agendar a instalação de atualizações necessárias e rever os resultados de implementação para verificar se as atualizações foram aplicadas com êxito à VM. Esta ação ativada a solução para a VM.
 
-Selecione **gestão de atualizações** em **gestão de ATUALIZAÇÕES**. A área de trabalho de análise do registo selecionada é o mesmo espaço de trabalho utilizado no passo anterior. Clique em **ativar** integrar a solução de gestão de atualização. A solução tira até 15 minutos a ativar.
+Selecione **gestão de atualizações** em **gestão de ATUALIZAÇÕES**. A área de trabalho do Log Analytics selecionada é a mesma área de trabalho utilizado no passo anterior. Clique em **Ativar** para integrar a solução de Gestão de atualizações. A solução demora até 15 minutos a ativar.
 
 ![Solução de atualização carregar](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 

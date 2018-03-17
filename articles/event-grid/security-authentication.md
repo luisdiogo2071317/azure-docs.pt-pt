@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança de grelha de eventos e autenticação 
 
@@ -24,9 +24,9 @@ Grelha de eventos do Azure tem três tipos de autenticação:
 
 ## <a name="webhook-event-delivery"></a>Entrega de eventos do WebHook
 
-Webhooks são uma das várias formas para receber eventos em tempo real da grelha de eventos do Azure. Sempre que há um novo evento pronto para ser entregue, o Webhook de grelha de eventos envia um pedido HTTP para o ponto final de HTTP configurado com o evento no corpo.
+Webhooks são uma das várias formas para receber eventos da grelha de eventos do Azure. Quando um novo evento estiver pronto, o Webhook de grelha de eventos envia um pedido HTTP para o ponto final de HTTP configurado com o evento no corpo.
 
-Quando registar o próprio ponto final de WebHook a grelha de evento, envia-lhe um pedido POST com um código de validação simples para provar a propriedade de ponto final. A aplicação tem de responder ao echoing novamente o código de validação. Grelha de eventos não fornecer eventos para os pontos finais de WebHook que não passaram a validação.
+Quando registar o próprio ponto final de WebHook a grelha de evento, envia-lhe um pedido POST com um código de validação simples para provar a propriedade de ponto final. A aplicação tem de responder ao echoing novamente o código de validação. Grelha de eventos não fornecer eventos aos pontos finais de WebHook que ainda não passaram a validação.
 
 ### <a name="validation-details"></a>Detalhes de validação
 
@@ -34,6 +34,7 @@ Quando registar o próprio ponto final de WebHook a grelha de evento, envia-lhe 
 * O evento contém um valor de cabeçalho "Tipo de evento Aeg: SubscriptionValidation".
 * O corpo de evento tem o mesmo esquema que outros eventos de grelha de eventos.
 * Os dados do evento incluem uma propriedade de "validationCode" com uma cadeia gerada aleatoriamente. Por exemplo, "validationCode: acb13...".
+* A matriz contém apenas o evento de validação. Outros eventos são enviados num pedido separado depois de volta eco o código de validação.
 
 Um exemplo SubscriptionValidationEvent é apresentado no exemplo seguinte:
 
@@ -69,7 +70,7 @@ Por fim, é importante ter em atenção que a grelha de eventos do Azure suporta
 
 ## <a name="event-subscription"></a>Subscrição de evento
 
-Para subscrever um evento, tem de ter o **Microsoft.EventGrid/EventSubscriptions/Write** permissão no recurso necessário. Tem esta permissão porque estiver a escrever uma nova subscrição no âmbito do recurso. O recurso necessário difere com base em se estão a subscrição para um tópico de sistema ou um tópico personalizado. Ambos os tipos são descritos nesta secção.
+Para subscrever um evento, tem de ter o **Microsoft.EventGrid/EventSubscriptions/Write** permissão no recurso necessário. Tem esta permissão porque está a escrever uma nova subscrição no âmbito do recurso. O recurso necessário difere consoante se está a subscrever para um tópico de sistema ou um tópico personalizado. Ambos os tipos são descritos nesta secção.
 
 ### <a name="system-topics-azure-service-publishers"></a>Tópicos de sistema (editores de serviço do Azure)
 
@@ -79,7 +80,7 @@ Por exemplo subscrever um evento de uma conta de armazenamento com o nome **myac
 
 ### <a name="custom-topics"></a>Tópicos personalizados
 
-Tópicos personalizado, terá permissão para escrever uma nova subscrição de eventos no âmbito do tópico grelha de eventos. O formato do recurso é: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+Tópicos personalizado, necessita de permissão para escrever uma nova subscrição de eventos no âmbito do tópico de grelha de eventos. O formato do recurso é: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
 Por exemplo subscrever um tópico personalizado denominado **mytopic**, é preciso permissão Microsoft.EventGrid/EventSubscriptions/Write em: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
@@ -103,7 +104,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Os tokens SAS de grelha de eventos incluem o recurso, uma hora de expiração e uma assinatura. O formato do SAS token é: `r={resource}&e={expiration}&s={signature}`.
 
-O recurso é o caminho para o tópico para o qual está a enviar eventos. Por exemplo, é um caminho de recurso válido: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+O recurso é o caminho para o tópico de grelha de eventos para o qual está a enviar eventos. Por exemplo, é um caminho de recurso válido: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 Gerar a assinatura de uma chave.
 
@@ -140,7 +141,7 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Controlo de acesso de gestão
 
-Grelha de eventos do Azure permite-lhe controlar o nível de acesso aos diferentes utilizadores várias operações de gestão, tais como as subscrições de eventos de lista, criar novos, e gerar as chaves. Utiliza a grelha de eventos função de acesso baseado em verificar (RBAC do Azure).
+Grelha de eventos do Azure permite-lhe controlar o nível de acesso aos diferentes utilizadores várias operações de gestão, tais como as subscrições de eventos de lista, criar novos, e gerar as chaves. Grelha de evento utiliza função de acesso baseado em verificar (RBAC do Azure).
 
 ### <a name="operation-types"></a>Tipos de operação
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4c6b53673dd4c79ce435c1593e7d08c7dd4a1cb0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c87b5d82b6eef2b1d28a3280cc2fa07c28084f90
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Cenários de teste de Service Fabric: comunicação de serviço
 Micro-serviços e superfície de estilos de arquitetura orientada para serviços naturalmente no Service Fabric do Azure. Nestes tipos de arquiteturas distribuídas, aplicações de microsserviço componentized são normalmente compostas por vários serviços que têm de comunicar entre si. No mesmo cenários mais simples, geralmente, é ter, pelo menos, um serviço web sem monitorização de estado e um serviço de armazenamento de dados de monitorização de estado têm de comunicar.
@@ -67,7 +67,7 @@ Ao utilizar ferramentas de teste de Service Fabric, pode criar um cenário de te
    
     ```powershell
    
-    PS > Restart-ServiceFabricNode -NodeName Node_1
+    PS > Stop-ServiceFabricNode -NodeName Node_1
    
     ```
 
@@ -89,7 +89,7 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 Neste exemplo, vamos definir `QuorumLossMode` para `QuorumReplicas` para indicar que queremos induce perda de quórum sem colocar baixo todas as réplicas. Desta forma, as operações de leitura são ainda possíveis. Para testar um cenário em que uma partição completa está disponível, pode definir este comutador `AllReplicas`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre as ações de teste](service-fabric-testability-actions.md)
 
 [Saiba mais sobre os cenários de teste](service-fabric-testability-scenarios.md)

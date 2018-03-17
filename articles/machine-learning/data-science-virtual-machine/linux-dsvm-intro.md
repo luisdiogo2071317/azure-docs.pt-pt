@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: e36c28ef1c05dcdcebc7372316c7f144c92fd02f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 550d49e3d6007c6b494deec95b785ea9bc214f3a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de ciência de dados de CentOS do Linux no Azure
 
 A Máquina Virtual de ciência de dados de Linux é uma baseado em CentOS máquina virtual do Azure que vem com uma coleção de ferramentas pré-instaladas. Estas ferramentas são frequentemente utilizadas para fazer a análise de dados e machine learning. Os componentes de chaves de software incluídos são:
 
 * Sistema operativo: Distribuição Linux CentOS.
-* Edição de programador do Microsoft R
+* Microsoft R Server Developer Edition
 * Distribuição do Python anaconda (versões 2.7 e 3.5), incluindo bibliotecas de análise de dados mais populares
 * JuliaPro - uma distribuição organizada de idioma de Leonor com bibliotecas de análise de dados e científicos populares
 * Instância de Spark autónomo e de nó único Hadoop (HDFS, Yarn)
@@ -124,7 +124,7 @@ A VM com Linux já está a ser aprovisionado com o servidor de X2Go e pronto par
 Depois de iniciar sessão para a VM ao utilizar o cliente SSH ou de ambiente de trabalho gráfico XFCE através do cliente X2Go, está pronto para começar a utilizar as ferramentas que estão instaladas e configuradas na VM. No XFCE, pode ver os atalhos de menu de aplicações e ícones do ambiente de trabalho para muitas das ferramentas.
 
 ## <a name="tools-installed-on-the-linux-data-science-virtual-machine"></a>Ferramentas instaladas na máquina Virtual com Linux dados ciência
-### <a name="microsoft-r-server"></a>Servidor Microsoft R
+### <a name="microsoft-r-server"></a>Microsoft R Server
 R é um dos idiomas mais populares para análise de dados e de aprendizagem. Se pretender utilizar o R para a sua análise, a VM possui Microsoft R Server (MRS) com o Microsoft R abrir (MRO) e a biblioteca de Kernel de bibliotecas (MKL). O MKL otimiza operações bibliotecas comuns no algoritmos analíticos. MRO é 100 por cento compatível com CRAN R e qualquer uma das bibliotecas publicadas no CRAN R pode ser instalado no MRO. MRS dá-lhe dimensionar e operationalization dos modelos de R para os serviços web. Pode editar os programas de R dos editores predefinido, tal como RStudio, vi, Emacs ou gedit. Se estiver a utilizar o editor de Emacs, tenha em atenção que o Emacs pacote RIMIR (Emacs Speaks as estatísticas), que simplifica a trabalhar com ficheiros de R dentro do editor de Emacs, tiver sido previamente instalada.
 
 Para iniciar R consola, basta escrevê **R** na shell. Isto leva-o para um ambiente interativo. Para desenvolver o seu programa de R, normalmente, utilize um editor como Emacs ou vi ou gedit e, em seguida, execute os scripts dentro do R. Com RStudio, tem um ambiente IDE completa gráfico para desenvolver o seu programa de R.
@@ -153,8 +153,8 @@ Para invocar uma sessão interativa de Python, basta escrevê **python** na shel
 
 Para instalar as bibliotecas adicionais do Python, tem de executar ```conda``` ou ````pip```` comandos em sudo e forneça o caminho completo do Gestor de pacote Python (conda ou pip) para instalar o ambiente do Python correto. Por exemplo:
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Bloco de notas do Jupyter
@@ -215,7 +215,7 @@ A base de dados de código aberto **Postgres** está disponível na VM, com os s
 
 Antes da primeira utilização, configurar os controladores e os aliases de base de dados. Os controladores JDBC estão localizados em:
 
-*/usr/share/Java/jdbcdrivers*
+*/usr/share/java/jdbcdrivers*
 
 Para obter mais informações, consulte [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
@@ -366,7 +366,7 @@ Agora uma interface gráfica abre-se com um conjunto de separadores. Eis os pass
 
 Pode sair Rattle e R. Agora pode modificar o script R gerado ou utilizá-lo, dado que está a executá-la em qualquer altura para repetir tudo o que foi concluído dentro da IU Rattle. Especialmente para principiantes em R, esta é uma forma fácil para fazer a análise e machine learning numa interface gráfica simple, ao gerar automaticamente o código no R para modificar e/ou mais rapidamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Eis como pode continuar a exploração e de aprendizagem automática:
 
 * O [ciência de dados na máquina Virtual com Linux dados ciência](linux-dsvm-walkthrough.md) instruções mostram como efetuar várias tarefas de ciência de dados comuns com a VM de ciência de dados de Linux aprovisionados aqui. 

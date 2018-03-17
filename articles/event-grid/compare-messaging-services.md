@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Escolher entre os serviços do Azure que a entrega de mensagens
 
@@ -30,18 +30,22 @@ Há uma distinção importante a ter em atenção entre serviços que proporcion
 
 ### <a name="event"></a>Evento
 
-Um evento é uma notificação simples de uma ação ou uma alteração de estado. Os dados de evento contém informações sobre o que aconteceu, mas não tem os dados que acionou o evento. Por exemplo, um evento notifica subscritores que foi criado um ficheiro. Poderá conter informações gerais sobre o ficheiro, mas não contém o ficheiro em si. Geralmente, os eventos acionam processadores de eventos para agir em tempo real.
+Um evento é uma notificação simples de uma condição ou uma alteração de estado. O publicador do evento não tem nenhum expectativa sobre o modo como o evento é processado. O consumidor do evento decide o que fazer com a notificação. Eventos podem ser unidades discretas ou parte de uma série.
+
+Eventos discretos relatório de alteração de estado e são passíveis de ação. Para tirar o passo seguinte, o consumidor só precisa de saber o que aconteceu algo. Os dados de evento contém informações sobre o que aconteceu, mas não tem os dados que acionou o evento. Por exemplo, um evento notifica os consumidores que foi criado um ficheiro. Poderá conter informações gerais sobre o ficheiro, mas não contém o ficheiro em si. Eventos discretos são ideais para sem servidor soluções que precisam de dimensionar.
+
+Eventos de série relatório uma condição e são analyzable. Os eventos são ordenados por tempo e interrelated. O consumidor tem da série de eventos para analisar o que aconteceu sequenciada.
 
 ### <a name="message"></a>Mensagem
 
-Uma mensagem está em bruto dados produzidos por um serviço a ser consumidos ou armazenadas noutro local. A mensagem contém os dados que acionou o pipeline de mensagens. Esta mensagem pode ser qualquer coisa desde uma ordem de comércio eletrónico a telemetria de utilizador. Ao contrário de uma notificação de evento, o publicador de uma mensagem pode esperar uma resposta. Por exemplo, uma mensagem contém os dados não processados, mas espera que a parte seguinte do sistema para criar um ficheiro de dados.
+Uma mensagem está em bruto dados produzidos por um serviço a ser consumidos ou armazenadas noutro local. A mensagem contém os dados que acionou o pipeline de mensagens. O publicador da mensagem tem uma expectativa sobre a forma como o consumidor processa a mensagem. Existe um contrato entre dois lados. Por exemplo, o publicador envia uma mensagem com os dados não processados e espera o consumidor para criar um ficheiro de dados e enviar uma resposta quando o trabalho está concluído.
 
 ## <a name="comparison-of-services"></a>Comparação de serviços
 
 | Serviço | Objetivo | Tipo | Quando utilizar |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Programação reativa | Distribuição de eventos | Reagir a alterações de estado |
-| Event Hubs | Pipeline de macrodados | Evento de transmissão em fluxo | Telemetria e de transmissão em fluxo de dados distribuídos |
+| Event Grid | Programação reativa | Distribuição de eventos (discreta) | Reagir a alterações de estado |
+| Event Hubs | Pipeline de macrodados | Evento de transmissão em fluxo (série) | Telemetria e de transmissão em fluxo de dados distribuídos |
 | Service Bus | Mensagens empresariais de alto valor | Mensagem | Processamento de ordem e de transações financeiras |
 
 ### <a name="event-grid"></a>Event Grid

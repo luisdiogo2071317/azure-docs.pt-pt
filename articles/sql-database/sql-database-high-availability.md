@@ -6,14 +6,14 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 5e0d0166377f80c1f43782156fa735915cbc31f1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8deb78ba108aafc3297e6b96d6d88d0c56c60afd
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 Desde inception a oferta Azure SQL da base de dados PaaS, Microsoft fez promessa aos seus clientes que o serviço está incorporada no elevada disponibilidade (ed) e os clientes não são necessários para funcionar, adicione lógica especial para ou tomar decisões em torno HA. A Microsoft tem controlo total sobre a configuração do sistema HA e a operação, oferecendo aos clientes um SLA. O SLA HA aplica-se a uma base de dados do SQL Server numa região e não proporciona proteção em caso de uma falha de região total é decorrentes de factores fora do controlo razoável da Microsoft (por exemplo, desastre natural war, atos terrorismo, riots, ação government, ou um rede falha ou de dispositivo externa aos datacenters da Microsoft, incluindo nos sites de cliente ou entre sites de cliente e o Centro de dados da Microsoft).
@@ -52,7 +52,7 @@ A solução de elevada disponibilidade na base de dados SQL baseia-se no [Always
 
 Nesta configuração, cada base de dados seja colocado online pelo serviço de gestão (MS) dentro da coroa do controlo. Uma réplica primária e, pelo menos, duas réplicas secundárias (conjunto de quórum) estão localizadas dentro de um anel de inquilino que abranja três subsistemas físicos independentes dentro do mesmo centro de dados. Todas as leituras e escritas são enviadas pelo gateway (GW) para a réplica primária e as escritas no modo assíncrono são replicadas para réplicas secundárias. Base de dados do SQL Server utiliza um esquema de consolidação com base em quórum onde os dados são escritos para o site primário e pelo menos uma réplica secundária antes de consolidações de transações.
 
-O [Service Fabric](/service-fabric/service-fabric-overview.md) sistema de ativação pós-falha automaticamente Reconstrói réplicas como nós de falham e mantém a associação ao conjunto de quórum como nós depart e associar o sistema. Manutenção planeada é cuidadosamente coordenada para impedir que o conjunto de quórum atinja para baixo uma contagem mínima de réplica (normalmente, 2). Este modelo funciona bem para bases de dados Premium, mas necessita de redundância de componentes de armazenamento e computação e resulta num custo mais elevado.
+O [Service Fabric](../service-fabric/service-fabric-overview.md) sistema de ativação pós-falha automaticamente Reconstrói réplicas como nós de falham e mantém a associação ao conjunto de quórum como nós depart e associar o sistema. Manutenção planeada é cuidadosamente coordenada para impedir que o conjunto de quórum atinja para baixo uma contagem mínima de réplica (normalmente, 2). Este modelo funciona bem para bases de dados Premium, mas necessita de redundância de componentes de armazenamento e computação e resulta num custo mais elevado.
 
 ## <a name="remote-storage-configuration"></a>Configuração de armazenamento remoto
 

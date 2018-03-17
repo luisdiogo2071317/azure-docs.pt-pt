@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 2f2a1289aa4c7681d16ab27bf8546b97f5ea3939
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e724a660f8ba2373cefdabe8595908b7bb42f4d6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurar uma VNet para instância gerida de base de dados SQL do Azure
 
@@ -33,7 +33,7 @@ Planeie como implementar uma instância geridos na rede virtual com as suas resp
 
    Se planeia utilizar uma rede virtual existente, tem de modificar a que a configuração da rede para acomodar a sua instância geridos. Para obter mais informações, consulte [modificar a rede virtual existente para a instância geridos](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   Se planear criar nova rede virtual, consulte o artigo [criar nova rede virtual para a instância geridos](#create-new-virtual-network-for-managed-instances).
+   Se planear criar nova rede virtual, consulte o artigo [criar nova rede virtual para a instância geridos](#create-a-new-virtual-network-for-managed-instances).
 
 ## <a name="requirements"></a>Requisitos
 

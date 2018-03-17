@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/20/2017
+ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 20786522a9a25d84a32a53e5e111b4b542501287
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução a Reliable Actors
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Inicie o Visual Studio versão 2015 ou posterior como um administrador e, em seg
 
 ![Ferramentas do Service Fabric para Visual Studio – novo projeto][1]
 
-Na caixa de diálogo seguinte, escolha **serviço de Atores** e introduza um nome para o serviço.
+Na caixa de diálogo seguinte, escolha **serviço de Atores** em **.Net Core 2.0** e introduza um nome para o serviço.
 
 ![Modelos de projeto de Service Fabric][5]
 

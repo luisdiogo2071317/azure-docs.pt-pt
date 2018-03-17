@@ -1,24 +1,18 @@
 ---
-title: "Iniciar um runbook de automatização do Azure com um webhook | Microsoft Docs"
+title: "Iniciar um runbook de automatização do Azure com um webhook"
 description: "Webhook que permite que um cliente iniciar um runbook na automatização do Azure a partir de uma chamada HTTP.  Este artigo descreve como criar um webhook e como chamar um para iniciar um runbook."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 9b20237c-a593-4299-bbdc-35c47ee9e55d
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/22/2017
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 03d1617eb64c48b6a90925ae76e1ab3ce0312ff1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+manager: carmonm
+ms.openlocfilehash: b3e8e489ef4b79a89facb2395543743c427b0310
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook de automatização do Azure com um webhook
 A *webhook* permite-lhe iniciar um determinado runbook na automatização do Azure através de um único pedido HTTP. Isto permite que os serviços externos, como o Visual Studio Team Services, o GitHub, análise de registos do Microsoft Operations Management Suite ou aplicações personalizadas para iniciar runbooks sem a implementar uma solução completa utilizando a API de automatização do Azure.  
@@ -32,7 +26,7 @@ A tabela seguinte descreve as propriedades que é necessário configurar para um
 | Propriedade | Descrição |
 |:--- |:--- |
 | Nome |Pode fornecer um nome que pretende para um webhook, uma vez que este não está exposta ao cliente.  Só é utilizada por si para identificar o runbook na automatização do Azure. <br>  Como melhor prática, deve dar o webhook um nome relacionadas com o cliente que irão utilizá-lo. |
-| URL |O URL do webhook é o endereço exclusivo que chama um cliente com um POST de HTTP para iniciar o runbook associado para o webhook.  É gerado automaticamente quando criar o webhook.  Não é possível especificar um URL personalizado. <br> <br>  O URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por este motivo, deve ser tratado como uma palavra-passe.  Por motivos de segurança, só pode ver o URL no portal do Azure no momento que é criar o webhook. Deve ter em consideração o URL numa localização segura para utilização futura. |
+| do IdP |O URL do webhook é o endereço exclusivo que chama um cliente com um POST de HTTP para iniciar o runbook associado para o webhook.  É gerado automaticamente quando criar o webhook.  Não é possível especificar um URL personalizado. <br> <br>  O URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por este motivo, deve ser tratado como uma palavra-passe.  Por motivos de segurança, só pode ver o URL no portal do Azure no momento que é criar o webhook. Deve ter em consideração o URL numa localização segura para utilização futura. |
 | Data de validade |Como um certificado, cada webhook tem uma data de expiração em que momento que já não pode ser utilizado.  Esta data de expiração pode ser modificada depois de criar o webhook. |
 | Ativado |Um webhook está ativado por predefinição, quando é criado.  Se definir como desativado, nenhum cliente será conseguir utilizá-lo.  Pode definir o **ativado** propriedade ao criar o webhook ou em qualquer altura uma vez é criada. |
 
@@ -67,7 +61,7 @@ Para o runbook acima, se tem as seguintes propriedades para o parâmetro Webhook
 
 Em seguida, deverá passar o seguinte valor JSON na IU para o parâmetro WebhookData:  
 
-* {"WebhookName": "MyWebhook", "RequestHeader": {"De": "Utilizador de teste"}, "RequestBody": "[\"VM1\",\"VM2\"]"}
+* {"WebhookName":"MyWebhook", "RequestHeader":{"From":"Test User"}, "RequestBody":"[\"VM1\",\"VM2\"]"}
 
 ![Parâmetro de WebhookData de início da IU](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
 
@@ -91,7 +85,7 @@ Utilize o procedimento seguinte para criar um novo webhook ligado a um runbook n
 3. Clique em **criar novo webhook** para abrir o **página de criação de webhook**.
 4. Especifique um **nome**, **data de expiração** para o webhook e se deve ser ativada. Consulte [detalhes de um webhook](#details-of-a-webhook) para obter mais informações estas propriedades.
 5. Clique no ícone de cópia e prima Ctrl + C para copiar o URL do webhook.  Em seguida, registe-o num local seguro.  **Depois de criar o webhook, não é possível obter o URL novamente.** <br>
-   ![URL do Webhook](media/automation-webhooks/copy-webhook-url.png)
+   ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 6. Clique em **parâmetros** para fornecer valores para os parâmetros do runbook.  Se o runbook tiver parâmetros obrigatórios, em seguida, não será possível criar o webhook, a menos que os valores são fornecidos.
 7. Clique em **criar** para criar o webhook.
 
@@ -107,7 +101,7 @@ O cliente irá receber um dos códigos de retorno seguintes no pedido de POST.
 | 202 |Aceite |O pedido foi aceite e o runbook com êxito foi colocado em fila. |
 | 400 |Pedido Incorreto |O pedido não foi aceite para uma das seguintes razões. <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O token no URL é inválido.</li>  </ul> |
 | 404 |Não Encontrado |O pedido não foi aceite para uma das seguintes razões. <ul> <li>Não foi encontrado o webhook.</li> <li>O runbook não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
-| 500 |Erro Interno do Servidor |O URL era válido, mas ocorreu um erro.  Volte a submeter o pedido. |
+| 500 |Erro interno do servidor |O URL era válido, mas ocorreu um erro.  Volte a submeter o pedido. |
 
 Pressupondo que o pedido for bem sucedido, a resposta do webhook contém o id da tarefa no formato JSON da seguinte forma. Irá conter um id de tarefa única, mas permite que o formato JSON para potenciais melhoramentos futuros.
 

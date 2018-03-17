@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services
 
@@ -56,6 +56,9 @@ Quando cria um cluster do HDInsight associados a um domínio, tem de fornecer os
 - **Unidade organizacional**: O nome distinto da UO que pretende utilizar com o cluster do HDInsight. Por exemplo: UO = HDInsightOU, DC = contoso, DC = onmicrosohift, DC = com. Se essa UO não existir, o cluster do HDInsight tenta criar essa UO. 
 - **URL de LDAPS**: por exemplo, ldaps://contoso.onmicrosoft.com:636
 - **Grupo de utilizadores de acesso**: os grupos de segurança cujos utilizadores que pretende sincronizar para o cluster. Por exemplo, HiveUsers. Se pretender especificar vários grupos de utilizadores, separadas por vírgula ','.
+ 
+> [!NOTE]
+> Uma vez que o Apache Zeppelin utiliza o nome de domínio para autenticar a conta de serviço administrativas, a conta de serviço tem de ter o mesmo nome de domínio como o sufixo UPN para Apache Zeppelin funcionar corretamente.
  
 A seguinte captura de ecrã mostra as configurações no portal do Azure:
 

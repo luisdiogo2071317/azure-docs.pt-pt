@@ -1,24 +1,18 @@
 ---
-title: "Origem de integração do controlo na automatização do Azure | Microsoft Docs"
+title: "Origem de integração do controlo na automatização do Azure"
 description: "Este artigo descreve a integração de controlo de origem com o GitHub na automatização do Azure."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 224d7375-9887-44dd-b137-06ffe396a4b4
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte;sngun
-ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: 96b4f38ea990edcb23ae792d40651672a921a7c7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 Integração de controlo de origem permite-lhe associar os runbooks na sua conta de automatização para um repositório de controlo de origem do GitHub. Controlo de código fonte permite-lhe colaborar com a sua equipa, controlar as alterações, e facilmente reverter para as versões anteriores dos seus runbooks. Por exemplo, controlo de código fonte permite-lhe sincronizar os ramos diferentes no controlo de origem para os desenvolvimento, teste ou de produção as contas de automatização, facilitando a promover o código que tem sido testado no seu ambiente de desenvolvimento para a automatização de produção conta.
@@ -40,7 +34,7 @@ Se já tiver uma conta GitHub e um repositório de que pretende associar a autom
    
 1. O **controlo de código fonte** é aberta, onde pode configurar os detalhes da sua conta GitHub a página. Segue-se a lista de parâmetros a configurar:  
    
-   | Parâmetro | **Descrição** |
+   | **Parâmetro** | **Descrição** |
    |:--- |:--- |
    | Escolher Origem |Selecione a origem. Atualmente, apenas **GitHub** é suportada. |
    | Autorização |Clique em de **autorizar** botão para conceder acesso de automatização do Azure para o seu repositório do GitHub. Se tiver sessão iniciada sua conta GitHub numa janela diferente, em seguida, são utilizadas as credenciais dessa conta. Depois de autorização é efetuada com êxito, a página irá mostrar o seu nome de utilizador do GitHub em **autorização propriedade**. |
@@ -63,7 +57,7 @@ Se já tiver uma conta GitHub e um repositório de que pretende associar a autom
    
    * A variável **Microsoft.Azure.Automation.SourceControl.Connection** contém os valores de cadeia de ligação, conforme mostrado abaixo.  
      
-     | Parâmetro | **Valor** |
+     | **Parâmetro** | **Valor** |
      |:--- |:--- |
      | Nome |Microsoft.Azure.Automation.SourceControl.Connection |
      | Tipo |Cadeia |
@@ -71,7 +65,7 @@ Se já tiver uma conta GitHub e um repositório de que pretende associar a autom
 
     * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**, contém o valor encriptado seguro da sua OAuthToken.  
 
-    |Parâmetro            |**Valor** |
+    |**Parâmetro**            |**Valor** |
     |:---|:---|
     | Nome  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
     | Tipo | UNKNOWN(Encrypted) |

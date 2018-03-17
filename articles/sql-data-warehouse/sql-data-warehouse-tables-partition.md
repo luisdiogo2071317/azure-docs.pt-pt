@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: a28cb1f8a2e48332b344566620dc49b29d9d3c99
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f94bc3770fbd7e707194032cb99c67b09f8a0618
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>A criação de partições de tabelas no armazém de dados do SQL Server
 > [!div class="op_single_selector"]
@@ -47,12 +47,12 @@ Mudar de partição pode ser utilizado para rapidamente remover ou substituir um
 Criação de partições também pode ser utilizada para melhorar o desempenho de consulta.  Uma consulta que aplica um filtro aos dados particionados pode limitar a análise para apenas as partições de qualificação. Este método de filtragem pode evitar uma análise completa de tabela e apenas um subconjunto mais pequeno de dados de análise. Com a introdução de índices columnstore em cluster, os benefícios de desempenho de eliminação de predicado são menos úteis, mas em alguns casos pode haver uma vantagem de consultas.  Por exemplo, se a tabela de factos de vendas está particionada em meses 36 utilizando o campo de data de vendas, em seguida, consulta esse filtro a data de venda pode ignorar a procurar em partições não correspondem ao filtro.
 
 ## <a name="partition-sizing-guidance"></a>Orientação de dimensionamento de partição
-Durante a criação de partições pode ser utilizada para melhorar o desempenho de alguns cenários, criar uma tabela com **demasiados** partições pacote podem prejudicar o desempenho em algumas circunstâncias.  Estas questões são particularmente verdadeiras para tabelas columnstore em cluster.  Para a criação de partições para ser útil, é importante compreender quando deve utilizar a criação de partições e o número de partições para criar.  Há nenhuma regra rápida rígida relativamente a partições quantas for demasiado elevado, depende de dados e o número de partições são carregar para em simultâneo.  Geralmente, a um esquema de partições com êxito tem dezenas para centenas de partições, não milhares.
+Durante a criação de partições pode ser utilizada para melhorar o desempenho de alguns cenários, criar uma tabela com **demasiados** partições pacote podem prejudicar o desempenho em algumas circunstâncias.  Estas questões são particularmente verdadeiras para tabelas columnstore em cluster.  Para a criação de partições para ser útil, é importante compreender quando deve utilizar a criação de partições e o número de partições para criar.  Há nenhuma regra rápida rígida relativamente a partições quantas for demasiado elevado, depende de dados e o número de partições que carregar em simultâneo.  Geralmente, a um esquema de partições com êxito tem dezenas para centenas de partições, não milhares.
 
-Durante a criação de partições no **columnstore em cluster** tabelas, é importante considerar o número de linhas pertence a cada partição.  Para compressão ideal e o desempenho das tabelas columnstore em cluster, é necessário um mínimo de 1 milhões de linhas por partição e de distribuição.  Antes da criação de partições, o SQL Data Warehouse divide já cada tabela em 60 bases de dados distribuídas.  É qualquer criar partições adicionado a uma tabela para além das distribuições criadas em segundo plano.  Com este exemplo, se a tabela de factos vendas contidos 36 partições mensais e uma vez que o SQL Data Warehouse tem 60 distribuições, em seguida, as tabelas de factos vendas devem conter 60 milhões de linhas por mês ou 2.1 milhões de linhas quando todos os meses são povoados.  Se uma tabela contém significativamente menos do que o número mínimo recomendado de linhas por partição, considere utilizar menos partições para aumentar o número de linhas por partição.  Consulte também o [Indexing] [ Index] artigo, o que inclui as consultas que podem ser executadas no armazém de dados SQL para avaliar a qualidade dos índices columnstore de cluster.
+Durante a criação de partições no **columnstore em cluster** tabelas, é importante considerar o número de linhas pertence a cada partição.  Para compressão ideal e o desempenho das tabelas columnstore em cluster, é necessário um mínimo de 1 milhões de linhas por partição e de distribuição.  Antes da criação de partições, o SQL Data Warehouse divide já cada tabela em 60 bases de dados distribuídas.  É qualquer criar partições adicionado a uma tabela para além das distribuições criadas em segundo plano.  Com este exemplo, se a tabela de factos vendas contidos 36 partições mensais e uma vez que o SQL Data Warehouse tem 60 distribuições, em seguida, as tabelas de factos vendas devem conter 60 milhões de linhas por mês ou 2.1 milhões de linhas quando todos os meses são povoados.  Se uma tabela contém menos do que o número mínimo recomendado de linhas por partição, considere utilizar menos partições para aumentar o número de linhas por partição.  Consulte também o [Indexing] [ Index] artigo, o que inclui as consultas que podem ser executadas no armazém de dados SQL para avaliar a qualidade dos índices columnstore de cluster.
 
 ## <a name="syntax-difference-from-sql-server"></a>Diferença de sintaxe do SQL Server
-SQL Data Warehouse introduz uma forma simplificada para definir partições, que é ligeiramente diferente do SQL Server.  As funções de criação de partições e de esquemas não são utilizados no armazém de dados do SQL dado que estão no SQL Server.  Em vez disso, tudo o que precisa de fazer é identificar coluna particionada e os pontos de limites.  Enquanto a sintaxe de criação de partições poderão ser ligeiramente diferente do SQL Server, os conceitos básicos são iguais.  SQL Server e do armazém de dados do SQL Server suportam uma partição coluna por tabela, o que pode ser ranged partição.  Para saber mais sobre a criação de partições, consulte o artigo [índices e tabelas Particionadas][Partitioned Tables and Indexes].
+SQL Data Warehouse introduz uma forma de definir as partições que é mais simples do que o SQL Server.  As funções de criação de partições e de esquemas não são utilizados no armazém de dados do SQL dado que estão no SQL Server.  Em vez disso, tudo o que precisa de fazer é identificar coluna particionada e os pontos de limites.  Enquanto a sintaxe de criação de partições poderão ser ligeiramente diferente do SQL Server, os conceitos básicos são iguais.  SQL Server e do armazém de dados do SQL Server suportam uma partição coluna por tabela, o que pode ser ranged partição.  Para saber mais sobre a criação de partições, consulte o artigo [índices e tabelas Particionadas][Partitioned Tables and Indexes].
 
 O seguinte exemplo de um SQL Data Warehouse particionada [CREATE TABLE] [ CREATE TABLE] partições de declaração, a tabela FactInternetSales na coluna OrderDateKey:
 
@@ -125,7 +125,7 @@ GROUP BY    s.[name]
 ## <a name="workload-management"></a>Gestão de cargas de trabalhos
 É uma consideração de peça final para pesar para a decisão de partição da tabela [gestão da carga de trabalho][workload management].  Gestão de carga de trabalho do armazém de dados do SQL Server é principalmente a gestão de memória e concorrência.  No SQL Data Warehouse, o máximo de memória alocado a cada distribuição durante a execução de consulta é regido pelas classes de recursos.  Idealmente, as partições são dimensionadas in consideration of outros fatores, como as necessidades de memória da criação de índices columnstore em cluster.  Colocar em cluster benefício de índices columnstore significativamente quando estiverem alocados mais memória.  Por conseguinte, pretender certificar-se de que uma reconstrução do índice de partição não é starved de memória. Aumentar a quantidade de memória disponível para a consulta pode ser alcançado ao mudar da função predefinida, smallrc, para uma das outras funções, tais como largerc.
 
-Informações sobre a alocação de memória por distribuição estão disponíveis consultando as vistas de gestão dinâmica do Governador de recursos. Na realidade, a concessão de memória é inferior às seguintes figuras. No entanto, esta opção fornece um nível de orientação que pode utilizar ao dimensionar a sua partições para operações de gestão de dados.  Tente evitar as partições para além de concessão de memória fornecido pela classe de recursos muito grande de dimensionamento. Se as partições de crescimento para além desta figura corre o risco de pressão de memória que por sua vez origina menos compressão ideal.
+Informações sobre a alocação de memória por distribuição estão disponíveis consultando as vistas de gestão dinâmica do Governador de recursos. Na realidade, a concessão de memória é inferior aos resultados da consulta seguinte. No entanto, esta consulta fornece um nível de orientação que pode utilizar ao dimensionar a sua partições para operações de gestão de dados.  Tente evitar as partições para além de concessão de memória fornecido pela classe de recursos muito grande de dimensionamento. Se as partições de crescimento para além desta figura, corre o risco de pressão de memória, que por sua vez origina menos compressão ideal.
 
 ```sql
 SELECT  rp.[name]                                AS [pool_name]
@@ -144,14 +144,14 @@ AND     rp.[name]    = 'SloDWPool'
 ```
 
 ## <a name="partition-switching"></a>Mudar de partição
-Armazém de dados SQL suporta partição dividir, intercalar e mudança. Cada uma destas funções é excuted utilizando o [ALTER TABLE] [ ALTER TABLE] instrução.
+Armazém de dados SQL suporta partição dividir, intercalar e mudança. Cada uma destas funções for executada com o [ALTER TABLE] [ ALTER TABLE] instrução.
 
-Para mudar partições entre duas tabelas, deve garantir que as partições alinhar os respetivos limites e que correspondem às definições de tabela. Como não estão disponíveis para o intervalo de valores numa tabela de impor restrições check da tabela de origem tem de conter os limites de partição mesmo como tabela de destino. Se não for este o caso, a mudança de partições irá falhar, não serão sincronizados os metadados da partição.
+Para mudar partições entre duas tabelas, tem de garantir que as partições alinhar os respetivos limites e que correspondem às definições de tabela. Como verificar restrições não estão disponíveis para impor o intervalo de valores numa tabela, a tabela de origem tem de conter os mesmo limites de partição como a tabela de destino. Se, em seguida, os limites de partição não são iguais, a mudança de partições irá falhar, não serão sincronizados os metadados da partição.
 
 ### <a name="how-to-split-a-partition-that-contains-data"></a>Como dividir uma partição que contém os dados
-O método mais eficaz para dividir uma partição que contém os dados já está a utilizar um `CTAS` instrução. Se a tabela particionada for um columnstore em cluster, em seguida, a partição de tabela deve estar vazia antes que pode ser dividido.
+O método mais eficaz para dividir uma partição que contém os dados já está a utilizar um `CTAS` instrução. Se a tabela particionada um columnstore em cluster, em seguida, a partição de tabela deve estar vazia antes que pode ser dividido.
 
-Segue-se uma tabela particionada columnstore de exemplo que contém uma linha em cada partição:
+O exemplo seguinte cria uma tabela particionada columnstore. -Insere uma linha para cada partição:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -185,11 +185,11 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 ```
 
 > [!NOTE]
-> Ao criar o objeto de estatística, podemos assegurar que os metadados da tabela são mais exato. Se omitir iremos criar estatísticas, o SQL Data Warehouse utilizará os valores predefinidos. Para obter detalhes sobre as estatísticas reveja [estatísticas][statistics].
+> Ao criar o objeto de estatística, os metadados de tabela são mais exato. Se omitir estatísticas, o SQL Data Warehouse utilizará os valores predefinidos. Para obter detalhes sobre as estatísticas, consulte [estatísticas][statistics].
 > 
 > 
 
-Vamos, em seguida, pode consultar a contagem de linhas utilizando o `sys.partitions` vista de catálogo:
+A consulta seguintes localiza o número de linhas utilizando o `sys.partitions` vista de catálogo:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -206,7 +206,7 @@ WHERE t.[name] = 'FactInternetSales'
 ;
 ```
 
-Se vamos tentar dividir esta tabela, iremos irá obter um erro:
+O seguinte comando de divisão recebe uma mensagem de erro:
 
 ```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
@@ -214,7 +214,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 Tarifas de mensagens 35346, 15 nível, 1 de estado, linha 44 DIVIDIR cláusula da instrução ALTER PARTITION falhou porque a partição não está vazia.  Apenas as partições vazia podem ser divididas quando existe um índice columnstore na tabela. Considere desativar o índice columnstore antes de emitir a instrução ALTER PARTITION, em seguida, reconstrua o índice columnstore depois de ALTER PARTITION ter sido concluída.
 
-No entanto, podemos utilizar `CTAS` para criar uma nova tabela para conter os nossos dados.
+No entanto, pode utilizar `CTAS` para criar uma nova tabela para armazenar os dados.
 
 ```sql
 CREATE TABLE dbo.FactInternetSales_20000101
@@ -232,7 +232,7 @@ WHERE   1=2
 ;
 ```
 
-Como os limites de partição estão alinhados é permitido um comutador. Isto irá deixar a tabela de origem com uma partição vazia que iremos subsequentemente pode dividir.
+Como os limites de partição estão alinhados, é permitido um comutador. Isto irá deixar a tabela de origem com uma partição vazia que pode, subsequentemente, dividir.
 
 ```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
@@ -240,7 +240,7 @@ ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Tudo o falta fazer é para alinhar com os nossos dados para os novos limites de partição utilizando `CTAS` e comutador nossos dados para a tabela principal novo
+Tudo o que está à esquerda é para alinhar com os dados para os novos limites de partição utilizando `CTAS`e, em seguida, mude os dados de volta para a tabela principal.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
@@ -261,14 +261,14 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
-Depois de concluir o movimento de dados é uma boa ideia para atualizar as estatísticas na tabela de destino para se certificar de que refletem com precisão a distribuição dos dados na respetiva respetivas partições novo:
+Depois de concluir o movimento de dados, é uma boa ideia para atualizar as estatísticas na tabela de destino. A atualizar as estatísticas assegura que as estatísticas refletem com precisão a distribuição nova dos dados na respetiva respetivas partições.
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="table-partitioning-source-control"></a>Tabela de criação de partições de controlo de código fonte
-Para evitar a definição da tabela de **rusting** no seu sistema de controlo de origem, convém considerar a seguinte abordagem:
+Para evitar a definição da tabela de **rusting** no seu sistema de controlo de origem, poderá pretender considerar a seguinte abordagem:
 
 1. Criar a tabela como uma tabela particionada mas não existem valores de partição
 
@@ -294,7 +294,7 @@ WITH
 ;
 ```
 
-1. `SPLIT`a tabela como parte do processo de implementação:
+1. `SPLIT` a tabela como parte do processo de implementação:
 
 ```sql
 -- Create a table containing the partition boundaries
@@ -362,7 +362,7 @@ Para obter mais informações, consulte os artigos no [descrição geral da tabe
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[workload management]: ./sql-data-warehouse-develop-concurrency.md
+[workload management]: ./resource-classes-for-workload-management.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->

@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/16/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: d412cbbe44a1b865ff5fa090592faa9b59fb06bf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bd8733590819faa3c4286c1940f0b9258842c930
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server 
 
@@ -30,11 +30,11 @@ Esta secção resume as principais diferenças na sintaxe de T-SQL e o comportam
 ### <a name="always-on-availability"></a>Disponibilidade Always On
 
 [Elevada disponibilidade](sql-database-high-availability.md) está incorporado na instância geridos e não pode ser controlado pelos utilizadores. Não são suportadas as seguintes instruções:
- - [CRIE O PONTO FINAL... PARA DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql.md)
- - [CRIAR GRUPO DE DISPONIBILIDADE](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql.md)
- - [GRUPO DE DISPONIBILIDADE DE ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql.md)
- - [GRUPO DE DISPONIBILIDADE DE LARGAR](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql.md)
- - [Definir HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) cláusula o [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) declaração
+ - [CRIE O PONTO FINAL... PARA DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
+ - [CRIAR GRUPO DE DISPONIBILIDADE](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
+ - [GRUPO DE DISPONIBILIDADE DE ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql)
+ - [GRUPO DE DISPONIBILIDADE DE LARGAR](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
+ - [Definir HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) cláusula o [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) declaração
 
 ### <a name="auditing"></a>Auditoria 
  

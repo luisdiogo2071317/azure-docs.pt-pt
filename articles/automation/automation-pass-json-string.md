@@ -1,25 +1,23 @@
 ---
-title: "Transferir um objeto JSON para um runbook de automatização do Azure | Microsoft Docs"
+title: "Passar um objeto JSON para um runbook da Automatização do Azure"
 description: "Como passar os parâmetros para um runbook como um objeto JSON"
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: "json do runbook do PowerShell, automatização do azure"
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5390ba34a25713aed84d6e778335e30f27c2b1f8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+keywords: "json do runbook do PowerShell, automatização do azure"
+ms.openlocfilehash: c5ceced9f37cb76c8c760a7f2d1c680f98e704c3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Transferir um objeto JSON para um runbook de automatização do Azure
+# <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Passar um objeto JSON para um runbook da Automatização do Azure
 
 Pode ser útil armazenar dados que pretende passar para um runbook num ficheiro JSON.
 Por exemplo, poderá criar um ficheiro JSON que contém todos os parâmetros que pretende passar para um runbook.
@@ -90,7 +88,7 @@ Execute os seguintes comandos do PowerShell:
     ```powershell
     $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
     ```
-    `JsonPath`é o caminho onde guardou o ficheiro JSON.
+    `JsonPath` é o caminho onde guardou o ficheiro JSON.
 1. Converter os conteúdos de cadeia de `$json` para um objeto do PowerShell:
    ```powershell
    $JsonParams = @{"json"=$json}
@@ -112,7 +110,7 @@ Execute os seguintes comandos do PowerShell:
 
 O runbook utiliza os valores do ficheiro JSON para iniciar uma VM.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre a edição de runbooks do PowerShell e o fluxo de trabalho do PowerShell com um editor de texto, consulte [editar textual runbooks na automatização do Azure](automation-edit-textual-runbook.md) 
 * Para saber mais sobre criar e importar runbooks, consulte [criar ou importar um runbook na automatização do Azure](automation-creating-importing-runbook.md)

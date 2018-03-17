@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: 5f47f03594e64281b55161edb1c391ed0be83a73
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 130d26828acd5394756c47f22217272338cc33e6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-code-samples"></a>Exemplos de código do Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -38,6 +38,7 @@ Estes exemplos mostram como escrever uma aplicação web que direciona o browser
 | C#/.NET |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) |Utilize o OpenID Connect (ASP.Net OpenID Connect OWIN middleware) para autenticar os utilizadores de um inquilino do Azure AD. |
 | C#/.NET |[WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) |Um multi-inquilino aplicação de web de MVC do .NET que utiliza o OpenID Connect (ASP.Net OpenID Connect OWIN middleware) para autenticar os utilizadores a partir de múltiplos inquilinos do Azure AD. |
 | C#/.NET |[WebApp-WSFederation-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) |Utilize o WS-Federation (ASP.Net WS-Federation OWIN middleware) para autenticar os utilizadores de um inquilino do Azure AD. |
+| C#/.NET Core |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) |Uma aplicação web de MVC do .NET que utiliza o OpenID Connect para início de sessão utilizadores de um único inquilino do Azure Active Directory (Azure AD) utilizando o middleware ASP.NET Core OpenID Connect. |
 
 ## <a name="single-page-application-spa"></a>Aplicação de página única (SPA)
 Este exemplo mostra como escrever uma aplicação de página única protegida com o Azure AD.  

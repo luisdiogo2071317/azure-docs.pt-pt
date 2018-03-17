@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar StorSimple Virtual matriz - aprovisionar no VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -127,7 +127,7 @@ Execute os seguintes passos para aprovisionar um dispositivo virtual no seu hipe
 17. No **armazenamento** página, selecione um arquivo de dados que pretende utilizar para aprovisionar a VM.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. No **versão da Máquina Virtual** página, selecione **versão da Máquina Virtual: 8**. Versões 8 a 11 estão todas suportadas.
+18. No **versão da Máquina Virtual** página, selecione **versão da Máquina Virtual: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. No **sistema operativo convidado** página, selecione o **sistema operativo convidado** como **Windows**. Para **versão**, na lista pendente, selecione **Microsoft Windows Server 2012 (64-bit)**.
@@ -243,6 +243,6 @@ Se enfrentam qualquer outro erro durante a configuração inicial através da IU
 * Executar testes de diagnóstico para [resolver problemas de configuração de IU da web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 * [Gerar o pacote de registo e ver ficheiros de registo](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Configurar a matriz de Virtual StorSimple como um servidor de ficheiros](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Configurar a matriz de Virtual StorSimple como um servidor de iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)

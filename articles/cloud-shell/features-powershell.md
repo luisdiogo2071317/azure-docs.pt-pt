@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/09/2018
 ms.author: damaerte
-ms.openlocfilehash: db16fe765a078e430c88d720e447a118b9cad0c8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bff006bc208199457d97b6c0d00780869e77078e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funcionalidades e ferramentas para o PowerShell na Shell de nuvem do Azure (pré-visualização)
 
@@ -90,7 +90,7 @@ Estes comandos assentes comunicação remota do PowerShell e necessitam de conec
 
 |**Categoria**    |**Nome**                                 |
 |----------------|-----------------------------------------|
-|Ferramentas do Azure     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [CLI do Azure (2.0.26)](https://docs.microsoft.com/cli/azure)|
+|Ferramentas do Azure     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [CLI do Azure (2.0.29)](https://docs.microsoft.com/cli/azure)|
 |Editores de texto    |VIM<br> nano                             |
 |Gestor de pacotes |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
 |Controlo de código fonte  |Git                                      |

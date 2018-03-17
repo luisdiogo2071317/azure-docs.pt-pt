@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cabf40367a6bd8401cae3eade4b832702e5acf31
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
 Este artigo mostra como utilizar o PowerShell para configurar o Backup do Azure no Windows Server ou um cliente Windows e gerir a cópia de segurança e recuperação.
@@ -83,6 +83,8 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
 
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## <a name="installing-the-azure-backup-agent"></a>Instalar o agente de cópia de segurança do Azure
 Antes de instalar o agente do Backup do Azure, tem de ter o instalador transferido e presente no servidor do Windows. Pode obter a versão mais recente do instalador do [Microsoft Download Center](http://aka.ms/azurebackup_agent) ou a partir da página do Dashboard do cofre dos serviços de recuperação. Guardar o instalador para uma localização facilmente acessível, como * C:\Downloads\*.
 
@@ -119,15 +121,15 @@ As opções disponíveis incluem:
 | Opção | Detalhes | Predefinição |
 | --- | --- | --- |
 | /q |Instalação silenciosos |- |
-| /p: "localização" |Caminho para a pasta de instalação para o agente de cópia de segurança do Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s: "localização" |Caminho para a pasta de cache para o agente de cópia de segurança do Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /p:"location" |Caminho para a pasta de instalação para o agente de cópia de segurança do Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" |Caminho para a pasta de cache para o agente de cópia de segurança do Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
 | /m |Optar ativamente por participar no Microsoft Update |- |
-| /NU |Não procurar atualizações depois de concluída a instalação |- |
+| /nu |Não procurar atualizações depois de concluída a instalação |- |
 | /d |Desinstala o agente do Microsoft Azure Recovery Services |- |
 | / pH |Endereço do anfitrião proxy |- |
 | /po |Número de porta de anfitrião do proxy |- |
-| /Pu |O nome de utilizador do proxy anfitrião |- |
-| /PW |Palavra-passe do proxy |- |
+| /pu |Proxy Host UserName |- |
+| /pw |Palavra-passe do proxy |- |
 
 ## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registar o Windows Server ou máquina cliente do Windows para um cofre de serviços de recuperação
 Depois de criado o Cofre dos serviços de recuperação, transfira o agente mais recente e as credenciais do cofre e armazene-o numa localização conveniente como C:\Downloads.

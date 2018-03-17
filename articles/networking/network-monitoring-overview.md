@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 66e6b49dd3e3c7d0f2cbd7547b68733e1d4959ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitorização de rede 
 
@@ -33,6 +33,8 @@ Monitor de desempenho de rede (NPM) é um conjunto de capacidades, cada um dos q
 * Vários centros de dados e sucursais
 * Missão críticos multicamados aplicações/microserviços
 * Localizações de utilizador e as aplicações baseadas na web (HTTP/HTTPs) 
+
+Monitor de desempenho, o Monitor de ExpressRoute e o Monitor de ponto final de serviço estão a monitorizar capacidades dentro NPM e são descritos abaixo.
 
 ## <a name="performance-monitor"></a>Monitorização de Desempenho
 
@@ -86,11 +88,12 @@ Para obter mais informações, veja os artigos seguintes:
 ## <a name="traffic-analytics"></a>Análise de Tráfego
 Análise de tráfego é uma solução baseada na nuvem que fornece visibilidade para a atividade de utilizador e da aplicação nas redes em nuvem. Fluxo de NSG registos serem analisados para fornecer informações sobre:
 
-* O tráfego que flui entre as redes entre o Azure e Internet, regiões de nuvem pública, VNETs e sub-redes
+* Fluxos de tráfego entre as redes entre o Azure e Internet, regiões de nuvem pública, VNETs e sub-redes
 * As aplicações e os protocolos na sua rede, sem a necessidade de sniffers ou aparelhos de recoletor de fluxo dedicado
 * Talkers superiores, aplicações chatty, conversações de VM na nuvem, hotspots de tráfego
 * As origens e destinos de tráfego entre as VNETs, entre as relações entre aplicações e serviços críticos de negócio
 * Segurança – tráfego malicioso, portas abertas para a Internet, aplicações ou VMs tentativa de acesso à Internet...
+* Utilização de capacidade - ajuda a eliminar os problemas de sobre-aprovisionar ou uma subutilização pela monitorização de tendências de utilização de gateways de VPN e outros serviços
 
 Análise de tráfego equips-lhe informações acionáveis, que ajuda a auditoria da sua organização atividade de rede, proteger aplicações e dados, otimizar o desempenho da carga de trabalho e a manter em conformidade.
 
@@ -100,7 +103,7 @@ Ligações relacionadas:
 * [Mensagem de blogue](https://aka.ms/trafficanalytics), [documentação](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
 ## <a name="dns-analytics"></a>Análise de DNS
-Incorporado para os administradores de DNS, esta solução recolhe, analisa e está correlacionada com registos DNS para fornecer segurança, desempenho e operações relacionadas com insights.  Algumas das capacidades são:
+Incorporado para os administradores de DNS, esta solução recolhe, analisa e está correlacionada com registos DNS para fornecer segurança, operações e informações relacionadas com o desempenho.  Algumas das capacidades são:
 
 * Identificação de clientes que tentam resolver a domínios maliciosos
 * Identificação dos registos de recursos obsoletos

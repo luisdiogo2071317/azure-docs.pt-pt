@@ -1,25 +1,22 @@
 ---
-title: "Reencaminhar dados de relatórios ao OMS Log Analytics do Azure Automation DSC | Microsoft Docs"
-description: "Este artigo mostra como enviar pretendido Estado Configuration (DSC) dados de relatórios para gestão e de análise de registos do Microsoft Operations Management Suite para fornecer informações adicionais."
+title: "Reencaminhar dados de relatórios ao Log Analytics do Azure Automation DSC"
+description: "Este artigo mostra como enviar pretendido Estado Configuration (DSC) dados para análise de registos para fornecer informações adicionais e gestão de relatórios."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Reencaminhar dados de relatórios ao OMS Log Analytics do Azure Automation DSC
+# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Reencaminhar dados de relatórios do Azure Automation DSC para o OMS Log Analytics
 
 Automatização pode enviar dados de estado do nó DSC a sua área de trabalho de análise de registos do Microsoft Operations Management Suite (OMS).  
 Estado de conformidade é visível no portal do Azure, ou com o PowerShell, para nós e para recursos de DSC individuais em configurações de nó. Análise de registos pode:
@@ -81,7 +78,7 @@ O **DscResourceStatusData** operação contém informações de erro para quaisq
 Clique em cada operação na lista para ver os dados para essa operação.
 
 Também pode ver os registos pesquisando [na análise de registos. Consulte [localizar dados através de pesquisas de registo](../log-analytics/log-analytics-log-searches.md).
-Escreva a consulta seguinte para localizar os registos de DSC:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
+Escreva a consulta seguinte para localizar os registos de DSC: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
 
 Também pode diminuir a consulta com o nome de operação. Por exemplo: ' tipo = AzureDiagnostics ResourceProvider = "MICROSOFT. Categoria de AUTOMATIZAÇÃO"="DscNodeStatus"OperationName ="DscNodeStatusData"
 
@@ -92,7 +89,7 @@ Um dos nossos pedidos de cliente superior é a capacidade de enviar um e-mail ou
 Para criar uma regra de alerta, pode começa por criar uma pesquisa de registo dos registos de relatório de DSC deve invocar o alerta.  Clique em de **alerta** botão para criar e configurar a regra de alerta.
 
 1. Na página de descrição geral da análise do registo, clique em **pesquisa registo**.
-1. Crie uma consulta de pesquisa de registo para o alerta, escrevendo a pesquisa seguinte para o campo de consulta:`Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
+1. Crie uma consulta de pesquisa de registo para o alerta, escrevendo a pesquisa seguinte para o campo de consulta:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   Se configurou os registos de mais do que uma conta de automatização ou a subscrição para a sua área de trabalho, pode agrupar os alertas por subscrição e conta de automatização.  
   Nome da conta de automatização pode ser derivado do campo de recurso na pesquisa de DscNodeStatusData.  
@@ -104,7 +101,7 @@ Uma vantagem de utilizar a análise de registos é que pode procurar verificaç�
 Localizar todas as instâncias de recursos de DSC que falhou.
 
 1. Na página de descrição geral da análise do registo, clique em **pesquisa registo**.
-1. Crie uma consulta de pesquisa de registo para o alerta, escrevendo a pesquisa seguinte para o campo de consulta:`Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
+1. Crie uma consulta de pesquisa de registo para o alerta, escrevendo a pesquisa seguinte para o campo de consulta:  `Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
 
 ### <a name="view-historical-dsc-node-status"></a>Ver estado histórico de nó DSC
 
@@ -146,7 +143,7 @@ Diagnóstico da automatização do Azure cria duas categorias de registos de an�
 | ResultDescription | A descrição para esta operação. |
 | SubscriptionId | A subscrição do Azure Id (GUID) para a conta de automatização. |
 | ResourceGroup | Nome do grupo de recursos para a conta de automatização. |
-| ResourceProvider | MICROSOFT. AUTOMATIZAÇÃO |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |GUID que é o Id de correlação do relatório de compatibilidade. |
 
@@ -177,7 +174,7 @@ Diagnóstico da automatização do Azure cria duas categorias de registos de an�
 | ResultDescription | A descrição para esta operação. |
 | SubscriptionId | A subscrição do Azure Id (GUID) para a conta de automatização. |
 | ResourceGroup | Nome do grupo de recursos para a conta de automatização. |
-| ResourceProvider | MICROSOFT. AUTOMATIZAÇÃO |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |GUID que é o Id de correlação do relatório de compatibilidade. |
 
@@ -190,7 +187,7 @@ Ao enviar os dados do Automation DSC para análise de registos, pode obter um me
 
 Análise de registos dá-lhe maior visibilidade operacional aos seus dados de DSC de automatização e pode ajudar a incidentes de endereço mais rapidamente.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações sobre como construir consultas de pesquisa diferentes e reveja os registos de DSC de automatização com a análise de registos, consulte o artigo [pesquisas de registo na análise de registos](../log-analytics/log-analytics-log-searches.md)
 * Para obter mais informações sobre como utilizar o DSC de automatização do Azure, consulte [introdução ao Azure Automation DSC](automation-dsc-getting-started.md)

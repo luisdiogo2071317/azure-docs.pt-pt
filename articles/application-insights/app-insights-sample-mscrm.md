@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2017
+ms.date: 03/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 759dac681592d0e5951e09638533b93c6348d899
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Instruções: Ativar a telemetria para utilizar o Application Insights do Microsoft Dynamics CRM Online
 Este artigo mostra como obter dados de telemetria [Microsoft Dynamics CRM Online](https://www.dynamics.com/) utilizando [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Vamos explicar o processo de adição de script do Application Insights à sua aplicação completado captura de dados e visualização de dados.
@@ -33,12 +33,12 @@ Para monitorizar a sua aplicação, adicionar um Application Insights SDK à sua
 ### <a name="create-an-application-insights-resource-in-azure"></a>Criar um recurso do Application Insights no Azure
 1. Obter [uma conta no Microsoft Azure](http://azure.com/pricing). 
 2. Inicie sessão no [portal do Azure](https://portal.azure.com) e adicionar um novo recurso do Application Insights. Este é onde os dados serão processados e apresentados.
-   
+
     ![Clique em +, serviços de programação, Application Insights.](./media/app-insights-sample-mscrm/01.png)
-   
+
     Escolha ASP.NET como o tipo de aplicação.
 3. Abra a página de introdução e abrir o "Monitor e diagnosticar do lado do cliente".
-   
+
     ![Fragmento de código para inserção na sua página web](./media/app-insights-sample-mscrm/03.png)
 
 **Manter a página de código aberto** enquanto efetua o passo seguinte na outra janela do browser. Terá do código em breve. 
@@ -46,41 +46,38 @@ Para monitorizar a sua aplicação, adicionar um Application Insights SDK à sua
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Criar um recurso de web de JavaScript no Microsoft Dynamics CRM
 1. Abra a sua instância CRM Online e o início de sessão com privilégios de administrador.
 2. Abra Microsoft Dynamics CRM definições, personalizações, personalizar o sistema
-   
-    ![Definições do Microsoft Dynamics CRM](./media/app-insights-sample-mscrm/04.png)
-   
-    ![Definições > personalizações](./media/app-insights-sample-mscrm/05.png)
 
-    ![Personalizar a opção de sistema](./media/app-insights-sample-mscrm/06.png)
+    ![Definições do Microsoft Dynamics CRM](./media/app-insights-sample-mscrm/00001.png)
+
+    ![Definições > personalizações](./media/app-insights-sample-mscrm/00002.png)
 
 1. Crie um recurso de JavaScript.
-   
+
     ![Caixa de diálogo Nova recurso Web](./media/app-insights-sample-mscrm/07.png)
-   
+
     Atribua um nome, selecione **Script (JScript)** e abra o editor de texto.
-   
-    ![Abra o editor de texto](./media/app-insights-sample-mscrm/08.png)
-2. Copie o código do Application Insights. Ao copiar Certifique-se ignorar tags de script. Consulte abaixo a captura de ecrã:
-   
-    ![Definir a sua chave de instrumentação](./media/app-insights-sample-mscrm/09.png)
-   
+
+    ![Abra o editor de texto](./media/app-insights-sample-mscrm/00004.png)
+2. Copie o código do Application Insights. Ao copiar, certifique-se ignorar tags de script. Consulte abaixo a captura de ecrã:
+
+    ![Definir a sua chave de instrumentação](./media/app-insights-sample-mscrm/00005.png)
+
     O código inclui a chave de instrumentação que identifica o recurso do Application insights.
 3. Guarde e publicar.
-   
-    ![Guarde e publicar](./media/app-insights-sample-mscrm/10.png)
+
+    ![Guarde e publicar](./media/app-insights-sample-mscrm/00006.png)
 
 ### <a name="instrument-forms"></a>Instrumento formulários
 1. Na Microsoft CRM Online, para abrir o formulário de conta
-   
-    ![Formulário de conta](./media/app-insights-sample-mscrm/11.png)
+
+    ![Formulário de conta](./media/app-insights-sample-mscrm/00007.png)
 2. Abrir o formulário de propriedades
-   
-    ![Propriedades do formulário](./media/app-insights-sample-mscrm/12.png)
+
+    ![Propriedades do formulário](./media/app-insights-sample-mscrm/00008.png)
 3. Adicione o recurso de web de JavaScript que criou
-   
+
     ![Menu Adicionar](./media/app-insights-sample-mscrm/13.png)
-   
-    ![Adicione o recurso da web](./media/app-insights-sample-mscrm/14.png)
+
 4. Guarde e publicar as personalizações do formulário.
 
 ## <a name="metrics-captured"></a>Métricas capturadas
@@ -104,7 +101,7 @@ Clique no gráfico para obter mais detalhes:
 #### <a name="usage"></a>Utilização
 ![Os utilizadores, sessões e vistas de página](./media/app-insights-sample-mscrm/19.png)
 
-![Gráficos de sesion](./media/app-insights-sample-mscrm/20.png)
+![Gráficos de sessão](./media/app-insights-sample-mscrm/20.png)
 
 ![Versões do browser](./media/app-insights-sample-mscrm/21.png)
 

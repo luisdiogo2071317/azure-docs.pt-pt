@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interação humana nas funções durável - exemplo de verificação do telefone
 
@@ -35,21 +35,13 @@ Este exemplo implementa um sistema de verificação do telefone baseados no SMS.
 
 Verificação do telefone é utilizada para verificar que os utilizadores finais da sua aplicação não são spammers e sejam que diga a estão. Autenticação multifator é um caso de utilização comuns para proteger contas de utilizador contra hackers. O desafio com implementar a seus próprios verificação do telefone é que requer um **interação com monitorização de estado** com uma ser humanos. Um utilizador final é, geralmente, fornecido algum código (por exemplo, um número de 4 dígitos) e tem de responder **dentro de um período de tempo razoável**.
 
-Comum das funções do Azure sem monitorização de estado (uma vez que são muitos outros pontos finais na nuvem em outras plataformas), pelo que estes tipos de interações irão implicar explicitamente gerir externamente na base de dados ou alguns outros persistente armazenamento de Estados. Além disso, a interação tem de ser dividida cópias de segurança em várias funções que podem ser coordenadas em conjunto. Por exemplo, precisa de, pelo menos, uma função para decidir sobre um código, algures a persistência e enviar para o telefone do utilizador. Além disso, é necessário pelo menos uma outra função para receber uma resposta do utilizador e examinar mapeá-lo novamente para a chamada de função original para o efeito de validação do código. Limite de tempo também é um aspeto importante para garantir a segurança. Isto pode obter relativamente complexo pretty rapidamente.
+Comum das funções do Azure sem monitorização de estado (uma vez que são muitos outros pontos finais na nuvem em outras plataformas), pelo que estes tipos de interações envolvem explicitamente gerir externamente na base de dados ou alguns outros persistente armazenamento de Estados. Além disso, a interação tem de ser dividida cópias de segurança em várias funções que podem ser coordenadas em conjunto. Por exemplo, precisa de, pelo menos, uma função para decidir sobre um código, algures a persistência e enviar para o telefone do utilizador. Além disso, é necessário pelo menos uma outra função para receber uma resposta do utilizador e examinar mapeá-lo novamente para a chamada de função original para o efeito de validação do código. Limite de tempo também é um aspeto importante para garantir a segurança. Isto pode obter relativamente complexo rapidamente.
 
-A complexidade deste cenário é significativamente reduzida ao utilizar as funções durável. Como verá neste exemplo, uma função do orchestrator pode gerir a interação com monitorização de estado muito facilmente e sem envolver quaisquer arquivos de dados externas. Uma vez que as funções do orchestrator são *durável*, estes fluxos interativos também são altamente fiáveis.
+A complexidade deste cenário é significativamente reduzida ao utilizar as funções durável. Como verá neste exemplo, uma função do orchestrator pode gerir a interação com monitorização de estado facilmente e sem envolver quaisquer arquivos de dados externas. Uma vez que as funções do orchestrator são *durável*, estes fluxos interativos também são altamente fiáveis.
 
 ## <a name="configuring-twilio-integration"></a>Configurar a integração do Twilio
 
-Este exemplo envolve a utilização de [Twilio](https://www.twilio.com/) serviço para enviar mensagens SMS para um telemóvel. As funções do Azure já tem suporte para Twilio através de [Twilio enlace](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), e este exemplo utiliza essa funcionalidade.
-
-A primeira coisa que precisa é uma conta do Twilio. Pode criar um livre no https://www.twilio.com/try-twilio. Assim que tiver uma conta, adicione os seguintes três **as definições de aplicação** à sua aplicação de função.
-
-| Nome da definição de aplicação | Descrição de valor |
-| - | - |
-| **TwilioAccountSid**  | O SID para a sua conta do Twilio |
-| **TwilioAuthToken**   | O token de autenticação para a sua conta do Twilio |
-| **TwilioPhoneNumber** | O número de telefone associado à sua conta do Twilio. Isto é utilizado para enviar mensagens SMS. |
+[!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
 
 ## <a name="the-functions"></a>As funções
 
@@ -77,7 +69,7 @@ Depois de iniciada, esta função do orchestrator faz o seguinte:
 3. Cria um temporizador durável esse acionadores 90 segundos da hora atual.
 4. Em paralelo com o temporizador, aguarda que um **SmsChallengeResponse** eventos do utilizador.
 
-O utilizador recebe uma mensagem SMS com um código de quatro dígitos. Têm de 90 segundos para enviar esse mesmo código de 4 dígitos volta para a instância de função do orchestrator para concluir o processo de verificação. Se submeter o código de errado, recebem um tenta três adicionais obtê-lo à direita (dentro da mesma janela segundo 90).
+O utilizador recebe uma mensagem SMS com um código de quatro dígitos. Têm de 90 segundos para enviar esse mesmo código de 4 dígitos volta para a instância de função do orchestrator para concluir o processo de verificação. Se submeter o código de errado, recebem um tenta três adicionais obtê-lo à direita (dentro da mesma janela de 90 segundo).
 
 > [!NOTE]
 > Podem não ser óbvios em primeiro lugar, mas esta orchestrator função é completamente determinística. Isto acontece porque o `CurrentUtcDateTime` propriedade é utilizada para calcular a hora de expiração do temporizador, e esta propriedade devolve o mesmo valor em cada reprodução neste momento no código do orchestrator. Isto é importante para se certificar de que o mesmo `winner` resultados a partir de cada chamada repetida para `Task.WhenAny`.
@@ -99,7 +91,7 @@ Isto **E4_SendSmsChallenge** função apenas obtém chamada uma vez, mesmo que o
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
-Utilizar as funções acionadas por HTTP incluídas no exemplo, pode começar a orquestração enviando o seguinte pedido de HTTP POST.
+Utilizar as funções acionadas por HTTP incluídas no exemplo, pode iniciar a orquestração ao enviar o pedido de HTTP POST seguinte:
 
 ```
 POST http://{host}/orchestrators/E4_SmsPhoneVerification
@@ -158,7 +150,7 @@ Eis o orchestration como um único c# ficheiro um projeto do Visual Studio:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este exemplo tem demonstrou algumas das funcionalidades avançadas de funções durável, nomeadamente `WaitForExternalEvent` e `CreateTimer`. Que viu a forma como estas podem ser conjugadas com `Task.WaitAny` para implementar um sistema de tempo limite fiável, muitas vezes, é útil para interagir com pessoas reais. Pode saber mais sobre como utilizar funções duráveis através da leitura de uma série de artigos que oferecem aprofundada cobertura de tópicos específicos.
 

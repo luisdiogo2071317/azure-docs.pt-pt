@@ -1,30 +1,26 @@
 ---
-title: "Recursos de credencial na automatização do Azure | Microsoft Docs"
+title: "Recursos de credencial na automatização do Azure"
 description: "Recursos de credencial na automatização do Azure contêm as credenciais de segurança que podem ser utilizadas para autenticar em recursos acedidos pelo runbook ou a configuração de DSC. Este artigo descreve como criar ativos de credenciais e utilizá-los num runbook ou configuração de DSC."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: 3209bf73-c208-425e-82b6-df49860546dd
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/14/2017
-ms.author: bwren
-ms.openlocfilehash: 12a7d00f9e0721fc4cf2668598515fd769c8a728
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: bb6aec41813930cbf74ab989cc4ce6b526b9c6b6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Recursos de credencial na automatização do Azure
 Um recurso de credencial de automatização contém um [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) objeto que contém as credenciais de segurança, tais como um nome de utilizador e palavra-passe. Configurações de Runbooks e DSC podem utilizar os cmdlets que aceite um objeto PSCredential para autenticação ou poderão extrair o nome de utilizador e palavra-passe do objeto PSCredential para fornecer a algumas aplicações ou serviço que requer autenticação. As propriedades das credenciais são armazenadas em segurança na automatização do Azure e podem ser acedidas no runbook ou a configuração de DSC com o [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) atividade.
 
-> [!NOTE]
-> Proteger recursos na automatização do Azure incluem as credenciais, certificados, ligações e as variáveis encriptadas. Estes elementos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é encriptada por um certificado principal e armazenada na automatização do Azure. Antes de o armazenamento de um recurso seguro, a chave da conta de automatização é desencriptada utilizando o certificado principal e, em seguida, utilizado para encriptar o elemento.  
+>[!NOTE]
+>Proteger recursos na automatização do Azure incluem as credenciais, certificados, ligações e as variáveis encriptadas. Estes elementos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é armazenada no Cofre de chaves. Antes de o armazenamento de um recurso seguro, a chave é carregada a partir do Cofre de chaves e, em seguida, utilizada para encriptar o elemento.
 
 ## <a name="azure-classic-powershell-cmdlets"></a>Cmdlets do PowerShell clássico do Azure
 Os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de credencial de automatização com o Windows PowerShell.  Estes são enviados como parte do [módulo Azure PowerShell](/powershell/azure/overview) que está disponível para utilização nos runbooks de automatização e configurações de DSC.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: e7dce94e56a8b51dd1c47e306aeb1d11d0dfb45c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: df2565be7c543be061c3297f4d87aeae5eae4b8e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Cópia de segurança de estado do sistema Windows na implementação do Resource Manager
 Este artigo explica como criar cópias de segurança do Estado do sistema do Windows Server para o Azure. É um tutorial que se destina a explicar as noções básicas.
@@ -33,7 +33,7 @@ Para fazer uma cópia de segurança do Estado de sistema do Windows Server, ter�
 
 ### <a name="to-create-a-recovery-services-vault"></a>Para criar um cofre dos Serviços de Recuperação
 1. Se ainda não o fez, inicie sessão no [Portal do Azure](https://portal.azure.com/) através da sua subscrição do Azure.
-2. No Hub menu, clique em **todos os serviços** e, na lista de recursos, escreva **dos serviços de recuperação** e clique em **cofres dos serviços de recuperação**.
+2. No menu Hub, clique em **Todos os serviços** e, na lista de recursos, escreva **Serviços de Recuperação** e clique em **cofres dos Serviços de Recuperação**.
 
     ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
@@ -138,6 +138,8 @@ Agora que criou um cofre, configurá-la para cópias de segurança do Estado do 
 > [!NOTE]
 > As credenciais do cofre tem de ser guardadas apenas para uma localização local para o Windows Server em que pretende utilizar o agente. 
 >
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="install-and-register-the-agent"></a>Instalar e registar o agente
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 77c3e41dd4b1fdf7e518de67b353f69fcb758c60
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f4da70d94d28496f5b08035ead0ef7acf1ca3bc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registar eventos aos Hubs de eventos do Azure na API Management do Azure
 Os Event Hubs do Azure são um serviço de entrada de dados altamente dimensionável, que pode ingerir milhões de eventos por segundo para que possa processar e analisar os quantidades enormes de dados produzidos pelos dispositivos e aplicações ligados. Os Event Hubs atuam como a "porta da frente" para um pipeline de eventos e, depois dos dados são recolhidos para um hub de eventos, podem ser transformado e armazenados através de qualquer fornecedor de análise em tempo real ou adaptadores de criação de batches/armazenamento. Os Event Hubs desacoplam a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam aceder aos eventos de acordo com seu próprio agendamento.
@@ -36,7 +36,7 @@ Registadores de API Management são configurados utilizando o [API de REST de ge
 
 Para criar um registo, efetue um pedido HTTP PUT utilizando o modelo de URL seguinte:
 
-`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Substitua `{your service}` com o nome da sua instância do serviço de API Management.
 * Substitua `{new logger name}` com o nome pretendido para o novo registo. Referência a este nome ao configurar o [registo-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) política
@@ -51,7 +51,7 @@ Especifique o corpo do pedido utilizando o modelo seguinte:
 
 ```json
 {
-  "loggertype" : "AzureEventHub",
+  "loggerType" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -60,9 +60,9 @@ Especifique o corpo do pedido utilizando o modelo seguinte:
 }
 ```
 
-* `loggertype`tem de ser definido como `AzureEventHub`.
-* `description`Fornece uma descrição opcional do registo e pode ser uma cadeia de comprimento zero se assim o desejar.
-* `credentials`contém o `name` e `connectionString` do seu Hub de eventos do Azure.
+* `loggerType` tem de ser definido como `AzureEventHub`.
+* `description` Fornece uma descrição opcional do registo e pode ser uma cadeia de comprimento zero se assim o desejar.
+* `credentials` contém o `name` e `connectionString` do seu Hub de eventos do Azure.
 
 Quando efetua o pedido, se o registo é criado um código de estado de `201 Created` é devolvido.
 

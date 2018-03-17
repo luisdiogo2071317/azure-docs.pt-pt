@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 01e85290f00dc70323a16056ca8e73bfba72c975
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5fa5d9e66912bdeffdf553ddc0cb7d3feb0a5b77
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
 
@@ -226,7 +226,7 @@ Pedir os parâmetros para esta API incluem o conjunto predefinido mencionado ant
 * **HTTP 404 (não for encontrado)**: A instância especificada não foi encontrada.
 * **HTTP 410 (Gone)**: A instância especificada foi concluída ou falhada e não pode processar quaisquer eventos gerados.
 
-Eis um exemplo de pedido que envia a cadeia JSON `"incr"` para uma instância de esperar que um evento com o nome **operação** (obtidas a partir de [contador](durable-functions-counter.md) exemplo):
+Eis um exemplo de pedido que envia a cadeia JSON `"incr"` para uma instância de esperar que um evento com o nome **operação**:
 
 ```
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX

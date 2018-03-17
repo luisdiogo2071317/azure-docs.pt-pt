@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dbd8508a7f55b8b5fdf53912d2189a18ef504193
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução ao Reliable Services
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/24/2018
 > 
 > 
 
-Uma aplicação do Azure Service Fabric contém um ou mais serviços com o seu código. Este guia mostra como criar aplicações de Service Fabric sem monitorização de estado e com monitorização de estado com [Reliable Services](service-fabric-reliable-services-introduction.md).  Este vídeo do Microsoft Virtual Academy também mostra-lhe como criar um serviço fiável sem monitorização de estado:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
+Uma aplicação do Azure Service Fabric contém um ou mais serviços com o seu código. Este guia mostra como criar aplicações de Service Fabric sem monitorização de estado e com monitorização de estado com [Reliable Services](service-fabric-reliable-services-introduction.md).  Este vídeo do Microsoft Virtual Academy também mostra-lhe como criar um serviço fiável sem monitorização de estado: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -46,7 +46,7 @@ Inicie o Visual Studio 2015 ou Visual Studio 2017 como administrador e criar um 
 
 ![Utilize a caixa de diálogo novo projeto para criar uma nova aplicação de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Em seguida, criar um projeto de serviço sem monitorização de estado com o nome *HelloWorldStateless*:
+Em seguida, criar um projeto de serviço sem monitorização de estado com **.Net Core 2.0** denominado *HelloWorldStateless*:
 
 ![Na segunda caixa de diálogo, crie um projeto de serviço sem monitorização de estado](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -97,7 +97,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", ++iterations);
+        ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
 
         await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
@@ -113,7 +113,7 @@ A plataforma chama este método quando uma instância de um serviço está pront
 
 Esta orquestração é gerida pelo sistema para manter o seu serviço altamente disponível e corretamente equilibrada.
 
-`RunAsync()`não deverá bloquear forma síncrona. A implementação de runasync com deve devolver uma tarefa ou await em quaisquer operações demoradas ou bloqueios para permitir que o tempo de execução continuar. Tenha em atenção no `while(true)` ciclo no exemplo anterior, uma tarefa-returning `await Task.Delay()` é utilizado. Se a carga de trabalho tem bloquear de forma síncrona, deve agendar uma nova tarefa com `Task.Run()` no seu `RunAsync` implementação.
+`RunAsync()` não deverá bloquear forma síncrona. A implementação de runasync com deve devolver uma tarefa ou await em quaisquer operações demoradas ou bloqueios para permitir que o tempo de execução continuar. Tenha em atenção no `while(true)` ciclo no exemplo anterior, uma tarefa-returning `await Task.Delay()` é utilizado. Se a carga de trabalho tem bloquear de forma síncrona, deve agendar uma nova tarefa com `Task.Run()` no seu `RunAsync` implementação.
 
 O cancelamento da sua carga de trabalho é um esforço cooperative orquestrado pelo token de cancelamento fornecido. O sistema irá aguardar que a tarefa terminar (por conclusão com êxito, cancelamento ou falhas) antes de se move. É importante honrar o token de cancelamento, concluir qualquer trabalho e sair `RunAsync()` mais rapidamente possível quando o sistema pede cancelamento.
 
@@ -128,7 +128,7 @@ Da mesma *Olámundo* aplicação, pode adicionar um novo serviço clicar nos ser
 
 ![Adicionar um serviço a sua aplicação de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Selecione **serviço de monitorização de estado** e dê-lhe nome *HelloWorldStateful*. Clique em **OK**.
+Selecione **.Net Core 2.0 -> serviço de monitorização de estado** e dê-lhe nome *HelloWorldStateful*. Clique em **OK**.
 
 ![Utilize a caixa de diálogo novo projeto para criar um novo serviço de monitorização de estado de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
@@ -154,7 +154,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
         {
             var result = await myDictionary.TryGetValueAsync(tx, "Counter");
 
-            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
+            ServiceEventSource.Current.ServiceMessage(this.Context, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
             await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
@@ -169,7 +169,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()`funciona da mesma forma nos serviços de monitorização de estado e sem monitorização de estado. No entanto, num serviço com monitorização de estado, a plataforma executa tarefas adicionais em seu nome antes de ser executada `RunAsync()`. Este trabalho pode incluir a garantir que o Gestor de estado fiável e coleções fiável, estará pronto a utilizar.
+`RunAsync()` funciona da mesma forma nos serviços de monitorização de estado e sem monitorização de estado. No entanto, num serviço com monitorização de estado, a plataforma executa tarefas adicionais em seu nome antes de ser executada `RunAsync()`. Este trabalho pode incluir a garantir que o Gestor de estado fiável e coleções fiável, estará pronto a utilizar.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Coleções fiáveis e o Gestor de estado fiável
 ```csharp

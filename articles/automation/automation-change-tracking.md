@@ -1,5 +1,5 @@
 ---
-title: "Controlar as alterações com a automatização do Azure | Microsoft Docs"
+title: "Controlar as alterações com a automatização do Azure"
 description: "A solução de controlo de alterações ajuda-o a identificar o software e as alterações de serviço do Windows que ocorrem no seu ambiente."
 services: automation
 ms.service: automation
@@ -11,11 +11,11 @@ manager: carmonm
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fcee2956d2d33133c5d1a5bf367643a2095cad71
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 06034a87d6015a057c01c2bc87ae4db9fba1269a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 

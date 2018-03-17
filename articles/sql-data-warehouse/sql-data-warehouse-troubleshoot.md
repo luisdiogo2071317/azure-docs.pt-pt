@@ -6,20 +6,19 @@ documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
 editor: 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/30/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0829d448e8b925d0dcc032ed143d8fff42ab1b69
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Resolução de problemas do armazém de dados SQL do Azure
 Este tópico apresenta alguns das perguntas de resolução de problemas mais comuns que recebemos dos nossos clientes.
@@ -27,9 +26,9 @@ Este tópico apresenta alguns das perguntas de resolução de problemas mais com
 ## <a name="connecting"></a>A ligar
 | Problema | Resolução |
 |:--- |:--- |
-| Falha ao iniciar sessão para o utilizador 'Início de sessão do NT AUTHORITY\ANONYMOUS'. (Microsoft SQL Server, erro: 18456) |Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no mestre.  Para corrigir este problema é especificar o armazém de dados do SQL Server que pretende ligar ao tempo de ligação ou adicione o utilizador para a base de dados mestra.  Consulte [descrição geral de segurança] [ Security overview] artigo para obter mais detalhes. |
-| O servidor principal "MyUserName" não é capaz de aceder a base de dados "master" no contexto de segurança atual. Não é possível abrir a base de dados do utilizador predefinida. O início de sessão falhou. Falha ao iniciar sessão para o utilizador 'MyUserName'. (Microsoft SQL Server, erro: 916) |Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no mestre.  Para corrigir este problema é especificar o armazém de dados do SQL Server que pretende ligar ao tempo de ligação ou adicione o utilizador para a base de dados mestra.  Consulte [descrição geral de segurança] [ Security overview] artigo para obter mais detalhes. |
-| Erro CTAIP |Este erro pode ocorrer quando tiver sido criado um início de sessão no SQL server base de dados mestra, mas não se encontra na base de dados do armazém de dados do SQL Server.  Se ocorrer este erro, observe o [descrição geral de segurança] [ Security overview] artigo.  Este artigo explica como criar criar um início de sessão e o utilizador principal e, em seguida, como criar um utilizador na base de dados do armazém de dados do SQL Server. |
+| Falha ao iniciar sessão para o utilizador 'Início de sessão do NT AUTHORITY\ANONYMOUS'. (Microsoft SQL Server, Error: 18456) |Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no mestre.  Para corrigir este problema, ou especifique o armazém de dados do SQL Server que pretende ligar ao tempo de ligação ou adicione o utilizador para a base de dados mestra.  Consulte [descrição geral de segurança] [ Security overview] artigo para obter mais detalhes. |
+| O servidor principal "MyUserName" não é capaz de aceder a base de dados "master" no contexto de segurança atual. Não é possível abrir a base de dados do utilizador predefinida. O início de sessão falhou. Falha ao iniciar sessão para o utilizador 'MyUserName'. (Microsoft SQL Server, Error: 916) |Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no mestre.  Para corrigir este problema, ou especifique o armazém de dados do SQL Server que pretende ligar ao tempo de ligação ou adicione o utilizador para a base de dados mestra.  Consulte [descrição geral de segurança] [ Security overview] artigo para obter mais detalhes. |
+| Erro CTAIP |Este erro pode ocorrer quando tiver sido criado um início de sessão no SQL server base de dados mestra, mas não se encontra na base de dados do armazém de dados do SQL Server.  Se ocorrer este erro, observe o [descrição geral de segurança] [ Security overview] artigo.  Este artigo explica como criar um início de sessão e o utilizador no mestre e, em seguida, como criar um utilizador na base de dados do armazém de dados do SQL Server. |
 | Bloqueado pela Firewall |Bases de dados SQL do Azure estão protegidos por firewalls nível servidor e base de dados para garantir conhecido apenas endereços IP têm acesso a uma base de dados. As firewalls são seguras por predefinição, o que significa que, tem de ativar explicitamente e endereço IP ou intervalo de endereços antes de poder ligar.  Para configurar a firewall para acesso, siga os passos no [configurar o acesso ao servidor de firewall para o IP de cliente] [ Configure server firewall access for your client IP] no [aprovisionamento instruções] [Provisioning instructions]. |
 | Não é possível estabelecer ligação com a ferramenta ou controladores |O SQL Data Warehouse recomenda a utilização [SSMS][SSMS], [SSDT para Visual Studio][SSDT for Visual Studio], ou [sqlcmd] [ sqlcmd] para consultar os dados. Para obter mais detalhes sobre controladores e a ligação ao SQL Data Warehouse, consulte [controladores para o Azure SQL Data Warehouse] [ Drivers for Azure SQL Data Warehouse] e [ligar ao Azure SQL Data Warehouse] [ Connect to Azure SQL Data Warehouse] artigos. |
 
@@ -47,7 +46,7 @@ Este tópico apresenta alguns das perguntas de resolução de problemas mais com
 | Simultaneidade baixa / colocados em fila de consultas |Noções sobre [gestão da carga de trabalho] [ Workload management] é importante para compreender como equilibrar a atribuição de memória com a simultaneidade. |
 | Como implementar as melhores práticas |O melhor local para começar a aprender formas para melhorar o desempenho das consultas é [melhores práticas do SQL Data Warehouse] [ SQL Data Warehouse best practices] artigo. |
 | Como melhorar o desempenho com dimensionamento |Por vezes, a solução para melhorar o desempenho é simplesmente adicionar mais computação power para as suas consultas por [dimensionamento do SQL Data Warehouse][Scaling your SQL Data Warehouse]. |
-| Desempenho das consultas fraco como resultado de qualidade de índice fraco |Consultas de algumas vezes podem slowdown porque [qualidade de índice columnstore fraco][Poor columnstore index quality].  Consulte este artigo para obter mais informações e como [reconstruir índices para melhorar a qualidade de segmento][Rebuild indexes to improve segment quality]. |
+| Desempenho das consultas fraco como resultado de qualidade de índice fraco |Consultas de algumas vezes podem abrandar porque [qualidade de índice columnstore fraco][Poor columnstore index quality].  Consulte este artigo para obter mais informações e como [reconstruir índices para melhorar a qualidade de segmento][Rebuild indexes to improve segment quality]. |
 
 ## <a name="system-management"></a>Gestão do sistema
 | Problema | Resolução |
@@ -60,7 +59,7 @@ Este tópico apresenta alguns das perguntas de resolução de problemas mais com
 ## <a name="polybase"></a>Polybase
 | Problema | Resolução |
 |:--- |:--- |
-| Carga falha devido à grande linhas |Atualmente o suporte de linha grande não está disponível para o Polybase.  Isto significa que, se a tabela contiver varchar (Max), nvarchar (Max) ou varbinary (Max), as tabelas externas não podem ser utilizadas para carregar os dados.  Cargas grandes linhas está atualmente só é suportada através do Azure Data Factory (com o BCP), do Azure Stream Analytics, SSIS, BCP ou a classe de .NET SQLBulkCopy. Suporte do PolyBase linhas grande será adicionado numa versão futura. |
+| Carga falha devido à grande linhas |Atualmente o suporte de linha grande não está disponível para o Polybase.  Isto significa que, se a tabela contiver varchar (Max), nvarchar (Max) ou varbinary (Max), as tabelas externas não podem ser utilizadas para carregar os dados.  Carregar linhas grande está atualmente só é suportada através do Azure Data Factory (com o BCP), do Azure Stream Analytics, SSIS, BCP ou a classe de .NET SQLBulkCopy. Suporte do PolyBase linhas grande será adicionado numa versão futura. |
 | está a falhar carga BCP da tabela com o tipo de dados de máx. |Não há um problema conhecido que requer que varchar (Max), nvarchar (Max) ou varbinary (Max) ser colocados no fim da tabela em alguns cenários.  Tente mover as colunas máx. para o fim da tabela. |
 
 ## <a name="differences-from-sql-database"></a>Diferenças a partir da base de dados SQL
@@ -74,7 +73,7 @@ Este tópico apresenta alguns das perguntas de resolução de problemas mais com
 | UDFs não suportam instruções SELECT |Esta é uma limitação atual do nosso UDFs.  Consulte [CREATE FUNCTION] [ CREATE FUNCTION] para a sintaxe é suportada. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se estiver foram não é possível encontrar uma solução para o seu problema acima, seguem-se alguns outros recursos, pode tentar.
+Para obter mais ajuda no encontrar soluções para o seu problema, aqui estão alguns outros recursos, que pode tentar.
 
 * [Blogues]
 * [Pedidos de funcionalidades]
@@ -113,7 +112,7 @@ Se estiver foram não é possível encontrar uma solução para o seu problema a
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements

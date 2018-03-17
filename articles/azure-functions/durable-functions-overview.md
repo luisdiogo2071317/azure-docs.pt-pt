@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Descrição geral das funções durável (pré-visualização)
 
@@ -153,44 +153,43 @@ public static async Task<HttpResponseMessage> Run(
 
 O [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parâmetro é um valor entre o `orchestrationClient` de saída de enlace, que faz parte da extensão de funções durável. Fornece métodos para iniciar, enviando eventos, terminar e de consulta para instâncias de função do orchestrator novo ou existente. No exemplo acima, uma HTTP acionada-função aceita um `functionName` valor do URL de entrada e transmite o valor para [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Esta API de enlace, em seguida, devolve uma resposta que contém um `Location` cabeçalho e informações adicionais sobre a instância que pode ser utilizada mais tarde para ver o estado da instância tiver sido iniciado ou de terminá-la.
 
-## <a name="pattern-4-stateful-singletons"></a>Padrão #4: Singletons com monitorização de estado
+## <a name="pattern-4-monitoring"></a>O padrão #4: monitorização
 
-A maioria das funções tem um início explícito e de fim e não diretamente interagem com origens de eventos externo. No entanto, orchestrations suporta um [singleton com monitorização de estado](durable-functions-singletons.md) padrão que lhe permita comportar-se como fiável [atores](https://en.wikipedia.org/wiki/Actor_model) da informática distribuída.
+O padrão de monitor refere-se para uma flexível *periódica* processo num fluxo de trabalho - por exemplo, consulta até que certas condições sejam cumpridas. Um acionador de temporizador normal pode resolver um cenário simples, tal como uma tarefa de limpeza periódica, mas o intervalo estático e gerir durações de instância torna-se complexa. Funções duráveis permite intervalos de periodicidade flexível, gestão de duração de tarefa e a capacidade de criar o monitor de vários processos de um único orchestration.
 
-O diagrama seguinte ilustra uma função que é executada num ciclo infinito ao processar eventos recebidos a partir de origens externas.
+Um exemplo seria possível inverter o cenário de API de HTTP assíncrona anterior. Em vez de exposição de um ponto final de um cliente externo monitorizar uma operação de longa execução, o monitor de execução longa consome um ponto final externo, a aguardar que algumas alterações de estado.
 
-![Diagrama de monitorização de estado singleton](media/durable-functions-overview/stateful-singleton.png)
+![Diagrama de monitor](media/durable-functions-overview/monitor.png)
 
-Enquanto as funções durável não é uma implementação do modelo de ator, as funções do orchestrator tem muitas das mesmas características de tempo de execução. Por exemplo, são longa execução (possivelmente endless), com monitorização de estado, fiável, single-threaded, transparente para a localização e globalmente endereçável. Isto faz com que as funções do orchestrator útil para "ator"-, como cenários.
-
-Funções comum são sem monitorização de estado e, por conseguinte, não adequado para implementar um padrão de singleton com monitorização de estado. No entanto, a extensão de funções durável torna o padrão de singleton com monitorização de estado relativamente trivial para implementar. O seguinte código é uma função do orchestrator simples que implementa um contador.
+Utilizando funções durável, podem ser criados vários monitores observar arbitrários pontos finais em algumas linhas de código. Os monitores podem terminar execução quando alguma condição for cumprida, ou ser terminada pelo [DurableOrchestrationClient](durable-functions-instance-management.md), e o respetivo intervalo de espera, pode ser alterado com base em alguma condição (ou seja, término exponencial.) O seguinte código implementa um monitor básico.
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
 {
-    int counterState = ctx.GetInput<int>();
-
-    string operation = await ctx.WaitForExternalEvent<string>("operation");
-    if (operation == "incr")
+    int jobId = ctx.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+    
+    while (ctx.CurrentUtcDateTime < expiryTime) 
     {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
+        var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform action when condition met
+            await ctx.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        var nextCheck = ctx.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await ctx.CreateTimer(nextCheck, CancellationToken.None);
     }
 
-    ctx.ContinueAsNew(counterState);
+    // Perform further work here, or let the orchestration end
 }
 ```
 
-Este código é o que poderá descrever como "eternal orchestration" &mdash; ou seja, um que inicia e termina nunca. Esta executa os seguintes passos:
-
-* Começa com um valor de entrada no `counterState`.
-* Aguarda indefinidamente de uma mensagem chamado `operation`.
-* Efetua algumas lógica para atualizar o respetivo estado local.
-* "For reiniciado" próprio chamando `ctx.ContinueAsNew`.
-* Awaits novamente indefinidamente para a próxima operação.
+Quando é recebido um pedido, é criada uma nova instância de orquestração para esse ID de tarefa. A instância de consulta um estado até for cumprida uma condição e o ciclo é terminado. Um temporizador durável é utilizado para controlar o intervalo de consulta. Em seguida, é possível efetuar o trabalho adicional ou a orquestração pode terminar. Quando o `ctx.CurrentUtcDateTime` excede o `expiryTime`, as extremidades do monitor.
 
 ## <a name="pattern-5-human-interaction"></a>Padrão #5: Interação humana
 
@@ -229,7 +228,7 @@ O temporizador durável é criado chamando `ctx.CreateTimer`. A notificação é
 
 ## <a name="the-technology"></a>A tecnologia
 
-Nos bastidores, a extensão de funções durável está incorporada do [durável tarefas Framework](https://github.com/Azure/durabletask), uma biblioteca de código aberto no GitHub para a criação de orchestrations tarefas durável. Muito como como as funções do Azure é a evolução sem servidor de WebJobs do Azure, funções durável é a evolução sem servidor do Framework tarefas durável. A estrutura de durável de tarefas é utilizada descontos elevados no Microsoft e fora, bem como automatizar processos fundamentais. É uma opção para o ambiente das funções do Azure sem servidor natural.
+Nos bastidores, a extensão de funções durável está incorporada do [durável tarefas Framework](https://github.com/Azure/durabletask), uma biblioteca de open source no GitHub para a criação de orchestrations tarefas durável. Muito como como as funções do Azure é a evolução sem servidor de WebJobs do Azure, funções durável é a evolução sem servidor do Framework tarefas durável. A estrutura de durável de tarefas é utilizada descontos elevados no Microsoft e fora, bem como automatizar processos fundamentais. É uma opção para o ambiente das funções do Azure sem servidor natural.
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Evento sourcing, pontos de verificação e repetição
 

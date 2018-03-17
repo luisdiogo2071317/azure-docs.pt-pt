@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 7892c74f03647e289ed96055fb9db5c2f08f0234
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 59ee56e225623295dd63bf5ae303bfe1aa8e95cf
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração de base de dados do SQL Server a SQL Database do Azure
 
@@ -33,7 +33,7 @@ Em ambos os casos, terá de garantir que a base de dados de origem é compatíve
 
  Utilize este método para migrar para um único ou uma base de dados agrupado se pode suportar algum período de indisponibilidade ou estiver a efetuar uma migração de teste de uma base de dados de produção para a migração posterior. Para um tutorial, consulte [migrar uma base de dados do SQL Server](sql-database-migrate-your-sql-server-database.md).
 
-A lista seguinte contém o fluxo de trabalho geral para uma migração de base de dados do SQL Server de uma única ou uma base de dados agrupado através deste método. Para migração para a instância geridos, consulte [migração para uma instância geridos](sql-database-cloud-migrate.md#migration-to-azure-sql-database-managed-instance).
+A lista seguinte contém o fluxo de trabalho geral para uma migração de base de dados do SQL Server de uma única ou uma base de dados agrupado através deste método. Para migração para a instância geridos, consulte [migração para uma instância geridos](sql-database-managed-instance-migrate.md).
 
   ![Diagrama de migração de VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 

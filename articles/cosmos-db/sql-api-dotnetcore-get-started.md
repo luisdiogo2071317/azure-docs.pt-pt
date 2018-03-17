@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 71eadc08aeb4ac197f55b6d3aac8eb6009be9107
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 90b720c174ab5730237f27d5ebb253976a70b071
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: Introdução a API do SQL Server e o .NET Core
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ Agora comecemos!
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
+* Se ainda não tiver o Visual Studio 2017, instalado, pode transferir e utilizar o livre [edição de Comunidade de 2017 do Visual Studio](https://www.visualstudio.com/downloads/). Se estiver a desenvolver uma aplicação plataforma Universal do Windows (UWP), deve utilizar **Visual Studio 2017 com a versão 15.4** ou superior. Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
     * Se estiver a trabalhar no MacOS ou Linux, pode desenvolver aplicações de .NET Core na linha de comandos instalando o [.NET Core SDK](https://www.microsoft.com/net/core#macos) para a plataforma da sua preferência. 
     * Se estiver a trabalhar no Windows, pode desenvolver aplicações de .NET Core na linha de comandos instalando o [.NET Core SDK](https://www.microsoft.com/net/core#windows). 
     * Pode utilizar o seus próprios editor ou transferir [Visual Studio Code](https://code.visualstudio.com/), que está livre e funciona no Windows, Linux e MacOS. 

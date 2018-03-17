@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 9b8beb51c555c6125fa3b0abbad892d627a180b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/16/2018
+ms.author: gokuma;
+ms.openlocfilehash: 921ccf67e5e0320e742066186b7929643536424f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-platforms"></a>Plataformas de dados
 
@@ -27,7 +27,7 @@ A Máquina Virtual de ciência de dados (DSVM) permite-lhe criar a sua análise 
 
 Seguem-se as ferramentas de plataforma de dados suportadas no DSVM. 
 
-## <a name="sql-server-2016-developer-edition"></a>Edição do SQL Server 2016 para programadores
+## <a name="sql-server-2016-developer-edition"></a>SQL Server 2016 Developer Edition
 
 | | |
 | ------------- | ------------- |
@@ -35,7 +35,7 @@ Seguem-se as ferramentas de plataforma de dados suportadas no DSVM.
 | Edições de DSVM suportados      | Windows      |
 | Utilizações comuns      | Desenvolvimento rápido localmente com mais pequeno conjunto de dados <br/> Executar R na base de dados   |
 | Ligações para amostras      |    Um exemplo de conjunto de dados de Nova Iorque cidade pequeno é carregado para a base de dados do SQL Server `nyctaxi`. <br/> Exemplo do Jupyter com Microsoft R e análise de na base de dados pode ser encontrado em:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
-| Ferramentas relacionadas no DSVM       | SQL Server Management Studio <br/> Controladores ODBC/JDBC<br/> pyodbc, RODBC<br />Apache desagregação      |
+| Ferramentas relacionadas no DSVM       | SQL Server Management Studio <br/> ODBC/JDBC Drivers<br/> pyodbc, RODBC<br />Apache desagregação      |
 
 > [!NOTE]
 > A edição do SQL Server 2016 programador só pode ser utilizada para desenvolvimento e fins de teste. Precisa de uma licença ou um das VMs de SQL Server para executá-la na produção. 
@@ -70,7 +70,7 @@ O SQL Server está instalado o modo padrão. Podem ser encontrado em `C:\Program
 | Edições de DSVM suportados      | Linux <br /> Windows (Experimental)      |
 | Utilizações comuns      | * Rápido desenvolvimento de aplicações do Spark/PySpark localmente com o conjunto de dados mais pequeno e mais tarde implementá-la em grandes clusters do Spark, tais como o Azure HDInsight<br/> * Microsoft R Server Spark contexto de teste <br />* Utilizar SparkML ou da Microsoft open source para [MMLSpark](https://github.com/Azure/mmlspark) biblioteca para criar aplicações de ML  |
 | Ligações para amostras      |    Exemplo de Jupyter: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> O servidor de Microsoft R (contexto do Spark): /dsvm/samples/MRS/MRSSparkContextSample.R |
-| Ferramentas relacionadas no DSVM       | PySpark, Scala<br/>Jupyter (Spark/PySpark Kernels)<br/>Sparklyr de servidor, SparkR, Microsoft R <br />Apache desagregação      |
+| Ferramentas relacionadas no DSVM       | PySpark, Scala<br/>Jupyter (Spark/PySpark Kernels)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache desagregação      |
 
 ### <a name="how-to-use-it"></a>Como utilizá-la
 É possível executar o Spark ao submeter as tarefas do Spark na linha de comandos com `spark-submit` ou `pyspark` comandos. Também pode criar um bloco de notas do Jupyter ao criar um novo bloco de notas com o kernel do Spark. 
@@ -100,7 +100,7 @@ Pode parar o Hadoop relacionados com serviços quando não precisar deles execut
 |Plataforma|Instalar localização ($SPARK_HOME)|
 |:--------|:--------|
 |Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
-|Linux   | /dsvm/Tools/spark-X.X.X-bin-hadoopX.X|
+|Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
 Bibliotecas para aceder a dados de Blobs do Azure ou armazenamento do Azure Data Lake (ADLS) e utilização de bibliotecas de aprendizagem MMLSpark da Microsoft são pré-instalado na $SPARK_HOME/v7. Estes v7 é carregados automaticamente quando é iniciado Spark. Por predefinição o Spark utiliza os dados no disco local. Para a instância de Spark DSVM para aceder a dados armazenados no blob do Azure ou ADLS é necessário criar/configurar a `core-site.xml` ficheiro baseado num modelo, foi encontrado no $SPARK_HOME/conf/core-site.xml.template (em que existem marcadores de posição de Blob e ADLS configurações) com as credenciais corretas ao blob do Azure e o armazenamento do Azure Data Lake. Encontrará mais passos sobre como criar as credenciais do serviço ADLS [aqui](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). Depois das credenciais de Blobs do Azure ou ADLS são introduzidas no ficheiro Core-site.XML, pode referenciar os dados armazenados dessas origens com o prefixo URI wasb: / / ou adl: / /. 

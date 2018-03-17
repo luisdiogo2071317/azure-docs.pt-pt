@@ -7,20 +7,20 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 03/16/2018
 ms.author: sstein
-ms.openlocfilehash: beddb3d9ac4a8c1ec5bd034c959c6b734c5b4403
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cf8d4427cddbe6368ac265fe9ecc0f408f7fb1fb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Aumentar horizontalmente bases de dados com o Gestor de mapa de partições horizontais
 Para ampliar facilmente as bases de dados SQL Azure, utilize um Gestor de mapa de partições horizontais. O Gestor de mapa de partições horizontais é uma base de dados especial que mantém as informações de mapeamento global sobre todas as partições horizontais (bases de dados) de um conjunto de partições horizontais. Os metadados permite que uma aplicação ligar à base de dados correto com base no valor da **chave de fragmentação**. Além disso, todas as partições horizontais no conjunto contém maps que monitorizam os dados de partições horizontais local (conhecido como **shardlets**). 
 
 ![Gestão de mapa de partições horizontais](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-Compreender como estes mapeamentos são construídos é essencial para gestão de mapa de partições horizontais. Isto é feito utilizando a classe de ShardMapManager ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)), foi encontrada no [biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md) para gerir os mapas de partições horizontais.  
+Compreender como estes mapeamentos são construídos é essencial para gestão de mapa de partições horizontais. Isto é feito utilizando a classe de ShardMapManager ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager), foram encontrados no [biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md) para gerir os mapas de partições horizontais.  
 
 ## <a name="shard-maps-and-shard-mappings"></a>Mapas de partições horizontais e mapeamentos de partições horizontais
 Para cada partição horizontal, tem de selecionar o tipo de mapa de partições horizontais criar. A opção depende a arquitetura de base de dados: 
@@ -96,7 +96,7 @@ A **ShardMapManager** objecto é construído através de uma fábrica ([Java](/j
 
 **Tenha em atenção:** o **ShardMapManager** deve ser instanciado apenas uma vez por domínio de aplicação, dentro do código de inicialização de uma aplicação. Criação de instâncias adicionais de ShardMapManager no mesmo domínio de aplicação resulta num aumento de memória e a utilização de CPU da aplicação. A **ShardMapManager** pode conter qualquer número de mapas de partições horizontais. Enquanto um mapa de partições horizontais única pode ser suficiente para muitas aplicações, há horas quando são utilizados os diferentes conjuntos de bases de dados para outro esquema ou para fins de exclusivos; Nesses casos, várias partições horizontais maps poderão ser preferível. 
 
-Neste código, uma aplicação tenta abrir um existente **ShardMapManager** com o TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)) método.  Se os objetos que representa um Global **ShardMapManager** (GSM) não ainda existe na base de dados, a biblioteca de cliente cria-los existe utilizando o CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET ](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) método.
+Neste código, uma aplicação tenta abrir um existente **ShardMapManager** com o TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) método. Se os objetos que representa um Global **ShardMapManager** (GSM) não ainda existe na base de dados, a biblioteca de cliente cria-los existe utilizando o CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET ](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) método.
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.

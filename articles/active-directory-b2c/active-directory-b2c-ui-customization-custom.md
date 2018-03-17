@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>O Azure Active Directory B2C: Configurar a personalização de IU numa política personalizada
 
@@ -30,7 +30,7 @@ Depois de concluir este artigo, terá uma política personalizada de inscrição
 
 Antes de começar, concluir [introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md). Deve ter uma política personalizada do trabalho para inscrição e inicie sessão com as contas locais.
 
-## <a name="page-ui-customization"></a>Personalização de página IU
+## <a name="page-ui-customization"></a>Personalização da IU da página
 
 Ao utilizar a funcionalidade de personalização de IU da página, pode personalizar o aspeto e funcionalidade de qualquer política personalizada. Também pode manter a marca e consistência visual entre a sua aplicação e o Azure AD B2C.
 
@@ -66,7 +66,7 @@ Crie HTML conteúdo com o nome do seu produto marca no título.
 
 Para alojar este conteúdo HTML no Blob storage, efetue o seguinte:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No **Hub** menu, selecione **novo** > **armazenamento** > **conta de armazenamento**.
 3. Introduza um único **nome** para a sua conta de armazenamento.
 4. **Modelo de implementação** pode permanecer **Resource Manager**.
@@ -118,7 +118,7 @@ Configure o armazenamento de BLOBs para a partilha de recursos de várias origen
 
 Confirme que está pronto efetuando o seguinte procedimento:
 
-1. Aceda ao [teste cors.org](http://test-cors.org/) Web site e, em seguida, cole o URL no **URL remoto** caixa.
+1. Vá para o [www.test-cors.org](http://www.test-cors.org/) Web site e, em seguida, cole o URL no **URL remoto** caixa.
 2. Clique em **enviar pedido**.  
     Se receber um erro, certifique-se de que o [as definições CORS](#configure-cors) estão corretos. Poderá também terá de limpar a cache do browser ou abra uma sessão de navegação privada ao premir Ctrl + Shift + P.
 
@@ -161,27 +161,27 @@ A pasta de sample_templates/wingtip contém os seguintes ficheiros HTML:
 
 | Modelo de HTML5 | Descrição |
 |----------------|-------------|
-| *phonefactor.HTML* | Utilize este ficheiro como um modelo para uma página de autenticação multifator. |
-| *ResetPassword.HTML* | Utilizar este ficheiro como um modelo para um esqueceu a página de palavra-passe. |
-| *selfasserted.HTML* | Utilize este ficheiro como um modelo para uma página de inscrição de conta de redes sociais, uma página de inscrição de conta local ou uma página de início de sessão da conta local. |
-| *Unified.HTML* | Utilize este ficheiro como um modelo para uma página de inscrição ou início de sessão unificada. |
-| *updateprofile.HTML* | Utilize este ficheiro como um modelo para uma página de atualização de perfil. |
+| *phonefactor.html* | Utilize este ficheiro como um modelo para uma página de autenticação multifator. |
+| *resetpassword.html* | Utilizar este ficheiro como um modelo para um esqueceu a página de palavra-passe. |
+| *selfasserted.html* | Utilize este ficheiro como um modelo para uma página de inscrição de conta de redes sociais, uma página de inscrição de conta local ou uma página de início de sessão da conta local. |
+| *unified.html* | Utilize este ficheiro como um modelo para uma página de inscrição ou início de sessão unificada. |
+| *updateprofile.html* | Utilize este ficheiro como um modelo para uma página de atualização de perfil. |
 
 No [modificar a secção de política personalizada de se inscrever ou iniciar sessão](#modify-your-sign-up-or-sign-in-custom-policy), configurada a definição de conteúdo para `api.idpselections`. O conjunto completo de conteúdo são os IDs de definição que são reconhecidos pelo framework de experiência de identidade do Azure AD B2C e as respetivas descrições na seguinte tabela:
 
 | ID de definição de conteúdo | Descrição | 
 |-----------------------|-------------|
-| *API.Error* | **Página de erro**. Esta página é apresentada quando é encontrado uma excepção ou um erro. |
-| *API.idpselections* | **Página de seleção de fornecedor de identidade**. Esta página contém uma lista de fornecedores de identidade que o utilizador pode escolher durante o início de sessão. Estas opções são o fornecedores de identidade empresarial, os fornecedores de identidade de redes sociais como o Facebook e Google + ou contas locais. |
-| *API.idpselections.Signup* | **Seleção de fornecedor de identidade para inscrição**. Esta página contém uma lista de fornecedores de identidade que o utilizador pode escolher durante a inscrição. Estas opções são o fornecedores de identidade empresarial, os fornecedores de identidade de redes sociais como o Facebook e Google + ou contas locais. |
-| *API.localaccountpasswordreset* | **Se esqueceu a página de palavra-passe**. Esta página contém um formulário que o utilizador deve realizar para iniciar uma reposição de palavra-passe.  |
-| *API.localaccountsignin* | **Página de início de sessão da conta local**. Esta página contém um formulário de início de sessão para iniciar sessão com uma conta local, com base no endereço de e-mail ou um nome de utilizador. O formulário pode conter uma caixa de entrada de texto e a caixa de entrada de palavra-passe. |
-| *API.localaccountsignup* | **Página de inscrição de conta local**. Esta página contém um formulário de inscrição para inscrever-se de uma conta local é baseada num endereço de e-mail ou um nome de utilizador. O formulário pode conter vários controlos de entrada, tais como uma caixa de entrada de texto, uma caixa de entrada de palavra-passe, um botão de opção, as caixas de lista pendente de selecção única e selecionar vários caixas de verificação. |
-| *API.phonefactor* | **Página de autenticação multifator**. Nesta página, os utilizadores podem verificar os respetivos números de telefone (utilizando o texto ou de voz) durante a inscrição ou início de sessão. |
-| *API.selfasserted* | **Página de inscrição de redes sociais conta**. Esta página contém um formulário de inscrição que os utilizadores terão de concluir quando inscrever utilizando uma conta existente de um fornecedor de identidade de redes sociais, como o Facebook ou Google +. Esta página é semelhante à anterior conta sociais página de inscrição, exceto para os campos de entrada de palavra-passe. |
-| *API.selfasserted.profileupdate* | **Página de atualização de perfil**. Esta página contém um formulário que os utilizadores podem utilizar para atualizar o respetivo perfil. Esta página é semelhante para a página de inscrição de conta de redes sociais, exceto para os campos de entrada de palavra-passe. |
-| *API.signuporsignin* | **Página de inscrição ou início de sessão unificada**. Esta página processa tanto a inscrição e o início de sessão de utilizadores, que podem utilizar fornecedores de identidade empresarial, fornecedores de identidade de redes sociais, como o Facebook Google + ou para contas locais.  |
+| *api.error* | **Página de erro**. Esta página é apresentada quando é encontrado uma excepção ou um erro. |
+| *api.idpselections* | **Página de seleção de fornecedor de identidade**. Esta página contém uma lista de fornecedores de identidade que o utilizador pode escolher durante o início de sessão. Estas opções são o fornecedores de identidade empresarial, os fornecedores de identidade de redes sociais como o Facebook e Google + ou contas locais. |
+| *api.idpselections.signup* | **Seleção de fornecedor de identidade para inscrição**. Esta página contém uma lista de fornecedores de identidade que o utilizador pode escolher durante a inscrição. Estas opções são o fornecedores de identidade empresarial, os fornecedores de identidade de redes sociais como o Facebook e Google + ou contas locais. |
+| *api.localaccountpasswordreset* | **Se esqueceu a página de palavra-passe**. Esta página contém um formulário que o utilizador deve realizar para iniciar uma reposição de palavra-passe.  |
+| *api.localaccountsignin* | **Página de início de sessão da conta local**. Esta página contém um formulário de início de sessão para iniciar sessão com uma conta local, com base no endereço de e-mail ou um nome de utilizador. O formulário pode conter uma caixa de entrada de texto e a caixa de entrada de palavra-passe. |
+| *api.localaccountsignup* | **Página de inscrição de conta local**. Esta página contém um formulário de inscrição para inscrever-se de uma conta local é baseada num endereço de e-mail ou um nome de utilizador. O formulário pode conter vários controlos de entrada, tais como uma caixa de entrada de texto, uma caixa de entrada de palavra-passe, um botão de opção, as caixas de lista pendente de selecção única e selecionar vários caixas de verificação. |
+| *api.phonefactor* | **Página de autenticação multifator**. Nesta página, os utilizadores podem verificar os respetivos números de telefone (utilizando o texto ou de voz) durante a inscrição ou início de sessão. |
+| *api.selfasserted* | **Página de inscrição de redes sociais conta**. Esta página contém um formulário de inscrição que os utilizadores terão de concluir quando inscrever utilizando uma conta existente de um fornecedor de identidade de redes sociais, como o Facebook ou Google +. Esta página é semelhante à anterior conta sociais página de inscrição, exceto para os campos de entrada de palavra-passe. |
+| *api.selfasserted.profileupdate* | **Página de atualização de perfil**. Esta página contém um formulário que os utilizadores podem utilizar para atualizar o respetivo perfil. Esta página é semelhante para a página de inscrição de conta de redes sociais, exceto para os campos de entrada de palavra-passe. |
+| *api.signuporsignin* | **Página de inscrição ou início de sessão unificada**. Esta página processa tanto a inscrição e o início de sessão de utilizadores, que podem utilizar fornecedores de identidade empresarial, fornecedores de identidade de redes sociais, como o Facebook Google + ou para contas locais.  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter informações adicionais sobre os elementos de IU que podem ser personalizadas, consulte [guia de referência para personalização de IU para políticas incorporadas](active-directory-b2c-reference-ui-customization.md).
