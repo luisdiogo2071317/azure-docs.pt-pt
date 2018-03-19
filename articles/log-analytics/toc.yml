@@ -50,7 +50,7 @@
     - name: Pesquisa de Registos
       items:
         - name: Descrição geral das pesquisas de registos
-          href: log-analytics-log-search-new.md
+          href: log-analytics-log-search.md
         - name: Portais de Pesquisa de Registos
           href: log-analytics-log-search-portals.md
 - name: Guias de procedimentos
@@ -117,20 +117,6 @@
           href: log-analytics-flow-tutorial.md
         - name: API de Pesquisas de Registos
           href: 'https://dev.loganalytics.io/'
-    - name: Pesquisa de registo legado
-      items:
-        - name: Descrição geral das pesquisas de registos
-          href: log-analytics-log-searches.md
-        - name: Referência de pesquisa
-          href: log-analytics-search-reference.md
-          items:
-            - name: Expressões regulares
-              href: log-analytics-log-searches-regex.md
-        - name: API de Pesquisas de Registos
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
     - name: Analisar dados
       items:
         - name: Dashboards

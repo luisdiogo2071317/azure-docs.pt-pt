@@ -22,7 +22,6 @@
 ## [Verificar o estado de funcionamento de um domínio gerido](active-directory-ds-check-health.md)
 ## [Utilizar os Azure AD Domain Services nas subscrições do Azure CSP](active-directory-ds-csp.md)
 ## [Ativar o Azure AD Domain Services com o PowerShell](active-directory-ds-enable-using-powershell.md)
-## [Verificar o estado de funcionamento do seu domínio](active-directory-ds-check-health.md)
 ## Aderir a um domínio gerido
 ### [VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [VM do Windows Server a partir do modelo](active-directory-ds-join-windows-vm-template.md)

@@ -221,7 +221,7 @@
 ##### [Ambiente de Trabalho Remoto](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Equipas da Microsoft](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
 #### [Resolução de problemas](active-directory-application-proxy-troubleshoot.md)
 
 
