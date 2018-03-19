@@ -27,11 +27,6 @@
 ### [Grupos de segurança de rede](virtual-networks-nsg.md)
 
 ## Implementação
-### Redes virtuais
-#### [Portal do Azure](virtual-networks-create-vnet-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI do Azure](virtual-networks-create-vnet-arm-cli.md)
-#### [Modelo](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Grupos de segurança de rede
 #### [Portal do Azure](virtual-networks-create-nsg-arm-pportal.md)
