@@ -6,11 +6,11 @@ description: "Saiba como criar e gerir aplicações poderosas com os serviços c
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 88b49cb3f16ec8980c480e7a553e0798be7a6f0f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6d188cc25d858cc2d07fc49450d6b2d4a4a04c09
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -199,7 +199,7 @@ ms.lasthandoff: 03/08/2018
                                                 </ul>
                                                 <h4>IA e Serviços Cognitivos</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/machine-learning/preview">Serviços de Machine Learning</a></li>
+                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">API de Imagem Digitalizada</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">API Face</a></li>
                                                 </ul>
@@ -216,7 +216,7 @@ ms.lasthandoff: 03/08/2018
                                                 <h3>Ferramentas de linha de comandos</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="/cli/azure/overview">
+                                                        <a class="barLink" href="/cli/azure">
                                                             <img src="media/index/azure_dev-7.svg" alt=""> CLI do Azure </a>
                                                     </li>
                                                     <li>
@@ -600,9 +600,9 @@ ms.lasthandoff: 03/08/2018
                                     <h3>IA + Machine Learning</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/machine-learning/preview">
+                                            <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Serviços de Machine Learning</p>
+                                                <p>Machine Learning</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2545,7 +2545,7 @@ ms.lasthandoff: 03/08/2018
                                 <h2>Inteligência Artificial</h2>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/preview">
+                                <a href="/azure/machine-learning/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2555,7 +2555,7 @@ ms.lasthandoff: 03/08/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviços de Machine Learning</h3>
+                                                    <h3>Machine Learning</h3>
                                                     <p>Leve a IA a todos com uma plataforma ponto a ponto, dimensionável e fiável com experimentação e gestão de modelos</p>
                                                 </div>
                                             </div>
@@ -2733,10 +2733,10 @@ ms.lasthandoff: 03/08/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Sugestão Automática do Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Pesquisa Personalizada do Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" />Pesquisa Personalizada do Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Pesquisa de Entidades do Bing&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" />Pesquisa de Entidades do Bing</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Pesquisa de Imagens do Bing</a>

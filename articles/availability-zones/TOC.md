@@ -24,14 +24,12 @@
 
 ### Load balancer
 #### [O que é o Balanceador de Carga?](../load-balancer/load-balancer-standard-overview.md)
+#### [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md)
 #### [Criar um Balanceador de Carga Standard Público com redundância de zona com o portal do Azure](../load-balancer/load-balancer-get-started-internet-az-portal.md)
 #### [Criar um Balanceador de Carga Standard com redundância de zona com o PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Criar um Balanceador de Carga Standard Público com redundância de zona com a CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
-### Endereço IP público
-#### [Criar um endereço IP público numa zona de disponibilidade com o portal do Azure](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [Criar um endereço IP público numa zona de disponibilidade com o PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [Criar um endereço IP público numa zona de disponibilidade com a CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
+### [Endereço IP público](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
 #### [Zonas de disponibilidade com base de dados SQL](../sql-database/sql-database-high-availability.md#availability-zones)

@@ -190,11 +190,10 @@
 #### [Comunicar sobre o aprovisionamento automático de utilizadores](active-directory-saas-provisioning-reporting.md)
 #### [Resolver problemas de aprovisionamento de utilizadores](active-directory-application-provisioning-content-map.md)
 
-
-
 ### [Aceder a aplicações remotamente com o Proxy de Aplicações](active-directory-application-proxy-get-started.md)
 #### Introdução
 ##### [Ativar Proxy de aplicações](active-directory-application-proxy-enable.md)
+##### [Suporte para GDPR](active-directory-application-proxy-gdpr.md)
 ##### [Publicar aplicações](application-proxy-publish-azure-portal.md)
 ##### [Domínios personalizados](active-directory-application-proxy-custom-domains.md)
 #### [Início de sessão único](application-proxy-sso-overview.md)

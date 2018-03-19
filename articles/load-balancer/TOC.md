@@ -11,6 +11,7 @@
 ## [Suporte para IPv6](load-balancer-ipv6-overview.md)
 ## [Vários VIPs](load-balancer-multivip-overview.md)
 ## [Compreender as ligações de saída](load-balancer-outbound-connections.md)
+## [Balanceador de Carga Standard e Zonas de Disponibilidade](load-balancer-standard-availability-zones.md)
 
 # Introdução
 
@@ -49,6 +50,7 @@
 ### [Resolver problemas do Balanceador de Carga do Azure](load-balancer-troubleshoot.md)
 
 ## Artigos sobre o modelo de implementação clássica
+### [Ligações de saída (clássicas)](load-balancer-outbound-connections-classic.md)
 ### [Configurar o Balanceador de Carga interno para Serviços Cloud](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Configurar o Balanceador de Carga interno para Serviços Cloud (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Configurar o Balanceador de Carga interno para Serviços Cloud (CLI)](load-balancer-get-started-ilb-classic-cli.md)

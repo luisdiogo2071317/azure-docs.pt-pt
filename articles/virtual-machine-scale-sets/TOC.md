@@ -38,6 +38,7 @@
 #### [Utilizar CLI 2.0 do Azure](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Trabalhar com conjuntos de dimensionamento de grande escala](virtual-machine-scale-sets-placement-groups.md)
 ### [Converter um modelo de conjunto de dimensionamento para utilizar um disco gerido](virtual-machine-scale-sets-convert-template-to-md.md)
+### [Utilizar baixa prioridade](virtual-machine-scale-sets-use-low-priority.md)
 
 ## Gerir
 ### Tarefas comuns de gestão
