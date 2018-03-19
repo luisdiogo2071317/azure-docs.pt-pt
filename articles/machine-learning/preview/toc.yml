@@ -27,6 +27,8 @@
       href: overview-general-concepts.md
 - name: Guias de procedimentos
   items:
+    - name: Tarefas de CLI principais
+      href: cli-for-azure-machine-learning.md
     - name: Utilizar o Workbench
       items:
         - name: Trabalhar com IDEs Python

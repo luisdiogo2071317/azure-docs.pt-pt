@@ -62,6 +62,8 @@
           href: module-development.md
         - name: Composição
           href: module-composition.md
+        - name: Agende do Edge e propriedades do hub
+          href: module-edgeagent-edgehub.md
     - name: Runtime do IoT Edge
       href: iot-edge-runtime.md
     - name: Implementações
