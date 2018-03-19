@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 03/16/2018
 ms.author: bonova
-ms.openlocfilehash: 77d421e9c97f3baa3541040494fb91e0297edb5a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância geridos (pré-visualização)?
 
@@ -39,7 +39,7 @@ Destaques de tabela seguintes diferenças da chave e envisioned cenários de uti
 | | Cenário de utilização | 
 | --- | --- | 
 |Instância Gerida |Para os clientes procura para migrar um grande número de aplicações no local ou IaaS, personalizada incorporada, ou ISV fornecido, com como esforço de migração baixa quanto possível, propor instância geridos. Utilizar totalmente automatizado [serviço de migração de dados (DMS)](/sql/dma/dma-overview) no Azure, os clientes podem de comparação de precisão e deslocar o respetivo SQL Server no local a uma instância de geridos oferece compatibilidade com o SQL Server no local e o isolamento completado do instâncias de cliente com suporte VNET nativo.  Com o Software Assurance, pode trocar as respetivas licenças existentes para taxas com desconto durante uma instância de geridos de base de dados do SQL Server utilizando o [benefício de utilização de híbrida do Azure para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  A instância de gerido da base de dados do SQL Server é o destino de migração melhores na nuvem para instâncias do SQL Server que necessitam de alta segurança e uma superfície de programação para avançado. |
-|Base de Dados SQL do Azure |Para os clientes desenvolver novas aplicações da multi-inquilinos de SaaS ou intencionalmente transformar as suas aplicações no local existentes numa aplicação SaaS multi-inquilino, propor conjuntos elásticos. Benefícios deste modelo são: <br><ul><li>Conversão do modelo de negócio de vender licenças para vender serviço subscrições (ISVs)</li></ul><ul><li>Isolamento de inquilinos fácil e marca-prova</li></ul><ul><li>Um modelo de programação de base de dados centrada simplificado</li></ul><ul><li>O potencial de ampliar sem atingir um limite rígido</li></ul>Para os clientes que a desenvolver novas aplicações SaaS multi-inquilino, cuja carga de trabalho é estáveis e previsíveis, propor a bases de dados individuais. Benefícios deste modelo são:<ul><li>Um modelo de programação de base de dados centrada simplificado</li></ul>  <ul><li>Desempenho previsível para cada base de dados</li></ul>|
+|Base de Dados SQL do Azure |**Conjuntos elásticos**: para os clientes desenvolver novas aplicações da multi-inquilinos de SaaS ou intencionalmente transformar existente no local aplicações numa aplicação SaaS multi-inquilino, propor conjuntos elásticos. Benefícios deste modelo são: <br><ul><li>Conversão do modelo de negócio de vender licenças para vender serviço subscrições (ISVs)</li></ul><ul><li>Isolamento de inquilinos fácil e marca-prova</li></ul><ul><li>Um modelo de programação de base de dados centrada simplificado</li></ul><ul><li>O potencial de ampliar sem atingir um limite rígido</li></ul>**Único bases de dados**: para os clientes a desenvolver novas aplicações que não sejam SaaS multi-inquilino, cuja carga de trabalho é estáveis e previsíveis, propor a bases de dados individuais. Benefícios deste modelo são:<ul><li>Um modelo de programação de base de dados centrada simplificado</li></ul>  <ul><li>Desempenho previsível para cada base de dados</li></ul>|
 |SQL IaaS |Para os clientes que necessitam personalizar o sistema operativo ou o servidor de base de dados, bem como os clientes ter requisitos específicos em termos de aplicações em execução por terceiros pelo lado com o SQL Server (na mesma VM), propor VMs de SQL / IaaS como a solução ideal|
 |||
 
