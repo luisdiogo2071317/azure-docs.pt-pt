@@ -1,8 +1,8 @@
 ---
 title: Tutorial - gerir os custos com o Azure Cost Management | Microsoft Docs
-description: "Neste tutorial, saiba com efetuar a gestão dos custos com relatórios de alocação, análise de custos e estorno."
+description: Neste tutorial, saiba com efetuar a gestão dos custos com relatórios de alocação, análise de custos e estorno.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 238964540bffaf8d05148c587462256ce20d87f4
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Tutorial: gerir os custos através do Azure Cost Management
 
-Pode gerir os custos e produzir relatórios de análise de custos no Azure Cost Management by Cloudyn ao alocar os custos com base em etiquetas. O processo de alocação de custos atribui os custos aos recursos de cloud consumidos. Os custos estão totalmente alocados quando todos os recursos estiverem categorizados com etiquetas. Após a alocação dos custos, pode fornecer análise de custos ou estorno aos seus utilizadores através de dashboards e relatórios. No entanto, muitos recursos podem não estar marcados quando começar a utilizar o Cost Management.
+Pode gerir os custos e produzir relatórios de análise de custos no Azure Cost Management ao alocar os custos com base em etiquetas. O processo de alocação de custos atribui os custos aos recursos de cloud consumidos. Os custos estão totalmente alocados quando todos os recursos estiverem categorizados com etiquetas. Após a alocação dos custos, pode fornecer análise de custos ou estorno aos seus utilizadores através de dashboards e relatórios. No entanto, muitos recursos podem não estar marcados quando começar a utilizar o Cost Management.
 
 Por exemplo, pode querer ser reembolsado relativamente aos custos de engenharia. Tem de conseguir mostrar à sua equipa de engenharia que precisa de um montante específico, com base nos custos de recursos. Pode mostrar-lhes um relatório para todos os recursos consumidos marcados como *engenharia*.
 

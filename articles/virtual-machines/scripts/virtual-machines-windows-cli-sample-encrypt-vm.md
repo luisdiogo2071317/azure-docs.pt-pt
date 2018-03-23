@@ -1,13 +1,13 @@
 ---
-title: CLI do Azure Script de exemplo - encriptar uma VM do Windows | Microsoft Docs
-description: CLI do Azure Script de exemplo - encriptar uma VM do Windows
+title: Exemplo do Script da CLI do Azure – Encriptar uma VM do Windows | Microsoft Docs
+description: Exemplo do Script da CLI do Azure – Encriptar uma VM do Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: azurecli
 ms.topic: sample
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 7e1e9a69d226b03e6722c2d19b7a091cfe4e71c7
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 9d7b2b0c731c5fc820fe649394a13ee586e47606
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="encrypt-a-windows-virtual-machine-in-azure"></a>Encriptar uma máquina virtual do Windows no Azure
 
-Este script cria um cofre de chaves segura do Azure, as chaves de encriptação, principal de serviço do Azure Active Directory e uma máquina virtual (VM) do Windows. A VM é então encriptada com a chave de encriptação do Cofre de chaves e as credenciais de principal de serviço.
+Este script cria um Azure Key Vault seguro, as chaves de encriptação, o principal do serviço Azure Active Directory e uma máquina virtual (VM) do Windows. A VM é encriptada com a chave de encriptação a partir do Key Vault e das credenciais do principal do serviço.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -41,24 +41,24 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, o Cofre de chaves do Azure, o principal de serviço, a máquina virtual e todos os recursos relacionados. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, o Azure Key Vault, o principal do serviço, uma máquina virtual e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Criar grupo AZ](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
-| [Criar AZ keyvault](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | Cria um cofre de chaves do Azure para armazenar os dados seguros, tais como chaves de encriptação. |
-| [Criar chave de keyvault AZ](https://docs.microsoft.com/cli/azure/keyvault/key#az_keyvault_key_create) | Cria uma chave de encriptação no Cofre de chaves. |
-| [ad AZ SP2 criar-para-rbac](https://docs.microsoft.com/cli/azure/ad/sp#az_ad_sp_create_for_rbac) | Cria um Azure Active Directory principal de serviço para autenticar e controlar o acesso às chaves de encriptação de forma segura. |
-| [política de conjunto do keyvault AZ](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Define as permissões no Cofre de chaves para conceder o acesso de principal de serviço para as chaves de encriptação. |
-| [Criar AZ vm](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Cria a máquina virtual e liga-o para a placa de rede, a rede virtual, a sub-rede e o NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e credenciais administrativas.  |
-| [Ativar de encriptação de vm AZ](https://docs.microsoft.com/cli/azure/vm/encryption#az_vm_encryption_enable) | Ativa a encriptação numa VM com as credenciais de principal de serviço e a chave de encriptação. |
-| [Mostrar de encriptação de vm AZ](https://docs.microsoft.com/cli/azure/vm/encryption#az_vm_encryption_show) | Mostra o estado do processo de encriptação de VM. |
-| [eliminação do grupo de AZ](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | Cria um Azure Key Vault para armazenar dados seguros, tais como chaves de encriptação. |
+| [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key#az_keyvault_key_create) | Cria uma chave de encriptação no Key Vault. |
+| [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp#az_ad_sp_create_for_rbac) | Cria um principal do serviço Azure Active Directory para autenticar e controlar o acesso às chaves de encriptação de forma segura. |
+| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Define as permissões no Key Vault para conceder ao principal do serviço acesso às chaves de encriptação. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
+| [az vm encryption enable](https://docs.microsoft.com/cli/azure/vm/encryption#az_vm_encryption_enable) | Ativa a encriptação numa VM com as credenciais do principal do serviço e a chave de encriptação. |
+| [az vm encryption show](https://docs.microsoft.com/cli/azure/vm/encryption#az_vm_encryption_show) | Mostra o estado do processo de encriptação da VM. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
-Exemplos de script do CLI de máquina virtual adicional que podem ser encontrados no [documentação do Azure Windows VM](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%windows%2ftoc.json).
+Pode ver exemplos do script da CLI da máquina virtual adicionais na [Documentação da VM Windows do Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%windows%2ftoc.json).

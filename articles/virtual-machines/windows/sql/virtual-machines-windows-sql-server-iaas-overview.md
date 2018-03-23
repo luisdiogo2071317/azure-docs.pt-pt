@@ -1,8 +1,8 @@
 ---
-title: "Descrição Geral do SQL Server em Máquinas Virtuais do Azure do Windows | Microsoft Docs"
-description: "Saiba como executar edições completas do SQL Server em Máquinas Virtuais do Azure."
+title: Descrição Geral do SQL Server em Máquinas Virtuais do Azure do Windows | Microsoft Docs
+description: Saiba como executar edições completas do SQL Server em Máquinas Virtuais do Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
 tags: azure-service-management
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: jroth
-ms.openlocfilehash: 268ae1dae1a247ee63adef22403f89680daa4961
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c5c480db8586db7ef125d5c992ff66f5cc28c1e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server nas Máquinas Virtuais do Azure? (Windows)
 
@@ -51,10 +51,7 @@ As máquinas virtuais do Azure oferecem tamanhos de máquina diferentes para sat
 Para começar a utilizar, escolha uma imagem de máquina virtual do SQL Server com a versão, edição e sistema operativo necessários. As secções seguintes fornecem ligações diretas para o portal do Azure para as imagens da galeria das máquinas virtuais do SQL Server.
 
 > [!TIP]
-> Para compreender os preços da VM e do SQL destas imagens, consulte [Pricing guidance for SQL Server Azure VMs (Documentação de orientação sobre preços das VMs do Azure do SQL Server)](virtual-machines-windows-sql-server-pricing-guidance.md).
-
-> [!TIP]
-> Para compreender a política de atualização e o ciclo de vida para imagens de galeria da máquina virtual do SQL Server, veja as [FAQ de VMs do SQL Server](virtual-machines-windows-sql-server-iaas-faq.md#images).
+> Para obter mais informações sobre como compreender os preços das imagens SQL, veja [Pricing guidance for SQL Server Azure VMs (Documentação de orientação sobre preços das VMs do Azure do SQL Server)](virtual-machines-windows-sql-server-pricing-guidance.md). 
 
 ### <a id="payasyougo"></a> Pay as you go
 A tabela seguinte fornece uma matriz de imagens do SQL Server pay as you go.
@@ -86,6 +83,9 @@ Depois de criar a VM do SQL Server, ligue-se à mesma a partir de aplicações o
 
 ### <a name="migrate-your-data"></a>Migrar os dados
 Se tiver uma base de dados existente, deverá movê-la para a VM do SQL recentemente aprovisionada. Para obter uma lista de opções de migração e orientações, consulte o artigo [Migrar uma Base de Dados para o SQL Server numa VM do Azure](virtual-machines-windows-migrate-sql.md).
+
+## <a id="lifecycle"></a> Política de atualização de imagem de VM do SQL Server
+O Azure mantém apenas uma imagem de máquina virtual para cada sistema operativo suportado, a versão e a combinação de edição. Isto significa que ao longo do tempo as imagens são atualizadas e as imagens mais antigas são removidas. Para obter mais informações, veja a secção **Imagens** das [FAQ de VMs do SQL Server](virtual-machines-windows-sql-server-iaas-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Programa de melhoramento da experiência do cliente (PMEC)
 O Programa de Melhoramento da Experiência do Cliente (PMEC) está ativado por predefinição. Esta ação envia relatórios periodicamente para a Microsoft, para ajudar a melhorar o SQL Server. Não é precisa nenhuma tarefa de gestão com PMEC, a menos que queira desativá-la após o aprovisionamento. Pode personalizar ou desativar o PMEC ligando-se à VM com o ambiente de trabalho remoto. Em seguida, execute o utilitário **Relatórios de Utilização e Erros do SQL Server**. Siga as instruções para desativar os relatórios. Para obter mais informações sobre a recolha de dados, veja a [Declaração de Privacidade do SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx).

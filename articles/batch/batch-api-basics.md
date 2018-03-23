@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral do Azure Batch para programadores | Microsoft Docs"
-description: "Conheça as funcionalidades do serviço Batch e das respetivas APIs de um ponto de vista de programação."
+title: Descrição geral do Azure Batch para programadores | Microsoft Docs
+description: Conheça as funcionalidades do serviço Batch e das respetivas APIs de um ponto de vista de programação.
 services: batch
 documentationcenter: .net
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c53007530fe80f03cefbf138193cfad4b0e8292a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b0a18f975530d2a291e529308ee53d6d48a68e42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -28,7 +28,7 @@ Nesta descrição geral dos componentes principais do serviço Azure Batch, vamo
 Se está a desenvolver uma aplicação computacional distribuída ou um serviço que emite chamadas à [API REST][batch_rest_api] diretas ou a utilizar os [SDKs do Batch](batch-apis-tools.md#azure-accounts-for-batch-development), vai utilizar muitos dos recursos e funcionalidades abordados neste artigo.
 
 > [!TIP]
-> Para obter uma introdução mais detalhada do serviço Batch, veja [Noções básicas do Azure Batch](batch-technical-overview.md).
+> Para obter uma introdução mais detalhada do serviço Batch, veja [Noções básicas do Azure Batch](batch-technical-overview.md). Veja também a versão mais recente das [Atualizações de serviço do Batch](https://azure.microsoft.com/updates/?product=batch).
 >
 >
 

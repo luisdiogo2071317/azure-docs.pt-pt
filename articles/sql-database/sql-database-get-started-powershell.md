@@ -1,26 +1,21 @@
 ---
 title: 'Azure PowerShell: criar uma base de dados SQL | Microsoft Docs'
-description: "Saiba como criar um servidor lógico da Base de Dados SQL, regras de firewall ao nível do servidor e bases de dados no portal do Azure."
+description: Saiba como criar um servidor lógico da Base de Dados SQL, regras de firewall ao nível do servidor e bases de dados no portal do Azure.
 keywords: tutorial de base de dados sql, criar uma base de dados sql
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: quickstart
 ms.date: 04/17/2017
 ms.author: carlrab
-ms.openlocfilehash: 68f7ea0f5255602629a0b0960726c30dd508a655
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6946ab259b6b3f7f911e047731d51f026742fa52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Criar uma única base de dados SQL do Azure com o PowerShell
 
@@ -125,6 +120,6 @@ Agora que tem uma base de dados, pode ligar e consultar com as suas ferramentas 
 - [PHP](sql-database-connect-query-php.md)
 - [Node.js](sql-database-connect-query-nodejs.md)
 - [Java](sql-database-connect-query-java.md)
-- [python](sql-database-connect-query-python.md)
+- [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
 

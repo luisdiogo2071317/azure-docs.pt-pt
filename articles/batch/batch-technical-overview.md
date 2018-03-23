@@ -1,12 +1,12 @@
 ---
 title: O Azure Batch executa grandes trabalhos paralelos na cloud | Microsoft Docs
-description: "Saiba como utilizar o serviço Azure Batch para cargas de trabalho em larga e escala e de HPC"
+description: Saiba como utilizar o serviço Azure Batch para cargas de trabalho em larga e escala e de HPC
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: mscurrell
 manager: jkabat
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-batch"></a>O que é o Azure Batch?
 
@@ -85,7 +85,7 @@ O diagrama seguinte mostra os passos num fluxo de trabalho comum do Batch, com u
 
 Tenha em atenção que esta é apenas uma forma de utilizar o Batch, e este cenário descreve apenas algumas das suas funcionalidades. Por exemplo, pode executar [múltiplas tarefas em paralelo](batch-parallel-node-tasks.md) em cada nó de computação. Ou utilizar [tarefas de preparação e conclusão de trabalhos](batch-job-prep-release.md) para preparar os nós para os trabalhos e limpá-los posteriormente. 
 
-Veja [Descrição geral das funcionalidades do Batch para programadores](batch-api-basics.md) para obter informações mais detalhadas sobre conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch. 
+Veja [Descrição geral das funcionalidades do Batch para programadores](batch-api-basics.md) para obter informações mais detalhadas sobre conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch. Veja também a versão mais recente das [Atualizações de serviço do Batch](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Passos seguintes
 

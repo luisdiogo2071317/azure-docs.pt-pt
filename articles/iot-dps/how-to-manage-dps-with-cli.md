@@ -1,59 +1,59 @@
 ---
-title: "Como utilizar o Azure CLI 2.0 e a extensão de IoT para gerir os serviços de aprovisionamento de dispositivos | Microsoft Docs"
-description: "Saiba como utilizar o Azure CLI 2.0 e a extensão de IoT para gerir os serviços de aprovisionamento de dispositivos"
+title: Como utilizar a CLI 2.0 do Azure e a extensão de IoT para gerir os serviços de aprovisionamento de dispositivos | Microsoft Docs
+description: Saiba como utilizar a CLI 2.0 do Azure e a extensão de IoT para gerir os serviços de aprovisionamento de dispositivos
 services: iot-dps
-keywords: 
+keywords: ''
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 674245f1e284e7308474fed0f6c53b350ec1c819
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: a1224c48537441726c0e01134f6a9256cf3b71c6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>Como utilizar o Azure CLI 2.0 e a extensão de IoT para gerir os serviços de aprovisionamento de dispositivos
+# <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>Como utilizar a CLI 2.0 do Azure e a extensão de IoT para gerir os serviços de aprovisionamento de dispositivos
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) é um open source entre a ferramenta de linha de comandos de plataforma para gerir recursos do Azure, tais como o limite de IoT. Azure CLI 2.0 está disponível no Windows, Linux e MacOS. 2.0 do CLI do Azure permite-lhe gerir recursos, instâncias de serviço aprovisionamento de dispositivos e ligado hubs a Box do IoT Hub do Azure.
+A [CLI 2.0 do Azure](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comandos multiplataformas de código aberto para gerir recursos do Azure, como o IoT Edge. A CLI 2.0 do Azure está disponível para Windows, Linux e MacOS. A CLI 2.0 do Azure permite-lhe gerir recursos, instâncias do serviço de aprovisionamento de dispositivos e hubs ligados do Hub IoT do Azure.
 
-A extensão de IoT otimiza Azure CLI 2.0 com funcionalidades como a gestão de dispositivos e a capacidade total do limite de IoT.
+A extensão de IoT otimiza a CLI 2.0 do Azure com funcionalidades como a gestão de dispositivos e a capacidade completa do IoT Edge.
 
-Neste tutorial, primeiro conclua os passos para configurar o Azure CLI 2.0 e a extensão de IoT. Em seguida, irá aprender a executar os comandos da CLI para efetuar operações de serviço aprovisionamento básica do dispositivo. 
+Neste tutorial, vai concluir primeiro os passos para configurar a CLI 2.0 do Azure e a extensão de IoT. Em seguida, irá aprender a executar os comandos da CLI para efetuar operações básicas do serviço de aprovisionamento de dispositivos. 
 
 ## <a name="installation"></a>Instalação 
 
-### <a name="step-1---install-python"></a>Passo 1 – instalar Python
+### <a name="step-1---install-python"></a>Passo 1 – Instalar o Python
 
-[Python 2.7 x ou Python 3](https://www.python.org/downloads/) é necessária.
+É necessário o [Python 2.7x ou Python 3.x](https://www.python.org/downloads/).
 
-### <a name="step-2---install-azure-cli-20"></a>Passo 2 - instalar a CLI do Azure 2.0
+### <a name="step-2---install-azure-cli-20"></a>Passo 2 – Instalar a CLI 2.0 do Azure
 
-Siga o [instruções de instalação](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) ao configurar o Azure CLI 2.0 no seu ambiente. No mínimo, a versão 2.0 do Azure CLI tem de ser 2.0.24 ou superior. Utilize `az –version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comando Knack. Uma forma simples de instalar o Windows é para transferir e instalar o [MSI](https://aka.ms/InstallAzureCliWindows).
+Siga as [instruções de instalação](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) para configurar a CLI 2.0 do Azure no seu ambiente. A versão mínima da CLI 2.0 do Azure tem de ser 2.0.24 ou superior. Utilize `az –version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack. Uma forma simples de instalar no Windows é transferir e instalar o [MSI](https://aka.ms/InstallAzureCliWindows).
 
-### <a name="step-3---install-iot-extension"></a>Passo 3 - extensão de instalação IoT
+### <a name="step-3---install-iot-extension"></a>Passo 3 – Instalar a extensão de IoT
 
-[A extensão de IoT ficheiro Leia-me](https://github.com/Azure/azure-iot-cli-extension) descreve várias formas de instalar a extensão. A forma mais simples consiste em executar `az extension add --name azure-cli-iot-ext`. Após a instalação, pode utilizar `az extension list` para validar as extensões atualmente instaladas ou `az extension show --name azure-cli-iot-ext` para ver detalhes sobre a extensão de IoT. Para remover a extensão, pode utilizar `az extension remove --name azure-cli-iot-ext`.
-
-
-## <a name="basic-device-provisioning-service-operations"></a>Básicas de operações do serviço de aprovisionamento de dispositivos
-O exemplo mostra como iniciar sessão na sua conta do Azure, crie um grupo de recursos do Azure (um contentor que retém recursos relacionados para uma solução do Azure), criar um IoT Hub, criar um dispositivo de aprovisionamento servie, listar os serviços de aprovisionamento de dispositivos existente e Crie um IoT hub ligado com comandos da CLI. 
-
-Conclua os passos de instalação descritos anteriormente antes de começar. Se não tiver uma conta do Azure ainda, pode [criar uma conta gratuita](https://azure.microsoft.com/free/?v=17.39a) hoje. 
+[O ficheiro Leia-me da extensão de IoT](https://github.com/Azure/azure-iot-cli-extension) descreve várias formas de instalar a extensão. A forma mais simples consiste em executar `az extension add --name azure-cli-iot-ext`. Após a instalação, pode utilizar `az extension list` para validar as extensões atualmente instaladas ou `az extension show --name azure-cli-iot-ext` para ver detalhes sobre a extensão de IoT. Para remover a extensão, pode utilizar `az extension remove --name azure-cli-iot-ext`.
 
 
-### <a name="1-log-in-to-the-azure-account"></a>1. Inicie sessão para a conta do Azure
+## <a name="basic-device-provisioning-service-operations"></a>Operação básicas do serviço de aprovisionamento de dispositivos
+O exemplo mostra como iniciar sessão na sua conta do Azure, criar um Grupo de Recursos do Azure (um contentor com os recursos relacionados para uma solução do Azure), criar um Hub IoT, criar um serviço de aprovisionamento de dispositivos, listar os serviços de aprovisionamento de dispositivos existentes e criar um hub IoT ligado com comandos da CLI. 
+
+Conclua os passos de instalação descritos anteriormente antes de começar. Se ainda não tiver uma conta do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free/?v=17.39a) hoje mesmo. 
+
+
+### <a name="1-log-in-to-the-azure-account"></a>1. Iniciar sessão na conta do Azure
   
     az login
 
 ![início de sessão][1]
 
-### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. Criar um grupo de recursos IoTHubBlogDemo no eastus
+### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. Criar um grupo de recursos IoTHubBlogDemo em eastus
 
     az group create -l eastus -n IoTHubBlogDemo
 
@@ -64,28 +64,28 @@ Conclua os passos de instalação descritos anteriormente antes de começar. Se 
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps
 
-![Criar DPS][3]
+![Criar o DPS][3]
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps2
 
-### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. Listar todos os dispositivos de existente serviços sob este grupo de recursos de aprovisionamento
+### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. Listar todos os serviços de aprovisionamento de dispositivos existentes neste grupo de recursos
 
     az iot dps list --resource-group IoTHubBlogDemo
 
-![Lista DPS][4]
+![Listar o DPS][4]
 
 
-### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. Criar um blogDemoHub do IoT Hub sob o grupo de recursos criado de novo
+### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. Criar um blogDemoHub do Hub IoT no grupo de recursos recém-criado
 
     az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
 
-![Criar o IoT Hub][5]
+![Criar o Hub IoT][5]
 
-### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. Associar um IoT Hub existente para um dispositivo de serviço de fornecimento
+### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. Ligar um Hub IoT existente a um serviço de aprovisionamento de dispositivos
 
     az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
 
-![Hub de ligação][5]
+![Ligar o Hub][5]
 
 <!-- Images -->
 [1]: ./media/how-to-manage-dps-with-cli/login.jpg
@@ -102,9 +102,9 @@ Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Inscrever o dispositivo
 > * Iniciar o dispositivo
-> * Certifique-se de que o dispositivo está registado
+> * Verificar se o dispositivo está registado
 
-Avançar para o próximo tutorial para saber como aprovisionar vários dispositivos em hubs com balanceamento de carga. 
+Avance para o próximo tutorial para saber como aprovisionar vários dispositivos em hubs com balanceamento de carga. 
 
 > [!div class="nextstepaction"]
-> [Aprovisionar dispositivos entre os hubs IoT do balanceamento de carga](./tutorial-provision-multiple-hubs.md)
+> [Aprovisionar dispositivos em vários hubs IoT com balanceamento de carga](./tutorial-provision-multiple-hubs.md)

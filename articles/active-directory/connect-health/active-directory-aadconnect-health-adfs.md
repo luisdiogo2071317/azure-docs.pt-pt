@@ -1,8 +1,8 @@
 ---
-title: "Utilizar o Azure AD Connect Health com o AD FS | Microsoft Docs"
-description: "Esta é a página do Azure AD Connect Health acerca de como monitorizar a infraestrutura do AD FS no local."
+title: Utilizar o Azure AD Connect Health com o AD FS | Microsoft Docs
+description: Esta é a página do Azure AD Connect Health acerca de como monitorizar a infraestrutura do AD FS no local.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorizar o AD FS utilizando o Azure AD Connect Health
 A seguinte documentação é específica para monitorizar a infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre a monitorização do Azure AD Connect (Sincronização) com o Azure AD Connect Health, consulte [Utilizar Azure AD Connect Health para Sincronização](active-directory-aadconnect-health-sync.md). Além disso, para obter informações sobre a monitorização dos Serviços de Domínio do Active Directory com o Azure AD Connect Health, consulte [Utilizar Azure AD Connect Health com AD DS](active-directory-aadconnect-health-adds.md).
@@ -115,9 +115,12 @@ O relatório disponibiliza as seguintes informações:
 | IP da Última Falha |Mostra o endereço IP do Cliente no pedido incorreto mais recente. |
 
 > [!NOTE]
-> Este relatório é atualizado automaticamente a cada 12 horas com novas informações recolhidas nesse período de tempo. Sendo assim, as tentativas de início de sessão nas últimas duas horas poderão não estar incluídas no relatório.
+> Este relatório é atualizado automaticamente a cada 12 horas com novas informações recolhidas nesse período de tempo. Sendo assim, as tentativas de início de sessão nas últimas 12 horas poderão não estar incluídas no relatório.
 >
 >
+
+### <a name="risky-ip-report"></a>Relatório de IP Duvidoso 
+Pré-visualização em breve.
 
 ## <a name="related-links"></a>Ligações relacionadas
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

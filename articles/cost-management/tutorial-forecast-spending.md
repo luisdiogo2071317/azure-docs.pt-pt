@@ -1,8 +1,8 @@
 ---
 title: Tutorial - prever despesas do Azure Cost Management | Microsoft Docs
-description: "Neste tutorial, saiba como prever gastos através do histórico de dados de utilização e gastos."
+description: Neste tutorial, saiba como prever gastos através do histórico de dados de utilização e gastos.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 35142cb40560db848c71da266bbaa1881f12e15d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 20046d8bb475ddce8962915e5bd8215117261ac6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-forecast-future-spending"></a>Tutorial: prever despesas futuras
 
-O Azure Cost Management pelo Cloudyn ajuda a prever futuros gastos, através do histórico dos dados de utilização e gastos. Utilize relatórios do Cloudyn para ver todos os dados de projeção de custo. Os exemplos neste tutorial explicam como rever projeções de custo através dos relatórios. Neste tutorial, ficará a saber como:
+O Azure Cost Management ajuda a prever futuros gastos, através do histórico dos dados de utilização e gastos. Utilize relatórios do Cloudyn para ver todos os dados de projeção de custo. Os exemplos neste tutorial explicam como rever projeções de custo através dos relatórios. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Prever despesas futuras

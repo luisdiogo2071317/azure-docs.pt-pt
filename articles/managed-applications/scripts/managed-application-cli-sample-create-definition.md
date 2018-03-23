@@ -1,6 +1,6 @@
 ---
-title: "Script CLI do Azure de exemplo - criar uma definição de aplicações geridas | Microsoft Docs"
-description: "Script CLI do Azure de exemplo - criar uma definição de aplicações geridas"
+title: Exemplo do script da CLI do Azure - Criar uma definição da aplicação gerida | Microsoft Docs
+description: Exemplo do script da CLI do Azure - Criar uma definição da aplicação gerida
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6cfc51e5787ad6ab100638d0965b69232cda070a
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: MT
+ms.openlocfilehash: 430cadf0cc609ab3473b14115b2956553a677a26
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="create-a-managed-application-definition-with-azure-cli"></a>Criar uma definição de aplicações geridas com a CLI do Azure
+# <a name="create-a-managed-application-definition-with-azure-cli"></a>Criar uma definição da aplicação gerida com a CLI do Azure
 
-Este script publica uma definição de aplicação gerida para um catálogo de serviço. 
+Este script publica uma definição da aplicação gerida num catálogo de serviço. 
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -32,16 +32,16 @@ Este script publica uma definição de aplicação gerida para um catálogo de s
 [!code-azurecli[main](../../../cli_scripts/managed-applications/create-definition/create-definition.sh "Create definition")]
 
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza o seguinte comando para criar a definição de aplicações geridas. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza o seguinte comando para criar a definição da aplicação gerida. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [criar a definição de managedapp AZ](https://docs.microsoft.com/cli/azure/managedapp/definition#az_managedapp_definition_create) | Crie uma definição de aplicações geridas. Forneça o pacote que contém os ficheiros necessários. |
+| [az managedapp definition create](https://docs.microsoft.com/cli/azure/managedapp/definition#az_managedapp_definition_create) | Criar uma definição da aplicação gerida. Forneça o pacote que contém os ficheiros necessários. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução para aplicações geridas, consulte [descrição geral do Azure gerida aplicações](../overview.md).
-* Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+* Para obter uma introdução às aplicações geridas, veja [Descrição geral da Aplicação Gerida do Azure](../overview.md).
+* Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).

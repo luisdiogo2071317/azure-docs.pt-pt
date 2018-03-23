@@ -1,11 +1,11 @@
 ---
-title: "Gerir áreas de trabalho no Azure Log Analytics | Microsoft Docs"
-description: "Pode gerir áreas de trabalho no Azure Log Analytics com várias tarefas administrativas em utilizadores, contas, áreas de trabalho e contas do Azure."
+title: Gerir áreas de trabalho no Azure Log Analytics | Microsoft Docs
+description: Pode gerir áreas de trabalho no Azure Log Analytics com várias tarefas administrativas em utilizadores, contas, áreas de trabalho e contas do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6caa0c8769ea6e62a22659089f37f74f6962e1c7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-workspaces"></a>Gerir áreas de trabalho
 
@@ -246,7 +246,7 @@ Utilize os passos seguintes para remover um utilizador de uma área de trabalho.
 4. Selecione o grupo nos resultados da lista e, em seguida, clique em **Adicionar**.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Ligar uma área de trabalho existente a uma subscrição do Azure
-Todas as áreas de trabalho criadas depois de 26 de setembro de 2016 têm de ser associadas a uma subscrição do Azure no momento da criação. As áreas de trabalho criadas antes desta data têm de ser associadas a uma área de trabalho quando iniciar sessão. Ao criar a área de trabalho a partir do portal do Azure ou ao ligar a sua área de trabalho a uma subscrição do Azure, o Azure Active Directory é ligado como a sua conta da organização.
+Todas as áreas de trabalho criadas depois de 26 de setembro de 2016 têm de ser associadas a uma subscrição do Azure no momento da criação. As áreas de trabalho criadas antes desta data têm de ser associadas a uma subscrição quando iniciar sessão. Ao criar a área de trabalho a partir do portal do Azure ou ao ligar a sua área de trabalho a uma subscrição do Azure, o Azure Active Directory é ligado como a sua conta da organização.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Para ligar uma área de trabalho a uma subscrição do Azure no portal do OMS
 

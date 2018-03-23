@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7c384f07ec6b71596dcdbc5b7214fa7ce65d0b7d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 23281067021dd6e4b8959fe73f3c8a11a651d9d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -35,7 +35,7 @@ As vantagens da utilização do peering de redes virtuais incluem:
 
 ## <a name="requirements-constraints"></a>Requisitos e limitações
 
-* O peering de redes virtuais na mesma região encontra-se em disponibilidade geral. Peering de redes virtuais em diferentes regiões está atualmente em pré-visualização nos E.U.A. Centro-Oeste, Canadá Central, E.U.A. Oeste 2, Coreia do Sul, Sul do Reino Unido, Oeste do Reino Unido, Canadá Leste, Sul da Índia, Índia Central e Índia Ocidental. Antes de fazer o peering de redes virtuais em diferentes regiões, tem de, primeiro, [registar a sua subscrição](virtual-network-create-peering.md#register) na pré-visualização. A tentativa de criar o peering entre redes virtuais em diferentes regiões falha se não tiver concluído o registo na pré-visualização.
+* O peering de redes virtuais na mesma região encontra-se em disponibilidade geral. Peering de redes virtuais em diferentes regiões está atualmente em pré-visualização nos E.U.A. Centro-Oeste, Canadá Central, E.U.A. Oeste 2, Coreia do Sul, Sul do Reino Unido, Oeste do Reino Unido, Canadá Leste, Sul da Índia, Índia Central e Índia Ocidental. Antes de fazer o peering de redes virtuais em diferentes regiões, tem de, primeiro, [registar a sua subscrição](tutorial-connect-virtual-networks-powershell.md#register) na pré-visualização. A tentativa de criar o peering entre redes virtuais em diferentes regiões falha se não tiver concluído o registo na pré-visualização.
     > [!WARNING]
     > Os peerings de redes virtuais criados entre regiões podem não ter o mesmo nível de disponibilidade e fiabilidade do que os peerings numa versão de disponibilidade geral. Os peerings de redes virtuais podem ter capacidades restringidas e não estar disponíveis em todas as regiões do Azure. Para obter as notificações mais atualizadas sobre a disponibilidade e o estado desta funcionalidade, veja a página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -126,7 +126,7 @@ Existe uma cobrança nominal para o tráfego de entrada e de saída que utilize 
 
     |Modelo de implementação do Azure  | Subscrição  |
     |---------|---------|
-    |Ambas com Resource Manager |[Mesma](virtual-network-create-peering.md)|
+    |Ambas com Resource Manager |[Mesma](tutorial-connect-virtual-networks-portal.md)|
     | |[Diferente](create-peering-different-subscriptions.md)|
     |Uma com Resource Manager, outra com clássica     |[Mesma](create-peering-different-deployment-models.md)|
     | |[Diferente](create-peering-different-deployment-models-subscriptions.md)|

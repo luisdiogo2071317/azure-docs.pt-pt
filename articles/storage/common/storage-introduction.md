@@ -1,24 +1,18 @@
 ---
-title: "Introdução ao Azure Storage | Microsoft Docs"
-description: "Introdução ao Armazenamento do Azure, o armazenamento de dados da Microsoft na cloud."
+title: Introdução ao Azure Storage | Microsoft Docs
+description: Introdução ao Armazenamento do Azure, o armazenamento de dados da Microsoft na cloud.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/21/2018
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introdução ao Storage do Microsoft Azure
 
@@ -137,7 +131,7 @@ Estão disponíveis dois tipos básicos de encriptação para os serviços de Ar
 
 A Encriptação do Serviço de Armazenamento do Azure (SEE) ajuda a proteger e salvaguardar os seus dados para cumprir as obrigações de conformidade e segurança da sua organização. Com esta funcionalidade, o Armazenamento do Azure encripta automaticamente os dados antes de continuar a armazenar e desencriptar antes da obtenção. A encriptação, a desencriptação e a gestão de chaves são completamente transparentes para os utilizadores.
 
-Pode ativar a Encriptação de Serviço de Armazenamento (SSE) para o Armazenamento de blobs ou para os Ficheiros do Azure (pré-visualização). Se estiver ativada, todos os dados escritos no serviço específico são encriptados antes de serem escritos. Quando ler os dados, estes são desencriptados antes de serem devolvidos.
+O SSE encripta automaticamente dados em todos os escalões de desempenho (Standard e Premium), todos os modelos de implementação (Azure Resource Manager e Clássico) e todos os serviços de Armazenamento do Azure (Blob, Fila, Tabela e Ficheiro). O SSE não afeta o desempenho do Armazenamento do Azure.
 
 Para obter mais informações sobre a encriptação de SSE inativa, veja [Encriptação do Serviço de Armazenamento do Azure para Dados Inativos](storage-service-encryption.md).
 

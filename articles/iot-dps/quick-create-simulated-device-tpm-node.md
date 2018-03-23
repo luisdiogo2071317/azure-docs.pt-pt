@@ -1,22 +1,22 @@
 ---
 title: Aprovisionar um dispositivo TPM simulado no Hub IoT do Azure com Node.js | Microsoft Docs
-description: "Início Rápido do Azure - Criar e aprovisionar um dispositivo TPM simulado com o SDK de dispositivo Node.js para o Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure"
+description: Início Rápido do Azure - Criar e aprovisionar um dispositivo TPM simulado com o SDK de dispositivo Node.js para o Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 03/01/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3cc667286e9c643f31d9c704a8a2dfac18312bb3
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ade9eca4b16e4864ec4e9d7bc6977c1e8322daa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo TPM simulado com o SDK de dispositivo Node.js para o Serviço de Aprovisionamento de Dispositivos no Hub IoT
 
@@ -62,7 +62,7 @@ Certifique-se de que concluir os passos em [Set up IoT Hub Device Provisioning S
     ```
 
     > [!NOTE]
-    > Existem alguns problemas conhecidos na instalação dos pacotes acima indicados. Para os resolver, execute `npm install --global --production windows-build-tools` com uma linha de comandos no modo **Executar como administrador**, execute `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` depois de substituir o caminho pela versão instalada e, em seguida, volte a executar os comandos de instalação acima indicados.
+    > Existem alguns problemas conhecidos na instalação dos pacotes acima indicados. Para os resolver estes problemas, execute `npm install --global --production windows-build-tools` com uma linha de comandos no modo **Executar como administrador**, execute `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` depois de substituir o caminho pela versão instalada e, em seguida, volte a executar os comandos de instalação acima indicados.
     >
 
 1. Instale os seguintes pacotes que contêm os componentes utilizados durante o registo:
@@ -81,7 +81,7 @@ Certifique-se de que concluir os passos em [Set up IoT Hub Device Provisioning S
     > Os exemplos abaixo utilizam os transportes `azure-iot-provisioning-device-http` e `azure-iot-device-mqtt`.
     > 
 
-    Pode instalar todos estes itens em simultâneo com a execução do seguinte comando na sua linha de comandos na pasta **registereddevice**:
+    Pode instalar todos estes pacotes em simultâneo com a execução do seguinte comando na sua linha de comandos na pasta **registerdevice**:
 
         ```cmd/sh
         npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device

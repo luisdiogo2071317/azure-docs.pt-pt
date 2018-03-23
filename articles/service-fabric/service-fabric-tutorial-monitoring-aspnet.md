@@ -1,12 +1,12 @@
 ---
-title: "Monitorização e Diagnóstico para os serviços do ASP.NET Core no Azure Service Fabric | Microsoft Docs"
-description: "Neste tutorial, saiba como configurar a monitorização e diagnóstico para a aplicação ASP.NET Core do Azure Service Fabric."
+title: Monitorização e Diagnóstico para os serviços do ASP.NET Core no Azure Service Fabric | Microsoft Docs
+description: Neste tutorial, saiba como configurar a monitorização e diagnóstico para a aplicação ASP.NET Core do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 26cca3604faa46e7398b24a2e8c25a6ad9650c18
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0f51b52d9f4d5c8979ba636311e63089c11cd114
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Tutorial: monitorizar e diagnosticar uma aplicação ASP.NET Core no Service Fabric
 Este tutorial é a quarta parte de uma série. Aborda os passos para configurar a monitorização e diagnóstico para uma aplicação ASP.NET Core em execução num cluster de Service Fabric com o Application Insights. Iremos recolher telemetria da aplicação desenvolvida na primeira parte do tutorial [Criar uma aplicação .NET do Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
@@ -104,15 +104,16 @@ Eis os passos para configurar o NuGet:
     Deste modo, irá adicionar o *Contexto do Serviço* à sua telemetria, permitindo-lhe compreender melhor a origem da sua telemetria no Application Insights. A declaração *devolver* aninhada no *VotingWeb.cs* deve ter este aspeto:
     
     ```csharp
-    return new WebHostBuilder().UseWebListener()
+    return new WebHostBuilder()
+        .UseKestrel()
         .ConfigureServices(
             services => services
+                .AddSingleton<HttpClient>(new HttpClient())
+                .AddSingleton<FabricClient>(new FabricClient())
                 .AddSingleton<StatelessServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
-                .AddSingleton<HttpClient>())
+                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
-        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
@@ -126,8 +127,8 @@ Eis os passos para configurar o NuGet:
         .ConfigureServices(
             services => services
                 .AddSingleton<StatefulServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
-                .AddSingleton<IReliableStateManager>(this.StateManager))
+                .AddSingleton<IReliableStateManager>(this.StateManager)
+                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
         .UseApplicationInsights()
@@ -233,6 +234,6 @@ Neste tutorial, ficou a saber como:
 > * Adicionar eventos personalizados através da API do Application Insights
 
 Agora que concluiu a configuração da monitorização e diagnóstico para a sua aplicação ASP.NET, experimente o seguinte:
-- [Explorar a monitorização e diagnóstico no Service Fabric](service-fabric-diagnostics-overview.md)
+- [Explorar profundamente a monitorização e diagnóstico no Service Fabric](service-fabric-diagnostics-overview.md)
 - [Análise de eventos do Service Fabric com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 - Para saber mais sobre o Application Insights, veja a [Documentação do Application Insights](https://docs.microsoft.com/azure/application-insights/)

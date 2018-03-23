@@ -1,11 +1,11 @@
 ---
-title: "Introdução à entrega de conteúdo a pedido com o .NET | Microsoft Docs"
-description: "Este tutorial vai ajudá-lo a implementar uma aplicação de distribuição de conteúdos a pedido com os Media Services do Azure utilizando o .NET."
+title: Introdução à entrega de conteúdo a pedido com o .NET | Microsoft Docs
+description: Este tutorial vai ajudá-lo a implementar uma aplicação de distribuição de conteúdos a pedido com os Media Services do Azure utilizando o .NET.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: f88a9a732099f2bd63f46d3f45e5ff96f7441f03
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 48824929ee3fc01952fb6525c514a2cdbb265c9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introdução à distribuição de conteúdos a pedido utilizando o SDK do .NET
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -236,7 +236,7 @@ Adicione o seguinte método à classe Program.
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publicar o elemento e obter os URLs para transmissão em fluxo e transferência progressiva
 
-Para transmitir ou transferir um elemento, primeiro tem de o "publicar" através da criação de um localizador. Os localizadores fornecem acesso aos ficheiros contidos no elemento. Os Serviços de Multimédia suportam dois tipos de localizadores: localizadores OnDemandOrigin, utilizados para transmitir multimédia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e localizadores de Assinatura de Acesso (SAS), utilizados para transferir ficheiros de multimédia (para obter mais informações sobre os localizadores de SAD, veja [este](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blogue).
+Para transmitir ou transferir um elemento, primeiro tem de o "publicar" através da criação de um localizador. Os localizadores fornecem acesso aos ficheiros contidos no elemento. Os Media Services suportam dois tipos de localizadores: localizadores OnDemandOrigin, utilizados para transmitir multimédia (por exemplo, MPEG DASH, HLS ou Transmissão em Fluxo Uniforme) e localizadores de Assinatura de Acesso (SAS), utilizados para transferir ficheiros de multimédia.
 
 ### <a name="some-details-about-url-formats"></a>Alguns detalhes sobre os formatos de URL
 

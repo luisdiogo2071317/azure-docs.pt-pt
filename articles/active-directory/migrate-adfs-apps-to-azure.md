@@ -1,6 +1,6 @@
 ---
-title: "Migrar aplicações no local do AD FS para o Azure. | Microsoft Docs"
-description: "Este documento destina-se a ajudar as organizações a compreender como migrar as aplicações no local para o Azure AD, com especial destaque para as aplicações SaaS federadas."
+title: Migrar aplicações no local do AD FS para o Azure. | Microsoft Docs
+description: Este documento destina-se a ajudar as organizações a compreender como migrar as aplicações no local para o Azure AD, com especial destaque para as aplicações SaaS federadas.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -9,13 +9,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/29/2018
+ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: ec0731534da2543d48bedc575bf882b790fa136b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f1256e2fefe1ad3d37403f37804888ab9dcf6e99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrar aplicações no local do AD FS para o Azure 
 
@@ -115,11 +115,11 @@ A tabela descreve com maior detalhe os principais elementos de configuração do
 
 |Elemento de configuração|Descrição|AD FS|Azure AD|
 |---|---|---|---|
-|URL de </br>início de sessão </br>do IdP|URL de início de sessão do IdP na perspetiva da aplicação (para onde o utilizador é redirecionado para iniciar sessão).|O URL de início de sessão do AD FS é o nome do serviço de federação do AD FS seguido de “/adfs/ls/”, como, por exemplo, https&#58;//fs.contoso.com/adfs/ls/|O valor correspondente para o Azure AD segue o padrão, em que {tenant-id} é substituído pelo ID de inquilino, que se encontra no portal do Azure em Azure Active Directory -> Propriedades como o "ID do Diretório".</br></br>Para as aplicações que utilizam o protocolo SAML-P: https&#58;//login.microsoftonline.com</br>/{tenant-id}/saml2 </br></br>Para as aplicações que utilizam o protocolo WS-Federation https&#58;//login.microsoftonline.com</br>/{tenant-id}/wsfed|
+|Metadados </br>início de sessão </br>do IdP|URL de início de sessão do IdP na perspetiva da aplicação (para onde o utilizador é redirecionado para iniciar sessão).|O URL de início de sessão do AD FS é o nome do serviço de federação do AD FS seguido de “/adfs/ls/”, como, por exemplo, https&#58;//fs.contoso.com/adfs/ls/|O valor correspondente para o Azure AD segue o padrão, em que {tenant-id} é substituído pelo ID de inquilino, que se encontra no portal do Azure em Azure Active Directory -> Propriedades como o "ID do Diretório".</br></br>Para as aplicações que utilizam o protocolo SAML-P: https&#58;//login.microsoftonline.com</br>/{tenant-id}/saml2 </br></br>Para as aplicações que utilizam o protocolo WS-Federation https&#58;//login.microsoftonline.com</br>/{tenant-id}/wsfed|
 |URL de </br>fim de sessão </br>do IdP|URL de fim de sessão do IdP na perspetiva da aplicação (para onde o utilizador é redirecionado quando escolhe “terminar sessão” na aplicação).|No AD FS, o URL de fim de sessão é igual ao URL de início de sessão ou é o mesmo URL com “wa=wsignout1.0” anexado, como, por exemplo, https&#58;//fs.contoso.com/adfs/ls /?wa=wsignout1.0|O valor correspondente para o Azure AD depende de a aplicação ter suporte para o fim de sessão SAML 2.0.</br></br>Se a aplicação suportar o fim de sessão SAML, o valor segue o padrão, em que o valor de {tenant-id} é substituído pelo ID do inquilino, que se encontra no portal do Azure em Azure Active Directory > Propriedades como o “ID do Diretório”. https&#58;//login.microsoftonline.com</br>/{tenant-id}/saml2</br></br>Se a aplicação não suportar o fim de sessão SAML: https&#58;//login.microsoftonline.com</br>/common /wsfederation?wa=wsignout1.0|
-|Certificado de </br>Assinatura de </br>Tokens|O certificado cuja chave privada é utilizada pelo IdP para assinar tokens emitidos.  Verifica se o token provém do mesmo IdP para o qual a aplicação está configurada para confiar.|O certificado de assinatura de tokens do AD FS encontra-se em Gestão do AD FS, em Certificados.|No Azure AD, o certificado de assinatura de tokens pode ser encontrado no portal do Azure, nas Propriedades de Início de Sessão Único da aplicação, no cabeçalho Certificado de Assinatura SAML, onde pode transferir o certificado para carregamento para a aplicação.</br></br>  Se a aplicação tiver mais de um certificado, todos os certificados estão disponíveis no ficheiro xml dos metadados de federação.|
+|Certificado de </br>Assinatura de </br>Certificado|O certificado cuja chave privada é utilizada pelo IdP para assinar tokens emitidos.  Verifica se o token provém do mesmo IdP para o qual a aplicação está configurada para confiar.|O certificado de assinatura de tokens do AD FS encontra-se em Gestão do AD FS, em Certificados.|No Azure AD, o certificado de assinatura de tokens pode ser encontrado no portal do Azure, nas Propriedades de Início de Sessão Único da aplicação, no cabeçalho Certificado de Assinatura SAML, onde pode transferir o certificado para carregamento para a aplicação.</br></br>  Se a aplicação tiver mais de um certificado, todos os certificados estão disponíveis no ficheiro xml dos metadados de federação.|
 |Identificador / </br>“Emissor”|Identificador do IdP na perspetiva da aplicação (por vezes, denominado “Emissor” ou “ID do Emissor”)</br></br>No token SAML, o valor aparece como o elemento “Emissor”|Geralmente, o identificador no AD FS é o identificador do serviço de federação na Gestão do AD FS, em Serviço -> Editar Propriedades do Serviço de Federação.  Por exemplo: http&#58;//fs.contoso.com/adfs/services/trust|O valor correspondente para o Azure AD segue o padrão, em que o valor de {tenant-id} é substituído pelo ID de inquilino, que se encontra no portal do Azure em Azure Active Directory -> Propriedades como o "ID do Diretório".  https&#58;//sts.windows.net/{tenant-id}/|
-|Metadados </br>de Federação </br>do IdP|Localização dos metadados de federação publicamente disponíveis do IdP.  (algumas aplicações utilizam os metadados de federação como alternativa à configuração individual, por parte do administrador, de URLs, do identificador e do certificado de assinatura de tokens)|O URL dos metadados de federação do AD FS encontram-se na Gestão do AD FS, em Serviço -> Pontos Finais -> Metadados -> Tipo: Metadados de Federação, como, por exemplo, https&#58;//fs.contoso.com/ FederationMetadata/2007-06/</br>FederationMetadata.xml|O valor correspondente do Azure AD segue o padrão https&#58;//login.microsoftonline.com</br>/{TenantDomainName}/FederationMetadata/2007-06/</br>FederationMetadata.xml, em que o valor de {TenantDomainName} é substituído pelo nome do seu inquilino no formato “contoso.onmicrosoft.com” </br></br>[Mais informações](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata) sobre os metadados de federação no Azure AD.
+|Metadados </br>de Federação </br>Metadados|Localização dos metadados de federação publicamente disponíveis do IdP.  (algumas aplicações utilizam os metadados de federação como alternativa à configuração individual, por parte do administrador, de URLs, do identificador e do certificado de assinatura de tokens)|O URL dos metadados de federação do AD FS encontram-se na Gestão do AD FS, em Serviço -> Pontos Finais -> Metadados -> Tipo: Metadados de Federação, como, por exemplo, https&#58;//fs.contoso.com/ FederationMetadata/2007-06/</br>FederationMetadata.xml|O valor correspondente do Azure AD segue o padrão https&#58;//login.microsoftonline.com</br>/{TenantDomainName}/FederationMetadata/2007-06/</br>FederationMetadata.xml, em que o valor de {TenantDomainName} é substituído pelo nome do seu inquilino no formato “contoso.onmicrosoft.com” </br></br>[Mais informações](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata) sobre os metadados de federação no Azure AD.
 
 ## <a name="migrating-saas-apps"></a>Migrar aplicações SaaS
 Atualmente, a migração de aplicações SaaS do AD FS ou de outros fornecedores de identidade para o Azure AD é um processo manual. Para obter orientações para aplicações específicas, [veja a lista de tutoriais relativos à integração de aplicações SaaS disponíveis na Galeria](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
@@ -166,7 +166,7 @@ As aplicações que requerem as capacidades seguintes não podem ser migradas at
 - Afirmações nas Capacidades de Tokens
     - Emitir nomes de grupos no local como afirmações
     - Afirmações de arquivos que não o do Azure AD
-    - Regras de transformação de emissão de afirmações complexas (obtenha informações sobre os mapeamentos de afirmações suportados nestes documentos)
+    - Regras de transformação de emissão de afirmações complexas (obtenha informações sobre os mapeamentos de afirmações suportados neste [documento](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) e neste [documento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization))
     - Emitir extensões de diretório como afirmações
     - Especificação personalizada do formato NameID
     - Emissão de atributos de valores múltiplos

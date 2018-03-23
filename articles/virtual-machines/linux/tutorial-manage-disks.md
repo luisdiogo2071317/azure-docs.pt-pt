@@ -3,24 +3,24 @@ title: Gerir discos do Azure com a CLI do Azure | Microsoft Docs
 description: Tutorial - Gerir discos do Azure com a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 87b410fdcd5901499e809f8d2b9a7b8788134cfc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a8a6e7da89f864c1bb63bf5b26b297653ff4a94
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gerir discos do Azure com a CLI do Azure
 
@@ -46,7 +46,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 **Disco do sistema operativo** - os discos do sistema operativo podem ter o tamanho máximo de 1 terabyte, e alojam o sistema operativo das VMs. O disco do SO está identificado como */dev/sda* por predefinição. A configuração da colocação em cache do disco do SO está otimizada para desempenho do SO. Devido a esta configuração, o disco do SO **não deve** alojar aplicações nem dados. Para aplicações e dados, utilize discos de dados, que são descritos posteriormente neste artigo. 
 
-**Disco temporário** - os discos temporários utilizam uma unidade de estado sólido que está localizada no mesmo anfitrião da VM do Azure. Os discos temporários são de elevado desempenho e podem ser utilizados para operações como o processamento de dados temporários. No entanto, se a VM for movida para um novo anfitrião, todos os dados armazenados num disco temporário são removidos. O tamanho do disco temporário é determinado pelo tamanho da VM. Os discos temporários estão identificados como */dev/sdb* e têm um ponto de montagem de */mnt*.
+**Disco temporário** - os discos temporários utilizam uma unidade de estado sólido que está localizada no mesmo anfitrião da VM do Azure. Os discos temporários são de elevado desempenho e servem para operações como o processamento de dados temporários. No entanto, se a VM for movida para um novo anfitrião, todos os dados armazenados num disco temporário são removidos. O tamanho do disco temporário é determinado pelo tamanho da VM. Os discos temporários estão identificados como */dev/sdb* e têm um ponto de montagem de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos dos discos temporários
 
@@ -76,7 +76,7 @@ Podem ser adicionados mais discos para instalar aplicações e armazenar dados. 
 
 ## <a name="vm-disk-types"></a>Tipos de disco de VM
 
-O Azure fornece dois tipos de disco.
+O Azure oferece dois tipos de disco.
 
 ### <a name="standard-disk"></a>Disco Standard
 
@@ -90,8 +90,8 @@ Os discos Premium são apoiados por um disco de elevado desempenho baseado em SS
 
 |Tipo de disco de armazenamento Premium | P10 | P20 | P30 |
 | --- | --- | --- | --- |
-| Tamanho do disco (arredondado) | 128 GB | 512 GB | 1024 GB (1 TB) |
-| IOPs Máx por disco | 500 | 2300 | 5000 |
+| Tamanho do disco (arredondado) | 128 GB | 512 GB | 1.024 GB (1 TB) |
+| IOPs Máx por disco | 500 | 2.300 | 5.000 |
 Débito por disco | 100 MB/s | 150 MB/s | 200 MB/s |
 
 Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elevado de desempenho pode ser alcançado ao repartir vários discos de dados. Por exemplo, uma VM Standard_GS5 pode atingir o máximo de 80 000 IOPS. Para obter informações detalhadas sobre o IOPS máximo por VM, consulte [Tamanhos de VM do Linux](sizes.md).
@@ -185,10 +185,10 @@ A saída apresenta o UUID da unidade, `/dev/sdc1` neste caso.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Adicione uma linha semelhante à seguinte ao ficheiro *etc/fstab*. Tenha também em atenção que escrever barreiras pode ser desativado com *barrier=0*, e esta configuração pode melhorar o desempenho do disco. 
+Adicione uma linha semelhante à seguinte ao ficheiro *etc/fstab*.
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,barrier=0   1  2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
 ```
 
 Agora que o disco foi configurado, feche a sessão SSH.

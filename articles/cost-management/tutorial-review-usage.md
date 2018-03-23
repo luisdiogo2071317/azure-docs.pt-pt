@@ -1,8 +1,8 @@
 ---
-title: "Tutorial - rever a utilização e os custos do Azure Cost Management | Microsoft Docs"
-description: "Neste tutorial, reveja a utilização e os custos para ver tendências, detetar ineficiências e criar alertas."
+title: Tutorial - rever a utilização e os custos do Azure Cost Management | Microsoft Docs
+description: Neste tutorial, reveja a utilização e os custos para ver tendências, detetar ineficiências e criar alertas.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Tutorial: rever a utilização e os custos
 
-O Azure Cost Management da Cloudyn mostra-lhe a utilização e os custos, de modo a que possa ver tendências, detetar ineficiências e criar alertas. Todos os dados de utilização e de custos são apresentados nos relatórios e nos dashboards da Cloudyn. Os exemplos neste tutorial orientam-no ao longo da revisão da utilização e dos custos através dos dashboards e dos relatórios. Neste tutorial, ficará a saber como:
+O Azure Cost Management mostra-lhe a utilização e os custos, de modo a que possa ver tendências, detetar ineficiências e criar alertas. Todos os dados de utilização e de custos são apresentados nos relatórios e nos dashboards da Cloudyn. Os exemplos neste tutorial orientam-no ao longo da revisão da utilização e dos custos através dos dashboards e dos relatórios. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Ver as tendências de utilização e de custos
@@ -57,7 +57,7 @@ No exemplo anterior, foi gasto menos dinheiro a partir de 31-08-2017 do que ante
 
 No exemplo, pode ver facilmente que os custos com o Armazenamento do Azure desceram a partir de 31-08-2017, ao passo que as despesas com outros serviços do Azure permaneceram equilibradas. Então, o que é que originou a redução nas despesas? Neste exemplo, alguns colaboradores estavam de férias e não utilizaram o serviço de Armazenamento.
 
-Para assistir a um vídeo tutorial sobre como ver as tendências de utilização e de custos, veja [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g) (Analisar os dados de faturação na cloud vs. tempo com o Azure Cost Management da Cloudyn).
+Para assistir a um vídeo tutorial sobre como ver as tendências de utilização e de custos, veja [Analyzing your cloud billing data vs. time with Azure Cost Management (Analisar os dados de faturação na cloud vs. tempo com o Azure Cost Management)](https://youtu.be/7LsVPHglM0g).
 
 ## <a name="detect-usage-inefficiencies"></a>Detetar ineficiências na utilização
 
@@ -81,7 +81,7 @@ Clique no sinal de mais junto a **Lista de Candidatos** para ver os IDs das inst
 
 ![Lista de Candidatos](./media/tutorial-review-usage/sizing03.png)
 
-Para ver um tutorial em vídeo sobre como detetar ineficiências de utilização, veja [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704) (Otimizar o Tamanho das VMs no Azure Cost Management).
+Para ver um tutorial em vídeo sobre como detetar ineficiências de utilização, veja [Optimizing VM Size in Azure Cost Management (Otimizar o Tamanho das VMs no Azure Cost Management)](https://youtu.be/1xaZBNmV704).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Criar alertas para despesas invulgares
 
