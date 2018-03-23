@@ -3,24 +3,24 @@ title: Criar e Gerir VMs do Linux com a CLI do Azure | Microsoft Docs
 description: Tutorial - Criar e Gerir VMs do Linux com a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2e9324cbe7ae683a472ecc0ee93329773886f88
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e7dab67b46a2853e9585c88c8e4d4263f844c3b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Criar e Gerir VMs do Linux com a CLI do Azure
 
@@ -152,9 +152,9 @@ A tabela seguinte categoriza tamanhos em casos de utilização.
 
 | Tipo                     | Tamanhos           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Fins gerais](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU-para-memória equilibrado. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
-| [Com otimização de computação](sizes-compute.md)   | Fs, F             | CPU-para-memória elevado. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
-| [Com otimização de memória](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Memória-para-núcleo elevado. É ideal para bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
+| [Fins gerais](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU-para-memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
+| [Com otimização de computação](sizes-compute.md)   | Fs, F             | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
+| [Com otimização de memória](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Memória-para-núcleo elevada. É ideal para bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
 | [Com otimização de armazenamento](../virtual-machines-windows-sizes-storage.md)      | Ls                | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
 | [GPU](sizes-gpu.md)          | NV, NC            | VMs especializadas destinadas a composição gráfica e edição de vídeo exigentes.       |
 | [Elevado desempenho](sizes-hpc.md) | H, A8-11          | As nossas mais poderosas VMs com CPU, com interfaces de rede de alto débito (RDMA) opcionais. 

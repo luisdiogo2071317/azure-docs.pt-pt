@@ -1,24 +1,24 @@
 ---
-title: "Integrar soluções de segurança no Centro de Segurança do Azure | Microsoft Docs"
-description: "Saiba como é que o Centro de Segurança do Azure se integra com parceiros, para melhorar a segurança geral dos seus recursos do Azure."
+title: Integrar soluções de segurança no Centro de Segurança do Azure | Microsoft Docs
+description: Saiba como é que o Centro de Segurança do Azure se integra com parceiros, para melhorar a segurança geral dos seus recursos do Azure.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/08/2018
 ms.author: yurid
-ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de Segurança do Azure e adicionar novas.
@@ -63,7 +63,15 @@ As soluções de segurança do Azure implementadas a partir do Centro de Seguran
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gerir soluções de segurança do Azure integradas e outras origens de dados
 
-Após a implementação, pode ver informações sobre o estado de funcionamento da solução de segurança do Azure integrada e efetuar tarefas de gestão básicas. Também pode ligar outros tipos de origens de dados de segurança, tais como alertas do Azure Active Directory Identity Protection e registos de firewall no Common Event Format (CEF). No dashboard do Centro de Segurança, selecione Soluções de segurança.
+1. Inicie sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+
+2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de Segurança - Descrição Geral** é aberto.
+
+  ![Descrição geral do Centro de Segurança](./media/security-center-partner-integration/overview.png)
+
+3. Em **Descrição geral**, selecione **Soluções de segurança**.
+
+Em **Soluções de segurança**, pode ver informações sobre o estado de funcionamento da solução de segurança do Azure integrada e efetuar tarefas de gestão básicas. Também pode ligar outros tipos de origens de dados de segurança, tais como alertas do Azure Active Directory Identity Protection e registos de firewall no Common Event Format (CEF).
 
 ### <a name="connected-solutions"></a>Soluções ligadas
 
@@ -71,13 +79,22 @@ A secção **Soluções ligadas** inclui soluções de segurança que estão lig
 
 ![Soluções ligadas](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
+Veja [Gerir soluções de parceiros ligados](security-center-partner-solutions.md) para obter mais informações.
+
 ### <a name="discovered-solutions"></a>Soluções detetadas
 
-A secção **Soluções detetadas** mostram todas as soluções que foram adicionadas através do Azure. Também apresenta todas as soluções que o Centro de Segurança lhe sugere que ligue ao mesmo.
+O Centro de Segurança deteta automaticamente as soluções de segurança em execução no Azure, mas não ligadas ao Centro de Segurança, e apresenta as soluções na secção **Soluções detetadas**. Isto inclui soluções do Azure, como o [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), bem como soluções de parceiros.
+
+> [!NOTE]
+> A funcionalidade de soluções detetadas está disponível no escalão Standard do Centro de Segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
+>
+>
+
+Selecione **LIGAR** numa solução para se integrar com o Centro de Segurança e ser notificado sobre alertas de segurança.
 
 ![Soluções detetadas](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-O Centro de Segurança deteta automaticamente outras soluções de segurança em execução no Azure. Isto inclui soluções do Azure, como o [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), bem como soluções de parceiros em execução no Azure. Para integrar estas soluções no Centro de Segurança, selecione **LIGAR**.
+O Centro de Segurança também deteta as soluções implementadas na subscrição que podem reencaminhar registos do Formato de Evento Comum (CEF). Saiba como [ligar uma solução de segurança](quick-security-solutions.md) que utilize registos CEF ao Centro de Segurança.
 
 ### <a name="add-data-sources"></a>Adicionar origens de dados
 
@@ -90,7 +107,6 @@ A secção **Adicionar origens de dados** inclui outras origens de dados dispon�
 
 Neste artigo, aprendeu a integrar soluções de parceiros no Centro de Segurança. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
 
-* [Guia de operações e planeamento do Centro de Segurança](security-center-planning-and-operations-guide.md)
 * [Ligar o Microsoft Advanced Threat Analytics ao Centro de Segurança do Azure](security-center-ata-integration.md)
 * [Ligar o Azure Active Directory Identity Protection ao Centro de Segurança do Azure](security-center-aadip-integration.md)
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança](security-center-monitoring.md). Saiba como monitorizar o estado de funcionamento dos recursos do Azure.

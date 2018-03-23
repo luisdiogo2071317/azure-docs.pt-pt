@@ -1,12 +1,12 @@
 ---
-title: "Criar a sua primeira função a partir do portal do Azure | Microsoft Docs"
-description: "Saiba como criar a sua primeira Função do Azure para execução sem servidor através do portal do Azure."
+title: Criar a sua primeira função a partir do portal do Azure | Microsoft Docs
+description: Saiba como criar a sua primeira Função do Azure para execução sem servidor através do portal do Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-experiment: 
-ms.openlocfilehash: 391cf4b5df4b52e6fcbe496c6e31052f1fda4a44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c1f7c1a12aea8336b71d6e3eb47037d193841ddb
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
@@ -33,7 +32,7 @@ As Funções do Azure permitem-lhe executar o seu código num ambiente [sem serv
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure, em <http://portal.azure.com>, com a sua conta do Azure.
+Inicie sessão no portal do Azure em <http://portal.azure.com> com a sua conta do Azure.
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 

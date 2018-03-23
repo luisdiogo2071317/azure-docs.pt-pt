@@ -1,19 +1,19 @@
 ---
-title: "Preparar servidores VMware no local para a recuperação após desastre de VMs de VMware para o Azure | Microsoft Docs"
-description: "Saiba como preparar servidores VMware no local para a recuperação após desastre para o Azure com o serviço Azure Site Recovery."
+title: Preparar servidores VMware no local para a recuperação após desastre de VMs de VMware para o Azure | Microsoft Docs
+description: Saiba como preparar servidores VMware no local para a recuperação após desastre para o Azure com o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6b5c16e5b4136acc06c4ace4b16e8eb0e3522d24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware no local para a recuperação após desastre para o Azure
 
@@ -86,7 +86,7 @@ Certifique-se de que a VM cumpre os requisitos do Azure resumidos na tabela segu
 **Nome da VM** | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e hífenes. O nome da VM tem de começar e terminar com uma letra ou um número.
 **Tipo de VM** | Geração 1 - Linux ou Windows<br/><br/>Geração 2 - Apenas Windows
 
-A VM tem também de estar a executar um sistema operativo suportado. Consulte a [Matriz de suporte do Site Recovery](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) para obter uma lista completa das versões suportadas.
+A VM tem também de estar a executar um sistema operativo suportado. Consulte a [Matriz de suporte do servidor físico e VMware](vmware-physical-azure-support-matrix.md#replicated-machines) para obter uma lista completa das versões suportadas.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar a ligação para VMs do Azure após a ativação pós-falha
 

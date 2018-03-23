@@ -1,11 +1,11 @@
 ---
-title: "Configurar as ligações de Rede de VPNs e ExpressRoute que podem coexistir: Resource Manager: Azure | Microsoft Docs"
-description: "Este artigo explica-lhe como configurar o ExpressRoute e uma ligação de Rede de VPNs que pode coexistir para o modelo do Resource Manager."
+title: 'Configurar as ligações de Rede de VPNs e ExpressRoute que podem coexistir: Resource Manager: Azure | Microsoft Docs'
+description: Este artigo explica-lhe como configurar o ExpressRoute e uma ligação de Rede de VPNs que pode coexistir para o modelo do Resource Manager.
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7717b14-3da3-4a6d-b78e-a5020766bc2c
 ms.service: expressroute
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.openlocfilehash: d1dd5a71d922d688ee7b64cef8887e903f78c802
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bec984aa04efbe123b71fa9088fbd37ae53cc2f2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurar ligações coexistentes do ExpressRoute e de Site a Site
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Este procedimento orienta-o ao longo da criação de uma VNet e de ligações Ex
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
   $VNetASN = 65010
   ```
-3. Crie uma rede virtual, incluindo uma Sub-Rede do Gateway. Para obter mais informações sobre a configuração da rede virtual, veja [Configuração da Virtual Network do Azure](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+3. Crie uma rede virtual, incluindo uma Sub-Rede do Gateway. Para obter mais informações sobre como criar uma rede virtual, veja [Criar uma rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Para obter mais informações sobre como criar sub-redes, veja [Criar uma sub-rede](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    
    > [!IMPORTANT]
    > A sub-rede do Gateway tem de ser /27 ou ter um prefixo mais curto (como /26 ou /25).

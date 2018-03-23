@@ -1,6 +1,6 @@
 ---
 title: Criar VMs a executar uma pilha SQL&#92;IIS&#92;.NET no Azure | Microsoft Docs
-description: "Tutorial - instalar uma pilha do Azure SQL, IIS, .NET em máquinas virtuais do Windows."
+description: Tutorial - instalar uma pilha do Azure SQL, IIS, .NET em máquinas virtuais do Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ad84d6e8f74fa184ac2359ff7f08e6c8143d419a
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ac6038f7600d6eb4c8d021998f9cfc40bd369332
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>Install uma pilha SQL&#92;IIS&#92;.NET no Azure
 
@@ -33,7 +33,7 @@ Neste tutorial, vamos instalar a pilha SQL&#92;IIS&#92;.NET com o Azure PowerShe
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Este tutorial requer a versão 4.3.1 ou posterior do módulo AzureRM.Compute. Executar `Get-Module -ListAvailable AzureRM.Compute` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 4.3.1 ou posterior do módulo Azure AzureRM.Compute. Executar `Get-Module -ListAvailable AzureRM.Compute` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-iis-vm"></a>Criar uma VM de IIS 
 

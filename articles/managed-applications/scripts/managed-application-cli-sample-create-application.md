@@ -1,6 +1,6 @@
 ---
-title: "Script CLI do Azure de exemplo - implementar uma aplicação gerida | Microsoft Docs"
-description: "Script CLI do Azure de exemplo - implementar uma definição de aplicações geridas"
+title: Exemplo do script da CLI do Azure - Implementar uma aplicação gerida | Microsoft Docs
+description: Exemplo do script da CLI do Azure - Implementar uma definição da aplicação gerida
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 62d0247df3b3d9f242877e4ea27ccc871cf797c0
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: MT
+ms.openlocfilehash: 3090284a89cfeb1fe8b6446e55e2731e1155167f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Implementar uma aplicação gerida para o catálogo de serviço com a CLI do Azure
+# <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Implementar uma aplicação gerida para catálogo de serviço com a CLI do Azure
 
-Este script implementa uma definição de aplicação gerida a partir do catálogo de serviço. 
+Este script implementa uma definição da aplicação gerida a partir do catálogo de serviço. 
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -32,16 +32,16 @@ Este script implementa uma definição de aplicação gerida a partir do catálo
 [!code-azurecli[main](../../../cli_scripts/managed-applications/create-application/create-application.sh "Create application")]
 
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza o seguinte comando para implementar a aplicação gerida. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza o seguinte comando para implementar a aplicação gerida. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Criar AZ managedapp](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_create) | Crie uma aplicação gerida. Forneça o ID de definição e parâmetros para o modelo. |
+| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_create) | Criar uma aplicação gerida. Dê o ID de definição e os parâmetros para o modelo. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução para aplicações geridas, consulte [descrição geral do Azure gerida aplicações](../overview.md).
-* Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+* Para obter uma introdução às aplicações geridas, veja [Descrição geral da Aplicação Gerida do Azure](../overview.md).
+* Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).

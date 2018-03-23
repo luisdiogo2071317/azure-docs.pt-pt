@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do Kubernetes no Azure – Implementar Cluster"
-description: "Tutorial de AKS – Implementar Cluster"
+title: Tutorial do Kubernetes no Azure – Implementar Cluster
+description: Tutorial de AKS – Implementar Cluster
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6ea26a2d4214c41faa5d63b7c72667955a43d6a2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementar um cluster do Azure Container Service (AKS)
 
@@ -85,7 +85,7 @@ Ao concluir o tutorial, tem um cluster do AKS pronto para cargas de trabalho. No
 
 ## <a name="configure-acr-authentication"></a>Configurar a autenticação do ACR
 
-A autenticação tem de ser configurada entre o cluster AKS e registo ACR. Isto implica conceder à identidade do ACS os direitos adequados para solicitar imagens do registo ACR.
+A autenticação tem de ser configurada entre o cluster AKS e registo ACR. Isto implica conceder à identidade do AKS os direitos adequados para solicitar imagens do registo ACR.
 
 Em primeiro lugar, obtenha o ID do principal de serviço configurado para o AKS. Atualize o nome do grupo de recursos e o nome do cluster AKS para corresponderem ao seu ambiente.
 
@@ -96,7 +96,7 @@ CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --q
 Obtenha o id de recurso do registo ACR. Atualize o nome do registo para o nome do seu registo ACR e o grupo de recursos para o grupo de recursos onde está localizado o registo ACR.
 
 ```azurecli
-ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Crie a atribuição de função, que concede o acesso adequado.

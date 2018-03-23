@@ -1,14 +1,14 @@
 ---
-title: CLI do Azure Script de exemplo - criar Cluster do ACS Linux Kubernetes | Microsoft Docs
-description: CLI do Azure Script de exemplo - criar ACS Linux Kubernetes Cluster
+title: Exemplo do Script da CLI do Azure - Criar Cluster do ACS Linux Kubernetes | Microsoft Docs
+description: Exemplo do Script da CLI do Azure - Criar Cluster do ACS Linux Kubernetes
 services: container-service
-documentationcenter: 
+documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: 
+editor: ''
 tags: acs, azure-container-service
-keywords: "Docker, Contentores, Microsserviços, Kubernetes, DC/OS, Azure"
-ms.assetid: 
+keywords: Docker, Contentores, Microsserviços, Kubernetes, DC/OS, Azure
+ms.assetid: ''
 ms.service: container-service
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 1a2672af6428b9db83f3c916897d25de38035531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 7d9b689ef9746c152fcc98a47a022fcbe9a8a6bb
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="create-an-azure-container-service-kubernetes-linux-cluster"></a>Criar um Cluster de Kubernetes Linux do serviço de contentor do Azure
+# <a name="create-an-azure-container-service-kubernetes-linux-cluster"></a>Criar um Cluster Linux do Azure Container Service no Kubernetes
 
-Este exemplo cria um cluster do serviço de contentor do Azure em execução Kubernetes para contentores baseadas em Linux.
+Este exemplo cria um cluster do Azure Container Service em execução no Kubernetes para contentores baseados no Linux.
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -50,18 +50,18 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar a implementação. Cada item nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos para criar a implementação. Cada item na tabela liga a documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Criar grupo AZ](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
-| [AZ acs criar](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | Cria e clusters de ACS. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az acs create](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | Cria e cluster ACS. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
-Exemplos de script CLI de serviço de contentor do Azure adicionais podem ser encontrados no [documentação do serviço de contentor Azure](../cli-samples.md).
+Pode ver exemplos da CLI do Azure Container Service adicionais na [documentação do Azure Container Service](../cli-samples.md).
 

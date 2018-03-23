@@ -1,8 +1,8 @@
 ---
-title: "Uma introdução ao Apache Kafka no HDInsight – Azure | Microsoft Docs"
-description: "Saiba mais sobre o Apache Kafka no HDInsight: o que é, o que faz e onde encontrar exemplos e obter informações sobre como começar."
+title: Uma introdução ao Apache Kafka no HDInsight – Azure | Microsoft Docs
+description: 'Saiba mais sobre o Apache Kafka no HDInsight: o que é, o que faz e onde encontrar exemplos e obter informações sobre como começar.'
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: b91d1c1eb452ade005fceb095f8d9e62b28a14ac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Introdução ao Apache Kafka no HDInsight
 
@@ -29,7 +29,7 @@ O [Apache Kafka](https://kafka.apache.org) é uma plataforma de transmissão em 
 
 O Kafka no HDInsight oferece as funcionalidades :
 
-* __99% de tempo de atividade do Contrato de Nível de Serviço (SLA) no Kafka__: para obter mais informações, veja o documento [Informações do SLA para o HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __99,9% de tempo de atividade do Contrato de Nível de Serviço (SLA) no Kafka__: para obter mais informações, veja o documento [Informações do SLA para o HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
 * __Tolerância a falhas e conhecimento de bastidores__: o Kafka foi concebido com uma visão uni-dimensional de um bastidor que funciona bem em alguns ambientes. No entanto, em ambientes como o Azure, um bastidor é separado em duas dimensões - Domínios de Atualização (UDs) e Domínios de Falha (FDs). A Microsoft fornece ferramentas que garantem o reequilíbrio de réplicas e partições do Kafka em UDs e FDs. 
 

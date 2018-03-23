@@ -1,11 +1,11 @@
 ---
-title: "Exemplo de Script CLI do Azure - restauro de uma aplicação web de uma cópia de segurança | Microsoft Docs"
-description: "Exemplo de Script CLI do Azure - restauro de uma aplicação web de uma cópia de segurança"
+title: Exemplo do Script da CLI do Azure - Restaurar uma aplicação Web a partir de uma cópia de segurança | Microsoft Docs
+description: Exemplo do Script da CLI do Azure - Restaurar uma aplicação Web a partir de uma cópia de segurança
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.service: app-service-web
 ms.workload: web
@@ -14,21 +14,21 @@ ms.topic: sample
 ms.date: 12/07/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bec915f3e321cf2422f7cc2cad3ce1dfb6b3317a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.openlocfilehash: c1b2a008a0b474630cba1d8eca479197cdeb9497
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="restore-a-web-app-from-a-backup"></a>Restaurar uma aplicação web a partir de uma cópia de segurança
+# <a name="restore-a-web-app-from-a-backup"></a>Restaurar uma aplicação Web a partir de uma cópia de segurança
 
-Este script de exemplo cria uma aplicação web no App Service com os respetivos recursos relacionados e, em seguida, cria uma única cópia de segurança para o mesmo. 
+Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, cria uma cópia de segurança única para o mesmo. 
 
-Para executar este script, precisa de uma cópia de segurança existente para uma aplicação web. Para criar um, consulte [cópia de segurança se uma aplicação web](app-service-cli-backup-onetime.md) ou [criar uma cópia de segurança agendada para uma aplicação web](app-service-cli-backup-scheduled.md).
+Para executar este script, precisa de uma cópia de segurança existente para uma aplicação Web. Para criar uma, veja [Realizar cópia de segurança de uma aplicação Web](app-service-cli-backup-onetime.md) ou [Criar uma cópia de segurança agendada para uma aplicação Web](app-service-cli-backup-scheduled.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, terá da CLI do Azure versão 2.0 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -36,17 +36,17 @@ Se optar por instalar e utilizar a CLI localmente, terá da CLI do Azure versão
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_list) | Obtém uma lista de cópias de segurança para uma aplicação web. |
-| [`az webapp config backup restore`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_restore) | Restaura uma aplicação web a partir de uma cópia de segurança. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_list) | Obtém uma lista de cópias de segurança para uma aplicação Web. |
+| [`az webapp config backup restore`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_restore) | Restaura uma aplicação Web a partir de uma cópia de segurança. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
-Exemplos de script de aplicação serviço CLI adicionais podem ser encontrados no [documentação do App Service do Azure](../app-service-cli-samples.md).
+Pode ver exemplos do script da CLI do Serviço de Aplicações adicionais na [documentação do Serviço de Aplicações do Azure](../app-service-cli-samples.md).

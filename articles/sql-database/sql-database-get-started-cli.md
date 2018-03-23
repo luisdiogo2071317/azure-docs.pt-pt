@@ -1,26 +1,21 @@
 ---
-title: "CLI do Azure: criar uma única base de dados SQL | Microsoft Docs"
-description: "Saiba como criar um servidor lógico da Base de Dados SQL, regras de firewall ao nível do servidor e bases de dados com a CLI do Azure."
+title: 'CLI do Azure: criar uma única base de dados SQL | Microsoft Docs'
+description: Saiba como criar um servidor lógico da Base de Dados SQL, regras de firewall ao nível do servidor e bases de dados com a CLI do Azure.
 keywords: tutorial de base de dados sql, criar uma base de dados sql
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 5076a9fcbfb0c46a0aebf858d5ec1dcbee839946
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 73639d59d047fbf1e07b242e21605a83e3c4b837
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Criar uma única base de dados SQL do Azure com a CLI do Azure
 
@@ -112,6 +107,6 @@ Agora que tem uma base de dados, pode ligar e consultar com as suas ferramentas 
 - [PHP](sql-database-connect-query-php.md)
 - [Node.js](sql-database-connect-query-nodejs.md)
 - [Java](sql-database-connect-query-java.md)
-- [python](sql-database-connect-query-python.md)
+- [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
 

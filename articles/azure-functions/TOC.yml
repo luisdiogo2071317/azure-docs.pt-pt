@@ -175,8 +175,8 @@
           href: durable-functions-sequence.md
         - name: Fan-out/fan-in
           href: durable-functions-cloud-backup.md
-        - name: Singleton com monitorização de estado
-          href: durable-functions-counter.md
+        - name: Monitores
+          href: durable-functions-monitor.md
         - name: Interação humana
           href: durable-functions-phone-verification.md
         - name: Teste de unidade

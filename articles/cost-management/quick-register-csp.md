@@ -1,8 +1,8 @@
 ---
-title: "Registar-se utilizando Informações de Parceiro CSP com o Azure Cost Management | Microsoft Docs"
-description: "Utilize as informações de Parceiro CSP para se registar com o Azure Cost Management por Cloudyn."
+title: Registar-se utilizando Informações de Parceiro CSP com o Azure Cost Management | Microsoft Docs
+description: Utilize as informações de Parceiro CSP para se registar com o Azure Cost Management.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 0e5e247182335b88f109aa6624a40bc782975b97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registar-se com o programa de Parceiro CSP e ver dados de custos
 
-Na qualidade de Parceiro CSP, pode registar-se com o Azure Cost Management por Cloudyn. O registo concede acesso ao portal Cloudyn. Este guia de introdução detalha o processo de registo necessário para criar uma subscrição de avaliação do Cloudyn e iniciar sessão no portal Cloudyn. Também lhe mostra como pode começar a ver de imediato os dados dos custos.
+Na qualidade de Parceiro CSP, pode registar-se com o Azure Cost Management. O registo concede acesso ao portal Cloudyn. Este guia de introdução detalha o processo de registo necessário para criar uma subscrição de avaliação do Cloudyn e iniciar sessão no portal Cloudyn. Também lhe mostra como pode começar a ver de imediato os dados dos custos.
 
 
 >[!NOTE]
@@ -71,7 +71,7 @@ Os parceiros CSP indiretos iniciam sessão no portal Cloudyn utilizando as conta
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de introdução utilizou as suas informações CSP para se registar no Cost Management. Também iniciou sessão no portal Cloudyn e começou a ver os dados dos custos. Para saber mais sobre o Azure Cost Management por Cloudyn, continue para o tutorial do Cost Management.
+Neste guia de introdução utilizou as suas informações CSP para se registar no Cost Management. Também iniciou sessão no portal Cloudyn e começou a ver os dados dos custos. Para saber mais sobre o Azure Cost Management, continue para o tutorial do Cost Management.
 
 > [!div class="nextstepaction"]
 > [Rever a utilização e os custos](./tutorial-review-usage.md)

@@ -1,25 +1,25 @@
 ---
-title: "Azure Cosmos DB: criar uma aplicação Web com .NET e a SQL API | Microsoft Docs"
-description: "Apresenta um exemplo de código .NET que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API"
+title: 'Azure Cosmos DB: criar uma aplicação Web com .NET e a SQL API | Microsoft Docs'
+description: Apresenta um exemplo de código .NET que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/15/2017
 ms.author: mimig
-ms.openlocfilehash: 9541fa7331a5a6a5a5405244dd79eb8a92d96386
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b5ab66371b47bdd0f3bd7a4c9e86e419efebe902
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: criar uma aplicação Web da SQL API com .NET e o portal do Azure
 
@@ -97,19 +97,19 @@ Agora, vamos trabalhar com código. Vamos clonar uma aplicação da SQL API a pa
 
 Vamos fazer uma breve revisão do que está a acontecer à aplicação. Abra o ficheiro DocumentDBRepository.cs e verá que estas linhas de código criam os recursos do Azure Cosmos DB. 
 
-* O DocumentClient é inicializado na linha 78.
+* O DocumentClient é inicializado na linha 76.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* É criada uma nova base de dados na linha 93.
+* É criada uma nova base de dados na linha 91.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* É criada uma nova coleção na linha 112.
+* É criada uma nova coleção na linha 110.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
@@ -117,10 +117,9 @@ Vamos fazer uma breve revisão do que está a acontecer à aplicação. Abra o f
         new DocumentCollection { Id = CollectionId },
         new DocumentCollection
             {
-               Id = CollectionId,
-               PartitionKey = new PartitionKeyDefinition() { Paths = new Collection<string>() { "/category" } }
+               Id = CollectionId
             },
-        new RequestOptions { OfferThroughput = 1000 });
+        new RequestOptions { OfferThroughput = 400 });
     ```
 
 ## <a name="update-your-connection-string"></a>Atualizar a cadeia de ligação

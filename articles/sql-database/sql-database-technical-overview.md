@@ -1,31 +1,31 @@
 ---
-title: "O que é o serviço Base de Dados SQL do Azure? | Microsoft Docs"
-description: "Obtenha uma introdução à Base de Dados SQL: detalhes técnicos e capacidades do sistema de gestão de bases de dados relacionais (RDBMS) da Microsoft na nuvem."
-keywords: "introdução à sql, introdução sql, o que é a base de dados sql"
+title: O que é o serviço Base de Dados SQL do Azure? | Microsoft Docs
+description: 'Obtenha uma introdução à Base de Dados SQL: detalhes técnicos e capacidades do sistema de gestão de bases de dados relacionais (RDBMS) da Microsoft na nuvem.'
+keywords: introdução à sql, introdução sql, o que é a base de dados sql
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 02/12/2018
+ms.date: 03/07/2018
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: 1671cbe47b2aee53e4ec6d2bc731cbe4496ce586
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a1c4426acec8e9e006c2349b886297f45cc8ecb2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure? 
 
-A Base de Dados SQL é um serviço de bases de dados relacionais para fins gerais do Microsoft Azure que suporta estruturas como dados relacionados, JSON, espaciais e XML. Proporciona [desempenho dimensionável de forma dinâmica](sql-database-service-tiers.md) e disponibiliza opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análises e relatórios aprofundados e [OLTP](sql-database-in-memory.md) dentro da memória para processamento transacional avançado. A Microsoft lida com a aplicação de patches e a atualização da base de código do SQL ininterruptamente e abstrai toda a gestão da infraestrutura subjacente. 
+A Base de Dados SQL é um serviço gerido de bases de dados relacionais para fins gerais do Microsoft Azure que suporta estruturas como dados relacionados, JSON, espaciais e XML. A Base de Dados SQL fornece [bases de dados SQL únicas](sql-database-servers-databases.md) geridas, bases de dados SQL geridas num [conjunto elástico](sql-database-elastic-pool.md) e instâncias SQL geridas, denominadas [Instâncias Geridas da Base de Dados SQL](sql-database-managed-instance.md) (em pré-visualização pública). Proporciona [desempenho dimensionável de forma dinâmica](sql-database-service-tiers.md) e disponibiliza opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análises e relatórios aprofundados e [OLTP](sql-database-in-memory.md) dentro da memória para processamento transacional avançado. A Microsoft lida com a aplicação de patches e a atualização da base de código do SQL ininterruptamente e abstrai toda a gestão da infraestrutura subjacente. 
 
 A Base de Dados SQL partilha a base de código com o [motor de bases de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Com a estratégia da cloud prioritária da Microsoft, as mais recentes capacidades do SQL Server são lançadas primeiro na Base de Dados SQL e, depois, no próprio SQL Server. Esta abordagem disponibiliza-lhe as últimas capacidades do SQL Server sem sobrecarga em termos de aplicação de patches ou atualizações - com estas funcionalidades novas testadas em milhões de bases de dados. Para obter informações sobre as novas capacidades quando são anunciadas, veja:
 
@@ -37,19 +37,22 @@ A Base de Dados SQL partilha a base de código com o [motor de bases de dados do
 
 A Base de Dados SQL proporciona um desempenho previsível a vários níveis de serviço, que fornece escalabilidade dinâmica sem tempo de inatividade, otimização inteligente incorporada, escalabilidade e disponibilidade globais e opções de segurança avançadas — tudo isto sem praticamente qualquer administração. Estas capacidades permitem-lhe concentrar-se no desenvolvimento rápido de aplicações e acelerar o seu tempo de colocação no mercado, em vez de alocar tempo e recursos valiosos para a gestão de máquinas virtuais e de infraestruturas. O serviço Base de Dados SQL encontra-se atualmente em 38 datacenters em todo o mundo, sendo que são colocados online mais datacenters regularmente, o que lhe permite executar a sua base de dados num datacenter perto de si.
 
-> [!NOTE]
-> Veja [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/) (Centro de Fidedignidade do Azure) para obter informações sobre a segurança da plataforma Azure.
+> [!IMPORTANTE] A Instância Gerida da Base de Dados SQL está atualmente em pré-visualização e só está disponível num único nível de serviço. Para obter mais informações, veja [Instância Gerida da Base de Dados SQL](sql-database-managed-instance.md).
 >
 
 ## <a name="scalable-performance-and-pools"></a>Dimensionar o desempenho e os conjuntos
 
 Com a Base de Dados SQL, as bases de dados estão isoladas umas das outras e são portáteis, tendo cada uma o seu próprio [escalão de serviço](sql-database-service-tiers.md) com um nível de desempenho garantido. Este serviço disponibiliza diferentes níveis de desempenho para diferentes necessidades e permite agrupar as bases de dados, de modo a maximizar a utilização de recursos e poupar dinheiro.
 
+Com a Instância Gerida da Base de Dados SQL, cada instância está isolada das restantes instâncias com recursos garantidos. Para obter mais informações, veja [Instância Gerida da Base de Dados SQL](sql-database-managed-instance.md) 
+
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste o desempenho e dimensione a capacidade sem períodos de indisponibilidade
 
 A Base de Dados SQL tem três escalões de serviço para suportar cargas de trabalho de bases de dados leves ou pesadas: Básica, Standard, e Premium. Pode criar a sua primeira aplicação numa base de dados pequena e individual a um baixo custo por mês e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
 
    ![dimensionamento](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+
+A Instância Gerida da Base de Dados SQL está em pré-visualização e disponibiliza um único escalão de serviço. Para obter mais informações, veja [Instância Gerida da Base de Dados SQL](sql-database-managed-instance.md)
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Conjuntos elásticos para maximizar a utilização de recursos
 
@@ -58,6 +61,9 @@ Para muitas empresas e aplicações, ser capaz de criar bases de dados individua
    ![conjuntos elásticos](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
 Com os conjuntos elásticos, não tem de se concentrar em ajustar o desempenho da base de dados à medida que a procura pelos recursos flutua. As bases de dados agrupadas consomem os recursos de desempenho do conjunto elástico conforme necessário. As bases de dados agrupadas consomem os limites do conjunto, mas não os excedem, pelo que os seus custos se mantêm previsíveis, mesmo que a utilização das bases de dados não. Além disso, pode [adicionar e remover bases de dados do conjunto](sql-database-elastic-pool-manage-portal.md), dimensionando a sua aplicação de um punhado de bases de dados para milhares, tudo dentro de um orçamento controlado por si. Também pode controlar os recursos mínimos e máximos disponíveis para as bases de dados do conjunto, para garantir que nenhuma utiliza todos os recursos e que todas as bases de dados agrupadas têm uma quantidade mínima garantida de recursos. Para saber mais sobre os padrões de estrutura de aplicações SaaS que utilizam conjuntos elásticos, veja [Design Patterns for Multi-tenant SaaS Applications with SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Padrões de Design para Aplicações SaaS multi-inquilino com a Base de Dados SQL).
+
+> [!IMPORTANT]
+> A Instância Gerida da Base de Dados SQL não suporta conjuntos elásticos.
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>Combinar bases de dados individuais com bases de dados agrupadas
 
@@ -83,6 +89,7 @@ O contrato de nível de serviço [(SLA)](http://azure.microsoft.com/support/lega
 - **[Restauros para um ponto anterior no tempo](sql-database-recovery-using-backups.md)**: a Base de Dados SQL suporta a recuperação para qualquer ponto anterior no tempo dentro do período de retenção de cópias de segurança automáticas.
 - **[Georreplicação ativa](sql-database-geo-replication-overview.md)**: a Base de Dados SQL permite-lhe configurar até quatro bases de dados legíveis secundárias no mesmo ou nos datacenters do Azure distribuídos globalmente.  Por exemplo, se tiver uma aplicação SaaS com uma base de dados de catálogo que tem um volume elevado de transações só de leitura simultâneas, utilize a georreplicação ativa para permitir uma escala de leitura global e remover estrangulamentos na base de dados principal que se devam a cargas de trabalho de leitura. 
 - **[Grupos de ativação pós-falha](sql-database-geo-replication-overview.md)**: a Base de Dados SQL permite-lhe ativar a disponibilidade elevada e o balanceamento de carga numa escala global, incluindo georreplicação transparente e ativações pós-falha de conjuntos de dados grandes e conjuntos elásticos. Com os grupos de ativação pós-falha e a georreplicação ativa, é possível criar aplicações SaaS distribuídas globalmente com uma sobrecarga mínima em termos de administração, ficando a cabo da Base de Dados SQL a monitorização complexa, o encaminhamento e a orquestração de ativações pós-falha.
+- **[Bases de dados com redundância de zona](sql-database-high-availability.md)**: a Base de Dados SQL permite-lhe aprovisionar bases de dados ou conjuntos elásticos Premium em várias zonas de disponibilidade. Uma vez que as bases de dados e os conjuntos elásticos Premium têm várias réplicas redundantes para elevada disponibilidade, a colocação destas réplicas em várias zonas de disponibilidade permite uma maior resiliência, incluindo a capacidade de recuperar automaticamente de falhas à escala do datacenter sem perda de dados. Esta funcionalidade encontra-se em pré-visualização. 
 
 ## <a name="built-in-intelligence"></a>Inteligência incorporada
 
@@ -158,7 +165,7 @@ A Base de Dados suporta a criação de aplicações com Python, Java, Node.js, P
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): colocar questões de administração de base de dados
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): colocar questões de desenvolvimento
-- [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): colocar questões técnicas
+- [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): colocar questões técnicas
 - [Comentários](http://aka.ms/sqlfeedback): relatar erros e pedir funcionalidades
 - [Reddit](https://www.reddit.com/r/SQLServer/): discutir sobre o SQL Server
 

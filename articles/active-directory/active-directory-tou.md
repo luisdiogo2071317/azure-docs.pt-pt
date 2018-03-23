@@ -1,24 +1,24 @@
 ---
-title: "Termos de Utilização do Azure Active Directory| Microsoft Docs"
-description: "Os Termos de Utilização do Azure AD oferecem, tanto ao Utilizador como à empresa do mesmo, a capacidade de fornecer termos de utilização aos utilizadores dos serviços do Azure AD."
+title: Termos de Utilização do Azure Active Directory| Microsoft Docs
+description: Os Termos de Utilização do Azure AD oferecem, tanto ao Utilizador como à empresa do mesmo, a capacidade de fornecer termos de utilização aos utilizadores dos serviços do Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 03/06/2018
 ms.author: billmath
-ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e29e842a54d286e19d23c1c91c08d55933a0eada
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Funcionalidade Termos de Utilização do Azure Active Directory (Pré-visualização)
 Os Termos de Utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais.  Isto garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores.
@@ -128,7 +128,7 @@ R: Quando um utilizador aceita os termos de utilização, esta informação é g
 R: Sim, um administrador pode alterar os termos de utilização e isso significa que os novos termos têm de voltar a ser aceites.
 
 **P: Os termos de utilização podem suportar vários idiomas?**</br>
-R: Não, atualmente não é possível incluir vários idiomas num único documento de termos de utilização.  No entanto, pode definir o âmbito para um grupo específico (por exemplo, os termos de utilização para a França diferem dos termos de utilização para o RU). 
+R: Sim.  Atualmente, existem 18 idiomas diferentes que um administrador pode configurar para um único termo de utilização. 
 
 **P: Quando é que os termos de utilização são acionados?**</br>
 R: Os termos de utilização são acionados durante a experiência de início de sessão.

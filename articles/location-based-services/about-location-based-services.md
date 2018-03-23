@@ -1,25 +1,29 @@
 ---
-title: "Descrição Geral do Azure Location Based Services | Microsoft Docs"
-description: "Introdução ao Azure Location Based Services (pré-visualização)"
+title: Descrição Geral do Azure Location Based Services | Microsoft Docs
+description: Introdução ao Azure Location Based Services (pré-visualização)
 services: location-based-services
-keywords: 
-author: dsk-2015
-ms.author: dkshir
-ms.date: 02/05/2017
+keywords: ''
+author: kgremban
+ms.author: kgremban
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91df49aa3f522ea765698a1d64ed2686606f71f3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Introdução ao Azure Location Based Services (pré-visualização)
 O Azure Location Based Services é um portefólio de serviços geoespaciais que incluem APIs de serviço para Mapas, Pesquisa, Encaminhamento, Trânsito e Fusos Horários. O portfólio de serviços em conformidade com o Azure OneAPI permite-lhe utilizar ferramentas de programação familiares para programar e dimensionar rapidamente soluções que integram informações de localização nas suas soluções do Azure. O Azure Location Based Services fornece aos programadores de todas as indústrias capacidades geoespaciais poderosas, repletas de dados de mapeamento atualizados, essenciais para dar contexto geográfico a aplicações Web e móveis. O Azure Location Based Services é um conjunto de APIs REST que estão em conformidade com o Azure OneAPI, o qual ainda inclui um controlo de JavaScript baseado na Web para que o desenvolvimento seja fácil, flexível e portátil em vários suportes. 
+
+O vídeo seguinte apresenta os Azure Location Based Services.
+
+<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 O Azure Location Based Services é constituído por cinco serviços principais para fortalecer as aplicações do Azure que requerem contexto geográfico. Cada um dos serviços é explicado detalhadamente abaixo.
 
@@ -64,6 +68,16 @@ O Azure Location Based Services é constituído por cinco serviços principais p
 O Azure Location Based Services baseia-se na mobilidade e pode alimentar aplicações de várias plataformas desde que o modelo de programação seja agnóstico e suporte a saída JSON através de APIs REST. Além disso, o Azure LBS disponibiliza um cómodo Controlo de Mapas de JavaScript com um modelo de programação simples para um desenvolvimento fácil e rápido de aplicações Web e móveis. 
 
 O Azure Location Based Services utiliza um esquema de autenticação baseado em chaves, pelo que, para aceder aos serviços, basta navegar para o [portal do Azure](http://portal.azure.com) e criar uma conta do Azure Location Based Services. A conta inclui duas chaves pré-geradas para si. Comece por integrar estas capacidades de localização diretamente nas suas aplicações através das suas chaves nos pedidos ao serviço Azure Location Based Services.
+
+## <a name="unsupported-regions"></a>Regiões Não Suportadas
+De momento, a nossa API está indisponível nos seguintes países. Verifique o seu endereço IP atual e certifique-se de que a localização do seu endereço IP não está num dos países não suportados abaixo.
+
+* Argentina
+* China
+* Índia
+* Marrocos
+* Paquistão
+* Coreia do Sul
 
 ## <a name="relationship-with-bing-maps"></a>Relação com o Bing Maps
 Os Azure Location Based Services descritos neste documento são diferentes dos que são apresentados pelo Bing Maps.  Embora eles partilhem muitas funcionalidades iguais, os serviços são diferentes e não estão relacionados.  Não há nenhum impacto sobre a oferta de produtos ou as previsões do Bing Maps relativamente à disponibilidade deste novo serviço no Azure, que será gerido separadamente.
