@@ -1,24 +1,25 @@
 ---
-title: "Atualização de pilha do Azure 1711 | Microsoft Docs"
-description: "Saiba mais sobre as novidades na atualização 1711 para pilha do Azure integrado sistemas, problemas conhecidos e onde pode transferir a atualização."
+title: Atualização de pilha do Azure 1711 | Microsoft Docs
+description: Saiba mais sobre as novidades na atualização 1711 para pilha do Azure integrado sistemas, problemas conhecidos e onde pode transferir a atualização.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/22/2018
 ms.author: brenduns
-ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.reviewer: justini
+ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1711-update"></a>Atualização de pilha 1711 do Azure
 
@@ -37,7 +38,13 @@ Este artigo descreve os melhoramentos e corrige deste pacote de atualização, p
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Tem de instalar primeiro a pilha de Azure [1710 atualizar](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) antes de aplicar esta atualização.
+- Tem de instalar primeiro a pilha de Azure [1710 atualizar](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) antes de aplicar esta atualização.
+
+- Reveja a utilização de **CloudAdmin** como um nome de conta antes de instalar 1711 de atualização. A partir da versão 1711, *CloudAdmin* é um nome de conta reservados e não deve ser especificado manualmente. Quando atualizar para versão 1711, a atualização remove instâncias existentes da conta de implementação (normalmente, denominado AzureStackAdmin). Se denominar a conta de implementação *CloudAdmin*, a atualização para 1711 elimina-a. 
+
+  *CloudAdmin* é a conta incorporada para estabelecer ligação com o [ *ponto final com privilégios* ](azure-stack-privileged-endpoint.md) (PEP). A eliminação desta conta pode resultar num bloqueio do PEP a menos que exista já outra conta de utilizador que seja membro do grupo CloudAdmin. 
+
+  Se utilizou CloudAdmin como nome da conta de implementação, adicione um novo utilizador de CloudAdmin para sua PEP antes de iniciar a atualização a 1711 para evitar a ser bloqueado pilha do Azure. Para adicionar um novo utilizador CloudAdmin, execute o cmdlet **New-CloudAdminUser** no PEP.
 
 ### <a name="new-features-and-fixes"></a>Novas funcionalidades e correções
 
@@ -61,7 +68,7 @@ Esta atualização inclui as seguintes melhorias e correções para pilha do Azu
 
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Windows Server 2016 novas funcionalidades e correções
 
-- [14 de Novembro de 2017 — KB4048953 (compilação do SO 14393.1884)](https://support.microsoft.com/help/4048953)
+- [14 de Novembro de 2017 — KB4048953 (compilação do SO 14393.1884) ](https://support.microsoft.com/help/4048953)
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos relacionados com o processo de atualização
 
@@ -76,11 +83,11 @@ Esta secção contém as questões importantes que poderá encontrar durante a i
     1. **Causa:** este problema é causado quando retomar uma atualização do portal do que era anteriormente retomado utilizando um ponto final com privilégios (PEP).
     2. **Resolução:** contacte o serviço de cliente da Microsoft e de suporte (CSS) para obter assistência.
 <br><br>
-3. **Sintoma:**operadores de pilha do Azure podem ver o seguinte erro durante o processo de atualização:*"tipo de 'CheckHealth' da função 'VirtualMachines' desencadeado uma verificação de estado de funcionamento do computador de exceção: \n\nVirtual para <machineName>-ACS01 produzidos a os seguintes erros. \nThere era um erro ao obter as informações da VM a partir de anfitriões. Detalhes de exceção: \nGet-VM: A operação no computador 'Node03' falhou: serviço o WS-Management não é possível processar o pedido. O WMI \nservice ou o fornecedor WMI devolveu um erro desconhecido: HRESULT 0x8004106c ".*
+3. **Sintoma:** operadores de pilha do Azure podem ver o seguinte erro durante o processo de atualização:*"tipo de 'CheckHealth' da função 'VirtualMachines' desencadeado uma verificação de estado de funcionamento do computador de exceção: \n\nVirtual para <machineName>-ACS01 produzidos a os seguintes erros. \nThere era um erro ao obter as informações da VM a partir de anfitriões. Detalhes de exceção: \nGet-VM: A operação no computador 'Node03' falhou: serviço o WS-Management não é possível processar o pedido. O WMI \nservice ou o fornecedor WMI devolveu um erro desconhecido: HRESULT 0x8004106c ".*
     1. **Causa:** este problema é causado por um problema de Windows Server que se destina a ser resolvidos em atualizações subsequentes do servidor de janela.
     2. **Resolução:** contacte o serviço de cliente da Microsoft e de suporte (CSS) para obter assistência.
 <br><br>
-4. **Sintoma:**operadores de pilha do Azure podem ver o seguinte erro durante o processo de atualização:*"tipo de 'DefenderUpdate' da função 'URP' levantou uma exceção: Falha ao obter versão de \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{nome de ficheiro} .exe após 60 tentativas em cópia-AzSDefenderFiles, c:\Programas\Microsoft Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: linha 262"*
+4. **Sintoma:** operadores de pilha do Azure podem ver o seguinte erro durante o processo de atualização:*"tipo de 'DefenderUpdate' da função 'URP' levantou uma exceção: Falha ao obter versão de \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{nome de ficheiro} .exe após 60 tentativas em cópia-AzSDefenderFiles, c:\Programas\Microsoft Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: linha 262"*
     1. **Causa:** este problema é causado por uma transferência de fundo falhou ou está incompleto de atualizações de definições do Windows Defender.
     2. **Resolução:** volte tentar retomar a atualização depois de 8 horas passaram, uma vez que a primeira atualização tente.
 

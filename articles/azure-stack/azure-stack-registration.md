@@ -1,87 +1,83 @@
 ---
 title: Registo do Azure para a pilha do Azure integrado sistemas | Microsoft Docs
-description: "Descreve o processo de registo do Azure implementações de vários nós ligado do Azure de pilha do Azure."
+description: Descreve o processo de registo do Azure implementações de vários nós ligado do Azure de pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.reviewer: avishwan
+ms.openlocfilehash: e51a15b197e875c35997cfe2ac96d673c01a80f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar a pilha do Azure com o Azure
-Pode registar pilha do Azure com o Azure para transferir os itens do marketplace a partir do Azure e configurar dados de comércio relatórios de volta à Microsoft. Depois de registar pilha do Azure, a utilização é comunicada para comércio de Azure. Pode vê-lo sob a subscrição utilizada para o registo.
+Registar [Azure pilha](azure-stack-poc.md) com o Azure permite-lhe para transferir os itens do marketplace a partir do Azure e configurar dados de comércio relatórios de volta à Microsoft. Depois de registar pilha do Azure, utilização é considerada comércio do Azure e pode vê-lo sob a subscrição utilizada para o registo. 
 
 > [!IMPORTANT]
 > O registo é obrigatório se escolher o modelo de faturação pay-como-utiliza. Caso contrário, será violar os termos de licenciamento da implementação da pilha de Azure conforme utilização caso contrário, não será reportada.
 
-## <a name="before-you-register-azure-stack-with-azure"></a>Antes de registar a pilha do Azure com o Azure
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de registar a pilha do Azure com o Azure, tem de ter:
 
 - O ID de subscrição de uma subscrição do Azure. Para obter o ID, inicie sessão no Azure, clique em **mais serviços** > **subscrições**, clique na subscrição que pretende utilizar, e, em **Essentials** pode encontrar o ID da subscrição. 
 
   > [!NOTE]
-  > China, Datacenters e subscrições de nuvem do Governo dos EUA não são atualmente suportados. 
+  > China, Datacenters e US Government subscrições na nuvem não são atualmente suportadas. 
 
 - O nome de utilizador e palavra-passe para uma conta que é proprietário da subscrição (são suportadas contas MSA/2FA)
-- *Não é necessário a partir da versão de atualização de 1712 de pilha do Azure (180106.1)*: O Azure AD para a subscrição do Azure. Pode encontrar este diretório no Azure ao passar por cima do seu avatar no canto superior direito do portal do Azure. 
-- Registar o fornecedor de recursos de pilha do Azure (consulte a secção de registar o fornecedor de recursos do Azure pilha abaixo para obter detalhes)
+- Registar o fornecedor de recursos de pilha do Azure (consulte a secção de registar o fornecedor de recursos do Azure pilha abaixo para obter detalhes).
 
 Se não tiver uma subscrição do Azure que cumpra estes requisitos, pode [criar uma conta do Azure gratuita aqui](https://azure.microsoft.com/free/?b=17.06). Registar o Azure pilha incorreu sem qualquer custo na sua subscrição do Azure.
 
 ### <a name="bkmk_powershell"></a>Instale o PowerShell para a pilha do Azure
-Tem de utilizar o PowerShell mais recente do Azure pilha para registar o sistema com o Azure.
+Tem de utilizar o PowerShell mais recente do Azure pilha para registar com o Azure.
 
 Se ainda não estiver instalado, [instale o PowerShell para Azure pilha](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install). 
 
 ### <a name="bkmk_tools"></a>Transferir as ferramentas de pilha do Azure
 O repositório do GitHub ferramentas Azure pilha contém módulos do PowerShell que suportem a funcionalidade de pilha do Azure; incluindo a funcionalidade de registo. Durante o registo do processo, terá de importar e utilizar o módulo do RegisterWithAzure.psm1 PowerShell encontrados no repositório de ferramentas de pilha do Azure, para registar a instância de pilha do Azure com o Azure. 
 
-```powershell
-# Change directory to the root directory. 
-cd \
-
-# Download the tools archive.
-  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
-  invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
-
-# Expand the downloaded files.
-  expand-archive master.zip `
-  -DestinationPath . `
-  -Force
-
-# Change to the tools directory.
-  cd AzureStack-Tools-master
-```
+Para garantir que está a utilizar a versão mais recente, deve eliminar quaisquer versões das ferramentas de pilha do Azure existentes e [transferir a versão mais recente a partir do GitHub](azure-stack-powershell-download.md) antes de registar com o Azure.
 
 ## <a name="register-azure-stack-in-connected-environments"></a>Registar o Azure pilha em ambientes ligados
 Podem aceder a ambientes ligados à internet e ao Azure. Para estes ambientes, terá de registar o fornecedor de recursos de pilha do Azure com o Azure e, em seguida, configurar o modelo de faturação.
+
+> [!NOTE]
+> Todos estes passos tem de ser executados a partir de um computador que tenha acesso ao ponto final com privilégios. 
 
 ### <a name="register-the-azure-stack-resource-provider"></a>Registar o fornecedor de recursos de pilha do Azure
 Para registar o fornecedor de recursos de pilha do Azure com o Azure, inicie o ISE do Powershell como administrador e utilize os seguintes comandos do PowerShell. Estes comandos serão:
 - Solicitar-lhe para iniciar sessão como um proprietário da subscrição do Azure a ser utilizado e definir o `EnvironmentName` parâmetro **AzureCloud**.
 - Registar o fornecedor de recursos do Azure **Microsoft.AzureStack**.
 
-PowerShell para executar:
+1. Adicione a conta do Azure que utiliza para registar a pilha do Azure. Para adicionar a conta, execute o **Add-AzureRmAccount** cmdlet. É-lhe pedido que introduza as suas credenciais de conta de administrador global do Azure e poderá ter de utilizar a autenticação de fator 2, com base na configuração da sua conta.
 
-```powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack 
-```
+   ```Powershell
+      Add-AzureRmAccount -EnvironmentName AzureCloud
+   ```
+
+2. Se tiver várias subscrições, execute o seguinte comando para selecionar aquela que pretende utilizar:  
+
+   ```powershell
+      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   ```
+
+3. Execute o seguinte comando para registar o fornecedor de recursos de pilha do Azure na sua subscrição do Azure:
+
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
 
 ### <a name="register-azure-stack-with-azure-using-the-pay-as-you-use-billing-model"></a>Registar a pilha do Azure com o Azure utilizando o modelo de faturação pay-como-utiliza
 Utilize a estes passos para registar a pilha do Azure com o Azure utilizando o modelo de faturação pay-como-utiliza.
@@ -197,22 +193,6 @@ Se gostaria de alterar o modelo de faturação ou funcionalidades de sindicaçã
 ```powershell
 Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
 ```
-
-## <a name="remove-a-registered-resource"></a>Remover um recurso registado
-Se quiser remover um registo, em seguida, tem de utilizar **UnRegister-AzsEnvironment** cmdlet e passar o nome do registo de recursos ou o registo do token é utilizado para **Register-AzsEnvironment**.
-
-Para remover um registo com um nome de recurso:
-
-```Powershell    
-UnRegister-AzsEnvironment -RegistrationName "*Name of the registration resource*"
-```
-Para remover um registo com um token de registo:
-
-```Powershell
-$registrationToken = "*Your copied registration token*"
-UnRegister-AzsEnvironment -RegistrationToken $registrationToken
-```
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Integração de monitorização externa](azure-stack-integrate-monitor.md)
+[Transferir itens do marketplace a partir do Azure](azure-stack-download-azure-marketplace-item.md)

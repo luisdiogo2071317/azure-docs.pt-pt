@@ -1,25 +1,25 @@
 ---
-title: "Atualização de pilha do Azure 1802 | Microsoft Docs"
-description: "Saiba mais sobre as novidades na atualização 1802 para pilha do Azure integrado sistemas, problemas conhecidos e onde pode transferir a atualização."
+title: Atualização de pilha do Azure 1802 | Microsoft Docs
+description: Saiba mais sobre as novidades na atualização 1802 para pilha do Azure integrado sistemas, problemas conhecidos e onde pode transferir a atualização.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Atualização de pilha 1802 do Azure
 
@@ -123,6 +123,13 @@ As seguintes são problemas conhecidos de pós-instalação para a compilação 
     - *ERRO - o modelo para o FaultType ResourceProviderTimeout está em falta.*
 
     Este alerta pode ser ignorado com segurança. 
+
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+
+- No portal de administração tanto portal de utilizador, o painel de descrição geral não é possível carregar quando seleciona o painel de descrição geral de contas de armazenamento que foram criadas com uma versão de API antiga (exemplo: 2015-06-15). Isto inclui as contas de armazenamento do sistema, como **updateadminaccount** que é utilizada durante a correção e a atualização. 
+
+  Como solução, utilize o PowerShell para executar o **início ResourceSynchronization.ps1** script para restaurar o acesso para os detalhes da conta de armazenamento. [O script está disponível a partir do GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)e deve ser executado com credenciais de administrador de serviço no ponto final com privilégios. 
+
 
 #### <a name="health-and-monitoring"></a>Estado de funcionamento e a monitorização
 Existem não existem problemas conhecidos depois de atualizar para 1802.

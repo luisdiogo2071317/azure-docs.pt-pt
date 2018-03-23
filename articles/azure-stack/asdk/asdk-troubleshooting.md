@@ -1,25 +1,25 @@
 ---
-title: "Resolução de problemas de pilha do Microsoft Azure | Microsoft Docs"
-description: "Azure pilha Development Kit (ASDK) informações de resolução de problemas."
+title: Resolução de problemas de pilha do Microsoft Azure | Microsoft Docs
+description: Azure pilha Development Kit (ASDK) informações de resolução de problemas.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 6ed3fb7c7c4de9edbf31fb2c47290e2e39ceadcd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6c715f07f75c9196b7cf2cc8659c6e541e1260da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Resolução de problemas do Microsoft Azure pilha Development Kit (ASDK)
 Este documento fornece informações de resolução de problemas comuns para o ASDK. Se estiver a ter um problema que não é documentado, certifique-se verificar o [fórum MSDN do Azure pilha](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) para obter assistência adicional e informações.  
@@ -31,7 +31,12 @@ As recomendações de resolução de problemas que são descritos nesta secção
 
 ## <a name="deployment"></a>Implementação
 ### <a name="deployment-failure"></a>Falha de implementação
-Se ocorrer uma falha durante a instalação, pode reiniciar a implementação do passo falhado utilizando-opção volte a executar o script de implementação.  
+Se ocorrer uma falha durante a instalação, pode reiniciar a implementação do passo falhado utilizando-opção volte a executar o script de implementação como no exemplo seguinte:
+
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>No final da implementação, a sessão do PowerShell é aberta e não mostra resultados
 Este comportamento é, provavelmente, apenas o resultado do comportamento predefinido de uma janela de comando do PowerShell, quando foi selecionada. A implementação do kit de desenvolvimento foi bem sucedida, mas o script foi colocada em pausa quando selecionar a janela. Pode verificar a configuração foi concluída, procurando a palavra "selecionar" no titlebar da janela de comando. Prima a tecla ESC para anular-a e a mensagem de conclusão deve ser apresentada depois.

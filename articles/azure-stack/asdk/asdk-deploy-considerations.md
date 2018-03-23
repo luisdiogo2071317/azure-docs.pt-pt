@@ -1,25 +1,25 @@
 ---
-title: "Pré-requisitos da implementação (ASDK) do Kit de desenvolvimento de pilha do Azure | Microsoft Docs"
+title: Pré-requisitos da implementação (ASDK) do Kit de desenvolvimento de pilha do Azure | Microsoft Docs
 description: Reveja os requisitos de hardware e de ambiente para o Kit de desenvolvimento de pilha do Azure (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 24a766ada1cdd1cb854b6869d571acd73e376327
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f4b55bb3287f67792b3257c3f62256437f5625ca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Implementação do Azure da pilha considerações de planeamento
 Antes de implementar o Kit de desenvolvimento de pilha do Azure (ASDK), certifique-se de que o computador de anfitrião do kit de desenvolvimento cumpre os requisitos descritos neste artigo.
@@ -34,7 +34,7 @@ Antes de implementar o Kit de desenvolvimento de pilha do Azure (ASDK), certifiq
 | Computação: Memória |96 GB de RAM |128 GB de RAM (este é o mínimo para suportar fornecedores de recursos de PaaS).|
 | Computação: BIOS |Hyper-V Ativado (com suporte SLAT) |Hyper-V Ativado (com suporte SLAT) |
 | Rede: NIC |Certificação Windows Server 2012 R2 necessária para a NIC; nenhuma funcionalidade específica necessária |Certificação Windows Server 2012 R2 necessária para a NIC; nenhuma funcionalidade específica necessária |
-| Certificação de logótipo do HW |[Certificado para o Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certificado para o Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| Certificação de logótipo do HW |[Certificado para o Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certificado para o Windows Server 2016](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> Precisa de mais do que esta capacidade opção recomendada se planear adicionar muitas do [itens do marketplace](asdk-marketplace-item.md) a partir do Azure.
 

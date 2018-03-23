@@ -1,25 +1,25 @@
 ---
-title: "Considerações sobre a integração para sistemas de pilha do Azure integrado de rede | Microsoft Docs"
-description: "Saiba o que pode fazer para planear a integração de rede do Centro de dados com vários nós do Azure pilha."
+title: Considerações sobre a integração para sistemas de pilha do Azure integrado de rede | Microsoft Docs
+description: Saiba o que pode fazer para planear a integração de rede do Centro de dados com vários nós do Azure pilha.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5ade2a09d0729f48c075a5bcaa20bee079ead47d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede de pilha do Azure para o ajudar a decidir como pretende integrar melhor pilha do Azure no seu ambiente de rede existente. 
@@ -67,7 +67,7 @@ Este /24 254 anfitrião do rede (IP) é privado para a região de pilha do Azure
 Isto/24 rede se encontra dedicado para componentes internos de pilha do Azure para que estes possam comunicar e trocar dados entre si próprios. Esta sub-rede necessita de endereços IP encaminháveis, mas é mantida privada para a solução através de listas de controlo de acesso (ACL). Não é esperado para ser encaminhados para além dos comutadores de limite, exceto para um intervalo de pequeno equivalente num tamanho de ao/27 rede utilizada pelas alguns destes serviços quando necessitem de acesso a recursos externos e/ou da internet. 
 
 ### <a name="public-infrastructure-network"></a>Rede de infraestrutura públicas
-Isto/27 rede é o intervalo de pequeno da sub-rede de infraestrutura do Azure pilha mencionado anteriormente, não necessita de endereços IP públicos, mas requerem acesso à internet através de um NAT ou um Proxy transparente. Esta rede será atribuída para o sistema de consola de recuperação de emergência (ERCS), a VM ERCS requer acesso à internet durante o registo para o Azure e devem ser encaminhável para a sua rede de gestão para fins de resolução de problemas.
+Isto/27 rede é o intervalo de pequeno da sub-rede de infraestrutura do Azure pilha mencionado anteriormente, não necessita de endereços IP públicos, mas requerem acesso à internet através de um NAT ou um Proxy transparente. Esta rede será atribuída para o sistema de consola de recuperação de emergência (ERCS), a VM ERCS requer acesso à internet durante o registo para o Azure e cópias de segurança da infraestrutura. A VM ERCS devem ser encaminhável para a sua rede de gestão para fins de resolução de problemas.
 
 ### <a name="public-vip-network"></a>Rede de VIP pública
 A rede de VIP público é atribuída ao controlador de rede na pilha do Azure. Não é uma rede lógica no comutador. O SLB utiliza o conjunto de endereços e atribui/32 redes para cargas de trabalho inquilinas. Na tabela de encaminhamento de comutador, estes IPs 32 estão anunciados como uma rota disponível através do BGP. Esta rede contém os endereços IP externo acessível ou públicos. A infraestrutura de pilha do Azure utiliza, pelo menos, 8 endereços desta rede VIP público enquanto o resto é utilizado pelas VMs inquilino. O tamanho da rede nesta sub-rede variam entre um mínimo de /26 (64 anfitriões) para um máximo de /22 (1022 anfitriões), recomendamos que planeie um /24 rede.
