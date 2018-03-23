@@ -1,25 +1,25 @@
 ---
-title: "Validar os certificados de infraestrutura de chave pública do Azure pilha para a implementação de sistemas de pilha do Azure integrado | Microsoft Docs"
+title: Validar os certificados de infraestrutura de chave pública do Azure pilha para a implementação de sistemas de pilha do Azure integrado | Microsoft Docs
 description: Descreve como validar os certificados PKI de pilha do Azure para sistemas de pilha do Azure integrado.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 86f1b889d83905abfb5ddab2e82f32922409ff5f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b38e3cc45d14645611c0cd804f2bfa66047810f0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Validar os certificados PKI de pilha do Azure
 A ferramenta Azure pilha certificado verificador descrita neste artigo é fornecida pelo OEM incluído com o ficheiro deploymentdata.json para validar que o [gerados certificados PKI](azure-stack-get-pki-certs.md) adequadas para a pré-implementação. Certificados devem ser validados com tempo suficiente para testar e obter certificados emitido novamente se necessário. 

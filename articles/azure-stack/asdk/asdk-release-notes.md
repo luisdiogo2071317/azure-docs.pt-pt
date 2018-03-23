@@ -1,24 +1,24 @@
 ---
-title: "Notas de versão do Kit de desenvolvimento de pilha do Microsoft Azure | Microsoft Docs"
-description: "Melhoramentos, correções e problemas conhecidos do Kit de desenvolvimento de pilha do Azure."
+title: Notas de versão do Kit de desenvolvimento de pilha do Microsoft Azure | Microsoft Docs
+description: Melhoramentos, correções e problemas conhecidos do Kit de desenvolvimento de pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 176b850120958a5ca5fdaece4831e2ed27ac0a04
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b08c1793857fd6c6a6a04c0d450e76a36357597
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Kit de desenvolvimento de pilha do Azure
 Estas notas de versão fornecem informações sobre os melhoramentos, correções e problemas conhecidos no Kit de desenvolvimento de pilha do Azure. Se não tiver a certeza de qual é a versão que está a executar, pode [utilizar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -56,6 +56,11 @@ Consulte o [novas funcionalidades e correções](.\.\azure-stack-update-1802.md#
     - *ERRO - o modelo para o FaultType ResourceProviderTimeout está em falta.*
 
     Este alerta pode ser ignorado com segurança. 
+
+- No portal de administração tanto portal de utilizador, o painel de descrição geral não é possível carregar quando seleciona o painel de descrição geral de contas de armazenamento que foram criadas com uma versão de API antiga (exemplo: 2015-06-15). 
+
+  Como solução, utilize o PowerShell para executar o **início ResourceSynchronization.ps1** script para restaurar o acesso para os detalhes da conta de armazenamento. [O script está disponível a partir do GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)e deve ser executado com credenciais de administrador de serviço no anfitrião do kit de desenvolvimento se utilizar o ASDK.  
+
 
 #### <a name="health-and-monitoring"></a>Estado de funcionamento e a monitorização
 No portal de administração de pilha do Azure, poderá ver um alerta crítico com o nome **pendentes expiração de certificado externo**.  Este alerta pode ser ignorado com segurança e afetem as operações do Kit de desenvolvimento de pilha do Azure. 
@@ -273,9 +278,11 @@ No Azure Active Directory serviços de Federação (ADFS) implementar ambientes,
     > Alguns dos itens listados no **novas funcionalidades e correções** secção são relevantes apenas para os sistemas de pilha do Azure integrado.
 
 ### <a name="known-issues"></a>Problemas conhecidos
+
  
 #### <a name="deployment"></a>Implementação
 - Tem de especificar um servidor de tempo por endereço IP durante a implementação.
+- A partir da versão 1711, **CloudAdmin** é um nome de conta reservados e não deve ser manualmente especificado ao implementar o kit de desenvolvimento. 
 
 #### <a name="infrastructure-management"></a>Gestão de infraestrutura
 - Não ative a cópia de segurança de infraestrutura no **cópia de segurança da infraestrutura** painel.

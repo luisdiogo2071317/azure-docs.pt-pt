@@ -1,11 +1,11 @@
 ---
-title: "Criar uma máquina virtual do Windows utilizando o PowerShell na pilha do Azure | Microsoft Docs"
-description: "Crie uma máquina virtual do Windows com o PowerShell na pilha do Azure."
+title: Criar uma máquina virtual do Windows utilizando o PowerShell na pilha do Azure | Microsoft Docs
+description: Crie uma máquina virtual do Windows com o PowerShell na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 7CA6C0AC-23B7-4007-BA32-7A950FD1F3B8
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 688ab6c55867d72d55e27c21c883c14ef90078d2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f73f6599f24c0748862ba3a2f1384246841e7e8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Criar uma máquina virtual do Windows utilizando o PowerShell na pilha do Azure
 
@@ -197,7 +197,7 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   -CreateOption FromImage | `
   Add-AzureRmVMNetworkInterface -Id $nic.Id 
 
-#Create the virtual machine.
+# Create the virtual machine.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
@@ -213,7 +213,7 @@ Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
  
-Utilize o seguinte comando para criar uma sessão de ambiente de trabalho remoto com a máquina virtual. Substitua o endereço IP publicIPAddress da sua máquina virtual. Quando lhe for pedido, introduza o nome de utilizador e palavra-passe que utilizou ao criar a máquina virtual.
+Utilize o seguinte comando para criar uma sessão de ambiente de trabalho remoto com a máquina virtual. Substitua o endereço IP pelo publicIPAddress da máquina virtual. Quando lhe for pedido, introduza o nome de utilizador e palavra-passe que utilizou ao criar a máquina virtual.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -243,7 +243,7 @@ Remove-AzureRmResourceGroup `
   -Name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este guia de introdução, implementou uma máquina virtual simple do Windows. Para saber mais sobre as máquinas virtuais de pilha do Azure, avance para [considerações para máquinas virtuais no Azure pilha](azure-stack-vm-considerations.md).
 

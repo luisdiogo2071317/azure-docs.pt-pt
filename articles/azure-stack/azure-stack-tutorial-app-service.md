@@ -1,29 +1,28 @@
 ---
-title: "Certifique-web e API apps disponíveis para os utilizadores de pilha do Azure | Microsoft Docs"
-description: "Tutorial para instalar o fornecedor de recursos do serviço de aplicações e criar oferece que conceder aos seus utilizadores de pilha do Azure a capacidade de criar web e API apps."
+title: Certifique-web e API apps disponíveis para os utilizadores de pilha do Azure | Microsoft Docs
+description: Tutorial para instalar o fornecedor de recursos do serviço de aplicações e criar oferece que conceder aos seus utilizadores de pilha do Azure a capacidade de criar web e API apps.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e2f15ca3a46af51ab6228e772298c51ad33fd49c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Certifique-web e API apps disponíveis para os utilizadores de pilha do Azure
-
 Como um administrador da nuvem de pilha do Azure, pode criar ofertas informar os utilizadores (inquilinos) criam aplicações das funções do Azure e web e API. Ao fornecer acesso a estas aplicações a pedido, baseado na nuvem aos seus utilizadores, pode guardá-los tempo e recursos. Para configurar esta opção, irá:
 
 > [!div class="checklist"]
@@ -63,7 +62,7 @@ Agora que implementou o fornecedor de recursos do serviço de aplicações e cri
 
 ### <a name="create-a-sql-database"></a>Criar uma base de dados SQL
 
-1. Clique em  **+**   >  **dados + armazenamento** > **base de dados SQL**.
+1. Clique em **+**  >  **dados + armazenamento** > **base de dados SQL**.
 2. Deixe as predefinições para os campos, exceto da seguinte forma:
     - **Nome de base de dados**: DNNdb
     - **Tamanho máximo em MB**: 100
@@ -75,7 +74,7 @@ Agora que implementou o fornecedor de recursos do serviço de aplicações e cri
 
 ### <a name="create-a-dnn-app"></a>Criar uma aplicação DNN    
 
-1. Clique em  **+**   >  **ver todos os** > **pré-visualização de plataforma DNN** > **criar**.
+1. Clique em **+**  >  **ver todos os** > **pré-visualização de plataforma DNN** > **criar**.
 2. Tipo *DNNapp* em **nome da aplicação** e selecione **TestAppServiceOffer** em **subscrição**.
 3. Clique em **configurar definições necessárias** > **criar novo** > tipo um **plano do App Service** nome.
 4. Clique em **escalão de preço** > **F1 gratuito** > **selecione** > **OK**.

@@ -2,10 +2,10 @@
 title: A chave de funcionalidades e conceitos na pilha do Azure | Microsoft Docs
 description: Saiba mais sobre as principais funcionalidades e conceitos na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 09ca32b7-0e81-4a27-a6cc-0ba90441d097
 ms.service: azure-stack
 ms.workload: na
@@ -14,17 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: jeffgilb
-ms.reviewer: 
-ms.openlocfilehash: b773ddc5da12f92960ef3378decac8569dac9ab9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: ''
+ms.openlocfilehash: 958b1757dd773f8c46185b13c84f766ce4f827ee
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>As principais funcionalidades e conceitos na pilha do Azure
-
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
-
 Se estiver familiarizado com o Microsoft Azure pilha, estes termos de licenciamento e descrições das funcionalidades poderão ser úteis.
 
 ## <a name="personas"></a>Pessoas fictícias
@@ -165,5 +162,5 @@ Compilações em desenvolvimento irão fornecer as seguintes vantagens:
 - Outras melhorias
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Pré-requisitos de implementação de pilha do Azure](azure-stack-deploy.md)
+[Avaliar o Kit de desenvolvimento de pilha do Azure](azure-stack-deploy-overview.md)
 

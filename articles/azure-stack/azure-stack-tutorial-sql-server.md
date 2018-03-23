@@ -2,28 +2,27 @@
 title: Disponibilizar bases de dados SQL para os utilizadores de pilha do Azure | Microsoft Docs
 description: Tutorial para instalar o fornecedor de recursos do SQL Server e criar oferece que permitem que os utilizadores de pilha do Azure criar bases de dados do SQL Server.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2017
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Disponibilizar bases de dados SQL para os utilizadores de pilha do Azure
-
 Como um administrador da nuvem de pilha do Azure, pode criar ofertas informar os utilizadores (inquilinos) criar bases de dados do SQL Server que podem utilizar com as respetivas aplicações de nuvem nativo, Web sites e cargas de trabalho. Ao fornecer estas bases de dados personalizados a pedido, baseado na nuvem aos seus utilizadores, pode guardá-los tempo e recursos. Para configurar esta opção, irá:
 
 > [!div class="checklist"]
@@ -64,7 +63,7 @@ Agora que implementou o fornecedor de recursos do SQL Server e criar uma oferta,
 
 ### <a name="create-a-sql-database"></a>Criar uma base de dados SQL
 
-1. Clique em  **+**   >  **dados + armazenamento** > **base de dados SQL**.
+1. Clique em **+**  >  **dados + armazenamento** > **base de dados SQL**.
 2. Deixe as predefinições para os campos ou pode utilizar estes exemplos:
     - **Nome de base de dados**: SQLdb
     - **Tamanho máximo em MB**: 100

@@ -1,26 +1,26 @@
 ---
-title: "O que é o Azure Stack? | Microsoft Docs"
-description: "Pilha do Azure permite-lhe executar serviços do Azure no seu centro de dados."
+title: O que é o Azure Stack? | Microsoft Docs
+description: Pilha do Azure permite-lhe executar serviços do Azure no seu centro de dados.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/21/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 68d1e1752f934e61bbb60c0c934a80b564896a36
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 863c1ec562cd71af0df69ccc0547e16d02c7ee82
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-stack"></a>O que é o Azure Stack?
 
@@ -30,10 +30,10 @@ Pilha do Microsoft Azure é uma plataforma de nuvem híbrida que lhe permite for
 Pilha do Azure integrados sistemas são fornecidos através de uma parceria da Microsoft e [parceiros de hardware](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), criação de uma solução que oferece paced de nuvem inovação balanceado com simplicidade em gestão.  Porque a pilha do Azure é fornecida como um sistema integrado de hardware e software, é-lhe oferecida a quantidade certa de flexibilidade e controlo, enquanto ainda adotar inovação da nuvem.  Sistemas de pilha integrada do Azure no intervalo de tamanho de nós de 4-12 e jointly são suportados pela Microsoft e parceiros de hardware.  Utilize sistemas de pilha do Azure integrado para ativar novos cenários para as cargas de trabalho de produção.    
 
 ## <a name="azure-stack-development-kit"></a>Development Kit do Azure Stack
-Kit de desenvolvimento de pilha do Microsoft Azure é uma implementação de nó único da pilha do Azure, que pode utilizar para avaliar e obter informações sobre a pilha do Azure.  Também pode utilizar Kit de desenvolvimento de pilha do Azure como um ambiente de programação, onde pode desenvolver com APIs e ferramentas consistente com o Azure.  Kit de desenvolvimento de pilha do Azure não se destina a ser utilizado como um ambiente de produção.
+Microsoft [Kit de desenvolvimento de pilha do Azure (ASDK)](.\asdk\asdk-what-is.md) é uma implementação de nó único da pilha do Azure, que pode utilizar para avaliar e obter informações sobre a pilha do Azure.  Também pode utilizar o ASDK como um ambiente de programação, onde pode desenvolver com APIs e ferramentas consistente com o Azure. O ASDK não se destina a ser utilizado como um ambiente de produção.
 
-Kit de desenvolvimento de pilha do Azure tem as seguintes limitações:
-* Kit de desenvolvimento de pilha do Azure está associado um único fornecedor de identidade do Azure Active Directory ou serviços de Federação do Active Directory. Pode criar vários utilizadores neste diretório e atribuir as subscrições para cada utilizador.
+O ASDK tem as seguintes limitações:
+* ASDK está associado um único do Azure Active Directory (Azure AD) ou o fornecedor de identidade de serviços de Federação do Active Directory (AD FS). Pode criar vários utilizadores neste diretório e atribuir as subscrições para cada utilizador.
 * Com todos os componentes implementados num único computador, existem limitados recursos físicos disponíveis para os recursos de inquilino. Esta configuração não se destina a avaliação de escala ou desempenho.
 * Cenários de redes estão limitados devido ao requisito de anfitrião único/NIC.  
 

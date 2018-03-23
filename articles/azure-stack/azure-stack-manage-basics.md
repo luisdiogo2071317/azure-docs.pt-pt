@@ -1,11 +1,11 @@
 ---
-title: "Noções básicas de administração de pilha do Azure | Microsoft Docs"
+title: Noções básicas de administração de pilha do Azure | Microsoft Docs
 description: Saiba o que precisa de saber para administrar a pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: fa77faac195de3be7bf7b2785eb589b030a6e6ce
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Noções básicas de administração de pilha do Azure
-
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
-
 Existem várias coisas que precisa de saber se estiver familiarizado com a administração de pilha do Azure. Esta orientação fornece uma descrição geral da sua função como um operador de pilha do Azure e o que precisa dizer aos utilizadores para que estes fiquem produtivos rapidamente.
 
 ## <a name="understand-the-builds"></a>Compreender as compilações
@@ -132,7 +129,7 @@ Para mais nada, contacte o Microsoft CSS.
 
 Para o kit de desenvolvimento, pode colocar perguntas relacionadas com suporte no [fóruns do Microsoft](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Se clicar no ícone de ajuda e suporte (ponto de interrogação) no canto superior direito do portal de administrador e, em seguida, clique em **novo pedido de suporte**, esta ação abre o site fóruns diretamente. Estes fóruns regularmente são monitorizados. Porque o kit de desenvolvimento é um ambiente de avaliação, não há nenhum oficial de suporte oferecida através do Microsoft CSS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Gestão de região na pilha do Azure](azure-stack-region-management.md)
 

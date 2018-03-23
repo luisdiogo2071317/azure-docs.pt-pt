@@ -1,11 +1,11 @@
 ---
-title: "Pilha do Azure de política de manutenção | Microsoft Docs"
-description: "Saiba mais sobre a pilha do Azure de manutenção política, como manter um sistema integrado num estado suportado."
+title: Pilha do Azure de política de manutenção | Microsoft Docs
+description: Saiba mais sobre a pilha do Azure de manutenção política, como manter um sistema integrado num estado suportado.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
 ms.service: azure-stack
 ms.workload: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 13155349775e71e777e868b6cd311d2e8683706d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f495ca12e7cdb1bf61f09bd2d4a8a21654745d8a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Pilha do Azure de política de manutenção
-
-*Aplica-se a: Azure pilha integrado sistemas*
-
 Este artigo descreve a política de manutenção para sistemas de pilha do Azure integrada e que terá de efetuar para manter o seu sistema num estado suportado. 
 
 ## <a name="update-package-types"></a>Tipos de pacote de atualização
