@@ -1,25 +1,25 @@
 ---
-title: "Gerar os certificados de infraestrutura de chave pública do Azure pilha para a implementação de sistemas de pilha do Azure integrado | Microsoft Docs"
-description: "Descreve os sistemas de pilha do Azure integrado processfor de implementação de certificados de PKI de pilha do Azure."
+title: Gerar os certificados de infraestrutura de chave pública do Azure pilha para a implementação de sistemas de pilha do Azure integrado | Microsoft Docs
+description: Descreve os sistemas de pilha do Azure integrado processfor de implementação de certificados de PKI de pilha do Azure.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 991a94e4ca41bad438a3c8d06e4e1f691cff91bc
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Gerar os certificados PKI para a implementação de pilha do Azure
 Agora que já sabe [os requisitos de certificado PKI](azure-stack-pki-certs.md) para implementações de pilha do Azure, terá de obter esses certificados a partir da autoridade de certificação (CA) à sua escolha. 
@@ -30,7 +30,7 @@ Agora que já sabe [os requisitos de certificado PKI](azure-stack-pki-certs.md) 
 ### <a name="sample-inf-file"></a>Ficheiro INF de exemplo 
 O ficheiro de INF de pedido de certificado de exemplo pode ser utilizado para criar um ficheiro de pedido de certificado offline para submissão para uma AC (interno ou público). INF abrange todos os pontos finais necessários (incluindo os serviços de PaaS opcionais) num certificado de caráter universal único. 
 
-O ficheiro INF do exemplo assume que nessa região é igual a **sea** e o valor FQDN externo é **sea &#46;contoso &#46; com**. Alterar os valores para corresponder ao seu ambiente antes de gerar um. Ficheiro INF para a sua implementação. 
+O ficheiro INF do exemplo assume que nessa região é igual a **sea** e o valor FQDN externo é **sea&#46;contoso&#46;com**. Alterar os valores para corresponder ao seu ambiente antes de gerar um. Ficheiro INF para a sua implementação. 
 
     
     [Version] 

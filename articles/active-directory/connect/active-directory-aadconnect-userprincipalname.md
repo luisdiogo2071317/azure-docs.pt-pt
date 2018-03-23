@@ -1,6 +1,6 @@
 ---
-title: "Azure AD UserPrincipalName população"
-description: "O documento seguinte descreve a forma como o atributo UserPrincipalName é preenchido."
+title: Azure AD UserPrincipalName população
+description: O documento seguinte descreve a forma como o atributo UserPrincipalName é preenchido.
 author: billmath
 ms.author: billmath
 ms.date: 02/02/2018
@@ -9,10 +9,10 @@ ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
 ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName população
 
@@ -25,7 +25,7 @@ A seguinte terminologia é utilizada neste artigo:
 |Termo|Descrição|
 |-----|-----|
 |Domínio inicial|O domínio predefinido (m) no inquilino do Azure AD. Por exemplo, contoso.onmicrosoft.com.|
-|Microsoft Online encaminhamento endereço de correio eletrónico (MOERA)|Azure AD calcula MOERA do Azure AD MailNickName atributo e de domínio inicial do Azure AD como &lt;MailNickName&gt;&#64;&lt; domínio inicial&gt;.|
+|Microsoft Online encaminhamento endereço de correio eletrónico (MOERA)|Azure AD calcula MOERA do Azure AD MailNickName atributo e de domínio inicial do Azure AD como &lt;MailNickName&gt;&#64;&lt;domínio inicial&gt;.|
 |Atributo de mailNickName no local|Um atributo no Active Directory, o valor que representa o alias de um utilizador na organização do Exchange.|
 |Atributo de correio no local|Um atributo no Active Directory, o valor que representa o endereço de e-mail de um utilizador|
 |Endereço SMTP principal|O endereço de correio eletrónico principal de um objeto de destinatário do Exchange. Por exemplo, SMTP:user@contoso.com.|
@@ -56,7 +56,7 @@ Para ativar o ID de início de sessão alternativo com o Azure AD, não existem 
 Para obter mais informações consulte [ID de início de sessão alternativo configurar](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) e [configuração do início de sessão do Azure AD](active-directory-aadconnect-get-started-custom.md#azure-ad-sign-in-configuration)
 
 ## <a name="non-verified-upn-suffix"></a>Sufixo UPN não verificado
-Se o sufixo de ID de início de sessão do local UserPrincipalName atributo/alternativo não é verificado com o inquilino do Azure AD, o valor do atributo UserPrincipalName do Azure AD está definido para MOERA. Azure AD calcula MOERA do atributo MailNickName do Azure AD e do domínio inicial do Azure AD como &lt;MailNickName&gt;&#64;&lt; domínio inicial&gt;.
+Se o sufixo de ID de início de sessão do local UserPrincipalName atributo/alternativo não é verificado com o inquilino do Azure AD, o valor do atributo UserPrincipalName do Azure AD está definido para MOERA. Azure AD calcula MOERA do atributo MailNickName do Azure AD e do domínio inicial do Azure AD como &lt;MailNickName&gt;&#64;&lt;domínio inicial&gt;.
 
 ## <a name="verified-upn-suffix"></a>Verificado sufixo UPN
 Se o UserPrincipalName no local. o atributo/alternativo sufixo do ID de início de sessão é verificado com o inquilino do Azure AD, em seguida, o valor do atributo UserPrincipalName do Azure AD vai ser o mesmo que o valor de ID de início de sessão do local UserPrincipalName atributo/alternativo.
@@ -87,12 +87,12 @@ Seguem-se cenários de exemplo de como o UPN é calculado com base num determina
 Objeto de utilizador no local:
 - mailNickName: &lt;não definida&gt;
 - proxyAddresses        : {SMTP:us1@contoso.com}
-- correio:us2@contoso.com
+- correio: us2@contoso.com
 - userPrincipalName : us3@contoso.com`
 
 Sincronizar o objeto de utilizador para o inquilino do Azure AD pela primeira vez
 - Definir o atributo de MailNickName do Azure AD para o prefixo do endereço SMTP principal.
-- Definir MOERA &lt;MailNickName&gt;&#64;&lt; domínio inicial&gt;.
+- Definir MOERA &lt;MailNickName&gt;&#64;&lt;domínio inicial&gt;.
 - Defina o atributo UserPrincipalName do Azure AD para MOERA.
 
 Objeto de utilizador de inquilino do AD do Azure:
@@ -105,7 +105,7 @@ Objeto de utilizador de inquilino do AD do Azure:
 Objeto de utilizador no local:
 - mailNickName      : us4
 - proxyAddresses        : {SMTP:us1@contoso.com}
-- correio:us2@contoso.com
+- correio: us2@contoso.com
 - userPrincipalName : us3@contoso.com
 
 Sincronizar a atualização no atributo de mailNickName no local para o inquilino do Azure AD
@@ -121,12 +121,12 @@ Objeto de utilizador de inquilino do AD do Azure:
 Objeto de utilizador no local:
 - mailNickName      : us4
 - proxyAddresses        : {SMTP:us1@contoso.com}
-- correio:us2@contoso.com
+- correio: us2@contoso.com
 - userPrincipalName : us5@contoso.com
 
 Sincronizar atualizações de atributo de userPrincipalName no local para o inquilino do Azure AD
 - Atualização no atributo de userPrincipalName no local aciona novo cálculo do atributo MOERA e UserPrincipalName do Azure AD.
-- Definir MOERA &lt;MailNickName&gt;&#64;&lt; domínio inicial&gt;.
+- Definir MOERA &lt;MailNickName&gt;&#64;&lt;domínio inicial&gt;.
 - Defina o atributo UserPrincipalName do Azure AD para MOERA.
 
 Objeto de utilizador de inquilino do AD do Azure:
@@ -138,7 +138,7 @@ Objeto de utilizador de inquilino do AD do Azure:
 Objeto de utilizador no local:
 - mailNickName      : us4
 - proxyAddresses        : {SMTP:us6@contoso.com}
-- correio:us7@contoso.com
+- correio: us7@contoso.com
 - userPrincipalName : us5@contoso.com
 
 Sincronizar atualizações de atributo de correio no local e o endereço SMTP principal para o inquilino do Azure AD
@@ -153,7 +153,7 @@ Objeto de utilizador de inquilino do AD do Azure:
 Objeto de utilizador no local:
 - mailNickName      : us4
 - proxyAddresses        : {SMTP:us6@contoso.com}
-- correio:us7@contoso.com
+- correio: us7@contoso.com
 - serPrincipalName  : us5@verified.contoso.com
 
 Sincronizar atualizações de atributo de userPrincipalName no local para o inquilino do Azure AD

@@ -1,6 +1,6 @@
 ---
 title: Migrar VMs para o armazenamento Premium do Azure | Microsoft Docs
-description: "Migre as suas VMs existentes para o Premium Storage do Azure. Armazenamento Premium oferece suporte de disco de elevado desempenho, baixa latência para cargas de trabalho de I/O intensivo em execução em máquinas de virtuais do Azure."
+description: Migre as suas VMs existentes para o Premium Storage do Azure. Armazenamento Premium oferece suporte de disco de elevado desempenho, baixa latência para cargas de trabalho de I/O intensivo em execução em máquinas de virtuais do Azure.
 services: storage
 documentationcenter: na
 author: yuemlu
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.openlocfilehash: 36ff73d36c752fb342dcfff2360b4f6f7013740e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrar para o armazenamento do Azure Premium (discos não geridos)
 
@@ -163,7 +163,7 @@ Crie uma conta de armazenamento para manter os seus VHDs. Quando planear onde pr
 Para discos de dados, pode optar por manter alguns discos de dados numa conta do standard storage (por exemplo, os discos que possuam armazenamento cooler), mas recomendamos vivamente que mover todos os dados de carga de trabalho de produção utilizar o armazenamento premium.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Passo 3. Copie o VHD com o PowerShell ou o AzCopy
-Terá de localizar a chave de conta de contentor caminho e o armazenamento, para processar uma destas duas opções. Chave de conta de armazenamento e caminho do contentor pode ser encontrada na **Portal do Azure** > **armazenamento**. O URL de contentor serão como "https://myaccount.blob.core.windows.net/mycontainer/".
+Terá de localizar a chave de conta de contentor caminho e o armazenamento, para processar uma destas duas opções. Chave de conta de armazenamento e caminho do contentor pode ser encontrada na **Portal do Azure** > **armazenamento**. O contentor URL será como "https://myaccount.blob.core.windows.net/mycontainer/".
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Opção 1: Copiar um VHD com o AzCopy (cópia assíncrona)
 Utilizar o AzCopy, pode carregar facilmente o VHD através da Internet. Dependendo do tamanho dos VHDs, isto pode demorar tempo. Lembre-se verificar os limites de entrada/saída da conta de armazenamento ao utilizar esta opção. Consulte [metas de desempenho e escalabilidade do Storage do Azure](storage-scalability-targets.md) para obter mais detalhes.
@@ -222,7 +222,7 @@ Se estiver a migrar VHD de não - Storage do Azure na nuvem para o Azure, primei
 
 #### <a name="step-1-export-vhd-to-a-local-directory"></a>Passo 1. Exportar o VHD para um diretório local
 ##### <a name="copy-a-vhd-from-aws"></a>Copiar um VHD do AWS
-1. Se estiver a utilizar o AWS, exporte a instância de EC2 a um VHD num registo de Amazon S3. Siga os passos descritos na documentação do Amazon para exportar o Amazon EC2 instâncias instalar a ferramenta de interface de linha de comandos (CLI) do Amazon EC2 e execute o comando Criar instância-exportar tarefas para exportar a instância de EC2 para um ficheiro VHD. Certifique-se de utilizar **VHD** para o disco &#95; imagem &#95; Variável de formato ao executar o **criar instância-exportação-tarefas** comando. O ficheiro exportado de VHD é guardado no registo do Amazon S3 que designar durante esse processo.
+1. Se estiver a utilizar o AWS, exporte a instância de EC2 a um VHD num registo de Amazon S3. Siga os passos descritos na documentação do Amazon para exportar o Amazon EC2 instâncias instalar a ferramenta de interface de linha de comandos (CLI) do Amazon EC2 e execute o comando Criar instância-exportar tarefas para exportar a instância de EC2 para um ficheiro VHD. Certifique-se de utilizar **VHD** para o disco&#95;imagem&#95;variável de formato ao executar o **criar instância-exportação-tarefas** comando. O ficheiro exportado de VHD é guardado no registo do Amazon S3 que designar durante esse processo.
 
     ```
     aws ec2 create-instance-export-task --instance-id ID --target-environment TARGET_ENVIRONMENT \

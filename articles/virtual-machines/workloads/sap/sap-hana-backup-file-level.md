@@ -1,11 +1,11 @@
 ---
-title: "Cópia de segurança do SAP HANA do Azure no nível de ficheiro | Microsoft Docs"
-description: "Existem duas principais cópia de segurança as possibilidades de SAP HANA em máquinas virtuais do Azure, este artigo abrange SAP HANA Backup do Azure no nível de ficheiro"
+title: Cópia de segurança do SAP HANA do Azure no nível de ficheiro | Microsoft Docs
+description: Existem duas principais cópia de segurança as possibilidades de SAP HANA em máquinas virtuais do Azure, este artigo abrange SAP HANA Backup do Azure no nível de ficheiro
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Cópia de segurança do SAP HANA do Azure no nível de ficheiro
 
@@ -87,9 +87,9 @@ Nesta captura de ecrã, um pode ver o aspeto no portal do Azure. Um contentor do
 
 A consola de cópia de segurança HANA Studio permite um para restringir o tamanho de ficheiro máximo dos ficheiros de cópia de segurança HANA. No ambiente de exemplo, se um desempenho melhorado, tornando a possível ter vários ficheiros de cópia de segurança mais pequenos, em vez de um ficheiro grande de 230 GB.
 
-![Definir o limite de tamanho de ficheiro de cópia de segurança no não de lado HANA &#39; t melhorar o tempo de cópia de segurança](media/sap-hana-backup-file-level/image029.png)
+![Definir o limite de tamanho de ficheiro de cópia de segurança no não de lado HANA&#39;t melhorar o tempo de cópia de segurança](media/sap-hana-backup-file-level/image029.png)
 
-Definir o limite de tamanho de ficheiro de cópia de segurança no não de lado HANA &#39; t melhorar a hora da cópia de segurança, porque os ficheiros são escritos sequencialmente, como mostrado na figura que. O limite de tamanho de ficheiro foi definido para 60 GB, pelo que a cópia de segurança criada quatro ficheiros de dados de grandes dimensões em vez do ficheiro de único 230 GB.
+Definir o limite de tamanho de ficheiro de cópia de segurança no não de lado HANA&#39;t melhorar a hora da cópia de segurança, porque os ficheiros são escritos sequencialmente, como mostrado na figura que. O limite de tamanho de ficheiro foi definido para 60 GB, pelo que a cópia de segurança criada quatro ficheiros de dados de grandes dimensões em vez do ficheiro de único 230 GB.
 
 ![Para testar o paralelismo da ferramenta blobxfer, o tamanho de ficheiro máximo para cópias de segurança HANA, em seguida, foi definido como 15 GB](media/sap-hana-backup-file-level/image030.png)
 
@@ -139,7 +139,7 @@ Funciona, mas o desempenho não foi ideal para o teste de cópia de segurança 2
 
 É possível montar uma partilha de ficheiros do Azure dentro de uma VM com Linux do Azure. O artigo [como utilizar o File storage do Azure com o Linux](../../../storage/files/storage-how-to-use-files-linux.md) fornece detalhes sobre como fazê-lo. Tenha em atenção que não há atualmente um limite de quota de 5 TB de uma partilha de ficheiros do Azure e um limite de tamanho de ficheiro de 1 TB por ficheiro. Consulte [metas de desempenho e escalabilidade do Storage do Azure](../../../storage/common/storage-scalability-targets.md) para obter informações sobre limites de armazenamento.
 
-Testes demonstraram, no entanto, que não de cópia de segurança de SAP HANA &#39; t trabalhar diretamente com este tipo de montagem CIFS. Também é declarado no [1820529 de nota SAP](https://launchpad.support.sap.com/#/notes/1820529) que CIFS não é recomendada.
+Os testes têm mostrado, no entanto, o que não de cópia de segurança de SAP HANA&#39;t atualmente trabalhar diretamente com este tipo de montagem CIFS. Também é declarado no [1820529 de nota SAP](https://launchpad.support.sap.com/#/notes/1820529) que CIFS não é recomendada.
 
 ![Esta ilustração mostra um erro na caixa de diálogo de cópia de segurança no SAP HANA Studio](media/sap-hana-backup-file-level/image038.png)
 
@@ -155,7 +155,7 @@ Nesta captura de ecrã, um pode ver que a estrutura de diretório de origem na S
 
 Armazenamento de ficheiros de cópia de segurança de SAP HANA nos ficheiros do Azure pode ser uma opção interessante no futuro quando cópias de segurança de ficheiros de SAP HANA suportam diretamente. Ou quando torna possível para ficheiros de montagem Azure através de NFS e o limite de quota máxima é consideravelmente maior 5 TB.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Cópia de segurança manual para SAP HANA em Azure Virtual Machines](sap-hana-backup-guide.md) fornece uma descrição geral e informações sobre começar a utilizar.
 * [Cópia de segurança de SAP HANA com base nos instantâneos de armazenamento](sap-hana-backup-storage-snapshots.md) descreve a opção de cópia de segurança do instantâneo com base em armazenamento.
 * Para saber como estabelecer elevada disponibilidade e o plano de recuperação de desastres do SAP HANA no Azure (instâncias de grande), consulte o artigo [SAP HANA (instâncias de grande) elevada disponibilidade e recuperação após desastre no Azure](hana-overview-high-availability-disaster-recovery.md).

@@ -1,11 +1,11 @@
 ---
 title: Modelos
-description: "Este tópico explica os modelos para os hubs de notificação do Azure."
+description: Este tópico explica os modelos para os hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="templates"></a>Modelos
 ## <a name="overview"></a>Descrição geral
@@ -114,13 +114,13 @@ Os modelos são limitados para formatos de documento XML ou JSON. Além disso, a
 
 A tabela seguinte mostra o idioma permitido em modelos:
 
-| expressão | Descrição |
+| Expressão | Descrição |
 | --- | --- |
 | $(prop) |Referência a uma propriedade de evento com o nome fornecido. Os nomes de propriedades não são maiúsculas e minúsculas. Esta expressão é resolvido para o valor da propriedade texto ou para uma cadeia vazia se a propriedade não está presente. |
 | $(prop, n) |Conforme apresentado acima, mas o texto é explicitamente recortado pelo n carateres, por exemplo $(título, 20) clips o conteúdo da propriedade de título em 20 carateres. |
 | . (prop, n) |Conforme apresentado acima, mas o texto é com o sufixo reticências conforme está anexada. O tamanho total da cadeia de recortados e o sufixo não pode exceder n carateres. . (title, 20) com uma propriedade de entrada "Este é a linha de título" resultados nas **este é o título...** |
 | %(prop) |Semelhante $(name) exceto a que o resultado é codificado em URI. |
-| #(prop) |Utilizado em modelos JSON (por exemplo, para iOS e Android modelos).<br><br>Esta função funciona exatamente igual $(prop) anteriormente especificado, exceto quando utilizado em modelos JSON (por exemplo, modelos de Apple). Neste caso, se esta função não está rodeada por "{','}" (por exemplo, 'myJsonProperty': '(nome) #'), e avalia para um número no formato de Javascript, por exemplo, regexp: (0 &#124; (&#91; 1 e 9 &#93; &#91; 0-9 &#93;;*))(\. &#91; 0-9 &#93; +)? ((i &#124; I) (+ &#124;-)? &#91; 0-9 &#93; +)?, em seguida, a saída JSON é um número.<br><br>Por exemplo, ' destaque: '#(nome)' torna-se 'destaque': 40 (e não '40'). |
+| #(prop) |Utilizado em modelos JSON (por exemplo, para iOS e Android modelos).<br><br>Esta função funciona exatamente igual $(prop) anteriormente especificado, exceto quando utilizado em modelos JSON (por exemplo, modelos de Apple). Neste caso, se esta função não está rodeada por "{','}" (por exemplo, 'myJsonProperty': '(nome) #'), e avalia para um número no formato de Javascript, por exemplo, regexp: (0&#124;(&#91;1 e 9&#93;&#91;0-9&#93;*)) (\. &#91;0-9&#93;+)? ((i&#124;I) (+&#124;-)? &#91;0-9&#93;+)?, em seguida, a saída JSON é um número.<br><br>Por exemplo, ' destaque: '#(nome)' torna-se 'destaque': 40 (e não '40'). |
 | 'text' ou "text" |Um literal. As literais contenham arbitrário texto entre aspas única ou duplos. |
 | Expr1 + expr2 |O operador de concatenação associar duas expressões numa cadeia única. |
 

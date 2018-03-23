@@ -1,8 +1,8 @@
 ---
-title: "Identidade híbrida necessário portas e protocolos - Azure | Microsoft Docs"
-description: "Esta página é uma página de referência técnica para portas que são necessárias para ser aberto para o Azure AD Connect"
+title: Identidade híbrida necessário portas e protocolos - Azure | Microsoft Docs
+description: Esta página é uma página de referência técnica para portas que são necessárias para ser aberto para o Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: billmath
 ms.openlocfilehash: 79c339c136e614be8a98461533c63d244dabc166
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portas e Protocolos Necessários para a Identidade Híbrida
 O documento seguinte é uma referência técnica sobre as portas e protocolos necessários para implementar uma solução de identidade híbrida. Utilize a seguinte ilustração e consultar a tabela correspondente.
@@ -32,7 +32,7 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 | --- | --- | --- |
 | DNS |53 (TCP/UDP) |Pesquisas de DNS na floresta de destino. |
 | Kerberos |88 (TCP/UDP) |Autenticação Kerberos floresta do AD. |
-| MS RPC |135 (TCP/UDP) |Utilizado durante a configuração inicial do Assistente do Azure AD Connect quando está vinculada a floresta do AD e também durante a sincronização de palavra-passe. |
+| MS-RPC |135 (TCP/UDP) |Utilizado durante a configuração inicial do Assistente do Azure AD Connect quando está vinculada a floresta do AD e também durante a sincronização de palavra-passe. |
 | LDAP |389 (TCP/UDP) |Utilizado para a importação de dados do AD. Dados são encriptados com o início de sessão do Kerberos & selar. |
 | RPC | 445 (TCP/UDP) |Utilizada pelo SSO totalmente integrada para criar uma conta de computador na floresta do AD. |
 | LDAP/SSL |636 (TCP/UDP) |Utilizado para a importação de dados do AD. A transferência de dados é assinada e encriptada. Só é utilizado se estiver a utilizar SSL. |
@@ -55,7 +55,7 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Utilizado para transferir o CRL (certificado de listas de revogação) para verificar os certificados SSL. |
 | HTTPS |443(TCP/UDP) |Utilizado para sincronizar com o Azure AD. |
-| WinRM |5985 |O serviço de escuta do WinRM |
+| WinRM |5985 |WinRM Listener |
 
 ## <a name="table-4---wap-and-federation-servers"></a>Tabela 4 - WAP e servidores de Federação
 Esta tabela descreve as portas e protocolos que são necessários para a comunicação entre os servidores de Federação e os servidores do WAP.

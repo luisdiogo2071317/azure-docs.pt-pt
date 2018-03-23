@@ -1,11 +1,11 @@
 ---
-title: "Atualização de pilha do Azure 1710 (compilação 20171020.1) | Microsoft Docs"
-description: "Saiba mais sobre as novidades na atualização 1710 para pilha do Azure integrado sistemas, problemas conhecidos e onde pode transferir a atualização."
+title: Atualização de pilha do Azure 1710 (compilação 20171020.1) | Microsoft Docs
+description: Saiba mais sobre as novidades na atualização 1710 para pilha do Azure integrado sistemas, problemas conhecidos e onde pode transferir a atualização.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 135314fd-7add-4c8c-b02a-b03de93ee196
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: mabrigg
 ms.openlocfilehash: 1a482f1d2f3eef8775bb7b64d4f6749f69fa5471
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Atualização de pilha do Azure 1710 (compilação 20171020.1)
 
@@ -35,7 +35,7 @@ Esta atualização inclui as seguintes melhorias de qualidade e correções para
  
 ### <a name="windows-server-2016-improvements-and-fixes"></a>Melhoramentos do Windows Server 2016 e correções
 
-- Atualizações para o Windows Server 2016: 10 de Outubro de 2017 — KB4041691 (compilação do SO 14393.1770. Consulte [https://support.microsoft.com/help/4041691](https://support.microsoft.com/help/4041691) para obter mais informações.
+- Atualizações para o Windows Server 2016: 10 de Outubro de 2017 — KB4041691 (compilação do SO 14393.1770. Consulte [ https://support.microsoft.com/help/4041691 ](https://support.microsoft.com/help/4041691) para obter mais informações.
 
 ### <a name="additional-quality-improvements-and-fixes"></a>Melhoramentos adicionais qualidade e correções
 
@@ -64,7 +64,7 @@ Esta secção contém as questões importantes que poderá encontrar durante a i
 | Quando efetuar uma atualização, o processo de atualização é apresentado ao compartimento de<br> e não efetuar progresso após o passo "passo: executar o passo 2.4 - instalação<br> Atualizar"do plano de ação de atualização.<br><br>Este passo é depois seguido por uma série de processos de cópia de .nupkg<br> ficheiros para as partilhas de ficheiros de infra-estrutura interna. Por exemplo:<br><br>**Ao copiar ficheiros 1 do content\PerfCollector\VirtualMachines para <br> \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\ <br>PerfCounterConfiguration**<br><br>Em alternativa, consulte a mensagem:<br><br>**WarningMessage:Task: Invocação da interface 'LiveUpdate'<br> da função 'Cloud\Fabric\VirtualMachines' falhou:<br> escreva 'LiveUpdate' da função 'VirtualMachines' gerado um<br> exceção: não existe espaço suficiente no disco .**  | O problema é causado por ficheiros de registo a ser preenchida os discos de uma máquina virtual de infraestrutura e um problema no Windows Server escalável ficheiros servidor (SOFS) que irá ser entregue numa atualização subsequente. | Contacte o suporte (CSS) e de serviço de cliente da Microsoft para obter assistência. | 
 | Quando efetuar uma atualização, um erro semelhante ao seguinte<br> poderão ocorrer durante o passo "passo: executar o passo 2.13.2 - atualização<br> *VM_Name*"do plano de ação de atualização. (A máquina virtual<br> nome pode variar devido às.)<br><br>**ActionPlanInstanceWarning ece/MachineName:<br> WarningMessage:Task: invocação de 'LiveUpdate' da interface de<br> função 'Cloud\Fabric\WAS' falhou: tipo de 'LiveUpdate' da função<br> '' Ocorreu uma exceção: Ocorreu um erro durante armazenamento<br> inicialização: Ocorreu um erro ao tentar efetuar uma API<br> a chamada para o serviço do Storage do Microsoft: {"Mensagem": "limite de tempo<br> ocorreu durante a comunicação com o Service Fabric.<br> Tipo de exceção: TimeoutException.<br> Mensagem de exceção: operação excedeu o tempo limite. "}**  | O problema é causado por um limite de tempo de e/s no Windows Server que será resolvido numa atualização subsequente. | Contacte o Microsoft CSS para obter assistência.
 | Quando efetuar uma atualização, um erro semelhante ao seguinte<br> poderão ocorrer durante o passo "passo 21 VMs de reinício do SQL server".<br><br>**Tipo de 'LiveUpdateRestart' da função 'VirtualMachines' gerado um<br> exceção: VerboseMessage: [VirtualMachines:LiveUpdateRestart]<br> consultar VM MachineName-Sql01. - 13/10/2017 5:23:50: 00 VerboseMessage: [VirtualMachines: LiveUpdateRestart]<br> VM está marcada como HighlyAvailable. - 13/10/2017 5:23:50: 00<br> VerboseMessage: [VirtualMachines:LiveUpdateRestart] em<br>MS. Internal.ServerClusters.ExceptionHelp.Build em<br>MS. Internal.ServerClusters.ClusterResource.BeginTakeOffline<br>(force booleano) em Microsoft.FailoverClusters.PowerShell.<br> StopClusterResourceCommand.BeginTimedOperation() em <br>Microsoft.FailoverClusters.PowerShell.TimedCmdlet.Wrapped<br>ProcessRecord() em Microsoft.FailoverClusters.PowerShell.<br> FCCmdlet.ProcessRecord() - 13/10/2017 5:23:50: 00 aviso<br>mensagem: tarefa: invocação de 'LiveUpdateRestart' da interface de<br> função 'Cloud\Fabric\VirtualMachines' falhou:** | Este problema pode ocorrer se não foi possível reiniciar a máquina virtual. | Contacte o Microsoft CSS para obter assistência.
-| Quando efetuar uma atualização, poderá ocorrer um erro semelhante ao seguinte:<br><br>**2017-10-22T01:37:37.5369944Z 'Encerramento' de tipo de função 'SQL'<br> levantou uma exceção: erro ao colocar em pausa nó<br> 's45r1004 Sql01'.at Stop-SQL, C:\ProgramData\SF\ErcsClusterNode2 <br>\Fabric\work\ Applications\ EnterpriseCloud <br>EngineApplicationType &#95; App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\ <br> CloudDeployment\Roles\SQL\SQL.psm1:line 542 em<br> encerramento, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\ <br> Aplicações \EnterpriseCloudEngineApplicationType &#95; App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\Cloud<br>Deployment\Classes\SQL\SQL.psm1: linha 50 em < ScriptBlock &#62;<br> <No file>: linha 18 em < ScriptBlock &#62; < nenhum ficheiro &#62;: 16 de linha** | Este problema pode ocorrer se a máquina virtual não pode ser colocada num estado suspenso para drenar funções. | Contacte o Microsoft CSS para obter assistência.
+| Quando efetuar uma atualização, poderá ocorrer um erro semelhante ao seguinte:<br><br>**2017-10-22T01:37:37.5369944Z 'Encerramento' de tipo de função 'SQL'<br> levantou uma exceção: erro ao colocar em pausa nó<br> 's45r1004 Sql01'.at Stop-SQL, C:\ProgramData\SF\ErcsClusterNode2 <br>\Fabric\work\ Applications\ EnterpriseCloud <br>EngineApplicationType&#95;App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\ <br> CloudDeployment\Roles\SQL\SQL.psm1:line 542 em<br> Encerramento, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\ <br>aplicações \EnterpriseCloudEngineApplicationType&#95;App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\Cloud<br> Deployment\Classes\SQL\SQL.psm1: linha 50 em < ScriptBlock&#62;,<br> <No file>: linha 18 em < ScriptBlock&#62;, < nenhum ficheiro&#62;: 16 de linha** | Este problema pode ocorrer se a máquina virtual não pode ser colocada num estado suspenso para drenar funções. | Contacte o Microsoft CSS para obter assistência.
 | Quando efetuar uma atualização, podem ocorrer qualquer um dos seguintes erros:<br><br>**O tipo 'Validar' da função 'ADFS' levantou uma exceção: validação<br> para a função ADFS/gráfico falhou com o erro: erro ao verificar o ADFS<br> sonda endpoint *endpoint_URI*: chamar exceção<br> " GetResponse"com"0"argumentos:" o servidor remoto<br> devolveu um erro: (503) do servidor não disponível. "em Invoke -<br>ADFSGraphValidation**<br><br>**O tipo 'Validar' da função 'ADFS' levantou uma exceção: validação<br> para a função ADFS/gráfico falhou com o erro: erro ao obter<br> propriedades ADFS: não foi possível ligar ao <br>NET.TCP: 1500/política. A tentativa de ligação teve<br> para um intervalo de tempo de 00:00:02.0498923. Código de erro TCP<br> 10061: foi possível estabelecer uma ligação porque o destino<br> máquina ativamente recusou-127.0.0.1:1500.<br> em Invoke-ADFSGraphValidation** | O plano de ação de atualização não é possível validar o estado de funcionamento de serviços de Federação do Active Directory (AD FS). | Contacte o Microsoft CSS para obter assistência.
 
 ## <a name="known-issues-post-installation"></a>Problemas conhecidos (pós-instalação)

@@ -1,11 +1,11 @@
 ---
 title: Filtros nas vistas do Log Analytics do Azure | Microsoft Docs
-description: "Um filtro numa vista de análise de registos permite aos utilizadores filtrar os dados na vista pelo valor de uma propriedade específica sem modificar a vista de si próprio.  Este artigo descreve como utilizar um filtro e adicione uma a uma vista personalizada."
+description: Um filtro numa vista de análise de registos permite aos utilizadores filtrar os dados na vista pelo valor de uma propriedade específica sem modificar a vista de si próprio.  Este artigo descreve como utilizar um filtro e adicione uma a uma vista personalizada.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: bwren
 ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtros nas vistas de análise de registos
 A **filtro** num [ver análise de registos](log-analytics-view-designer.md) permite aos utilizadores filtrar os dados na vista pelo valor de uma propriedade específica sem modificar a vista de si próprio.  Por exemplo, pode permitir que os utilizadores da sua vista para filtrar a vista de dados apenas a partir de um computador específico ou um conjunto de computadores.  Pode criar vários filtros numa única vista para permitir aos utilizadores filtrar por várias propriedades.  Este artigo descreve como utilizar um filtro e adicione uma a uma vista personalizada.
@@ -52,10 +52,10 @@ A tabela seguinte inclui alguns exemplos de filtros comuns.
 
 | Nome do campo | Consulta para os valores | Etiqueta |
 |:--|:--|:--|
-| Computador   | Heartbeat &#124; distintos computador &#124; Ordenar por computador asc | Computadores |
+| Computador   | Heartbeat &#124; computador distinto &#124; ordenar por computador asc | Computadores |
 | EventLevelName | Evento &#124; EventLevelName distinto | Gravidade |
-| Nível de gravidade | Syslog &#124; nível de gravidade distinto | Gravidade |
-| SvcChangeType | ConfigurationChange &#124; svcChangeType distinto | ChangeType |
+| Nível de gravidade | Syslog &#124; distinto nível de gravidade | Gravidade |
+| SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 
 ## <a name="modify-view-queries"></a>Modificar consultas de vista
@@ -74,5 +74,5 @@ Se tiver adicionado filtro outro chamado gravidade, pode utilizar a seguinte con
 
     Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre o [partes de visualização](log-analytics-view-designer-parts.md) pode adicionar à sua vista personalizada.

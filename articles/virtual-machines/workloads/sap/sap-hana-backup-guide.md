@@ -1,11 +1,11 @@
 ---
-title: "Cópia de segurança manual para SAP HANA em Azure Virtual Machines | Microsoft Docs"
-description: "Guia de cópia de segurança para SAP HANA fornece duas principais possibilidades de cópia de segurança para SAP HANA em máquinas virtuais do Azure"
+title: Cópia de segurança manual para SAP HANA em Azure Virtual Machines | Microsoft Docs
+description: Guia de cópia de segurança para SAP HANA fornece duas principais possibilidades de cópia de segurança para SAP HANA em máquinas virtuais do Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guia de segurança para SAP HANA em Máquinas Virtuais do Azure
 
@@ -42,7 +42,7 @@ As seguintes três figuras dar uma descrição geral das opções de cópia de s
 
 ![Esta ilustração mostra duas possibilidades para guardar o estado atual do VM](media/sap-hana-backup-guide/image001.png)
 
-Esta ilustração mostra a possibilidade de guardar o estado atual do VM, quer através do serviço de cópia de segurança do Azure ou manual instantâneos de discos VM. Com esta abordagem, um &#39; t tem de gerir cópias de segurança de SAP HANA. O desafio do cenário de instantâneo de disco é a consistência do sistema de ficheiros e um Estado de disco com consistência de aplicações. O tópico de consistência é mencionado na secção _consistência de dados SAP HANA quando tirar instantâneos de armazenamento_ posteriormente neste artigo. Funcionalidades e restrições do serviço de cópia de segurança do Azure relacionados com as cópias de segurança de SAP HANA também são abordadas neste artigo.
+Esta ilustração mostra a possibilidade de guardar o estado atual do VM, quer através do serviço de cópia de segurança do Azure ou manual instantâneos de discos VM. Com esta abordagem, um&#39;t tem de gerir cópias de segurança de SAP HANA. O desafio do cenário de instantâneo de disco é a consistência do sistema de ficheiros e um Estado de disco com consistência de aplicações. O tópico de consistência é mencionado na secção _consistência de dados SAP HANA quando tirar instantâneos de armazenamento_ posteriormente neste artigo. Funcionalidades e restrições do serviço de cópia de segurança do Azure relacionados com as cópias de segurança de SAP HANA também são abordadas neste artigo.
 
 ![Esta ilustração mostra as opções para colocar um SAP HANA ficheiro de cópia de segurança dentro da VM](media/sap-hana-backup-guide/image002.png)
 
@@ -85,17 +85,17 @@ Para cópias de segurança de ficheiros padrão, um restauro de teste não é ne
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>Os profissionais de TI e contras de cópia de segurança HANA versus instantâneos de armazenamento
 
-SAP &#39; preferência de conceder t para a cópia de segurança HANA versus instantâneos de armazenamento. Lista os respetivos os profissionais de TI e contras, para que um pode determinar que utilizar consoante a situação e a tecnologia de armazenamento disponível (consulte [planear a cópia de segurança e a estratégia de recuperação](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
+SAP&#39;t dar a preferência para a cópia de segurança HANA versus instantâneos de armazenamento. Lista os respetivos os profissionais de TI e contras, para que um pode determinar que utilizar consoante a situação e a tecnologia de armazenamento disponível (consulte [planear a cópia de segurança e a estratégia de recuperação](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
 
-No Azure, tenha em consideração o facto de que o blob do Azure de instantâneos funcionalidade &#39; t garantir a consistência do sistema de ficheiros (consulte [utilizar instantâneos de blob com o PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). A secção seguinte, _consistência de dados SAP HANA quando tirar instantâneos de armazenamento_, descreve algumas considerações relativas a esta funcionalidade.
+No Azure, tenha em consideração o facto de que o blob do Azure instantâneo funcionalidade&#39;consistência do sistema de ficheiros de garantia de t (consulte [utilizar instantâneos de blob com o PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). A secção seguinte, _consistência de dados SAP HANA quando tirar instantâneos de armazenamento_, descreve algumas considerações relativas a esta funcionalidade.
 
-Além disso, um tem de compreender as implicações de faturação ao trabalhar com frequência com instantâneos do blob, conforme descrito neste artigo: [compreender como instantâneos acumular encargos](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— se encontra &#39; t como óbvios como utilizar o Azure virtual discos.
+Além disso, um tem de compreender as implicações de faturação ao trabalhar com frequência com instantâneos do blob, conforme descrito neste artigo: [compreender como instantâneos acumular encargos](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— se encontra&#39;t como óbvios como utilizar o Azure virtual discos.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Consistência de dados SAP HANA quando tirar instantâneos de armazenamento
 
 Consistência de aplicações e de sistema de ficheiros é um problema complexo quando tirar instantâneos de armazenamento. A forma mais fácil para evitar problemas seria encerrar SAP HANA ou, talvez até a máquina virtual completa. Um encerramento pode ser doable com uma demonstração ou criar protótipos ou até mesmo um sistema de desenvolvimento, mas não é uma opção para um sistema de produção.
 
-No Azure, um tem tenha em atenção que o blob do Azure de instantâneos funcionalidade &#39; consistência do sistema de ficheiros de garantia de t. Ajustar funciona no entanto, utilizando o SAP HANA instantâneo funcionalidade, desde que não há um único disco virtual envolvidos. Mas, mesmo com um único disco itens adicionais têm de ser verificado. [SAP nota 2039883](https://launchpad.support.sap.com/#/notes/2039883) tem informações importantes sobre as cópias de segurança de SAP HANA através de instantâneos de armazenamento. Por exemplo, menciona que, com o sistema de ficheiros XFS, é necessário para executar **xfs\_fixar** antes de iniciar um instantâneo de armazenamento para garantir a consistência (consulte [xfs\_freeze(8) - página de man do Linux ](https://linux.die.net/man/8/xfs_freeze) para obter detalhes sobre **xfs\_fixar**).
+No Azure, um tem tenha em atenção que o blob do Azure instantâneo funcionalidade&#39;consistência do sistema de ficheiros de garantia de t. Ajustar funciona no entanto, utilizando o SAP HANA instantâneo funcionalidade, desde que não há um único disco virtual envolvidos. Mas, mesmo com um único disco itens adicionais têm de ser verificado. [SAP nota 2039883](https://launchpad.support.sap.com/#/notes/2039883) tem informações importantes sobre as cópias de segurança de SAP HANA através de instantâneos de armazenamento. Por exemplo, menciona que, com o sistema de ficheiros XFS, é necessário para executar **xfs\_fixar** antes de iniciar um instantâneo de armazenamento para garantir a consistência (consulte [xfs\_freeze(8) - página de man do Linux ](https://linux.die.net/man/8/xfs_freeze) para obter detalhes sobre **xfs\_fixar**).
 
 O tópico de consistência fica ainda mais difícil caso em que um sistema de ficheiro único abranja vários discos/volumes. Por exemplo, ao utilizar mdadm ou LVM e striping. A nota SAP mencionado Estados:
 
@@ -111,7 +111,7 @@ Pressupondo que há um sistema de ficheiros XFS expansão quatro discos virtuais
 
 Recomenda-se utilizar o procedimento acima em todos os casos, seja no lado seguro, independentemente do sistema de ficheiros. Ou, se se tratar de um único disco ou striping, através de mdadm ou LVM entre múltiplos discos.
 
-É importante confirmar se o instantâneo HANA. Devido ao &quot;cópia ao escrever,&quot; SAP HANA poderão não requerer o espaço em disco adicional nisto preparar instantâneo modo. &#39; s também não é possível iniciar novas cópias de segurança até é confirmado o instantâneo de SAP HANA.
+É importante confirmar se o instantâneo HANA. Devido ao &quot;cópia ao escrever,&quot; SAP HANA poderão não requerer o espaço em disco adicional nisto preparar instantâneo modo. -&#39;s também não é possível iniciar novas cópias de segurança até é confirmado o instantâneo de SAP HANA.
 
 Serviço de cópia de segurança do Azure utiliza extensões de VM do Azure para asseguramos a consistência do sistema de ficheiros. Estas extensões VM não estão disponíveis para utilização autónoma. Um ainda, tem de gerir a consistência de SAP HANA. Consulte o artigo relacionado [SAP HANA Azure Backup no nível de ficheiro](sap-hana-backup-file-level.md) para obter mais informações.
 
@@ -230,7 +230,7 @@ Com base nos resultados de teste, que as tabelas seguintes mostram os profission
 |Serviço de cópia de segurança do Azure                               | Permite a cópia de segurança VM com base nos instantâneos do blob | Quando não utilizar o restauro ao nível do ficheiro, requer a criação de uma nova VM para o processo de restauro, em seguida, implica a necessidade de uma nova chave de licença de SAP HANA|
 |Instantâneos do manual blob                              | Flexibilidade para criar e restaurar os discos VM específicos sem alterar o ID exclusivo da VM|Todas as tarefas manuais, tem de ser efetuada pelo cliente|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [SAP HANA Backup do Azure no nível de ficheiro](sap-hana-backup-file-level.md) descreve a opção de cópia de segurança baseada em ficheiros.
 * [Cópia de segurança de SAP HANA com base nos instantâneos de armazenamento](sap-hana-backup-storage-snapshots.md) descreve a opção de cópia de segurança do instantâneo com base em armazenamento.
 * Para saber como estabelecer elevada disponibilidade e o plano de recuperação de desastres do SAP HANA no Azure (instâncias de grande), consulte o artigo [SAP HANA (instâncias de grande) elevada disponibilidade e recuperação após desastre no Azure](hana-overview-high-availability-disaster-recovery.md).
