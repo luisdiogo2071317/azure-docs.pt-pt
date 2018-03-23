@@ -1,11 +1,11 @@
 ---
-title: "Instalar o SAP HANA SAP HANA no Azure (instâncias de grande) | Microsoft Docs"
-description: "Como instalar o SAP HANA num SAP HANA no Azure (grande instância)."
+title: Instalar o SAP HANA SAP HANA no Azure (instâncias de grande) | Microsoft Docs
+description: Como instalar o SAP HANA num SAP HANA no Azure (grande instância).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (instâncias de grande) no Azure
 
@@ -51,21 +51,21 @@ Verifique novamente, especialmente quando estiver a planear instalar HANA 2.0, [
 
 No específicos, verifique os parâmetros seguintes e, eventualmente, tendo em conta:
 
-- NET.Core.rmem_max = 16777216
-- NET.Core.wmem_max = 16777216
-- NET.Core.rmem_default = 16777216
-- NET.Core.wmem_default = 16777216
-- NET.Core.optmem_max = 16777216
-- NET.IPv4.tcp_rmem = 65536 16777216 16777216
-- NET.IPv4.tcp_wmem = 65536 16777216 16777216
+- net.core.rmem_max = 16777216
+- net.core.wmem_max = 16777216
+- net.core.rmem_default = 16777216
+- net.core.wmem_default = 16777216
+- net.core.optmem_max = 16777216
+- net.ipv4.tcp_rmem = 65536 16777216 16777216
+- net.ipv4.tcp_wmem = 65536 16777216 16777216
 
 A partir de com SLES12 SP1 e RHEL 7.2, estes parâmetros tem de ser definidos num ficheiro de configuração no diretório /etc/sysctl.d. Por exemplo, um ficheiro de configuração com o nome 91-NetApp-HANA.conf tem de ser criado. Para versões mais antigas SLES e RHEL estes parâmetros têm de ser in/etc/sysctl.conf conjunto.
 
 Para RHEL todas as versões e que comece com SLES12, o 
-- SUNRPC.tcp_slot_table_entries = 128
+- sunrpc.tcp_slot_table_entries = 128
 
 parâmetro tem de ser definido in/etc/modprobe.d/sunrpc-local.conf. Se o ficheiro não existir, tem primeiro criada ao adicionar a entrada seguinte: 
-- Opções sunrpc tcp_max_slot_table_entries = 128
+- options sunrpc tcp_max_slot_table_entries=128
 
 **Passo Fourth** é para verificar a hora do sistema da sua unidade de instância grande HANA. As instâncias são implementadas com um sistema fuso horário que representam a localização da região do Azure, que o carimbo de instância grande HANA está localizado na. Está livre para alterar o fuso horário das instâncias que possui ou a hora do sistema. Se o fizer e ordenação mais instâncias no seu inquilino, esteja preparado que precisa de adaptar o fuso horário das instâncias recentemente entregues. Operações do Microsoft não ter nenhum aprofundadas o fuso horário do sistema que configurou com as instâncias após o handover. Por conseguinte, instâncias recentemente implementadas não podem ser definidas no mesmo fuso horário que alterou para. Como resultado, é da responsabilidade do cliente como o cliente para verificar e se for necessário adaptar o fuso horário de instâncias passadas. 
 
@@ -100,11 +100,11 @@ As convenções de nomenclatura dos volumes de armazenamento estão listadas na 
 
 | Utilização do armazenamento | Nome de montagem | Nome do volume | 
 | --- | --- | ---|
-| Dados HANA | /Hana/data/SID/mnt0000<m> | Armazenamento de IP: / hana_data_SID_mnt00001_tenant_vol |
-| Registo HANA | /Hana/log/SID/mnt0000<m> | Armazenamento de IP: / hana_log_SID_mnt00001_tenant_vol |
-| Cópia de segurança de registo HANA | /Hana/log/backups | Armazenamento de IP: / hana_log_backups_SID_mnt00001_tenant_vol |
-| HANA partilhado | /Hana/Shared/SID | Armazenamento de IP: hana_shared_SID_mnt00001_tenant_vol/partilhado |
-| usr/sap | /usr/SAP/SID | Armazenamento de IP: / hana_shared_SID_mnt00001_tenant_vol/usr_sap |
+| HANA data | /hana/data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| Registo HANA | /Hana/log/SID/mnt0000<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
+| Cópia de segurança de registo HANA | /Hana/log/backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
+| HANA partilhado | /Hana/Shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
+| usr/sap | /usr/SAP/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
 Onde SID = a instância HANA ID de sistema 
 
@@ -192,7 +192,7 @@ Notas de suporte SAP aplica-se a implementação de SAP HANA no Red Hat:
 
 Aplicações SAP incorporadas numa arquitetura do SAP NetWeaver são sensíveis em diferenças de tempo para os vários componentes que compõem o sistema SAP. Informações de SAP ABAP curto com o título do erro da ZDATE\_grande\_tempo\_DIFF são provável familiar, como estas informações curtas aparecem quando a hora do sistema de diferentes servidores ou VMs é demasiado até que ponto apart drifting.
 
-Para SAP HANA no Azure (instâncias de grande), a sincronização de hora feito no Azure &#39; t aplicam-se para as unidades de computação de carimbos de data / instância grandes. Esta sincronização não é aplicável para executar aplicações SAP em VMs do Azure nativa, como o Azure assegura um sistema de &#39; tempo s corretamente está sincronizado. Como resultado, uma hora separada servidor tem de ser configurado, que pode ser utilizada por SAP servidores de aplicações em execução em VMs do Azure e o SAP HANA da base de dados instâncias em execução em instâncias de grande HANA. A infraestrutura de armazenamento carimbos de data / instância grande é a hora sincronizada com os servidores NTP.
+Para SAP HANA no Azure (instâncias de grande), tempo de sincronização efetuada no Azure&#39;t aplicar para as unidades de computação de carimbos de data / instância grandes. Esta sincronização não é aplicável para executar aplicações SAP em VMs do Azure nativa, como o Azure assegura um sistema&#39;tempo s corretamente está sincronizado. Como resultado, uma hora separada servidor tem de ser configurado, que pode ser utilizada por SAP servidores de aplicações em execução em VMs do Azure e o SAP HANA da base de dados instâncias em execução em instâncias de grande HANA. A infraestrutura de armazenamento carimbos de data / instância grande é a hora sincronizada com os servidores NTP.
 
 ## <a name="setting-up-smt-server-for-suse-linux"></a>Configurar o servidor SMT para SUSE Linux
 SAP HANA grande instâncias não tem uma ligação direta à Internet. Por conseguinte, não é um processo simples para registar esse uma unidade com o fornecedor de SO e para transferir e aplicar patches. No caso do SUSE Linux, pode ser uma solução configurar um servidor SMT numa VM do Azure. Enquanto que a VM do Azure tem de ser alojado numa VNet do Azure, que está ligado à instância de grande HANA. Com essa um servidor SMT, a unidade de instância grande HANA foi possível registar e transferir patches. 

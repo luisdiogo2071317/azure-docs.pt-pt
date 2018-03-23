@@ -1,11 +1,11 @@
 ---
-title: "Do Azure AD Connect e regulamento de proteção de dados gerais | Microsoft Docs"
+title: Do Azure AD Connect e regulamento de proteção de dados gerais | Microsoft Docs
 description: Este documento descreve como obter a conformidade de era GDPR com o Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: billmath
 ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect"></a>Conformidade GDPR e do Azure AD Connect 
 
@@ -66,7 +66,7 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 ### <a name="schedule-this-script-to-run-every-48-hours"></a>Agendar este script para executar cada 48 horas
 Utilize os seguintes passos para agendar o script para executar cada 48 horas.
 
-1.  Guarde o script num ficheiro com a extensão **&#46; PS1**, em seguida, abra o painel de controlo e clique em **sistemas e segurança**.
+1.  Guarde o script num ficheiro com a extensão  **&#46;PS1**, em seguida, abra o painel de controlo e clique em **sistemas e segurança**.
     ![Sistema](media\active-directory-aadconnect-gdpr\gdpr2.png)
 
 2.  Sob o cabeçalho de ferramentas administrativas, clique em **agenda de tarefas**.

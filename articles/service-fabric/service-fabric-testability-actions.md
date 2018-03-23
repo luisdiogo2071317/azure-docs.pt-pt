@@ -1,6 +1,6 @@
 ---
-title: "Simular falhas no Azure micro-serviços | Microsoft Docs"
-description: "Este artigo aborda as ações de teste foi encontradas no Microsoft Azure Service Fabric."
+title: Simular falhas no Azure micro-serviços | Microsoft Docs
+description: Este artigo aborda as ações de teste foi encontradas no Microsoft Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv;heeldin
 ms.openlocfilehash: c8ddc7732999ae555323bebaef60aa34c8f2ec17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="testability-actions"></a>Ações de teste
 Para simular uma pouco fiável infraestrutura, o Azure Service Fabric fornece-lhe, o programador, com formas para simular várias falhas do mundo real e transições de estado. Estes são expostos como ações de teste. As ações são as APIs de baixo nível que fazer com que uma inserção de falhas específicas, transição de estado ou validação. Ao combinar estas ações, pode escrever cenários de teste abrangente para os serviços.
@@ -40,18 +40,18 @@ Para melhor validação da qualidade, execute a carga de trabalho de serviço e 
 | --- | --- | --- | --- | --- |
 | CleanTestState |Remove todos os Estados de teste do cluster em caso de um encerramento incorreto do controlador de teste. |CleanTestStateAsync |Remove-ServiceFabricTestState |Não aplicável |
 | InvokeDataLoss |Induces perda de dados para uma partição de serviço. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Correto |
-| InvokeQuorumLoss |Coloca uma partição de serviço com estado fornecido no perda de quórum. |InvokeQuorumLossAsync |ServiceFabricQuorumLoss invocar |Correto |
-| Mover primário |Move a réplica primária especificada de um serviço com monitorização de estado para o nó de cluster especificado. |MovePrimaryAsync |Mover ServiceFabricPrimaryReplica |Correto |
-| Mover secundário |Move a réplica secundária atual de um serviço com monitorização de estado para um nó de cluster diferente. |MoveSecondaryAsync |Mover ServiceFabricSecondaryReplica |Correto |
-| RemoveReplica |Simula uma falha de réplica ao remover uma réplica de um cluster. Isto irá fechar a réplica e irão transitar para a função 'None', remover todos os Estado do cluster. |RemoveReplicaAsync |Remover ServiceFabricReplica |Correto |
-| RestartDeployedCodePackage |Simula uma falha de processo de pacote do código reiniciando um pacote do código implementado num nó num cluster. Isto interrompe o processo de pacote do código, que será reiniciado todas as réplicas de serviço de utilizador alojadas no processo. |RestartDeployedCodePackageAsync |ServiceFabricDeployedCodePackage de reinício |Ungraceful |
-| RestartNode |Simula uma falha de nó de cluster do Service Fabric reiniciando um nó. |RestartNodeAsync |ServiceFabricNode de reinício |Ungraceful |
+| InvokeQuorumLoss |Coloca uma partição de serviço com estado fornecido no perda de quórum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Correto |
+| Mover primário |Move a réplica primária especificada de um serviço com monitorização de estado para o nó de cluster especificado. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Correto |
+| Mover secundário |Move a réplica secundária atual de um serviço com monitorização de estado para um nó de cluster diferente. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Correto |
+| RemoveReplica |Simula uma falha de réplica ao remover uma réplica de um cluster. Isto irá fechar a réplica e irão transitar para a função 'None', remover todos os Estado do cluster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Correto |
+| RestartDeployedCodePackage |Simula uma falha de processo de pacote do código reiniciando um pacote do código implementado num nó num cluster. Isto interrompe o processo de pacote do código, que será reiniciado todas as réplicas de serviço de utilizador alojadas no processo. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Ungraceful |
+| RestartNode |Simula uma falha de nó de cluster do Service Fabric reiniciando um nó. |RestartNodeAsync |Restart-ServiceFabricNode |Ungraceful |
 | RestartPartition |Simula um cenário de blackout datacenter blackout ou cluster reiniciando algumas ou todas as réplicas de uma partição. |RestartPartitionAsync |Restart-ServiceFabricPartition |Correto |
-| RestartReplica |Simula uma falha de réplica ao reiniciar uma réplica persistente num cluster, a fechar a réplica e, em seguida, abri-lo. |RestartReplicaAsync |ServiceFabricReplica de reinício |Correto |
+| RestartReplica |Simula uma falha de réplica ao reiniciar uma réplica persistente num cluster, a fechar a réplica e, em seguida, abri-lo. |RestartReplicaAsync |Restart-ServiceFabricReplica |Correto |
 | StartNode |Inicia um nó num cluster que já é parado. |StartNodeAsync |Start-ServiceFabricNode |Não aplicável |
 | StopNode |Simula uma falha de nó por parar um nó num cluster. O nó permanecerão para baixo até StartNode é chamado. |StopNodeAsync |Stop-ServiceFabricNode |Ungraceful |
-| ValidateApplication |Valida a disponibilidade e o estado de funcionamento de todos os serviços do Service Fabric dentro de uma aplicação, normalmente, após inducing algumas falhas no sistema. |ValidateApplicationAsync |Teste ServiceFabricApplication |Não aplicável |
-| ValidateService |Valida a disponibilidade e o estado de funcionamento de um serviço do Service Fabric, geralmente após inducing algumas falhas no sistema. |ValidateServiceAsync |Teste ServiceFabricService |Não aplicável |
+| ValidateApplication |Valida a disponibilidade e o estado de funcionamento de todos os serviços do Service Fabric dentro de uma aplicação, normalmente, após inducing algumas falhas no sistema. |ValidateApplicationAsync |Test-ServiceFabricApplication |Não aplicável |
+| ValidateService |Valida a disponibilidade e o estado de funcionamento de um serviço do Service Fabric, geralmente após inducing algumas falhas no sistema. |ValidateServiceAsync |Test-ServiceFabricService |Não aplicável |
 
 ## <a name="running-a-testability-action-using-powershell"></a>Execução de uma ação de teste com o PowerShell
 Este tutorial mostra como executar uma ação de teste utilizando o PowerShell. Ficará a saber como executar uma ação de teste contra um cluster (uma caixa) local ou um cluster do Azure. Microsoft.Fabric.Powershell.dll – o módulo do PowerShell de Service Fabric – é instalado automaticamente quando instala o MSI de recursos de infraestrutura de serviço da Microsoft. O módulo é carregado automaticamente quando abrir uma linha de comandos do PowerShell.
@@ -94,7 +94,7 @@ O resultado do primeiro **Get-ServiceFabricNode** (um cmdlet do módulo do Power
 ### <a name="run-an-action-against-an-azure-cluster"></a>Executar uma ação contra um cluster do Azure
 Execução de uma ação de teste (utilizando o PowerShell) contra um cluster do Azure é semelhante ao executar a ação contra um cluster local. A única diferença é que antes de poder executar a ação, em vez de ligar ao local cluster, tem de primeiro estabeleça a ligação ao cluster do Azure.
 
-## <a name="running-a-testability-action-using-c35"></a>Execução de uma ação de teste com C &#35;
+## <a name="running-a-testability-action-using-c35"></a>Execução de uma ação de teste utilizando C&#35;
 Para executar uma ação de teste ao utilizar c#, primeiro tem de ligar ao cluster utilizando FabricClient. Em seguida, obter os parâmetros necessários para executar a ação. Parâmetros diferentes podem ser utilizados para executar a mesma ação.
 Observar a ação de RestartServiceFabricNode, é uma forma de executá-la utilizando as informações do nó (nome de nó e o ID de instância do nó) no cluster.
 
@@ -226,7 +226,7 @@ ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelec
 ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(partitionSelector);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Cenários de teste](service-fabric-testability-scenarios.md)
 * Como testar o seu serviço
   * [Simular falhas durante a cargas de trabalho do serviço](service-fabric-testability-workload-tests.md)

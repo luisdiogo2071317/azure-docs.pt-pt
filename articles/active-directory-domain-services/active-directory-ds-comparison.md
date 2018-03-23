@@ -1,8 +1,8 @@
 ---
-title: "Serviços de domínio do Azure AD: Comparar do Azure AD dos serviços de domínio para os controladores de domínio DIY | Microsoft Docs"
-description: "Comparar o Azure Active Directory Domain Services para os controladores de domínio DIY"
+title: 'Serviços de domínio do Azure AD: Comparar do Azure AD dos serviços de domínio para os controladores de domínio DIY | Microsoft Docs'
+description: Comparar o Azure Active Directory Domain Services para os controladores de domínio DIY
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
 ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Como decidir se dos serviços de domínio do Azure AD é adequado para o caso de utilização
 Com os serviços de domínio do Azure AD pode implementar as cargas de trabalho nos serviços de infraestrutura do Azure, sem ter de se preocupar com a manutenção da infraestrutura de identidade no Azure. Este serviço gerido é diferente de uma implementação típica do Windows Server Active Directory que implementar e administrar por si. O serviço é fácil de implementar e oferece monitorização de estado de funcionamento automático e remediação. Estamos constantemente são evolução de serviço para adicionar suporte para cenários comuns de implementação.
@@ -34,21 +34,21 @@ A tabela seguinte ajuda-o a decidir entre utilizando os serviços de domínio do
 
 | **Funcionalidade** | **Serviços de domínio do Azure AD** | **'Do-it-yourself' AD em VMs do Azure** |
 | --- |:---:|:---:|
-| [**Serviço gerido**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**& #x 2715;** |
+| [**Serviço gerido**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**Implementações seguras**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Administrador tem proteger a implementação. |
-| [**Servidor DNS**](active-directory-ds-comparison.md#dns-server) |**& #x 2713;**  (serviço gerido) |**&#x2713;** |
-| [**Privilégios de administrador de domínio ou Enterprise**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**& #x 2715;** |**&#x2713;** |
+| [**Servidor DNS**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(serviço gerido) |**&#x2713;** |
+| [**Privilégios de administrador de domínio ou Enterprise**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Associação a um domínio**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Autenticação de domínio utilizando NTLM e Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Delegação restringida de Kerberos**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|baseada em recursos|baseada em recursos & com base em conta|
 | [**Estrutura de UO personalizada**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
-| [**Extensões de esquema**](active-directory-ds-comparison.md#schema-extensions) |**& #x 2715;** |**&#x2713;** |
-| [**Confianças de floresta e domínio AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**& #x 2715;** |**&#x2713;** |
+| [**Extensões de esquema**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
+| [**Confianças de floresta e domínio AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
 | [**LDAP de leitura**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
 | [**LDAP seguro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
-| [**Escrita LDAP**](active-directory-ds-comparison.md#ldap-write) |**& #x 2715;** |**&#x2713;** |
+| [**Escrita LDAP**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
 | [**Política de grupo**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
-| [**Geo-distribuição implementações**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**& #x 2715;** |**&#x2713;** |
+| [**Geo-distribuição implementações**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Serviço gerido
 Domínios de serviços de domínio do AD do Azure são geridos pela Microsoft. Não dispõe de preocupar com a aplicação de patches, atualizações, monitorização, cópias de segurança e garantir a disponibilidade do seu domínio. Estas tarefas de gestão são disponibilizadas como um serviço pelo Microsoft Azure para os domínios geridos.
