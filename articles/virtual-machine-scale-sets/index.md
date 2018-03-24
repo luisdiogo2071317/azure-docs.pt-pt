@@ -1,24 +1,24 @@
 ---
-title: "Documentação dos Conjuntos de Dimensionamento de Máquinas Virtuais do Azure - Tutoriais, Referência da API | Microsoft Docs"
-description: "Saiba como utilizar Conjuntos de Dimensionamento de Máquina Virtual para criar o dimensionamento automático de VMs Windows ou Linux para soluções computação grande, macrodados e de contentor."
+title: Documentação dos Conjuntos de Dimensionamento de Máquinas Virtuais do Azure - Tutoriais, Referência da API | Microsoft Docs
+description: Saiba como utilizar Conjuntos de Dimensionamento de Máquina Virtual para criar o dimensionamento automático de VMs Windows ou Linux para soluções computação grande, macrodados e de contentor.
 services: virtual-machine-scale-sets
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f6c51a605a3fe28fb906e8c35a68a885a46136ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53a6db483ff760c143d98a209e622e1214762ce3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="virtual-machine-scale-sets-documentation"></a>Documentação dos Conjuntos de Dimensionamento de Máquinas Virtuais
+# <a name="virtual-machine-scale-sets-documentation"></a>Documentação dos Conjuntos de Dimensionamento de Máquinas Virtuais
 
 Saiba como utilizar Conjuntos de Dimensionamento de Máquina Virtual para implementar e gerir um conjunto de VMs Windows ou Linux idênticos e de dimensionamento automático. A documentação mostra-lhe como utilizar conjuntos de dimensionamento para suportar os serviços que têm como destino soluções de computação grande, macrodados e de contentor.
 

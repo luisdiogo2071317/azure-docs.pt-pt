@@ -1,24 +1,24 @@
 ---
-title: "Documentação do Catálogo de Dados do Azure - Tutoriais, Referência da API | Microsoft Docs"
-description: "Saiba como configurar um catálogo de dados em que a organização pode localizar, compreender e consumir origens de dados. Tutoriais, referência de API e outra documentação."
+title: Documentação do Catálogo de Dados do Azure - Tutoriais, Referência da API | Microsoft Docs
+description: Saiba como configurar um catálogo de dados em que a organização pode localizar, compreender e consumir origens de dados. Tutoriais, referência de API e outra documentação.
 services: data-catalog
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: data-catalog
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/25/2017
 ms.author: carolz
-ms.openlocfilehash: c901562753be86613ac4ca4dec1e727d1383e626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ec21b9b55015c247cef3f216dbb14f4ddc30e8d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="data-catalog-documentation"></a>Documentação do Catálogo de Dados
+# <a name="data-catalog-documentation"></a>Documentação do Catálogo de Dados
 
 Saiba como configurar um Catálogo de Dados em que a organização e a equipa deteta, compreende e consume as origens de dados. Tutoriais, referência da API REST e outra documentação mostram-lhe como planear e configurar o repositório de dados onde os consumidores de dados podem detetar origens de dados disponíveis e obter conhecimento através de peritos na matéria.
 
