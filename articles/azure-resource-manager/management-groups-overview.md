@@ -1,22 +1,22 @@
 ---
-title: "Organizar os recursos com grupos de gestão do Azure | Microsoft Docs"
-description: "Saiba mais sobre os grupos de gestão e como utilizá-los."
+title: Organizar os recursos com grupos de gestão do Azure | Microsoft Docs
+description: Saiba mais sobre os grupos de gestão e como utilizá-los.
 author: rthorn17
 manager: rithorn
-editor: 
+editor: ''
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar os recursos com grupos de gestão do Azure 
 
@@ -24,15 +24,13 @@ Se a sua organização tiver várias subscrições, poderá ter uma forma de ger
 
 A funcionalidade de grupo de gestão está disponível uma versão de pré-visualização pública. Para começar a utilizar a gestão de grupos, início de sessão para o [portal do Azure](https://portal.azure.com) e procure **grupos de gestão** no **todos os serviços** secção. 
 
-Suporte de política do Azure para grupos de gestão não está disponível ainda em pré-visualização pública e futuras nas seguintes semanas.  
-
 Por exemplo, pode aplicar políticas a um grupo de gestão que limita as regiões disponíveis para a criação da máquina virtual (VM). Esta política seria aplicada a todos os grupos de gestão, subscrições e recursos sob esse grupo de gestão, permitindo apenas a VMs a serem criadas nessa região.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hierarquia de grupos de gestão e as subscrições 
 
 Pode criar uma estrutura flexível de grupos de gestão e as subscrições para organizar os recursos para uma hierarquia para a gestão de acesso e política unificada. O diagrama seguinte mostra um exemplo de hierarquia que consiste em grupos de gestão e as subscrições organizadas por departamentos.    
 
-![hierarquia](media/management-groups/MG_overview.png)
+![árvore](media/management-groups/MG_overview.png)
 
 Ao criar uma hierarquia que é agrupada por departamentos, que é possível atribuir [controlo de acesso em funções do Azure (RBAC)](../active-directory/role-based-access-control-what-is.md) funções que *herdar* para departamentos sob esse grupo de gestão. Ao utilizar grupos de gestão, pode reduzir a carga de trabalho e reduz o risco de erro por ter apenas uma vez a atribuir a função. 
 
@@ -42,6 +40,14 @@ Ao criar uma hierarquia que é agrupada por departamentos, que é possível atri
     - Este limite não inclui o nível de raiz ou o nível de subscrição.
 - Cada grupo de gestão só pode suportar um elemento principal.
 - Cada grupo de gestão pode ter vários elementos subordinados. 
+
+### <a name="preview-subscription-visibility-limitation"></a>Limitação de visibilidade de subscrição de pré-visualização 
+Não existe atualmente uma limitação dentro a pré-visualização, encontra-não se conseguir ver as subscrições têm herdadas acesso a. O acesso é herdado à subscrição, mas não é possível que respeite o acesso de herança ainda o Azure Resource Manager.  
+
+Utilizando a API REST para obter informações sobre a subscrição devolve detalhes como a ter acesso, mas dentro do portal do Azure e Azure Powershell não mostrar as subscrições. 
+
+Este item está a ser trabalhado e será resolvido antes de grupos de gestão que está a ser anunciados como "Disponibilidade geral."  
+
 
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gestão de raiz para cada diretório
 

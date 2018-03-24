@@ -1,9 +1,9 @@
 ---
-title: "Criar alertas para os serviços do Azure - CLI de várias plataformas | Microsoft Docs"
-description: "Acionador e-mails, as notificações, chamar URLs de Web sites (webhooks) ou automatização quando forem cumpridas condições que especificar."
+title: Criar alertas para os serviços do Azure - CLI de várias plataformas | Microsoft Docs
+description: Acionador e-mails, as notificações, chamar URLs de Web sites (webhooks) ou automatização quando forem cumpridas condições que especificar.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Criar métricas alertas no Monitor do Azure para serviços do Azure - CLI de várias plataformas
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Criar alertas métricas clássicas no Monitor do Azure para serviços do Azure - CLI de plataforma
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,6 +29,11 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Descrição geral
+> [!NOTE]
+> Este artigo descreve como criar alertas métricas mais antigas. Azure suporta agora a monitorizar [mais recente, melhor alertas métricas](monitoring-near-real-time-metric-alerts.md). Estes alertas podem monitorizar várias métricas e permitir alertas nas métricas dimensional. Suporte da CLI para alertas métricas mais recentes está disponível em breve.
+>
+>
+
 Este artigo mostra como configurar alertas de métricas do Azure, utilizando a Interface de linha de comandos de várias plataformas (CLI).
 
 > [!NOTE]
@@ -39,7 +44,7 @@ Este artigo mostra como configurar alertas de métricas do Azure, utilizando a I
 Pode receber um alerta com base na monitorização métricas para ou eventos nos seus serviços do Azure.
 
 * **Valores métricos** -o alerta é acionado quando o valor de uma métrica especificado atravesse um limiar atribuir em qualquer direção. Ou seja, aciona ambas quando a condição for satisfeita primeiro e, em seguida, posteriormente quando condição que é já não está a ser cumprido.    
-* **Eventos de registo de atividade** -pode acionar um alerta num *cada* eventos ou apenas quando ocorre um determinados eventos. Para saber mais sobre alertas de registo de atividade [clique aqui](monitoring-activity-log-alerts.md)
+* **Eventos de registo de atividade** -pode acionar um alerta num *cada* eventos ou apenas quando ocorre determinado evento. Para saber mais sobre alertas de registo de atividade [clique aqui](monitoring-activity-log-alerts.md)
 
 Pode configurar um alerta de métrico para fazer o seguinte quando aciona:
 
@@ -52,7 +57,7 @@ Pode configurar e obter informações sobre regras de alerta métricas utilizand
 
 * [Portal do Azure](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
-* [interface de linha de comandos (CLI)](insights-alerts-command-line-interface.md)
+* [Interface de linha de comandos (CLI)](insights-alerts-command-line-interface.md)
 * [API de REST de Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 Pode receber sempre a ajuda para comandos escrevendo um comando e colocando - ajudar no final. Por exemplo:
@@ -99,7 +104,7 @@ Pode receber sempre a ajuda para comandos escrevendo um comando e colocando - aj
      *PT1M* a granularidade também o a medição disponível (intervalos de 1 minuto). Utilizar diferentes granularidades dá-lhe opções de métricas diferentes.
 4. Para criar uma regra de alerta baseada em métrica, utilize um comando com o seguinte formato:
 
-    **as informações do Azure métrico conjunto de regras de alertas** *[opções] &lt;ruleName&gt; &lt;localização&gt; &lt;resourceGroup&gt; &lt;windowSize &gt; &lt;operador&gt; &lt;limiar&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt; timeAggregationOperator&gt;*
+    **as informações do Azure métrico conjunto de regras de alertas** *[opções] &lt;ruleName&gt; &lt;localização&gt; &lt;resourceGroup&gt; &lt;windowSize&gt; &lt;operador&gt; &lt;limiar&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
 
     O exemplo a seguir configura um alerta no recurso web site. Os acionadores de alerta sempre que recebe consistentemente qualquer tráfego de 5 minutos e novamente quando não recebe nenhum tráfego de 5 minutos.
 

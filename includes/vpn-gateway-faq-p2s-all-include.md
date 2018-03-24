@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 735d6f51dee8e88bec2210717a11d6707686415f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="supportedclientos"></a>Que sistemas operativos cliente posso utilizar com a ligação Ponto a Site?
 
 São suportados os seguintes sistemas operativos cliente:
@@ -59,8 +75,8 @@ Para preparar o Windows 10 ou Server 2016 para IKEv2:
 
   | Versão do SO | Data | Número/de ligação |
   |---|---|---|---|
-  | Windows Server 2016<br>Windows 10 versão 1607 | 17 de Janeiro de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
-  | Versão do Windows 10 1703 | 17 de Janeiro de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  | Windows Server 2016<br>Windows 10 versão 1607 | 17 de janeiro de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Versão do Windows 10 1703 | 17 de janeiro de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
   |  |  |  |  |
 
 2. Defina o valor de chave de registo. Criar ou definir chave REG_DWORD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" no registo para 1.

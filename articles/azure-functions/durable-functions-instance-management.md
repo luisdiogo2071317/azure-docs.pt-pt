@@ -1,24 +1,24 @@
 ---
-title: "Gerir instâncias nas funções durável - Azure"
-description: "Saiba como gerir instâncias na extensão do durável funções para as funções do Azure."
+title: Gerir instâncias nas funções durável - Azure
+description: Saiba como gerir instâncias na extensão do durável funções para as funções do Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cea9b18cd7434a34138d5cecad8a8fd7f10d2e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gerir instâncias nas funções durável (funções do Azure)
 
@@ -104,7 +104,7 @@ public static async Task Run(
 
 ## <a name="terminating-instances"></a>Instâncias de terminação
 
-Uma instância em execução pode ser terminada utilizando o [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) método o [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe. Os dois parâmetros são um `instanceId` e um `reason` cadeia, que será escrita nos registos e o estado de instância. Uma instância terminada deixa de ser executado assim que chegar a próxima `await` ponto ou terminará imediatamente se já está ativada uma `await`.
+Uma instância de orquestração em execução pode ser terminada utilizando o [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) método o [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe. Os dois parâmetros são um `instanceId` e um `reason` cadeia, que será escrita nos registos e o estado de instância. Uma instância terminada deixa de ser executado assim que chegar a próxima `await` ponto ou terminará imediatamente se já está ativada uma `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -119,6 +119,9 @@ public static Task Run(
 
 > [!NOTE]
 > Está atualmente a terminação de instância só são suportadas para funções de orchestrator c#.
+
+> [!NOTE]
+> Terminação de instância não propagar atualmente. Funções de atividade e orchestrations secundárias serão executada para conclusão independentemente se a instância de orquestração chamado-los foi terminada.
 
 ## <a name="sending-events-to-instances"></a>Envio de eventos para instâncias
 

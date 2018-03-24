@@ -1,11 +1,10 @@
 ---
-title: "Considerações de segurança para o movimento de dados no Azure Data Factory | Microsoft Docs"
+title: Considerações de segurança para o movimento de dados no Azure Data Factory | Microsoft Docs
 description: Saiba mais sobre como proteger o movimento de dados no Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c2b6c494a9c4d0dac37315520b8d7b962f3490b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>O Azure Data Factory - considerações de segurança para o movimento de dados
 
@@ -48,7 +47,7 @@ Neste artigo, vamos rever as considerações de segurança nos seguintes cenári
 - **Cenário híbrido**- neste cenário, a origem ou de destino é protegido por uma firewall ou dentro de uma rede empresarial no local ou os dados de arquivo está numa rede privada / virtual de rede (frequentemente de origem) e não se encontra acessível publicamente. Servidores de base de dados alojadas em máquinas virtuais também abrangidos por este cenário.
 
 ## <a name="cloud-scenarios"></a>Cenários de nuvem
-###<a name="securing-data-store-credentials"></a>Proteger credenciais do arquivo de dados
+### <a name="securing-data-store-credentials"></a>Proteger credenciais do arquivo de dados
 O Azure Data Factory protege as credenciais do arquivo de dados por **encriptar** -los utilizando **certificados geridos pelo Microsoft**. Estes certificados rodam cada **dois anos** (que inclui a renovação do certificado e a migração de credenciais). Estas credenciais encriptados segura são armazenadas num **Storage do Azure é gerida pelos serviços de gestão do Azure Data Factory**. Para obter mais informações sobre a segurança de armazenamento do Azure, consulte [descrição geral de segurança de armazenamento do Azure](../../security/security-storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Encriptação de dados em trânsito

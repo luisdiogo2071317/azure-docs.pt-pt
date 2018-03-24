@@ -1,11 +1,10 @@
 ---
 title: Criar pipelines de dados utilizando o SDK .NET do Azure | Microsoft Docs
-description: "Saiba como criar, monitorizar e gerir fábricas de dados do Azure utilizando o SDK de fábrica de dados através de programação."
+description: Saiba como criar, monitorizar e gerir fábricas de dados do Azure utilizando o SDK de fábrica de dados através de programação.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: b0a357be-3040-4789-831e-0d0a32a0bda5
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1ac3dd85b95e021581fbf86d590f3b43ee1cdacc
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 73cdb2fc2ed57a55dbac7d0c8f66c96f501a3e04
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorizar e gerir fábricas de dados do Azure utilizando o SDK .NET do Azure Data Factory
 > [!NOTE]
@@ -137,7 +136,7 @@ A Atividade de Cópia executa o movimento de dados no Azure Data Factory. A ativ
         </appSettings>
     </configuration>
     ```
-5. No ficheiro App. config, atualize os valores para  **&lt;ID da aplicação&gt;**,  **&lt;palavra-passe&gt;**,  **&lt;subscrição ID&gt;**, e  **&lt;ID de inquilino&gt;**  com os seus próprios valores.
+5. No ficheiro App. config, atualize os valores para  **&lt;ID da aplicação&gt;**,  **&lt;palavra-passe&gt;**,  **&lt;subscrição ID&gt;**, e **&lt;ID de inquilino&gt;** com os seus próprios valores.
 6. Adicione o seguinte **utilizando** instruções para o **Program.cs** ficheiros no projeto.
 
     ```csharp

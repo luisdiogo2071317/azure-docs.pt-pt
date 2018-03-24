@@ -1,11 +1,12 @@
 ---
-title: "Os seus dados estão prontos para a ciência de dados? Avaliação de dados - Azure Machine Learning | Microsoft Docs"
-description: "Critérios de quatro estes têm de cumprir para ser preparado para ciência de dados. Este vídeo tem concretos exemplos para ajudar a avaliação de dados básicos."
-keywords: "dados relevantes, avaliar dados, preparar dados, os critérios de dados, dados prontos"
+title: Os seus dados estão prontos para a ciência de dados? Avaliação de dados - Azure Machine Learning | Microsoft Docs
+description: Critérios de quatro estes têm de cumprir para ser preparado para ciência de dados. Este vídeo tem concretos exemplos para ajudar a avaliação de dados básicos.
+keywords: dados relevantes, avaliar dados, preparar dados, os critérios de dados, dados prontos
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 2d9c66d89b82c63561b147f3d2537ba6ad07c511
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Os seus dados estão prontos para a ciência de dados?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Ciência de dados para a série de principiantes
@@ -47,9 +47,7 @@ Bem-vindo ao "É os dados prontos para ciência de dados?" o vídeo segundo da s
 Antes de ciência de dados pode dar-lhe as respostas que pretende, terá de atribuir-lhe algumas materiais raw de alta qualidade para trabalhar com. Tal como efetuar uma pizza, melhor ingredients que começar com melhor produto final. 
 
 ## <a name="criteria-for-data"></a>Critérios de dados
-Por isso, no caso de ciência de dados, existem algumas ingredients que precisamos de solicitação em conjunto.
-
-Precisamos de dados que são:
+Ciência de dados, há determinadas ingredients que tem de ser solicitados em conjunto, incluindo:
 
 * Relevantes
 * Ligado
@@ -57,15 +55,15 @@ Precisamos de dados que são:
 * Espaço suficiente para trabalhar com o
 
 ## <a name="is-your-data-relevant"></a>Os dados são relevantes?
-Por isso, ingredient primeiro - temos dados que são relevantes.
+Por isso ingredient primeiro - terá de dados que são relevantes.
 
 ![Dados relevantes vs dados irrelevantes - avaliar dados](./media/data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
-Observe a tabela à esquerda. Estamos satisfeitos sete pessoas fora barras Boston, medido o respetivo nível de alcohol blood, a média de batting Sox vermelho no último vencem o jogo e o preço de milk no arquivo de conveniência mais próximo.
+À esquerda, a tabela apresenta o nível de alcohol blood de sete pessoas testado fora de uma barra Boston, a média de batting Sox vermelho no último vencem o jogo e o preço de milk no arquivo de conveniência mais próximo.
 
-Esta é a todos os dados perfeitamente legítimos. Falhas apenas é que não é relevante. Não há nenhuma relação óbvias entre estes números. Se posso lhe forneceu o preço atual milk e a média de batting Sox vermelho, não é possível foi adivinhar meu conteúdo de alcohol blood.
+Esta é a todos os dados perfeitamente legítimos. Falhas apenas é que não é relevante. Não há nenhuma relação óbvias entre estes números. Se alguém lhe forneceu o preço atual milk e a média de batting Sox vermelho, não é possível foi adivinhar o conteúdo de alcohol blood.
 
-Agora ver a tabela à direita. Este tempo é medido cada pessoa body em massa e contados o número de drinks já tinham.  Os números em cada linha agora são relevantes para si. Se posso lhe forneceu os meus corpo em massa e o número de Margaritas posso ter tido, pode efetuar um estimado no meu blood alcohol conteúdo.
+Agora ver a tabela à direita. Desta vez o corpo de cada pessoa em massa foi medida, bem como o número de drinks já tinham.  Os números em cada linha agora são relevantes para si. Se posso lhe forneceu os meus corpo em massa e o número de Margaritas posso ter tido, pode efetuar um estimado no meu blood alcohol conteúdo.
 
 ## <a name="do-you-have-connected-data"></a>Se ligou dados?
 A seguinte ingredient é dados ligada.
@@ -76,35 +74,35 @@ Eis alguns dados relevantes a qualidade hamburgers: grill temperatura, patty pon
 
 A maioria dos conjuntos de dados estão em falta alguns valores. É comum para holes como esta, e existem formas de trabalhar em torno deles. Mas se há demasiado em falta, os dados começa a aspeto UE cheese.
 
-Se observar a tabela à esquerda, há pelo volume de dados em falta, que é difícil de pensar com qualquer tipo de relação entre grill relativos à temperatura e patty ponderação. Este é um exemplo de dados desligados.
+Se observar a tabela à esquerda, há pelo volume de dados em falta, que é difícil de pensar com qualquer tipo de relação entre grill relativos à temperatura e patty ponderação. Este exemplo mostra dados desligados.
 
 A tabela à direita, no entanto, está cheia e concluir - um exemplo de dados ligada.
 
 ## <a name="is-your-data-accurate"></a>Os dados é preciso?
-A seguinte ingredient que precisamos é precisão. Seguem-se quatro destinos que gostaríamos de acessos com setas.
+A seguinte ingredient é precisão. Seguem-se quatro destinos para acessos.
 
 ![Dados exatos vs. dados incorretos - critérios de dados](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Observe o destino no canto superior direito. Iremos já tem um agrupamento sólido à direita em torno os olhos bulls. Que, obviamente, é preciso. Oddly, o idioma de ciência de dados, nosso desempenho à direita de destino abaixo do mesmo é também considerado preciso.
+Observe o destino no canto superior direito. Não há um agrupamento sólido à direita em torno os olhos bulls. Que, obviamente, é preciso. Oddly, o idioma de ciência de dados, desempenho, à direita de destino abaixo do mesmo é também considerado preciso.
 
 Se mapear o Centro destas setas, verá que estiver muito próximo os olhos bulls. As setas são distribuir todos em torno do destino, que está a consideradas imprecisa, mas que está a centra-se olho bulls, pelo que está a consideradas exata.
 
-Observe agora o destino do canto superior esquerdo. Aqui o nosso setas muito fechar em conjunto, atingiu um agrupamento sólido. Estiverem exatos, mas está incorretas porque o Centro de forma desativar os olhos bulls. E, obviamente, as setas no destino da parte inferior esquerda estão incorretas e imprecisa. Este archer tem mais prática.
+Observe agora o destino do canto superior esquerdo. Aqui as setas muito fechar em conjunto, atingiu um agrupamento sólido. Estiverem exatos, mas está incorretas porque o Centro de forma desativar os olhos bulls. As setas no destino da parte inferior esquerda estão incorretas e imprecisa. Este archer tem mais prática.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>Tem dados suficientes para trabalhar com?
-Por fim, ingredient #4 - temos de tem dados suficientes.
+Por fim, ingredient #4 é dados suficientes.
 
 ![Tem dados suficientes para análise? Avaliação de dados](./media/data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
-Considere cada ponto de dados na tabela como sendo um stroke de pincel num desenho. Se tiver apenas alguns dos mesmos, o desenho pode ser pretty difusa - é difícil de saber o que está.
+Considere cada ponto de dados na tabela como sendo um stroke de pincel num desenho. Se tiver apenas alguns dos mesmos, o desenho pode ser difusa - é difícil de saber o que está.
 
 Se adicionar alguns traços Pincel mais, em seguida, o desenho começa a obter um pouco sharper.
 
-Quando tiver barely suficiente traços, pode ver apenas suficiente para tomar algumas decisões abrangentes. É algures que poderá pretender visite? Procura bright, parece máximo limpo – Sim, que é onde vou de férias.
+Quando tiver barely suficiente traços, apenas verá suficiente para tomar algumas decisões abrangentes. É algures que poderá pretender visite? Procura bright, parece máximo limpo – Sim, que é onde vou de férias.
 
-Como adicionar mais dados, a imagem torna-se mais clara e possa tomar decisões mais detalhadas. Agora pode analiso as três hotéis no banco esquerdo. Souber, posso realmente, como as funcionalidades da arquitetura de um em primeiro plano. Posso irá permaneça aqui, o terceiro piso.
+Como adicionar mais dados, a imagem torna-se mais clara e possa tomar decisões mais detalhadas. Agora pode examinar os três hotéis no banco esquerdo. Pode reparar as funcionalidades da arquitetura de um em primeiro plano. Ainda pode optar por permaneça o terceiro piso devido à vista.
 
-Com dados que são relevantes, ligado, exata e suficiente, podemos ter todos os ingredients é necessário efetuar algumas ciência de dados de alta qualidade.
+Com os dados que são relevantes, ligado, exata e suficiente, tem todas as ingredients necessários para alguns ciência de dados de alta qualidade.
 
 Lembre-se de que veja os vídeos de quatro em *dados de ciência para principiantes* do Microsoft Azure Machine Learning.
 

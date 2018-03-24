@@ -1,10 +1,11 @@
 ---
-title: "Passo 1: Criar uma área de trabalho do Machine Learning | Microsoft Docs"
-description: "Passo 1 da desenvolver uma solução preditiva explicação passo a passo: Saiba como configurar uma nova área de trabalho do Azure Machine Learning Studio."
+title: 'Passo 1: Criar uma área de trabalho do Machine Learning | Microsoft Docs'
+description: 'Passo 1 da desenvolver uma solução preditiva explicação passo a passo: Saiba como configurar uma nova área de trabalho do Azure Machine Learning Studio.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 58b37cf8927926cb128928e4d0e438945074f6e5
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 88f928599f62cbb39d65cd29a978e3a9d25d863f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>Passo 1 das Instruções: Criar uma área de trabalho do Machine Learning
 Este é o primeiro passo de instruções, [desenvolver uma solução de Análise Preditiva no Azure Machine Learning](walkthrough-develop-predictive-solution.md).
@@ -33,7 +33,7 @@ Este é o primeiro passo de instruções, [desenvolver uma solução de Análise
 - - -
 <!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
-Para utilizar o Machine Learning Studio, tem de ter uma área de trabalho do Microsoft Azure Machine Learning. Esta área de trabalho contém as ferramentas que necessárias para criar, gerir e publicar experimentações.  
+Para utilizar o Machine Learning Studio, tem de ter uma área de trabalho do Microsoft Azure Machine Learning. Esta área de trabalho contém as ferramentas de que precisa para criar, gerir e publicar experimentações.  
 
 O administrador da sua subscrição do Azure tem de criar a área de trabalho e, em seguida, adicioná-o como um proprietário ou contribuinte. Para obter mais informações, consulte [criar e a partilha de uma área de trabalho do Azure Machine Learning](create-workspace.md).
 

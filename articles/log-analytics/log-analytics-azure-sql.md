@@ -1,11 +1,11 @@
 ---
-title: "Solução de análise de SQL do Azure no Log Analytics | Microsoft Docs"
-description: "A solução de análise do SQL Azure ajuda-o a gerir as bases de dados SQL do Azure."
+title: Solução de análise de SQL do Azure no Log Analytics | Microsoft Docs
+description: A solução de análise do SQL Azure ajuda-o a gerir as bases de dados SQL do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorizar a base de dados do SQL do Azure através da análise do SQL do Azure (pré-visualização) no Log Analytics
 
@@ -87,10 +87,6 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 
->[!NOTE]
-> Atualize a sua análise de registos para obter a versão mais recente da análise de SQL do Azure.
->
-
 Quando adiciona a solução para a sua área de trabalho, o mosaico de análise de SQL do Azure é adicionado à sua área de trabalho e é apresentado na descrição geral. O mosaico mostra o número de bases de dados SQL do Azure e conjuntos elásticos SQL do Azure que está ligada a solução.
 
 ![Mosaico de análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
@@ -141,8 +137,6 @@ Através da duração de consulta e a consulta aguarda perspetivas, pode correla
 ### <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
 
 Pode facilmente criar alertas com os dados provenientes de recursos de SQL Database do Azure. Seguem-se algumas útil [pesquisa registo](log-analytics-log-searches.md) consultas que pode utilizar para alertas:
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 *DTU elevado na base de dados SQL do Azure*

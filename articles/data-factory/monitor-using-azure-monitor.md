@@ -1,11 +1,11 @@
 ---
-title: "Monitorizar fábricas de dados utilizando o Monitor do Azure | Microsoft Docs"
-description: "Saiba como utilizar o Monitor do Azure para monitorizar os pipelines de fábrica de dados, permitindo os registos de diagnóstico com informações do Azure Data Factory."
+title: Monitorizar fábricas de dados utilizando o Monitor do Azure | Microsoft Docs
+description: Saiba como utilizar o Monitor do Azure para monitorizar os pipelines de fábrica de dados, permitindo os registos de diagnóstico com informações do Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4022a89b8e0e08679e1c593dc1b691a23d21471
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorizar fábricas de dados utilizando o Monitor do Azure  
 Aplicações em nuvem são complexas com várias partes mover. A monitorização fornece dados para se certificar de que a aplicação permanece cópias de segurança e em execução em bom estado. Também o ajuda a stave desativar potenciais problemas ou resolver passado aqueles. Além disso, pode utilizar dados de monitorização para obter conhecimentos aprofundados sobre a sua aplicação. Este conhecimento pode ajudar a melhorar o desempenho da aplicação ou maintainability ou automatizar ações que caso contrário necessitem intervenção manual.
@@ -387,7 +387,7 @@ Monitor do Azure permite-lhe consumir telemetria ganhar visibilidade sobre o des
 
 ADFV2 emite as métricas seguintes
 
-| **Métricas**           | **Nome a apresentar métrica**         | **Unidade** | **Tipo de agregação** | **Descrição**                                       |
+| **Métricas**           | **Nome a apresentar métrica**         | **unidade** | **Tipo de agregação** | **Descrição**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | Foi concluída com êxito as métricas de execução de pipeline | Contagem    | Total                | Totais de pipelines é executado com êxito dentro de uma janela de minuto |
 | PipelineFailedRuns   | Falha de métricas de execução de pipeline    | Contagem    | Total                | Totais de pipelines executa falhada numa janela minuto    |
@@ -396,7 +396,7 @@ ADFV2 emite as métricas seguintes
 | TriggerSucceededRuns | Foi concluída com êxito as métricas de execuções do acionador  | Contagem    | Total                | Acionador total é executado com êxito dentro de uma janela de minuto   |
 | TriggerFailedRuns    | Falha de métricas de execução do acionador     | Contagem    | Total                | Acionador total é executado falhada dentro de uma janela de minuto      |
 
-Para as métricas de acesso, siga as instruções no artigo - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Para aceder às métricas, siga as instruções no artigo- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte [monitorizar e gerir pipelines programaticamente](monitor-programmatically.md) artigo para saber mais sobre como monitorizar e gerir pipelines, executando a aplicação. 

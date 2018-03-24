@@ -1,11 +1,11 @@
 ---
 title: Funcionalidades do motor de regras do Azure CDN | Microsoft Docs
-description: "Documentação de referência para a CDN do Azure regras de funcionalidades e as condições de correspondência do motor."
+description: Documentação de referência para a CDN do Azure regras de funcionalidades e as condições de correspondência do motor.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funcionalidades do motor de regras CDN do Azure
 Este artigo apresenta uma lista de descrições detalhadas das funcionalidades disponíveis para a rede de entrega de conteúdos (CDN) do Azure [motor de regras](cdn-rules-engine.md).
@@ -46,28 +46,28 @@ Estas funcionalidades são concebidas para personalizar quando e como conteúdo 
 Nome | Objetivo
 -----|--------
 [Parâmetros de largura de banda](#bandwidth-parameters) | Determina se os parâmetros de limitação de largura de banda (por exemplo, ec_rate e ec_prebuf) são Active Directory.
-[Limitação de largura de banda](#bandwidth-throttling) | Acelera a largura de banda para a resposta fornecida pelos servidores edge.
+[Limitação de largura de banda](#bandwidth-throttling) | Acelera a largura de banda para a resposta fornecida pela ponto de presença (POP).
 [Ignorar a Cache](#bypass-cache) | Determina se o pedido deve ignorar a colocação em cache.
-[Tratamento de cabeçalho de Cache-Control](#cache-control-header-treatment) | Controla a geração de `Cache-Control` cabeçalhos pelo servidor edge quando a funcionalidade de idade de máxima externo está ativa.
+[Tratamento de cabeçalho de Cache-Control](#cache-control-header-treatment) | Controla a geração de `Cache-Control` cabeçalhos por POP quando a funcionalidade de idade de máxima externo está ativa.
 [Cadeia de consulta de chave da cache](#cache-key-query-string) | Determina se a chave de cache inclui ou exclui os parâmetros de cadeia de consulta associados a um pedido.
 [Chave da cache reescrever](#cache-key-rewrite) | Reescreve chave da cache associado a um pedido.
-[Concluir o preenchimento da Cache](#complete-cache-fill) | Determina o que acontece quando um resultados de pedido numa falha de acerto na cache parciais num servidor edge.
+[Concluir o preenchimento da Cache](#complete-cache-fill) | Determina o que acontece quando um resultados de pedido numa falha de acerto na cache parciais num POP.
 [Comprima os tipos de ficheiro](#compress-file-types) | Define os formatos de ficheiro para os ficheiros que são comprimidos no servidor.
-[Idade de máx. de interno predefinida](#default-internal-max-age) | Determina o intervalo de idade máxima de predefinido para o servidor edge a revalidação de cache do servidor de origem.
-[Tratamento de cabeçalho de expirar](#expires-header-treatment) | Controla a geração de `Expires` cabeçalhos por um servidor edge, quando a funcionalidade de idade de máxima externo está ativa.
-[Externa de atribuição de idade máxima](#external-max-age) | Determina o intervalo de idade máxima de browser de modo a revalidação de cache do servidor edge.
-[Forçar interna de atribuição de idade máxima](#force-internal-max-age) | Determina o intervalo de idade máxima para o servidor edge revalidação de cache do servidor de origem.
+[Idade de máx. de interno predefinida](#default-internal-max-age) | Determina o intervalo de idade máxima predefinido para o POP a revalidação de cache do servidor de origem.
+[Tratamento de cabeçalho de expirar](#expires-header-treatment) | Controla a geração de `Expires` cabeçalhos por um POP quando a funcionalidade de idade de máxima externo está ativa.
+[Externa de atribuição de idade máxima](#external-max-age) | Determina o intervalo de idade máxima de browser de modo a revalidação de cache POP.
+[Forçar interna de atribuição de idade máxima](#force-internal-max-age) | Determina o intervalo de idade máxima para POP a revalidação de cache do servidor de origem.
 [Suporte de 264 (transferência progressiva HTTP)](#h264-support-http-progressive-download) | Determina os tipos de formatos de ficheiro 264 que podem ser utilizados para transmitir o conteúdo.
 [Pedido de Cache não honor](#honor-no-cache-request) | Determina se os pedidos de cache não de um cliente HTTP são reencaminhados para o servidor de origem.
 [Ignorar a Cache não de origem](#ignore-origin-no-cache) | Determina se a CDN ignora determinadas diretivas servidas a partir de um servidor de origem.
 [Ignorar intervalos Unsatisfiable](#ignore-unsatisfiable-ranges) | Determina a resposta que é devolvida aos clientes quando um pedido gera um código de estado 416 pedido intervalo não satisfatório.
-[Interna obsoleta máx.](#internal-max-stale) | Controlos quanto posterior à hora de expiração normal um recurso em cache pode ser fornecido de um servidor edge quando o servidor edge não consegue revalidate o elemento em cache com o servidor de origem.
+[Interna obsoleta máx.](#internal-max-stale) | Controlos quanto posterior à hora de expiração normal um recurso em cache pode ser fornecido de um POP quando o POP não consegue revalidate o elemento em cache com o servidor de origem.
 [Partilha de Cache parciais](#partial-cache-sharing) | Determina se um pedido pode gerar o conteúdo parcialmente em cache.
 [Prevalidate conteúdos em cache](#prevalidate-cached-content) | Determina se o conteúdo em cache é elegível para revalidação antecipada antes do valor de TTL expire.
-[Atualizar os ficheiros de Cache de Zero bytes](#refresh-zero-byte-cache-files) | Determina como o pedido de um cliente HTTP para um elemento de cache de 0 bytes é processado pelos servidores edge.
+[Atualizar os ficheiros de Cache de Zero bytes](#refresh-zero-byte-cache-files) | Determina a forma como o pedido de um cliente HTTP para um elemento de cache de 0 bytes é processado pelos POPs.
 [Códigos de estado colocáveis de conjunto](#set-cacheable-status-codes) | Define o conjunto de códigos de estado que podem resultar num conteúdos em cache.
 [Entrega de conteúdos obsoleta com o erro](#stale-content-delivery-on-error) | Determina se expirou em cache o conteúdo é entregue quando ocorre um erro durante a revalidação de cache ou ao obter os conteúdos solicitados a partir do servidor de origem do cliente.
-[Obsoleta ao Revalidate](#stale-while-revalidate) | Melhora o desempenho ao permitir que os servidores edge servir de cliente obsoleto para o autor do pedido, enquanto a revalidação ocorre.
+[Obsoleta ao Revalidate](#stale-while-revalidate) | Melhora o desempenho ao permitir que os POPs servir de cliente obsoleto para o autor do pedido, enquanto a revalidação ocorre.
 
 ## <a name="comment-feature"></a>Funcionalidade de comentário
 
@@ -110,7 +110,7 @@ Name | Purpose
 Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
 Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
 
-###Edge Optimizer
+### Edge Optimizer
 **Purpose:** Determines whether Edge Optimizer can be applied to a request.
 
 If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
@@ -128,7 +128,7 @@ Disabled|Restores the default behavior. The default behavior is to deliver conte
 **Default Behavior:** Disabled
  
 
-###Edge Optimizer - Instantiate Configuration
+### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
 
 This feature requires the ADN platform and the Edge Optimizer feature.
@@ -151,7 +151,7 @@ Estas funcionalidades são concebidas para controlar a forma como o CDN comunica
 Nome | Objetivo
 -----|--------
 [Máximo de pedidos de ligação Keep-Alive](#maximum-keep-alive-requests) | Define o número máximo de pedidos para uma ligação Keep-Alive antes de que está fechado.
-[Cabeçalhos especiais de proxy](#proxy-special-headers) | Define o conjunto de cabeçalhos de pedido de CDN específicas que são reencaminhados a partir de um servidor edge para um servidor de origem.
+[Cabeçalhos especiais de proxy](#proxy-special-headers) | Define o conjunto de cabeçalhos de pedido de CDN específicas que são reencaminhados a partir de um POP para um servidor de origem.
 
 
 ## <a name="specialty-features"></a>Funcionalidades de specialty
@@ -201,8 +201,8 @@ Parâmetros de limitação de largura de banda determinam se a velocidade de tra
 
 Valor|Resultado
 --|--
-Ativado|Permite que os servidores edge que respeite pedidos de limitação de largura de banda.
-Desativado|Faz com que os servidores edge ignorar os parâmetros de limitação de largura de banda. O conteúdo pedido é servido normalmente (ou seja, sem limitação de largura de banda).
+Ativado|Permite que os POPs que respeite pedidos de limitação de largura de banda.
+Desativado|Faz com que os POPs ignorar os parâmetros de limitação de largura de banda. O conteúdo pedido é servido normalmente (ou seja, sem limitação de largura de banda).
 
 **Comportamento predefinido:** ativada.
  
@@ -212,14 +212,14 @@ Desativado|Faz com que os servidores edge ignorar os parâmetros de limitação 
 
 ---
 ### <a name="bandwidth-throttling"></a>Limitação de largura de banda
-**Objetivo:** acelera a largura de banda para a resposta fornecida pelos servidores edge.
+**Objetivo:** acelera a largura de banda para a resposta fornecida pelos POPs.
 
 Ambas as opções seguintes tem de ser definidas para configurar corretamente a limitação de largura de banda.
 
 Opção|Descrição
 --|--
 KBytes por segundo|Defina esta opção para a largura de banda máxima (Kb por segundo) que pode ser utilizada para fornecer a resposta.
-Segundos de Prebuf|Defina esta opção para o número de segundos para os servidores de limite a aguardar até que a largura de banda é limitada. É o objetivo deste período de tempo de largura de banda sem restrições impedir que um leitor de suporte de dados com problemas de memória intermédia de stuttering ou devido à limitação de largura de banda.
+Segundos de Prebuf|Defina esta opção para o número de segundos para os POPs aguardar até que a largura de banda é limitada. É o objetivo deste período de tempo de largura de banda sem restrições impedir que um leitor de suporte de dados com problemas de memória intermédia de stuttering ou devido à limitação de largura de banda.
 
 **Comportamento predefinido:** desativado.
 
@@ -233,8 +233,8 @@ Segundos de Prebuf|Defina esta opção para o número de segundos para os servid
 
 Valor|Resultado
 --|--
-Ativado|Faz com que todos os pedidos para passar para o servidor de origem, mesmo que o conteúdo foi colocado em cache anteriormente no servidores edge.
-Desativado|Faz com que servidores edge aos recursos da cache, de acordo com a política de cache definido no respetivos cabeçalhos de resposta.
+Ativado|Faz com que todos os pedidos para passar para o servidor de origem, mesmo que o conteúdo foi colocado em cache anteriormente no POPs.
+Desativado|Faz com que POPs aos recursos da cache, de acordo com a política de cache definido no respetivos cabeçalhos de resposta.
 
 **Comportamento predefinido:**
 
@@ -289,7 +289,7 @@ Informações da chave:
 
 ---
 ### <a name="cache-control-header-treatment"></a>Tratamento de cabeçalho de Cache-Control
-**Objetivo:** controla a geração de `Cache-Control` cabeçalhos pelo servidor edge quando a funcionalidade de idade máxima externo está ativa.
+**Objetivo:** controla a geração de `Cache-Control` cabeçalhos por POP quando a funcionalidade de idade máxima externo está ativa.
 
 A forma mais fácil para alcançar este tipo de configuração é colocar a idade máxima externos e as funcionalidades de Cache-Control de tratamento de cabeçalho na mesma instrução.
 
@@ -415,9 +415,9 @@ Informações da chave:
 
 ---
 ### <a name="complete-cache-fill"></a>Concluir o preenchimento da Cache
-**Objetivo:** determina o que acontece quando um pedido resulta numa falha de acerto na cache parciais num servidor edge.
+**Objetivo:** determina o que acontece quando um pedido resulta numa falha de acerto na cache parciais num POP.
 
-Uma falha de acerto na cache parciais descreve o estado de cache para um recurso que não foi completamente transferido para um servidor edge. Se um recurso é colocado em cache apenas parcialmente num servidor edge, em seguida, o pedido seguinte para esse recurso será reencaminhado novamente para o servidor de origem.
+Uma falha de acerto na cache parciais descreve o estado de cache para um recurso que não foi completamente transferido para um POP. Se um recurso é colocado em cache apenas parcialmente num POP, em seguida, o pedido seguinte para esse recurso será reencaminhado novamente para o servidor de origem.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
@@ -430,8 +430,8 @@ Devido da forma na cache de que as definições são registadas, esta funcionali
 
 Valor|Resultado
 --|--
-Ativado|Restaura o comportamento predefinido. É o comportamento predefinido para forçar o servidor edge para iniciar a obtenção um fundo do elemento do servidor de origem. Após o qual, o elemento estarão disponíveis na cache local do servidor edge.
-Desativado|Impede que um servidor edge efetuar uma obtenção de fundo para o elemento. O resultado é que o pedido seguinte para esse recurso a que região faz com que um servidor edge solicitá-la a partir do servidor de origem do cliente.
+Ativado|Restaura o comportamento predefinido. É o comportamento predefinido para forçar o POP para iniciar a obtenção um fundo do elemento do servidor de origem. Após o qual, o elemento estarão disponíveis na cache local o POP.
+Desativado|Impede que um POP efetuar uma obtenção de fundo para o elemento. O resultado é que o pedido seguinte para esse recurso a que região faz com que um POP para solicitá-la a partir do servidor de origem do cliente.
 
 **Comportamento predefinido:** ativada.
 
@@ -523,14 +523,14 @@ Desativado|O cabeçalho de resposta EC-X-Debug será excluído da resposta.
 
 ---
 ### <a name="default-internal-max-age"></a>Idade de máx. de interno predefinida
-**Objetivo:** determina o intervalo de idade máxima de predefinido para o servidor edge a revalidação de cache do servidor de origem. Por outras palavras, a quantidade de tempo que irá passar antes de um servidor edge irá verificar se um recurso em cache corresponde ao elemento armazenado no servidor de origem.
+**Objetivo:** determina o intervalo de idade máxima predefinido para o POP a revalidação de cache do servidor de origem. Por outras palavras, a quantidade de tempo que irá passar antes de um POP irá verificar se um recurso em cache corresponde ao elemento armazenado no servidor de origem.
 
 Informações da chave:
 
 - Esta ação só ocorrerá de respostas de um servidor de origem que não foi possível atribuir uma indicação de idade máxima no `Cache-Control` ou `Expires` cabeçalho.
 - Esta ação não irá demorar local para recursos que não são considerados colocáveis.
-- Esta ação não afeta o browser para revalidations de cache do servidor edge. Estes tipos de revalidations são determinados pelo `Cache-Control` ou `Expires` cabeçalhos enviados para o browser, que pode ser personalizado com a funcionalidade de idade de máxima externo.
-- Os resultados desta ação não tem um efeito observable nos cabeçalhos de resposta e o conteúdo devolvido de servidores edge para o conteúdo, mas pode ter um efeito na quantidade de tráfego de revalidação enviado a partir de servidores edge ao seu servidor de origem.
+- Esta ação não afeta o browser para revalidations de cache POP. Estes tipos de revalidations são determinados pelo `Cache-Control` ou `Expires` cabeçalhos enviados para o browser, que pode ser personalizado com a funcionalidade de idade de máxima externo.
+- Os resultados desta ação não tem um efeito observable nos cabeçalhos de resposta e o conteúdo devolvido de POPs para o conteúdo, mas pode ter um efeito na quantidade de tráfego de revalidação enviado do POPs para o servidor de origem.
 - Configure esta funcionalidade por:
     - Selecionar o código de estado para os quais pode ser aplicada a idade interno-máxima uma predefinição.
     - Especificar um valor inteiro e, em seguida, selecionar a unidade de tempo pretendido (por exemplo, segundos, minutos, horas, etc.). Este valor define o intervalo de idade máxima interno predefinido.
@@ -571,7 +571,7 @@ Desativado| Restaura o comportamento predefinido. O comportamento predefinido é
 
 ---
 ### <a name="expires-header-treatment"></a>Tratamento de cabeçalho de expirar
-**Objetivo:** controla a geração de `Expires` cabeçalhos por um servidor edge, quando a funcionalidade de idade de máxima externo está ativa.
+**Objetivo:** controla a geração de `Expires` cabeçalhos por um POP quando a funcionalidade de idade de máxima externo está ativa.
 
 A forma mais fácil para alcançar este tipo de configuração é colocar a idade máxima externos e as funcionalidades de expira tratamento de cabeçalho na mesma instrução.
 
@@ -590,15 +590,15 @@ Remover| Garante que uma `Expires` cabeçalho não está incluído com a respost
 
 ---
 ### <a name="external-max-age"></a>Externa de atribuição de idade máxima
-**Objetivo:** determina o intervalo de idade máxima de browser de modo a revalidação de cache do servidor edge. Por outras palavras, pode verificar a quantidade de tempo que irá passar antes de um browser para uma nova versão de um ativo de um servidor edge.
+**Objetivo:** determina o intervalo de idade máxima de browser de modo a revalidação de cache POP. Por outras palavras, pode verificar a quantidade de tempo que irá passar antes de um browser para uma nova versão de um ativo de um POP.
 
-A ativação desta funcionalidade irá gerar `Cache-Control: max-age` e `Expires` cabeçalhos a partir de servidores edge e enviá-los para o cliente HTTP. Por predefinição, estes cabeçalhos substituirá as criadas pelo servidor de origem. No entanto, o tratamento de cabeçalho de Cache-Control e as funcionalidades de tratamento de cabeçalho expira podem ser utilizadas para alterar este comportamento.
+A ativação desta funcionalidade irá gerar `Cache-Control: max-age` e `Expires` cabeçalhos a partir dos POPs e enviá-los para o cliente HTTP. Por predefinição, estes cabeçalhos substituirá as criadas pelo servidor de origem. No entanto, o tratamento de cabeçalho de Cache-Control e as funcionalidades de tratamento de cabeçalho expira podem ser utilizadas para alterar este comportamento.
 
 Informações da chave:
 
-- Esta ação não afeta o servidor edge para revalidations de cache do servidor de origem. Estes tipos de revalidations são determinados pelo `Cache-Control` e `Expires` cabeçalhos recebido do servidor de origem e podem ser personalizados com a predefinição interna-idade máxima e as funcionalidades de idade de máxima de interno Force.
+- Esta ação não afeta POP para revalidations de cache do servidor de origem. Estes tipos de revalidations são determinados pelo `Cache-Control` e `Expires` cabeçalhos recebido do servidor de origem e podem ser personalizados com a predefinição interna-idade máxima e as funcionalidades de idade de máxima de interno Force.
 - Configure esta funcionalidade, especificando um valor inteiro e selecionar a unidade de tempo pretendido (por exemplo, segundos, minutos, horas, etc.).
-- A definição desta funcionalidade para um valor negativo faz com que os servidores edge enviar um `Cache-Control: no-cache` e um `Expires` hora em que está definida no passado com cada resposta para o browser. Apesar de um cliente HTTP irá coloca a resposta, esta definição não irá afetar a capacidade dos servidores de edge coloca a resposta do servidor de origem.
+- A definição desta funcionalidade para um valor negativo faz com que os POPs enviar um `Cache-Control: no-cache` e um `Expires` hora em que está definida no passado com cada resposta para o browser. Apesar de um cliente HTTP irá coloca a resposta, esta definição não irá afetar a capacidade dos POPs para colocar em cache a resposta do servidor de origem.
 - Definir a unidade de tempo "Desligado" irá desativar esta funcionalidade. O `Cache-Control` e `Expires` cabeçalhos em cache com a resposta do servidor de origem passará para o browser.
 
 **Comportamento predefinido:** desativado
@@ -628,13 +628,13 @@ Desativado|Pedidos não serão redirecionados.
 
 ---
 ### <a name="force-internal-max-age"></a>Forçar interna de atribuição de idade máxima
-**Objetivo:** determina o intervalo de idade máxima para o servidor edge revalidação de cache do servidor de origem. Por outras palavras, a quantidade de tempo que irá passar antes de um servidor edge, pode verificar se um recurso em cache corresponde ao elemento armazenado no servidor de origem.
+**Objetivo:** determina o intervalo de idade máxima para POP a revalidação de cache do servidor de origem. Por outras palavras, a quantidade de tempo que irá passar antes de um POP pode verificar se um recurso em cache corresponde ao elemento armazenado no servidor de origem.
 
 Informações da chave:
 
 - Esta funcionalidade irá substituir o intervalo de idade máxima definido no `Cache-Control` ou `Expires` cabeçalhos gerados a partir de um servidor de origem.
-- Esta funcionalidade não afeta o browser para revalidations de cache do servidor edge. Estes tipos de revalidations são determinados pelo `Cache-Control` ou `Expires` cabeçalhos enviados para o browser.
-- Esta funcionalidade não tem um efeito observable na resposta fornecida por um servidor edge para o autor do pedido. No entanto, pode ter um efeito na quantidade de tráfego de revalidação enviado a partir de servidores edge para o servidor de origem.
+- Esta funcionalidade não afeta o browser para revalidations de cache POP. Estes tipos de revalidations são determinados pelo `Cache-Control` ou `Expires` cabeçalhos enviados para o browser.
+- Esta funcionalidade não tem um efeito observable na resposta disponibilizada por um POP para o autor do pedido. No entanto, pode ter um efeito na quantidade de tráfego de revalidação enviado dos POPs para o servidor de origem.
 - Configure esta funcionalidade por:
     - Selecionar o código de estado para os quais será aplicada uma idade máxima interna.
     - Especificar um valor inteiro e selecionar a unidade de tempo pretendido (por exemplo, segundos, minutos, horas, etc.). Este valor define o intervalo de idade máxima do pedido.
@@ -678,10 +678,10 @@ Um pedido de cache não ocorre quando o cliente HTTP envia um `Cache-Control: no
 
 Valor|Resultado
 --|--
-Ativado|Permite que os pedidos de cache não de um cliente HTTP para ser reencaminhado para o servidor de origem e o servidor de origem irá devolver os cabeçalhos de resposta e o corpo através do servidor edge novamente para o cliente HTTP.
+Ativado|Permite que os pedidos de cache não de um cliente HTTP para ser reencaminhado para o servidor de origem e o servidor de origem irá devolver os cabeçalhos de resposta e o corpo através o POP de volta para o cliente HTTP.
 Desativado|Restaura o comportamento predefinido. O comportamento predefinido é para impedir que pedidos na cache não reencaminhados para o servidor de origem.
 
-Para todo o tráfego de produção, recomenda vivamente para deixar esta funcionalidade no respectivo estado predefinido desativado. Caso contrário, os servidores de origem não serão possível proteger os utilizadores finais que inadvertidamente poderão acionar muitos pedidos não-cache ao atualizar as páginas web ou a partir de muitos jogadores popular do suporte de dados que são codificados para enviar um cabeçalho de cache não com cada pedido de vídeo. Contudo, esta funcionalidade pode ser útil para aplicar a determinados não a produção de teste ou testes diretórios, para permitir que o novo conteúdo ser solicitados a pedido do servidor de origem.
+Para todo o tráfego de produção, recomenda vivamente para deixar esta funcionalidade no respectivo estado predefinido desativado. Caso contrário, não serão possível proteger os servidores de origem aos utilizadores finais que inadvertidamente poderão acionar muitos pedidos não-cache ao atualizar as páginas web ou a partir de muitos jogadores popular do suporte de dados que são codificados para enviar um cabeçalho de cache não com cada pedido de vídeo. Contudo, esta funcionalidade pode ser útil para aplicar a determinados não a produção de teste ou testes diretórios, para permitir que o novo conteúdo ser solicitados a pedido do servidor de origem.
 
 O estado da cache que será reportado para um pedido que tem permissão para ser reencaminhados para um servidor de origem devido a esta funcionalidade é TCP_Client_Refresh_Miss. O relatório de Estados de Cache, o que está disponível do núcleo do módulo de relatórios, fornece informações estatísticas por Estado da cache. Isto permite-lhe controlar o número e a percentagem de pedidos que são reencaminhados para um servidor de origem devido a esta funcionalidade.
 
@@ -724,11 +724,11 @@ Informações da chave:
 ### <a name="ignore-unsatisfiable-ranges"></a>Ignorar intervalos Unsatisfiable 
 **Objetivo:** determina a resposta que será devolvida aos clientes quando um pedido gera um código de estado 416 pedido intervalo não satisfatório.
 
-Por predefinição, este código de estado é devolvido quando não é possível satisfazer o pedido de intervalo de bytes especificada por um servidor edge e um campo de cabeçalho de pedido de intervalo se não foi especificado.
+Por predefinição, este código de estado é devolvido quando não é possível satisfazer o pedido de intervalo de bytes especificada por um POP e um campo de cabeçalho de pedido de intervalo se não foi especificado.
 
 Valor|Resultado
 -|-
-Ativado|Impede que os servidores edge responder a um pedido de intervalo de byte inválido com um código de estado 416 pedido intervalo não satisfatório. Em vez disso, os servidores irão fornecer o recurso pedido e devolver um 200 OK para o cliente.
+Ativado|Impede que os POPs responder a um pedido de intervalo de byte inválido com um código de estado 416 pedido intervalo não satisfatório. Em vez disso, os servidores irão fornecer o recurso pedido e devolver um 200 OK para o cliente.
 Desativado|Restaura o comportamento predefinido. O comportamento predefinido é que respeite o código de estado 416 pedido intervalo não satisfatório.
 
 **Comportamento predefinido:** desativado.
@@ -739,15 +739,15 @@ Desativado|Restaura o comportamento predefinido. O comportamento predefinido é 
 
 ---
 ### <a name="internal-max-stale"></a>Interna obsoleta máx.
-**Objetivo:** controlos quanto posterior à hora de expiração normal um recurso em cache poderão ser servido de um servidor edge, quando o servidor edge não consegue revalidate o elemento em cache com o servidor de origem.
+**Objetivo:** controlos quanto posterior à hora de expiração normal um recurso em cache pode ser servido a partir de um POP quando o POP não consegue revalidate o elemento em cache com o servidor de origem.
 
-Normalmente, quando o período de idade máxima de um recurso expira, o servidor edge irá enviar um pedido de revalidação para o servidor de origem. O será de servidor de origem, em seguida, responder com qualquer um 304 não modificado para dar o servidor edge termos da concessão no elemento em cache or else com 200 OK para fornecer o servidor edge com uma versão atualizada do elemento em cache.
+Normalmente, quando o período de idade máxima de um recurso expira, o POP irá enviar um pedido de revalidação para o servidor de origem. O será de servidor de origem, em seguida, responder com qualquer um 304 não modificado para dar o POP termos da concessão no elemento em cache or else com 200 OK para fornecer o POP com uma versão atualizada do elemento em cache.
 
-Se o servidor edge não é possível estabelecer uma ligação com o servidor de origem durante a tentativa de tal uma revalidação, esta funcionalidade obsoleta máximo interno controla se e para o tempo limite servidor pode continuar a servir o elemento agora obsoleta.
+Se o POP não é possível estabelecer uma ligação com o servidor de origem durante a tentativa de revalidação, em seguida, esta funcionalidade obsoleta máximo interno controla se e como tempo, o POP pode continuar a servir o elemento agora obsoleta.
 
 Tenha em atenção que este intervalo de tempo é iniciado quando idade máxima do elemento expira, não quando a revalidação de falha ocorre. Por conseguinte, o período máximo durante o qual um recurso pode ser servido sem êxito revalidação é a quantidade de tempo especificado pela combinação de idade máxima plus máximo obsoleta. Por exemplo, se um recurso foi colocado em cache no 9:00, com uma duração do número máximo de 30 minutos e obsoleta uma máximo de 15 minutos, em seguida, uma tentativa de falha revalidação de 9:44 resultaria num utilizador final receber o elemento em cache obsoleto, enquanto uma tentativa de falha revalidação de 9:46 resultaria no en utilizador d receber um tempo limite do Gateway 504.
 
-Qualquer valor configurado para esta funcionalidade é substituída por `Cache-Control: must-revalidate` ou `Cache-Control: proxy-revalidate` cabeçalhos recebidos do servidor de origem. Se qualquer um desses cabeçalhos não for recebida do servidor de origem quando um recurso inicialmente é colocado em cache, em seguida, o servidor edge não processará os um recurso em cache obsoleto. Nesse caso, se o servidor edge não é possível revalidate com a origem quando o intervalo de idade máxima do elemento tiver expirado, o servidor edge devolve um erro de tempo limite do Gateway 504.
+Qualquer valor configurado para esta funcionalidade é substituída por `Cache-Control: must-revalidate` ou `Cache-Control: proxy-revalidate` cabeçalhos recebidos do servidor de origem. Se qualquer um desses cabeçalhos não for recebida do servidor de origem quando um recurso inicialmente é colocado em cache, em seguida, os POP não processará um recurso em cache obsoleto. Nesse caso, se o POP não é possível ao revalidate com a origem quando o intervalo de idade máxima do elemento tiver expirado, o POP devolve um erro de tempo limite do Gateway 504.
 
 Informações da chave:
 
@@ -828,7 +828,7 @@ Informações da chave:
     - CACHE-CONTROL
     - cachE-Control
 - Quando especificar um nome de cabeçalho, utilize apenas carateres alfanuméricos, traços ou carateres de sublinhado.
-- Eliminar um cabeçalho irá impedi-lo de que está a ser reencaminhados para um servidor de origem, os servidores edge.
+- Eliminar um cabeçalho irá impedi-lo de que está a ser reencaminhados para um servidor de origem pelos POPs.
 - Os seguintes cabeçalhos estão reservados e não podem ser modificados por esta funcionalidade:
     - reencaminhado
     - anfitrião
@@ -848,7 +848,7 @@ Cada resposta contém um conjunto de cabeçalhos de resposta que descrevem-lo. E
 - Acrescentar ou substituir o valor atribuído a um cabeçalho de resposta. Se o cabeçalho de resposta especificado não existir, em seguida, esta funcionalidade irá adicioná-la para a resposta.
 - Elimine um cabeçalho de resposta da resposta.
 
-Por predefinição, os valores de cabeçalho de resposta são definidos por um servidor de origem e os servidores edge.
+Por predefinição, os valores de cabeçalho de resposta são definidos por um servidor de origem e os POPs.
 
 Uma das seguintes ações pode ser efetuada num cabeçalho de resposta:
 
@@ -912,7 +912,7 @@ Defina o período de tempo antes da expiração do TTL os conteúdos solicitados
 
 Informações da chave:
 
-- Selecionar "Off" como revalidação para ocorrer após o conteúdo em cache, precisa da unidade de tempo TTL expirou. Não deve ser especificado o tempo e serão ignorada.
+- Selecionar "Off" como revalidação para ocorrer após o conteúdo em cache, precisa da unidade de tempo TTL expirou. Tempo não deve ser especificado e é ignorado.
 
 **Comportamento predefinido:** desativado. Revalidação pode apenas ocorrer depois de TTL o conteúdo em cache expirou.
 
@@ -922,7 +922,7 @@ Informações da chave:
 
 ---
 ### <a name="proxy-special-headers"></a>Cabeçalhos especiais de proxy
-**Objetivo:** define o conjunto de cabeçalhos de pedido de CDN específicos que serão reencaminhados de um servidor edge para um servidor de origem.
+**Objetivo:** define o conjunto de cabeçalhos de pedido de CDN específicos que serão reencaminhados de uma POP para um servidor de origem.
 
 Informações da chave:
 
@@ -937,15 +937,15 @@ Informações da chave:
 
 ---
 ### <a name="refresh-zero-byte-cache-files"></a>Atualizar os ficheiros de Cache de Zero bytes
-**Objetivo:** determina como o pedido de um cliente HTTP para um elemento de cache de 0 bytes é processado pelos servidores edge.
+**Objetivo:** determina a forma como o pedido de um cliente HTTP para um elemento de cache de 0 bytes é processado pelos POPs.
 
 Os valores válidos são:
 
 Valor|Resultado
 --|--
-Ativado|Faz com que o servidor edge refetch o elemento a partir do servidor de origem.
+Ativado|Faz com que o POP de refetch o elemento a partir do servidor de origem.
 Desativado|Restaura o comportamento predefinido. É o comportamento predefinido para servir a recursos de cache válido após pedido.
-Esta funcionalidade não é necessária para a colocação em cache correto e de entrega de conteúdos, mas poderá ser útil como uma solução. Por exemplo, generators conteúdos dinâmicos nos servidores de origem inadvertidamente podem resultar em respostas 0 bytes enviadas para os servidores edge. Estes tipos de respostas são normalmente colocadas em cache pelos servidores edge. Se souber que uma resposta de 0 bytes nunca é uma resposta válida 
+Esta funcionalidade não é necessária para a colocação em cache correto e de entrega de conteúdos, mas poderá ser útil como uma solução. Por exemplo, generators conteúdos dinâmicos nos servidores de origem inadvertidamente podem resultar em respostas 0 bytes enviadas para os POPs. Estes tipos de respostas são normalmente colocadas em cache pelos POPs. Se souber que uma resposta de 0 bytes nunca é uma resposta válida 
 
 para esse conteúdo, em seguida, esta funcionalidade pode impedir que estes tipos de recursos de ser servido aos seus clientes.
 
@@ -1016,12 +1016,12 @@ Desativado|Erro do servidor de origem seja reencaminhado para o autor do pedido.
 
 ---
 ### <a name="stale-while-revalidate"></a>Obsoleta ao Revalidate
-**Objetivo:** melhora o desempenho ao permitir que os servidores edge servir conteúdo obsoleto para o autor do pedido, enquanto a revalidação ocorre.
+**Objetivo:** melhora o desempenho ao permitir que os POPs servir conteúdo obsoleto para o autor do pedido, enquanto a revalidação ocorre.
 
 Informações da chave:
 
 - O comportamento desta funcionalidade varia de acordo com a unidade de tempo selecionado.
-    - **Unidade de tempo:** especificar um período de tempo e selecione uma unidade de tempo (por exemplo, segundos, minutos, horas, etc.) para permitir que a entrega de conteúdos obsoleta. Este tipo de configuração permite que a CDN para estender o período de tempo que pode fornecer conteúdo antes de exigir validação, de acordo com a seguinte fórmula:**TTL** + **obsoletos enquanto Revalidate tempo** 
+    - **Unidade de tempo:** especificar um período de tempo e selecione uma unidade de tempo (por exemplo, segundos, minutos, horas, etc.) para permitir que a entrega de conteúdos obsoleta. Este tipo de configuração permite que a CDN para estender o período de tempo que pode fornecer conteúdo antes de exigir validação, de acordo com a seguinte fórmula: **TTL** + **obsoletos enquanto Revalidate tempo** 
     - **Desativar:** selecione "desligado" para exigir a revalidação antes de um pedido para conteúdo obsoleto pode ser servido.
         - Não especifique um período de tempo, uma vez que é forçando e serão ignorada.
 
@@ -1109,7 +1109,7 @@ Os valores válidos são:
 
 Valor|Resultado
 ---|----
-Ativado|Faz com que o servidor edge Ignorar maiúsculas / minúsculas ao comparar os URLs para os parâmetros de autenticação baseada em tokens.
+Ativado|Faz com que o POP Ignorar maiúsculas / minúsculas ao comparar os URLs para os parâmetros de autenticação baseada em tokens.
 Desativado|Restaura o comportamento predefinido. O comportamento predefinido é de comparações de URL para a autenticação de Token estar maiúsculas e minúsculas.
 
 **Comportamento predefinido:** desativado.
@@ -1149,14 +1149,14 @@ Opção|Descrição
 -|-
 Código|Selecione o código de resposta que vai ser devolvido ao autor do pedido.
 Origem & padrão| Estas definições, defina um padrão URI do pedido que identifica o tipo de pedidos que podem ser redirecionados. Serão redirecionados apenas pedidos cujo URL satisfaça ambos os seguintes critérios: <br/> <br/> **Origem (ou ponto de acesso ao conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Esta é a secção "/XXXX/" e o nome do ponto final. <br/> **Origem (padrão):** um padrão que identifica pedidos pelo caminho relativo tem de ser definido. Neste padrão de expressão regular tem de definir um caminho que inicia diretamente após o acesso ao conteúdo anteriormente selecionado ponto (consultar acima). <br/> -Certifique-se de que o pedido URI critérios (ou seja, origem & padrão) definidos anteriormente não entra em conflito com quaisquer condições de correspondência definidas para esta funcionalidade. <br/> -Especifique um padrão; Se utilizar um valor em branco como o padrão, todas as cadeias são correspondidas.
-Destino| Defina o URL ao qual serão redirecionados os pedidos acima. <br/> Dinamicamente construir este URL a utilizar: <br/> -Um padrão de expressão regular <br/>-Variáveis HTTP <br/> Substitua os valores capturados o padrão de origem para o padrão de destino utilizando $ _n_  onde  _n_  identifica um valor pela ordem em que foi capturada. Por exemplo, $1 representa o primeiro valor capturado o padrão de origem, enquanto $2 representa o segundo valor. <br/> 
+Destino| Defina o URL ao qual serão redirecionados os pedidos acima. <br/> Dinamicamente construir este URL a utilizar: <br/> -Um padrão de expressão regular <br/>-Variáveis HTTP <br/> Substitua os valores capturados o padrão de origem para o padrão de destino utilizando $_n_ onde _n_ identifica um valor pela ordem em que foi capturada. Por exemplo, $1 representa o primeiro valor capturado o padrão de origem, enquanto $2 representa o segundo valor. <br/> 
 Recomenda-se vivamente a utilização de um URL absoluto. A utilização de um URL relativo pode redirecionar os URLs da CDN para um caminho inválido.
 
 **Cenário de exemplo**
 
-Este exemplo demonstra como redirecionar o URL de CNAME que resolve para este URL base do CDN contorno: http://marketing.azureedge.net/brochures
+Este exemplo demonstra como redirecionar um limite de URL de CNAME que resolve para este URL CDN base: http://marketing.azureedge.net/brochures
 
-Elegíveis pedidos serão redirecionado para este limite de base de URL de CNAME: http://cdn.mydomain.com/resources
+Elegíveis pedidos serão redirecionado para este limite base CNAME URL: http://cdn.mydomain.com/resources
 
 Redirecionamento este URL pode ser conseguido através da configuração seguinte: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
@@ -1191,14 +1191,14 @@ Informações da chave:
 Opção|Descrição
 -|-
  Origem & padrão | Estas definições, defina um padrão URI do pedido que identifica o tipo de pedidos que podem ser foi reescrita. Irão ser foi reescritos apenas pedidos cujo URL satisfaça ambos os seguintes critérios: <br/>     - **Origem (ou ponto de acesso ao conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Esta é a secção "/XXXX/" e o nome do ponto final. <br/> - **Origem (padrão):** um padrão que identifica pedidos pelo caminho relativo tem de ser definido. Neste padrão de expressão regular tem de definir um caminho que inicia diretamente após o acesso ao conteúdo anteriormente selecionado ponto (consultar acima). <br/> Certifique-se de que o pedido URI critérios (ou seja, origem & padrão) definidos anteriormente não entra em conflito com qualquer uma das condições definidas para esta funcionalidade correspondência. Especificar um padrão; Se utilizar um valor em branco como o padrão, todas as cadeias são correspondidas. 
- Destino  |Defina o URL relativo ao qual os pedidos acima irão ser foi reescritos por: <br/>    1. Selecionar um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. Definir a utilizar um caminho relativo: <br/>        -Um padrão de expressão regular <br/>        -Variáveis HTTP <br/> <br/> Substitua os valores capturados o padrão de origem para o padrão de destino utilizando $ _n_  onde  _n_  identifica um valor pela ordem em que foi capturada. Por exemplo, $1 representa o primeiro valor capturado o padrão de origem, enquanto $2 representa o segundo valor. 
- Esta funcionalidade permite que os servidores edge de reescrever o URL sem efetuar um redirecionamento tradicional. Isto significa que o autor do pedido irá receber o mesmo código de resposta, como se o URL de conversão tinha sido pedido.
+ Destino  |Defina o URL relativo ao qual os pedidos acima irão ser foi reescritos por: <br/>    1. Selecionar um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. Definir a utilizar um caminho relativo: <br/>        -Um padrão de expressão regular <br/>        -Variáveis HTTP <br/> <br/> Substitua os valores capturados o padrão de origem para o padrão de destino utilizando $_n_ onde _n_ identifica um valor pela ordem em que foi capturada. Por exemplo, $1 representa o primeiro valor capturado o padrão de origem, enquanto $2 representa o segundo valor. 
+ Esta funcionalidade permite que os POPs de reescrever o URL sem efetuar um redirecionamento tradicional. Isto significa que o autor do pedido irá receber o mesmo código de resposta, como se o URL de conversão tinha sido pedido.
 
 **Cenário de exemplo 1**
 
-Este exemplo demonstra como redirecionar o URL de CNAME que resolve para este URL base do CDN contorno: http://marketing.azureedge.net/brochures/
+Este exemplo demonstra como redirecionar um limite de URL de CNAME que resolve para este URL CDN base: http://marketing.azureedge.net/brochures/
 
-Elegíveis pedidos serão redirecionado para este limite de base de URL de CNAME: http://MyOrigin.azureedge.net/resources/
+Elegíveis pedidos serão redirecionado para este limite base CNAME URL: http://MyOrigin.azureedge.net/resources/
 
 Redirecionamento este URL pode ser conseguido através da configuração seguinte: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
@@ -1249,7 +1249,7 @@ Esta funcionalidade inclui correspondentes aos critérios que devem ser satisfei
 
 ## <a name="next-steps"></a>Próximos Passos
 * [Referência do motor de regras](cdn-rules-engine-reference.md)
-* [Motor de regras de expressões condicionais](cdn-rules-engine-reference-conditional-expressions.md)
+* [Expressões condicionais do motor de regras](cdn-rules-engine-reference-conditional-expressions.md)
 * [Condições de correspondência do motor de regras](cdn-rules-engine-reference-match-conditions.md)
 * [Comportamento HTTP utilizando o motor de regras de substituição](cdn-rules-engine.md)
 * [Descrição geral CDN do Azure](cdn-overview.md)

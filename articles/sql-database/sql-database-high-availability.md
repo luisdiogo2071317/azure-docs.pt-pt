@@ -1,19 +1,19 @@
 ---
-title: "Elevada disponibilidade - serviço do SQL Database do Azure | Microsoft Docs"
-description: "Saiba mais sobre as funcionalidades e capacidades de elevada disponibilidade do serviço SQL Database do Azure"
+title: Elevada disponibilidade - serviço do SQL Database do Azure | Microsoft Docs
+description: Saiba mais sobre as funcionalidades e capacidades de elevada disponibilidade do serviço SQL Database do Azure
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8deb78ba108aafc3297e6b96d6d88d0c56c60afd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d26fe28d301cf563dc6bdb3d9e17903dea3e73fc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 Desde inception a oferta Azure SQL da base de dados PaaS, Microsoft fez promessa aos seus clientes que o serviço está incorporada no elevada disponibilidade (ed) e os clientes não são necessários para funcionar, adicione lógica especial para ou tomar decisões em torno HA. A Microsoft tem controlo total sobre a configuração do sistema HA e a operação, oferecendo aos clientes um SLA. O SLA HA aplica-se a uma base de dados do SQL Server numa região e não proporciona proteção em caso de uma falha de região total é decorrentes de factores fora do controlo razoável da Microsoft (por exemplo, desastre natural war, atos terrorismo, riots, ação government, ou um rede falha ou de dispositivo externa aos datacenters da Microsoft, incluindo nos sites de cliente ou entre sites de cliente e o Centro de dados da Microsoft).
@@ -23,7 +23,7 @@ Para simplificar o espaço de problema do HA, a Microsoft utiliza os seguintes p
 2.  Os funcionários operacionais fizer erros que levar a falhas
 3.  Operações de manutenção planeadas causam falhas 
 
-Enquanto esses eventos individuais são pouco frequentes à escala da nuvem, que todas as semanas se não de todos os dias. 
+Enquanto que esses eventos individuais são pouco frequentes à escala da nuvem, ocorrem todas as semanas se não for todos os dias. 
 
 ## <a name="fault-tolerant-sql-databases"></a>Bases de dados SQL com tolerância a falhas
 Os clientes são mais interessados na resiliência das suas próprias bases de dados e são menos interessados na resiliência do serviço base de dados do SQL Server como um todo. 99,99% de disponibilidade para um serviço é sem significado se "a minha base de dados" faz parte da % 0.01 das bases de dados que estão em baixo. Base de dados de todas as tem de ser com tolerância a falhas e mitigação de falhas nunca deve resultar na perda de uma transação consolidada. 
@@ -46,7 +46,7 @@ Principais vantagens:
 
 ## <a name="data-redundancy"></a>Redundância de dados
 
-A solução de elevada disponibilidade na base de dados SQL baseia-se no [Always ON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) tecnologia do SQL Server e torna a trabalhar para bases de dados LS e RS com diferenças mínimas. LS configuração, Always que on é utilizado para a persistência enquanto estiver no RS é, utilizada para a disponibilidade (baixa RTO). 
+A solução de elevada disponibilidade na base de dados SQL baseia-se no [grupos de disponibilidade Always ON](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) tecnologia do SQL Server e torna a trabalhar para bases de dados LS e RS com diferenças mínimas. Configuração de LS, a tecnologia de grupo de disponibilidade Always ON é utilizada para a persistência enquanto em RS é utilizado para disponibilidade (baixa RTO). 
 
 ## <a name="local-storage-configuration"></a>Configuração de armazenamento local
 

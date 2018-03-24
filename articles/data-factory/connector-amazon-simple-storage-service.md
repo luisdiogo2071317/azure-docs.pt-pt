@@ -1,20 +1,20 @@
 ---
-title: "Copiar dados do Amazon serviço de armazenamento simples utilizando o Azure Data Factory | Microsoft Docs"
-description: "Saiba mais sobre como copiar dados a partir do serviço de armazenamento simples (S3) do Amazon aos arquivos de dados dependente suportados através do Azure Data Factory."
+title: Copiar dados do Amazon serviço de armazenamento simples utilizando o Azure Data Factory | Microsoft Docs
+description: Saiba mais sobre como copiar dados a partir do serviço de armazenamento simples (S3) do Amazon aos arquivos de dados dependente suportados através do Azure Data Factory.
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b5dbf4b7ae0fc1f8871fbf6df1a29f0f7324d83a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82d46d29b1e75995c5436b985717f45104dad955
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiar dados do Amazon serviço de armazenamento simples utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,8 +36,8 @@ Especificamente, este conector Amazon S3 suporta a cópia de ficheiros como-est�
 
 Para copiar dados do Amazon S3, certifique-se de que lhe foram concedidas as seguintes permissões:
 
-- `s3:GetObject`e `s3:GetObjectVersion` para operações de objeto do Amazon S3.
-- `s3:ListBucket`ou `s3:GetBucketLocation` para operações de registo do Amazon S3. Se estiver a utilizar o Assistente de cópia do Data Factory, `s3:ListAllMyBuckets` também é necessário.
+- `s3:GetObject` e `s3:GetObjectVersion` para operações de objeto do Amazon S3.
+- `s3:ListBucket` ou `s3:GetBucketLocation` para operações de registo do Amazon S3. Se estiver a utilizar o Assistente de cópia do Data Factory, `s3:ListAllMyBuckets` também é necessário.
 
 Para obter detalhes sobre a lista completa de permissões do Amazon S3, consulte [especificar permissões numa política](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 

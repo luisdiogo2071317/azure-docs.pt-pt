@@ -1,6 +1,6 @@
 ---
-title: "Criar uma conta de Automatização do Azure autónoma"
-description: "Este artigo explica os passos da criação, teste e utilizando uma autenticação principal de segurança de exemplo na automatização do Azure."
+title: Criar uma conta de Automatização do Azure autónoma
+description: Este artigo explica os passos da criação, teste e utilizando uma autenticação principal de segurança de exemplo na automatização do Azure.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 5ea3d1af6f8bb4a6c0ef45560d8707afc58f61b1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ca00736c6c42223a0fe6259da5ee2531c287de18
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
-Este artigo mostra como criar uma conta de automatização do Azure no portal do Azure. Pode utilizar a conta de automatização portal para avaliar e saber mais sobre a automatização sem utilizar as soluções de gestão adicionais ou integração com o Log Analytics do Azure no Operations Management Suite (OMS). Pode adicionar essas soluções de gestão ou integrar com a análise de registos para monitorização avançada de tarefas de runbook em qualquer momento no futuro. 
+Este artigo mostra como criar uma conta de automatização do Azure no portal do Azure. Pode utilizar a conta de automatização portal para avaliar e saber mais sobre a automatização sem utilizar as soluções de gestão adicionais ou integração com o Log Analytics do Azure. Pode adicionar essas soluções de gestão ou integrar com a análise de registos para monitorização avançada de tarefas de runbook em qualquer momento no futuro. 
 
 Com uma conta de automatização, pode autenticar runbooks ao gerir recursos no Azure Resource Manager ou o modelo de implementação clássica.
 

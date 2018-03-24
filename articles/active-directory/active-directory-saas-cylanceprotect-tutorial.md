@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com CylancePROTECT | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e CylancePROTECT."
+title: 'Tutorial: Integração do Azure Active Directory com CylancePROTECT | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e CylancePROTECT.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 3b0afd52ccfa3aa637a64e57601cd5f43fe8df10
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a4b8cbbe3d75702f38b5060957aff9f5c30e1daa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Tutorial: Integração do Azure Active Directory com CylancePROTECT
 
@@ -138,7 +138,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configuração de CylancePROTECT](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_configure.png) 
 
-7. Para configurar o início de sessão único em **CylancePROTECT** lado, terá de enviar o transferido **Certificate(Base64), Sign-Out URL, ID de entidade de SAML e único início de sessão no URL do serviço SAML** para [ A equipa de suporte CylancePROTECT](mailto:Ibrahim.nafea@toyota.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+7. Para configurar o início de sessão único em **CylancePROTECT** lado, terá de enviar o transferido **Certificate(Base64), Sign-Out URL, ID de entidade de SAML e único início de sessão no URL do serviço SAML** ao administrador de consola. Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -177,7 +177,7 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
   
 ### <a name="create-a-cylanceprotect-test-user"></a>Criar um utilizador de teste CylancePROTECT
 
-Nesta secção, vai criar um utilizador chamado Britta Simon CylancePROTECT. Trabalhar com [equipa de suporte de CylancePROTECT](mailto:Ibrahim.nafea@toyota.com) para adicionar os utilizadores na plataforma CylancePROTECT. O marcador de posição de conta do Azure Active Directory irá receber um e-mail e siga uma ligação para confirmar a respetiva conta para ficar ativa.
+Nesta secção, vai criar um utilizador chamado Britta Simon CylancePROTECT. Trabalhar com o administrador de consola para adicionar os utilizadores na plataforma CylancePROTECT. O marcador de posição de conta do Azure Active Directory irá receber um e-mail e siga uma ligação para confirmar a respetiva conta para ficar ativa.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

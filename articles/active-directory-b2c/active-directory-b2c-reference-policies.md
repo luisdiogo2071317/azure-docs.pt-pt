@@ -1,24 +1,21 @@
 ---
-title: "Do Azure Active Directory B2C: Políticas incorporadas | Microsoft Docs"
-description: "Um tópico sobre a estrutura de política extensível do Azure Active Directory B2C e sobre como criar vários tipos de política"
+title: 'Do Azure Active Directory B2C: Políticas incorporadas | Microsoft Docs'
+description: Um tópico sobre a estrutura de política extensível do Azure Active Directory B2C e sobre como criar vários tipos de política
 services: active-directory-b2c
-documentationcenter: 
-author: sama
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 0d453e72-7f70-4aa2-953d-938d2814d5a9
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
-ms.author: sama
-ms.openlocfilehash: f0aa3d19e15837b75888293f0cd19683b7621a6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 35b31c46b350474caa1472829d705b4d068d9642
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Do Azure Active Directory B2C: Políticas incorporadas
 
@@ -63,8 +60,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-Para obter mais informações sobre a arquitetura de política, consulte [neste blogue sobre o Azure AD B2C no blogue de segurança de Enterprise Mobility and](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
-
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Criar uma política de inscrição ou início de sessão
 
 Esta política processa ambas as experiências de inscrição & início de sessão do consumidor com uma configuração única. Os consumidores são guiados para baixo a solução certa (inscrição ou início de sessão) dependendo no contexto. Também descreve os conteúdos de tokens que a aplicação receberá após ups de início de sessão com êxito ou inícios de sessão.  Um exemplo de código para a política de inscrição ou início de sessão é [aqui disponível](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  É recomendados que utiliza esta política através de uma política de inscrição e a política de início de sessão.  
@@ -79,7 +74,7 @@ Esta política processa ambas as experiências de inscrição & início de sess�
 
 [!INCLUDE [active-directory-b2c-create-sign-in-policy](../../includes/active-directory-b2c-create-sign-in-policy.md)]
 
-## <a name="create-a-profile-editing-policy"></a>Criar uma política de edição de perfis
+## <a name="create-a-profile-editing-policy"></a>Criar uma política de edição de perfil
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
@@ -92,7 +87,7 @@ Esta política processa ambas as experiências de inscrição & início de sess�
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Como associar a uma política de inscrição ou iniciar sessão com uma política de reposição de palavra-passe?
 Quando criar uma política de inscrição ou início de sessão (com contas locais), verá um **palavra-passe de Forgot?** ligação na primeira página da experiência. Ao clicar nesta hiperligação não automaticamente acionador uma palavra-passe política de reposição. 
 
-Em vez disso, o código de erro  **`AADB2C90118`**  é devolvido para a sua aplicação. A aplicação tem de processar este código de erro ao invocar uma política de reposição de palavra-passe específica. Para obter mais informações, consulte um [amostra que demonstra a abordagem de ligar políticas](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+Em vez disso, o código de erro **`AADB2C90118`** é devolvido para a sua aplicação. A aplicação tem de processar este código de erro ao invocar uma política de reposição de palavra-passe específica. Para obter mais informações, consulte um [amostra que demonstra a abordagem de ligar políticas](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Posso utilizar uma política de inscrição ou início de sessão ou uma política de inscrição e uma política de início de sessão?
 Recomendamos que utilize uma política de inscrição ou início de sessão através de uma política de inscrição e uma política de início de sessão.  
@@ -101,7 +96,7 @@ A política de inscrição ou início de sessão tem mais capacidades que a pol�
 
 A política de início de sessão é recomendada se não precisa de localizar as suas políticas, só precisa de capacidades de personalização secundária para a imagem corporativa e pretender palavra-passe reposição incorporada no mesmo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Token, a sessão e a configuração de início de sessão único](active-directory-b2c-token-session-sso.md)
 * [Desativar a verificação de correio eletrónico durante a inscrição de consumidor](active-directory-b2c-reference-disable-ev.md)
 

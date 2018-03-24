@@ -1,24 +1,21 @@
 ---
-title: "O Azure Active Directory B2C: API de REST afirmações trocas como validação | Microsoft Docs"
-description: "Um tópico sobre as políticas personalizadas do Azure Active Directory B2C"
+title: 'O Azure Active Directory B2C: API de REST afirmações trocas como validação | Microsoft Docs'
+description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/24/2017
-ms.author: joroja
-ms.openlocfilehash: dfd33a9ecdce7b21f58660fb39a5f2d7b4ce6f43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 50968cb96a5ef2cf8fe450899e04d7856e8d4dcc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Instruções: Integrar o REST API trocas de afirmações da sua viagem do Azure AD B2C utilizador como validação no intervenção do utilizador
 
@@ -127,7 +124,7 @@ Para adicionar a troca de afirmações para o perfil técnico asserted automáti
 2. Utilize **executar agora** para testar o ficheiro de política do perfil editar RP.
 3. Testar a validação, fornecendo um dos nomes existentes (por exemplo, mcvinny) a **o nome fornecido** campo. Se tudo está configurado corretamente, deverá receber uma mensagem que notifica o utilizador que a tag de leitor já está a ser utilizada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Modificar o registo de utilizador e a edição de perfil para recolher informações adicionais dos seus utilizadores](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 

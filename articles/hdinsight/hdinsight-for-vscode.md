@@ -1,14 +1,14 @@
 ---
-title: "Ferramentas do HDInsight do Azure - utilização Visual Studio Code para o ramo de registo, LLAP ou pySpark | Microsoft Docs"
+title: Ferramentas do HDInsight do Azure - utilização Visual Studio Code para o ramo de registo, LLAP ou pySpark | Microsoft Docs
 description: Saiba como utilizar as ferramentas do Azure HDInsight para Visual Studio Code para criar e submeter consultas e scripts.
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
+manager: ''
 editor: jgao
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 4f0bcd0992a02e64b4b10347fc30776af17900bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7567ce516e6d08a458ff96f4554d9e92934408f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar as ferramentas do Azure HDInsight para Visual Studio Code
 
@@ -120,7 +120,7 @@ Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, t
 
    ![cluster ligado](./media/hdinsight-for-vscode/linked-cluster.png)
 
-4. Também pode desassociar um cluster por inputing **HDInsight: desassociar um cluster** de paleta de comando.
+4. Pode também pode desassociar um cluster por inputting **HDInsight: desassociar um cluster** de paleta de comando.
 
 ## <a name="list-hdinsight-clusters"></a>Lista de clusters do HDInsight
 

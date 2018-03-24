@@ -2,8 +2,8 @@
 
 Para navegar para a instância APIM, siga estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
-2. Seleccionar ![seta](./media/api-management-navigate-to-instance/arrow.png).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+2. Na parte superior esquerda do ecrã, selecione **todos os serviços**.  
 3. Escreva "api" na caixa de pesquisa.
 4. Clique em **dos serviços de gestão de API**.
 

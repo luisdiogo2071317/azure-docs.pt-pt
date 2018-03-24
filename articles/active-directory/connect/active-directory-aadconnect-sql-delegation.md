@@ -1,24 +1,24 @@
 ---
-title: "Instalar o Azure AD Connect com permissões de administrador do SQL Server delegado | Microsoft Docs"
-description: "Este tópico descreve uma atualização para o Azure AD Connect, que permite a instalação utilizando uma conta que tenha apenas permissões de dbo do SQL Server."
-documentationcenter: 
+title: Instalar o Azure AD Connect com permissões de administrador do SQL Server delegado | Microsoft Docs
+description: Este tópico descreve uma atualização para o Azure AD Connect, que permite a instalação utilizando uma conta que tenha apenas permissões de dbo do SQL Server.
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: jparsons
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: c2d77c37f2f65c9a7db1fd5c4010fc43bcbc7ebf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalar o Azure AD Connect utilizando as permissões de administrador delegado de SQL
 Antes de compilação mais recente do Azure AD Connect, administrativa delegação, ao implementar as configurações necessárias do SQL Server, não era suportada.  Os utilizadores que pretendem instalar o Azure AD Connect é necessário ter permissões de administrador (SA) no SQL server.
@@ -51,6 +51,8 @@ Para aprovisionar a base de dados fora de banda e instalar o Azure AD Connect co
 
 ## <a name="additional-information"></a>Informações adicionais
 Assim que a base de dados é aprovisionado, o administrador do Azure AD Connect pode instalar e configurar a sincronização de no local no respetiva conveniência.  
+
+O **/UseExistingDatabase** sinalizador é necessário quando utilizar uma base de dados previamente criada.  Não é apenas utilizado em situações de recuperação.
 
 Para além de suporte para novas instalações do Azure AD Connect, esta funcionalidade permite também que a delegação para qualquer cenário relacionados com o **/UseExistingDatabase** sinalizador.  Para obter mais informações sobre como instalar o Azure AD Connect com uma base de dados existente, consulte [instalar o Azure AD Connect utilizando uma base de dados ADSync](active-directory-aadconnect-existing-database.md)
 

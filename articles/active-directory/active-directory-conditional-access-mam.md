@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory com base na aplicação acesso condicional | Microsoft Docs"
-description: "Saiba como funciona o acesso condicional de baseado em aplicações do Azure Active Directory."
+title: Azure Active Directory com base na aplicação acesso condicional | Microsoft Docs
+description: Saiba como funciona o acesso condicional de baseado em aplicações do Azure Active Directory.
 services: active-directory
-keywords: "acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 7814b53a69506f81bc6a75387c62766e36d528d8
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: b35aed3583307c34eadbed3dd13d1ffd51494927
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory com base na aplicação acesso condicional  
 
@@ -50,7 +50,7 @@ Pode combinar políticas de acesso condicional baseado na aplicação com outras
  
 
 
-##<a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Antes de começar
 
 Este tópico parte do princípio de que está familiarizado com:
 

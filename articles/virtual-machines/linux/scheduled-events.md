@@ -1,13 +1,13 @@
 ---
 title: Agendadas eventos para VMs com Linux no Azure | Microsoft Docs
-description: "Agendar eventos utilizando o serviço de metadados do Azure para as máquinas virtuais do Linux."
+description: Agendar eventos utilizando o serviço de metadados do Azure para as máquinas virtuais do Linux.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ericrad
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: e697a8f1160aff5774dc416c81819220c316707a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: c87dd5bdbdc87bf238f34d145bd7380a61b90cb6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de metadados do Azure: Eventos agendados para VMs com Linux
 
@@ -129,7 +129,7 @@ No caso em que existem eventos agendados, a resposta contém uma matriz de event
 | ResourceType | Tipo de recurso que afeta a este evento. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Lista de recursos que afeta a este evento. A lista é garantida que contém as máquinas no máximo uma [domínio de atualização](manage-availability.md), mas não poderá conter todas as máquinas de UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Estado deste evento. <br><br> Valores: <ul><li>`Scheduled`: Este evento está agendado para iniciar após o período de tempo especificado no `NotBefore` propriedade.<li>`Started`: Este evento foi iniciado.</ul> Não `Completed` ou estado semelhante nunca lhe foi fornecido. O evento já não é devolvido quando o evento estiver concluído.
-| NotBefore| Tempo após o qual este evento pode iniciar. <br><br> Exemplo: <br><ul><li> 2016-09-19T18:29:47Z  |
+| NotBefore| Tempo após o qual este evento pode iniciar. <br><br> Exemplo: <br><ul><li> MON, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Agendamento de eventos
 Cada evento está agendado uma quantidade mínima de tempo no futuro, com base no tipo de evento. Este tempo é refletido num evento `NotBefore` propriedade. 

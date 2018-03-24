@@ -1,28 +1,25 @@
 ---
-title: "Azure Active Directory B2C: Configuração Facebook | Microsoft Docs"
-description: "Forneça a inscrição e o início de sessão para consumidores com contas do Facebook nas aplicações que estejam protegidas pelo Azure Active Directory B2C."
+title: 'Azure Active Directory B2C: Configuração Facebook | Microsoft Docs'
+description: Forneça a inscrição e o início de sessão para consumidores com contas do Facebook nas aplicações que estejam protegidas pelo Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: sromeroz
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: sromeroz
-ms.assetid: b875f235-a1d2-4abb-b9f0-b89beac38a32
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 8/7/2017
-ms.author: sromeroz
-ms.openlocfilehash: 7f551a7ba9b7ddbb373e6b6418ab43fe7ce9be36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 899677500b0d33b5f98807a341449199b6b3dcac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>O Azure Active Directory B2C: Proporcionar inscrição e o início de sessão aos consumidores com contas do Facebook
 ## <a name="create-a-facebook-application"></a>Criar uma aplicação do Facebook
-Para utilizar o Facebook como um fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação do Facebook e forneça-lo com os parâmetros corretos. Necessita de uma conta do Facebook para efetuar este procedimento. Se não tiver uma, pode obtê-lo em [https://www.facebook.com/](https://www.facebook.com/).
+Para utilizar o Facebook como um fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação do Facebook e forneça-lo com os parâmetros corretos. Necessita de uma conta do Facebook para efetuar este procedimento. Se não tiver uma, pode obtê-lo em [ https://www.facebook.com/ ](https://www.facebook.com/).
 
 1. Vá para o [Facebook para programadores](https://developers.facebook.com/) credenciais de contas do Web site e inicie sessão com o Facebook.
 2. Se ainda não o tiver feito, terá de registar como um programador do Facebook. Para tal, clique em **registar** (no canto superior direito da página), aceite as políticas do Facebook e conclua os passos de registo.

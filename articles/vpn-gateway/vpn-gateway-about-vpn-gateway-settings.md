@@ -1,11 +1,11 @@
 ---
-title: "As definições do gateway VPN para ligações do Azure em vários locais | Microsoft Docs"
-description: "Saiba mais sobre as definições do Gateway de VPN para gateways de rede virtual do Azure."
+title: As definições do gateway VPN para ligações do Azure em vários locais | Microsoft Docs
+description: Saiba mais sobre as definições do Gateway de VPN para gateways de rede virtual do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre as definições de configuração do Gateway de VPN
 
@@ -28,7 +28,9 @@ Um gateway de VPN é um tipo de gateway de rede virtual que envia o tráfego enc
 Uma ligação de gateway VPN baseia-se na configuração de vários recursos, cada um dos quais contém as definições configuráveis. As secções neste artigo abordam os recursos e as definições relacionadas com um gateway de VPN para uma rede virtual criado no modelo de implementação do Resource Manager. Pode encontrar descrições e diagramas de topologia para cada solução de ligação no [sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) artigo.
 
 >[!NOTE]
-> Os valores neste artigo aplicam-se a gateways de rede virtual que utilizam o GatewayType 'Vpn'. Esta é a razão pela qual estes são denominados gateways de VPN. Para os valores que se aplicam ao - GatewayType 'ExpressRoute', consulte [Gateways da Virtual Network para o ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md). Os valores para gateways do ExpressRoute não são os mesmos valores que utiliza para gateways de VPN.
+> Os valores neste artigo aplicam-se a gateways de rede virtual que utilizam o GatewayType 'Vpn'. Esta é a razão pela qual estes gateways de rede virtual específico são referidos como gateways de VPN. Os valores para gateways do ExpressRoute não são os mesmos valores que utiliza para gateways de VPN.
+>
+>Para os valores que se aplicam ao - GatewayType 'ExpressRoute', consulte [Gateways da Virtual Network para o ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
 >
 >
 
@@ -55,7 +57,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-### <a name="configure-the-gateway-sku"></a>Configurar o SKU de gateway
+### <a name="configure-a-gateway-sku"></a>Configurar um SKU de gateway
 
 #### <a name="azure-portal"></a>Portal do Azure
 
@@ -63,24 +65,35 @@ Se utilizar o portal do Azure para criar um gateway de rede virtual do Gestor de
 
 #### <a name="powershell"></a>PowerShell
 
-O exemplo do PowerShell seguinte especifica o `-GatewaySku` como VpnGw1.
+O exemplo do PowerShell seguinte especifica o `-GatewaySku` como VpnGw1. Quando utilizar o PowerShell para criar um gateway, tem de primeiro criar a configuração de IP, então, utilizar uma variável para fazer referência ao mesmo. Neste exemplo, a variável de configuração é $gwipconfig.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
+New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+-Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="resize"></a>Alteração (redimensionamento) um SKU de gateway
+#### <a name="azure-cli"></a>CLI do Azure
 
-Se pretender atualizar o SKU de gateway para um SKU mais poderoso, pode utilizar o `Resize-AzureRmVirtualNetworkGateway` cmdlet do PowerShell. Também pode alterar o tamanho do SKU utilizar este cmdlet do gateway.
-
-O exemplo do PowerShell seguinte mostra um gateway que está a ser redimensionada para VpnGw2 SKU.
-
-```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
+```azurecli
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
+
+###  <a name="resizechange"></a>Redimensionamento vs. a alteração de um SKU
+
+SKU redimensionar um gateway é bastante simples. Terá período de indisponibilidade pouco como redimensiona o gateway. No entanto, existem regras relativos à redimensionamento:
+
+1. Pode redimensionar entre SKU VpnGw1, VpnGw2 e VpnGw3.
+2. Ao trabalhar com os antigos SKU de gateway, pode redimensionar entre SKU Básicos, Standard e de alto desempenho.
+3. **Não é possível** redimensionar SKU Básicos/Standard/alto desempenho para SKU VpnGw2/VpnGw1/VpnGw3 novos. Em vez disso, tem [alterar](#change) para os SKUs de novo.
+
+#### <a name="resizegwsku"></a>Redimensionar um gateway
+
+[!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
+
+####  <a name="change"></a>Para alterar a partir de um SKU (Legado) antigo para um SKU de novo
+
+[!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="connectiontype"></a>Tipos de ligação
 
@@ -150,7 +163,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 Por vezes, terá de modificar as definições do gateway de rede local. Por exemplo, quando adiciona ou modifica o intervalo de endereços, ou se o endereço IP do dispositivo VPN é alterado. Consulte [modificar as definições do gateway de rede local com o PowerShell](vpn-gateway-modify-local-network-gateway.md).
 
-## <a name="resources"></a>Cmdlets do PowerShell e REST APIs
+## <a name="resources"></a>RESTO das APIs, cmdlets do PowerShell e a CLI
 
 Para obter recursos técnicos adicionais e requisitos de sintaxe específica quando utilizar REST APIs, os cmdlets do PowerShell ou o CLI do Azure para configurações de Gateway de VPN, consulte as seguintes páginas:
 

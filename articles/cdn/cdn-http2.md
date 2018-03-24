@@ -2,10 +2,10 @@
 title: Suporte HTTP/2 na CDN do Azure | Microsoft Docs
 description: Saiba mais sobre o suporte HTTP/2 e CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: lichard
 manager: erikre
-editor: 
+editor: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: 4f8dd685c3ae89535217d7a17a01c5129ca7e6e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a58ab1165f3886484fb695170100422c2f1b0486
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="http2-support-in-azure-cdn"></a>Suporte HTTP/2 na CDN do Azure
 
 HTTP/2 é uma revisão principal ao HTTP/1.1\. Fornece mais rapidamente do desempenho da web, tempo de resposta reduzida e melhorada experiência do utilizador, enquanto mantém o métodos de HTTP familiares, códigos de estado e semântica. Apesar de HTTP/2 foi concebida para funcionar com HTTP e HTTPS, muitos browsers do cliente suportam apenas HTTP/2 sobre TLS.
 
-###<a name="http2-benefits"></a>Vantagens HTTP/2
+### <a name="http2-benefits"></a>Vantagens HTTP/2
 
 Os benefícios de HTTP/2 incluem:
 
@@ -40,7 +40,7 @@ Os benefícios de HTTP/2 incluem:
     Dependências de sequência permitem ao cliente indicar ao servidor que recursos tem prioridade.
 
 
-##<a name="http2-browser-support"></a>Suporte de browsers HTTP/2
+## <a name="http2-browser-support"></a>Suporte de browsers HTTP/2
 
 Todos os browsers principais tem implementada HTTP/2 suporte das respetivas versões atuais. Irá de browsers suportados não automaticamente contingência para HTTP/1.1.
 
@@ -52,11 +52,11 @@ Todos os browsers principais tem implementada HTTP/2 suporte das respetivas vers
 |Opera| 32|
 |Safari| 9|
 
-##<a name="enabling-http2-support-in-azure-cdn"></a>Ativar o suporte HTTP/2 na CDN do Azure
+## <a name="enabling-http2-support-in-azure-cdn"></a>Ativar o suporte HTTP/2 na CDN do Azure
 
 Atualmente está ativo para o suporte HTTP/2 **CDN do Azure da Akamai** e **CDN do Azure da Verizon** perfis. Nenhuma ação adicional é necessária de clientes.
 
-##<a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Para ver as vantagens de HTTP/2 em ação, consulte [esta demonstração da Akamai](https://http2.akamai.com/demo).
 

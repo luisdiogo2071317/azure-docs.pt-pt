@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral de instantâneos de partilha de ficheiros do Azure (pré-visualização) | Microsoft Docs"
-description: "Um instantâneo de partilha é uma versão só de leitura de uma partilha de ficheiros do Azure que é executada num ponto no tempo, como uma forma de fazer cópias de segurança da partilha."
+title: Descrição geral de instantâneos de partilha de ficheiros do Azure (pré-visualização) | Microsoft Docs
+description: Um instantâneo de partilha é uma versão só de leitura de uma partilha de ficheiros do Azure que é executada num ponto no tempo, como uma forma de fazer cópias de segurança da partilha.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a6b80c134351429ec85a20f7ab83b7674b8b7352
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Descrição geral de instantâneos de partilha de ficheiros do Azure (pré-visualização)
 Ficheiros do Azure fornece a capacidade para criar instantâneos de partilha de partilhas de ficheiros. Partilha de instantâneos (pré-visualização) capturam o estado de partilha neste ponto no tempo. Neste artigo, vamos descrever que capacidades fornecem de instantâneos de partilha e como pode tirar partido dos mesmos no seu caso de utilização personalizada.
@@ -48,7 +48,7 @@ Depois de criar um instantâneo de partilha,-lo pode ser ler, copiar, ou elimina
 
 Capacidade de instantâneos de partilha é fornecida ao nível da partilha de ficheiros. Obtenção é fornecida ao nível dos ficheiros individuais, para permitir a restaurar ficheiros individuais. Pode restaurar uma partilha de ficheiro completo através de SMB, a API REST, o portal, a biblioteca de clientes ou ferramentas da CLI do PowerShell.
 
-Um instantâneo de partilha de uma partilha de ficheiros é idêntico para a partilha de ficheiros de base. A única diferença é que um **DateTime** valor é acrescentado à partilha de URI para indicar a hora em que a partilha de instantâneo. Por exemplo, se uma partilha de ficheiros URI http://storagesample.core.file.windows.net/myshare, o instantâneo de partilha URI é semelhante a:
+Um instantâneo de partilha de uma partilha de ficheiros é idêntico para a partilha de ficheiros de base. A única diferença é que um **DateTime** valor é acrescentado à partilha de URI para indicar a hora em que a partilha de instantâneo. Por exemplo, se um partilha de ficheiros URI é http://storagesample.core.file.windows.net/myshare, o instantâneo de partilha URI é semelhante a:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -98,5 +98,5 @@ Instantâneos de partilha fornecem apenas uma proteção ao nível dos ficheiros
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Trabalhar com instantâneos de partilha](storage-how-to-use-files-snapshots.md)
-* [Partilhar o instantâneo FAQ](storage-files-faq.md)
+* [Partilhar o instantâneo FAQ](storage-files-faq.md#share-snapshots)
 

@@ -1,18 +1,18 @@
 ---
-title: "Atualizar um registo de contentor do Azure clássico"
-description: "Tirar partido de expandido do conjunto de funcionalidades de básicas, Standard e Premium geridos os registos do contentor, atualizando o registo de contentor clássico não gerido."
+title: Atualizar um registo de contentor do Azure clássico
+description: Tirar partido de expandido do conjunto de funcionalidades de básicas, Standard e Premium geridos os registos do contentor, atualizando o registo de contentor clássico não gerido.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 19090bb69d7165c1e904450dc93b925e23e44782
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Atualizar um registo de contentor clássico
 
@@ -29,14 +29,16 @@ Fornecem registos geridos:
 * [Georreplicação](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Mais de tudo, um registo de clássico depende a conta de armazenamento que Azure automaticamente aprovisionado na sua subscrição do Azure quando criou o registo. Por outro lado, a básicas, Standard e Premium SKUs tirar partido das *armazenamento geridas*. Ou seja, o Azure gere transparente o armazenamento das suas imagens para si – uma conta de armazenamento separada não é criada na sua própria subscrição.
+Mais de tudo, um registo de clássico depende da conta de armazenamento que os do Azure são automaticamente Aprovisiona na sua subscrição do Azure ao criar o registo. Por outro lado, a básicas, Standard e Premium SKUs tirar partido do Azure [armazenamento funcionalidades avançadas](container-registry-storage.md) ao processamento de forma transparente o armazenamento das suas imagens para si. Não é criada uma conta de armazenamento separada na sua própria subscrição.
 
 Registo gerido armazenamento fornece as seguintes vantagens:
 
-* As imagens de contentor são [encriptados em descanso ao](../storage/common/storage-service-encryption.md).
-* As imagens estão armazenadas utilizando [armazenamento georredundante](../storage/common/storage-redundancy.md#geo-redundant-storage), assuring cópia de segurança das suas imagens com a replicação de multirregião.
+* As imagens de contentor são [encriptados em descanso ao](container-registry-storage.md#encryption-at-rest).
+* As imagens estão armazenadas utilizando [armazenamento georredundante](container-registry-storage.md#geo-redundant-storage), assuring cópia de segurança das suas imagens com a replicação de multirregião.
 * Capacidade de livremente [mover entre os SKUs](container-registry-skus.md#changing-skus), ativar o débito mais elevado quando seleciona um SKU de nível mais elevado. Com cada SKU ACR pode satisfazer as necessidades de débito como aumentam às suas necessidades.
 * Modelo de segurança unificada para o registo e o respetivo armazenamento fornece gestão de direitos simplificada. Gerir permissões apenas para o registo de contentor, sem ter de gerir também permissões para uma conta de armazenamento separada.
+
+Para obter detalhes adicionais sobre armazenamento de imagem no ACR, consulte [armazenamento de imagem do contentor no registo de contentor do Azure](container-registry-storage.md).
 
 ## <a name="migration-considerations"></a>Considerações sobre a migração
 

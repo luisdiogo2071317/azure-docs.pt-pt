@@ -1,8 +1,8 @@
 ---
 title: Configurar o multi-factor Authentication do Azure | Microsoft Docs
-description: "Este artigo descreve como configurar definições do multi-factor Authentication do Azure para relatórios, alertas de fraude, omissões de uso individual, mensagens de voz personalizadas, a colocação em cache, IPs fidedignos e palavras-passe de aplicação."
+description: Este artigo descreve como configurar definições do multi-factor Authentication do Azure para relatórios, alertas de fraude, omissões de uso individual, mensagens de voz personalizadas, a colocação em cache, IPs fidedignos e palavras-passe de aplicação.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4421b995e69e115fbb6c7379af79aaef537aed0d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar definições de multi-factor Authentication do Azure
 
-Este artigo ajuda-o a gerir o Azure multi-factor Authentication agora que está em execução. Abrange vários tópicos que ajudam a tirar o máximo partido do Azure multi-factor Authentication. Todas as funcionalidades não estão disponíveis em cada [versão do Azure multi-factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
+Este artigo ajuda-o a gerir o Azure multi-factor Authentication agora que está em execução. Abrange vários tópicos que ajudam a tirar o máximo partido do Azure multi-factor Authentication. Todas as funcionalidades não estão disponíveis em cada [versão do Azure multi-factor Authentication](multi-factor-authentication-get-started.md#what-features-do-i-need).
 
 | Funcionalidade | Descrição | 
 |:--- |:--- |
@@ -73,7 +73,7 @@ Configurar o _alerta de fraude_ funcionalidade para que os utilizadores podem co
 ### <a name="configuration-options"></a>Opções de configuração
 
 - **Bloquear utilizador quando é reportada fraude**: se um utilizador reportar fraude, a conta está bloqueada para 90 dias, ou até que um administrador unblocks a respetiva conta. Um administrador pode rever os inícios de sessão utilizando o relatório de início de sessão e tome as medidas necessárias para evitar fraude futura. Um administrador pode, em seguida, [desbloquear](#unblock-a-user) a conta de utilizador.
-- **Código para reportar fraude durante a saudação inicial**: quando os utilizadores recebem uma chamada telefónica para efetuar a verificação de dois passos, normalmente prima  **#**  para confirmar o seu início de sessão. Para reportar fraude, o utilizador introduzir um código antes prima  **#** . Este código é **0** por predefinição, mas pode personalizá-lo.
+- **Código para reportar fraude durante a saudação inicial**: quando os utilizadores recebem uma chamada telefónica para efetuar a verificação de dois passos, normalmente prima ** # ** para confirmar o seu início de sessão. Para reportar fraude, o utilizador introduzir um código antes prima ** # **. Este código é **0** por predefinição, mas pode personalizá-lo.
 
   >[!NOTE]
   >Saudações de voz predefinido da Microsoft instruir os utilizadores que prima **0#** para submeter um alerta de fraude. Se pretender utilizar um código diferente de **0**, registar e carregar as suas próprias saudações de voz personalizadas com instruções adequadas para os seus utilizadores.

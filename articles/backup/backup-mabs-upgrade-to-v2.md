@@ -1,12 +1,12 @@
 ---
-title: "Instalar o servidor de cópia de segurança do Azure v2 | Microsoft Docs"
-description: "V2 de servidor do Backup do Azure dá-lhe capacidades de cópia de segurança avançadas para proteger as VMs, ficheiros e pastas, cargas de trabalho e muito mais. Saiba como instalar ou atualizar para o servidor de cópia de segurança do Azure v2."
+title: Instalar o servidor de cópia de segurança do Azure v2 | Microsoft Docs
+description: V2 de servidor do Backup do Azure dá-lhe capacidades de cópia de segurança avançadas para proteger as VMs, ficheiros e pastas, cargas de trabalho e muito mais. Saiba como instalar ou atualizar para o servidor de cópia de segurança do Azure v2.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-backup-server-v2"></a>Instalar o servidor de cópia de segurança do Azure v2
 
@@ -36,7 +36,7 @@ Pode instalar o servidor de cópia de segurança v2 no Windows Server 2012 R2 ou
 ## <a name="upgrade-backup-server-to-v2"></a>Atualizar o servidor de cópia de segurança para v2
 Para atualizar v1 do servidor de cópia de segurança para o servidor de cópia de segurança v2, certifique-se que a instalação tem as atualizações necessárias:
 
-- [Atualizar os agentes de proteção](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent) nos servidores protegidos.
+- [Atualizar os agentes de proteção](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent) nos servidores protegidos.
 - Atualize o Windows Server 2012 R2 para o Windows Server 2016.
 - Atualize o administrador de remota do servidor de cópia de segurança do Azure em todos os servidores de produção.
 - Certifique-se de que as cópias de segurança estão definidas para continuar sem reiniciar o servidor de produção.
@@ -74,7 +74,7 @@ Para atualizar v1 do servidor de cópia de segurança para o servidor de cópia 
 
   ![Programa de instalação - Verifique as definições de SQL no botão e instalar o programa de configuração](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
 
-8. No **definições de instalação** página, efetue as alterações para a localização onde o servidor de cópia de segurança está instalado ou para a localização de rascunho. Selecione **seguinte**.
+8. No **definições de instalação** página, efetue as alterações para a localização onde o servidor de cópia de segurança está instalado ou para a localização de rascunho. Selecione **Seguinte**.
 
   ![Programa de instalação do programa de configuração - página de definições de instalação](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
 
@@ -115,7 +115,7 @@ Para adicionar um volume na consola do administrador:
 
 No servidor de cópia de segurança, especifique as cargas de trabalho são atribuídas para os volumes. Por exemplo, pode definir volumes dispendiosas que suportam um número elevado de operações de entrada/saída por segundo (IOPS) para armazenar apenas as cargas de trabalho que necessitam de cópias de segurança frequentes, elevado volume. Um exemplo é o SQL Server com registos de transações.
 
-#### <a name="update-dpmdiskstorage"></a>Atualização DPMDiskStorage
+#### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
 Para atualizar as propriedades de um volume no agrupamento de armazenamento no servidor de cópia de segurança, utilize o cmdlet do PowerShell DPMDiskStorage de atualização.
 
@@ -143,12 +143,12 @@ Para criar um grupo de proteção:
 
   ![Assistente Criar novo grupo de proteção](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-1.png)
 
-3. No **boas-vindas** página, selecione **seguinte**.
+3. Na página **Bem-vindo**, selecione **Seguinte**.
 4. No **selecionar tipo de grupo de proteção** página, selecione o tipo de grupo de proteção que pretende criar e, em seguida, selecione **seguinte**.
 
   ![Página do tipo de selecionar o grupo de proteção](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
 
-5. No **selecionar membros do grupo** na página de **membros disponíveis** painel, os membros com proteção agentes estão listados. Para este exemplo, selecione o volume d:\. e e:\<pontodemontagem> e adicioná-los para o **selecionado membros** painel. Selecione **seguinte**.
+5. No **selecionar membros do grupo** na página de **membros disponíveis** painel, os membros com proteção agentes estão listados. Para este exemplo, selecione o volume d:\. e e:\<pontodemontagem> e adicioná-los para o **selecionado membros** painel. Selecione **Seguinte**.
 
   ![Página de membros do grupo de selecione](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
@@ -276,10 +276,10 @@ para o Azure criar cópias de segurança execute DPMSYNC-SYNC
 ## <a name="new-powershell-cmdlets-in-v2"></a>Novos cmdlets do PowerShell na v2
 
 Quando instalar o servidor de cópia de segurança do Azure v2, estão disponíveis dois novos cmdlets: 
-* [Montagem DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
-* [Desmontagem DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
+* [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
+* [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como preparar o servidor ou começar a proteger uma carga de trabalho:
 - [Preparar as cargas de trabalho do servidor de cópia de segurança](backup-azure-microsoft-azure-backup.md)

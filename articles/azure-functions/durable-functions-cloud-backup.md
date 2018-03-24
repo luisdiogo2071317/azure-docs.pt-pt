@@ -1,24 +1,24 @@
 ---
-title: "Fan-out/fan-em cenários de funções durável - Azure"
-description: "Saiba como implementar um cenário fan-out-ventoinha-na extensão de funções durável para as funções do Azure."
+title: Fan-out/fan-em cenários de funções durável - Azure
+description: Saiba como implementar um cenário fan-out-ventoinha-na extensão de funções durável para as funções do Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Cenário de fan-out/fan-em funções durável - exemplo de cópia de segurança de nuvem
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Siga as instruções em [instalar funções durável](durable-functions-install.md) para configurar o exemplo.
-* Este artigo pressupõe que já leu o [Hello sequência](durable-functions-sequence.md) instruções de exemplo.
+* [Instalar funções duráveis](durable-functions-install.md).
+* Concluir o [Hello sequência](durable-functions-sequence.md) explicação passo a passo.
 
 ## <a name="scenario-overview"></a>Descrição geral do cenário
 
@@ -47,7 +47,7 @@ Este artigo explica as seguintes funções na aplicação de exemplo:
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-As secções seguintes explicam o código que são utilizados para programação portal do Azure e configuração. O código para o desenvolvimento de Visual Studio é apresentado no final do artigo.
+As secções seguintes explicam a configuração e o código que são utilizados para c# scripting. O código para o desenvolvimento de Visual Studio é apresentado no final do artigo.
 
 ## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>A orquestração de cópia de segurança de nuvem (código de exemplo portal Visual Studio Code e o Azure)
 

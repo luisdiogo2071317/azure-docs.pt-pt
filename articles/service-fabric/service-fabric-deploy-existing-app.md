@@ -1,11 +1,11 @@
 ---
-title: "Implementar um executável existente para o Azure Service Fabric | Microsoft Docs"
-description: "Saiba como uma aplicação existente como convidado executável, o pacote, para que possa ser implementado para um cluster do Service Fabric."
+title: Implementar um executável existente para o Azure Service Fabric | Microsoft Docs
+description: Saiba como uma aplicação existente como convidado executável, o pacote, para que possa ser implementado para um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: 029a0e297469dd5845a82dbdc8fd5f898cfebccc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f0c6c54b0f168f87ff122dee70a091fdcb96014e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>O pacote e implementar um executável existente para o Service Fabric
 Quando o empacotamento um executável existente como um [executável convidado](service-fabric-guest-executables-introduction.md), pode escolher a utilizar um modelo de projeto do Visual Studio ou [criar manualmente o pacote de aplicação](#manually). Com o Visual Studio, a estrutura de pacote de aplicação e ficheiros de manifesto são criados pelo modelo de projeto novo.

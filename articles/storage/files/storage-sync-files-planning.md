@@ -1,8 +1,8 @@
 ---
-title: "Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização) | Microsoft Docs"
-description: "Saiba o que deve considerar quando planear uma implementação de ficheiros do Azure."
+title: Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização) | Microsoft Docs
+description: Saiba o que deve considerar quando planear uma implementação de ficheiros do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 097c1719ffc493539276cd98edc761eba20f3751
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -160,9 +160,14 @@ Sincronização de ficheiros do Azure está disponível apenas nas regiões segu
 |--------|---------------------|
 | Leste da Austrália | Nova Gales do Sul |
 | Canadá Central | Toronto |
+| EUA Central | Iowa |
+| Ásia Oriental | RAE de Hong Kong |
 | EUA Leste | Virgínia |
+| US2 leste | Virgínia |
+| Europa do Norte | Irlanda |
 | Sudeste Asiático | Singapura |
 | Reino Unido Sul | Londres |
+| Oeste Cental E.U.A. |
 | Europa Ocidental | Países Baixos |
 | EUA Oeste | Califórnia |
 

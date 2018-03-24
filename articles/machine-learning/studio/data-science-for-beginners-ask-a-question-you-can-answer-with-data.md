@@ -1,11 +1,12 @@
 ---
-title: "Peça uma data de pergunta pode responder - problemas de ciência de dados - Azure Machine Learning | Microsoft Docs"
-description: "Saiba como formular uma pergunta de ciência de dados sharp nos dados de ciência para principiantes, vídeo 3. Inclui uma comparação de classificação e regressão perguntas."
-keywords: "problemas de ciência de dados, perguntas de ciência de dados, formular perguntas, perguntas de regressão, perguntas de classificação, pergunta sharp"
+title: Peça uma data de pergunta pode responder - problemas de ciência de dados - Azure Machine Learning | Microsoft Docs
+description: Saiba como formular uma pergunta de ciência de dados sharp nos dados de ciência para principiantes, vídeo 3. Inclui uma comparação de classificação e regressão perguntas.
+keywords: problemas de ciência de dados, perguntas de ciência de dados, formular perguntas, perguntas de regressão, perguntas de classificação, pergunta sharp
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 2f3d8d5c2e7cf1ebc88dc1ff1d7d03bf85383884
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 225414082c447016cdfdfd1a9e5dbe5e5fbcfaec
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Fazer perguntas que podem ser respondidas com dados
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Ciência de dados para a série de principiantes

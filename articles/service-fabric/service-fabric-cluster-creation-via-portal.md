@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 864952554b04d8d6bc14aad92d168298e554710e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no Azure através do portal do Azure
 > [!div class="op_single_selector"]
@@ -131,7 +131,7 @@ Configure os nós do cluster. Tipos de nó definem os tamanhos VM, o número de 
 
 Para configurar um cluster de teste seguro que mais fácil para si, fornecemos-o **básico** opção. Se já tiver um certificado e tiver carregado-lo para o keyvault (e ativado o Cofre de chaves para a implementação), em seguida, utilize o **personalizada** opção
 
-#####<a name="basic-option"></a>Opção básica
+##### <a name="basic-option"></a>Opção básica
 Siga os ecrãs para adicionar ou reutilizar um keyvault existente e adicionar um certificado. A adição do certificado é um processo síncrono e, por isso, terá de aguardar que o certificado a ser criado.
 
 
@@ -151,7 +151,7 @@ Agora está pronto para continuar para os resto do processo de criação do clus
 
 ![CreateKeyVault4]
 
-#####<a name="custom-option"></a>Opção personalizada
+##### <a name="custom-option"></a>Opção personalizada
 Ignorar esta secção, se já tiver efetuado os passos a **básico** opção.
 
 ![SecurityCustomOption]

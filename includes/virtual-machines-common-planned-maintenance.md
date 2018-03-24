@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 193003cef0aed464596e913c0df86e6123292b9f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 Azure executa periodicamente atualizações para melhorar a fiabilidade, desempenho e segurança da infraestrutura de anfitrião para máquinas virtuais. Estes intervalo de atualizações de componentes de software no ambiente de alojamento (como o sistema operativo, hipervisor e agentes vários implementados no anfitrião), a aplicação de patches atualizar componentes de rede, a desativação de hardware. A maioria destas atualizações são efetuadas sem qualquer impacto para as máquinas virtuais alojadas. No entanto, há casos em que as atualizações de ter um impacto:
 
-- Se a manutenção não requer um reinício, o Azure utiliza migração no local para colocar em pausa a VM enquanto o anfitrião está atualizado.
+- Se uma atualização sem reiniciar o computador for possível, o Azure utiliza memória preservação de manutenção para interromper a VM, enquanto o anfitrião é atualizado ou a VM é movida para um anfitrião já atualizado completamente.
 
 - Se a manutenção requer um reinício, receberá um aviso quando a manutenção planeada. Nestes casos, é-irá também ser dada uma janela de tempo em que pode iniciar a manutenção por si, cada vez que funciona para si.
 
@@ -24,15 +24,15 @@ Esta página descreve a forma como o Microsoft Azure executa ambos os tipos de m
 
 As aplicações em execução numa máquina virtual podem recolher informações sobre as futuras atualizações ao utilizar o serviço de metadados do Azure para [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) ou [Linux] (.. / articles/virtual-machines/linux/instance-metadata-service.md).
 
-Para obter informações "procedimentos" na gestão maintence planeada, consulte "Planeada de processamento de notificações de manutenção" para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+Para obter informações "procedimentos" na gestão de manutenção planeada, consulte "Planeada de processamento de notificações de manutenção" para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="in-place-vm-migration"></a>Migração de VM no local
+## <a name="memory-preserving-maintenance"></a>Memória preservação de manutenção
 
-Quando as atualizações não necessitam de um reinício total, é utilizada uma migração em direto no local. Durante a atualização, a máquina virtual é interrompida durante cerca de 30 segundos, preservando a memória RAM, enquanto o ambiente de alojamento aplica-se as atualizações necessárias e correções de erros. A máquina virtual, em seguida, é retomada e o relógio da máquina virtual é automaticamente sincronizado.
+Quando as atualizações não necessitam de um reinício total, a mecanismos de manutenção de preservar memória são utilizados para limitar o impacto para a máquina virtual. A máquina virtual está em pausa para até 30 segundos, preservando a memória RAM, enquanto o ambiente de alojamento aplica-se as atualizações necessárias e patches ou muda a VM para um anfitrião já atualizado. A máquina virtual, em seguida, é retomada e o relógio da máquina virtual é automaticamente sincronizado. 
 
 Para VMs em conjuntos de disponibilidade, domínios de atualização são atualizado um de cada vez. Todas as VMs no domínio de uma atualização (UD) são colocada em pausa, atualizadas e, em seguida, foi retomadas antes da manutenção planeada passa para a seguinte UD.
 
-Algumas aplicações podem ser afetadas por estes tipos de atualizações. As aplicações que executam em tempo real de processamento, como o suporte de dados de transmissão em fluxo ou transcodificação ou débito elevado cenários, de rede de eventos não podem ser concebidas para tolerar uma pausa segundo 30. <!-- sooooo, what should they do? --> 
+Algumas aplicações podem ser afetadas por estes tipos de atualizações. As aplicações que executam em tempo real de processamento, como o suporte de dados de transmissão em fluxo ou transcodificação ou débito elevado cenários, de rede de eventos não podem ser concebidas para tolerar uma pausa segundo 30. <!-- sooooo, what should they do? --> No caso da VM está a ser mover para um anfitrião diferente, algumas cargas de trabalho confidenciais poderão notar uma degradação do desempenho ligeiras dentro de alguns minutos à cópia de segurança a pausa da Máquina Virtual. 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>Exigir um reinício de manutenção
@@ -47,9 +47,11 @@ Se iniciar manutenção self-service e existir um erro durante o processo, a ope
 
 Depois da janela de self-service, o **janela de manutenção agendada** começa. Durante este período de tempo, pode ainda de consulta para a janela de manutenção, mas já não será possível iniciar a manutenção de si próprio.
 
+Para obter informações sobre a gestão de manutenção que seja necessário um reinício, consulte "Planeada de processamento de notificações de manutenção" para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
+
 ## <a name="availability-considerations-during-planned-maintenance"></a>Considerações de disponibilidade durante a manutenção planeada 
 
-Se optar por Aguarde até que a janela de manutenção planeada, existem alguns aspetos a considerar para manter o availabilty mais elevado das suas VMs. 
+Se optar por Aguarde até que a janela de manutenção planeada, existem alguns aspetos a considerar para manter a máxima disponibilidade das suas VMs. 
 
 ### <a name="paired-regions"></a>Regiões emparelhadas
 

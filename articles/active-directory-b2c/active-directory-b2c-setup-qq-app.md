@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Configuração QQ | Microsoft Docs"
-description: "Forneça a inscrição e o início de sessão para consumidores com contas QQ nas aplicações que estejam protegidas pelo Azure Active Directory B2C."
+title: 'Azure Active Directory B2C: Configuração QQ | Microsoft Docs'
+description: Forneça a inscrição e o início de sessão para consumidores com contas QQ nas aplicações que estejam protegidas pelo Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 18c2cf94-8004-4de1-81c2-e45be65ce12d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
-ms.openlocfilehash: d4cc26d4f206baf9137feae0825b1f9fa5a7c8d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 12daed5f90e2b073a7520c061f18761baaed5c03
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>O Azure Active Directory B2C: Proporcionar inscrição e o início de sessão aos consumidores com contas QQ
 
@@ -28,12 +25,12 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="create-a-qq-application"></a>Criar uma aplicação QQ
 
-Para utilizar QQ como um fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação de QQ e forneça-lo com os parâmetros corretos. Necessita de uma conta QQ para efetuar este procedimento. Se não tiver uma, pode obter um de cada [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
+Para utilizar QQ como um fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação de QQ e forneça-lo com os parâmetros corretos. Necessita de uma conta QQ para efetuar este procedimento. Se não tiver uma, pode obter um de cada [ https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033 ](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
 
 ### <a name="register-for-the-qq-developer-program"></a>Registar-se o programa de programador QQ
 
 1. Vá para o [portal do programador QQ](http://open.qq.com) e inicie sessão com as credenciais da conta QQ.
-2. Depois de iniciarem sessão, aceda a [http://open.qq.com/reg](http://open.qq.com/reg) para registar-se como um programador.
+2. Depois de iniciarem sessão, aceda a [ http://open.qq.com/reg ](http://open.qq.com/reg) para registar-se como um programador.
 3. No menu, selecione**个人**(programadores individuais).
 4. Introduza as informações necessárias para o formulário e clique em**下一步**(passo seguinte).
 5. Conclua o processo de verificação do e-mail.
@@ -43,7 +40,7 @@ Para utilizar QQ como um fornecedor de identidade no Azure Active Directory (Azu
 
 ### <a name="register-a-qq-application"></a>Registar uma aplicação QQ
 
-1. Aceda a [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
+1. Vá para [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 2. Clique em**应用管理**(gestão de aplicações).
 3. Clique em**创建应用**(Criar aplicação).
 4. Introduza as informações da aplicação necessários.

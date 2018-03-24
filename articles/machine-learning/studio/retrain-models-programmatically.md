@@ -1,11 +1,11 @@
 ---
-title: "Reparametrização dos modelos de Machine Learning através de programação | Microsoft Docs"
-description: "Saiba como programaticamente reparametrização de um modelo e atualizar o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning."
+title: Reparametrização dos modelos de Machine Learning através de programação | Microsoft Docs
+description: Saiba como programaticamente reparametrização de um modelo e atualizar o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: serinakaye
-ms.author: serinak
-manager: mwinkle
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a986d8c500eb994af81ad535568fbbd8364f4244
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 276ee051cf927197c026b0fb0850239a048ace41
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Voltar a preparar modelos do Machine Learning programaticamente
 Nestas instruções, irá aprender a reparametrização programática de um serviço Web do Azure Machine Learning utilizar c# e o serviço de execução de lote do Machine Learning.
@@ -61,7 +61,7 @@ Em seguida, criar uma experimentação Predicative.
 > Para implementar um novo serviço web tem de ter permissões suficientes na subscrição aos quais pode implementar o serviço web. Para obter mais informações, consulte [gira um serviço Web utilizando o portal de serviços Web do Azure Machine Learning](manage-new-webservice.md). 
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Implementar a experimentação de preparação como um serviço web de formação
-Para a reparametrização do modelo treinado, tem de implementar a experimentação de preparação que criou como um serviço web de Retraining. Este serviço web tem um *saída de serviço Web* módulo ligado para o  *[preparar modelo] [ train-model]*  módulo, para conseguir criar modelos de formação novo.
+Para a reparametrização do modelo treinado, tem de implementar a experimentação de preparação que criou como um serviço web de Retraining. Este serviço web tem um *saída de serviço Web* módulo ligado para o *[preparar modelo] [ train-model]* módulo, para conseguir criar modelos de formação novo.
 
 1. Para voltar para a experimentação de preparação, clique no ícone de experimentações no painel da esquerda e clique em experimentação com o nome de modelo Census.  
 2. Na caixa de pesquisa de itens de experiência de pesquisa, escreva o serviço web. 

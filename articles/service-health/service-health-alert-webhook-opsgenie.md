@@ -1,12 +1,12 @@
 ---
-title: "Configurar alertas de estado de funcionamento do serviço do Azure com OpsGenie | Microsoft Docs"
-description: "Obter personalizadas notificações sobre eventos de estado de funcionamento de serviço à sua instância OpsGenie."
+title: Configurar alertas de estado de funcionamento do serviço do Azure com OpsGenie | Microsoft Docs
+description: Obter personalizadas notificações sobre eventos de estado de funcionamento de serviço à sua instância OpsGenie.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: a2309a050225dd0d7ac8d5b3e4c762bc5bcb25c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6b8017f62dd895219f1d2cdac40f0efdf2db6c93
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>Configurar alertas de estado de funcionamento do serviço com OpsGenie
 
@@ -77,7 +77,7 @@ Este artigo mostra-lhe como configurar alertas de estado de funcionamento do ser
 5. Selecione **guardar** quando terminar de atualizar o grupo de ação.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testar a sua integração de webhook através de um pedido POST de HTTP
-1. Crie o payload de estado de funcionamento do serviço que pretende enviar. Pode encontrar um payload de webhook do Estado de funcionamento do serviço de exemplo no [Webhooks para a atividade do Azure registar alertas](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Crie o payload de estado de funcionamento de serviço que pretende enviar. Pode encontrar um payload de webhook do Estado de funcionamento do serviço do exemplo em [Webhooks para a atividade do Azure registar alertas](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Crie um pedido POST de HTTP da seguinte forma:
 
@@ -86,13 +86,13 @@ Este artigo mostra-lhe como configurar alertas de estado de funcionamento do ser
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Deverá receber um `200 OK` resposta com a mensagem de estado de "êxito".
 
 4. Aceda a [OpsGenie](https://www.opsgenie.com/) para confirmar a sua integração foi configurada com êxito.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba como [configurar notificações de webhook para sistemas de gestão existente do problema](service-health-alert-webhook-guide.md).
 - Reveja o [esquema de webhook alerta de registo de atividade](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
 - Saiba mais sobre [notificações de estado de funcionamento do serviço](../monitoring-and-diagnostics/monitoring-service-notifications.md).

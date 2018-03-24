@@ -1,11 +1,11 @@
 ---
-title: "Copiar dados de origem e de Salesforce através da utilização do Azure Data Factory | Microsoft Docs"
-description: "Saiba como copiar dados do Salesforce aos arquivos de dados de receptores suportado ou a partir de arquivos de dados de origem suportada para o Salesforce ao utilizar uma atividade de cópia num pipeline de fábrica de dados."
+title: Copiar dados de origem e de Salesforce através da utilização do Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados do Salesforce aos arquivos de dados de receptores suportado ou a partir de arquivos de dados de origem suportada para o Salesforce ao utilizar uma atividade de cópia num pipeline de fábrica de dados.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 3d48f1f3df7b626ec33b07b6275581821453f626
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e6440bfd3297ee68cd4ff79c8654b5f97cba077e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar os dados de origem e de Salesforce através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

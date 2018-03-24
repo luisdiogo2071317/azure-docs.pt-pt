@@ -1,8 +1,8 @@
 ---
-title: "Arquitetura do Azure HDInsight associados a um domínio | Microsoft Docs"
-description: "Saiba como planear o HDInsight associado a um domínio."
+title: Arquitetura do Azure HDInsight associados a um domínio | Microsoft Docs
+description: Saiba como planear o HDInsight associado a um domínio.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bhanupr
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/14/2017
+ms.date: 03/20/2018
 ms.author: bprakash
-ms.openlocfilehash: 5285199d22528ed6b9fa3b7dbc85e382e7b28569
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b4f79388e45e24dc906a3a03dc0c0e51df52160d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planear clusters do Hadoop associados a um domínio do Azure no HDInsight
 
@@ -47,16 +47,14 @@ A seguinte captura de ecrã mostra um UO criado em contoso.com. Algumas das prin
 
 ![UO de clusters do HDInsight de associados a um domínio](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Duas formas de colocar os seus próprios controladores de domínio do Active Directory
-
-Existem duas formas de poder colocar os controladores de domínio do Active Directory para criar clusters do HDInsight associados a um domínio. 
+### <a name="the-way-of-bringing-your-own-active-directory-domain-controllers"></a>A forma de colocar os seus próprios controladores de domínio do Active Directory
 
 - **Os serviços de domínio do Active Directory do Azure**: este serviço fornece um domínio do Active Directory gerido, que é totalmente compatível com o Windows Server Active Directory. Microsoft encarrega-se de gerir, a aplicação de patches e a monitorização de domínio do AD. Pode implementar o cluster sem se preocupar manter os controladores de domínio. Os utilizadores, grupos e as palavras-passe são sincronizadas a partir do Azure Active Directory, permitindo aos utilizadores iniciar sessão para o cluster utilizando as respetivas credenciais empresariais. Para obter mais informações, consulte [clusters do HDInsight de configurar-associados a um domínio com o Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
-- **Do Active Directory em VMs do IaaS do Azure**: esta opção, implementar e gerir o seu próprio domínio do Active Directory do Windows Server em VMs do IaaS do Azure. Para obter mais informações, consulte [ambiente de sandbox associados a um domínio de configurar](./apache-domain-joined-configure.md).
+> [!NOTE]
+> Já não é suportado do Active Directory em VMs do IaaS do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para configurar um cluster do HDInsight associado a um domínio, veja [Configure domain-joined HDInsight clusters (Configurar clusters do HDInsight associados a um domínio)](apache-domain-joined-configure.md).
 * Para gerir clusters do HDInsight associados a um domínio, veja [Manage domain-joined HDInsight clusters (Gerir clusters do HDInsight associados a um domínio)](apache-domain-joined-manage.md).
 * Para configurar políticas do Hive e executar consultas do Hive, veja [Configurar políticas do Hive para clusters do HDInsight associados a um domínio](apache-domain-joined-run-hive.md).
 * Para executar consultas do Hive através de SSH nos clusters do HDInsight associados a um domínio, consulte [utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).

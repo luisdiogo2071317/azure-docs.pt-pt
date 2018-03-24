@@ -1,12 +1,12 @@
 ---
 title: Controlo de acesso do Service Bus do Azure com assinaturas de acesso partilhado | Microsoft Docs
-description: "Descrição geral do controlo de acesso do Service Bus utilizando a descrição geral de assinaturas de acesso partilhado, detalhes sobre a autorização de SAS com o Service Bus do Azure."
+description: Descrição geral do controlo de acesso do Service Bus utilizando a descrição geral de assinaturas de acesso partilhado, detalhes sobre a autorização de SAS com o Service Bus do Azure.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: sethm;clemensv
-ms.openlocfilehash: f6bb77ad6df09e36419b24b24924dac7ecd79065
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21e9e0a20842e365e40b71ac96888e7cd2056e52
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso do Service Bus com assinaturas de acesso partilhado
 
@@ -273,6 +273,7 @@ A tabela seguinte mostra os direitos de acesso necessários para várias operaç
 | Uma mensagem de mensagens não entregues |Escutar |Qualquer endereço de fila válida |
 | Obter o Estado associado a uma sessão de fila de mensagens |Escutar |Qualquer endereço de fila válida |
 | Definir o Estado associado uma sessão de fila de mensagens |Escutar |Qualquer endereço de fila válida |
+| Agendar uma mensagem para entrega posterior; Por exemplo, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Escutar | Qualquer endereço de fila válida
 | **Tópico** | | |
 | Criar um tópico |Gerir |Qualquer endereço de espaço de nomes |
 | Eliminar um tópico |Gerir |Qualquer endereço de tópico válido |

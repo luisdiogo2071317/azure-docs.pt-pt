@@ -1,11 +1,11 @@
 ---
-title: "Especificar pontos finais de serviço do Service Fabric | Microsoft Docs"
-description: "Como descrevem os recursos de ponto final no manifesto do serviço, incluindo como configurar pontos finais HTTPS"
+title: Especificar pontos finais de serviço do Service Fabric | Microsoft Docs
+description: Como descrevem os recursos de ponto final no manifesto do serviço, incluindo como configurar pontos finais HTTPS
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 6fa425829e8da294c8db3d64c3d8fd202c74375a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a028471871754c2b9c3981ec13f5788643675a77
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto do serviço
 ## <a name="overview"></a>Descrição geral
@@ -154,7 +154,7 @@ Para os clusters do Linux, o **MY** armazenar as predefinições para a pasta **
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Substituir pontos finais no ServiceManifest.xml
 
-O ApplicationManifest adicione uma secção de ResourceOverrides que será colateral ConfigOverrides secção. Nesta secção, pode especificar a substituição para a secção de pontos finais na secção de recursos especificada no manifesto de serviço.
+O ApplicationManifest adicione uma secção de ResourceOverrides que será colateral ConfigOverrides secção. Nesta secção, pode especificar a substituição para a secção de pontos finais na secção de recursos especificada no manifesto de serviço. Pontos finais de substituição é suportado no tempo de execução 5.7.217/SDK 2.7.217 e planos superiores.
 
 Para substituir o ponto final no ServiceManifest utilizando ApplicationParameters alteração o ApplicationManifest seguinte forma:
 

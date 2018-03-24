@@ -1,11 +1,12 @@
 ---
-title: "Questões de ciência de 5 dados - dados de ciência para principiantes - Azure Machine Learning | Microsoft Docs"
-description: "Ciência de dados para principiantes é informa os conceitos básicos do 5 vídeos curtos, começando com o respostas de ciência de dados do 5 perguntas. De aprendizagem do Azure."
-keywords: "Se o fizer ciência de dados, principiantes de ciência de dados, ciência de dados para principiantes Noções básicas de ciência de dados, perguntas de ciência de dados, vídeo de ciência de dados, a introdução de ciência de dados"
+title: Questões de ciência de 5 dados - dados de ciência para principiantes - Azure Machine Learning | Microsoft Docs
+description: Ciência de dados para principiantes é informa os conceitos básicos do 5 vídeos curtos, começando com o respostas de ciência de dados do 5 perguntas. De aprendizagem do Azure.
+keywords: Se o fizer ciência de dados, principiantes de ciência de dados, ciência de dados para principiantes Noções básicas de ciência de dados, perguntas de ciência de dados, vídeo de ciência de dados, a introdução de ciência de dados
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 0482a680999e58b8be45334c9ae620b6b37ac273
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 494c8293a1dbfccbfe2df1e2f48f770edb6452dc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Data Science for Beginners video 1: The 5 questions data science answers (Vídeo Ciência de Dados para Principiantes: As cinco perguntas às quais a ciência de dados dá resposta)
 Obter uma introdução rápida aos ciência de dados de *dados de ciência para principiantes* em cinco vídeos abreviados de um scientist de dados superior. Estes vídeos são básico mas útil, se estiver interessado em efetuar ciência de dados ou funciona com cientistas de dados.

@@ -1,24 +1,21 @@
 ---
-title: "O Azure Active Directory B2C: Integrar trocas de afirmação de REST API da sua viagem do Azure AD B2C utilizador como a validação da intervenção do utilizador"
-description: "Integre trocas de afirmação de REST API da sua viagem do Azure AD B2C utilizador como a validação da intervenção do utilizador."
+title: 'O Azure Active Directory B2C: Integrar trocas de afirmação de REST API da sua viagem do Azure AD B2C utilizador como a validação da intervenção do utilizador'
+description: Integre trocas de afirmação de REST API da sua viagem do Azure AD B2C utilizador como a validação da intervenção do utilizador.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/30/2017
-ms.author: yoelh
-ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 9429f690940e1282d94b4d67ad1c618a24655cb5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar o REST API trocas de afirmações da sua viagem do Azure AD B2C utilizador como a validação da intervenção do utilizador
 Com o Framework de experiência de identidade, subjacente que o Azure Active Directory B2C (Azure AD B2C), pode integrar com uma API RESTful em journey um utilizador. Esta explicação passo a passo, irá aprender como o Azure AD B2C interage com os serviços RESTful do .NET Framework (web API).
@@ -249,8 +246,8 @@ Um fornecedor de afirmações pode ter vários perfis técnicos por vários moti
 O seguinte fragmento XML contém um nó de fornecedor de afirmações com dois perfis técnicos:
 
 * **TechnicalProfile Id = "SignUp da API REST"**: define o serviço RESTful. 
-   * `Proprietary`Esta será descrita como o protocolo para um fornecedor com base na RESTful. 
-   * `InputClaims`Define as afirmações que serão enviadas do Azure AD B2C para o serviço REST. 
+   * `Proprietary` Esta será descrita como o protocolo para um fornecedor com base na RESTful. 
+   * `InputClaims` Define as afirmações que serão enviadas do Azure AD B2C para o serviço REST. 
 
    Neste exemplo, o conteúdo da afirmação `givenName` envia para o serviço REST como `firstName`, o conteúdo da afirmação `surname` envia para o serviço REST como `lastName`, e `email` envia como está. O `OutputClaims` elemento define as afirmações que são obtidas no serviço RESTful de volta para o Azure AD B2C.
 

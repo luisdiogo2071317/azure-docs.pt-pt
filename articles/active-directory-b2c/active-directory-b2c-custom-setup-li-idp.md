@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Adicionar LinkedIn como um fornecedor de identidade de OAuth2 através da utilização de políticas personalizadas"
-description: "Um artigo de procedimentos sobre como configurar uma aplicação LinkedIn utilizando o protocolo de OAuth2 e as políticas personalizadas"
+title: 'Azure Active Directory B2C: Adicionar LinkedIn como um fornecedor de identidade de OAuth2 através da utilização de políticas personalizadas'
+description: Um artigo de procedimentos sobre como configurar uma aplicação LinkedIn utilizando o protocolo de OAuth2 e as políticas personalizadas
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/23/2017
-ms.author: yoelh
-ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: davidmu
+ms.openlocfilehash: 9e5235739abcfbee1e530685890098a45a1b093d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>O Azure Active Directory B2C: Adicionar LinkedIn como um fornecedor de identidade ao utilizar políticas personalizadas
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -43,7 +40,7 @@ Para utilizar LinkedIn como um fornecedor de identidade no Azure Active Director
 
     c. Selecione um **utilização de aplicações**.
 
-    d. No **URL do site** caixa, cole  **https://login.microsoftonline.com** .
+    d. No **URL do site** caixa, cole **https://login.microsoftonline.com**.
 
     e. Tipo sua **E-Mail profissionais** endereço e **telefone da empresa** número.
 
@@ -53,7 +50,7 @@ Para utilizar LinkedIn como um fornecedor de identidade no Azure Active Director
 
 3. Selecione **autenticação**e, em seguida, tenha em atenção o **ID de cliente** e **segredo do cliente** valores.
 
-4. No **autorizado URLs de redirecionamento** caixa, cole  **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp** . Substitua {*inquilino*} com o nome do seu inquilino (por exemplo, contosob2c.onmicrosoft.com). Certifique-se de que está a utilizar o esquema de HTTPS. 
+4. No **autorizado URLs de redirecionamento** caixa, cole **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Substitua {*inquilino*} com o nome do seu inquilino (por exemplo, contosob2c.onmicrosoft.com). Certifique-se de que está a utilizar o esquema de HTTPS. 
 
     ![Conta LinkedIn - URLs de redirecionamento de conjunto autorizado](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 

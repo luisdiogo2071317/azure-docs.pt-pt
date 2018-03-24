@@ -1,18 +1,18 @@
 ---
 title: Esquema de eventos de grelha de eventos do Azure
-description: "Descreve as propriedades que são fornecidas para eventos com grelha de eventos do Azure"
+description: Descreve as propriedades que são fornecidas para eventos com grelha de eventos do Azure
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de grelha de eventos do Azure
 
@@ -97,7 +97,11 @@ Para saber mais sobre as propriedades no objecto de dados, consulte a origem do 
 * [Hub IoT](event-schema-iot-hub.md)
 * [Grupos de recursos (operações de gestão)](event-schema-resource-groups.md)
 
-Para tópicos personalizados, o publicador de eventos determina o objeto de dados. Os dados de nível superior devem conter os campos mesmos como eventos definidos pelo recurso padrão. Quando publica eventos tópicos personalizados, deve considerar o assunto do seu eventos para ajudar a filtragem e de encaminhamento de modelação.
+Para tópicos personalizados, o publicador de eventos determina o objeto de dados. Os dados de nível superior devem conter os campos mesmos como eventos definidos pelo recurso padrão.
+
+Quando publica eventos personalizados tópicos, crie assuntos para os eventos que tornam mais fácil para os subscritores de saber se estão interessados no evento. Os subscritores utilizam o assunto e rotas de filtro de eventos. Considere fornecer o caminho para onde o evento foi efetuada para que subscritores podem filtrar por segmentos de caminho. O caminho permite aos subscritores narrowly ou amplamente filtrar eventos. Por exemplo, se fornecer um caminho de três segmento como `/A/B/C` no assunto, os subscritores podem filtrar pelo primeiro segmento `/A` para obter um conjunto amplo de eventos. Os subscritores obter eventos com assuntos como `/A/B/C` ou `/A/D/E`. Outros subscritores podem filtrar por `/A/B` para obter um conjunto de eventos quanto mais estreitos forem.
+
+Por vezes, o requerente tem de obter mais detalhes sobre o que aconteceu. Por exemplo, o **contas do Storage** publicador fornece o assunto `/blobServices/default/containers/<container-name>/blobs/<file>` quando um ficheiro seja adicionado a um contentor. Um subscritor pode filtrar pelo caminho `/blobServices/default/containers/testcontainer` para obter todos os eventos para esse contentor, mas não outros contentores na conta de armazenamento. Um subscritor pode também filtrar ou rota pelo sufixo `.txt` apenas trabalhar com ficheiros de texto.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

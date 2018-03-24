@@ -1,11 +1,11 @@
 ---
-title: "Compreender a segurança de IoT Hub do Azure | Microsoft Docs"
-description: "Guia para programadores - como controlar o acesso ao IoT Hub para aplicações de dispositivos e aplicações de back-end. Inclui informações sobre o suporte para certificados x. 509 e tokens de segurança."
+title: Compreender a segurança de IoT Hub do Azure | Microsoft Docs
+description: Guia para programadores - como controlar o acesso ao IoT Hub para aplicações de dispositivos e aplicações de back-end. Inclui informações sobre o suporte para certificados x. 509 e tokens de segurança.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 45631e70-865b-4e06-bb1d-aae1175a52ba
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9de332324ba853d3df0aacce2db4bbc3d4d9d62d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -72,7 +72,7 @@ Para obter mais informações sobre como construir e utilize tokens de seguranç
 
 Cada protocolos suportados, tais como MQTT, AMQP e HTTPS, transportes tokens formas diferentes.
 
-Quando utilizar MQTT, o pacote de ligar tem o ID do dispositivo como o ClientId, `{iothubhostname}/{deviceId}` o campo de nome de utilizador e um token SAS no campo de palavra-passe. `{iothubhostname}`deve ser o CName completo do hub IoT (por exemplo, contoso.azure-devices.net).
+Quando utilizar MQTT, o pacote de ligar tem o ID do dispositivo como o ClientId, `{iothubhostname}/{deviceId}` o campo de nome de utilizador e um token SAS no campo de palavra-passe. `{iothubhostname}` deve ser o CName completo do hub IoT (por exemplo, contoso.azure-devices.net).
 
 Quando utilizar [AMQP][lnk-amqp], suporta o IoT Hub [SASL simples] [ lnk-sasl-plain] e [AMQP afirmações com base-segurança][lnk-cbs].
 
@@ -80,8 +80,8 @@ Se utilizar AMQP afirmações com base-segurança, a norma Especifica como a tra
 
 Para SASL simples, o **username** pode ser:
 
-* `{policyName}@sas.root.{iothubName}`Se utilizar tokens de nível do hub IoT.
-* `{deviceId}@sas.{iothubname}`Se a utilização de tokens no âmbito do dispositivo.
+* `{policyName}@sas.root.{iothubName}` Se utilizar tokens de nível do hub IoT.
+* `{deviceId}@sas.{iothubname}` Se a utilização de tokens no âmbito do dispositivo.
 
 Em ambos os casos, o campo de palavra-passe contém o token, conforme descrito em [tokens de segurança de IoT Hub][lnk-sas-tokens].
 
@@ -89,9 +89,9 @@ HTTPS implementa autenticação, incluindo um token válido no **autorização**
 
 #### <a name="example"></a>Exemplo
 
-Nome de utilizador (DeviceId é sensível a maiúsculas e minúsculas):`iothubname.azure-devices.net/DeviceId`
+Nome de utilizador (DeviceId é sensível a maiúsculas e minúsculas): `iothubname.azure-devices.net/DeviceId`
 
-Palavra-passe (token SAS gerar com o [Explorador de dispositivo] [ lnk-device-explorer] ferramenta):`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+Palavra-passe (token SAS gerar com o [Explorador de dispositivo] [ lnk-device-explorer] ferramenta): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > O [SDKs IoT do Azure] [ lnk-sdks] automaticamente gerar tokens ao ligar ao serviço. Em alguns casos, os SDKs IoT do Azure suporta todos os protocolos nem todos os métodos de autenticação.
@@ -206,12 +206,12 @@ public static string generateSasToken(string resourceUri, string key, string pol
     TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
     string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
 
-    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+    string stringToSign = WebUtility.UrlEncode(resourceUri) + "\n" + expiry;
 
     HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
     string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
 
-    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri), WebUtility.UrlEncode(signature), expiry);
 
     if (!String.IsNullOrEmpty(policyName))
     {

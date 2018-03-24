@@ -1,11 +1,11 @@
 ---
-title: "Ligar redes virtuais clássicas do Azure Resource Manager VNets: Portal | Microsoft Docs"
-description: "Passos para ligar as VNets clássicas para VNets do Resource Manager utilizando o portal e do Gateway de VPN"
+title: 'Ligar redes virtuais clássicas do Azure Resource Manager VNets: Portal | Microsoft Docs'
+description: Passos para ligar as VNets clássicas para VNets do Resource Manager utilizando o portal e do Gateway de VPN
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: ad6b33b5411d3e38f099726df01fcafc8dc90d38
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 65cfbafbd5fbdd576f01b5cba638c1b5869f377b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Ligar redes virtuais a partir de modelos de implementação diferentes, utilizando o portal
 
@@ -216,7 +216,7 @@ Estes passos, pode configurar a ligação entre a VNet do Resource Manager e cl�
 2. Clique em **configuração** e certifique-se de que o valor do endereço IP é o gateway VPN para a VNet clássica. Atualizar, se necessário, em seguida, clique em **guardar**. Feche a página.
 3. No **todos os recursos**, clique em gateway de rede local.
 4. Clique em **ligações** para abrir a página de ligações.
-5. No **ligações** página, clique em  **+**  para adicionar uma ligação.
+5. No **ligações** página, clique em **+** para adicionar uma ligação.
 6. No **adicionar ligação** página, dê um nome de ligação. Por exemplo, 'RMtoClassic'.
 7. **Site-Site** já selecionou nesta página.
 8. Selecione o gateway de rede virtual que pretende associar este site.
@@ -301,7 +301,7 @@ Pode verificar as suas ligações, utilizando o portal do Azure ou o PowerShell.
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-###<a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Para verificar a ligação de VNet do Resource Manager para a sua VNet clássica
+### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Para verificar a ligação de VNet do Resource Manager para a sua VNet clássica
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

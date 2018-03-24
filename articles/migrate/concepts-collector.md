@@ -1,17 +1,17 @@
 ---
-title: "Aplicação de recoletor no Azure migrar | Microsoft Docs"
-description: "Fornece uma descrição geral do dispositivo de Recoletor e como configurá-lo."
+title: Aplicação de recoletor no Azure migrar | Microsoft Docs
+description: Fornece uma descrição geral do dispositivo de Recoletor e como configurá-lo.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="collector-appliance"></a>Aplicação de recoletor
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="overview"></a>Descrição geral
 
-Um Recoletor migrar do Azure é uma aplicação de lighweight que pode ser utilizada para detetar o seu ambiente do vCenter no local. Este dispositivo Deteta máquinas de VMware no local e envia os metadados sobre-los para o serviço Azure migrar.
+Um Recoletor migrar do Azure é uma aplicação simples que pode ser utilizada para detetar o seu ambiente do vCenter no local. Este dispositivo Deteta máquinas de VMware no local e envia os metadados sobre-los para o serviço Azure migrar.
 
 A aplicação do Recoletor é um OVF que pode transferir do projeto migrar do Azure. Para instanciar uma máquina virtual do VMware com 4 núcleos, 8 GB de RAM e um disco de 80 GB. O sistema operativo do dispositivo de é Windows Server 2012 R2 (64 bits).
 
@@ -172,6 +172,15 @@ A tabela seguinte lista os contadores de desempenho que são recolhidos e també
 O Recoletor só Deteta os dados da máquina e envia-ao projeto. O projeto poderá demorar mais tempo antes dos dados detetados são apresentados no portal e pode iniciar a criação de uma avaliação.
 
 Com base no número de máquinas virtuais no âmbito selecionado, que demora até 15 minutos para enviar os metadados estático para o projeto. Depois dos metadados estático estão disponível no portal, pode ver a lista de máquinas no portal e começar a criar grupos. Não é possível criar uma avaliação até que a tarefa de coleção é concluída e o projeto tem de processar os dados. Uma vez a tarefa de coleção foi concluída no Recoletor, pode demorar até uma hora para os dados de desempenho estar disponível no portal, com base no número de máquinas virtuais no âmbito selecionado.
+
+## <a name="locking-down-the-collector-appliance"></a>Bloquear o dispositivo de recoletor
+Recomendamos a execução contínuas atualizações do Windows no dispositivo de recoletor. Se um recoletor é atualizado não 45 dias, o recoletor irá iniciar auto-encerrar a máquina. Se estiver a executar uma deteção, a máquina será não ser desativada, mesmo se for passado o período de 45 dias. Após a tarefa de deteção estiver concluída, a máquina será desativada. Se estiver a utilizar o recoletor mais de 45 dias, é recomendável manter a máquina atualizada em todas as vezes por atualização do Windows em execução.
+
+Também Recomendamos os seguintes passos para proteger a sua aplicação
+1. Não partilhe ou misplace palavras-passe de administrador com partes não autorizadas.
+2. Encerre a aplicação quando não está em utilização.
+3. Colocar o dispositivo de uma rede protegida.
+4. Assim que o trabalho de migração estiver concluído, elimine a instância de aplicação. Lembre-se de que também eliminar o disco fazer uma cópia de ficheiros (VMDKs), como os discos podem ter credenciais vCenter em cache nos mesmos.
 
 ## <a name="how-to-upgrade-collector"></a>Como atualizar o Recoletor
 

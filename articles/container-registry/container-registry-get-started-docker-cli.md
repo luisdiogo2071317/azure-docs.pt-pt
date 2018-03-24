@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21d1abfbb49eaeae654a600d35ab350b96a12fd3
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Enviar a sua primeira imagem para um registo privado de contentor Docker com a CLI do Docker
 
@@ -40,7 +40,7 @@ Também pode iniciar sessão com [início de sessão do docker](https://docs.doc
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
-Ambos os comandos devolvem `Login Succeeded` depois de concluir. Se utilizar `docker login`, também poderá ver um aviso de segurança, recomendamos a utilização do `--password-stdin` parâmetro. Enquanto a sua utilização está fora do âmbito deste artigo, recomendamos a seguir esta melhor prática. Para obter mais informações, consulte o [início de sessão do docker](https://docs.docker.com/engine/reference/commandline/login/) referência de comandos.
+Ambos os comandos devolvem `Login Succeeded` depois de concluir. Se utilizar `docker login`, também poderá ver um aviso de segurança, recomendamos a utilização do `--password-stdin` parâmetro. Enquanto a sua utilização está fora do âmbito deste artigo, recomendamos que siga esta melhor prática. Para obter mais informações, consulte o [início de sessão do docker](https://docs.docker.com/engine/reference/commandline/login/) referência de comandos.
 
 > [!TIP]
 > Sempre especificar o nome do registo completamente qualificado (todo em minúsculas) ao utilizar `docker login` e quando a tag imagens para enviar para o registo. Os exemplos neste artigo, o nome completamente qualificado é *myregistry.azurecr.io*.
@@ -121,6 +121,10 @@ Para remover imagens a partir do seu registo de contentor do Azure, pode utiliza
 az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Agora que conhece as noções básicas, estará pronto começar a utilizar o seu registo! Por exemplo, implementar imagens do contentor a partir do seu registo para um [serviço de contentor do Azure (AKS)](../aks/tutorial-kubernetes-prepare-app.md) cluster.
+Agora que conhece as noções básicas, estará pronto começar a utilizar o seu registo! Implemente imagens do contentor a partir do seu registo para:
+
+* [Serviço de contentor do Azure (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Instâncias de contentor do Azure](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

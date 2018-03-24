@@ -1,11 +1,11 @@
 ---
-title: "Copiar dados da fábrica de dados a utilizar o Azure SQL Data Warehouse | Microsoft Docs"
-description: "Saiba como copiar dados de arquivos de origem suportada para o Azure SQL Data Warehouse (ou) do armazém de dados do SQL Server para lojas de receptores suportadas utilizando o Data Factory."
+title: Copiar dados da fábrica de dados a utilizar o Azure SQL Data Warehouse | Microsoft Docs
+description: Saiba como copiar dados de arquivos de origem suportada para o Azure SQL Data Warehouse (ou) do armazém de dados do SQL Server para lojas de receptores suportadas utilizando o Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5d284277f600465345be0058468192f2f5609d89
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar os dados de ou para o Azure SQL Data Warehouse, utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -375,10 +375,10 @@ Saiba mais sobre como utilizar o PolyBase para carregar para o SQL Data Warehous
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Utilize o PolyBase para carregar dados para o Azure SQL Data Warehouse
 
-Utilizar  **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)**  é uma forma eficaz de carregar grande quantidade de dados no Azure SQL Data Warehouse com débito elevado. Pode ver um grandes ganhos de débito da utilizando o PolyBase em vez do mecanismo BULKINSERT predefinido. Consulte [copiar o número de referência de desempenho](copy-activity-performance.md#performance-reference) com comparação detalhada. Para obter instruções com um caso de utilização, consulte [1 TB no Azure SQL Data Warehouse em 15 minutos de carga com o Azure Data Factory](connector-azure-sql-data-warehouse.md).
+Utilizar **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** é uma forma eficaz de carregar grande quantidade de dados no Azure SQL Data Warehouse com débito elevado. Pode ver um grandes ganhos de débito da utilizando o PolyBase em vez do mecanismo BULKINSERT predefinido. Consulte [copiar o número de referência de desempenho](copy-activity-performance.md#performance-reference) com comparação detalhada. Para obter instruções com um caso de utilização, consulte [1 TB no Azure SQL Data Warehouse em 15 minutos de carga com o Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
-* Se os dados de origem estão a ser **Blob do Azure ou do Azure Data Lake Store**e o formato é compatível com o PolyBase, pode copiar diretamente ao Azure SQL Data Warehouse, utilizando o PolyBase. Consulte  **[cópia direta, utilizando o PolyBase](#direct-copy-using-polybase)**  com detalhes.
-* Se o arquivo de dados de origem e o formato não é suportado originalmente pelo PolyBase, pode utilizar o  **[cópia testado utilizando o PolyBase](#staged-copy-using-polybase)**  em vez disso, a funcionalidade. Também fornece a melhor débito automaticamente ao converter os dados em formato compatível com o PolyBase e armazenar os dados no Blob storage do Azure. Em seguida, carrega dados para o SQL Data Warehouse.
+* Se os dados de origem estão a ser **Blob do Azure ou do Azure Data Lake Store**e o formato é compatível com o PolyBase, pode copiar diretamente ao Azure SQL Data Warehouse, utilizando o PolyBase. Consulte **[cópia direta, utilizando o PolyBase](#direct-copy-using-polybase)** com detalhes.
+* Se o arquivo de dados de origem e o formato não é suportado originalmente pelo PolyBase, pode utilizar o **[cópia testado utilizando o PolyBase](#staged-copy-using-polybase)** em vez disso, a funcionalidade. Também fornece a melhor débito automaticamente ao converter os dados em formato compatível com o PolyBase e armazenar os dados no Blob storage do Azure. Em seguida, carrega dados para o SQL Data Warehouse.
 
 > [!IMPORTANT]
 > Tenha em atenção o PolyBase só suportam authentcation de SQL do Azure SQL Data Warehouse mas não a autenticação do Azure Active Directory.
@@ -395,7 +395,7 @@ Se não são cumpridos os requisitos, o Azure Data Factory verifica as definiç�
 1. **Origem de serviço ligado** é do tipo: **AzureStorage** ou **AzureDataLakeStore** com a autenticação principal de serviço.
 2. O **conjunto de dados de entrada** é do tipo: **AzureBlob** ou **AzureDataLakeStoreFile**e o formato de tipo em `type` propriedades **OrcFormat** , **ParquetFormat**, ou **TextFormat** com as seguintes configurações:
 
-   1. `rowDelimiter` tem de ser  **\n** .
+   1. `rowDelimiter` tem de ser **\n**.
    2. `nullValue` está definido como **uma cadeia vazia** (""), ou `treatEmptyAsNull` está definido como **verdadeiro**.
    3. `encodingName` está definido como **utf-8**, que é **predefinido** valor.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, e `skipLineCount` não foram especificados.
@@ -510,7 +510,7 @@ Se tiver dados de origem com linhas de tamanho superior a 1 MB, poderá pretende
 
 ### <a name="sql-data-warehouse-resource-class"></a>Classe de recursos do SQL Data Warehouse
 
-Para obter uma melhor débito possíveis, considere atribuir maior classe de recursos para o utilizador que está a ser utilizado para carregar dados para o SQL Data Warehouse através do PolyBase. Saber como fazê-lo ao seguir [alterar um exemplo de classe de recursos de utilizador](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+Para obter uma melhor débito possíveis, considere atribuir uma maior classe de recursos para o utilizador que está a ser utilizado para carregar dados para o SQL Data Warehouse através do PolyBase.
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>tableName no Azure SQL Data Warehouse
 

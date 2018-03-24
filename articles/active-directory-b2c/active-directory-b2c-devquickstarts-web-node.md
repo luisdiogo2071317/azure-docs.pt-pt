@@ -1,23 +1,20 @@
 ---
-title: "Adicionar início de sessão a uma aplicação web do Node.js - Azure Active Directory B2C"
-description: "Como criar uma aplicação web Node.js que inicia sessão dos utilizadores com o Azure Active Directory B2C."
+title: Adicionar início de sessão a uma aplicação web do Node.js - Azure Active Directory B2C
+description: Como criar uma aplicação web Node.js que inicia sessão dos utilizadores com o Azure Active Directory B2C.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: dstrockis
-ms.custom: seo
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: javascript
 ms.topic: article
 ms.date: 03/10/2017
-ms.author: xerners
-ms.openlocfilehash: 25a2bef2f3cc6f210c574f920164b8d69b0d90db
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: davidmu
+ms.openlocfilehash: b10b2338bfbcd449075e612ae00cc23802dce3a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: Adicionar início de sessão a uma aplicação Web Node.js
 
@@ -400,7 +397,7 @@ Executar `node app.js` e navegar para `http://localhost:3000`
 
 Inscreva-se ou inicie sessão na aplicação utilizando o correio eletrónico ou o Facebook. Termine sessão e inicie sessão novamente como um utilizador diferente.
 
-##<a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para sua referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um ficheiro .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Também pode clonar a partir do GitHub:
 

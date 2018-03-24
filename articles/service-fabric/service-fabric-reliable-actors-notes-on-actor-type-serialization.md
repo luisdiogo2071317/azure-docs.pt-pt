@@ -1,11 +1,11 @@
 ---
-title: "Reliable Actors notas sobre ator escreva serialização | Microsoft Docs"
-description: "Descreve os requisitos básicos para definir serializáveis classes que podem ser utilizadas para definir interfaces e Estados de Service Fabric Reliable Actors"
+title: Reliable Actors notas sobre ator escreva serialização | Microsoft Docs
+description: Descreve os requisitos básicos para definir serializáveis classes que podem ser utilizadas para definir interfaces e Estados de Service Fabric Reliable Actors
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6e50e4dc-969a-4a1c-b36c-b292d964c7e3
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: b1b7c8af6d852599359baab2188bfc3395d33a28
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 210f47b4b052286900781f97077af4d0a0b9c968
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Notas sobre o serviço de recursos de infraestrutura Reliable Actors escreva serialização
-Os argumentos de todos os métodos, tipos de resultados das tarefas devolvido por cada método numa interface ator e objetos armazenados no Gestor de estado de um ator tem de ser [contrato de dados serializáveis](https://msdn.microsoft.com/library/ms731923.aspx). Isto também se aplica aos argumentos dos métodos definidos no [interfaces de eventos de ator](service-fabric-reliable-actors-events.md). (Métodos de interface de eventos de ator sempre devolvem void.)
+Os argumentos de todos os métodos, tipos de resultados das tarefas devolvido por cada método numa interface ator e objetos armazenados no Gestor de estado de um ator tem de ser [contrato de dados serializáveis](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Isto também se aplica aos argumentos dos métodos definidos no [interfaces de eventos de ator](service-fabric-reliable-actors-events.md). (Métodos de interface de eventos de ator sempre devolvem void.)
 
 ## <a name="custom-data-types"></a>Tipos de dados personalizada
 Neste exemplo, a interface de ator seguinte define um método que devolve um tipo de dados personalizado denominado `VoicemailBox`:
@@ -144,7 +144,7 @@ public class VoicemailBox implements Serializable
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Coleção de ciclo de vida e libertação da memória de ator](service-fabric-reliable-actors-lifecycle.md)
 * [Os temporizadores de ator e lembretes](service-fabric-reliable-actors-timers-reminders.md)
 * [Eventos de ator](service-fabric-reliable-actors-events.md)

@@ -1,30 +1,27 @@
 ---
-title: "Do Azure Active Directory B2C: Políticas personalizadas | Microsoft Docs"
-description: "Um tópico sobre as políticas personalizadas do Azure Active Directory B2C"
+title: 'Do Azure Active Directory B2C: Políticas personalizadas | Microsoft Docs'
+description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: parakhj
-ms.openlocfilehash: 6c59075bb1eacb05599b23be3d8731fa40eabf98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 269b65662796c092190cd2622c240756f6bd1cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: As políticas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-## <a name="what-are-custom-policies"></a>Quais são as políticas personalizadas?
+## <a name="what-are-custom-policies"></a>O que são políticas personalizadas?
 
 As políticas personalizadas são ficheiros de configuração que definem o comportamento do seu inquilino do Azure AD B2C. Enquanto **políticas incorporadas** estão predefinidas no portal do Azure AD B2C para as tarefas mais comuns de identidade, políticas personalizadas podem ser totalmente editadas por um programador de identidade para concluir um número ilimitado near de tarefas. Continue a ler para determinar se as políticas personalizadas são adequada a si e o seu cenário de identidade.
 
@@ -37,7 +34,7 @@ As políticas personalizadas são ficheiros de configuração que definem o comp
 |Personalização de IU | Personalização de IU completa, incluindo suporte HTML, CSS e javascript (requer o domínio personalizado)<br><br>Suporte MultiLanguage com cadeias personalizada | mesmo |
 | Personalização de atributo | Atributos de padrão e personalizados | mesmo |
 |Gestão de token e de sessão | Token personalizado e várias opções de sessão | mesmo |
-|Fornecedores de identidade| **Hoje em dia**: fornecedor predefinido de local, redes social<br><br>**Futuro**: OIDC baseada em normas, SAML, OAuth | **Hoje em dia**: OIDC baseada em normas, OAUTH, SAML<br><br>**Futuro**: WsFed |
+|Fornecedores de Identidade| **Hoje em dia**: fornecedor predefinido de local, redes social<br><br>**Futuro**: OIDC baseada em normas, SAML, OAuth | **Hoje em dia**: OIDC baseada em normas, OAUTH, SAML<br><br>**Futuro**: WsFed |
 |Tarefas de identidade (exemplos) | Inscrever-se ou iniciar sessão com muitas contas de redes sociais e local<br><br>Reposição Personalizada de Palavra-passe<br><br>Editar perfil<br><br>Cenários de autenticação Multifator<br><br>Personalizar Tokens e sessões<br><br>Fluxos de Token de acesso | Conclua as mesmas tarefas como políticas incorporadas a utilizar fornecedores de identidade personalizada ou utilize âmbitos personalizados<br><br>Utilizador de aprovisionar no outro sistema no momento de registo<br><br>Enviar um e-mail de boas-vindas utilizando o seu próprio fornecedor de serviço de e-mail<br><br>Utilize um arquivo de utilizador fora do B2C<br><br>Validar o utilizador fornecido informações com um sistema fidedigna através de API |
 
 ## <a name="policy-files"></a>Ficheiros de política
@@ -92,9 +89,9 @@ Uma política personalizada é representada como um ou vários ficheiros de form
 
 | Tipo de ficheiro de política | Nome de ficheiro de exemplos | Utilização recomendada | Herda a partir do |
 |---------------------|--------------------|-----------------|---------------|
-| BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Inclui o esquema de afirmações de núcleos, transformações de afirmações, fornecedores de afirmações e percursos de utilizador configurados pela Microsoft<br><br>Efetuar alterações mínimas este ficheiro | Nenhuma |
+| BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Inclui o esquema de afirmações de núcleos, transformações de afirmações, fornecedores de afirmações e percursos de utilizador configurados pela Microsoft<br><br>Efetuar alterações mínimas este ficheiro | Nenhum |
 | Extensão (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Consolidar as alterações para o ficheiro de BASE aqui<br><br>Fornecedores de afirmações modificado<br><br>Percursos de utilizadores modificados<br><br>As suas próprias definições de esquema personalizadas | Ficheiro de BASE |
-| Entidade Confiadora (RP) | B2C_1A_sign_up_sign_in.XML| Alterar token forma e sessão definições aqui| Ficheiro Extensions(Ext) |
+| Entidade Confiadora (RP) | B2C_1A_sign_up_sign_in.xml| Alterar token forma e sessão definições aqui| Ficheiro Extensions(Ext) |
 
 ### <a name="inheritance-model"></a>Modelo de herança
 
@@ -102,7 +99,7 @@ Quando uma aplicação chama o ficheiro de política de RP, a arquitetura de exp
 
 **Políticas incorporadas** no Azure AD B2C seguem o padrão de ficheiro de 3 descrito acima, mas o programador só vê o ficheiro de terceiros entidade Confiadora (RP), enquanto o portal faz com que as alterações em segundo plano para o ficheiro EXTenstions.  Todas as do Azure AD B2C partilha um ficheiro de política BASE que está sob o controlo da equipa de B2C do Azure e é atualizado frequentemente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md)

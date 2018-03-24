@@ -1,31 +1,28 @@
 ---
 title: Medidas de utilizador reais para Traffic Manager do Azure com o Visual Studio Mobile Center | Microsoft Docs
-description: "Configurar a sua aplicação móvel desenvolvida utilizando o Visual Studio Mobile Center enviar medidas de utilizador reais para o Gestor de tráfego"
+description: Configurar a sua aplicação móvel desenvolvida utilizando o Visual Studio Mobile Center enviar medidas de utilizador reais para o Gestor de tráfego
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 756496e5291d932ee9ac89265291e6892c4304fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 893e84b07b365fb0b534e0ddc021b2249c4174cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Como enviar medidas de utilizador reais para o Gestor de tráfego com o Visual Studio Mobile Center
-
->[!NOTE]
->A funcionalidade de medidas de utilizador Real no Traffic Manager está em pré-visualização pública e não pode ter o mesmo nível de disponibilidade e fiabilidade como versão de funcionalidades que estão em geral disponibilidade. A funcionalidade não é suportada, pode ter restrita capacidades e poderão não estar disponível em todas as localizações do Azure. Para as notificações mais atualizadas à sua disponibilidade e o estado desta funcionalidade, consulte o [Traffic Manager do Azure atualiza](https://azure.microsoft.com/updates/?product=traffic-manager) página.
 
 Pode configurar a sua aplicação móvel desenvolvida utilizando o Visual Studio Mobile Center para enviar para o Gestor de tráfego de medidas de utilizador reais, seguindo os passos:
 
@@ -101,7 +98,7 @@ Para utilizar medidas de utilizador reais, execute o seguinte procedimento:
     MobileCenter.start(getApplication(), "<Your Mobile Center AppSecret>", RealUserMeasurements.class);
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [Real medidas de utilizador](traffic-manager-rum-overview.md)
 - Saiba [como funciona o Gestor de tráfego](traffic-manager-overview.md)
 - Saiba mais sobre [Mobile Center](https://docs.microsoft.com/mobile-center/)

@@ -1,5 +1,5 @@
 ---
-title: "Executar cargas de trabalho do Azure Batch em VMs de prioridade baixa económicas | Microsoft Docs"
+title: Executar cargas de trabalho do Azure Batch em VMs de prioridade baixa económicas | Microsoft Docs
 description: Saiba como aprovisionar VMs de prioridade baixa para reduzir o custo de cargas de trabalho do Azure Batch.
 services: batch
 author: mscurrell
@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68240e29429b4c6321e8627b62ad65ce7ecb468e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>VMs de prioridade baixa utilização com o Batch
 
@@ -26,12 +26,6 @@ Prioridade baixa VMs tirar partido da capacidade surplus no Azure. Quando especi
 O compromisso de utilização de VMs de prioridade baixa é que essas VMs poderão não estar disponíveis para ser alocado ou podem ser impedidas em qualquer altura, dependendo da capacidade disponível. Por este motivo, as VMs de prioridade baixa são mais adequadas para determinados tipos de cargas de trabalho. Utilize as VMs de prioridade baixa para batch e cargas de trabalho de processamento assíncrono em que a hora de conclusão da tarefa é flexível e o trabalho é distribuído por várias VMs.
  
 VMs de prioridade baixa são disponibilizadas um preço significativamente reduzida comparados com VMs dedicadas. Para detalhes de preços, consulte [preços do Batch](https://azure.microsoft.com/pricing/details/batch/).
-
-
-> [!IMPORTANT]
-> Prioridade baixa VMs estão atualmente disponíveis apenas para cargas de trabalho em execução no Batch. 
->
->
 
 ## <a name="use-cases-for-low-priority-vms"></a>Casos de utilização para VMs de baixa prioridade
 

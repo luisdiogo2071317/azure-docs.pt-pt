@@ -1,24 +1,21 @@
 ---
-title: "Gestão de sessão SSO através de políticas personalizadas - Azure AD B2C | Microsoft Docs"
-description: "Saiba como gerir sessões SSO utilizando as políticas personalizadas no Azure AD B2C."
+title: Gestão de sessão SSO através de políticas personalizadas - Azure AD B2C | Microsoft Docs
+description: Saiba como gerir sessões SSO utilizando as políticas personalizadas no Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 809f6000-2e52-43e4-995d-089d85747e1f
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: parja
-ms.openlocfilehash: 676b277ae3fbf4554838eee70c5d3e2d8e12c33d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 3d378d188d9acec06f37ca91e3c67e82fb31fc08
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>O Azure AD B2C: Início de sessão (SSO) sessão gestão único
 
@@ -66,7 +63,7 @@ Este fornecedor pode ser utilizado para armazenar afirmações numa sessão. Est
 </TechnicalProfile>
 ```
 
-Para adicionar afirmações na sessão, utilize o `<PersistedClaims>` elemento do perfil técnico. Quando o fornecedor é utilizado para repovoar a sessão, o persistente afirmações são adicionadas para a matriz de afirmações. `<OutputClaims>`é utilizado para obter afirmações da sessão.
+Para adicionar afirmações na sessão, utilize o `<PersistedClaims>` elemento do perfil técnico. Quando o fornecedor é utilizado para repovoar a sessão, o persistente afirmações são adicionadas para a matriz de afirmações. `<OutputClaims>` é utilizado para obter afirmações da sessão.
 
 ### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
@@ -98,15 +95,15 @@ Existem dois itens de metadados no perfil de técnico:
 
 | Item | Valor Predefinido | Valores Possíveis | Descrição
 | --- | --- | --- | --- |
-| IncludeSessionIndex | verdadeiro | Verdadeiro/Falso | Indica ao fornecedor de que o índice de sessão deve ser armazenado. |
-| RegisterServiceProviders | verdadeiro | Verdadeiro/Falso | Indica que o fornecedor deve registar todos os fornecedores de serviços SAML que foram emitidos uma asserção. |
+| IncludeSessionIndex | true | Verdadeiro/Falso | Indica ao fornecedor de que o índice de sessão deve ser armazenado. |
+| RegisterServiceProviders | true | Verdadeiro/Falso | Indica que o fornecedor deve registar todos os fornecedores de serviços SAML que foram emitidos uma asserção. |
 
 Ao utilizar o fornecedor para armazenar uma sessão de fornecedor de identidade SAML, os itens acima deverão ser falsos. Ao utilizar o fornecedor para armazenar a sessão de SAML do B2C, os itens acima devem ser VERDADEIRO ou omitido as predefinições são verdadeiras.
 
 >[!NOTE]
 > Fim de sessão SAML requer o `SessionIndex` e `NameID` para concluir.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Iremos adoram comentários e sugestões! Se tiver dificuldades em causa com este tópico, publique no Stack Overflow utilizando a tag ['azure-ad-b2c'](https://stackoverflow.com/questions/tagged/azure-ad-b2c). Para pedidos de funcionalidades, votar na nossa [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 

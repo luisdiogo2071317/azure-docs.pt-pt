@@ -1,13 +1,13 @@
 ---
-title: "Enlaces de armazenamento de Blobs do Azure para as funções do Azure"
-description: "Compreenda como utilizar o Blob do Azure armazenamento acionadores e enlaces das funções do Azure."
+title: Enlaces de armazenamento de Blobs do Azure para as funções do Azure
+description: Compreenda como utilizar o Blob do Azure armazenamento acionadores e enlaces das funções do Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -233,12 +233,12 @@ Em c# e c# script, pode utilizar os seguintes tipos de parâmetro para o blob ac
 * `string`
 * `Byte[]`
 * Um POCO serializável como JSON
-* `ICloudBlob` (requer a direção de enlace "inout" no *function.json*)
-* `CloudBlockBlob` (requer a direção de enlace "inout" no *function.json*)
-* `CloudPageBlob` (requer a direção de enlace "inout" no *function.json*)
-* `CloudAppendBlob` (requer a direção de enlace "inout" no *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Conforme indicado, alguns destes tipos requerem um `inout` enlace direção no *function.json*. Esta não é suportada pelo editor padrão no portal do Azure, pelo que deverá utilizar o editor de avançadas.
+<sup>1</sup> requer enlace "inout" `direction` no *function.json* ou `FileAccess.ReadWrite` uma biblioteca de classe do c#.
 
 A associação à `string`, `Byte[]`, ou POCO só é recomendada se o tamanho do blob é pequeno, como o blob de todo o conteúdo é carregado na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo. Para obter mais informações, consulte [utilização da memória e de concorrência](#trigger---concurrency-and-memory-usage) posteriormente neste artigo.
 
@@ -364,7 +364,7 @@ Veja o exemplo de específicas do idioma:
 
 ### <a name="input---c-example"></a>Entrada - c# exemplo
 
-O exemplo seguinte é um [c# função](functions-dotnet-class-library.md) que utiliza um acionador de fila e um enlace de blob de entrada. A fila messagge contém o nome do blob, e a função regista o tamanho do blob.
+O exemplo seguinte é um [c# função](functions-dotnet-class-library.md) que utiliza um acionador de fila e um enlace de blob de entrada. A mensagem da fila contém o nome do blob, e a função regista o tamanho do blob.
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -374,7 +374,6 @@ public static void Run(
     TraceWriter log)
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-
 }
 ```        
 
@@ -534,12 +533,12 @@ Em c# e c# script, pode utilizar os seguintes tipos de parâmetro para o enlace 
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob` (requer a direção de enlace "inout" no *function.json*)
-* `CloudBlockBlob` (requer a direção de enlace "inout" no *function.json*)
-* `CloudPageBlob` (requer a direção de enlace "inout" no *function.json*)
-* `CloudAppendBlob` (requer a direção de enlace "inout" no *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Conforme indicado, alguns destes tipos requerem um `inout` enlace direção no *function.json*. Esta não é suportada pelo editor padrão no portal do Azure, pelo que deverá utilizar o editor de avançadas.
+<sup>1</sup> requer enlace "inout" `direction` no *function.json* ou `FileAccess.ReadWrite` uma biblioteca de classe do c#.
 
 A associação à `string` ou `Byte[]` só é recomendada se o tamanho do blob é pequeno, como os conteúdos do blob todo são carregados na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo. Para obter mais informações, consulte [utilização da memória e de concorrência](#trigger---concurrency-and-memory-usage) anteriormente neste artigo.
 
@@ -737,21 +736,23 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 ## <a name="output---usage"></a>Saída - utilização
 
-Em c# e c# script, pode utilizar os seguintes tipos de parâmetro para o blob vínculo de saída:
+Em c# e c# script, é possível vincular para os seguintes tipos de escrever blobs:
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` (requer a direção de enlace "inout" no *function.json*)
-* `CloudBlockBlob` (requer a direção de enlace "inout" no *function.json*)
-* `CloudPageBlob` (requer a direção de enlace "inout" no *function.json*)
-* `CloudAppendBlob` (requer a direção de enlace "inout" no *function.json*)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-Conforme indicado, alguns destes tipos requerem um `inout` enlace direção no *function.json*. Esta não é suportada pelo editor padrão no portal do Azure, pelo que deverá utilizar o editor de avançadas.
+<sup>1</sup> necessita de "enlace em" `direction` no *function.json* ou `FileAccess.Read` uma biblioteca de classe do c#.
+
+<sup>2</sup> requer enlace "inout" `direction` no *function.json* ou `FileAccess.ReadWrite` uma biblioteca de classe do c#.
 
 Nas funções de async, utilize o valor de retorno ou `IAsyncCollector` em vez de um `out` parâmetro.
 

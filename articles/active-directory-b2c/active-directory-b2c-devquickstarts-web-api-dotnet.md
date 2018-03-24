@@ -1,25 +1,21 @@
 ---
 title: Chamar protegido web api ASP.NET Azure Active Directory B2C | Microsoft Docs
-description: "Como criar uma aplicação .NET Web e chamar uma web api utilizando os tokens de acesso do Azure Active Directory B2C e OAuth 2.0."
+description: Como criar uma aplicação .NET Web e chamar uma web api utilizando os tokens de acesso do Azure Active Directory B2C e OAuth 2.0.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: d3888556-2647-4a42-b068-027f9374aa61
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: parakhj
-ms.custom: seohack1
-ms.openlocfilehash: d81976988a26ce264dd7b9ed24f43aed21d4ee99
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: davidmu
+ms.openlocfilehash: 75ae88898d3d6b275ec462e865347056305fd666
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>O Azure AD B2C: Chamar uma API web do .NET a partir de uma aplicação web do .NET
 
@@ -52,7 +48,7 @@ O código deste tutorial é mantido no [GitHub](https://github.com/Azure-Samples
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Depois de transferir o código de exemplo, abra o ficheiro de .sln do Visual Studio para começar a utilizar. O ficheiro de solução contém dois projetos: `TaskWebApp` e `TaskService`. `TaskWebApp`é uma aplicação web MVC que o utilizador interage com. O `TaskService` é uma API Web de back-end da aplicação que armazena a lista de tarefas de cada utilizador. Este artigo não abrange a criação de `TaskWebApp` aplicação web ou o `TaskService` web api. Para saber como criar a aplicação web do .NET utilizando o Azure AD B2C, consulte a nossa [tutorial da aplicação web .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md). Para saber como criar o .NET APIS da web protegidas com o Azure AD B2C, consulte a nossa [tutorial de .NET de web API](active-directory-b2c-devquickstarts-api-dotnet.md).
+Depois de transferir o código de exemplo, abra o ficheiro de .sln do Visual Studio para começar a utilizar. O ficheiro de solução contém dois projetos: `TaskWebApp` e `TaskService`. `TaskWebApp` é uma aplicação web MVC que o utilizador interage com. O `TaskService` é uma API Web de back-end da aplicação que armazena a lista de tarefas de cada utilizador. Este artigo não abrange a criação de `TaskWebApp` aplicação web ou o `TaskService` web api. Para saber como criar a aplicação web do .NET utilizando o Azure AD B2C, consulte a nossa [tutorial da aplicação web .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md). Para saber como criar o .NET APIS da web protegidas com o Azure AD B2C, consulte a nossa [tutorial de .NET de web API](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ### <a name="update-the-azure-ad-b2c-configuration"></a>Atualizar a configuração do Azure AD B2C
 
@@ -61,7 +57,7 @@ O nosso exemplo está configurado para utilizar as políticas e o ID de cliente 
 1. Abra `web.config` no projeto `TaskService` e substitua os valores de:
 
     * `ida:Tenant` pelo nome do seu inquilino
-    * `ida:ClientId`com o seu ID de aplicação de api web
+    * `ida:ClientId` com o seu ID de aplicação de api web
     * `ida:SignUpSignInPolicyId` pelo nome da sua política de “Inscrição ou Início de Sessão”
 
 2. Abra `web.config` no projeto `TaskWebApp` e substitua os valores de:

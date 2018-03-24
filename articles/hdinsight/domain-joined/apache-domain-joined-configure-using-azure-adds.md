@@ -1,35 +1,33 @@
 ---
-title: "Configurar clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services - Azure | Microsoft Docs"
-description: "Saiba como configurar e clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services"
+title: Configurar clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services - Azure | Microsoft Docs
+description: Saiba como configurar e clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 03/20/2018
 ms.author: bhanupr
-ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services
 
 Os clusters associados a um domínio fornecem empresa multiutilizador capacidades de segurança no HDInsight. Associado a um domínio clusters do HDInsight estão ligados a domínios do Active Directory, para que os utilizadores de domínio podem utilizar as respetivas credenciais de domínio para autenticar com os clusters e executar tarefas de macrodados. 
 
-Existem duas formas de configurar um controlador de domínio para que possam ligar um cluster do HDInsight associados a um domínio para:
-
-- Serviços de domínio do Azure Active Directory (Azure AD DS)
-- Controlador de domínio de diretório Active Directory em VMs do IaaS do Azure
-
 Neste artigo, irá aprender a configurar um cluster do HDInsight associados a um domínio utilizando o Azure Active Directory Domain Services.
+
+> [!NOTE]
+> Já não é suportado do Active Directory em VMs do IaaS do Azure.
 
 ## <a name="create-azure-adds"></a>Criar ADDS do Azure
 
@@ -58,7 +56,7 @@ Quando cria um cluster do HDInsight associados a um domínio, tem de fornecer os
 - **Grupo de utilizadores de acesso**: os grupos de segurança cujos utilizadores que pretende sincronizar para o cluster. Por exemplo, HiveUsers. Se pretender especificar vários grupos de utilizadores, separadas por vírgula ','.
  
 > [!NOTE]
-> Uma vez que o Apache Zeppelin utiliza o nome de domínio para autenticar a conta de serviço administrativas, a conta de serviço tem de ter o mesmo nome de domínio como o sufixo UPN para Apache Zeppelin funcionar corretamente.
+> Uma vez Apache Zeppelin utiliza o nome de domínio para autenticar a conta de serviço administrativas, a conta de serviço tem de ter o mesmo nome de domínio como o sufixo UPN para Apache Zeppelin funcionar corretamente.
  
 A seguinte captura de ecrã mostra as configurações no portal do Azure:
 

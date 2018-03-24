@@ -1,24 +1,21 @@
 ---
-title: "O Azure Active Directory B2C: Adicionar ADFS como um fornecedor de identidade através de políticas personalizadas"
-description: "Um artigo de procedimentos sobre como configurar 2016 do AD FS utilizando o protocolo SAML e as políticas personalizadas"
+title: 'O Azure Active Directory B2C: Adicionar ADFS como um fornecedor de identidade através de políticas personalizadas'
+description: Um artigo de procedimentos sobre como configurar 2016 do AD FS utilizando o protocolo SAML e as políticas personalizadas
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 22b360aec8878925ebe8d2c67c76d275a42ca7a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: af102bbc3bc7608fe641db19f4af8c760907a564
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>O Azure Active Directory B2C: Adicionar ADFS como um fornecedor de identidade através de políticas personalizadas
 
@@ -63,7 +60,7 @@ A associação **administradores**, ou equivalente, no computador local é o mí
 7.  No **configurar URL** página, selecione o **ativar o suporte para o protocolo SAML 2.0 WebSSO** caixa de verificação. Em **URL de serviço SAML 2.0 SSO da entidade Confiadora**, escreva o URL de ponto final do serviço de Security Assertion Markup Language (SAML) para esta confiança da entidade confiadora e, em seguida, clique em **seguinte**.  Para o **URL de serviço SAML 2.0 SSO da entidade Confiadora**, cole o `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Substitua {inquilino} com o nome do seu inquilino (por exemplo, contosob2c.onmicrosoft.com) e substitua a {política} com o nome da política extensões (por exemplo, B2C_1A_TrustFrameworkExtensions).
     > [!IMPORTANT]
     >O nome da política é o signup_or_signin política herda, neste caso é: `B2C_1A_TrustFrameworkExtensions`.
-    >Por exemplo o URL pode ser: https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
+    >Por exemplo o URL pode ser: https://login.microsoftonline.com/te/ **contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
 
     ![URL do serviço SAML 2.0 SSO de entidade confiadora](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
 8. No **configurar identificadores** página, especifique o mesmo URL que o passo anterior, clique em **adicionar** para adicioná-los à lista e, em seguida, clique em **seguinte**.
@@ -163,10 +160,10 @@ Neste momento, o fornecedor de identidade foi configurado.  No entanto, não est
 4.  Colar o conteúdo completo de `<UserJournesy>` nó que copiou como subordinado do `<UserJourneys>` elemento.
 
 ### <a name="display-the-button"></a>Apresentar no botão
-O `<ClaimsProviderSelections>` elemento define a lista de opções de seleção de fornecedor de afirmações e a sua ordem.  `<ClaimsProviderSelection>`elemento é semelhante a um botão do fornecedor de identidade numa página sessão-up/início de sessão. Se adicionar um `<ClaimsProviderSelection>` elemento para a conta do AD FS, um novo botão aparece quando um utilizador lands na página. Para adicionar este elemento:
+O `<ClaimsProviderSelections>` elemento define a lista de opções de seleção de fornecedor de afirmações e a sua ordem.  `<ClaimsProviderSelection>` elemento é semelhante a um botão do fornecedor de identidade numa página sessão-up/início de sessão. Se adicionar um `<ClaimsProviderSelection>` elemento para a conta do AD FS, um novo botão aparece quando um utilizador lands na página. Para adicionar este elemento:
 
 1.  Localizar o `<UserJourney>` nó que inclui `Id="SignUpOrSignIn"` no journey utilizador que copiou.
-2.  Localize o `<OrchestrationStep>` nó que inclui`Order="1"`
+2.  Localize o `<OrchestrationStep>` nó que inclui `Order="1"`
 3.  Adicione o seguinte fragmento XML em `<ClaimsProviderSelections>` nó:
 
 ```xml
@@ -206,7 +203,7 @@ Poderá pretender adicionar o fornecedor de identidade da conta ADFS também par
 ### <a name="display-the-button"></a>Apresentar no botão
 1.  Abra o ficheiro de extensão da sua política (por exemplo, TrustFrameworkExtensions.xml).
 2.  Localizar o `<UserJourney>` nó que inclui `Id="ProfileEdit"` no journey utilizador que copiou.
-3.  Localize o `<OrchestrationStep>` nó que inclui`Order="1"`
+3.  Localize o `<OrchestrationStep>` nó que inclui `Order="1"`
 4.  Adicione o seguinte fragmento XML em `<ClaimsProviderSelections>` nó:
 
 ```xml

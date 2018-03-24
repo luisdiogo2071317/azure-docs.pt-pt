@@ -1,6 +1,6 @@
 ---
-title: "Limitações na base de dados do Azure para MySQL"
-description: "Este artigo descreve limitações na base de dados do Azure para MySQL, tais como o número de ligação e as opções do motor de armazenamento."
+title: Limitações na base de dados do Azure para MySQL
+description: Este artigo descreve limitações na base de dados do Azure para MySQL, tais como o número de ligação e as opções do motor de armazenamento.
 services: mysql
 author: kamathsun
 ms.author: sukamat
@@ -8,42 +8,41 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações na base de dados do Azure para MySQL
-A base de dados do Azure para o serviço de MySQL está em pré-visualização pública. As secções seguintes descrevem a capacidade, suporte de motor de armazenamento, suporte de privilégios, suporte de instrução de manipulação de dados e limites funcionais no serviço de base de dados. Consulte também [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicável para o motor de base de dados MySQL.
+As secções seguintes descrevem a capacidade, suporte de motor de armazenamento, suporte de privilégios, suporte de instrução de manipulação de dados e limites funcionais no serviço de base de dados. Consulte também [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicável para o motor de base de dados MySQL.
 
 ## <a name="service-tier-maximums"></a>Valores máximos de camada de serviço
 Base de dados do Azure para MySQL tem vários escalões de serviço à sua escolha durante a criação de um servidor. Para obter mais informações, consulte [base de dados do Azure para MySQL escalões de preço](concepts-pricing-tiers.md).  
 
-Não há um número máximo de ligações, unidades de computação e armazenamento em cada camada de serviço durante a pré-visualização, da seguinte forma: 
+Há um número máximo de ligações, unidades de computação e armazenamento em cada camada de serviço, da seguinte forma: 
 
 |**Escalão de Preço**| **Geração de computação**|**vCore(s)**| **Máx. ligações**|
 |---|---|---|---|
-|Básica| Gen 4| 1| 50|
-|Básica| Gen 4| 2| 100|
-|Básica| Gen 5| 1| 50|
-|Básica| Gen 5| 2| 100|
-|Fins Gerais| Gen 4| 2| 200|
-|Fins Gerais| Gen 4| 4| 400|
-|Fins Gerais| Gen 4| 8| 800|
-|Fins Gerais| Gen 4| 16| 1600|
-|Fins Gerais| Gen 4| 32| 3200|
-|Fins Gerais| Gen 5| 2| 200|
-|Fins Gerais| Gen 5| 4| 400|
-|Fins Gerais| Gen 5| 8| 800|
-|Fins Gerais| Gen 5| 16| 1600|
-|Fins Gerais| Gen 5| 32| 3200|
-|Memória Otimizada| Gen 5| 2| 600|
-|Memória Otimizada| Gen 5| 4| 1250|
-|Memória Otimizada| Gen 5| 8| 2500|
-|Memória Otimizada| Gen 5| 16| 5000|
-|Memória Otimizada| Gen 5| 32| 10000| 
+|Básica| Geração 4| 1| 50|
+|Básica| Geração 4| 2| 100|
+|Básica| Geração 5| 1| 50|
+|Básica| Geração 5| 2| 100|
+|Fins Gerais| Geração 4| 2| 300|
+|Fins Gerais| Geração 4| 4| 625|
+|Fins Gerais| Geração 4| 8| 1250|
+|Fins Gerais| Geração 4| 16| 2500|
+|Fins Gerais| Geração 4| 32| 5000|
+|Fins Gerais| Geração 5| 2| 300|
+|Fins Gerais| Geração 5| 4| 625|
+|Fins Gerais| Geração 5| 8| 1250|
+|Fins Gerais| Geração 5| 16| 2500|
+|Fins Gerais| Geração 5| 32| 5000|
+|Memória Otimizada| Geração 5| 2| 600|
+|Memória Otimizada| Geração 5| 4| 1250|
+|Memória Otimizada| Geração 5| 8| 2500|
+|Memória Otimizada| Geração 5| 16| 5000|
 
 Quando são atingidas demasiadas ligações, poderá receber o erro seguinte:
 > Erro 1040 (08004): Demasiadas ligações
@@ -74,7 +73,7 @@ Quando são atingidas demasiadas ligações, poderá receber o erro seguinte:
 ### <a name="unsupported"></a>Não suportado
 - SELECIONE... PARA OUTFILE
 
-## <a name="preview-functional-limitations"></a>Limitações de pré-visualização funcionais
+## <a name="functional-limitations"></a>Limitações funcionais
 
 ### <a name="scale-operations"></a>Operações de dimensionamento
 - Dimensionamento dinâmico de servidores em escalões de preço não é atualmente suportada. Ou seja, alternar entre básico, fins gerais e otimização de memória escalões de preço.

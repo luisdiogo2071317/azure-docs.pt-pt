@@ -1,11 +1,11 @@
 ---
-title: "Copiar dados de e para Oracle através da utilização do Azure Data Factory | Microsoft Docs"
+title: Copiar dados de e para Oracle através da utilização do Azure Data Factory | Microsoft Docs
 description: Saiba como copiar dados de arquivos de origem suportada para uma base de dados Oracle ou de Oracle para lojas de dependente suportados por utilizar o Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: dfbc6e1d8bdf20cc7a0a4b1571882ba84487dddc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aa96356b01d63aa21c55f1b2e6998e65f9d617f6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar os dados de origem e de Oracle através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - geralmente disponível](v1/data-factory-onprem-oracle-connector.md)
+> * [Versão 1 - Disponibilidade geral](v1/data-factory-onprem-oracle-connector.md)
 > * [Versão 2 - Pré-visualização](connector-oracle.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de origem e de uma base de dados Oracle. Baseia-se no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
@@ -58,7 +58,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Oracle.
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida **Oracle**. | Sim |
-| connectionString | Especifica as informações necessárias para estabelecer ligação à instância de base de dados Oracle. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md).<br><br>**Suportada de tipo de ligação**: pode utilizar **Oracle SID** ou **nome do serviço Oracle** para identificar a sua base de dados:<br>-Se utilizar SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se utilizar o nome do serviço:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Sim |
+| connectionString | Especifica as informações necessárias para estabelecer ligação à instância de base de dados Oracle. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md).<br><br>**Suportada de tipo de ligação**: pode utilizar **Oracle SID** ou **nome do serviço Oracle** para identificar a sua base de dados:<br>-Se utilizar SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se utilizar o nome do serviço: `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Sim |
 | connectVia | O [integração runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo:**

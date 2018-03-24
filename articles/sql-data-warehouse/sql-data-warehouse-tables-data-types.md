@@ -1,11 +1,11 @@
 ---
-title: "Tipos de dados orientações - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Recomendações para definir os tipos de dados que são compatíveis com o SQL Data Warehouse."
+title: Tipos de dados orientações - Azure SQL Data Warehouse | Microsoft Docs
+description: Recomendações para definir os tipos de dados que são compatíveis com o SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
+editor: ''
 ms.assetid: d4a1f0a3-ba9f-44b9-95f6-16a4f30746d6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 03/17/2018
 ms.author: barbkess
-ms.openlocfilehash: 2bde5da8593c559e2afb33c9c4842695dc273ac3
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: dcdcb6eddf35fe3ec4754353452c68cd3e24f907
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Orientações para definir os tipos de dados para tabelas no armazém de dados do SQL Server
 Utilize estas recomendações para definir os tipos de dados de tabela que são compatíveis com o SQL Data Warehouse. Para além de compatibilidade, minimizar o tamanho dos tipos de dados melhora o desempenho de consulta.
@@ -55,21 +55,21 @@ A lista seguinte mostra os tipos de dados que o SQL Data Warehouse não suporta 
 
 | Tipo de dados não suportado | Solução |
 | --- | --- |
-| [geometria][geometry] |[varbinary][varbinary] |
-| [Geografia][geography] |[varbinary][varbinary] |
+| [geometry][geometry] |[varbinary][varbinary] |
+| [geography][geography] |[varbinary][varbinary] |
 | [hierarchyid][hierarchyid] |[nvarchar][nvarchar](4000) |
-| [imagem][ntext,text,image] |[varbinary][varbinary] |
-| [texto][ntext,text,image] |[varchar][varchar] |
+| [image][ntext,text,image] |[varbinary][varbinary] |
+| [text][ntext,text,image] |[varchar][varchar] |
 | [ntext][ntext,text,image] |[nvarchar][nvarchar] |
 | [sql_variant][sql_variant] |Dividir coluna em várias colunas de tipo seguro. |
-| [tabela][table] |Converta a tabelas temporárias. |
-| [Timestamp][timestamp] |Rework código para utilizar [datetime2] [ datetime2] e `CURRENT_TIMESTAMP` função.  São suportadas constantes apenas como predefinições de fábrica, por conseguinte current_timestamp não pode ser definida como uma restrição default. Se precisar de migrar os valores da versão de linha de uma coluna com tipo timestamp, em seguida, utilize [binário][BINARY](8) ou [VARBINARY][BINARY](8) para não nulo ou nulo valores da versão de linha. |
-| [XML][xml] |[varchar][varchar] |
+| [table][table] |Converta a tabelas temporárias. |
+| [timestamp][timestamp] |Rework código para utilizar [datetime2] [ datetime2] e `CURRENT_TIMESTAMP` função.  São suportadas constantes apenas como predefinições de fábrica, por conseguinte current_timestamp não pode ser definida como uma restrição default. Se precisar de migrar os valores da versão de linha de uma coluna com tipo timestamp, em seguida, utilize [binário][BINARY](8) ou [VARBINARY][BINARY](8) para não nulo ou nulo valores da versão de linha. |
+| [xml][xml] |[varchar][varchar] |
 | [tipo definido pelo utilizador][user defined types] |Converta para o tipo de dados nativos sempre que possível. |
 | valores predefinidos | Os valores predefinidos suportam literais e constantes apenas.  As expressões não determinística ou funções, tais como `GETDATE()` ou `CURRENT_TIMESTAMP`, não são suportadas. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais, consulte:
 
 - [Melhores práticas do SQL Data Warehouse][SQL Data Warehouse Best Practices]

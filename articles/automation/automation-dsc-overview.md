@@ -1,24 +1,19 @@
 ---
-title: "Descrição geral do DSC da automatização do Azure | Microsoft Docs"
-description: "Uma descrição geral do Automation DSC do Azure pretendido Estado Configuration (), os termos e problemas conhecidos"
+title: Descrição geral do DSC da automatização do Azure
+description: Uma descrição geral do Automation DSC do Azure pretendido Estado Configuration (), os termos e problemas conhecidos
+keywords: PowerShell dsc, configuração de estado pretendido, azure do powershell dsc
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: "PowerShell dsc, configuração de estado pretendido, azure do powershell dsc"
-ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 3949b79c3729ecdc2dfdd6297a5f10852e061540
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Descrição geral do DSC da automatização do Azure
 
@@ -45,8 +40,8 @@ O portal do Azure ou a partir do PowerShell, pode gerir todos os seus DSC config
 ### <a name="import-reporting-data-into-log-analytics"></a>Importar dados de relatórios para análise de registos
 
 Nós que são geridos com o Automation DSC do Azure enviarem dados de estado de relatórios detalhados para o servidor de solicitação incorporada.
-Pode configurar o DSC de automatização do Azure para enviar estes dados para a sua área de trabalho de análise de registos do Microsoft Operations Management Suite (OMS).
-Para saber como enviar dados de estado de DSC para a sua área de trabalho de análise de registos, consulte [reencaminhar Automation DSC do Azure dados de relatórios para análise de registos do OMS](automation-dsc-diagnostics.md).
+Pode configurar o DSC de automatização do Azure para enviar estes dados para a sua área de trabalho de análise de registos.
+Para saber como enviar dados de estado de DSC para a sua área de trabalho de análise de registos, consulte [reencaminhar Automation DSC do Azure dados de relatórios ao Log Analytics](automation-dsc-diagnostics.md).
 
 ## <a name="introduction-video"></a>Vídeo de introdução
 
@@ -58,7 +53,7 @@ Prefere ver do que ler? Tem a ver o seguinte vídeo de Maio de 2015, quando Auto
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber como nós de carregar para serem geridos pelo Automation DSC do Azure, consulte [máquinas de integração de gestão do Automation DSC do Azure](automation-dsc-onboarding.md)
 * Para começar a utilizar o DSC de automatização do Azure, consulte o artigo [introdução ao Azure Automation DSC](automation-dsc-getting-started.md)

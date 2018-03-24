@@ -1,25 +1,25 @@
 ---
-title: Copiar dados de origem e de Dynamics CRM ou Dynamics 365 utilizando o Azure Data Factory | Microsoft Docs
-description: "Saiba como copiar dados do Microsoft Dynamics CRM ou Microsoft Dynamics 365 suportado sink arquivos de dados ou a partir de suportada arquivos de dados de origem para o Dynamics CRM ou Dynamics 365, utilizando uma atividade de cópia num pipeline de fábrica de dados."
+title: Copiar dados de origem e de Dynamics CRM ou Dynamics 365 (serviço de dados comum) utilizando o Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados do Microsoft Dynamics CRM ou Microsoft Dynamics 365 (serviço de dados comum) suportado sink arquivos de dados ou a partir de suportada arquivos de dados de origem para o Dynamics CRM ou Dynamics 365, utilizando uma atividade de cópia num pipeline de fábrica de dados.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/16/2018
 ms.author: jingwang
-ms.openlocfilehash: dc0b01e23ebb2695fd0365f054b3cacd2573f3c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ea69fdab9ec510f6060b280db3afffb7533a4bda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de origem e de Dynamics 365 ou do Dynamics CRM através da utilização do Azure Data Factory
+# <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar os dados de origem e de Dynamics 365 (serviço de dados comum) ou Dynamics CRM através da utilização do Azure Data Factory
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de origem e de Microsoft Dynamics 365 ou do Microsoft Dynamics CRM. Baseia-se no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
 
@@ -28,7 +28,7 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de Dynamics 365 ou do Dynamics CRM para qualquer arquivo de dados suportados sink. Também pode copiar dados de qualquer arquivo de dados de origem suportada para o Dynamics 365 ou do Dynamics CRM. Para obter uma lista dos arquivos de dados suportados como origens ou sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados de Dynamics 365 (serviço de dados comum) ou Dynamics CRM para qualquer arquivo de dados suportados sink. Também pode copiar dados de qualquer arquivo de dados de origem suportada para o Dynamics 365 (serviço de dados comum) ou Dynamics CRM. Para obter uma lista dos arquivos de dados suportados como origens ou sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
 Este conector Dynamics suporta as seguintes versões de Dynamics e tipos de autenticação. (IFD é curto para implementação de acesso à internet.)
 

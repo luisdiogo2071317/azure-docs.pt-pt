@@ -1,12 +1,12 @@
 ---
-title: 'IoT DevKit na nuvem: ligar o IoT DevKit AZ3166 ao IoT Hub do Azure | Microsoft Docs'
-description: "Neste tutorial, saiba como enviar estado de sensores em IoT DevKit AZ3166 para o Azure IoT Suite para monitorização e visualização."
+title: 'IoT DevKit na nuvem: ligar o IoT MXChip DevKit ao IoT Hub do Azure | Microsoft Docs'
+description: Neste tutorial, saiba como enviar estado de sensores em IoT DevKit AZ3166 para o Azure IoT Suite para monitorização e visualização.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: liydu
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: b43061f5af3e836ba3f0b37eb11b351a769890be
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 92efd0970bcf516c4210f831a0c2f23b3ee7b5d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="connect-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring"></a>Ligar IoT DevKit AZ3166 para o Azure IoT Suite para monitorização remota
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Ligar MXChip IoT DevKit para o Azure IoT Suite para monitorização remota
 
 Neste tutorial, irá aprender a executar uma aplicação de exemplo no seu DevKit para enviar dados de sensor para o Azure IoT Suite.
 
@@ -42,7 +42,7 @@ Uma subscrição ativa do Azure. Se não tiver uma, pode registar através de um
 
 1. Aceda a [site do Azure IoT Suite](https://www.azureiotsuite.com/) e clique em **criar uma nova solução**.
   ![Selecione o tipo do Azure IoT Suite](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
-  > [!NOTE]
+  > [!WARNING]
   > Por predefinição, este exemplo cria um S2 IoT Hub depois de criar um IoT Suite. Se este hub IoT não está a ser utilizado com grande número de dispositivos, recomendamos vivamente que mudá-lo a partir de S2 para S1 e eliminar o IoT Suite para que o IoT Hub relacionados também podem ser eliminado, quando já não precisar dele. 
 
 2. Selecione **monitorização remota**.

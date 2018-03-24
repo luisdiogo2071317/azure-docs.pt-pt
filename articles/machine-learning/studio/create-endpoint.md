@@ -1,10 +1,11 @@
 ---
-title: "A criação de pontos finais do serviço Web no Machine Learning | Microsoft Docs"
-description: "A criação de pontos finais do serviço Web no Azure Machine Learning"
+title: A criação de pontos finais do serviço Web no Machine Learning | Microsoft Docs
+description: A criação de pontos finais do serviço Web no Azure Machine Learning
 services: machine-learning
-documentationcenter: 
-author: hiteshmadan
-manager: padou
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.author: himad
-ms.openlocfilehash: 6de83042779a1a4edae57499f108dcddc9d68309
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: fac284e9f0c852306d99733a879fc13c85f07768
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="creating-endpoints"></a>Criação de pontos finais
 > [!NOTE]
@@ -35,7 +35,7 @@ Para tal, o Azure Machine Learning permite-lhe criar vários pontos finais para 
 ## <a name="adding-endpoints-to-a-web-service"></a>Adicionar pontos finais para um serviço Web
 Existem duas formas de adicionar um ponto final para um serviço Web.
 
-* Através de Programação
+* Através de programação
 * Através do portal de serviços Web do Azure Machine Learning
 
 Quando o ponto final for criado, pode consumi-lo através de APIs síncronas, batch APIs e folhas de cálculo do excel. Para além de adicionar pontos finais através deste IU, também pode utilizar as APIs de gestão do ponto final para programaticamente adicionar pontos finais.
@@ -54,6 +54,6 @@ Pode adicionar um ponto final ao seu serviço Web através de programação util
 3. Clique em **Novo**.
 4. Escreva um nome e descrição para o novo ponto final. Os nomes de ponto final tem de ser 24 caráter ou menos de comprimento e devem ser constituídos por europeus minúsculas ou números. Selecione o nível de registo e se os dados de exemplo estão ativados. Para obter mais informações sobre o registo, consulte [ativar o registo de serviços Web do Machine Learning](web-services-logging.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Como consumir um serviço Web do Azure Machine Learning](consume-web-services.md).
 

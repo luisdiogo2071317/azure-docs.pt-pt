@@ -1,6 +1,6 @@
 ---
-title: "Escalões de preço na base de dados do Azure para MySQL"
-description: "Este artigo descreve os escalões de preços na base de dados do Azure para MySQL."
+title: Escalões de preço na base de dados do Azure para MySQL
+description: Este artigo descreve os escalões de preços na base de dados do Azure para MySQL.
 services: mysql
 author: jan-eng
 ms.author: janeng
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 6bd24da05c337a902ce0e4a2b9acf22a809eb653
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: ec475648f1da4420e86bf59053d95770409bed8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -21,8 +21,8 @@ ms.lasthandoff: 02/28/2018
 
 |    | **Básica** | **Fins gerais** | **Com otimização de memória** |
 |:---|:----------|:--------------------|:---------------------|
-| Geração de computação | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
+| Geração de computação | Gen 4, Gen 5 | Gen 4, Gen 5 | Geração 5 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memória por vCore | 1x | 2 x básico | 2x fins gerais |
 | Tamanho de Armazenamento | 5 GB até 1 TB | 5 GB até 1 TB | 5 GB até 1 TB |
 | Tipo de armazenamento | Armazenamento padrão do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
@@ -32,15 +32,40 @@ A tabela seguinte pode ser utilizada como um ponto de partida para escolher um e
 
 | Escalão de preço | Cargas de trabalho de destino |
 |:-------------|:-----------------|
-| Básica | Cargas de trabalho leve computação e de desempenho de e/s. Os exemplos incluem servidores utilizados para programação ou testes ou dimensionamento pequeno raramente utilizadas aplicações. |
-| Fins Gerais | A maioria das empresas cargas de trabalho exigir com balanceamento de computação e memória com débito dimensionável de e/s. Os exemplos incluem o servidor para o alojamento Web e de aplicações móveis e de outras aplicações da empresa.|
+| Básica | Cargas de trabalho que requerem capacidades de computação e desempenho de E/S reduzidos. Por exemplo, os servidores utilizados para desenvolvimento ou teste, ou aplicações de pequena escala utilizadas com pouca frequência. |
+| Fins Gerais | A maioria das cargas de trabalho empresariais requerem computação e memória equilibradas com débito de E/S dimensionável. Os exemplos incluem o servidor para o alojamento Web e de aplicações móveis e de outras aplicações da empresa.|
 | Memória Otimizada | Cargas de trabalho de base de dados de elevado desempenho que necessitam de desempenho de memória para o processamento de transações mais rápido e simultaneidade superior. Os exemplos incluem o servidor para o processamento em tempo real, aplicações e dados de elevado desempenho transacional ou analíticos.|
 
 Depois de criar um servidor, o número de vCores pode ser alterado a cópia de segurança ou para baixo em segundos. Pode também independentemente ajustar a quantidade de armazenamento da cópia de segurança e o período de retenção de cópias de segurança ou reduzir verticalmente sem período de indisponibilidade de aplicações. Consulte a secção dimensionamento abaixo para obter mais detalhes.
 
 ## <a name="compute-generations-vcores-and-memory"></a>Memória, vCores e gerações de computação
 
-Recursos de computação são fornecidos como vCores, que representa a CPU lógica o hardware subjacente. Atualmente, as duas gerações de computação, Gen 4 e Gen 5, são disponibilizadas para escolher. Gen 4 CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) 2.4 GHz processadores. Gen 5 CPUs lógicas baseiam-se no Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores.
+Recursos de computação são fornecidos como vCores, que representa a CPU lógica o hardware subjacente. Atualmente, as duas gerações de computação, Gen 4 e Gen 5, são disponibilizadas para escolher. As CPUs lógicas de Geração 4 baseiam-se nos processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz. As CPUs lógicas de Geração 5 baseiam-se nos processadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz. Gen 4 e Gen 5 na estão disponíveis as seguintes regiões ("X" indica disponível): 
+
+| **Região do Azure** | **Geração 4** | **Geração 5** |
+|:---|:----------:|:--------------------:|
+| EUA Central |  | X |
+| EUA Leste | X | X |
+| EUA Leste 2 | X |  |
+| EUA Centro-Norte | X |  |
+| EUA Centro-Sul | X |  |
+| EUA Oeste | X | X |
+| EUA Oeste 2 |  | X |
+| Canadá Central | X | X |
+| Leste do Canadá | X | X |
+| Sul do Brasil | X |  |
+| Europa do Norte | X | X |
+| Europa Ocidental | X | X |
+| Reino Unido Oeste |  | X |
+| Reino Unido Sul |  | X |
+| Ásia Oriental | X |  |
+| Sudeste Asiático | X |  |
+| Leste da Austrália |  | X |
+| Índia Central | X |  |
+| Índia Ocidental | X |  |
+| Leste do Japão | X |  |
+| Oeste do Japão | X |  |
+| Coreia do Sul |  | X |
 
 Consoante o escalão de preço, cada vCore é aprovisionada com uma quantidade específica de memória. Ao aumentar ou reduzir o número de vCores para o servidor, a memória aumenta ou diminui proporcionalmente. A camada de objetivo geral fornece duplo a quantidade de memória por vCore em comparação comparada a camada básica. A camada de otimização de memória fornece duplo a quantidade de memória em comparação comparada a camada de objetivo geral.
 

@@ -1,5 +1,5 @@
 ---
-title: "Aplicação Azure Insights FAQ | Microsoft Docs"
+title: Aplicação Azure Insights FAQ | Microsoft Docs
 description: Perguntas mais frequentes sobre o Application Insights.
 services: application-insights
 documentationcenter: .net
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas mais frequentes
 
@@ -121,7 +121,7 @@ A partir de outras origens, se configurar:
 * [Diagnóstico do Azure](app-insights-azure-diagnostics.md)
 * [Contentores de docker](app-insights-docker.md)
 * [Importar as tabelas para análise](app-insights-analytics-import.md)
-* [(Análise de registos) do OMS](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Pode filtrar ou modificar algumas telemetria?
@@ -188,7 +188,7 @@ Utilize um único recurso de todos os componentes ou funções num sistema de ne
 * Se um utilizador real utiliza o seu site no browsers diferentes ou utilizando a navegar no-privada/incognito ou vários computadores, em seguida, estes serão contados tendo mais do que uma vez.
 * Para identificar um utilizador com sessão iniciada em máquinas e browsers, adicione uma chamada para [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 
-## <a name="q17"></a>Posso ativou tudo no Application Insights?
+## <a name="q17"></a> Posso ativou tudo no Application Insights?
 | Deverá ver | Como a obter | Motivo pelo qual pretende |
 | --- | --- | --- |
 | Gráficos de disponibilidade |[Testes Web](app-insights-monitor-web-app-availability.md) |Conhecer a que sua aplicação web está ativo |
@@ -250,7 +250,7 @@ Seguem-se dois métodos:
 
 ### <a name="firewall-door"></a>Porta de firewall
 
-Permitir que o servidor web enviar telemetria ao nosso https://dc.services.visualstudio.com:443 pontos finais e https://rt.services.visualstudio.com:443. 
+Permitir que o servidor web enviar telemetria ao nosso pontos finais https://dc.services.visualstudio.com:443 e https://rt.services.visualstudio.com:443. 
 
 ### <a name="proxy"></a>Proxy
 
@@ -262,7 +262,7 @@ Encaminhar o tráfego do seu servidor para um gateway na sua intranet, definindo
 </TelemetryChannel>
 ```
 
-O gateway deve encaminhar o tráfego para v2/https://dc.services.visualstudio.com:443/controlar
+O gateway deve encaminhar o tráfego para https://dc.services.visualstudio.com:443/v2/track
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Pode executar testes web de disponibilidade num servidor da intranet?
 

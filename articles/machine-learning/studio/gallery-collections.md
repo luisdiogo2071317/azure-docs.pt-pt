@@ -1,10 +1,11 @@
 ---
-title: "Coleções de AI galeria do Azure | Microsoft Docs"
-description: "Detetar e partilhar coleções na Galeria de AI do Azure."
+title: Coleções de AI galeria do Azure | Microsoft Docs
+description: Detetar e partilhar coleções na Galeria de AI do Azure.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: b7850b55baa690df22d8ebe14e9fa17fd91e0bad
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ee34520973a482a5a7741efe1306c8a656315277
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Detetar e partilhar coleções na Galeria de AI do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ Para procurar coleções [na galeria](http://gallery.cortanaintelligence.com), e
 
 ![Selecione as coleções na home page da Galeria](./media/gallery-collections/select-collections-in-gallery.png)
 
-O  **[coleções](https://gallery.cortanaintelligence.com/collections)**  página apresenta uma lista de coleções recentemente adicionadas e populares. Para ver todas as coleções, selecione **ver todos os**. Para procurar uma coleção específica, selecione **ver todos os**e os critérios de filtro, em seguida, selecione. Também pode introduzir termos de pesquisa no **pesquisa** caixa na parte superior da página da galeria.
+O **[coleções](https://gallery.cortanaintelligence.com/collections)** página apresenta uma lista de coleções recentemente adicionadas e populares. Para ver todas as coleções, selecione **ver todos os**. Para procurar uma coleção específica, selecione **ver todos os**e os critérios de filtro, em seguida, selecione. Também pode introduzir termos de pesquisa no **pesquisa** caixa na parte superior da página da galeria.
 
 Pode obter mais informações sobre uma coleção na página de detalhes da coleção. Para abrir uma página de detalhes de coleção, selecione a coleção. Uma coleção de detalhes de página no **comentários** secção, pode comente, fornecer comentários ou fazer perguntas sobre a coleção. Ainda pode partilhar a coleção com amigos ou colegas no Twitter ou LinkedIn. Também pode enviar por e-mail uma ligação para a página de detalhes de coleção, para convidar outros utilizadores para ver a página.
 

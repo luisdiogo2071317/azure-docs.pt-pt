@@ -1,6 +1,6 @@
 ---
-title: "Criar a identidade da aplicação do Azure no portal | Microsoft Docs"
-description: "Descreve como criar uma nova aplicação do Azure Active Directory e um principal de serviço que pode ser utilizada com o controlo de acesso baseado em funções no Gestor de recursos do Azure para gerir o acesso aos recursos."
+title: Criar a identidade da aplicação do Azure no portal | Microsoft Docs
+description: Descreve como criar uma nova aplicação do Azure Active Directory e um principal de serviço que pode ser utilizada com o controlo de acesso baseado em funções no Gestor de recursos do Azure para gerir o acesso aos recursos.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: c2b8498b2d32e2c3c7ed5dca3295ae6a98fa2676
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 264befc6c60b87d41658b4da763e477fbb7e3f8c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utilize o portal para criar uma aplicação Azure Active Directory e um principal de serviço que pode aceder a recursos
 
@@ -159,7 +159,7 @@ Pode definir o âmbito ao nível da subscrição, do grupo de recursos ou do rec
 
    ![Selecione a função](./media/resource-group-create-service-principal-portal/select-role.png)
 
-1. Procure a aplicação e selecione-o.
+1. Por predefinição, as aplicações do Azure Active Directory não são apresentadas nas opções disponíveis. Para localizar a aplicação, tem de fornecer o nome do mesmo no campo de pesquisa. Selecione-o.
 
    ![Procure a aplicação](./media/resource-group-create-service-principal-portal/search-app.png)
 

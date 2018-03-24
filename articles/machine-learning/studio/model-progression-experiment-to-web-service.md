@@ -1,10 +1,11 @@
 ---
-title: "Como um modelo do Azure Machine Learning torna-se um serviço web | Microsoft Docs"
-description: "Uma descrição geral de mechanics de como a avança de ser do modelo do Azure Machine Learning a partir de um desenvolvimento experimentação para um serviço Web operacionalizado."
+title: Como um modelo do Azure Machine Learning torna-se um serviço web | Microsoft Docs
+description: Uma descrição geral de mechanics de como a avança de ser do modelo do Azure Machine Learning a partir de um desenvolvimento experimentação para um serviço Web operacionalizado.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: 383f0a466f92a230e49c3d1e96d306a0b7d67da2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f36c8cf68c707e4472fd1779044a64e7f9f4c004
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Como um modelo de Machine Learning avança a partir de uma experimentação para um serviço Web operacionalizado
 Azure Machine Learning Studio fornece uma tela interativa que lhe permite desenvolver, executar, testar e iterar um ***experimentação*** que representa um modelo de Análise Preditiva. Existem uma grande variedade de módulos que podem:
@@ -98,7 +98,7 @@ Eis um exemplo: Suponhamos sua experimentação preditiva devolve toda a linha d
 
 Se pretender manter o seu modelo de machine learning, mas que gostaria de reparametrização dos-lo com novos dados, tem duas opções:
 
-1. **Reparametrização do modelo enquanto o serviço Web está em execução** -se pretender reparametrização do seu modelo, enquanto o serviço Web preditivo está em execução, pode fazer isto efetuar algumas alterações para a experimentação de preparação para torná-lo um ***reparametrização experimentação***, em seguida, pode implementá-lo como um  ***web reparametrização* serviço**. Para obter instruções sobre como efetuar esta ação, consulte [Machine Learning reparametrização dos modelos programáticos](retrain-models-programmatically.md).
+1. **Reparametrização do modelo enquanto o serviço Web está em execução** -se de que pretende reparametrização do seu modelo, enquanto o serviço Web preditivo está em execução, pode fazê-efetuar algumas alterações para a experimentação de preparação para torná-lo um ***reparametrização experimentar***, em seguida, pode implementá-lo como um  ***web reparametrização* serviço**. Para obter instruções sobre como efetuar esta ação, consulte [Machine Learning reparametrização dos modelos programáticos](retrain-models-programmatically.md).
 2. **Volte para a experimentação de preparação original e utilizar os dados de formação diferentes para desenvolver o seu modelo** - sua experimentação preditiva está ligada ao serviço Web, mas a experimentação de preparação não está diretamente ligada desta forma. Se modificar a experimentação de preparação original e clique em **segurança serviço Web**, irá criar um *novo* preditiva experimentação que, quando implementados, irá criar um *novo* serviço Web. Tal não atualiza o serviço Web original.
    
    Se necessitar de modificar a experimentação de preparação, abra-o e clique em **guardar como** que faça uma cópia. Este procedimento irá deixar a experimentação de preparação original, experimentação preditiva, intactos e serviço Web. Agora, pode criar um novo serviço Web com as suas alterações. Assim que tiver implementado o novo serviço Web, em seguida, pode decidir se pretende parar o serviço Web anterior ou manter a funcionar em conjunto com o novo.
@@ -107,7 +107,7 @@ Se pretender manter o seu modelo de machine learning, mas que gostaria de repara
 
 Se pretende efetuar alterações à sua experimentação preditiva original, por exemplo, selecionar uma algoritmo de aprendizagem diferentes tentar um método de formação diferentes, etc., em seguida, tem de seguir o segundo procedimento descrito acima para a reparametrização o seu modelo: Abra a experimentação de preparação, clique em **guardar como** para efetuar uma cópia e, em seguida, iniciar para baixo o novo caminho de desenvolver o seu modelo , criar a experimentação preditiva e implementar o serviço web. Esta ação irá criar uma novo Web service não relacionado com um original - pode decidir que um ou ambos, para manter em execução.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Para obter mais detalhes sobre o processo de desenvolvimento e a experimentação, consulte os artigos seguintes:
 
 * converter a experimentação - [como preparar o modelo de implementação no Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md)

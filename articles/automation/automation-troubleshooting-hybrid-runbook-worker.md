@@ -1,24 +1,18 @@
 ---
-title: "Resolver problemas de trabalho de Runbook híbrida da automatização do Azure | Microsoft Docs"
-description: "Descrevem os sintomas, as causas e resolução de problemas mais comuns do Runbook Worker híbrido na automatização do Azure."
+title: Resolver problemas de trabalho de Runbook híbrida da automatização do Azure
+description: Descrevem os sintomas, as causas e resolução de problemas mais comuns do Runbook Worker híbrido na automatização do Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 02c6606e-8924-4328-a196-45630c2255e9
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2017
-ms.author: magoedte
-ms.openlocfilehash: 75f4ac1bc940a2b1d8e4ac6aeac8b80c642489da
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+manager: carmonm
+ms.openlocfilehash: 2536a197cf9eca07f21b78f31f67065475054bd5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-tips-for-hybrid-runbook-worker"></a>Sugestões de resolução de problemas do Runbook Worker híbrido
 
@@ -26,12 +20,12 @@ Este artigo fornece erros podem ocorrer com automatização de Runbook híbridos
 
 ## <a name="a-runbook-job-terminates-with-a-status-of-suspended"></a>Uma tarefa de runbook termina com o estado suspenso
 
-O runbook está suspenso pouco tempo depois tentar executá-lo três vezes. Existem condições que poderão interromper o runbook a conclusão com êxito e a mensagem de erro relacionados não inclui qualquer informação adicional que indica o motivo. Este artigo fornece os passos de resolução de problemas para problemas relacionados com as falhas de execução de runbook do Runbook Worker híbrido.
+O runbook está suspenso pouco tempo depois tentar executá-lo três vezes. Existem condições, o que poderão interromper o runbook a conclusão com êxito e a mensagem de erro relacionados não inclui qualquer informação adicional que indica o motivo. Este artigo fornece os passos de resolução de problemas para problemas relacionados com as falhas de execução de runbook do Runbook Worker híbrido.
 
 Se o problema do Azure não esteja endereçado neste artigo, visite os fóruns do Azure no [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Pode publicar o seu problema estes fóruns ou a [ @AzureSupport no Twitter](https://twitter.com/AzureSupport). Além disso, pode ficheiro um pedido de suporte do Azure ao selecionar **obter suporte** no [suporte do Azure](https://azure.microsoft.com/support/options/) site.
 
 ### <a name="symptom"></a>Sintoma
-Falha de execução do Runbook e o erro devolvido é, "a ação de tarefa não é possível executar 'Ativar', porque o processo parou inesperadamente. A ação de tarefa foi tentada 3 vezes."
+Falha de execução do Runbook e o erro devolvido é, "a ação de tarefa não é possível executar 'Ativar', porque o processo parou inesperadamente. A ação de tarefa foi tentada três vezes."
 
 Existem várias causas possíveis para o erro: 
 
@@ -46,16 +40,16 @@ O computador que está a executar o Runbook Worker híbrido no estiver atrás de
 Certifique-se de que o computador tem acesso de saída para *.azure automation.net na porta 443. 
 
 #### <a name="cause-2-computer-has-less-than-minimum-hardware-requirements"></a>Causa 2: O computador tiver menos de mínimos de hardware
-Computadores com o Runbook Worker híbrido devem cumprir os requisitos mínimos de hardware antes de indicar que esta funcionalidade do anfitrião. Caso contrário, consoante a utilização de recursos de outros processos em segundo plano e a contenção causado por runbooks durante a execução, o computador irá ficar sobrecarregado e causar atrasos de tarefa de runbook ou tempos limite. 
+Computadores com o Runbook Worker híbrido devem cumprir os requisitos mínimos de hardware antes de indicar que esta funcionalidade do anfitrião. Caso contrário, consoante a utilização de recursos de outros processos em segundo plano e a contenção causado por runbooks durante a execução, o computador fica sobrecarregado e causar atrasos de tarefa de runbook ou tempos limite. 
 
 #### <a name="solution"></a>Solução
-Confirme primeiro o computador designado para executar a funcionalidade do Runbook Worker híbrido cumpre os requisitos mínimos de hardware.  Se existir, monitorize a utilização de CPU e memória para determinar a qualquer correlação entre o desempenho dos processos de trabalho de Runbook híbrida e o Windows.  Se existir memória ou pressão de CPU, isto pode indicar a necessidade de atualizar ou adicione processadores adicionais ou aumente a memória para resolver o congestionamento do recurso e resolva o erro. Em alternativa, selecione um recurso de computação diferentes que pode suportar os requisitos mínimos e escala, quando a carga de trabalho exigências indicam que um aumento é necessário.         
+Confirme primeiro o computador designado para executar a funcionalidade do Runbook Worker híbrido cumpre os requisitos mínimos de hardware. Se existir, monitorize a utilização de CPU e memória para determinar a qualquer correlação entre o desempenho dos processos de trabalho de Runbook híbrida e o Windows. Se existir memória ou pressão de CPU, isto pode indicar a necessidade de atualizar ou adicione processadores adicionais ou aumente a memória para resolver o congestionamento do recurso e resolva o erro. Em alternativa, selecione um recurso de computação diferentes que pode suportar os requisitos mínimos e escala, quando a carga de trabalho exigências indicam que um aumento é necessário.         
 
 #### <a name="cause-3-runbooks-cannot-authenticate-with-local-resources"></a>Causa 3: Não é possível autenticar Runbooks com recursos locais
 
 #### <a name="solution"></a>Solução
-Verifique o **Microsoft SMA** registo de eventos para um evento correspondente com a descrição *Win32 processo abortado com o código [4294967295]*.  A causa deste erro é que ainda não configurada a autenticação nos runbooks ou especificar as credenciais Run As para o grupo de trabalho híbridas.  Reveja [Runbook permissões](automation-hrw-run-runbooks.md#runbook-permissions) para confirmar que configurou corretamente a autenticação para os runbooks.  
+Verifique o **Microsoft SMA** registo de eventos para um evento correspondente com a descrição *Win32 processo abortado com o código [4294967295]*. A causa deste erro é que ainda não configurada a autenticação nos runbooks ou especificar as credenciais Run As para o grupo de trabalho híbridas. Reveja [Runbook permissões](automation-hrw-run-runbooks.md#runbook-permissions) para confirmar que configurou corretamente a autenticação para os runbooks.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter ajuda na resolução de problemas de outros problemas na automatização, consulte [resolução de problemas comuns de automatização do Azure](automation-troubleshooting-automation-errors.md) 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: kumud
-ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d384f8867ddfd28acaf78a47a7d32729e87c5580
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Como gerir zonas DNS no DNS do Azure utilizando o 2.0 CLI do Azure
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 
 
 Este guia mostra como gerir as zonas DNS, utilizando a CLI do Azure de várias plataformas, que está disponível para o Windows, Mac e Linux. Também pode gerir as zonas DNS utilizando [Azure PowerShell](dns-operations-dnszones.md) ou o portal do Azure.
+
+Este guia especificamente lida com zonas DNS público. Para obter informações sobre como utilizar a CLI do Azure para gerir privada zonas no DNS do Azure, consulte [introdução ao Azure zonas de DNS privada a utilizar o Azure CLI 2.0](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Introdução
 
@@ -45,7 +47,7 @@ Antes de iniciar a configuração, verifique se tem os seguintes itens.
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicie sessão na sua conta do Azure
 
-Abra uma janela de consola e autentique com as suas credenciais. Para obter mais informações, veja Iniciar sessão no Azure a partir da CLI do Azure
+Abra uma janela de consola e autentique com as suas credenciais. Para obter mais informações, veja [Iniciar sessão no Azure a partir da CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -64,6 +66,12 @@ Escolha qual das subscrições do Azure utilizar.
 ```azurecli
 az account set --subscription "subscription name"
 ```
+
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Opcional: para instalar/utilização zonas de DNS privado do Azure da funcionalidade (pré-visualização pública)
+A funcionalidade de zona de DNS privado do Azure é lançada em pré-visualização pública através de uma extensão para a CLI do Azure. Instalar o dns"" extensão da CLI do Azure 
+```
+az extension add --name dns
+``` 
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

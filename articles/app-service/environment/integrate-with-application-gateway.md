@@ -1,6 +1,6 @@
 ---
-title: "Integrar o seu ambiente de serviço de aplicações do ILB com um gateway de aplicação"
-description: "Obter instruções sobre como integrar uma aplicação no seu ambiente de serviço de aplicações do ILB com um gateway de aplicação"
+title: Integrar o seu ambiente de serviço de aplicações do ILB com um gateway de aplicação
+description: Obter instruções sobre como integrar uma aplicação no seu ambiente de serviço de aplicações do ILB com um gateway de aplicação
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: ccompy
-ms.openlocfilehash: d56eab79c3b3f6b37dc39d8e4bea0d5b7759631a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>Integrar o seu ambiente de serviço de aplicações do ILB com um gateway de aplicação #
 
-O [ambiente de serviço de aplicações para PowerApps](./intro.md) é uma implementação do App Service do Azure na sub-rede da rede virtual do Azure de um cliente. Pode ser implementado com um ponto de final público ou privado para acesso à aplicação. A implementação do ambiente de serviço de aplicações com um ponto de final privado (ou seja, um balanceador de carga interno) é chamada um ambiente de serviço de aplicações do ILB.  
+O [ambiente de serviço de aplicações](./intro.md) é uma implementação do App Service do Azure na sub-rede da rede virtual do Azure de um cliente. Pode ser implementado com um ponto de final público ou privado para acesso à aplicação. A implementação do ambiente de serviço de aplicações com um ponto de final privado (ou seja, um balanceador de carga interno) é chamada um ambiente de serviço de aplicações do ILB.  
 
 Gateway de aplicação do Azure é uma aplicação virtual que fornece balanceamento de carga de camada 7, a descarga de SSL e a proteção de firewall (WAF) de aplicação web. Pode escutar um IP endereços e encaminhar tráfego público para o ponto final da aplicação. 
 

@@ -1,11 +1,11 @@
 ---
-title: "Fluxo em direto com codificadores no local que criar fluxos de transmissão múltipla - Azure | Microsoft Docs"
-description: "Este tópico descreve como configurar um canal que recebe um transmissão múltipla em fluxo em direto de um codificador no local. O fluxo de, em seguida, pode ser fornecido para aplicações de reprodução de cliente através de um ou mais transmissão em fluxo pontos finais, utilizando um dos seguintes protocolos de transmissão em fluxo adaptável: HLS, transmissão em fluxo uniforme, DASH."
+title: Fluxo em direto com codificadores no local que criar fluxos de transmissão múltipla - Azure | Microsoft Docs
+description: 'Este tópico descreve como configurar um canal que recebe um transmissão múltipla em fluxo em direto de um codificador no local. O fluxo de, em seguida, pode ser fornecido para aplicações de reprodução de cliente através de um ou mais transmissão em fluxo pontos finais, utilizando um dos seguintes protocolos de transmissão em fluxo adaptável: HLS, transmissão em fluxo uniforme, DASH.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: fae123d2cc594bb741fb1cdb0da62bef05a2a8c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Em direto com codificadores no local que criar fluxos de transmissão múltipla transmissão em fluxo
+
+> [!NOTE]
+> A partir de canais em direto 12 de pode de 2018, será já não suporte a sequência de transporte MPEG/RTP-2 protocolo de inserção. Efetue a migração de RTP/MPEG-2 para RTMP ou MP4 fragmentados (transmissão em fluxo uniforme) protocolos de inserção.
+
 ## <a name="overview"></a>Descrição geral
 Nos Media Services do Azure, uma *canal* representa um pipeline de processamento de conteúdos de transmissão em direto. Um canal recebe fluxos de entrada em direto de uma das seguintes formas:
 

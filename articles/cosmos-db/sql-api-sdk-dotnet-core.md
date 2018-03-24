@@ -1,6 +1,6 @@
 ---
 title: 'Do Azure Cosmos DB: API do SQL Server .NET Core, SDK & recursos | Microsoft Docs'
-description: "Saiba tudo sobre a API do SQL Server .NET Core e o SDK, incluindo as datas de versão, datas de extinção e as alterações efetuadas entre cada versão do Cosmos DB SDK .NET da Azure Core."
+description: Saiba tudo sobre a API do SQL Server .NET Core e o SDK, incluindo as datas de versão, datas de extinção e as alterações efetuadas entre cada versão do Cosmos DB SDK .NET da Azure Core.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c7981bc0388fee763396e68d6de3375a01178a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f9bdec9f019a3add62610f7f05c7dfd86e66d5d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -56,9 +56,6 @@ ms.lasthandoff: 03/16/2018
 ## <a name="release-notes"></a>Notas de Versão
 
 Cosmos DB SDK .NET da Azure Core tem paridade de funcionalidades com a versão mais recente do [SDK .NET da Azure Cosmos DB](sql-api-sdk-dotnet.md).
-
-> [!NOTE] 
-> O Azure Cosmos DB .NET Core SDK ainda não é compatível com aplicações da plataforma Universal do Windows (UWP). Se estiver interessado em .NET Core SDK que suportam aplicações UWP, enviar correio eletrónico para [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 

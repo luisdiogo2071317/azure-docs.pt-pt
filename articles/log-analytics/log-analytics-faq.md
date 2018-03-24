@@ -1,24 +1,24 @@
 ---
-title: "Iniciar análise FAQ | Microsoft Docs"
-description: "Respostas a perguntas mais frequentes sobre o serviço de análise de registos do Azure."
+title: Iniciar análise FAQ | Microsoft Docs
+description: Respostas a perguntas mais frequentes sobre o serviço de análise de registos do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 03/21/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b27386cd0f9f3ae50314b8c5d7708aea3e3d028
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 Estas FAQ Microsoft é uma lista de perguntas mais comuns sobre a análise de registos no Microsoft Azure. Se tiver alguma questão adicional sobre a análise de registos, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e publique as suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que possam ser localizada forma rápida e fácil.
@@ -51,19 +51,21 @@ R: um número de Análise de registos é um serviço em nuvem dimensionáveis qu
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Como resolver se a análise de registos já não está a recolher dados?
 
-R: Se estiver a livre no escalão de preço e ter enviado a mais do que 500 MB de dados dentro de um dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.
+R: Se estiver a livre no escalão de preço e ter enviado a mais do que 500 MB de dados dentro de um dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  
 
-Análise de registos cria um evento do tipo *operação* quando é iniciado e deixa de recolha de dados. 
+Análise de registos cria um evento do tipo *Heartbeat* e pode ser utilizado para determinar se deixa de recolha de dados. 
 
-Execute a seguinte consulta em pesquisa para verificar se está a atingir o limite diário e dados em falta:`Type=Operation OperationCategory="Data Collection Status"`
+Execute a seguinte consulta em pesquisa para verificar se está a atingir o limite diário e dados em falta: `Heartbeat | summarize max(TimeGenerated)`
 
-Quando parar a recolha de dados, o *OperationStatus* é **aviso**. Quando inicia a recolha de dados, o *OperationStatus* é **com êxito**. 
+Para verificar um computador específico, execute a seguinte consulta: `Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
+
+Quando deixa de recolha de dados, consoante o intervalo de tempo selecionado, não visualizará quaisquer registos devolvidos.   
 
 A tabela seguinte descreve as razões que deixa de recolha de dados e uma ação sugerida para retomar a recolha de dados:
 
 | Interrompe a recolha de dados de razão                       | Para retomar a recolha de dados |
 | -------------------------------------------------- | ----------------  |
-| Atingiu o limite diário de dados gratuitos<sup>1</sup>       | Aguarde até ao dia seguinte para a coleção reiniciar automaticamente, ou<br> Alterar para um escalão de preço pago |
+| Atingiu o limite de dados gratuitos<sup>1</sup>       | Aguarde até o mês seguinte para a coleção reiniciar automaticamente, ou<br> Alterar para um escalão de preço pago |
 | Subscrição do Azure está num estado suspenso devido a: <br> Avaliação gratuita terminada <br> Passagem do Azure expirou <br> Limite de gastos mensalmente atingido (por exemplo, numa subscrição MSDN ou Visual Studio)                          | Converter uma subscrição paga <br> Converter uma subscrição paga <br> Remover o limite ou aguarde que o limite repõe |
 
 <sup>1</sup> se a sua área de trabalho é no escalão de preço gratuito, está limitado a enviar 500 MB de dados por dia para o serviço. Quando atingir o limite diário, deixa de recolha de dados até ao dia seguinte. Dados enviados enquanto a recolha de dados está parada não estão indexados e não estão disponíveis para pesquisa. Quando é retomada a recolha de dados, o processamento ocorre apenas para novos dados enviados. 
@@ -77,14 +79,13 @@ R: utilizar os passos descritos no [criar uma regra de alerta](log-analytics-ale
 Quando criar o alerta para quando interrompe a recolha de dados, defina o:
 - **Nome** para *parada a recolha de dados*
 - A **gravidade** como *Aviso*
-- A **consulta de pesquisa** como `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
-- **Janela de tempo** para *2 horas*.
-- A **frequência do alerta** como uma hora, pois os dados de utilização só são atualizados uma vez por hora.
+- A **consulta de pesquisa** como `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+- **Janela de tempo** para *30 minutos*.
+- **Frequência de alerta** a cada *dez* minutos.
 - **Gerar alerta com base em** como o *número de resultados*
 - O **número de resultados** como *Superior a 0*
 
-Utilize os passos descritos em [Add actions to alert rules](log-analytics-alerts-actions.md) (Adicionar ações a regras de alertas) para configurar uma ação de e-mail, webhook ou runbook para a regra de alerta.
-
+Este alerta serão acionados quando a consulta devolve resultados apenas se tiver o heartbeat em falta para a mais de 15 minutos.  Utilize os passos descritos em [Add actions to alert rules](log-analytics-alerts-actions.md) (Adicionar ações a regras de alertas) para configurar uma ação de e-mail, webhook ou runbook para a regra de alerta.
 
 ## <a name="configuration"></a>Configuração
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Pode alterar o nome do contentor de blob/tabela utilizado para ler a partir do diagnóstico do Azure (WAD)?
@@ -141,9 +142,9 @@ Certifique-se de que tem permissão em ambas as subscrições do Azure.
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>Q. Quantidade de dados posso enviar através do agente à análise de registos? Existe uma quantidade máxima de dados por cliente?
 A. O plano gratuito define um limite diário de 500 MB por área de trabalho. Os planos standard e premium têm sem limite a quantidade de dados que são carregados. Como um serviço em nuvem, análise de registos foi concebido para automaticamente a escala até o identificador do volume proveniente de um cliente –, mesmo se for terabytes por dia.
 
-O agente de análise de registos foi concebido para garantir que tem um ocupa pouco espaço. Um dos nossos clientes escrito um blogue sobre os testes que são executados nos nosso agente e como impressed o fizeram. O volume de dados varia consoante as soluções que ativar. Pode encontrar informações detalhadas sobre o volume de dados e ver o breakup pela solução de [utilização](log-analytics-usage.md) página.
+O agente de análise de registos foi concebido para garantir que tem um ocupa pouco espaço. O volume de dados varia consoante as soluções que ativar. Pode encontrar informações detalhadas sobre o volume de dados e ver a divisão pela solução de [utilização](log-analytics-usage.md) página.
 
-Para obter mais informações, pode ler um [cliente blogue](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) sobre reduzidos do agente do OMS.
+Para obter mais informações, pode ler um [cliente blogue](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) sobre os requisitos de espaço pequeno do agente do OMS.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. Quantidade largura de banda de rede é utilizada pelo agente de gestão do Microsoft (MMA) ao enviar dados para análise de registos?
 
@@ -165,5 +166,5 @@ Para computadores que são capazes de executar o agente de WireData, utilize a s
 Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe") (Direction=Outbound) | measure Sum(TotalBytes) by Computer
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução à análise de registos](log-analytics-get-started.md) para saber mais sobre a análise de registos e começar a trabalhar em minutos.

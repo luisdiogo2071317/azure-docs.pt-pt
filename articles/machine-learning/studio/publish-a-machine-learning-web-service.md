@@ -1,10 +1,11 @@
 ---
-title: "Implementar um serviço web do Machine Learning | Microsoft Docs"
-description: "Como converter uma experimentação de preparação para uma experimentação preditiva, preparar para a implementação, em seguida, implementá-lo como um serviço web Azure Machine Learning."
+title: Implementar um serviço web do Machine Learning | Microsoft Docs
+description: Como converter uma experimentação de preparação para uma experimentação preditiva, preparar para a implementação, em seguida, implementá-lo como um serviço web Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 3ce4104040e90a4740442d7692b3bf4a0789bde0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Implementar um serviço Web do Azure Machine Learning
 O Azure Machine Learning permite-lhe criar, testar e implementar soluções de Análise Preditiva.
@@ -34,7 +34,7 @@ A partir de uma ponto de-de-vista de alto nível, este procedimento é efetuado 
 ## <a name="create-a-training-experiment"></a>Criar uma experimentação de preparação
 Para preparar um modelo de Análise Preditiva, pode utilizar Azure Machine Learning Studio para criar uma experimentação de preparação onde inclui vários módulos a carregar dados de formação, preparar os dados conforme necessário, aplicar algoritmos de machine learning e avaliar os resultados. Pode repetir uma experimentação e tentar algoritmos de aprendizagem diferentes para comparar e avaliar os resultados.
 
-O processo de criação e gestão de experimentações de formação é descrito mais exaustivamente noutro local. Para obter mais informações, consulte estes artigos:
+O processo de criação e gestão de experimentações de formação é descrito mais exaustivamente noutro local. Para obter mais informações, veja estes artigos:
 
 * [Criar uma experimentação simple no Azure Machine Learning Studio](create-experiment.md)
 * [Desenvolver uma solução Preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)

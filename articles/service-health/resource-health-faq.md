@@ -1,11 +1,11 @@
 ---
 title: Estado de funcionamento de recursos do Azure FAQ | Microsoft Docs
-description: "Descrição geral do Estado de funcionamento de recursos do Azure"
+description: Descrição geral do Estado de funcionamento de recursos do Azure
 services: Resource health
 documentationcenter: dev-center-name
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5155faac6051f5a586255148f77a52a90745673e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-resource-health-faq"></a>FAQ do Estado de funcionamento do recurso do Azure
 Saiba as respostas a questões recorrentes sobre o estado de funcionamento de recursos de Azure.
@@ -81,12 +81,12 @@ Estado de funcionamento do recurso está disponível em todos os geos do Azure, 
 - Alemanha Central
 - Alemanha Nordeste
 
-## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>Como estado de funcionamento do recurso é diferente do Dashboard de estado de funcionamento do serviço ou as notificações de serviço de portal do Azure?
-As informações fornecidas pelo Estado de funcionamento do recurso são mais específicas que o que é fornecido pelo Dashboard de estado de funcionamento do serviço Azure.
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Como estado de funcionamento do recurso é diferente do Estado do Azure ou do dashboard de estado de funcionamento do serviço?
+As informações fornecidas pelo Estado de funcionamento do recurso são mais específicas que o que é fornecido pelo Estado do Azure ou do dashboard de estado de funcionamento do serviço.
 
-Enquanto [Azure estado](https://status.azure.com) e as notificações de serviço portal informam sobre problemas de serviço que afetam a um conjunto amplo de clientes (por exemplo uma região do Azure), o estado de funcionamento do recurso expõe mais granular sobre eventos que são relevantes apenas para o recurso específico. Por exemplo, se um anfitrião inesperadamente é reiniciado, o estado de funcionamento do recurso alerta apenas esses clientes cujas máquinas virtuais estavam a ser executadas nesse anfitrião.
+Enquanto [Estado Azure](https://status.azure.com) e o dashboard de estado de funcionamento do serviço informam sobre problemas de serviço que afetam a um conjunto amplo de clientes (por exemplo uma região do Azure), o estado de funcionamento do recurso expõe mais granular sobre eventos que são relevantes apenas para o recurso específico. Por exemplo, se um anfitrião inesperadamente é reiniciado, o estado de funcionamento do recurso alerta apenas esses clientes cujas máquinas virtuais estavam a ser executadas nesse anfitrião.
 
-É importante notar que, ao fornecer-lhe visibilidade completa dos eventos afetar os recursos, o estado de funcionamento de recursos também apresenta eventos publicados no notificações de serviço e o Dashboard de estado de funcionamento do serviço.
+É importante notar que, ao fornecer-lhe visibilidade completa dos eventos afetar os recursos, o estado de funcionamento de recursos também apresenta eventos publicados no dashboard do Estado de funcionamento do serviço.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>É necessário ativar o estado de funcionamento de recursos para cada recurso?
 Não, as informações de estado de funcionamento estão disponíveis para todos os tipos de recursos disponíveis através do Estado de funcionamento do recurso. 

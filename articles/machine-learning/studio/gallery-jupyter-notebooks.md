@@ -2,9 +2,10 @@
 title: Blocos de notas do Jupyter da Galeria de AI do Azure | Microsoft Docs
 description: Detete blocos de notas do Jupyter na Galeria de AI do Azure.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 556e0671-1b50-4bcb-92eb-889962310633
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 53a600490f3e73c37e0434785198adee0be4b218
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b684134518a04d70a951b411897417dca05c5829
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Detetar blocos de notas do Jupyter na galeria do Azure de AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -30,7 +30,7 @@ Blocos de notas na Galeria fornecem tutoriais e uma explicação detalhada de t�
 ## <a name="discover"></a>Descobrir
   Para procurar na Galeria blocos de notas, abra o [galeria](http://gallery.cortanaintelligence.com) e clique em **blocos de notas** na parte superior da home page da galeria.
 
- O  **[blocos de notas do Jupyter](https://gallery.cortanaintelligence.com/notebooks)**  página apresenta uma lista de blocos de notas mais populares.
+ O **[blocos de notas do Jupyter](https://gallery.cortanaintelligence.com/notebooks)** página apresenta uma lista de blocos de notas mais populares.
 Clique em **ver todos os** para ver todos os blocos de notas.
 Nesta página, pode procurar todos os blocos de notas na galeria. Também pode pesquisar ao selecionar os critérios de filtro no lado esquerdo da página e entrar termos de pesquisa na parte superior.
 
@@ -66,7 +66,7 @@ Pode também abrir qualquer um dos blocos de notas de galeria mesmos enquanto es
 Uma cópia do bloco de notas é transferida e aberta na sua área de trabalho na secção de blocos de notas do Jupyter do Machine Learning Studio.
 O bloco de notas será apresentado, juntamente com os outros blocos de notas, no **blocos de notas** página do Studio (no [home page do Studio](https://studio.azureml.net/), clique em **blocos de notas** à esquerda).
 
-**[COLOCAR-ME PARA THE GALERIA >>](http://gallery.cortanaintelligence.com)**
+**[COLOCAR-ME PARA THE GALERIA &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

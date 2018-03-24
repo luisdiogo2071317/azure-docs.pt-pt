@@ -1,6 +1,6 @@
 ---
-title: "SQL Server FCI - máquinas virtuais do Azure | Microsoft Docs"
-description: "Este artigo explica como criar a instância de Cluster de ativação pós-falha do SQL Server em Azure Virtual Machines."
+title: SQL Server FCI - máquinas virtuais do Azure | Microsoft Docs
+description: Este artigo explica como criar a instância de Cluster de ativação pós-falha do SQL Server em Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2017
+ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de ativação pós-falha do SQL Server em Virtual Machines do Azure
 
@@ -46,6 +46,18 @@ O diagrama anterior mostra:
 Para obter detalhes sobre S2D, consulte [edição Datacenter do Windows Server 2016 espaços de armazenamento direto \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 S2D suportam dois tipos de arquiteturas - convergidas e hiperconvergida. A arquitetura neste documento é hiperconvergida. Uma infraestrutura hiperconvergida coloca o armazenamento em servidores do mesmos que alojam a aplicação em cluster. Nesta arquitetura, o armazenamento está em cada nó do SQL Server FCI.
+
+## <a name="licensing-and-pricing"></a>Preços e licenciamento
+
+Em Azure Virtual Machines pode licenciamento do SQL Server utilizando pay as you go (PAYG) ou utilizar a sua própria licença imagens da VM (BYOL). O tipo de imagem que escolher afeta a forma como são-lhe cobrados.
+
+Com o licenciamento PAYG, uma instância de cluster de ativação pós-falha (FCI) do SQL Server em Azure Virtual Machines incorreu encargos de todos os nós da FCI, incluindo os nós passivos. Para obter mais informações, consulte [preços de máquinas virtuais do SQL Server Enterprise](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+
+Clientes com contrato Enterprise com Software Assurance tem o direito de utilizar um nó FCI passivo livre para cada nó do Active Directory. Para tirar partido desta vantagem no Azure, utilizar imagens da BYOL VM e, em seguida, utilize a licença do mesma em ambos os nós ativos e passivos do FCI. Para obter mais informações, consulte [Enterprise Agreement](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+
+Para comparar PAYG e BYOL licenciamento do SQL Server em Azure Virtual Machines consulte [começar com as VMs de SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+
+Para obter informações completas sobre o licenciamento do SQL Server, consulte [preços](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Exemplo modelo do Azure
 
@@ -91,7 +103,7 @@ Com estas pré-requisitos no local, pode continuar com a criação do cluster de
 
    Se não criou o grupo de recursos para as máquinas virtuais, fazê-lo ao criar um conjunto de disponibilidade do Azure. Se estiver a utilizar o portal do Azure para criar o conjunto de disponibilidade, efetue os seguintes passos:
 
-   - No portal do Azure, clique em  **+**  para abrir o Azure Marketplace. Procurar **do conjunto de disponibilidade**.
+   - No portal do Azure, clique em **+** para abrir o Azure Marketplace. Procurar **do conjunto de disponibilidade**.
    - Clique em **do conjunto de disponibilidade**.
    - Clique em **Criar**.
    - No **criar conjunto de disponibilidade** painel, defina os seguintes valores:
@@ -123,7 +135,7 @@ Com estas pré-requisitos no local, pode continuar com a criação do cluster de
 
    Escolha a imagem correta de acordo com a forma como pretende pagar para a licença do SQL Server:
 
-   - **Pagar por utilização licenciamento**: O custo por minuto destas imagens inclui o licenciamento do SQL Server:
+   - **Pagar por utilização licenciamento**: O custo por segundo destas imagens inclui o licenciamento do SQL Server:
       - **SQL Server 2016 Enterprise no Datacenter do Windows Server 2016**
       - **SQL Server 2016 padrão no Datacenter do Windows Server 2016**
       - **SQL Server 2016 Programador no Datacenter do Windows Server 2016**

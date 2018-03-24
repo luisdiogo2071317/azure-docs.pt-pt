@@ -1,11 +1,11 @@
 ---
-title: "A criação de Visual no Azure Data Factory | Microsoft Docs"
-description: "Saiba como utilizar o visual criação no Azure Data Factory"
+title: A criação de Visual no Azure Data Factory | Microsoft Docs
+description: Saiba como utilizar o visual criação no Azure Data Factory
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 954693ee208dc7868a5a5ad0e774c5c352036627
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bce74c80f53eda654bb0289a1ff8a6cb88fd13f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>A criação de Visual no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite-lhe visualmente cria e implementar os recursos para a fábrica de dados sem ter de escrever qualquer código. Pode arraste as actividades à tela pipeline, efetuar execuções do teste, iteratively, depurar e implementar e monitorizar a execução de pipeline. Existem duas abordagens para utilizar o UX para efetuar a criação de visual:

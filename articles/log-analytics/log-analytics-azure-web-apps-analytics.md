@@ -1,24 +1,24 @@
 ---
-title: "Ver os dados de análise Web Apps do Azure | Microsoft Docs"
-description: "Pode utilizar a solução de análise de aplicações Web do Azure para obter informações sobre as Web Apps do Azure através da recolha de métricas diferentes em todos os recursos de aplicação Web do Azure."
+title: Ver os dados de análise Web Apps do Azure | Microsoft Docs
+description: Pode utilizar a solução de análise de aplicações Web do Azure para obter informações sobre as Web Apps do Azure através da recolha de métricas diferentes em todos os recursos de aplicação Web do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Ver dados analíticos métricas em todos os recursos de aplicação Web do Azure
 
@@ -90,19 +90,18 @@ Quando adiciona a solução de análise de aplicações Web do Azure a sua área
 
 Clique em de **análise de aplicações Web do Azure** mosaico para abrir o **análise de aplicações Web do Azure** dashboard. O dashboard inclui os painéis na seguinte tabela. Cada painel lista até dez itens correspondentes aos critérios de nesse painel para o âmbito especificado e o intervalo de tempo. Pode executar uma pesquisa de registo que devolve todos os registos clicando **ver todos os** na parte inferior do painel ou ao clicar no cabeçalho do painel.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Coluna | Descrição |
 | --- | --- |
 | Webapps do Azure |   |
-| Tendências de pedido de aplicações Web | Mostra um gráfico de linhas da tendência de pedido de aplicações Web para o intervalo de datas que tiver selecionado e mostra uma lista dos pedidos dez web principais. Clique para executar uma pesquisa de registo para o gráfico de linhas <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Clique num item de pedido web para executar uma pesquisa de registo para a tendência métrica de pedido do web pedido. |
-| Tempo de resposta de aplicações Web | Mostra um gráfico de linhas de tempo de resposta de aplicações Web para o intervalo de datas que selecionou. Também mostra uma lista uma lista de topo dez Web resposta de aplicações vezes. Clique em gráfico para executar uma pesquisa de registo para <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Clique numa aplicação Web para executar uma pesquisa de registo devolver tempos de resposta da aplicação Web. |
-| Tráfego de aplicações Web | Mostra um gráfico de linhas para o tráfego de aplicações Web, em MB e apresenta uma lista na parte superior no tráfego de aplicações Web. Clique em gráfico para executar uma pesquisa de registo para <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Mostra todas as aplicações Web com o tráfego para o último minuto. Clique numa aplicação Web para executar uma pesquisa de registo que mostra os bytes recebidos e enviados para a aplicação Web. |
+| Tendências de pedido de aplicações Web | Mostra um gráfico de linhas da tendência de pedido de aplicações Web para o intervalo de datas que tiver selecionado e mostra uma lista dos pedidos dez web principais. Clique para executar uma pesquisa de registo para o gráfico de linhas <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "Requests" or MetricName startswith_cs "Http") &#124; summarize AggregatedValue = avg(Average) by MetricName, bin(TimeGenerated, 1h)</code> <br>Clique num item de pedido web para executar uma pesquisa de registo para a tendência métrica de pedido do web pedido. |
+| Tempo de resposta de aplicações Web | Mostra um gráfico de linhas de tempo de resposta de aplicações Web para o intervalo de datas que selecionou. Também mostra uma lista uma lista de topo dez Web resposta de aplicações vezes. Clique em gráfico para executar uma pesquisa de registo para <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and MetricName == "AverageResponseTime" &#124; summarize AggregatedValue = avg(Average) by Resource, bin(TimeGenerated, 1h)</code><br> Clique numa aplicação Web para executar uma pesquisa de registo devolver tempos de resposta da aplicação Web. |
+| Tráfego de aplicações Web | Mostra um gráfico de linhas para o tráfego de aplicações Web, em MB e apresenta uma lista na parte superior no tráfego de aplicações Web. Clique em gráfico para executar uma pesquisa de registo para <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "BytesSent" or MetricName == "BytesReceived") &#124; summarize AggregatedValue = sum(Average) by Resource, bin(TimeGenerated, 1h)</code><br> Mostra todas as aplicações Web com o tráfego para o último minuto. Clique numa aplicação Web para executar uma pesquisa de registo que mostra os bytes recebidos e enviados para a aplicação Web. |
 | Planos do App Service do Azure |   |
-| Planos do App Service com a utilização da CPU &gt; 80% | Mostra o número total de planos de App Service superior a 80% de utilização da CPU e apresenta uma lista de principais 10 planos de App Service através da utilização da CPU. Clique na área total para executar uma pesquisa de registo para <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Mostra uma lista dos seus planos de serviço de aplicações e a utilização média da CPU. Clique num plano do App Service para executar uma pesquisa de registo que mostra a utilização média da CPU. |
-| Planos do App Service com a utilização da memória &gt; 80% | Mostra o número total de planos de App Service superior a 80% de utilização da memória e apresenta uma lista de principais 10 planos de App Service através da utilização da memória. Clique na área total para executar uma pesquisa de registo para <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Mostra uma lista dos seus planos de serviço de aplicações e a respetiva utilização média da memória. Clique num plano do App Service para executar uma pesquisa de registo que mostra a utilização média da memória. |
+| Planos do App Service com a utilização da CPU &gt; 80% | Mostra o número total de planos de App Service superior a 80% de utilização da CPU e apresenta uma lista de principais 10 planos de App Service através da utilização da CPU. Clique na área total para executar uma pesquisa de registo para <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "CpuPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> Mostra uma lista dos seus planos de serviço de aplicações e a utilização média da CPU. Clique num plano do App Service para executar uma pesquisa de registo que mostra a utilização média da CPU. |
+| Planos do App Service com a utilização da memória &gt; 80% | Mostra o número total de planos de App Service superior a 80% de utilização da memória e apresenta uma lista de principais 10 planos de App Service através da utilização da memória. Clique na área total para executar uma pesquisa de registo para <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "MemoryPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> Mostra uma lista dos seus planos de serviço de aplicações e a respetiva utilização média da memória. Clique num plano do App Service para executar uma pesquisa de registo que mostra a utilização média da memória. |
 | Registos de atividade de aplicações Web do Azure |   |
-| Auditoria de atividade de aplicações Web do Azure | Mostra o número total de aplicações Web com [registos de atividade](log-analytics-activity.md) e lista as operações de registo de atividade de 10 principais. Clique na área total para executar uma pesquisa de registo para <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> Mostra uma lista das operações de registo de atividade. Clique uma operação de registo de atividade para executar uma pesquisa de registo que apresenta uma lista de registos para a operação. |
+| Auditoria de atividade de aplicações Web do Azure | Mostra o número total de aplicações Web com [registos de atividade](log-analytics-activity.md) e lista as operações de registo de atividade de 10 principais. Clique na área total para executar uma pesquisa de registo para <code>AzureActivity #124; where ResourceProvider == "Azure Web Sites" #124; summarize AggregatedValue = count() by OperationName</code><br> Mostra uma lista das operações de registo de atividade. Clique uma operação de registo de atividade para executar uma pesquisa de registo que apresenta uma lista de registos para a operação. |
 
 
 

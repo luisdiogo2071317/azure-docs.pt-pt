@@ -1,11 +1,11 @@
 ---
-title: "Copiar dados da tabela da Web através do Azure Data Factory | Microsoft Docs"
-description: "Saiba mais sobre Web tabela conector do Azure Data Factory que lhe permite copiar dados de uma tabela de web para os arquivos de dados suportados pela fábrica de dados como sinks."
+title: Copiar dados da tabela da Web através do Azure Data Factory | Microsoft Docs
+description: Saiba mais sobre Web tabela conector do Azure Data Factory que lhe permite copiar dados de uma tabela de web para os arquivos de dados suportados pela fábrica de dados como sinks.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: c5d2fdb3ed3c00114437b0be9759bf8bea2521b7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4755d6cce0787a411fee7d32c887ae71c134c94
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiar os dados da tabela da Web através do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +103,7 @@ Para copiar dados da tabela da Web, defina a propriedade de tipo do conjunto de 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pela origem de tabela de Web.
 
@@ -148,7 +148,7 @@ Para copiar dados da tabela da Web, defina o tipo de origem na atividade de cóp
 2. Clique em **nova consulta** na barra de ferramentas, aponte para **de outras origens** e clique em **da Web**.
 
     ![Menu de consulta de energia](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. No **da Web** caixa de diálogo, introduza **URL** que pretende utilizar no ligado JSON do serviço (por exemplo: https://en.wikipedia.org/wiki/), juntamente com o caminho tem de especificar o conjunto de dados (por exemplo: AFI 27s_100_Years de %... 100_Movies) e clique em **OK**.
+3. No **da Web** caixa de diálogo, introduza **URL** que pretende utilizar no ligado JSON do serviço (por exemplo: https://en.wikipedia.org/wiki/) juntamente com o caminho tem de especificar o conjunto de dados (por exemplo: AFI 27s_100_Years de %... 100_Movies) e clique em **OK**.
 
     ![Caixa de diálogo Web](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 

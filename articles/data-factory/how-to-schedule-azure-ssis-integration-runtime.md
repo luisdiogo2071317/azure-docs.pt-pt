@@ -1,23 +1,23 @@
 ---
-title: "Como agendar o tempo de execução do Azure SSIS integração | Microsoft Docs"
-description: "Este artigo descreve como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS através da automatização do Azure e do Data Factory."
+title: Como agendar o tempo de execução do Azure SSIS integração | Microsoft Docs
+description: Este artigo descreve como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS através da automatização do Azure e do Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cc9ab244c784cab608a75092b542dea0a6f69f22
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS 
 Com um tempo de execução de integração do Azure SSIS (SQL Server Integration Services) (IR) tem um custo associado ao mesmo. Por conseguinte, que pretende executar a resposta a incidentes apenas quando precisar de executar os pacotes SSIS no Azure e pare-o quando não precisar dele. Pode utilizar a IU da fábrica de dados ou o Azure PowerShell para [manualmente iniciar ou parar uma resposta a incidentes SSIS Azure](manage-azure-ssis-integration-runtime.md)). Este artigo descreve como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS (IR) através da utilização da automatização do Azure e do Azure Data Factory. Eis os passos de alto nível descritos neste artigo:

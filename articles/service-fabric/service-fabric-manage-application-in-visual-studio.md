@@ -1,24 +1,24 @@
 ---
-title: "Gerir as suas aplicações no Visual Studio | Microsoft Docs"
-description: "Utilize o Visual Studio para criar, desenvolver, o pacote, implementar e depurar os seus serviços e aplicações de Service Fabric."
+title: Gerir as suas aplicações Azure Servic Fabric no Visual Studio | Microsoft Docs
+description: Utilize o Visual Studio para criar, desenvolver, o pacote, implementar e depurar os seus serviços e aplicações de Service Fabric do Azure.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 16ca821f7cae252148e8901c2ccb8539a25d1d59
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Utilizar o Visual Studio para simplificar a escrever e gestão das suas aplicações de Service Fabric
 Pode gerir as suas aplicações do Azure Service Fabric e serviços através do Visual Studio. Assim que tiver [configurar o ambiente de desenvolvimento](service-fabric-get-started.md), pode utilizar o Visual Studio para criar aplicações de Service Fabric, adicionar serviços, ou o pacote, registar e implementar aplicações no seu cluster de desenvolvimento local.
@@ -45,7 +45,7 @@ Visual Studio fornecem uma propriedade denominada **modo de depuração da aplic
 
 #### <a name="application-debug-modes"></a>Modos de depuração de aplicações
 
-1. **Atualizar aplicação** este modo permite-lhe alterar e depurar o seu código e suporta a edição de ficheiros estáticos web durante a depuração rapidamente. Este modo só funciona se o cluster de desenvolvimento local está a ser [1 nó modo](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Atualizar aplicação** este modo permite-lhe alterar e depurar o seu código e suporta a edição de ficheiros estáticos web durante a depuração rapidamente. Este modo só funciona se o cluster de desenvolvimento local está a ser [1 nó modo](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Esta é a predefinição de modo de depuração da aplicação.
 2. **Remover aplicação** faz com que a aplicação a serem removidos quando termina a sessão de depuração.
 3. **Auto atualização** a aplicação continua a ser executado quando termina a sessão de depuração. A próxima sessão de depuração irão tratar a implementação como uma atualização. O processo de atualização preserva todos os dados que introduziu numa sessão de depuração anterior.
 4. **Manter aplicações** a aplicação mantém em execução no cluster quando termina a sessão de depuração. No início de sessão de depuração seguinte, a aplicação será removida.
@@ -53,7 +53,7 @@ Visual Studio fornecem uma propriedade denominada **modo de depuração da aplic
 Para **automática atualizar** os dados são preservados aplicando as capacidades de atualização da aplicação de Service Fabric. Para obter mais informações sobre como atualizar aplicações e como pode executar uma atualização num ambiente real, consulte [atualização da aplicação de Service Fabric](service-fabric-application-upgrade.md).
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Adicionar um serviço a sua aplicação de Service Fabric
-Pode adicionar novos serviços à sua aplicação para expandir a sua funcionalidade.  Para garantir que o serviço está incluído no seu pacote de aplicação, adicione o serviço através de **novo serviço de recursos de infraestrutura...**  item de menu.
+Pode adicionar novos serviços à sua aplicação para expandir a sua funcionalidade. Para garantir que o serviço está incluído no seu pacote de aplicação, adicione o serviço através de **novo serviço de recursos de infraestrutura...**  item de menu.
 
 ![Adicionar um novo serviço de Service Fabric][newservice]
 
@@ -74,12 +74,12 @@ Pode efetuar operações de gestão de cluster básico a partir do Visual Studio
 ![Remover uma aplicação][removeapplication]
 
 > [!TIP]
-> Para mais rica funcionalidades de gestão de cluster, consulte [visualizar o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> Para uma funcionalidade de gestão de cluster mais completas, consulte [visualizar o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 >
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Modelo de aplicação de Service Fabric](service-fabric-application-model.md)
 * [Implementação de aplicação de Service Fabric](service-fabric-deploy-remove-applications.md)
 * [Gerir aplicações parâmetros para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md)

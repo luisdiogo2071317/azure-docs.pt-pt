@@ -1,11 +1,11 @@
 ---
-title: "Restaurar um armazém de dados do Azure - local e georredundante | Microsoft Docs"
-description: "Descrição geral das opções de restauro de base de dados para recuperar uma base de dados no Azure SQL Data Warehouse."
+title: Restaurar um armazém de dados do Azure - local e georredundante | Microsoft Docs
+description: Descrição geral das opções de restauro de base de dados para recuperar uma base de dados no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
+editor: ''
 ms.assetid: 3e01c65c-6708-4fd7-82f5-4e1b5f61d304
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: abf8f0b1005aec71812dc8ebfd12fe65250d7a0e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="sql-data-warehouse-restore"></a>Restauro do SQL Data Warehouse
 > [!div class="op_single_selector"]

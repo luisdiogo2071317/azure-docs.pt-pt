@@ -1,6 +1,6 @@
 ---
-title: "Limitações na base de dados do Azure para PostgreSQL"
-description: "Este artigo descreve limitações na base de dados do Azure para PostgreSQL, tais como o número de ligação e as opções do motor de armazenamento."
+title: Limitações na base de dados do Azure para PostgreSQL
+description: Este artigo descreve limitações na base de dados do Azure para PostgreSQL, tais como o número de ligação e as opções do motor de armazenamento.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -8,15 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ba05308039e9743dd207333476e61a45c0ca166a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações na base de dados do Azure para PostgreSQL
-A base de dados do Azure para o serviço de PostgreSQL está em pré-visualização pública. As secções seguintes descrevem a capacidade e limites funcionais no serviço de base de dados.
+As secções seguintes descrevem a capacidade e limites funcionais no serviço de base de dados.
 
 ## <a name="pricing-tier-maximums"></a>Valores máximos de escalão de preço
 Base de dados do Azure para PostgreSQL tem vários escalões de preços, que pode escolher durante a criação de um servidor. Para obter mais informações, consulte [escalões de preço na base de dados do Azure para PostgreSQL](concepts-pricing-tiers.md).  
@@ -25,25 +25,24 @@ Há um número máximo de ligações, unidades de computação e armazenamento e
 
 |Escalão de Preço| Geração de computação| vCore(s)| Máx. ligações |
 |---|---|---|---|
-|Básica| Gen 4| 1| 50 |
-|Básica| Gen 4| 2| 100 |
-|Básica| Gen 5| 1| 50 |
-|Básica| Gen 5| 2| 100 |
-|Fins Gerais| Gen 4| 2| 150|
-|Fins Gerais| Gen 4| 4| 250|
-|Fins Gerais| Gen 4| 8| 480|
-|Fins Gerais| Gen 4| 16| 950|
-|Fins Gerais| Gen 4| 32| 1500|
-|Fins Gerais| Gen 5| 2| 150|
-|Fins Gerais| Gen 5| 4| 250|
-|Fins Gerais| Gen 5| 8| 480|
-|Fins Gerais| Gen 5| 16| 950|
-|Fins Gerais| Gen 5| 32| 1500|
-|Memória Otimizada| Gen 5| 2| 150|
-|Memória Otimizada| Gen 5| 4| 250|
-|Memória Otimizada| Gen 5| 8| 480|
-|Memória Otimizada| Gen 5| 16| 950|
-|Memória Otimizada| Gen 5| 32| 1900|
+|Básica| Geração 4| 1| 50 |
+|Básica| Geração 4| 2| 100 |
+|Básica| Geração 5| 1| 50 |
+|Básica| Geração 5| 2| 100 |
+|Fins Gerais| Geração 4| 2| 150|
+|Fins Gerais| Geração 4| 4| 250|
+|Fins Gerais| Geração 4| 8| 480|
+|Fins Gerais| Geração 4| 16| 950|
+|Fins Gerais| Geração 4| 32| 1500|
+|Fins Gerais| Geração 5| 2| 150|
+|Fins Gerais| Geração 5| 4| 250|
+|Fins Gerais| Geração 5| 8| 480|
+|Fins Gerais| Geração 5| 16| 950|
+|Fins Gerais| Geração 5| 32| 1500|
+|Memória Otimizada| Geração 5| 2| 150|
+|Memória Otimizada| Geração 5| 4| 250|
+|Memória Otimizada| Geração 5| 8| 480|
+|Memória Otimizada| Geração 5| 16| 950|
 
 Quando as ligações excedem o limite, poderá receber o erro seguinte:
 > FATAL: Lamentamos, mas já demasiados clientes

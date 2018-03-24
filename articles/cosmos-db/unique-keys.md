@@ -2,24 +2,24 @@
 title: As chaves exclusivas do BD Azure Cosmos | Microsoft Docs
 description: Saiba como utilizar chaves exclusivas na base de dados do Azure Cosmos DB.
 services: cosmos-db
-keywords: "restrição de chave exclusiva, violação de restrição de chave exclusiva"
+keywords: restrição de chave exclusiva, violação de restrição de chave exclusiva
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chaves exclusivas do BD Azure Cosmos
 
@@ -58,7 +58,7 @@ Depois de um contentor é criado com uma política de chave exclusiva, não é p
 
 Um máximo de 16 valores do caminho (por exemplo /firstName /lastName, /address/zipCode, etc.) pode ser incluído em cada chave exclusiva. 
 
-Cada política de chave exclusiva pode ter um máximo de 10 restrições de chave exclusivas ou combinações. Por isso, o exemplo anterior, que utiliza o primeiro nome, apelido, endereço de correio eletrónico é apenas uma restrição, e utiliza três de 16 caminhos possíveis disponíveis. 
+Cada política de chave exclusiva pode ter um máximo de 10 restrições de chave exclusivos ou combinações e os caminhos combinados de todas as propriedades de índice exclusivo não devem exceder 60 carateres. Por isso, o exemplo anterior, que utiliza o primeiro nome, apelido, endereço de correio eletrónico é apenas uma restrição, e utiliza três de 16 caminhos possíveis disponíveis. 
 
 Pedir unidade encargos de criar, atualizar, e eliminar um item são ligeiramente superior quando existe uma política de chave exclusiva no contentor. 
 
@@ -133,7 +133,7 @@ O exemplo do comando seguinte mostra como criar um índice exclusivo no nome pr�
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu a criar chaves exclusivas para itens numa base de dados. Se estiver a criar um contentor pela primeira vez, reveja [a criação de partições de dados na base de dados do Azure Cosmos](partition-data.md) como chaves exclusivas e chaves de partição baseiam-se entre si. 
 

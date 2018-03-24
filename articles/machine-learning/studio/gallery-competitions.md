@@ -2,9 +2,10 @@
 title: Competitions de AI galeria do Azure | Microsoft Docs
 description: Detete competitions na Galeria de AI do Azure.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: ef74f411-bce4-4b02-aa34-902fc8d7b519
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 35f269f6d0dc55fd4a419ee1d7fe41b4f12ebb4c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d12da450fe929361b32ea607a09d3afbbd2639b9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Detetar competitions na Galeria de AI do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/03/2018
 Para obter respostas a perguntas mais frequentes sobre Competitions, consulte [Microsoft Cortana Intelligence Competitions FAQ](competition-faq.md).
 
 ## <a name="discover"></a>Descobrir
-O  **[Competitions](https://gallery.cortanaintelligence.com/competitions)**  página ([aka.ms/CIComp](http://aka.ms/CIComp)) apresenta uma lista dos competitions mais populares.
+O **[Competitions](https://gallery.cortanaintelligence.com/competitions)** página ([aka.ms/CIComp](http://aka.ms/CIComp)) apresenta uma lista dos competitions mais populares.
 
 ![Selecione Competitions na home page da Galeria](./media/gallery-competitions/select-competitions-in-gallery.png)
 
@@ -50,7 +50,7 @@ Se as leis de concorrência estiver aberto, o estado na página de detalhes é *
 
 Se as leis de concorrência foi concluída, em seguida, é apresentada uma lista de winners.
 
-**[COLOCAR-ME PARA THE GALERIA >>](http://gallery.cortanaintelligence.com)**
+**[COLOCAR-ME PARA THE GALERIA &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

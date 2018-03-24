@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral de IPv6 para o Balanceador de carga do Azure | Microsoft Docs"
-description: "Noções sobre o suporte de IPv6 para o Azure Load Balancer e as VMs com balanceamento de carga."
+title: Descrição geral de IPv6 para o Balanceador de carga do Azure | Microsoft Docs
+description: Noções sobre o suporte de IPv6 para o Azure Load Balancer e as VMs com balanceamento de carga.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: 
-keywords: "IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móveis, iot"
+manager: jeconnoc
+editor: ''
+keywords: IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móveis, iot
 ms.assetid: 6a1d583f-a305-40fd-a94b-fa42e1943bbb
 ms.service: load-balancer
 ms.devlang: na
@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 1902475c81c4f83f8ba69a05f9564bc65a5de833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9622ad4922aa98efe093e7f809a490a8797eb1fd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Descrição geral de IPv6 para o Balanceador de carga do Azure
 
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+>[!NOTE] 
+>O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para mais informações sobre o Balanceador de carga padrão, consulte [descrição geral do Balanceador de carga padrão](load-balancer-standard-overview.md).
 
 Balanceadores de carga com acesso à Internet podem ser implementados com um endereço IPv6. Para além de conectividade de IPv4, isto permite que as seguintes capacidades:
 
@@ -78,7 +79,7 @@ Limitações
 * Alterar o parâmetro loadDistributionMethod para IPv6 é **não suportada atualmente**.
 * Reservado IPv6 IPs (onde IPAllocationMethod = estático) são **não suportada atualmente**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como implementar um balanceador de carga com o IPv6.
 

@@ -1,11 +1,11 @@
 ---
-title: "Novidades na gestão de aplicações da empresa no Azure Active Directory | Microsoft Docs"
-description: "Saiba quais são as novidades na gestão de aplicações da empresa no Azure Active Directory."
+title: Novidades na gestão de aplicações da empresa no Azure Active Directory | Microsoft Docs
+description: Saiba quais são as novidades na gestão de aplicações da empresa no Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Novidades na gestão de aplicações da empresa no Azure Active Directory 
 
@@ -147,7 +147,7 @@ Depois de acrescentar muitas aplicações novas, talvez que pretende permitir qu
 1. Para começar a utilizar, pode selecionar o **self-service** opção da aplicação da esquerda do menu de navegação e defina o **permitir que os utilizadores pedir acesso a esta aplicação?** opção para '**Sim**'. 
 2. Isto permitirá configurar quem tem permissão para aprovar o acesso a esta aplicação e os utilizadores self-service do grupo serão adicionados. Além disso, se a aplicação está configurada para a palavra-passe início de sessão único, também verá outra opção que lhe permite, opcionalmente, permitir que esses aprovadores gerir as palavras-passe atribuídas à aplicação.
 
-##<a name="feedback"></a>Comentários
+## <a name="feedback"></a>Comentários
 
 Esperamos, como a utilização a melhor experiência do Azure AD. Manter os comentários provenientes! Publique os seus comentários e ideias para melhoria no **Portal de administração** secção do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Iremos estiver entusiasmados sobre como criar conteúdo novo frio diariamente e utilize a orientações sobre a forma e definir o que devemos criar a seguir.
 

@@ -1,24 +1,21 @@
 ---
-title: "Do Azure Active Directory B2C: Ferramenta de programa auxiliar de personalização de página IU | Microsoft Docs"
-description: "Uma ferramenta de programa auxiliar utilizada para demonstrar a funcionalidade da página IU personalização no Azure Active Directory B2C"
+title: 'Do Azure Active Directory B2C: Ferramenta de programa auxiliar de personalização de página IU | Microsoft Docs'
+description: Uma ferramenta de programa auxiliar utilizada para demonstrar a funcionalidade da página IU personalização no Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: swkrish
-ms.openlocfilehash: a9ccdea64213d564b271699afe28f5ae6db0a71a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>O Azure Active Directory B2C: Uma ferramenta auxiliar utilizada para demonstrar a funcionalidade de personalização de interface (IU) de utilizador de página
 Este artigo é um complemento para a [principal artigo de personalização de IU](active-directory-b2c-reference-ui-customization.md) no Azure Active Directory (Azure AD) B2C. Os passos seguintes descrevem como para a funcionalidade da página IU personalização utilizando o conteúdo HTML e CSS de exemplo que fornecemos.
@@ -55,8 +52,8 @@ Agora pode experimentar a política personalizada. Pode utilizar a sua própria 
 ## <a name="upload-the-sample-content-to-azure-blob-storage"></a>Carregar o conteúdo de exemplo para o Blob Storage do Azure
 Se gostaria de utilizar o Blob Storage do Azure para alojar o conteúdo da página, pode criar a sua própria conta de armazenamento e utilizar o nosso ferramenta auxiliar de B2C para carregar os ficheiros.
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **+ novo** > **dados + armazenamento** > **conta de armazenamento**. Precisa de uma subscrição do Azure para criar uma conta do Blob Storage do Azure. Pode inscrever numa avaliação gratuita no [Web site Azure](https://azure.microsoft.com/pricing/free-trial/).
 3. Forneça um **nome** para o armazenamento de conta (por exemplo, "contoso") e escolha as seleções adequadas para **escalão de preço**, **grupo de recursos** e  **Subscrição**. Certifique-se de que tem o **afixar ao Startboard** opção selecionada. Clique em **Criar**.
 4. Volte ao Startboard e clique na conta de armazenamento que acabou de criar.
@@ -80,7 +77,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 Este repositório inclui um `sample_templates\wingtip` diretório, que contém o exemplo HTML, CSS e imagens. Para estes modelos fazer referência a sua própria conta do Blob Storage do Azure, terá de editar os ficheiros HTML. Abra `unified.html` e `selfasserted.html` e substituir quaisquer instâncias de `https://localhost` com o URL do seu próprio contentor que escreveu para baixo nos passos anteriores. Tem de utilizar o caminho absoluto dos ficheiros HTML porque neste caso, o HTML será servido pelo Azure AD, sob o domínio `https://login.microsoftonline.com`.
 
 ### <a name="upload-the-sample-files"></a>Carregar os ficheiros de exemplo
-No mesmo repositório, deszipe `B2CAzureStorageClient.zip` e execute o `B2CAzureStorageClient.exe` dentro do ficheiro. Este programa simplesmente carregar todos os ficheiros no diretório que especificar para a sua conta do storage e ativar o acesso CORS para esses ficheiros. Se seguiu os passos acima, os ficheiros HTML e CSS agora irão apontar para a sua conta de armazenamento. Tenha em atenção que o nome da sua conta de armazenamento é a parte que precede `blob.core.windows.net`; por exemplo, `contoso`. Pode verificar que o conteúdo foi carregado corretamente ao tentar aceder `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` num browser. Também utilizar [http://test-cors.org/](http://test-cors.org/) para se certificar de que o conteúdo está agora CORS ativada. (Procure "Estado XHR: 200" nos resultados.)
+No mesmo repositório, deszipe `B2CAzureStorageClient.zip` e execute o `B2CAzureStorageClient.exe` dentro do ficheiro. Este programa simplesmente carregar todos os ficheiros no diretório que especificar para a sua conta do storage e ativar o acesso CORS para esses ficheiros. Se seguiu os passos acima, os ficheiros HTML e CSS agora irão apontar para a sua conta de armazenamento. Tenha em atenção que o nome da sua conta de armazenamento é a parte que precede `blob.core.windows.net`; por exemplo, `contoso`. Pode verificar que o conteúdo foi carregado corretamente ao tentar aceder `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` num browser. Também utilizar [ http://test-cors.org/ ](http://test-cors.org/) para se certificar de que o conteúdo está agora CORS ativada. (Procure "Estado XHR: 200" nos resultados.)
 
 ### <a name="customize-your-policy-again"></a>Personalizar a política novamente
 Agora que carregar o conteúdo de exemplo para a sua própria conta de armazenamento, tem de Editar política de inscrição referenciá-la. Repita os passos do ["Personalizar a política"](#customize-your-policy) secção acima, desta vez utilizando o URL da sua própria conta de armazenamento. Por exemplo, a localização do seu `unified.html` ficheiro seria `<url-of-your-container>/wingtip/unified.html`.

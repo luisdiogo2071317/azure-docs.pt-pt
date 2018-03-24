@@ -1,11 +1,11 @@
 ---
 title: Transformar dados utilizando o script U-SQL - Azure | Microsoft Docs
-description: "Saiba como processar ou dados de transformação através da execução de scripts U-SQL no serviço de computação do Azure Data Lake Analytics."
+description: Saiba como processar ou dados de transformação através da execução de scripts U-SQL no serviço de computação do Azure Data Lake Analytics.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e55249ed187ad9fa74a39634bbb254c9b0b8b8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados através da execução de scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -165,7 +165,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-No acima exemplo de script, a entrada e saída para o script está definido no  **@in**  e  **@out**  parâmetros. Os valores para  **@in**  e  **@out**  parâmetros do script U-SQL são transmitidos dinamicamente pela fábrica de dados utilizando a secção 'parameters'. 
+No acima exemplo de script, a entrada e saída para o script está definido no **@in** e **@out** parâmetros. Os valores para **@in** e **@out** parâmetros do script U-SQL são transmitidos dinamicamente pela fábrica de dados utilizando a secção 'parameters'. 
 
 Pode especificar outras propriedades, tais como degreeOfParallelism e a prioridade, bem como na sua definição de pipeline para as tarefas que são executados no serviço do Azure Data Lake Analytics.
 

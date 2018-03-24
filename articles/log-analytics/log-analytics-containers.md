@@ -1,11 +1,11 @@
 ---
-title: "Solução de monitorização do contentor no Log Analytics do Azure | Microsoft Docs"
-description: "A solução de monitorização do contentor de mensagens em fila na análise de registos ajuda-o a ver e gerir os seus Docker e o Windows anfitriões contentor numa única localização."
+title: Solução de monitorização do contentor no Log Analytics do Azure | Microsoft Docs
+description: A solução de monitorização do contentor de mensagens em fila na análise de registos ajuda-o a ver e gerir os seus Docker e o Windows anfitriões contentor numa única localização.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0041a58c8da58785ebc3ead6c8128316b153728c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização do contentor no Log Analytics
 
@@ -100,7 +100,10 @@ Utilize as seguintes informações para instalar e configurar a solução.
     - No Windows Server 2016 e Windows 10, instalar o cliente e o motor de Docker, em seguida, ligar um agente para recolher informações e envia-as à análise de registos. Reveja [instalar e configurar os anfitriões de contentor do Windows](#install-and-configure-windows-container-hosts) se tiver um ambiente do Windows.
   - De orquestração do Docker multi anfitrião:
     - Se tiver um ambiente do Red Hat OpenShift, reveja [configurar um agente do OMS para Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
-    - Se tiver um cluster de Kubernetes utilizando o serviço de contentor do Azure, reveja [configurar um agente do OMS para Kubernetes](#configure-an-oms-agent-for-kubernetes).
+    - Se tiver um cluster de Kubernetes utilizando o serviço de contentor do Azure:
+       - Reveja [configurar um agente do OMS Linux para Kubernetes](#configure-an-oms-linux-agent-for-kubernetes).
+       - Reveja [configurar um agente do OMS Windows para Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
+       - Reveja [Helm de utilização para implementar o agente do OMS no Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - Se tiver um cluster do serviço de contentor do Azure DC/OS, saiba mais em [monitorizar um cluster DC/OS do serviço de contentor do Azure com o Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Se tiver um ambiente de modo Docker Swarm, saiba mais em [configurar um agente do OMS para Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
     - Se tiver um cluster do Service Fabric, saiba mais em [monitorizar contentores com a análise de registos do OMS](../service-fabric/service-fabric-diagnostics-oms-containers.md).
@@ -387,7 +390,7 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-#### <a name="configure-an-oms-agent-for-windows-kubernetes"></a>Configurar um agente do OMS para Kubernetes do Windows
+#### <a name="configure-an-oms-windows-agent-for-kubernetes"></a>Configurar um agente do OMS Windows para Kubernetes
 Para Windows Kubernetes, utilizar um script para gerar o ficheiro de yaml segredos para o seu ID da área de trabalho e a chave primária instalar o agente do OMS. Na [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) página, existem ficheiros que pode utilizar com as informações secretas.  Tem de instalar o agente do OMS separadamente para os nós mestre e o agente.  
 
 1. Para utilizar DaemonSet de agente do OMS utilizando as informações secretas no mestre de nó, inicie sessão e crie primeiro os segredos.

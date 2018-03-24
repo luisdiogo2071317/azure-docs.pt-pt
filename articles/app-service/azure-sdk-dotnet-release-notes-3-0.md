@@ -1,10 +1,10 @@
 ---
-title: "Azure SDK para notas de versão 3.0 do .NET | Microsoft Docs"
-description: "Azure SDK para notas de versão 3.0 do .NET"
+title: Azure SDK para notas de versão 3.0 do .NET | Microsoft Docs
+description: Azure SDK para notas de versão 3.0 do .NET
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 03/07/2017
 ms.author: juliako
-ms.openlocfilehash: eea4e569ac2d0192ed7872d2fcb9bed03614832b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 207aa137b25e44baf73e7f481ebc8b6362dfa245
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sdk-for-net-30-release-notes"></a>Notas de versão do Azure SDK para .NET 3.0
 
 Este tópico inclui as notas de versão para versão 3.0 do Azure SDK para .NET.
 
-##<a name="azure-sdk-for-net-30-release-summary"></a>Azure SDK para o resumo de versão 3.0 do .NET
+## <a name="azure-sdk-for-net-30-release-summary"></a>Azure SDK para o resumo de versão 3.0 do .NET
 
 Data da versão: 03/07/2017
  
 Não existem alterações a 3.0 de SDK do Azure foram introduzidas nesta versão. Também não é nenhum processo de atualização necessário para tirar partido este SDK com projetos do serviço em nuvem existentes. Para permitir a utilização de 3.0 de SDK do Azure sem necessidade de um processo de atualização, 3.0 de SDK do Azure instala os mesmos diretórios como o Azure SDK 2.9. Mais os componentes não mudou a versão principal do 2.9, mas em vez disso, atualizou o número de compilação.
 
-## <a name="visual-studio-2017-rtw"></a>RTW de 2017 do Visual Studio
+## <a name="visual-studio-2017-rtw"></a>Visual Studio 2017 RTW
 
 - No Visual Studio 2017, esta versão do Azure SDK para .NET baseia-se para a carga de trabalho do Azure. Todas as ferramentas que precisa de fazer a programação do Azure irão fazer parte do Visual Studio 2017, passa. Para o Visual Studio 2015 o SDK continuarão a estar disponível através de WebPI. Podemos ter descontinuada Azure SDK para versões do .NET para Visual Studio 2013 agora que o Visual Studio 2017 foi lançado.
 

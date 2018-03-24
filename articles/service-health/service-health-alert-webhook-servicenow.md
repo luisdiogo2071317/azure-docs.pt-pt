@@ -1,10 +1,10 @@
 ---
-title: "Configurar alertas de estado de funcionamento do serviço do Azure com ServiceNow | Microsoft Docs"
-description: "Obter personalizadas notificações sobre eventos de estado de funcionamento de serviço à sua instância do ServiceNow."
+title: Configurar alertas de estado de funcionamento do serviço do Azure com ServiceNow | Microsoft Docs
+description: Obter personalizadas notificações sobre eventos de estado de funcionamento de serviço à sua instância do ServiceNow.
 author: shawntabrizi
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 625718ab82443c897d1b15c2eac51dea3d0dfeb4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 867a8c0b478df9d2b7690b8b914ded7c42558583
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Configurar alertas de estado de funcionamento de serviço com o ServiceNow
 
@@ -49,9 +49,9 @@ Este artigo mostra-lhe como integrar o ServiceNow alertas de estado de funcionam
 
     >[!NOTE]
     >Tem de atualizar o `<secret>`,`<group>`, e `<email>` valor no script abaixo.
-    >* `<secret>`deve ser uma cadeia aleatória, como um GUID
-    >* `<group>`deve ser o grupo de ServiceNow que pretende atribuir o incidente a
-    >* `<email>`deve ser a pessoa específica que pretende atribuir o incidente para (opcional)
+    >* `<secret>` deve ser uma cadeia aleatória, como um GUID
+    >* `<group>` deve ser o grupo de ServiceNow que pretende atribuir o incidente a
+    >* `<email>` deve ser a pessoa específica que pretende atribuir o incidente para (opcional)
     >
 
     ```javascript
@@ -183,7 +183,7 @@ Este artigo mostra-lhe como integrar o ServiceNow alertas de estado de funcionam
 5. Selecione **guardar** quando terminar de atualizar o grupo de ação.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testar a sua integração de webhook através de um pedido POST de HTTP
-1. Crie o payload de estado de funcionamento do serviço que pretende enviar. Pode encontrar um payload de webhook do Estado de funcionamento do serviço de exemplo no [Webhooks para a atividade do Azure registar alertas](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Crie o payload de estado de funcionamento de serviço que pretende enviar. Pode encontrar um payload de webhook do Estado de funcionamento do serviço do exemplo em [Webhooks para a atividade do Azure registar alertas](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Crie um pedido POST de HTTP da seguinte forma:
 
@@ -192,13 +192,13 @@ Este artigo mostra-lhe como integrar o ServiceNow alertas de estado de funcionam
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Deverá receber um `200 OK` resposta com a mensagem "Incidente criado."
 
 4. Aceda a [ServiceNow](https://www.servicenow.com/) para confirmar a sua integração foi configurada com êxito.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba como [configurar notificações de webhook para sistemas de gestão existente do problema](service-health-alert-webhook-guide.md).
 - Reveja o [esquema de webhook alerta de registo de atividade](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
 - Saiba mais sobre [notificações de estado de funcionamento do serviço](../monitoring-and-diagnostics/monitoring-service-notifications.md).

@@ -1,12 +1,12 @@
 ---
-title: "Os registos de diagnóstico do Azure | Microsoft Docs"
-description: "Cliente pode ativar a análise de registos para a CDN do Azure."
+title: Os registos de diagnóstico do Azure | Microsoft Docs
+description: Cliente pode ativar a análise de registos para a CDN do Azure.
 services: cdn
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
@@ -48,7 +48,7 @@ Para mais informações sobre os registos de diagnóstico, consulte [os registos
 
 Siga estes ativar passos registo com a análise de núcleo CDN:
 
-Inicie sessão no [Portal do Azure](http://portal.azure.com). Se ainda não tiver ativado para o fluxo de trabalho CDN [ativar a CDN do Azure](cdn-create-new-endpoint.md) antes de continuar.
+Inicie sessão no [portal do Azure](http://portal.azure.com). Se ainda não tiver ativado para o fluxo de trabalho CDN [ativar a CDN do Azure](cdn-create-new-endpoint.md) antes de continuar.
 
 1. No portal, navegue para **perfil da CDN**.
 2. Selecione um perfil CDN, em seguida, selecione o ponto final da CDN para a qual pretende ativar **registos de diagnóstico**.
@@ -109,7 +109,7 @@ Para obter mais informações sobre os atrasos de dados de registo, consulte [at
 
 O exemplo seguinte mostra como ativar os registos de diagnóstico através de Cmdlets do PowerShell do Azure.
 
-###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Ativar o diagnóstico inicia sessão numa conta do Storage
+### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Ativar o diagnóstico inicia sessão numa conta do Storage
 
 Primeiro início de sessão e selecionar uma subscrição:
 
@@ -165,7 +165,7 @@ Antes de poder aceder os dados de análise de núcleo da conta do Storage do Azu
 |Ano|  representação de 4 dígitos do ano, por exemplo, 2017|
 |Mês| representação de 2-dígitos do número de meses. 01 = Janeiro... 12 = Dezembro|
 |Dia|   representação de 2-dígitos do dia do mês|
-|PT1H.JSON| Armazenar os dados de análise real do ficheiro JSON|
+|PT1H.json| Armazenar os dados de análise real do ficheiro JSON|
 
 ### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Exportar os dados de análise de núcleo para um ficheiro CSV
 
@@ -173,7 +173,7 @@ Para facilitar a análise de núcleo de acesso, código de exemplo para uma ferr
 
 Eis como pode utilizar a ferramenta:
 
-1.  Visite a ligação do github: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
+1.  Visite a ligação do github: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
 2.  Transferir o código.
 3.  Siga as instruções para compilar e configurar.
 4.  Execute a ferramenta.

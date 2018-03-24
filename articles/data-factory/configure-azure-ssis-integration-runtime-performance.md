@@ -1,6 +1,6 @@
 ---
-title: "Configurar o tempo de execução de integração do Azure-SSIS para elevado desempenho | Microsoft Docs"
-description: "Saiba como configurar as propriedades do tempo de execução de integração do Azure-SSIS para elevado desempenho"
+title: Configurar o tempo de execução de integração do Azure-SSIS para elevado desempenho | Microsoft Docs
+description: Saiba como configurar as propriedades do tempo de execução de integração do Azure-SSIS para elevado desempenho
 services: data-factory
 ms.date: 01/10/2018
 ms.topic: article
@@ -9,11 +9,11 @@ ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 7d0e75ad85731b10f9a993c2fa62f30c0142ed05
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3c19ebc601136653a88ca8d2a3073d897af863f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurar o tempo de execução de integração do Azure-SSIS para elevado desempenho
 
@@ -24,7 +24,7 @@ Este artigo descreve como configurar um tempo de execução de integração de S
 
 ## <a name="properties-to-configure"></a>Propriedades para configurar
 
-A seguinte parte de um script de configuração mostra as propriedades que pode configurar quando criar um tempo de execução de integração de SSIS do Azure. Para o script do PowerShell concluída e a descrição, consulte [pacotes de implementar o SQL Server Integration Services para o Azure](tutorial-deploy-ssis-packages-azure.md).
+A seguinte parte de um script de configuração mostra as propriedades que pode configurar quando criar um tempo de execução de integração de SSIS do Azure. Para o script do PowerShell concluída e a descrição, consulte [pacotes de implementar o SQL Server Integration Services para o Azure](tutorial-deploy-ssis-packages-azure-powershell.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"

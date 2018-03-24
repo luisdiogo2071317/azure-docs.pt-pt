@@ -1,11 +1,10 @@
 ---
-title: "Mover dados de DB2 através da utilização do Azure Data Factory | Microsoft Docs"
-description: "Saiba como mover dados de uma base de dados de DB2 no local utilizando a atividade de cópia de fábrica de dados do Azure"
+title: Mover dados de DB2 através da utilização do Azure Data Factory | Microsoft Docs
+description: Saiba como mover dados de uma base de dados de DB2 no local utilizando a atividade de cópia de fábrica de dados do Azure
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0e597574c1993e2f2a5421d24063cf9f42a7e57b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados de DB2 utilizando a atividade de cópia de fábrica de dados do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +57,7 @@ O conector DB2 da fábrica de dados suporta as seguintes plataformas de IBM DB2 
 
 > [!TIP]
 > Se receber a mensagem de erro "não foi encontrado o pacote correspondente a um pedido de execução da instrução de SQL. SQLSTATE = 51002 SQLCODE =-805, "o motivo é um pacote necessário não foi criado para o utilizador normal no sistema operativo. Para resolver este problema, siga estas instruções para o tipo de servidor DB2:
-> - DB2 para i (AS400): permitir que um utilizador avançado criar a coleção para o utilizador normal antes de executar a atividade de cópia. Para criar a coleção, utilize o comando:`create collection <username>`
+> - DB2 para i (AS400): permitir que um utilizador avançado criar a coleção para o utilizador normal antes de executar a atividade de cópia. Para criar a coleção, utilize o comando: `create collection <username>`
 > - DB2 para z/OS ou LUW: utilizar uma conta de privilégio elevado – um utilizador avançado ou administrador que tenha autoridades de pacote e ENLACE, BINDADD, conceder a executar para permissões públicas – para executar a cópia de uma vez. O pacote necessário é criado automaticamente durante a cópia. Posteriormente, pode voltar a mudar para o utilizador normal para as execuções subsequentes cópia.
 
 ## <a name="getting-started"></a>Introdução
@@ -314,7 +313,7 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | BigInt |Int64 |
 | Real |Solteiro |
 | Duplo |Duplo |
-| Flutuante |Duplo |
+| Número de vírgula flutuante |Duplo |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
@@ -340,7 +339,7 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | BigInt |Int64 |
 | Real |Solteiro |
 | Duplo |Duplo |
-| Flutuante |Duplo |
+| Número de vírgula flutuante |Duplo |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |

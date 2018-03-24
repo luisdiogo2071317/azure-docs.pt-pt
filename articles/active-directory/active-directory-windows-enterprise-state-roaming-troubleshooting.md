@@ -1,12 +1,12 @@
 ---
-title: "Resolução de problemas de definições de Roaming de estado empresarial no Azure Active Directory | Microsoft Docs"
-description: "Fornece respostas a algumas questões, os administradores de TI podem ter sobre as definições e sincronização de dados de aplicação."
+title: Resolução de problemas de definições de Roaming de estado empresarial no Azure Active Directory | Microsoft Docs
+description: Fornece respostas a algumas questões, os administradores de TI podem ter sobre as definições e sincronização de dados de aplicação.
 services: active-directory
-keywords: "Enterprise Estado as definições de roaming, nuvem do windows, perguntas mais frequentes em roaming de estado empresarial"
-documentationcenter: 
+keywords: Enterprise Estado as definições de roaming, nuvem do windows, perguntas mais frequentes em roaming de estado empresarial
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
 ms.workload: identity
@@ -17,11 +17,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 8ee3b523baf562b06bd5f7d652a431e1d4553d5c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas de definições de Roaming de estado empresarial no Azure Active Directory
 
@@ -78,7 +78,7 @@ Em determinadas condições, o Roaming de estado empresarial pode falhar sincron
 
 **Potencial problema**: sincronização pode falhar se o administrador configura a política de acesso condicional de Active Directory Federação serviços multi-factor Authentication e o token de acesso do dispositivo expira. Certifique-se de que a iniciar sessão e terminar sessão utilizando o Microsoft Passport para Work PIN ou concluir o multi-factor Authentication ao aceder a outros serviços do Azure como o Office 365.
 
-###<a name="event-viewer"></a>Visualizador de Eventos
+### <a name="event-viewer"></a>Visualizador de Eventos
 Para resolução de problemas avançada, o Visualizador de eventos pode ser utilizado para localizar os erros específicos. Estes estão documentados na tabela abaixo. Os eventos podem ser encontrados no Visualizador de eventos > registos de serviços e aplicações > **Microsoft** > **Windows** > **SettingSync** e para problemas relacionados com a identidade com a sincronização **Microsoft** > **Windows** > **do Azure AD**.
 
 
@@ -154,8 +154,8 @@ Ligue o dispositivo a uma rede empresarial para que possa retomar a sincronizaç
 O utilizador terá de anulação da associação ao e passem o dispositivo para a nuvem. Para fazê-lo, inicie sessão como o utilizador de administrador Local e anulação da associação ao dispositivo, acedendo a **definições** > **sistema** > **sobre** e selecione "Gerir a ou desligar de empresa ou escola ". Limpar os ficheiros abaixo e, em seguida, associação do Azure AD o dispositivo novamente na **definições** > **sistema** > **sobre** e selecionando "ligar ao trabalho ou Profissional". Continue a associação do dispositivo ao Azure Active Directory e concluir o fluxo.
 
 O passo de limpeza, limpeza os seguinte ficheiros:
-- Settings.dat no`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
-- Todos os ficheiros na pasta`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
+- Settings.dat no `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Todos os ficheiros na pasta `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---
 

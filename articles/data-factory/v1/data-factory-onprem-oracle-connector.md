@@ -1,11 +1,10 @@
 ---
 title: Copiar dados da Oracle, utilizando o Data Factory | Microsoft Docs
-description: "Saiba como copiar dados do Oracle base de dados que está no local utilizando o Azure Data Factory."
+description: Saiba como copiar dados do Oracle base de dados que está no local utilizando o Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 82fe637b46decfc9c8d09b5c7e03f328a8636263
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 64e8a20f72d451908c12751c0f8062bf4ae86370
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copiar os dados do Oracle no local utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +51,7 @@ Fábrica de dados suporta a ligar a origens de Oracle no local utilizando o Data
 ## <a name="supported-versions-and-installation"></a>Versões suportadas e instalação
 Este conector Oracle suportar duas versões de controladores:
 
-- **O controlador Microsoft Oracle (recomendado)**: iniciados a partir da Data Management Gateway versão 2.7, um controlador Microsoft para Oracle é automaticamente instalado juntamente com o gateway, pelo que não precisa de adicionalmente lidar com o controlador para estabelecer conectividade para Oracle e também pode ocorrer um melhor desempenho de cópia utilizando este controlador. Abaixo versões do Oracle, são suportadas bases de dados:
+- **O controlador Microsoft Oracle (recomendado)**: a partir do Data Management Gateway versão 2.7, um controlador para Oracle é automaticamente instalado juntamente com o gateway, por isso não terá adicionalmente lidar com o controlador da Microsoft estabelecer conectividade para Oracle e também pode ocorrer um melhor desempenho de cópia utilizando este controlador. Abaixo versões do Oracle, são suportadas bases de dados:
     - R1 Oracle 12c (12.1)
     - Oracle 11g R1, R2 (11.1, 11.2)
     - Oracle 10g R1, R2 (10.1, 10.2)

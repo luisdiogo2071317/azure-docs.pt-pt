@@ -1,6 +1,6 @@
 ---
-title: "Migrar do Orchestrator para a automatização do Azure"
-description: "Descreve como migrar pacotes de runbooks e a integração do System Center Orchestrator para automatização do Azure."
+title: Migrar do Orchestrator para a automatização do Azure
+description: Descreve como migrar pacotes de runbooks e a integração do System Center Orchestrator para automatização do Azure.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b50f9973ef7ea5f884930d4f1ee67f886cc36ad0
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 873d234a9ba0ae50b4b11cf65b9630bb79e883e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrar do Orchestrator para a automatização do Azure (Beta)
 Os Runbooks do [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) baseiam-se em atividades pacotes de integração que são escritas especificamente para o Orchestrator, enquanto os runbooks na automatização do Azure são baseados no Windows PowerShell.  [Runbooks gráficos](automation-runbook-types.md#graphical-runbooks) na automatização do Azure tem um aspeto semelhante para os runbooks do Orchestrator com as respectivas actividades que representa os cmdlets do PowerShell, os runbooks subordinados e recursos.

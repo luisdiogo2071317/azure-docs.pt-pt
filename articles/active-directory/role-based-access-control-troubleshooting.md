@@ -1,6 +1,6 @@
 ---
-title: "Resolver problemas de controlo de acesso baseado em funções do Azure RBAC | Microsoft Docs"
-description: "Obter ajuda com problemas ou questões sobre os recursos de controlo de acesso baseado em funções."
+title: Resolver problemas de controlo de acesso baseado em funções do Azure RBAC | Microsoft Docs
+description: Obter ajuda com problemas ou questões sobre os recursos de controlo de acesso baseado em funções.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
-ms.openlocfilehash: c2589aabce86f848fa1aa3e25b3f78be180c5525
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 766ff118638538520c8f17694b32f35dbe6d1025
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Resolução de problemas de controlo de acesso baseado em funções do Azure 
 
-Este artigo de documento responde a questões recorrentes sobre os direitos de acesso específicas que são concedidos com as funções, para que saiba o que esperar quando utiliza as funções no portal do Azure e pode resolver problemas de acesso. Estas três funções abrangem todos os tipos de recursos:
+Este artigo responde a questões recorrentes sobre os direitos de acesso específicas que são concedidos com as funções, para que saiba o que esperar quando utiliza as funções no portal do Azure e pode resolver problemas de acesso. Estas três funções abrangem todos os tipos de recursos:
 
 * Proprietário  
 * Contribuinte  
@@ -31,7 +31,7 @@ Este artigo de documento responde a questões recorrentes sobre os direitos de a
 
 Os proprietários e contribuintes têm acesso total à experiência de gestão, mas um contribuinte não é possível conceder acesso a outros utilizadores ou grupos. Coisas obter um pouco mais interessantes com a função de leitor, pelo que é onde irá gastamos algum tempo. Consulte o [artigo get-started do controlo de acesso baseado em funções](role-based-access-control-configure.md) para obter detalhes sobre como conceder acesso.
 
-## <a name="app-service-workloads"></a>Cargas de trabalho de serviço de aplicações
+## <a name="app-service"></a>Serviço de Aplicações
 ### <a name="write-access-capabilities"></a>Capacidades de acesso de escrita
 Se conceder um acesso de só de leitura de utilizador para uma aplicação web única, algumas funcionalidades estão desativadas que não seria de esperar. As seguintes capacidades de gestão requerem **escrever** aceder a uma aplicação web (contribuinte ou proprietário) e não estão disponíveis em qualquer cenário de só de leitura.
 
@@ -69,7 +69,14 @@ Estes itens requerem **escrever** acesso a totalidade **grupo de recursos** que 
 * Componentes de informações de aplicação  
 * Testes Web  
 
-## <a name="virtual-machine-workloads"></a>Cargas de trabalho de máquina virtual
+## <a name="azure-functions"></a>Funções do Azure
+Algumas funcionalidades do [das funções do Azure](../azure-functions/functions-overview.md) necessitam de acesso de escrita. Por exemplo, se um utilizador tem atribuído a função de leitor, não estarão possam ver as funções dentro de uma aplicação de função. O portal irá apresentar **(sem acesso)**.
+
+![Função sem acesso a aplicações](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
+
+Pode clicar um leitor a **funcionalidades da plataforma** separador e, em seguida, clique em **todas as definições** ver algumas definições relacionadas com uma aplicação de função (semelhante a uma aplicação web), mas não os podem modificar qualquer uma destas definições.
+
+## <a name="virtual-machine"></a>Máquina virtual
 Muito como web Apps, algumas funcionalidades no painel da máquina virtual requerem acesso de escrita para a máquina virtual ou a outros recursos no grupo de recursos.
 
 Máquinas virtuais relacionadas com os nomes de domínio, redes virtuais, contas de armazenamento e regras de alertas.

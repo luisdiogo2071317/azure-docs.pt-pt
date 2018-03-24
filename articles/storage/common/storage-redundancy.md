@@ -1,6 +1,6 @@
 ---
-title: "Replicação de dados no armazenamento do Azure | Microsoft Docs"
-description: "Os dados na sua conta de armazenamento do Microsoft Azure são replicados para durabilidade e elevada disponibilidade. As opções de replicação incluem o armazenamento localmente redundante (LRS), o armazenamento com redundância de zona (ZRS), o armazenamento georredundante (GRS) e o armazenamento georredundante com acesso de leitura (RA-GRS)."
+title: Replicação de dados no armazenamento do Azure | Microsoft Docs
+description: Os dados na sua conta de armazenamento do Microsoft Azure são replicados para durabilidade e elevada disponibilidade. As opções de replicação incluem o armazenamento localmente redundante (LRS), o armazenamento com redundância de zona (ZRS), o armazenamento georredundante (GRS) e o armazenamento georredundante com acesso de leitura (RA-GRS).
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 600b66af3b7da24c5a40d09d5cdf76f2d5be67ac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-storage-replication"></a>Replicação do Storage do Azure
 
@@ -30,7 +30,7 @@ Quando cria uma conta de armazenamento, tem de selecionar uma das seguintes opç
 * [Armazenamento georredundante (GRS)](#geo-redundant-storage)
 * [Armazenamento georredundante com acesso de leitura (RA-GRS)](#read-access-geo-redundant-storage)
 
-Armazenamento georredundante com acesso de leitura (RA-GRS) é a opção predefinida quando cria uma conta de armazenamento.
+Armazenamento localmente redundante (LRS) é a opção predefinida quando cria uma conta de armazenamento.
 
 A tabela seguinte fornece uma descrição geral rápida das diferenças entre LRS, ZRS, GRS e RA-GRS. As seções subsequentes deste artigo abordar cada tipo de replicação mais detalhadamente.
 
@@ -54,9 +54,9 @@ Consulte [preços do Storage do Azure](https://azure.microsoft.com/pricing/detai
 
 ### <a name="zrs-classic-accounts"></a>Contas ZRS clássico
 
-A capacidade ZRS existente é agora é denominada ZRS clássico. O ZRS clássico contas estão disponíveis apenas para blobs de blocos em contas de armazenamento para fins gerais V1. 
+A capacidade ZRS existente é agora é denominada ZRS clássico. As contas ZRS Classic estão disponíveis apenas para blobs de blocos em contas de armazenamento para fins gerais V1. 
 
-O ZRS clássico replica os dados no modo assíncrono entre centros de dados dentro de uma ou duas regiões. Uma réplica poderão não estar disponível, a menos que a Microsoft inicia a ativação pós-falha para o secundário. 
+O ZRS Classic replica os dados no modo assíncrono entre datacenters dentro de uma ou duas regiões. Uma réplica pode não estar disponível, a menos que a Microsoft inicie a ativação pós-falha para o secundário. 
 
 Não não possível converter o ZRS clássico contas para ou do LRS, GRS ou RA-GRS. Contas ZRS clássico também não suportam as métricas ou de registo.   
 
@@ -148,5 +148,5 @@ Quando a primeira zona fica inativo, o ZRS continua a escrever réplicas dos dad
 * [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/)
 * [Sobre as contas de armazenamento do Azure](../storage-create-storage-account.md)
 * [Azure metas de desempenho e escalabilidade de armazenamento](storage-scalability-targets.md)
-* [Armazenamento do Microsoft Azure redundância opções e acesso de leitura georreplicação armazenamento redundantes](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+* [Armazenamento do Microsoft Azure redundância opções e acesso de leitura georreplicação armazenamento redundantes ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [Sosp - Storage do Azure: Um elevada serviço em nuvem armazenamento com consistência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

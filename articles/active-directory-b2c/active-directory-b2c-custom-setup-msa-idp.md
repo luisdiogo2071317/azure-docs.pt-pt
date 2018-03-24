@@ -1,24 +1,21 @@
 ---
-title: "O Azure Active Directory B2C: Adicionar a conta Microsoft (MSA) como um fornecedor de identidade através de políticas personalizadas"
-description: "Exemplo com o Microsoft como fornecedor de identidade através do protocolo OpenID Connect (OIDC)"
+title: 'O Azure Active Directory B2C: Adicionar a conta Microsoft (MSA) como um fornecedor de identidade através de políticas personalizadas'
+description: Exemplo com o Microsoft como fornecedor de identidade através do protocolo OpenID Connect (OIDC)
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: cdc77d093358fa15bb1acbc9ba6b1867bae062f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>O Azure Active Directory B2C: Adicionar a conta Microsoft (MSA) como um fornecedor de identidade através de políticas personalizadas
 
@@ -38,7 +35,7 @@ Estes passos incluem:
 5.  Carregar a política para um Azure AD B2C inquilino e testá-lo
 
 ## <a name="create-a-microsoft-account-application"></a>Criar uma aplicação da conta Microsoft
-Para utilizar a conta Microsoft como um fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação da conta Microsoft e forneça-lo com os parâmetros corretos. Necessita de uma conta Microsoft. Se não tiver uma, visite [https://www.live.com/](https://www.live.com/).
+Para utilizar a conta Microsoft como um fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação da conta Microsoft e forneça-lo com os parâmetros corretos. Necessita de uma conta Microsoft. Se não tiver uma, visite [ https://www.live.com/ ](https://www.live.com/).
 
 1.  Vá para o [Portal de registo de aplicações do Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) e inicie sessão com as credenciais da conta Microsoft.
 2.  Clique em **adicionar uma aplicação**.
@@ -156,10 +153,10 @@ Neste momento, o fornecedor de identidade tiver sido configurado, mas não está
 4.  Colar o conteúdo completo de `<UserJournesy>` nó que copiou como subordinado do `<UserJourneys>` elemento.
 
 ### <a name="display-the-button"></a>Apresentar no botão
-O `<ClaimsProviderSelections>` elemento define a lista de opções de seleção de fornecedor de afirmações e a sua ordem.  `<ClaimsProviderSelection>`elemento é semelhante a um botão do fornecedor de identidade numa página sessão-up/início de sessão. Se adicionar um `<ClaimsProviderSelection>` elemento para a conta Microsoft, um novo botão aparece quando um utilizador lands na página. Para adicionar este elemento:
+O `<ClaimsProviderSelections>` elemento define a lista de opções de seleção de fornecedor de afirmações e a sua ordem.  `<ClaimsProviderSelection>` elemento é semelhante a um botão do fornecedor de identidade numa página sessão-up/início de sessão. Se adicionar um `<ClaimsProviderSelection>` elemento para a conta Microsoft, um novo botão aparece quando um utilizador lands na página. Para adicionar este elemento:
 
 1.  Localizar o `<UserJourney>` nó que inclui `Id="SignUpOrSignIn"` no journey utilizador que copiou.
-2.  Localize o `<OrchestrationStep>` nó que inclui`Order="1"`
+2.  Localize o `<OrchestrationStep>` nó que inclui `Order="1"`
 3.  Adicione o seguinte fragmento XML em `<ClaimsProviderSelections>` nó:
 
 ```xml
@@ -204,7 +201,7 @@ Poderá pretender adicionar o fornecedor de identidade Account Microsoft também
 ### <a name="display-the-button"></a>Apresentar no botão
 1.  Abra o ficheiro de extensão da sua política (por exemplo, TrustFrameworkExtensions.xml).
 2.  Localizar o `<UserJourney>` nó que inclui `Id="ProfileEdit"` no journey utilizador que copiou.
-3.  Localize o `<OrchestrationStep>` nó que inclui`Order="1"`
+3.  Localize o `<OrchestrationStep>` nó que inclui `Order="1"`
 4.  Adicione o seguinte fragmento XML em `<ClaimsProviderSelections>` nó:
 
 ```xml

@@ -1,20 +1,19 @@
 ---
-title: "Saiba como soluções de gestão de atualizações, controlo de alterações e inventário integrar uma Máquina Virtual do Azure"
-description: "Saiba como para carregar uma Azure Virtual máquina com soluções de gestão de atualizações, controlo de alterações e inventário que fazem parte da automatização do Azure"
+title: Saiba como soluções de gestão de atualizações, controlo de alterações e inventário integrar uma Máquina Virtual do Azure
+description: Saiba como para carregar uma Azure Virtual máquina com soluções de gestão de atualizações, controlo de alterações e inventário que fazem parte da automatização do Azure
 services: automation
-keywords: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/19/2018
 ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a850189406b394e7935763206f9e3a191b415170
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 8713447386e116b3f1ecb2754d46cc8d88d00b39
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Integrar soluções de gestão de atualizações, controlo de alterações e inventário de uma Máquina Virtual do Azure
 
@@ -22,19 +21,19 @@ A automatização do Azure fornece soluções para gerir atualizações de segur
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Azure em https://portal.azure.com
+Inicie sessão no Azure https://portal.azure.com
 
 ## <a name="enable-the-solutions"></a>Ativar as soluções
 
 Navegue para uma máquina virtual existente e selecione **gestão de atualizações**, **inventário**, ou **alterações** em **operações**.
 
-Escolha a análise de registos conta da área de trabalho e automatização e clique em **ativar** para ativar a solução. A solução tira até 15 minutos a ativar.
+Escolha a área de trabalho e a conta de automatização do Log Analytics e clique em **Ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
 
-![Integrar soluções de atualização](media/automation-onboard-solutions-from-vm/onboard-solution.png)
+![Carregar a solução de Atualização](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 Navegue para as outras soluções e clique em **ativar**, a análise de registos e a conta de automatização caixas de lista pendente estão desativadas por utilizarem a mesma conta de área de trabalho e automatização como solução de anteriormente ativada.
 
-![Integrar soluções de atualização](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
+![Carregar a solução de Atualização](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > **Registo de alterações** e **inventário** utilizar a mesma solução, quando um está ativado o outro está ativado, bem como.

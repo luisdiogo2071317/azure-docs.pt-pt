@@ -1,12 +1,12 @@
 ---
-title: "Sincronização do Azure AD Connect: alterar a conta de serviço do Azure AD Connect sincronização | Microsoft Docs"
-description: "Este documento de tópico descreve a chave de encriptação e como abandoná-lo Depois da palavra-passe é alterada."
+title: 'Sincronização do Azure AD Connect: alterar a conta de serviço do Azure AD Connect sincronização | Microsoft Docs'
+description: Este documento de tópico descreve a chave de encriptação e como abandoná-lo Depois da palavra-passe é alterada.
 services: active-directory
-keywords: "Conta de serviço de sincronização do Azure AD, a palavra-passe"
-documentationcenter: 
+keywords: Conta de serviço de sincronização do Azure AD, a palavra-passe
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alterar a palavra-passe da conta de serviço sincronização do Azure AD Connect
 Se alterar a palavra-passe da conta de serviço sincronização do Azure AD Connect, o serviço de sincronização não será possível iniciar corretamente até ter abandonado a chave de encriptação e a reinicialização da palavra-passe da conta de serviço sincronização do Azure AD Connect. 
@@ -30,7 +30,7 @@ A chave de encriptação utilizada é protegida por [Windows Data Protection (DP
 
 Se precisar de alterar a palavra-passe da conta de serviço pode utilizar os procedimentos [abandonar a chave de encriptação do Azure AD Connect sincronização](#abandoning-the-azure-ad-connect-sync-encryption-key) para realizar esta tarefa.  Estes procedimentos também devem ser utilizados se precisar de abandonar a chave de encriptação por qualquer motivo.
 
-##<a name="issues-that-arise-from-changing-the-password"></a>Problemas que resultam de alterar a palavra-passe
+## <a name="issues-that-arise-from-changing-the-password"></a>Problemas que resultam de alterar a palavra-passe
 Existem dois aspetos que precisam de ser efetuada quando alterar a palavra-passe da conta de serviço.
 
 Primeiro, precisa de alterar a palavra-passe com o Gestor de controlo do serviço do Windows.  Até que este problema seja resolvido, verá os seguintes erros:
@@ -72,9 +72,9 @@ Abandone a chave de encriptação existente para que essa nova chave de encripta
 
 2. Inicie uma nova sessão do PowerShell.
 
-3. Navegue até à pasta:`$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Navegue até à pasta: `$env:Program Files\Microsoft Azure AD Sync\bin\`
 
-4. Execute o comando:`./miiskmu.exe /a`
+4. Execute o comando: `./miiskmu.exe /a`
 
 ![Utilitário de chave de encriptação de sincronização do Azure AD Connect](media/active-directory-aadconnectsync-encryption-key/key5.png)
 

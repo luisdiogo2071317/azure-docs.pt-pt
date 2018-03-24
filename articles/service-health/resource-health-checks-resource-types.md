@@ -1,11 +1,11 @@
 ---
-title: "Tipos de recursos através de estado de funcionamento de recursos do Azure suportados | Microsoft Docs"
-description: "Tipos de recurso suportados através do Estado de funcionamento de recursos do Azure"
+title: Tipos de recursos através de estado de funcionamento de recursos do Azure suportados | Microsoft Docs
+description: Tipos de recurso suportados através do Estado de funcionamento de recursos do Azure
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure
 Segue-se uma lista completa de todas as verificações executadas através do Estado de funcionamento de recursos por tipos de recursos.
@@ -43,28 +43,28 @@ Segue-se uma lista completa de todas as verificações executadas através do Es
 |---|
 |<ul><li>O servidor de anfitrião se encontra em execução?</li><li>O arranque do anfitrião SO concluída?</li><li>O contentor de máquina virtual é aprovisionado e ligados à corrente cópias de segurança?</li><li>Existe conectividade de rede entre o anfitrião e a conta de armazenamento?</li><li>O arranque do SO convidado concluiu?</li><li>Existe a manutenção planeada em curso?</li></ul>|
 
-## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/Accounts
+## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Verificações executadas|
 |---|
 |<ul><li>A conta acessível no Centro de dados?</li><li>O fornecedor de recursos de serviços cognitivos está disponível?</li><li>O serviço cognitivos está disponível na região adequada?</li><li>Pode ler possível efetuar as operações na conta de armazenamento que contém os metadados do recurso?</li><li>Foi atingida a quota de chamada de API?</li><li>Foi atingido o limite de leitura de chamada de API?</li></ul>|
 
-## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualmachines
+## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Verificações executadas|
 |---|
 |<ul><li>É o servidor que aloja esta máquina virtual a cópia de segurança e em execução?</li><li>O arranque do anfitrião SO concluída?</li><li>O contentor de máquina virtual é aprovisionado e ligados à corrente cópias de segurança?</li><li>Existe conectividade de rede entre o anfitrião e a conta de armazenamento?</li><li>O arranque do SO convidado concluiu?</li><li>Existe a manutenção planeada em curso?</li></ul>|
 
-## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/Accounts
+## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Verificações executadas|
 |---|
 |<ul><li>Pode tarefas de envio de utilizadores ao Data Lake Analytics na região?</li><li>Não executar as tarefas básicas e concluir com êxito na região?</li><li>Podem utilizadores listar itens de catálogo na região?</li>|
 
 
-## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/Accounts
+## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
 |Verificações executadas|
 |---|
 |<ul><li>Os utilizadores carregar dados ao Data Lake Store na região</li><li>Os utilizadores transferem dados do Data Lake Store na região</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/iothubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
 |Verificações executadas|
 |---|
@@ -75,7 +75,7 @@ Segue-se uma lista completa de todas as verificações executadas através do Es
 |---|
 |<ul><li>Ter ocorrido quaisquer pedidos de base de dados ou de coleção não servidos devido a uma indisponibilidade do serviço de base de dados do Azure Cosmos?</li><li>Ter ocorrido quaisquer pedidos de documento não servidos devido a uma indisponibilidade do serviço de base de dados do Azure Cosmos?</li></ul>|
 
-## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
+## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Verificações executadas|
 |---|
 |<ul><li>O túnel VPN está ligado?</li><li>Existem conflitos de configuração na ligação?</li><li>As chaves pré-partilhadas estão corretamente configuradas?</li><li>Dispositivo VPN no local é acessível?</li><li>Existem correspondência na política de segurança IPSec/IKE?</li><li>Corretamente aprovisionado ou em estado de falha, é a ligação S2S VPN?</li><li>Corretamente aprovisionado ou em estado de falha, é a ligação VNET a VNET?</li></ul>|
@@ -115,12 +115,12 @@ Segue-se uma lista completa de todas as verificações executadas através do Es
 |---|
 |<ul><li>O servidor de anfitrião se encontra em execução?</li><li>Serviços de informação Internet está em execução?</li><li>O Balanceador de carga está em execução?</li><li>O plano de serviço Web acessível no Centro de dados?</li><li>A conta de armazenamento aloja o conteúdo de sites para serverFarm disponível??</li></ul>|
 
-## <a name="microsoftwebsites"></a>Microsoft.Web/sites
+## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |Verificações executadas|
 |---|
 |<ul><li>O servidor de anfitrião se encontra em execução?</li><li>Servidor de informação Internet está em execução?</li><li>O Balanceador de carga está em execução?</li><li>A aplicação Web acessível no Centro de dados?</li><li>A conta de armazenamento aloja o conteúdo do site disponível?</li></ul>|
 
-# <a name="next-steps"></a>Passos Seguintes
--  Consulte [introdução ao estado de funcionamento de serviço de Azure](service-health-overview.md) e [introdução ao estado de funcionamento de recursos de Azure](resource-health-overview.md) para saber mais sobre os mesmos. 
+# <a name="next-steps"></a>Próximos Passos
+-  Consulte [introdução ao dashboard de estado de funcionamento de serviço de Azure](service-health-overview.md) e [introdução ao estado de funcionamento de recursos de Azure](resource-health-overview.md) para saber mais sobre os mesmos. 
 -  [Perguntas mais frequentes sobre o estado de funcionamento de recursos de Azure](resource-health-faq.md)
-- Configure alertas para que seja notificado dos problemas de estado de funcionamento. Para obter mais informações, consulte [configurar alertas de estado de funcionamento do serviço](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Configure alertas para que seja notificado dos problemas de estado de funcionamento. Para obter mais informações, consulte [configurar alertas de eventos de estado de funcionamento do serviço](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 

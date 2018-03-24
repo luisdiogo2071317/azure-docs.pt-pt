@@ -1,6 +1,6 @@
 ---
-title: "Reencaminhar dados de tarefa de automatização do Azure para a análise de registos do OMS"
-description: "Este artigo demonstra como enviar estado da tarefa e runbook fluxos de trabalho para a gestão e de análise de registos do Microsoft Operations Management Suite para fornecer informações adicionais."
+title: Reencaminhar dados de tarefa da Automatização do Azure para o Log Analytics
+description: Este artigo demonstra como enviar estado da tarefa e runbook fluxos de trabalho para a gestão e de análise de registos do Microsoft Operations Management Suite para fornecer informações adicionais.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: c73a523f1239fb7d549b573ea6105168f4a63144
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9b604b0fc7a3524686bec6832a19ee9f85f6ed2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Reencaminhar estado da tarefa e fluxos de trabalho da automatização para análise de registos (OMS)
-Automatização pode enviar as runbook fluxos de trabalho e o estado da tarefa para a sua área de trabalho de análise de registos do Microsoft Operations Management Suite (OMS). Os registos de tarefa e fluxos de trabalho são visíveis no portal do Azure, ou com o PowerShell, para tarefas individuais e Isto permite-lhe efetuar as investigações simples. Agora com a análise de registos, pode:
+# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Reencaminhar o estado da tarefa e fluxos de trabalho da automatização para análise de registos
+Automatização pode enviar as runbook fluxos de trabalho e o estado da tarefa para a sua área de trabalho de análise de registos. Os registos de tarefa e fluxos de trabalho são visíveis no portal do Azure, ou com o PowerShell, para tarefas individuais e Isto permite-lhe efetuar as investigações simples. Agora com a análise de registos, pode:
 
 * Obter conhecimentos aprofundados sobre as tarefas de automatização.
 * Acionamento um e-mail ou o alerta com base no seu estado de tarefa de runbook (por exemplo, falha ou suspenso).
@@ -157,7 +155,7 @@ Quando estiver a depuração uma tarefa, também poderá procurar nos fluxos de 
 Por fim, poderá visualizar o histórico do trabalho ao longo do tempo. Pode utilizar esta consulta para procurar o estado das suas tarefas ao longo do tempo.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
-<br> ![Gráfico de estado de tarefa históricos do OMS](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Gráfico de estado de tarefa histórico de análise de registo](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="summary"></a>Resumo
 Ao enviar os dados de estado e de fluxo da tarefa de automatização à análise de registos, pode obter uma melhor aprofundadas sobre o estado das suas tarefas de automatização por:
@@ -170,4 +168,4 @@ Análise de registos dá-lhe maior visibilidade operacional para as tarefas de a
 * Para obter mais informações sobre como construir consultas de pesquisa diferentes e reveja os registos da tarefa de automatização com a análise de registos, consulte o artigo [pesquisas de registo na análise de registos](../log-analytics/log-analytics-log-searches.md).
 * Para compreender como criar e obter mensagens de erro e de saída a partir de runbooks, consulte [Runbook de saída e mensagens](automation-runbook-output-and-messages.md).
 * Para saber mais sobre a execução de runbooks, como monitorizar tarefas de runbooks e outros detalhes técnicos, veja [Acompanhar uma tarefa de runbook](automation-runbook-execution.md).
-* Para saber mais sobre a análise de registos do OMS e origens de recolha de dados, consulte [dados de armazenamento do Azure recolha na descrição geral da análise de registos](../log-analytics/log-analytics-azure-storage.md).
+* Para saber mais sobre a análise de registos e as origens de recolha de dados, consulte [dados de armazenamento do Azure recolha na descrição geral da análise de registos](../log-analytics/log-analytics-azure-storage.md).

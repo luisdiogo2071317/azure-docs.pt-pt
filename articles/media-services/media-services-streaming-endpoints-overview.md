@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral de ponto final de transmissão em fluxo de serviços em suportes de dados do Azure | Microsoft Docs"
-description: "Este tópico fornece uma descrição geral dos Media Services do Azure pontos finais de transmissão em fluxo."
+title: Descrição geral de ponto final de transmissão em fluxo de serviços em suportes de dados do Azure | Microsoft Docs
+description: Este tópico fornece uma descrição geral dos Media Services do Azure pontos finais de transmissão em fluxo.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 writer: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: f923a2fb328ee62ce4dc73669fd922f275ba34a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Descrição geral de pontos finais de transmissão em fluxo 
 
-##<a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição geral
 
 No Microsoft Azure dos Media Services (AMS), um **ponto final de transmissão em fluxo** representa um serviço de transmissão em fluxo que pode proporcionar o conteúdo diretamente a uma aplicação de leitor de cliente ou a rede de entrega um conteúdos (CDN) para uma maior distribuição. Os Media Services também fornecem uma integração perfeita CDN do Azure. O fluxo de saída de um serviço de StreamingEndpoint pode ser uma transmissão em fluxo em direto, um vídeo a pedido ou transferência progressiva do seu elemento na sua conta de Media Services. Cada conta de Media Services do Azure inclui um predefinido StreamingEndpoint. Lidam adicionais pode ser criadas com a conta. Existem duas versões do lidam, 1.0 e 2.0. A partir de com 10 de Janeiro de 2017, as contas recentemente criadas do AMS irão incluir versão 2.0 **predefinido** StreamingEndpoint. Os pontos finais transmissão em fluxo adicionais que adicionar a esta conta também será versão 2.0. Esta alteração não irá afetar as contas existentes; lidam existente será versão 1.0 e pode ser atualizados para a versão 2.0. Com esta alteração vão ocorrer alterações de comportamento, faturação e funcionalidade (para obter mais informações, consulte o **tipos e versões de transmissão em fluxo** secção documentados abaixo).
 

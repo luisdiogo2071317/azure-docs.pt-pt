@@ -1,12 +1,12 @@
 ---
-title: "Reparametrização de um serviço web preditiva | Microsoft Docs"
-description: "Saiba como reparametrização de um modelo e atualizar o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning."
+title: Reparametrização de um serviço web preditiva | Microsoft Docs
+description: Saiba como reparametrização de um modelo e atualizar o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: aashishb
-ms.author: aashishb
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
-editor: 
+editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 040b52ae41dc83f103762764b6f2ccea23d36983
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 67d75a28ba65dbdc0a3a105f9e41a1c4f02f2615
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reparametrização de um serviço web preditiva existente
 Este documento descreve o processo reparametrização para o seguinte cenário:
@@ -44,7 +44,7 @@ A partir do seu serviço web existente e experimentações, terá de seguir este
    6. Atualize o serviço web com uma nova definição de serviço web.
 
 ## <a name="deploy-the-training-experiment"></a>Implementar a experimentação de preparação
-Para implementar a experimentação de preparação como um serviço web reparametrização, tem de adicionar web service entradas e saídas do modelo. Ao ligar-se um *saída de serviço Web* módulo para a experimentação  *[preparar modelo] [ train-model]*  módulo, ativar a experimentação de preparação para criar um novo modelo treinado que pode utilizar na sua experimentação preditiva. Se tiver um *avaliar modelo* módulo, também pode anexar saída de serviço web para obter os resultados da avaliação como saída.
+Para implementar a experimentação de preparação como um serviço web reparametrização, tem de adicionar web service entradas e saídas do modelo. Ao ligar-se um *saída de serviço Web* módulo para a experimentação *[preparar modelo] [ train-model]* módulo, ativar a experimentação de preparação para criar um novo modelo treinado que pode utilizar na sua experimentação preditiva. Se tiver um *avaliar modelo* módulo, também pode anexar saída de serviço web para obter os resultados da avaliação como saída.
 
 Para atualizar a sua experimentação de preparação:
 

@@ -1,10 +1,26 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: expressroute
+author: cherylmc
+ms.service: expressroute
+ms.topic: include
+ms.date: 03/22/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 17edbef03f1e2882bd85f5a58e2a32a1541b50c8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/23/2018
+---
 Os passos para esta tarefa utilizam uma VNet com base nos valores de lista de referências de configuração seguintes. Nomes e outras definições também são descritos nesta lista. Iremos não utilize esta lista diretamente em nenhum dos passos, embora adicionamos variáveis com base nos valores nesta lista. Pode copiar a lista para utilizar como uma referência, substituindo os valores pelos seus.
 
 **Lista de referência de configuração**
 
-* Nome da rede virtual = "TestVNet"
+* Virtual Network Name = "TestVNet"
 * Espaço de endereços de rede virtuais = 192.168.0.0/16
-* Grupo de recursos = "TestRG"
+* Resource Group = "TestRG"
 * Subnet1 Name = "FrontEnd" 
 * Espaço de endereços Subnet1 = "192.168.1.0/24"
 * Nome de sub-rede de gateway: "GatewaySubnet" tem de nome sempre uma sub-rede de gateway *GatewaySubnet*.

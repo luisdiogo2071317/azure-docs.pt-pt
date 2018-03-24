@@ -1,6 +1,6 @@
 ---
-title: "Monitorizar os registos de acesso, registos de desempenho, estado de funcionamento de back-end e métricas de Gateway de aplicação | Microsoft Docs"
-description: "Saiba como ativar e gerir registos de acesso e registos de desempenho para o Gateway de aplicação"
+title: Monitorizar os registos de acesso, registos de desempenho, estado de funcionamento de back-end e métricas de Gateway de aplicação | Microsoft Docs
+description: Saiba como ativar e gerir registos de acesso e registos de desempenho para o Gateway de aplicação
 services: application-gateway
 documentationcenter: na
 author: amitsriva
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
-ms.openlocfilehash: 12c252340b82aba5ee69b12db83353750782e7c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c739d98f81bafb6474995b141cab3400bcb4dc33
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento de back-end, os registos de diagnóstico e métricas de Gateway de aplicação
 
@@ -152,9 +152,9 @@ Registo de atividade é ativado automaticamente para todos os recursos do Resour
 
    ![Iniciar o processo de configuração][2]
 
-4. Escolha uma área de trabalho do Operations Management Suite (OMS) existente ou crie um novo. Este exemplo utiliza um existente.
+4. Escolha uma área de trabalho de análise de registos existente ou crie um novo. Este exemplo utiliza um existente.
 
-   ![Opções para áreas de trabalho do OMS][3]
+   ![Opções para áreas de trabalho de análise de registos][3]
 
 5. Confirme as definições e clique em **guardar**.
 
@@ -172,7 +172,7 @@ O registo de acesso é gerado apenas se tiver ativado, cada instância de Gatewa
 |Valor  |Descrição  |
 |---------|---------|
 |instanceId     | Instância de Gateway de aplicação que serviu o pedido.        |
-|ClientIP     | IP de origem para o pedido.        |
+|clientIP     | IP de origem para o pedido.        |
 |clientPort     | Porta de origem para o pedido.       |
 |httpMethod     | Método HTTP utilizado por pedido.       |
 |requestUri     | URI do pedido recebido.        |
@@ -259,13 +259,13 @@ O registo de firewall é gerado apenas se tiver ativado-la para cada gateway de 
 |ruleSetType     | Tipo de conjunto de regras. O valor disponível é OWASP.        |
 |ruleSetVersion     | O conjunto de regras de versão utilizada. Os valores disponíveis são 2.2.9 e 3.0.     |
 |ruleId     | ID de regra do evento de acionamento.        |
-|Mensagem     | Mensagem amigável de utilizador para o evento de acionamento. Obter mais detalhes são fornecidos na secção de detalhes.        |
-|Ação     |  Ação tomada no pedido. Os valores disponíveis são bloqueado e permitido.      |
+|message     | Mensagem amigável de utilizador para o evento de acionamento. Obter mais detalhes são fornecidos na secção de detalhes.        |
+|action     |  Ação tomada no pedido. Os valores disponíveis são bloqueado e permitido.      |
 |site     | Site para o qual o registo foi gerado. Atualmente, apenas Global está listado porque as regras são globais.|
-|Detalhes     | Detalhes do evento de acionamento.        |
-|details.Message     | Descrição da regra.        |
+|detalhes     | Detalhes do evento de acionamento.        |
+|details.message     | Descrição da regra.        |
 |details.data     | Foram encontrados pedido que correspondeu à regra de dados específicos.         |
-|details.File     | Ficheiro de configuração que continha a regra.        |
+|details.file     | Ficheiro de configuração que continha a regra.        |
 |details.line     | Número de linha no ficheiro de configuração que acionou o evento.       |
 
 ```json
@@ -322,7 +322,7 @@ As métricas são uma funcionalidade de certos recursos do Azure, onde pode ver 
 
 Para ver uma lista atual de métricas, consulte [suportado métricas com a monitorização do Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
-### <a name="alert-rules"></a>Regras de alertas
+### <a name="alert-rules"></a>Regras de alerta
 
 Pode começar a regras de alertas com base nas métricas para um recurso. Por exemplo, um alerta pode chamar um webhook ou um administrador de e-mail, se o débito do gateway de aplicação é acima, abaixo ou com um limiar durante um período especificado.
 
@@ -354,7 +354,7 @@ Para saber mais sobre as notificações de alerta, consulte o artigo [receber no
 
 Para saber mais sobre webhooks e como pode utilizá-los com alertas, visite [configurar um webhook num alerta métrico Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Visualizar registos de eventos e contadores utilizando [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
 * [Visualizar o registo de atividade do Azure com Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogue.

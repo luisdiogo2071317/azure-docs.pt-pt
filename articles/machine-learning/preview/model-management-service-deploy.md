@@ -1,6 +1,6 @@
 ---
-title: "Do Azure Machine Learning a implementação de serviço Web do modelo gestão | Microsoft Docs"
-description: "Este documento descreve os passos envolvidos na implementação de um modelo de machine learning com o Azure Machine Learning modelo de gestão."
+title: Do Azure Machine Learning a implementação de serviço Web do modelo gestão | Microsoft Docs
+description: Este documento descreve os passos envolvidos na implementação de um modelo de machine learning com o Azure Machine Learning modelo de gestão.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 7b481fb3287b8ee2c22e5f25f8cf1935eed05428
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 5211fa29af1d8cba17049b69974189990d30f34a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Implementar um modelo de Machine Learning como um serviço web
 
@@ -22,10 +22,17 @@ O Azure Machine Learning modelo Management fornece interfaces para implementar m
 
 Este documento aborda os passos para implementar os seus modelos como serviços web através da interface de linha de comandos (CLI) de gestão de modelo do Azure Machine Learning.
 
+## <a name="what-you-need-to-get-started"></a>O que precisa de começar
+
+Para tirar o máximo partido deste guia, deve ter acesso de contribuinte a um grupo de recursos que pode implementar os seus modelos para ou a uma subscrição do Azure.
+A CLI é previamente instalada o Workbench do Azure Machine Learning e no [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).  Também pode ser instalado como um pacote autónomo.
+
+Além disso, um ambiente de conta e a implementação da gestão de modelo tem já de ser definido.  Para obter mais informações sobre como configurar a conta de gestão de modelo e o ambiente para o local e a implementação de cluster, consulte [configuração de gestão de modelo](deployment-setup-configuration.md).
+
 ## <a name="deploying-web-services"></a>Implementar serviços web
 Utilizar os CLIs, pode implementar serviços web para ser executado no computador local ou num cluster.
 
-Recomendamos que comece com uma implementação local. Primeiro a validar que o modelo e o código de trabalho, em seguida, implementar o serviço web para um cluster para utilização de escala de produção. Para obter mais informações sobre como configurar o ambiente para implementação de cluster, consulte [configuração de gestão de modelo](deployment-setup-configuration.md). 
+Recomendamos que comece com uma implementação local. Primeiro a validar que o modelo e o código de trabalho, em seguida, implementar o serviço web para um cluster para utilização de escala de produção.
 
 Seguem-se os passos de implementação:
 1. Utilizar o modelo de Machine Learning guardado, preparado,
@@ -49,7 +56,8 @@ saved_model = pickle.dumps(clf)
 ```
 
 ### <a name="2-create-a-schemajson-file"></a>2. Criar um ficheiro de schema.json
-Este passo é opcional. 
+
+Enquanto a geração de esquema é opcional, é altamente recomendado para definir o formato da variável pedido e a entrada para processar melhor.
 
 Crie um esquema para validar automaticamente a entrada e saída do seu serviço web. Os CLIs também utilizam o esquema para gerar um documento Swagger para o seu serviço web.
 
@@ -77,6 +85,13 @@ O exemplo seguinte utiliza uma dataframe PANDAS:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
+```
+
+O exemplo seguinte utiliza um formato JSON genérico:
+
+```python
+inputs = {"input_json": SampleDefinition(DataTypes.STANDARD, yourinputjson)}
 generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
@@ -147,10 +162,13 @@ Pode criar uma imagem com a opção de ter criado o manifesto antes.
 az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
-Ou pode criar o manifesto e da imagem com um único comando. 
+>[!NOTE] 
+>Também pode utilizar um único comando para efetuar a criação de registo, o manifesto e o modelo do modelo. Utilize -h com o serviço criar comando para obter mais detalhes.
+
+Como alternativa, há um único comando para registar um modelo, crie um manifesto e criar uma imagem (mas não criar e implementar o serviço web, ainda) como um passo da seguinte forma.
 
 ```
-az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]
+az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime e.g. spark-py which is the Docker container image base]
 ```
 
 >[!NOTE]
@@ -165,7 +183,14 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->Também pode utilizar um único comando para efetuar os 4 passos anteriores. Utilize -h com o serviço criar comando para obter mais detalhes.
+>Também pode utilizar um único comando para efetuar todas as 4 passos anteriores. Utilize -h com o serviço criar comando para obter mais detalhes.
+
+Como alternativa, há um único comando para registar um modelo, crie um manifesto, criar uma imagem, bem como, criar e implementar o serviço Web, como um passo da seguinte forma.
+
+```azurecli
+az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
+```
+
 
 ### <a name="8-test-the-service"></a>8. O serviço de teste
 Utilize o seguinte comando para obter informações sobre como chamar o serviço:

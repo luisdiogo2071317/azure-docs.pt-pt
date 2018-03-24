@@ -2,10 +2,10 @@
 title: Copiar dados de e para o Table storage do Azure utilizando o Data Factory | Microsoft Docs
 description: Saiba como copiar dados de arquivos de origem suportada para o Table storage do Azure ou de armazenamento de tabelas em arquivos de receptores suportadas, utilizando o Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 41e2117e14f336d33f5d6f4e1f446e32a6886079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ef43037ff33b693256c82459eec2e4b3beab4d9a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados de e para o Table storage do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - geralmente disponível](v1/data-factory-azure-table-connector.md)
+> * [Versão 1 - Disponibilidade geral](v1/data-factory-azure-table-connector.md)
 > * [Versão 2 - Pré-visualização](connector-azure-table-storage.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de e para o Table storage do Azure. Baseia-se no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.

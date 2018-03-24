@@ -1,11 +1,10 @@
 ---
-title: "Mover dados do servidor SFTP através do Azure Data Factory | Microsoft Docs"
+title: Mover dados do servidor SFTP através do Azure Data Factory | Microsoft Docs
 description: Saiba mais sobre como mover dados de um local ou um servidor SFTP de nuvem utilizando o Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8871012458c97a36b1f8c2cca413319ec7d72e8e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: e43e147fa352a38dd8c051725e92245047921689
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Mover dados de um servidor SFTP através do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -123,7 +122,7 @@ Para utilizar a autenticação de chave pública SSH, defina `authenticationType
 | passPhrase | Especifique a passagem frase/palavra-passe para desencriptar a chave privada, se o ficheiro de chave estiver protegido por uma frase de acesso. | Sim, se o ficheiro de chave privada está protegido por uma frase de acesso. |
 
 > [!NOTE]
-> Conector SFTP suporta chave RSA/DSA OpenSSH. Certifique-se de que o conteúdo do ficheiro de chave começa com "---BEGIN [RSA/DSA] chave privada---". Se o ficheiro de chave privada é um ficheiro de formato ppk, utilize a ferramenta Putty para converter de *.ppk OpenSSH formato.
+> Conector SFTP suporta chave RSA/DSA OpenSSH. Certifique-se de que o conteúdo do ficheiro de chave começa com "---BEGIN [RSA/DSA] chave privada---". Se o ficheiro de chave privada é um ficheiro de formato ppk, utilize a ferramenta Putty para converter de .ppk OpenSSH formato.
 
 #### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>Exemplo: Autenticação de parâmetros SshPublicKey utilizando filePath chave privada
 

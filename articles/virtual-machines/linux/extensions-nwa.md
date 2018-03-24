@@ -1,11 +1,11 @@
 ---
-title: "Extensão de máquina virtual de agente do observador de rede do Azure para Linux | Microsoft Docs"
-description: "Implemente o agente do observador de rede na máquina de virtual com Linux utilizando uma extensão da máquina virtual."
+title: Extensão de máquina virtual de agente do observador de rede do Azure para Linux | Microsoft Docs
+description: Implemente o agente do observador de rede na máquina de virtual com Linux utilizando uma extensão da máquina virtual.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dennisg
 manager: amku
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a51566148eec88f707b524346afc59606196e4da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de agente do observador de rede para Linux
 
 ## <a name="overview"></a>Descrição geral
 
-[Observador de rede do Azure](https://review.docs.microsoft.com/azure/network-watcher/) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização de redes do Azure. A extensão de máquina virtual de agente do observador de rede é um requisito para algumas das funcionalidades de observador de rede em máquinas virtuais do Azure. Isto inclui capturar o tráfego de rede a pedido e outras funcionalidades avançadas.
+[Observador de rede do Azure](https://docs.microsoft.com/azure/network-watcher/) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização de redes do Azure. A extensão de máquina virtual de agente do observador de rede é um requisito para algumas das funcionalidades de observador de rede em máquinas virtuais do Azure. Isto inclui capturar o tráfego de rede a pedido e outras funcionalidades avançadas.
 
 Este documento fornece detalhes sobre as plataformas suportadas e opções de implementação para a extensão de máquina virtual de agente do observador de rede do Linux.
 
@@ -40,7 +40,7 @@ A extensão de agente do observador de rede pode ser executada em relação a es
 | Ubuntu | 16.04 LTS, 14.04 LTS e 12.04 LTS |
 | Debian | 7 e 8 |
 | RedHat | 6 e 7. x |
-| Oracle Linux | 7 x |
+| Oracle Linux | 7x |
 | SUSE | 11 e 12 |
 | OpenSuse | 7.0 |
 | CentOS | 7.0 |
@@ -78,7 +78,7 @@ O JSON seguinte mostra o esquema para a extensão de agente do observador de red
 | Nome | Valor / exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Fabricante | Microsoft.Azure.NetworkWatcher |
+| publisher | Microsoft.Azure.NetworkWatcher |
 | tipo | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 

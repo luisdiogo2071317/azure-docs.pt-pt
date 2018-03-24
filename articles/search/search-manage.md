@@ -1,11 +1,11 @@
 ---
-title: "Administração de serviço para a Azure Search no portal do Azure"
-description: "Gerir a Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure, utilizando o portal do Azure."
+title: Administração de serviço para a Azure Search no portal do Azure
+description: Gerir a Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure, utilizando o portal do Azure.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d19683291e001c3c3f2a7bfc5c203b5121a8a418
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administração de serviço para a Azure Search no portal do Azure
 > [!div class="op_single_selector"]
@@ -44,26 +44,12 @@ Repare que *atualizar* não está indicada como uma tarefa administrativa. Porqu
 ## <a name="administrator-rights"></a>Direitos de administrador
 Aprovisionamento ou desativar o próprio serviço pode ser efetuada por um administrador de subscrição do Azure ou coadministrador.
 
-Dentro de um serviço, qualquer pessoa com acesso para o URL do serviço e uma chave de api de administrador tem acesso de leitura / escrita para o serviço. Acesso de leitura e escrita fornece a capacidade de adicionar, eliminar ou modificar objetos de servidor, incluindo as chaves de api, índices, indexadores, origens de dados, as agendas e atribuições de funções conforme implementado através do [funções do RBAC](#rbac).
+Dentro de um serviço, qualquer pessoa com acesso para o URL do serviço e uma chave de api de administrador tem acesso de leitura / escrita para o serviço. Acesso de leitura e escrita fornece a capacidade de adicionar, eliminar ou modificar objetos de servidor, incluindo as chaves de api, índices, indexadores, origens de dados, as agendas e atribuições de funções conforme implementado através do [funções do RBAC](search-security-rbac.md).
 
-Todos os interação do utilizador com a Azure Search fica dentro destes modos: acesso de leitura / escrita para o serviço (direitos de administrador) ou acesso só de leitura para o serviço (direitos de consulta). Para obter mais informações, consulte [gerir as chaves de api](#manage-keys).
+Todos os interação do utilizador com a Azure Search fica dentro destes modos: acesso de leitura / escrita para o serviço (direitos de administrador) ou acesso só de leitura para o serviço (direitos de consulta). Para obter mais informações, consulte [gerir as chaves de api](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
-## <a name="set-rbac-roles-for-administrative-access"></a>Definir funções do RBAC para acesso administrativo
-O Azure oferece uma [modelo de autorização baseada em funções globais](../active-directory/role-based-access-control-configure.md) para todos os serviços geridos através do portal ou APIs do Resource Manager. Funções de proprietário, leitor e contribuinte determinam o nível de administração do serviço para os utilizadores, grupos e atribuídos a cada direito de principais de segurança do Active Directory. 
-
-Para a Azure Search, permissões de RBAC determinam as seguintes tarefas administrativas:
-
-| Função | Tarefa |
-| --- | --- |
-| Proprietário |Criar ou eliminar o serviço ou de qualquer objeto no serviço, incluindo as chaves de api, índices, indexadores, origens de dados de indexador e agendas de indexador.<p>Ver o estado do serviço, incluindo contagens e tamanho de armazenamento.<p>Adicionar ou eliminar o membro da função (apenas um proprietário pode gerir a associação de função).<p>Os administradores da subscrição e proprietários de serviço tem associação automática na função de proprietários. |
-| Contribuinte |Mesmo nível de acesso como proprietário, menos a gestão de funções RBAC. Por exemplo, um contribuinte pode ver e voltar a gerar `api-key`, mas não é possível modificar as associações de função. |
-| Leitor |Visualizar chaves de consulta e de estado do serviço. Os membros desta função não é possível alterar a configuração do serviço, nem pode ver a chaves de administração. |
-
-Funções não conceda direitos de acesso ao ponto final do serviço. Pesquisa operações de serviço, tal como gestão de índice, população do índice e consultas em dados de pesquisa, são controladas através de chaves de api, funções não. Para obter mais informações, consulte "Autorização para gestão versus operações de dados" no [que é o controlo de acesso baseado em funções](../active-directory/role-based-access-control-what-is.md).
-
-<a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Informações de registo e sistema
 A pesquisa do Azure não expõe os ficheiros de registo para um serviço individual ou através do portal ou interfaces programáticas. Na camada básica e superior, Microsoft monitoriza todos os serviços de pesquisa do Azure para disponibilidade de 99,9% por contratos de nível de serviço (SLA). Se o serviço estiver lento ou débito de pedidos está abaixo de limiares de SLA, as equipas de suporte rever os ficheiros de registo disponíveis e resolver o problema.
 
@@ -72,38 +58,6 @@ Em termos de informações gerais sobre o serviço, pode obter as informações 
 * No portal, no dashboard do serviço, através de notificações, propriedades e as mensagens de estado.
 * Utilizar [PowerShell](search-manage-powershell.md) ou [API de REST de gestão](https://docs.microsoft.com/rest/api/searchmanagement/) para [obter propriedades de serviço](https://docs.microsoft.com/rest/api/searchmanagement/services), ou o estado na utilização dos recursos de índice.
 * Através de [pesquisar a análise de tráfego](search-traffic-analytics.md), conforme indicado anteriormente.
-
-<a id="manage-keys"></a>
-
-## <a name="manage-api-keys"></a>Gerir chaves de api
-Todos os pedidos para um serviço de pesquisa tem uma chave de api que foi gerada especificamente para o seu serviço. Esta chave de api é o mecanismo único para a autenticação de acesso para o ponto final de serviço de pesquisa. 
-
-Uma chave de api é uma cadeia composta por letras e números gerados aleatoriamente. Através de [permissões RBAC](#rbac), pode eliminar ou ler as chaves, mas não é possível substituir uma chave com uma palavra-passe definida pelo utilizador. 
-
-Dois tipos de chaves são utilizados para aceder ao seu serviço de pesquisa:
-
-* Admin (válido para todas as operações de leitura e escrita contra o serviço)
-* Consulta (válida para operações só de leitura como consultas em relação a um índice)
-
-Uma chave de api de administração é criada quando o serviço está aprovisionado. Existem duas chaves de administração, designadas como *primário* e *secundário* mantê-los diretamente, mas na realidade são permutáveis. Cada serviço tem duas chaves de administração para que pode implementar um através de sem perderem o acesso ao seu serviço. Pode voltar a gerar a chave de administrador, mas não é possível adicionar a contagem de chave de administrador total. Não há um máximo de duas chaves de administração por serviço de pesquisa.
-
-Chaves de consulta foram concebidas para as aplicações cliente que chamam diretamente a pesquisa. Pode criar até 50 chaves de consulta. No código da aplicação, especifique o URL de pesquisa e uma chave de api de consulta para permitir o acesso só de leitura para o serviço. O código da aplicação também especifica o índice utilizado pela sua aplicação. Em conjunto, o ponto final, um índice de destino e uma chave de api para acesso só de leitura, definem o nível de acesso e o âmbito da ligação da sua aplicação de cliente.
-
-Para obter ou voltar a gerar chaves de api, abra o dashboard de serviço. Clique em **chaves** para abrir gradualmente a página de gestão de chaves. Comandos para voltar a gerar ou criação de chaves estão na parte superior da página. Por predefinição, são criadas apenas as chaves de administração. Chaves de api de consulta tem de ser criadas manualmente.
-
- ![][9]
-
-<a id="rbac"></a>
-
-## <a name="secure-api-keys"></a>Proteger chaves de api
-Segurança de chave é certificar-se ao restringir o acesso através do portal ou interfaces de Gestor de recursos (PowerShell ou interface de linha de comandos). Conforme indicado, os administradores da subscrição podem ver e voltar a gerar chaves de api todos os. Como precaução, reveja as atribuições de funções para compreender quem tem acesso às chaves de administração.
-
-1. No dashboard de serviço, clique no ícone de acesso para abrir gradualmente o painel de utilizadores.
-   ![][7]
-2. Os utilizadores, reveja as atribuições de funções existente. Conforme esperado, os administradores da subscrição já tem acesso total para o serviço através da função de proprietário.
-3. Para obter mais, clique em **administradores da subscrição** e, em seguida, expanda a lista de atribuição de função para ver quem tem os direitos de administração conjunta no seu serviço de pesquisa.
-
-Ver as permissões de acesso de outra forma consiste em clicar em **funções** no painel de utilizadores. Se o fizer, apresenta as funções disponíveis e o número de utilizadores ou grupos atribuídos a cada função.
 
 <a id="sub-5"></a>
 
@@ -184,9 +138,6 @@ Também recomendamos que reveja o [desempenho e a otimização de artigo](search
 Outra recomenda-se ver o vídeo indicado na secção anterior. Fornece mais profunda cobertura de técnicas mencionados nesta secção.
 
 <!--Image references-->
-[7]: ./media/search-manage/rbac-icon.png
-[8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
-[9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 

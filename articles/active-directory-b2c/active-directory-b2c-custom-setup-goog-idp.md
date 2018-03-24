@@ -1,24 +1,21 @@
 ---
-title: "O Azure Active Directory B2C: Adicionar Google + como um fornecedor de identidade de OAuth2 através de políticas personalizadas"
-description: "Exemplo utilizando Google + como fornecedor de identidade através do protocolo de OAuth2"
+title: 'O Azure Active Directory B2C: Adicionar Google + como um fornecedor de identidade de OAuth2 através de políticas personalizadas'
+description: Exemplo utilizando Google + como fornecedor de identidade através do protocolo de OAuth2
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: f12bbc2472aa2d83088c7d4d7b8f173744fb36b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>O Azure Active Directory B2C: Adicionar Google + como um fornecedor de identidade de OAuth2 através de políticas personalizadas
 
@@ -48,7 +45,7 @@ Para utilizar o Google + como um fornecedor de identidade no Azure Active Direct
 
     ![Google + conta - Selecione projeto](media/active-directory-b2c-custom-setup-goog-idp/goog-add-new-app1.png)
 
-4.  Clique em de  **+**  botão.
+4.  Clique em de **+** botão.
 
     ![Google + conta - criar novo projeto](media/active-directory-b2c-custom-setup-goog-idp//goog-add-new-app2.png)
 
@@ -178,10 +175,10 @@ Configurar o fornecedor de identidade.  No entanto, não está disponível em ne
 4.  Colar o conteúdo completo de `<UserJourney>` nó que copiou como subordinado do `<UserJourneys>` elemento.
 
 ### <a name="display-the-button"></a>Apresentar no botão
-O `<ClaimsProviderSelections>` elemento define a lista de opções de seleção de fornecedor de afirmações e a sua ordem.  `<ClaimsProviderSelection>`elemento é semelhante a um botão do fornecedor de identidade numa página sessão-up/início de sessão. Se adicionar um `<ClaimsProviderSelection>` elemento para a conta do Google +, um novo botão aparece quando um utilizador lands na página. Para adicionar este elemento:
+O `<ClaimsProviderSelections>` elemento define a lista de opções de seleção de fornecedor de afirmações e a sua ordem.  `<ClaimsProviderSelection>` elemento é semelhante a um botão do fornecedor de identidade numa página sessão-up/início de sessão. Se adicionar um `<ClaimsProviderSelection>` elemento para a conta do Google +, um novo botão aparece quando um utilizador lands na página. Para adicionar este elemento:
 
 1.  Localizar o `<UserJourney>` nó que inclui `Id="SignUpOrSignIn"` no journey utilizador que copiou.
-2.  Localize o `<OrchestrationStep>` nó que inclui`Order="1"`
+2.  Localize o `<OrchestrationStep>` nó que inclui `Order="1"`
 3.  Adicione o seguinte fragmento XML em `<ClaimsProviderSelections>` nó:
 
 ```xml
@@ -229,7 +226,7 @@ Poderá pretender adicionar o Google + conta fornecedor de identidade também pa
 ### <a name="display-the-button"></a>Apresentar no botão
 1.  Abra o ficheiro de extensão da sua política (por exemplo, TrustFrameworkExtensions.xml).
 2.  Localizar o `<UserJourney>` nó que inclui `Id="ProfileEdit"` no journey utilizador que copiou.
-3.  Localize o `<OrchestrationStep>` nó que inclui`Order="1"`
+3.  Localize o `<OrchestrationStep>` nó que inclui `Order="1"`
 4.  Adicione o seguinte fragmento XML em `<ClaimsProviderSelections>` nó:
 
 ```xml

@@ -1,6 +1,6 @@
 ---
-title: "Resultados de Runbook e mensagens na automatização do Azure"
-description: "Desribes como criar e obter resultados e erro mensagens a partir de runbooks na automatização do Azure."
+title: Resultados de Runbook e mensagens na automatização do Azure
+description: Desribes como criar e obter resultados e erro mensagens a partir de runbooks na automatização do Azure.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a02ea2854de7ff32a8c50ff2e6f317596fb4aa1b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Resultados de Runbook e mensagens na automatização do Azure
 A maioria dos runbooks de automatização do Azure têm algum tipo de resultado, como uma mensagem de erro para o utilizador ou um objeto complexo destinado a ser consumidos por outro fluxo de trabalho. O Windows PowerShell oferece [vários fluxos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para enviar o resultado de um script ou o fluxo de trabalho. A automatização do Azure funciona com cada um destes fluxos de forma diferente e devem seguir as melhores práticas utilizar cada quando estiver a criar um runbook.
@@ -204,8 +204,8 @@ Pode ver de captura de ecrã anterior que, quando ativar verboso registo e rastr
    
    ![Registo de criação gráfico e painel de rastreio](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-operations-management-suite-oms-log-analytics"></a>Análise de registos do Microsoft Operations Management Suite (OMS)
-Automatização pode enviar as runbook fluxos de trabalho e o estado da tarefa para a sua área de trabalho de análise de registos do Microsoft Operations Management Suite (OMS). Análise de registos pode,
+### <a name="microsoft-azure-log-analytics"></a>Análise de registos do Microsoft Azure
+Automatização pode enviar as runbook fluxos de trabalho e o estado da tarefa para a sua área de trabalho de análise de registos. Análise de registos pode,
 
 * Obter conhecimentos aprofundados sobre as tarefas de automatização 
 * Acionamento um e-mail ou o alerta com base no seu estado de tarefa de runbook (por exemplo, falha ou suspenso) 
@@ -213,7 +213,7 @@ Automatização pode enviar as runbook fluxos de trabalho e o estado da tarefa p
 * Correlacionar tarefas em contas de automatização 
 * Visualizar o histórico do trabalho ao longo do tempo    
 
-Para obter mais informações sobre como configurar a integração com a análise de registos para recolher, correlacionar e atuar sobre dados da tarefa, consulte [reencaminhar estado da tarefa e fluxos de trabalho da automatização para análise de registos (OMS)](automation-manage-send-joblogs-log-analytics.md).
+Para obter mais informações sobre como configurar a integração com a análise de registos para recolher, correlacionar e atuar sobre dados da tarefa, consulte [reencaminhar o estado da tarefa e fluxos de trabalho da automatização para análise de registos](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre a execução dos runbooks, como monitorizar trabalhos de runbooks e outros detalhes técnicos, veja [Track a runbook job (Acompanhar um trabalho de runbook)](automation-runbook-execution.md)

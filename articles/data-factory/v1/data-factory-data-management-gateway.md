@@ -1,11 +1,10 @@
 ---
-title: "Gateway de gestão de dados do Data Factory | Microsoft Docs"
+title: Gateway de gestão de dados do Data Factory | Microsoft Docs
 description: Configure um gateway de dados para mover dados entre no local e na nuvem. Utilize o Data Management Gateway no Azure Data Factory para mover os dados.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9ed679c555d9bb363ffb4d896e791dcbd1b90f8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -237,7 +236,7 @@ Para além destes pontos, terá também de certificar-se de que o Microsoft Azur
 Se encontrar erros semelhantes dos seguintes, trata-se provavelmente devido a configuração incorreta do servidor proxy ou uma firewall, que bloqueia o gateway se liguem à fábrica de dados para se autenticar. Consulte a secção anterior para garantir que a firewall e servidor proxy estão configuradas corretamente.
 
 1. Ao tentar registar o gateway, receberá o seguinte erro: "não conseguiu registar a chave do gateway. Antes de tentar registar novamente a chave do gateway, confirme que o data management gateway está num estado ligado e o serviço de anfitrião do Data Management Gateway foi iniciado."
-2. Quando abrir o Gestor de configuração, consulte o estado como "Desligado" ou "Ligar". Quando visualiza registos de eventos do Windows, sob "Visualizador de eventos" > "Aplicação e registos de serviços" > "Data Management Gateway", vê mensagens de erro, tais como o seguinte erro:`Unable to connect to the remote server`
+2. Quando abrir o Gestor de configuração, consulte o estado como "Desligado" ou "Ligar". Quando visualiza registos de eventos do Windows, sob "Visualizador de eventos" > "Aplicação e registos de serviços" > "Data Management Gateway", vê mensagens de erro, tais como o seguinte erro: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>Abra a porta 8050 para encriptação de credenciais

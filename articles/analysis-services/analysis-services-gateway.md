@@ -1,25 +1,25 @@
 ---
 title: Gateway de dados no local | Microsoft Docs
-description: "Um gateway no local é necessário se o servidor de Analysis Services no Azure irá ligar a origens de dados no local."
+description: Um gateway no local é necessário se o servidor de Analysis Services no Azure irá ligar a origens de dados no local.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/19/2018
 ms.author: owend
-ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2bb85eafc7722840b6a35956403c29d4ac642cc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>A ligar a origens de dados no local com o Gateway de dados do Azure no local
 O gateway de dados no local atua como uma ponte, fornecer transferência de proteger os dados entre origens de dados no local e os servidores de serviços de análise do Azure na nuvem. Para além de trabalhar com múltiplos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway é também funciona com Azure Logic Apps, Power BI, aplicações de energia e Flow Microsoft. Pode associar vários serviços na mesma região com um único gateway. 
@@ -36,7 +36,7 @@ Obter a configuração com o gateway pela primeira vez é um processo de quatro 
 
 Para obter os primeiros, consulte o artigo [instalar e configurar o gateway de dados no local](analysis-services-gateway-install.md).
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"> </a>Como funciona
 O gateway que instala num computador na sua organização é executado como um serviço do Windows, **gateway de dados no local**. Este serviço local está registado no serviço em nuvem Gateway através do Service Bus do Azure. Em seguida, crie um recurso do gateway de serviço em nuvem Gateway para a sua subscrição do Azure. Os servidores do Azure Analysis Services, em seguida, são ligados para o recurso do gateway. Quando precisam de modelos no seu servidor ligar aos seus dados no local origens para consultas ou processamento, um fluxo de dados e de consulta atravessa o recurso de gateway, Service Bus do Azure, o serviço de gateway de dados local no local e as origens de dados. 
 
 ![Como funciona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
@@ -50,18 +50,18 @@ Fluxo de dados e consultas:
 5. O gateway envia a consulta para a origem de dados para execução.
 6. Os resultados são enviados da origem de dados, de volta para o gateway e, em seguida, para o serviço em nuvem e o seu servidor.
 
-## <a name="windows-service-account"></a>Conta de serviço do Windows
+## <a name="windows-service-account"> </a>Conta de serviço do Windows
 O gateway de dados no local está configurado para utilizar *NT SERVICE\PBIEgwService* para as credenciais de início de sessão de serviço do Windows. Por predefinição, tem o direito de início de sessão como um serviço; no contexto da máquina que estiver a instalar o gateway. Esta credencial não é a mesma conta utilizada para ligar a origens de dados no local ou a sua conta do Azure.  
 
 Se ocorrerem problemas com o seu servidor de proxy devido a autenticação, poderá pretender alterar a conta de serviço do Windows para um utilizador de domínio ou conta de serviço gerida.
 
-## <a name="ports"></a>Portas
+## <a name="ports"> </a>Portas
 O gateway cria uma ligação de saída para o Service Bus do Azure. Comunica nas portas de saída: TCP 443 (predefinição), 5671, 5672, 9350 através de 9354.  O gateway não necessita de porta de entrada.
 
 Recomendamos que lista branca os endereços IP para a região de dados na sua firewall. Pode transferir o [lista IP de centro de dados do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Esta lista é atualizada semanalmente.
 
 > [!NOTE]
-> Os endereços IP listados na lista de IP de Datacenter do Azure estão em notação CIDR. Por exemplo, 10.0.0.0/24 não significa 10.0.0.0 através de 10.0.0.24. Saiba mais sobre o [notação CIDR](http://whatismyipaddress.com/cidr).
+> Os endereços IP listados na lista de IP de Datacenter do Azure estão em notação CIDR. Para obter mais informações, consulte [encaminhamento-Classless Inter-Domain](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 
@@ -141,7 +141,7 @@ Pode utilizar a aplicação de teste de velocidade do Azure da ferramenta de ter
 **Q**: qual é a vantagem da chave de recuperação? <br/>
 **A**: A chave de recuperação fornece uma forma para migrar ou recuperar as definições do gateway após desastres.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"> </a>Resolução de problemas
 
 **Q**: por que motivo não vejo o meu gateway na lista de instâncias de gateway ao tentar criar o recurso de gateway no Azure? <br/>
 **A**: Existem duas razões possíveis. Primeiro, é que um recurso já está a ser criado para o gateway atual ou alguma outra subscrição. Para eliminar essa possibilidade, enumeração de recursos do tipo **Gateways de dados no local** do portal. Certifique-se de que seleciona todas as subscrições, ao enumerar todos os recursos. Assim que o recurso é criado, o gateway não aparece na lista de instâncias de gateway a experiência de portal criar recursos de Gateway. A possibilidade de segundo é que a identidade do Azure AD do utilizador que instalou o gateway é diferente do que o utilizador tiver sessão iniciado no portal do Azure. Para resolver, inicie sessão no portal com a mesma conta que o utilizador que instalou o gateway.

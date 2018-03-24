@@ -5,8 +5,8 @@ services: load-balancer
 documentationcenter: na
 author: RamanDhillon
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: bc059221656a695bb43af0dca06df941ca77c73d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas de Balanceador de carga do Azure
 
@@ -50,11 +50,11 @@ Se a VM está em bom estada, mas não está a responder a pesquisa, em seguida, 
 
 1. Inicie sessão no back-end da VM. 
 2. Abra uma linha de comandos e execute o seguinte comando validar existe, é uma aplicação em escuta na porta de pesquisa:   
-            netstat - an
+            netstat -an
 3. Se o estado de porta não estiver listado como **LISTENING**, configurar a porta correta. 
 4. Em alternativa, selecione outra porta, o que está listada como **LISTENING**e atualize a configuração de Balanceador de carga em conformidade.              
 
-###<a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Causa 3: Firewall ou um grupo de segurança de rede está a bloquear a porta no conjunto de back-end de Balanceador de carga VMs  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Causa 3: Firewall ou um grupo de segurança de rede está a bloquear a porta no conjunto de back-end de Balanceador de carga VMs  
 Se a firewall na VM está a bloquear a porta da sonda ou um ou mais grupos de segurança configurados na sub-rede ou na VM de rede, não está a permitir a pesquisa alcançar a porta, a VM não consegue responder para a sonda de estado de funcionamento.          
 
 **Resolução e validação**
@@ -95,7 +95,7 @@ Se uma VM não responder para o tráfego de dados, poderá ser porque a porta de
 
 1. Inicie sessão no back-end da VM. 
 2. Abra uma linha de comandos e execute o seguinte comando validar existe, é uma aplicação em escuta na porta de dados:  
-            netstat - an 
+            netstat -an 
 3. Se a porta não estiver listada com o estado "ESCUTAR", configurar a porta do serviço de escuta adequada 
 4. Se a porta está marcada como Listening, em seguida, verifique a aplicação de destino nessa porta para quaisquer problemas possíveis. 
 
@@ -131,7 +131,7 @@ Se optar por abrir um incidente de suporte, recolha as seguintes informações p
 - Utilizar TCPing a partir de um back-end do VMs dentro da VNet para testar a resposta de porta de pesquisa (exemplo: psping 10.0.0.4:3389) e registe os resultados.
 - Se não for recebida nenhuma resposta nesses testes de ping, execute um rastreio Netsh simultâneo no back-end da VM e a VM de teste de VNet, enquanto que execute o PsPing e parar o rastreio Netsh. 
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se os passos anteriores não resolverem o problema, abra uma [suporta permissão](https://azure.microsoft.com/support/options/).
 

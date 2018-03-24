@@ -1,24 +1,24 @@
 ---
-title: "Função encadeamento nas funções durável - Azure"
-description: "Saiba como executar um exemplo de funções durável que executa uma sequência de funções."
+title: Função encadeamento nas funções durável - Azure
+description: Saiba como executar um exemplo de funções durável que executa uma sequência de funções.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadeamento nas funções durável - exemplo de sequência de Olá de função
 
@@ -26,7 +26,7 @@ Encadeamento de função refere-se o padrão de executar uma sequência de funç
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Siga as instruções em [instalar funções durável](durable-functions-install.md) para configurar o exemplo.
+* [Instalar funções duráveis](durable-functions-install.md).
 
 ## <a name="the-functions"></a>As funções
 
@@ -35,7 +35,7 @@ Este artigo explica as seguintes funções na aplicação de exemplo:
 * `E1_HelloSequence`: Uma função do orchestrator que chama `E1_SayHello` várias vezes numa sequência. Armazena as saídas do `E1_SayHello` chama e regista os resultados.
 * `E1_SayHello`: Uma função de atividade que prepends uma cadeia com "Olá".
 
-As secções seguintes explicam o código que são utilizados para programação portal do Azure e configuração. O código para o desenvolvimento de Visual Studio é apresentado no final do artigo.
+As secções seguintes explicam a configuração e o código que são utilizados para c# scripting. O código para o desenvolvimento de Visual Studio é apresentado no final do artigo.
  
 ## <a name="functionjson-file"></a>ficheiro Function.JSON
 
@@ -121,7 +121,7 @@ Eis o orchestration como um único c# ficheiro um projeto do Visual Studio:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este exemplo foi demonstrado uma orquestração de encadeamento de função simple. O exemplo seguinte mostra como implementar o padrão fan-out/fan-em. 
 

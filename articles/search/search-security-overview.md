@@ -1,24 +1,24 @@
 ---
-title: "Proteger dados e as operações na Azure Search | Microsoft Docs"
-description: "Segurança de pesquisa do Azure baseia-se em certificados SOC 2 conformidade, a encriptação, autenticação e acesso de identidade através de utilizador e identificadores de segurança de grupo em filtros de pesquisa do Azure."
+title: Proteger dados e as operações na Azure Search | Microsoft Docs
+description: Segurança de pesquisa do Azure baseia-se em certificados SOC 2 conformidade, a encriptação, autenticação e acesso de identidade através de utilizador e identificadores de segurança de grupo em filtros de pesquisa do Azure.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: search
-ms.devlang: 
+ms.devlang: ''
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Segurança e o acesso controlado na Azure Search
 
@@ -57,29 +57,16 @@ Todos os serviços do Azure suportam controlos de acesso baseado em funções (R
 
 ## <a name="service-access-and-authentication"></a>Acesso de serviço e autenticação
 
-Enquanto a Azure Search herda as proteções de segurança de plataforma do Azure, também fornece a suas próprias autenticação baseada em chave. O tipo de chave (admin ou consulta) determina o nível de acesso. Submissão de uma chave válida é considerado uma prova do pedido tem origem uma entidade fidedigna. 
+Enquanto a Azure Search herda as proteções de segurança de plataforma do Azure, também fornece a suas próprias autenticação baseada em chave. Uma chave de api é uma cadeia composta por letras e números gerados aleatoriamente. O tipo de chave (admin ou consulta) determina o nível de acesso. Submissão de uma chave válida é considerado uma prova do pedido tem origem uma entidade fidedigna. Dois tipos de chaves são utilizados para aceder ao seu serviço de pesquisa:
 
-É necessária a autenticação em cada pedido, em que cada pedido é composto por uma chave obrigatória, uma operação e um objeto. Quando encadeados em conjunto, os dois níveis de permissão (completos ou só de leitura) e o contexto é suficiente para fornecer segurança completo espetro nas operações de serviço. 
+* Admin (válido para todas as operações de leitura e escrita contra o serviço)
+* Consulta (válida para operações só de leitura como consultas em relação a um índice)
 
-|Chave|Descrição|Limites|  
-|---------|-----------------|------------|  
-|Administração|Atribui direitos totais para todas as operações, incluindo a capacidade de gerir o serviço, criar e eliminar índices, indexadores e origens de dados.<br /><br /> Dois admin **chaves de api**, referidos como *primário* e *secundário* chaves no portal, são gerados quando o serviço é criado e pode ser regenerado individualmente a pedido . Ter duas chaves permite-lhe implementar através de uma chave ao utilizar a segunda chave de acesso contínuo ao serviço.<br /><br /> Apenas são especificadas chaves de administração nos cabeçalhos de pedido HTTP. Não é possível colocar uma chave de api de administração num URL.|Máximo de 2 por serviço|  
-|Consulta|Concede acesso só de leitura aos índices e documentos e, normalmente, são distribuídas por aplicações cliente que emitem pedidos de pesquisa.<br /><br /> Chaves de consulta são criadas a pedido. Pode criá-los manualmente no portal ou de forma programática através de [API de REST de gestão](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Chaves de consulta podem ser especificadas no cabeçalho de pedido HTTP para pesquisa, sugestão ou operação de pesquisa. Em alternativa, pode transmitir uma chave de consulta como um parâmetro num URL. Dependendo da forma como a aplicação cliente formulates o pedido, poderá ser mais fácil passar a chave como um parâmetro de consulta:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 por serviço|  
+Chaves de administração são criadas quando o serviço está aprovisionado. Existem duas chaves de administração, designadas como *primário* e *secundário* mantê-los diretamente, mas na realidade são permutáveis. Cada serviço tem duas chaves de administração para que pode implementar um através de sem perderem o acesso ao seu serviço. Pode voltar a gerar a chave de administrador, mas não é possível adicionar a contagem de chave de administrador total. Não há um máximo de duas chaves de administração por serviço de pesquisa.
 
- Não há visualmente, sem distinção entre uma chave de administrador ou a chave de consulta. Ambas as chaves são cadeias compostas 32 aleatoriamente gerado carateres alfanuméricos. Se perder a controlar de que tipo de chave for especificado na sua aplicação, pode [Verifique os valores de chave no portal do](https://portal.azure.com) ou utilize o [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) para devolver o valor e o tipo de chave.  
+Chaves de consulta são criadas como necessário e foram concebidas para as aplicações cliente que chamam diretamente a pesquisa. Pode criar até 50 chaves de consulta. No código da aplicação, especifique o URL de pesquisa e uma chave de api de consulta para permitir o acesso só de leitura para o serviço. O código da aplicação também especifica o índice utilizado pela sua aplicação. Em conjunto, o ponto final, um índice de destino e uma chave de api para acesso só de leitura, definem o nível de acesso e o âmbito da ligação da sua aplicação de cliente.
 
-> [!NOTE]  
->  É considerada uma prática de segurança fraca para transmitir dados confidenciais, tais como um `api-key` no URI do pedido. Por este motivo, pesquisa do Azure só aceita uma chave de consulta como uma `api-key` na consulta cadeia e deve evitar se o fizer, a menos que o conteúdo do seu índice deve ser publicamente disponível. Regra geral, recomendamos que passou o `api-key` como um cabeçalho de pedido.  
-
-### <a name="how-to-find-the-access-keys-for-your-service"></a>Como localizar as chaves de acesso para o seu serviço
-
-Pode obter chaves de acesso no portal ou através de [API de REST de gestão](https://docs.microsoft.com/rest/api/searchmanagement/). Para obter mais informações, consulte [gerir chaves](search-manage.md#manage-api-keys).
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Lista o [procurar serviços](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) para a sua subscrição.
-3. Selecione o serviço e na página de serviço, localizar **definições** >**chaves** para ver as chaves de administração e a consulta.
-
-![Secção de chaves de página do portal, as definições,](media/search-security-overview/settings-keys.png)
+É necessária a autenticação em cada pedido, em que cada pedido é composto por uma chave obrigatória, uma operação e um objeto. Quando encadeados em conjunto, os dois níveis de permissão (completos ou só de leitura) e o contexto (por exemplo, uma operação de consulta sobre um índice) é suficiente para fornecer segurança completo espetro nas operações de serviço. Para obter mais informações sobre chaves, consulte [criar e gerir chaves de api](search-security-api-keys.md).
 
 ## <a name="index-access"></a>Acesso de índice
 
@@ -123,7 +110,7 @@ A tabela seguinte resume as operações permitidas na Azure Search e qual a chav
 | Consultar um índice | Chave de administrador ou de consulta (RBAC não aplicável) |
 | Consultar as informações do sistema, tais como devolver estatísticas, contagens e apresenta uma lista de objetos. | Chave de administrador, RBAC do recurso (proprietário, Contribuidor, leitor) |
 | Gerir chaves de administração | Chave de administrador, RBAC proprietário ou contribuinte no recurso. |
-| Gerir chaves de consulta |  Chave de administrador, RBAC proprietário ou contribuinte no recurso. Leitor do RBAC pode ver as chaves de consulta. |
+| Gerir chaves de consulta |  Chave de administrador, RBAC proprietário ou contribuinte no recurso.  |
 
 
 ## <a name="see-also"></a>Consulte também

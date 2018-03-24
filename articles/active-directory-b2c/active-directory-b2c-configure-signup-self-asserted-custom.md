@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Modificar sessão cópias de segurança de políticas personalizadas e configurar o Self-permitido fornecedor"
-description: "Instruções sobre como adicionar as afirmações a inscrever-se e configurar a intervenção do utilizador"
+title: 'Azure Active Directory B2C: Modificar sessão cópias de segurança de políticas personalizadas e configurar o Self-permitido fornecedor'
+description: Instruções sobre como adicionar as afirmações a inscrever-se e configurar a intervenção do utilizador
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: tbd
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/29/2017
-ms.author: joroja
-ms.openlocfilehash: e9eb9fa941569c508c4dddc6b85786537a5a0fac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: b9ea48f0700509194602dd15ff42c7c689685a53
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: Modificar sessão cópias de segurança para adicionar nova afirmações e configurar a intervenção do utilizador.
 
@@ -47,11 +44,11 @@ Permite a pedir ao utilizador para os respetivos cidade.  Adicione o seguinte el
 ```
 Não existem opções adicionais que pode efetuar aqui para personalizar a afirmação.  Para obter um esquema completo, consulte o **guia de referência de identidade experiência Framework Technical**.  Este guia será publicado em breve na secção de referência.
 
-* `<DisplayName>`é uma cadeia que define o utilizador com acesso à *etiqueta*
+* `<DisplayName>` é uma cadeia que define o utilizador com acesso à *etiqueta*
 
-* `<UserHelpText>`ajuda-o utilizador a compreender o que é necessário
+* `<UserHelpText>` ajuda-o utilizador a compreender o que é necessário
 
-* `<UserInputType>`tem as seguintes opções de quatro realçado abaixo:
+* `<UserInputType>` tem as seguintes opções de quatro realçado abaixo:
     * `TextBox`
 ```xml
 <ClaimType Id="city">
@@ -62,7 +59,7 @@ Não existem opções adicionais que pode efetuar aqui para personalizar a afirm
 </ClaimType>
 ```
 
-    * `RadioSingleSelectduration`-Impõe uma única seleção.
+    * `RadioSingleSelectduration` -Impõe uma única seleção.
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -76,7 +73,7 @@ Não existem opções adicionais que pode efetuar aqui para personalizar a afirm
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect`-Permite a seleção de apenas um valor válido.
+    * `DropdownSingleSelect` -Permite a seleção de apenas um valor válido.
 
 ![Captura de ecrã da opção de lista pendente](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
@@ -95,7 +92,7 @@ Não existem opções adicionais que pode efetuar aqui para personalizar a afirm
 ```
 
 
-* `CheckboxMultiSelect`Permite a seleção de um ou mais valores.
+* `CheckboxMultiSelect` Permite a seleção de um ou mais valores.
 
 ![Captura de ecrã da opção MultiSelect é](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
@@ -188,7 +185,7 @@ Não existem opções adicionais que pode efetuar aqui para personalizar a afirm
   </TechnicalProfile>
   ```
 
-3. Adicionar a afirmação TechnicalProfile que lê a partir do diretório quando um utilizador inicia sessão como um`<OutputClaim ClaimTypeReferenceId="city" />`
+3. Adicionar a afirmação TechnicalProfile que lê a partir do diretório quando um utilizador inicia sessão como um `<OutputClaim ClaimTypeReferenceId="city" />`
 
   ```xml
   <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
@@ -278,7 +275,7 @@ Verificar e-mail está ativada por predefinição no `<TechnicalProfile Id="Loca
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Adicione a nova afirmação aos fluxos para inícios de sessão de conta de redes sociais alterando o TechnicalProfiles listados abaixo. Estes são utilizados pelo inícios de sessão federado/social conta para escrever e ler os dados de utilizador utilizando o alternativeSecurityId como o localizador.
 ```xml

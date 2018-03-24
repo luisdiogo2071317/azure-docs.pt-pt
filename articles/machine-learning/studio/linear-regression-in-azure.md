@@ -1,11 +1,12 @@
 ---
-title: "Utilizar regressão Linear no Machine Learning | Microsoft Docs"
-description: "Uma comparação dos modelos de regressão linear no Excel e no Azure Machine Learning Studio"
-metakeywords: 
+title: Utilizar regressão Linear no Machine Learning | Microsoft Docs
+description: Uma comparação dos modelos de regressão linear no Excel e no Azure Machine Learning Studio
+metakeywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: kbaroni;garye
-ms.openlocfilehash: 218f2b141e3551180a2152570f99fdb427980dd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Utilizar a regressão linear no Azure Machine Learning
 > *Kate Baroni* e *Bernardo Boatman* é enterprise os arquitetos de soluções dados Insights Centro de Excellence da Microsoft. Neste artigo, descrevem sua experiência de um conjunto de análise de regressão existente a migrar para uma solução baseada na nuvem utilizando o Azure Machine Learning. 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="goal"></a>Objetivo
+## <a name="goal"></a>Alvo
 Nosso projeto começar a utilizar dois objetivos em mente: 
 
 1. Utilize a Análise Preditiva para melhorar a precisão dos projeções de receitas mensal nossa organização 
@@ -62,8 +62,8 @@ Em primeiro lugar, o modelo de Excel outperformed claramente o modelo de Machine
 |  | Excel | Studio |
 | --- |:---:|:---:|
 | Desempenho | | |
-| <ul style="list-style-type: none;"><li>Tendo em conta os parênteses de R</li></ul> |0.96 |N/D |
-| <ul style="list-style-type: none;"><li>Coeficiente de <br />Determinação</li></ul> |N/D |0.78<br />(precisão baixa) |
+| <ul style="list-style-type: none;"><li>Tendo em conta os parênteses de R</li></ul> |0.96 |N/A |
+| <ul style="list-style-type: none;"><li>Coeficiente de <br />Determinação</li></ul> |N/A |0.78<br />(precisão baixa) |
 | Tem de estar verdadeiramente erros absolutos |$9. 5M |$ 19.4 M |
 | Tem de estar verdadeiramente erros absolutos (%) |6.03% |12.2% |
 
@@ -81,13 +81,13 @@ Quando aplicada, as recomendações, foi alcançado o mesmo desempenho de linha 
 | --- |:---:|:---:|:---:|
 | Valor identificado |Actuals (numérico) |mesmo |mesmo |
 | Learner |Excel -> dados Analysis -> regressão |Regressão linear. |Regressão linear |
-| Opções de learner |N/D |Predefinições |quadrados de menos comum<br />L2 = 0.005 |
+| Opções de learner |N/A |Predefinições |quadrados de menos comum<br />L2 = 0.005 |
 | Conjunto de dados |26 linhas, 3 funcionalidades, 1 etiqueta. Todos os numérica. |mesmo |mesmo |
 | Divisão: formação |Excel preparado no primeiro 18 linhas, testadas nas últimas 8 linhas. |mesmo |mesmo |
 | Divisão: teste |Fórmula de regressão de Excel aplicada às linhas pela última vez 8 |mesmo |mesmo |
-| **Desempenho** | | | |
-| Tendo em conta os parênteses de R |0.96 |N/D | |
-| Coeficiente de determinação |N/D |0.78 |0.952049 |
+| **Performance** (Desempenho) | | | |
+| Tendo em conta os parênteses de R |0.96 |N/A | |
+| Coeficiente de determinação |N/A |0.78 |0.952049 |
 | Tem de estar verdadeiramente erros absolutos |$9. 5M |$ 19.4 M |$9. 5M |
 | Tem de estar verdadeiramente erros absolutos (%) |<span style="background-color: 00FF00;"> 6.03%</span> |12.2% |<span style="background-color: 00FF00;"> 6.03%</span> |
 
@@ -100,7 +100,7 @@ Além disso, os coefficients Excel em comparação com também as ponderações 
 | Funcionalidade B |11071967.08 |11007300 |
 | Funcionalidade C |25383318.09 |25140800 |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Queremos consumir o serviço web do Machine Learning no Excel. A nossa os analistas de negócios baseiam-se no Excel e é necessária uma forma de chamar o serviço web do Machine Learning com uma linha de dados do Excel e o tiver devolver o valor previsto para o Excel. 
 
 Também queremos otimizar o nosso modelo, utilizando as opções e algoritmos disponíveis no Machine Learning Studio.
@@ -141,8 +141,8 @@ A capacidade para transferir o preditiva analíticas previsão do Machine Learni
 Seguem-se alguns recursos para ajudar a trabalhar com regressão: 
 
 * Regressão no Excel. Se nunca tiver tentou regressão no Excel, este tutorial torna mais fácil: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
-* Regressão vs de previsão. Tyler Chessman escrito um artigo de blogue explicar como do Excel, que contém a descrição de um beginner boa de regressão linear de previsão de série de tempo. [http://sqlmag.com/SQL-Server-Analysis-Services/Understanding-Time-Series-forecasting-Concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Regressão Linear comum menos quadrados: Falhas, problemas e Pitfalls. Para uma introdução e debate de regressão: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Regressão vs de previsão. Tyler Chessman escrito um artigo de blogue explicar como do Excel, que contém a descrição de um beginner boa de regressão linear de previsão de série de tempo. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* Regressão Linear comum menos quadrados: Falhas, problemas e Pitfalls. Para uma introdução e debate de regressão: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

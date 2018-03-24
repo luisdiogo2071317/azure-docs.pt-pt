@@ -1,10 +1,10 @@
 ---
 title: 'Azure Cosmos DB: Artigos de API do SQL Server | Microsoft Docs'
-description: "Uma lista de todos os artigos específicas para criar bases de dados de documento com a API do SQL Server na base de dados do Azure Cosmos."
+description: Uma lista de todos os artigos específicas para criar bases de dados de documento com a API do SQL Server na base de dados do Azure Cosmos.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 82bec99a-ac2b-474e-b41f-d2fb296c8feb
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: f30f089ea7a12ef54b255368f38c8ec11a8c11da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Do Azure Cosmos DB: Documentação da API de SQL
 
@@ -34,7 +34,7 @@ Estes são tem leia os tópicos e recursos para começar a aprender mais sobre a
 - [Introdução de API do SQL Server](sql-api-introduction.md)
 - [Modelo de recursos de base de dados](sql-api-resources.md)
 - Web site: [playground de consulta](https://www.documentdb.com/sql/demo)
-- Cheat folha: [gramática do SQL Server](sql-api-sql-query-cheat-sheet.md)
+- Cheat folha: [gramática do SQL Server](query-cheat-sheet.md)
 
 ## <a name="quickstarts"></a>Inícios rápidos
 

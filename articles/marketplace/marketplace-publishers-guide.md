@@ -1,24 +1,24 @@
 ---
 title: Guia de AppSource fabricante e do Azure Marketplace
-description: "Guia passo a passo e da publicação listas de verificação para publicadores novo no Azure Marketplace"
+description: Guia passo a passo e da publicação listas de verificação para publicadores novo no Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0abf25726936a3d5e69c809c9714965936c7c64c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia de AppSource fabricante e do Azure Marketplace
 
@@ -34,7 +34,7 @@ Bem-vindo à [do Azure Marketplace](https://azuremarketplace.microsoft.com) e [A
 - Como tornar-se de um fabricante
 - Onde pretende criar e publicar oferece
 - Como otimizar uma listagem e utilizar recursos de mercado aceda ao impacto de unidade
-- Onde pretende obter ajuda e suporte para questões sobre a Azure Marketplace, AppSource, ou neste guia de publicação, contacte a equipa do Marketplace,  **cloudmarketplace@microsoft.com** . 
+- Onde pretende obter ajuda e suporte para questões sobre a Azure Marketplace, AppSource, ou neste guia de publicação, contacte a equipa do Marketplace, **cloudmarketplace@microsoft.com**. 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Vantagens de participar no marketplace
 
@@ -59,10 +59,10 @@ Os storefronts marketplace são alinhados com audiências e produtos em nuvem da
 |          |Azure Marketplace |AppSource  |
 |---------|---------|---------|
 |Público-alvo     |Profissionais de TI, os programadores (funções especialista em incluem DBAs, SecOps, DevOps, etc.)    | Linha de decisores de negócios (funções especialista em incluem aprovisionamento, fabrico, gestão de contas, etc.)      |
-|Criada com ou ampliar     |Azure         | Azure, Dynamics 365, Office 365, Power BI e aplicações de energia       |
+|Criada com ou ampliar     |Azure         | Azure, Dynamics 365, Office 365, Power BI e Power Apps       |
 |Tipos de serviços e soluções     |  Soluções de infraestrutura e serviços profissionais   | Terminar de linha de negócio cloud, os suplementos do Office 365, serviços e aplicações profissionais        |
 |Opções de publicação     |  Contactar-Me, serviços de consultoria oferecem, versão de avaliação, Máquina Virtual, modelos de solução e aplicações geridas       |  Versão de avaliação gratuita, obter agora, unidade de teste, contacte-Me, consultadoria oferta de serviços      |
-|Na aplicação experiência fornece os utilizadores acedam a aplicações e serviços no contexto da sua aplicação  | Portal do Azure e a CLI         | Office 365, Dynamics 365, Power BI, aplicações de cliente do Office       |
+|Na aplicação experiência fornece os utilizadores acedam a aplicações e serviços no contexto da sua aplicação  | Portal do Azure e CLI         | Office 365, Dynamics 365, Power BI, aplicações cliente do Office       |
 
 ## <a name="leveraging-these-storefronts"></a>Tirar partido destes storefronts
 
@@ -112,9 +112,9 @@ Esta secção explica as opções disponíveis para si em ambos os storefronts.
 
 |**Opção de publicação**  | **Tipo de oferta** | **Storefront**  |
 |---------|---------|---------|
-|**List**    |    Contactar-Me, consultar o serviço     |  Azure Marketplace, AppSource       |
-|**Avaliação**   |     Liberte a versão de avaliação, avaliação de SaaS, demonstração interativa, unidade de teste    |  Azure Marketplace, AppSource       |
-|**Transact**     |   A máquina virtual, modelo de solução, aplicações geridas      |    Azure Marketplace     |
+|**List**    |    Contacte-me, Serviço de Consultoria     |  Azure Marketplace, AppSource       |
+|**Avaliação**   |     Avaliação Gratuita, Avaliação SaaS, Demonstração Interativa, Versão de Teste    |  Azure Marketplace, AppSource       |
+|**Transact**     |   Máquina Virtual, Modelo de Solução, Aplicação Gerida      |    Azure Marketplace     |
 
 ### <a name="list"></a>LISTA
 
@@ -308,7 +308,7 @@ Existem várias opções para aplicações de inquilino único:
 - Desenvolver um por cliente por unidade de teste
 - Criar uma aplicação de demonstração de exemplo do multi-inquilino com o SSO
 
-##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Processos de publicação por produto para o Office, Dynamics e o Power BI
+## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Processos de publicação por produto para o Office, Dynamics e o Power BI
 Para aplicações de AppSource que expandem o Office, Dynamics e o Power BI, pode obter mais informações sobre os requisitos específicos na documentação de específico do produto nesta secção. 
 
 
@@ -519,7 +519,7 @@ Para obter mais informações sobre as diretrizes de conta de programador adicio
 
 A conta empresarial pode ser federada utilizando [do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/), e irá devolver um erro se tentar criar uma ID da Microsoft com um endereço de e-mail empresarial. Se obtiver um erro, verifique primeiro com a sua equipa de TI para se certificar de que é este o caso. Este é um problema conhecido e estamos a trabalhar a resolvê-lo. A solução é o seguinte:
 
-Recomendamos que crie um novo endereço de e-mail no  **@outlook.com**  domínio. Siga estes passos.
+Recomendamos que crie um novo endereço de e-mail no **@outlook.com** domínio. Siga estes passos.
 
 1. Aceda a [ https://signup.live.com/signup ](https://signup.live.com/signup) e selecione **obter um novo endereço de e-mail**
 

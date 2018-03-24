@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Domo | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Domo."
+title: 'Tutorial: Integração do Azure Active Directory com Domo | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Domo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2017
+ms.date: 03/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 3fbfd8839b1a45c6927753a48d1ac617f2d34427
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c7f74d3bd8a2f0173f8f3cc69c611696044875a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Tutorial: Integração do Azure Active Directory com Domo
 
@@ -57,7 +57,7 @@ Para configurar a integração de Domo com o Azure AD, terá de adicionar Domo a
 
 **Para adicionar Domo a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. No ** [portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -86,11 +86,11 @@ No Domo, atribua o valor do **nome de utilizador** no Azure AD como o valor a **
 
 Para configurar e testar o Azure AD-início de sessão único com Domo, tem de concluir os blocos modulares seguintes:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste Domo](#creating-a-domo-test-user)**  - para ter um homólogo de Britta Simon Domo que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on) ** - para permitir aos utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user) ** - para testar o Azure AD-início de sessão único com Britta Simon.
+3. **[Criar um utilizador de teste Domo](#creating-a-domo-test-user) ** - para ter um homólogo de Britta Simon Domo que está ligada a representação do Azure AD do utilizador.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user) ** - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
+5. **[Teste o início de sessão único](#testing-single-sign-on) ** - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-domo-tutorial/tutorial_domo_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.domo.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.domo.com`
 
     b. No **identificador** caixa de texto, escreva um URL utilizando os seguintes padrões:     
 
@@ -139,8 +139,8 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |    
-    | nome | User.DisplayName |
-    | e-mail | User.Mail |
+    | nome | user.displayname |
+    | e-mail | user.mail |
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -167,7 +167,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
    ![Configurar o início de sessão único](./media/active-directory-saas-domo-tutorial/tutorial_domo_configure.png) 
 
-9. Para configurar o início de sessão único em **Domo** lado, terá de enviar o transferido **certificado**, **ID de entidade de SAML**, a **único início de sessão no URL do serviço SAML** e **Sign-Out URL** para [equipa de suporte de Domo](mailto:support@domo.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+9. Para configurar o início de sessão único em **Domo** lado, navegue para o artigo da Base de dados de conhecimento do Domo encontrado [aqui](http://knowledge.domo.com?cid=azuread)e siga as instruções.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -250,8 +250,6 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

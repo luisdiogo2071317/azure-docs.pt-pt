@@ -1,6 +1,6 @@
 ---
-title: "Reencaminhar dados de relatórios ao Log Analytics do Azure Automation DSC"
-description: "Este artigo mostra como enviar pretendido Estado Configuration (DSC) dados para análise de registos para fornecer informações adicionais e gestão de relatórios."
+title: Reencaminhar dados de relatórios ao Log Analytics do Azure Automation DSC
+description: Este artigo mostra como enviar pretendido Estado Configuration (DSC) dados para análise de registos para fornecer informações adicionais e gestão de relatórios.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,17 +8,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Reencaminhar dados de relatórios do Azure Automation DSC para o OMS Log Analytics
+# <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Reencaminhar dados de relatórios ao Log Analytics do Azure Automation DSC
 
-Automatização pode enviar dados de estado do nó DSC a sua área de trabalho de análise de registos do Microsoft Operations Management Suite (OMS).  
+Automatização pode enviar dados de estado do nó DSC a sua área de trabalho de análise de registos.  
 Estado de conformidade é visível no portal do Azure, ou com o PowerShell, para nós e para recursos de DSC individuais em configurações de nó. Análise de registos pode:
 
 * Obter as informações de compatibilidade para os nós geridos e recursos individuais
@@ -34,7 +32,7 @@ Para começar a enviar os seus relatórios do Automation DSC para análise de re
 * Versão de Novembro de 2016 ou posterior do [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 * Uma conta de Automatização do Azure. Para obter mais informações, consulte [introdução da automatização do Azure](automation-offering-get-started.md)
 * Uma área de trabalho de análise de registos com um **automatização e controlo** oferta de serviço. Para obter mais informações, consulte [introdução à análise de registos](../log-analytics/log-analytics-get-started.md).
-* Pelo menos um nó de DSC de automatização do Azure. Para obter mais informações, consulte [máquinas de integração de gestão do Automation DSC do Azure](automation-dsc-onboarding.md) 
+* Pelo menos um nó de DSC de automatização do Azure. Para obter mais informações, consulte [máquinas de integração de gestão do Automation DSC do Azure](automation-dsc-onboarding.md)
 
 ## <a name="set-up-integration-with-log-analytics"></a>Configurar a integração com a análise de registos
 
@@ -191,5 +189,5 @@ Análise de registos dá-lhe maior visibilidade operacional aos seus dados de DS
 
 * Para obter mais informações sobre como construir consultas de pesquisa diferentes e reveja os registos de DSC de automatização com a análise de registos, consulte o artigo [pesquisas de registo na análise de registos](../log-analytics/log-analytics-log-searches.md)
 * Para obter mais informações sobre como utilizar o DSC de automatização do Azure, consulte [introdução ao Azure Automation DSC](automation-dsc-getting-started.md)
-* Para saber mais sobre o OMS Log Analytics e as origens das coleções de dados, veja [Collecting Azure storage data in Log Analytics overview (Descrição geral da Recolha de dados do armazenamento do Azure no Log Analytics)](../log-analytics/log-analytics-azure-storage.md)
+* Para saber mais sobre a análise de registos e as origens de recolha de dados, consulte [dados de armazenamento do Azure recolha na descrição geral da análise de registos](../log-analytics/log-analytics-azure-storage.md)
 

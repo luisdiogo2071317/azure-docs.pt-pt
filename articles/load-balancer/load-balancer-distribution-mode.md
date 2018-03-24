@@ -1,6 +1,6 @@
 ---
-title: "Configurar o modo de distribuição do Balanceador de carga do Azure | Microsoft Docs"
-description: "Como configurar o modo de distribuição de Balanceador de carga do Azure suportar a afinidade do IP de origem."
+title: Configurar o modo de distribuição do Balanceador de carga do Azure | Microsoft Docs
+description: Como configurar o modo de distribuição de Balanceador de carga do Azure suportar a afinidade do IP de origem.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,15 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d04a469c04553b7d6a14df7054ad5ef795baa500
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: ae793bad9cef86158418eb87e0c38ee0370a6bd2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurar o modo de distribuição para o Balanceador de carga do Azure
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## <a name="hash-based-distribution-mode"></a>Modo de distribuição com base em hash
 
@@ -156,7 +154,7 @@ Como anteriormente descrito, defina o `LoadBalancerDistribution` elemento source
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Descrição geral do Balanceador de carga interno do Azure](load-balancer-internal-overview.md)
 * [Introdução ao configurar um balanceador de carga para a internet](load-balancer-get-started-internet-arm-ps.md)

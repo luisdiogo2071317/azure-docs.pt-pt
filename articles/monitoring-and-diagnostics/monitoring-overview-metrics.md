@@ -1,9 +1,9 @@
 ---
-title: "Descrição geral das métricas no Microsoft Azure | Microsoft Docs"
-description: "Descrição geral das métricas e a sua utilização no Microsoft Azure"
-author: johnkemnetz
+title: Descrição geral das métricas no Microsoft Azure | Microsoft Docs
+description: Descrição geral das métricas e a sua utilização no Microsoft Azure
+author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: johnkem
-ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/19/2018
+ms.author: ancav
+ms.openlocfilehash: 88020b27403f06ab8f1c0a1c45b798db02f517f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Descrição geral das métricas no Microsoft Azure
 Este artigo descreve quais são as métricas no Microsoft Azure, os seus benefícios e como começar a utilizá-los.  
@@ -38,9 +38,9 @@ As métricas são uma origem de telemetria importante e permitem-lhe efetuar as 
 ## <a name="what-are-the-characteristics-of-metrics"></a>Quais são as características de métricas?
 Métricas de ter as seguintes características:
 
-* Todas as métricas tem **frequência de um minuto**. Recebe um valor métrico de cada minuto do seu recurso, dando-lhe quase em tempo real visibilidade sobre o estado e estado de funcionamento dos seus recursos.
+* Todas as métricas tem **frequência de um minuto** (a menos que especificado em contrário na definição de uma métrica). Recebe um valor métrico de cada minuto do seu recurso, dando-lhe quase em tempo real visibilidade sobre o estado e estado de funcionamento dos seus recursos.
 * As métricas são **disponíveis imediatamente**. Não precisa de optar ativamente por participar no ou configurar diagnósticos adicionais.
-* Pode aceder ao **30 dias do histórico** para cada métrica. Pode ver rapidamente as tendências recentes e mensais no desempenho ou do Estado de funcionamento dos seus recursos.
+* Pode aceder ao **93 dias do histórico** para cada métrica. Pode ver rapidamente as tendências recentes e mensais no desempenho ou do Estado de funcionamento dos seus recursos.
 * Alguns métricas podem ter atributos de pares nome-valor chamados **dimensões**. Estas permitem-lhe segmentar ainda mais e explorar uma métrica de forma mais significativa.
 
 Também pode:
@@ -93,7 +93,7 @@ As métricas do Azure podem ser acedidas através das APIs de Monitor do Azure. 
 * Utilize o [API REST da Azure Monitor métricas](https://docs.microsoft.com/rest/api/monitor/metrics) segmentar, filtrar e aceder os dados de métricas real.
 
 > [!NOTE]
-> Este artigo abrange as métricas através de [nova API com base nas métricas](https://docs.microsoft.com/rest/api/monitor/) para recursos do Azure. A versão da API para as novas definições de métricas e métricas APIs é 2017-05-01-pré-visualização. As definições de métricas de legado e métricas, podem ser acedidas com a API versão 2014-04-01.
+> Este artigo abrange as métricas através de [nova API com base nas métricas](https://docs.microsoft.com/rest/api/monitor/) para recursos do Azure. A versão da API para as novas definições de métricas e métricas APIs é 2018-01-01. As definições de métricas de legado e métricas, podem ser acedidas com a API versão 2014-04-01.
 >
 >
 

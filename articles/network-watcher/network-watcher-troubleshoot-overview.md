@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Azure observador de rede de resolução de problemas de recursos | Microsoft Docs"
-description: "Esta página fornece uma descrição geral das capacidades de resolução de problemas de recursos de observador de rede"
+title: Introdução ao Azure observador de rede de resolução de problemas de recursos | Microsoft Docs
+description: Esta página fornece uma descrição geral das capacidades de resolução de problemas de recursos de observador de rede
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
 ms.service: network-watcher
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução ao recurso observador de rede do Azure de resolução de problemas
 
-Gateways da virtual Network fornecer conectividade entre recursos no local e a outras redes virtuais no Azure. Estes gateways e as suas ligações de monitorização é essencial para garantir que a comunicação não é interrompido. Observador de rede fornece a capacidade de resolução de problemas de Gateways da Virtual Network e ligações. Isto pode ser chamado através do portal, o PowerShell, a CLI ou a REST API. Quando chamado, o observador de rede diagnoses o estado de funcionamento do gateway de rede virtual ou da ligação e devolvem os resultados adequados. Este pedido é uma transação de execução longa, os resultados são devolvidos quando o diagnóstico estiver concluído.
+Gateways da virtual Network fornecer conectividade entre recursos no local e a outras redes virtuais no Azure. Monitorização de gateways e as suas ligações são cruciais para garantir que a comunicação não é interrompido. Observador de rede fornece a capacidade para resolver os gateways e ligações. A capacidade pode ser chamada através do portal, o PowerShell, a CLI do Azure ou a REST API. Quando chamado, observador de rede diagnoses o estado de funcionamento do gateway ou ligação e devolve os resultados adequados. O pedido é uma transação de execução longa. Os resultados são devolvidos quando o diagnóstico estiver concluído.
 
 ![portal][2]
 
@@ -50,52 +50,51 @@ As tabelas seguintes mostram os tipos de falhas diferente (id em resultados na l
 
 | Tipo de índice de falhas | Razão | Registar|
 |---|---|---|
-| NoFault | Quando não é detetado nenhum erro. |Sim|
-| GatewayNotFound | Não é possível encontrar o Gateway ou Gateway não está aprovisionada. |Não|
-| PlannedMaintenance |  Uma instância de gateway está em manutenção.  |Não|
-| UserDrivenUpdate | Quando uma atualização de utilizador está em curso. Isto pode ser uma operação de redimensionamento. | Não |
-| VipUnResponsive | Não é possível contactar a instância principal do Gateway. Isto acontece quando ocorre uma falha da pesquisa de estado de funcionamento. | Não |
+| NoFault | Quando não é detetado nenhum erro |Sim|
+| GatewayNotFound | Não é possível encontrar o gateway ou gateway não está aprovisionada |Não|
+| PlannedMaintenance |  Uma instância de gateway está em manutenção  |Não|
+| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador estiver em curso. A atualização pode ser uma operação de redimensionamento. | Não |
+| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não está acessível devido a uma falha de pesquisa de estado de funcionamento. | Não |
 | PlatformInActive | Não há um problema com a plataforma. | Não|
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não|
-| NoConnectionsFoundForGateway | Não existem ligações existe no gateway. Esta é apenas um aviso.| Não|
-| ConnectionsNotConnected | As ligações não estão ligadas. Esta é apenas um aviso.| Sim|
-| GatewayCPUUsageExceeded | A utilização de CPU do Gateway atual é > 95%. | Sim |
+| NoConnectionsFoundForGateway | Não existem ligações existem no gateway. Esta falha é apenas um aviso.| Não|
+| ConnectionsNotConnected | As ligações não estão ligadas. Esta falha é apenas um aviso.| Sim|
+| GatewayCPUUsageExceeded | O utilização da CPU de gateway atual é > 95%. | Sim |
 
 ### <a name="connection"></a>Ligação
 
 | Tipo de índice de falhas | Razão | Registar|
 |---|---|---|
-| NoFault | Quando não é detetado nenhum erro. |Sim|
-| GatewayNotFound | Não é possível encontrar o Gateway ou Gateway não está aprovisionada. |Não|
-| PlannedMaintenance | Uma instância de gateway está em manutenção.  |Não|
-| UserDrivenUpdate | Quando uma atualização de utilizador está em curso. Isto pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Não é possível contactar a instância principal do Gateway. Ocorre quando ocorre uma falha da pesquisa de estado de funcionamento. | Não |
-| ConnectionEntityNotFound | Configuração da ligação está em falta. | Não |
-| ConnectionIsMarkedDisconnected | A ligação está marcada como "desligada". |Não|
+| NoFault | Quando não é detetado nenhum erro |Sim|
+| GatewayNotFound | Não é possível encontrar o gateway ou gateway não está aprovisionada |Não|
+| PlannedMaintenance | Uma instância de gateway está em manutenção  |Não|
+| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador estiver em curso. A atualização pode ser uma operação de redimensionamento.  | Não |
+| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não está acessível devido a uma falha de pesquisa de estado de funcionamento. | Não |
+| ConnectionEntityNotFound | Configuração da ligação está em falta | Não |
+| ConnectionIsMarkedDisconnected | A ligação está marcada como "desligada" |Não|
 | ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a ligação configurada. | Sim |
 | ConnectionMarkedStandy | O serviço subjacente está marcado como modo de espera.| Sim|
-| Autenticação | Erro de correspondência de chave pré-partilhada. | Sim|
+| Autenticação | Erro de correspondência de chave pré-partilhada | Sim|
 | PeerReachability | O gateway de elemento de rede não está acessível. | Sim|
 | IkePolicyMismatch | O gateway de ponto a ponto tem políticas IKE que não são suportadas pelo Azure. | Sim|
 | Erro de WfpParse | Ocorreu um erro ao analisar o registo WFP. |Sim|
 
 ## <a name="supported-gateway-types"></a>Tipos de Gateway suportados
 
-A lista seguinte mostra o suporte mostra os gateways e ligações são suportadas na resolução de problemas do observador de rede.
+A tabela seguinte lista os gateways e ligações são suportadas na resolução de problemas do observador de rede:
+
 |  |  |
 |---------|---------|
 |**Tipos de gateway**   |         |
-|VPN      | Suportado        |
+|VPN      | Suportadas        |
 |ExpressRoute | Não suportado |
-|Hypernet | Não suportado|
 |**Tipos de VPN** | |
-|Rota baseada | Suportado|
+|Rota baseada | Suportadas|
 |Baseado na política | Não suportado|
 |**Tipos de ligação**||
-|IPSec| Suportado|
-|VNet2Vnet| Suportado|
+|IPSec| Suportadas|
+|VNet2Vnet| Suportadas|
 |ExpressRoute| Não suportado|
-|Hypernet| Não suportado|
 |VPNClient| Não suportado|
 
 ## <a name="log-files"></a>Ficheiros de registo
@@ -147,11 +146,11 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>Wfpdiag.txt limpa
+### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
 
 O **Scrubbed wfpdiag.txt** ficheiro de registo contém o registo de wfp. Este registo contém o registo de falhas de IKE/Authenticated e remoção de pacotes.
 
-O exemplo seguinte mostra os conteúdos do ficheiro Scrubbed wfpdiag.txt. Neste exemplo, a chave partilhada de uma ligação não estava correta, podem ser vistos a partir da linha de 3rd na parte inferior. O exemplo seguinte é apenas um fragmento de todo o registo, como o registo pode ser demorado, consoante o problema.
+O exemplo seguinte mostra os conteúdos do ficheiro Scrubbed wfpdiag.txt. Neste exemplo, a chave partilhada de uma ligação não estava correta, podem ser vistos a partir da linha de terceira na parte inferior. O exemplo seguinte é apenas um fragmento de todo o registo, como o registo pode ser demorado, consoante o problema.
 
 ```
 ...
@@ -180,7 +179,7 @@ O exemplo seguinte mostra os conteúdos do ficheiro Scrubbed wfpdiag.txt. Neste 
 ...
 ```
 
-### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.SUM
+### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.sum
 
 O **wfpdiag.txt.sum** ficheiro é um registo que mostra as memórias intermédias e eventos processados.
 
@@ -210,7 +209,7 @@ Elapsed Time            330 sec
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como diagnosticar ligações e Gateways de VPN através do portal, visitando [resolução de problemas de Gateway - portal do Azure](network-watcher-troubleshoot-manage-portal.md).
 <!--Image references-->

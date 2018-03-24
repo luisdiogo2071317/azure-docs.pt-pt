@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory dos serviços de domínio: Configuração do Principal de serviço de resolução de problemas | Microsoft Docs"
-description: "Resolver problemas de configuração do Principal de serviço para os serviços de domínio do Azure AD"
+title: 'Azure Active Directory dos serviços de domínio: Configuração do Principal de serviço de resolução de problemas | Microsoft Docs'
+description: Resolver problemas de configuração do Principal de serviço para os serviços de domínio do Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory-ds
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: e1be075ba2d3e6ae7512ccc030073fd7f1862502
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Resolver problemas de configuração de Principal de serviço inválida para o seu domínio gerido
 
@@ -93,7 +93,7 @@ Siga estes passos, se um principal de serviço com o ID ```d87dcbc6-a371-462e-88
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerta AADDS105: A aplicação de sincronização de palavra-passe está desatualizada
 
-**Mensagem de alerta:** o principal de serviço com o ID de aplicação "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi eliminado e a Microsoft foi capaz de recriar. Este serviço principal gere outro principal de serviço e uma aplicação que são utilizados para sincronização de palavra-passe. O principal de serviço gerida e a aplicação não estão autorizados sob o principal de serviço criado recentemente e fiquem Desatualizadas quando expira o certificado de sincronização. Isto significa que o principal de serviço criado recentemente será não é possível atualizar as antigas aplicações geridas e sincronização de objetos do AAD será afetada.
+**Mensagem de alerta:** o principal de serviço com o ID de aplicação "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi eliminado e, em seguida, recriado. Este serviço principal gere outro principal de serviço e uma aplicação que são utilizados para sincronização de palavra-passe. O principal de serviço gerida e/ou a aplicação não foi autorizado sob o principal de serviço recentemente criado pelo que não pode ser geridos pelo nosso serviço. Isto significa que o principal de serviço criado recentemente será não é possível atualizar as antigas aplicações geridas e sincronização de palavras-passe será afetada.
 
 
 **Resolução:** precisa do Azure AD PowerShell para concluir estes passos. Para obter informações sobre como instalar o Azure AD PowerShell, consulte [neste artigo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
@@ -108,7 +108,7 @@ Para resolver este problema, escreva os comandos seguintes numa janela do PowerS
 2. Eliminar a aplicação antiga e o objeto, utilizando os seguintes comandos do PowerShell
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId

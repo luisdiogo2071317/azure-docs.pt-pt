@@ -1,11 +1,12 @@
 ---
-title: "Do Machine learning cábula de algoritmo | Microsoft Docs"
-description: "Uma cábula de algoritmo de aprendizagem imprimível ajuda-o a escolha certo algoritmo para o modelo preditivo no Azure Machine Learning Studio."
-keywords: "algoritmo cábula, cábula, algoritmo do machine learning"
+title: Do Machine learning cábula de algoritmo | Microsoft Docs
+description: Uma cábula de algoritmo de aprendizagem imprimível ajuda-o a escolha certo algoritmo para o modelo preditivo no Azure Machine Learning Studio.
+keywords: algoritmo cábula, cábula, algoritmo do machine learning
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
@@ -14,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 5ecd569f68c2eada921193f2b7b88fe788120a9b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2fd42ba47b9cfc81c17078dc9d36c7650fbc6317
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Referência rápida de algoritmos do Machine Learning para o Microsoft Azure Machine Learning Studio
 O **Microsoft Azure Machine Learning algoritmo Cheat folha** ajuda-o a escolher o algoritmo de direita para um modelo de Análise Preditiva.
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) tem uma grande biblioteca de algoritmos do ***regressão***, ***classificação***, ***clustering***, e ***deteção de anomalias*** famílias. Cada foi concebida para resolver um tipo diferente de problema do machine learning.
+[Azure Machine Learning Studio](https://studio.azureml.net/) tem uma grande biblioteca de algoritmos do ***regressão***, ***classificação***, ***clustering***, e  ***Deteção de anomalias*** famílias. Cada foi concebida para resolver um tipo diferente de problema do machine learning.
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Transferência: Cábula de algoritmo de aprendizagem
 **Transfira aqui a cábula: [Machine Learning algoritmo Cheat folha (11 x 17 pol.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**

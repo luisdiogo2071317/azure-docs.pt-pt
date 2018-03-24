@@ -1,11 +1,11 @@
 ---
 title: Copiar dados de DB2 utilizando o Azure Data Factory | Microsoft Docs
-description: "Saiba como copiar dados de DB2 aos arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory."
+description: Saiba como copiar dados de DB2 aos arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 865e6fe1dd13736c1899c72b4e49612d970d45cd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0ef1ce8b4949c908595473f0183f585a6fd3da80
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados de DB2 através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Especificamente, este conector DB2 suporta as seguintes plataformas de IBM DB2 e
 
 > [!TIP]
 > Se receber uma mensagem de erro que indica "não foi encontrado o pacote correspondente a um pedido de execução da instrução de SQL. SQLSTATE = 51002 SQLCODE =-805 ", o motivo é um pacote necessário não foi criado para um utilizador normal nesse sistema operativo. Siga estas instruções, de acordo com o tipo de servidor DB2:
-> - DB2 para i (AS400): permitir que o utilizador avançado Criar coleção para o utilizador de início de sessão antes de utilizar a atividade de cópia. Comando:`create collection <username>`
+> - DB2 para i (AS400): permitir que o utilizador avançado Criar coleção para o utilizador de início de sessão antes de utilizar a atividade de cópia. Comando: `create collection <username>`
 > - DB2 para z/OS ou LUW: utilizar uma conta de privilégio elevado - utilizador avançado ou administrador com autoridades de pacote e ENLACE BINDADD, CONCEDA executar para permissões públicas - para executar a atividade de cópia de uma vez, em seguida, o pacote necessário é criado automaticamente durante a cópia. Seguidamente, pode mudar para o utilizador normal para as execuções subsequentes cópia.
 
 ## <a name="prerequisites"></a>Pré-requisitos

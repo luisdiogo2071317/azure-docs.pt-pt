@@ -1,8 +1,8 @@
 ---
-title: "Importar dados de análise de registos do Azure para o Power BI | Microsoft Docs"
-description: "Power BI é um serviço de análise de negócio baseada na nuvem da Microsoft que fornece visualizações otimizadas e relatórios para análise dos diferentes conjuntos de dados.  Este artigo descreve como configurar a importar dados de análise de registos para o Power BI e configurá-lo para atualizar automaticamente."
+title: Importar dados de análise de registos do Azure para o Power BI | Microsoft Docs
+description: Power BI é um serviço de análise de negócio baseada na nuvem da Microsoft que fornece visualizações otimizadas e relatórios para análise dos diferentes conjuntos de dados.  Este artigo descreve como configurar a importar dados de análise de registos para o Power BI e configurá-lo para atualizar automaticamente.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,29 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2018
+ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 6d7f8f89f90223dc5dd186a63b3912a13910cb34
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importar dados de análise de registos do Azure para o Power BI
 
 
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) é um serviço de análise de negócio baseada na nuvem da Microsoft que fornece visualizações otimizadas e relatórios para análise dos diferentes conjuntos de dados.  Pode importar os resultados da pesquisa de análise de registos de registo para um conjunto de dados do Power BI, pelo que pode tirar partido do respetivo suchas funcionalidades combing dados de diferentes origens e partilha relatórios na web e dispositivos móveis.
 
-Este artigo fornece detalhes sobre a importação de dados de análise de registos para o Power BI e agendamento-lo para atualizar automaticamente.  Diferentes processos estão incluídos para um [atualizado](#upgraded-workspace) e um [legado](#legacy-workspace) área de trabalho.
-
-## <a name="upgraded-workspace"></a>Área de trabalho atualizada
-
-
-Para importar dados a partir de um [atualizado a área de trabalho de análise de registos](log-analytics-log-search-upgrade.md) no Power BI, crie um conjunto de dados no Power BI com base numa consulta de pesquisa de registo na análise de registos.  A consulta é executada sempre que o conjunto de dados está atualizado.  Em seguida, pode criar relatórios do Power BI que utilizam dados do conjunto de dados.  Para criar o conjunto de dados no Power BI, exportar a consulta de análise de registos para [idioma de consulta de energia (M)](https://msdn.microsoft.com/library/mt807488.aspx).  Em seguida, utilize esta opção para criar uma consulta no Power BI Desktop e, em seguida, publicá-lo no Power BI como um conjunto de dados.  Os detalhes para este processo são descritos abaixo.
+## <a name="overview"></a>Descrição geral
+Para importar dados a partir de uma área de trabalho de análise de registos para o Power BI, crie um conjunto de dados no Power BI com base numa consulta de pesquisa de registo na análise de registos.  A consulta é executada sempre que o conjunto de dados está atualizado.  Em seguida, pode criar relatórios do Power BI que utilizam dados do conjunto de dados.  Para criar o conjunto de dados no Power BI, exportar a consulta de análise de registos para [idioma de consulta de energia (M)](https://msdn.microsoft.com/library/mt807488.aspx).  Em seguida, utilize esta opção para criar uma consulta no Power BI Desktop e, em seguida, publicá-lo no Power BI como um conjunto de dados.  Os detalhes para este processo são descritos abaixo.
 
 ![Análise de registos para o Power BI](media/log-analytics-powerbi/overview.png)
 
-### <a name="export-query"></a>Consulta de exportação
+## <a name="export-query"></a>Consulta de exportação
 Comece por criar um [pesquisa registo](log-analytics-log-search-new.md) que devolve os dados de análise de registos que pretende povoar o conjunto de dados do Power BI.  Em seguida, exportar essa consulta para [idioma de consulta de energia (M)](https://msdn.microsoft.com/library/mt807488.aspx) que pode ser utilizado pelo Power BI Desktop.
 
 1. Crie a pesquisa de registo na análise de registos para extrair os dados para o conjunto de dados.
@@ -44,7 +40,7 @@ Comece por criar um [pesquisa registo](log-analytics-log-search-new.md) que devo
 
 3. Abra o ficheiro de texto e copie o respetivo conteúdo.
 
-### <a name="import-query-into-power-bi-desktop"></a>Importar consulta para o Power BI Desktop
+## <a name="import-query-into-power-bi-desktop"></a>Importar consulta para o Power BI Desktop
 Ambiente de trabalho do Power BI é uma aplicação de ambiente de trabalho que permite-lhe criar conjuntos de dados e relatórios que podem ser publicados para o Power BI.  Também pode utilizar para criar uma consulta utilizando a linguagem de Power Query exportada a partir da análise de registos. 
 
 1. Instalar [Power BI Desktop](https://powerbi.microsoft.com/desktop/) se não tiver já-lo e, em seguida, abra a aplicação.
@@ -59,7 +55,7 @@ Ambiente de trabalho do Power BI é uma aplicação de ambiente de trabalho que 
 
 
 
-### <a name="publish-to-power-bi"></a>Publicar para o Power BI
+## <a name="publish-to-power-bi"></a>Publicar para o Power BI
 Quando publica para o Power BI, serão criados um conjunto de dados e um relatório.  Se criar um relatório no Power BI Desktop, em seguida, este será publicado com os seus dados.  Caso contrário, em seguida, irá criar um relatório em branco.  Pode modificar o relatório no Power BI ou crie uma nova com base no conjunto de dados.
 
 8. Crie um relatório com base nos seus dados.  Utilize [documentação do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view) se não estiver familiarizado com o mesmo.  Quando estiver pronto para enviar ao Power BI, clique em **publicar**.  Quando lhe for pedido, selecione um destino na sua conta do Power BI.  A menos que tenha um destino específico em mente, utilize **minha área de trabalho**.
@@ -79,93 +75,6 @@ O conjunto de dados criado no Power BI terão os mesmos dados que vimos anterior
 5. Em **atualização agendada** ative a opção para **manter os seus dados atualizados**.  Opcionalmente, pode alterar o **atualizar frequência** e um ou mais horas específicas ao executar a atualização.
 
     ![Atualização do Power BI](media/log-analytics-powerbi/powerbi-schedule-refresh.png)
-
-## <a name="legacy-workspace"></a>Área de trabalho legada
-Quando configura o Power BI com um [área de trabalho de análise de registos legada](log-analytics-powerbi.md), criar consultas de registo que exportar os resultados para conjuntos de dados correspondentes no Power BI.  A consulta e a exportação continua a ser executado automaticamente com base numa agenda que define para manter o conjunto de dados atualizados com os dados mais recentes recolhidos pelo registo de análise.
-
-![Análise de registos para o Power BI](media/log-analytics-powerbi/overview-legacy.png)
-
-### <a name="power-bi-schedules"></a>Agendas do Power BI
-A *Power BI agenda* inclui uma pesquisa de registo que exporta um conjunto de dados de análise de registos para um conjunto de dados correspondente no Power BI e uma agenda que define a frequência esta pesquisa é executada para manter o conjunto de dados atual.
-
-Os campos no conjunto de dados corresponderá as propriedades dos registos devolvidos pela pesquisa de registo.  Se a pesquisa devolve os registos de diferentes tipos, em seguida, o conjunto de dados irão incluir todas as propriedades de cada um dos tipos de registo incluídos.  
-
-### <a name="connecting-log-analytics-workspace-to-power-bi"></a>Área de trabalho de análise de registos ao ligar ao Power BI
-Pode exportar da análise de registos para o Power BI, tem de ligar a área de trabalho para a sua conta Power BI utilizando o procedimento seguinte.  
-
-1. Na consola do OMS clique o **definições** mosaico.
-2. Selecione **contas**.
-3. No **informações de área de trabalho** secção clique **ligar a conta do Power BI**.
-4. Introduza as credenciais para a sua conta Power BI.
-
-### <a name="create-a-power-bi-schedule"></a>Criar uma agenda do Power BI
-Crie uma agenda de Power BI para cada conjunto de dados utilizando o procedimento seguinte.
-
-1. Na consola do OMS clique o **pesquisa registo** mosaico.
-2. Escreva uma nova consulta ou selecione uma pesquisa guardada que devolve os dados que pretende exportar para **Power BI**.  
-3. Clique em de **Power BI** botão na parte superior da página para abrir o **Power BI** caixa de diálogo.
-4. Forneça as informações na tabela seguinte e clique em **guardar**.
-
-| Propriedade | Descrição |
-|:--- |:--- |
-| Nome |Nome para identificar a agenda ao ver a lista de agendas do Power BI. |
-| Pesquisa guardada |A pesquisa de registo para ser executada.  Pode selecionar a consulta atual ou selecionar uma pesquisa guardada existente na caixa pendente. |
-| Agenda |Como muitas vezes, execute a pesquisa guardada e exportar para o conjunto de dados do Power BI.  O valor tem de estar entre 15 minutos e 24 horas. |
-| Nome do conjunto de dados |O nome do conjunto de dados no Power BI.  Será criado se não existir e atualizada se existir. |
-
-### <a name="viewing-and-removing-power-bi-schedules"></a>Visualizar e remover as agendas do Power BI
-Ver a lista de agendas de BI de energia existentes com o seguinte procedimento.
-
-1. Na consola do OMS clique o **definições** mosaico.
-2. Selecione **Power BI**.
-
-Além dos detalhes da agenda, o número de vezes que a agenda foi executado da semana passada e o estado da última sincronização são apresentados.  Se a sincronização detectados erros, pode clicar na ligação para executar uma pesquisa de registo de registos com detalhes do erro.
-
-Pode remover uma agenda ao clicar no **X** no **Remover coluna**.  Pode desativar uma agenda selecionando **desativar**.  Para modificar uma agenda tem de removê-lo e recriá-lo com as novas definições.
-
-![Agendas do Power BI](media/log-analytics-powerbi/schedules.png)
-
-### <a name="sample-walkthrough"></a>Instruções de exemplo
-A secção seguinte explica um exemplo de criar uma agenda do Power BI e para criar um relatório simples utilizando o respetivo conjunto de dados.  Neste exemplo, todos os dados de desempenho para um conjunto de computadores são exportados para o Power BI e, em seguida, um gráfico de linha é criado para apresentar a utilização do processador.
-
-#### <a name="create-log-search"></a>Criar a pesquisa de registo
-Vamos começar por criar uma pesquisa de registo para os dados que pretendemos para enviar para o conjunto de dados.  Neste exemplo, vamos utilizar uma consulta que devolva todos os dados de desempenho para computadores com um nome que começa com *srv*.  
-
-![Agendas do Power BI](media/log-analytics-powerbi/walkthrough-query.png)
-
-#### <a name="create-power-bi-search"></a>Criar a pesquisa do Power BI
-Clicarmos no **Power BI** botão para abrir a caixa de diálogo do Power BI e forneça as informações necessárias.  Queremos esta pesquisa para executar uma vez por hora e criar um conjunto de dados denominado *Contoso desempenho*.  Uma vez que já temos a abertura de pesquisa que cria os dados que pretendemos, iremos manter as predefinições de *consulta de pesquisa atual utilize* para **pesquisa guardada**.
-
-![Pesquisa do Power BI](media/log-analytics-powerbi/walkthrough-schedule.png)
-
-#### <a name="verify-power-bi-search"></a>Certifique-se de pesquisa do Power BI
-Para verificar que criámos a agenda corretamente, vamos ver a lista de Power BI pesquisas sob o **definições** mosaico no dashboard do OMS.  Iremos aguarde vários minutos e atualizar esta vista até mesmo os relatórios que a sincronização foi executada.  Normalmente, irá agendar o conjunto de dados são atualizados automaticamente.
-
-![Pesquisa do Power BI](media/log-analytics-powerbi/walkthrough-schedules.png)
-
-#### <a name="verify-the-dataset-in-power-bi"></a>Verifique se o conjunto de dados no Power BI
-Vamos iniciar sessão na nossa conta em [powerbi.microsoft.com](http://powerbi.microsoft.com/) e desloque-se para **conjuntos de dados** na parte inferior do painel esquerdo.  É possível ver que o *Contoso desempenho* conjunto de dados está listado com a indicação de que o nosso exportação foi executada com êxito.
-
-![O conjunto de dados do Power BI](media/log-analytics-powerbi/walkthrough-datasets.png)
-
-#### <a name="create-report-based-on-dataset"></a>Criar o relatório com base no conjunto de dados
-Iremos selecionar o **Contoso desempenho** conjunto de dados e, em seguida, clique em **resultados** no **campos** painel à direita para ver os campos que fazem parte deste conjunto de dados.  Para criar um gráfico de linha com a utilização do processador para cada computador, iremos efetuar as seguintes ações.
-
-1. Selecione a visualização de gráfico de linha.
-2. Arraste **ObjectName** para **filtro de nível de relatório** e verifique **processador**.
-3. Arraste **CounterName** para **filtro de nível de relatório** e verifique **% de tempo do processador**.
-4. Arraste **CounterValue** para **valores**.
-5. Arraste **computador** para **legenda**.
-6. Arraste **TimeGenerated** para **eixo**.
-
-É possível ver que o gráfico de linha resultante é apresentado com os dados do nosso conjunto de dados.
-
-![Gráfico de linha do Power BI](media/log-analytics-powerbi/walkthrough-linegraph.png)
-
-#### <a name="save-the-report"></a>Guardar o relatório
-Iremos guardar o relatório clicando no botão Guardar na parte superior do ecrã e confirme que está agora listada na secção dos relatórios no painel esquerdo.
-
-![Relatórios do Power BI](media/log-analytics-powerbi/walkthrough-report.png)
 
 
 

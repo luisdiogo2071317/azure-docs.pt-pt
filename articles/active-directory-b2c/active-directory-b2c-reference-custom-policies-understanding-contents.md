@@ -1,24 +1,21 @@
 ---
-title: "O Azure Active Directory B2C: Noções sobre políticas personalizadas do pacote de arranque | Microsoft Docs"
-description: "Um tópico sobre as políticas personalizadas do Azure Active Directory B2C"
+title: 'O Azure Active Directory B2C: Noções sobre políticas personalizadas do pacote de arranque | Microsoft Docs'
+description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/25/2017
-ms.author: joroja
-ms.openlocfilehash: fccb6cfddc8629de7db0310340f07bffd1ff8a65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Compreender as políticas personalizadas do pacote de arranque de política personalizada do Azure AD B2C
 
@@ -52,11 +49,11 @@ As seguintes afirmações são necessárias para percursos de utilizador funcion
 
 | Tipo de afirmações | Descrição |
 |-------------|-------------|
-| *ID de utilizador* | Nome de utilizador |
+| *UserId* | Nome de utilizador |
 | *signInName* | Inicie sessão no nome |
 | *tenantId* | Identificador de inquilino (ID) do objeto de utilizador no Azure AD B2C Premium |
 | *objectId* | Identificador de objeto (ID) do objeto de utilizador no Azure AD B2C Premium |
-| *palavra-passe* | Palavra-passe |
+| *password* | Palavra-passe |
 | *newPassword* | |
 | *reenterPassword* | |
 | *passwordPolicies* | Políticas de palavra-passe utilizadas pelo Premium do Azure AD B2C para determinar a força da palavra-passe, expiração, etc. |
@@ -66,15 +63,15 @@ As seguintes afirmações são necessárias para percursos de utilizador funcion
 | *displayName* | |
 | *strongAuthenticationPhoneNumber* | Número de telefone do utilizador |
 | *Verified.strongAuthenticationPhoneNumber* | |
-| *correio eletrónico* | Endereço de correio eletrónico que pode ser utilizado para contactar o utilizador |
+| *email* | Endereço de correio eletrónico que pode ser utilizado para contactar o utilizador |
 | *signInNamesInfo.emailAddress* | Endereço de e-mail que o utilizador pode utilizar para iniciar sessão |
 | *otherMails* | Endereços de e-mail que podem ser utilizados para contactar o utilizador |
 | *userPrincipalName* | Nome de utilizador conforme armazenado no Premium do Azure AD B2C |
 | *upnUserName* | Nome de utilizador para a criação de nome principal de utilizador |
 | *mailNickName* | Nome de nick de correio do utilizador conforme armazenado no Premium do Azure AD B2C |
 | *newUser* | |
-| *foi executado-SelfAsserted-entrada* | Afirmação que especifica se os atributos foram recolhidos do utilizador |
-| *foi executado-PhoneFactor-entrada* | Afirmação que especifica se um novo número de telefone foi recolhido do utilizador |
+| *executed-SelfAsserted-Input* | Afirmação que especifica se os atributos foram recolhidos do utilizador |
+| *executed-PhoneFactor-Input* | Afirmação que especifica se um novo número de telefone foi recolhido do utilizador |
 | *authenticationSource* | Especifica se o utilizador foi autenticado no fornecedor de identidade sociais, login.microsoftonline.com ou conta local |
 
 ### <a name="claims-required-for-query-string-parameters-and-other-special-parameters"></a>Afirmações necessárias para os parâmetros de cadeia de consulta e outros parâmetros especiais
@@ -83,13 +80,13 @@ As seguintes afirmações têm de passar em parâmetros especiais (incluindo alg
 
 | Tipo de afirmações | Descrição |
 |-------------|-------------|
-| *Nux* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
-| *NCA* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
-| *linha de comandos* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
+| *nux* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
+| *nca* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
+| *prompt* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
 | *mkt* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
-| *LC* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
+| *lc* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
 | *grant_type* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
-| *âmbito* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
+| *scope* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
 | *client_id* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
 | *objectIdFromSession* | Parâmetro fornecido pelo fornecedor de gestão de sessão predefinida para indicar que o id de objeto foi obtido uma sessão SSO |
 | *isActiveMFASession* | Parâmetro fornecido pela gestão de sessão a MFA para indicar que o utilizador tem uma sessão ativa de MFA |
@@ -101,7 +98,7 @@ As seguintes afirmações são afirmações adicionais que podem ser recolhidas 
 | Tipo de afirmações | Descrição |
 |-------------|-------------|
 | *givenName* | Nome fornecido (também conhecido como nome próprio) do utilizador |
-| *Apelido* | Apelido do utilizador (também conhecido como o nome de família ou o apelido) |
+| *surname* | Apelido do utilizador (também conhecido como o nome de família ou o apelido) |
 | *Extension_picture* | Imagem do utilizador do social |
 
 ## <a name="claim-transformations"></a>Transformações de afirmação
@@ -142,43 +139,43 @@ Esta secção ilustra os perfis técnicos já foi declarados por fornecedor de a
 
 | Perfil técnica | Descrição |
 |-------------------|-------------|
-| *Facebook OAUTH* | |
+| *Facebook-OAUTH* | |
 
 ### <a name="technical-profiles-for-local-account-signin"></a>Perfis técnicas para início de sessão de conta Local
 
 | Perfil técnica | Descrição |
 |-------------------|-------------|
-| *Início de sessão NonInteractive* | |
+| *Login-NonInteractive* | |
 
 ### <a name="technical-profiles-for-phone-factor"></a>Perfis técnicas para Phone Factor
 
 | Perfil técnica | Descrição |
 |-------------------|-------------|
-| *Entrada do PhoneFactor* | |
-| *PhoneFactor InputOrVerify* | |
-| *Certifique-se de um PhoneFactor* | |
+| *PhoneFactor-Input* | |
+| *PhoneFactor-InputOrVerify* | |
+| *PhoneFactor-Verify* | |
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Perfis técnicas para o Azure Active Directory
 
 | Perfil técnica | Descrição |
 |-------------------|-------------|
-| *AAD comuns* | Perfil técnico incluído por outros perfis técnicos AAD xxx |
-| *AAD UserWriteUsingAlternativeSecurityId* | Perfil técnica para inícios de sessão de redes sociais |
-| *AAD UserReadUsingAlternativeSecurityId* | Perfil técnica para inícios de sessão de redes sociais |
-| *UserReadUsingAlternativeSecurityId-AAD-NoError* | Perfil técnica para inícios de sessão de redes sociais |
-| *AAD UserWritePasswordUsingLogonEmail* | Perfil técnica para contas locais |
-| *AAD UserReadUsingEmailAddress* | Perfil técnica para contas locais |
-| *AAD UserWriteProfileUsingObjectId* | Perfil técnica para a atualização do registo de utilizador utilizando o objectId |
-| *AAD UserWritePhoneNumberUsingObjectId* | Perfil técnica para a atualização do registo de utilizador utilizando o objectId |
-| *AAD UserWritePasswordUsingObjectId* | Perfil técnica para a atualização do registo de utilizador utilizando o objectId |
-| *AAD UserReadUsingObjectId* | Perfil técnica é utilizada para ler os dados depois do utilizador é autenticado |
+| *AAD-Common* | Perfil técnico incluído por outros perfis técnicos AAD xxx |
+| *AAD-UserWriteUsingAlternativeSecurityId* | Perfil técnica para inícios de sessão de redes sociais |
+| *AAD-UserReadUsingAlternativeSecurityId* | Perfil técnica para inícios de sessão de redes sociais |
+| *AAD-UserReadUsingAlternativeSecurityId-NoError* | Perfil técnica para inícios de sessão de redes sociais |
+| *AAD-UserWritePasswordUsingLogonEmail* | Perfil técnica para contas locais |
+| *AAD-UserReadUsingEmailAddress* | Perfil técnica para contas locais |
+| *AAD-UserWriteProfileUsingObjectId* | Perfil técnica para a atualização do registo de utilizador utilizando o objectId |
+| *AAD-UserWritePhoneNumberUsingObjectId* | Perfil técnica para a atualização do registo de utilizador utilizando o objectId |
+| *AAD-UserWritePasswordUsingObjectId* | Perfil técnica para a atualização do registo de utilizador utilizando o objectId |
+| *AAD-UserReadUsingObjectId* | Perfil técnica é utilizada para ler os dados depois do utilizador é autenticado |
 
 ### <a name="technical-profiles-for-self-asserted"></a>Perfis técnicas para Self permitido
 
 | Perfil técnica | Descrição |
 |-------------------|-------------|
-| *SelfAsserted Social* | |
-| *SelfAsserted ProfileUpdate* | |
+| *SelfAsserted-Social* | |
+| *SelfAsserted-ProfileUpdate* | |
 
 ### <a name="technical-profiles-for-local-account"></a>Perfis técnicas para a conta Local
 
@@ -190,11 +187,11 @@ Esta secção ilustra os perfis técnicos já foi declarados por fornecedor de a
 
 | Perfil técnica | Descrição |
 |-------------------|-------------|
-| *SM Noop* | |
-| *SM AAD* | |
-| *SM SocialSignup* | Nome do perfil está a ser utilizado para ambiguidade sessão AAD entre o início de sessão de cópia de segurança e iniciar sessão |
-| *SM SocialLogin* | |
-| *MFA DE SM* | |
+| *SM-Noop* | |
+| *SM-AAD* | |
+| *SM-SocialSignup* | Nome do perfil está a ser utilizado para ambiguidade sessão AAD entre o início de sessão de cópia de segurança e iniciar sessão |
+| *SM-SocialLogin* | |
+| *SM-MFA* | |
 
 ### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Perfis técnicas para TechnicalProfiles de motor de política de Trustframework
 
@@ -212,8 +209,8 @@ Esta secção ilustra os percursos de utilizador já foi declarados no *B2C_1A_b
 
 | Journey de utilizador | Descrição |
 |--------------|-------------|
-| *Inscrição* | |
-| *Início de sessão* | |
+| *SignUp* | |
+| *SignIn* | |
 | *SignUpOrSignIn* | |
 | *EditProfile* | |
 | *PasswordReset* | |

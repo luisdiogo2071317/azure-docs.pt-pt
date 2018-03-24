@@ -2,20 +2,20 @@
 title: Carregar dados para o Azure SQL Data Warehouse, utilizando o Azure Data Factory | Microsoft Docs
 description: Utilizar o Azure Data Factory para copiar dados para o Azure SQL Data Warehouse
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: eec6eeb3419c5f5f4c8d22398051f7cf057ac980
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 49ba61ba8cf68a39eef21b1939a3e8a6c92f8827
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Carregar dados para o Azure SQL Data Warehouse, utilizando o Azure Data Factory
 
@@ -42,7 +42,7 @@ Este artigo mostra-lhe como utilizar a ferramenta de dados de cópia de fábrica
 * Subscrição do Azure: Se não tiver uma subscrição do Azure, crie um [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * O Azure SQL Data Warehouse: O armazém de dados retém os dados que são copiados através da base de dados do SQL Server. Se não tiver um armazém de dados SQL do Azure, consulte as instruções no [criar um SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Base de dados SQL do Azure: Neste tutorial copia dados a partir de uma base de dados SQL do Azure com dados de exemplo Adventure Works LT. Pode criar uma base de dados do SQL Server ao seguir as instruções em [criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md). 
-* Conta de armazenamento do Azure: armazenamento do Azure é utilizado como o _transição_ blob na operação de cópia em massa. Se não tiver uma conta de armazenamento do Azure, consulte as instruções no [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Conta de armazenamento do Azure: armazenamento do Azure é utilizado como o _transição_ blob na operação de cópia em massa. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
@@ -53,7 +53,7 @@ Este artigo mostra-lhe como utilizar a ferramenta de dados de cópia de fábrica
       
    ![Página Nova fábrica de dados](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
-    * **Nome**: introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "o nome de factory de dados \"LoadSQLDWDemo\" não está disponível," Introduza um nome diferente para a fábrica de dados. Por exemplo, pode utilizar o nome  _**yourname**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para as regras de nomenclatura artefactos do Data Factory de dados, consulte [regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Nome**: introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "o nome de factory de dados \"LoadSQLDWDemo\" não está disponível," Introduza um nome diferente para a fábrica de dados. Por exemplo, pode utilizar o nome  _**yourname**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Subscrição**: selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
     * **Grupo de recursos**: selecione um grupo de recursos existente na lista pendente, ou selecione o **criar nova** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versão**: selecione **V2 (pré-visualização)**.

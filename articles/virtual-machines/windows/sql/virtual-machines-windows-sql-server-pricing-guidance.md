@@ -1,13 +1,13 @@
 ---
 title: Gerir os custos de forma eficaz para o SQL Server em virtual machines do Azure | Microsoft Docs
-description: "Fornece as melhores práticas para escolher o direita máquina do SQL Server virtual modelo de preços."
+description: Fornece as melhores práticas para escolher o direita máquina do SQL Server virtual modelo de preços.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a275df84ce784147b5fd4f09afe4995417affffd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Preço orientação para as VMs do SQL do Azure
 
@@ -63,7 +63,7 @@ Tem duas opções pagar para licenciamento do SQL Server para estas edições: *
 
 ### <a name="pay-per-usage"></a>Pagar por utilização
 
-**Pagar a licença do SQL Server por utilização** significa que o custo por minuto de execução da VM do Azure inclui o custo de licenciamento do SQL Server. Pode ver os preços para as várias edições do SQL Server (Web, Standard, Enterprise) no [VM do Azure, página de preços](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). O custo é igual para todas as versões do SQL Server (2012 SP3 para 2017). Tal como acontece com licenciamento do SQL Server em geral, o custo de licenciamento por minuto depende o número de núcleos VM.
+**Pagar a licença do SQL Server por utilização** significa que o custo por segundo de execução da VM do Azure inclui o custo de licenciamento do SQL Server. Pode ver os preços para as várias edições do SQL Server (Web, Standard, Enterprise) no [VM do Azure, página de preços](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). O custo é igual para todas as versões do SQL Server (2012 SP3 para 2017). Tal como acontece com licenciamento do SQL Server em geral, o custo de licenciamento por segundo depende o número de núcleos VM.
 
 Pagar com o SQL Server de licenciamento por utilização é recomendada para:
 
@@ -113,7 +113,7 @@ Para criar uma VM do SQL Server 2016 do Azure com uma destas imagens bring-your-
 > Indique dentro de 10 dias quantas licenças de SQL Server irá utilizar no Azure. As ligações para as imagens anteriores tem instruções sobre como fazê-lo.
 
 > [!NOTE]
-> Não pode alterar o modelo de licenciamento de uma VM do SQL Server de pagamento por minuto, para utilizar a sua licença. Neste caso, tem de criar uma nova VM BYOL e migrar as bases de dados para a nova VM. 
+> Não é possível alterar o modelo de licenciamento de um pay-por-segundo VM do SQL Server para utilizar a sua própria licença. Neste caso, tem de criar uma nova VM BYOL e migrar as bases de dados para a nova VM. 
 
 ## <a name="avoid-unnecessary-costs"></a>Evitar custos desnecessários
 

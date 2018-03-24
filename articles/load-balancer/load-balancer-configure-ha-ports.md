@@ -1,32 +1,32 @@
 ---
 title: Configurar portas de disponibilidade elevada para o Balanceador de carga do Azure | Microsoft Docs
-description: "Saiba como utilizar as portas de disponibilidade elevada para o tráfego interno em todas as portas de balanceamento de carga"
+description: Saiba como utilizar as portas de disponibilidade elevada para o tráfego interno em todas as portas de balanceamento de carga
 services: load-balancer
 documentationcenter: na
 author: rdhillon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2017
+ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurar portas de disponibilidade elevada para um balanceador de carga interno
 
 Este artigo fornece um exemplo de implementação de elevada disponibilidade portas num Balanceador de carga interno. Para obter mais informações sobre as configurações específicas para aparelhos virtuais (NVAs) de rede, consulte os sites correspondentes do fornecedor.
 
 >[!NOTE]
-> A funcionalidade de elevada disponibilidade portas está atualmente em pré-visualização. Durante a pré-visualização, a funcionalidade não pode ter o mesmo nível de disponibilidade e fiabilidade como versão de funcionalidades que estão em geral disponibilidade. Para obter mais informações, consulte [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda padrão Balanceador de carga. Para obter mais informações sobre o Balanceador de carga básico, consulte [descrição geral do Balanceador de carga](load-balancer-overview.md).
 
 A ilustração mostra a seguinte configuração de exemplo de implementação descrita neste artigo:
 
@@ -108,6 +108,6 @@ No passo 4 da [criar um conjunto de Balanceador de carga interno](load-balancer-
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [alta disponibilidade portas](load-balancer-ha-ports-overview.md).

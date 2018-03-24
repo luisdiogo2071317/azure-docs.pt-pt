@@ -1,10 +1,10 @@
 ---
 title: Compreender o esquema de webhook utilizado nos alertas do registo de atividade | Microsoft Docs
-description: "Saiba mais sobre o esquema de JSON que é registado para um URL do webhook quando ativa a um alerta de registo de atividade."
+description: Saiba mais sobre o esquema de JSON que é registado para um URL do webhook quando ativa a um alerta de registo de atividade.
 author: johnkemnetz
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: f71714774d7ad54d7eb2132e8c20c87f972157ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividade do Azure
 Como parte da definição de um grupo de ação, pode configurar pontos finais de webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar estas notificações para outros sistemas de ações de pós-processamento ou personalizados. Este artigo mostra que aspeto o payload para o POST de HTTP para um webhook.
@@ -31,7 +31,7 @@ O webhook, opcionalmente, pode utilizar com base no token de autorização para 
 ## <a name="payload-schema"></a>Esquema de payload
 O payload JSON contido na operação POST difere com base no campo de data.context.activityLog.eventSource o payload.
 
-###<a name="common"></a>Common
+### <a name="common"></a>Common
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -58,7 +58,7 @@ O payload JSON contido na operação POST difere com base no campo de data.conte
     }
 }
 ```
-###<a name="administrative"></a>Administrativa
+### <a name="administrative"></a>Administrativa
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -85,7 +85,7 @@ O payload JSON contido na operação POST difere com base no campo de data.conte
 }
 
 ```
-###<a name="servicehealth"></a>ServiceHealth
+### <a name="servicehealth"></a>ServiceHealth
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -134,7 +134,7 @@ Para detalhes de esquema específico em todos os outros alertas de registo de at
 | Nome do elemento | Descrição |
 | --- | --- |
 | status |Utilizado para os alertas de métricas. Sempre definido como "ativado" para os alertas de registo de atividade. |
-| Contexto |Contexto do evento. |
+| context |Contexto do evento. |
 | resourceProviderName |O fornecedor de recursos do recurso afetado. |
 | conditionType |Sempre "evento de". |
 | nome |Nome da regra de alerta. |
@@ -152,14 +152,14 @@ Para detalhes de esquema específico em todos os outros alertas de registo de at
 | correlationId |Normalmente, um GUID no formato de cadeia. Eventos com correlationId pertencerem à mesma ação superior e, normalmente, partilham um correlationId. |
 | eventDescription |Descrição de texto estático do evento. |
 | eventDataId |Identificador exclusivo para o evento. |
-| EventSource |Nome do serviço do Azure ou infraestrutura que gerou o evento. |
+| eventSource |Nome do serviço do Azure ou infraestrutura que gerou o evento. |
 | httpRequest |O pedido inclui normalmente o clientRequestId, clientIpAddress e método HTTP (por exemplo, colocar). |
 | nível |Um dos seguintes valores: crítico, erro, aviso e informativo. |
 | operationId |Normalmente, um GUID partilhado entre os eventos que correspondem a única operação. |
 | operationName |Nome da operação. |
 | propriedades |Propriedades do evento. |
 | status |Cadeia. Estado da operação. Os valores comuns incluem iniciado, em curso, com êxito, falha, Active Directory e resolvido. |
-| Subestado |Normalmente inclui o código de estado HTTP da chamada REST correspondente. Também poderão incluir outras cadeias que descrevem um subestado. Valores de subestado comuns incluem OK (código de estado de HTTP: 200), criado (código de estado de HTTP: 201), aceite (código de estado de HTTP: 202), não conteúdo (código de estado de HTTP: 204), pedido incorreto (código de estado de HTTP: 400), não foi encontrado (código de estado HTTP: 404), conflito (código de estado de HTTP: 409), erro interno do servidor (código de estado de HTTP: 500), serviço indisponível (código de estado HTTP: 503) e tempo limite do Gateway (código de estado HTTP : 504). |
+| subStatus |Normalmente inclui o código de estado HTTP da chamada REST correspondente. Também poderão incluir outras cadeias que descrevem um subestado. Valores de subestado comuns incluem OK (código de estado de HTTP: 200), criado (código de estado de HTTP: 201), aceite (código de estado de HTTP: 202), não conteúdo (código de estado de HTTP: 204), pedido incorreto (código de estado de HTTP: 400), não foi encontrado (código de estado HTTP: 404), conflito (código de estado de HTTP: 409), erro interno do servidor (código de estado de HTTP: 500), serviço indisponível (código de estado HTTP: 503) e tempo limite do Gateway (código de estado HTTP : 504). |
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Saiba mais sobre o registo de atividade](monitoring-overview-activity-logs.md).

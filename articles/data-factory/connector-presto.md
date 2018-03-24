@@ -1,11 +1,11 @@
 ---
 title: Copiar dados de Presto utilizando o Azure Data Factory (Beta) | Microsoft Docs
-description: "Saiba como copiar dados de Presto aos arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory."
+description: Saiba como copiar dados de Presto aos arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 713826f890f6fb37a1e231d84e7e3c3b149dd58a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c3711e90bbb8622d6e112ee2865073cb50258f23
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Copiar dados de Presto utilizando o Azure Data Factory (Beta)
 

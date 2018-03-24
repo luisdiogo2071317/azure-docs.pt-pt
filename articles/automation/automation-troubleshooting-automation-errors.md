@@ -1,26 +1,20 @@
 ---
-title: "Resolução de problemas comuns de automatização do Azure | Microsoft Docs"
-description: "Este artigo fornece informações para ajudar a resolver problemas e corrija erros comuns de automatização do Azure."
+title: Resolução de problemas comuns de automatização do Azure | Microsoft Docs
+description: Este artigo fornece informações para ajudar a resolver problemas e corrija erros comuns de automatização do Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-tags: top-support-issue
-keywords: "Erro de automatização, resolução de problemas, problema"
-ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: sngun; v-reagie
-ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+tags: top-support-issue
+keywords: Erro de automatização, resolução de problemas, problema
+ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Resolução de problemas comuns na automatização do Azure 
 Este artigo fornece erros comuns que pode ocorrer na automatização do Azure e sugere possíveis soluções para resolvê-los de resolução de problemas.
@@ -33,7 +27,7 @@ Este artigo fornece erros comuns que pode ocorrer na automatização do Azure e 
 
 **Sugestões de resolução de problemas:** para determinar o que é o problema, siga os passos seguintes:  
 
-1. Certifique-se de que não tem quaisquer carateres especiais, incluindo o  **@**  caráter no nome do recurso de credencial de automatização que está a utilizar para ligar ao Azure.  
+1. Certifique-se de que não tem quaisquer carateres especiais, incluindo o ** @ ** caráter no nome do recurso de credencial de automatização que está a utilizar para ligar ao Azure.  
 2. Certifique-se de que pode utilizar o nome de utilizador e palavra-passe que são armazenadas na credencial de automatização do Azure no seu editor local do ISE do PowerShell. Pode fazê-lo executando os seguintes cmdlets no ISE do PowerShell:  
 
         $Cred = Get-Credential  
@@ -111,7 +105,7 @@ Este artigo fornece erros comuns que pode ocorrer na automatização do Azure e 
 **Sugestões de resolução de problemas:** qualquer uma das seguintes soluções corrigir o problema:  
 
 * Verifique se introduziu o nome do cmdlet corretamente.  
-* Certificar-se de que o cmdlet existe na sua conta de automatização e de que existem não está em conflito. Para verificar se o cmdlet está presente, abra um runbook no modo de edição e procure o cmdlet que pretende localizar na biblioteca ou executar **Get-Command ``<CommandName>``** . Depois de validar que o cmdlet está disponível para a conta e de que não existem nenhum nome entra em conflito com outros cmdlets ou runbooks, adicioná-lo para a tela e certifique-se de que está a utilizar um parâmetro válido definido no runbook.  
+* Certificar-se de que o cmdlet existe na sua conta de automatização e de que existem não está em conflito. Para verificar se o cmdlet está presente, abra um runbook no modo de edição e procure o cmdlet que pretende localizar na biblioteca ou executar **Get-Command ``<CommandName>`` **. Depois de validar que o cmdlet está disponível para a conta e de que não existem nenhum nome entra em conflito com outros cmdlets ou runbooks, adicioná-lo para a tela e certifique-se de que está a utilizar um parâmetro válido definido no runbook.  
 * Se tiver um conflito de nomes e o cmdlet está disponível em dois módulos diferentes, pode resolver isto, utilizando o nome completamente qualificado para o cmdlet. Por exemplo, pode utilizar **ModuleName\CmdletName**.  
 * Se estiver a executar o runbook no local num grupo de trabalho híbrida, em seguida, certifique-se de que o módulo/cmdlet está instalado no computador que aloja o worker híbrido.
 
@@ -133,7 +127,7 @@ Este artigo fornece erros comuns que pode ocorrer na automatização do Azure e 
 
 **Sugestões de resolução de problemas:** qualquer uma das seguintes soluções corrigir o problema:
 
-* Certifique-se de que o módulo de acordo com o seguinte formato: ModuleName.Zip  **->**  ModuleName ou um número de versão  **->**  (ModuleName.psm1, ModuleName.psd1)
+* Certifique-se de que o módulo de acordo com o seguinte formato: ModuleName.Zip ** -> ** ModuleName ou um número de versão ** -> ** (ModuleName.psm1, ModuleName.psd1)
 * Abra o ficheiro. psd1 e se o módulo tem quaisquer dependências. Se existir, carregar estes módulos para a conta de automatização.
 * Certifique-se de que qualquer .dlls referenciado estão presentes na pasta do módulo.
 

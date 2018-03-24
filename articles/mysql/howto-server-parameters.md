@@ -1,6 +1,6 @@
 ---
-title: "Como configurar parâmetros de servidor na base de dados do Azure para MySQL"
-description: "Este artigo descreve como configurar parâmetros de servidor MySQL na base de dados do Azure para MySQL no portal do Azure."
+title: Como configurar parâmetros de servidor na base de dados do Azure para MySQL
+description: Este artigo descreve como configurar parâmetros de servidor MySQL na base de dados do Azure para MySQL no portal do Azure.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b3510c616d2a9ba66cb83cb998c42e03fdbb0f2b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6865663bebc84df288f4c7e2564ddb4870667c6f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Como configurar parâmetros de servidor na base de dados do Azure para MySQL utilizando o portal do Azure
 
@@ -40,25 +40,24 @@ O conjunto de memória intermédia InnoDB e máx. ligações não são configur�
 
 |**Escalão de Preço**| **Geração de computação**|**vCore(s)**|**Conjunto de memória intermédia de InnoDB (MB)**| **Máx. ligações**|
 |---|---|---|---|--|
-|Básica| Gen 4| 1| 1024| 50 |
-|Básica| Gen 4| 2| 2560| 100 |
-|Básica| Gen 5| 1| 1024| 50 |
-|Básica| Gen 5| 2| 2560| 100 |
-|Fins Gerais| Gen 4| 2| 2560| 200|
-|Fins Gerais| Gen 4| 4| 5120| 400|
-|Fins Gerais| Gen 4| 8| 10240| 800|
-|Fins Gerais| Gen 4| 16| 20480| 1600|
-|Fins Gerais| Gen 4| 32| 40960| 3200|
-|Fins Gerais| Gen 5| 2| 2560| 200|
-|Fins Gerais| Gen 5| 4| 5120| 400|
-|Fins Gerais| Gen 5| 8| 10240| 800|
-|Fins Gerais| Gen 5| 16| 20480| 1600|
-|Fins Gerais| Gen 5| 32| 40960| 3200|
-|Memória Otimizada| Gen 5| 2| 7168| 600|
-|Memória Otimizada| Gen 5| 4| 15360| 1250|
-|Memória Otimizada| Gen 5| 8| 30720| 2500|
-|Memória Otimizada| Gen 5| 16| 62464| 5000|
-|Memória Otimizada| Gen 5| 32| 125952| 10000| 
+|Básica| Geração 4| 1| 1024| 50|
+|Básica| Geração 4| 2| 2560| 100|
+|Básica| Geração 5| 1| 1024| 50|
+|Básica| Geração 5| 2| 2560| 100|
+|Fins Gerais| Geração 4| 2| 3584| 300|
+|Fins Gerais| Geração 4| 4| 7680| 625|
+|Fins Gerais| Geração 4| 8| 15360| 1250|
+|Fins Gerais| Geração 4| 16| 31232| 2500|
+|Fins Gerais| Geração 4| 32| 62976| 5000|
+|Fins Gerais| Geração 5| 2| 3584| 300|
+|Fins Gerais| Geração 5| 4| 7680| 625|
+|Fins Gerais| Geração 5| 8| 15360| 1250|
+|Fins Gerais| Geração 5| 16| 31232| 2500|
+|Fins Gerais| Geração 5| 32| 62976| 5000|
+|Memória Otimizada| Geração 5| 2| 7168| 600|
+|Memória Otimizada| Geração 5| 4| 15360| 1250|
+|Memória Otimizada| Geração 5| 8| 30720| 2500|
+|Memória Otimizada| Geração 5| 16| 62464| 5000|
 
 Estes parâmetros de servidor adicionais não são configuráveis no sistema:
 

@@ -1,28 +1,28 @@
 ---
-title: "Instruções de API de REST de monitorização do Azure | Microsoft Docs"
-description: "Como autenticar pedidos e utilize a API de REST de Monitor do Azure para obter as definições de métrica disponíveis e a métricos valores."
+title: Instruções de API de REST de monitorização do Azure | Microsoft Docs
+description: Como autenticar pedidos e utilize a API de REST de Monitor do Azure para obter as definições de métrica disponíveis e a métricos valores.
 author: mcollier
-manager: 
-editor: 
+manager: ''
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
 ms.service: monitoring-and-diagnostics
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.search.region: 
-ms.search.scope: 
-ms.search.validFrom: 
-ms.dyn365.ops.version: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.search.region: ''
+ms.search.scope: ''
+ms.search.validFrom: ''
+ms.dyn365.ops.version: ''
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 03/19/2018
 ms.author: mcollier
-ms.openlocfilehash: 357a63c65a4f6864dca259aad8a76f83681cd501
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a5119cf7291db4fd2d2ffaf00ef098cfe336e645
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Instruções de API de REST de monitorização do Azure
 Este artigo mostra como efetuar a autenticação, pelo que pode utilizar o seu código a [referência de API de REST do Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -34,7 +34,7 @@ Para além de trabalhar com vários pontos de dados métricos, a API de Monitor 
 ## <a name="authenticating-azure-monitor-requests"></a>Os pedidos de autenticação do Azure Monitor
 O primeiro passo é autenticar o pedido.
 
-Todas as tarefas executadas contra a API de Monitor do Azure utilizam o modelo de autenticação do Azure Resource Manager. Por conseguinte, todos os pedidos têm de ser autenticados no Azure Active Directory (Azure AD). Uma abordagem para autenticar a aplicação de cliente é criar um Azure AD principal de serviço e obter o token de autenticação (JWT). O script de exemplo seguinte demonstra a criação de um serviço do Azure AD principal através do PowerShell. Para instruções mais detalhadas, consulte a documentação em [com o Azure PowerShell para criar um principal de serviço para aceder a recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). Também é possível [criar um principal de serviço através do portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Todas as tarefas executadas contra a API de Monitor do Azure utilizam o modelo de autenticação do Azure Resource Manager. Por conseguinte, todos os pedidos têm de ser autenticados no Azure Active Directory (Azure AD). Uma abordagem para autenticar a aplicação de cliente é criar um Azure AD principal de serviço e obter o token de autenticação (JWT). O script de exemplo seguinte demonstra a criação de um serviço do Azure AD principal através do PowerShell. Para instruções mais detalhadas, consulte a documentação em [com o Azure PowerShell para criar um principal de serviço para aceder a recursos](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Também é possível [criar um principal de serviço através do portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -97,12 +97,12 @@ Utilize o [definições de métrica de Monitor de Azure REST API](https://docs.m
 
 **Método**: introdução
 
-**URI de pedido**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{ resourceProviderNamespace}*/*{resourceType}*/*{resourceName*/providers/microsoft.insights/metricDefinitions? API-version =*{apiVersion}*
+**Request URI**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
 Por exemplo, para obter as definições de métricas para uma conta de armazenamento do Azure, o pedido deverá aparecer da seguinte forma:
 
 ```PowerShell
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2017-05-01-preview"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01"
 
 Invoke-RestMethod -Uri $request `
                   -Headers $authHeader `
@@ -112,7 +112,7 @@ Invoke-RestMethod -Uri $request `
 
 ```
 > [!NOTE]
-> Para obter as definições de métrica utilizando as métricas de Monitor de Azure multidimensionais REST API, utilize "2017-05-01-preview" como a versão da API.
+> Para obter as definições de métrica utilizando as métricas de Monitor de Azure multidimensionais REST API, utilize "2018-01-01" como a versão da API.
 >
 >
 
@@ -122,8 +122,9 @@ O corpo da resposta JSON resultante é semelhante ao seguinte exemplo: (tenha em
 {
     "value": [
         {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/UsedCapacity",
-            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage",
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/UsedCapacity",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage",
+            "namespace": "Microsoft.Storage/storageAccounts",
             "category": "Capacity",
             "name": {
                 "value": "UsedCapacity",
@@ -132,20 +133,35 @@ O corpo da resposta JSON resultante é semelhante ao seguinte exemplo: (tenha em
             "isDimensionRequired": false,
             "unit": "Bytes",
             "primaryAggregationType": "Average",
+            "supportedAggregationTypes": [
+                "Total",
+                "Average",
+                "Minimum",
+                "Maximum"
+            ],
             "metricAvailabilities": [
                 {
-                    "timeGrain": "PT1M",
-                    "retention": "P30D"
+                    "timeGrain": "PT1H",
+                    "retention": "P93D"
                 },
                 {
-                    "timeGrain": "PT1H",
-                    "retention": "P30D"
+                    "timeGrain": "PT6H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT12H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "P1D",
+                    "retention": "P93D"
                 }
             ]
         },
         {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/Transactions",
-            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage",
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/Transactions",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage",
+            "namespace": "Microsoft.Storage/storageAccounts",
             "category": "Transaction",
             "name": {
                 "value": "Transactions",
@@ -154,14 +170,41 @@ O corpo da resposta JSON resultante é semelhante ao seguinte exemplo: (tenha em
             "isDimensionRequired": false,
             "unit": "Count",
             "primaryAggregationType": "Total",
+            "supportedAggregationTypes": [
+                "Total"
+            ],
             "metricAvailabilities": [
                 {
                     "timeGrain": "PT1M",
-                    "retention": "P30D"
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT5M",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT15M",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT30M",
+                    "retention": "P93D"
                 },
                 {
                     "timeGrain": "PT1H",
-                    "retention": "P30D"
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT6H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT12H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "P1D",
+                    "retention": "P93D"
                 }
             ],
             "dimensions": [
@@ -185,22 +228,24 @@ O corpo da resposta JSON resultante é semelhante ao seguinte exemplo: (tenha em
 ```
 
 ## <a name="retrieve-dimension-values-multi-dimensional-api"></a>Obter valores de dimensão (Multidimensional API)
-Depois das definições de métricas disponíveis são conhecidas, poderão existir alguns métricas que tem dimensões. Antes de consultar a métrica que pretende detetar que o intervalo de valores tem uma dimensão. Com base nestes valores de dimensão, em seguida, pode optar por filtrar ou as métricas com base nos valores de dimensão ao consultar as métricas de segmento. Utilizar nome 'value' a métrica (não o ' localizedValue') para todos os pedidos de filtragem (por exemplo, obter os pontos de dados métricos 'CpuTime' e 'Pedidos'). Se não existem filtros forem especificados, é devolvida a métrica de predefinição.
+Depois das definições de métricas disponíveis são conhecidas, poderão existir alguns métricas que tem dimensões. Antes de consultar a métrica que pretende detetar que o intervalo de valores tem uma dimensão. Com base nestes valores de dimensão, em seguida, pode optar por filtrar ou as métricas com base nos valores de dimensão ao consultar as métricas de segmento.  Utilize o [API REST da Azure Monitor métricas](https://docs.microsoft.com/rest/api/monitor/metrics) alcançar isto.
+
+Utilize nome 'value' a métrica (não o ' localizedValue') para todos os pedidos de filtragem. Se não existem filtros forem especificados, é devolvida a métrica de predefinição. A utilização desta API só permite uma dimensão ter um filtro de caráter universal.
 
 > [!NOTE]
-> Para obter os valores de dimensão utilizando a API de REST de Monitor do Azure, utilize "2017-05-01-preview" como a versão da API.
+> Para obter os valores de dimensão utilizando a API de REST de Monitor do Azure, utilize "2018-01-01" como a versão da API.
 >
 >
 
 **Método**: introdução
 
-**URI de pedido**: https://management.azure.com/subscriptions/*{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/*{ recursos-fornecedor-namespace}*/*{tipo de recurso}*/*{nome do recurso}*/providers/microsoft.insights/metrics?metric= *{métrica}*& timespan =*{starttime/endtime}*& $filter =*{filtro}*& resultType = metadados & api-version =*{ apiVersion}*
+**URI de pedido**: https://management.azure.com/subscriptions/ *{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/*{recurso-fornecedor-namespace}* / *{tipo de recurso}*/*{nome do recurso}*/providers/microsoft.insights/metrics?metric=*{métrica}* & timespan =*{starttime/endtime}*& $filter =*{filtro}*& resultType = metadados & api-version =*{apiVersion}*
 
-Por exemplo, para obter a lista de possíveis valores da dimensão' nome da API' para a métrica de 'Transações' durante um intervalo de tempo especificado, o pedido seria o seguinte:
+Por exemplo, para obter a lista de valores de dimensão que foram emitidos para 'nome da API dimensão de' para a métrica de 'Transações', em que a dimensão de GeoType = 'Primary' durante o intervalo de tempo especificado, o pedido seria o seguinte:
 
 ```PowerShell
-$filter = "APIName eq '*'"
-$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metrics?metric=Transactions&timespan=2017-09-01T00:00:00Z/2017-09-10T00:00:00Z&resultType=metadata&$filter=${filter}&api-version=2017-05-01-preview"
+$filter = "APIName eq '*' and GeoType eq 'Primary'"
+$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&$filter=${filter}&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
@@ -211,10 +256,10 @@ O corpo da resposta JSON resultante é semelhante ao seguinte exemplo:
 
 ```JSON
 {
-  "timespan": "2017-09-01T00:00:00Z/2017-09-10T00:00:00Z",
+  "timespan": "2018-03-01T00:00:00Z/2018-03-02T00:00:00Z",
   "value": [
     {
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
       "type": "Microsoft.Insights/metrics",
       "name": {
         "value": "Transactions",
@@ -244,52 +289,34 @@ O corpo da resposta JSON resultante é semelhante ao seguinte exemplo:
             }
           ]
         },
-        {
-          "metadatavalues": [
-            {
-              "name": {
-                "value": "apiname",
-                "localizedValue": "apiname"
-              },
-              "value": "PutPage"
-            }
-          ]
-        },
-        {
-          "metadatavalues": [
-            {
-              "name": {
-                "value": "apiname",
-                "localizedValue": "apiname"
-              },
-              "value": "Unknown"
-            }
-          ]
-        },
         ...
       ]    
     }
-  ]
+  ],
+  "namespace": "Microsoft.Storage/storageAccounts",
+  "resourceregion": "eastus"
 }
 ```
 
 ## <a name="retrieve-metric-values-multi-dimensional-api"></a>Obter a métricos valores (Multidimensional API)
-Depois das definições de métricas disponíveis e valores de dimensão possíveis são conhecidos, em seguida, é possível obter os valores da métricos relacionados. Utilize nome 'value' a métrica (não o ' localizedValue') para todos os pedidos de filtragem. Se não existem filtros de dimensão forem especificados, é devolvida a métrica de agregados rolled cópias de segurança.
+Depois das definições de métricas disponíveis e valores de dimensão possíveis são conhecidos, em seguida, é possível obter os valores da métricos relacionados.  Utilize o [API REST da Azure Monitor métricas](https://docs.microsoft.com/rest/api/monitor/metrics) alcançar isto.
+
+Utilize nome 'value' a métrica (não o ' localizedValue') para todos os pedidos de filtragem. Se não existem filtros de dimensão forem especificados, é devolvida a métrica de agregados rolled cópias de segurança. Se uma consulta métrica devolver vários timeseries ao, em seguida, pode utilizar os parâmetros de consulta 'Top' e 'OrderBy' para devolver uma lista ordenada limitada de timeseries ao.
 
 > [!NOTE]
-> Para obter os valores de métricos multidimensionais utilizando a API de REST de Monitor do Azure, utilize "2017-05-01-preview" como a versão da API.
+> Para obter os valores de métricos multidimensionais utilizando a API de REST de Monitor do Azure, utilize "2018-01-01" como a versão da API.
 >
 >
 
 **Método**: introdução
 
-**URI de pedido**: https://management.azure.com/subscriptions/*{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/*{ recursos-fornecedor-namespace}*/*{tipo de recurso}*/*{nome do recurso}*/providers/microsoft.insights/metrics?metric= *{métrica}*& timespan =*{starttime/endtime}*& $filter =*{filtro}*& intervalo =*{um intervalo de agregação}* & agregação =*{aggreation}*& api-version =*{apiVersion}*
+**URI de pedido**: https://management.azure.com/subscriptions/ *{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/*{recurso-fornecedor-namespace}* / *{tipo de recurso}*/*{nome do recurso}*/providers/microsoft.insights/metrics?metric=*{métrica}* & timespan =*{starttime/endtime}*& $filter =*{filtro}*& intervalo =*{um intervalo de agregação}*& agregação =*{ aggreation}*& api-version =*{apiVersion}*
 
-Por exemplo, para obter os valores de métricos a métrica de 'as ' transações de armazenamento durante um intervalo de 5 minutos, para todas as transações para o nome da API 'GetBlobProperties', o pedido seria o seguinte:
+Por exemplo, para obter a parte superior 3 APIs, descendente valor pelo número de transações durante um intervalo de 5 min, onde o GeotType foi 'Primary', o pedido seria o seguinte:
 
 ```PowerShell
-$filter = "APIName eq 'GetBlobProperties'"
-$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metrics?metric=Transactions&timespan=2017-09-19T02:00:00Z/2017-09-19T02:05:00Z&$filter=${filter}&interval=PT1M&aggregation=Count&api-version=2017-05-01-preview"
+$filter = "APIName eq '*' and GeoType eq 'Primary'"
+$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&$filter=${filter}&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
@@ -301,11 +328,11 @@ O corpo da resposta JSON resultante é semelhante ao seguinte exemplo:
 ```JSON
 {
   "cost": 0,
-  "timespan": "2017-09-19T02:00:00Z/2017-09-19T02:05:00Z",
+  "timespan": "2018-03-01T02:00:00Z/2018-03-01T02:05:00Z",
   "interval": "PT1M",
   "value": [
     {
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
       "type": "Microsoft.Insights/metrics",
       "name": {
         "value": "Transactions",
@@ -326,29 +353,32 @@ O corpo da resposta JSON resultante é semelhante ao seguinte exemplo:
           "data": [
             {
               "timeStamp": "2017-09-19T02:00:00Z",
-              "count": 2.0
+              "total": 2
             },
             {
               "timeStamp": "2017-09-19T02:01:00Z",
-              "count": 1.0
+              "total": 1
             },
             {
               "timeStamp": "2017-09-19T02:02:00Z",
-              "count": 3.0
+              "total": 3
             },
             {
               "timeStamp": "2017-09-19T02:03:00Z",
-              "count": 7.0
+              "total": 7
             },
             {
               "timeStamp": "2017-09-19T02:04:00Z",
-              "count": 2.0
+              "total": 2
             }
           ]
-        }
+        },
+        ...
       ]
     }
-  ]
+  ],
+  "namespace": "Microsoft.Storage/storageAccounts",
+  "resourceregion": "eastus"
 }
 ```
 
@@ -357,7 +387,7 @@ Utilize o [definições de métrica de Monitor de Azure REST API](https://msdn.m
 
 **Método**: introdução
 
-**URI de pedido**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{ resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions? API-version =*{apiVersion}*
+**Request URI**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
 Por exemplo, para obter as definições de métricas para uma aplicação de lógica do Azure, o pedido deverá aparecer da seguinte forma:
 
@@ -427,7 +457,7 @@ Depois das definições de métricas disponíveis são conhecidas, em seguida, �
 
 **Método**: introdução
 
-**URI de pedido**: https://management.azure.com/subscriptions/*{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/*{ recursos-fornecedor-namespace}*/*{tipo de recurso}*/*{nome do recurso}*/providers/microsoft.insights/metrics?$filter= *{filtro}*& api-version =*{apiVersion}*
+**URI de pedido**: https://management.azure.com/subscriptions/ *{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/*{recurso-fornecedor-namespace}* / *{tipo de recurso}*/*{nome do recurso}*/providers/microsoft.insights/metrics?$filter=*{filtro}*& api-version =*{apiVersion}*
 
 Por exemplo, para obter os pontos de dados métricos RunsSucceeded para o intervalo de tempo indicado e um grão de tempo de 1 hora, o pedido seria o seguinte:
 
@@ -558,17 +588,17 @@ Utilizando a API REST realmente pode ajudar a compreender as definições de mé
 
 Para o código anterior, o ID de recurso a utilizar é o caminho completo para o recurso do Azure pretendido. Por exemplo, para consultar em relação a uma aplicação Web do Azure, o ID de recurso, seria:
 
-*/subscriptions/{Subscription-ID}/resourceGroups/{Resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
+*/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
 
 A lista seguinte contém alguns exemplos de formatos de ID de recurso para vários recursos do Azure:
 
-* **IoT Hub** -/subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname}*{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.Devices/IotHubs/*{iot-hub-name}*
-* **Agrupamento elástico de SQL** -/subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname}*{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.Sql/servers/*{conjunto-db}*/elasticpools/*{nome de conjunto de sql}*
-* **Base de dados do SQL (v12)** -/subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname}*{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.Sql/servers/*{nome do servidor}* /databases/*{nome-base de dados}*
-* **Barramento de serviço** -/subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname}*{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.ServiceBus/*{namespace}* / *{nome-servicebus}*
+* **IoT Hub** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Devices/IotHubs/*{iot-hub-name}*
+* **Elastic SQL Pool** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{pool-db}*/elasticpools/*{sql-pool-name}*
+* **SQL Database (v12)** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{server-name}*/databases/*{database-name}*
+* **Service Bus** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.ServiceBus/*{namespace}*/*{servicebus-name}*
 * **Conjuntos de dimensionamento de máquina virtual** -/subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname}*{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.Compute/virtualMachineScaleSets/ *{nome da vm}*
-* **VMs** -/subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname}*{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.Compute/virtualMachines/*{nome da vm}*
-* **Os Event Hubs** -/subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname}*{id de subscrição}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.EventHub/namespaces/*{ eventhub-namespace}*
+* **VMs** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachines/*{vm-name}*
+* **Event Hubs** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.EventHub/namespaces/*{eventhub-namespace}*
 
 Existem abordagens alternativas para obter o ID de recurso, incluindo a utilização do Explorador de recursos do Azure, visualizar o recurso pretendido no portal do Azure e através do PowerShell ou a CLI do Azure.
 
@@ -671,7 +701,7 @@ Invoke-RestMethod -Uri $request `
     -Verbose
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Reveja o [descrição geral da monitorização](monitoring-overview.md).
 * Ver o [suportado métricas com a monitorização do Azure](monitoring-supported-metrics.md).
 * Reveja o [do Microsoft Azure monitorizar referência da API REST](https://msdn.microsoft.com/library/azure/dn931943.aspx).

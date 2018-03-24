@@ -1,23 +1,23 @@
 ---
-title: "Ativar LinkedIn ligações para aplicações da Microsoft e serviços no Azure Active Directory | Microsoft Docs"
-description: "Explica como ativar ou desativar LinkedIn conta ligações para aplicações da Microsoft no Azure Active Directory"
+title: Ativar LinkedIn ligações para aplicações da Microsoft e serviços no Azure Active Directory | Microsoft Docs
+description: Explica como ativar ou desativar LinkedIn conta ligações para aplicações da Microsoft no Azure Active Directory
 services: active-directory
 author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Ligações de conta LinkedIn para serviços e aplicações da Microsoft
 Neste artigo, pode saber como gerir LinkedIn ligações de conta para o seu inquilino no Centro de administração do Azure Active Directory (Azure AD). 
@@ -56,9 +56,9 @@ Funcionalidade de ligações do LinkedIn conta está ativada por predefinição 
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Ativar ou desativar LinkedIn conta ligações para aplicações do Office 2016 da sua organização através da política de grupo
 
 1. Transferir o [ficheiros de modelo de administração do Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
-2. Extrair o **ADMX** ficheiros e copie-os para o **repositório central**.
+2. Extrair o **ADMX** ficheiros e copie-os para o arquivo central.
 3. Gestão de políticas de grupo de abertura.
-4. Criar um objeto de política de grupo com a seguinte definição: **configuração do utilizador** > **modelos administrativos** > **Microsoft Office 2016**  >  **Diversas** > **permitir a integração do LinkedIn**.
+4. Criar um objeto de política de grupo com a seguinte definição: **configuração do utilizador** > **modelos administrativos** > **Microsoft Office 2016**  >  **Diversos** > **Mostrar LinkedIn funcionalidades nas aplicações do Office**.
 5. Selecione **ativada** ou **desativado**.
   * Quando a política é **ativado**, a **Mostrar LinkedIn funcionalidades nas aplicações do Office** definição localizada na caixa de diálogo Opções do Office 2016 está ativada. Isto também significa que os utilizadores na sua organização podem utilizar funcionalidades de LinkedIn nas aplicações do Office.
   * Quando a política é **desativada**, a **Mostrar LinkedIn funcionalidades nas aplicações do Office** encontrada nas opções do 2016 do Office caixa de diálogo está definida para o estado desativado e os utilizadores finais não é possível alterar esta definição. Os utilizadores na sua organização não é possível utilizar funcionalidades LinkedIn nas respetivas aplicações do Office 2016. 

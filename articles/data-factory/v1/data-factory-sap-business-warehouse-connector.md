@@ -2,10 +2,10 @@
 title: Mover dados a partir do SAP Business Warehouse utilizando o Azure Data Factory | Microsoft Docs
 description: Saiba mais sobre como mover dados a partir do SAP Business Warehouse utilizando o Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b81dc9f13533eaeec56625ede0e4c534b83e7cf7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 38c1611c0404202be2e100d3059b4ba1ed1a9236
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,13 +64,13 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos do
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor no qual reside a instância do SAP BW. | cadeia | Sim
+servidor | Nome do servidor no qual reside a instância do SAP BW. | string | Sim
 systemNumber | Número de sistema do sistema SAP BW. | Número de decimal dois dígitos representado como uma cadeia. | Sim
 clientId | ID de cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia. | Sim
-o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | cadeia | Sim
-palavra-passe | Palavra-passe para o utilizador. | cadeia | Sim
-gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP BW no local. | cadeia | Sim
-encryptedCredential | A cadeia de credencial encriptada. | cadeia | Não
+o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | string | Sim
+palavra-passe | Palavra-passe para o utilizador. | string | Sim
+gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP BW no local. | string | Sim
+encryptedCredential | A cadeia de credencial encriptada. | string | Não
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para uma lista completa das secções & Propriedades disponíveis para definir os conjuntos de dados, consulte o [criar conjuntos de dados](data-factory-create-datasets.md) artigo. As secções, tais como a estrutura, a disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (SQL do Azure, Azure blob, tabela do Azure, etc.).

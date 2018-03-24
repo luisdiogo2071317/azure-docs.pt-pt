@@ -1,11 +1,11 @@
 ---
 title: Como dimensionar a Cache de Redis do Azure | Microsoft Docs
-description: "Saiba como dimensionar as instâncias de Cache de Redis do Azure"
+description: Saiba como dimensionar as instâncias de Cache de Redis do Azure
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0cf0e41fe03bf3be7ecf2172cff3e6ab5f3eb65d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Como dimensionar a Cache de Redis do Azure
 Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de funcionalidades e o tamanho da cache. Depois de criar uma cache, pode dimensionar o tamanho e o escalão de preço da cache se alteram os requisitos da sua aplicação. Este artigo mostra como dimensionar a sua cache com o portal do Azure e ferramentas como o Azure PowerShell e a CLI do Azure.
@@ -111,6 +111,7 @@ A lista seguinte contém as respostas a perguntas mais comuns sobre o dimensiona
 * [Irá perder dados da minha cache durante dimensionamento?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Os meus bases de dados personalizadas é definir afetados durante o dimensionamento?](#is-my-custom-databases-setting-affected-during-scaling)
 * [A minha cache estará disponível durante dimensionamento?](#will-my-cache-be-available-during-scaling)
+* [A georreplicação configurada, por que razão estou posso não consegue dimensionar o meu cache ou altere as shards num cluster?](#scaling-limitations-with-geo-relication)
 * [Operações que não são suportadas](#operations-that-are-not-supported)
 * [Quanto dimensionamento necessário?](#how-long-does-scaling-take)
 * [Como saber quando o dimensionamento é concluída?](#how-can-i-tell-when-scaling-is-complete)
@@ -151,6 +152,12 @@ Enquanto caches Standard e Premium têm um SLA de 99,9% de disponibilidade, não
 * **Standard** e **Premium** caches permanecem disponíveis durante a operação de dimensionamento. No entanto, blips de ligação podem ocorrer ao efetuar o dimensionamento padrão e Premium bem como ao dimensionamento do básico para caches padrão. Estes blips ligação devem ser pequeno e clientes de redis devem ser capazes de restabelecer ligação instantaneamente.
 * **Básico** caches estão offline durante um tamanho diferente das operações de dimensionamento. Caches básicos permanecem disponíveis quando o dimensionamento do **básico** para **padrão** but, podem ter um blip ligação pequeno. Se ocorrer um blip de ligação, os clientes de redis devem ser capazes de restabelecer ligação instantaneamente.
 
+
+### <a name="scaling-limitations-with-geo-relication"></a>Limitações de dimensionamento com Georreplicação relication
+
+Depois de adicionar uma ligação de replicação geográfica entre duas caches, já não será possível iniciar uma operação de dimensionamento ou alterar o número de partições horizontais num cluster. Tem de desassociar a cache para emitir estes comandos. Para obter mais informações, consulte [configurar georreplicação](cache-how-to-geo-replication.md).
+
+
 ### <a name="operations-that-are-not-supported"></a>Operações que não são suportadas
 * Não é possível aumentar a partir de um escalão de preço superior para um escalão de preço inferior.
   * Não é possível dimensionar desde um **Premium** colocar em cache até um **padrão** ou um **básico** cache.
@@ -160,6 +167,7 @@ Enquanto caches Standard e Premium têm um SLA de 99,9% de disponibilidade, não
 * Não é possível aumentar a partir de um tamanho maior baixo até o **C0 (250 MB)** tamanho.
 
 Se uma operação de dimensionamento falhar, o serviço tenta reverter a operação e a cache irá reverter para o tamanho original.
+
 
 ### <a name="how-long-does-scaling-take"></a>Quanto dimensionamento necessário?
 Dimensionamento demora cerca de 20 minutos, dependendo da quantidade de dados estiver na cache.

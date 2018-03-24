@@ -1,11 +1,11 @@
 ---
-title: "Saiba mais sobre o token diferente e afirmação tipos suportados pelo Azure AD | Microsoft Docs"
-description: "Um guia para compreender e avaliar as afirmações no SAML 2.0 e JSON Web Tokens (JWT) emitidos pelo Azure Active Directory (AAD)"
+title: Saiba mais sobre o token diferente e afirmação tipos suportados pelo Azure AD | Microsoft Docs
+description: Um guia para compreender e avaliar as afirmações no SAML 2.0 e JSON Web Tokens (JWT) emitidos pelo Azure Active Directory (AAD)
 documentationcenter: na
 author: hpsin
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8f9eb95f49e0d2bd01d9ead7eda7d13288bfd573
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-token-reference"></a>Referência de token do Azure AD
 Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento do cada fluxo de autenticação. Este documento descreve o formato, características de segurança e conteúdo de cada tipo de token.
@@ -321,3 +321,4 @@ Para além de afirmações, o token inclui um número de versão no **vidor** e 
 ## <a name="related-content"></a>Conteúdo relacionado
 * Consulte o Azure AD Graph [operações de política](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) e [entidade política](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), para saber mais sobre a gestão de política de duração do token através da API do Azure AD Graph.
 * Para obter mais informações e exemplos em gestão de políticas através de cmdlets do PowerShell, incluindo exemplos, consulte [configuráveis durações token no Azure AD](../active-directory-configurable-token-lifetimes.md). 
+* Adicionar [afirmações personalizadas e opcionais](active-directory-optional-claims.md) para os tokens para a sua aplicação. 

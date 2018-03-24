@@ -1,19 +1,19 @@
 ---
-title: "Serviço de base de dados SQL do Azure | Microsoft Docs"
-description: "Saiba mais sobre os escalões de serviço para único e bases de dados de conjunto para fornecer os níveis de desempenho e tamanhos de armazenamento."
+title: Serviço de base de dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre os escalões de serviço para único e bases de dados de conjunto para fornecer os níveis de desempenho e tamanhos de armazenamento.
 services: sql-database
 author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/21/2018
+manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3fe7add4ad4c5563a6307db0dec27c658913429b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quais são os escalões de serviço do SQL Database do Azure?
 
@@ -33,7 +33,8 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 |CPU|Baixa|Baixa, média, alta|Média, alta|
 |Débito de e/s (aproximado) |2.5 IOPS por DTU  | 2.5 IOPS por DTU | 48 IOPS por DTU|
 |Latência de e/s (aproximada)|ms 5 (leitura), 10 ms (escrita)|ms 5 (leitura), 10 ms (escrita)|2 ms (leitura/escrita)|
-|A indexação Columnstore e OLTP na memória|N/A|N/A|Suportadas|
+|A indexação Columnstore |N/A|S3 e posterior|Suportadas|
+|OLTP na memória|N/A|N/A|Suportadas|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Limites de tamanho de armazenamento e de nível de desempenho

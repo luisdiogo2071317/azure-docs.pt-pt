@@ -1,10 +1,9 @@
 ---
-title: "Funções de fábrica de dados e variáveis do sistema | Microsoft Docs"
-description: "Fornece uma lista de funções do Azure Data Factory e variáveis do sistema"
-documentationcenter: 
+title: Funções de fábrica de dados e variáveis do sistema | Microsoft Docs
+description: Fornece uma lista de funções do Azure Data Factory e variáveis do sistema
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 services: data-factory
 ms.assetid: b6b3c2ae-b0e8-4e28-90d8-daf20421660d
 ms.service: data-factory
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f42ba7ed9c07a9d0bc73929db2a095248ad7d56f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b9884dac8a2716cbce6fca7b8172f7d272ad8f2f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Fábrica de dados do Azure - as funções e variáveis do sistema
 > [!NOTE]
@@ -59,7 +58,7 @@ Pode utilizar funções na fábrica de dados, juntamente com variáveis do siste
 
 1. Especificar as consultas de seleção de dados (consulte os artigos de conector referenciados pelo [atividades de movimentos de dados](data-factory-data-movement-activities.md) artigo.
    
-   A sintaxe para invocar uma função de fábrica de dados é:  **$$ <function>**  para consultas de seleção de dados e outras propriedades na atividade e conjuntos de dados.  
+   A sintaxe para invocar uma função de fábrica de dados é: **$$ <function>** para consultas de seleção de dados e outras propriedades na atividade e conjuntos de dados.  
 2. Especificar dependências de entrada com as funções de fábrica de dados na coleção de entradas de atividade.
    
     $$ Não é necessária para a especificação de expressões de dependência de entrada.     
@@ -80,12 +79,12 @@ As tabelas seguintes listam todas as funções no Azure Data Factory:
 
 | Categoria | Função | Parâmetros | Descrição |
 | --- | --- | --- | --- |
-| Hora |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y horas para X do tempo indicado. <br/><br/>Exemplo:`9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Hora |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y minutos x.<br/><br/>Exemplo:`9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Hora |StartOfHour(X) |X: Datetime |Obtém o tempo de partida para a hora representado pelo componente de hora de X. <br/><br/>Exemplo:`StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Hora |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y horas para X do tempo indicado. <br/><br/>Exemplo: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Hora |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y minutos x.<br/><br/>Exemplo: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Hora |StartOfHour(X) |X: Datetime |Obtém o tempo de partida para a hora representado pelo componente de hora de X. <br/><br/>Exemplo: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
 | Data |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Adiciona Y dias x. <br/><br/>Exemplo: 9/15/2013 12:00:00 PM + 2 dias = 9/17/2013 12:00:00 PM.<br/><br/>Pode subtrair dias demasiado especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
 | Data |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |Adiciona os meses Y x.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Pode subtrair meses demasiado especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Data |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y * 3 meses x.<br/><br/>Exemplo:`9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Data |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y * 3 meses x.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
 | Data |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |Adiciona Y * x de 7 dias<br/><br/>Exemplo: 9/15/2013 12:00:00 PM + 1 semana = 9/22/2013 12:00:00 PM<br/><br/>Pode subtrair semanas demasiado especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
 | Data |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |Adiciona os anos Y x.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Pode subtrair anos demasiado especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
 | Data |Day(X) |X: DateTime |Obtém o componente de dia de X.<br/><br/>Exemplo: `Day of 9/15/2013 12:00:00 PM is 9`. |
@@ -100,7 +99,7 @@ As tabelas seguintes listam todas as funções no Azure Data Factory:
 | Texto |Format(X) |X: variável da cadeia |Formatos de texto (utilizar `\\'` combinação para o escape `'` carateres).|
 
 > [!IMPORTANT]
-> Quando utilizar uma função dentro de outra função, não terá de utilizar  **$$**  prefixo para a função interna. Por exemplo: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' e RowKey ge \\' {0: aaaa-MM-dd hh: mm:}\\', Time.AddHours (SliceStart, -6)). Neste exemplo, repare que  **$$**  prefixo não é utilizado para o **Time.AddHours** função. 
+> Quando utilizar uma função dentro de outra função, não terá de utilizar **$$** prefixo para a função interna. Por exemplo: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' e RowKey ge \\' {0: aaaa-MM-dd hh: mm:}\\', Time.AddHours (SliceStart, -6)). Neste exemplo, repare que **$$** prefixo não é utilizado para o **Time.AddHours** função. 
 
 #### <a name="example"></a>Exemplo
 No exemplo seguinte, os parâmetros de entrada e de saída para a atividade do ramo de registo são determinados utilizando o `Text.Format` função e a variável de sistema do SliceStart. 

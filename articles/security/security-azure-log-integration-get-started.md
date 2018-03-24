@@ -1,6 +1,6 @@
 ---
-title: "Introdução à integração de registos do Azure | Microsoft Docs"
-description: "Saiba como instalar o serviço de integração de registos do Azure e integrar registos a partir do armazenamento do Azure, os registos de auditoria do Azure e alertas do Centro de segurança do Azure."
+title: Introdução à integração do registo do Azure | Microsoft Docs
+description: Saiba como instalar o serviço de integração de registo do Azure e integrar registos a partir do armazenamento do Azure, os registos de auditoria do Azure e alertas do Centro de segurança do Azure.
 services: security
 documentationcenter: na
 author: Barclayn
@@ -15,205 +15,204 @@ ums.workload: na
 ms.date: 02/20/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 4555216950811960ccb42241bcade5ec892a77ce
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3e229c4db44fc3c8d16aa2bd0a014fb1acc64a5e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integração de registos do Azure com o registo de diagnóstico do Azure e reencaminhamento de eventos do Windows
+# <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integração de registo do Azure com o registo de diagnóstico do Azure e o reencaminhamento de eventos do Windows
 
-Integração de registo do Azure (AzLog) fornece aos clientes com uma alternativa no evento que um [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) conector não está disponível a partir do seu fornecedor SIEM. Integração de registo do Azure disponibiliza registos do Azure para o SIEM e permite-lhe criar um dashboard unificado de segurança para todos os seus recursos.
+Integração de registo do Azure fornece aos clientes com um alternativo, se um [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) conector não está disponível a partir do seu fornecedor de incidente de segurança e Event Management (SIEM). Integração de registo do Azure disponibiliza registos do Azure para o SIEM para que possa criar um dashboard unificado de segurança para todos os seus recursos.
 
->[!NOTE]
->Para obter mais informações sobre o Monitor do Azure, pode rever [introdução ao Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) para obter mais informações sobre o estado de um conector de monitor do Azure, contacte o fornecedor do SIEM.
+> [!NOTE]
+> Para obter mais informações sobre o Monitor do Azure, consulte [introdução ao Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md). Para obter mais informações sobre o estado de um conector de Monitor do Azure, contacte o fabricante do SIEM.
 
->[!IMPORTANT]
->Se tiver o interesse primário recolher registos de máquina virtual, a maioria dos fornecedores SIEM incluir esta na sua solução. Utilizar o SIEM conector do fornecedor deve ser sempre a alternativa preferencial.
+> [!IMPORTANT]
+> Se o seu interesse primário é recolher registos de máquina virtual, a maioria dos fornecedores SIEM incluir esta opção na sua solução. Utilizar o SIEM conector do fornecedor é sempre a alternativa preferencial.
 
-Este artigo ajuda-o a começar com a integração de registo do Azure ao concentrar-se a instalação do serviço AzLog e integrar o serviço de diagnóstico do Azure. O serviço de integração de registo do Azure, em seguida, poderá recolher informações de registo de eventos do Windows a partir do canal de eventos de segurança do Windows provenientes de máquinas virtuais implementadas no IaaS do Azure. Isto é semelhante de "Reencaminhamento de eventos" que pode ter sido utilizada no local.
+Este artigo ajuda-o a começar a utilizar a integração de registo do Azure. Concentra-se sobre como instalar o serviço de integração de registo do Azure e integrar o serviço de diagnóstico do Azure. O serviço de integração de registo do Azure, em seguida, recolhe informações de registo de eventos do Windows do canal de eventos de segurança do Windows a partir de máquinas virtuais implementadas numa infraestrutura do Azure como um serviço. Isto é semelhante à *reencaminhamento de eventos* que poderá utilizar um sistema local.
 
->[!NOTE]
->A capacidade de colocar o resultado do Azure integração para o SIEM de início de sessão é fornecido pela SIEM próprio. Consulte o artigo [integrar integração de registo do Azure com o SIEM no local](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) para obter mais informações.
+> [!NOTE]
+> Integrar o resultado de integração de registo do Azure com um SIEM, é necessário o SIEM próprio. Para obter mais informações, consulte [integrar a integração de registo do Azure com o SIEM no local](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/).
 
-Para ser claro – o serviço de integração de registo do Azure é executado num computador físico ou virtual que está a utilizar o Windows Server 2008 R2 ou superior de sistema operativo (Windows Server 2012 R2 ou Windows Server 2016 são preferenciais).
+O serviço de integração de registo do Azure é executado um físico ou um computador virtual com o Windows Server 2008 R2 ou posterior (Windows Server 2016 ou o Windows Server 2012 R2 é preferencial).
 
-O computador físico pode ser executado no local (ou num site alojamento). Se optar por executar o serviço de integração de registo do Azure numa máquina virtual, que a máquina virtual pode estar localizada no local ou numa nuvem pública, como o Microsoft Azure.
+Um computador físico pode ser executado no local ou num site de alojamento. Se optar por executar o serviço de integração de registo do Azure numa máquina virtual, a máquina virtual pode estar localizada no local ou numa nuvem pública, tal como no Microsoft Azure.
 
-A máquina física ou virtual a executar o serviço de integração de registo do Azure necessita de conectividade de rede na nuvem pública do Azure. Os passos neste artigo fornecem detalhes sobre a configuração.
+A máquina física ou virtual a executar o serviço de integração de registo do Azure necessita de conectividade de rede na nuvem pública do Azure. Este artigo fornece detalhes sobre a configuração necessária.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-No mínimo, a instalação do AzLog requer os seguintes itens:
+No mínimo, instalar a integração de registo do Azure requer os seguintes itens:
 
-* Um **subscrição do Azure**. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/free/).
-* A **conta de armazenamento** que podem ser utilizados para o registo de diagnóstico do Windows Azure (a pode utilizar uma conta de armazenamento pré-configuradas ou criar um novo – Vamos demonstrar como configurar a conta de armazenamento neste artigo)
+* Um **subscrição do Azure**. Se não tiver uma, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/free/).
+* A **conta de armazenamento** que podem ser utilizados para o Windows Azure Diagnostics (WAD) registo. Pode utilizar uma conta de armazenamento pré-configuradas ou criar uma nova conta de armazenamento. Neste artigo, vamos descrevem como configurar a conta de armazenamento.
 
-  >[!NOTE]
-  Dependendo do seu cenário, uma conta de armazenamento não pode ser necessária. Cenário abordado neste artigo um é necessário o diagnóstico do Azure.
+  > [!NOTE]
+  > Dependendo do seu cenário, uma conta de armazenamento não poderá ser necessária. Para o cenário de diagnóstico do Azure abordado neste artigo, é necessária uma conta de armazenamento.
 
-* **Dois sistemas**: uma máquina com o serviço de integração de registo do Azure e um computador que será monitorizado e têm as respetivas informações de registo enviadas para a máquina de serviço AzLog.
-   * Uma máquina que pretende monitorizar – esta é uma VM em execução como um [Máquina Virtual do Azure](../virtual-machines/virtual-machines-windows-overview.md)
-   * Um computador que executa o serviço de integração de registos do Azure; Esta máquina recolhe as informações de registo que mais tarde serão importadas para o SIEM.
-    * Este sistema pode estar no local ou no Microsoft Azure.  
-    * Tem de estar em execução um x64 versão do Windows server 2008 R2 SP1 ou superior e ter o .NET 4.5.1 instalado. Pode determinar a versão do .NET instalada seguindo o artigo intitulado [como: determinar que versões do .NET Framework estão instaladas](https://msdn.microsoft.com/library/hh925568)  
-    Tem de ter conectividade para a conta de armazenamento do Azure utilizada para o registo de diagnóstico do Azure. Podemos fornecer instruções neste artigo sobre como pode confirmar este conectividade
+* **Dois sistemas**: 
+  * Um computador que executa o serviço de integração de registo do Azure. Esta máquina recolhe as informações de registo que mais tarde são importadas para o SIEM. Este sistema:
+    * Pode ser no local ou alojado no Microsoft Azure.  
+    * Tem de ser executado um x64 versão do Windows Server 2008 R2 SP1 ou posterior, e ter o Microsoft .NET 4.5.1 instalado. Para determinar a versão do .NET instalada, consulte [determinar que versões do .NET Framework estão instaladas](https://msdn.microsoft.com/library/hh925568).  
+    * Tem de ter conectividade para a conta de armazenamento do Azure que utilizou para o registo de diagnóstico do Azure. Neste artigo, vamos descrevem como confirmar a conetividade.
+  * Uma máquina que pretende monitorizar. Esta é uma VM em execução como um [máquina virtual do Azure](../virtual-machines/virtual-machines-windows-overview.md). As informações de registo desta máquina são enviadas para a máquina de serviço de integração de registo do Azure.
 
-* A **conta de armazenamento** que podem ser utilizados para o registo de diagnóstico do Windows Azure. Pode utilizar uma conta de armazenamento pré-configuradas ou criar um novo. Configurar a conta de armazenamento neste artigo.
-  >[!NOTE]
-  Dependendo do seu cenário, uma conta de armazenamento não pode ser necessária. Cenário abordado neste artigo um é necessário o diagnóstico do Azure.
-* **Dois sistemas**: um computador que executa o serviço de integração de registo do Azure e um computador que está a ser monitorizado e tem as informações de registo enviados para a máquina de serviço Azlog.
-   * Uma máquina que pretende monitorizar – esta é uma VM em execução como um [Máquina Virtual do Azure](../virtual-machines/virtual-machines-windows-overview.md)
-   * Um computador que executa o serviço de integração de registos do Azure; Esta máquina recolhe as informações de registo que mais tarde são importadas para o SIEM.
-    * Este sistema pode estar no local ou no Microsoft Azure.  
-    * Tem de estar em execução um x64 versão do Windows server 2008 R2 SP1 ou superior e ter o .NET 4.5.1 instalado. Pode determinar a versão do .NET instalada seguindo o artigo intitulado [como: determinar que versões do .NET Framework estão instaladas](https://msdn.microsoft.com/library/hh925568)  
-    Tem de ter conectividade para a conta de armazenamento do Azure utilizada para o registo de diagnóstico do Azure. Como confirmar este conectividade é descrito mais à frente neste artigo.
+Para obter uma demonstração rápida de como criar uma máquina virtual utilizando o portal do Azure, veja o vídeo seguinte:<br /><br />
 
-Para obter uma demonstração rápida do processo de uma criação de uma máquina virtual utilizando o portal do Azure, veja o vídeo abaixo.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Create-a-Virtual-Machine/player]
 
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 
-Durante o teste pode utilizar qualquer sistema que cumpra os requisitos mínimos do sistema operativo. Para um ambiente de produção, a carga pode exigir a planear aumentar ou reduzir.
+Durante o teste, pode utilizar qualquer sistema que cumpra os requisitos mínimos do sistema operativo. Num ambiente de produção, a carga pode implicar planear como aumentar verticalmente ou aumentar horizontalmente.
 
-Pode executar várias instâncias do serviço de integração de registo do Azure. Este é limitado a uma instância por máquina física ou virtual. Além disso, pode carregar Saldo contas de armazenamento de diagnóstico do Azure para Windows (WAD) e o número de subscrições fornecer às instâncias de devem basear-se nas suas da capacidade.
+Pode executar várias instâncias do serviço de integração de registo do Azure. No entanto, pode executar apenas uma instância do serviço por máquina física ou virtual. Além disso, pode contas de armazenamento de diagnóstico do Azure de balanceamento de carga para WAD. O número de subscrições para fornecer às instâncias de baseiam-se a sua capacidade.
 
->[!NOTE]
->Neste momento, não temos recomendações específicas para quando aumentar horizontalmente instâncias das máquinas de integração de registos do Azure (ou seja, as máquinas que estejam a executar o serviço de integração de registos do Azure) ou para contas de armazenamento ou subscrições. Dimensionamento decisões deve ser baseada no seu as observações de desempenho em cada uma destas áreas.
+> [!NOTE]
+> Atualmente, não temos recomendações específicas sobre quando aumentar horizontalmente instâncias das máquinas de integração de registo do Azure (ou seja, as máquinas que executa o serviço de integração de registo do Azure) ou para contas de armazenamento ou subscrições. Tome decisões de dimensionamento, com base na sua as observações de desempenho em cada uma destas áreas.
 
-Se o volume de eventos é elevada, pode executar várias instâncias do serviço de integração de registo do Azure (uma instância por máquina física ou virtual). Além disso, pode carregar Saldo contas de armazenamento de diagnóstico do Azure para Windows (WAD).
+Para ajudar a melhorar o desempenho, também tem a opção para dimensionar o serviço de integração de registo do Azure. As métricas de desempenho seguintes podem ajudar a dimensionar as máquinas que optar por executar o serviço de integração de registo do Azure:
 
-Também tem a opção para dimensionar o serviço de integração de registo do Azure para o ajudar a melhorar o desempenho. As métricas de desempenho seguintes podem ajudar a dimensionar as máquinas que optar por executar o serviço de integração de registos do Azure:
-
-* Numa máquina 8-processador (principal), uma única instância AzLog integrador consegue processar cerca de 24 milhões de eventos por dia (~1M/hour).
-* Numa máquina 4-processador (principal), uma única instância AzLog integrador consegue processar cerca de 1,5 milhões de eventos por dia (~62.5K/hour).
+* Numa máquina 8-processador (principal), uma única instância de integração de registo do Azure pode processar cerca de 24 milhões de eventos por dia (cerca de 1 milhão de eventos por hora).
+* Numa máquina 4-processador (principal), uma única instância de integração de registo do Azure pode processar cerca de 1,5 milhões de eventos por dia (aproximadamente 62,500 eventos por hora).
 
 ## <a name="install-azure-log-integration"></a>Instalar a integração de registos do Azure
 
-Para instalar a integração de registo do Azure, terá de transferir o [integração de registos do Azure](https://www.microsoft.com/download/details.aspx?id=53324) ficheiro de instalação. Percorrer a rotina de configuração e decidir se pretende fornecer informações de telemetria para a Microsoft.  
-
-![Instalação de ecrã com caixa de telemetria selecionada](./media/security-azure-log-integration-get-started/telemetry.png)
-
-> [!NOTE]
-> Recomendamos que permitem à Microsoft recolher dados de telemetria. Pode desativar a recolha de dados de telemetria desmarcando esta opção.
->
-
+Para instalar a integração de registo do Azure, transfira o [a integração de registo do Azure](https://www.microsoft.com/download/details.aspx?id=53324) ficheiro de instalação. Conclua o processo de configuração. Escolha se pretende fornecer informações de telemetria para a Microsoft.
 
 O serviço de integração de registo do Azure recolhe dados de telemetria a partir do computador no qual está instalado.  
 
-Os dados telemétricos recolhidos são:
+Os dados de telemetria que são recolhidos incluem o seguinte:
 
-* Exceções que ocorrem durante a execução de integração de registos do Azure
-* Métricas sobre o número de consultas e eventos processados
-* Estatísticas sobre qual Azlog.exe Opções da linha de comandos estão a ser utilizadas
+* Exceções que ocorrem durante a execução de integração de registo do Azure.
+* Métricas sobre o número de consultas e eventos processados.
+* Estatísticas sobre qual Azlog.exe Opções da linha de comandos são utilizadas. 
 
-O processo de instalação é abrangido as vídeo abaixo.
+> [!NOTE]
+> Recomendamos que permitem à Microsoft recolher dados de telemetria. Pode desativar a recolha de dados de telemetria ao desmarcar a **permite à Microsoft recolher dados de telemetria** caixa de verificação.
+>
+
+![Captura de ecrã do painel de instalação, com a caixa de verificação de telemetria selecionado](./media/security-azure-log-integration-get-started/telemetry.png)
+
+
+O processo de instalação é abrangido no vídeo seguinte:<br /><br />
+
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Install-Azure-Log-Integration/player]
 
+## <a name="post-installation-and-validation-steps"></a>Passos de validação e de pós-instalação
 
+Depois de concluir a configuração básica, está pronto para efetuar os passos de validação e de pós-instalação:
 
-## <a name="post-installation-and-validation-steps"></a>Publique os passos de instalação e validação
+1. Abra o PowerShell como um Administrador. Em seguida, aceda a C:\Program Files\Microsoft integração de registo do Azure.
+2. Importe os cmdlets de integração de registo do Azure. Para importar os cmdlets, execute o script `LoadAzlogModule.ps1`. Introduza `.\LoadAzlogModule.ps1`, e, em seguida, prima Enter (tenha em atenção a utilização de **.\\**  neste comando). Deverá ver algo semelhante que é apresentado na figura seguinte:
 
-Depois de concluir a rotina de configuração básica, está pronto passo para efetuar a instalação de post e passos de validação:
+  ![Captura de ecrã da saída do comando LoadAzlogModule.ps1](./media/security-azure-log-integration-get-started/loaded-modules.png)
+3. Em seguida, configure a integração de registo do Azure para utilizar um ambiente do Azure específico. Um *ambiente do Azure* é o tipo do Centro de dados de nuvem do Azure pretende trabalhar. Embora não existam vários ambientes do Azure, atualmente, as opções relevantes são **AzureCloud** ou **AzureUSGovernment**. Executar o PowerShell como administrador, certifique-se de que está em C:\Program Files\Microsoft Azure registo Integration\. Em seguida, execute este comando:
 
-1. Abra uma janela do PowerShell elevada e navegue para **c:\Program Files\Microsoft Azure registo integração**
-2. É o primeiro passo que precisa de tomar para obter os Cmdlets de AzLog importados. Pode fazê-lo executando o script **LoadAzlogModule.ps1** (tenha em atenção a ". \ \" no comando seguinte). Tipo **.\LoadAzlogModule.ps1** e prima **ENTER**. Deverá ver algo semelhante que é apresentado na figura abaixo. </br></br>
-![Instalação de ecrã com caixa de telemetria selecionada](./media/security-azure-log-integration-get-started/loaded-modules.png) </br></br>
-3. Agora, é necessário configurar AzLog para utilizar um ambiente do Azure específico. Um "ambiente do Azure" é "type" de centro de dados em nuvem do Azure que pretende trabalhar. Enquanto existirem vários ambientes do Azure neste momento, as opções relevantes atualmente são **AzureCloud** ou **AzureUSGovernment**.   No seu ambiente de PowerShell elevada, certifique-se de que está no **c:\program files\Microsoft a integração de registo do Azure\** </br></br>
-    Uma vez, execute o comando: </br>
-    ``Set-AzlogAzureEnvironment -Name AzureCloud`` (para o Azure comercial)
+  `Set-AzlogAzureEnvironment -Name AzureCloud` (para **AzureCloud**)
+  
+  Se pretender utilizar a nuvem de US Government Azure, utilize **AzureUSGovernment** para o **-nome** variável. Atualmente, não são suportadas outras nuvens do Azure.  
 
-      >[!NOTE]
-      >Quando o comando for bem sucedida, não irá receber quaisquer comentários.  Se pretender utilizar a nuvem de US Government Azure, teria de utilizar **AzureUSGovernment** (para a variável-Name) para a nuvem do Governo dos EUA. Outras nuvens do Azure não são suportados neste momento.  
-4. Para poder monitorizar um sistema tem o nome da conta de armazenamento em utilização para o Azure Diagnostics.  No portal do Azure, navegue para **máquinas virtuais** e procure a máquina virtual que monitoriza. No **propriedades** secção, escolha **definições de diagnóstico**.  Clique em **agente** e anote o nome da conta de armazenamento especificado. É necessário este nome de conta para o passo posterior.
+  > [!NOTE]
+  > Não receber comentários quando o comando for bem sucedida. 
 
-    ![Definições de diagnóstico do Azure](./media/security-azure-log-integration-get-started/storage-account-large.png) </br></br>
+4. Para poder monitorizar um sistema, terá do nome da conta de armazenamento que é utilizado para o Azure Diagnostics. No portal do Azure, aceda a **máquinas virtuais**. Procure a máquina virtual que monitoriza. No **propriedades** secção, selecione **definições de diagnóstico**.  Em seguida, selecione **agente**. Anote o nome da conta de armazenamento que é especificado. É necessário este nome de conta para o passo posterior.
 
-    ![Definições de diagnóstico do Azure](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
+  ![Captura de ecrã do painel de definições de diagnóstico do Azure](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
-     >[!NOTE]
-     >Se a monitorização não foi activada durante a criação da máquina virtual, terá a opção para ativá-la conforme mostrado acima.
+  ![Captura de ecrã de ativar a monitorização botão de ao nível do convidado](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
 
-5. Agora iremos irá mudar a nossa atenção volta para a máquina de integração de registos do Azure. Temos de verificar se tem conectividade para a conta de armazenamento do sistema onde instalou a integração de registo do Azure. O computador que executa o serviço de integração de registo do Azure necessita de acesso à conta de armazenamento para obter informações registadas pelo diagnósticos do Azure, tal como foi configurada em cada um dos sistemas monitorizados.  
-    a. Pode transferir o Explorador de armazenamento do Azure [aqui](http://storageexplorer.com/).
-   b. Percorrer o c de rotina do programa de configuração. Após a conclusão da instalação clique **seguinte** e deixe a caixa de verificação **iniciar o Explorador de armazenamento do Microsoft Azure** marcada.  
-    d. Inicie sessão no Azure.
-   e. Certifique-se de que pode ver a conta de armazenamento que configurou para o Azure Diagnostics. 
-        ![Contas de armazenamento](./media/security-azure-log-integration-get-started/storage-account.jpg) </br></br>
-6. Tenha em atenção que existem algumas opções em contas de armazenamento. Uma delas é **tabelas**. Em **tabelas** deverá ver um chamado **WADWindowsEventLogsTable**. </br></br>
+  > [!NOTE]
+  > Se a monitorização não foi ativada quando a máquina virtual foi criada, pode ativá-la conforme mostrado na imagem anterior.
 
- Se a monitorização não foi activada durante a criação da máquina virtual, é-lhe dada a opção para ativá-la conforme mostrado acima.
-7. Agora iremos irá mudar a nossa atenção volta para a máquina de integração de registos do Azure. Temos de verificar se tem conectividade para a conta de armazenamento do sistema onde instalou a integração de registo do Azure. O computador físico ou máquina virtual com o serviço de integração de registo do Azure tem acesso à conta de armazenamento para obter informações registadas pelo diagnósticos do Azure, conforme configurado no cada um dos sistemas monitorizados.  
-  1. Pode transferir o Explorador de armazenamento do Azure [aqui](http://storageexplorer.com/).
-  2. Percorrer a rotina de configuração
-  3. Após a conclusão da instalação clique **seguinte** e deixe a caixa de verificação **iniciar o Explorador de armazenamento do Microsoft Azure** marcada.  
+5. Agora, volte para a máquina de integração de registo do Azure. Verifique se tem conectividade para a conta de armazenamento do sistema onde instalou a integração de registo do Azure. O computador que executa o serviço de integração de registo do Azure necessita de acesso à conta de armazenamento para obter informações ao diagnóstico do Azure com sessão iniciada cada um dos sistemas monitorizados. Para verificar a conectividade: 
+  1. [Transferir o Explorador de armazenamento do Azure](http://storageexplorer.com/).
+  2. Conclua a configuração.
+  3. Quando a instalação estiver concluída, selecione **seguinte**. Deixe o **iniciar o Explorador de armazenamento do Microsoft Azure** caixa de verificação selecionada.  
   4. Inicie sessão no Azure.
-  5. Certifique-se de que pode ver a conta de armazenamento que configurou para o Azure Diagnostics.  
-  6. Tenha em atenção que existem algumas opções em contas de armazenamento. Uma delas é **tabelas**. Em **tabelas** deverá ver um chamado **WADWindowsEventLogsTable**. </br></br>
-   ![Contas de armazenamento](./media/security-azure-log-integration-get-started/storage-explorer.png) 
+  5. Certifique-se de que pode ver a conta de armazenamento que configurou para o Azure Diagnostics: 
 
-## <a name="integrate-azure-diagnostic-logging"></a>Integrar o registo de diagnóstico do Azure
+    ![Captura de ecrã de contas do storage no Explorador de armazenamento](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
-Neste passo, irá configurar o computador que executa o serviço de integração de registo do Azure para ligar à conta de armazenamento que contém os ficheiros de registo.
-Para concluir este passo, precisamos de algumas coisas adiantado.  
-* **FriendlyNameForSource:** este é um nome amigável que pode aplicar a conta de armazenamento que configurou a máquina virtual para armazenar informações de diagnóstico do Azure
-* **StorageAccountName:** este é o nome da conta do storage que especificou quando configurou o diagnóstico do Azure.  
-* **StorageKey:** esta é a chave de armazenamento para a conta de armazenamento onde as informações de diagnóstico do Azure são armazenadas para esta máquina virtual.  
+  6. Algumas opções são apresentados em contas de armazenamento. Em **tabelas**, deverá ver uma tabela chamada **WADWindowsEventLogsTable**.
 
-Execute os passos seguintes para obter a chave de armazenamento:
- 1. Navegue para o [portal do Azure](http://portal.azure.com).
- 2. No painel de navegação da consola do Azure, clique em **todos os serviços.**
-  3. Introduza **armazenamento** no **filtro** caixa de texto. Clique em **contas do Storage**.
-
-       ![Captura de ecrã que mostra as contas de armazenamento em todos os serviços](./media/security-azure-log-integration-get-started/filter.png)
- 4. É apresentada uma lista de contas do storage, faça duplo clique na conta que atribuiu ao armazenamento de registo.
-
-       ![lista de contas de armazenamento](./media/security-azure-log-integration-get-started/storage-accounts.png)
- 5. Clique em **chaves de acesso** no **definições** secção.
-
-      ![chaves de acesso](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
- 6. Cópia **chave1** e colocá-la numa localização segura que tem acesso para o passo seguinte.
-
-       ![duas chaves de acesso](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
- 7. No servidor que instalou a integração de registo do Azure, abra uma linha de comandos elevada (tenha em atenção que estamos a utilizar uma janela de linha de comandos elevada aqui, não uma consola elevada do PowerShell).
- 8. Navegue para **c:\Program Files\Microsoft Azure registo integração**
- 9. Execute ``Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey> `` </br> Por exemplo ``Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`` se pretender que o ID de subscrição apareçam de eventos XML, acrescentar o ID de subscrição para o nome amigável: ``Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`` ou, por exemplo, ``Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
-
->[!NOTE]
->Aguarde até 60 minutos, em seguida, ver os eventos que são solicitados da conta do storage. Para ver, abrir **Visualizador de eventos > registos do Windows > eventos reencaminhados** no integrador de AzLog.
-
-Aqui pode ver um vídeo passar por passos abrangidos acima.
-
->[!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Enable-Diagnostics-and-Storage/player]
+  Se a monitorização não foi ativada quando a máquina virtual foi criada, pode ativá-la, conforme descrito anteriormente.
 
 
-## <a name="what-if-data-is-not-showing-up-in-the-forwarded-events-folder"></a>E se dados não é apresentada na pasta eventos reencaminhados?
-Se depois de uma hora de dados é não ser apresentado no **eventos reencaminhados** pasta, em seguida:
+## <a name="integrate-azure-diagnostics-logging"></a>Integrar o registo de diagnóstico do Azure
 
-1. Verifique o computador que executa o serviço de integração de registo do Azure e confirme que se pode aceder ao Azure. Para testar a conectividade, tente abrir o [portal do Azure](http://portal.azure.com) do browser.
-2. Certifique-se a conta de utilizador **AzLog** tem permissão de escrita na pasta **users\Azlog**.
-  <ol type="a">
-   <li>Abra **Explorador do Windows** </li>
-  <li> Navegue para **c:\users** </li>
-  <li> Clique com o botão direito no **c:\users\Azlog** </li>
-  <li> Clique em **segurança**  </li>
-  <li> Clique em **NT Service\Azlog** e verifique as permissões da conta. Se a conta está em falta a partir deste separador ou se as permissões adequadas não estão atualmente a mostrar pode conceder direitos de conta neste separador.</li>
-  </ol>
-3. Certifique-se a conta de armazenamento adicionada no comando **Adicionar origem Azlog** está listado quando executar o comando **lista de origem Azlog**.
-4. Aceda a **Visualizador de eventos > registos do Windows > aplicação** ver se existem erros comunicados pela integração de registos do Azure.
+Neste passo, configure o computador que executa o serviço de integração de registo do Azure para ligar à conta de armazenamento que contém os ficheiros de registo.
+
+Para concluir este passo, terá de algumas coisas:  
+* **FriendlyNameForSource**: um nome amigável que pode aplicar a conta de armazenamento que configurou para a máquina virtual armazenar as informações de diagnóstico do Azure.
+* **StorageAccountName**: O nome da conta do storage que especificou quando configurou o diagnóstico do Azure.  
+* **StorageKey**: A chave de armazenamento para a conta de armazenamento onde as informações de diagnóstico do Azure são armazenadas para esta máquina virtual.  
+
+Para obter a chave de armazenamento, execute os seguintes passos:
+1. Aceda ao [Portal do Azure](http://portal.azure.com).
+2. No painel de navegação, selecione **todos os serviços**.
+3. No **filtro** box, introduza **armazenamento**. Em seguida, selecione **contas do Storage**.
+
+  ![Captura de ecrã que mostra as contas de armazenamento em todos os serviços](./media/security-azure-log-integration-get-started/filter.png)
+
+4. É apresentada uma lista de contas do storage. Faça duplo clique em conta que atribuiu ao armazenamento de registo.
+
+  ![Captura de ecrã que mostra uma lista de contas de armazenamento](./media/security-azure-log-integration-get-started/storage-accounts.png)
+
+5. Em **Definições**, selecione **Chaves de acesso**.
+
+  ![Captura de ecrã que mostra a opção de chaves de acesso no menu](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
+
+6. Cópia **chave1**e, em seguida, guarde-o numa localização segura que tem acesso para o passo seguinte.
+7. No servidor onde instalou a integração de registo do Azure, abra uma janela de linha de comandos como administrador. (Lembre-se de que abra uma janela da linha de comandos como administrador e não do PowerShell).
+8. Aceda a C:\Program Files\Microsoft Azure registo integração.
+9. Execute este comando: `Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>`.
+ 
+  Exemplo:
+  
+  `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+
+  Se pretender que o ID de subscrição apareçam de eventos XML, acrescente o ID de subscrição para o nome amigável:
+
+  `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
+  
+  Exemplo: 
+  
+  `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+
+> [!NOTE]
+> Aguarde até 60 minutos e, em seguida, veja os eventos que são solicitados da conta do storage. Para ver os eventos no registo a integração do Azure, selecione **Visualizador de eventos** > **registos do Windows** > **eventos reencaminhados**.
+
+O seguinte vídeo aborda os passos anteriores:<br /><br />
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Enable-Diagnostics-and-Storage/player]
 
 
-Caso se depare com problemas durante a instalação e configuração, abra uma [pedido de suporte](../azure-supportability/how-to-create-azure-support-request.md), selecione **integração de registo** como o serviço para o qual está a pedir suporte.
+## <a name="if-data-isnt-showing-up-in-the-forwarded-events-folder"></a>Se os dados não estão ser apresentado na pasta eventos reencaminhados
+Se os dados não estão ser apresentado na pasta eventos reencaminhados depois de uma hora, conclua estes passos:
 
-Outra opção de suporte é o [fórum MSDN do Azure registo integração](https://social.msdn.microsoft.com/Forums/home?forum=AzureLogIntegration). Aqui a Comunidade pode suportar entre si com perguntas, respostas, sugestões e truques sobre como obter o máximo partido da integração do registo do Azure. Além disso, a equipa de integração de registo do Azure monitoriza esta Fórum e ajuda, sempre que podem.
+1. Verifique o computador que está a executar o serviço de integração de registo do Azure. Certifique-se de que se pode aceder ao Azure. Para testar a conectividade, num browser, experimente ir para o [portal do Azure](http://portal.azure.com).
+2. Certifique-se de que a conta de utilizador Azlog tem permissão de escrita para a pasta users\Azlog.
+  1. Abra o Explorador de Ficheiros.
+  2. Aceda à C:\users.
+  3. Clique com botão direito C:\users\Azlog.
+  4. Selecione **segurança**.
+  5. Selecione **NT Service\Azlog**. Verifique as permissões da conta. Se a conta está em falta a partir deste separador, ou se não estiverem mostrar as permissões adequadas, pode conceder as permissões de conta neste separador.
+3. Quando executa o comando `Azlog source list`, certifique-se de que o armazenamento da conta que foi adicionado no comando `Azlog source add` está listado no resultado.
+4. Para ver se estão reportados erros do serviço de integração de registo do Azure, aceda à **Visualizador de eventos** > **registos do Windows** > **aplicação**.
+
+Caso se depare com problemas durante a instalação e configuração, pode criar um [pedido de suporte](../azure-supportability/how-to-create-azure-support-request.md). Para o serviço, selecione **integração de registo**.
+
+Outra opção de suporte é o [fórum MSDN do Azure registo integração](https://social.msdn.microsoft.com/Forums/home?forum=AzureLogIntegration). No fórum do MSDN, a Comunidade pode fornecer o suporte, as respostas a questões e partilhar sugestões e truques sobre como obter o máximo partido da integração do registo do Azure. A equipa de integração de registo do Azure também monitoriza neste fórum. Ajudam a sempre que podem.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre a integração de registo do Azure, consulte os seguintes documentos:
+Para saber mais sobre a integração de registo do Azure, consulte os artigos seguintes:
 
-* [Integração de registo do Microsoft Azure para os registos do Azure](https://www.microsoft.com/download/details.aspx?id=53324) – Centro de transferências para obter detalhes, requisitos de sistema e instalar as instruções na integração de registos do Azure.
-* [Introdução à integração de registos do Azure](security-azure-log-integration-overview.md) – este documento apresenta-lhe integração de registos do Azure, as suas capacidades principais e como funciona.
-* [Passos de configuração do parceiro](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – este blogue mostra-lhe como configurar a integração de registos do Azure para trabalhar com soluções de parceiros Splunk, HP ArcSight e IBM QRadar. Esta é a nossa orientação sobre como configurar os componentes do SIEM atual. Verifique junto do fabricante do SIEM primeiro para obter detalhes adicionais.
-* [Registos do Azure integração perguntas mais frequentes (FAQ) do sobre](security-azure-log-integration-faq.md) -FAQ este respondem a dúvidas sobre a integração de registos do Azure.
-* [Integrar o Centro de segurança de alertas com o Azure registo integração](../security-center/security-center-integrating-alerts-with-log-integration.md) – este documento mostra como sincronizar alertas do Centro de segurança, juntamente com eventos de segurança de máquina virtual recolhidos pelo diagnósticos do Azure e os registos de atividade do Azure, com a sua análise de registos ou solução SIEM.
-* [Novas funcionalidades de diagnóstico do Azure e os registos de auditoria do Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) – esta mensagem de blogue apresenta-lhe os registos de auditoria do Azure e outras funcionalidades que o ajudam a obterem informações sobre as operações dos seus recursos Azure.
+* [Integração de registo do Azure para os registos do Azure](https://www.microsoft.com/download/details.aspx?id=53324). O Centro de transferências inclui detalhes, requisitos de sistema e as instruções de instalação para a integração de registo do Azure.
+* [Introdução à integração de registos do Azure](security-azure-log-integration-overview.md). Este artigo apresenta-lhe a integração de registo do Azure, as suas capacidades principais e como funciona.
+* [Passos de configuração do parceiro](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Este blogue mostra-lhe como configurar a integração de registo do Azure para trabalhar com soluções de parceiros Splunk, HP ArcSight e IBM QRadar. Descreve a nossa documentação de orientação atual sobre como configurar os componentes do SIEM. Consulte o fornecedor do SIEM para obter detalhes adicionais.
+* [Integração de registo do Azure perguntas mais frequentes (FAQ)](security-azure-log-integration-faq.md). Estas FAQ responde a questões recorrentes sobre a integração de registo do Azure.
+* [Integração de alertas do Centro de segurança do Azure com a integração de registo do Azure](../security-center/security-center-integrating-alerts-with-log-integration.md). Este artigo mostra-lhe como sincronizar alertas do Centro de segurança e eventos de segurança de máquinas virtuais que são recolhidos por diagnósticos do Azure e a atividade do Azure registos. Sincronizar os registos ao utilizar a sua solução de análise de registos do Azure ou SIEM.
+* [Registos de auditoria de novas funcionalidades de diagnóstico do Azure e Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). Esta mensagem de blogue apresenta-lhe os registos de auditoria do Azure e outras funcionalidades que podem ajudar a obter conhecimentos aprofundados sobre as operações dos seus recursos Azure.
