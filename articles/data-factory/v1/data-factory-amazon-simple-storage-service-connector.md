@@ -1,11 +1,10 @@
 ---
-title: "Mover dados do serviço de armazenamento simples Amazon utilizando o Data Factory | Microsoft Docs"
-description: "Saiba mais sobre como mover dados a partir do serviço de armazenamento simples (S3) do Amazon através da utilização do Azure Data Factory."
+title: Mover dados do serviço de armazenamento simples Amazon utilizando o Data Factory | Microsoft Docs
+description: Saiba mais sobre como mover dados a partir do serviço de armazenamento simples (S3) do Amazon através da utilização do Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fb2b534955a2cd0e1294df5425550ac6958ff3c2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 455c1247ee68c4841647d942a1ac210b1b91694a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Mover dados do serviço de armazenamento simples Amazon através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,8 +35,8 @@ Pode copiar dados do Amazon S3 para qualquer arquivo de dados suportados sink. P
 ## <a name="required-permissions"></a>Permissões obrigatórias
 Para copiar dados do Amazon S3, certifique-se de que lhe foram concedidas as seguintes permissões:
 
-* `s3:GetObject`e `s3:GetObjectVersion` para operações de objeto do Amazon S3.
-* `s3:ListBucket`para operações de registo do Amazon S3. Se estiver a utilizar o Assistente de cópia do Data Factory, `s3:ListAllMyBuckets` também é necessário.
+* `s3:GetObject` e `s3:GetObjectVersion` para operações de objeto do Amazon S3.
+* `s3:ListBucket` para operações de registo do Amazon S3. Se estiver a utilizar o Assistente de cópia do Data Factory, `s3:ListAllMyBuckets` também é necessário.
 
 Para obter detalhes sobre a lista completa de permissões do Amazon S3, consulte [especificar permissões numa política](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
@@ -66,7 +65,7 @@ Um serviço ligado liga um arquivo de dados para uma fábrica de dados. Criar um
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| accessKeyID |ID da chave de acesso secreta. |cadeia |Sim |
+| accessKeyID |ID da chave de acesso secreta. |string |Sim |
 | secretAccessKey |A chave de acesso secreta próprio. |Cadeia secreta encriptada |Sim |
 
 >[!NOTE]

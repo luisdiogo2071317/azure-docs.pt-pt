@@ -1,11 +1,12 @@
 ---
-title: "Tutorial de início rápido para o idioma de R para o Machine Learning | Microsoft Docs"
-description: "Utilize este tutorial de programação do R para começar a trabalhar rapidamente utilizando a linguagem de R com o Azure Machine Learning Studio para criar uma solução de previsão."
-keywords: "Guia de introdução, idioma de r, linguagem de programação de r, tutorial de programação de r"
+title: Tutorial de início rápido para o idioma de R para o Machine Learning | Microsoft Docs
+description: Utilize este tutorial de programação do R para começar a trabalhar rapidamente utilizando a linguagem de R com o Azure Machine Learning Studio para criar uma solução de previsão.
+keywords: Guia de introdução, idioma de r, linguagem de programação de r, tutorial de programação de r
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 40cc3728d1361b9304896bf0cc4ceed439291d45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Tutorial de início rápido para a linguagem de programação R para o Azure Machine Learning
 
@@ -123,9 +123,9 @@ Se não compreender a última linha deste código neste momento, continue a ler.
 ### <a name="introduction-to-rstudio"></a>Introdução ao RStudio
 RStudio é um IDE amplamente utilizado para R. Utilizarei RStudio para editar, teste e depuração algumas do código de R utilizado neste guia de início rápido. Depois de código do R é testada e pronto, basta cortar e colar a partir do editor de RStudio num Machine Learning Studio [executar Script do R] [ execute-r-script] módulo.  
 
-Se não tiver a linguagem de programação de R instalada no seu computador de secretária, recomendamos posso que fazê-lo agora. Transferências gratuitas de idioma de open source para R estão disponíveis no abrangente R arquivo rede (CRAN) em [http://www.r-project.org/](http://www.r-project.org/). As transferências estão disponíveis para o Windows, SO de Mac e Linux/UNIX. Escolha um espelho próximos em e siga as instruções de transferência. Além disso, CRAN contém vários pacotes de manipulação de dados e de análise útil.
+Se não tiver a linguagem de programação de R instalada no seu computador de secretária, recomendamos posso que fazê-lo agora. Transferências gratuitas de idioma de open source para R estão disponíveis no abrangente R arquivo rede (CRAN) em [ http://www.r-project.org/ ](http://www.r-project.org/). As transferências estão disponíveis para o Windows, SO de Mac e Linux/UNIX. Escolha um espelho próximos em e siga as instruções de transferência. Além disso, CRAN contém vários pacotes de manipulação de dados e de análise útil.
 
-Se estiver familiarizado com RStudio, deve transferir e instalar a versão de ambiente de trabalho. Pode encontrar que o RStudio transfere para o Windows, SO de Mac e Linux/UNIX http://www.rstudio.com/products/RStudio/. Siga as instruções fornecidas para instalar RStudio no seu computador de secretária.  
+Se estiver familiarizado com RStudio, deve transferir e instalar a versão de ambiente de trabalho. Pode encontrar o RStudio transfere para o Windows, SO de Mac e Linux/UNIX em http://www.rstudio.com/products/RStudio/. Siga as instruções fornecidas para instalar RStudio no seu computador de secretária.  
 
 Uma introdução tutorial RStudio está disponível em https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
@@ -306,7 +306,7 @@ Para ver o resultado de R dispositivo, clique na porta e, em seguida, no **visua
 
 ![Saída padrão e o erro padrão da porta do dispositivo de R][8]
 
-*A figura 7. Saída padrão e o erro padrão da porta do dispositivo de R.*
+*Figura 7. Saída padrão e o erro padrão da porta do dispositivo de R.*
 
 Deslocar o ecrã para baixo, consulte a saída de gráficos do nosso script R na figura 8.  
 
@@ -521,7 +521,7 @@ Se observar os valores existentes na resumos do nosso dataframe que deverá ver 
 
 Para o nosso modelo de previsão Utilizamos um modelo multiplicative de tendência e ajuste sazonais destes dados. Uma transformação de registo permite-nos utilizar um modelo de linear, simplificando a este processo. Pode aplicar a transformação de registo na mesma função onde o multiplicador é aplicado.
 
-O código seguinte, posso definir uma nova função `log.transform()`e aplicá-la para as linhas que contém os valores de numérico. O R `Map()` função é utilizada para aplicar o `log.transform()` função para as colunas selecionadas do dataframe. `Map()`é semelhante à `apply()` , mas permite a mais do que uma lista de argumentos à função. Tenha em atenção que uma lista de multipliers fornece o segundo argumento para o `log.transform()` função. O `na.omit()` função é utilizada como um bit de limpeza para se certificar de que não têm valores em falta ou não definidos no dataframe.
+O código seguinte, posso definir uma nova função `log.transform()`e aplicá-la para as linhas que contém os valores de numérico. O R `Map()` função é utilizada para aplicar o `log.transform()` função para as colunas selecionadas do dataframe. `Map()` é semelhante à `apply()` , mas permite a mais do que uma lista de argumentos à função. Tenha em atenção que uma lista de multipliers fornece o segundo argumento para o `log.transform()` função. O `na.omit()` função é utilizada como um bit de limpeza para se certificar de que não têm valores em falta ou não definidos no dataframe.
 
     log.transform <- function(invec, multiplier = 1) {
       ## Function for the transformation, which is the log
@@ -1219,7 +1219,7 @@ RStudio está bastante bem documento, pelo que este anexo consigo fornecerá alg
 2. Editar e executar código do R
    
    RStudio fornece um ambiente integrado para editar e executar código do R. Pode encontrar documentação em https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code.
-3. Depuração
+3. Depurar
    
    RStudio inclui funcionalidades de depuração poderosas. Documentação para estas funcionalidades está em https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
    
@@ -1229,7 +1229,7 @@ RStudio está bastante bem documento, pelo que este anexo consigo fornecerá alg
 Este tutorial de programação de R abrange as noções básicas do que necessita para utilizar a linguagem de R com o Azure Machine Learning Studio. Se não estiver familiarizado com R, dois introduções estão disponíveis na CRAN:
 
 * R para principiantes por Emmanuel Paradis é um bom local para iniciar o http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
-* Uma introdução ao R por W. e Venables ter. usados. passa para um pouco maior profundidade, http://cran.r-project.org/doc/manuals/R-intro.html.
+* Uma introdução ao R por W. e Venables ter. al. entrar em profundidade um pouco mais, em http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Existem muitos books no R que pode ajudar a começar a utilizar. Seguem-se algumas que posso úteis:
 
@@ -1245,9 +1245,9 @@ O livro introdutórias séries de tempo com R Paul Cowpertwait e Andrew Metcalfe
 
 Alguns recursos de internet excelente:
 
-* DataCamp: DataCamp informa R no comfort do seu browser com lições vídeos e exercícios codificação. Existem tutoriais interativos na mais recentes técnicas de R e pacotes. Tirar o livre tutorial interativo do R no https://www.datacamp.com/courses/introduction-to-r
+* DataCamp: DataCamp informa R no comfort do seu browser com lições vídeos e exercícios codificação. Existem tutoriais interativos na mais recentes técnicas de R e pacotes. Tirar o tutorial interativo de R livre no https://www.datacamp.com/courses/introduction-to-r
 * Um guia no Getting começar a utilizar R de Programiz https://www.programiz.com/r-programming
-* Um tutorial rápido do R por Cardoso negra de Clarkson University http://www.cyclismo.org/tutorial/R/
+* Um tutorial rápido de R por Cardoso negra de Clarkson University http://www.cyclismo.org/tutorial/R/
 * Recursos-R de 60 + listados em http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->

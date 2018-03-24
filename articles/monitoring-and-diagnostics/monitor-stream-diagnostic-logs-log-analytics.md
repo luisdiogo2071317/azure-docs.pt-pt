@@ -1,12 +1,12 @@
 ---
-title: "Transmitir os registos de diagnóstico do Azure ao Log Analytics | Microsoft Docs"
-description: "Saiba como transmitir os registos de diagnóstico do Azure para uma área de trabalho de análise de registos."
+title: Transmitir os registos de diagnóstico do Azure ao Log Analytics | Microsoft Docs
+description: Saiba como transmitir os registos de diagnóstico do Azure para uma área de trabalho de análise de registos.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: johnkem
-ms.openlocfilehash: 9440bd7f872914887c1f6e50f08a3c273536fcf8
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 517ce3547f471dd1b40c79b2f087b02ad7f51b85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Transmitir os registos de diagnóstico do Azure ao Log Analytics
 **[Os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  pode transmissão em fluxo em tempo real para análise de registos do Azure utilizando o portal, os cmdlets do PowerShell ou o CLI do Azure.
@@ -40,21 +40,21 @@ A área de trabalho de análise de registos não tem de estar na mesma subscriç
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Registos de diagnóstico de fluxo através do portal
 1. No portal, navegue para o Monitor do Azure e clique em **definições de diagnóstico**
 
-    ![Secção de monitorização do Monitor do Azure](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
+    ![Secção de monitorização do Monitor do Azure](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
 
 2. Opcionalmente filtrar a lista por tipo de recurso ou grupo de recursos, em seguida, clique no recurso para o qual pretende configurar uma definição de diagnóstico.
 
 3. Se não existem definições de existem no recurso que selecionou, são-lhe pedido para criar uma definição. Clique em "Ativar o diagnóstico".
 
-   ![Adicionar definição de diagnóstico - sem definições existentes](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
+   ![Adicionar definição de diagnóstico - sem definições existentes](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
 
    Se existirem definições existentes no recurso, irá ver uma lista das definições já configurada neste recurso. Clique em "Adicionar definição de diagnóstico".
 
-   ![Adicionar definição de diagnóstico - existente definições](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
+   ![Adicionar definição de diagnóstico - existente definições](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
 3. Dê a definição de um nome e a caixa de verificação **enviar ao Log Analytics**, em seguida, selecione uma área de trabalho de análise de registos.
    
-   ![Adicionar definição de diagnóstico - existente definições](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
+   ![Adicionar definição de diagnóstico - existente definições](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
 4. Clique em **Guardar**.
 
@@ -83,5 +83,5 @@ Tenha em atenção que a propriedade workspaceId demora o ID de recurso do Azure
 No painel pesquisa de registo no portal ou a experiência de análise avançadas como parte da análise de registos, pode consultar os registos de diagnóstico como parte da solução de gestão do registo em tabela AzureDiagnostics. Também existem [várias soluções para os recursos do Azure](../log-analytics/log-analytics-add-solutions.md) pode instalar para obter informações imediatas sobre os dados de registo está a enviar para análise de registos.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Leia mais sobre os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)

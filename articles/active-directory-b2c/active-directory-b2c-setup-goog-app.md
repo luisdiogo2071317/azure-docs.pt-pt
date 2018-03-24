@@ -1,28 +1,25 @@
 ---
-title: "O Azure Active Directory B2C: Google + configuração | Microsoft Docs"
-description: "Forneça a inscrição e o início de sessão para consumidores com contas Google + nas aplicações que estejam protegidas pelo Azure Active Directory B2C."
+title: 'O Azure Active Directory B2C: Google + configuração | Microsoft Docs'
+description: Forneça a inscrição e o início de sessão para consumidores com contas Google + nas aplicações que estejam protegidas pelo Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 4dcca66f-29e4-4b4d-8840-50baad736bd7
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 93589352094fdd556811ba906ee27e7b8ac1d8b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: db3044754e0c1316b49eda0600d41e3009c1ba16
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>O Azure Active Directory B2C: Proporcionar inscrição e o início de sessão aos consumidores com o Google + contas
 ## <a name="create-a-google-application"></a>Criar uma aplicação do Google +
-Para utilizar o Google + como um fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação do Google + e forneça-lo com os parâmetros corretos. Necessita de uma conta do Google + para efetuar este procedimento. Se não tiver uma, pode obtê-lo em [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+Para utilizar o Google + como um fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação do Google + e forneça-lo com os parâmetros corretos. Necessita de uma conta do Google + para efetuar este procedimento. Se não tiver uma, pode obtê-lo em [ https://accounts.google.com/SignUp ](https://accounts.google.com/SignUp).
 
 1. Vá para o [consola de programadores da Google](https://console.developers.google.com/) e inicie sessão com as credenciais da conta Google +.
 2. Clique em **criar projeto**, introduza um **nome do projeto**e, em seguida, clique em **criar**.
@@ -33,7 +30,7 @@ Para utilizar o Google + como um fornecedor de identidade no Azure Active Direct
 3. Clique em **Gestor de API** e, em seguida, clique em **credenciais** no painel de navegação esquerdo.
 4. Clique em de **ecrã de consentimento do OAuth** separador no topo.
    
-    ![Google + - as credenciais](./media/active-directory-b2c-setup-goog-app/google-add-cred.png)
+    ![Google+ - Credentials](./media/active-directory-b2c-setup-goog-app/google-add-cred.png)
 5. Selecione ou especifique uma válida **endereço de correio eletrónico**, forneça um **nome de produto**e clique em **guardar**.
    
     ![Google + - ecrã de consentimento do OAuth](./media/active-directory-b2c-setup-goog-app/google-consent-screen.png)

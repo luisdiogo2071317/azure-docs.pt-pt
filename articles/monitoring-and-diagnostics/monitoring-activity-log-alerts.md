@@ -1,33 +1,32 @@
 ---
-title: Criar atividade registo alertas | Microsoft Docs
-description: "Seja notificado através de SMS, o webhook e o e-mail quando determinados eventos ocorrem no registo de atividade."
+title: Criar alertas de registo de atividade clássica | Microsoft Docs
+description: Seja notificado através de SMS, o webhook e o e-mail quando determinados eventos ocorrem no registo de atividade.
 author: johnkemnetz
-manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-activity-log-alerts"></a>Criar alertas de registo de atividade
+# <a name="create-activity-log-alerts-classic"></a>Criar atividade alertas de registo (clássica)
 
 ## <a name="overview"></a>Descrição geral
 Alertas de registo de atividade são alertas que ativar quando ocorre a um novo registo de eventos de atividade que satisfaça as condições especificadas no alerta. São recursos do Azure, pelo que pode ser criadas utilizando um modelo Azure Resource Manager. Também podem ser criados, atualizar ou eliminados no portal do Azure. Este artigo apresenta os conceitos atrás de alertas de registo de atividade. Em seguida, mostra como utilizar o portal do Azure para configurar um alerta sobre eventos de registo de atividade.
 
 > [!NOTE]
 
->  [Alertas (pré-visualização)](monitoring-overview-unified-alerts.md) atualmente oferece uma experiência melhorada no criar e gerir registos de atividade.  [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
+>  A nova [alertas](monitoring-overview-unified-alerts.md) experiência substituiu este procedimento. Este artigo é fornecido como referência para uma experiência anterior. [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
 
 Normalmente, criar atividade alertas de registo para receber notificações quando:
 
@@ -59,11 +58,11 @@ Para mais informações sobre grupos de ação, consulte o artigo [criar e gerir
 
 Para obter mais informações sobre notificações de estado de funcionamento do serviço, consulte o artigo [receber alertas de registo de atividade em notificações do Estado de funcionamento do serviço](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Criar um alerta um evento de registo de atividade com um novo grupo de ação através do portal do Azure
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Criar um alerta (clássica) um evento de registo de atividade com um novo grupo de ação através do portal do Azure
 1. No [portal](https://portal.azure.com), selecione **Monitor**.
 
     ![O serviço de "Monitor de"](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. No **registo de atividade** secção, selecione **alertas**.
+2. No **registo de atividade** secção, selecione **alertas (clássica)**.
 
     ![O separador "Alertas"](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. Selecione **Adicionar alerta de registo de atividade**e preencha os campos.

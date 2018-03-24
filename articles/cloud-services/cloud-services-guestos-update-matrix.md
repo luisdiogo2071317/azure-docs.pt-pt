@@ -1,24 +1,24 @@
 ---
-title: "Saiba mais sobre as versões de SO de convidado mais recente do Azure | Microsoft Docs"
-description: "As últimas novidades da versão e compatibilidade SDK para o SO de convidado de serviços de nuvem do Azure."
+title: Saiba mais sobre as versões de SO de convidado mais recente do Azure | Microsoft Docs
+description: As últimas novidades da versão e compatibilidade SDK para o SO de convidado de serviços de nuvem do Azure.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/27/2018
+ms.date: 3/19/2018
 ms.author: raiye
-ms.openlocfilehash: dac0efdb1ce76ad6f143479782f164d3304aeaf3
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versões de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema operativo convidado versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de um SO convidado está desativado. Se configurar as funções de utilizar *automática* atualizações de SO convidado, conforme descrito em [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -42,6 +42,9 @@ Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema oper
 Se não souber sobre que o SO convidado ou como o SO convidado liberta o trabalho? Leitura [isto](#how-it-works) secção.
 
 ## <a name="news-updates"></a>Atualizações de notícias de última hora
+###### <a name="march-19-2018"></a>**19 de Março de 2018**
+Sistema operativo convidado Fevereiro lançou.
+
 ###### <a name="january-29-2018"></a>**29 de Janeiro de 2018**
 Foi lançado o SO convidado de Janeiro de 2 de famílias de SO (WA-convidado-SO-2.70_201801-01) & 3 (WA-convidado-SO-3.57_201801-01)
 
@@ -72,12 +75,6 @@ SO de convidado de Julho foi libertado.
 ###### <a name="july-19-2017"></a>**19 de Julho de 2017**
 Implementação de SO convidado de Julho está a iniciar 19 de Julho e tem uma versão 8 de Agosto prevista.
 
-###### <a name="july-7-2017"></a>**7 de Julho de 2017**
-SO de convidado de Junho foi libertado.
-
-###### <a name="june-16-2017"></a>**16 de Junho de 2017**
-Implementação de SO convidado de Junho está a iniciar 16 de Junho e tem uma versão 11 de Julho prevista.
-
 
 ## <a name="releases"></a>Versões
 ## <a name="family-5-releases"></a>Versões de família 5
@@ -93,8 +90,9 @@ Implementação de SO convidado de Junho está a iniciar 16 de Junho e tem uma v
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.16_201802-01 |12 de Março de 2018 |Post 5.18 |TBD |
 | WA-GUEST-OS-5.15_201801-01 |4 de Janeiro de 2018 |Post 5.17 |TBD |
-| WA-GUEST-OS-5.14_201712-01 |4 de Janeiro de 2018 |Post 5.16 |TBD |
+|~~WA-GUEST-OS-5.14_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 de Dezembro de 2017 |4 de Janeiro de 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
@@ -118,8 +116,9 @@ Implementação de SO convidado de Junho está a iniciar 16 de Junho e tem uma v
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.51_201802-01 |12 de Março de 2018 |Post 4.53 |TBD |
 | WA-GUEST-OS-4.50_201801-01 |4 de Janeiro de 2018 |Post 4.52 |TBD |
-| WA-GUEST-OS-4.49_201712-01 |4 de Janeiro de 2018 |Post 4.51 |TBD |
+|~~WA-GUEST-OS-4.49_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 de Dezembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
@@ -143,8 +142,9 @@ Implementação de SO convidado de Junho está a iniciar 16 de Junho e tem uma v
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.58_201802-01 |19 de Março de 2018 |Post 3.60 |TBD |
 | WA-GUEST-OS-3.57_201801-01 |29 de Janeiro de 2018 |Post 3.59 |TBD |
-| WA-GUEST-OS-3.56_201712-01 |4 de Janeiro de 2018 |Post 3.58 |TBD |
+|~~WA-GUEST-OS-3.56_201712-01~~ |4 de Janeiro de 2018 |19 de Março de 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 de Dezembro de 2017 |29 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
@@ -168,8 +168,9 @@ Implementação de SO convidado de Junho está a iniciar 16 de Junho e tem uma v
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.71_201802-01 |12 de Março de 2018 |Post 2.73 |TBD |
 | WA-GUEST-OS-2.70_201801-01 |29 de Janeiro de 2018 |Post 2.72 |TBD |
-| WA-GUEST-OS-2.69_201712-01 |4 de Janeiro de 2018 |Post 2.71 |TBD |
+|~~WA-GUEST-OS-2.69_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 de Dezembro de 2017 |29 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |

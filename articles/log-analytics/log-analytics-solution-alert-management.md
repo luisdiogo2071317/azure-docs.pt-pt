@@ -1,8 +1,8 @@
 ---
-title: "Alerta de solução de gestão no Log Analytics do Azure | Microsoft Docs"
-description: "A solução de gestão de alertas no Log Analytics ajuda a analisar todos os alertas no seu ambiente.  Para além dos alertas consolidar gerados na análise de registos,-importa alertas de grupos de gestão do System Center Operations Manager ligados para análise de registos."
+title: Alerta de solução de gestão no Log Analytics do Azure | Microsoft Docs
+description: A solução de gestão de alertas no Log Analytics ajuda a analisar todos os alertas no seu ambiente.  Para além dos alertas consolidar gerados na análise de registos,-importa alertas de grupos de gestão do System Center Operations Manager ligados para análise de registos.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de gestão de alerta no Log Analytics do Azure
 
@@ -109,28 +109,15 @@ A solução de importar alertas do System Center Operations Manager e cria um re
 A tabela seguinte fornece pesquisas de registo de exemplo para registos alertas recolhidos por esta solução: 
 
 | Consulta | Descrição |
-|:--- |:--- |
-| Tipo = SourceSystem alerta = OpsManager AlertSeverity = erro TimeRaised > agora 24 horas |Alertas críticos gerados nas últimas 24 horas |
-| Tipo = AlertSeverity alerta = aviso TimeRaised > agora 24 horas |Alertas de aviso gerados nas últimas 24 horas |
-| Tipo = SourceSystem alerta = OpsManager AlertState! = TimeRaised fechado > agora 24 horas &#124; medida existente como contagem por SourceDisplayName |Origens com alertas ativos gerados nas últimas 24 horas |
-| Tipo = SourceSystem alerta = OpsManager AlertSeverity = erro TimeRaised > agora 24 horas AlertState! = fechado |Alertas críticos gerados nas últimas 24 horas que continuam ativos |
-| Tipo = SourceSystem alerta = OpsManager TimeRaised > agora 24 horas AlertState = fechado |Alertas gerados nas últimas 24 horas que agora estão fechadas |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |Alertas gerados durante o último dia agrupado pelo respetivo grau de gravidade |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |Alertas gerados durante o último dia, ordenados pelo respetivo valor de contagem de repetições |
-
-
->[!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), em seguida, as consultas anteriores alteraria o seguinte:
->
->| Consulta | Descrição |
 |:---|:---|
-| Alertar &#124; onde SourceSystem = = "OpsManager" e AlertSeverity = = "error" e TimeRaised > ago(24h) |Alertas críticos gerados nas últimas 24 horas |
-| Alertar &#124; onde AlertSeverity = = "aviso" e TimeRaised > ago(24h) |Alertas de aviso gerados nas últimas 24 horas |
-| Alertar &#124; onde SourceSystem = = "OpsManager" e AlertState! = "Fechado" e TimeRaised > ago(24h) &#124; resumir contagem = existente pelo SourceDisplayName |Origens com alertas ativos gerados nas últimas 24 horas |
-| Alertar &#124; onde SourceSystem = = "OpsManager" e AlertSeverity = = "error" e TimeRaised > ago(24h) e AlertState! = "Fechado" |Alertas críticos gerados nas últimas 24 horas que continuam ativos |
-| Alertar &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(24h) e AlertState = = "Fechado" |Alertas gerados nas últimas 24 horas que agora estão fechadas |
-| Alertar &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(1d) &#124; resumir contagem = existente pelo AlertSeverity |Alertas gerados durante o último dia agrupado pelo respetivo grau de gravidade |
-| Alertar &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(1d) &#124; Ordenar por RepeatCount desc |Alertas gerados durante o último dia, ordenados pelo respetivo valor de contagem de repetições |
+| Alerta &#124; onde SourceSystem = = "OpsManager" e AlertSeverity = = "error" e TimeRaised > ago(24h) |Alertas críticos gerados nas últimas 24 horas |
+| Alerta &#124; onde AlertSeverity = = "aviso" e TimeRaised > ago(24h) |Alertas de aviso gerados nas últimas 24 horas |
+| Alerta &#124; onde SourceSystem = = "OpsManager" e AlertState! = "Fechado" e TimeRaised > ago(24h) &#124; resumir contagem = existente pelo SourceDisplayName |Origens com alertas ativos gerados nas últimas 24 horas |
+| Alerta &#124; onde SourceSystem = = "OpsManager" e AlertSeverity = = "error" e TimeRaised > ago(24h) e AlertState! = "Fechado" |Alertas críticos gerados nas últimas 24 horas que continuam ativos |
+| Alerta &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(24h) e AlertState = = "Fechado" |Alertas gerados nas últimas 24 horas que agora estão fechadas |
+| Alerta &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(1d) &#124; resumir contagem = existente pelo AlertSeverity |Alertas gerados durante o último dia agrupado pelo respetivo grau de gravidade |
+| Alerta &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(1d) &#124; ordenar por RepeatCount desc |Alertas gerados durante o último dia, ordenados pelo respetivo valor de contagem de repetições |
+
 
 
 ## <a name="next-steps"></a>Passos Seguintes

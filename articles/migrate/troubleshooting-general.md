@@ -1,16 +1,16 @@
 ---
-title: "Resolver problemas de migração do Azure | Microsoft Docs"
-description: "Fornece uma descrição geral dos problemas conhecidos no serviço Azure migrar, resolução de problemas e sugestões para erros comuns."
+title: Resolver problemas de migração do Azure | Microsoft Docs
+description: Fornece uma descrição geral dos problemas conhecidos no serviço Azure migrar, resolução de problemas e sugestões para erros comuns.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 02/21/2018
+ms.date: 03/19/2018
 ms.author: raynew
-ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b2c89a980411cac02f46bc91d53620bc94fa845b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -58,7 +58,7 @@ Sim, cada chave de projeto termina com "= =". O recoletor encripta a chave de pr
 
 Isto pode ocorrer se o nível de definição de estatísticas no vCenter server estiver definido como inferior a três. Em três nível ou superior, o vCenter armazena histórico do desempenho da VM de computação, armazenamento e rede. Para três de nível inferior, vCenter não armazena o armazenamento e dados de rede, mas apenas para dados da CPU e memória. Neste cenário, dados de desempenho mostra como zero no Azure migrar e migrar do Azure fornece a recomendação de tamanho para discos e redes com base nos metadados recolhidos das máquinas no local.
 
-Para ativar a recolha de dados de desempenho de disco e da rede, altere o nível de definições de estatísticas a três. Em seguida, aguarde pelo menos um dia para detetar o seu ambiente e avaliá-lo. 
+Para ativar a recolha de dados de desempenho de disco e da rede, altere o nível de definições de estatísticas a três. Em seguida, aguarde pelo menos um dia para detetar o seu ambiente e avaliá-lo.
 
 **Posso agentes instalados e utilizados a visualização de dependência para criar grupos. Agora publique ativação pós-falha, as máquinas mostram ação "Instalar o agente", em vez de "Dependências de vista"**
 * Post planeada ou ativação pós-falha não planeada, no local as máquinas estão desativadas e do Azure são aceleradas máquinas equivalentes. Estas máquinas adquiram um endereço MAC diferente. Estes podem adquirir um endereço IP diferente, com base em se o utilizador optou por manter o endereço IP no local ou não. Se forem diferentes endereços IP e MAC, Azure migrar associa as máquinas no local quaisquer dados de dependência de mapa de serviço e pede-lhe utilizador para instalar agentes em vez de visualização de dependências.
@@ -70,28 +70,28 @@ Para ativar a recolha de dados de desempenho de disco e da rede, altere o nível
 **Issue** | **Fix**
 --- | ---
 Tipo de arranque não suportado | Azure não suporta VMs com o tipo de arranque EFI. Recomenda-se para converter o tipo de arranque BIOS antes de executar uma migração. <br/><br/>Pode utilizar [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) para fazer a migração dessas VMs irá converter o tipo de arranque da VM BIOS durante a migração.
-A contagem do disco excede o limite | Remova os discos da máquina antes da migração.
-O tamanho do disco excede o limite | Azure suporta discos com até tamanho 4 TB. Reduzir discos para menos de 4 TB antes da migração. 
-Disco indisponível na localização especificada | Certifique-se o disco na localização de destino antes de migrar.
-Disco indisponível para a redundância especificada | O disco deve utilizar o tipo de armazenamento de redundância definido nas definições de avaliação (LRS por predefinição).
-Não foi possível determinar a adequação do disco devido a um erro interno | Tente criar uma nova avaliação para o grupo. 
-Não foi encontrada uma VM com os núcleos e memória necessários | Não foi possível ao Azure ajustar um tipo VM adequado. Reduza a memória e o número de núcleos da máquina no local antes de migrar. 
-Um ou mais discos unsuitable. | Disponibilizar Certifique-se no local são de discos de 4 TB ou em antes de executar uma migração.
-Um ou mais adaptadores de rede unsuitable. | Remova os adaptadores de rede não utilizadas da máquina antes da migração.
-Não foi possível determinar a adequabilidade da VM devido a um erro interno. | Tente criar uma nova avaliação para o grupo. 
-Não foi possível determinar o adequação a um ou mais discos devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
-Não foi possível determinar o adequação a um ou mais adaptadores de rede devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
-VM não encontrada para o desempenho de armazenamento necessária. | O desempenho de armazenamento (IOPS/débito) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
-VM não encontrada para o desempenho de rede necessários. | O desempenho de rede (na/saída) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de rede da máquina. 
-VM não foi encontrado no escalão de preço especificado. | Se o escalão de preço está definido como Standard, considere downsizing da VM antes de migrar para o Azure. Se a camada de dimensionamento é básica, considere alterar o escalão de preço de avaliação Standard. 
-VM não foi encontrado na localização especificada. | Utilize outra localização de destino antes da migração.
-Sistema de operativo desconhecido | O sistema operativo da VM foi especificado como 'Outro' no vCenter Server, devido a que migrar do Azure não consegue identificar a preparação da VM do Azure. Certifique-se de que o SO em execução dentro da máquina é [suportado](https://aka.ms/azureoslist) pelo Azure antes de migrar a máquina.
 SO de Windows condicionalmente suportados | O SO passou o respetivo fim de suporte de data e tem um personalizada suporta contrato (CSA) para [suportar no Azure](https://aka.ms/WSosstatement), considere atualizar o sistema operativo antes de migrar para o Azure.
-SO de Windows não suportado | Azure só suporta [versões de SO Windows selecionadas](https://aka.ms/WSosstatement), considere atualizar o sistema operativo da máquina antes de migrar para o Azure. 
+SO de Windows não suportado | Azure só suporta [versões de SO Windows selecionadas](https://aka.ms/WSosstatement), considere atualizar o sistema operativo da máquina antes de migrar para o Azure.
 Condicionalmente aprovadas com SO Linux | Azure patrocina apenas [versões de SO Linux selecionadas](../virtual-machines/linux/endorsed-distros.md), considere atualizar o sistema operativo da máquina antes de migrar para o Azure.
 Linux unendorsed SO | O computador pode efetuar o arranque no Azure, mas sem suporte de SO é fornecido pelo Azure, considere atualizar o sistema operativo para um [aprovadas versão do Linux](../virtual-machines/linux/endorsed-distros.md) antes de migrar para o Azure
+Sistema de operativo desconhecido | O sistema operativo da VM foi especificado como 'Outro' no vCenter Server, devido a que migrar do Azure não consegue identificar a preparação da VM do Azure. Certifique-se de que o SO em execução dentro da máquina é [suportado](https://aka.ms/azureoslist) pelo Azure antes de migrar a máquina.
 Número de bits do SO não suportados | As VMs com um SO de 32 bits podem efetuar o arranque no Azure, mas recomenda-se a atualização do SO da VM de 32 bits para 64 bits antes de migrar para o Azure.
 Requer subscrição do Visual Studio. | As máquinas tem um cliente Windows SO em execução dentro do mesmo que só é suportado em subscrição do Visual Studio.
+VM não encontrada para o desempenho de armazenamento necessária. | O desempenho de armazenamento (IOPS/débito) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
+VM não encontrada para o desempenho de rede necessários. | O desempenho de rede (na/saída) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de rede da máquina.
+VM não foi encontrado no escalão de preço especificado. | Se o escalão de preço está definido como Standard, considere downsizing da VM antes de migrar para o Azure. Se a camada de dimensionamento é básica, considere alterar o escalão de preço de avaliação Standard.
+VM não foi encontrado na localização especificada. | Utilize outra localização de destino antes da migração.
+Um ou mais discos unsuitable. | Um ou mais discos ligados à VM não cumprem os requisitos do Azure. Para cada disco ligado à VM, certifique-se de que o tamanho do disco < 4 TB, caso contrário, reduzir o tamanho de disco antes de migrar para o Azure. Certifique-se de que o desempenho (IOPS/débito) necessário para cada disco é suportado pelo Azure [geridos discos da máquina virtual](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
+Um ou mais adaptadores de rede unsuitable. | Remova os adaptadores de rede não utilizadas da máquina antes da migração.
+A contagem do disco excede o limite | Remova os discos da máquina antes da migração.
+O tamanho do disco excede o limite | Azure suporta discos com até tamanho 4 TB. Reduzir discos para menos de 4 TB antes da migração.
+Disco indisponível na localização especificada | Certifique-se o disco na localização de destino antes de migrar.
+Disco indisponível para a redundância especificada | O disco deve utilizar o tipo de armazenamento de redundância definido nas definições de avaliação (LRS por predefinição).
+Não foi possível determinar a adequação do disco devido a um erro interno | Tente criar uma nova avaliação para o grupo.
+Não foi encontrada uma VM com os núcleos e memória necessários | Não foi possível ao Azure ajustar um tipo VM adequado. Reduza a memória e o número de núcleos da máquina no local antes de migrar.
+Não foi possível determinar a adequabilidade da VM devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
+Não foi possível determinar o adequação a um ou mais discos devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
+Não foi possível determinar o adequação a um ou mais adaptadores de rede devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
 
 
 ## <a name="collect-logs"></a>Recolher registos
@@ -122,27 +122,46 @@ Para recolher o rastreio de eventos para o Windows, efetue o seguinte:
  - No Edge/IE, clique em de **exportação capturado o tráfego** ícone. Isto zips e exporta o registo.
 6. Navegue para o **consola** separador para verificar a existência de avisos ou erros. Para guardar o registo da consola:
  - No Chrome, clique com botão direito em qualquer local no registo de consola. Selecione **guardar como**, para exportar e zip o registo.
- - No Edge/IE, clique com botão direito sobre os erros e selecione **copie todos os**. 
+ - No Edge/IE, clique com botão direito sobre os erros e selecione **copie todos os**.
 7. Feche as ferramentas de programador.
- 
+
 
 ## <a name="vcenter-errors"></a>vCenter erros
 
 ### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ocorreu um erro interno de UnhandledException erro: System.IO.FileNotFoundException
 
-Este é um problema visto no Recoletor com versões inferiores à 1.0.9.5. Se tiver uma versão de Recoletor 1.0.9.2 ou versões de pré-GA como 1.0.8.59, irá sentir alguns este problema. Siga o [ligação fornecido aqui para os fóruns para uma resposta de detalhado](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+Este é um problema visto no Recoletor com versões anteriores à 1.0.9.5. Se tiver uma versão de Recoletor 1.0.9.2 ou versões de pré-GA como 1.0.8.59, irá deparar-se com este problema. Siga a ligação [aqui apresentada para os fóruns para obter uma resposta detalhada](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
 
-[Atualizar o Recoletor para corrigir o problema](https://aka.ms/migrate/col/checkforupdates).
+[Atualize o Recoletor para corrigir o problema](https://aka.ms/migrate/col/checkforupdates).
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
 Não é possível ligar ao vCenter Server "Servername.com:9443" devido ao erro: não ocorreu nenhum ponto final à escuta em https://Servername.com:9443/sdk que pudesse aceitar a mensagem.
 
-Isto acontece quando o Recoletor não é possível resolver o nome do servidor vCenter especificado ou a porta speficified máquina está errado. Por predefinição, se a porta não for especificada, Recoletor irá tentar estabelecer ligação com o número da porta 443.
+Isto acontece quando a máquina do Recoletor não consegue resolver o nome do servidor do vCenter especificado ou a porta especificada está errada. Por predefinição, se a porta não for especificada, o Recoletor irá tentar ligar à porta número 443.
 
-1. Tente enviar um ping Servername.com da máquina do Recoletor.
-2. Se falhar o passo 1, tente estabelecer ligação com o servidor vCenter ao longo do endereço IP.
-3. Identifica o número de porta correta para ligar ao vCenter.
-4. Por fim, verifique se o servidor vCenter está a funcionar.
- 
+1. Tente enviar um ping ao Servername.com a partir da máquina do Recoletor.
+2. Se o passo 1 falhar, tente ligar ao servidor do vCenter através do endereço IP.
+3. Identifique o número de porta correto para ligar ao vCenter.
+4. Por fim, verifique se o servidor do vCenter está em execução.
 
+## <a name="collector-error-codes-and-recommended-actions"></a>Códigos de erro do recoletor e ações recomendadas
+
+|           |                                |                                                                               |                                                                                                       |                                                                                                                                            | 
+|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------| 
+| Código de Erro | Nome de erro                      | Mensagem                                                                       | Causas possíveis                                                                                        | Ação recomendada                                                                                                                          | 
+| 601       | CollectorExpired               | O recoletor expirou.                                                        | Recoletor Expirado.                                                                                    | Transfira uma nova versão do recoletor e tente novamente.                                                                                      | 
+| 751       | UnableToConnectToServer        | Não foi possível ligar ao vCenter Server "%Name;" devido ao erro: %ErrorMessage;     | Consulte a mensagem de erro para obter detalhes.                                                             | Resolva o problema e tente novamente.                                                                                                           | 
+| 752       | InvalidvCenterEndpoint         | O servidor "%Name;" não é um vCenter Server.                                  | Forneça o vCenter detalhes do servidor.                                                                       | Tente novamente a operação com os detalhes do vCenter Server corretos.                                                                                   | 
+| 753       | InvalidLoginCredentials        | Não é possível ligar ao vCenter Server "% Name;" devido ao erro: % ErrorMessage; | A ligação ao servidor vCenter falhou devido a credenciais de início de sessão inválido.                             | Certifique-se de que as credenciais de início de sessão fornecidas estão corretas.                                                                                    | 
+| 754       | NoPerfDataAvaialable           | Dados de desempenho não disponíveis.                                               | Verifique o nível de estatísticas no vCenter Server. Deve ser definido para 3 para dados de desempenho estar disponível. | Alterar a estatísticas de nível 3 (5 minutos, 30 minutos e a duração de 2 horas) e tente depois de aguardar pelo menos um dia.                   | 
+| 756       | NullInstanceUUID               | Encontrou uma máquina com InstanceUUID nulo                                  | Servidor vCenter pode ter um objeto inadequado.                                                      | Resolva o problema e tente novamente.                                                                                                           | 
+| 757       | VMNotFound                     | Máquina virtual não foi encontrada                                                  | Máquina virtual podem ser eliminada: % VMID;)                                                                | Certifique-se de que as máquinas virtuais selecionadas ao âmbito vCenter inventário existe durante a deteção                                      | 
+| 758       | GetPerfDataTimeout             | VCenter pedido excedeu o tempo limite. Mensagem % Message;                                  | as credenciais do servidor vCenter estão incorretas                                                              | Verifique as credenciais do servidor vCenter e certifique-se de que servidor vCenter está acessível. Repita a operação. Se o problema persistir, contacte o suporte. | 
+| 759       | VmwareDllNotFound              | VMWare.Vim DLL não encontrada.                                                     | PowerCLI não está instalado corretamente.                                                                   | Verifique se PowerCLI se encontra corretamente instalado. Repita a operação. Se o problema persistir, contacte o suporte.                               | 
+| 800       | ServiceError                   | O serviço do Recoletor do Azure Migrate não está em execução.                               | O serviço do Recoletor do Azure Migrate não está em execução.                                                       | Utilize o services.msc para iniciar o serviço e repita a operação.                                                                             | 
+| 801       | PowerCLIError                  | Falha na instalação do VMware PowerCLI.                                          | Falha na instalação do VMware PowerCLI.                                                                  | Repita a operação. Se o problema persistir, instale-a manualmente e repita a operação.                                                   | 
+| 802       | TimeSyncError                  | A hora não está sincronizada com o servidor de horas da internet.                            | A hora não está sincronizada com o servidor de horas da internet.                                                    | Certifique-se de que a hora da máquina com precisão está definido para o fuso horário do computador e repita a operação.                                 | 
+| 702       | OMSInvalidProjectKey           | Chave de projeto inválida especificada.                                                | Chave de projeto inválida especificada.                                                                        | Repita a operação com a chave de projeto correta.                                                                                              | 
+| 703       | OMSHttpRequestException        | Erro ao enviar o pedido. Mensagem % Message;                                | Verifique o ID de projeto e a chave e certifique-se de que esse ponto final está acessível.                                       | Repita a operação. Se o problema persistir, contacte o Suporte da Microsoft.                                                                     | 
+| 704       | OMSHttpRequestTimeoutException | Pedido HTTP excedeu o tempo limite. Mensagem % Message;                                     | Verifique o id e a chave do projeto e certifique-se de que ponto final está alcançável.                                        | Repita a operação. Se o problema persistir, contacte o Suporte da Microsoft.                                                                     | 

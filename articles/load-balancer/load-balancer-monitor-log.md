@@ -1,5 +1,5 @@
 ---
-title: "Monitorizar operações, eventos e contadores de Balanceador de carga | Microsoft Docs"
+title: Monitorizar operações, eventos e contadores de Balanceador de carga | Microsoft Docs
 description: Saiba como ativar a eventos de alerta e a sonda de registo de estado de funcionamento para o Balanceador de carga do Azure
 services: load-balancer
 documentationcenter: na
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Log Analytics para o Balanceador de Carga do Azure
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+>[!NOTE] 
+>O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para mais informações sobre o Balanceador de carga padrão, consulte [descrição geral do Balanceador de carga padrão](load-balancer-standard-overview.md).
 
 Pode utilizar diferentes tipos de registos no Azure para gerir e resolver problemas de balanceadores de carga. Alguns destes registos podem ser acedidos através do portal. Todos os registos podem ser extraídos de armazenamento de Blobs do Azure e visualizados em diferentes ferramentas, como o Excel e o Power BI. Pode saber mais sobre os diferentes tipos de registos da lista abaixo.
 

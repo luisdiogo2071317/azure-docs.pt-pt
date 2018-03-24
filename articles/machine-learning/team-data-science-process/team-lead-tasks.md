@@ -1,11 +1,11 @@
 ---
-title: "Equipa dados ciência processo equipa levar tarefas - Azure | Microsoft Docs"
-description: "Uma descrição das tarefas de uma equipa levar num projeto de equipa de ciência de dados."
-documentationcenter: 
+title: Equipa dados ciência processo equipa levar tarefas - Azure | Microsoft Docs
+description: Uma descrição das tarefas de uma equipa levar num projeto de equipa de ciência de dados.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 995ad557eb06e545b1813e1f4631e243a98830b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="team-lead-tasks"></a>Tarefas de fabrico de equipa
 
@@ -106,11 +106,11 @@ Conclua este passo se estiver a utilizar VSTS como o código de plataforma para 
 
 ### <a name="create-the-myprojecttemplate-repository-r3-on-git"></a>Criar repositório MyProjectTemplate (R3) no Git
 
-- Na página de repositório de Git do seu projeto de equipa, clique na seta ao lado do nome do repositório descendente **MyTeam**e selecione **gerir repositórios...** .
+- Na página de repositório de Git do seu projeto de equipa, clique na seta ao lado do nome do repositório descendente **MyTeam**e selecione **gerir repositórios... **.
 
     ![6](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
 
-- No **controlo de versão** separador do painel de controlo do seu projeto de equipa, clique em **MyTeam**, em seguida, selecione **repositório de mudança de nome...** . 
+- No **controlo de versão** separador do painel de controlo do seu projeto de equipa, clique em **MyTeam**, em seguida, selecione **repositório de mudança de nome... **. 
 
     ![7](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
 
@@ -120,7 +120,7 @@ Conclua este passo se estiver a utilizar VSTS como o código de plataforma para 
 
 ### <a name="create-the-myteamutilities-repository-r4-on-git"></a>Criar repositório MyTeamUtilities (R4) no Git
 
-- Para criar um novo repositório de *< nome da sua equipa\>utilitários* no seu projeto de equipa, clique em **novo repositório de...**  no **controlo de versão** separador do seu projeto de equipa painel de controlo.  
+- Para criar um novo repositório de *< nome da sua equipa\>utilitários* no seu projeto de equipa, clique em **novo repositório de... ** no **controlo de versão** separador do seu projeto de equipa painel de controlo.  
 
     ![9](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
 
@@ -183,7 +183,7 @@ Estes comandos clonagem o **GroupProjectTemplate** repositório (R1) no servidor
 
 ### <a name="clone-your-team-repositories-into-local-directories"></a>Clonar os repositórios de equipa em diretórios locais
 
-Estes comandos clonagem o **MyTeamProjectTemplate** (R3) e **MyTeamUtilities** repositórios (R4) no seu projeto de equipa **MyTeam** no seu servidor VSTS de grupo para o  **MyTeamProjectTemplate** (D3) e **MyTeamUtilities** (D4) diretórios no **GitRepos\MyTeam** no seu computador local. 
+Estes comandos clonagem o **MyTeamProjectTemplate** (R3) e **MyTeamUtilities** repositórios (R4) no seu projeto de equipa **MyTeam** no seu servidor VSTS de grupo para o ** MyTeamProjectTemplate** (D3) e **MyTeamUtilities** (D4) diretórios no **GitRepos\MyTeam** no seu computador local. 
 
 - Mude para diretório **GitRepos\MyTeam**
 - Execute os seguintes comandos, conforme adequado, no sistema operativo da sua máquina local. 
@@ -208,7 +208,7 @@ Após a clonagem, dois diretórios **MyTeamProjectTemplate** (D3) e **MyTeamUtil
 
 Para copiar o conteúdo do local **GroupProjectTemplate** (D1) pasta local **MyTeamProjectTemplate** (D3), execute um dos seguintes scripts de shell: 
 
-####<a name="from-the-powershell-command-line-for-windows"></a>A partir do PowerShell da linha de comandos para Windows        
+#### <a name="from-the-powershell-command-line-for-windows"></a>A partir do PowerShell da linha de comandos para Windows       
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -216,7 +216,7 @@ Para copiar o conteúdo do local **GroupProjectTemplate** (D1) pasta local **MyT
     
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####<a name="from-the-linux-shell-for-the-linux-dsvm"></a>A partir da shell do Linux para o **DSVM do Linux**
+#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>A partir da shell do Linux para o **DSVM do Linux**
     
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 2
@@ -388,7 +388,7 @@ Certifique-se de que uma nova unidade F foi montada com êxito à máquina.
 
 **Como introduzir manualmente as informações do armazenamento de ficheiros do Azure:** se não tiver as informações de armazenamento de ficheiros do Azure num ficheiro de texto, pode seguir as instruções no ecrã seguinte para o tipo na subscrição obrigatório, conta de armazenamento e do Azure informações do armazenamento de ficheiros:
 
-- Entrada  **n** .
+- Entrada **n**.
 - Selecione o índice com o nome de subscrição onde o file storage do Azure foi criado no passo anterior:
 
     ![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)
@@ -408,7 +408,7 @@ Na home page do grupo VSTS do seu servidor, clique em de **engrenagem ícone** j
 
 ![44](./media/team-lead-tasks/team-leads-44-add-team-members.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Seguem-se ligações para as descrições das funções e tarefas definidas pelo processo de ciência de dados de equipa mais detalhadas:
 

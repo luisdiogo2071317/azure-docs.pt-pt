@@ -1,24 +1,24 @@
 ---
 title: Como criar imagens de VM do Windows Azure com Packer | Microsoft Docs
-description: "Saiba como utilizar Packer criar imagens de máquinas virtuais do Windows no Azure"
+description: Saiba como utilizar Packer criar imagens de máquinas virtuais do Windows no Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: b5030e12743ca81b74502e31767eb6b2e05e444f
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: b53b301a45fb7482aa05f24b386b79fcedc148e2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como utilizar Packer para criar imagens de máquina virtual do Windows no Azure
 Cada máquina virtual (VM) no Azure é criada a partir de uma imagem que define a distribuição do Windows e a versão do SO. Imagens podem incluir aplicações pré-instaladas e configurações. No Azure Marketplace disponibiliza várias imagens primeira e de terceiros para mais comuns SO e ambientes de aplicação, ou pode criar as suas próprias imagens personalizadas e adaptadas às suas necessidades. Este artigo fornece detalhes sobre como utilizar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e criar imagens personalizadas no Azure.
@@ -27,7 +27,7 @@ Cada máquina virtual (VM) no Azure é criada a partir de uma imagem que define 
 ## <a name="create-azure-resource-group"></a>Criar grupo de recursos do Azure
 Durante o processo de compilação, Packer cria temporários recursos do Azure baseia-se a VM de origem. Para essa VM de origem para utilização como uma imagem de captura, tem de definir um grupo de recursos. A saída do processo de compilação de Packer é armazenada neste grupo de recursos.
 
-Criar um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroup* no *eastus* localização:
+Criar um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -59,17 +59,17 @@ Utilize estes dois IDs no próximo passo.
 
 
 ## <a name="define-packer-template"></a>Definir Packer modelo
-Para criar imagens, crie um modelo como um ficheiro JSON. O modelo, é possível definir construtores e provisioners realizar o processo de compilação real. Packer tem um [provisioner para o Azure](https://www.packer.io/docs/builders/azure.html) que permite-lhe definir os recursos do Azure, tais como as credenciais de principal de serviço criadas no precedente passo.
+Para criar imagens, crie um modelo como um ficheiro JSON. O modelo, é possível definir construtores e provisioners realizar o processo de compilação real. Packer tem um [construtor para o Azure](https://www.packer.io/docs/builders/azure.html) que permite-lhe definir os recursos do Azure, tais como as credenciais de principal de serviço criadas no precedente passo.
 
 Crie um ficheiro denominado *windows.json* e cole o seguinte conteúdo. Introduza os seus próprios valores para o seguinte:
 
 | Parâmetro                           | Onde obtê |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | ID de principal de serviço de vista com`$sp.applicationId` |
-| *client_secret*                     | Palavra-passe especificada no`$securePassword` |
+| *client_id*                         | ID de principal de serviço de vista com `$sp.applicationId` |
+| *client_secret*                     | Palavra-passe especificada no `$securePassword` |
 | *tenant_id*                         | O resultado da `$sub.TenantId` comando |
-| *SUBSCRIPTION_ID*                   | O resultado da `$sub.SubscriptionId` comando |
-| *object_id*                         | ID de objeto principal do serviço de vista com`$sp.Id` |
+| *subscription_id*                   | O resultado da `$sub.SubscriptionId` comando |
+| *object_id*                         | ID de objeto principal do serviço de vista com `$sp.Id` |
 | *managed_image_resource_group_name* | Nome do grupo de recursos que criou no primeiro passo |
 | *managed_image_name*                | Nome para a imagem de disco gerido que é criada |
 
@@ -110,8 +110,8 @@ Crie um ficheiro denominado *windows.json* e cole o seguinte conteúdo. Introduz
     "type": "powershell",
     "inline": [
       "Add-WindowsFeature Web-Server",
-      "if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force}",
-      "& $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /shutdown /quiet"
+      "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
+      "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"
     ]
   }]
 }
@@ -281,7 +281,7 @@ Demora alguns minutos para criar a VM a partir da sua imagem Packer.
 
 
 ## <a name="test-vm-and-iis"></a>Testar a VM e IIS
-Obter o endereço IP público da sua VM com [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIP* criado anteriormente:
+Obtenha o endereço IP público da sua VM com [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIP* criado anteriormente:
 
 ```powershell
 Get-AzureRmPublicIPAddress `
@@ -289,7 +289,7 @@ Get-AzureRmPublicIPAddress `
     -Name "myPublicIP" | select "IpAddress"
 ```
 
-Em seguida, pode introduzir o endereço IP público para um web browser.
+Em seguida, pode introduzir o endereço IP público num browser.
 
 ![Site predefinido do IIS](./media/build-image-with-packer/iis.png) 
 

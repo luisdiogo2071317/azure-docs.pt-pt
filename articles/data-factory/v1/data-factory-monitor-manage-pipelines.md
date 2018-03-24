@@ -1,11 +1,10 @@
 ---
 title: Monitorizar e gerir pipelines com o portal do Azure e o PowerShell | Microsoft Docs
-description: "Saiba como utilizar o portal do Azure e o Azure PowerShell para monitorizar e gerir as fábricas de dados do Azure e os pipelines que criou."
+description: Saiba como utilizar o portal do Azure e o Azure PowerShell para monitorizar e gerir as fábricas de dados do Azure e os pipelines que criou.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b361ca67ebece9ba1ced1010835eb90586dd7359
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: f3fb7c0be6f69f15b5b761f0c36d983f008282e9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorizar e gerir pipelines do Azure Data Factory com o portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -134,10 +133,10 @@ Os setores de conjunto de dados na fábrica de dados podem ter um dos seguintes 
 <td>Pronto</td><td>-</td><td>O setor está pronto para consumo.</td>
 </tr>
 <tr>
-<td>Ignorada</td><td>Nenhum</td><td>O setor não está a ser processado.</td>
+<td>Ignorada</td><td>Nenhuma</td><td>O setor não está a ser processado.</td>
 </tr>
 <tr>
-<td>Nenhuma</td><td>-</td><td>Um setor existia com um Estado diferente, mas foi reposto.</td>
+<td>Nenhum</td><td>-</td><td>Um setor existia com um Estado diferente, mas foi reposto.</td>
 </tr>
 </table>
 
@@ -624,7 +623,7 @@ Substitua *subscriptionId*, *resourceGroupName*, e *dataFactoryName* na amostra 
 * FailedRuns
 * SuccessfulRuns
 
-Implementar o alerta
+**Implementar o alerta**
 
 Para implementar o alerta, utilize o cmdlet PowerShell do Azure **New-AzureRmResourceGroupDeployment**, conforme mostrado no exemplo seguinte:
 

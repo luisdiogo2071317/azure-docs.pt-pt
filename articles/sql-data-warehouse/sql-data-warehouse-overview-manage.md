@@ -1,11 +1,11 @@
 ---
 title: Gerir bases de dados no Azure SQL Data Warehouse | Microsoft Docs
-description: "Descrição geral da gestão de bases de dados do armazém de dados do SQL Server. Inclui ferramentas de gestão, as DWUs e o desempenho de escalamento horizontal, resolução de problemas de desempenho das consultas, estabelecer políticas boa segurança e restaurar uma base de dados de Corrupção de dados ou a partir de uma falha regional."
+description: Descrição geral da gestão de bases de dados do armazém de dados do SQL Server. Inclui ferramentas de gestão, as DWUs e o desempenho de escalamento horizontal, resolução de problemas de desempenho das consultas, estabelecer políticas boa segurança e restaurar uma base de dados de Corrupção de dados ou a partir de uma falha regional.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 8576fdb3-71fe-4b3b-a4e0-5e8a7f148acf
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Gerir bases de dados no Azure SQL Data Warehouse
 O SQL Data Warehouse automatiza vários aspetos da gestão de bases de dados. Por exemplo, para aumentar o desempenho apenas terá de ajustar e paga para o nível adequado de recursos de computação e, em seguida, permita que o SQL Data Warehouse fazer todo o trabalho de ampliar e dimensionamento novamente.

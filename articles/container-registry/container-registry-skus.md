@@ -1,18 +1,18 @@
 ---
 title: SKUs de registo de contentor do Azure
-description: "Compare os diferentes escalões de serviço disponíveis no registo de contentor do Azure."
+description: Compare os diferentes escalões de serviço disponíveis no registo de contentor do Azure.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c9b8e072b5ccd89c27d9c46407e472d6bf1e1e84
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-registry-skus"></a>SKUs de registo de contentor do Azure
 
@@ -37,11 +37,11 @@ O básicas, Standard e Premium SKUs coletivamente são conhecidos como *geridos*
 
 ### <a name="managed-basic-standard-premium"></a>Gerido (básico, Standard, Premium)
 
-Os registos do geridos são apoiados por uma conta de armazenamento do Azure gerida pelo Azure. Ou seja, a conta de armazenamento que armazena as imagens não aparece na sua subscrição do Azure. Existem vários benefícios adquiridos utilizando um registo gerido SKUs, abordado aprofundada no [atualizar um registo de clássico][container-registry-upgrade]. Este artigo incida nos SKUs de registo gerido e as respetivas capacidades.
+Gerido benefício de registos do armazenamento de imagem gerido completamente pelo Azure. Ou seja, uma conta de armazenamento que armazena as imagens não aparece na sua subscrição do Azure. Existem vários benefícios adquiridos utilizando um registo gerido SKUs, abordado aprofundada no [armazenamento de imagem do contentor no registo de contentor do Azure][container-registry-storage]. Este artigo incida nos SKUs de registo gerido e as respetivas capacidades.
 
 ### <a name="unmanaged-classic"></a>Não gerida (clássica)
 
-Os registos do clássicos são "não serão geridos" na medida em que reside a conta de armazenamento que efetua uma cópia de um registo de clássico no *sua* subscrição do Azure. Como tal, são responsáveis pela gestão da conta de armazenamento na qual são armazenadas as imagens de contentor. Com os registos não geridos, não pode mudar-se entre os SKUs como alterar às suas necessidades (diferente de [atualizar] [ container-registry-upgrade] um registo geridos), e várias funcionalidades de registos geridos não estão disponíveis (por exemplo, eliminação da imagem de contentor, [georreplicação] [ container-registry-geo-replication] e [webhooks][container-registry-webhook]).
+Os registos do clássicos são "não serão geridos" na medida em que reside a conta de armazenamento que efetua uma cópia de um registo de clássico no *sua* subscrição do Azure. Como tal, são responsáveis pela gestão da conta de armazenamento na qual são armazenadas as imagens de contentor. Com os registos não geridos, não pode mudar-se entre os SKUs como alterar às suas necessidades (diferente de [atualizar] [ container-registry-upgrade] um registo geridos), e várias funcionalidades de registos geridos não estão disponíveis (por exemplo, eliminação da imagem de contentor, [georreplicação][container-registry-geo-replication], e [webhooks][container-registry-webhook]).
 
 Para obter mais informações sobre a atualização de registo do clássico para uma dos SKUs geridos, consulte [atualizar um registo de clássico][container-registry-upgrade].
 
@@ -103,4 +103,5 @@ Submeter e votar em novas sugestões de funcionalidades no [ACR UserVoice][conta
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md

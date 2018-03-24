@@ -1,10 +1,11 @@
 ---
-title: "Soluções de galeria do Azure AI | Microsoft Docs"
-description: "Detete soluções na Galeria de AI do Azure."
+title: Soluções de galeria do Azure AI | Microsoft Docs
+description: Detete soluções na Galeria de AI do Azure.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: c0be3f10-9e54-4fc1-b5df-725c2e919f65
 ms.service: machine-learning
@@ -13,24 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 8e8a6ca078e43f757a4f0eb532af35da97513d17
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a07c517ac3bfeabc1fe87ead07083c9b8b61dc7f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Detetar soluções na galeria do Azure de AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="solutions"></a>Soluções
-A  **[solução](https://gallery.cortanaintelligence.com/solutions)**  na Galeria fornece um início rápido para criar rapidamente Cortana Intelligence soluções de soluções pré-configuradas, arquiteturas de referência e padrões de conceção.
+A **[solução](https://gallery.cortanaintelligence.com/solutions)** na Galeria fornece um início rápido para criar rapidamente Cortana Intelligence soluções de soluções pré-configuradas, arquiteturas de referência e padrões de conceção.
 Torne-os seus com as instruções incluídas ou com um parceiro em destaque.  
 
 ## <a name="discover"></a>Descobrir
   Para procurar soluções na galeria, abra o [galeria](http://gallery.cortanaintelligence.com) e clique em **soluções** na parte superior da home page da galeria.
 
- O  **[soluções](https://gallery.cortanaintelligence.com/solutions)**  página apresenta uma lista das soluções mais recentemente adicionadas.
+ O **[soluções](https://gallery.cortanaintelligence.com/solutions)** página apresenta uma lista das soluções mais recentemente adicionadas.
 Clique em **ver todos os** para ver todas as soluções.
 Nesta página, pode procurar todas as soluções na galeria. Também pode pesquisar ao selecionar os critérios de filtro no lado esquerdo da página e entrar termos de pesquisa na parte superior.
 
@@ -45,7 +45,7 @@ Se pretender utilizar uma solução, clique em **implementar**. Siga os passos a
 
 ![Implementar uma solução de galeria](./media/gallery-solutions/deploy-solution.png)
 
-**[COLOCAR-ME PARA THE GALERIA >>](http://gallery.cortanaintelligence.com)**
+**[COLOCAR-ME PARA THE GALERIA &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

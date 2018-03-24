@@ -1,11 +1,11 @@
 ---
 title: Criar os acionadores de janela em cascata no Azure Data Factory | Microsoft Docs
-description: "Saiba como criar um acionador no Azure Data Factory que é executado um pipeline numa janela em cascata."
+description: Saiba como criar um acionador no Azure Data Factory que é executado um pipeline numa janela em cascata.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: 1f026683ebc9b3d2bc935cd78aa9d16684e7db40
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 312072a5de21ff1c6b602fed93b77c564b15a9f1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Criar um acionador que é executado um pipeline numa janela em cascata
 Este artigo fornece os passos para criar, iniciar e monitorizar um acionador de janela em cascata. Para obter informações gerais sobre acionadores e os tipos suportados, consulte [acionadores e da execução de Pipeline](concepts-pipeline-execution-triggers.md).
 
 > [!NOTE]
-> Este artigo aplica-se ao Azure Data Factory versão 2, que está atualmente em pré-visualização. Se estiver a utilizar o Azure Data Factory versão 1, que é geralmente disponível (DG), consulte [introdução ao Azure Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Este artigo aplica-se à versão 2 do Azure Data Factory, atualmente disponível em modo de pré-visualização. Se estiver a utilizar o Azure Data Factory versão 1, que é geralmente disponível (DG), consulte [introdução ao Azure Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Os acionadores de janela em cascata são um tipo de acionador que é acionado num intervalo de tempo periódico a partir de uma hora de início especificada, mantendo o estado. Em cascata windows são uma série de intervalos de tempo de tamanho fixo, sem sobreposição e contíguos. Um acionador de janela em cascata tem uma relação unívoca com um pipeline e só pode referenciar um pipeline único.
+Os acionadores de janela em cascata são um tipo de acionador que é acionado num intervalo de tempo periódico a partir de uma hora de início especificada, mantendo o estado. As janelas em cascata são uma série de intervalos de tempo com tamanho fixo, não sobrepostos e contínuos. Um acionador de janela em cascata tem uma relação unívoca com um pipeline e só pode referenciar um pipeline único.
 
 ## <a name="tumbling-window-trigger-type-properties"></a>Em cascata as propriedades de tipo de Acionador de janela
 Uma janela em cascata tem as seguintes propriedades de tipo do acionador:
@@ -77,7 +77,7 @@ A tabela seguinte fornece uma descrição dos elementos principais de JSON que e
 | **type** | O tipo do acionador. O tipo é o valor fixo "TumblingWindowTrigger." | Cadeia | "TumblingWindowTrigger" | Sim |
 | **runtimeState** | O estado atual do acionador tempo de execução.<br/>**Tenha em atenção**: este elemento está \<readOnly >. | Cadeia | "Iniciado", "parado," "Desativado" | Sim |
 | **frequency** | Uma cadeia que representa a unidade de frequência (minutos ou horas) em que o acionador voltar a ocorrer. Se o **startTime** valores de data são mais granulares do que o **frequência** valor, o **startTime** datas são consideradas quando são calculados os limites de janela. Por exemplo, se o **frequência** valor é de hora a hora e a **startTime** valor é 2016-04-01T10:10:10Z, a primeira janela é (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Cadeia | "minutos", "horas"  | Sim |
-| **interval** | Um número inteiro positivo que indica o intervalo para o **frequência** valor, que determina a frequência de execução do acionador. Por exemplo, se o **intervalo** é 3 e o **frequência** é "horas", o acionador voltar a ocorrer a cada 3 horas. | Número inteiro | Um número inteiro positivo. | Sim |
+| **interval** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** é 3 e o **frequência** é "horas", o acionador voltar a ocorrer a cada 3 horas. | Número inteiro | Um número inteiro positivo. | Sim |
 | **startTime**| A primeira ocorrência, que pode ser passado. O primeiro intervalo de Acionador é (**startTime**, **startTime** + **intervalo**). | DateTime | Um valor de DateTime. | Sim |
 | **endTime**| A última ocorrência, que pode ser passado. | DateTime | Um valor de DateTime. | Sim |
 | **delay** | A quantidade de tempo para atrasar o início do processamento de dados para a janela. O pipeline executar é iniciado depois do tempo de execução esperado e a quantidade de **atraso**. O **atraso** define quanto o acionador aguarda posterior à hora devida antes de acionar uma execução de novo. O **atraso** não alterar a janela **startTime**. Por exemplo, um **atraso** valor 10:00:00 implica um atraso de 10 minutos. | Timespan  | Um valor de tempo em que a predefinição é 00:00:00. | Não |

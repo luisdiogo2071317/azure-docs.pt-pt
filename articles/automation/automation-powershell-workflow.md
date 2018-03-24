@@ -1,6 +1,6 @@
 ---
-title: "Aprendizagem de fluxo de trabalho do PowerShell para a automatização do Azure"
-description: "Este artigo destina-se como um lesson rápida para autores familiarizados com o PowerShell para compreender as diferenças entre o PowerShell e fluxo de trabalho do PowerShell e conceitos aplicáveis para runbooks de automatização específicas."
+title: Aprendizagem de fluxo de trabalho do PowerShell para a automatização do Azure
+description: Este artigo destina-se como um lesson rápida para autores familiarizados com o PowerShell para compreender as diferenças entre o PowerShell e fluxo de trabalho do PowerShell e conceitos aplicáveis para runbooks de automatização específicas.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b8d78d6dfd258fb51e7b30832b6c214c67ac0fec
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 32f991f0b0017e673828b1ceb832511e118efa92
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Conceitos chave do fluxo de trabalho do Windows PowerShell para runbooks de automatização de aprendizagem 
 Os Runbooks na automatização do Azure são implementados como fluxos de trabalho do Windows PowerShell.  Um fluxo de trabalho do Windows PowerShell é semelhante a um script do Windows PowerShell, mas com algumas diferenças significativas que podem ser confusas para um novo utilizador.  Embora este artigo destina-se para o ajudar a escrever runbooks com o fluxo de trabalho do PowerShell, recomendamos que escrever runbooks com o PowerShell, a menos que precisa de pontos de verificação.  Existem várias diferenças de sintaxe durante a criação de runbooks do fluxo de trabalho do PowerShell e estas diferenças requerem um pouco mais trabalho escrever fluxos de trabalho efetivos.  

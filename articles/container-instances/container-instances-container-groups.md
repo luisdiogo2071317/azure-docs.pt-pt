@@ -1,19 +1,19 @@
 ---
-title: "Grupos de contentor de instâncias de contentor do Azure"
-description: "Compreender como funcionam os grupos de contentor em instâncias de contentor do Azure"
+title: Grupos de contentor de instâncias de contentor do Azure
+description: Compreender como funcionam os grupos de contentor em instâncias de contentor do Azure
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3b1eeebacb55ffc7af4e2014f26dd9d5643f5478
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contentor em instâncias de contentor do Azure
 
@@ -21,7 +21,7 @@ O recurso de nível superior em instâncias de contentor do Azure está a *grupo
 
 ## <a name="how-a-container-group-works"></a>Como funciona um grupo contentor
 
-Um grupo contentor é uma coleção de contentores que obter agendada no mesmo computador anfitrião. Os contentores de um grupo contentor partilham um ciclo de vida, rede local e volumes de armazenamento. É semelhante ao conceito de uma *pod* no [Kubernetes] [ kubernetes-pod] e [DC/SO][dcos-pod].
+Um grupo contentor é uma coleção de contentores que obter agendada no mesmo computador anfitrião. Os contentores de um grupo contentor partilham um ciclo de vida, rede local e volumes de armazenamento. É semelhante no conceito a um *pod* no [Kubernetes] [ kubernetes-pod] e [DC/SO][dcos-pod].
 
 O diagrama seguinte mostra um exemplo de um grupo contentor, que inclui vários contentores:
 
@@ -38,15 +38,15 @@ Este grupo de contentor de exemplo:
 > [!NOTE]
 > Os grupos de contentor multi são atualmente restritos para contentores de Linux. Enquanto estamos a trabalhar para colocar todas as funcionalidades de contentores do Windows, pode encontrar as diferenças da plataforma atual em [Quotas e disponibilidade das regiões do Azure Container Instances](container-instances-quotas.md).
 
-### <a name="deployment"></a>Implementação
+## <a name="deployment"></a>Implementação
 
-**Grupos de contentor** tem uma alocação de recursos mínimo de 1 vCPU e 1 GB de memória. Individuais **contentores** pode ser aprovisionado com menos de 1 vCPU e 1 GB de memória. Dentro de um grupo contentor, a distribuição de recursos pode ser personalizada para vários contentores dentro dos limites de estabelecer o nível de grupo do contentor. Por exemplo, dois contentores com vCPU 0.5 que reside num grupo contentor atribuído 1 vCPU.
+Contentor *grupos* tem uma alocação de recursos mínimo de 1 vCPU e 1 GB de memória. Individuais *contentores* num contentor, grupo pode ser aprovisionado com menos de 1 vCPU e 1 GB de memória. Dentro de um grupo contentor, a distribuição de recursos pode ser personalizada para vários contentores dentro dos limites de estabelecer o nível de grupo de contentor. Por exemplo, dois contentores cada com vCPU 0.5 que reside num grupo de contentor que atribuiu 1 vCPU.
 
-### <a name="networking"></a>Redes
+## <a name="networking"></a>Redes
 
 Grupos de contentor partilham um endereço IP e um espaço de nomes de porta nesse endereço IP. Para permitir aos clientes externos atingir um contentor dentro do grupo, tem de expor a porta no endereço IP de e para o contentor. Porque contentores dentro do grupo de partilham de um espaço de nomes de porta, o mapeamento de porta não é suportado. Contentores dentro de um grupo podem aceder entre si através de localhost nas portas que possam tem expostos, mesmo que essas portas não são expostas externamente no endereço IP do grupo.
 
-### <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Armazenamento
 
 Pode especificar volumes externos para montar dentro de um grupo contentor. Pode mapear esses volumes em caminhos específicos dentro os contentores individuais num grupo.
 
@@ -57,12 +57,15 @@ Os grupos de contentor multi são útil nos casos em que pretende dividir uma ú
 Exemplo de utilização pode incluir:
 
 * Um contentor de aplicação e um contentor de registo. O contentor de registo recolhe a saída de registos e as métricas pela aplicação principal e escreve-as para armazenamento de longa duração.
-* Uma aplicação e um contentor de monitorização. O contentor de monitorização periodicamente faz um pedido para a aplicação para se certificar de que está em execução e corretamente a responder e gera um alerta se não estiver.
+* Um contentor de aplicação e um contentor de monitorização. O contentor de monitorização periodicamente faz um pedido para a aplicação para se certificar de que está em execução e corretamente a responder e gera um alerta se não estiver.
 * Um contentor que serve uma aplicação web e um contentor, a extrair o conteúdo mais recente do controlo de origem.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como [implementar um grupo contentor Multi](container-instances-multi-container-group.md) com um modelo Azure Resource Manager.
+Saiba como implementar um grupo contentor multi contentor com um modelo Azure Resource Manager:
+
+> [!div class="nextstepaction"]
+> [Implementar um grupo contentor](container-instances-multi-container-group.md)
 
 <!-- IMAGES -->
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png

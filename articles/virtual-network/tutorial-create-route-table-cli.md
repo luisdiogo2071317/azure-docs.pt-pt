@@ -1,13 +1,13 @@
 ---
-title: "Encaminhar o tráfego de rede - CLI do Azure | Microsoft Docs"
-description: "Saiba como encaminhar o tráfego de rede com uma tabela de rota utilizando a CLI do Azure."
+title: Encaminhar o tráfego de rede - CLI do Azure | Microsoft Docs
+description: Saiba como encaminhar o tráfego de rede com uma tabela de rota utilizando a CLI do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 67bfc8ee677a14735174e9501fa5e10a69bd1ec7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 871b562fa12b93d1b65e23ca58615d35ef6bb34b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Encaminhar o tráfego de rede com uma tabela de rota utilizando a CLI do Azure
 
@@ -207,7 +207,7 @@ Tome nota do **publicIpAddress**. Este endereço é utilizado para aceder a VM a
 
 ## <a name="route-traffic-through-an-nva"></a>Encaminhar o tráfego através de uma NVA
 
-Utilize o seguinte comando para criar uma sessão SSH com o *myVmPrivate* VM. Substitua  *<publicIpAddress>*  com o endereço IP público da sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
+Utilize o seguinte comando para criar uma sessão SSH com o *myVmPrivate* VM. Substitua *<publicIpAddress>* com o endereço IP público da sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -273,11 +273,11 @@ Quando já não é necessário utilizar [eliminação do grupo de az](/cli/azure
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, criou uma tabela de rota e associados-la a uma sub-rede. Criou uma NVA simple que encaminhados tráfego de sub-rede público para uma sub-rede privada. Implementar uma variedade de NVAs pré-configurados que efetuam funções de rede, tais como a firewall e a otimização de WAN do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Antes de implementar as tabelas de rotas para utilização em produção, recomenda-se que lhe exaustivamente familiarizar-se com [encaminhamento no Azure](virtual-networks-udr-overview.md), [tabelas de rota de gerir](manage-route-table.md), e [Azure limita](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 Enquanto pode implementar vários recursos do Azure dentro de uma rede virtual, os recursos para alguns serviços do Azure PaaS não não possível implementar numa rede virtual. Pode ainda restringir o acesso aos recursos de alguns serviços do Azure PaaS para o tráfego apenas a partir de uma sub-rede de rede virtual apesar. Avançar para o próximo tutorial para saber como restringir o acesso de rede para recursos do Azure PaaS.
 
 > [!div class="nextstepaction"]
-> [Restringir o acesso de rede para recursos de PaaS](virtual-network-service-endpoints-configure.md#azure-cli)
+> [Restringir o acesso de rede para recursos de PaaS](tutorial-restrict-network-access-to-resources-cli.md)

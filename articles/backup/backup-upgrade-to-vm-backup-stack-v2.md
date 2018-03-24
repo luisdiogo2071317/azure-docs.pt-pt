@@ -1,23 +1,23 @@
 ---
-title: "Atualizar para a pilha de cópia de segurança de VM do Azure V2 | Microsoft Docs"
-description: "Atualizar o processo e perguntas mais frequentes para a pilha de cópia de segurança de VM V2"
+title: Atualizar para a pilha de cópia de segurança de VM do Azure V2 | Microsoft Docs
+description: Atualizar o processo e perguntas mais frequentes para a pilha de cópia de segurança de VM V2
 services: backup, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
-ms.author: trinadhk
-ms.openlocfilehash: b7e9f45c61d2af1940be50a368b87cd35c85b1dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: trinadhk, sogup
+ms.openlocfilehash: 6d214072bccb8b2b42828ee003dcf349985b4f43
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-to-vm-backup-stack-v2"></a>Atualizar para a pilha de cópia de segurança de VM V2
 A atualização de cópia de segurança pilha V2 de máquina virtual (VM) fornece as seguintes melhorias de funcionalidade:
@@ -49,7 +49,6 @@ Por predefinição, instantâneos serão mantidos durante sete dias. Isto permit
 * Esta é uma atualização unidirecional da pilha de cópia de segurança de VM. Por isso, todas as cópias de segurança futuras entra neste fluxo. Uma vez que **estiver ativada a um nível de subscrição, todas as VMs que serão enviadas para este fluxo**. Todas as novas adições de funcionalidade serão com base na pilha mesma. Capacidade para controlar que este nível de política futuras nas futuras versões. 
 * Para VMs com discos premium, durante a primeira cópia de segurança, certifique-se de que o espaço de armazenamento equivalente ao tamanho da VM está disponível na conta de armazenamento até concluir a primeira cópia de segurança. 
 * Uma vez que os instantâneos são armazenados localmente para melhorar a criação do ponto de recuperação e também para acelerar o restauro, verá os custos de armazenamento correspondente a instantâneos durante o período de sete dias.
-Para discos geridos, não há *não aumento no preço* porque restorePointCollections são gratuitas. 
 * Se estão a fazer um restauro do ponto de recuperação de instantâneos para uma VM do Premium, verá uma localização de armazenamento temporário que está a ser utilizada enquanto a VM está a ser criada como parte do restauro. 
 
 ## <a name="how-to-upgrade"></a>Como atualizar?

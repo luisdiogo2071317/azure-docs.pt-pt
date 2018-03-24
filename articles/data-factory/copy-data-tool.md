@@ -1,21 +1,21 @@
 ---
-title: "Dados de cópia da ferramenta do Azure Data Factory | Microsoft Docs"
-description: "Fornece informações sobre a ferramenta de copiar os dados na IU de fábrica de dados do Azure"
+title: Dados de cópia da ferramenta do Azure Data Factory | Microsoft Docs
+description: Fornece informações sobre a ferramenta de copiar os dados na IU de fábrica de dados do Azure
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fb25dcc0de4ebb1d025101670a9edfe3fe2bea9
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: b82ee060ff3f25e7a92c85114d457ecb349159b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Ferramenta de cópia de dados no Azure Data Factory
 A ferramenta do Azure Data Factory copiar dados facilita e otimiza o processo de ingestão relacionados dados no data lake, que é normalmente um primeiro passo para um cenário de integração de dados ponto-a-ponto.  -Poupa tempo, especialmente quando utiliza a fábrica de dados do Azure para ingestão de dados de uma origem de dados pela primeira vez. Algumas das vantagens de utilizar esta ferramenta são:
@@ -27,7 +27,7 @@ A ferramenta do Azure Data Factory copiar dados facilita e otimiza o processo de
 
 A tabela seguinte fornece orientações sobre quando utilizar a ferramenta de cópia de dados vs por atividade criação de conteúdos na IU de fábrica de dados: 
 
-| Ferramenta de cópia de dados | Por atividade (atividade de cópia) de criação |
+| Ferramenta Copiar Dados | Por atividade (atividade de cópia) de criação |
 | -------------- | -------------------------------------- |
 | Pretende criar facilmente um dados ao carregar a tarefa sem saber mais sobre entidades do Azure Data Factory (serviços ligados, conjuntos de dados, pipelines, etc.) | Pretende implementar a lógica complexa e flexível para carregar dados para lake. |
 | Pretende carregar rapidamente um grande número de artefactos de dados para o data lake. | Pretende encadeiam atividade de cópia com as atividades subsequentes de limpeza ou processamento de dados. |
@@ -49,7 +49,7 @@ Esta ferramenta permite-lhe facilmente mover dados de uma ampla variedade de ori
 
  A ferramenta é concebida com macrodados em mente desde o início, com suporte para diversos dados e os tipos de objeto. Pode utilizá-lo para mover centenas de pastas, ficheiros ou tabelas. A ferramenta suporta pré-visualização de dados automática, captura de esquema e mapeamento automático e dados, bem como a filtragem.
 
-![Ferramenta de cópia de dados](./media/copy-data-tool/copy-data-tool.png)
+![Ferramenta Copiar Dados](./media/copy-data-tool/copy-data-tool.png)
 
 ## <a name="automatic-data-preview"></a>Pré-visualização de dados automática
 Pode pré-visualizar a parte dos dados do arquivo de dados origem selecionada, que lhe permite validar os dados que estão a ser copiados. Além disso, se a origem de dados num ficheiro de texto, a ferramenta de dados de cópia analisa o ficheiro de texto para detetar automaticamente os delimitadores de linha e coluna e o esquema.

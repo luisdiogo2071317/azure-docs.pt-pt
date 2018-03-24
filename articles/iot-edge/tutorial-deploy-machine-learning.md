@@ -1,19 +1,19 @@
 ---
 title: Implementar o Azure Machine Learning com limite de IoT do Azure | Microsoft Docs
-description: "Implementar o Azure Machine Learning como um módulo para um dispositivo de limite"
+description: Implementar o Azure Machine Learning como um módulo para um dispositivo de limite
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4201395085dd72eb92b774eaed5980737b2e5de0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1b8a6079a68c50f80b593a1f56bc5256047ef31c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementar o Azure Machine Learning como um módulo de limite de IoT – pré-visualização
 
@@ -44,7 +44,7 @@ No computador a executar o módulo de gestão do Azure ML, transfira e guarde [i
 Utilize o modelo treinado para criar um contentor que pode ser implementado em dispositivos de limite de IoT. Utilize o seguinte comando para:
 
    * Registe o seu modelo.
-   * Crie um manafest.
+   * Crie um manifesto.
    * Criar uma imagem de contentor do Docker denominada *machinelearningmodule*.
    * Implemente a imagem ao cluster do serviço de contentor do Azure (AKS).
 

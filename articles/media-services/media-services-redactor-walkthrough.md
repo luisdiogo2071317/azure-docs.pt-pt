@@ -1,11 +1,11 @@
 ---
-title: "Redact faces com instruções de análise de multimédia do Azure | Microsoft Docs"
-description: "Este tópico mostra instruções passo a passo sobre como executar um fluxo de trabalho completo redaction utilizando o Explorador de serviços de suporte de dados do Azure (AMSE) e o Visualizador de Redactor de suporte de dados do Azure (ferramenta de código aberto)."
+title: Redact faces com instruções de análise de multimédia do Azure | Microsoft Docs
+description: Este tópico mostra instruções passo a passo sobre como executar um fluxo de trabalho completo redaction utilizando o Explorador de serviços de suporte de dados do Azure (AMSE) e o Visualizador de Redactor de suporte de dados do Azure (ferramenta de código aberto).
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redact faces com instruções de análise de multimédia do Azure
 
@@ -59,7 +59,7 @@ O resultado incluirá um ficheiro de json anotações com dados de localização
 
 ![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-###<a name="second-pass--redact-mode"></a>Segundo passar – redact modo
+### <a name="second-pass--redact-mode"></a>Segundo passar – redact modo
 
 1. Carregar o elemento de vídeo original para a saída da primeira passagem e definido como um elemento principal. 
 
@@ -78,7 +78,7 @@ O resultado incluirá um ficheiro de json anotações com dados de localização
 
     ![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-##<a name="azure-media-redactor-visualizer-open-source-tool"></a>Ferramenta de open source para suporte de dados Redactor Visualizador do Azure
+## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Ferramenta de open source para suporte de dados Redactor Visualizador do Azure
 
 Um código aberto [ferramenta Visualizador](https://github.com/Microsoft/azure-media-redactor-visualizer) foi concebido para ajudar os programadores a iniciar com o formato de anotações com análise e utilizando a saída.
 
@@ -119,7 +119,7 @@ Se for um programador tentar analisar os dados de anotação de JSON, procure no
 6.  Carregar este ficheiro para o elemento de saída do passo 1. Carregar o vídeo original para este recurso bem e definido como elemento principal. 
 7.  Executar tarefa de Redaction neste recurso com o modo de "Redact" obter o final redacted as vídeo. 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

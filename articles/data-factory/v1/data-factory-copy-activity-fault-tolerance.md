@@ -1,11 +1,10 @@
 ---
-title: "Adicionar tolerância a falhas na atividade de cópia de fábrica de dados do Azure, a ignorar as linhas incompatíveis | Microsoft Docs"
-description: "Saiba como adicionar tolerância a falhas na atividade de cópia de fábrica de dados do Azure por ignorar linhas incompatíveis durante a cópia"
+title: Adicionar tolerância a falhas na atividade de cópia de fábrica de dados do Azure, a ignorar as linhas incompatíveis | Microsoft Docs
+description: Saiba como adicionar tolerância a falhas na atividade de cópia de fábrica de dados do Azure por ignorar linhas incompatíveis durante a cópia
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 29c78eb850b418772126dea50b40e924b6e71423
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicione tolerância a falhas na atividade de cópia ao ignorar linhas incompatíveis
 > [!NOTE]
@@ -71,7 +70,7 @@ O exemplo seguinte fornece uma definição de JSON para configurar a ignorar as 
 | **enableSkipIncompatibleRow** | Ative a ignorar incompatíveis linhas durante a cópia ou não. | Verdadeiro<br/>FALSE (predefinição) | Não |
 | **redirectIncompatibleRowSettings** | Um grupo de propriedades que podem ser especificados quando pretender registar as linhas incompatíveis. | &nbsp; | Não |
 | **linkedServiceName** | O serviço ligado do Storage do Azure para armazenar o registo que contém as linhas ignoradas. | O nome de um [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) ligado serviço, que se refere à instância de armazenamento que pretende utilizar para armazenar o ficheiro de registo. | Não |
-| **caminho** | O caminho do ficheiro de registo que contém as linhas ignoradas. | Especifique o caminho de armazenamento de BLOBs que pretende utilizar para registar os dados incompatíveis. Se não fornecer um caminho, o serviço cria um contentor para si. | Não |
+| **path** | O caminho do ficheiro de registo que contém as linhas ignoradas. | Especifique o caminho de armazenamento de BLOBs que pretende utilizar para registar os dados incompatíveis. Se não fornecer um caminho, o serviço cria um contentor para si. | Não |
 
 ## <a name="monitoring"></a>Monitorização
 Após a conclusão da execução da atividade de cópia, pode ver o número de linhas ignorados na secção monitorização:

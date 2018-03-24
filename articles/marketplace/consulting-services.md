@@ -1,33 +1,33 @@
 ---
 title: Ofertas de consultadoria do Azure Marketplace
-description: "Critérios de elegibilidade e requisitos de publicação para o novo tipo de oferta no Azure Marketplace"
+description: Critérios de elegibilidade e requisitos de publicação para o novo tipo de oferta no Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: dd00711a9be208ddf635c998a77935ed63fcf996
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e063721f2fa2ac87b2f9dd7385b2d114a1b76cb3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-marketplace-consulting-services"></a>Serviços de consultoria do Azure Marketplace
+# <a name="azure-marketplace-consulting-services"></a>Serviços de consultoria do Azure Marketplace
 Com o objetivo da ligação de clientes com os serviços para suportar e expandir a sua utilização do Microsoft Azure, Azure Marketplace suporta a listagem das consultadoria ofertas de serviços de parceiros de integrador de sistema (TAMA) da Microsoft. 
 
 Estes consultadoria ofertas são específicas do cliente ações de envolvimento, fixas no âmbito e na duração, os serviços podem ser corrigidas preços ou livre e tem um resultado definido. Potenciais clientes, podem facilmente pedir para ser contactado pelo parceiros de forma livre de friction. Parceiros de recebem uma notificação no seu sistema CRM e procure para responder aos utilizadores 48hrs.
 
 Serviço oferece com base no Microsoft Dynamics 365, o Microsoft Office 365 e o Microsoft Power BI são elegíveis para ser listadas no AppSource. Reveja detalhada [diretrizes para estes serviços aqui](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
-##<a name="eligible-services-and-partners"></a>Serviços elegíveis e parceiros
+## <a name="eligible-services-and-partners"></a>Serviços elegíveis e parceiros
 
 Parceiros também são necessários para ter uma competência prata ou gold na área de relevante para o seu serviço. Consulte abaixo para competências elegíveis:
 
@@ -49,7 +49,7 @@ Exceto Briefings, consultadoria serviços pode ser oferecido na pessoa (ou seja,
 
 Leia mais sobre [competências através do Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies#simple-tab-content-1). 
 
-##<a name="countries-supported"></a>Países suportados
+## <a name="countries-supported"></a>Países suportados
 
 Parceiros de SI podem submeter ofertas de serviços de consultoria para 18 países seguintes. 
 
@@ -65,7 +65,7 @@ Parceiros de SI podem submeter ofertas de serviços de consultoria para 18 país
 
 A iniciação para serviços de consultoria do Azure Marketplace entrarão em direto pela primeira vez para a Austrália, Canadá, o Reino Unido e dos Estados Unidos. Depois de um número significativo e convincentes seleção das ofertas de serviços tenham sido submetidos por parceiros e aprovadas pela Microsoft que catálogos para outros países serão enviadas em direto.
 
-##<a name="prepare-your-publishing-artifacts"></a>Preparar os seus artefactos de publicação
+## <a name="prepare-your-publishing-artifacts"></a>Preparar os seus artefactos de publicação
 Mesmo antes de para indicar o serviço, pode começar a recolher e preparar o conteúdo que o irão ajudar a listagem articule o valor do serviço e da solução para o seu cliente de destino. 
 
 
@@ -88,7 +88,7 @@ Mesmo antes de para indicar o serviço, pode começar a recolher e preparar o co
 |Documentos Marketing (máximo 3)     |
 
 
-##<a name="publishing-process"></a>Processo de publicação
+## <a name="publishing-process"></a>Processo de publicação
 Listar a oferta de serviço consultoria no Azure Marketplace envolve o seguinte:
 
 1. **Pedido:** enviar no pedido [aqui](https://azuremarketplace.microsoft.com/en-us/sell/nominate) e diga-nos informações sobre a sua organização. 

@@ -1,13 +1,13 @@
 ---
-title: "Encaminhar o tráfego de rede - portal do Azure | Microsoft Docs"
-description: "Saiba como encaminhar o tráfego de rede com uma tabela de rota com o portal do Azure."
+title: Encaminhar o tráfego de rede - portal do Azure | Microsoft Docs
+description: Saiba como encaminhar o tráfego de rede com uma tabela de rota com o portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 45b07c6ca86802d0cc3e773234e1122ba7bd9ea7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 980cf7b59ed16778bbb6cd1b657e3522407c79c9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Encaminhar o tráfego de rede com uma tabela de rota com o portal do Azure
 
@@ -252,7 +252,7 @@ Quando já não é necessário, elimine o grupo de recursos e todos os recursos 
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* para **tipo o nome de grupo de recursos:** e selecione **eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, criou uma tabela de rota e associados-la a uma sub-rede. Criou uma NVA simple que encaminhados tráfego de sub-rede público para uma sub-rede privada. Implementar uma variedade de NVAs pré-configurados que efetuam funções de rede, tais como a firewall e a otimização de WAN do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Antes de implementar as tabelas de rotas para utilização em produção, recomenda-se que lhe exaustivamente familiarizar-se com [encaminhamento no Azure](virtual-networks-udr-overview.md), [tabelas de rota de gerir](manage-route-table.md), e [Azure limita](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
@@ -260,4 +260,4 @@ Neste artigo, criou uma tabela de rota e associados-la a uma sub-rede. Criou uma
 Enquanto pode implementar vários recursos do Azure dentro de uma rede virtual, os recursos para alguns serviços do Azure PaaS não não possível implementar numa rede virtual. Pode ainda restringir o acesso aos recursos de alguns serviços do Azure PaaS para o tráfego apenas a partir de uma sub-rede de rede virtual apesar. Avançar para o próximo tutorial para saber como restringir o acesso de rede para recursos do Azure PaaS.
 
 > [!div class="nextstepaction"]
-> [Restringir o acesso de rede para recursos de PaaS](virtual-network-service-endpoints-configure.md#azure-portal)
+> [Restringir o acesso de rede para recursos de PaaS](tutorial-restrict-network-access-to-resources.md)

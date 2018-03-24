@@ -1,12 +1,12 @@
 ---
-title: "PowerShell no início rápido do Azure na nuvem Shell (pré-visualização) | Microsoft Docs"
-description: "Início rápido para o PowerShell na Shell de nuvem"
+title: PowerShell no início rápido do Azure na nuvem Shell (pré-visualização) | Microsoft Docs
+description: Início rápido para o PowerShell na Shell de nuvem
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b0831173212d3324c851ad1bd04ec443a9face5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Início rápido para o PowerShell na Shell de nuvem do Azure (pré-visualização)
 
@@ -33,7 +33,7 @@ Este documento fornece detalhes sobre como utilizar o PowerShell na nuvem Shell 
 
   ![](media/quickstart-powershell/shell-icon.png)
 
-2. Selecione o ambiente de PowerShell a partir da lista pendente e será na unidade do Azure`(Azure:)`
+2. Selecione o ambiente de PowerShell a partir da lista pendente e será na unidade do Azure `(Azure:)`
 
   ![](media/quickstart-powershell/environment-ps.png)
 
@@ -62,7 +62,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     PS Azure:\> dir
     ```
 
- 2. `cd`a sua subscrição preferencial
+ 2. `cd` a sua subscrição preferencial
 
     ``` PowerShell
     PS Azure:\> cd MySubscriptionName
@@ -118,7 +118,7 @@ No entanto, pode utilizar sempre `dir -Force` obter novos dados.
 
 ### <a name="navigate-storage-resources"></a>Navegue de recursos de armazenamento
     
-Ao introduzir no `StorageAccounts` pasta pode navegar facilmente os recursos de armazenamento
+Ao introduzir no `StorageAccounts` diretório pode navegar facilmente os recursos de armazenamento
     
 ``` PowerShell 
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -227,7 +227,7 @@ Também pode navegar para o `VirtualMachines` diretório primeiro e execute `Ent
 
 ### <a name="discover-webapps"></a>Detetar WebApps
 
-Ao introduzir no `WebApps` pasta pode navegar facilmente os recursos de aplicações web
+Ao introduzir no `WebApps` diretório pode navegar facilmente os recursos de aplicações web
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -274,11 +274,11 @@ Para autenticar para servidores ou VMs com SSH, gerar o par de chaves públicas-
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Utilizar um perfil personalizado para manter as definições do GIT e SSH
 
-Uma vez que as sessões não são mantidas após a fim de sessão, guarde o `$env:USERPROFILE\.ssh` pasta para `CloudDrive` ou crie um symlink quando obtém iniciada a Shell de nuvem.
+Uma vez que as sessões não são mantidas após a fim de sessão, guarde o `$env:USERPROFILE\.ssh` diretório para `CloudDrive` ou crie um symlink quando obtém iniciada a Shell de nuvem.
 Adicione o seguinte fragmento de código no seu profile.ps1 para criar um symlink para CloudDrive.
 
 ``` PowerShell
-# Check if the .ssh folder exists
+# Check if the .ssh directory exists
 if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
@@ -357,7 +357,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Hora seguinte quando utilizar o PowerShell na Shell de nuvem, o `helloworld.ps1` ficheiro existirá sob o `CloudDrive` pasta monta a partilha de ficheiros do Azure.
+Hora seguinte quando utilizar o PowerShell na Shell de nuvem, o `helloworld.ps1` ficheiro existirá sob o `CloudDrive` diretório monta a partilha de ficheiros do Azure.
 
 ## <a name="use-custom-profile"></a>Utilizar perfil personalizado
 

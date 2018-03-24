@@ -1,10 +1,10 @@
 ---
-title: "Notas de versão do Azure SDK para .NET 2.9"
-description: "Notas de versão do Azure SDK para .NET 2.9"
+title: Notas de versão do Azure SDK para .NET 2.9
+description: Notas de versão do Azure SDK para .NET 2.9
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 199f0906f73d693d7cd4b73c928f23ae83b99596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Notas de versão do Azure SDK para .NET 2.9
 
 Este tópico inclui as notas de versão para versões 2.9 e 2.9.6 do Azure SDK para .NET.
 
-##<a name="azure-sdk-for-net-296-release-summary"></a>Azure SDK para .NET 2.9.6 resumo da versão
+## <a name="azure-sdk-for-net-296-release-summary"></a>Azure SDK para .NET 2.9.6 resumo da versão
 
 Data da versão: 16/11/2016
  
@@ -88,6 +88,6 @@ Este atualizações incluem o seguinte:
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 Esta versão adiciona [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) suporte para modelos do Resource Manager.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 [Post de anúncio do Azure SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 

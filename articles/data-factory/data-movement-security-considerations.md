@@ -1,11 +1,11 @@
 ---
-title: "Considerações de segurança no Azure Data Factory | Microsoft Docs"
-description: "Descreve a infraestrutura de básicos de segurança que utilizam serviços de movimento de dados no Azure Data Factory para ajudar a proteger os dados."
+title: Considerações de segurança no Azure Data Factory | Microsoft Docs
+description: Descreve a infraestrutura de básicos de segurança que utilizam serviços de movimento de dados no Azure Data Factory para ajudar a proteger os dados.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c8215ab4a1759efef3c2c13a5ac44f6944b53d7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 56602e269a441f9541314424190da04be2c4add5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para o movimento de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,9 +49,10 @@ Neste artigo, vamos rever as considerações de segurança nos seguintes cenári
 - **Cenário híbrido**: neste cenário, a origem ou o destino é protegido por uma firewall ou dentro de uma rede empresarial no local. Em alternativa, o arquivo de dados está no privado rede ou de rede virtual (frequentemente de origem) e não está acessível publicamente. Servidores de base de dados alojadas em máquinas virtuais também abrangidos por este cenário.
 
 ## <a name="cloud-scenarios"></a>Cenários de nuvem
-### <a name="secure-data-store-credentials"></a>Credenciais do arquivo de dados seguros
-- **Armazenar credenciais encriptado num arquivo Azure Data Factory gerido**. Fábrica de dados ajuda a proteger as credenciais do arquivo de dados ao encriptá-los com certificados geridos pela Microsoft. Estes certificados rodam em dois anos (que inclui a migração de credenciais e renovação de certificado). As credenciais encriptadas estão armazenadas em segurança numa conta de armazenamento do Azure gerida pelos serviços de gestão do Azure Data Factory. Para obter mais informações sobre a segurança de armazenamento do Azure, consulte [descrição geral de segurança de armazenamento do Azure](../security/security-storage-overview.md).
 
+### <a name="securing-data-store-credentials"></a>Proteger credenciais do arquivo de dados
+
+- **Armazenar credenciais encriptado num arquivo Azure Data Factory gerido**. Fábrica de dados ajuda a proteger as credenciais do arquivo de dados ao encriptá-los com certificados geridos pela Microsoft. Estes certificados rodam em dois anos (que inclui a migração de credenciais e renovação de certificado). As credenciais encriptadas estão armazenadas em segurança numa conta de armazenamento do Azure gerida pelos serviços de gestão do Azure Data Factory. Para obter mais informações sobre a segurança de armazenamento do Azure, consulte [descrição geral de segurança de armazenamento do Azure](../security/security-storage-overview.md).
 - **Armazenar credenciais no Cofre de chaves do Azure**. Pode também armazenar credenciais do arquivo de dados no [Cofre de chaves do Azure](https://azure.microsoft.com/services/key-vault/). Fábrica de dados obtém a credencial durante a execução de uma atividade. Para obter mais informações, consulte [credencial de arquivo no Cofre de chaves do Azure](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Encriptação de dados em trânsito
@@ -144,7 +145,7 @@ A tabela seguinte fornece os requisitos saídos porta e o domínio para firewall
 
 | Nomes de domínio                  | Portas de saída | Descrição                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443, 80        | Necessário pelo runtime integração personalizada alojada se ligam aos serviços do movimento de dados no Data Factory. |
+| `*.servicebus.windows.net`    | 443            | Necessário pelo runtime integração personalizada alojada se ligam aos serviços do movimento de dados no Data Factory. |
 | `*.core.windows.net`          | 443            | Utilizada pelo runtime integração personalizada alojada para ligar à conta do storage do Azure ao utilizar o [testado cópia](copy-activity-performance.md#staged-copy) funcionalidade. |
 | `*.frontend.clouddatahub.net` | 443            | Necessária para o tempo de execução automática alojada integração para ligar ao serviço Data Factory. |
 | `*.database.windows.net`      | 1433           | (Opcional) É necessário quando copiar de ou para a SQL Database do Azure ou do Azure SQL Data Warehouse. Utilize a funcionalidade de teste cópia para copiar dados para a SQL Database do Azure ou do Azure SQL Data Warehouse sem abrir a porta 1433. |

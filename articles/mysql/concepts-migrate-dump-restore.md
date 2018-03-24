@@ -1,6 +1,6 @@
 ---
 title: Migrar a base de dados MySQL utilizando captura e restauro na base de dados do Azure para MySQL
-description: "Este artigo explica duas formas comuns de cópia de segurança e restaurar bases de dados na base de dados do Azure para MySQL, utilizando ferramentas como mysqldump, MySQL Workbench e PHPMyAdmin."
+description: Este artigo explica duas formas comuns de cópia de segurança e restaurar bases de dados na base de dados do Azure para MySQL, utilizando ferramentas como mysqldump, MySQL Workbench e PHPMyAdmin.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 0c5a6b6d971d434a52bf80da6b34d7f6949589bc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar a base de dados MySQL à base de dados do Azure para utilizar a captura e restauro de MySQL
 Este artigo explica duas formas comuns de cópia de segurança e restaurar bases de dados na base de dados do Azure para MySQL
@@ -87,10 +87,12 @@ $ mysqldump -u root -p --all-databases > alldb_backup.sql
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>Criar uma base de dados no destino da base de dados do Azure para o servidor de MySQL
 Crie uma base de dados vazia no destino da base de dados do Azure para o servidor de MySQL onde pretende migrar os dados. Utilize uma ferramenta como o Workbench do MySQL, Toad ou Navicat para criar a base de dados. A base de dados pode ter o mesmo nome, como a base de dados que está contido os dados capturados ou pode criar uma base de dados com um nome diferente.
 
-Para obter ligado, localize as informações de ligação na página de propriedades na base de dados do Azure para MySQL.
-![Localizar as informações de ligação no portal do Azure](./media/concepts-migrate-dump-restore/1_server-properties-name-login.png)
+Para obter ligado, localize as informações de ligação no **descrição geral** da base de dados do Azure para MySQL.
+
+![Localizar as informações de ligação no portal do Azure](./media/concepts-migrate-dump-restore/1_server-overview-name-login.png)
 
 Adicione as informações de ligação para o MySQL Workbench.
+
 ![Cadeia de ligação do MySQL Workbench](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 

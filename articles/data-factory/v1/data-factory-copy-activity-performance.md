@@ -1,11 +1,10 @@
 ---
-title: "Copie o desempenho de atividade e o guia de otimização | Microsoft Docs"
-description: "Saiba mais sobre os principais fatores que afetam o desempenho do movimento de dados no Azure Data Factory quando utilizar a atividade de cópia."
+title: Copie o desempenho de atividade e o guia de otimização | Microsoft Docs
+description: Saiba mais sobre os principais fatores que afetam o desempenho do movimento de dados no Azure Data Factory quando utilizar a atividade de cópia.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2bec612b1d67eceb0e62b28524b98e852d31ad0f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e8cb5df31a87f72c9947f78c25a41b74399b3727
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o desempenho de atividade e o guia de otimização
 > [!NOTE]
@@ -260,8 +259,8 @@ Sugerimos que siga estes passos para otimizar o desempenho do seu serviço do Da
      * [Cópia faseada](#staged-copy)
      * [Escalabilidade do Data Management Gateway](data-factory-data-management-gateway-high-availability-scalability.md)
    * [Data Management Gateway](#considerations-for-data-management-gateway)
-   * [Origem](#considerations-for-the-source)
-   * [Sink](#considerations-for-the-sink)
+   * [origem](#considerations-for-the-source)
+   * [sink](#considerations-for-the-sink)
    * [Serialização e a anulação da serialização](#considerations-for-serialization-and-deserialization)
    * [Compressão](#considerations-for-compression)
    * [Mapeamento de colunas](#considerations-for-column-mapping)

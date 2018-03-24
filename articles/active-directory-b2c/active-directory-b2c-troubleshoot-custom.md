@@ -1,24 +1,21 @@
 ---
-title: "Application Insights para resolver problemas de políticas personalizadas - Azure AD B2C | Microsoft Docs"
-description: "como configurar o Application Insights para rastrear a execução de políticas personalizadas"
+title: Application Insights para resolver problemas de políticas personalizadas - Azure AD B2C | Microsoft Docs
+description: como configurar o Application Insights para rastrear a execução de políticas personalizadas
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: saeda
-ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: davidmu
+ms.openlocfilehash: 3e27976b02ee75083b07ca2e4f0c06e19502d1f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>B2C do Azure Active Directory: Recolher registos
 
@@ -104,7 +101,7 @@ As entradas poderão ser longas.  Exportar para CSV para observá.
 Pode saber mais sobre a ferramenta de análise [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
 >[!NOTE]
->A Comunidade desenvolveu um Visualizador de journey de utilizador para ajudar os programadores de identidade.  Não é suportada pela Microsoft e disponibilizado estritamente como-é.  Este lê a partir da sua instância do Application Insights e fornece uma vista de estrutura de bem do utilizador eventos journey.  Obter o código de origem e implementá-la na sua própria solução.
+>A Comunidade desenvolveu um Visualizador de journey de utilizador para ajudar os programadores de identidade.  Não é suportada pela Microsoft e disponibilizado estritamente como-é.  Este lê a partir da sua instância do Application Insights e fornece uma vista do utilizador bem estruturada eventos journey.  Obter o código de origem e implementá-la na sua própria solução.
 
 A versão do Visualizador de que lê os eventos do Application Insights está localizada [aqui](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
 

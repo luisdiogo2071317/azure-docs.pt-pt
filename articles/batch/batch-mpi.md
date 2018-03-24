@@ -1,24 +1,24 @@
 ---
-title: "Utilize tarefas de várias instâncias para executar aplicações MPI - Azure Batch | Microsoft Docs"
-description: "Saiba como executar aplicações de Interface de passagem de mensagens (MPI) utilizando o tipo de tarefa de várias instâncias no Azure Batch."
+title: Utilize tarefas de várias instâncias para executar aplicações MPI - Azure Batch | Microsoft Docs
+description: Saiba como executar aplicações de Interface de passagem de mensagens (MPI) utilizando o tipo de tarefa de várias instâncias no Azure Batch.
 services: batch
-documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: 5/22/2017
-ms.author: tamram
+ms.tgt_pltfrm: ''
+ms.date: 5/22/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 0fb5ea21c6403369cbcb60df58c0f70a57a61d4e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utilize tarefas de várias instâncias para executar aplicações de Interface de passagem de mensagens (MPI) no Batch
 
@@ -49,6 +49,10 @@ Quando submete uma tarefa com definições de várias instâncias para uma taref
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Requisitos para tarefas de várias instâncias
 Tarefas de várias instâncias necessitam de um agrupamento com **comunicação entre nós ativada**e com **desativada a execução da tarefa em simultâneo**. Para desativar a execução da tarefa em simultâneo, defina o [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) propriedade para 1.
+
+> [!NOTE]
+> Batch [limites](batch-quota-limit.md#other-limits) o tamanho de um conjunto que tenha a comunicação entre nós ativada.
+
 
 Este fragmento de código mostra como criar um conjunto para tarefas de várias instâncias utilizando a biblioteca .NET do Batch.
 
@@ -107,8 +111,7 @@ Procure os tamanhos especificados como "Com capacidade RDMA" nos seguintes artig
   * [Os tamanhos de máquinas virtuais no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> Para tirar partido de RDMA [nós de computação do Linux](batch-linux-nodes.md), tem de utilizar **Intel MPI** em nós. Para obter mais informações sobre agrupamentos CloudServiceConfiguration e VirtualMachineConfiguration, consulte a secção de conjunto do [descrição geral da funcionalidade do Batch](batch-api-basics.md).
->
+> Para tirar partido de RDMA [nós de computação do Linux](batch-linux-nodes.md), tem de utilizar **Intel MPI** em nós. 
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Criar uma tarefa de várias instâncias com .NET do Batch
@@ -327,7 +330,7 @@ Delete pool? [yes] no: yes
 Sample complete, hit ENTER to exit...
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Blogue do Microsoft HPC & equipa do Azure Batch aborda [MPI suporte para Linux no Azure Batch][blog_mpi_linux]e inclui informações sobre como utilizar [OpenFOAM] [ openfoam] com o Batch. Pode encontrar exemplos de código do Python para o [OpenFOAM exemplo no GitHub][github_mpi].
 * Saiba como [criar conjuntos de nós de computação do Linux](batch-linux-nodes.md) para utilização nas suas soluções de MPI de lote do Azure.
 

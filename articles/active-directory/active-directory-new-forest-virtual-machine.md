@@ -1,12 +1,12 @@
 ---
 title: Instalar uma floresta do Active Directory numa rede virtual do Azure | Microsoft Docs
-description: "Um tutorial que explica como criar uma nova floresta do Active Directory numa máquina virtual (VM) numa rede virtual do Azure."
+description: Um tutorial que explica como criar uma nova floresta do Active Directory numa máquina virtual (VM) numa rede virtual do Azure.
 services: active-directory, virtual-network
-keywords: "máquinas de virtuais do Active Directory, floresta do Active Directory de instalação, vídeos do azure Active Directory "
-documentationcenter: 
+keywords: 'máquinas de virtuais do Active Directory, floresta do Active Directory de instalação, vídeos do azure Active Directory '
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-tags: 
+tags: ''
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0b98b475f49847589398ca743fc3ac3b8bcbb381
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalar uma nova floresta do Active Directory numa rede virtual do Azure
 Este artigo mostra como criar um novo ambiente do Active Directory do Windows Server numa máquina virtual (VM) num [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Neste caso, a rede virtual do Azure não está ligada a uma rede no local.
@@ -31,7 +31,7 @@ Poderá também estar interessado nestes artigos relacionados:
 * Para obter orientações conceptual sobre a instalação de serviços de domínio do Active Directory (AD DS) numa rede virtual do Azure, consulte [diretrizes para implementar o Windows Server Active Directory em Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Diagrama do cenário
-Neste cenário, os utilizadores externos tem de aceder a aplicações que são executadas em servidores associados a um domínio. As VMs que executam os servidores de aplicações e as VMs que executam os controladores de domínio são instaladas instalado no seu próprio serviço em nuvem numa rede virtual do Azure. Também estão incluídas dentro de um conjunto de disponibilidade para tolerância a falhas melhorada.
+Neste cenário, os utilizadores externos tem de aceder a aplicações que são executadas em servidores associados a um domínio. As VMs que executam os servidores de aplicações e as VMs que executam os controladores de domínio estão instaladas no seu próprio serviço em nuvem numa rede virtual do Azure. Também estão incluídas dentro de um conjunto de disponibilidade para tolerância a falhas melhorada.
 
 ![Floresta do Active Directory nas máquinas virtuais na rede Virtual do Azure ][1] 7
 

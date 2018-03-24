@@ -1,72 +1,98 @@
 ---
-title: "Descrição geral do padrão de Balanceador de carga do Azure | Microsoft Docs"
-description: "Descrição geral das funcionalidades padrão de Balanceador de carga do Azure"
+title: Descrição geral do Balanceador de carga Standard do Azure | Microsoft Docs
+description: Descrição geral das funcionalidades de Balanceador de carga do Azure Standard
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 2d7fcb3ee066fa768615fbf643a0c2e1c1d28498
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cfc789b3768c21efc7a03c11370b17ac6c3985cd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="azure-load-balancer-standard-overview-preview"></a>Descrição geral do padrão de Balanceador de carga do Azure (pré-visualização)
+# <a name="azure-load-balancer-standard-overview"></a>Descrição geral do padrão de Balanceador de carga do Azure
 
-O SKU Standard do Balanceador de carga do Azure e o SKU de padrão de IP público em conjunto permitem-lhe criar arquiteturas altamente escaláveis e fiáveis. As aplicações que utilizam o padrão de Balanceador de carga podem tirar partido das novas capacidades. Baixa latência, débito alto e escala estão disponíveis para milhões de fluxos de todas as aplicações de TCP e UDP.
+Balanceador de carga do Azure permite-lhe dimensionar as suas aplicações e criar a elevada disponibilidade para os serviços. Balanceador de carga e pode ser utilizado para cenários de entrada como saídos proporciona baixa latência, débito elevado e dimensiona até milhões de fluxos de todas as aplicações de TCP e UDP. 
+
+Este artigo concentra-se no balanceador de carga padrão.  Para obter uma descrição mais geral para o Balanceador de carga do Azure, reveja [descrição geral do Balanceador de carga](load-balancer-overview.md) bem.
+
+## <a name="what-is-standard-load-balancer"></a>O que é padrão Balanceador de carga?
+
+Padrão de Balanceador de carga é um produto de Balanceador de carga novo para todos os TCP e UDP aplicações com uma funcionalidade expandida e mais granular definido através de Balanceador de carga básico.  Apesar de existirem diversas semelhanças, é importante para se familiarizar com as diferenças conforme descrito neste artigo.
+
+Pode utilizar o padrão de Balanceador de carga padrão como um balanceador de carga público ou interno. E pode ser ligada uma máquina virtual para um público e um recurso de Balanceador de carga interno.
+
+Funções do recurso de Balanceador de carga são sempre expresso como um front-end, uma regra, uma pesquisa de estado de funcionamento e uma definição de conjunto de back-end.  Um recurso pode conter várias regras. Pode colocar as máquinas virtuais para o conjunto de back-end, especificando o conjunto de back-end do recurso de NIC da máquina virtual.  No caso de um conjunto de dimensionamento de máquina virtual, este parâmetro é transmitido através do perfil de rede e expandir.
+
+Um aspeto chave é o âmbito da rede virtual para o recurso.  Enquanto básico Balanceador de carga existe no âmbito do conjunto de disponibilidade, um balanceador de carga Standard está totalmente integrado com o âmbito de uma rede virtual e aplicam a todos os conceitos de rede virtual.
+
+Recursos de Balanceador de carga são objetos dentro do qual pode express como o Azure deve programa respetiva infraestrutura de multi-inquilino para alcançar o cenário de que pretende criar.  Não há nenhuma relação direta entre os recursos de Balanceador de carga e a infraestrutura real; criar um balanceador de carga não criar uma instância, capacidade está sempre disponível e existem não arranque ou dimensionamento atrasos a ter em consideração. 
 
 >[!NOTE]
-> O SKU de padrão de Balanceador de carga está atualmente em pré-visualização. Durante a pré-visualização, a funcionalidade não pode ter o mesmo nível de disponibilidade e fiabilidade como versão de funcionalidades que estão em geral disponibilidade. Para obter mais informações, consulte [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Utilizar geralmente disponível [SKU básico de Balanceador de carga](load-balancer-overview.md) para os serviços de produção. Para utilizar [pré-visualização de zonas de disponibilidade](https://aka.ms/availabilityzones) com esta pré-visualização requer um [separado inscrição](https://aka.ms/availabilityzones), além de inscrever-se para o Balanceador de carga [pré-visualização padrão](#preview-sign-up).
+> O Azure oferece um conjunto de soluções para os seus cenários de balanceamento de carga completamente gerido.  Se estiver à procura de terminação de TLS ("descarga de SSL") ou processamento de camada de aplicação de HTTP/HTTPS, reveja [Gateway de aplicação](../application-gateway/application-gateway-introduction.md).  Se estiver à procura de global DNS balanceamento de carga, reveja [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md).  Os cenários de ponto a ponto podem tirar partido do combinar estas soluções conforme necessário.
 
-## <a name="why-use-load-balancer-standard"></a>Porquê utilizar o padrão de Balanceador de carga?
+## <a name="why-use-standard-load-balancer"></a>Porquê utilizar o padrão de Balanceador de carga?
 
-Pode utilizar o padrão de Balanceador de carga para o intervalo completo de centros de dados virtual. A partir de implementações de pequena escala para arquiteturas de zona multi grande e complexas, utilize padrão de Balanceador de carga para tirar partido das seguintes funcionalidades:
+Pode utilizar o padrão de Balanceador de carga para o intervalo completo de centros de dados virtual, de implementações de pequena escala para arquiteturas de zona multi grande e complexas.
 
-- [Escala empresarial que](#enterprisescale) pode ser conseguido com o padrão de Balanceador de carga. Esta funcionalidade pode ser utilizada com qualquer instância de máquina virtual (VM) dentro de uma rede virtual, até 1000 instâncias de VM.
+Reveja a tabela abaixo para obter uma descrição geral das diferenças entre padrão Balanceador de carga e básico Balanceador de carga:
 
-- [Informações de diagnóstico novas](#diagnosticinsights) estão disponíveis para o ajudar a compreender, gerir e resolver problemas relacionados com este componente vital do seu centro de dados virtual. Utilize o Monitor de Azure (pré-visualização) para mostrar, filtrar e grupo nova métrica multidimensional para valores de estado de funcionamento do caminho de dados contínuos. Monitorize os seus dados de front-end para a VM, sondas de estado de funcionamento do ponto final, para as tentativas de ligação de TCP e ligações de saída.
+>[!NOTE]
+> Novos designs de devem considerar a utilização do padrão de Balanceador de carga. 
 
-- [Grupos de segurança de rede](#nsg) são agora necessárias para qualquer instância VM que está associada SKUs de padrão de Balanceador de carga ou SKUs de padrão de IP público. Grupos de segurança de rede (NSGs) fornecem a segurança avançada para o seu cenário.
+| | SKU Standard | SKU Básico |
+| --- | --- | --- |
+| Tamanho do conjunto de back-end | até 1000 instâncias | até 100 instâncias |
+| Pontos finais de conjunto de back-end | Qualquer máquina virtual numa única rede virtual, incluindo blend de máquinas virtuais, conjuntos de disponibilidade, conjuntos de dimensionamento de máquina virtual. | máquinas virtuais pertencentes uma escala de máquina virtual ou conjunto de disponibilidade único conjunto |
+| Zonas de Disponibilidade | Com redundância de zona e zonal frontends de entrada e de mapeamentos de fluxos de saída, saída continuam a vigorar após falha de zona, cross-zona balanceamento de carga | / |
+| Diagnóstico | Monitor do Azure, métricas multidimensionais, incluindo byte e contadores de pacotes, estado de funcionamento da sonda de estado, as tentativas de ligação (SIN de TCP), estado de funcionamento da ligação de saída (realizar o SNAT com êxito ou falhados fluxos), medidas plane de dados do Active Directory | Análise de registos do Azure, contagem de estado de funcionamento do conjunto de back-end de Balanceador de carga público só, alerta de esgotamento de realizar o SNAT |
+| HA portas | Balanceador de carga interno | / |
+| Seguro por predefinição | predefinição fechada para pontos finais públicos de Balanceador de carga e de IP e um grupo de segurança de rede deve ser utilizado para explicitamente lista branca para o tráfego flua | predefinição aberto, grupo de segurança opcional |
+| Ligações de saída | Vários frontends com por regra ativamente. Um cenário de saída _tem_ explicitamente criado para a máquina virtual para conseguir utilizar a conectividade de saída.  [Pontos finais do serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) podem ser acedidos sem conectividade de saída e não contam para processamento de dados.  Todos os endereços IP públicos, incluindo serviços do Azure PaaS não está disponíveis como pontos finais do serviço de VNet, devem ser atingidos através de conectividade de saída e a contagem para processamento de dados. Quando uma máquina virtual está a funcionar apenas um balanceador de carga interno, ligações de saída através de predefinição realizar o SNAT não estão disponíveis. | Único front-end, selecionado aleatória, quando várias frontends estão presentes.  Quando apenas Balanceador de carga interno está a servir uma máquina virtual, é utilizada a predefinição realizar o SNAT.  Programação de realizar o SNAT saída é o protocolo de transporte específico. |
+| Vários frontends | Entrada e saída | Apenas de entrada |
+| Operações de gestão | A maioria dos segundos de < 30 de operações | 60-90 segundos típica |
+| SLA | 99,99% de caminho de dados com duas máquinas virtuais em bom estado | Implícita no SLA de VM | 
+| Preços | -Lhe cobrados com base no número de regras, processados de dados de entrada ou saída associados a recursos  | Sem qualquer encargo |
 
-- [Elevada disponibilidade (ed) portas fornecem elevada fiabilidade](#highreliability) e escala para aplicações de rede virtuais (NVAs) e outros cenários de aplicação. Balanceamento de carga de portas HA todas as portas num Azure interno carregar balanceador (ILB) front-end a um conjunto de instâncias VM.
-
-- [Ligações de saída](#outboundconnections) agora utilizam um modelo de alocação porta nova origem rede endereço tradução (realizar o SNAT) fornece maior resiliência e a escala.
-
-- [Carregar balanceador padrão com disponibilidade zonas](#availabilityzones) podem ser utilizados para construir arquiteturas com redundância de zona e zonal. Ambos estes arquiteturas podem incluir o balanceamento de carga entre zona. Pode conseguir redundância de zona sem uma dependência de registos DNS. Um único endereço IP é com redundância de zona por predefinição.  Um único endereço IP pode aceder qualquer VM numa rede virtual numa região entre todas as zonas de disponibilidade.
+Reveja [os limites de serviço para o Balanceador de carga](https://aka.ms/lblimits), bem como [preços](https://aka.ms/lbpricing), e [SLA](https://aka.ms/lbsla).
 
 
-Pode utilizar padrão de Balanceador de carga numa configuração pública ou interna para suportar os seguintes cenários fundamentais:
+### <a name="backend"></a>Conjunto back-end
 
-- Tráfego de entrada para instâncias de back-end em bom estado de balanceamento de carga.
-- Porta reencaminhar tráfego de entrada para uma única instância de back-end.
-- Converte o tráfego de saída de um endereço IP privado dentro da rede virtual para um endereço IP público.
+Conjuntos de back-end de Balanceador de carga padrão expande a qualquer recurso de máquina virtual numa rede virtual.  Pode conter até 1000 instâncias de back-end.  Uma instância de back-end é uma configuração de IP, o que é uma propriedade de um recurso NIC.
 
-### <a name = "enterprisescale"></a>Escala empresarial
+O conjunto de back-end pode conter máquinas virtuais autónomas, conjuntos de disponibilidade ou conjuntos de dimensionamento de máquina virtual.  Pode misturar recursos no conjunto de back-end e pode conter qualquer combinação destes recursos até 150 total.
 
- Utilize o padrão de Balanceador de carga para estruturar o Centro de dados de virtual de elevado desempenho e suportar qualquer aplicação TCP ou UDP. Utilize as instâncias VM autónoma ou até 1000 instâncias da máquina virtual de conjuntos de dimensionamento num conjunto back-end. Continue a utilizar o reencaminhamento de baixa latência, débito elevado desempenho e dimensionamento para milhões de fluxos num serviço completamente gerido do Azure.
- 
-Padrão de Balanceador de carga pode reencaminhar tráfego para qualquer instância VM numa rede virtual numa região. Tamanhos de conjunto back-end podem ser até 1000 instâncias com qualquer combinação dos seguintes cenários VM:
+Ao considerar como estruturar o conjunto de back-end, pode conceber para o menor número de recursos de conjunto de back-end individuais para otimizar ainda mais a duração das operações de gestão.  Não há qualquer diferença no desempenho de plane de dados ou a escala.
 
-- VMs de autónomo sem conjuntos de disponibilidade
-- VMs de autónomo com conjuntos de disponibilidade
-- Conjuntos de dimensionamento de máquina virtual, até 1000 instâncias
-- Conjuntos de dimensionamento de máquina virtual vários
-- Blends de VMs e conjuntos de dimensionamento de máquina virtual
+## <a name="az"></a>Zonas de disponibilidade
 
-Não existe já não é um requisito para conjuntos de disponibilidade. Pode optar por utilizar conjuntos de disponibilidade para as vantagens que fornecem.
+>[!NOTE]
+> Para utilizar [pré-visualização de zonas de disponibilidade](https://aka.ms/availabilityzones) com padrão Balanceador de carga requer [inscrição para disponibilidade zonas](https://aka.ms/availabilityzones).
 
-### <a name = "diagnosticinsights"></a>Informações de diagnóstico
+Balanceador de carga Standard suporta capacidades adicionais em regiões onde zonas de disponibilidade estão disponíveis.  Estas funcionalidades são incrementais para todos os Balanceador de carga padrão fornece.  Configurações de zonas de disponibilidade estão disponíveis para o Balanceador de carga de padrão público e interno.
 
-Padrão de Balanceador de carga fornece novas funcionalidades de diagnóstico multidimensionais para configurações de Balanceador de carga internas e públicas. Estas métricas novo são fornecidas por meio do Monitor do Azure (pré-visualização) e utilizam todas as capacidades relacionadas, incluindo a capacidade para integrar com a jusante consumidores.
+Não zonal frontends tornar-se com redundância de zona por predefinição, quando implementado numa região com zonas de disponibilidade.   Um front-end com redundância de zona survives falha de zona e é fornecido pela infraestrutura dedicada em todas as zonas em simultâneo. 
+
+Além disso, pode garantir o front-end para uma zona específica. Um front-end zonal partilha fate com o respetivo horário e é fornecido apenas por infraestrutura dedicada numa única zona.
+
+Balanceamento de carga entre zona está disponível para o conjunto de back-end e qualquer recurso de máquina virtual numa vnet pode fazer parte de um conjunto de back-end.
+
+Reveja [debate detalhado das zonas de disponibilidade relacionadas com capacidades](load-balancer-standard-availability-zones.md).
+
+### <a name="diagnostics"></a> Diagnóstico
+
+Balanceador de carga padrão fornece métricas multidimensionais por meio do Monitor do Azure.  Estas métricas podem ser filtrado, agrupados e fornecer informações históricos e atuais de desempenho e estado de funcionamento do seu serviço.  Estado de funcionamento de recursos também é suportado.  Segue-se uma breve descrição geral de diagnóstico suportado:
 
 | Métrica | Descrição |
 | --- | --- |
@@ -77,222 +103,74 @@ Padrão de Balanceador de carga fornece novas funcionalidades de diagnóstico mu
 | Contadores de bytes | Padrão de Balanceador de carga relatórios os dados processados por front-end.|
 | Contadores de pacote | Padrão de Balanceador de carga relatórios pacotes processados por front-end.|
 
-### <a name = "highreliability"></a>Fiabilidade elevada
+Reveja [debate do diagnóstico de Balanceador de carga padrão de detalhado](load-balancer-standard-diagnostics.md).
 
-Configure regras para efetuar o dimensionamento de aplicações e altamente fiáveis de balanceamento de carga. Pode configurar regras para portas individuais ou pode utilizar as portas HA para equilibrar o tráfego de todos os independentemente do número de porta TCP ou UDP.  
+### <a name="haports"></a>HA portas
 
-Pode utilizar a nova funcionalidade de portas HA para desbloquear uma variedade de cenários, incluindo elevada disponibilidade e dimensionamento para NVAs internos. A funcionalidade é útil para outros cenários onde é impractical ou indesejáveis para especificar portas individuais. Portas HA proporcionar redundância e escala, permitindo que o número de instâncias conforme necessário. A configuração já não está restrita a cenários de ativo/passivo. As configurações de sonda de estado de funcionamento proteger o seu serviço tráfego apenas para instâncias de bom estado de funcionamento de reencaminhamento.
+Balanceador de carga Standard suporta um novo tipo de regra.  
 
-Os fornecedores NVA podem fornecer cenários totalmente suportadas de fornecedor, resilientes para os seus clientes. O ponto único de falha é removido e várias instâncias do Active Directory são suportadas para a escala. Pode dimensionar a duas ou mais instâncias, consoante as capacidades do seu dispositivo. Contacte o fabricante NVA para orientações adicionais para estes cenários.
+Pode configurar regras para efetuar o dimensionamento de aplicações e altamente fiáveis de balanceamento de carga. Ao utilizar uma regra de Balanceador de carga padrão de balanceamento de carga HA portas irá fornecer por balanceamento em todas as portas efémeras do endereço IP de front-end de um interno padrão de carga do Balanceador de carga de fluxo.  A funcionalidade é útil para outros cenários onde é impractical ou indesejáveis para especificar portas individuais.
 
-### <a name = "availabilityzones"></a>Zonas de disponibilidade
+Uma regra de balanceamento de carga de portas HA permite-lhe criar ativa-passiva ou ativo-ativo n + 1 cenários para dispositivos de rede Virtual e de qualquer aplicação que necessita de grandes intervalos de portas de entrada.  Uma sonda do Estado de funcionamento pode ser utilizada para determinar quais back-ends devem receber novos fluxos.  Pode utilizar um grupo de segurança de rede para emular um cenário de intervalo de portas.
 
-[!INCLUDE [availability-zones-preview-statement](../../includes/availability-zones-preview-statement.md)]
+>[!IMPORTANT]
+> Se estiver a planear utilizar uma aplicação Virtual de rede, consulte o fornecedor para obter orientações sobre se os seus produtos foi testado com portas HA e siga as orientações específicas para implementação. 
 
-Produzir resiliência da sua aplicação com a utilização das zonas de disponibilidade em regiões suportadas. Zonas de disponibilidade estão atualmente em pré-visualização em regiões específicas e requerem adicional optar ativamente por participar-in.
+Reveja [detalhadas debate do HA portas](load-balancer-ha-ports-overview.md).
 
-### <a name="automatic-zone-redundancy"></a>Redundância de zona automática
+### <a name="securebydefault"></a>Seguro por predefinição
 
-Pode escolher se Balanceador de carga deve fornecer uma zona redundante ou zonal front-end para cada uma das suas aplicações. É fácil criar redundância de zona com o padrão de Balanceador de carga. Um único endereço IP Front-end é automaticamente com redundância de zona. Uma zona com redundância de front-end é servido por todas as zonas de disponibilidade numa região em simultâneo. Um caminho de dados com redundância de zona é criado para ligações de entrada e saídas. Redundância de zona no Azure não necessita de vários endereços IP e registos DNS. 
-
-Redundância de zona está disponível para a frente-ends de públicos ou internos. O IP privado front-end para o Balanceador de carga interno e um endereço IP público podem ser com redundância de zona.
-
-Utilize o seguinte script para criar um endereço IP público com redundância de zona para o Balanceador de carga interno. Se estiver a utilizar modelos de Gestor de recursos existentes na sua configuração, adicione o **sku** secção para estes modelos.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Utilize o seguinte script para criar um IP de front-end com redundância de zona para o Balanceador de carga interno. Se estiver a utilizar modelos de Gestor de recursos existentes na sua configuração, adicione o **sku** secção para estes modelos.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zone_redundant_frontend",
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Se o IP público front-end com redundância de zona, ligações de saída que são efetuadas a partir de instâncias de VM automaticamente tornar-se com redundância de zona. O front-end se encontra protegido contra a falha de zona. A alocação de portas de realizar o SNAT survives também falha de zona.
-
-#### <a name="cross-zone-load-balancing"></a>Balanceamento de carga entre zona
-
-Balanceamento de carga entre zona está disponível dentro de uma região para o conjunto de back-end e oferece flexibilidade máxima para as instâncias de VM. Um front-end disponibiliza fluxos em qualquer VM na rede virtual, independentemente da zona de disponibilidade da instância de VM.
-
-Também pode especificar uma zona específica para as instâncias de front-end e back-end, alinhar o caminho de dados e recursos com uma zona específica.
-
-Redes virtuais e sub-redes nunca estão restritos por uma zona. Definir apenas um conjunto de back-end com as instâncias de VM pretendidas e a configuração está concluída.
-
-#### <a name="zonal-deployments"></a>Implementações zonal
-
-Como opção, pode alinhar seu Balanceador de carga front-end para uma zona específica, definindo um zonal front-end. Um zonal front-end servidos pelo designado único disponibilidade zona apenas. Quando o front-end é combinado com zonal instâncias VM, pode alinhar recursos para zonas específicos.
-
-Existe um endereço de IP público é sempre criado numa zona específica apenas em que zona. Não é possível alterar o horário de um endereço IP público. Para um endereço IP público que pode ser anexado aos recursos em várias zonas, crie um IP público com redundância de zona em vez disso.
-
-Utilize o seguinte script para criar um endereço IP público zonal na disponibilidade zona 1. Se estiver a utilizar modelos de Gestor de recursos existentes na sua configuração, adicione o **sku** secção para estes modelos.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "zones": [ "1" ],
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Utilize o seguinte script para criar um balanceador de carga interno front-end para 1 de zona de disponibilidade.
-
-Se estiver a utilizar modelos de Gestor de recursos existentes na sua configuração, adicione o **sku** secção para estes modelos. Além disso, defina o **zonas** propriedade da configuração de IP Front-end para o recurso subordinado.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zonal_frontend_in_az1",
-                        "zones": [ "1" ],
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Adicione entre zona balanceamento de carga para o conjunto de back-end colocando as instâncias de VM que estão numa rede virtual ao conjunto.
-
-O recurso de Balanceador de carga padrão é sempre regional e com redundância de zona onde as zonas de disponibilidade são suportadas. Pode implementar um endereço IP público ou o Balanceador de carga interno front-end que não tem uma zona atribuída em qualquer região. Suporte para as zonas de disponibilidade não afeta a capacidade de implementação. Se uma região mais tarde obtiver zonas de disponibilidade, implementado anteriormente os IPs públicos ou Balanceador de carga internos frente-ends automaticamente tornar-se com redundância de zona. Um caminho de dados com redundância de zona não implica a perda de pacotes de 0%.
-
-### <a name = "nsg"></a>Grupos de segurança de rede
-
-Carregar balanceador padrão e Public IP Standard totalmente carregar para a rede virtual, o que requer a utilização de grupos de segurança de rede (NSGs). Os NSGs tornam possível para o fluxo de tráfego da lista branca. Pode utilizar os NSGs para obter o controlo total sobre o tráfego para a sua implementação. Já não terá de aguardar que outros fluxos de tráfego concluir.
-
-Associe NSGs a sub-redes ou as interfaces de rede (NICs) de instâncias de VM no conjunto de back-end. Utilize esta configuração com o padrão de Balanceador de carga e o padrão de IP público, quando é utilizado como um IP público de nível de instância. O NSG tem de ser explicitamente o tráfego que pretende permitir, por ordem para esse fluxo do tráfego da lista de permissões.
+Balanceador de carga padrão é totalmente integrado à rede virtual.  A rede virtual está numa rede privada, fechada.  Porque padrão balanceadores de carga e os endereços IP públicos padrão foram concebidos para permitir esta rede virtual ser acedido a partir de fora da rede virtual, estes recursos agora a predefinição fechada, a menos que abre-los. Isto significa que os grupos de segurança de rede (NSGs) agora são utilizados para permitir explicitamente e lista branca de tráfego permitido.  Pode criar o seu centro de dados virtual completo e decidir através do NSG que e quando devem estar disponível.  Se não tiver um NSG numa sub-rede ou NIC de recurso de máquina virtual, não podemos irá permitir o tráfego para aceder este recurso.
 
 Para saber mais sobre NSGs e como aplicá-las para o seu cenário, consulte [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 
-### <a name ="outboundconnections"></a>Ligações de saída
+### <a name="outbound"></a> Ligações de saída
 
-Padrão de Balanceador de carga fornece ligações para as VMs que estão dentro da rede virtual, quando um balanceador de carga utiliza realizar o SNAT masquerading de porta de saída. O algoritmo de realizar o SNAT masquerading de porta fornece maior robustez e escala.
+Balanceador de carga suporta cenários de entrada e saídos.  Balanceador de carga padrão é significativamente diferente básico Balanceador de carga no que respeita à ligações de saída.
 
-Quando um recurso de Balanceador de carga público está associado com instâncias VM, cada origem de ligação de saída é foi reescrita. A origem é rescrita do espaço de endereços IP privado da rede virtual para o endereço IP público front-end de Balanceador de carga.
+Origem de rede endereço tradução (realizar o SNAT) é utilizado para mapear internos, privados endereços IP na sua rede virtual para endereços IP públicos no frontends de Balanceador de carga.
 
-Quando as ligações de saída são utilizadas com uma zona com redundância de front-end, as ligações são também com redundância de zona e alocações de porta de realizar o SNAT continuam a vigorar após falha de zona.
+Balanceador de carga padrão introduz um novo algoritmo para um [mais robusto, escalável e previsível algoritmo de realizar o SNAT](load-balancer-outbound-connections.md#snat) e capacidades de novo ativa, remove ambiguidade e configurações de explícita força em vez de lado efeitos. Estas alterações são necessárias para permitir novas funcionalidades surgir. 
 
-O novo algoritmo na padrão de Balanceador de carga preallocates realizar o SNAT portas para o NIC de cada VM. Quando um NIC é adicionado ao conjunto, as portas de realizar o SNAT são preallocated com base no tamanho do conjunto. A tabela seguinte mostra os preallocations de porta de camadas de seis de tamanhos de conjunto back-end:
+Estas são as chaves tenets lembrar-se ao trabalhar com o padrão de Balanceador de carga:
 
-| Tamanho do conjunto (instâncias de VM) | Preallocated número de portas de realizar o SNAT |
-| --- | --- |
-| 1 - 50 | 1024 |
-| 51 - 100 | 512 |
-| 101 - 200 | 256 |
-| 201 - 400 | 128 |
-| 401 - 800 | 64 |
-| 801 - 1,000 | 32 |
+- após a conclusão de uma regra de unidades o recurso de Balanceador de carga.  todos os programação do Azure deriva de configuração.
+- Quando estiverem disponíveis vários frontends, todos os frontends são utilizados e cada front-end multiplica o número de portas de realizar o SNAT disponíveis
+- Pode escolher e controlar se não desejar para um determinado front-end a utilizar para ligações de saída.
+- cenários de saída são explícitos e conectividade de saída não existir até que foi especificado.
+- regras de balanceamento de carga inferir como realizar o SNAT está programado. Regras de balanceamento de carga são específico do protocolo. Realizar o SNAT é específico do protocolo e a configuração deve refletir isto em vez de criar um efeito.
 
-Portas de realizar o SNAT diretamente não convertidos para o número de ligações de saída. Uma porta de realizar o SNAT pode ser reutilizada vários destinos exclusivo. Para obter mais informações, consulte o [ligações de saída](load-balancer-outbound-connections.md) artigo.
+#### <a name="multiple-frontends"></a>Vários frontends
+Se pretender mais portas de realizar o SNAT porque está à espera ou são já estão a ocorrer um excesso para ligações de saída, também pode adicionar inventário de porta de realizar o SNAT incremental configurando frontends adicionais, regras e conjuntos de back-end para a mesma máquina virtual recursos.
 
-Se o tamanho do conjunto de back-end aumenta e passa para um escalão superior, são recuperados metade do seu portas alocadas. Ligações que estão associados um tempo limite de porta recuperada e tem de ser restabelecer. Novas tentativas de ligação com êxito imediatamente. Se o tamanho do conjunto de back-end diminui e passa para um escalão inferior, aumenta o número de portas de realizar o SNAT disponíveis. Neste caso, as ligações existentes não são afetadas.
+#### <a name="control-which-frontend-is-used-for-outbound"></a>Controlo que front-end é utilizada para a saída
+Se pretender restringir as ligações de saída para apenas provenientes de um endereço IP de front-end específico, opcionalmente, pode desativar a saída realizar o SNAT na regra que expresse precisa o mapeamento de saída.
 
-Padrão de Balanceador de carga tem uma opção de configuração adicionais que pode ser utilizada numa base por regras. Pode controlar o front-end que é utilizado para realizar o SNAT masquerading de porta quando várias-ends de frente estão disponíveis.
+#### <a name="control-outbound-connectivity"></a>Conectividade de saída de controlo
+Padrão de Balanceador de carga existe no contexto da rede virtual.  Uma rede virtual é uma rede privada isolada.  A menos que existe uma associação com um endereço IP público, conectividade pública não é permitida.  Pode aceder [pontos finais do serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) porque estão dentro do e local à sua rede virtual.  Se pretender estabelecer conectividade de saída para um destino fora da rede virtual, tem duas opções:
+- atribuir um endereço IP público do Standard SKU como um endereço IP público de nível de instância para o recurso de máquina virtual ou
+- Coloque o recurso de máquina virtual no conjunto back-end de Balanceador de carga público padrão.
 
-Quando apenas carga balanceador padrão serve instâncias de VM, ligações de saída realizar o SNAT não estão disponíveis. Pode restaurar esta capacidade explicitamente atribuindo também as instâncias de VM a um balanceador de carga público. Pode também diretamente atribuir IPs públicos como IPs públicos de nível de instância para cada instância VM. Esta opção de configuração pode ser necessária para alguns cenários de aplicação e o sistema operativo. 
+Ambos permitirá a conectividade de saída da rede virtual para fora da rede virtual. 
 
-### <a name="port-forwarding"></a>Reencaminhamento de porta
+Se lhe _apenas_ tem um balanceador de carga de padrão interno, associados ao conjunto de back-end em que o recurso de máquina virtual se encontra, a máquina virtual só pode aceder a recursos de rede virtual e [serviço VNet Pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md).  Pode seguir os passos descritos no parágrafo anterior para criar a conectividade de saída.
 
-Básico e padrão balanceadores de carga fornece a capacidade de configurar regras NAT de entrada para mapear uma porta de front-end para uma instância de back-end individuais. Ao configurar estas regras, pode expor os pontos finais de protocolo de ambiente de trabalho remoto e os pontos finais SSH ou efetuar outros cenários de aplicação.
+Conectividade de saída de um recurso de máquina virtual não associado a permanece SKUs padrão como antes.
 
-Padrão de Balanceador de carga continua a fornecer a capacidade de reencaminhamento da porta através de regras NAT de entrada. Quando utilizado com frente-ends com redundância de zona, regras NAT de entrada fiquem com redundância de zona e continuam a vigorar após falha de zona.
+Reveja [detalhadas debate de ligações de saída](load-balancer-outbound-connections.md).
 
-### <a name="multiple-front-ends"></a>Vários frente-ends
+### <a name="multife"></a>Vários frontends
+Balanceador de carga suporta várias regras com vários frontends.  Balanceador de carga padrão expande este para cenários de saída.  Cenários de saída são essencialmente o inverso de uma regra de balanceamento de carga na entrada.  O entrada também a regra de balanceamento de carga cria um associar para ligações de saída. Standard Load Balancer utiliza todos os frontends associados a um recurso de máquina virtual através de uma regra de balanceamento de carga.  Além disso, um parâmetro no balanceamento de carga da regra e permite-lhe suprimir uma balanceamento de carga regra para fins de conectividade de saída, que permite a seleção de frontends específico, incluindo none.
 
-Configure vários frente-ends de flexibilidade de conceção quando as aplicações requerem vários endereços IP individuais de ser expostos, tais como sites TLS ou pontos finais do grupo de disponibilidade do AlwaysOn de SQL. 
+Para comparação, básico Balanceador de carga seleciona um front-end único aleatória, e não há nenhuma capacidade para controlar o que foi selecionado.
 
-Padrão de Balanceador de carga continua a fornecer vários-ends de frente onde é necessário expor um ponto final de aplicação específica num endereço IP exclusivo.
+Reveja [detalhadas debate de ligações de saída](load-balancer-outbound-connections.md).
 
-Para obter mais informações sobre como configurar vários IPs front-end, consulte [configuração de IP de vários](load-balancer-multivip-overview.md).
+### <a name="operations"></a> Operações de gestão
 
-## <a name = "sku"></a>Sobre SKUs
+Recursos padrão do Balanceador de carga existem numa plataforma completamente nova infraestrutura.  Isto permite operações de gestão significativamente mais rápidas para SKUs padrão e os tempos de conclusão são, normalmente, menos de 30 segundos por recurso de Standard SKU.  Tenha em atenção que como conjuntos back-end aumentam de tamanho, a duração necessária para o back-end conjunto alterado também aumento.
 
-SKUs só estão disponíveis no modelo de implementação Azure Resource Manager. Esta pré-visualização introduz dois SKUs de recursos de Balanceador de carga e um IP público: básico e padrão. Os SKUs diferem no capacidades, características de desempenho, limitações e algumas comportamento intrínseco. Máquinas virtuais pode ser utilizadas com o SKU. Para obter recursos Balanceador de carga e um IP público, SKUs permanecem atributos opcionais. Quando estão omitidos SKUs numa definição de cenário, a configuração por predefinição, utiliza a SKU básico.
-
->[!IMPORTANT]
->O SKU de um recurso não é mutável. Não pode alterar o SKU de um recurso existente.  
-
-### <a name="load-balancer"></a>Load balancer
-
-O [recurso de Balanceador de carga existente](load-balancer-overview.md) torna-se a SKU básico e permanece geralmente disponível e não alterado.
-
-SKU Standard de Balanceador de carga é novo e atualmente em pré-visualização. O 1 de Agosto de 2017, versão de API para Microsoft.Network/loadBalancers adiciona o **sku** propriedade para a definição do recurso:
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-Padrão de Balanceador de carga é automaticamente zona resiliente em regiões que oferecem zonas de disponibilidade. Se o Balanceador de carga foi declarado zonal, não é automaticamente zona resiliente.
-
-### <a name="public-ip"></a>IP público
-
-O [recurso de IP público existente](../virtual-network/virtual-network-ip-addresses-overview-arm.md) torna-se a SKU básico e permanece geralmente disponível com todas as respetivas capacidades, características de desempenho e limitações.
-
-SKU Standard de IP público é novo e atualmente em pré-visualização. O 1 de Agosto de 2017, versão de API para Microsoft.Network/publicIPAddresses adiciona o **sku** propriedade para a definição do recurso:
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Ao contrário do público IP básica, que oferece vários métodos de alocação, Public IP Standard utiliza sempre alocação estática.
-
-Padrão de IP público é automaticamente zona resiliente em regiões que oferecem zonas de disponibilidade. Se o IP público foi declarado zonal, não é automaticamente zona resiliente. Um IP público zonal não é possível alterar a partir de uma zona para outro.
+Pode modificar o Balanceador de carga padrão de recursos e mover um endereço IP público padrão de uma máquina virtual para outro muito mais rápido.
 
 ## <a name="migration-between-skus"></a>Migração entre os SKUs
 
@@ -322,135 +200,21 @@ SKUs não são mutável. Siga os passos nesta secção para mover de um recurso 
 >
 >HA portas e ao diagnóstico do Standard SKU só está disponível no Standard SKU. Não é possível migrar a partir do SKU Standard para o SKU básico e também retêm estas funcionalidades.
 >
->SKUs de correspondência tem de ser utilizado para recursos de Balanceador de carga e um IP público. Não é possível ter uma mistura de recursos de SKU básico e recursos de Standard SKU. Não é possível anexar uma VM, VMs num conjunto de disponibilidade, ou um máquina virtual do conjunto de dimensionamento para ambos os SKUS em simultâneo.
+>Básico e padrão SKU têm um número de diferenças, conforme descrito neste artigo.  Certifique-se compreender e preparar para os mesmos.
 >
+>SKUs de correspondência tem de ser utilizado para recursos de Balanceador de carga e um IP público. Não é possível ter uma mistura de recursos de SKU básico e recursos de Standard SKU. Não é possível ligar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade, ou um máquina virtual do conjunto de dimensionamento recursos para ambos os SKUs em simultâneo.
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-Padrão de Balanceador de carga está atualmente disponível em todas as regiões de nuvem pública, exceto EUA oeste.
+Padrão de Balanceador de carga está atualmente disponível em todas as regiões de nuvem pública.
 
->[!IMPORTANT]
-> Para um curto período de tempo, aceda para regiões fora do lançamento inicial regiões (EUA Leste 2, EUA Central, Europa do Norte, Central EUA oeste, Europa Ocidental, Sudeste asiático) requer o registo das funcionalidades adicionais de subscrição (AllowLBPreviewWave2 e AllowLBPreviewWave3).  [Siga estes passos](#additionalpreviewregions). . Execute todos eles, mesmo se tiver cópias de segurança para AllowLBPreview já.
-> Este requisito será removido nas próximas semanas.
+## <a name="sla"></a>SLA
 
-## <a name="sku-service-limits-and-abilities"></a>Limites de serviço SKU e capacidades
+Estão disponíveis com um SLA de 99,99% padrão balanceadores de carga.  Reveja o [padrão SLA de Balanceador de carga](https://aka.ms/lbsla) para obter mais detalhes.
 
-Azure [limites de serviço para funcionamento em rede](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) aplicam-se por região por subscrição. 
-
-A tabela seguinte compara os limites e capacidades do Balanceador de carga básico e padrão SKUs:
-
-| Load balancer | Básica | Standard |
-| --- | --- | --- |
-| Tamanho do conjunto de back-end | até 100 | até 1000 |
-| Limite de conjunto back-end | Conjunto de Disponibilidade | rede virtual, a região |
-| Estrutura do conjunto back-end | VMs do conjunto de disponibilidade, dimensionamento da máquina virtual definido no conjunto de disponibilidade | Qualquer instância VM na rede virtual |
-| HA portas | Não suportado | Disponível |
-| Diagnóstico | Limitado, pública apenas | Disponível |
-| Disponibilidade de VIP  | Não suportado | Disponível |
-| Mobilidade de IPs rápida | Não suportado | Disponível |
-|Cenários de zonas de disponibilidade | Apenas zonal | Zonal, com redundância de zona, balanceamento de carga entre zona |
-| Algoritmo de realizar o SNAT saído | Pedido | Preallocated |
-| Seleção de front-end de realizar o SNAT saída | Não configurável candidatos vários | Configuração opcional para reduzir candidatos |
-| Grupo de Segurança de Rede | Opcional numa sub-rede/NIC | Necessário |
-
-A tabela seguinte compara os limites e capacidades do IP público básico e padrão SKUs:
-
-| IP público | Básica | Standard |
-| --- | --- | --- |
-| Cenários de zonas de disponibilidade | Apenas zonal | Com redundância de zona (predefinição), zonal (opcional) | 
-| Mobilidade de IPs rápida | Não suportado | Disponível |
-| Disponibilidade de VIP | Não suportado | Disponível |
-| Contadores | Não suportado | Disponível |
-| Grupo de Segurança de Rede | Opcional no NIC | Necessário |
-
-
-## <a name="preview-sign-up"></a>Pré-visualização inscrição
-
-Participar na pré-visualização para SKU Standard de Balanceador de carga e o complemento SKU Standard de IP público, registe a sua subscrição.  Registar o fornecem de subscrição, que aceder a partir do PowerShell ou do Azure CLI 2.0. Para registar, execute os seguintes passos:
-
->[!NOTE]
->Registo da funcionalidade do padrão de Balanceador de carga pode demorar até uma hora entram em vigor global. Se pretender utilizar carga balanceador Standard com [disponibilidade zonas](https://aka.ms/availabilityzones), um [separado inscrição](https://aka.ms/availabilityzones) é necessário para a pré-visualização de AZ.
-
-<a name="additionalpreviewregions"></a>
->[!IMPORTANT]
-> Durante um curto período de tempo, o acesso a regiões fora do lançamento inicial regiões (EUA Leste 2, EUA Central, Europa do Norte, Central EUA oeste, Europa Ocidental, Sudeste asiático) requerem o registo das funcionalidades adicionais de subscrição (AllowLBPreviewWave2 e AllowLBPreviewWave3).  Foram modificados os passos abaixo para ativar funcionalidades adicionais de subscrição. . Execute todos eles, mesmo se tiver cópias de segurança para AllowLBPreview já. Este requisito será removido nas próximas semanas.
-
-
-### <a name="sign-up-by-using-azure-cli-20"></a>Inscrever-se utilizando o Azure CLI 2.0
-
-1. A funcionalidade com o fornecedor do registo:
-
-    ```cli
-    az feature register --name AllowLBPreview --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
-    ```
-    
-2. A operação pode demorar até 10 minutos a concluir. Pode verificar o estado da operação com o seguinte comando:
-
-    ```cli
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
-    ```
-    
-    Quando o estado de registo de funcionalidade devolve 'Registada' para cada uma das funcionalidades de subscrição acima, avance para o passo seguinte. Exemplo:
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowLBPreview",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-4. Conclua a inscrição de pré-visualização ao registar novamente a sua subscrição com o fornecedor de recursos:
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-
-### <a name="sign-up-by-using-powershell"></a>Inscrever-se utilizando o PowerShell
-
-1. A funcionalidade com o fornecedor do registo:
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-    
-2. A operação pode demorar até 10 minutos a concluir. Pode verificar o estado da operação com o seguinte comando:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-
-  Quando o estado de registo de funcionalidade devolve 'Registada' para cada uma das funcionalidades de subscrição acima, avance para o passo seguinte. Exemplo:
-
-    ```
-    FeatureName      ProviderName        RegistrationState
-    -----------      ------------        -----------------
-    AllowLBPreview   Microsoft.Network   Registered
-    ```
-    
-3. Conclua a inscrição de pré-visualização ao registar novamente a sua subscrição com o fornecedor de recursos:
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
- 
 ## <a name="pricing"></a>Preços
 
-Faturação de SKU Standard do Balanceador de carga é baseada em regras configuradas e os dados processados. Não existem custos são cobrados durante o período de pré-visualização. Para obter mais informações, consulte o [Balanceador de carga](https://aka.ms/lbpreviewpricing) e [IP público](https://aka.ms/lbpreviewpippricing) preços páginas.
-
-Os clientes continuam a desfrutar SKU básico de Balanceador de carga, sem encargos.
+Padrão de Balanceador de carga é um produto cobrado com base no número de regras configuradas e todos os dados de entrada e saídos processados de balanceamento de carga. Para obter informações sobre preços padrão Balanceador de carga, visite o [preços do Balanceador de carga](https://aka.ms/lbpricing) página.
 
 ## <a name="limitations"></a>Limitações
 
@@ -458,22 +222,23 @@ As seguintes limitações aplicam-se no momento da pré-visualização e estão 
 
 - Não não possível localizar instâncias de back-end de Balanceador de carga em redes virtuais em modo de peering, neste momento. Todas as instâncias de back-end tem de ser na mesma região.
 - SKUs não são mutável. Não pode alterar o SKU de um recurso existente.
-- Ambos os SKUs podem ser utilizados com uma autónoma VM, instâncias de VM num conjunto de disponibilidade ou conjunto de dimensionamento da máquina virtual. Combinações de VM não podem ser utilizadas em simultâneo com ambos os SKUs. Não é permitida uma configuração que contém uma mistura de SKUs.
-- Desativa a utilização de um padrão de Balanceador de interno de carga com uma instância VM (ou qualquer parte de um conjunto de disponibilidade) [predefinido ligações de saída de realizar o SNAT](load-balancer-outbound-connections.md). Pode restaurar esta capacidade de VM autónoma, as instâncias de VM um conjunto de disponibilidade ou um conjunto de dimensionamento de máquina virtual. Também pode restaurar a capacidade de tornar ligações de saída. Para restaurar estas capacidades, atribua em simultâneo um padrão de Balanceador de carga público ou um padrão de IP público como um IP público de nível de instância, para a mesma instância VM. Depois de concluída a atribuição, realizar o SNAT masquerading de porta para um endereço IP público é fornecido novamente.
-- Instâncias de VM poderão ter de ser agrupados em conjuntos de disponibilidade para alcançar a escala do conjunto completo de back-end. Até 150 disponibilidade conjuntos e as VMs de autónomo podem ser colocadas para um único conjunto de back-end.
+- Conjunto de disponibilidade de um recurso de máquina virtual autónoma, recurso ou recurso de conjunto de dimensionamento de máquina virtual pode referenciar um SKU nunca ambos.
+- Ativar a proteção do Azure DDoS na rede virtual tem impacto sobre a duração das operações de gestão.
 - IPv6 não é suportado.
-- No contexto das zonas de disponibilidade, um front-end não está mutável de zonal com redundância de zona, ou vice-versa. Depois de um front-end é criado como com redundância de zona, permanece com redundância de zona. Depois de um front-end é criado como zonal, continua a ser zonal.
-- No contexto das zonas de disponibilidade, não é possível mover um endereço IP público zonal de uma zona para outro.
 - [Alertas de monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) não são suportados neste momento.
-- Portal ainda não suporta as regiões de pré-visualização expandido.  Utilize ferramentas de cliente como modelos, 2.0 do Azure CLI ou PowerShell como uma solução.
 - [Move operações de subscrição](../azure-resource-manager/resource-group-move-resources.md) não são suportadas para recursos padrão LB de SKU e PIP.
-- Não está disponível nos EUA oeste.
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [básico de Balanceador de carga](load-balancer-overview.md).
+- Saiba como utilizar [padrão Balanceador de carga e zonas de disponibilidade](load-balancer-standard-availability-zones.md)
 - Saiba mais sobre [disponibilidade zonas](../availability-zones/az-overview.md).
+- Saiba mais sobre [diagnósticos de Balanceador de carga padrão](load-balancer-standard-diagnostics.md).
+- Saiba mais sobre [suportado métricas multidimensionais](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) para obter um diagnóstico no [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Saiba como utilizar [Balanceador de carga para ligações de saída](load-balancer-outbound-connections.md)
+- Saiba mais sobre [padrão Balanceador de carga com regras de balanceamento de carga de portas HA](load-balancer-ha-ports-overview.md)
+- Saiba como utilizar [Balanceador de carga com várias Frontends](load-balancer-multivip-overview.md)
+- Saiba mais sobre [redes virtuais](../virtual-network/virtual-networks-overview.md).
 - Saiba mais sobre [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+- Saiba mais sobre [pontos finais do serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Saiba mais sobre algumas da outra chave [capacidades de rede](../networking/networking-overview.md) no Azure.
-- Saiba mais sobre [métricas expostas](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) no [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Saiba mais sobre [Balanceador de carga](load-balancer-overview.md).

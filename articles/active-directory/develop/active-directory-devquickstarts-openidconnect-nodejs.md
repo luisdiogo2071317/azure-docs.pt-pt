@@ -1,11 +1,11 @@
 ---
-title: "Aplicação web do Azure AD Node.js, introdução | Microsoft Docs"
-description: "Saiba como criar uma aplicação web Node.js Express MVC que se integra com o Azure AD para início de sessão."
+title: Aplicação web do Azure AD Node.js, introdução | Microsoft Docs
+description: Saiba como criar uma aplicação web Node.js Express MVC que se integra com o Azure AD para início de sessão.
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 477056581b847693ae115f94c2f6466036add765
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Aplicação web do Azure AD Node.js, introdução
 Aqui, utilizamos o Passport para:
@@ -402,7 +402,7 @@ Agora `app.js` está concluída. Precisamos simplesmente de adicionar as rotas e
     </html>
     ```
 
-##<a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Por fim, crie e execute a sua aplicação. Executar `node app.js`e, em seguida, aceda a `http://localhost:3000`.
 
 Inicie sessão com uma conta Microsoft pessoal ou uma conta escolar ou profissional e repare como a identidade do utilizador é refletida na lista /account. Tem agora uma aplicação web que está protegida com protocolos padrão da indústria que podem autenticar os utilizadores com ambas as respetivas contas pessoais e de trabalho/escola.

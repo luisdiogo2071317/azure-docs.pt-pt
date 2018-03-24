@@ -1,12 +1,13 @@
 ---
 title: Como escolher algoritmos do machine learning | Microsoft Docs
-description: "Como escolher o Azure Machine Learning algoritmos de aprendizagem supervisionada e não supervisionada nas experimentações clustering, classificação ou regressão."
+description: Como escolher o Azure Machine Learning algoritmos de aprendizagem supervisionada e não supervisionada nas experimentações clustering, classificação ou regressão.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.devlang: na
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Como escolher algoritmos para o Microsoft Azure Machine Learning
 A resposta à pergunta "O algoritmo de aprendizagem devo utilizar?" é sempre "Depende." Depende do tamanho, qualidade e natureza dos dados. Depende das quais pretende fazer com a resposta. Depende de como as contas do algoritmo foi convertida instruções para o computador que estiver a utilizar. E depende quanto tempo tiver. Mesmo as cientistas de dados mais experiente não sabe qual algoritmo irá efetuar melhor antes de tentá-los.
@@ -38,7 +38,7 @@ Esta folha de referência tem um público-alvo muito específico em mente: um in
 Estas recomendações são compilados comentários e sugestões de várias cientistas de dados e de especialistas do machine learning. Iremos não aceita em tudo, mas tiver a tentou harmonize nosso opinions para um consenso aproximado. Na maioria das declarações de estado de disagreement começa com "Depende..."
 
 ### <a name="how-to-use-the-cheat-sheet"></a>Como utilizar a folha de referência
-As etiquetas de caminho e o algoritmo no gráfico como de leitura "para  *&lt;etiqueta do caminho&gt;*, utilize  *&lt;algoritmo&gt;*." Por exemplo, "para *velocidade*, utilize *dois classe regressão logística da*." Por vezes, mais do que um ramo aplica-se.
+As etiquetas de caminho e o algoritmo no gráfico como de leitura "para * &lt;etiqueta do caminho&gt;*, utilize * &lt;algoritmo&gt;*." Por exemplo, "para *velocidade*, utilize *dois classe regressão logística da*." Por vezes, mais do que um ramo aplica-se.
 Por vezes, nenhuma delas são uma opção perfeita. Está a se destina a ser recomendações de regra de botão, pelo que não se preocupe se a ser exato.
 Vários cientistas de dados que posso talked com referida que a forma apenas se encontrar o algoritmo muito mais é para experimentar todos eles.
 
@@ -105,7 +105,7 @@ Alguns algoritmos de aprendizagem tornar pressupostos específicos sobre a estru
 | **Algoritmo** | **Precisão** | **Tempo de preparação** | **Linearity** | **Parâmetros** | **Notas** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Classificação de duas classes** | | | | | |
-| [regressão logística da](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5 | |
+| [Regressão logística da](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5 | |
 | [floresta de decisão](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [jungle de decisão](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Requisitos de espaço de memória insuficiente |
 | [árvore de decisões elevada](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Requisitos de espaço de memória grande |
@@ -115,11 +115,11 @@ Alguns algoritmos de aprendizagem tornar pressupostos específicos sobre a estru
 | [máquina de vetor com suporte localmente profunda](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Boa para conjuntos de funcionalidades grande |
 | [Máquina do ponto dos Bayes](https://msdn.microsoft.com/library/azure/dn905930.aspx) | |○ |● |3 | |
 | **Classificação de classe multi** | | | | | |
-| [regressão logística da](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
+| [Regressão logística da](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [floresta de decisão](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [jungle de decisão](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Requisitos de espaço de memória insuficiente |
+| [jungle de decisão ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Requisitos de espaço de memória insuficiente |
 | [rede neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Personalização adicional, é possível](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [uma-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Ver as propriedades do método de duas classes selecionado |
+| [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Ver as propriedades do método de duas classes selecionado |
 | **Regressão** | | | | | |
 | [linear](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Bayesiano linear](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
@@ -127,12 +127,12 @@ Alguns algoritmos de aprendizagem tornar pressupostos específicos sobre a estru
 | [árvore de decisões elevada](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Requisitos de espaço de memória grande |
 | [quantile floresta rápida](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distribuições em vez de ponto predições |
 | [rede neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Personalização adicional, é possível](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [POISSON](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tecnicamente registo-linear. Para prever contagens |
+| [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tecnicamente registo-linear. Para prever contagens |
 | [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Para prever a ordenação de classificação |
 | **Deteção de anomalias** | | | | | |
 | [máquina de vetor com suporte](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Especialmente ideais para conjuntos de funcionalidades grande |
 | [Deteção de anomalias baseado em PCA](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
-| [Significa K](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4 |Um algoritmo de clustering |
+| [K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4 |Um algoritmo de clustering |
 
 **Propriedades de algoritmo:**
 
@@ -187,7 +187,7 @@ Máquinas de vetor de suporte (SVMs) localizar os limites que separa classes por
 
 ***Um limite de classe de máquina de vetor de suporte típico maximiza a margem de separação de duas classes***
 
-Outro produto da Microsoft Research, o [SVM localmente profunda de duas classes](https://msdn.microsoft.com/library/azure/dn913070.aspx) é uma variante não linear do SVM que mantém a maioria da eficiência de memória e velocidade da versão linear. Este é ideal para casos onde a abordagem linear não concede precisos suficientemente respostas. Os programadores mantida-rápido ao eliminar para baixo o problema para um bunch de pequenos problemas SVM lineares. Leia o [completa Descrição](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) para os detalhes sobre como possam solicitados desativar este truque.
+Outro produto da Microsoft Research, o [SVM localmente profunda de duas classes](https://msdn.microsoft.com/library/azure/dn913070.aspx) é uma variante não linear do SVM que mantém a maioria da eficiência de memória e velocidade da versão linear. Este é ideal para casos onde a abordagem linear não concede precisos suficientemente respostas. Os programadores mantida-rápido ao eliminar para baixo o problema para um bunch de pequenos problemas SVM lineares. Leia o [completa Descrição](http://proceedings.mlr.press/v28/jose13.html) para os detalhes sobre como possam solicitados desativar este truque.
 
 Utilizar uma extensão clever de nonlinear SVMs, o [SVM de uma classe](https://msdn.microsoft.com/library/azure/dn913103.aspx) desenha limite que totalmente descreve o conjunto completo de dados. É útil para deteção de anomalias. Quaisquer novos pontos de dados que se inserem até que ponto fora de limites que são invulgares ser noteworthy.
 

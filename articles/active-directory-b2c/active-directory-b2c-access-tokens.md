@@ -1,24 +1,21 @@
 ---
 title: Pedir tokens de acesso - Azure AD B2C | Microsoft Docs
-description: "Este artigo irá mostrar como configurar uma aplicação de cliente e adquirir um token de acesso."
+description: Este artigo irá mostrar como configurar uma aplicação de cliente e adquirir um token de acesso.
 services: active-directory-b2c
 documentationcenter: android
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 1c75f17f-5ec5-493a-b906-f543b3b1ea66
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: parakhj
-ms.openlocfilehash: 9d2df39118741d4254f7b7fe4c419a00ceb4ba8e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: bd919543072a8d2bf5fb0ebba17e69ba2f467218
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>O Azure AD B2C: Pedir tokens de acesso
 
@@ -127,7 +124,7 @@ Quando recebe a sua API o **acesso\_token**, é necessário [validar o token](ac
 
 Podemos sempre estão abertos para comentários e sugestões! Se tiver dificuldades em causa com este tópico, publique no Stack Overflow utilizando a tag ['azure-ad-b2c'](https://stackoverflow.com/questions/tagged/azure-ad-b2c). Para pedidos de funcionalidades, adicioná-los ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Criar uma API web utilizando [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 * Criar uma API web utilizando [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)

@@ -1,11 +1,11 @@
 ---
-title: "Como utilizar uma identidade de serviço geridas para utilizador atribuído ao adquirir um token de acesso numa VM."
-description: "Passo a passo instruções e exemplos de utilização de um MSI utilizador atribuído a partir de uma VM do Azure para adquirir um OAuth token de acesso ao."
+title: Como utilizar uma identidade de serviço geridas para utilizador atribuído ao adquirir um token de acesso numa VM.
+description: Passo a passo instruções e exemplos de utilização de um MSI utilizador atribuído a partir de uma VM do Azure para adquirir um OAuth token de acesso ao.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c6422bc2b13c0c40e48dabf0470c821b13e7851
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Adquirir um token de acesso para uma VM atribuída utilizador da identidade de serviço geridas (MSI)
 
@@ -42,7 +42,9 @@ Uma aplicação cliente pode pedir um MSI [token de acesso só de aplicação](~
 | [Obter um token utilizando CURL](#get-a-token-using-curl) | Exemplo de como utilizar o ponto final de REST do MSI de um cliente de Bash/CURL |
 | [Processamento de expiração do token](#handling-token-expiration) | Orientações para processar os tokens de acesso expirado |
 | [Processamento de erros](#error-handling) | Orientações para processamento de erros de HTTP devolvidos do ponto final token MSI |
+| [Orientações de limitação](#throttling-guidance) | Orientações para processamento de limitação do ponto final token MSI |
 | [IDs de recurso para serviços do Azure](#resource-ids-for-azure-services) | Onde obter IDs de recurso para serviços do Azure suportados |
+
 
 ## <a name="get-a-token-using-http"></a>Obter um token através de HTTP 
 
@@ -155,7 +157,7 @@ Esta secção documenta as respostas de erro possíveis. A "200 OK" estado é um
 
 | Código de estado | Erro | Descrição de Erro | Solução |
 | ----------- | ----- | ----------------- | -------- |
-| Pedido de 400 incorreta | invalid_resource | AADSTS50001: A aplicação com o nome  *\<URI\>*  não foi encontrado no inquilino com o nome  *\<ID do INQUILINO\>*. Isto pode acontecer se a aplicação não foi instalada pelo administrador do inquilino ou autorizada por qualquer utilizador no inquilino. Poderá ter enviado o pedido de autenticação para o inquilino incorreto. \ | (Apenas Linux) |
+| Pedido de 400 incorreta | invalid_resource | AADSTS50001: A aplicação com o nome *\<URI\>* não foi encontrado no inquilino com o nome  *\<ID do INQUILINO\>*. Isto pode acontecer se a aplicação não foi instalada pelo administrador do inquilino ou autorizada por qualquer utilizador no inquilino. Poderá ter enviado o pedido de autenticação para o inquilino incorreto. \ | (Apenas Linux) |
 | Pedido de 400 incorreta | bad_request_102 | Cabeçalho de metadados necessários não especificado | Ambos os `Metadata` campo de cabeçalho do pedido está em falta o pedido ou está formatado incorretamente. O valor tem de ser especificado como `true`, em todas as letras maiúsculas e minúsculas. Consulte o "exemplo de pedido" no [obter um token a utilizar HTTP](#get-a-token-using-http) secção para obter um exemplo.|
 | 401 não autorizado | unknown_source | Origem  *\<URI\>* | Certifique-se de que o URI do pedido HTTP GET está formatado corretamente. O `scheme:host/resource-path` parte tem de ser especificada como `http://169.254.169.254/metadata/identity/oath2/token` ou `http://localhost:50342/oauth2/token`. Consulte o "exemplo de pedido" no [obter um token a utilizar HTTP](#get-a-token-using-http) secção para obter um exemplo.|
 |           | invalid_request | O pedido tem um parâmetro necessário em falta, inclui um valor de parâmetro inválido, inclui um parâmetro de mais do que uma vez ou caso contrário, tem um formato incorreto. |  |
@@ -164,6 +166,16 @@ Esta secção documenta as respostas de erro possíveis. A "200 OK" estado é um
 |           | unsupported_response_type | O servidor de autorização não suporta a obtenção de um token de acesso através deste método. |  |
 |           | invalid_scope | Âmbito do pedido é inválido, desconhecido ou com formato incorreto. |  |
 | Erro interno do servidor 500 | desconhecido | Falha ao obter o token do Active directory. Para mais informações, consulte os registos no  *\<caminho do ficheiro\>* | Certifique-se de que foi ativado MSI da VM. Consulte [configurar uma VM geridos serviço de identidade (MSI) no portal do Azure](msi-qs-configure-portal-windows-vm.md) se necessitar de assistência com a configuração de VM.<br><br>Certifique-se também de que o URI do pedido HTTP GET está formatado corretamente, particularmente o URI especificado na cadeia de consulta do recurso. Consulte o "exemplo de pedido" no [obter um token a utilizar HTTP](#get-a-token-using-http) secção para obter um exemplo ou [que suporte do Azure AD a autenticação de serviços do Azure](msi-overview.md#azure-services-that-support-azure-ad-authentication) para obter uma lista de serviços e os respetivos IDs de recurso.
+
+## <a name="throttling-guidance"></a>Orientações de limitação 
+
+Os limites de limitação aplicam-se ao número de chamadas efetuadas para o ponto final IMDS de MSI. Quando o limiar de limitação for excedido, o ponto final MSI IMDS limita qualquer mais pedidos enquanto a limitação está em vigor. Durante este período, o ponto final MSI IMDS irá devolver o código de estado HTTP 429 ("demasiados muitos pedidos"), e falharem os pedidos. 
+
+Para repetir, recomendamos a estratégia de seguinte: 
+
+| **Estratégia de repetição** | **Definições** | **Valores** | **Como funciona** |
+| --- | --- | --- | --- |
+|ExponentialBackoff |Contagem de repetições<br />Término mín.<br />Término máx.<br />Término delta<br />Primeira repetição rápida |5<br />0 s<br />60 s<br />2 s<br />false |Tentativa 1 – atraso de 0 s<br />Tentativa 2 – atraso de ~2 s<br />Tentativa 3 – atraso de ~6 s<br />Tentativa 4 – atraso de ~14 s<br />Tentativa 5 – atraso de ~30 s |
 
 ## <a name="resource-ids-for-azure-services"></a>IDs de recurso para serviços do Azure
 

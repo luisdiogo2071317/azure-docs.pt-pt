@@ -1,6 +1,6 @@
 ---
 title: Escrita do Apache Storm para armazenamento/Data Lake Store, Azure HDInsight | Microsoft Docs
-description: "Saiba como utilizar o Apache Storm para escrever no armazenamento compatível com HDFS para o HDInsight. Armazenamento do Azure ou de Azure Data Lake Store fornecer o armazenamento de HDFS comptabile para o HDInsight. Este documento e o exemplo associado, demonstram como o componente de HdfsBolt pode ser utilizado para escrever o armazenamento de predefinido de um Storm num cluster do HDInsight."
+description: Saiba como utilizar o Apache Storm para escrever no armazenamento compatível com HDFS para o HDInsight. Armazenamento do Azure ou de Azure Data Lake Store fornecer o armazenamento de HDFS comptabile para o HDInsight. Este documento e o exemplo associado, demonstram como o componente de HdfsBolt pode ser utilizado para escrever o armazenamento de predefinido de um Storm num cluster do HDInsight.
 services: hdinsight
 documentationcenter: na
 author: Blackmist
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 908a1130171cc091b4d95d4532cc3bb95edb44f9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2310894e7257d0ddb919406a8f297089189a9484
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Escrever HDFS do Apache Storm no HDInsight
 
-Saiba como utilizar o Storm para escrever dados no armazenamento compatível com HDFS utilizado pelo Apache Storm no HDInsight. HDInsight pode utilizar ambas Storage do Azure e do Azure Data Lake armazenam como armazenamento HDFS comptabile. Storm fornece um [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) componente que escreve dados para o HDFS. Este documento fornece informações sobre como escrever para o tipo de armazenamento do HdfsBolt. 
+Saiba como utilizar o Storm para escrever dados no armazenamento compatível com HDFS utilizado pelo Apache Storm no HDInsight. HDInsight pode utilizar ambas Storage do Azure e do Azure Data Lake armazenam como armazenamento compatível com HDFS. Storm fornece um [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) componente que escreve dados para o HDFS. Este documento fornece informações sobre como escrever para o tipo de armazenamento do HdfsBolt. 
 
 > [!IMPORTANT]
 > A topologia de exemplo utilizada neste documento baseia-se nos componentes que estão incluídos com o Storm no HDInsight. Pode necessitar de modificações para trabalhar com o Azure Data Lake Store quando utilizado com outros clusters do Apache Storm.
 
 ## <a name="get-the-code"></a>Obter o código
 
-O projeto que contém esta topologia está disponível como uma transferência a partir do [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
+O projeto que contém esta topologia está disponível como uma transferência a partir do [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
 
 Para compilar a este projeto, terá da seguinte configuração para o seu ambiente de desenvolvimento:
 
@@ -134,7 +134,7 @@ Este YAML define os seguintes itens:
 * `rotationPolicy`: Define quando deve rodar os ficheiros. Neste exemplo, é efetuada sem rotação.
 * `hdfs-bolt`: Utiliza os componentes anteriores como parâmetros de configuração para o `HdfsBolt` classe.
 
-Para obter mais informações sobre a arquitetura de Flux, consulte [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Para obter mais informações sobre a arquitetura de Flux, consulte [ https://storm.apache.org/releases/1.1.0/flux.html ](https://storm.apache.org/releases/1.1.0/flux.html).
 
 ## <a name="configure-the-cluster"></a>Configurar o cluster
 
@@ -148,7 +148,7 @@ Para obter informações sobre como utilizar este script com o cluster, consulte
 
 ## <a name="build-and-package-the-topology"></a>Criar e a topologia do pacote
 
-1. Transferir o projeto de exemplo da [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) ao seu ambiente de desenvolvimento.
+1. Transferir o projeto de exemplo da [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) ao seu ambiente de desenvolvimento.
 
 2. A partir de uma linha de comandos, terminal ou a shell de sessão, diretórios de alteração para a raiz do projeto transferido. Para criar e a topologia do pacote, utilize o seguinte comando:
    

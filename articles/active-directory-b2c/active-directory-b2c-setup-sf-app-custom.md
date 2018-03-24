@@ -1,24 +1,21 @@
 ---
-title: "O Azure Active Directory B2C: Adicionar um fornecedor de SAML do Salesforce ao utilizar políticas personalizadas | Microsoft Docs"
-description: "Saiba mais sobre como criar e gerir políticas personalizadas do Azure Active Directory B2C."
+title: 'O Azure Active Directory B2C: Adicionar um fornecedor de SAML do Salesforce ao utilizar políticas personalizadas | Microsoft Docs'
+description: Saiba mais sobre como criar e gerir políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: d7f4143f-cd7c-4939-91a8-231a4104dc2c
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 06/11/2017
-ms.author: parakhj
-ms.openlocfilehash: 16f7c5708b479f18de17a612a733a2be6e97ad01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 1ccf5c58eab9df9016224a91ddda952a05457e2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>O Azure Active Directory B2C: Início de sessão através da utilização de contas do Salesforce através de SAML
 
@@ -252,6 +249,6 @@ Em seguida, atualize o ficheiro de terceiros (RP) entidade confiadora que inicia
 
 Para testar a política de personalizada que acabou de carregar, no portal do Azure, aceda ao painel de política e, em seguida, clique em **executar agora**. Se falhar, consulte [resolver problemas de políticas personalizadas](active-directory-b2c-troubleshoot-custom.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Fornecer comentários para [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com).

@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao table storage do Azure e o Visual Studio ligado serviços (ASP.NET) | Microsoft Docs"
-description: "Como começar a utilizar o table storage do Azure num projeto ASP.NET no Visual Studio depois de se ligar a uma conta de armazenamento utilizando o Visual Studio ligado Services"
+title: Introdução ao table storage do Azure e o Visual Studio ligado serviços (ASP.NET) | Microsoft Docs
+description: Como começar a utilizar o table storage do Azure num projeto ASP.NET no Visual Studio depois de se ligar a uma conta de armazenamento utilizando o Visual Studio ligado Services
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraigb
-ms.openlocfilehash: 32a57e77bf6fe3cff88b9d6772ede9e6669ec75f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646ff3a12d1b28f99376ea67af25f1b6858d675a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao table storage do Azure e o Visual Studio ligado serviços (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,7 +29,7 @@ Table storage do Azure permite-lhe armazenar grandes quantidades de dados estrut
 
 Este tutorial mostra como escrever código ASP.NET para alguns cenários comuns utilizando entidades de armazenamento de tabela do Azure. Estes cenários incluem a criação de uma tabela, adicionar, consultar e eliminar as entidades da tabela. 
 
-##<a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -708,7 +708,7 @@ Esta secção ilustra como eliminar uma entidade a partir de uma tabela.
   
     ![Obter único](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Ver mais guias de funcionalidades para saber mais sobre as opções adicionais para armazenar dados no Azure.
 
   * [Introdução ao blob storage do Azure e o Visual Studio ligado serviços (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)

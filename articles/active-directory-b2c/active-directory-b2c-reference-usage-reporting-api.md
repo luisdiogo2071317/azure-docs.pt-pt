@@ -1,22 +1,21 @@
 ---
-title: "Do Azure Active Directory B2C: Exemplos de API relatórios de utilização e as definições | Microsoft Docs"
-description: "Guia e exemplos sobre a obtenção de relatórios no inquilino do Azure AD B2C utilizadores, as autenticações e autenticações multifator"
+title: 'Do Azure Active Directory B2C: Exemplos de API relatórios de utilização e as definições | Microsoft Docs'
+description: Guia e exemplos sobre a obtenção de relatórios no inquilino do Azure AD B2C utilizadores, as autenticações e autenticações multifator
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: rojasja
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: joroja
-ms.openlocfilehash: 6014301a026d60775634138cbdfe56bfa625508f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 3470f45683ea508dfe338c313a5307eb6c1164d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Ao aceder aos relatórios de utilização no Azure AD B2C através da API de relatórios
 
@@ -118,7 +117,7 @@ Dados de contagem de utilizador são atualizados a cada 24 para 48 horas. Autent
   * O ID da aplicação existe, mas não foram encontrados dados no período de relatório. Reveja os parâmetros de data/hora.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 ### <a name="monthly-bill-estimates-for-azure-ad"></a>Calcula o fatura mensal para o Azure AD
 Quando combinada com [o mais recente do Azure AD B2C preço disponíveis](https://azure.microsoft.com/pricing/details/active-directory-b2c/), pode fazer a estimativa diárias, semana e mensal consumo do Azure.  Uma estimativa é especialmente útil ao planear as alterações no comportamento do inquilino que poderá afetar o custo global. Pode rever os custos reais na sua [subscrição do Azure associada](active-directory-b2c-how-to-enable-billing.md).
 

@@ -1,10 +1,10 @@
 ---
-title: "Suportado ligações com o conector de gestão do serviço de TI no Log Analytics do Azure | Microsoft Docs"
-description: "Este artigo fornece informações sobre como ligar os produtos/serviços ITSM conector de gestão de serviço com TI (ITSMC) na análise de registos do OMS para monitorizar e gerir itens de trabalho ITSM centralmente."
-documentationcenter: 
+title: Suportado ligações com o conector de gestão do serviço de TI no Log Analytics do Azure | Microsoft Docs
+description: Este artigo fornece informações sobre como ligar os produtos/serviços ITSM conector de gestão de serviço com TI (ITSMC) na análise de registos do OMS para monitorizar e gerir itens de trabalho ITSM centralmente.
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
 ms.service: log-analytics
 ms.workload: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar ITSM produtos/serviços com o conector de gestão do serviço de TI
 Este artigo fornece informações sobre como configurar a ligação entre o ITSM produtos/serviços e o conector de gestão do serviço de TI (ITSMC) no Log Analytics para gerir centralmente os itens de trabalho. Para obter mais informações sobre ITSMC, consulte [descrição geral](log-analytics-itsmc-overview.md).
@@ -200,7 +200,7 @@ Certifique-se de que são cumpridos os seguintes pré-requisitos:
 - Instale a aplicação de utilizador para a integração da Microsoft OMS (ServiceNow aplicação). [Saiba mais](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Crie função de utilizador de integração para a aplicação de utilizador instalada. Informações sobre como criar a função de utilizador de integração são [aqui](#create-integration-user-role-in-servicenow-app).
 
-### <a name="connection-procedure"></a>Procedimento de ligação
+### <a name="connection-procedure"></a>**Procedimento de ligação**
 Utilize o procedimento seguinte para criar uma ligação de ServiceNow:
 
 
@@ -271,13 +271,7 @@ Depois do utilizador foi criado com êxito, o estado de **Verifique a lista de v
 
 > [!NOTE]
 
-> Para permitir que um utilizador crie **alertas** e **eventos** no ServiceNow a partir do Azure:
-
-> - Certifique-se de que tem o módulo de gestão de eventos instalada na sua instância do ServiceNow.
-
-> - Adicione as seguintes funções para o utilizador de integração:
->      - evt_mgmt_integration
->      - evt_mgmt_operator  
+> Conector ITSM pode enviar incidentes para ServiceNow sem quaisquer outros módulos instalados no sua instância do ServiceNow. Se estiver a utilizar o módulo de EventManagement na sua instância do ServiceNow e pretender criar eventos ou alertas no ServiceNow através do conector, adicione as seguintes funções para o utilizador de integração: evt_mgmt_operator - evt_mgmt_integration -  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Ligar Provance ao serviço de TI conector de gestão no Azure

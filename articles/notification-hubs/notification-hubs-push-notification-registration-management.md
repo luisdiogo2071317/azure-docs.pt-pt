@@ -1,11 +1,11 @@
 ---
-title: "Gestão de registo"
-description: "Este tópico explica como registar dispositivos com os hubs de notificação para receber notificações push."
+title: Gestão de registo
+description: Este tópico explica como registar dispositivos com os hubs de notificação para receber notificações push.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af5738ac96bd2afacee493765453567f7f13c9e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="registration-management"></a>Gestão de registos
 ## <a name="overview"></a>Descrição geral
@@ -39,7 +39,7 @@ Seguem-se algumas vantagens fundamentais para a utilização de instalações:
 * O modelo de instalação torna mais fácil fazer individuais pushes - direcionada para dispositivos específicos. Uma tag de sistema **"$InstallationId: [installationId]"** é adicionado automaticamente com cada registo de instalação com base. Por isso, pode ligar a uma atividade send para esta etiqueta para um dispositivo específico de destino sem ser necessária codificação adicionais.
 * Utilizar as instalações também permite atualizações do registo parcial. A atualização parcial de uma instalação é solicitada com um método de PATCH utilizando o [padrão de Patch de JSON](https://tools.ietf.org/html/rfc6902). Isto é particularmente útil quando pretende atualizar as etiquetas no registo. Não tem de importar o registo de todo e, em seguida, novamente a reenvie todas as etiquetas anteriores.
 
-Uma instalação pode conter as seguintes propriedades. Para uma lista completa de Consulte de propriedades de instalação, [criar ou substituir uma instalação com a REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [as propriedades de instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) para o.
+Uma instalação pode conter as seguintes propriedades. Para uma lista completa de Consulte de propriedades de instalação, [criar ou substituir uma instalação com a REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [as propriedades de instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
     // Example installation format to show some supported properties
     {

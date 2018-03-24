@@ -1,6 +1,6 @@
 ---
-title: "Para cenários no mundo real de manutenção preditiva | Microsoft Docs"
-description: "Manutenção preditiva para cenários no mundo real, utilizando PySpark"
+title: Para cenários no mundo real de manutenção preditiva | Microsoft Docs
+description: Manutenção preditiva para cenários no mundo real, utilizando PySpark
 services: machine-learning
 author: ehrlinger
 ms.author: jehrling
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 81e227194ff64d7b7af842a208349ccc63528ab8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bb6e4f9f147db2fb70d991922cf0bb8d16b29671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Manutenção preditiva para cenários no mundo real
 
@@ -25,7 +25,7 @@ Este cenário explicar um relativamente [conjunto de dados em grande escala simu
 
 ### <a name="cortana-intelligence-gallery-github-repository"></a>Repositório do GitHub de galeria do Cortana Intelligence
 
-Galeria da Cortana Intelligence para o tutorial PM é um repositório de GitHub público ([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance)) onde pode comunicar problemas e certifique- contribuições.
+Galeria da Cortana Intelligence para o tutorial PM é um repositório de GitHub público ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)) onde pode comunicar problemas e certifique-contribuições.
 
 
 ## <a name="use-case-overview"></a>Descrição geral de cenário de utilização
@@ -49,8 +49,8 @@ Modelo operationalization foi feito ao utilizar a versão 0.1.0a22 da CLI do Azu
 ## <a name="create-a-new-workbench-project"></a>Criar um novo projeto do Workbench
 
 Crie um novo projeto ao utilizar este exemplo como um modelo:
-1.  Abra do Machine Learning Workbench.
-2.  No **projetos** página, selecione  **+** e, em seguida, selecione **novo projeto**.
+1.  Abra o Machine Learning Workbench.
+2.  No **projetos** página, selecione **+**e, em seguida, selecione **novo projeto**.
 3.  No **criar novo projeto** painel, preencha as informações para o novo projeto.
 4.  No **modelos de projeto de pesquisa** caixa de pesquisa, escreva "Manutenção preditiva" e selecione o **manutenção preditiva** modelo.
 5.  Selecione **Criar**.

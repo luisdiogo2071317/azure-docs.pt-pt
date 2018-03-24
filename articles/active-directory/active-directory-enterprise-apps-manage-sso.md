@@ -1,11 +1,11 @@
 ---
-title: "Única de gestão de início de sessão para aplicações da empresa no Azure Active Directory | Microsoft Docs"
-description: "Gerir definições de início de sessão único para aplicações da empresa dentro da sua organização a partir da Galeria de aplicações do Azure Active Directory"
+title: Única de gestão de início de sessão para aplicações da empresa no Azure Active Directory | Microsoft Docs
+description: Gerir definições de início de sessão único para aplicações da empresa dentro da sua organização a partir da Galeria de aplicações do Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: markvi
 ms.reviewer: asmalser
-ms.openlocfilehash: bb9c2e1fdf392e234e6c72e0728ab04d2fd88a81
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 45141551c502c89311ab7e43b53af50450d8babd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerir o início de sessão para aplicações da empresa
 
@@ -88,7 +88,7 @@ Se suportado para a aplicação, selecionar o modo ligado do SSO permite-lhe int
 
 ![O início de sessão ligado][5]
 
-##<a name="feedback"></a>Comentários
+## <a name="feedback"></a>Comentários
 
 Esperamos, como a utilização a melhor experiência do Azure AD. Manter os comentários provenientes! Publique os seus comentários e ideias para melhoria no **Portal de administração** secção do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Iremos estiver entusiasmados sobre como criar conteúdo novo frio diariamente e utilize a orientações sobre a forma e definir o que devemos criar a seguir.
 

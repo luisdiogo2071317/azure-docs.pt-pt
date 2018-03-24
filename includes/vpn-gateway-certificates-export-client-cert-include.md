@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 517ebbf739c64c0364dc21386fee86ebc740e997
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/23/2018
+---
 Gerar um certificado de cliente, é instalado automaticamente no computador que utilizou para gerá-lo. Se pretender instalar o certificado de cliente no outro computador cliente, terá de exportar o certificado de cliente que gerou.
 
 1. Para exportar um certificado de cliente, abra **Gerir Certificados de Utilizador**. Os certificados de cliente que gerou são, por predefinição, localizados em 'Certificados - User\Personal\Certificates atual'. O certificado de cliente que pretende exportar, clique com o botão direito **todas as tarefas**e, em seguida, clique em **exportar** para abrir o **Assistente para exportar certificados**.

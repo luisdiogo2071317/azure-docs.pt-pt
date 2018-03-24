@@ -1,11 +1,10 @@
 ---
 title: Transformar dados utilizando o script U-SQL - Azure | Microsoft Docs
-description: "Saiba como processar ou dados de transformação através da execução de scripts U-SQL no serviço de computação do Azure Data Lake Analytics."
+description: Saiba como processar ou dados de transformação através da execução de scripts U-SQL no serviço de computação do Azure Data Lake Analytics.
 services: data-factory
-documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+documentationcenter: ''
+author: douglaslMS
+manager: craigg
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2017
-ms.author: spelluru
+ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: ff91a3da978fd027605b3674eae14d1d74b309cd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7861a3380ee330241f0c735ee6c5ed84f121e512
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados através da execução de scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,7 +48,7 @@ A tabela seguinte fornece descrições para as propriedades genéricas utilizada
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| **tipo** |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
+| **type** |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
 | **accountName** |Nome de conta do Azure Data Lake Analytics. |Sim |
 | **dataLakeAnalyticsUri** |URI do Azure Data Lake Analytics. |Não |
 | **subscriptionId** |Id de subscrição do Azure |Não (se não for especificado, a subscrição do data factory é utilizada). |
@@ -67,7 +66,7 @@ Utilize a autenticação principal de serviço, especificando as seguintes propr
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Especifique o ID de cliente. da aplicação | Sim |
 | **servicePrincipalKey** | Especifique a chave da aplicação. | Sim |
-| **inquilino** | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim |
+| **tenant** | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim |
 
 **Exemplo: Autenticação principal do serviço**
 ```json
@@ -93,8 +92,8 @@ Em alternativa, pode utilizar a autenticação de credencial de utilizador para 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| **autorização** | Clique em de **autorizar** botão no Editor do Data Factory e introduza as credenciais que atribui o URL de autorização gerado automaticamente a esta propriedade. | Sim |
-| **ID de sessão** | ID de sessão OAuth da sessão de autorização do OAuth. Cada ID de sessão é exclusivo e pode ser utilizado apenas uma vez. Esta definição é gerada automaticamente quando utiliza o Editor do Data Factory. | Sim |
+| **Autorização** | Clique em de **autorizar** botão no Editor do Data Factory e introduza as credenciais que atribui o URL de autorização gerado automaticamente a esta propriedade. | Sim |
+| **sessionId** | ID de sessão OAuth da sessão de autorização do OAuth. Cada ID de sessão é exclusivo e pode ser utilizado apenas uma vez. Esta definição é gerada automaticamente quando utiliza o Editor do Data Factory. | Sim |
 
 **Exemplo: Autenticação de credenciais de utilizador**
 ```json
@@ -115,7 +114,7 @@ Em alternativa, pode utilizar a autenticação de credencial de utilizador para 
 ```
 
 #### <a name="token-expiration"></a>Expiração do token
-O código de autorização que gerou utilizando o **autorizar** botão expira após algum tempo. Consulte a tabela seguinte para os tempos de expiração para diferentes tipos de contas de utilizador. Poderá ver o seguinte erro mensagem quando a autenticação **token expira**: erro de operação de credencial: invalid_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: A concessão de acesso fornecida está expirada ou revogada. ID de rastreio: ID de correlação d18629e8-af88-43c5-88e3-d8419eb1fca1: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
+O código de autorização que gerou utilizando o **autorizar** botão expira após algum tempo. Consulte a tabela seguinte para os tempos de expiração para diferentes tipos de contas de utilizador. Poderá ver o seguinte erro mensagem quando a autenticação **token expira**: erro de operação de credencial: invalid_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: A concessão de acesso fornecida está expirada ou revogada. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
 
 | Tipo de utilizador | Expira após |
 |:--- |:--- |
@@ -211,7 +210,7 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
 | tipo                | A propriedade de tipo tem de ser definida **DataLakeAnalyticsU SQL**. | Sim                                      |
 | linkedServiceName   | Referência para o Azure Data Lake Analytics registado como um serviço ligado no Factory de dados | Sim                                      |
-| ScriptPath          | Caminho para a pasta que contém o script U-SQL. Nome do ficheiro é maiúsculas e minúsculas. | Não (se for utilizar o script)                   |
+| scriptPath          | Caminho para a pasta que contém o script U-SQL. Nome do ficheiro é maiúsculas e minúsculas. | Não (se for utilizar o script)                   |
 | scriptLinkedService | Serviço ligado que liga o armazenamento que contém o script para a fábrica de dados | Não (se for utilizar o script)                   |
 | Script              | Especifique o script inline de em vez de especificar scriptPath e scriptLinkedService. Por exemplo: `"script": "CREATE DATABASE test"`. | Não (se for utilizar scriptPath e scriptLinkedService) |
 | degreeOfParallelism | O número máximo de nós em simultâneo utilizada para executar a tarefa. | Não                                       |
@@ -318,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Os valores para  **@in**  e  **@out**  parâmetros do script U-SQL são transmitidos dinamicamente pelo ADF utilizando a secção 'parameters'. Consulte a secção 'parameters' na definição do pipeline.
+Os valores para **@in** e **@out** parâmetros do script U-SQL são transmitidos dinamicamente pelo ADF utilizando a secção 'parameters'. Consulte a secção 'parameters' na definição do pipeline.
 
 Pode especificar outras propriedades, tais como degreeOfParallelism e a prioridade, bem como na sua definição de pipeline para as tarefas que são executados no serviço do Azure Data Lake Analytics.
 

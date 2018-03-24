@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: API de processador Feed do .NET alteração, SDK & recursos | Microsoft Docs"
-description: "Saiba tudo sobre a API de processador de Feed de alteração e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do SDK do processador .NET de Feed de alteração."
+title: 'Azure Cosmos DB: API de processador Feed do .NET alteração, SDK & recursos | Microsoft Docs'
+description: Saiba tudo sobre a API de processador de Feed de alteração e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do SDK do processador .NET de Feed de alteração.
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: maquaran
-ms.openlocfilehash: 7e53cf67bc6e03a5f45de5ad4e23ff91624874f4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7008261a4bca118648662fe7beeff5e375086880
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alteração de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Melhoramentos de estabilidade.
 * Suporte para o ponto de verificação manual.
 * Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.21 e superior.
@@ -77,7 +77,7 @@ Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo s
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
-| [1.3.0](#1.3.0) |07 de Março de 2018 |--- |
+| [1.3.1](#1.3.1) |13 de março de 2018 |--- |
 | [1.2.0](#1.2.0) |31 de outubro de 2017 |--- |
 | [1.1.1](#1.1.1) |29 de Agosto de 2017 |--- |
 | [1.1.0](#1.1.0) |13 de Agosto de 2017 |--- |

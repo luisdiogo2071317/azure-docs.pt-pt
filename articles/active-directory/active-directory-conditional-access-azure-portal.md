@@ -1,12 +1,12 @@
 ---
 title: Acesso condicional do Azure Active Directory | Microsoft Docs
-description: "Saiba como o acesso condicional no Azure Active Directory pode ajudá-lo a gerir o controlo de acesso a partir de uma localização central."
+description: Saiba como o acesso condicional no Azure Active Directory pode ajudá-lo a gerir o controlo de acesso a partir de uma localização central.
 services: active-directory
-keywords: "acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74a87065416b397b4eebbcaa54c769711176708d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
 
@@ -49,7 +49,7 @@ Seguem-se alguns problemas de acesso comuns que acesso condicional pode ajudar c
 
 - **[Localização de rede](active-directory-conditional-access-locations.md)**: do Azure AD é acessível a partir de qualquer lugar. E se uma tentativa de acesso é executada a partir de uma localização de rede que não se encontra sob o controlo do seu departamento de TI? Utilizando uma combinação de nome de utilizador e palavra-passe pode ser suficiente boa como tentativas de uma prova de identidade para o acesso aos recursos da sua rede empresarial. E se a procura uma prova de identidade mais forte para acesso tenta que são iniciadas a partir do outro inesperados países ou regiões do mundo? E se quiser, mesmo bloquear o acesso tenta de determinadas localizações?  
 
-- **[Gestão de dispositivos](active-directory-conditional-access-conditions.md#device-platforms)**: no Azure AD, os utilizadores podem aceder a aplicações na nuvem de uma vasta gama de dispositivos, incluindo mobile bem como dispositivos pessoais. E se precisar desse tentativa de acesso só deve ser executada utilizador através de dispositivos que são geridos pelo departamento de TI? E se quiser, mesmo bloquear o acesso de formulário de tipos determinados dispositivos em aplicações na nuvem no seu ambiente? 
+- **[Gestão de dispositivos](active-directory-conditional-access-conditions.md#device-platforms)**: no Azure AD, os utilizadores podem aceder a aplicações na nuvem de uma vasta gama de dispositivos, incluindo mobile bem como dispositivos pessoais. E se é a pedido que tentativas de acesso deve apenas ser efetuada através de dispositivos que são geridos pelo departamento de TI? E se ainda pretende bloquear determinados tipos de dispositivo acedam a aplicações em nuvem no seu ambiente? 
 
 - **[Aplicação de cliente](active-directory-conditional-access-conditions.md#client-apps)**: atualmente, pode aceder a várias aplicações na nuvem através de diferentes tipos de aplicação, tais como aplicações baseadas na web, as aplicações móveis ou aplicações de ambiente de trabalho. E se é efetuada uma tentativa de acesso, utilização de um tipo de aplicação de cliente que provoque problemas conhecidos? E se necessitam de um dispositivo que é gerido pelo departamento de TI para determinados tipos de aplicação? 
 

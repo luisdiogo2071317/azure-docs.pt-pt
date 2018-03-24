@@ -1,26 +1,30 @@
 ---
-title: "Descrição geral em direto de transmissão em fluxo utilizando os Media Services do Azure | Microsoft Docs"
-description: "Este tópico fornece uma descrição geral da transmissão em direto com Media Services do Azure."
+title: Descrição geral em direto de transmissão em fluxo utilizando os Media Services do Azure | Microsoft Docs
+description: Este tópico fornece uma descrição geral da transmissão em direto com Media Services do Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6f500f25129470a679c75cae6cd1abc9d71b72a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 451513c364978348eba922f5cf42b6e6c79f8700
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Descrição geral em direto de transmissão em fluxo utilizando os Media Services do Azure
+
+> [!NOTE]
+> A partir de canais em direto 12 de pode de 2018, será já não suporte a sequência de transporte MPEG/RTP-2 protocolo de inserção. Efetue a migração de RTP/MPEG-2 para RTMP ou MP4 fragmentados (transmissão em fluxo uniforme) protocolos de inserção.
+
 ## <a name="overview"></a>Descrição geral
 Quando distribui os eventos de transmissão em fluxo em direto com Media Services do Azure os seguintes componentes estão normalmente relacionados:
 
@@ -133,9 +137,9 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 
 | Estado do canal | Indicadores IU do portal | É faturação? |
 | --- | --- | --- |
-| A Iniciar |A Iniciar |Não (estado transitório) |
-| A Executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |SIM |
-| A Parar |A Parar |Não (estado transitório) |
+| A iniciar |A iniciar |Não (estado transitório) |
+| A executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |SIM |
+| A parar |A parar |Não (estado transitório) |
 | Parada |Parada |Não |
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

@@ -1,11 +1,10 @@
 ---
-title: "Associar o tempo de execução de integração de SSIS do Azure a uma rede virtual | Microsoft Docs"
-description: "Saiba como associar o tempo de execução de integração de SSIS do Azure a uma rede virtual do Azure."
+title: Associar o tempo de execução de integração de SSIS do Azure a uma rede virtual | Microsoft Docs
+description: Saiba como associar o tempo de execução de integração de SSIS do Azure a uma rede virtual do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cdda3fbe2aff40e26c6086e87ef3e05670c3419f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aderir a um tempo de execução de integração do Azure-SSIS a uma rede virtual
 Associe o seu tempo de execução de integração do Azure-SSIS (IR) a uma rede virtual do Azure nos seguintes cenários: 
@@ -52,7 +51,7 @@ Eis alguns pontos importantes a ter em atenção:
 - Se existir um existente do Azure Resource Manager rede virtual ligada à sua rede no local numa localização diferente da sua resposta a incidentes SSIS do Azure, pode criar primeiro um [rede virtual do Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) para sua SSIS do Azure IR para associar. Em seguida, configure uma ligação de rede virtual do Azure Resource Manager para o Azure Resource Manager. Em alternativa, pode criar um [rede virtual clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para a sua resposta a incidentes SSIS do Azure associar. Em seguida, configure um [rede virtual do clássico para o Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) ligação.
 
 ## <a name="domain-name-services-server"></a>Servidor de serviços de nome de domínio 
-Se precisar de utilizar o seu próprio servidor de serviços de nomes de domínio (DNS) numa rede virtual associada ao seu tempo de execução de integração de SSIS do Azure, siga as orientações para [Certifique-se de que os nós do seu tempo de execução de integração do Azure-SSIS na rede virtual podem resolver do Azure pontos finais](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Se precisar de utilizar o seu próprio servidor de serviços de nomes de domínio (DNS) numa rede virtual associada ao seu tempo de execução de integração de SSIS do Azure, siga as instruções na secção "Resolução de nomes que utiliza o seu próprio servidor DNS" do artigo [resolução de nomes máquinas virtuais e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="network-security-group"></a>Grupo de segurança de rede
 Se precisar de implementar um grupo de segurança de rede (NSG) numa rede virtual associada ao seu tempo de execução de integração do Azure SSIS, permitir o tráfego de entrada/saída através das seguintes portas:

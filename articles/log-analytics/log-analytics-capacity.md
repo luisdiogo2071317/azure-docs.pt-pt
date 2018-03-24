@@ -1,11 +1,11 @@
 ---
-title: "Solução de capacidade e o desempenho no Log Analytics do Azure | Microsoft Docs"
-description: "Utilize a solução de capacidade e o desempenho na análise de registos para ajudar a compreender a capacidade dos seus servidores de Hyper-V."
+title: Solução de capacidade e o desempenho no Log Analytics do Azure | Microsoft Docs
+description: Utilize a solução de capacidade e o desempenho na análise de registos para ajudar a compreender a capacidade dos seus servidores de Hyper-V.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 26e87da60dc02dce8122c82a2208477a8b1813a7
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planear a capacidade de máquina virtual de Hyper-V com a solução de capacidade e o desempenho (pré-visualização)
 
@@ -120,23 +120,11 @@ Para resumir, a solução recolhe dados de desempenho e capacidade de uma varied
 
 A tabela seguinte fornece pesquisas de registo de exemplo para dados de desempenho e capacidade recolhidos e calculado por esta solução.
 
+
 | Consulta | Descrição |
-|---|---|
-| Todas as configurações de memória de anfitrião | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Todas as configurações de memória da VM | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Divisão de IOPS de disco Total em todas as VMs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Reads/s" OR CounterName="VHD Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Divisão de débito Total do disco em todas as VMs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Read MB/s" OR CounterName="VHD Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Divisão de IOPS Total em todos os CSVs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Reads/s" OR CounterName="CSV Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Divisão de débito Total em todos os CSVs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Divisão de latência Total em todos os CSVs | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-
->[!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima serão alteradas para as seguintes.
-
-> | Consulta | Descrição |
 |:--- |:--- |
-| Todas as configurações de memória de anfitrião | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e CounterName = = "Atribuído MB de memória do anfitrião" &#124; resumir os MB = avg(CounterValue) por InstanceName |
-| Todas as configurações de memória da VM | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e CounterName = = "MB de memória atribuída de VM" &#124; resumir os MB = avg(CounterValue) por InstanceName |
+| Todas as configurações de memória de anfitrião | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e CounterName = = "Anfitrião MB de memória atribuída" &#124; resumir MB = avg(CounterValue) por InstanceName |
+| Todas as configurações de memória da VM | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e CounterName = = "VM MB de memória atribuída" &#124; resumir MB = avg(CounterValue) por InstanceName |
 | Divisão de IOPS de disco Total em todas as VMs | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e (CounterName = = "VHD leituras/s" ou CounterName = = "VHD escritas/s") &#124; resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 1h), CounterName, InstanceName |
 | Divisão de débito Total do disco em todas as VMs | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e (CounterName = = "VHD leitura MB/s" ou CounterName = = "MB/s de escrita de VHD") &#124; resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 1h), CounterName, InstanceName |
 | Divisão de IOPS Total em todos os CSVs | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e (CounterName = = "CSV leituras/s" ou CounterName = = "CSV escritas/s") &#124; resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 1h), CounterName, InstanceName |
@@ -145,4 +133,4 @@ A tabela seguinte fornece pesquisas de registo de exemplo para dados de desempen
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Utilize [pesquisas de registo na análise de registos](log-analytics-log-searches.md) para ver os dados de desempenho e capacidade de detalhado.
+* Utilize [pesquisas de registo na análise de registos](log-analytics-log-search.md) para ver os dados de desempenho e capacidade de detalhado.

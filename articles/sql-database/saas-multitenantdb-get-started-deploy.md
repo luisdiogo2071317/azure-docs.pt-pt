@@ -1,6 +1,6 @@
 ---
-title: "Implementar uma aplicação SaaS a base de dados do multi-inquilino que utiliza a SQL Database do Azure | Microsoft Docs"
-description: "Implementar e explorar em partição horizontal Wingtip pedidos da base de dados do multi-inquilino aplicação SaaS, que demonstra padrões de SaaS ao utilizar a SQL Database do Azure."
+title: Implementar uma aplicação SaaS a base de dados do multi-inquilino que utiliza a SQL Database do Azure | Microsoft Docs
+description: Implementar e explorar em partição horizontal Wingtip pedidos da base de dados do multi-inquilino aplicação SaaS, que demonstra padrões de SaaS ao utilizar a SQL Database do Azure.
 keywords: tutorial de base de dados sql
 services: sql-database
 author: MightyPen
@@ -11,11 +11,11 @@ ms.workload: data-management
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma a aplicação multi-inquilino que utiliza a SQL Database do Azure
 
@@ -172,7 +172,7 @@ A implementação inicial inclui três inquilinos de exemplo no *Tenants1* base 
 2. Prima **F5** (não **F8**) para executar o script (mantenha os valores predefinidos por agora).
 
    > [!NOTE]
-   > Tem de executar os scripts do PowerShell só, premindo o **F5** chave, premindo não **F8** para executar uma peça selecionada do script. O problema com **F8** é que o *$PSScriptRoot* variável não é avaliada. Esta variável é necessário pelos scripts de muitos para navegar de pastas, para invocar outros scripts ou para importar módulos.
+   > Tem de executar os scripts do PowerShell só, premindo o **F5** chave, premindo não **F8** para executar uma peça selecionada do script. O problema com **F8** é que o *$PSScriptRoot* variável não é avaliada. Esta variável é necessário por vários scripts para navegar pastas, invocar outros scripts ou importar módulos.
 
 É adicionado ao novo inquilino Racing Maple vermelho para o *Tenants1* da base de dados e registadas no catálogo. Ao novo inquilino da permissão a vender **eventos** site abre no browser:
 

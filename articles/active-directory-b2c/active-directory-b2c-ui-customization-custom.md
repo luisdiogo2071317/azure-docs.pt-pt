@@ -1,24 +1,21 @@
 ---
-title: "Personalizar uma IU ao utilizar políticas personalizadas - Azure AD B2C | Microsoft Docs"
-description: "Saiba mais sobre como personalizar uma interface de utilizador (IU) ao utilizar políticas personalizadas no Azure AD B2C."
+title: Personalizar uma IU ao utilizar políticas personalizadas - Azure AD B2C | Microsoft Docs
+description: Saiba mais sobre como personalizar uma interface de utilizador (IU) ao utilizar políticas personalizadas no Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: davidmu
+ms.openlocfilehash: 659910f239087a1d87d650c05af157c085e8c72c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>O Azure Active Directory B2C: Configurar a personalização de IU numa política personalizada
 
@@ -40,7 +37,7 @@ Eis como funciona: Azure AD B2C executa o código no browser do cliente e utiliz
 
 Crie HTML conteúdo com o nome do seu produto marca no título.
 
-1. Copie o seguinte fragmento HTML. É bem formado HTML5 com um elemento vazio denominado  *\<div id = "api"\>\</div\>*  localizados no  *\<corpo\>*  etiquetas. Este elemento indica onde é possível inserir conteúdo do Azure AD B2C.
+1. Copie o seguinte fragmento HTML. É bem formado HTML5 com um elemento vazio denominado *\<div id = "api"\>\</div\>* localizados no *\<corpo\>* etiquetas. Este elemento indica onde é possível inserir conteúdo do Azure AD B2C.
 
    ```html
    <!DOCTYPE html>
@@ -124,7 +121,7 @@ Confirme que está pronto efetuando o seguinte procedimento:
 
 ## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Modificar a política personalizada de se inscrever ou iniciar sessão
 
-O nível superior em  *\<TrustFrameworkPolicy\>*  etiqueta, deve encontrar  *\<BuildingBlocks\>*  tag. Dentro do  *\<BuildingBlocks\>*  etiquetas, adicione um  *\<ContentDefinitions\>*  tag copiando o exemplo seguinte. Substitua *your_storage_account* com o nome da conta de armazenamento.
+O nível superior em *\<TrustFrameworkPolicy\>* etiqueta, deve encontrar *\<BuildingBlocks\>* tag. Dentro do *\<BuildingBlocks\>* etiquetas, adicione um *\<ContentDefinitions\>* tag copiando o exemplo seguinte. Substitua *your_storage_account* com o nome da conta de armazenamento.
 
   ```xml
   <BuildingBlocks>
@@ -141,7 +138,7 @@ O nível superior em  *\<TrustFrameworkPolicy\>*  etiqueta, deve encontrar  *\<B
 1. No [portal do Azure](https://portal.azure.com), [mudar para o contexto do seu inquilino do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md)e, em seguida, abra o **do Azure AD B2C** painel.
 2. Clique em **todas as políticas**.
 3. Clique em **carregar política**.
-4. Carregar `SignUpOrSignin.xml` com o  *\<ContentDefinitions\>*  etiquetas que adicionou anteriormente.
+4. Carregar `SignUpOrSignin.xml` com o *\<ContentDefinitions\>* etiquetas que adicionou anteriormente.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Testar a política personalizada utilizando **executar agora**
 

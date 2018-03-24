@@ -1,11 +1,11 @@
 ---
-title: "Ver dados de aplicações do Azure Application Insights | Microsoft Docs"
-description: "Pode utilizar a solução de conector do Application Insights para diagnosticar problemas de desempenho e compreender o que fazem os utilizadores com a sua aplicação quando monitorizadas com o Application Insights."
+title: Ver dados de aplicações do Azure Application Insights | Microsoft Docs
+description: Pode utilizar a solução de conector do Application Insights para diagnosticar problemas de desempenho e compreender o que fazem os utilizadores com a sua aplicação quando monitorizadas com o Application Insights.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gestão do Application Insights conector (pré-visualização)
 
@@ -88,12 +88,12 @@ O dashboard inclui os painéis mostrados na tabela. Cada painel lista até 10 it
 
 | **Coluna** | **Descrição** |
 | --- | --- |
-| Aplicações - número de aplicações | Mostra o número de aplicações em recursos de aplicação. Também apresenta uma lista de nomes de aplicação e para cada um, a contagem de registos de aplicação. Clique no número para executar uma pesquisa de registo para <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Clique num nome de aplicação para executar uma pesquisa de registo para a aplicação que mostra os registos de aplicações por anfitrião, registos por tipo de telemetria e todos os dados por tipo (com base no último dia). |
-| Volume de dados – aloja o envio de dados | Mostra o número de anfitriões de computador que está a enviar dados. Também apresenta uma lista de anfitriões de computador e a contagem de registos para cada anfitrião. Clique no número para executar uma pesquisa de registo para <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Clique no nome do computador para executar uma pesquisa de registo para o anfitrião que mostra os registos de aplicações por anfitrião, registos por tipo de telemetria e todos os dados por tipo (com base no último dia). |
-| Disponibilidade – resultados do teste Web | Mostra um gráfico de anel para os resultados do teste web, que indica que passou ou falhar. Clique em gráfico para executar uma pesquisa de registo para <code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> Resultados mostram o número de falhas de todos os testes e transmite. Mostra todas as aplicações Web com o tráfego para o último minuto. Clique num nome de aplicação para ver uma pesquisa de registo que mostra detalhes de testes web falhou. |
-| Pedidos de servidor – pedidos por hora | Mostra um gráfico de linhas de pedidos de servidor por hora para várias aplicações. Coloque o cursor sobre uma linha no gráfico para ver as aplicações de 3 principais receber pedidos para um ponto no tempo. Também mostra uma lista das aplicações receber pedidos e o número de pedidos para o período selecionado. <br><br>Clique em gráfico para executar uma pesquisa de registo para <code>Type=ApplicationInsights TelemetryType=Request &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> que mostra um gráfico de linhas mais detalhado dos pedidos de servidor por hora para várias aplicações. <br><br> Clique em executar uma pesquisa de registo para uma aplicação na lista <code>Type=ApplicationInsights  ApplicationName=yourapplicationname  TelemetryType=Request</code> que mostra uma lista de pedidos, gráficos para pedidos ao longo da duração de tempo e o pedido e uma lista de pedido de códigos de resposta.   |
-| Falhas – pedidos com falhas por hora | Mostra um gráfico de linhas com falhas de pedidos da aplicação por hora. Coloque o cursor sobre o gráfico para ver as aplicações de 3 superiores com pedidos falhados para um ponto no tempo. Também mostra uma lista de aplicações com o número de pedidos falhados para cada. Clique em gráfico para executar uma pesquisa de registo para <code>Type=ApplicationInsights TelemetryType=Request  RequestSuccess = false &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> que mostra um gráfico de linhas mais detalhado de pedidos de aplicação que falhou. <br><br>Clique num item na lista para executar uma pesquisa de registo para <code>Type=ApplicationInsights ApplicationName=yourapplicationname TelemetryType=Request  RequestSuccess=false</code> que mostra falhou pedidos, gráficos para pedidos falhados ao longo da duração de tempo e o pedido e uma lista de códigos de resposta de pedidos falhados. |
-| Exceções – exceções por hora | Mostra um gráfico de linhas de exceções por hora. Coloque o cursor sobre o gráfico para ver as aplicações de 3 superiores com exceções para um ponto no tempo. Também mostra uma lista de aplicações com o número de exceções para cada. Clique em gráfico para executar uma pesquisa de registo para <code>Type=ApplicationInsights TelemetryType=Exception &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> que mostra um gráfico de ligação mais detalhado de exceções. <br><br>Clique num item na lista para executar uma pesquisa de registo para <code>Type=ApplicationInsights  ApplicationName=yourapplicationname TelemetryType=Exception</code> que mostra uma lista de exceções, gráficos exceções através de pedidos falhados e tempo e uma lista de tipos de exceção.  |
+| Aplicações - número de aplicações | Mostra o número de aplicações em recursos de aplicação. Também apresenta uma lista de nomes de aplicação e para cada um, a contagem de registos de aplicação. Clique no número para executar uma pesquisa de registo para <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Clique num nome de aplicação para executar uma pesquisa de registo para a aplicação que mostra os registos de aplicações por anfitrião, registos por tipo de telemetria e todos os dados por tipo (com base no último dia). |
+| Volume de dados – aloja o envio de dados | Mostra o número de anfitriões de computador que está a enviar dados. Também apresenta uma lista de anfitriões de computador e a contagem de registos para cada anfitrião. Clique no número para executar uma pesquisa de registo para <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Clique no nome do computador para executar uma pesquisa de registo para o anfitrião que mostra os registos de aplicações por anfitrião, registos por tipo de telemetria e todos os dados por tipo (com base no último dia). |
+| Disponibilidade – resultados do teste Web | Mostra um gráfico de anel para os resultados do teste web, que indica que passou ou falhar. Clique em gráfico para executar uma pesquisa de registo para <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> Resultados mostram o número de falhas de todos os testes e transmite. Mostra todas as aplicações Web com o tráfego para o último minuto. Clique num nome de aplicação para ver uma pesquisa de registo que mostra detalhes de testes web falhou. |
+| Pedidos de servidor – pedidos por hora | Mostra um gráfico de linhas de pedidos de servidor por hora para várias aplicações. Coloque o cursor sobre uma linha no gráfico para ver as aplicações de 3 principais receber pedidos para um ponto no tempo. Também mostra uma lista das aplicações receber pedidos e o número de pedidos para o período selecionado. <br><br>Clique em gráfico para executar uma pesquisa de registo para <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> que mostra um gráfico de linhas mais detalhado dos pedidos de servidor por hora para várias aplicações. <br><br> Clique em executar uma pesquisa de registo para uma aplicação na lista <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> que mostra uma lista de pedidos, gráficos para pedidos ao longo da duração de tempo e o pedido e uma lista de pedido de códigos de resposta.   |
+| Falhas – pedidos com falhas por hora | Mostra um gráfico de linhas com falhas de pedidos da aplicação por hora. Coloque o cursor sobre o gráfico para ver as aplicações de 3 superiores com pedidos falhados para um ponto no tempo. Também mostra uma lista de aplicações com o número de pedidos falhados para cada. Clique em gráfico para executar uma pesquisa de registo para <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> que mostra um gráfico de linhas mais detalhado de pedidos de aplicação que falhou. <br><br>Clique num item na lista para executar uma pesquisa de registo para <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> que mostra falhou pedidos, gráficos para pedidos falhados ao longo da duração de tempo e o pedido e uma lista de códigos de resposta de pedidos falhados. |
+| Exceções – exceções por hora | Mostra um gráfico de linhas de exceções por hora. Coloque o cursor sobre o gráfico para ver as aplicações de 3 superiores com exceções para um ponto no tempo. Também mostra uma lista de aplicações com o número de exceções para cada. Clique em gráfico para executar uma pesquisa de registo para <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> que mostra um gráfico de ligação mais detalhado de exceções. <br><br>Clique num item na lista para executar uma pesquisa de registo para <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> que mostra uma lista de exceções, gráficos exceções através de pedidos falhados e tempo e uma lista de tipos de exceção.  |
 
 ### <a name="view-the-application-insights-perspective-with-log-search"></a>Ver a perspetiva do Application Insights com a pesquisa de registo
 
@@ -117,7 +117,7 @@ Quando clica em qualquer lugar a **exceções** painel, verá uma visualização
 
 ![Painel do Application Insights exceções](./media/log-analytics-app-insights-connector/exceptions-blade-drill-search.png)
 
-Independentemente se clicar em algo um o **Application Insights conector** dashboard, dentro de **pesquisa** página próprio, qualquer consulta devolver dados do Application Insights mostram a aplicação Perspetiva de informações. Por exemplo, se estiver a ver dados do Application Insights, um  **&#42;**  consulta também apresenta o separador de perspetiva como a imagem seguinte:
+Independentemente se clicar em algo um o **Application Insights conector** dashboard, dentro de **pesquisa** página próprio, qualquer consulta devolver dados do Application Insights mostram a aplicação Perspetiva de informações. Por exemplo, se estiver a ver dados do Application Insights, um **&#42;** consulta também apresenta o separador de perspetiva como a imagem seguinte:
 
 ![Application Insights ](./media/log-analytics-app-insights-connector/app-insights-search.png)
 
@@ -140,12 +140,12 @@ Para dinâmico, clique nas reticências (**...** ) que é apresentada no final d
 
 ### <a name="sample-corrected-data"></a>Dados de exemplo-corrigidos
 
-Application Insights fornece  *[amostragem correção](../application-insights/app-insights-sampling.md)*  para ajudar a reduzir o tráfego de telemetria. Quando ativa a amostragem na sua aplicação Application Insights, obter um número reduzido de entradas armazenados no Application Insights e na análise de registos. Enquanto a consistência dos dados é preservada no **Application Insights conector** página e perspetivas, manualmente deve corrigir amostras de dados para as suas consultas personalizadas.
+Application Insights fornece *[amostragem correção](../application-insights/app-insights-sampling.md)* para ajudar a reduzir o tráfego de telemetria. Quando ativa a amostragem na sua aplicação Application Insights, obter um número reduzido de entradas armazenados no Application Insights e na análise de registos. Enquanto a consistência dos dados é preservada no **Application Insights conector** página e perspetivas, manualmente deve corrigir amostras de dados para as suas consultas personalizadas.
 
 Eis um exemplo de correção de amostra de uma consulta de pesquisa de registo:
 
 ```
-Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
+ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by TelemetryType
 ```
 
 O **amostragem contagem** campo está presente em todas as entradas e mostra o número de pontos de dados que representa a entrada. Se ativar a amostragem para a sua aplicação Application Insights, **amostragem contagem** for superior a 1. Para contabilizar o número real de entradas que gera a sua aplicação, soma o **amostragem contagem** campos.

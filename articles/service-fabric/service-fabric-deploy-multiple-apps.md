@@ -1,24 +1,24 @@
 ---
-title: "Implementar uma aplicação Node.js que utiliza o MongoDB | Microsoft Docs"
-description: "Obter instruções sobre como compactar várias executáveis de convidados para implementar um cluster do Service Fabric do Azure"
+title: Implementar uma aplicação Node.js que utiliza o MongoDB para Azure Service Fabric | Microsoft Docs
+description: Obter instruções sobre como compactar várias executáveis de convidados para implementar um cluster do Service Fabric do Azure
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
-ms.author: msfussell;mikhegn
-ms.openlocfilehash: d7a37d7c04f85e9031cab52fa86026e56315c882
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 4987cc271a3e3d8a1a69c4c7fbd213d73ca2eb96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implementar vários executáveis convidados
 Este artigo mostra como o pacote e a implementar vários executáveis de convidado do Azure Service Fabric. Para criar e implementar um único pacote de Service Fabric Leia como para [implementar um executável de convidado para o Service Fabric](service-fabric-deploy-existing-app.md).
@@ -32,7 +32,7 @@ Pode utilizar o Visual Studio para produzir o pacote de aplicação que contém 
 * [Exemplo de dois convidado executáveis (c# e nodejs) comunicar através do serviço de nomes através de REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>O pacote manualmente a aplicação executável de convidado várias
-Em alternativa pode compactar manualmente o convidado executável. Para o empacotamento manual, este artigo utiliza a ferramenta de empacotamento do Service Fabric, que está disponível em [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+Em alternativa pode compactar manualmente o convidado executável. Para o empacotamento manual, este artigo utiliza a ferramenta de empacotamento do Service Fabric, que está disponível em [ http://aka.ms/servicefabricpacktool ](http://aka.ms/servicefabricpacktool).
 
 ### <a name="packaging-the-nodejs-application"></a>Empacotar a aplicação Node.js
 Este artigo pressupõe que o Node.js não está instalado em nós no cluster de Service Fabric. Como consequence, terá de adicionar Node.exe para o diretório de raiz da sua aplicação de nó antes de empacotamento. A estrutura de diretórios da aplicação Node.js (utilizando a estrutura do Express web e de motor de modelo Jade) deve ter um aspeto semelhante ao abaixo:
@@ -72,7 +72,7 @@ Segue-se uma descrição dos parâmetros que estão a ser utilizado:
 * **/ de destino** define o diretório no qual o pacote deve ser criado. Este diretório tem de ser diferente do diretório de origem.
 * **/appname** define o nome da aplicação da aplicação existente. É importante compreender que isto traduz-se para o nome do serviço no manifesto e não o nome da aplicação de Service Fabric.
 * **/exe** define o executável que deveria Service Fabric para iniciar, neste caso `node.exe`.
-* **/Ma** define o argumento que está a ser utilizado para iniciar o executável. Como Node.js não estiver instalado, tem de Service Fabric iniciar o servidor de web de Node.js executando `node.exe bin/www`.  `/ma:'bin/www'`Indica a ferramenta de empacotamento utilizar `bin/www` como argumento para node.exe.
+* **/Ma** define o argumento que está a ser utilizado para iniciar o executável. Como Node.js não estiver instalado, tem de Service Fabric iniciar o servidor de web de Node.js executando `node.exe bin/www`.  `/ma:'bin/www'` Indica a ferramenta de empacotamento utilizar `bin/www` como argumento para node.exe.
 * **/ AppType** define o nome de tipo de aplicação de Service Fabric.
 
 Se navegar para o diretório que foi especificado no parâmetro /target, pode ver que a ferramenta criou um pacote de recursos de infraestrutura de serviço ao funcionamento integral conforme mostrado abaixo:
@@ -214,7 +214,7 @@ Para adicionar outro serviço a uma aplicação já criada com o `yo`, execute o
 1. Altere o diretório para a raiz da aplicação existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é a aplicação criada por Yeoman.
 2. Executar `yo azuresfguest:AddService` e forneça os detalhes necessários.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre a implementação de contentores com [descrição geral do Service Fabric e os contentores](service-fabric-containers-overview.md)
 * [Exemplo de empacotamento e implementação de um executável de convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Exemplo de dois convidado executáveis (c# e nodejs) comunicar através do serviço de nomes através de REST](https://github.com/Azure-Samples/service-fabric-containers)

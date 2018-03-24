@@ -1,11 +1,11 @@
 ---
-title: "Em direto de transmissão em fluxo utilizando os Media Services do Azure para criar fluxos de transmissão múltipla | Microsoft Docs"
-description: "Este tópico descreve como configurar um canal que recebe uma transmissão em fluxo em direto de um codificador no local e, em seguida, realiza live encoding fluxo de velocidade de transmissão adaptável com os Media Services. O fluxo pode, em seguida, entregar para aplicações de reprodução de cliente através de um ou mais de transmissão em fluxo pontos finais, utilizando um dos seguintes protocolos de transmissão em fluxo adaptável: HLS, transmissão em fluxo uniforme, MPEG DASH."
+title: Em direto de transmissão em fluxo utilizando os Media Services do Azure para criar fluxos de transmissão múltipla | Microsoft Docs
+description: 'Este tópico descreve como configurar um canal que recebe uma transmissão em fluxo em direto de um codificador no local e, em seguida, realiza live encoding fluxo de velocidade de transmissão adaptável com os Media Services. O fluxo pode, em seguida, entregar para aplicações de reprodução de cliente através de um ou mais de transmissão em fluxo pontos finais, utilizando um dos seguintes protocolos de transmissão em fluxo adaptável: HLS, transmissão em fluxo uniforme, MPEG DASH.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: anilmur
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 9d89849bb982804515b21de8c251859591dbf6ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
+
+> [!NOTE]
+> A partir de canais em direto 12 de pode de 2018, será já não suporte a sequência de transporte MPEG/RTP-2 protocolo de inserção. Efetue a migração de RTP/MPEG-2 para RTMP ou MP4 fragmentados (transmissão em fluxo uniforme) protocolos de inserção.
+
 ## <a name="overview"></a>Descrição geral
 Nos serviços de suporte de dados do Azure (AMS), um **canal** representa um pipeline de processamento de conteúdos de transmissão em fluxo em direto. A **canal** recebe fluxos de entrada em direto de uma das seguintes formas:
 
@@ -64,9 +68,9 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 
 | Estado do canal | Indicadores IU do portal | É faturação? |
 | --- | --- | --- |
-| A Iniciar |A Iniciar |Não (estado transitório) |
-| Em Execução |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |SIM |
-| A Parar |A Parar |Não (estado transitório) |
+| A iniciar |A iniciar |Não (estado transitório) |
+| A executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |SIM |
+| A parar |A parar |Não (estado transitório) |
 | Parada |Parada |Não |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Encerrar-desativar automático para canais não utilizados
@@ -217,7 +221,7 @@ Pode obter o URL de pré-visualização quando criar o canal. Para obter o URL, 
 Assim que for iniciada o canal a ingestão de dados, pode pré-visualizar a transmissão.
 
 > [!NOTE]
-> Atualmente o fluxo de pré-visualização só pode ser fornecido no MP4 fragmentado formato (transmissão em fluxo uniforme) independentemente do tipo de entrada especificado. Pode utilizar o [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) leitor para testar a transmissão em fluxo uniforme. Também pode utilizar um leitor alojado no portal do Azure para ver a sua transmissão em fluxo.
+> Atualmente o fluxo de pré-visualização só pode ser fornecido no MP4 fragmentado formato (transmissão em fluxo uniforme) independentemente do tipo de entrada especificado. Pode utilizar o [ http://smf.cloudapp.net/healthmonitor ](http://smf.cloudapp.net/healthmonitor) leitor para testar a transmissão em fluxo uniforme. Também pode utilizar um leitor alojado no portal do Azure para ver a sua transmissão em fluxo.
 > 
 > 
 
@@ -363,9 +367,9 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 
 | Estado do canal | Indicadores IU do portal | Foi cobrado? |
 | --- | --- | --- |
-| A Iniciar |A Iniciar |Não (estado transitório) |
-| Em Execução |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |Sim |
-| A Parar |A Parar |Não (estado transitório) |
+| A iniciar |A iniciar |Não (estado transitório) |
+| A executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |Sim |
+| A parar |A parar |Não (estado transitório) |
 | Parada |Parada |Não |
 
 > [!NOTE]
@@ -381,7 +385,7 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 * Por predefinição só é possível adicionar 5 canais à sua conta de Media Services. Esta é uma quota não restritiva em todas as contas de novo. Para obter mais informações, consulte [Quotas e limitações](media-services-quotas-and-limitations.md).
 * Não é possível alterar o protocolo de entrada enquanto o Canal ou os seus programas associados estiverem em execução. Se necessitar de protocolos diferentes, deve criar canais separados para cada protocolo de entrada.
 * É faturado apenas quando o canal está a ser o **executar** estado. Para obter mais informações, consulte [isto](media-services-manage-live-encoder-enabled-channels.md#states) secção.
-* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte amslived@microsoft.com se precisar de executar um canal durante períodos de tempo mais longos.
+* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
 * Certifique-se de que tem o partir do qual pretende transmitir o conteúdo no ponto final de transmissão em fluxo a **executar** estado.
 * Quando inputting vários idiomas controla e fazer live encoding com o Azure, RTP só é suportada para a entrada multilingues. Pode definir até 8 fluxos de áudio utilizando TS MPEG-2 sobre RTP. Ingestão relacionadas vários controla áudio com RTMP ou transmissão em fluxo uniforme não é atualmente suportada. Ao fazer live encoding com [em direto no local codifica](media-services-live-streaming-with-onprem-encoders.md), não há nenhum desse limitação porque que é enviado para AMS passa através de um canal sem qualquer processamento adicional.
 * A predefinição de codificação utiliza a noção de "taxa de intervalo máximo" da 30 fps. Por isso, caso a entrada é 60fps 59.97i, as frames Jumbo entradas são ignoradas/de-interlaced para 30/29.97 fps. Se a entrada é 50fps/50i, as frames Jumbo entradas são ignorados/de-interlaced para 25 fps. Se a entrada é 25 fps, saída permanece no 25 fps.

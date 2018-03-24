@@ -1,11 +1,12 @@
 ---
 title: Importar dados para o Machine Learning Studio a partir de origens de dados online | Microsoft Docs
-description: "Como importar os dados de formação do Azure Machine Learning Studio a partir de várias origens online."
-keywords: "Importar dados, o formato de dados, os tipos de dados, as origens de dados, dados de formação"
+description: Como importar os dados de formação do Azure Machine Learning Studio a partir de várias origens online.
+keywords: Importar dados, o formato de dados, os tipos de dados, as origens de dados, dados de formação
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: c6185cd240d1c040c993e581c27624e1f170f709
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5882f79b6479f71cfd1df503f55703e6177c072b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importar dados para o Azure Machine Learning Studio provenientes de várias origens de dados online com o módulo Importar Dados
 Este artigo descreve o suporte para importar dados online a partir de várias origens e as informações necessárias para mover dados a partir destas origens para uma experimentação do Azure Machine Learning.
@@ -72,7 +72,7 @@ O Azure Machine Learning **importar dados** módulo suporta as seguintes origens
 | Armazenamento de Blobs do Azure |Lê os dados armazenados no serviço Blob no Storage do Azure, incluindo as imagens, não estruturado, dados text ou binários.<br/><br/>Pode utilizar o serviço de BLOBs para expor publicamente os dados ou em privado armazenar dados da aplicação. Pode a aceder aos seus dados a partir de qualquer lugar, utilizando ligações HTTP ou HTTPS. |As opções de **importar dados** módulo alterar, dependendo se está a aceder ao informações públicas ou uma conta de armazenamento privada que necessite de credenciais de início de sessão. Tal é determinado através da <b>tipo de autenticação</b> que pode ter um valor de "PublicOrSAS" ou "Conta".<br/><br/><b>Pública ou de acesso partilhado assinatura (SAS) URI</b>: os parâmetros são:<br/><br/><ul><b>URI</b>: Especifica o público ou o URL de SAS do storage blob.<br/><br/><b>Formato de ficheiro</b>: Especifica o formato dos dados no serviço Blob. Os formatos suportados são CSV, TSV e ARFF.<br/><br/></ul><b>Conta de armazenamento privada</b>: os parâmetros são: <br/><br/><ul><b>Nome da conta</b>: Especifica o nome da conta que contém o blob que pretende ler.<br/><br/><b>Chave de conta</b>: Especifica a chave de armazenamento associada à conta.<br/><br/><b>Caminho para o contentor, diretório ou blob </b> : Especifica o nome do blob que contém os dados para ler.<br/><br/><b>Formato de ficheiro do blob</b>: Especifica o formato dos dados no serviço blob. Os formatos de dados suportados são CSV, TSV, ARFF, CSV com uma codificação especificada e o Excel. <br/><br/><ul>Se o formato CSV ou TSV, lembre-se de que indicam se o ficheiro contém uma linha de cabeçalho.<br/><br/>Pode utilizar a opção de Excel ler dados de livros do Excel. No <i>formato de dados do Excel</i> opção, indique se os dados são um intervalo de folha de cálculo do Excel ou uma tabela do Excel. No <i>folha do Excel ou tabela incorporada </i>opção, especifique o nome da folha ou tabela que pretende ler a partir do.</ul><br/> |
 | Fornecedor de Feed de dados |Lê os dados de um fornecedor de feed suportado. Atualmente apenas o formato da Open Data Protocol (OData) é suportado. |<b>Tipo de conteúdo de dados</b>: Especifica o formato de OData.<br/><br/><b>URL de origem</b>: Especifica o URL completo para os feed de dados. <br/>Por exemplo, o seguinte URL lê a partir da base de dados de exemplo Northwind: http://services.odata.org/northwind/northwind.svc/ |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Implementação do Azure ML web dos serviços que utilizam módulos de dados de exportação e importação de dados](web-services-that-use-import-export-modules.md)
 

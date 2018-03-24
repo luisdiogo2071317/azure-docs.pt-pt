@@ -1,24 +1,21 @@
 ---
-title: "Do Azure Active Directory B2C: Aplicações de página única com o fluxo implícito | Microsoft Docs"
-description: "Saiba como criar aplicações de página única diretamente, utilizando o fluxo implícito de OAuth 2.0 com o Azure Active Directory B2C."
+title: 'Do Azure Active Directory B2C: Aplicações de página única com o fluxo implícito | Microsoft Docs'
+description: Saiba como criar aplicações de página única diretamente, utilizando o fluxo implícito de OAuth 2.0 com o Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: a45cc74c-a37e-453f-b08b-af75855e0792
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
-ms.author: parakhj
-ms.openlocfilehash: 2ce4aaac117920c1da0b8a29797169d536825c1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: ac0351ce220da5194d3a447e51185409b7368f21
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>O Azure AD B2C: Página única aplicação início de sessão utilizando o fluxo implícito de OAuth 2.0
 
@@ -99,7 +96,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Âmbito |Necessário |Uma lista separada por espaço de âmbitos. Indica um valor único âmbito para o Azure AD ambas as permissões que estão a ser solicitada. O `openid` âmbito indica uma permissão para iniciar o utilizador e obter dados sobre o utilizador no formato de tokens de identidade. (Iremos falar sobre esta mais mais tarde no artigo.) O `offline_access` âmbito é opcional para aplicações web. Indica que a aplicação tem um token de atualização de longa duração acesso a recursos. |
 | state |Recomendado |Um valor incluído no pedido de que também é devolvido na resposta token. Pode ser uma cadeia de todos os conteúdos que pretende utilizar. Normalmente, um valor exclusivo, gerado aleatoriamente, é utilizado, para impedir ataques de falsificação de pedidos entre sites. O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, como a página estivessem nas suas. |
 | nonce |Necessário |Um valor incluído no pedido de (gerado pela aplicação) que está incluído no token resultante ID como uma afirmação. A aplicação, em seguida, pode verificar este valor para mitigar ataques de repetição de token. Normalmente, o valor é uma cadeia de aleatório, exclusiva que pode ser utilizada para identificar a origem do pedido. |
-| P |Necessário |A política de execução. É o nome de uma política que é criado no seu inquilino do Azure AD B2C. O valor de nome de política deve iniciar com **b2c\_1\_**. Para obter mais informações, consulte [políticas incorporadas do Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| p |Necessário |A política de execução. É o nome de uma política que é criado no seu inquilino do Azure AD B2C. O valor de nome de política deve iniciar com **b2c\_1\_**. Para obter mais informações, consulte [políticas incorporadas do Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | linha de comandos |Opcional |O tipo de interação do utilizador necessárias. Atualmente, o único valor válido é `login`. Isto força o utilizador introduza as suas credenciais desse pedido. O início de sessão único não entrarão em vigor. |
 
 Neste momento, é pedido ao utilizador para concluir o fluxo de trabalho da política. Isto poderá envolver o utilizador introduzir o respetivo nome de utilizador e palavra-passe, início de sessão com uma identidade de redes social, inscrever-se para o diretório ou qualquer outro número de passos. Ações de utilizador dependem como a política está definida.
@@ -268,7 +265,7 @@ p=b2c_1_sign_in
 
 | Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
-| P |Necessário |A política a utilizar para assinar o utilizador fora da sua aplicação. |
+| p |Necessário |A política a utilizar para assinar o utilizador fora da sua aplicação. |
 | post_logout_redirect_uri |Recomendado |O URL que o utilizador deve ser redirecionado para após êxito fim de sessão. Se não estiver incluída, o Azure AD B2C apresenta uma mensagem genérica ao utilizador. |
 
 > [!NOTE]

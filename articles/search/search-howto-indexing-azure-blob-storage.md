@@ -2,23 +2,23 @@
 title: Indexar o Blob Storage do Azure com a pesquisa do Azure
 description: Saiba como indexar o Blob Storage do Azure e extraia o texto da documentos com a Azure Search
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/28/2017
+ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexar documentos no Blob Storage do Azure com a pesquisa do Azure
 Este artigo mostra como utilizar a pesquisa do Azure para documentos do índice (tais como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no Blob storage do Azure. Em primeiro lugar, explica as noções básicas de definir e configurar um indexador de blob. Em seguida, oferece uma exploração mais aprofundada de comportamentos e cenários que é provável que encontrar.
@@ -230,9 +230,9 @@ Se ambos os `indexedFileNameExtensions` e `excludedFileNameExtensions` parâmetr
 
 Pode controlar as partes dos blobs são indexadas utilizando o `dataToExtract` parâmetro de configuração. Pode demorar até os seguintes valores:
 
-* `storageMetadata`-Especifica que apenas o [propriedades blob padrão e o utilizador especificado metadados](../storage/blobs/storage-properties-metadata.md) são indexados.
-* `allMetadata`-Especifica que os metadados de armazenamento e a [metadados específicos do tipo de conteúdo](#ContentSpecificMetadata) extraiu o blob do conteúdo são indexados.
-* `contentAndMetadata`-Especifica que todos os metadados e o conteúdo textual extraídos de blob são indexados. Este é o valor predefinido.
+* `storageMetadata` -Especifica que apenas o [propriedades blob padrão e o utilizador especificado metadados](../storage/blobs/storage-properties-metadata.md) são indexados.
+* `allMetadata` -Especifica que os metadados de armazenamento e a [metadados específicos do tipo de conteúdo](#ContentSpecificMetadata) extraiu o blob do conteúdo são indexados.
+* `contentAndMetadata` -Especifica que todos os metadados e o conteúdo textual extraídos de blob são indexados. Este é o valor predefinido.
 
 Por exemplo, para apenas os metadados de armazenamento de índice, utilize:
 
@@ -271,6 +271,10 @@ Por predefinição, o indexador de blob interrompe assim que o se detetar um blo
 Para alguns blobs da Azure Search não é possível determinar o tipo de conteúdo ou não é possível processar um documento de caso contrário suportada tipo de conteúdo. Para ignorar este modo de falha, defina o `failOnUnprocessableDocument` parâmetro de configuração como false:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+A pesquisa do Azure limita o tamanho dos blobs são indexados. Estes limites estão documentados na [limites de serviço da Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Por predefinição, blobs de grande dimensão são tratados como erros. No entanto, pode ainda indexar os metadados de armazenamento de blobs de grande dimensão se definir `indexStorageMetadataOnlyForOversizedDocuments` parâmetro de configuração como true: 
+
+    "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
 Também pode continuar a indexação se ocorrem erros em qualquer ponto de processamento, ao analisar os blobs ou ao adicionar documentos para um índice. Para ignorar um número específico de erros, defina o `maxFailedItems` e `maxFailedItemsPerBatch` parâmetros de configuração para os valores pretendidos. Por exemplo:
 
@@ -371,7 +375,7 @@ A tabela seguinte resume processamento feito para cada formato do documento e de
 | XLS (aplicação/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extraia o texto, incluindo documentos incorporados |
 | PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extraia o texto, incluindo documentos incorporados |
 | PPT (vnd.ms/aplicação-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extraia o texto, incluindo documentos incorporados |
-| Tarifas de mensagens (vnd.ms/aplicação-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extraia o texto, incluindo os anexos |
+| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extraia o texto, incluindo os anexos |
 | ZIP (aplicação/zip) |`metadata_content_type` |Extraia o texto a partir de todos os documentos no arquivo |
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Texto de markup e extrair do XML de faixa |
 | JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extraia o texto<br/>Nota: Se precisar de extrair vários campos de documentos de um blob JSON, consulte o artigo [blobs JSON de indexação](search-howto-index-json-blobs.md) para obter detalhes |

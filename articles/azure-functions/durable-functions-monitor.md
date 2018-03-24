@@ -1,24 +1,24 @@
 ---
-title: "Monitores de funções duráveis - Azure"
-description: "Saiba como implementar um monitor de estado utilizando a extensão de funções durável para as funções do Azure."
+title: Monitores de funções duráveis - Azure
+description: Saiba como implementar um monitor de estado utilizando a extensão de funções durável para as funções do Azure.
 services: functions
 author: kashimiz
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 617b33a9f860ce3b06ff560de22824037eab8332
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário de monitor nas funções durável - exemplo de observador de Meteorologia
 
@@ -26,8 +26,8 @@ O padrão de monitor refere-se para uma flexível *periódica* processo num flux
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Siga as instruções em [instalar funções durável](durable-functions-install.md) para configurar o exemplo.
-* Este artigo pressupõe que já leu o [Hello sequência](durable-functions-sequence.md) instruções de exemplo.
+* [Instalar funções duráveis](durable-functions-install.md).
+* Concluir o [Hello sequência](durable-functions-sequence.md) explicação passo a passo.
 
 ## <a name="scenario-overview"></a>Descrição geral do cenário
 
@@ -64,7 +64,7 @@ Este artigo explica as seguintes funções na aplicação de exemplo:
 * `E3_GetIsClear`: Uma função de atividade que verifica as condições de Meteorologia atual para uma localização.
 * `E3_SendGoodWeatherAlert`: Uma função de atividade que envia uma mensagem SMS através do Twilio.
 
-As secções seguintes explicam o código que são utilizados para programação portal do Azure e configuração. O código para o desenvolvimento de Visual Studio é apresentado no final do artigo.
+As secções seguintes explicam a configuração e o código que são utilizados para c# scripting. O código para o desenvolvimento de Visual Studio é apresentado no final do artigo.
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Meteorologia monitorização orchestration (código de exemplo portal Visual Studio Code e o Azure)
 

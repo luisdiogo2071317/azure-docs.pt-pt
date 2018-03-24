@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 03/19/2018
 ms.author: gwallace
-ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b9c263acf754a72cde5b2716703b8e771a349457
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Como gerir zonas DNS com o PowerShell
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 > * [CLI 2.0 do Azure](dns-operations-dnszones-cli.md)
 
 Este artigo mostra como gerir as zonas DNS com o Azure PowerShell. Também pode gerir as zonas DNS com a plataforma [CLI do Azure](dns-operations-dnszones-cli.md) ou o portal do Azure.
+
+Este guia especificamente lida com zonas DNS público. Para obter informações sobre como utilizar o Azure PowerShell para gerir privada zonas no DNS do Azure, consulte [começar com zonas de DNS privado do Azure com o Azure PowerShell](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -50,7 +52,7 @@ O exemplo seguinte mostra como criar uma zona DNS com dois [etiquetas do Azure R
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-O DNS do Azure também suporta agora privadas zonas DNS (atualmente uma funcionalidade de pré-visualização).  Para obter um exemplo de como criar uma zona DNS privada, consulte [começar a utilizar zonas privadas DNS do Azure com o PowerShell](./private-dns-getstarted-powershell.md).
+O DNS do Azure também suporta agora privadas zonas DNS (atualmente em pré-visualização pública).  Para saber mais sobre zonas DNS privadas, veja [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md). Para obter um exemplo de como criar uma zona DNS privada, consulte [começar a utilizar zonas privadas DNS do Azure com o PowerShell](./private-dns-getstarted-powershell.md).
 
 ## <a name="get-a-dns-zone"></a>Obter uma zona DNS
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Data Warehouse cópias de segurança - instantâneos, georredundante | Microsoft Docs"
-description: "Saiba mais sobre cópias de segurança do armazém de dados do SQL Server da base de dados incorporados que lhe permite restaurar um SQL Data Warehouse do Azure para um ponto de restauro ou uma região geográfica diferentes."
+title: Azure SQL Data Warehouse cópias de segurança - instantâneos, georredundante | Microsoft Docs
+description: Saiba mais sobre cópias de segurança do armazém de dados do SQL Server da base de dados incorporados que lhe permite restaurar um SQL Data Warehouse do Azure para um ponto de restauro ou uma região geográfica diferentes.
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>Cópia de segurança e restauro no SQL Data Warehouse
 Este artigo explica as especificações de cópias de segurança no SQL Data Warehouse. Utilize cópias de segurança de armazém de dados para restaurar uma base de dados de instantâneos para a região primária ou restaurar um georreplicação-cópia de segurança para a região georreplicação-emparelhado. 

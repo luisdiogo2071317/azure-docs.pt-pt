@@ -1,19 +1,19 @@
 ---
-title: "Introdução ao tabelas temporais na base de dados SQL do Azure | Microsoft Docs"
-description: "Saiba como começar a utilizar tabelas temporais na SQL Database do Azure."
+title: Introdução ao tabelas temporais na base de dados SQL do Azure | Microsoft Docs
+description: Saiba como começar a utilizar tabelas temporais na SQL Database do Azure.
 services: sql-database
 author: bonova
+ms.date: 03/21/2018
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0299d52396549baf8ea7e5eb7145585c7b5900a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introdução ao tabelas temporais na base de dados SQL do Azure
 As tabelas temporais são uma nova funcionalidade de programação para da base de dados do SQL do Azure que lhe permite controlar e analisar o histórico de alterações nos seus dados, sem a necessidade de codificação personalizada completo. As tabelas temporais mantém os dados estritamente relacionados para o contexto de tempo para que os factos armazenados podem ser interpretados como válido apenas dentro do período específico. Esta propriedade de tabelas temporais permite eficiente analysis baseados no tempo e ao obter conhecimentos aprofundados sobre evolução de dados.
@@ -64,7 +64,7 @@ Ao criar a tabela temporal com versão do sistema, a tabela de histórico associ
 Neste caso específico, pretendemos para efetuar a análise de tendências baseados no tempo ao longo de um histórico de dados maior e com conjuntos de dados maiores, pelo que a opção de armazenamento para a tabela de histórico é um índice columnstore em cluster. Fornece um columnstore em cluster compressão muito bom e o desempenho de consultas analíticos. As tabelas temporais dão-lhe a flexibilidade para configurar os índices em tabelas de atuais e temporais completamente independente. 
 
 > [!NOTE]
-> Os índices Columnstore só estão disponíveis no escalão de serviço premium.
+> Os índices Columnstore estão disponíveis no escalão Premium e no escalão Standard, S3 e acima.
 >
 
 O script seguinte mostra como o índice de predefinição na tabela de histórico pode ser alterado para o columnstore em cluster:

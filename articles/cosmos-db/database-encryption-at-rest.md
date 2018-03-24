@@ -1,11 +1,11 @@
 ---
-title: "Encriptação de base de dados Inativos: base de dados do Azure Cosmos | Microsoft Docs"
-description: "Saiba como base de dados do Azure Cosmos fornece encriptação predefinido de todos os dados."
+title: 'Encriptação de base de dados Inativos: base de dados do Azure Cosmos | Microsoft Docs'
+description: Saiba como base de dados do Azure Cosmos fornece encriptação predefinido de todos os dados.
 services: cosmos-db
 author: voellm
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: df793fb0511d1289b927caad200eb8252f2b64e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Encriptação de base de dados do Cosmos DB do Azure Inativos
 
@@ -53,7 +53,6 @@ R: Microsoft tem um conjunto de internas diretrizes para rotação chave de encr
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>P: Posso utilizar o meus próprio chaves de encriptação?
 R: cosmos DB é um serviço de PaaS e iremos rígido trabalhado para manter o serviço fáceis de utilizar. Tiver Detetámos que esta questão, muitas vezes, é pedido como uma pergunta de proxy para satisfazer um requisito de conformidade, como PCI-DSS. Como parte da criação desta funcionalidade, iremos trabalhou com auditores de conformidade para garantir que os clientes que utilizam Cosmos DB satisfazem os requisitos do seu sem a necessidade de gerir chaves próprios.
-Como resultado, estamos atualmente não oferecem aos utilizadores a opção de burden próprios com gestão de chaves.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>P: quais regiões tem a encriptação ativada?
 R: regiões do Azure Cosmos DB todos os tem a encriptação ativada para todos os dados de utilizador.

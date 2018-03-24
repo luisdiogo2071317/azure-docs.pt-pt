@@ -1,12 +1,12 @@
 ---
-title: "Resolver problemas de Storm através do Azure HDInsight | Microsoft Docs"
-description: "Obtenha respostas a questões recorrentes sobre como utilizar o Apache Storm com o Azure HDInsight."
-keywords: "FAQ do HDInsight, Storm, do Azure, manual, problemas comuns de resolução de problemas"
+title: Resolver problemas de Storm através do Azure HDInsight | Microsoft Docs
+description: Obtenha respostas a questões recorrentes sobre como utilizar o Apache Storm com o Azure HDInsight.
+keywords: FAQ do HDInsight, Storm, do Azure, manual, problemas comuns de resolução de problemas
 services: Azure HDInsight
 documentationcenter: na
 author: raviperi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ee408b32650fe0f0e0b66294896756732a2ca5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Resolver problemas de Storm através do Azure HDInsight
 
@@ -28,7 +28,7 @@ Saiba mais sobre os principais problemas e as resoluções para trabalhar com pa
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Como acedo a IU do Storm num cluster?
 Tem duas opções para aceder a IU do Storm num browser:
 
-### <a name="ambari-ui"></a>IU do Ambari
+### <a name="ambari-ui"></a>Ambari UI
 1. Aceda ao dashboard do Ambari.
 2. Na lista de serviços, selecione **Storm**.
 3. No **ligações rápidas** menu, selecione **IU do Storm**.
@@ -40,7 +40,7 @@ https://\<nome DNS de cluster\>/stormui
 
 Exemplo:
 
- https://stormcluster.azurehdinsight.NET/stormui
+ https://stormcluster.azurehdinsight.net/stormui
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Como transferir as informações de ponto de verificação do Storm event hub spout da topologia de um para outro?
 
@@ -71,7 +71,7 @@ O comando de exportação escreve os metadados de um caminho de sistema de fiche
     ```
 
 #### <a name="import-offset-metadata"></a>Importar metadados de deslocamento
-1. Utilize o SSH para ir para o cluster de ZooKeeper no cluster a partir do qual o ponto de verificação deslocamento tem de ser exportado.
+1. Utilize o SSH para ir para o cluster de ZooKeeper no cluster a partir do qual o ponto de verificação deslocamento tem de ser importado.
 2. Execute o seguinte comando (depois de atualizar a cadeia de versão HDP) para importar dados de deslocamento de ZooKeeper do /stormmetadata/zkdata de caminho do HDFS para o servidor ZooKeeper no cluster de destino:
 
     ```apache
@@ -79,7 +79,7 @@ O comando de exportação escreve os metadados de um caminho de sistema de fiche
     ```
    
 #### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Eliminar os metadados de deslocamento para que as topologias podem começar a processar os dados de início ou de um timestamp que o utilizador escolhe
-1. Utilize o SSH para ir para o cluster de ZooKeeper no cluster a partir do qual o ponto de verificação deslocamento tem de ser exportado.
+1. Utilize o SSH para ir para o cluster de ZooKeeper no cluster a partir do qual o ponto de verificação deslocamento tem de ser eliminado.
 2. Execute o seguinte comando (depois de atualizar a cadeia de versão HDP) para eliminar todos os dados de deslocamento de ZooKeeper do cluster atual:
 
     ```apache
@@ -152,5 +152,5 @@ O ficheiro de configuração de trabalho Log4J é lida /usr/hdp/\<versão HDP\>/
  
 Exemplos: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
-### <a name="see-also"></a>Veja Também
+### <a name="see-also"></a>Consultar Também
 [Resolver problemas utilizando o Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

@@ -1,11 +1,11 @@
 ---
-title: "Análise de tráfego do Azure perguntas mais frequentes | Microsoft Docs"
-description: "Obtenha respostas a algumas perguntas mais frequentes sobre a análise de tráfego."
+title: Análise de tráfego do Azure perguntas mais frequentes | Microsoft Docs
+description: Obtenha respostas a algumas perguntas mais frequentes sobre a análise de tráfego.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fd97e0ca7615691c537dcb1dc18643627046742d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b9090f91db11b5bde53f3652028030201f135fa5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Análise de tráfego perguntas mais frequentes
 
@@ -29,6 +29,18 @@ ms.lasthandoff: 03/09/2018
     - Registos de fluxo NSG ativados para os NSGs que pretende monitorizar
     - Uma conta de armazenamento do Azure, para armazenar em bruto flog registos
     - Uma área de trabalho de análise de registos (OMS), com acesso de escrita e leitura
+    - Deve ser atribuída à conta as seguintes ações no fornecedor Network:
+
+        - Microsoft.Network/applicationGateways/read
+        - Microsoft.Network/connections/read
+        - Microsoft.Network/loadBalancers/read 
+        - Microsoft.Network/localNetworkGateways/read 
+        - Microsoft.Network/networkInterfaces/read 
+        - Microsoft.Network/networkSecurityGroups/read 
+        - Microsoft.Network/publicIPAddresses/read
+        - Microsoft.Network/routeTables/read
+        - Microsoft.Network/virtualNetworkGateways/read 
+        - Microsoft.Network/virtualNetworks/read
 
 2.  Em que regiões do Azure estão disponíveis na análise de tráfego?
 
@@ -94,7 +106,7 @@ ms.lasthandoff: 03/09/2018
 
 14.  Como a análise de tráfego tem um preço?
 
-        Não existem custos são faturados enquanto a análise de tráfego está em pré-visualização pública. Geração de registos de fluxo de NSG e retenção de dados de uma área de trabalho do OMS estão sujeitos aos custos às taxas de publicada.
+        Análise de tráfego é limitado otimização registos reduzidos e armazenar os registos avançados na área de trabalho de análise de registos. Enquanto na pré-visualização, análise de tráfego não é faturada otimização registos reduzidos, no entanto, retenção de dados numa área de trabalho está sujeito a faturação às taxas de publicada. Esta resposta será atualizada depois de preços para análise de tráfego estão disponível.
 
 15.  Como navegar através de teclado na vista de mapa Georreplicação?
 

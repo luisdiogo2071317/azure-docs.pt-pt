@@ -1,8 +1,8 @@
 ---
-title: "Perfil de aplicações web do ASP.NET core Linux do Azure com o gerador de perfis do Application Insights | Microsoft Docs"
-description: "Descrição geral de conceito e tutorial passo a passo sobre como ativar"
+title: Perfil de aplicações web do ASP.NET core Linux do Azure com o gerador de perfis do Application Insights | Microsoft Docs
+description: Descrição geral de conceito e tutorial passo a passo sobre como ativar
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 63a7ceacffe1ee33227d3a8272dda7de7b3b1135
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Perfil ASP.NET Core as aplicações Web de Linux do Azure, com o gerador de perfis do Application Insights
 
@@ -143,6 +143,18 @@ Irá ver o resultado semelhante ao seguinte:
 5. Navegue para o painel de desempenho do Application Insights no portal do Azure. Irá ver os rastreios de gerador de perfis disponíveis no canto inferior direito.
 
     ![Rastreios de vista](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+### <a name="enable-button-in-profiler-configuration-pane-does-not-work"></a>Permitir botão na configuração de gerador de perfis painel não funciona
+**Se alojar a sua aplicação com o Linux de serviços de aplicação, não precisa de ativar novamente o gerador de perfis no painel de desempenho no portal das informações de aplicação. Incluindo o pacote NuGet no projeto e a definição de aplicação Insights iKey nas definições de aplicação são suficientes para ativar o gerador de perfis**.
+
+Se seguir o [App Insights gerador de perfis para o Windows](./app-insights-profiler.md) fluxo de trabalho de ativação de clicar em **ativar** no painel de configurar o gerador de perfis, irá receber um erro, como o botão será a tentar instalar a versão do Windows do agente de gerador de perfis no ambiente do Linux.
+
+Estamos a trabalhar sobre como resolver este problema na experiência de ativação.
+
+![Não precisa de ativar o gerador de perfis novamente no painel de desempenho tornar o gerador de perfis de trabalho nos serviços de aplicação do Linux](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+
 
 ## <a name="next-steps"></a>Próximos Passos
 Se estiver a utilizar contentores personalizadas alojadas pelos serviços de aplicação, siga as instruções do [ ativar o serviço de gerador de perfis de aplicação de ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) para ativar o gerador de perfis do App Insights

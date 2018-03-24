@@ -1,24 +1,21 @@
 ---
-title: "O Azure Active Directory B2C: Resolver problemas de políticas personalizadas | Microsoft Docs"
-description: "Saiba mais sobre abordagens para resolver erros ao trabalhar com as políticas personalizadas no Azure Active Directory."
+title: 'O Azure Active Directory B2C: Resolver problemas de políticas personalizadas | Microsoft Docs'
+description: Saiba mais sobre abordagens para resolver erros ao trabalhar com as políticas personalizadas no Azure Active Directory.
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: joroja
-ms.openlocfilehash: 8718f9c1dfce81682174eec11e8cbb731cbdf796
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e51990bd2e121b89e7260e0d745d08ecc82ff8a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Resolver problemas de políticas personalizadas do Azure AD B2C e a arquitetura de experiência de identidade
 
@@ -32,7 +29,7 @@ Se utilizar o Azure Active Directory B2C políticas personalizadas (Azure AD B2C
 O erro mais comuns em configurar políticas personalizadas é incorretamente formatado XML. Um bom editor de XML é praticamente essencial. Um editor de XML boa apresenta XML nativamente, color-codes conteúdo, preenche termos comuns, mantém elementos XML indexados e pode validar com o esquema. Seguem-se dois dos nossos Favoritos editores de XML:
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Bloco de notas + +](https://notepad-plus-plus.org/)
+* [Notepad++](https://notepad-plus-plus.org/)
 
 Validação de esquema XML identifica os erros antes de carregar o ficheiro XML. Na pasta raiz do pacote de arranque, obter a definição de esquema XML TrustFrameworkPolicy_0.3.0.0.xsd. Para obter mais informações, na documentação do editor de XML, procure *ferramentas XML* e *validação XML*.
 
@@ -44,17 +41,17 @@ Poderão ser úteis uma revisão de regras XML. O Azure AD B2C rejeita qualquer 
  
  Erros de validação comuns incluem o seguinte:
 
-Fragmento de erro:`... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
+Fragmento de erro: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * O valor de ClaimType poderá mal escrito ou não existe no esquema.
 * ClaimType valores tem de ser definidos em, pelo menos, um dos ficheiros na política. 
     Por exemplo: ` <ClaimType Id="socialIdpUserId">`
 * Se o ClaimType está definida no ficheiro de extensões, mas também é utilizado um valor de TechnicalProfile no ficheiro de base, carregar o ficheiro de base resulta num erro.
 
-Fragmento de erro:`...makes a reference to a ClaimsTransformation with id...`
+Fragmento de erro: `...makes a reference to a ClaimsTransformation with id...`
 * As causas do erro poderão ser iguais para o ClaimType erro.
 
-Fragmento de erro:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
-* Verifique se o TenantId valor o  **\<TrustFrameworkPolicy\>**  e  **\<BasePolicy\>**  elementos corresponder ao seu inquilino de destino do Azure AD B2C.  
+Fragmento de erro: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+* Verifique se o TenantId valor o **\<TrustFrameworkPolicy\>** e **\<BasePolicy\>** elementos corresponder ao seu inquilino de destino do Azure AD B2C.  
 
 ## <a name="troubleshoot-the-runtime"></a>Resolver problemas relacionados com o tempo de execução
 
@@ -75,6 +72,6 @@ Fragmento de erro:`Reason: User is currently logged as a user of 'yourtenant.onm
 
 **Desenvolver e testar percursos de utilizador com perfis de técnicas testadas.** Altere os passos de orquestração da journey utilizador de forma incremental. Crie progressivamente os seus cenários pretendidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* No GitHub, transfira o ficheiro. zip (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) [active-directory-b2c-custom-policy-starterpack].
+* No GitHub, transfira o [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ficheiro. zip.

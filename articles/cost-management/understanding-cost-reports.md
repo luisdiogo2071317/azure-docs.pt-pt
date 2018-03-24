@@ -1,20 +1,20 @@
 ---
-title: "Noções sobre o custo de relatórios de gestão na gestão de custo do Azure | Microsoft Docs"
-description: "Este artigo ajuda-o a compreender a estrutura básica do Cloudyn custo gestão relatórios e as funções."
+title: Noções sobre o custo de relatórios de gestão na gestão de custo do Azure | Microsoft Docs
+description: Este artigo ajuda-o a compreender a estrutura básica do Cloudyn custo gestão relatórios e as funções.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/07/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: bc2c696dceb3ed4741c10a5c611bd2d438b71bd5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="understanding-cost-management-reports"></a>Relatórios de gestão de custo de compreender
 

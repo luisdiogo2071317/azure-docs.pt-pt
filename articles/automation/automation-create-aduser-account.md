@@ -1,25 +1,19 @@
 ---
 title: Criar conta de utilizador do Azure AD
-description: "Este artigo descreve como criar uma credencial de conta de utilizador do Azure AD para runbooks na automatização do Azure para autenticar no Azure."
+description: Este artigo descreve como criar uma credencial de conta de utilizador do Azure AD para runbooks na automatização do Azure para autenticar no Azure.
+keywords: utilizador do azure active directory, gestão do serviço do azure, conta de utilizador do azure ad
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-keywords: "utilizador do azure active directory, gestão do serviço do azure, conta de utilizador do azure ad"
-ms.assetid: fcfe266d-b22e-4dfb-8272-adcab09fc0cf
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/13/2017
-ms.author: magoedte
-ms.openlocfilehash: cd9e3ee5900c3928573fbac6809c107b5ac331b5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+manager: carmonm
+ms.openlocfilehash: 43490b8ec2139b5e9f62def614dc67e4274304c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Autenticar Runbooks com a implementação clássica do Azure e o Resource Manager
 Este artigo descreve os passos que tem de efetuar para configurar uma conta de Utilizador do Azure AD para runbooks de Automatização do Azure em execução no modelo de implementação clássica do Azure ou nos recursos do Azure Resource Manager (ARM). Enquanto este continua a ser uma identidade de autenticação suportados para os runbooks do Azure Resource Manager com base, o método recomendado consiste em utilizar uma conta Run As do Azure.       

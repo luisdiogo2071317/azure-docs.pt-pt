@@ -1,6 +1,6 @@
 ---
-title: "Perguntas mais frequentes sobre o Gateway de aplicação do Azure | Microsoft Docs"
-description: "Esta página fornece respostas às perguntas mais frequentes sobre o Gateway de aplicação do Azure"
+title: Perguntas mais frequentes sobre o Gateway de aplicação do Azure | Microsoft Docs
+description: Esta página fornece respostas às perguntas mais frequentes sobre o Gateway de aplicação do Azure
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f92af44df9863bbf48abb4afcf9b1505c843fadc
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -135,10 +135,6 @@ Das sondas personalizadas não suportam carateres universais ou regex nos dados 
 **Q. Como as regras são processadas?**
 
 As regras são processadas pela ordem que estão configurados. Recomenda-se que as regras de vários sites estão configuradas antes basic regras para reduzir as hipóteses desse tráfego é encaminhado para o back-end inadequado como a regra básica corresponderia tráfego com base na porta antes da regra de vários site que está a ser avaliada.
-
-**Q. Como as regras são processadas?**
-
-As regras são processadas pela ordem que são criados. Recomenda-se que as regras de multilocal estão configuradas antes das regras básicas. Ao configurar os serviços de escuta de vários sites pela primeira vez, esta configuração reduz a probabilidade que o tráfego é encaminhado para o back-end inadequado. Este problema de encaminhamento pode ocorrer porque a regra básica corresponderia tráfego com base na porta antes da regra de vários site que está a ser avaliada.
 
 **Q. O que significam o campo de anfitrião das sondas personalizadas?**
 
@@ -324,6 +320,6 @@ Sim, Gateway de aplicação suportar alertas, alertas são configuradas desativa
 
 A razão mais comum é acesso para o back-end está a ser bloqueado por um NSG ou DNS personalizado. Visite [back-end estado de funcionamento, o registo de diagnóstico e métricas de Gateway de aplicação](application-gateway-diagnostics.md) para obter mais informações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Para obter mais informações sobre a visita de Gateway de aplicação [introdução ao Gateway de aplicação](application-gateway-introduction.md).

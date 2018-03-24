@@ -1,11 +1,11 @@
 ---
-title: "Tutorial de fábrica de dados: primeiro pipeline de dados | Microsoft Docs"
-description: "Este tutorial do Azure Data Factory mostra como criar e agendar uma fábrica de dados que processa dados utilizando o script de ramo de registo num cluster de Hadoop."
+title: 'Tutorial de fábrica de dados: primeiro pipeline de dados | Microsoft Docs'
+description: Este tutorial do Azure Data Factory mostra como criar e agendar uma fábrica de dados que processa dados utilizando o script de ramo de registo num cluster de Hadoop.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 374eebfe35207f6e5264159dcb72abddc6de4598
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2fc9c0a823f48446f98fe9686242b8500462427b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Criar o seu primeiro pipeline para transformar dados utilizando o cluster de Hadoop
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ Antes de começar este tutorial, tem de ter os seguintes pré-requisitos:
 
 1. **Subscrição do Azure** - Se não tiver uma subscrição do Azure, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Veja o artigo [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/) sobre como poderá obter uma conta de avaliação gratuita.
 2. **Armazenamento do Azure** – Utilize uma conta de armazenamento do Azure para armazenar os dados deste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Depois de ter criado a conta de armazenamento, tome nota do **nome da conta** e **chave de acesso**. Veja [Ver, copiar e voltar a gerar chaves de acesso ao armazenamento](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Transferir e rever o ficheiro de consulta do Hive (**HQL**), localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta consulta transforma os dados de entrada para produzir os dados de saída. 
+3. Transferir e rever o ficheiro de consulta do Hive (**HQL**), localizado em: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta consulta transforma os dados de entrada para produzir os dados de saída. 
 4. Transferir e rever o ficheiro de entrada de exemplo (**input.log**), localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Criar um contentor do blob denominado **adfgetstarted** no armazenamento de Blobs do Azure. 
 6. Carregar **partitionweblogs.hql** do ficheiro para o **script** pasta o **adfgetstarted** contentor. Utilize ferramentas como [Explorador de armazenamento do Microsoft Azure](http://storageexplorer.com/). 

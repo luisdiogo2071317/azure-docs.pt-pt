@@ -1,11 +1,11 @@
 ---
-title: "Através de programação monitorizar um Azure data factory | Microsoft Docs"
-description: "Saiba como monitorizar um pipeline na fábrica de dados utilizando kits de desenvolvimento de software diferentes (SDKs)."
+title: Através de programação monitorizar um Azure data factory | Microsoft Docs
+description: Saiba como monitorizar um pipeline na fábrica de dados utilizando kits de desenvolvimento de software diferentes (SDKs).
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,17 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 95934de9b84270ff112489a7b67f622dad609970
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 87e69349245c5f67e23022e3a45ed798400e6a2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Através de programação monitorizar um Azure data factory
 Este artigo descreve como monitorizar um pipeline na fábrica de dados utilizando kits de desenvolvimento de software diferentes (SDKs). 
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [monitorizar e gerir pipelines na fábrica de dados version1](v1/data-factory-monitor-manage-pipelines.md).
+
+## <a name="data-range"></a>Intervalo de dados
+
+Fábrica de dados só armazena pipeline executar dados nos últimos 45 dias. Quando a consulta através de programação para dados sobre a execução de pipeline de fábrica de dados - por exemplo, com o comando do PowerShell `Get-AzureRmDataFactoryV2PipelineRun` -não existem nenhum datas máximas para o opcional `LastUpdatedAfter` e `LastUpdatedBefore` parâmetros. Mas se a consulta de dados do ano passado, por exemplo, a consulta não devolveu um erro, mas só devolve pipeline de dados de execução dos últimos 45 dias.
+
+Se pretender manter o pipeline executar dados mais de 45 dias, configurar o seu próprio registo de diagnóstico com [Azure Monitor](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
 Para instruções completas de criação e monitorização de um pipeline com o .NET SDK, consulte [criar uma fábrica de dados e pipeline através do .NET](quickstart-create-data-factory-dot-net.md).

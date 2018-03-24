@@ -1,9 +1,9 @@
 ---
-title: "Descrição geral dos alertas no Microsoft Azure e o Monitor do Azure | Microsoft Docs"
-description: "Alertas permitem-lhe monitorizar métricas de recurso do Azure, eventos ou os registos e ser notificado quando for cumprida uma condição que especificar."
+title: Descrição geral dos alertas no Microsoft Azure e o Monitor do Azure | Microsoft Docs
+description: Alertas permitem-lhe monitorizar métricas de recurso do Azure, eventos ou os registos e ser notificado quando for cumprida uma condição que especificar.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: a6dea224-57bf-43d8-a292-06523037d70b
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1f0182f27cfb8441a09abd2031b365a4ab4315a
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: c64ca224705b7da57846e53bdc28d6d03eb28b06
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>O que são alertas no Microsoft Azure?
 Este artigo descreve várias origens de alertas no Microsoft Azure, que está os fins de alertas, os benefícios e como começar a utilizá-los. -La especificamente aplica-se a monitorização do Azure, mas disponibiliza apontadores para outros serviços, bem como os alertas. Alertas oferecem um método de monitorização no Azure que permite-lhe configurar condições sobre dados e ficar notificado quando as condições corresponderem aos dados monitorização mais recentes.
@@ -33,9 +33,6 @@ Azure utiliza os seguintes termos para descrever as respetivas funções e de al
 * **Notificação** - a ação tomada baseada em termina a sessão de um alerta se tornar Active Directory.
 * **Ação** -uma chamada específica enviada para um recetor de uma notificação (por exemplo, relacionada um endereço ou publicação para um URL do webhook). As notificações, normalmente, podem acionar várias ações.
 
-    > [!NOTE]
-    > Como parte da evolução de alertas no Azure, uma nova experiência unificada está disponível na pré-visualização. A nova experiência de alertas (pré-visualização) utiliza uma taxonomia diferentes. Saiba mais sobre [alertas (pré-visualização)](monitoring-overview-unified-alerts.md). 
-    >
 
 ## <a name="alerts-in-different-azure-services"></a>Alertas nas diferentes serviços do Azure
 Alertas estão disponíveis no Azure vários serviços de monitorização. Para obter informações sobre como e quando utiliza estes serviços [consulte este artigo](./monitoring-overview.md). Aqui está uma repartição dos tipos de alertas disponível através do Azure:
@@ -44,22 +41,18 @@ Alertas estão disponíveis no Azure vários serviços de monitorização. Para 
 | Serviço | Tipo de alerta | Serviços suportados | Descrição |
 |---|---|---|---|
 | Azure Monitor | [Métricas alertas](./insights-alerts-portal.md) | [Métricas suportadas do Monitor do Azure](./monitoring-supported-metrics.md) | Receber uma notificação quando qualquer métrica de nível de plataforma cumpre uma condição específica (por exemplo, numa VM de CPU % é superior a 90 durante os últimos 5 minutos). |
-|Azure Monitor | [Quase em tempo real alertas métricas (pré-visualização)](./monitoring-near-real-time-metric-alerts.md)| [Recursos suportados a partir de Monitor do Azure](./monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for) | Receber uma notificação mais rapidamente do que a métricas alertas quando um ou mais métricas de nível de plataforma cumprem as condições especificadas (por exemplo, numa VM de CPU % é superior a 90 e rede é maior do que 500 MB para os últimos 5 minutos). |
+|Azure Monitor | [Quase em tempo real alertas métricas](./monitoring-near-real-time-metric-alerts.md)| [Recursos suportados a partir de Monitor do Azure](./monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported) | Receber uma notificação mais rapidamente do que a métricas alertas quando um ou mais métricas de nível de plataforma cumprem as condições especificadas (por exemplo, numa VM de CPU % é superior a 90 e rede é maior do que 500 MB para os últimos 5 minutos). |
 | Azure Monitor | [Alertas de registo de atividade](./monitoring-activity-log-alerts.md) | Todos os tipos de recursos disponíveis no Gestor de recursos do Azure | Receber uma notificação quando um novo evento no [registo de atividade do Azure](./monitoring-overview-activity-logs.md) corresponde condições específicas (por exemplo, quando uma operação de "Eliminar VM" ocorre em myProductionResourceGroup ou quando um novo evento de estado de funcionamento do serviço com "Ativo" como o é apresentado o estado). |
 | Application Insights | [Métricas alertas](../application-insights/app-insights-alerts.md) | Qualquer aplicação instrumentada para enviar dados para o Application Insights | Receber uma notificação quando qualquer métrica de nível de aplicação cumpre uma condição específica (por exemplo, tempo de resposta do servidor é maior do que 2 segundos). |
 | Application Insights | [Alertas de teste Web](../application-insights/app-insights-monitor-web-app-availability.md) | Qualquer Web site instrumentada para enviar dados para o Application Insights | Receba uma notificação quando a disponibilidade ou capacidade de resposta de um Web site é inferior a expetativas. |
 | Log Analytics | [Alertas de análise do registo](../log-analytics/log-analytics-alerts.md) | Qualquer serviço configurado para enviar dados para análise de registos | Receba uma notificação quando uma consulta de pesquisa de análise de registos através de dados de métrica de e/ou eventos cumpra determinados critérios. |
 
 ## <a name="alerts-on-azure-monitor-data"></a>Alertas nos dados de monitorização do Azure
-Existem três tipos de alertas retire dados disponível a partir do Monitor do Azure – métricas alertas, quase em tempo real alertas métricas (pré-visualização) e alertas de registo de atividade.
+Existem três tipos de alertas retire dados disponíveis a partir do Monitor do Azure – métricas alertas, quase em tempo real alertas métricas e alertas de registo de atividade.
 
-* **Alertas métricas** -este alerta é acionado quando o valor de uma métrica especificado atravesse um limiar que atribuir. O alerta gera uma notificação quando o alerta é "ativado" (quando o limiar for ultrapassado e a condição de alerta for cumprida), bem como quando for "resolvida" (quando o limiar é cruzado novamente e a condição já não for cumprida). Para obter uma lista crescente de métricas disponíveis suportadas pelo monitor do Azure, consulte [lista das métricas suportadas no Monitor de Azure](monitoring-supported-metrics.md).
-* **Quase em tempo real alertas métricas (pré-visualização)** - estes alertas são semelhantes aos alertas métricas mas diferem no algumas formas. Firstly, como o nome sugere estes alertas podem acionar em praticamente em tempo real (tão rápido como 1 min). Também suportam várias métricas (atualmente dois) de monitorização.  O alerta gera uma notificação quando o alerta é "ativado" (quando os limiares para cada métrica são ultrapassados ao mesmo tempo e a condição de alerta for cumprida), bem como quando for "resolvida" (quando, pelo menos, uma métrica atravesse o limiar novamente e a condição é nenhuma já está preenchido).
+* **Alertas métricas** -este alerta é acionado quando o valor de uma métrica especificado atravesse um limiar que atribuir. O alerta gera uma notificação quando o alerta é "ativado" (quando o limiar for ultrapassado e a condição de alerta for cumprida), bem como quando for "resolvida" (quando o limiar é cruzado novamente e a condição já não for cumprida). Estes são alertas de métricas mais antigas. Existência de alertas de métricas mais recentes, veja a seguir.
 
-    > [!NOTE]
-    > Quase em tempo real métrica alertas estão atualmente em pré-visualização pública. A experiência de utilizador e a funcionalidade está sujeita a alterações.
-    >
-    >
+* **Quase em tempo real alertas métricas** -estes são mais recente geração de alertas métricas com funcionalidades melhoradas quando comparado com a alertas de métricas anteriores. Estes alertas podem ser executados uma frequência de 1 min. Também suportam várias métricas (atualmente dois) de monitorização.  O alerta gera uma notificação quando o alerta é "ativado" (quando os limiares para cada métrica são ultrapassados ao mesmo tempo e a condição de alerta for cumprida), bem como quando for "resolvida" (quando, pelo menos, uma métrica atravesse o limiar novamente e a condição é nenhuma já está preenchido).
 
 * **Alertas de registo de atividade** -um alerta de registo de transmissão em fluxo que é acionado quando é gerado um evento de registo de atividade que corresponde ao filtrar os critérios que foram atribuídos. Estes alertas tem apenas um Estado "Ativado,", uma vez que o motor de alerta simplesmente aplica-se os critérios de filtro para qualquer novo evento. Estes alertas podem ser utilizados para ser notificado quando ocorre um novo incidente de estado de funcionamento do serviço ou quando um utilizador ou aplicação efetua uma operação na sua subscrição, por exemplo, "Eliminar a máquina virtual."
 
@@ -76,9 +69,9 @@ Grupos de ação suportam notificações através da publicação para um URL do
     - Aplicação lógica do Azure
     - um serviço de terceiros
 
-Quase em tempo real métrica alertas (pré-visualização), alertas e o registo de atividade utilizam grupos de ação.
+Quase em tempo real métrica alertas e alertas de registo de atividade utilizam grupos de ação.
 
-Alertas de métricas não ainda a utilizar grupos de ação. Num alerta métrico individual pode configurar notificações para:
+Alertas de métricas mais antigas disponíveis em alertas (clássica) não utilizam grupos de ação. Num alerta métrico individual pode configurar notificações para:
 * Envie notificações por e-mail para o administrador de serviço para os coadministradores ou para endereços de e-mail adicionais que especificar.
 * Chame um webhook, o que permite iniciar ações adicionais de automatização.
 
@@ -86,15 +79,15 @@ Alertas de métricas não ainda a utilizar grupos de ação. Num alerta métrico
 Obter informações sobre regras de alertas e configurá-los utilizando:
 
 * Saiba mais sobre [métricas](monitoring-overview-metrics.md)
-* Configurar [métrica alertas através do portal do Azure](insights-alerts-portal.md)
-* Configurar [métrica alertas do PowerShell](insights-alerts-powershell.md)
-* Configurar [interface de linha de comandos de alertas de métrica (CLI)](insights-alerts-command-line-interface.md)
-* Configurar [métrica alertas de monitorização do Azure REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Configurar [clássico de métrica de alertas, através do portal do Azure](insights-alerts-portal.md)
+* Configurar [PowerShell de alertas de métrica clássico](insights-alerts-powershell.md)
+* Configurar [interface de linha de comandos de alertas de métrica clássico (CLI)](insights-alerts-command-line-interface.md)
+* Configurar [clássico métrica alertas Monitor API REST do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 * Saiba mais sobre [registo de atividade](monitoring-overview-activity-logs.md)
 * Configurar [alertas de registo de atividade através do portal do Azure](monitoring-activity-log-alerts.md)
 * Configurar [alertas de registo de atividade através do Gestor de recursos](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
 * Reveja o [esquema de webhook alerta de registo de atividade](monitoring-activity-log-alerts-webhook.md)
-* Saiba mais sobre [quase em tempo real métrica alertas](monitoring-near-real-time-metric-alerts.md)
+* Saiba mais sobre [mais recente de métrica de alertas](monitoring-near-real-time-metric-alerts.md)
 * Saiba mais sobre [notificações de serviço](monitoring-service-notifications.md)
 * Saiba mais sobre [grupos de ação](monitoring-action-groups.md)
-* Configurar [alertas através de alertas (pré-visualização)](monitor-alerts-unified-usage.md)
+* Configurar [alertas](monitor-alerts-unified-usage.md)

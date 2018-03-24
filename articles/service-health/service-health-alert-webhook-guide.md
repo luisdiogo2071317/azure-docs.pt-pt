@@ -1,12 +1,12 @@
 ---
-title: "Configurar notificações de estado de funcionamento para sistemas de gestão problema existente, utilizando um webhook | Microsoft Docs"
-description: "Obter personalizadas notificações sobre eventos de estado de funcionamento do serviço para o seu sistema de gestão do problema existente."
+title: Configurar notificações de estado de funcionamento para sistemas de gestão problema existente, utilizando um webhook | Microsoft Docs
+description: Obter personalizadas notificações sobre eventos de estado de funcionamento do serviço para o seu sistema de gestão do problema existente.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: b6a5f61f61675b825dcfe9c706c80944f5890538
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 0e233fe537ea37da97ebe5d4e8221d24f656fd10
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurar notificações de estado de funcionamento para sistemas de gestão problema existente, utilizando um webhook
 
@@ -36,7 +36,7 @@ Se pretender utilizar uma integração pré-configuradas, consulte como:
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Configurar uma notificação utilizando o payload de webhook de estado de funcionamento do serviço
 Se pretender configurar a sua própria integração de webhook personalizado, tem de analisar o payload JSON que é enviado durante a notificações de estado de funcionamento do serviço.
 
-Procure [aqui para ver um exemplo](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) que o `Service Health` payload de webhook aspeto.
+Procure [aqui para ver um exemplo](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) que o `ServiceHealth` payload de webhook aspeto.
 
 Pode detetar este é um alerta de estado de funcionamento do serviço ao observar `context.eventSource == "ServiceHealth"`. A partir daí, as propriedades que são mais relevantes para a ingestão de são:
  * `data.context.activityLog.status`
@@ -48,13 +48,13 @@ Pode detetar este é um alerta de estado de funcionamento do serviço ao observa
  * `data.context.activityLog.properties.impactedServices`
  * `data.context.activityLog.properties.trackingId`
 
-## <a name="creating-a-direct-link-to-azure-service-health-for-an-incident"></a>Criar uma ligação direta para o estado de funcionamento do serviço do Azure para um incidente
-Pode criar uma ligação direta ao seu incidente de estado de funcionamento de serviço de Azure personalizado no ambiente de trabalho ou de dispositivo móvel através da geração de um URL especializado. Utilize o `trackingId`, bem como os primeiro e últimos três dígitos do seu `subscriptionId`, para formar:
+## <a name="creating-a-direct-link-to-the-service-health-dashboard-for-an-incident"></a>Criar uma ligação direta para o dashboard de estado de funcionamento do serviço para um incidente
+Pode criar uma ligação direta ao seu dashboard do Estado de funcionamento do serviço no ambiente de trabalho ou de dispositivo móvel através da geração de um URL especializado. Utilize o `trackingId`, bem como os primeiro e últimos três dígitos do seu `subscriptionId`, para formar:
 ```
 https://app.azure.com/h/<trackingId>/<first and last three digits of subscriptionId>
 ```
 
-Por exemplo, se o `subscriptionId` é `bba14129-e895-429b-8809-278e836ecdb3` e os seus `trackingId` é `0DET-URB`, em seguida, o URL de estado de funcionamento de serviço do Azure personalizado é:
+Por exemplo, se sua `subscriptionId` é `bba14129-e895-429b-8809-278e836ecdb3` e os seus `trackingId` é `0DET-URB`, em seguida, o URL do serviço de estado de funcionamento é:
 
 ```
 https://app.azure.com/h/0DET-URB/bbadb3
@@ -64,7 +64,7 @@ https://app.azure.com/h/0DET-URB/bbadb3
 De gravidade mais baixa para gravidade mais elevada, o `level` propriedade no payload pode ser qualquer uma das `Informational`, `Warning`, `Error`, e `Critical`.
 
 ## <a name="parsing-the-impacted-services-to-understand-the-full-scope-of-the-incident"></a>Analisar os serviços afectados para compreender o âmbito completo do incidente
-Alertas de estado de funcionamento do serviço pode informar sobre problemas em várias regiões e serviços. Para obter os detalhes completos, tem de analisar o valor de `impactedServices`.
+Alertas de estado de funcionamento do serviço podem informar sobre problemas em várias regiões e serviços. Para obter os detalhes completos, tem de analisar o valor de `impactedServices`.
 O conteúdo dentro é um [JSON escape](http://json.org/) cadeia quando unescaped, contém outro objeto JSON que possa ser analisado regularmente.
 
 ```json
@@ -101,7 +101,7 @@ Isto mostra que existem problemas com "Alertas e métricas" no Leste da Austrál
 
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testar a sua integração de webhook através de um pedido POST de HTTP
-1. Crie o payload de estado de funcionamento do serviço que pretende enviar. Pode encontrar um payload de webhook do Estado de funcionamento do serviço de exemplo no [Webhooks para a atividade do Azure registar alertas](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Crie o payload de estado de funcionamento de serviço que pretende enviar. Pode encontrar um payload de webhook do Estado de funcionamento do serviço do exemplo em [Webhooks para a atividade do Azure registar alertas](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Crie um pedido POST de HTTP da seguinte forma:
 
@@ -110,13 +110,13 @@ Isto mostra que existem problemas com "Alertas e métricas" no Leste da Austrál
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Deverá receber um `2XX - Successful` resposta.
 
 4. Aceda a [PagerDuty](https://www.pagerduty.com/) para confirmar a sua integração foi configurada com êxito.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Reveja o [esquema de webhook alerta de registo de atividade](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
 - Saiba mais sobre [notificações de estado de funcionamento do serviço](../monitoring-and-diagnostics/monitoring-service-notifications.md).
 - Saiba mais sobre [grupos ação](../monitoring-and-diagnostics/monitoring-action-groups.md).

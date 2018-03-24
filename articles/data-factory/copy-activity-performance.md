@@ -1,11 +1,11 @@
 ---
-title: "Copie o desempenho de atividade e o guia de otimização no Azure Data Factory | Microsoft Docs"
-description: "Saiba mais sobre os principais fatores que afetam o desempenho do movimento de dados no Azure Data Factory quando utilizar a atividade de cópia."
+title: Copie o desempenho de atividade e o guia de otimização no Azure Data Factory | Microsoft Docs
+description: Saiba mais sobre os principais fatores que afetam o desempenho do movimento de dados no Azure Data Factory quando utilizar a atividade de cópia.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 53f2b59e57d49a409552aebbdb1b0e81ccd5200c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 733a396117a58d8dc51e55614e503853f13141c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o desempenho de atividade e o guia de otimização
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -246,8 +246,8 @@ Sugerimos que siga estes passos para otimizar o desempenho do seu serviço do Da
      * [Cópia faseada](#staged-copy)
      * [Escalabilidade de tempo de execução de integração personalizada alojada](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Tempo de execução de integração personalizada alojada](#considerations-for-self-hosted-integration-runtime)
-   * [Origem](#considerations-for-the-source)
-   * [Sink](#considerations-for-the-sink)
+   * [origem](#considerations-for-the-source)
+   * [sink](#considerations-for-the-sink)
    * [Serialização e a anulação da serialização](#considerations-for-serialization-and-deserialization)
    * [Compressão](#considerations-for-compression)
    * [Mapeamento de colunas](#considerations-for-column-mapping)

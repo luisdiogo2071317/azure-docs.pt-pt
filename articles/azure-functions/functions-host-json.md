@@ -1,12 +1,12 @@
 ---
-title: "referência de Host.JSON para as funções do Azure"
-description: "Documentação de referência para o ficheiro de host.json das funções do Azure."
+title: referência de Host.JSON para as funções do Azure
+description: Documentação de referência para o ficheiro de host.json das funções do Azure.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 577c45edc832288943a7eeefe27c7a189a61b7b0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>referência de Host.JSON para as funções do Azure
 
@@ -139,7 +139,7 @@ Controlos a [funcionalidade de amostragem do Application Insights](functions-mon
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|isEnabled|falso|Ativa ou desativa a amostragem.| 
+|isEnabled|false|Ativa ou desativa a amostragem.| 
 |maxTelemetryItemsPerSecond|5|O limiar em que a amostragem começa.| 
 
 ## <a name="eventhub"></a>eventHub
@@ -201,6 +201,9 @@ Definições de configuração para [http acionadores e enlaces](functions-bindi
 ## <a name="id"></a>ID
 
 O ID exclusivo de um anfitrião de tarefa. Pode ser uma minúscula GUID com traços removida. É necessário quando executar localmente. Ao executar as funções do Azure, é gerado automaticamente um ID se `id` for omitido.
+
+Se partilhar uma conta de armazenamento por várias aplicações de função, certifique-se de que cada aplicação de função tem um outro `id`. Pode omitir o `id` propriedade ou definir manualmente cada aplicação de função `id` para um valor diferente. O acionador de temporizador utiliza um bloqueio de armazenamento para se certificar de que vai haver apenas uma instância de temporizador quando uma aplicação de função aumenta horizontalmente de forma a várias instâncias. Se duas aplicações de função partilham o mesmo `id` e cada utiliza um acionador de temporizador, irá executar apenas um temporizador.
+
 
 ```json
 {

@@ -1,8 +1,8 @@
 ---
-title: "Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível baixo | Microsoft Docs"
-description: "Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível inferior."
+title: Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível baixo | Microsoft Docs
+description: Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível inferior.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/20/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível baixo 
 
@@ -88,10 +88,10 @@ Se a associação do Azure AD híbrido não foi bem sucedida, a caixa de diálog
     
     2. Se, por qualquer motivo, Autoworkplace.exe conseguir autenticar silenciosamente com o Azure AD ou AD FS. Algumas das razões possíveis podem ser problemas de conectividade de rede out-vinculado aos URLs de AD do Azure (Verifique os pré-requisitos) ou se a MFA está ativado/configurado para o utilizador, mas WIAORMUTLIAUTHN não está configurado no servidor de Federação (passos de configuração de verificação). Possibilidade de outra é que nessa página do realm inicial (HRD) de deteção está a aguardar interação do utilizador, a impedir que Autoworkplace.exe silenciosamente obter um token.
     
-    3. Se a organização está a utilizar o Azure AD totalmente integrada Single Sign-On, os URLs seguintes não estão presentes i/e as definições no dispositivo da intranet:
+    3. Se a organização estiver a utilizar Azure AD totalmente integrada Single Sign-On, o seguinte URL não está presente i/e as definições no dispositivo da intranet:
     
        - https://autologon.microsoftazuread-sso.com
-       - https://aadg.windows.net.nsatc.net
+
     
        e a definição "Permitir que as atualizações à barra de estado através do script" tem de estar ativada para a zona de Intranet.
 

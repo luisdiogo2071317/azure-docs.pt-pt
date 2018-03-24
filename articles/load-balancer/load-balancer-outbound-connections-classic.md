@@ -1,24 +1,24 @@
 ---
-title: "Ligações de saída no Azure (clássica) | Microsoft Docs"
-description: "Este artigo explica como o Azure permite serviços para comunicar com serviços de internet pública em nuvem."
+title: Ligações de saída no Azure (clássica) | Microsoft Docs
+description: Este artigo explica como o Azure permite serviços para comunicar com serviços de internet pública em nuvem.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 7a307a598bd71369615b30476d387c06f473c397
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8a24987ae3423a02647b1dd246b40179be100c06
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="outbound-connections-classic"></a>Ligações de saída (clássica)
 
@@ -123,6 +123,18 @@ Alterar o tamanho da implementação pode afetar alguns dos seus fluxos estabele
 
 Se o tamanho da implementação diminui e passa para um escalão inferior, aumenta o número de portas de realizar o SNAT disponíveis. Neste caso, existentes alocado realizar o SNAT portas e os seus respetivos fluxos não são afetados.
 
+As alocações de portas de realizar o SNAT são específico de protocolo de transporte IP (TCP e UDP que e mantidó em separado) e são lançadas sob as seguintes condições:
+
+### <a name="tcp-snat-port-release"></a>Versão de porta de TCP realizar o SNAT
+
+- Se o servidor/cliente envia FIN/ACK, porta de realizar o SNAT será lançada após 240 segundos.
+- Se um RST é utilizado, porta de realizar o SNAT será lançada após 15 segundos.
+- foi atingido o tempo limite de inatividade
+
+### <a name="udp-snat-port-release"></a>Versão de porta UDP realizar o SNAT
+
+- foi atingido o tempo limite de inatividade
+
 ## <a name="problemsolving"></a> Resolução do problema 
 
 Esta secção destina-se para ajudar a mitigar o esgotamento de realizar o SNAT e outros cenários que podem ocorrer com ligações de saída no Azure.
@@ -167,6 +179,7 @@ Ao utilizar o comando nslookup, pode enviar uma consulta DNS para o myip.opendns
     nslookup myip.opendns.com resolver1.opendns.com
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [Balanceador de carga](load-balancer-overview.md) utilizados em implementações do Resource Manager.
+- Conheça o modo [ligação saída](load-balancer-outbound-connections.md) cenários disponíveis nas implementações do Resource Manager.

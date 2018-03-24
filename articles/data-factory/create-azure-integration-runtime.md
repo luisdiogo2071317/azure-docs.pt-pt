@@ -1,11 +1,10 @@
 ---
-title: "Criar o tempo de execução de integração do Azure no Azure Data Factory | Microsoft Docs"
-description: "Saiba como criar o tempo de execução de integração do Azure no Azure Data Factory, o que é utilizada para copiar dados e emitir as atividades de transformação."
+title: Criar o tempo de execução de integração do Azure no Azure Data Factory | Microsoft Docs
+description: Saiba como criar o tempo de execução de integração do Azure no Azure Data Factory, o que é utilizada para copiar dados e emitir as atividades de transformação.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 5d665206989ebf41c9ecb2f9fea0134e2e4f52cc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: e2ebb3db4d51bf4ec1dea4f2f5cc4cc9dcb2ad70
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Runtime de integração do Azure
 O tempo de execução de integração (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados entre ambientes de rede diferentes. Para obter mais informações sobre a resposta a incidentes, consulte [integração runtime](concepts-integration-runtime.md).

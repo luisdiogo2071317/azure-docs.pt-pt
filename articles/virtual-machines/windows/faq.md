@@ -1,11 +1,11 @@
 ---
 title: FAQ sobre VMs do Windows no Azure | Microsoft Docs
-description: "Fornece respostas a algumas das perguntas comuns sobre máquinas virtuais do Windows criadas com o modelo do Resource Manager."
+description: Fornece respostas a algumas das perguntas comuns sobre máquinas virtuais do Windows criadas com o modelo do Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-management
 ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: 9aa316e59fb78373cc044f8e18f5d24ea9c5258f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: e440385ca0f22dce8668fe73b91efe14e0c8a9b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Pergunta frequentes sobre máquinas virtuais do Windows
 Este artigo aborda algumas perguntas comuns sobre máquinas virtuais do Windows criadas no Azure utilizando o modelo de implementação Resource Manager. Para a versão do Linux deste tópico, consulte [perguntas mais frequentes pergunta sobre máquinas virtuais do Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -75,7 +75,7 @@ Sim. Para criar rapidamente uma VM com Linux para experimentar, consulte [criar 
 Sim, isto é agora possível. A VM primeiro tem de ser parado desalocada. Em seguida, pode adicionar ou remover um NIC (exceto se for o último NIC na VM). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Existem quaisquer requisitos de nome de computador?
-Sim. O nome do computador pode ter um máximo de 15 carateres de comprimento. Consulte [restrições e regras de convenções de nomenclatura](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter mais informações em torno os recursos de atribuição de nomes.
+Sim. O nome do computador pode ter um máximo de 15 carateres de comprimento. Consulte [restrições e regras de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions#compute) para obter mais informações em torno os recursos de atribuição de nomes.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Existem qualquer recurso requisitos de nome de grupo?
 Sim. O nome do grupo de recursos pode ter um máximo de 90 carateres de comprimento. Consulte [restrições e regras de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) para obter mais informações sobre grupos de recursos.

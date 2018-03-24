@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com a plataforma de nuvem do SAP | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e a plataforma de nuvem."
+title: 'Tutorial: Integração do Azure Active Directory com a plataforma de nuvem do SAP | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e a plataforma de nuvem.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 309415a68308943f638195303ceb236569519472
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a578a732efa3d2b91240ef0f4c02670aea8e547f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integração do Azure Active Directory com a plataforma de nuvem do SAP
 
@@ -111,7 +111,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio SAP da plataforma de nuvem e os URLs únicos de informações de início de sessão](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva o URL utilizado pelos seus utilizadores para iniciar sessão na sua **SAP Cloud Platform** aplicação. Este é o URL da conta específica de um recurso protegido na sua aplicação da plataforma de nuvem do SAP. O URL é baseado no padrão do seguinte:`https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    a. No **URL de início de sessão** caixa de texto, escreva o URL utilizado pelos seus utilizadores para iniciar sessão na sua **SAP Cloud Platform** aplicação. Este é o URL da conta específica de um recurso protegido na sua aplicação da plataforma de nuvem do SAP. O URL é baseado no padrão do seguinte: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
      >[!NOTE]
      >Este é o URL na aplicação SAP Cloud Platform que requer o autenticação do utilizador.
@@ -228,7 +228,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
  
     c. Os nomes e valores para **atributo Principal** mostrado na captura de ecrã dependem da forma como a aplicação for desenvolvida. É possível que a aplicação requer mapeamentos diferentes.
 
-###<a name="assertion-based-groups"></a>Grupos com base em asserção
+### <a name="assertion-based-groups"></a>Grupos com base em asserção
 
 Como um passo opcional, pode configurar grupos com base em asserção para o fornecedor de identidade do Active Directory do Azure.
 

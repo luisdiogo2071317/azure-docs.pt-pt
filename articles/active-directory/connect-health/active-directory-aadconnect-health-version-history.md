@@ -1,8 +1,8 @@
 ---
-title: "Histórico das Versões do Azure AD Connect Health"
-description: "Este documento descreve as versões para o Azure AD Connect Health e que foi incluído nessas versões."
+title: Histórico das Versões do Azure AD Connect Health
+description: Este documento descreve as versões para o Azure AD Connect Health e que foi incluído nessas versões.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: edc1771153581e73398e8df25e70660f9f85ceba
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 57cc8a63773cda5b66856ba7d6b3215d9c52162c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Histórico do Lançamento de Versões
 A equipa do Azure Active Directory atualiza regularmente o Azure AD Connect Health com novas funcionalidades e funções. Este artigo apresenta as versões e funcionalidades que tenham sido publicadas.
 
 ## <a name="march-2018"></a>De 2018 Março
+**Novas funcionalidades de pré-visualização:**
+* Azure AD Connect Health para AD FS - relatório de IP duvidoso e o alerta.
+
 **Atualização do agente:**
 
 *   Agente do Azure AD Connect Health para AD DS (versão 3.0.176.0)
@@ -64,7 +67,7 @@ A equipa do Azure Active Directory atualiza regularmente o Azure AD Connect Heal
   1. Correções de erros e melhoramentos gerais
   2. Suporte de nuvem sovereign
 * Agente do Azure AD Connect Health para sincronização (versão 3.0.68.0) lançada com o Azure AD Connect versão 1.1.614.0
-1. Suporte para a nuvem do Microsoft Azure Government e na Alemanha de nuvem da Microsoft
+  1. Suporte para a nuvem do Microsoft Azure Government e na Alemanha de nuvem da Microsoft
 
 ## <a name="april-2017"></a>Abril de 2017      
 **Atualização do agente:**

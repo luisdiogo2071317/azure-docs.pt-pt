@@ -1,23 +1,23 @@
 ---
-title: "Atividade de cópia de Azure Data Factory | Microsoft Docs"
-description: "Saiba mais sobre a atividade de cópia no Azure Data Factory que pode utilizar para copiar dados de um arquivo de dados de origem suportada para um arquivo de dados suportados sink."
+title: Atividade de cópia de Azure Data Factory | Microsoft Docs
+description: Saiba mais sobre a atividade de cópia no Azure Data Factory que pode utilizar para copiar dados de um arquivo de dados de origem suportada para um arquivo de dados suportados sink.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/16/2018
 ms.author: jingwang
-ms.openlocfilehash: faad821d406ac155516696c1207c8c9deef8fdab
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 3b92aed83e01d223b33f269f0202355836f806c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
@@ -150,7 +150,7 @@ Pode monitorizar a atividade de cópia executar na IU de "Autor e Monitor" da f�
 
 ### <a name="monitor-visually"></a>Monitorizar visualmente
 
-Para monitorizar visualmente a atividade de cópia executar, vá para a fábrica de dados -> **autor & Monitor** -> **separador Monitor**, verá uma lista de pipeline é executada com uma ligação de "Vista atividade estiver em execução" no  **Ações** coluna. 
+Para monitorizar visualmente a atividade de cópia executar, vá para a fábrica de dados -> **autor & Monitor** -> **separador Monitor**, verá uma lista de pipeline é executada com uma ligação de "Vista atividade estiver em execução" no ** Ações** coluna. 
 
 ![Monitorizar execuções de pipeline](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 

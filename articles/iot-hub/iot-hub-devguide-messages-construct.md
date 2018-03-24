@@ -1,24 +1,24 @@
 ---
 title: Compreender o formato de mensagem do IoT Hub do Azure | Microsoft Docs
-description: "Guia para programadores - descibes o formato e o conteúdo esperado de mensagens do IoT Hub."
+description: Guia para programadores - descibes o formato e o conteúdo esperado de mensagens do IoT Hub.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3d5b500964ee37dbd347858edd35812e1d217499
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler as mensagens de IoT Hub
 
@@ -45,11 +45,12 @@ A tabela seguinte lista o conjunto de propriedades do sistema nas mensagens do I
 | ExpiryTimeUtc |Data e hora de expiração de mensagem. |
 | EnqueuedTime |Data e hora de [nuvem para o dispositivo] [ lnk-c2d] foi recebida uma mensagem pelo IoT Hub. |
 | CorrelationId |Uma propriedade de cadeia de uma mensagem de resposta que normalmente contém MessageId do pedido, em padrões de pedido-resposta. |
-| UserId |Um ID utilizado para especificar a origem de mensagens em fila. Quando as mensagens são geradas pelo IoT Hub, está definida como `{iot hub name}`. |
+| ID de utilizador |Um ID utilizado para especificar a origem de mensagens em fila. Quando as mensagens são geradas pelo IoT Hub, está definida como `{iot hub name}`. |
 | Confirmação |Um gerador de mensagem de comentários. Esta propriedade é utilizada em mensagens da nuvem para o dispositivo ao IoT Hub para gerar mensagens de comentários como resultado o consumo da mensagem de pedido pelo dispositivo. Os valores possíveis: **nenhum** (predefinição): nenhuma mensagem de comentários é gerada, **positivo**: receber uma mensagem de comentários, se a mensagem foi concluída, **negativo**: receber um mensagem de comentários, se a mensagem expirou (ou foi atingido o número máximo de entrega) sem que está a ser concluída por dispositivo, ou **completa**: positivos e negativos. Para obter mais informações, consulte [comentários da mensagem][lnk-feedback]. |
 | ConnectionDeviceId |Um ID definido pelo IoT Hub nas mensagens do dispositivo para a nuvem. Contém o **deviceId** do dispositivo que enviou a mensagem. |
 | ConnectionDeviceGenerationId |Um ID definido pelo IoT Hub nas mensagens do dispositivo para a nuvem. Contém o **generationId** (como por [propriedades de identidade de dispositivo][lnk-device-properties]) do dispositivo que enviou a mensagem. |
 | ConnectionAuthMethod |Um método de autenticação definido pelo IoT Hub nas mensagens do dispositivo para a nuvem. Esta propriedade contém informações sobre o método de autenticação utilizado para autenticar o dispositivo que envia a mensagem. Para obter mais informações, consulte [dispositivo para a nuvem de spoofing de anti][lnk-antispoofing]. |
+| CreationTimeUtc | Data e hora em que a mensagem foi criada num dispositivo. Um dispositivo tem de definir este valor explicitamente. |
 
 ## <a name="message-size"></a>Tamanho da mensagem
 

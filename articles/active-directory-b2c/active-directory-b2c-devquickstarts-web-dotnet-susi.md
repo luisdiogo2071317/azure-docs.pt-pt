@@ -1,25 +1,21 @@
 ---
-title: "Reposição de palavra-passe de inscrição, do autenticação, ASP.NET Azure Active Directory B2C"
-description: "Como criar uma aplicação web que tem sessão-up/início de sessão, Editar perfil e palavra-passe reposição através do Azure Active Directory B2C."
+title: Reposição de palavra-passe de inscrição, do autenticação, ASP.NET Azure Active Directory B2C
+description: Como criar uma aplicação web que tem sessão-up/início de sessão, Editar perfil e palavra-passe reposição através do Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: barbaraselden
-ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: parakhj
-ms.custom: seohack1
-ms.openlocfilehash: ffc46f4348a2ac3cae51c859a24c609756a710fe
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: davidmu
+ms.openlocfilehash: f7b7cce84f8ff7be14120568e710432be639ce8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Criar uma aplicação web ASP.NET com o Azure Active Directory B2C perfil de inscrição, início de sessão, editar e reposição de palavra-passe
 
@@ -65,7 +61,7 @@ A partir do seu definições, selecione **fornecedores de identidade** e escolha
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-### <a name="create-a-profile-editing-policy"></a>Criar uma política de edição de perfis
+### <a name="create-a-profile-editing-policy"></a>Criar uma política de edição de perfil
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
@@ -83,7 +79,7 @@ O código deste tutorial é mantido no [GitHub](https://github.com/Azure-Samples
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Depois de transferir o código de exemplo, abra o ficheiro de .sln do Visual Studio para começar a utilizar. O ficheiro de solução contém dois projetos: `TaskWebApp` e `TaskService`. `TaskWebApp`é a aplicação de web MVC que o utilizador interage com. O `TaskService` é uma API Web de back-end da aplicação que armazena a lista de tarefas de cada utilizador. Este artigo só cobre a aplicação `TaskWebApp`. Para saber como criar `TaskService` utilizando o Azure AD B2C, consulte [nosso tutorial de api web do .NET](active-directory-b2c-devquickstarts-api-dotnet.md).
+Depois de transferir o código de exemplo, abra o ficheiro de .sln do Visual Studio para começar a utilizar. O ficheiro de solução contém dois projetos: `TaskWebApp` e `TaskService`. `TaskWebApp` é a aplicação de web MVC que o utilizador interage com. O `TaskService` é uma API Web de back-end da aplicação que armazena a lista de tarefas de cada utilizador. Este artigo só cobre a aplicação `TaskWebApp`. Para saber como criar `TaskService` utilizando o Azure AD B2C, consulte [nosso tutorial de api web do .NET](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## <a name="update-code-to-use-your-tenant-and-policies"></a>Código de atualização para utilizar o seu inquilino e políticas
 
@@ -97,7 +93,7 @@ O nosso exemplo está configurado para utilizar as políticas e o ID de cliente 
 * `ida:ResetPasswordPolicyId` pelo nome da sua política de “Repor Palavras-Passe”
 
 ## <a name="launch-the-app"></a>Inicie a aplicação
-Do Visual Studio, inicie a aplicação. Navegue até ao separador lista de tarefas e anote o URl é: https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id = *YourclientID*...
+Do Visual Studio, inicie a aplicação. Navegue até ao separador lista de tarefas e anote o URl é: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
 
 Inscreva-se a aplicação utilizando o seu nome de utilizador ou endereço de correio eletrónico. Terminar sessão, em seguida, voltar a iniciar sessão e editar o perfil ou repor a palavra-passe. Terminar sessão e inicie sessão como outro utilizador. 
 

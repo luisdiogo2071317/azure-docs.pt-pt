@@ -1,6 +1,6 @@
 ---
-title: "Execução do Runbook na automatização do Azure"
-description: "Descreve os detalhes da forma como é processado um runbook na automatização do Azure."
+title: Execução do Runbook na automatização do Azure
+description: Descreve os detalhes da forma como é processado um runbook na automatização do Azure.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18059ef1e0efba4f030a6e99198f0b7c72b7daf3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução do Runbook na automatização do Azure
 Quando inicia um runbook na automatização do Azure, é criada uma tarefa. Uma tarefa é uma instância de execução individual de um runbook. Um trabalho de automatização do Azure é atribuído para executar cada tarefa. Enquanto trabalhadores são partilhados por várias contas do Azure, a diferentes contas de automatização de tarefas estão isoladas entre si. Pode não ter controlar ao longo do que trabalho processa o pedido para a tarefa. Um único runbook pode ter várias tarefas em execução em simultâneo.  O ambiente de execução para a mesma conta de automatização de tarefas pode ser reutilizado. Ao ver a lista de runbooks no portal do Azure, lista o estado de todas as tarefas que foram iniciadas para cada runbook. Pode ver a lista de tarefas para cada runbook para poder controlar o estado de cada. Para obter uma descrição dos Estados de tarefa diferente [Estados das tarefas](#job-statuses).
@@ -46,7 +46,7 @@ A tabela seguinte descreve os diferentes Estados possíveis das tarefas.
 | A suspender |O sistema está a tentar suspender a tarefa o pedido do utilizador. O runbook tem de atingir o próximo ponto de verificação antes de poder ser suspenso. Se já passado o último ponto de verificação, em seguida, concluir antes de poder ser suspenso.  Aplica-se a [runbooks gráfico e o fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visualizar o estado de tarefa do portal do Azure
-Pode ver um Estado de todas as tarefas de runbook resumido ou explorar detalhes de uma tarefa de runbook específico no portal do Azure ou ao configurar a integração com a sua área de trabalho de análise de registos do Microsoft Operations Management Suite (OMS) para reencaminhar o estado da tarefa de runbook e tarefa fluxos.  Para obter mais informações sobre a integração com a análise de registos do OMS, consulte [reencaminhar estado da tarefa e fluxos de trabalho da automatização para análise de registos (OMS)](automation-manage-send-joblogs-log-analytics.md).  
+Pode ver um Estado de todas as tarefas de runbook resumido ou explorar detalhes de uma tarefa de runbook específico no portal do Azure ou ao configurar a integração com a sua área de trabalho de análise de registos para reencaminhar fluxos de trabalho e o estado da tarefa de runbook.  Para obter mais informações sobre a integração com a análise de registos, consulte [reencaminhar o estado da tarefa e fluxos de trabalho da automatização para análise de registos](automation-manage-send-joblogs-log-analytics.md).  
 
 ### <a name="automation-runbook-jobs-summary"></a>Tarefas de runbook de automatização resumidas
 À direita da sua conta de automatização selecionada, pode ver um resumo de todas as tarefas de runbook para uma conta de automatização selecionada em **estatísticas de tarefa** mosaico.<br><br> ![Mosaico de estatísticas de tarefa](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> Este mosaico mostra uma contagem e a representação gráfica do Estado da tarefa para todas as tarefas executadas.  

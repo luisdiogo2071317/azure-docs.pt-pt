@@ -1,11 +1,11 @@
 ---
-title: "Gerir dispositivos através do portal do Azure | Microsoft Docs"
+title: Gerir dispositivos através do portal do Azure | Microsoft Docs
 description: Saiba como utilizar o portal do Azure para gerir dispositivos.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 85447809cbc803c13ad731b5328e94a1b03abba8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a4bdea4844c4aaa9990d619d59326a83cf0aef6c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Gestão de dispositivos no portal do Azure
 
@@ -36,7 +36,7 @@ Neste tópico:
 
 O portal do Azure fornece um local central para gerir os seus dispositivos. Pode obter a este local, ou utilizando um [ligação direta](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) ou ao seguir estes passos:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com) como administrador.
+1. Iniciar sessão para o [portal do Azure](https://portal.azure.com) como administrador.
 
 2. No navbar esquerdo, clique em **do Active Directory**.
 

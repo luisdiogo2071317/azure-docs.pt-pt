@@ -2,10 +2,9 @@
 title: Processar os conjuntos de dados em grande escala utilizando o Data Factory e Batch | Microsoft Docs
 description: Descreve como processar quantidades enormes de dados de um pipeline do Azure Data Factory utilizando o capacidade de lote do Azure de processamento de paralelo.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3b886babe07a0bd1fa725286b5471055fc626dc1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8f0cd8aad2d5c5142fc66c78393b57ff210a7b83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo através da utilização de fábrica de dados e de Batch
 > [!NOTE]
@@ -398,7 +397,7 @@ O método tem alguns componentes chave que é necessário compreender:
 
 11. Inicie o Explorador do Windows e vá para o **bin\\depurar** ou **bin\\versão** pasta. A escolha de pasta depende do tipo de compilação.
 
-12. Criar um ficheiro zip **MyDotNetActivity.zip** que contém todos os binários no  **\\bin\\depurar** pasta. Pode querer incluir o MyDotNetActivity. **pdb** para que obtenha detalhes adicionais, tais como o número de linha com o código de origem que causou o problema, quando ocorre uma falha de ficheiros.
+12. Criar um ficheiro zip **MyDotNetActivity.zip** que contém todos os binários no ** \\bin\\depurar** pasta. Pode querer incluir o MyDotNetActivity. **pdb** para que obtenha detalhes adicionais, tais como o número de linha com o código de origem que causou o problema, quando ocorre uma falha de ficheiros.
 
    ![A lista de pasta bin\Debug](./media/data-factory-data-processing-using-batch/image5.png)
 

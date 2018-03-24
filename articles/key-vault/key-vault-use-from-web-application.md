@@ -1,6 +1,6 @@
 ---
-title: "Utilizar o Cofre de chaves do Azure de uma aplicação Web | Microsoft Docs"
-description: "Utilize este tutorial para o ajudar a saber como utilizar o Cofre de chaves do Azure a partir de uma aplicação web."
+title: Utilizar o Cofre de chaves do Azure de uma aplicação Web | Microsoft Docs
+description: Utilize este tutorial para o ajudar a saber como utilizar o Cofre de chaves do Azure a partir de uma aplicação web.
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Utilizar o Cofre de chaves do Azure de uma aplicação Web
 
@@ -151,7 +151,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Tome nota da data de fim e a palavra-passe de. pfx (neste exemplo: 31/07/2017 e test123). Vai precisar deles abaixo.
+Tome nota da data de fim e a palavra-passe de. pfx (neste exemplo: 31/07/2018 e test123). Vai precisar deles abaixo.
 
 Para obter mais informações sobre como criar um certificado de teste, consulte [como: criar seu próprio teste certificado](https://msdn.microsoft.com/library/ff699202.aspx)
 

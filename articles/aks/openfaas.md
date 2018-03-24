@@ -1,6 +1,6 @@
 ---
-title: "Utilizar OpenFaaS com o serviço de contentor do Azure (AKS)"
-description: "Implementar e utilizar OpenFaaS com o serviço de contentor do Azure (AKS)"
+title: Utilizar OpenFaaS com o serviço de contentor do Azure (AKS)
+description: Implementar e utilizar OpenFaaS com o serviço de contentor do Azure (AKS)
 services: container-service
 author: justindavies
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 06706450d8af6f571f002789815290f75da9623d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-openfaas-on-aks"></a>Utilizar OpenFaaS no AKS
 
@@ -230,7 +230,7 @@ Também pode testar a função dentro da IU OpenFaaS.
 
 ![texto alternativo](media/container-service-serverless/OpenFaaSUI.png)
 
-# <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Próximos Passos
 
 A implementação predefinida do OpenFaas tem de ser bloqueados para funções e OpenFaaS Gateway. [Mensagem de blogue de Alex Ellis](https://blog.alexellis.io/lock-down-openfaas/) inclui mais detalhes sobre as opções de configuração segura. 
 

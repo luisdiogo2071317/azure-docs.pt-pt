@@ -1,8 +1,8 @@
 ---
-title: "Criar uma solução de IoT utilizando o Stream Analytics | Microsoft Docs"
-description: "Tutorial de introdução para a solução de IoT de análise de fluxo de um cenário de tollbooth"
-keywords: "solução de IOT, as funções de janela"
-documentationcenter: 
+title: Criar uma solução de IoT utilizando o Stream Analytics | Microsoft Docs
+description: Tutorial de introdução para a solução de IoT de análise de fluxo de um cenário de tollbooth
+keywords: solução de IOT, as funções de janela
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/12/2018
+ms.date: 03/21/2018
 ms.author: sngun
-ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 6ee2c1c4b1255b462f2974c111e626d62608de5c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Criar uma solução de IoT utilizando o Stream Analytics
 
@@ -41,8 +41,7 @@ Terá dos seguintes pré-requisitos para concluir este tutorial:
 * Visual Studio 2017, 2015, ou o livre [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * Um [subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Privilégios administrativos no computador
-* A transferência do [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) do Centro de transferências da Microsoft
-* Opcional: Origem código para o gerador de evento TollApp no [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* Transferir o código de origem para análise de dados de sensor TollApp do [repositório do GitHub de análise do fluxo do azure.](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). Este repositório inclui dados de exemplo e consultas que irá utilizar nas secções seguintes. 
 
 ## <a name="scenario-introduction-hello-toll"></a>Introdução de cenário: "Olá, utilização!"
 Uma estação de utilização é um phenomenon comuns. Encontre-los em muitas expressways, pontes e túneis por todo o mundo. Cada estação utilização tem vários booths de utilização. Em booths manuais, parar a pagar a utilização a uma attendant. Em booths automatizadas, um sensor sobre cada booth analisa um cartão RFID affixed para windshield do seu vehicle como passar o booth de utilização. É fácil visualizar passage de veículos através destes estações de utilização como um fluxo de eventos durante o qual podem ser efetuadas operações interessantes.
@@ -222,7 +221,7 @@ No entanto, se estiver interessado em detalhes de implementação, pode encontra
 ## <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 1. No portal do Azure, clique no sinal verde no canto superior esquerdo da página para criar uma nova tarefa de Stream Analytics. Selecione **Intelligence + análise** e, em seguida, clique em **tarefa do Stream Analytics**.
    
-    ![Botão novo](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image21.png)
+    ![Botão Novo](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image21.png)
 2. Forneça um nome de tarefa, validar a subscrição está Corrija e, em seguida, crie um novo grupo de recursos na mesma região que o armazenamento de hub de eventos (a predefinição é sul Central-nos para o script).
 3. Clique em **afixar ao dashboard** e, em seguida, **criar** na parte inferior da página.
    

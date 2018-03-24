@@ -1,6 +1,6 @@
 ---
-title: "Criar contas de automatização Run As do Azure"
-description: "Este artigo descreve como atualizar a sua conta de Automatização e criar contas Run As com o PowerShell ou a partir do portal."
+title: Criar contas de automatização Run As do Azure
+description: Este artigo descreve como atualizar a sua conta de Automatização e criar contas Run As com o PowerShell ou a partir do portal.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: e7a339ae443bc61e1d2364afd8400fc436593b9f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b50c9f059d82d9378fba8db663aa2e8dce0273f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Atualizar a autenticação da conta de Automatização com contas Run As 
 Pode atualizar a sua conta de Automatização existente a partir do portal do Azure ou utilizar o PowerShell, se:

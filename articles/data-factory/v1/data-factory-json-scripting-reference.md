@@ -1,11 +1,11 @@
 ---
-title: "Fábrica de dados do Azure - referência de scripts JSON | Microsoft Docs"
+title: Fábrica de dados do Azure - referência de scripts JSON | Microsoft Docs
 description: Fornece os esquemas JSON para entidades do Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 519a762e5f89533f4425d38e4a1ca76d8e3dd40f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 198fa15b7ee8cce6781e6a2575844a9666185be9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Fábrica de dados do Azure - referência de scripts JSON
 > [!NOTE]
@@ -493,13 +493,13 @@ Para definir um conjunto de dados de Blobs do Azure, defina o **tipo** do conjun
 Para obter mais informações, consulte [conector de Blob do Azure](data-factory-azure-blob-connector.md#dataset-properties) artigo.
 
 ### <a name="blobsource-in-copy-activity"></a>BlobSource na atividade de cópia
-Se estiver a copiar dados de um Blob Storage do Azure, defina o **tipo de origem** da atividade de cópia para **BlobSource**e especifique os seguintes propriedades no * * origem * * secção:
+Se estiver a copiar dados de um Blob Storage do Azure, defina o **tipo de origem** da atividade de cópia para **BlobSource**e especifique os seguintes propriedades no **origem** secção:
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | Recursiva |Indica se os dados é lida a recursivamente partir das pastas sub ou apenas a partir da pasta especificada. |TRUE (valor predefinido), False |Não |
 
-#### <a name="example-blobsource"></a>Exemplo: BlobSource * *
+#### <a name="example-blobsource"></a>Exemplo: **BlobSource**
 ```json
 {
     "name": "SamplePipeline",
@@ -3898,7 +3898,7 @@ Para utilizar autenticação básica, defina `authenticationType` como `Basic`e 
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>Exemplo: A autenticação básica com credencial encriptada * *
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>Exemplo: **autenticação básica com a credencial encriptada**
 
 ```json
 {
@@ -3919,7 +3919,7 @@ Para utilizar autenticação básica, defina `authenticationType` como `Basic`e 
 }
 ```
 
-#### <a name="using-ssh-public-key-authentication"></a>Utilizar a autenticação de chave pública SSH: * *
+#### <a name="using-ssh-public-key-authentication"></a>**Utilizar a autenticação de chave pública SSH:**
 
 Para utilizar autenticação básica, defina `authenticationType` como `SshPublicKey`e especifique as seguintes propriedades além do conector SFTP aqueles genéricos introduzidas na última secção:
 
@@ -3949,7 +3949,7 @@ Para utilizar autenticação básica, defina `authenticationType` como `SshPubli
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Exemplo: Autenticação de parâmetros SshPublicKey utilizando privada chave conteúdo * *
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Exemplo: **autenticação parâmetros SshPublicKey utilizando o conteúdo da chave privado**
 
 ```json
 {
@@ -4161,7 +4161,7 @@ Para definir um conjunto de dados HTTP, defina o **tipo** do conjunto de dados p
 | requestMethod | Método de HTTP. Valores permitidos são **obter** ou **POST**. | Não. A predefinição é `GET`. |
 | additionalHeaders | Cabeçalhos de pedido HTTP adicionais. | Não |
 | RequestBody | Corpo do pedido de HTTP. | Não |
-| formato | Se pretender simplesmente **obter os dados do ponto final de HTTP como-é** sem análise-lo, ignore este definições do formato. <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formato](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. |Não |
+| formato | Se pretender simplesmente **obter os dados do ponto final de HTTP como-é** sem análise-lo, ignore este definições do formato. <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, ** OrcFormat**, **ParquetFormat**. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formato](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. |Não |
 | Compressão | Especifique o tipo e o nível de compressão de dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e compressão no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 #### <a name="example-using-the-get-default-method"></a>Exemplo: utilizando o método GET (predefinição)

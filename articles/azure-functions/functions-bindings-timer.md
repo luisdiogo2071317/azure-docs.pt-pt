@@ -1,13 +1,13 @@
 ---
-title: "Acionador de temporizador para as funções do Azure"
-description: "Compreenda como utilizar os acionadores de temporizador nas funções do Azure."
+title: Acionador de temporizador para as funções do Azure
+description: Compreenda como utilizar os acionadores de temporizador nas funções do Azure.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
-ms.custom: 
-ms.openlocfilehash: bd1a2643d9faf65d664c786169c38f01767fb7e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 6f74dd4d9cb78c1316c87bd5a261e751b9b34923
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador para as funções do Azure 
 
@@ -167,7 +167,7 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |**type** | n/d | Tem de ser definida para "timerTrigger". Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
 |**direction** | n/d | Tem de ser definida para "em". Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o objeto temporizador no código da função. | 
-|**schedule**|**ScheduleExpression**|No plano de consumo, pode definir agendas com uma expressão de CRON. Se estiver a utilizar um plano do App Service, também pode utilizar um `TimeSpan` cadeia. As secções seguintes explicam as expressões de CRON. Pode colocar a expressão de agenda uma definição de aplicação e definir esta propriedade para um valor moldado numa  **%**  inicia, tal como neste exemplo: "% NameOfAppSettingWithCRONExpression %". |
+|**schedule**|**ScheduleExpression**|No plano de consumo, pode definir agendas com uma expressão de CRON. Se estiver a utilizar um plano do App Service, também pode utilizar um `TimeSpan` cadeia. As secções seguintes explicam as expressões de CRON. Pode colocar a expressão de agenda uma definição de aplicação e definir esta propriedade para um valor moldado numa **%** inicia, tal como neste exemplo: "% NameOfAppSettingWithCRONExpression %". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -256,6 +256,10 @@ Quando uma função de Acionador de temporizador é invocada, o [objeto temporiz
 ## <a name="scale-out"></a>Expandir
 
 O acionador de temporizador suporta várias instâncias Escalamento horizontal. Uma única instância de uma função de temporizador específico é executada em todas as instâncias.
+
+## <a name="function-apps-sharing-storage"></a>Armazenamento de partilha de aplicações de função
+
+Se partilhar uma conta de armazenamento por várias aplicações de função, certifique-se de que cada aplicação de função tem um outro `id` no *host.json*. Pode omitir o `id` propriedade ou definir manualmente cada aplicação de função `id` para um valor diferente. O acionador de temporizador utiliza um bloqueio de armazenamento para se certificar de que vai haver apenas uma instância de temporizador quando uma aplicação de função aumenta horizontalmente de forma a várias instâncias. Se duas aplicações de função partilham o mesmo `id` e cada utiliza um acionador de temporizador, irá executar apenas um temporizador.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

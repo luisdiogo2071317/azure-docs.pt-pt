@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com GoToMeeting | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e GoToMeeting."
+title: 'Tutorial: Integração do Azure Active Directory com GoToMeeting | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e GoToMeeting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d26b78fb5be96e979fb7b375acf6e907d858b706
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Tutorial: Integração do Azure Active Directory com GoToMeeting
 
@@ -108,77 +108,32 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio GoToMeeting e os URLs únicos de informações de início de sessão](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    No **identificador** caixa de texto, escreva o URL:`https://login.citrixonline.com/saml/sp`
+    No **identificador** caixa de texto, escreva o URL: `https://authentication.logmeininc.com/saml/sp`
 
-4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+4. Clique em **configuração Mostrar URL avançadas** e configurar o abaixo URLs
 
-    ![A hiperligação de transferência do certificado](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
-
+    **Inicie sessão no URL** (mantenha isto em branco)
+    
+    **URL de resposta**: `https://authentication.logmeininc.com/saml/acs`
+    
+    **RelayState**:
+    
+    - Para aplicação GoToMeeting, utilize `https://global.gotomeeting.com`
+    
+    - Para GoToTraining, utilize `https://global.gototraining.com`
+    
+    - Para GoToWebinar, utilize `https://global.gotowebinar.com` 
+    
+    - Para GoToAssist, utilize `https://app.gotoassist.com`
+    
 5. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-gotomeeting-tutorial/tutorial_general_400.png)
 
-6. Para gerar o **metadados** url, execute os seguintes passos:
+6. Numa janela do browser diferente, inicie sessão no seu [GoToMeeting organização Center](https://organization.logmeininc.com/). Será solicitado para confirmar que tenha sido atualizado IdP
 
-    a. Clique em **registos de aplicação**.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+7. Ative a caixa de verificação "Os meus fornecedor de identidade foi atualizado com o novo domínio". Clique em **feito** quando terminar.
 
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
-     
-    d. Agora, a página de propriedades do **GoToMeeting** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-7. No **GoToMeeting configuração** secção, clique em **configurar GoToMeeting** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
-
-    ![Configuração de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
-
-8. Numa janela do browser diferente, inicie sessão no seu [GoToMeeting organização Center](https://organization.logmeininc.com/)
-
-9. Em **fornecedor de identidade** separador, pode configurar as definições do Azure está a fornecer gerada **URL de metadados** ou o transferido **ficheiro de metadados** ou **Manual**.
-
-10. Para **URL de metadados** execute os seguintes passos:
-
-    ![Configuração de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config1.png)
-
-    a. No **como gostaria de configurar o IDP SAML?**, selecione **automática** na lista pendente.
-
-    b. Colar o **URL de metadados**, que tiver gerado nos passos anteriores para o **URL de metadados** caixa de texto.
-
-    c. Clique em **Guardar**.
-
-11. Para **ficheiro de metadados** execute os seguintes passos:
-
-    ![Configuração de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
-
-    a. No **como gostaria de configurar o IDP SAML?**, selecione **ficheiro de metadados de SAML carregar** na lista pendente.
-
-    b. Para carregar o ficheiro de metadados transferido, clique em **ficheiro de metadados de carregamento**.
-
-    c. Clique em **Guardar**.
-
-12. Para **Manual** execute os seguintes passos:
-
-    ![Configuração de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
-
-    a.  No **URL de página de início de sessão** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML** que copiou do portal do Azure.
-
-    b.  No **URL da página de início de sessão** caixa de texto, cole o valor de **Sign-Out URL** que copiou do portal do Azure.
-
-    c.  No **ID de entidade do fornecedor de identidade** caixa de texto, cole o valor de **ID de entidade de SAML** que copiou do portal do Azure.
-
-    d. Extraia o certificado X509 do ficheiro de metadados transferido e carregar este certificado ao clicar no **carregar certificado**.
-
-    e. Clique em **Guardar**.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)

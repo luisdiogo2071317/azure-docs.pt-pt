@@ -1,12 +1,12 @@
 ---
 title: Monitorizar e resolver problemas do Azure Site Recovery | Microsoft Docs
-description: "Monitorizar e resolver problemas de replicação do Azure Site Recovery e operações através do portal"
+description: Monitorizar e resolver problemas de replicação do Azure Site Recovery e operações através do portal
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: bsiva
 manager: abhemraj
 editor: raynew
-ms.assetid: 
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: bsiva
-ms.openlocfilehash: bb453f6c16440fae8a12cc1c4890a473ce541f45
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b357a3231dac6dfa54cb02fe921baf771c0880f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Monitorização e resolução de problemas do Azure Site Recovery
 
@@ -145,7 +145,7 @@ Uma vista de infraestrutura incluída contexto de uma única máquina replicaç�
 **R.** A funcionalidade de vista de infraestrutura só está disponível para máquinas virtuais que estão a ser replicada para o Azure. A funcionalidade não está atualmente disponível para máquinas virtuais que estão a replicar entre sites no local.
 
 **P.** Por que razão a contagem de máquinas virtuais na vista de infraestrutura de cofre diferente do que a contagem total é apresentada no anel de itens replicados?</br>
-**R.** A vista de infraestrutura do Cofre é confinada pelos cenários de replicação. Apenas as máquinas virtuais que participam no cenário de replicação atualmente selecionadas estão incluídas na contagem de máquinas virtuais apresentadas na vista de infraestrutura. Além disso, para o cenário selecionado, apenas as máquinas virtuais que estão atualmente configuradas para replicar para o Azure são incluídas a contagem de máquinas virtuais apresentadas na vista de infraestrutura (para por exemplo: máquinas virtuais, máquinas virtuais replicar a ativação pós-falha para um site no local não estão incluídos na vista de infraestrutura.)
+**R.** A vista de infraestrutura do Cofre é confinada pelos cenários de replicação. Apenas as máquinas virtuais que participam no cenário de replicação atualmente selecionadas estão incluídas na contagem de máquinas virtuais apresentadas na vista de infraestrutura. Além disso, para o cenário selecionado, apenas as máquinas virtuais que estão atualmente configuradas para replicar para o Azure são incluídas a contagem de máquinas virtuais apresentadas na vista de infraestrutura (exemplo de Fo: executar a ativação pós-falha de máquinas virtuais, máquinas virtuais replicar fazer uma cópia para um site no local não estão incluídos na vista de infraestrutura.)
 
 **P.** Por que motivo é a contagem de itens replicados mostrado na gaveta do essentials, na página de descrição geral diferente da contagem total de itens replicados apresentado no gráfico anel no dashboard?</br>
 **R.** Apenas as máquinas virtuais para que a replicação inicial foi concluída estão incluídas na contagem de mostrado na gaveta de essentials. O anel de itens replicados total inclui todas as máquinas virtuais no cofre, incluindo servidores para que a replicação inicial está em curso.

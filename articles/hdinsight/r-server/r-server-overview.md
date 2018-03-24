@@ -1,8 +1,8 @@
 ---
-title: "Introdução ao servidor R no HDInsight do Azure | Microsoft Docs"
-description: "Saiba como utilizar o servidor R no HDInsight para criar aplicações para análise de macrodados."
+title: Introdução ao servidor R no HDInsight do Azure | Microsoft Docs
+description: Saiba como utilizar o servidor R no HDInsight para criar aplicações para análise de macrodados.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 2106e5f0c9b6a27da3747bc67aad0937f2356873
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introdução ao servidor R e as capacidades de R de open source do HDInsight
+# <a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introdução ao servidor R e as capacidades de R de open source do HDInsight
 
 R Server da Microsoft está disponível como uma opção de implementação quando criar clusters do HDInsight no Azure. Esta nova funcionalidade fornece cientistas de dados, statisticians e programadores de R com acesso a pedido para dimensionável, distribuída métodos de análise no HDInsight.
 
@@ -53,7 +53,7 @@ Também pode ligar ao servidor R da linha de comandos utilizando SSH/PuTTY para 
 ## <a name="develop-and-run-r-scripts"></a>Desenvolver e executar scripts de R
 Os scripts de R criar e executar podem utilizar qualquer um dos 8000 + open source para R pacotes além rotinas paralelizadas e distribuídas disponíveis na biblioteca ScaleR. Em geral, um script que é executado com o servidor R num nó de extremidade é executado dentro do interpretador de R nesse nó. As exceções são esses passos que tem de chamar uma função de ScaleR com um contexto de computação que está definido para o Hadoop mapa reduzir (RxHadoopMR) ou Spark (RxSpark). Neste caso, a função é executada de forma distribuída entre os nós do cluster de dados (tarefas) que estão associados com os dados referenciados. Para obter mais informações sobre as opções de contexto de computação diferentes, consulte [computação as opções de contexto para o servidor R no HDInsight](r-server-compute-contexts.md).
 
-## <a name="operationalize-a-model"></a>Operacionalize um modelo
+## <a name="operationalize-a-model"></a>Operacionalizar um modelo
 Quando a modelação de dados estiver concluída, pode operacionalizar o modelo para fazer predições para novos dados a partir do Azure e no local. Este processo é conhecido como a classificação. A classificação pode ser feita no HDInsight, do Azure Machine Learning ou no local.
 
 ### <a name="score-in-hdinsight"></a>Pontuação no HDInsight

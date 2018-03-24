@@ -1,37 +1,51 @@
 ---
-title: "Lista de atualizações aplicado para o SO convidado do Azure | Microsoft Docs"
-description: "A lista de atualizações a aplicar às versões de SO convidado"
+title: Lista de atualizações aplicado para o SO convidado do Azure | Microsoft Docs
+description: A lista de atualizações a aplicar às versões de SO convidado
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/4/2018
+ms.date: 3/19/2018
 ms.author: raiye
-ms.openlocfilehash: 7e6b16465be1e032bd5e5fe94c95e6b2259a6704
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c42986e4cdae1d5156863d92eb946220805f7b48
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas para o SO convidado do Azure. Procure este artigo para determinar se uma atualização específica aplica-se para o SO convidado está a utilizar. Atualizações sempre transportem para específico [família] [ family-explain] foram introduzidas no.
 
+## <a name="february-guest-os"></a>SO de convidado de Fevereiro
+| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 18-02 | [4074590], [4074588] |Segurança do Windows 10 |5.16 |13 de fevereiro de 2018 |
+| Rel 18-02 | [4074587], [4074589], [4074597] |Apenas a segurança do Windows |2.71, 3.58, 4.51 |13 de fevereiro de 2018 |
+| Rel 18-02 | [4074736] |Internet Explorer |2.71, 3.58, 4.51 |13 de fevereiro de 2018 |
+| Rel 18-02 | [4074595] |Flash |3.58, 4.51, 5.16 |13 de fevereiro de 2018 |
+| N/A | [4056894] |Agregação de segurança não Janeiro |2.71 |4 de Janeiro de 2018 |
+| N/A | [4056896] |Agregação de segurança não Janeiro |3.58 |4 de Janeiro de 2018 |
+| N/A | [4056895] |Agregação de segurança não Janeiro |4.51 |4 de Janeiro de 2018 |
+| N/A | [4054176], [4054172] |Rollup de Janeiro de .NET |2.71 |4 de Janeiro de 2018 |
+| N/A | [4054175], [4054171] |Rollup de Janeiro de .NET |3.58 |4 de Janeiro de 2018 |
+| N/A | [4054177], [4054170] |Rollup de Janeiro de .NET |4.51 |4 de Janeiro de 2018 |
+
 ## <a name="january-guest-os"></a>SO de convidado de Janeiro
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| Rel 18-01 | [4056898], [4056897], [4056899] |Apenas a segurança do Windows |2.70, 3.57, 4,50 |3 de Janeiro de 2018 |
+| Rel 18-01 | [4056898], [4056897], [4056899] |Apenas a segurança do Windows |2.70, 3.57, 4.50 |3 de Janeiro de 2018 |
 | Rel 18-01 | [4056890], [4056892] |Apenas a segurança do Windows |5.15 |3 de Janeiro de 2018 |
 | N/A | [4054518] |Agregação de segurança não Dezembro |2.70 |12 de Dezembro de 2017 |
 | N/A | [4054520] |Agregação de segurança não Dezembro |3.57 |12 de Dezembro de 2017 |
 | N/A | [4054519] |Agregação de segurança não Dezembro |4.50 |12 de Dezembro de 2017 |
-| N/A | [4051956] |Atualização de fuso horário de Janeiro |2.70, 3.57, 4,50 |12 de Dezembro de 2017 |
+| N/A | [4051956] |Atualização de fuso horário de Janeiro |2.70, 3.57, 4.50 |12 de Dezembro de 2017 |
 
 
 
@@ -82,7 +96,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 17-09 | [4038779], [4038786], [4038793] |Apenas a segurança do Windows |2.66, 3.53, 4.46 |12 de Setembro de 2017 |
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|Atualização .NET de Setembro |2.66, 3.53, 4.46 |12 de Setembro de 2017 |
 | Rel 17-09 | [4036586] |Do Internet explorer |2.66, 3.53, 4.46 |12 de Setembro de 2017 |
-| EXPOSURES-2017-8704 | [4038782] |Recusa de serviço |5.11 |12 de Setembro de 2017 |
+| CVE-2017-8704 | [4038782] |Recusa de serviço |5.11 |12 de Setembro de 2017 |
 | N/A | [4034664] |Agregação de segurança não de Agosto  |2.66 |8 de Agosto de 2017 |
 | N/A | [4034665] |Agregação de segurança não de Agosto |5.11 |8 de Agosto de 2017 |
 | N/A | [4034681] |Agregação de segurança não de Agosto |4.46 |8 de Agosto de 2017 |
@@ -182,10 +196,10 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 17-04 |  [4014550]; [4014560]; [4014562]; [4014556]; [4014574] |Segurança de .NET |4.41 | 11 de Abril de 2017 |
 | Rel 17-04 |  [4014564]; [4014572]; [4014549] |Segurança de .NET |3.48 | 11 de Abril de 2017 |
 | Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |Segurança de .NET |2.61 | 11 de Abril de 2017 |
-| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |EXPOSURES-2017-0181 |5.6 | 11 de Abril de 2017 |
-| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |EXPOSURES-2017-0163; EXPOSURES-2017-0183; EXPOSURES-2017-0184; EXPOSURES-2017-0184; EXPOSURES-2017-0185; EXPOSURES-2017-0168 |2.61, 3.48, 4.41 | 11 de Abril de 2017 |
-| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |EXPOSURES-2017-0178; EXPOSURES-2017-0179; EXPOSURES-2017-0162; EXPOSURES-2017-0169 |4.41 | 11 de Abril de 2017 |
-| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |EXPOSURES-2017-0182; EXPOSURES-2017-0186; EXPOSURES-2017-0191 |2.61, 3.48, 4.41, 5.6 | 11 de Abril de 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0181 |5.6 | 11 de Abril de 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | 11 de Abril de 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | 11 de Abril de 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE-2017-0191 |2.61, 3.48, 4.41, 5.6 | 11 de Abril de 2017 |
 | Rel 17-04 |  [4015193]  |DST alterações no Windows para Magallanes (subordinado) |2.61, 3.48, 4.41 | 11 de Abril de 2017 |
 | Rel 17-04 |  [4012215]  |Agregação de qualidade de mensal de segurança do Março de 2017 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.61 | 11 de Abril de 2017 |
 | Rel 17-04 |  [4012217]  |Março de 2017 segurança mensais Rollup de qualidade do Windows Server 2012 |3.48 | 11 de Abril de 2017 |
@@ -208,21 +222,21 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="january-guest-os"></a>SO de convidado de Janeiro
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS17 004 | [3216771] |Atualização de segurança do serviço de subsistema de autoridade de segurança Local |2.59 |10 de Janeiro de 2017 |
+| MS17-004 | [3216771] |Atualização de segurança do serviço de subsistema de autoridade de segurança Local |2.59 |10 de Janeiro de 2017 |
 
 ## <a name="december-guest-os"></a>SO de convidado de Dezembro
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS16 144 |[3204059] |Atualização de segurança cumulativa para o Internet Explorer |2.58, 3.46, 4.39 |13 de DEC de 2016 |
-| MS16 145 |[3204062] |Atualização de segurança cumulativa para o Microsoft Edge |5.4 |13 de DEC de 2016 |
-| MS16 146 |[3204066]   |Atualização de segurança para o componente de gráficos da Microsoft|2.58, 3.46, 4.39, 5.4 |13 de DEC de 2016 |
-| MS16 147 |[3204063]   |Atualização de segurança do Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 de DEC de 2016 |
-| MS16 149 |[3205655]   |Atualização de segurança do Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 de DEC de 2016 |
-| MS16 150 |[3205642]   |Atualização de segurança para o modo de Kernel segura |5.4 |13 de DEC de 2016 |
-| MS16 151 |[3205651]   |Atualização de segurança para controladores de kernel|2.58, 3.46, 4.39, 5.4 |13 de DEC de 2016 |
-| MS16 152 |[3199709]   |Atualização de segurança para o Kernel do Windows |5.4 |13 de DEC de 2016 |
-| MS16 153 |[3207328] |Atualização de segurança do controlador do sistema de ficheiros de registo comuns|2.58, 3.46, 4.39, 5.4 |13 de DEC de 2016 |
-| MS16 155 |[3205640]   |Atualização de segurança do .NET Framework |5.4 |13 de DEC de 2016 |
+| MS16-144 |[3204059] |Atualização de segurança cumulativa para o Internet Explorer |2.58, 3.46, 4.39 |13 de DEC de 2016 |
+| MS16-145 |[3204062] |Atualização de segurança cumulativa para o Microsoft Edge |5.4 |13 de DEC de 2016 |
+| MS16-146 |[3204066]   |Atualização de segurança para o componente de gráficos da Microsoft|2.58, 3.46, 4.39, 5.4 |13 de DEC de 2016 |
+| MS16-147 |[3204063]   |Atualização de segurança do Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 de DEC de 2016 |
+| MS16-149 |[3205655]   |Atualização de segurança do Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 de DEC de 2016 |
+| MS16-150 |[3205642]   |Atualização de segurança para o modo de Kernel segura |5.4 |13 de DEC de 2016 |
+| MS16-151 |[3205651]   |Atualização de segurança para controladores de kernel|2.58, 3.46, 4.39, 5.4 |13 de DEC de 2016 |
+| MS16-152 |[3199709]   |Atualização de segurança para o Kernel do Windows |5.4 |13 de DEC de 2016 |
+| MS16-153 |[3207328] |Atualização de segurança do controlador do sistema de ficheiros de registo comuns|2.58, 3.46, 4.39, 5.4 |13 de DEC de 2016 |
+| MS16-155 |[3205640]   |Atualização de segurança do .NET Framework |5.4 |13 de DEC de 2016 |
 | N/A |[3197868] |Agregação de qualidade de mensal de segurança do Novembro de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.58 |13 de DEC de 2016 |
 | N/A |[3197877] |Novembro de 2016 segurança mensais Rollup de qualidade do Windows Server 2012 |3.46 |13 de DEC de 2016 |
 | N/A |[3197874] |Novembro de 2016 mensal qualidade agregação de segurança do Windows 8.1 e Windows Server 2012 R2 |4.39 |13 de DEC de 2016 |
@@ -230,17 +244,17 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="november-guest-os"></a>SO de convidado de Novembro
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS16 129 |[3199057] |Atualização de segurança cumulativa para o Microsoft Edge |5.3 |8 de Novembro de 2016 |
-| MS16 130 |[3199172] |Atualização de segurança do Microsoft Windows |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
-| MS16 131 |[3199151]   |Atualização de segurança para controlo de vídeo da Microsoft |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
-| MS16 132 |[3199120] |Atualização de segurança para o componente da Microsoft |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
-| MS16 134 |[3193706] |Atualização de segurança do controlador do sistema de ficheiros de registo comuns |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
-| MS16 135 |[3199135] |Atualização de segurança para controladores de kernel |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
-| MS16 137 |[3199173]   |Atualização de segurança para métodos de autenticação do Windows |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
-| MS16 138 |[3199647] |Atualização de segurança para a unidade de disco rígido Virtual Microsoft |5.3, 4.38, 3.45 |8 de Novembro de 2016 |
-| MS16 139 |[3199720] |Atualização de segurança para o Kernel do Windows |2.57 |Novembro 8.2016 |
-| MS16 140 |[3193479] |Atualização de segurança para o Gestor de arranque |5.3, 4.38, 3.45 |8 de Novembro de 2016 |
-| MS16 142 |[3198467] |Atualização de segurança cumulativa para o Internet Explorer |2.57, 4.38, 5.3 |8 de Novembro de 2016 |
+| MS16-129 |[3199057] |Atualização de segurança cumulativa para o Microsoft Edge |5.3 |8 de Novembro de 2016 |
+| MS16-130 |[3199172] |Atualização de segurança do Microsoft Windows |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
+| MS16-131 |[3199151]   |Atualização de segurança para controlo de vídeo da Microsoft |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
+| MS16-132 |[3199120] |Atualização de segurança para o componente da Microsoft |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
+| MS16-134 |[3193706] |Atualização de segurança do controlador do sistema de ficheiros de registo comuns |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
+| MS16-135 |[3199135] |Atualização de segurança para controladores de kernel |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
+| MS16-137 |[3199173]   |Atualização de segurança para métodos de autenticação do Windows |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
+| MS16-138 |[3199647] |Atualização de segurança para a unidade de disco rígido Virtual Microsoft |5.3, 4.38, 3.45 |8 de Novembro de 2016 |
+| MS16-139 |[3199720] |Atualização de segurança para o Kernel do Windows |2.57 |Novembro 8.2016 |
+| MS16-140 |[3193479] |Atualização de segurança para o Gestor de arranque |5.3, 4.38, 3.45 |8 de Novembro de 2016 |
+| MS16-142 |[3198467] |Atualização de segurança cumulativa para o Internet Explorer |2.57, 4.38, 5.3 |8 de Novembro de 2016 |
 | N/A |[3192321] |Turquia termina DST observance |5.3, 4.38, 3.45, 2.57 |8 de Novembro de 2016 |
 | N/A |[3185330] |Outubro de 2016 mensal qualidade agregação de segurança do Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 de Novembro de 2016 |
 | N/A |[3192403] |Outubro de 2016 pré-visualização do Rollup mensal de qualidade do Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 de Novembro de 2016 |
@@ -255,12 +269,12 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="october-guest-os"></a>SO de convidado de Outubro
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS16 118 |[3192887] |Atualização de segurança cumulativa para o Internet Explorer |4.37, 3.44, 2.56 |11 de FPO de 2016 |
-| MS16 120 |[3192884] |Atualização de segurança para o componente de gráficos da Microsoft |4.37, 3.44, 2.56 |11 de FPO de 2016 |
-| MS16 123 |[3192892] |Atualização de segurança para controladores de kernel |4.37, 3.44, 2.56 |11 de FPO de 2016 |
-| MS16 124 |[3193227] |Atualização de segurança do registo do Windows |4.37, 3.44, 2.56 |11 de FPO de 2016 |
-| MS16 126 |[3196067] |Atualização de segurança para a API de mensagens de Internet da Microsoft |2.56 |11 de FPO de 2016 |
-| MS16 101 |[3178465] |Atualização de segurança para métodos de autenticação do Windows |4.37, 3.44, 2.56 |11 de FPO de 2016 |
+| MS16-118 |[3192887] |Atualização de segurança cumulativa para o Internet Explorer |4.37, 3.44, 2.56 |11 de FPO de 2016 |
+| MS16-120 |[3192884] |Atualização de segurança para o componente de gráficos da Microsoft |4.37, 3.44, 2.56 |11 de FPO de 2016 |
+| MS16-123 |[3192892] |Atualização de segurança para controladores de kernel |4.37, 3.44, 2.56 |11 de FPO de 2016 |
+| MS16-124 |[3193227] |Atualização de segurança do registo do Windows |4.37, 3.44, 2.56 |11 de FPO de 2016 |
+| MS16-126 |[3196067] |Atualização de segurança para a API de mensagens de Internet da Microsoft |2.56 |11 de FPO de 2016 |
+| MS16-101 |[3178465] |Atualização de segurança para métodos de autenticação do Windows |4.37, 3.44, 2.56 |11 de FPO de 2016 |
 | N/A |[3182203] |Alteração de fuso horário de Setembro de 2016 para Novosibirsk |4.37, 3.44, 2.56 |11 de FPO de 2016 |
 | N/A |[3185278] |Rollup de atualização de Setembro de 2016 do Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.56 |11 de FPO de 2016 |
 | N/A |[3185280] |Rollup de atualização de Setembro de 2016 do Windows Server 2012 |3.44 |11 de FPO de 2016 |
@@ -270,14 +284,14 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="september-guest-os"></a>SO de convidado de Setembro
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS16 104 |[3183038] |Atualização de segurança cumulativa para o Internet Explorer |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
-| MS16 106 |[3185848] |Atualização de segurança para o componente de gráficos da Microsoft |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
-| MS16 110 |[3178467] |Atualização de segurança do Windows |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
-| MS16 111 |[3186973] |Atualização de segurança para o Kernel do Windows |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
-| MS16 112 |[3178469] |Atualização de segurança do ecrã de bloqueio do Windows |4.36 |13 de Setembro de 2016 |
-| MS16 114 |[3185879] |Atualização de segurança para o Windows Server SMB |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
-| MS16 115 |[3188733] |Atualização de segurança para PDF |4.35, 3.43 |13 de Setembro de 2016 |
-| MS16 116 |[3188724] |Atualização de segurança na automatização OLE para o motor de script de VBScript |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
+| MS16-104 |[3183038] |Atualização de segurança cumulativa para o Internet Explorer |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
+| MS16-106 |[3185848] |Atualização de segurança para o componente de gráficos da Microsoft |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
+| MS16-110 |[3178467] |Atualização de segurança do Windows |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
+| MS16-111 |[3186973] |Atualização de segurança para o Kernel do Windows |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
+| MS16-112 |[3178469] |Atualização de segurança do ecrã de bloqueio do Windows |4.36 |13 de Setembro de 2016 |
+| MS16-114 |[3185879] |Atualização de segurança para o Windows Server SMB |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
+| MS16-115 |[3188733] |Atualização de segurança para PDF |4.35, 3.43 |13 de Setembro de 2016 |
+| MS16-116 |[3188724] |Atualização de segurança na automatização OLE para o motor de script de VBScript |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
 | N/A |[3174644] |Suporte atualizado para a troca de chaves de Diffie-Hellman |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
 | N/A |[3177723] |Atualização do fuso horário - Egypt cancela DST |4.36, 3.43, 2.55 |13 de Setembro de 2016 |
 | N/A |[3179573] |Rollup de atualização de Agosto de 2016 do Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.55 |13 de Setembro de 2016 |
@@ -287,12 +301,12 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="august-guest-os"></a>SO de convidado de Agosto
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS16 095 |[3177356] |Atualização de segurança cumulativa para o Internet Explorer |4.35, 3.42, 2.54 |9 de Aug de 2016 |
-| MS16 097 |[3177393] |Atualização de segurança para o componente de gráficos da Microsoft |4.35, 3.42, 2.54 |9 de Aug de 2016 |
-| MS16 098 |[3178466] |Atualização de segurança para controladores de modo de Kernel do Windows |4.35, 3.42, 2.54 |9 de Aug de 2016 |
-| MS16 100 |[3179577] |Atualização de segurança para o arranque seguro |4.35, 3.42 |9 de Aug de 2016 |
-| MS16 101 |[3178465] |Atualização de segurança para métodos de autenticação do Windows |4.35, 3.42, 2.54 |9 de Aug de 2016 |
-| MS16 102 |[3182248] |Atualização de segurança para a biblioteca PDF do Microsoft Windows |4.35, 3.42 |9 de Aug de 2016 |
+| MS16-095 |[3177356] |Atualização de segurança cumulativa para o Internet Explorer |4.35, 3.42, 2.54 |9 de Aug de 2016 |
+| MS16-097 |[3177393] |Atualização de segurança para o componente de gráficos da Microsoft |4.35, 3.42, 2.54 |9 de Aug de 2016 |
+| MS16-098 |[3178466] |Atualização de segurança para controladores de modo de Kernel do Windows |4.35, 3.42, 2.54 |9 de Aug de 2016 |
+| MS16-100 |[3179577] |Atualização de segurança para o arranque seguro |4.35, 3.42 |9 de Aug de 2016 |
+| MS16-101 |[3178465] |Atualização de segurança para métodos de autenticação do Windows |4.35, 3.42, 2.54 |9 de Aug de 2016 |
+| MS16-102 |[3182248] |Atualização de segurança para a biblioteca PDF do Microsoft Windows |4.35, 3.42 |9 de Aug de 2016 |
 | MS16 077 novamente da versão |[3165191] |Atualização de segurança do Web Proxy Autodiscovery (WPAD) |4.35, 3.42, 2.54 |9 de Aug de 2016 |
 | N/A |[3172605] |Rollup de atualização de Julho de 2016 do Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.54 |9 de Aug de 2016 |
 | N/A |[3172615] |Rollup de atualização de Julho de 2016 do Windows Server 2012 |3.42 |9 de Aug de 2016 |
@@ -301,12 +315,12 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="july-guest-os"></a>SO de convidado de Julho
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS16 084 |[3169991] |Atualização de segurança cumulativa para o Internet Explorer |4.34, 3.41, 2.53 |12 de Julho de 2016 |
-| MS16 087 |[3170005] |Atualização de segurança do Spooler de impressão da Microsoft |4.34, 3.41, 2.53 |12 de Julho de 2016 |
-| MS16 090 |[3171481] |Atualização de segurança para os controladores de modo de Kernel |4.34, 3.41, 2.53 |12 de Julho de 2016 |
-| MS16 091 |[3170048] |Atualização de segurança do .NET Framework |4.34, 3.41, 2.53 |12 de Julho de 2016 |
-| MS16 092 |[3171910] |Atualização de segurança para o Kernel do Windows |4.34, 3.41 |12 de Julho de 2016 |
-| MS16 094 |[3177404] |Atualização de segurança para o arranque seguro |4.34, 3.41 |12 de Julho de 2016 |
+| MS16-084 |[3169991] |Atualização de segurança cumulativa para o Internet Explorer |4.34, 3.41, 2.53 |12 de Julho de 2016 |
+| MS16-087 |[3170005] |Atualização de segurança do Spooler de impressão da Microsoft |4.34, 3.41, 2.53 |12 de Julho de 2016 |
+| MS16-090 |[3171481] |Atualização de segurança para os controladores de modo de Kernel |4.34, 3.41, 2.53 |12 de Julho de 2016 |
+| MS16-091 |[3170048] |Atualização de segurança do .NET Framework |4.34, 3.41, 2.53 |12 de Julho de 2016 |
+| MS16-092 |[3171910] |Atualização de segurança para o Kernel do Windows |4.34, 3.41 |12 de Julho de 2016 |
+| MS16-094 |[3177404] |Atualização de segurança para o arranque seguro |4.34, 3.41 |12 de Julho de 2016 |
 | N/A |[3162835] |Junho de 2016 DST e fuso horário de atualização para Windows |4.34, 3.41, 2.53 |12 de Julho de 2016 |
 | N/A |[3156417] |Rollup de atualização de Maio de 2016 do Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.53 |12 de Julho de 2016 |
 | N/A |[3161608] |Rollup de atualização de Junho de 2016 do Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.53 |12 de Julho de 2016 |
@@ -317,19 +331,19 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="june-guest-os"></a>SO de convidado de Junho
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS16 035 |[3141780] |Atualização de segurança do .NET Framework resolver a desativação da funcionalidade de segurança |4.33, 3.40, 2.52 |14 de Junho de 2016 |
+| MS16-035 |[3141780] |Atualização de segurança do .NET Framework resolver a desativação da funcionalidade de segurança |4.33, 3.40, 2.52 |14 de Junho de 2016 |
 | Aconselhamento |[3155527] |Atualizar para conjuntos de cifras para FalseStart |4.33, 3.40 |14 de Junho de 2016 |
-| MS16 063 |[3163649] |Atualização de segurança cumulativa para o Internet Explorer |4.33, 3.40, 2.52 |14 de Junho de 2016 |
-| MS16 069 |[3163640] |Atualização de segurança cumulativa para JScript e VBScript |2.52 |14 de Junho de 2016 |
-| MS16 071 |[3164065] |Atualização de segurança para o servidor DNS do Microsoft Windows |4.33, 3.40 |14 de Junho de 2016 |
-| MS16 072 |[3163622] |Atualização de segurança para a política de grupo |4.33, 3.40, 2.52 |14 de Junho de 2016 |
-| MS16 073 |[3164028] |Atualização de segurança para os controladores de modo de Kernel |4.33, 3.40, 2.52 |14 de Junho de 2016 |
-| MS16 074 |[3164036] |Atualização de segurança para o componente de gráficos da Microsoft |4.33, 3.40, 2.52 |14 de Junho de 2016 |
-| MS16 075 |[3164038] |Atualização de segurança para o Windows Server SMB |4.33, 3.40, 2.52 |14 de Junho de 2016 |
-| MS16 076 |[3167691] |Atualização de segurança do Netlogon |4.33 |14 de Junho de 2016 |
-| MS16 077 |[3165191] |Atualização de segurança para WPAD |4.33, 3.40, 2.52 |14 de Junho de 2016 |
-| MS16 080 |[3164302] |Atualização de segurança do Microsoft Windows PDF |4.33, 3.40 |14 de Junho de 2016 |
-| MS16 081 |[3160352] |Atualização de segurança do Active Directory |4.33, 3.40, 2.52 |14 de Junho de 2016 |
+| MS16-063 |[3163649] |Atualização de segurança cumulativa para o Internet Explorer |4.33, 3.40, 2.52 |14 de Junho de 2016 |
+| MS16-069 |[3163640] |Atualização de segurança cumulativa para JScript e VBScript |2.52 |14 de Junho de 2016 |
+| MS16-071 |[3164065] |Atualização de segurança para o servidor DNS do Microsoft Windows |4.33, 3.40 |14 de Junho de 2016 |
+| MS16-072 |[3163622] |Atualização de segurança para a política de grupo |4.33, 3.40, 2.52 |14 de Junho de 2016 |
+| MS16-073 |[3164028] |Atualização de segurança para os controladores de modo de Kernel |4.33, 3.40, 2.52 |14 de Junho de 2016 |
+| MS16-074 |[3164036] |Atualização de segurança para o componente de gráficos da Microsoft |4.33, 3.40, 2.52 |14 de Junho de 2016 |
+| MS16-075 |[3164038] |Atualização de segurança para o Windows Server SMB |4.33, 3.40, 2.52 |14 de Junho de 2016 |
+| MS16-076 |[3167691] |Atualização de segurança do Netlogon |4.33 |14 de Junho de 2016 |
+| MS16-077 |[3165191] |Atualização de segurança para WPAD |4.33, 3.40, 2.52 |14 de Junho de 2016 |
+| MS16-080 |[3164302] |Atualização de segurança do Microsoft Windows PDF |4.33, 3.40 |14 de Junho de 2016 |
+| MS16-081 |[3160352] |Atualização de segurança do Active Directory |4.33, 3.40, 2.52 |14 de Junho de 2016 |
 | N/A |[2922223] |Não é possível alterar hora do sistema se a entrada de registo RealTimeIsUniversal estiver ativada no Windows |2.52 |14 de Junho de 2016 |
 | N/A |[3121255] |Erro de paragem "0x00000024" no ficheiro FsRtlNotifyFilterReportChange e copie-la poderá falhar no Windows |2.52 |14 de Junho de 2016 |
 | N/A |[3125424] |Fazer com que impasses LSASS Windows Server 2012 R2 ou Windows Server 2012 para não responderem |4.33, 3.40 |14 de Junho de 2016 |
@@ -344,15 +358,15 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="may-guest-os"></a>Poderá de SO convidado
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS16 051 |[3155533] |Atualização de segurança cumulativa para o Internet Explorer |4.32, 3.39, 2.51 |10 de Maio de 2016 |
-| MS16 053 |[3156764] |Atualização de segurança cumulativa para JScript e VBScript |2.51 |10 de Maio de 2016 |
-| MS16 055 |[3156754] |Atualização de segurança para o componente de gráficos da Microsoft |4.32, 3.39, 2.51 |10 de Maio de 2016 |
-| MS16 057 |[3156987] |Atualização de segurança para a Shell do Windows |4.32 |10 de Maio de 2016 |
-| MS16 060 |[3154846] |Atualização de segurança para o Kernel do Windows |4.32, 3.39, 2.51 |10 de Maio de 2016 |
-| MS16 061 |[3155520] |Atualização de segurança para RPC |4.32, 3.39, 2.51 |10 de Maio de 2016 |
-| MS16 062 |[3158222] |Atualização de segurança para os controladores de modo de Kernel |4.32, 3.39, 2.51 |10 de Maio de 2016 |
-| MS16 065 |[3156757] |Atualização de segurança do .net Framework |4.32, 3.39, 2.51 |10 de Maio de 2016 |
-| MS16 067 |[3155784] |Atualização de segurança do controlador de Gestor de volumes |4.32, 3.39 |10 de Maio de 2016 |
+| MS16-051 |[3155533] |Atualização de segurança cumulativa para o Internet Explorer |4.32, 3.39, 2.51 |10 de Maio de 2016 |
+| MS16-053 |[3156764] |Atualização de segurança cumulativa para JScript e VBScript |2.51 |10 de Maio de 2016 |
+| MS16-055 |[3156754] |Atualização de segurança para o componente de gráficos da Microsoft |4.32, 3.39, 2.51 |10 de Maio de 2016 |
+| MS16-057 |[3156987] |Atualização de segurança para a Shell do Windows |4.32 |10 de Maio de 2016 |
+| MS16-060 |[3154846] |Atualização de segurança para o Kernel do Windows |4.32, 3.39, 2.51 |10 de Maio de 2016 |
+| MS16-061 |[3155520] |Atualização de segurança para RPC |4.32, 3.39, 2.51 |10 de Maio de 2016 |
+| MS16-062 |[3158222] |Atualização de segurança para os controladores de modo de Kernel |4.32, 3.39, 2.51 |10 de Maio de 2016 |
+| MS16-065 |[3156757] |Atualização de segurança do .net Framework |4.32, 3.39, 2.51 |10 de Maio de 2016 |
+| MS16-067 |[3155784] |Atualização de segurança do controlador de Gestor de volumes |4.32, 3.39 |10 de Maio de 2016 |
 | N/A |[3148851] |Alterações do fuso horário para Russia no Windows  |4.32, 3.39, 2.51 |10 de Maio de 2016 |
 | N/A |[3133977] |O BitLocker não é possível encriptar unidades devido a falhas de serviço no processo svchost.exe no Windows 7 ou Windows Server 2008 R2  |2.51 |10 de Maio de 2016 |
 | N/A |[3133681] |Máquinas virtuais não responder a sua operação no SCVMM no Windows Server 2012 R2  |4.32 |10 de Maio de 2016 |
@@ -363,36 +377,36 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Atualização de segurança cumulativa para o Internet Explorer |4.31, 3.38, 2.50 |12 de Abril de 2016 |
-| MS16 039 |[3148522] |Atualização de segurança para o componente de gráficos da Microsoft |4.31, 3.38, 2.50 |12 de Abril de 2016 |
-| MS16 040 |[3148541] |Atualização de segurança do serviço do Microsoft XML Core |4.31, 3.38, 2.50 |12 de Abril de 2016 |
-| MS16 044 |[3146706] |Atualização de segurança do Windows OLE |4.31, 3.38, 2.50 |12 de Abril de 2016 |
-| MS16 045 |[3143118] |Atualização de segurança do Hyper-V do Windows |4.31, 3.38 |12 de Abril de 2016 |
-| MS16 047 |[3148527] |Atualização de segurança para o protocolo de remoto do Gestor de contas de segurança |4.31, 3.38, 2.50 |12 de Abril de 2016 |
-| MS16 048 |[3148528] |Atualização de segurança para CSRSS |4.31, 3.38 |12 de Abril de 2016 |
+| MS16-039 |[3148522] |Atualização de segurança para o componente de gráficos da Microsoft |4.31, 3.38, 2.50 |12 de Abril de 2016 |
+| MS16-040 |[3148541] |Atualização de segurança do serviço do Microsoft XML Core |4.31, 3.38, 2.50 |12 de Abril de 2016 |
+| MS16-044 |[3146706] |Atualização de segurança do Windows OLE |4.31, 3.38, 2.50 |12 de Abril de 2016 |
+| MS16-045 |[3143118] |Atualização de segurança do Hyper-V do Windows |4.31, 3.38 |12 de Abril de 2016 |
+| MS16-047 |[3148527] |Atualização de segurança para o protocolo de remoto do Gestor de contas de segurança |4.31, 3.38, 2.50 |12 de Abril de 2016 |
+| MS16-048 |[3148528] |Atualização de segurança para CSRSS |4.31, 3.38 |12 de Abril de 2016 |
 
 ## <a name="march-guest-os"></a>Março de SO convidado
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS16 023 |[3142015] |Atualização de segurança cumulativa para o Internet Explorer |4.30, 3.37, 2.49 |8 de Março de 2016 |
-| MS16 026 |[3143148] |Atualização de segurança para tipos de letra gráfico para abordar a execução do código remoto |4.30, 3.37, 2.49 |8 de Março de 2016 |
-| MS16 027 |[3143146] |Segurança atualizações para o Windows Media Player ao endereço remoto a execução do código |4.30, 3.37, 2.49 |8 de Março de 2016 |
-| MS16 028 |[3143081] |Atualização de segurança para a biblioteca PDF do Microsoft Windows resolver a execução do código remoto |4.30, 3.37 |8 de Março de 2016 |
-| MS16 030 |[3143136] |Atualização de segurança do Windows OLE para abordar a execução do código remoto |4.30, 3.37, 2.49 |8 de Março de 2016 |
-| MS16 031 |[3140410] |Atualização de segurança do Microsoft Windows para elevação de privilégios de endereços |2.49 |8 de Março de 2016 |
-| MS16 032 |[3143141] |Atualização de segurança para início de sessão secundário para resolver a elevação de privilégios |4.30, 3.37, 2.49 |8 de Março de 2016 |
-| MS16 033 |[3143142] |Atualização de segurança para o controlador de classe de armazenamento em massa USB para elevação de privilégios de endereços |4.30, 3.37, 2.49 |8 de Março de 2016 |
-| MS16 034 |[3143145] |Atualizações de segurança para os controladores de modo de Kernel para elevação de privilégios de endereço |4.30, 3.37, 2.49 |8 de Março de 2016 |
+| MS16-023 |[3142015] |Atualização de segurança cumulativa para o Internet Explorer |4.30, 3.37, 2.49 |8 de Março de 2016 |
+| MS16-026 |[3143148] |Atualização de segurança para tipos de letra gráfico para abordar a execução do código remoto |4.30, 3.37, 2.49 |8 de Março de 2016 |
+| MS16-027 |[3143146] |Segurança atualizações para o Windows Media Player ao endereço remoto a execução do código |4.30, 3.37, 2.49 |8 de Março de 2016 |
+| MS16-028 |[3143081] |Atualização de segurança para a biblioteca PDF do Microsoft Windows resolver a execução do código remoto |4.30, 3.37 |8 de Março de 2016 |
+| MS16-030 |[3143136] |Atualização de segurança do Windows OLE para abordar a execução do código remoto |4.30, 3.37, 2.49 |8 de Março de 2016 |
+| MS16-031 |[3140410] |Atualização de segurança do Microsoft Windows para elevação de privilégios de endereços |2.49 |8 de Março de 2016 |
+| MS16-032 |[3143141] |Atualização de segurança para início de sessão secundário para resolver a elevação de privilégios |4.30, 3.37, 2.49 |8 de Março de 2016 |
+| MS16-033 |[3143142] |Atualização de segurança para o controlador de classe de armazenamento em massa USB para elevação de privilégios de endereços |4.30, 3.37, 2.49 |8 de Março de 2016 |
+| MS16-034 |[3143145] |Atualizações de segurança para os controladores de modo de Kernel para elevação de privilégios de endereço |4.30, 3.37, 2.49 |8 de Março de 2016 |
 
 ## <a name="february-guest-os"></a>SO de convidado de Fevereiro
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS16 009 |[3134220] |Atualização de segurança cumulativa para o Internet Explorer |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
+| MS16-009 |[3134220] |Atualização de segurança cumulativa para o Internet Explorer |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
 | MS16-013 |[3134811] |Atualização de segurança para o diário de alterações do Windows para resolver a execução do código remoto |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
-| MS16 014 |[3134228] |Atualização de segurança para o Microsoft Windows para o endereço remoto a execução do código |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
-| MS16 016 |[3136041] |Atualização de segurança para WebDAV para elevação de privilégios de endereços |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
-| MS16 018 |[3136082] |Atualização de segurança do controlador de modo de Kernel do Windows para elevação de privilégios de endereços |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
-| MS16 019 |[3137893] |Atualização de segurança do .NET Framework resolver a execução do código remoto |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
-| MS16 021 |[3133043] |Atualização de segurança do servidor NPS de RADIUS abordar recusa de serviço |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
+| MS16-014 |[3134228] |Atualização de segurança para o Microsoft Windows para o endereço remoto a execução do código |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
+| MS16-016 |[3136041] |Atualização de segurança para WebDAV para elevação de privilégios de endereços |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
+| MS16-018 |[3136082] |Atualização de segurança do controlador de modo de Kernel do Windows para elevação de privilégios de endereços |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
+| MS16-019 |[3137893] |Atualização de segurança do .NET Framework resolver a execução do código remoto |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
+| MS16-021 |[3133043] |Atualização de segurança do servidor NPS de RADIUS abordar recusa de serviço |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
 | Microsoft Security Advisory |[3109853] |Atualização para melhorar a interoperabilidade TLS |4.29, 3.36 |9 de Fevereiro de 2016 |
 | A versão-MS15 101 |[3089662] |Vulnerabilidades no .NET Framework pode permitir a elevação de privilégios |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
 | A versão-MS15 118 |[3104507] |Atualizações de segurança para .NET Framework resolver a elevação de privilégios |4.29, 3.36, 2.48 |9 de Fevereiro de 2016 |
@@ -401,11 +415,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="january-guest-os"></a>SO de convidado de Janeiro
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS16 001 |[3124903] |Atualização de segurança cumulativa para o Internet Explorer |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
-| MS16 003 |[3125540] |Atualização de segurança cumulativa para JScript e VBScript |2.47 |12 de Janeiro de 2016 |
-| MS16 005 |[3124584] |Atualização de segurança para controladores de modo de Kernel do Windows resolver a execução do código remoto |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
-| MS16 007 |[3124901] |Atualização de segurança do Microsoft Windows resolver a execução do código remoto |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
-| MS16 008 |[3124605] |Atualização de segurança do Kernel para elevação de privilégios de endereços |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
+| MS16-001 |[3124903] |Atualização de segurança cumulativa para o Internet Explorer |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
+| MS16-003 |[3125540] |Atualização de segurança cumulativa para JScript e VBScript |2.47 |12 de Janeiro de 2016 |
+| MS16-005 |[3124584] |Atualização de segurança para controladores de modo de Kernel do Windows resolver a execução do código remoto |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
+| MS16-007 |[3124901] |Atualização de segurança do Microsoft Windows resolver a execução do código remoto |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
+| MS16-008 |[3124605] |Atualização de segurança do Kernel para elevação de privilégios de endereços |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
 | Revisão Consultivo de alterações de segurança da Microsoft |[2755801] |Atualizar para vulnerabilidades no Adobe Flash Player no Internet Explorer (pacote KB: TBD)-marcador de posição Consultivo de alterações |4.28, 3.35 |12 de Janeiro de 2016 |
 | Microsoft Security Advisory |[3109853] |Atualização para melhorar a interoperabilidade TLS |4.28, 3.35 |12 de Janeiro de 2016 |
 | Microsoft Security Advisory |[3123479] |Descontinuação do algoritmo hash SHA-1 para Microsoft Root Certificate Program |4.28, 3.35, 2.47 |12 de Janeiro de 2016 |
@@ -414,104 +428,104 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="december-guest-os"></a>SO de convidado de Dezembro
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS15 124 |[3116180] |Atualização de segurança cumulativa para o Internet Explorer |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
-| MS15 126 |[3116178] |Atualização de segurança do Microsoft VBScript e JScript abordar a execução do código remoto |2.46 |8 de Dezembro de 2015 |
-| MS15 127 |[3100465] |Atualização de segurança de DNS para abordar a execução do código remota do Microsoft Windows |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
+| MS15-124 |[3116180] |Atualização de segurança cumulativa para o Internet Explorer |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
+| MS15-126 |[3116178] |Atualização de segurança do Microsoft VBScript e JScript abordar a execução do código remoto |2.46 |8 de Dezembro de 2015 |
+| MS15-127 |[3100465] |Atualização de segurança de DNS para abordar a execução do código remota do Microsoft Windows |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
 | MS15-128 |[3104503] |Atualizações de segurança para o componente de gráficos da Microsoft resolver a execução do código remoto |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
-| MS15 132 |[3116162] |Atualização de segurança para a execução do código remoto de endereços do Windows |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
-| MS15 133 |[3116130] |Atualização de segurança do Windows PGM para elevação de privilégios de endereços |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
-| MS15 134 |[3108669] |Atualização de segurança do Windows Media Center para abordar a execução do código remoto |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
-| MS15 135 |[3119075] |Atualização de segurança para controladores de modo de Kernel do Windows para elevação de privilégios de endereços |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
+| MS15-132 |[3116162] |Atualização de segurança para a execução do código remoto de endereços do Windows |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
+| MS15-133 |[3116130] |Atualização de segurança do Windows PGM para elevação de privilégios de endereços |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
+| MS15-134 |[3108669] |Atualização de segurança do Windows Media Center para abordar a execução do código remoto |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
+| MS15-135 |[3119075] |Atualização de segurança para controladores de modo de Kernel do Windows para elevação de privilégios de endereços |4.27, 3.34, 2.46 |8 de Dezembro de 2015 |
 
 ## <a name="november-guest-os"></a>SO de convidado de Novembro
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS15 112 |[3104517] |Atualização de segurança cumulativa para o Internet Explorer |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
-| MS15 114 |[3100213] |Atualização de segurança do Windows diário de alterações resolver a execução do código remoto |2.45 |10 de Novembro de 2015 |
-| MS15 115 |[3105864] |Atualização de segurança do Microsoft Windows resolver a execução do código remoto |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
-| MS15 117 |[3101722] |Atualização de segurança para NDIS para elevação de privilégios de endereços |2.45 |10 de Novembro de 2015 |
-| MS15 118 |[3104507] |Atualizações de segurança para .NET Framework resolver a elevação de privilégios |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
-| MS15 119 |[3104521] |Atualização de segurança para Winsock para elevação de privilégios de endereços |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
-| MS15 120 |[3102939] |Atualização de segurança do IPSec abordar recusa de serviço |4.26, 3.33 |10 de Novembro de 2015 |
-| MS15 121 |[3081320] |Actualização de segurança Schannel para o Spoofing de endereços |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
-| MS15 122 |[3105256] |Atualização de segurança do Kerberos abordar a desativação da funcionalidade de segurança |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
+| MS15-112 |[3104517] |Atualização de segurança cumulativa para o Internet Explorer |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
+| MS15-114 |[3100213] |Atualização de segurança do Windows diário de alterações resolver a execução do código remoto |2.45 |10 de Novembro de 2015 |
+| MS15-115 |[3105864] |Atualização de segurança do Microsoft Windows resolver a execução do código remoto |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
+| MS15-117 |[3101722] |Atualização de segurança para NDIS para elevação de privilégios de endereços |2.45 |10 de Novembro de 2015 |
+| MS15-118 |[3104507] |Atualizações de segurança para .NET Framework resolver a elevação de privilégios |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
+| MS15-119 |[3104521] |Atualização de segurança para Winsock para elevação de privilégios de endereços |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
+| MS15-120 |[3102939] |Atualização de segurança do IPSec abordar recusa de serviço |4.26, 3.33 |10 de Novembro de 2015 |
+| MS15-121 |[3081320] |Actualização de segurança Schannel para o Spoofing de endereços |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
+| MS15-122 |[3105256] |Atualização de segurança do Kerberos abordar a desativação da funcionalidade de segurança |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
 | Microsoft Security Advisory |[3097966] |Inadvertidamente das divulgados foi certificados digitais permitir spoofing |4.26, 3.33, 2.45 |10 de Novembro de 2015 |
 
 ## <a name="october-guest-os"></a>SO de convidado de Outubro
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS15 106 |[3096441] |Atualização de segurança cumulativa para o Internet Explorer |4.25, 3.32, 2.44 |13 de Outubro de 2015 |
-| MS15 108 |[3089659] |Atualização de segurança para JScript e VBScript resolver potenciais execução de código remota |2.44 |13 de Outubro de 2015 |
-| MS15 109 |[3096443] |Atualização de segurança para a Shell do Windows resolver a execução do código remoto |4.25, 3.32, 2.44 |13 de Outubro de 2015 |
-| MS15 111 |[3096447] |Atualização de segurança para o Kernel do Windows para elevação de privilégios de endereços |4.25, 3.32, 2.44 |13 de Outubro de 2015 |
+| MS15-106 |[3096441] |Atualização de segurança cumulativa para o Internet Explorer |4.25, 3.32, 2.44 |13 de Outubro de 2015 |
+| MS15-108 |[3089659] |Atualização de segurança para JScript e VBScript resolver potenciais execução de código remota |2.44 |13 de Outubro de 2015 |
+| MS15-109 |[3096443] |Atualização de segurança para a Shell do Windows resolver a execução do código remoto |4.25, 3.32, 2.44 |13 de Outubro de 2015 |
+| MS15-111 |[3096447] |Atualização de segurança para o Kernel do Windows para elevação de privilégios de endereços |4.25, 3.32, 2.44 |13 de Outubro de 2015 |
 | Microsoft Security Advisory |[3092627] |Setembro de 2015 atualizar para corrigir Windows ou aplicação freezes depois de instalar a atualização de segurança 3076895 |4.25, 3.32, 2.44 |13 de Outubro de 2015 |
 
 ## <a name="september-guest-os"></a>SO de convidado de Setembro
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS15 093 |[3088903] |Atualização de segurança para o Internet Explorer |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
-| MS15 094 |[3089548] |Atualização de segurança cumulativa para o Internet Explorer |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
-| MS15 096 |[3072595] |Vulnerabilidade no serviço do Active Directory pode permitir a recusa de serviço |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
-| MS15 097 |[3089656] |Vulnerabilidades no componente de gráficos da Microsoft pode permitir a elevação de privilégios |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
-| MS15 098 |[3089669] |Vulnerabilidades no diário de alterações do Windows pode permitir a execução de código remota |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
-| MS15 101 |[3089662] |Vulnerabilidades no .NET Framework pode permitir a elevação de privilégios |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
-| MS15 102 |[3089657] |Vulnerabilidades na gestão de tarefas do Windows pode permitir a elevação de privilégios |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
-| MS15 105 |[3091287] |Vulnerabilidade no Hyper-V do Windows pode permitir a desativação da funcionalidade de segurança |4.24 |8 de Setembro de 2015 |
+| MS15-093 |[3088903] |Atualização de segurança para o Internet Explorer |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
+| MS15-094 |[3089548] |Atualização de segurança cumulativa para o Internet Explorer |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
+| MS15-096 |[3072595] |Vulnerabilidade no serviço do Active Directory pode permitir a recusa de serviço |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
+| MS15-097 |[3089656] |Vulnerabilidades no componente de gráficos da Microsoft pode permitir a elevação de privilégios |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
+| MS15-098 |[3089669] |Vulnerabilidades no diário de alterações do Windows pode permitir a execução de código remota |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
+| MS15-101 |[3089662] |Vulnerabilidades no .NET Framework pode permitir a elevação de privilégios |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
+| MS15-102 |[3089657] |Vulnerabilidades na gestão de tarefas do Windows pode permitir a elevação de privilégios |4.24, 3.31, 2.43 |8 de Setembro de 2015 |
+| MS15-105 |[3091287] |Vulnerabilidade no Hyper-V do Windows pode permitir a desativação da funcionalidade de segurança |4.24 |8 de Setembro de 2015 |
 
 ## <a name="august-guest-os"></a>SO de convidado de Agosto
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS15 079 |[3082442] |Atualização de segurança cumulativa para o Internet Explorer |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
-| MS15 080 |[3078662] |Vulnerabilidades no componente de gráficos da Microsoft pode permitir a execução de código remota |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
-| MS15 082 |[3080348] |Vulnerabilidades no RDP pode permitir a execução de código remota |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
-| MS15 084 |[3080129] |Vulnerabilidades no XML Core Services pode permitir a divulgação de informações |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
-| MS15 085 |[3082487] |Vulnerabilidade no Gestor de montagem pode permitir a elevação de privilégios |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
-| MS15 088 |[3082458] |Transmissão de parâmetro de linha de comandos não seguro pode permitir a divulgação de informações |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
-| MS15 089 |[3060716] |Vulnerabilidades no Microsoft Windows pode permitir a elevação de privilégios |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
-| MS15 090 |[3076949] |Vulnerabilidade no WebDAV pode permitir a divulgação de informações |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
+| MS15-079 |[3082442] |Atualização de segurança cumulativa para o Internet Explorer |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
+| MS15-080 |[3078662] |Vulnerabilidades no componente de gráficos da Microsoft pode permitir a execução de código remota |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
+| MS15-082 |[3080348] |Vulnerabilidades no RDP pode permitir a execução de código remota |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
+| MS15-084 |[3080129] |Vulnerabilidades no XML Core Services pode permitir a divulgação de informações |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
+| MS15-085 |[3082487] |Vulnerabilidade no Gestor de montagem pode permitir a elevação de privilégios |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
+| MS15-088 |[3082458] |Transmissão de parâmetro de linha de comandos não seguro pode permitir a divulgação de informações |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
+| MS15-089 |[3060716] |Vulnerabilidades no Microsoft Windows pode permitir a elevação de privilégios |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
+| MS15-090 |[3076949] |Vulnerabilidade no WebDAV pode permitir a divulgação de informações |4.23, 3.30, 2.42 |11 de Agosto de 2015 |
 
 ## <a name="july-guest-os"></a>SO de convidado de Julho
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS15 065 |[3076321] |Atualização de segurança cumulativa para o Internet Explorer |4.22, 3.29, 2.41 |14 de Julho de 2015 |
-| MS15 066 |[3072604] |Vulnerabilidade no VBScript pode permitir a execução de código remota |2.41 |14 de Julho de 2015 |
-| MS15 067 |[3073094] |Vulnerabilidade no RDP pode permitir a execução de código remota |4.22, 3.29, 2.41 |14 de Julho de 2015 |
+| MS15-065 |[3076321] |Atualização de segurança cumulativa para o Internet Explorer |4.22, 3.29, 2.41 |14 de Julho de 2015 |
+| MS15-066 |[3072604] |Vulnerabilidade no VBScript pode permitir a execução de código remota |2.41 |14 de Julho de 2015 |
+| MS15-067 |[3073094] |Vulnerabilidade no RDP pode permitir a execução de código remota |4.22, 3.29, 2.41 |14 de Julho de 2015 |
 | MS15-068 |[3072000] |Vulnerabilidade no Hyper-V do Windows pode permitir a execução de código remota |4.22, 3.29, 2.41 |14 de Julho de 2015 |
-| MS15 069 |[3072631] |Vulnerabilidades do Windows pode permitir a execução de código remota |4.22, 3.29, 2.41 |14 de Julho de 2015 |
-| MS15 071 |[3068457] |Vulnerabilidade no NETLOGON pode permitir Spoofing |4.22, 3.29, 2.41 |14 de Julho de 2015 |
-| MS15 072 |[3069392] |Vulnerabilidade no controlador de gráficos pode permitir a elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
-| MS15 073 |[3070102] |Permitem a vulnerabilidades no modo de Kernel controlador foi elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
-| MS15 074 |[3072630] |Vulnerabilidade no serviço Windows Installer pode permitir a elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
-| MS15 075 |[3072633] |Vulnerabilidades no OLE pode permitir a elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
-| MS15 076 |[3067505] |Vulnerabilidade na chamada de procedimento remoto do Windows pode permitir a elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
-| MS15 077 |[3077657] |Vulnerabilidade no controlador de tipo de letra ATM pode permitir a elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
+| MS15-069 |[3072631] |Vulnerabilidades do Windows pode permitir a execução de código remota |4.22, 3.29, 2.41 |14 de Julho de 2015 |
+| MS15-071 |[3068457] |Vulnerabilidade no NETLOGON pode permitir Spoofing |4.22, 3.29, 2.41 |14 de Julho de 2015 |
+| MS15-072 |[3069392] |Vulnerabilidade no controlador de gráficos pode permitir a elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
+| MS15-073 |[3070102] |Permitem a vulnerabilidades no modo de Kernel controlador foi elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
+| MS15-074 |[3072630] |Vulnerabilidade no serviço Windows Installer pode permitir a elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
+| MS15-075 |[3072633] |Vulnerabilidades no OLE pode permitir a elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
+| MS15-076 |[3067505] |Vulnerabilidade na chamada de procedimento remoto do Windows pode permitir a elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
+| MS15-077 |[3077657] |Vulnerabilidade no controlador de tipo de letra ATM pode permitir a elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
 | ND |[3057154] |Atualizar para restringir a utilização de encriptação DES |4.22, 3.29, 2.41 |14 de Julho de 2015 |
 
 ## <a name="june-guest-os"></a>SO de convidado de Junho
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS15 056 |[3058515] |Atualização de segurança cumulativa para o Internet Explorer |4.21, 3.28, 2.40 |9 de Junho de 2015 |
-| MS15 057 |[3033890] |Vulnerabilidade no Windows Media Player pode permitir a execução de código remota |4.21, 3.28, 2.40 |9 de Junho de 2015 |
-| MS15 060 |[3059317] |Vulnerabilidade controlos Microsoft Common pode permitir a execução de código remota |4.21, 3.28, 2.40 |9 de Junho de 2015 |
-| MS15 061 |[3057839] |Vulnerabilidades em controladores de modo de Kernel do Windows pode permitir a elevação de privilégios |4.21, 3.28, 2.40 |9 de Junho de 2015 |
-| MS15 062 |[3062577] |Vulnerabilidade nos serviços de Federação do Active Directory pode permitir a elevação de privilégios |4.21, 3.28, 2.40 |9 de Junho de 2015 |
-| MS15 063 |[3063858] |Vulnerabilidade na Kernel do Windows pode permitir a elevação de privilégios |4.21, 3.28, 2.40 |9 de Junho de 2015 |
+| MS15-056 |[3058515] |Atualização de segurança cumulativa para o Internet Explorer |4.21, 3.28, 2.40 |9 de Junho de 2015 |
+| MS15-057 |[3033890] |Vulnerabilidade no Windows Media Player pode permitir a execução de código remota |4.21, 3.28, 2.40 |9 de Junho de 2015 |
+| MS15-060 |[3059317] |Vulnerabilidade controlos Microsoft Common pode permitir a execução de código remota |4.21, 3.28, 2.40 |9 de Junho de 2015 |
+| MS15-061 |[3057839] |Vulnerabilidades em controladores de modo de Kernel do Windows pode permitir a elevação de privilégios |4.21, 3.28, 2.40 |9 de Junho de 2015 |
+| MS15-062 |[3062577] |Vulnerabilidade nos serviços de Federação do Active Directory pode permitir a elevação de privilégios |4.21, 3.28, 2.40 |9 de Junho de 2015 |
+| MS15-063 |[3063858] |Vulnerabilidade na Kernel do Windows pode permitir a elevação de privilégios |4.21, 3.28, 2.40 |9 de Junho de 2015 |
 
 ## <a name="may-guest-os"></a>Poderá de SO convidado
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| MS15 043 |[3049563] |Atualização de segurança cumulativa para o Internet Explorer |4.20, 3.27, 2.39 |12 de Maio de 2015 |
-| MS15 044 |[3057110] |Vulnerabilidades em controladores de tipo de letra da Microsoft pode permitir a execução de código remota |4.20, 3.27, 2.39 |12 de Maio de 2015 |
-| MS15 045 |[3046002] |Vulnerabilidade no diário de alterações do Windows pode permitir a execução de código remota |4.20, 3.27, 2.39 |12 de Maio de 2015 |
-| MS15 048 |[3057134] |Vulnerabilidades no .NET Framework pode permitir a elevação de privilégios |4.20, 3.27, 2.39 |12 de Maio de 2015 |
-| MS15 050 |[3055642] |No Gestor de controlo do serviço de vulnerabilidade pode permitir a elevação de privilégios |4.20, 3.27, 2.39 |12 de Maio de 2015 |
-| MS15 051 |[3057191] |Vulnerabilidades em controladores de modo de Kernel do Windows pode permitir a elevação de privilégios |4.20, 3.27, 2.39 |12 de Maio de 2015 |
-| MS15 052 |[3050514] |Vulnerabilidade na Kernel do Windows pode permitir a desativação da funcionalidade de segurança |4.20, 3.27, 2.39 |12 de Maio de 2015 |
-| MS15 053 |[3057263] |Vulnerabilidades na JScript e VBScript Scripting motor pode permitir a desativação da funcionalidade de segurança |4.20, 3.27, 2.39 |12 de Maio de 2015 |
-| MS15 054 |[3051768] |Vulnerabilidade no formato de ficheiro de consola de gestão da Microsoft pode permitir a recusa de serviço |4.20, 3.27, 2.39 |12 de Maio de 2015 |
-| MS15 055 |[3061518] |Vulnerabilidade no Schannel pode permitir a divulgação de informações importantes de desativação de funcionalidade de segurança |4.20, 3.27, 2.39 |12 de Maio de 2015 |
-| MS15 032 |[3038314] |Atualização de segurança cumulativa para o Internet Explorer |4.20, 3.27, 2.39 |17 de Apr de 2015 |
-| MS15 035 |[3046306] |Vulnerabilidade no componente de gráficos da Microsoft pode permitir a execução de código remota |4.20, 3.27, 2.39 |17 de Apr de 2015 |
+| MS15-043 |[3049563] |Atualização de segurança cumulativa para o Internet Explorer |4.20, 3.27, 2.39 |12 de Maio de 2015 |
+| MS15-044 |[3057110] |Vulnerabilidades em controladores de tipo de letra da Microsoft pode permitir a execução de código remota |4.20, 3.27, 2.39 |12 de Maio de 2015 |
+| MS15-045 |[3046002] |Vulnerabilidade no diário de alterações do Windows pode permitir a execução de código remota |4.20, 3.27, 2.39 |12 de Maio de 2015 |
+| MS15-048 |[3057134] |Vulnerabilidades no .NET Framework pode permitir a elevação de privilégios |4.20, 3.27, 2.39 |12 de Maio de 2015 |
+| MS15-050 |[3055642] |No Gestor de controlo do serviço de vulnerabilidade pode permitir a elevação de privilégios |4.20, 3.27, 2.39 |12 de Maio de 2015 |
+| MS15-051 |[3057191] |Vulnerabilidades em controladores de modo de Kernel do Windows pode permitir a elevação de privilégios |4.20, 3.27, 2.39 |12 de Maio de 2015 |
+| MS15-052 |[3050514] |Vulnerabilidade na Kernel do Windows pode permitir a desativação da funcionalidade de segurança |4.20, 3.27, 2.39 |12 de Maio de 2015 |
+| MS15-053 |[3057263] |Vulnerabilidades na JScript e VBScript Scripting motor pode permitir a desativação da funcionalidade de segurança |4.20, 3.27, 2.39 |12 de Maio de 2015 |
+| MS15-054 |[3051768] |Vulnerabilidade no formato de ficheiro de consola de gestão da Microsoft pode permitir a recusa de serviço |4.20, 3.27, 2.39 |12 de Maio de 2015 |
+| MS15-055 |[3061518] |Vulnerabilidade no Schannel pode permitir a divulgação de informações importantes de desativação de funcionalidade de segurança |4.20, 3.27, 2.39 |12 de Maio de 2015 |
+| MS15-032 |[3038314] |Atualização de segurança cumulativa para o Internet Explorer |4.20, 3.27, 2.39 |17 de Apr de 2015 |
+| MS15-035 |[3046306] |Vulnerabilidade no componente de gráficos da Microsoft pode permitir a execução de código remota |4.20, 3.27, 2.39 |17 de Apr de 2015 |
 | MS15-037 |[3046269] |Vulnerabilidade no programador de tarefas do Windows pode permitir a elevação de privilégios |4.20, 3.27, 2.39 |17 de Apr de 2015 |
 | MS15-038 |[3049576] |Vulnerabilidades no Microsoft Windows pode permitir a elevação de privilégios importantes |4.20, 3.27, 2.39 |17 de Apr de 2015 |
 | MS15-039 |[3046482] |Vulnerabilidade no XML Core Services pode permitir a desativação da funcionalidade de segurança |4.20, 3.27, 2.39 |17 de Apr de 2015 |
@@ -587,6 +601,25 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[2999802] |Linhas sólidas em vez de linhas ponteada são indicadas no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 | N/A |[2896881] |Hora de início de sessão longa ao utilizar o comando AddPrinterConnection VBScript para mapear impressoras para os utilizadores durante o processo de início de sessão no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 
+
+[4074590]: http://support.microsoft.com/kb/4074590
+[4074588]: http://support.microsoft.com/kb/4074588 
+[4074587]: http://support.microsoft.com/kb/4074587
+[4074589]: http://support.microsoft.com/kb/4074589
+[4074597]: http://support.microsoft.com/kb/4074597
+[4074736]: http://support.microsoft.com/kb/4074736
+[4074595]: http://support.microsoft.com/kb/4074595
+[4056894]: http://support.microsoft.com/kb/4056894
+[4056896]: http://support.microsoft.com/kb/4056896
+[4056895]: http://support.microsoft.com/kb/4048958
+[4054176]: http://support.microsoft.com/kb/4054176
+[4054172]: http://support.microsoft.com/kb/4054172
+[4054175]: http://support.microsoft.com/kb/4054175
+[4054171]: http://support.microsoft.com/kb/4054171
+[4054177]: http://support.microsoft.com/kb/4054177
+[4054170]: http://support.microsoft.com/kb/4054170
+
+
 [4056898]: http://support.microsoft.com/kb/4056898
 [4056897]: http://support.microsoft.com/kb/4056897
 [4056899]: http://support.microsoft.com/kb/4056899
@@ -596,6 +629,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4054520]: http://support.microsoft.com/kb/4054520
 [4054519]: http://support.microsoft.com/kb/4054519
 [4051956]: http://support.microsoft.com/kb/4051956
+
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

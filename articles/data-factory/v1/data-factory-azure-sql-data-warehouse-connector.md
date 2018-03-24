@@ -2,10 +2,9 @@
 title: Copiar dados da Azure SQL Data Warehouse | Microsoft Docs
 description: Saiba como copiar dados para/a partir do Azure SQL Data Warehouse com o Azure Data Factory
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 97782d1437f47a5ec403a98464d38961874d7575
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 709a178d99a34adb9c77086e55270fe41ed84551
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Data Warehouse com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -166,10 +165,10 @@ GO
 ```
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Utilize o PolyBase para carregar dados para o Azure SQL Data Warehouse
-Utilizar  **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)**  é uma forma eficaz de carregar grande quantidade de dados no Azure SQL Data Warehouse com débito elevado. Pode ver um grandes ganhos de débito da utilizando o PolyBase em vez do mecanismo BULKINSERT predefinido. Consulte [copiar o número de referência de desempenho](data-factory-copy-activity-performance.md#performance-reference) com comparação detalhada. Para obter instruções com um caso de utilização, consulte [1 TB no Azure SQL Data Warehouse em 15 minutos de carga com o Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Utilizar ** [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) ** é uma forma eficaz de carregar grande quantidade de dados no Azure SQL Data Warehouse com débito elevado. Pode ver um grandes ganhos de débito da utilizando o PolyBase em vez do mecanismo BULKINSERT predefinido. Consulte [copiar o número de referência de desempenho](data-factory-copy-activity-performance.md#performance-reference) com comparação detalhada. Para obter instruções com um caso de utilização, consulte [1 TB no Azure SQL Data Warehouse em 15 minutos de carga com o Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
-* Se os dados de origem estão a ser **Blob do Azure ou do Azure Data Lake Store**e o formato é compatível com o PolyBase, pode copiar diretamente ao Azure SQL Data Warehouse, utilizando o PolyBase. Consulte  **[cópia direta, utilizando o PolyBase](#direct-copy-using-polybase)**  com detalhes.
-* Se o arquivo de dados de origem e o formato não é suportado originalmente pelo PolyBase, pode utilizar o  **[cópia testado utilizando o PolyBase](#staged-copy-using-polybase)**  em vez disso, a funcionalidade. Também fornece a melhor débito automaticamente ao converter os dados em formato compatível com o PolyBase e armazenar os dados no Blob storage do Azure. Em seguida, carrega dados para o SQL Data Warehouse.
+* Se os dados de origem estão a ser **Blob do Azure ou do Azure Data Lake Store**e o formato é compatível com o PolyBase, pode copiar diretamente ao Azure SQL Data Warehouse, utilizando o PolyBase. Consulte ** [cópia direta, utilizando o PolyBase](#direct-copy-using-polybase) ** com detalhes.
+* Se o arquivo de dados de origem e o formato não é suportado originalmente pelo PolyBase, pode utilizar o ** [cópia testado utilizando o PolyBase](#staged-copy-using-polybase) ** em vez disso, a funcionalidade. Também fornece a melhor débito automaticamente ao converter os dados em formato compatível com o PolyBase e armazenar os dados no Blob storage do Azure. Em seguida, carrega dados para o SQL Data Warehouse.
 
 Definir o `allowPolyBase` propriedade **verdadeiro** conforme mostrado no exemplo seguinte para o Azure Data Factory para utilizar o PolyBase para copiar dados para o Azure SQL Data Warehouse. Quando definir allowPolyBase como true, pode especificar propriedades específicas do PolyBase utilizando o `polyBaseSettings` grupo de propriedades. consulte o [SqlDWSink](#SqlDWSink) secção para obter detalhes sobre as propriedades que podem ser utilizados com polyBaseSettings.
 
@@ -198,11 +197,11 @@ Se não são cumpridos os requisitos, o Azure Data Factory verifica as definiç�
 1. **Origem de serviço ligado** é do tipo: **AzureStorage** ou **AzureDataLakeStore com a autenticação principal de serviço**.  
 2. O **conjunto de dados de entrada** é do tipo: **AzureBlob** ou **AzureDataLakeStore**e o formato de tipo em `type` propriedades **OrcFormat**, **ParquetFormat**, ou **TextFormat** com as seguintes configurações:
 
-   1. `rowDelimiter`tem de ser  **\n** .
-   2. `nullValue`está definido como **uma cadeia vazia** (""), ou `treatEmptyAsNull` está definido como **verdadeiro**.
-   3. `encodingName`está definido como **utf-8**, que é **predefinido** valor.
+   1. `rowDelimiter` tem de ser **\n**.
+   2. `nullValue` está definido como **uma cadeia vazia** (""), ou `treatEmptyAsNull` está definido como **verdadeiro**.
+   3. `encodingName` está definido como **utf-8**, que é **predefinido** valor.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, e `skipLineCount` não foram especificados.
-   5. `compression`pode ser **sem compressão**, **GZip**, ou **Deflate**.
+   5. `compression` pode ser **sem compressão**, **GZip**, ou **Deflate**.
 
     ```JSON
     "typeProperties": {
@@ -310,7 +309,7 @@ Fábrica de dados cria a tabela no arquivo de destino com o mesmo nome de tabela
 | bits | bits |
 | Decimal | Decimal |
 | Numérico | Decimal |
-| Flutuante | Flutuante |
+| Número de vírgula flutuante | Número de vírgula flutuante |
 | dinheiro | dinheiro |
 | Real | Real |
 | Em SmallMoney | Em SmallMoney |
@@ -356,7 +355,7 @@ O mapeamento de é igual a [mapeamento do tipo de dados do SQL Server para ADO.N
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Flutuante |Duplo |
+| Número de vírgula flutuante |Duplo |
 | Imagem |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |

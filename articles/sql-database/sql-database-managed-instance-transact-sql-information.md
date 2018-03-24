@@ -1,20 +1,20 @@
 ---
-title: "Base de dados SQL do Azure gerida diferenças de T-SQL de instância | Microsoft Docs"
-description: "Este artigo aborda as diferenças de T-SQL entre a base de dados geridas por instância de SQL do Azure e o SQL Server."
+title: Base de dados SQL do Azure gerida diferenças de T-SQL de instância | Microsoft Docs
+description: Este artigo aborda as diferenças de T-SQL entre a base de dados geridas por instância de SQL do Azure e o SQL Server.
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bd8733590819faa3c4286c1940f0b9258842c930
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server 
 
@@ -393,7 +393,11 @@ As seguintes variáveis, funções e vistas devolvem resultados diferentes:
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Que excede o espaço de armazenamento com ficheiros de base de dados pequena
 
-Cada instância geridos segurança TB 35 reservou espaço de armazenamento e todos os ficheiros de base de dados inicialmente é colocado na unidade de alocação de armazenamento de 128 GB. Bases de dados com muitos ficheiros pequenos podem ser colocados em unidades de 128 GB que, no total, excedem o limite de 35 TB. Neste caso, novas bases de dados não não possível criar ou tiverem sido restaurados, mesmo que o tamanho total de todas as bases de dados atingiu o limite de tamanho de instância. O erro devolvido, caso em que poderá não ser encriptado.
+Cada instância geridos tem cópias de segurança para armazenamento de 35 TB reservado para o espaço em disco do Azure Premium, e cada ficheiro de base de dados está colocado num disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. Não é cobrado o espaço não utilizado no disco, mas a soma total dos tamanhos de disco do Azure Premium não pode exceder 35 TB. Em alguns casos, um Instnace geridos que não precisa de 8 TB no total pode exceder o limite de TB Azure do tamanho de armazenamento, devido à fragmentação interno de 35. 
+
+Por exemplo, uma instância geridos ter um ficheiro com tamanho 1.2 TB que utiliza um disco de 4 TB e 248 ficheiros com 1 GB cada que são colocados em 248 discos com o tamanho de 128 GB. Neste exemplo, o tamanho de armazenamento total do disco é 1 x 4 TB + GB de 248 x 128 = 35 TB. No entanto, o tamanho total de instância reservado para bases de dados é 1 x 1.2 TB + GB de 248 1 = 1,4 TB. Isto ilustra que em determinados circunstância, devido a uma distribuição muito específica dos ficheiros, uma instância geridos poderá atingir o limite de armazenamento do disco Premium do Azure onde poderá não esperada. 
+
+Não haveria nenhum erro nas bases de dados existentes e pode crescer sem qualquer problema se não foram adicionados novos ficheiros, mas as novas bases de dados não podem ser criados ou restaurar porque não existe espaço suficiente de unidades de disco novas, mesmo que o tamanho total de todas as bases de dados não atingir t a instância de limite de tamanho. Nesse caso o erro devolvido não está desmarcado.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Restaurar a configuração incorreta da chave SAS durante a base de dados
 

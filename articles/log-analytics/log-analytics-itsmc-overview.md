@@ -1,11 +1,11 @@
 ---
-title: "IT Service conector de gestão na análise de registos do Azure | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral de TI serviço de gestão. o conector (ITSMC) e informações sobre como utilizar esta solução para monitorizar e gerir o ITSM centralmente itens de trabalho no Log Analytics do Azure e resolva os problemas rapidamente."
+title: IT Service conector de gestão na análise de registos do Azure | Microsoft Docs
+description: Este artigo fornece uma descrição geral de TI serviço de gestão. o conector (ITSMC) e informações sobre como utilizar esta solução para monitorizar e gerir o ITSM centralmente itens de trabalho no Log Analytics do Azure e resolva os problemas rapidamente.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 56da2d4349a4a32eed783045381e504b529b1a1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a51b96641c80a6575c64f58fa09e0bf6078e4185
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure com ferramentas de ITSM utilizando o conector de gestão do serviço de TI
 
@@ -191,7 +191,7 @@ Também pode criar itens de trabalho nas origens ITSM ligadas diretamente a part
 4. Forneça os valores adequados no **contacte tipo**, **impacto**, **urgência**, **categoria**, e **Sub categoria** caixas de texto e, em seguida, clique em **criar**.
 
 
-##<a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar o incidente e dados de pedido de alteração
+## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar o incidente e dados de pedido de alteração
 
 Com base na configuração quando configurar uma ligação de conector ITSM pode sincronizar máximo de 120 dias de dados de pedido de incidente e altere. O esquema de registo de registo para estes dados é fornecido no [secção seguinte](#additional-information).
 

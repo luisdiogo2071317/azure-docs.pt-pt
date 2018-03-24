@@ -1,23 +1,21 @@
 ---
 title: 'B2C do Azure Active Directory: KMSI | Microsoft Docs'
-description: "Um tópico demonstrar como configurar 'keep-me com sessão iniciado'"
+description: Um tópico demonstrar como configurar 'keep-me com sessão iniciado'
 services: active-directory-b2c
-documentationcenter: 
-author: vigunase
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-ms.assetid: 926e9711-71c0-49e8-b658-146ffb7386c0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
-ms.author: vigunase
-ms.openlocfilehash: a3d78945f862d1ae12cec05da0cf0ea7df511f43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 073ba8eef7f2f42d1c308fb20d3bfdbfc8d321b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Azure Active Directory B2C: Ativar o 'Manter a minha sessão iniciada (KMSI)'  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -94,7 +92,7 @@ Pode definir início de sessão de conta Local como um fornecedor de afirmaçõe
 
 Adicionar os IDs de aplicação para o ficheiro de extensões (`TrustFrameworkExtensions.xml`):
 
-1. O ficheiro de extensões (TrustFrameworkExtensions.xml), localize o elemento `<TechnicalProfile Id="login-NonInteractive">` e`<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+1. O ficheiro de extensões (TrustFrameworkExtensions.xml), localize o elemento `<TechnicalProfile Id="login-NonInteractive">` e `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
 
 2. Substitua todas as instâncias de `IdentityExperienceFrameworkAppId` com o ID da aplicação Framework de experiência de identidade, conforme descrito em [introdução](active-directory-b2c-get-started-custom.md). Segue-se um exemplo:
 
@@ -166,11 +164,11 @@ Em seguida, atualize o ficheiro de terceiros (RP) entidade confiadora que inicia
 
 4. KMSI está configurado no `UserJourneyBehaviors`. 
 
-5. **`KeepAliveInDays`**controla o tempo durante o qual o utilizador permanecer com sessão iniciada. No exemplo seguinte, sessão KMSI expira automaticamente depois de 14 dias, independentemente da frequência o utilizador efetua a autenticação automática.
+5. **`KeepAliveInDays`** controla o tempo durante o qual o utilizador permanecer com sessão iniciada. No exemplo seguinte, sessão KMSI expira automaticamente depois de 14 dias, independentemente da frequência o utilizador efetua a autenticação automática.
 
    Definição `KeepAliveInDays` valor como 0 desativa a funcionalidade KMSI. Por predefinição, este valor é 0
 
-6. Se  **`SessionExpiryType`**  é *Rolling*, em seguida, a sessão KMSI for prolongada até nos últimos 14 dias sempre que o utilizador efetua a autenticação automática.  Se *Rolling* é selecionado, recomendamos que mantenha o número de dias ao mínimo. 
+6. Se **`SessionExpiryType`** é *Rolling*, em seguida, a sessão KMSI for prolongada até nos últimos 14 dias sempre que o utilizador efetua a autenticação automática.  Se *Rolling* é selecionado, recomendamos que mantenha o número de dias ao mínimo. 
 
        <RelyingParty>
        <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />

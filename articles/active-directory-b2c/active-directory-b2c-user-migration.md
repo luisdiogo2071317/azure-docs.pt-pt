@@ -1,24 +1,21 @@
 ---
-title: "Do Azure Active Directory B2C: Abordagens de migração de utilizador"
-description: "Aborda núcleos e conceitos avançados na migração de utilizador a utilizar a Graph API e, opcionalmente, utilizando as políticas personalizadas do Azure AD B2C."
+title: 'Do Azure Active Directory B2C: Abordagens de migração de utilizador'
+description: Aborda núcleos e conceitos avançados na migração de utilizador a utilizar a Graph API e, opcionalmente, utilizando as políticas personalizadas do Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: be80ea534be6de4fad2b072cf531669f45eda527
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Do Azure Active Directory B2C: Migração de utilizador
 Quando migra o fornecedor de identidade para o Azure Active Directory B2C (Azure AD B2C), poderá também ter de migrar a conta de utilizador. Este artigo explica como migrar as contas de utilizador existente a partir de qualquer fornecedor de identidade para o Azure AD B2C. O artigo não se destinar a ser prescritiva, mas, em vez disso, descreve dois várias abordagens. O programador é responsável por à adequação das cada abordagem.
@@ -51,7 +48,7 @@ Para comunicar com a Graph API, primeiro tem de ter uma conta de serviço com pr
 
 Em primeiro lugar, registe a aplicação de migração no Azure AD. Em seguida, crie uma chave de aplicação (segredo da aplicação) e defina a aplicação com privilégios de escrita.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Escolha o seu Azure AD **B2C** inquilino ao selecionar a sua conta na parte superior direito da janela.
 
@@ -97,7 +94,7 @@ Tem agora uma aplicação com permissões para criar, ler e atualizar utilizador
 Ler e escrever permissões de dados de diretório *não* inclui o direito para eliminar os utilizadores. Para conceder a aplicação a capacidade de eliminar os utilizadores (limpar o ambiente), tem de efetuar um passo adicional, que envolve a executar o PowerShell para definir as permissões de administrador de conta de utilizador. Caso contrário, pode avançar para a secção seguinte.
 
 > [!IMPORTANT]
-> Tem de utilizar uma conta de administrador de inquilino B2C é *local* para o inquilino do B2C. A sintaxe do nome de conta é  *admin@contosob2c.onmicrosoft.com* .
+> Tem de utilizar uma conta de administrador de inquilino B2C é *local* para o inquilino do B2C. A sintaxe do nome de conta é *admin@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
 > Requer o seguinte script do PowerShell [do Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
@@ -150,8 +147,8 @@ Para editar o ficheiro JSON, abra o `AADB2C.UserMigration.sln` solução do Visu
 Como pode ver, o ficheiro contém uma lista de entidades do utilizador. Cada entidade de utilizador tem as seguintes propriedades:
 * e-mail
 * displayName
-* Nome próprio
-* Apelido
+* firstName
+* lastName
 * palavra-passe (pode estar vazio)
 
 > [!NOTE]

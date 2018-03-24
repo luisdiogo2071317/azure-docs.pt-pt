@@ -1,11 +1,11 @@
 ---
-title: "Tópicos de referência do SQL Data Warehouse | Microsoft Docs"
-description: "Ligações de conteúdo de referência para o SQL Data Warehouse."
+title: Tópicos de referência do SQL Data Warehouse | Microsoft Docs
+description: Ligações de conteúdo de referência para o SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: abecd886-77bd-484f-b006-93600533a044
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: reference
 ms.date: 10/31/2016
 ms.author: barbkess
 ms.openlocfilehash: c56c1c262aa1a88e3f7a3d6638176cb9f97011d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="reference-topics-for-sql-data-warehouse"></a>Tópicos de referência para o SQL Data Warehouse
 Estes artigos contém informações de referência para o SQL Data Warehouse.
@@ -29,7 +29,7 @@ Estes artigos contém informações de referência para o SQL Data Warehouse.
 * [Vistas de sistema de Transact-SQL][Transact-SQL system views]
 * [Cmdlets do PowerShell][PowerShell cmdlets]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para informações de desenvolvimento, consulte [descrição geral do desenvolvimento][development overview].
 
 <!--Image references-->

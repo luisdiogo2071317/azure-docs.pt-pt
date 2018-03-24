@@ -1,10 +1,11 @@
 ---
-title: "Galeria de AI do Azure experimentações | Microsoft Docs"
-description: "Detetar e partilhar as experimentações na Galeria de AI do Azure."
+title: Galeria de AI do Azure experimentações | Microsoft Docs
+description: Detetar e partilhar as experimentações na Galeria de AI do Azure.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: garye
-ms.openlocfilehash: 80c2ab0cd97ce5afef7e38bad9f0fa0e4f3f363c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d6de7aa6d16196f415688d68251e8c1b0a4b9aee
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Detetar as experimentações na Galeria de AI do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -34,7 +34,7 @@ A Galeria tem uma ampla variedade de [experimentações](https://gallery.cortana
 ## <a name="discover"></a>Descobrir
 Para procurar experimentações [na galeria](http://gallery.cortanaintelligence.com), na parte superior da home page do galeria, selecione **experimentações**.
 
-O  **[experimentações](https://gallery.cortanaintelligence.com/experiments)**  página apresenta uma lista de experimentações recentemente adicionadas e populares. Para ver todas as experimentações, selecione o **ver todos os** botão. Para procurar uma experimentação específica, selecione **ver todos os**e os critérios de filtro, em seguida, selecione. Também pode introduzir termos de pesquisa no **pesquisa** caixa na parte superior da página da galeria.
+O **[experimentações](https://gallery.cortanaintelligence.com/experiments)** página apresenta uma lista de experimentações recentemente adicionadas e populares. Para ver todas as experimentações, selecione o **ver todos os** botão. Para procurar uma experimentação específica, selecione **ver todos os**e os critérios de filtro, em seguida, selecione. Também pode introduzir termos de pesquisa no **pesquisa** caixa na parte superior da página da galeria.
 
 Pode obter mais informações sobre uma experimentação na página de detalhes de experimentação. Para abrir uma página de detalhes da experimentação, selecione a experimentação. Numa experimentação detalhes da página, além de **comentários** secção, pode comente, fornecer comentários ou fazer perguntas sobre a experimentação. Ainda pode partilhar a experimentação com amigos ou colegas no Twitter ou LinkedIn. Também pode correio uma ligação à página de detalhes da experimentação, para convidar outros utilizadores para ver a página.
 

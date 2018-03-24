@@ -1,24 +1,24 @@
 ---
 title: Traffic Manager do Azure - perguntas mais frequentes | Microsoft Docs
-description: "Este artigo fornece respostas às perguntas mais frequentes sobre o Gestor de tráfego"
+description: Este artigo fornece respostas às perguntas mais frequentes sobre o Gestor de tráfego
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/18/2018
 ms.author: kumud
-ms.openlocfilehash: 09fd133ec72f7ebbbcb45f652855e7640656a0ca
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d9db669ab905fb51390f6ca80736af4cde13d902
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de tráfego perguntas mais frequentes (FAQ)
 
@@ -123,9 +123,6 @@ Sim, apenas a versão da API de 2017-03-01 e a mais recente suporta o encaminham
 
 ## <a name="real-user-measurements"></a>Medidas de Utilizadores Reais
 
->[!NOTE]
->A funcionalidade de medidas de utilizador Real no Traffic Manager está em pré-visualização pública e não pode ter o mesmo nível de disponibilidade e fiabilidade como versão de funcionalidades que estão em geral disponibilidade. A funcionalidade não é suportada, pode ter restrita capacidades e poderão não estar disponível em todas as localizações do Azure. Para as notificações mais atualizadas à sua disponibilidade e o estado desta funcionalidade, consulte o [Traffic Manager do Azure atualiza](https://azure.microsoft.com/updates/?product=traffic-manager) página.
-
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quais são as vantagens da utilização Real medidas de utilizador?
 Quando utiliza o método de encaminhamento de desempenho, Traffic Manager seleciona a melhor região do Azure para o utilizador final ligar a inspecionar o IP de origem e a sub-rede de cliente EDNS (se transmitido) e a verificá-lo contra o intelligence de latência de rede do serviço mantém. Medidas de utilizador reais melhora isto para os seus utilizadores finais base, fazendo com que a sua experiência contribuir para esta tabela de latência, além de garantir que esta tabela tem abrange as redes de utilizador final a partir de onde os utilizadores finais ligar ao Azure. Isto leva a uma precisão maior no encaminhamento dos utilizadores finais.
 
@@ -140,7 +137,8 @@ Não, só tem de ativá-la de uma vez por subscrição e todas as informações 
 
 ### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Como desligo Real medidas de utilizador para a minha subscrição?
 Pode parar a acumular encargos relacionados com a medidas de utilizador reais quando parar a recolha e envio de latência back medidas da sua aplicação de cliente. Por exemplo, quando medida JavaScript incorporada em páginas web, pode deixar de utilizar esta funcionalidade ao remover o JavaScript ou ao desativar a sua invocação quando a página ser composta.
-Outra forma para desativar a medidas de utilizador Real é ao eliminar a sua chave. Depois, fazê-lo, são eliminadas quaisquer medidas enviadas para o Gestor de tráfego com essa chave.
+
+Também pode desativar a medidas de utilizador reais, eliminando a sua chave. Depois de eliminar a chave, são eliminadas quaisquer medidas enviadas para o Gestor de tráfego com essa chave.
 
 ### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>Pode utilizar medidas de utilizador reais com aplicações de cliente que não sejam páginas web?
 Sim, medidas de utilizador reais foi concebida para a ingestão de dados recolhidos através de diferentes tipos de clientes do utilizador final. Estas FAQ será atualizada como obterem suportados novos tipos de aplicações de cliente.
@@ -155,16 +153,16 @@ Não, não há nenhum atraso programados e antes do script é invocado.
 Não, cada hora que é invocado, o script de medidas de utilizador reais mede um conjunto de seis regiões do Azure, conforme determinado pelo serviço. Este conjunto de alterações entre diferentes invocações e quando um grande número de invocações de tais acontecer, a cobertura de medida abrange em diferentes regiões do Azure.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Pode limitar o número de valores efetuadas num número específico?
-A medição JavaScript é incorporado dentro da sua página Web e de está no controlo total ao longo do quando a iniciar e parar a utilizá-la. Desde que o serviço do Gestor de tráfego recebe um pedido para obter uma lista de regiões do Azure para ser medido, são devolvidos um conjunto de regiões. Tenha também em atenção que durante o período de pré-visualização, que lhe será não ser cobrados quaisquer medidas reportadas para o Gestor de tráfego
+A medição JavaScript é incorporado dentro da sua página Web e de está no controlo total ao longo do quando a iniciar e parar a utilizá-la. Desde que o serviço do Gestor de tráfego recebe um pedido para obter uma lista de regiões do Azure para ser medido, são devolvidos um conjunto de regiões.
 
 ### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>Pode ver as medições efetuadas pela minha aplicação de cliente como parte das medidas de utilizador reais desde?
-Uma vez que a lógica da medida é executada a partir da aplicação de cliente, está em total controlo que acontece, incluindo ver os valores de latência. Gestor de tráfego não comunica uma vista de agregação de medidas recebido sob a chave ligada à sua subscrição
+Uma vez que a lógica da medida é executada a partir da aplicação de cliente, está em total controlo que acontece, incluindo ver os valores de latência. Gestor de tráfego comunica uma vista de agregação de medidas recebido sob a chave ligada à sua subscrição.
 
 ### <a name="can-i-modify-the-measurement-script-provided-by-traffic-manager"></a>Pode modificar o script de medida fornecido pelo Gestor de tráfego?
 Enquanto estiver no controlo sobre o que está incorporado na sua página web, é vivamente desencorajar-tem de efetuar quaisquer alterações para o script de medida para garantir que mede e reporta as latências corretamente.
 
 ### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Será possível que outras pessoas ver a chave a que utilizar com valores reais do utilizador?
-Ao incorporar o script de medida para uma página web será possível que outras pessoas ver o script e a chave de medidas de utilizador reais (RUM). Mas é importante saber que esta chave é diferente do seu id de subscrição e é gerada pelo Gestor de tráfego a ser utilizado apenas para esta finalidade. Saber a sua chave RUM não será comprometer a segurança da conta do Azure
+Ao incorporar o script de medida para uma página web será possível que outras pessoas ver o script e a chave de medidas de utilizador reais (RUM). Mas é importante saber que esta chave é diferente do seu id de subscrição e é gerada pelo Gestor de tráfego a ser utilizado apenas para esta finalidade. Saber a sua chave RUM não será comprometer a segurança da conta do Azure.
 
 ### <a name="can-others-abuse-my-rum-key"></a>Outras pessoas injuriar a minha chave RUM?
 Embora seja possível para que outros a utilizar a sua chave para enviar informações erradas ao Azure tenha em atenção que alguns valores errados não irão alterar o encaminhamento, uma vez que este é contemplada juntamente com todos os outros valores recebido. Se precisar de alterar as suas chaves, pode gerar novamente a chave, altura em que a chave antiga passa a ser rejeitada.
@@ -186,9 +184,6 @@ Tal como mencionado na resposta anterior, os componentes do lado do servidor de 
 
 ## <a name="traffic-view"></a>Vista de Tráfego
 
->[!NOTE]
->A funcionalidade de vista de tráfego no Traffic Manager está em pré-visualização pública e não pode ter o mesmo nível de disponibilidade e fiabilidade como versão de funcionalidades que estão em geral disponibilidade. A funcionalidade não é suportada, pode ter restrita capacidades e poderão não estar disponível em todas as localizações do Azure. Para as notificações mais atualizadas à sua disponibilidade e o estado desta funcionalidade, consulte o [Traffic Manager do Azure atualiza](https://azure.microsoft.com/updates/?product=traffic-manager) página.
-
 ### <a name="what-does-traffic-view-do"></a>O que faz a vista de tráfego?
 A vista de tráfego é uma funcionalidade do Gestor de tráfego que o ajuda a compreender mais sobre os seus utilizadores e como é a sua experiência. Utiliza as consultas recebidas pelo Gestor de tráfego e as tabelas de intelligence de latência de rede que o serviço mantém para lhe fornecer o seguinte:
 - As regiões a partir de onde os utilizadores se ligam a pontos finais da sua no Azure.
@@ -196,7 +191,7 @@ A vista de tráfego é uma funcionalidade do Gestor de tráfego que o ajuda a co
 - Regiões do Azure para que estes são obter encaminhados para.
 - Sua experiência de latência para estas regiões do Azure.
 
-Esta informação está disponível para que possa consumir através de uma vista em tabela no portal para além de ser disponível como dados não processados para que possa transferir.
+Esta informação está disponível para que possa consumir através de sobreposição de mapa geográfico e vistas de tabela no portal para além de ser disponível como dados não processados para que possa transferir.
 
 ### <a name="how-can-i-benefit-from-using-traffic-view"></a>Como pode beneficiar da utilização de vista de tráfego?
 
@@ -208,7 +203,7 @@ Monitor do Azure pode ser utilizado para compreender num nível agregar o tráfe
 
 ### <a name="does-traffic-view-use-edns-client-subnet-information"></a>A vista de tráfego utiliza as informações de sub-rede de cliente EDNS?
 
-Vista de tráfego não considere as informações de sub-rede de cliente EDNS ao criar o resultado. Utiliza o endereço IP de resolução de DNS local dos seus utilizadores para agrupá-los.
+As consultas DNS servidas pelo Gestor de tráfego do Azure considere informações ECS para aumentar a precisão do encaminhamento. Mas, ao criar o conjunto de dados que mostra onde os utilizadores estão a ligar de, ver o tráfego está a utilizar apenas o endereço IP de resolução de DNS.
 
 ### <a name="how-many-days-of-data-does-traffic-view-use"></a>Quantos dias de dados utilizar a vista de tráfego?
 
@@ -219,15 +214,18 @@ Vista de tráfego cria o respetivo resultado ao processar os dados de sete dias 
 Quando utiliza pontos finais externos alojados fora regiões do Azure num perfil do Traffic Manager pode escolher que mapeado para uma região do Azure que é um proxy para as características de latência (isto é na realidade necessário se utilizar o método de encaminhamento de desempenho). Se tiver desta mapeamento de região do Azure, as métricas de latência nessa região do Azure serão utilizadas ao criar a vista de tráfego de saída. Não se for especificada nenhuma região do Azure, as informações de latência estará vazios dos dados para esses pontos finais externos.
 
 ### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>É necessário ativar vista de tráfego para cada perfil na minha subscrição?
-Durante o período de pré-visualização, ver o tráfego está ativado um nível de subscrição e está disponível para todos os perfis do Gestor de tráfego dessa subscrição.
 
-### <a name="how-can-i-turn-off-traffic-view"></a>Como posso desativar a vista de tráfego?
-Durante o período de pré-visualização, estamos a pedir que crie um pedido de suporte para desativar a vista de tráfego para a sua subscrição.
+Durante o período de pré-visualização, a vista de tráfego foi ativada um nível de subscrição. Como parte das melhorias que Tornamos antes da disponibilidade geral, podem agora ativar vista de tráfego a um nível de perfil, permitindo-lhe ter mais granular sobre a ativação desta funcionalidade. Por predefinição, a vista de tráfego será desativada para um perfil.
+
+>[!NOTE]
+>Se tiver ativado a vista de tráfego de um nível de subscrição durante o período de pré-visualização, tem agora a reativá-la para cada perfil dessa subscrição.
+ 
+### <a name="how-can-i-turn-off-traffic-view"></a>Como posso desativar a vista de tráfego? 
+Pode desativar a vista de tráfego para qualquer perfil de utilizar o Portal ou a REST API. 
 
 ### <a name="how-does-traffic-view-billing-work"></a>Como funciona a faturação da vista de tráfego?
 
 Tráfego Ver preços baseia-se no número de pontos de dados utilizado para criar a saída. Atualmente, o tipo de dados apenas suportado é consultas que recebe o seu perfil. Além disso, apenas são cobradas para o processamento foi feito quando tiver de vista de tráfego ativado. Isto significa que, se ativar vista de tráfego para um determinado período de tempo num mês e desativá-la durante noutros casos, apenas os pontos de dados processados enquanto tinha a funcionalidade ativada contagem para a fatura.
-Durante o período de pré-visualização, não lhe serem cobrados para utilizar a vista de tráfego.
 
 ## <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
 

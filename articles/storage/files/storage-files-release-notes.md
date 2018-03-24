@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
+ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Notas de versão para o agente do Azure File Sync (pré-visualização)
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -93,11 +93,12 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 - Um ponto final do servidor não pode encontrar-se no volume de sistema. Por exemplo, C:\AMinhaPasta não é um caminho aceitável, a menos que C:\AMinhaPasta seja um ponto de montagem.
 - O Clustering de Ativação Pós-falha só é suportado com discos em cluster, mas não com Volumes Partilhados de Cluster (CSVs).
 - Não é possível aninhar um ponto final do servidor. Pode coexistir no mesmo volume em paralelo com outro ponto final.
-- A eliminação de um grande número de diretórios (mais de 10.000) a partir de um servidor, de uma só vez, pode provocar falhas de sincronização. Elimine diretórios em lotes com menos de 10.000. Certifique-se de que as operações de eliminação são sincronizadas com êxito antes de eliminar o lote seguinte.
 - Esta versão adiciona suporte para a raiz de sincronização na raiz de um volume.
 - Não armazene o ficheiro de paginação de uma aplicação ou SO que se encontre num ponto final do servidor.
 - Alterado nesta versão: foram adicionados novos eventos para controlar o runtime total da disposição em camadas na cloud (EventID 9016), o progresso do carregamento da sincronização (EventID 9302) e os ficheiros que não foram sincronizados (EventID 9900).
-- Alterado nesta versão: o desempenho da sincronização do espaço de nomes DR aumentou significativamente.
+- Melhorada nesta versão: 
+- Desempenho de sincronização de espaço de nomes de DR rápida aumenta significativamente.
+- Grande número (mais 10 000) de diretórios a eliminar não precisa de ser feita em lotes com v2 *.
  
 ### <a name="cloud-tiering"></a>Disposição em camadas na cloud
 - Alterado em relação à versão anterior: os ficheiros novos são dispostos em camadas no espaço de 1 hora (antes: 32 horas), sujeito à definição de política de disposição em camadas. Fornecemos um cmdlet do PowerShell para efetuar a disposição em camadas a pedido. Pode utilizar o cmdlet para avaliar a disposição em camadas de forma mais eficiente sem ter de aguardar pelo processo em segundo plano.

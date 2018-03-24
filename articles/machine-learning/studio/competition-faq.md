@@ -2,9 +2,10 @@
 title: Cortana Intelligence Competitions FAQ | Microsoft Docs
 description: Perguntas mais frequentes sobre o Microsoft Cortana Intelligence Competitions.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: haining;garye
-ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: db6fb6cd6c500ffe4537b57a968ef3b8792bcad6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence Competitions FAQ (FAQ dos Concursos do Microsoft Cortana Intelligence)
 **O que é o Cortana Intelligence Competitions?**
@@ -35,7 +35,7 @@ Para perguntas gerais, pode utilizar o [fórum do Microsoft Azure Machine Learni
 
 **Como posso introduza uma concorrência?**
 
-Acesso a [Competitions](https://gallery.cortanaintelligence.com/competitions) página inicial no [galeria do Azure AI](https://gallery.cortanaintelligence.com/), ou vá para [http://aka.ms/CIComp](http://aka.ms/CIComp). A home page apresenta uma lista de todos os competitions atualmente em execução. Cada concorrência em pormenor instruções e regras de participação, prizes e a duração na sua página de inscrição.
+Acesso a [Competitions](https://gallery.cortanaintelligence.com/competitions) página inicial no [galeria do Azure AI](https://gallery.cortanaintelligence.com/), ou vá para [ http://aka.ms/CIComp ](http://aka.ms/CIComp). A home page apresenta uma lista de todos os competitions atualmente em execução. Cada concorrência em pormenor instruções e regras de participação, prizes e a duração na sua página de inscrição.
 
 1. Localize as leis de concorrência que pretende participar, leia todas as instruções e veja o vídeo tutorial. Em seguida, clique o **introduza concorrência** botão e copie a experimentação de arranque para a sua área de trabalho existente do Azure Machine Learning. Se ainda não tiver acesso a uma área de trabalho, tem de criar um previamente. Execute a experimentação de arranque, observar a métrica de desempenho, em seguida utilize o creativity para melhorar o desempenho do modelo. Provavelmente irá gastam a maioria do seu tempo neste passo.   
 

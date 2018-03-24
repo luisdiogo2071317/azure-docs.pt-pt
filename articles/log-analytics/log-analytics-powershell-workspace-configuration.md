@@ -1,11 +1,11 @@
 ---
-title: "Utilizar o PowerShell para criar e configurar uma área de trabalho de análise do registo | Microsoft Docs"
-description: "Iniciar análise utiliza dados a partir de servidores no local ou a infraestrutura de nuvem. Pode recolher dados da máquina de armazenamento do Azure quando gerados ao diagnóstico do Azure."
+title: Utilizar o PowerShell para criar e configurar uma área de trabalho de análise do registo | Microsoft Docs
+description: Iniciar análise utiliza dados a partir de servidores no local ou a infraestrutura de nuvem. Pode recolher dados da máquina de armazenamento do Azure quando gerados ao diagnóstico do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
 ms.workload: na
@@ -14,16 +14,16 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 6807ab67e3593da82c147669b29bfdae3b6c967c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a3f91323a017533d2d012f1e81760396c17a643
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gerir o Log Analytics com o PowerShell
 Pode utilizar o [cmdlets do PowerShell de análise do registo](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para efetuar várias funções na análise de registos, numa linha de comandos ou como parte de um script.  Exemplos de tarefas que pode realizar com o PowerShell incluem:
 
-* Criar áreas de trabalho
+* Criar uma área de trabalho
 * Adicionar ou remover uma solução
 * Importar e exportar procuras guardadas
 * Criar um grupo de computadores
@@ -49,7 +49,7 @@ Estes exemplos funcionam com a versão 2.3.0 ou posterior do módulo AzureRm.Ope
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar uma área de trabalho de análise do registo
 O script de exemplo seguinte ilustra como:
 
-1. Criar áreas de trabalho
+1. Criar uma área de trabalho
 2. Lista as soluções disponíveis
 3. Adicionar soluções para a área de trabalho
 4. Pesquisas de importação guardada
@@ -145,7 +145,7 @@ foreach ($solution in $Solutions) {
     Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
 }
 
-#List enabled solutions
+# List enabled solutions
 (Get-AzureRmOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Where({($_.enabled -eq $true)})
 
 # Import Saved Searches
@@ -193,14 +193,14 @@ Para a monitorização sem agente de recursos do Azure, os recursos tem de ter o
 | --- | --- | --- |
 | Gateways da Aplicação    | Sim | Sim |
 | Contas de Automatização     | Sim | |
-| Contas do batch          | Sim | Sim |
+| Contas de Batch          | Sim | Sim |
 | Análise do Data Lake     | Sim | | 
 | Arquivo data Lake         | Sim | |
 | Agrupamento elástico de SQL        |     | Sim |
-| Espaço de nomes de Hub de eventos     |     | Sim |
+| Espaço de nomes do Hub de Eventos     |     | Sim |
 | Hubs IoT                |     | Sim |
 | Cofre de Chaves               | Sim | |
-| Balanceadores de carga          | Sim | |
+| Balanceadores de Carga          | Sim | |
 | Aplicações Lógicas              | Sim | Sim |
 | Grupos de Segurança de Rede | Sim | |
 | Cache de Redis             |     | Sim |
@@ -263,6 +263,6 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 Também pode utilizar o script anterior para recolher registos de contas de armazenamento em diferentes subscrições. O script é capaz de funcionar entre subscrições, uma vez que está a fornecer o id de recurso de conta de armazenamento e uma chave de acesso correspondente. Quando alterar a chave de acesso, terá de atualizar as informações de armazenamento com a nova chave.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Reveja os cmdlets do PowerShell de análise do registo](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para obter informações adicionais sobre como utilizar o PowerShell para análise de registos de configuração.
 

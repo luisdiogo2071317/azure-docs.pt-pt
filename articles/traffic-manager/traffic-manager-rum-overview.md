@@ -1,31 +1,28 @@
 ---
 title: Medidas de utilizador real no Traffic Manager do Azure | Microsoft Docs
-description: "Introdução ao utilizador Real medidas no Gestor de tráfego"
+description: Introdução ao utilizador Real medidas no Gestor de tráfego
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: a7e8ae605b6234341d9ab8b790f4c54d8627f29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Descrição geral de medidas de utilizador reais do Gestor de tráfego
-
->[!NOTE]
->A funcionalidade de medidas de utilizador Real no Traffic Manager está em pré-visualização pública e não pode ter o mesmo nível de disponibilidade e fiabilidade como versão de funcionalidades que estão em geral disponibilidade. A funcionalidade não é suportada, pode ter restrita capacidades e poderão não estar disponível em todas as localizações do Azure. Para as notificações mais atualizadas à sua disponibilidade e o estado desta funcionalidade, consulte o [Traffic Manager do Azure atualiza](https://azure.microsoft.com/updates/?product=traffic-manager) página.
 
 Quando configurar um perfil do Traffic Manager para utilizar o método de encaminhamento de desempenho, o serviço procura onde os pedidos de consulta DNS são feitos e toma decisões de encaminhamento para direcionar os requerentes para a região do Azure fornece-lhes a latência mais baixa. Isto é conseguido utilizando o intelligence de latência de rede que mantém o Gestor de tráfego para redes de outro utilizador final.
 
@@ -41,7 +38,7 @@ Ao longo do tempo, isto acontece demasiadas vezes e em redes muitos esquerda ao 
 
 Quando utilizar medidas de utilizador reais, é-lhe cobrada com base no número de valores enviados para o Gestor de tráfego. Para obter mais detalhes sobre os preços, visite o [Gestor de tráfego a página de preços](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba como utilizar [Real de utilizador de medidas com páginas web](traffic-manager-create-rum-web-pages.md)
 - Saiba [como funciona o Gestor de tráfego](traffic-manager-overview.md)
 - Saiba mais sobre [Mobile Center](https://docs.microsoft.com/mobile-center/)

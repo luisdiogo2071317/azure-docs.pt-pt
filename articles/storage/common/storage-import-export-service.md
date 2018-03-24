@@ -6,13 +6,13 @@ manager: syadav
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o Storage do Azure
 Neste artigo, fornecemos instruções passo a passo sobre como utilizar o serviço importar/exportar do Azure para transferir de forma segura grandes quantidades de dados para o Blob storage do Azure e ficheiros do Azure por envio unidades de disco para um centro de dados do Azure. Este serviço também pode ser utilizado para transferir dados do storage do Azure para unidades de disco rígido e são enviados para os sites no local. Dados a partir de uma única unidade de disco SATA interna podem ser importados o Blob storage do Azure ou os ficheiros do Azure. 
@@ -151,7 +151,7 @@ Para as tarefas de exportação, depois dos dados são copiados para as unidades
 ### <a name="operating-system"></a>Sistema Operativo
 Pode utilizar um dos seguintes sistemas operativos de 64 bits para preparar a unidade de disco rígido com a ferramenta de WAImportExport antes do envio a unidade para o Azure:
 
-Windows 7 Enterprise, Ultimate do Windows 7, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Todos estes sistemas operativos suportam a encriptação de unidade BitLocker.
+Windows 7 Enterprise, Ultimate do Windows 7, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Todos estes sistemas operativos suportam a encriptação de unidade BitLocker.
 
 ### <a name="locations"></a>Localizações
 O serviço de importação/exportação do Azure suporta a cópia de dados de e para todas as contas de armazenamento do Azure público. Pode enviar unidades de disco rígido para uma das localizações indicadas. Se a sua conta do storage está numa localização pública do Azure que não for especificada aqui, uma localização alternativa de envio será fornecida quando estiver a criar a tarefa utilizando o portal do Azure ou a API de REST de importação/exportação.

@@ -1,6 +1,6 @@
 ---
-title: "Encriptação de disco do Azure para o Windows e as VMs de Linux IaaS | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral do Microsoft Azure disco encriptação para o Windows e as VMs de IaaS Linux."
+title: Encriptação de disco do Azure para o Windows e as VMs de Linux IaaS | Microsoft Docs
+description: Este artigo fornece uma descrição geral do Microsoft Azure disco encriptação para o Windows e as VMs de IaaS Linux.
 services: security
 documentationcenter: na
 author: DevTiw
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 73212a231d11136854115922df423a7cb5b08f05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Encriptação de disco do Azure para o Windows e as VMs de Linux IaaS
 Microsoft Azure é vivamente consolidada para assegurar a privacidade dos dados, soberania de dados e permite avançadas, para controlar o Azure alojadas dados através de uma variedade de tecnologias para encriptar, controlar e gerir chaves de encriptação, controlo & auditar o acesso aos dados. Isto proporciona aos clientes do Azure a flexibilidade para escolher a solução que melhor se adeque às suas necessidades de negócio. Neste documento, vamos apresenta-lhe uma nova solução de tecnologia "Do Azure Disk Encryption para o Windows e de Linux IaaS VM" para ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacional. O documento fornece orientações detalhadas sobre como utilizar as funcionalidades de encriptação de disco do Azure, incluindo os cenários suportados e o utilizador experiências.
@@ -156,13 +156,13 @@ Antes de ativar o Azure Disk Encryption em VMs do IaaS do Azure para os cenário
 * A plataforma do Azure necessita de acesso a chaves de encriptação ou segredos no seu Cofre de chaves para que fiquem disponíveis para a máquina virtual quando se efetua o arranque e desencripta o volume de SO da máquina virtual. Para conceder permissões para a plataforma do Azure, defina o **EnabledForDiskEncryption** propriedade no Cofre de chaves. Para obter mais informações, consulte **definir configurar e configurar o seu Cofre de chaves do Azure Disk Encryption** no anexo.
 * O segredo do Cofre de chaves e os KEK URLs tem de ser com a versão. Azure impõe esta restrição do controlo de versões. Para segredo válido e KEK URLs, consulte os exemplos seguintes:
 
-  * Exemplo de um URL válido secreto: *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Exemplo de um URL válido da KEK: *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Exemplo de um URL secreto válido:   *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Exemplo de um URL válido da KEK:   *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Azure Disk Encryption não suporta a especificação de números de porta como parte dos segredos do Cofre de chaves e KEK URLs. Para obter exemplos de URLs do Cofre de chaves suportadas e não suportados, consulte o seguinte:
 
-  * URL do Cofre de chaves inaceitável *https://contosovault.vault.azure.net:443/segredos/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * URL do Cofre de chaves aceitável: *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL do Cofre de chaves inaceitável  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL do Cofre de chaves aceitável:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Para ativar o Azure Disk Encryption funcionalidade, as VMs de IaaS tem de cumprir os seguintes requisitos de configuração de ponto final de rede:
   * Para obter um token para ligar ao seu Cofre de chaves, a VM do IaaS tem de ser capaz de ligar a um ponto final do Azure Active Directory, \[login.microsoftonline.com\].
@@ -172,7 +172,7 @@ Antes de ativar o Azure Disk Encryption em VMs do IaaS do Azure para os cenário
   > [!NOTE]
   > Se a política de segurança limita o acesso a partir de VMs do Azure para a Internet, pode resolver o URI anterior e configurar uma regra para permitir a conectividade de saída para os IPs específica.
   >
-  >Para configurar e aceder ao Cofre de chaves do Azure atrás de uma firewall (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
+  >Para configurar e aceder ao Cofre de chaves do Azure por trás de uma firewall (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
 
 * Utilize a versão mais recente da versão do SDK do Azure PowerShell para configurar a Azure Disk Encryption. Transfira a versão mais recente do [Azure PowerShell versão](https://github.com/Azure/azure-powershell/releases)
 
@@ -193,7 +193,7 @@ Antes de ativar o Azure Disk Encryption em VMs do IaaS do Azure para os cenário
 * Para configurar os pré-requisitos de encriptação de disco com a CLI do Azure, consulte [este script de Bash](https://github.com/ejarvi/ade-cli-getting-started).
 * Para utilizar o serviço de cópia de segurança do Azure para criar cópias de segurança e restaurar VMs encriptadas, quando é ativada a encriptação com o Azure Disk Encryption, encriptar as suas VMs utilizando a configuração de chave de encriptação de disco do Azure. O serviço de cópia de segurança suporta VMs que estão encriptadas com a KEK não ou configurações de KEK. Consulte [como fazer cópias de segurança e restaurar encriptados máquinas virtuais com a encriptação da cópia de segurança do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* Encriptar um volume com SO Linux, tenha em atenção de que está atualmente necessário no final do processo de um reinício VM. Isto pode ser feito através do portal, o powershell ou a CLI.   Para acompanhar o progresso de encriptação, consulte periodicamente a mensagem de estado devolvida pelo Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Assim que a encriptação estiver concluída, a mensagem de estado devolvida por este comando irá indicar isto.  Por exemplo, "ProgressMessage: disco do SO encriptados com êxito, reinicie a VM" neste momento a VM pode ser reiniciada e utilizada.  
+* Encriptar um volume com SO Linux, tenha em atenção de que está atualmente necessário no final do processo de um reinício VM. Isto pode ser feito através do portal, o powershell ou a CLI.   Para acompanhar o progresso de encriptação, consultar periodicamente a mensagem de estado devolvida pelo Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Assim que a encriptação estiver concluída, a mensagem de estado devolvida por este comando irá indicar isto. Por exemplo, "ProgressMessage: disco do SO encriptados com êxito, reinicie a VM" neste momento a VM pode ser reiniciada e utilizada.  
 
 * Azure Disk Encryption para Linux necessita de discos de dados para ter um sistema de ficheiros montado no Linux antes de encriptação
 
@@ -224,25 +224,25 @@ Utilize o seguinte cmdlet do PowerShell para criar uma aplicação do Azure AD:
 ##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>Configurar o ID de cliente do Azure AD e o segredo do portal do Azure
 Pode também configurar o ID de cliente do Azure AD e o segredo utilizando o Portal do Azure. Para efetuar esta tarefa, efetue o seguinte:
 
-1. Clique em de **do Active Directory** separador.
+1. Selecione **todos os serviços > do Azure Active Directory**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-service.png)
 
-2. Clique em **Adicionar aplicação**e, em seguida, escreva o nome da aplicação.
+2. Selecione **registos de aplicações > novo registo de aplicação**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-app-registration.png)
 
-3. Clique no botão de seta e, em seguida, configure as propriedades da aplicação.
+3. Forneça as informações pedidas e criar a aplicação:
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-app.png)
 
-4. Clique na marca de verificação no canto inferior esquerdo para concluir. É apresentada a página de configuração de aplicação e o ID de cliente do Azure AD é apresentado na parte inferior da página.
+4. Selecione a aplicação criada recentemente para ver as respetivas propriedades, incluindo o ID da aplicação.  Para criar uma chave para a aplicação, selecione **definições > chaves**, adicione uma descrição e a expiração da chave e clique em **guardar**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-pw.png)
 
-5. Guardar o segredo do cliente do Azure AD, clicando no **guardar** botão. Tenha em atenção o segredo do cliente do Azure AD na caixa de texto de chaves. Salvaguarde adequadamente.
+5. Copie o valor secreto gerado e protegê-lo adequadamente.
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-save-pw.png)
 
 
 ##### <a name="use-an-existing-application"></a>Utilizar uma aplicação existente

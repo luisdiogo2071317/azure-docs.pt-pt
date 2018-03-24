@@ -1,11 +1,11 @@
 ---
-title: "Gestão de aplicações da empresa no Azure Active Directory de aprovisionamento de utilizadores | Microsoft Docs"
-description: "Saiba como gerir o aprovisionamento da conta de utilizador para aplicações da empresa utilizando o Azure Active Directory"
+title: Gestão de aplicações da empresa no Azure Active Directory de aprovisionamento de utilizadores | Microsoft Docs
+description: Saiba como gerir o aprovisionamento da conta de utilizador para aplicações da empresa utilizando o Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bded73b4a335dc85a84691f5edabac5055f43cca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerir a conta de utilizador de aprovisionamento de aplicações da empresa no portal do Azure
 Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir o aprovisionamento da conta de utilizador automáticas e anular o aprovisionamento de aplicações que suportem-lo, particularmente as que foram adicionados a categoria do "emdestaque"[ Galeria de aplicações do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Para saber mais sobre o aprovisionamento da conta de utilizador automáticas e como funciona, consulte [automatizar utilizador aprovisionamento e desaprovisionamento para aplicações de SaaS no Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -76,7 +76,7 @@ Esta secção fornece detalhes adicionais sobre o funcionamento do serviço do a
 
 São fornecidas hiperligações para a **relatório de atividade de aprovisionamento**, que fornece um registo de todos os utilizadores e grupos criados, removido entre e atualizado do Azure AD e a aplicação de destino e o **derelatóriodeerrosdeaprovisionamento** que fornece mais mensagens de erro para o utilizador e objetos de grupo que falharam ao ser lidas, criado, atualizado ou removido. 
 
-##<a name="feedback"></a>Comentários
+## <a name="feedback"></a>Comentários
 
 Esperamos, como a sua experiência do Azure AD. Manter os comentários provenientes! Publique os seus comentários e ideias para melhoria no **Portal de administração** secção do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Iremos estiver entusiasmados sobre como criar conteúdo novo frio diariamente e utilize a orientações sobre a forma e definir o que devemos criar a seguir.
 

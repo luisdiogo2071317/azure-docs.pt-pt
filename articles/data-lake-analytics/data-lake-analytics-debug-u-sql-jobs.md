@@ -1,8 +1,8 @@
 ---
-title: "Definido pelo utilizador código c# para tarefas com falha do Azure Data Lake U-SQL de depuração | Microsoft Docs"
-description: "Saiba como depurar uma vértice falhada de U-SQL com o Azure Data Lake Tools para Visual Studio."
+title: Definido pelo utilizador código c# para tarefas com falha do Azure Data Lake U-SQL de depuração | Microsoft Docs
+description: Saiba como depurar uma vértice falhada de U-SQL com o Azure Data Lake Tools para Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depurar definido pelo utilizador código c# para as tarefas que falharam U-SQL
 
@@ -41,7 +41,7 @@ Quando abre uma tarefa no Azure Data Lake Tools para Visual Studio, verá uma ba
 
 1. Clique em **transferir** para transferir todos os recursos necessários e fluxos de entrada. Se não concluir a transferência, clique em **repita**.
 
-2. Clique em **abra** depois de concluída a transferência para gerar um ambiente de depuração local. Uma nova instância do Visual Studio com uma solução de depuração é automaticamente criada e aberta.
+2. Clique em **abra** depois de concluída a transferência para gerar um ambiente de depuração local. Será aberta uma nova solução de depuração e, se tiver existente solução aberta no Visual Studio,. Certifique-se a guarde e feche-a antes de depuração.
 
 ![Azure vértice de transferência do visual studio de depuração do U-SQL do Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
@@ -109,7 +109,7 @@ Para submeter a tarefa falhada:
 
 3. Volte a submeter a tarefa de U-SQL.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Guia de programação para U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 - [Desenvolver operadores definido pelo utilizador U-SQL para tarefas do Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)

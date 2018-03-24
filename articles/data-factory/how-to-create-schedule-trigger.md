@@ -2,10 +2,10 @@
 title: Criar os acionadores de agenda no Azure Data Factory | Microsoft Docs
 description: Saiba como criar um acionador no Azure Data Factory que executa um pipeline com base numa agenda.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 51e2dddbe66ca372d89fc8efeb24bdab9fe6a442
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 6466d6cb535bbe0042d7c4c3e828e576e23d5d07
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um acionador que executa um pipeline com base numa agenda
 Este artigo fornece informações sobre o acionador de agenda e os passos para criar, iniciar e monitorizar um acionador de agenda. Para outros tipos de acionadores, consulte [acionadores e da execução de Pipeline](concepts-pipeline-execution-triggers.md).
@@ -25,7 +25,7 @@ Este artigo fornece informações sobre o acionador de agenda e os passos para c
 Ao criar um acionador de agendamento, especifique uma agenda (data, periodicidade de início, terminar data etc.) para o acionador e associar com um pipeline. Os pipelines e os acionadores têm uma relação muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines.
 
 > [!NOTE]
-> Este artigo aplica-se ao Azure Data Factory versão 2, que está atualmente em pré-visualização. Se estiver a utilizar o Azure Data Factory versão 1, que é geralmente disponível (DG), consulte [introdução ao Azure Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Este artigo aplica-se à versão 2 do Azure Data Factory, atualmente disponível em modo de pré-visualização. Se estiver a utilizar o Azure Data Factory versão 1, que é geralmente disponível (DG), consulte [introdução ao Azure Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 As secções seguintes fornecem passos para criar um acionador de agenda de formas diferentes. 
 
@@ -306,101 +306,101 @@ A seguinte definição JSON mostra como criar um acionador de agenda com o agend
 ```
 
 > [!IMPORTANT]
->  O **parâmetros** propriedade é uma propriedade obrigatória do **pipelines** elemento. Se o pipeline não assume quaisquer parâmetros, tem de incluir uma definição de JSON vazia para o **parâmetros** propriedade.
+>  A propriedade **parameters** é uma propriedade obrigatória do elemento **pipelines**. Se o seu pipeline não utiliza parâmetros, deve incluir uma definição JSON vazia para a propriedade **parameters**.
 
 
-### <a name="schema-overview"></a>Descrição geral de esquema
-A tabela seguinte fornece uma descrição dos elementos de esquema principais que estão relacionadas com a periodicidade e agendamento de um acionador de alto nível:
+### <a name="schema-overview"></a>Descrição geral do esquema
+A tabela que se segue fornece uma descrição geral de alto nível dos principais elementos do esquema relacionados com a periodicidade e o agendamento de um acionador:
 
 | Propriedade JSON | Descrição |
 |:--- |:--- |
-| **startTime** | Um valor de data / hora. Para agendas simples, o valor da **startTime** propriedade aplica-se a primeira ocorrência. Para agendas complexas, o acionador inicia não define que o especificado **startTime** valor. |
-| **endTime** | A data de fim e a hora para o acionador. Não executar o acionador após a data de fim especificado e a hora. O valor da propriedade não pode estar no passado. Esta propriedade é opcional. |
-| **timeZone** | O fuso horário. Atualmente, apenas o UTC fuso horário é suportado. |
-| **recurrence** | Um objeto de periodicidade que especifica as regras de periodicidade para o acionador. O objeto de periodicidade suporta o **frequência**, **interva**l, **endTime**, **contagem**, e **agenda**elementos. Quando um objeto de periodicidade estiver definido, o **frequência** elemento é necessário. Os outros elementos do objeto de periodicidade são opcionais. |
-| **frequency** | A unidade da frequência com que o acionador voltar a ocorrer. Os valores suportados incluem "minutos", "horas", "dia", "semanas" e "mês". |
-| **interval** | Um número inteiro positivo que indica o intervalo para o **frequência** valor, que determina a frequência de execução do acionador. Por exemplo, se o **intervalo** é 3 e o **frequência** é "semanas", o acionador voltar a ocorrer todos os 3 semanas. |
-| **schedule** | A agenda de periodicidade para o acionador. Um acionador com uma determinada **frequência** valor altera a periodicidade com base numa agenda de periodicidade. O **agenda** propriedade contém as modificações para a periodicidade que se baseiam em minutos, horas, dias da semana, os dias do mês e o número da semana.
+| **startTime** | Um valor de data/hora. Para agendamentos simples, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o acionador é iniciado imediatamente a seguir ao valor especificado em **startTime**. |
+| **endTime** | A data e hora de fim do acionador. O acionador não é executado após a data e hora de fim especificadas. O valor da propriedade não pode situar-se no passado. Esta propriedade é opcional. |
+| **timeZone** | O fuso horário. Atualmente, o fuso horário UTC é o único suportado. |
+| **recurrence** | Um objeto de periodicidade que especifica as regras de periodicidade do acionador. O objeto de periodicidade suporta o **frequência**, **interva**l, **endTime**, **contagem**, e **agenda**elementos. Quando um objeto de periodicidade é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de periodicidade são opcionais. |
+| **frequency** | A unidade que se refere à frequência com que o acionador voltar a ocorrer. Os valores suportados incluem "minute", "hour", "day", "week" e "month". |
+| **interval** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o valor de **interval** for 3 e o de **frequency** for "week", o acionador repete-se de três em três semanas. |
+| **schedule** | A agenda de periodicidade do acionador. Um acionador que tenha um valor **frequency** especificado modifica a respetiva periodicidade com base numa agenda de periodicidade. A propriedade **schedule** contém modificações da periodicidade baseadas em minutos, horas, dias de semana, dias do mês e número da semana.
 
 
-### <a name="schema-defaults-limits-and-examples"></a>As predefinições de esquema, os limites e exemplos
+### <a name="schema-defaults-limits-and-examples"></a>Predefinições, limites e exemplos do esquema
 
 | Propriedade JSON | Tipo | Necessário | Valor predefinido | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | Cadeia | Sim | Nenhum | Datas-Horas ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | Cadeia | Sim | Nenhuma | Datas-Horas ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Objeto | Sim | Nenhum | Objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Número | Não | 1 | 1 a 1000 | `"interval":10` |
-| **endTime** | Cadeia | Sim | Nenhum | Um valor de data / hora que representa uma data futura. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | Cadeia | Sim | Nenhuma | Um valor de data/hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Objeto | Não | Nenhum | Objeto da agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
-### <a name="starttime-property"></a>propriedade de startTime
-A tabela seguinte mostra como as **startTime** propriedade controla um acionador executar:
+### <a name="starttime-property"></a>Propriedade startTime
+A tabela que se segue mostra o modo como a propriedade **startTime** controla a execução de um acionador:
 
 | valor de startTime | Periodicidade sem agenda | Periodicidade com agenda |
 |:--- |:--- |:--- |
-| Hora de início no passado | Calcula o tempo de execução futuro primeiro após a hora de início e executa a essa hora.<br/><br/>Executa as execuções subsequentes com base em calcular a partir do último tempo de execução.<br/><br/>Veja o exemplo a seguir à tabela. | O acionador inicia _não sooner que_ a hora de início especificada. A primeira ocorrência é baseada na agenda que é calculada a partir da hora de início.<br/><br/>Executa as execuções subsequentes com base na agenda de periodicidade. |
-| Hora de início no futuro ou no presente | É executada uma vez à hora de início especificada.<br/><br/>Executa as execuções subsequentes com base em calcular a partir do último tempo de execução. | O acionador inicia _não mais cedo_ especificado que a hora de início. A primeira ocorrência é baseada na agenda que é calculada a partir da hora de início.<br/><br/>Executa as execuções subsequentes com base na agenda de periodicidade. |
+| Hora de início no passado | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br/><br/>Executa as execuções subsequentes com base no cálculo da última hora de execução.<br/><br/>Veja o exemplo a seguir à tabela. | O acionador é iniciado _imediatamente a seguir_  à hora de início especificada. A primeira ocorrência tem por base a agenda calculada a partir da hora de início.<br/><br/>Executa as execuções subsequentes com base na agenda de periodicidade. |
+| Hora de início no futuro ou no presente | É executada uma vez na hora de início especificada.<br/><br/>Executa as execuções subsequentes com base no cálculo da última hora de execução. | O acionador é iniciado _imediatamente a seguir_  à hora de início especificada. A primeira ocorrência tem por base a agenda calculada a partir da hora de início.<br/><br/>Executa as execuções subsequentes com base na agenda de periodicidade. |
 
-Vamos ver um exemplo do que acontece quando a hora de início é no passado, com uma periodicidade, mas nenhuma agenda. Partem do princípio de que a hora atual é `2017-04-08 13:00`, a hora de início é `2017-04-07 14:00`, e a periodicidade é dois dias. (O **periodicidade** valor é definido pela definição do **frequência** propriedade como "dia" e o **intervalo** propriedade para 2.) Tenha em atenção que o **startTime** valor está no passado e ocorre antes da hora atual.
+Vejamos um exemplo do que acontece quando a hora de início (startTime) se situa no passado, com periodicidade, mas sem agenda. Parta do princípio de que a hora atual é `2017-04-08 13:00`, a hora de início é `2017-04-07 14:00` e a periodicidade é de dois em dois dias. (O valor **recurrence** é especificado mediante a definição da propriedade **frequency** como "day" e da propriedade **interval** como 2.) Repare que o valor de **startTime** se situa no passado e ocorre antes da hora atual.
 
-Nestas condições, a primeira execução é em `2017-04-09 at 14:00`. O motor do Scheduler calcula as ocorrências de execução a partir da hora de início. Quaisquer instâncias no passado são eliminadas. O motor utiliza a instância seguinte que ocorre no futuro. Neste cenário, a hora de início é `2017-04-07 at 2:00pm`, pelo que a instância seguinte é dois dias a esse tempo, o que é `2017-04-09 at 2:00pm`.
+Nestas condições, a primeira execução é em `2017-04-09 at 14:00`. O motor do Scheduler calcula as ocorrências de execução a partir da hora de início. Quaisquer instâncias no passado são eliminadas. O motor utiliza a instância seguinte que ocorre no futuro. Neste cenário, a hora de início é `2017-04-07 at 2:00pm`, pelo que a instância seguinte é dali a dois dias a contar dessa hora, ou seja, `2017-04-09 at 2:00pm`.
 
-O primeiro tempo de execução é o mesmo mesmo quando o **startTime** valor é `2017-04-05 14:00` ou `2017-04-01 14:00`. Após a primeira execução, as execuções subsequentes são calculadas utilizando a agenda. Por conseguinte, as execuções subsequentes são em `2017-04-11 at 2:00pm`, em seguida, `2017-04-13 at 2:00pm`, em seguida, `2017-04-15 at 2:00pm`, e assim sucessivamente.
+A primeira hora de execução é igual, mesmo que o valor de **startTime** seja `2017-04-05 14:00` ou `2017-04-01 14:00`. Após a primeira execução, as execuções subsequentes são calculadas com base na agenda. Por conseguinte, as execuções subsequentes são a `2017-04-11 at 2:00pm`, depois a `2017-04-13 at 2:00pm`, a seguir a `2017-04-15 at 2:00pm` e assim sucessivamente.
 
-Por fim, quando as horas ou minutos não se encontram definidos na agenda para um acionador, as horas ou minutos da primeira execução são utilizados como as predefinições.
+Por último, quando as horas ou os minutos não se encontram definidos na agenda para um acionador, as horas ou minutos da primeira execução são utilizados como as predefinições.
 
-### <a name="schedule-property"></a>propriedade de agenda
-Um lado, a utilização de uma agenda pode limitar o número de execuções de Acionador. Por exemplo, se um acionador com uma frequência mensal estiver agendado para ser executado apenas no dia 31, o acionador é executado apenas nos meses que tenham 31 dias.
+### <a name="schedule-property"></a>Propriedade schedule
+Por um lado, a utilização de agendas pode limitar o número de execuções de acionadores. Por exemplo, se um acionador com uma frequência mensal estiver agendado de modo a ser executado apenas no dia 31, o acionador só é executado nos meses que têm 31 dias.
 
-Por outro lado, as agendas também podem expandir o número de execuções de acionadores. Por exemplo, um acionador com uma frequência de mensal tem agendadas para serem executadas em dias do mês, 1 e 2, é executada nos 1ª e 2nd dias do mês, em vez de uma vez por mês.
+Por outro lado, as agendas também podem expandir o número de execuções de acionadores. Por exemplo, um acionador com uma frequência mensal que esteja agendado de maneira a ser executado nos dias 1 e 2 do mês, é executado nos 1º e 2º dias do mês, em vez de uma vez por mês.
 
-Se vários **agenda** elementos especificados, a ordem de avaliação é desde a maior para a definição de agenda mais pequena. A avaliação começa por dia da semana número e, em seguida, mês dia de semana, hora e por fim, minutos.
+Se forem especificados vários elementos **schedule**, a ordem de avaliação é feita da definição de agenda maior para a mais pequena. A avaliação começa pelo número da semana, seguindo-se o dia do mês, o dia da semana, a hora e, por último, o minuto.
 
-A tabela seguinte descreve o **agenda** elementos detalhadamente:
+A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 
 
 | Elemento JSON | Descrição | Valores válidos |
 |:--- |:--- |:--- |
-| **minutos** | Minutos da hora em que o acionador é executado. | <ul><li>Número inteiro</li><li>Matriz de números inteiros</li></ul>
-| **horas** | Horas do dia em que o acionador é executado. | <ul><li>Número inteiro</li><li>Matriz de números inteiros</li></ul> |
-| **weekDays** | Dias da semana em que executa o acionador. O valor pode ser especificado com uma frequência semanal apenas. | <ul><li>Segunda, Terça, quarta-feira, Quinta-feira, sexta-feira, Sábado, Domingo</li><li>Matriz de valores de dia (tamanho máximo de matriz é 7)</li><li>Dia valores não são sensíveis a maiúsculas</li></ul> |
-| **monthlyOccurrences** | Dias do mês em que executa o acionador. O valor pode ser especificado com uma frequência mensal apenas. | <ul><li>Matriz de **monthlyOccurence** objetos: `{ "day": day,  "occurrence": occurence }`.</li><li>O **dia** atributo é o dia da semana em que executa o acionador. Por exemplo, um **monthlyOccurrences** propriedade com um **dia** valor `{Sunday}` significa cada Domingo do mês. O **dia** atributo é necessário.</li><li>O **ocorrência** atributo é a ocorrência de especificado **dia** durante o mês. Por exemplo, um **monthlyOccurrences** propriedade com **dia** e **ocorrência** valores de `{Sunday, -1}` significa Domingo último do mês. O **ocorrência** atributo é opcional.</li></ul> |
-| **dias do mês** | Dia do mês em que executa o acionador. O valor pode ser especificado com uma frequência mensal apenas. | <ul><li>Qualquer valor <= -1 e >= -31</li><li>Qualquer valor >= 1 e <= 31</li><li>Matriz de valores</li></ul> |
+| **minutes** | Minutos da hora em que o acionador é executado. | <ul><li>Número inteiro</li><li>Matriz de números inteiros</li></ul>
+| **hours** | Horas do dia em que o acionador é executado. | <ul><li>Número inteiro</li><li>Matriz de números inteiros</li></ul> |
+| **weekDays** | Dias da semana em que o acionador é executado. O valor pode ser especificado com uma frequência semanal apenas. | <ul><li>Segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira, sábado, domingo</li><li>Matriz de valores de dia (o tamanho máximo da matriz é 7)</li><li>Os valores de dia não são sensíveis às maiúsculas e minúsculas</li></ul> |
+| **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. | <ul><li>Matriz de objetos de **monthlyOccurence**: `{ "day": day,  "occurrence": occurence }`.</li><li>O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.</li><li>O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.</li></ul> |
+| **monthDays** | Dia do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. | <ul><li>Qualquer valor <= -1 e >= -31</li><li>Qualquer valor >= 1 e <= 31</li><li>Matriz de valores</li></ul> |
 
 
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Exemplos de agendas de periodicidade do acionador
-Esta secção fornece exemplos de agendas de periodicidade e centra-se no **agenda** objeto e os respetivos elementos.
+Esta secção mostra exemplos de agendas de periodicidade e centra-se no objeto **schedule** e respetivos elementos.
 
-Os exemplos partem do princípio de que o **intervalo** valor é 1 e essa o **frequência** valor é correto, de acordo com a definição de agenda. Por exemplo, não pode ter um **frequência** valor de "dia" e tem também uma modificação de "dias do mês" no **agenda** objeto. Restrições de como estas são mencionadas na tabela na secção anterior.
+Os exemplos partem do princípio de que o valor **interval** é igual a 1 e que o valor **frequency** está correto de acordo com a definição da agenda. Por exemplo, não pode ter um valor **frequency** igual a "day" e ter simultaneamente uma modificação "monthDays" no objeto **schedule**. Este género de restrições é mencionado na tabela da secção anterior.
 
 | Exemplo | Descrição |
 |:--- |:--- |
-| `{"hours":[5]}` | Execute todos os dias às 5:00. |
-| `{"minutes":[15], "hours":[5]}` | Execute 5:15 AM todos os dias. |
-| `{"minutes":[15], "hours":[5,17]}` | Execute 5 15 da Manhã e as 17:15:00 todos os dias. |
-| `{"minutes":[15,45], "hours":[5,17]}` | Executar em 5:15 AM, 5:45 AM, as 17:15:00 e as 17:45:00 todos os dias. |
-| `{"minutes":[0,15,30,45]}` | Execute a cada 15 minutos. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Execute a cada hora. Este acionador é executado de hora em hora. Os minutos são controlados mediante a **startTime** valor, quando é especificado um valor. Se um valor não especificado, os minutos são controlados pela hora de criação. Por exemplo, se a hora de início ou a hora de criação (que se aplica) for 12:25 PM, o acionador é executada às 00:25, 01:25, 02:25,... e 23:25.<br/><br/>Esta agenda é equivalente ao facto de ter um acionador com um **frequência** valor de "hora," um **intervalo** valor de 1 e não **agenda**.  Este agendamento pode ser utilizado com diferentes **frequência** e **intervalo** valores para criar outros acionadores. Por exemplo, quando o **frequência** valor é "mês", executa a agenda uma só vez por mês, em vez de todos os dias, quando o **frequência** valor é "dia". |
-| `{"minutes":[0]}` | Execute a cada hora em hora. Este acionador é executada a cada hora a hora de início às 12:00, 1:00:00, 2 horas da Manhã, e assim sucessivamente.<br/><br/>Esta agenda é equivalente a um acionador com um **frequência** valor de "hora" e um **startTime** valor de zero minutos ou não **agenda** mas um **frequência**  valor de "dia". Se o **frequência** valor for "semana" ou "mês", a agenda executa um dia, uma semana ou um dia, mês, apenas, respetivamente. |
-| `{"minutes":[15]}` | Execute em 15 minutos decorridos desde a cada hora. Este acionador é executada a cada hora em 15 minutos decorridos desde a hora de início às 00:15, 1:15:00, 2:15 AM e outros e terminado em 23:15:00. |
-| `{"hours":[17], "weekDays":["saturday"]}` | Execute as 17:00:00 em Saturdays todas as semanas. |
-| `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Execute as 17:00:00 na segunda-feira, Quartas e sexta-feira todas as semanas. |
-| `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Execute as 17:15:00 e as 17:45:00 na segunda-feira, Quartas e sexta-feira todas as semanas. |
-| `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Execute a cada 15 minutos em dias da semana. |
-| `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Execute a cada 15 minutos em dias da semana entre as 09:00:00 e 4:45 PM. |
-| `{"weekDays":["tuesday", "thursday"]}` | Execute em executado às Terças e às quintas-o do momento de início especificada. |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` | Executar às 6:00 do dia de cada mês 28th (assumindo um **frequência** valor de "mês"). |
-| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` | Execute às 6:00:00 no último dia do mês. Para executar um acionador no último dia de um mês, utilize -1 em vez de dia 28, 29, 30 ou 31. |
-| `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` | Execute às 6:00:00 no primeiro e último dia de cada mês. |
-| `{monthDays":[1,14]}` | Execute no primeiro e 14 dia de cada mês da hora de início especificada. |
-| `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Execute o primeiro sexta-feira de cada mês às 5:00. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Execute o primeiro sexta-feira de cada mês da hora de início especificada. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` | Execute o terceiro sexta-feira do fim do mês, todos os meses, a hora de início especificada. |
-| `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Execute na primeira e última sexta-feira de cada mês às 5 15 da Manhã. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Execute na primeira e última sexta-feira de cada mês da hora de início especificada. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Execute o quinto sexta-feira de cada mês da hora de início especificada. Quando não houver nenhuma sexta-feira quinta num mês, o pipeline não é executado, uma vez que tem agendado para ser executado apenas em sextas quinta. Para executar o acionador no último ocorrer sexta-feira do mês, considere a utilização de -1 em vez de 5 para o **ocorrência** valor. |
-| `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Executado a cada 15 minutos na última sexta-feira do mês. |
-| `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Executar em 5:15 AM, 5:45 AM, as 17:15:00 e 5:45 PM o terceiro quarta-feira de cada mês. |
+| `{"hours":[5]}` | Executar todos os dias às 5:00. |
+| `{"minutes":[15], "hours":[5]}` | Executar todos os dias às 5:15. |
+| `{"minutes":[15], "hours":[5,17]}` | Executar todos os dias às 5:15 e 17:15. |
+| `{"minutes":[15,45], "hours":[5,17]}` | Executar todos os dias às 5:15, 5:45, 17:15 e 17:45. |
+| `{"minutes":[0,15,30,45]}` | Executar de 15 em 15 minutos. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Executar hora a hora. Este acionador é executado de hora em hora. Os minutos são controlados pelo valor de **startTime**, quando é especificado um valor. Se não for especificado qualquer valor, os minutos são controlados pela hora de criação. Por exemplo, se a hora de início ou a hora de criação (a que se aplicar) for 12:25, o acionador é executado às 00:25, 01:25, 02:25 e assim sucessivamente até às 23:25.<br/><br/>Esta agenda equivale a ter um acionador com um valor **frequency** igual a "hour", um valor **interval** igual a 1 e zero propriedades **schedule**.  Esta agenda pode ser utilizada com valores **frequency** e **interval** diferentes para criar outros acionadores. Por exemplo, quando o valor **frequency** é igual a "month", a agenda é executada apenas uma vez por mês, em vez de todos os dias, como acontece quando o valor **frequency** é igual a "day". |
+| `{"minutes":[0]}` | Executar de hora a hora, à hora certa. Este acionador é executado de hora a hora, à hora certa, começando às 00:00, 1:00, 2:00 e assim sucessivamente.<br/><br/>Esta agenda equivale a ter um acionador com um valor **frequency** igual a "hour" e um valor **startTime** de zero minutos, ou zero propriedades **schedule**, mas um valor **frequency** igual a "day". Se o valor **frequency** for igual a "week" ou "month", a agenda é executada um dia por semana ou um dia por mês apenas, respetivamente. |
+| `{"minutes":[15]}` | Executar de hora a hora, 15 minutos após a hora. Este acionador é executado de hora a hora, 15 minutos após a hora, começando às 00:15, 1:15, 2:15 e assim sucessivamente até terminar às 23:15. |
+| `{"hours":[17], "weekDays":["saturday"]}` | Executar às 17:00 de sábado todas as semanas. |
+| `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Executar às 17:00 de segunda-feira, quarta-feira e sexta-feira todas as semanas. |
+| `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Executar às 17:15 e 17:45 de segunda-feira, quarta-feira e sexta-feira todas as semanas. |
+| `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Executar de 15 em 15 minutos nos dias de semana. |
+| `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Executar de 15 em 15 minutos nos dias de semana, entre as 9:00 e as 16:45. |
+| `{"weekDays":["tuesday", "thursday"]}` | Executar às terças-feiras e quintas-feiras à hora de início especificada. |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` | Executar às 6:00 do dia 28 de cada mês (pressupondo um valor **frequency** igual a "month"). |
+| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` | Executar às 6:00 no último dia do mês. Para executar um acionador no último dia de um mês, utilize -1 em vez de dia 28, 29, 30 ou 31. |
+| `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` | Executar às 6:00 no primeiro e último dias de cada mês. |
+| `{monthDays":[1,14]}` | Executar no primeiro e 14.º dias de cada mês à hora de início especificada. |
+| `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Executar na primeira sexta-feira de cada mês às 5:00. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Executar na primeira sexta-feira de cada mês à hora de início especificada. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` | Executar na terceira sexta-feira do fim do mês, todos os meses, à hora de início especificada. |
+| `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Executar na primeira e última sextas-feiras de cada mês às 5:15. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Executar na primeira e última sextas-feiras de cada mês à hora de início especificada. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Executar na quinta sexta-feira de cada mês à hora de início especificada. Quando um mês não tiver cinco sextas-feiras, o pipeline não é executado, uma vez que está agendado para ser executado apenas à quinta sexta-feira. Para executar o acionador na última sexta-feira do mês, considere utilizar -1 em vez de 5 para o valor **occurrence**. |
+| `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Executar de 15 em 15 minutos na última sexta-feira do mês. |
+| `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Executar às 5:15, 5:45, 17:15 e 17:45 na terceira quarta-feira de cada mês. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

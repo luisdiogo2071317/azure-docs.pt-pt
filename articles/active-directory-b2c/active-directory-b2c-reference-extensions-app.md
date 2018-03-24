@@ -1,24 +1,21 @@
 ---
-title: "Aplicação de extensões – o Azure AD B2C | Microsoft Docs"
-description: "Restaurar a aplicação de extensões de b2c"
+title: Aplicação de extensões – o Azure AD B2C | Microsoft Docs
+description: Restaurar a aplicação de extensões de b2c
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f0392e32-0771-473c-a799-81438ca2bcff
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 9/06/2017
-ms.author: parja
-ms.openlocfilehash: 450a7a5051cdbd6a3c8105a06fd3ebae10d5388e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: davidmu
+ms.openlocfilehash: c07aba797118af2cc8283509944eda8b41d499b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Do Azure AD B2C: Aplicação de extensões
 
@@ -39,7 +36,7 @@ Para verificar que a aplicação de extensões de b2c está presente:
 
 Caso o tenha eliminado acidentalmente a aplicação de extensões de b2c, tem de 30 dias para recuperar. Pode restaurar a aplicação utilizar a Graph API:
 
-1. Navegue até à [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/).
+1. Navegue até à [ https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/).
 1. Inicie sessão no site como um administrador global para o diretório do Azure AD B2C que pretende restaurar a aplicação eliminada para. Este administrador global tem de ter um endereço de e-mail semelhante ao seguinte: `username@{yourTenant}.onmicrosoft.com`.
 1. Emitir um GET de HTTP relativamente ao URL `https://graph.windows.net/myorganization/deletedApplications` com a api-version = 1.6. Esta operação irá listar todas as aplicações que tenham sido eliminadas nos últimos 30 dias.
 1. Localizar a aplicação na lista onde o nome começa com 'aplicação da extensão b2c' e copie o `objectid` valor da propriedade.

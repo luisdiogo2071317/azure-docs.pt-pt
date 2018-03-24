@@ -1,24 +1,24 @@
 ---
 title: Pesquisas de registo de grupos de computadores no Log Analytics do Azure | Microsoft Docs
-description: "Grupos de computadores na análise de registos permitem-lhe para pesquisas de registo do âmbito para um conjunto específico de computadores.  Este artigo descreve os diferentes métodos que pode utilizar para criar grupos de computadores e como utilizá-los numa pesquisa de registo."
+description: Grupos de computadores na análise de registos permitem-lhe para pesquisas de registo do âmbito para um conjunto específico de computadores.  Este artigo descreve os diferentes métodos que pode utilizar para criar grupos de computadores e como utilizá-los numa pesquisa de registo.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Pesquisas de registo de grupos de computadores na análise de registos
 
@@ -66,12 +66,6 @@ Utilize o procedimento seguinte para criar um grupo de computadores a partir de 
 5. Fornece valores para cada propriedade para o grupo de computadores. 
 
 
->[!NOTE]
-> Se a sua área de trabalho ainda está a utilizar o [idioma de consulta de análise de registos legado](log-analytics-log-search-upgrade.md) , em seguida, utilizar o mesmo procedimento para criar um grupo de computadores, mas o tem de utilizar a sintaxe da linguagem de consulta legado.
-
-
-### <a name="log-search-api"></a>API de pesquisa de registo
-Grupos de computadores criados com a API de pesquisa de registo são os mesmos que procura criada com uma pesquisa de registo.  Para obter detalhes sobre a criação de um grupo de computadores utilizando a API de pesquisa de registo consulte [REST API de pesquisa de grupos de computadores no registo de análise de registos](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
 Quando configura a análise de registos para importar associações a grupos do Active Directory, analisa a associação do grupo de todos os computadores associados a um domínio com o agente do OMS.  É criado um grupo de computador na análise de registos para cada grupo de segurança no Active Directory e é adicionado a cada computador para os grupos de computadores correspondentes aos grupos de segurança são membros do.  Esta associação é constantemente atualizada a cada 4 horas.  
@@ -131,25 +125,13 @@ A seguinte consulta devolvam UpdateSummary registos para apenas os computadores 
 
 
 
-  
-
->[!NOTE]
-> Se a sua área de trabalho ainda está a utilizar o [idioma de consulta de análise de registos legado](log-analytics-log-search-upgrade.md)>, em seguida, utilize a seguinte sintaxe para fazer referência a um grupo de computadores numa pesquisa de registo.  Especificar o **categoria** > é opcional e apenas necessário se tiver grupos de computadores com o mesmo nome em diferentes categorias. 
->
->    `$ComputerGroups[Category: Name]`
->
->Grupos de computadores são normalmente utilizados com o **IN** cláusula na pesquisa de registo como no exemplo seguinte:
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
-
-
 
 ## <a name="computer-group-records"></a>Registos do grupo de computadores
 Na área de trabalho de análise de registos para cada associação a grupos criada a partir do Active Directory ou o WSUS, é criado um registo.  Estes registos de tem um tipo de **grupo de computador** e ter as propriedades na tabela seguinte.  Os registos não são criados para grupos de computadores com base na procura de registo.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Tipo |*Grupo de computador* |
+| Tipo |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |
 | Computador |Nome do computador membro. |
 | Grupo |Nome do grupo. |

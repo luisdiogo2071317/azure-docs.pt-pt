@@ -1,18 +1,18 @@
 ---
-title: "Matriz de suporte para replicar VMs de VMware e servidores físicos para o Azure com o Azure Site Recovery | Microsoft Docs"
-description: "Resume os sistemas operativos suportados e componentes para replicar VMs de VMware e o servidor físico para o Azure utilizando o Azure Site Recovery."
+title: Matriz de suporte para replicar VMs de VMware e servidores físicos para o Azure com o Azure Site Recovery | Microsoft Docs
+description: Resume os sistemas operativos suportados e componentes para replicar VMs de VMware e o servidor físico para o Azure utilizando o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: raynew
-ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f2f28b36fdb3751a469d66f242f9fa2119f9ae8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para VMware e replicação do servidor físico para o Azure
 
@@ -175,7 +175,7 @@ Arquitetura do sistema operativo convidado | 64 bits. | Falha na verificação s
 Tamanho do disco do sistema operativo | Até 2.048 GB. | Falha na verificação se não suportado. 
 Contagem de discos do sistema operativo | 1 | Falha na verificação se não suportado.  
 Contagem de discos de dados | 64 ou menos. | Falha na verificação se não suportado.  
-Tamanho VHD do disco de dados | 4,095 GB | Falha na verificação se não suportado. 
+Tamanho do disco de dados | 4,095 GB | Falha na verificação se não suportado. 
 Placas de rede | São suportados vários adaptadores. | 
 VHD partilhado | Não suportado. | Falha na verificação se não suportado. 
 Disco FC | Não suportado. | Falha na verificação se não suportado. 

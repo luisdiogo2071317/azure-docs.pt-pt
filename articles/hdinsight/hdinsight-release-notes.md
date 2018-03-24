@@ -1,8 +1,8 @@
 ---
-title: "Notas de versão do componentes do Hadoop no Azure HDInsight | Microsoft Docs"
-description: "Notas de versão mais recentes e versões de componentes do Hadoop para o Azure HDInsight. Obter sugestões de desenvolvimento e os detalhes para Spark, servidor R, Hive e muito mais."
+title: Notas de versão do componentes do Hadoop no Azure HDInsight | Microsoft Docs
+description: Notas de versão mais recentes e versões de componentes do Hadoop para o Azure HDInsight. Obter sugestões de desenvolvimento e os detalhes para Spark, servidor R, Hive e muito mais.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 editor: cgronlun
 manager: jhubbard
 author: nitinme
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 38a33056ccd908b43319125b3fe517988b1507c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf0bfa052c8cd7589af40972fda1e1802b4d1acb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notas de versão para componentes do Hadoop no Azure HDInsight
 
@@ -29,9 +29,10 @@ Este artigo fornece informações sobre o **mais recente** atualizações de lan
 > [!IMPORTANT]
 > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, consulte [artigo de controlo de versões do HDInsight](hdinsight-component-versioning.md).
 
-## <a name="notes-for-03082018---release-of-spark-22-on-hdinsight-36"></a>Notas para 08/03/2018 - versão do 2.2 o Spark no HDInsight 3.6
+## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>Notas para 20/03/2018 - versão do 2.2 o Spark no HDInsight 3.6
 
 - Spark 2.2.0 melhora a estabilidade em Spark Core, SQL Server, ML e coloca estruturados de transmissão em fluxo para o estado de GA. O Spark 2.2.0 está agora disponível no HDInsight 3.6.
+
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Notas de versão de 01/08/2017 do HDInsight
 

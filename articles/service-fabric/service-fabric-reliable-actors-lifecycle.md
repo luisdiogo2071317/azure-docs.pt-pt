@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral do ciclo de vida de com base em ator micro-serviços do Azure | Microsoft Docs"
-description: "Explica Ator fiável de recursos de infraestrutura de serviço do ciclo de vida, recolha de lixo e como eliminar manualmente atores e o respetivo estado"
+title: Descrição geral do ciclo de vida de com base em ator micro-serviços do Azure | Microsoft Docs
+description: Explica Ator fiável de recursos de infraestrutura de serviço do ciclo de vida, recolha de lixo e como eliminar manualmente atores e o respetivo estado
 services: service-fabric
 documentationcenter: .net
 author: amanbha
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4abb1ea6e5c79a5280d6ca4ad96070603b81793a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida de ator, recolha de lixo automática e manual delete
 Um ator está ativado na primeira vez que é efetuada uma chamada para qualquer um dos respetivos métodos. Um ator está desativada (libertação da memória recolhidos pelo tempo de execução de Atores) se não for utilizado para um período de tempo configurável. Um ator e o estado também podem ser eliminadas manualmente em qualquer altura.
@@ -112,37 +112,8 @@ O exemplo mostra o impacto de chamadas de método de ator, lembretes e temporiza
 
 Um ator nunca serão libertados enquanto está a executar um dos respectivos métodos, independentemente do quanto tempo é gasto ao executar este método. Conforme mencionado anteriormente, a execução de métodos de interface de ator e chamadas de retorno lembrete impede a recolha de lixo ao repor o tempo de inatividade do ator como 0. A execução de chamadas de retorno do temporizador não repor o tempo de inatividade para 0. No entanto, a recolha de lixo de atores é deferida até que a chamada de retorno de temporizador concluiu a execução.
 
-## <a name="deleting-actors-and-their-state"></a>A eliminação dos atores e o respetivo estado
-Recolha de lixo de atores desativados limpa apenas o objeto de ator, mas não remove os dados armazenados no Gestor de estado de um ator. Quando um ator voltar a ativar, dos dados é novamente disponibilizados ao mesmo através do Gestor de estado. Em casos onde atores armazenar dados no Gestor de estado e estão desativados, mas nunca novamente ativados, poderá ser necessário limpar os seus dados.
-
-O [serviço de Atores](service-fabric-reliable-actors-platform.md) fornece uma função para a eliminação dos atores de um autor da chamada remota:
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-Eliminar um ator tem os seguintes efeitos dependendo se pretende ou não está atualmente ativa o ator:
-
-* **Ator Active Directory**
-  * Ator é removido da lista de atores Active Directory e está desativada.
-  * O estado é eliminado permanentemente.
-* **Ator inativo**
-  * O estado é eliminado permanentemente.
-
-Tenha em atenção que um ator não é possível chamar eliminar em si próprio a partir de um dos respectivos métodos de ator porque não é possível eliminar o ator ao executar dentro de um contexto de chamada de ator em que o tempo de execução tem de obter um bloqueio em torno da chamada de ator para impor o acesso single-threaded.
+## <a name="manually-deleting-actors-and-their-state"></a>Como eliminar manualmente atores e o respetivo estado
+Recolha de lixo de atores desativados limpa apenas o objeto de ator, mas não remove os dados armazenados no Gestor de estado de um ator. Quando um ator voltar a ativar, dos dados é novamente disponibilizados ao mesmo através do Gestor de estado. Em casos onde atores armazenar dados no Gestor de estado e estão desativados, mas nunca novamente ativados, poderá ser necessário limpar os seus dados.  Para obter exemplos de como eliminar atores, leia o artigo [eliminar atores e o respetivo estado](service-fabric-reliable-actors-delete-actors.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Os temporizadores de ator e lembretes](service-fabric-reliable-actors-timers-reminders.md)

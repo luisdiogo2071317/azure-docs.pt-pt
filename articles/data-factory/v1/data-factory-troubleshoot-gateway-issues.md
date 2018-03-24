@@ -1,10 +1,9 @@
 ---
 title: Resolver problemas do Data Management Gateway | Microsoft Docs
-description: "Fornece sugestões para resolver problemas relacionados com o Data Management Gateway."
+description: Fornece sugestões para resolver problemas relacionados com o Data Management Gateway.
 services: data-factory
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
@@ -14,17 +13,17 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b3b34921168661089946b5c5dd9e6d489880733b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d82592bfda3eaf44d28f67b8bb6599aa4ae4bae7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Utilizar o Data Management Gateway para resolver problemas
 Este artigo fornece informações sobre como resolver problemas com a utilização do Data Management Gateway.
 
 > [!NOTE]
-> Este artigo aplica-se versão 1 do Azure Data Factory, que é geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [autoalojado integração tempo de execução na versão 2 do Data Factory](../create-self-hosted-integration-runtime.md).
+> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [autoalojado integração tempo de execução na versão 2 do Data Factory](../create-self-hosted-integration-runtime.md).
 
 Consulte o [Data Management Gateway](data-factory-data-management-gateway.md) artigo para obter informações detalhadas sobre o gateway. Consulte o [mover dados entre no local e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções de mover dados de uma base de dados do SQL Server no local para armazenamento de Blobs do Microsoft Azure utilizando o gateway.
 
@@ -206,7 +205,7 @@ O certificado SSL pode ter sido perdido no computador gateway. O computador do g
 Siga estes passos para resolver o problema:
 
 1. Inicie o Gestor de configuração do Data Management Gateway.
-2. Mudar para o **definições** separador.  
+2. Mudar para o separador **Definições**.  
 3. Clique em de **alterar** botão para alterar o certificado SSL.
 
    ![Botão de certificado de alteração](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)

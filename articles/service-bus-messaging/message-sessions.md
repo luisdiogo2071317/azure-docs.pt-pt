@@ -1,11 +1,11 @@
 ---
-title: "Sessões de mensagens do Service Bus do Azure | Microsoft Docs"
-description: "Processe as sequências de mensagens do Service Bus do Azure com sessões."
+title: Sessões de mensagens do Service Bus do Azure | Microsoft Docs
+description: Processe as sequências de mensagens do Service Bus do Azure com sessões.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 551432cd13c16fdd5423c46ed9c6f740353808f8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagens: primeiro, primeiro out (FIFO) 
 
@@ -53,13 +53,7 @@ O bloqueio é libertado quando **fechar** ou **CloseAsync** são denominados, ou
 
 Quando vários recetores simultâneos solicitar a partir da fila, as mensagens que pertencem a uma determinada sessão são distribuídas para o recetor específico que atualmente detém o bloqueio para essa sessão. Com essa operação, um fluxo de mensagens intercalado que reside numa fila ou a subscrição está corretamente anular multiplexado a recetores diferentes e os recetores também podem em direto em máquinas de cliente diferente, uma vez que a gestão de bloqueio acontece lado do serviço, no interior Barramento de serviço.
 
-Uma fila, no entanto, ainda é uma fila: não há nenhum acesso aleatório. Se vários recetores simultâneos aguardar para aceitar sessões específicas ou aguarde que as mensagens de sessões específicas e houver uma mensagem na parte superior de uma fila que pertencem a uma sessão que não recetor ainda tem reclamado, entregas contém até um recetor de sessão de afirmações que sessão.
-
-A ilustração anterior mostra três recetores de sessão em simultâneo, tudo o que tem de efetuar ativamente mensagens da fila para cada recetor tornar o progresso. A sessão anterior `SessionId` = 4 não tem nenhum Active Directory proprietário de cliente, que significa que não existem mensagens são entregues a qualquer pessoa até essa mensagem já foi tomada por um criado recentemente, o proprietário recetor de sessão.
-
-Enquanto que poderão parecer estar constraining, um processo único recetor pode processar várias sessões simultâneas facilmente, especialmente quando estas são escritas com o código de estritamente assíncrono; juggling várias sessões simultâneas dozen é efetivamente automática com o modelo de chamada de retorno.
-
-A estratégia para processar demasiadas sessões em simultâneo, na qual cada sessão apenas esporadicamente recebe mensagens, é enviado ao processador remover a sessão após algum tempo de inatividade e retomar o processamento quando a sessão é aceite como chega a sessão seguinte.
+A ilustração anterior mostra três recetores de sessão em simultâneo. Uma sessão com `SessionId` = 4 não tem nenhum Active Directory proprietário de cliente, que significa que não existem mensagens são entregues desta sessão específica. Uma sessão funciona em várias formas, como um uma fila sub.
 
 O bloqueio de sessão, o recetor de sessão é um umbrella para os bloqueios de mensagem utilizado pelo *peek bloqueio* modo settlement. Um recetor não pode ter duas mensagens simultaneamente "em trânsito", mas as mensagens têm de ser processadas por ordem. Uma nova mensagem só pode ser obtida quando a mensagem anterior foi concluída ou lettered de mensagens não. Abandonar um causas de mensagem a mesma mensagem para ser servidos novamente com a próxima operação de receção.
 

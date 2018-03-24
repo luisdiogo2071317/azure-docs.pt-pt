@@ -1,26 +1,18 @@
 ---
-title: "Configurar servidores para um estado pretendido e gerir que se desviam com a automatização do Azure | Microsoft Docs"
-description: "Tutorial - Gerir configurações de servidor com o Automation DSC do Azure"
+title: Configurar servidores para um estado pretendido e gerir desvios com a Automatização do Azure
+description: Tutorial - Gerir configurações de servidor com o Automation DSC do Azure
 services: automation
-documentationcenter: automation
-author: georgewallace
-manager: carmonm
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 
 ms.service: automation
-ms.devlang: powershell
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 09/25/2017
+author: georgewallace
 ms.author: gwallace
-ms.custom: 
-ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+manager: carmonm
+ms.topic: article
+ms.date: 09/25/2017
+ms.openlocfilehash: 50c58224eaecc20a0878df5e1c7f100039978455
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurar servidores para um estado pretendido e gerir que se desviam
 
@@ -56,7 +48,7 @@ Login-AzureRmAccount
 
 Para este tutorial, utilizamos uma configuração de DSC simple que assegura que o IIS está instalado na VM.
 
-Para obter informações sobre configurações de DSC, consulte [configurações de DSC](https://docs.microsoft.com/powershell/dsc/configurations).
+Para obter informações sobre configurações de DSC, veja [DSC configurations (Configurações de DSC)](https://docs.microsoft.com/powershell/dsc/configurations).
 
 Num editor de texto, escreva o seguinte e guarde-o localmente como `TestConfig.ps1`.
 
@@ -158,7 +150,7 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 $reports[0]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber como nós de carregar para serem geridos pelo Automation DSC do Azure, consulte [máquinas de integração de gestão do Automation DSC do Azure](automation-dsc-onboarding.md)
 * Para saber como utilizar o portal do Azure para utilizar o DSC de automatização, consulte [introdução ao Azure Automation DSC](automation-dsc-getting-started.md)

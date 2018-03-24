@@ -1,11 +1,10 @@
 ---
-title: "Computação ambientes suportados pelo Azure Data Factory | Microsoft Docs"
-description: "Saiba mais sobre os ambientes de computação que pode utilizar em pipelines do Azure Data Factory (por exemplo, o Azure HDInsight) para dados de transformação ou processo."
+title: Computação ambientes suportados pelo Azure Data Factory | Microsoft Docs
+description: Saiba mais sobre os ambientes de computação que pode utilizar em pipelines do Azure Data Factory (por exemplo, o Azure HDInsight) para dados de transformação ou processo.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 410fb74d8f8ec6196bbd4cc19cc97704649b75c9
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 > [!NOTE]
@@ -51,7 +50,7 @@ Microsoft atualiza a lista de versões suportadas do HDInsight com as mais recen
 Após 15 de Dezembro de 2017:
 
 - Pode já não é criar HDInsight baseado em Linux versão 3.3 (ou versões anteriores) serviço fábrica de dados versão 1 de ligado a clusters utilizando um HDInsight a pedido. 
-- Se o [ **osType** e **versão** propriedades](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) não são ou não explicitamente especificado na definição de JSON para um serviço de ligado de HDInsight a pedido de versão 1 do existente fábrica de dados , o valor predefinido é alterado de **versão = 3.1, osType = Windows** para **versão =\<mais recente versão de predefinida HDI\>(https://docs.microsoft.com/azure/hdinsight/ osType hdinsight-Component-Versioning#hadoop-Components-Available-with-different-hdinsight-Versions), = Linux**.
+- Se o [ **osType** e **versão** propriedades](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) não são ou não explicitamente especificado na definição de JSON para um serviço de ligado de HDInsight a pedido de versão 1 do existente fábrica de dados , o valor predefinido é alterado de **versão = 3.1, osType = Windows** para **versão =\<mais recente versão de predefinida HDI\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType = Linux**.
 
 Após a 31 de Julho de 2018:
 

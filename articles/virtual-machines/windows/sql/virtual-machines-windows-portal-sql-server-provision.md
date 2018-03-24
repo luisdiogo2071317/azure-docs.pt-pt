@@ -1,6 +1,6 @@
 ---
 title: Aprovisionamento guia para VMs do Windows SQL Server no portal do Azure | Microsoft Docs
-description: "Este guia de procedimentos descreve as opções para criar máquinas virtuais de 2017 do Windows SQL Server no portal do Azure."
+description: Este guia de procedimentos descreve as opções para criar máquinas virtuais de 2017 do Windows SQL Server no portal do Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 33b7c82f08f63199cd128055bc497f61cb30fc4a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como aprovisionar uma máquina virtual do Windows SQL Server no portal do Azure
 
@@ -27,7 +27,7 @@ Este guia fornece detalhes sobre as diferentes opções disponíveis quando cria
 Utilize este guia para criar os seus próprios VM do SQL Server. Em alternativa, utilizá-lo como referência para as opções disponíveis no portal do Azure.
 
 > [!TIP]
-> Se tiver dúvidas sobre máquinas virtuais do SQL Server, consulte o [perguntas mais frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
+> Se tiver dúvidas sobre máquinas virtuais do SQL Server, veja as [Perguntas Mais Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -59,7 +59,7 @@ Quando cria uma máquina virtual do SQL Server, pode selecionar uma das várias 
    > A edição do programador é utilizada nestas instruções porque é uma edição gratuita, completo do SQL Server para fins de teste de desenvolvimento. Apenas paga pelo custo de execução da VM. No entanto, são gratuitas escolher qualquer uma das imagens para utilizar esta explicação passo a passo. Para obter uma descrição de imagens disponíveis, consulte o [descrição geral de máquinas virtuais do SQL Server Windows](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
    > [!TIP]
-   > Custos de licenciamento para o SQL Server estão incorporados nos preços por minuto da VM, crie e varia, edição e núcleos. No entanto, a edição do programador do servidor de SQL está livre para desenvolvimento/teste (não a produção) e SQL Server Express é gratuito em simples cargas de trabalho (menor do que 1 GB de memória inferior a 10 GB de armazenamento). Também pode bring-your-proprietário-licença (BYOL) e pagar apenas para a VM. Aos nomes dessas imagem é adicionado o prefixo {BYOL}. 
+   > Custos de licenciamento para o SQL Server estão incorporados no preço por segundo da VM, crie e varia, edição e núcleos. No entanto, a edição do programador do servidor de SQL está livre para desenvolvimento/teste (não a produção) e SQL Server Express é gratuito em simples cargas de trabalho (menor do que 1 GB de memória inferior a 10 GB de armazenamento). Também pode bring-your-proprietário-licença (BYOL) e pagar apenas para a VM. Aos nomes dessas imagem é adicionado o prefixo {BYOL}. 
    >
    > Para obter mais informações sobre estas opções, consulte [Pricing guidance for SQL Server Azure VMs (Documentação de orientação sobre preços de VMs do Azure do SQL Server)](virtual-machines-windows-sql-server-pricing-guidance.md).
 

@@ -1,19 +1,19 @@
 ---
-title: "Tecnologias de SQL da base de dados dentro da memória do Azure | Microsoft Docs"
-description: "Tecnologias de SQL da base de dados dentro da memória do Azure melhoram significativamente o desempenho de transacional e cargas de trabalho de análise."
+title: Tecnologias de SQL da base de dados dentro da memória do Azure | Microsoft Docs
+description: Tecnologias de SQL da base de dados dentro da memória do Azure melhoram significativamente o desempenho de transacional e cargas de trabalho de análise.
 services: sql-database
 author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/21/2018
 ms.author: jodebrui
-ms.openlocfilehash: 107df78f0ec6ce924785f5027958ee66f2a86c7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho ao utilizar tecnologias de dentro da memória na base de dados do SQL Server
 
@@ -104,7 +104,7 @@ Quando utiliza índices columnstore não em cluster, a tabela de base ainda é a
 
 Existem nunca quaisquer incompatibilidades ou outros problemas quando atualizar para um escalão de preço superior, como do padrão para Premium. Apenas aumentam os recursos e funcionalidades disponíveis.
 
-Mas desatualização o escalão de preço pode afetar negativamente a base de dados. O impacto é especialmente aparente quando mudar de Premium para básico ou padrão quando a base de dados contém objetos de OLTP na memória. Tabelas com otimização de memória e os índices columnstore, não estão disponíveis após a mudança para versão anterior (mesmo se permanecem visíveis). Aplicam as mesmas considerações quando está a reduzir o escalão de preço do conjunto elástico ou mover uma base de dados com tecnologias de memória, para um padrão ou básico conjunto elástico.
+Mas desatualização o escalão de preço pode afetar negativamente a base de dados. O impacto é especialmente aparente quando mudar de Premium para básico ou padrão quando a base de dados contém objetos de OLTP na memória. Tabelas com otimização de memória não estarão disponíveis após a mudança para versão anterior (mesmo se permanecem visíveis). Aplicam as mesmas considerações quando está a reduzir o escalão de preço do conjunto elástico ou mover uma base de dados com tecnologias de memória, para um padrão ou básico conjunto elástico.
 
 ### <a name="in-memory-oltp"></a>OLTP dentro da memória
 
@@ -130,11 +130,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>Índices Columnstore
 
-*Desatualização de para básico ou padrão*: índices Columnstore são suportados apenas o escalão de preços Premium e não os escalões Standard ou básico. Quando mudar a base de dados para básico ou padrão, o índice columnstore fica indisponível. O sistema mantém o índice columnstore, mas nunca utiliza o índice. Se atualizar posteriormente para o Premium, o índice columnstore é imediatamente pronto para ser aproveitado novamente.
+*Desatualização de para básico ou padrão*: índices Columnstore são suportados apenas no escalão de preços Premium e no escalão Standard, S3 e acima e não na camada básica. Quando mudar a base de dados para uma camada não suportada ou um nível, o índice columnstore fica indisponível. O sistema mantém o índice columnstore, mas nunca utiliza o índice. Se atualizar posteriormente para uma camada suportada ou nível, o índice columnstore é imediatamente pronto para ser aproveitado novamente.
 
-Se tiver um **em cluster** índice columnstore, a tabela toda fica indisponível após a mudança para versão anterior de camada. Por conseguinte, recomendamos que remova todos os *em cluster* columnstore indexa antes de mudar a base de dados abaixo o escalão Premium.
+Se tiver um **em cluster** índice columnstore, a tabela toda fica indisponível após a mudança para versão anterior. Por conseguinte, recomendamos que remova todos os *em cluster* columnstore indexa antes de mudar a base de dados para uma camada não suportada ou um nível.
 
-*Desatualização de para um escalão Premium inferior*: Esta mudança para versão anterior for bem sucedida se a base de dados completa preencher o tamanho máximo da base de dados para o escalão de preço de destino, ou no armazenamento disponível no agrupamento elástico. Não há nenhum impacto específico de índices columnstore.
+*Desatualização de uma camada suportada inferior ou nível*: Esta mudança para versão anterior for bem sucedida se a base de dados completa preencher o tamanho máximo da base de dados para o escalão de preço de destino, ou no armazenamento disponível no agrupamento elástico. Não há nenhum impacto específico de índices columnstore.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>

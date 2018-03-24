@@ -1,6 +1,6 @@
 ---
-title: "Ativar o registo de diagnóstico para web apps no App Service do Azure"
-description: "Saiba como ativar o registo de diagnóstico e adicionar instrumentação à sua aplicação, bem como aceder as informações registadas pelo Azure."
+title: Ativar o registo de diagnóstico para web apps no App Service do Azure
+description: Saiba como ativar o registo de diagnóstico e adicionar instrumentação à sua aplicação, bem como aceder as informações registadas pelo Azure.
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: e82bbff908ea5499765edc71e52caa573c816a62
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c39a8fafef9a45f5e80d00f8cbc75833201df150
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Ativar o registo de diagnóstico para web apps no App Service do Azure
 ## <a name="overview"></a>Descrição geral
@@ -120,7 +120,7 @@ Este comando guarda os registos da aplicação web especificada pelo **-nome** p
 ### <a name="download-with-azure-command-line-interface"></a>Transferir com a Interface de linha de comandos do Azure
 Para transferir os ficheiros de registo utilizando a Interface de linha de comandos do Azure, abra uma nova linha de comandos, PowerShell, Bash ou sessão de Terminal e introduza o seguinte comando:
 
-    azure site log download webappname
+    az webapp log download --name webappname
 
 Este comando guarda os registos da aplicação web com o nome 'webappname' para um ficheiro denominado **diagnostics.zip** no diretório atual.
 
@@ -148,7 +148,7 @@ Ao desenvolver uma aplicação, muitas vezes, é útil ver informações de regi
 > Alguns tipos de memória intermédia de registo de escrita para o ficheiro de registo, o que pode resultar em eventos fora de ordem na sequência. Por exemplo, uma entrada de registo de aplicação que ocorre quando um utilizador visita uma página poderão ser apresentada no fluxo antes da entrada de registo HTTP correspondente para o pedido de página.
 >
 > [!NOTE]
-> Registo de transmissão em fluxo também fluxos informações escritas para qualquer ficheiro de texto armazenado no **D:\\raiz\\LogFiles\\**  pasta.
+> Registo de transmissão em fluxo também fluxos informações escritas para qualquer ficheiro de texto armazenado no **D:\\raiz\\LogFiles\\ ** pasta.
 >
 >
 
@@ -223,7 +223,7 @@ Quando o registo para o table storage, propriedades adicionais são utilizadas p
 | ApplicationName |O nome da aplicação web |
 | Nível |Nível do evento (por exemplo, erro, aviso, informações) |
 | EventId |O ID de evento deste evento<p><p>Por predefinição, 0 se nenhum especificado |
-| InstanceId |Instância da aplicação web que ocorreu o mesmo |
+| Id da Instância |Instância da aplicação web que ocorreu o mesmo |
 | PID |ID de Processo |
 | TID |O ID de thread do thread que produziu o evento |
 | Mensagem |Mensagem de detalhes do evento |
@@ -237,7 +237,7 @@ Ao iniciar sessão para o armazenamento de BLOBs, os dados são armazenados no f
 | Data |A data e hora em que ocorreu o evento |
 | Nível |Nível do evento (por exemplo, erro, aviso, informações) |
 | ApplicationName |O nome da aplicação web |
-| InstanceId |Instância da aplicação web que o evento ocorreu |
+| Id da Instância |Instância da aplicação web que o evento ocorreu |
 | EventTickCount |A data e hora em que o evento ocorreu, no formato de marcas de escala (maior precisão) |
 | EventId |O ID de evento deste evento<p><p>Por predefinição, 0 se nenhum especificado |
 | PID |ID de Processo |

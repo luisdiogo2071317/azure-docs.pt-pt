@@ -1,24 +1,21 @@
 ---
-title: "O Azure Active Directory B2C: Personalizar dinamicamente a interface de utilizador (IU) do Azure AD B2C, utilizando as políticas personalizadas"
-description: "Suporta várias experiências de imagem corporativa com conteúdo de HTML5/CSS que alterado de forma dinâmica no tempo de execução."
+title: 'O Azure Active Directory B2C: Personalizar dinamicamente a interface de utilizador (IU) do Azure AD B2C, utilizando as políticas personalizadas'
+description: Suporta várias experiências de imagem corporativa com conteúdo de HTML5/CSS que alterado de forma dinâmica no tempo de execução.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/20/2017
-ms.author: yoelh
-ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>O Azure Active Directory B2C: Configurar a IU com conteúdo dinâmico utilizando as políticas personalizadas
 Ao utilizar o Azure Active Directory B2C políticas personalizadas (Azure AD B2C), que pode enviar um parâmetro por uma cadeia de consulta. Transferindo o parâmetro para o ponto final de HTML, pode alterar dinamicamente o conteúdo da página. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou início de sessão do Azure AD B2C, com base num parâmetro que passa a partir do seu web ou aplicação móvel. 
@@ -121,7 +118,7 @@ O modelo personalizado do HTML5 baseia-se no modelo de HTML5 incorporado do Azur
 
 ### <a name="step-23-change-the-background-image"></a>Passo 2.3: Alterar a imagem de fundo
 
-Localize o `<img>` elemento que contém o `ID` valor *background_background_image*e, em seguida, substitua o `src` valor com **https://kbdevstorage1.blob.core.windows.net/ Asset-blobs/19889_en_1** ou qualquer outra imagem de fundo que pretende utilizar.
+Localize o `<img>` elemento que contém o `ID` valor *background_background_image*e, em seguida, substitua o `src` valor com **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** ou qualquer outro imagem de fundo que pretende utilizar.
 
 ![Alterar o fundo da página](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 

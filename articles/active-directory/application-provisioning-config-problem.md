@@ -1,11 +1,11 @@
 ---
-title: "Problema de configuração de aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD | Microsoft Docs"
-description: "Como resolver problemas comuns deparam quando configurar aprovisionamento de utilizadores a uma aplicação já listados na Galeria de aplicações do Azure AD"
+title: Problema de configuração de aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD | Microsoft Docs
+description: Como resolver problemas comuns deparam quando configurar aprovisionamento de utilizadores a uma aplicação já listados na Galeria de aplicações do Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 3a19169effad54e26cd2061bffae369cd31e9a9e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9fcfee9cbbeb01422e7d9e92d90b908e054f96da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema de configuração de aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD
 
@@ -31,7 +31,7 @@ Depois de ter configurado o serviço, a maioria das informações sobre a opera�
 
 -   **Registos de auditoria** – a auditoria de aprovisionamento regista todas as operações executadas pelo serviço de aprovisionamento, incluindo a consultar o Azure AD para atribuir utilizadores que se encontrem no âmbito para o aprovisionamento de registo. A aplicação de destino a existência desses utilizadores, os objetos de utilizador entre o sistema de comparação de consulta. Em seguida, adicionar, atualizar ou desativar a conta de utilizador no sistema de destino com base na comparação. Os registos de auditoria aprovisionamento podem ser acedidos no portal do Azure, no **do Azure Active Directory &gt; aplicações da empresa &gt; \[nome da aplicação\] &gt; registos de auditoria** separador. Filtrar os registos de **aprovisionamento da conta** categoria para ver apenas os eventos de aprovisionamento para essa aplicação.
 
--   **Aprovisionamento de estado –** um resumo das últimas aprovisionamento executar para uma determinada aplicação pode ser vista no **do Azure Active Directory &gt; aplicações da empresa &gt; \[nome da aplicação\] &gt; Aprovisionamento** secção, na parte inferior do ecrã sob as definições do serviço. Esta secção resume quantos utilizadores (e/ou grupos) estão atualmente a ser sincronizados entre os dois sistemas, e se existem quaisquer erros. Detalhes do erro ser nos registos de auditoria. Tenha em atenção que o estado de aprovisionamento não ser preenchido até ser concluída uma sincronização completa inicial entre o Azure AD e a aplicação.
+-   **Aprovisionamento de estado –** um resumo das últimas aprovisionamento executar para uma determinada aplicação pode ser vista no **do Azure Active Directory &gt; aplicações da empresa &gt; \[nome da aplicação\] &gt;Aprovisionamento** secção, na parte inferior do ecrã sob as definições do serviço. Esta secção resume quantos utilizadores (e/ou grupos) estão atualmente a ser sincronizados entre os dois sistemas, e se existem quaisquer erros. Detalhes do erro ser nos registos de auditoria. Tenha em atenção que o estado de aprovisionamento não ser preenchido até ser concluída uma sincronização completa inicial entre o Azure AD e a aplicação.
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Áreas de problema geral com aprovisionamento a considerar
 
@@ -66,5 +66,5 @@ Quando um utilizador aparece como "ignorada" nos registos de auditoria, é muito
 
    * **Mapeamentos de grupos de atributos:** aprovisionamento do nome do grupo e detalhes de grupo, para além de membros, caso seja suportado para algumas aplicações. Pode ativar ou desativar esta funcionalidade ativando ou desativando a **mapeamento** para objetos de grupo apresentados no **aprovisionamento** separador. Se estiver ativado a grupos de aprovisionamento, lembre-se de que reveja os mapeamentos de atributos para garantir que está a ser utilizado um campo adequado para o "ID correspondente". Isto pode ser o alias de apresentação nome ou e-mail), como o grupo e os seus membros não aprovisionadas se a propriedade correspondente está vazio ou não preenchidos para um grupo no Azure AD.
 
-#<a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Automatizar utilizador aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md)

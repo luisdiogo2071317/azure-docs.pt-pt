@@ -3,6 +3,6 @@ O Data Lake Analytics facilita a complexa tarefa de gestão da infraestrutura di
 | **Recurso** | **Limite Predefinido** | **Comentários** |
 | --- | --- | --- |
 | Número máximo de tarefas simultâneas |20 | |
-| Número máximo de unidades de análise (AUs) por conta |250 | Utilizar qualquer combinação de até um máximo de 250 AUs em 20 tarefas. |
+| Número máximo de unidades de análise (AUs) por conta |250 | Utilizar qualquer combinação de até um máximo de 250 AUs em 20 tarefas.  Contacte o suporte da Microsoft para aumentar este limite. |
 | Tamanho máximo de script para submissão da tarefa | 3 MB | |
-
+| Número máximo de contas ADLA por região por subscrição | 5 | Contacte o suporte da Microsoft para aumentar este limite. |

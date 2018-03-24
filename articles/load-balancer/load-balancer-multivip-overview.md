@@ -1,34 +1,32 @@
 ---
-title: "Balanceador de carga de vários Frontends do Azure | Microsoft Docs"
-description: "Descrição geral de vários Frontends no balanceador de carga do Azure"
+title: Balanceador de carga de vários Frontends do Azure | Microsoft Docs
+description: Descrição geral de vários Frontends no balanceador de carga do Azure
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: 
+editor: ''
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: e4c77f3b9bd53df632a433532376eb859969a036
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários Frontends Balanceador de carga do Azure
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Balanceador de carga do Azure permite-lhe carregar saldo de serviços em várias portas, vários endereços IP ou ambos. Pode utilizar definições de Balanceador de carga interno e público para fluxos de balanceamento de carga através de um conjunto de VMs.
 
 Este artigo descreve as noções básicas sobre esta capacidade, conceitos importantes e as restrições. Se pretender apenas expor os serviços num endereço IP, pode encontrar instruções simplificadas para [pública](load-balancer-get-started-internet-portal.md) ou [interno](load-balancer-get-started-ilb-arm-portal.md) configurações de Balanceador de carga. A adição de várias frontends é incremental para uma configuração de front-end único. Utilizar os conceitos neste artigo, pode expandir uma configuração simplificada em qualquer altura.
 
-Quando definir um balanceador de carga do Azure, estão ligados com regras de front-end e uma configuração de back-end. A sonda de estado de funcionamento referenciada pela regra é utilizada para determinar como novos fluxos são enviadas para um nó no conjunto back-end. O front-end é definido por uma configuração de IP de front-end (aka VIP), que é uma 3 cadeias de identificação composta por um endereço IP (interno ou público), um protocolo de transporte (UDP ou TCP) e um número de porta da regra de balanceamento de carga. Um DIP é um endereço IP numa Azure virtual NIC anexado a uma VM no conjunto de back-end.
+Quando definir um balanceador de carga do Azure, estão ligados com regras de front-end e uma configuração de conjunto de back-end. A sonda de estado de funcionamento referenciada pela regra é utilizada para determinar como novos fluxos são enviadas para um nó no conjunto back-end. O front-end (aka VIP) é definido por uma 3 cadeias de identificação composta por um endereço IP (interno ou público), um protocolo de transporte (UDP ou TCP) e um número de porta da regra de balanceamento de carga. O conjunto de back-end é uma coleção de configurações de IP de máquinas virtuais (parte do recurso NIC) que referenciam o conjunto de back-end de Balanceador de carga.
 
 A tabela seguinte contém algumas configurações de front-end de exemplo:
 
@@ -134,6 +132,10 @@ O tipo de regra de IP flutuante é a base de vários padrões de configuração 
 ## <a name="limitations"></a>Limitações
 
 * Múltiplas configurações de front-end só são suportadas com VMs de IaaS.
-* Com a regra de IP flutuante, a aplicação tem de utilizar o DIP para fluxos de saída. Se vincula a aplicação para o endereço IP de front-end configurado na interface de loopback no SO convidado, em seguida, realizar o SNAT não está disponível de reescrever o fluxo de saída e o fluxo de falha.
+* Com a regra de IP flutuante, a aplicação tem de utilizar a configuração de IP primária para fluxos de saída. Se vincula a aplicação para o endereço IP de front-end configurado no loopback interface no SO convidado, Azure do realizar o SNAT não está disponível para reescrever o fluxo de saída e o fluxo falha.
 * Endereços IP públicos têm um efeito em faturação. Para obter mais informações, consulte [preços do endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * São aplicáveis a limites de subscrição. Para obter mais informações, consulte [os limites de serviço](../azure-subscription-service-limits.md#networking-limits) para obter mais detalhes.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+- Reveja [ligações de saída](load-balancer-outbound-connections.md) para compreender o impacto de vários frontends no comportamento de ligação de saída.

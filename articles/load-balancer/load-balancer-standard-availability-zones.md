@@ -1,24 +1,24 @@
 ---
 title: Zonas de disponibilidade e de Balanceador de carga Standard do Azure | Microsoft Docs
-description: "Balanceador de carga padrão e zonas de disponibilidade"
+description: Balanceador de carga padrão e zonas de disponibilidade
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 61e0e7cf960d7eb2294bc294ec1eec9d80428a81
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70b39b854a3b7cb28716d3cb290998690dbeb549
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de carga padrão e zonas de disponibilidade
 
@@ -39,7 +39,7 @@ Público e interno Load Balancer suporta cenários com redundância de zona e zo
 
 Um recurso de Balanceador de carga em si é regional e nunca zonal.  E uma VNet e sub-rede estão sempre regional e nunca zonal.
 
-### <a name="frontend"></a>Frontend
+### <a name="frontend"></a>Front-end
 
 Um front-end de Balanceador de carga é uma configuração de IP de front-end que façam referência um recurso de endereço IP público ou um endereço IP privado dentro da sub-rede de um recurso de rede virtual.  Compõe o ponto final com balanceamento de carga em que o seu serviço é exposto.
 
@@ -151,7 +151,7 @@ Se estiver a utilizar modelos de Gestor de recursos existentes na sua configura�
 
 Balanceamento de carga entre zona é a capacidade de Balanceador de carga para alcançar um ponto final de back-end em qualquer zona e é independente de front-end e os respetivos zonality.
 
-Se pretende alinhar e garantir a sua implementação com uma única zona, alinhe zonal front-end e back-end zonal recursos para a mesma zona. É necessária nenhuma ação adicional.
+Se pretende alinhar e garantir a sua implementação numa única zona, alinhe zonal front-end e back-end zonal recursos para a mesma zona. É necessária nenhuma ação adicional.
 
 ### <a name="backend"></a>Back-end
 
@@ -210,12 +210,12 @@ Zona redundante pode fornecer um zona agnóstico e na mesma opção resiliente t
 
 Zonal pode fornecer uma garantia para uma zona explícita partilha fate com o estado de funcionamento da zona. Associar um IP zonal endereço ou zonal front-end de Balanceador de carga pode ser um atributo desejável ou razoável especialmente se o seu recurso ligado é uma VM zonal na mesma zona.  Ou, talvez, a aplicação requer o conhecimento explícito sobre que zona um recurso estiver localizado no e pretende pelo motivo sobre a disponibilidade em zonas separadas explicitamente.  Pode optar por expõe vários frontends zonal para um serviço de ponto a ponto distribuído zonas (ou seja, por zona frontends zonal para vários dimensionamento da máquina de virtual zonal define).  E se o seu frontends zonal são endereços IP públicos, pode utilizar estes frontends zonal vários para expor o serviço com [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md).  Em alternativa, pode utilizar vários frontends zonal obter das informações de estado de funcionamento e desempenho zona através de monitorização de soluções de terceiros e expor o serviço com um front-end com redundância de zona global. Só deve serve recursos zonal com frontends zonal alinhada à mesma zona e evitar potencialmente prejudiciais zona em vários cenários para zonal recursos.  Recursos zonal apenas existem em regiões onde existem zonas de disponibilidade.
 
-Não há nenhum orientações gerais que um é uma melhor opção que outros sem saberem o serviço de ponto a ponto.
+Não há nenhum orientações gerais que um é uma melhor opção que outros sem saberem a arquitetura de serviço.
 
 ## <a name="limitations"></a>Limitações
 
 - Enquanto os dados plane é totalmente com redundância de zona (a menos que foi especificada a garantia zonal), controlo plane operações não são totalmente com redundância de zona.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [zonas de disponibilidade](../availability-zones/az-overview.md)
 - Saiba mais sobre [padrão Balanceador de carga](load-balancer-standard-overview.md)

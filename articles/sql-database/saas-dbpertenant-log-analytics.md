@@ -1,6 +1,6 @@
 ---
-title: "Utilizar o Log Analytics com uma aplicação multi-inquilino da Base de Dados SQL | Microsoft Docs"
-description: "Configurar e utilizar a análise de registos (OMS) com uma aplicação de SaaS de base de dados do SQL Azure multi-inquilino"
+title: Utilize a análise de registos com uma aplicação multi-inquilino de base de dados SQL | Microsoft Docs
+description: Configurar e utilizar a análise de registos (Operations Management Suite) com uma aplicação SaaS de base de dados do SQL Azure multi-inquilino
 keywords: tutorial de base de dados sql
 services: sql-database
 author: stevestein
@@ -11,125 +11,129 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: b141ca521ae9c4d9bf6a4be620bc8e5432c52f83
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 38a849ca5f4a767a4b9d9b9b86549e89a8217a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configurar e utilizar a análise de registos (OMS) com uma aplicação de SaaS de base de dados do SQL Azure multi-inquilino
+# <a name="set-up-and-use-log-analytics-operations-management-suite-with-a-multitenant-sql-database-saas-app"></a>Configurar e utilizar a análise de registos (Operations Management Suite) com uma aplicação SaaS de base de dados do SQL Server multi-inquilino
 
-Neste tutorial, configurar e utilizar *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* para conjuntos elásticos e bases de dados de monitorização. Este tutorial baseia-se a [tutorial de gestão e monitorização do desempenho](saas-dbpertenant-performance-monitoring.md). Mostra como utilizar *Log Analytics* para melhorar a monitorização e alertas fornecido no portal do Azure. Análise de registos suporta milhares de monitorização de conjuntos elásticos e centenas de milhares de bases de dados. Análise de registos fornece uma solução de monitorização único, que pode integrar a monitorização de diferentes aplicações e serviços do Azure, através de várias subscrições do Azure.
+Neste tutorial, configurar e utilizar Log Analytics do Azure ([Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)) para monitorizar os conjuntos elásticos e bases de dados. Este tutorial baseia-se a [tutorial de gestão e monitorização de desempenho](saas-dbpertenant-performance-monitoring.md). Mostra como utilizar a análise de registos para aumentar a monitorização e alertas fornecido no portal do Azure. Análise de registos suporta milhares de monitorização de conjuntos elásticos e centenas de milhares de bases de dados. Análise de registos fornece uma solução de monitorização único, que pode integrar a monitorização de diferentes aplicações e serviços do Azure através de várias subscrições do Azure.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Instalar e configurar o Log Analytics (OMS)
-> * Utilizar o Log Analytics para monitorizar conjuntos e bases de dados
+> * Instale e configure a análise de registos (Operations Management Suite).
+> * Utilize a análise de registos para monitorizar os conjuntos e as bases de dados.
 
 Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 
-* A aplicação de Wingtip bilhetes SaaS da base de dados por inquilino é implementada. Para implementar em menos de cinco minutos, consulte [implementar e explorar a aplicação de Wingtip bilhetes SaaS da base de dados por inquilino](saas-dbpertenant-get-started-deploy.md)
-* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* A aplicação de base de dados por inquilino Wingtip bilhetes SaaS é implementada. Para implementar em menos de cinco minutos, consulte [implementar e explorar a aplicação de base de dados por inquilino Wingtip bilhetes SaaS](saas-dbpertenant-get-started-deploy.md).
+* O Azure PowerShell está instalado. Para obter mais informações, consulte [começar com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-Veja o [Tutorial de Monitorização e Gestão do Desempenho](saas-dbpertenant-performance-monitoring.md) para ver um debate sobre padrões e cenários SaaS e como afetam os requisitos numa solução de monitorização.
+Consulte o [tutorial de gestão e monitorização de desempenho](saas-dbpertenant-performance-monitoring.md) para um debate dos cenários de SaaS e padrões e como estas afetam os requisitos de uma solução de monitorização.
 
-## <a name="monitoring-and-managing-database-and-elastic-pool-performance-with-log-analytics-or-operations-management-suite-oms"></a>Monitorizar e gerir o desempenho de agrupamento de base de dados e elástico com o Log Analytics ou o Operations Management Suite (OMS)
+## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics-or-operations-management-suite"></a>Monitorizar e gerir o desempenho de agrupamento de base de dados e elástico com o Log Analytics ou o Operations Management Suite
 
-Para a base de dados do SQL Server, monitorização e alertas estão disponível em bases de dados e agrupamentos no portal do Azure. Esta monitorização incorporada e os alertas são conveniente, mas a recursos específicos, é menos também adequada para monitorização grandes instalações de ou para fornecer uma vista unificada através de recursos e as subscrições.
+Para a base de dados SQL do Azure, monitorização e alertas estão disponível em bases de dados e agrupamentos no portal do Azure. Esta monitorização incorporada e os alertas são conveniente, mas também é específica do recurso. Isto significa que menos também é adequada para monitorizar grandes instalações de ou para fornecer uma vista unificada através de recursos e as subscrições.
 
-Para cenários de volume elevado, análise de registos pode ser utilizado para monitorização e alertas. Análise de registos é um serviço separada do Azure que permite a análise através de registos de diagnóstico e telemetria recolhidos numa área de trabalho de potencialmente vários serviços. Análise de registos fornece uma consulta incorporada ferramentas de visualização de dados e de idioma permitir análise de dados operacional. A solução de análise do SQL Server fornece vários predefinido conjunto elástico e base de dados de monitorização e alerta vistas e consultas. O OMS também fornece um estruturador de vistas personalizado.
+Para cenários de volume elevado, pode utilizar a análise de registos para monitorização e alertas. Análise de registos é um serviço do Azure separado que lhe permite a análise através de registos de diagnóstico e de telemetria recolhidos numa área de trabalho de potencialmente vários serviços. Análise de registos fornece uma consulta incorporada idioma e dados visualização as ferramentas que permite a análise de dados operacional. A solução de análise do SQL Server fornece vários predefinido conjunto elástico e base de dados de monitorização e alerta vistas e consultas. Operations Management Suite fornece também um estruturador de vistas personalizadas.
 
-As áreas de trabalho do Log Analytics e as soluções de análise podem ser abertas no portal do Azure e no OMS. O portal do Azure é o mais recente ponto de acesso, mas pode ficar atrás em relação ao portal do OMS em algumas áreas.
+Soluções de áreas de trabalho e a análise de análise do registo abrir no portal do Azure e no Operations Management Suite. O portal do Azure é o mais recente ponto de acesso, mas poderá ser por trás do portal do Operations Management Suite em algumas áreas.
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Criar dados de diagnóstico de desempenho simulando uma carga de trabalho nos seus inquilinos 
 
-1. No **ISE do PowerShell**, abra *... \\Mestre de MultiTenantDb WingtipTicketsSaaS\\Learning módulos\\monitorização de desempenho e gestão\\* * PerformanceMonitoringAndManagement.ps1*** de demonstração. Mantenha este script aberto, uma vez que poderá querer executar vários cenários de geração de carga durante este tutorial.
-1. Se ainda não o tiver o feito, Aprovisione um lote de inquilinos para fornecer um contexto de monitorização mais interessante. Esta ação demora alguns minutos:
-   1. Definir **$DemoScenario = 1**, _aprovisionar um lote de inquilinos_
-   1. Para executar o script e implementar uma inquilinos 17 adicionais, prima **F5**.  
+1. No ISE do PowerShell, abra *... \\Mestre de MultiTenantDb WingtipTicketsSaaS\\Learning módulos\\monitorização de desempenho e gestão\\demonstração PerformanceMonitoringAndManagement.ps1*. Mantenha este script aberto porque poderá querer executar a carga de vários cenários de geração durante este tutorial.
+2. Se ainda não o feito já, Aprovisione um lote de inquilinos para tornar o contexto de monitorização mais interessante. Este processo demora alguns minutos.
 
-1. Inicie agora o gerador de carga para executar uma carga simulada em todos os inquilinos.  
-    1. Definir **$DemoScenario = 2**, _carga normal intensidade de gerar (approx. 30 DTU)_.
-    1. Para executar o script, prima **F5**.
+   a. Definir **$DemoScenario = 1**, _aprovisionar um lote de inquilinos_.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts de aplicação Wingtip bilhetes SaaS da base de dados por inquilino
+   b. Para executar o script e implementar uma inquilinos 17 adicionais, prima F5.
 
-Os scripts de base de dados do Wingtip bilhetes SaaS multi-inquilino e o código fonte da aplicação, estão disponíveis no [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repositório do GitHub. Veja o [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts do PowerShell de bilhetes Wingtip de desbloqueio.
+3. Inicie agora o gerador de carga para executar uma carga simulada em todos os inquilinos.
 
-## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalar e configurar o Log Analytics e a solução Análise de SQL do Azure
+    a. Definir **$DemoScenario = 2**, _carga normal intensidade de gerar (approx. 30 DTU)_.
 
-O Log Analytics é um serviço em separado que tem de ser configurado. Análise de registos recolhe dados de registo, telemetria e métricas numa área de trabalho de análise de registo. Uma área de trabalho de análise do registo é um recurso, tal como outros recursos no Azure e tem de ser criada. Enquanto a área de trabalho não tem de ser criada no mesmo grupo de recursos de aplicação (ões) que está a monitorizar, se o fizer, por isso, muitas vezes, faz com que a maioria dos sentido. Para a aplicação de bilhetes Wingtip, utilizar um grupo de recursos única garante que a área de trabalho é eliminada com a aplicação.
+    b. Para executar o script, prima F5.
 
-1. No **ISE do PowerShell**, abra *... \\Mestre de MultiTenantDb WingtipTicketsSaaS\\Learning módulos\\monitorização de desempenho e gestão\\Iniciar análise\\* * LogAnalytics.ps1*** de demonstração.
-1. Para executar o script, prima **F5**.
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts de aplicação de base de dados por inquilino Wingtip bilhetes SaaS
 
-Nesta fase, deve ser capaz de análise de registos de abrir o portal do Azure (ou o portal do OMS). Demora alguns minutos para que a telemetria recolhida na área de trabalho de análise de registos e ficar visível. Mais tempo deixar o sistema de recolha de dados de diagnóstico a experiência é mais interessante. Agora é o momento indicado para tomar um café. Só tem de verificar se o gerador de carga ainda está em execução!
+O código fonte da aplicação e scripts de base de dados multi-inquilino Wingtip bilhetes SaaS estão disponíveis no [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repositório do GitHub. Para obter os passos transferir e desbloquear os scripts do PowerShell de bilhetes Wingtip, consulte o [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md).
+
+## <a name="install-and-configure-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalar e configurar a análise de registos e a solução de análise de SQL do Azure
+
+Análise de registos é um serviço separado que deve ser configurado. Análise de registos recolhe dados de registo, telemetria e métricas numa área de trabalho de análise de registos. Tal como outros recursos no Azure, tem de ser criada uma área de trabalho de análise de registos. A área de trabalho não tem de ser criada no mesmo grupo de recursos, como as aplicações que monitoriza. Se o fizer, por isso, muitas vezes, mais adequado apesar. Para a aplicação de bilhetes Wingtip, utilize um grupo de recursos única para se certificar de que a área de trabalho é eliminada com a aplicação.
+
+1. No ISE do PowerShell, abra *... \\Mestre de MultiTenantDb WingtipTicketsSaaS\\Learning módulos\\monitorização de desempenho e gestão\\Iniciar análise\\* * LogAnalytics.ps1*** de demonstração.
+2. Para executar o script, prima F5.
+
+Agora pode abrir a análise de registos no portal do Azure ou no portal do Operations Management Suite. Demora alguns minutos para recolher a telemetria na área de trabalho de análise de registos e torná-lo visível. Mais tempo deixar o sistema de recolha de dados de diagnóstico, a experiência é mais interessante. 
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Utilizar o Log Analytics e a Solução de Análise de SQL para monitorizar conjuntos e bases de dados
 
 
-Neste exercício, abra o portal do OMS e de análise de registo para ver a telemetria a ser recolhida para as bases de dados e agrupamentos.
+Neste exercício, abra o portal de Operations Management Suite e análise de registos para ver a telemetria recolhida para as bases de dados e agrupamentos.
 
-1. Navegue para o [portal do Azure](https://portal.azure.com) e abra a análise de registos, clicando em **todos os serviços**, em seguida, procure a análise de registos:
+1. Navegue para o [portal do Azure](https://portal.azure.com). Selecione **todos os serviços** para abrir a análise de registos. Em seguida, procure a análise de registos.
 
-   ![abrir o Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
+   ![Análise de registo abertos](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Selecione a área de trabalho com o nome _wtploganalytics -&lt;utilizador&gt;_.
+2. Selecione a área de trabalho com o nome _wtploganalytics -&lt;utilizador&gt;_.
 
-1. Selecione **Descrição Geral** para abrir a solução Log Analytics no portal do Azure.
+3. Selecione **Descrição Geral** para abrir a solução Log Analytics no portal do Azure.
 
-   ![overview-link](media/saas-dbpertenant-log-analytics/click-overview.png)
+   ![Descrição geral](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
-    > Pode demorar alguns minutos antes da solução está ativa. Seja paciente!
+    > Poderá demorar alguns minutos antes da solução está ativa. 
 
-1. Clique no mosaico Análise de SQL do Azure para o abrir.
+4. Selecione o **análise do Azure SQL** mosaico para abri-lo.
 
-    ![descrição geral](media/saas-dbpertenant-log-analytics/overview.png)
+    ![Mosaico de descrição geral](media/saas-dbpertenant-log-analytics/overview.png)
 
-    ![análise](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
+5. As vistas na solução lado, desloque com as seus próprios barra de deslocamento interna na parte inferior. Se necessário, atualize a página.
 
-1. As vistas na solução lado, desloque com as seus próprios barra de deslocamento interna na parte inferior (Atualize a página se necessário).
+6. Para explorar a página de resumo, selecione os mosaicos ou bases de dados individuais para abrir o Explorador de desagregação.
 
-1. Explore a página de resumo clicando nos mosaicos ou uma base de dados individual para abrir o Explorador de desagregação.
+    ![Dashboard de análise do registo](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-1. Alterar o filtro de definição para modificar o intervalo de tempo - para este tutorial escolha _última 1 hora_
+7. Altere a definição de filtro para modificar o intervalo de tempo. Para este tutorial, selecione **última 1 hora**.
 
     ![filtro de tempo](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-1. Selecione uma base de dados para explorar a utilização de consulta e métricas para essa base de dados.
+8. Selecione uma base de dados para explorar a utilização de consulta e métricas para essa base de dados.
 
     ![análise de base de dados](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 
-1. Para ver a utilização de métricas, desloque-se a página de análise para a direita.
+9. Para ver as métricas de utilização, desloque-se a página de análise para a direita.
  
      ![métricas de base de dados](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-1. Desloque-se a página de análise para a esquerda e clique no mosaico de servidor na lista de informações de recurso. Esta ação abre uma página que mostra os conjuntos e as bases de dados no servidor. 
+10. Desloque-se a página de análise para a esquerda e selecione o mosaico de servidor no **informações de recurso** lista.  
 
-     ![informações de recurso](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
+    ![Lista de informações de recursos](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
- 
-     ![servidor com conjuntos e as bases de dados](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
+    É aberta uma página que mostra os conjuntos e as bases de dados no servidor.
 
-1. No servidor de página que abre-se de que mostra os conjuntos e bases de dados no servidor, clique no conjunto.  Na página de agrupamento que se abre, desloque-se para a direita para ver as métricas de agrupamento.  
+    ![servidor com conjuntos e as bases de dados](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
 
-     ![métricas de conjunto](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
+11. Selecione um conjunto. Na página de agrupamento que se abre, desloque-se para a direita para ver as métricas de agrupamento. 
+
+    ![métricas de conjunto](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
+12. Na área de trabalho de análise de registos, selecione **Portal do OMS** para abrir a área de trabalho existe.
 
-1. Novamente na área de trabalho de análise de registos, selecione **Portal do OMS** para abrir a área de trabalho existe.
+    ![Mosaico do Operations Management Suite Portal](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-    ![oms](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+No portal do Operations Management Suite, pode explorar os dados de registo e a métrica na área de trabalho adicional. 
 
-No portal do OMS, pode explorar os dados de registo e a métrica na área de trabalho adicional.  
+Monitorização e alertas no Operations Management Suite e de análise de registo são baseadas em consultas sobre os dados na área de trabalho, ao contrário de alertas definido em cada recurso no portal do Azure. Por basing alertas em consultas, pode definir um único alerta que se pareça através de todas as bases de dados, em vez de uma definição por base de dados. As consultas estão limitadas apenas pelos dados disponíveis na área de trabalho.
 
-A monitorização e alertas na análise de registos e OMS baseada em consultas sobre os dados na área de trabalho, ao contrário de alertas definido em cada recurso no portal do Azure. Por basing alertas em consultas, pode definir um único alerta que se pareça através de todas as bases de dados, em vez de uma definição por base de dados. As consultas são apenas limitadas pelos dados disponíveis na área de trabalho.
+Para obter mais informações sobre como utilizar o Operations Management Suite para consultar e definir alertas, consulte [trabalhar com regras de alertas na análise de registos](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
-Para obter mais informações sobre a utilização do OMS para consultar e definir alertas, consulte, [trabalhar com regras de alertas na análise de registos](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
-
-O Log Analytics da Base de Dados SQL é cobrado com base no volume de dados na área de trabalho. Neste tutorial, vai criar uma área de trabalho gratuita, que é limitado a 500 MB por dia. Assim que esse limite é atingido, os dados já não são adicionados à área de trabalho.
+Análise de registos para custos de base de dados SQL com base no volume de dados na área de trabalho. Neste tutorial, vai criar uma área de trabalho gratuita, que é limitado a 500 MB por dia. Após esse limite é atingido, os dados já não são adicionados à área de trabalho.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -137,13 +141,13 @@ O Log Analytics da Base de Dados SQL é cobrado com base no volume de dados na �
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Instalar e configurar o Log Analytics (OMS)
-> * Utilizar o Log Analytics para monitorizar conjuntos e bases de dados
+> * Instale e configure a análise de registos (Operations Management Suite).
+> * Utilize a análise de registos para monitorizar os conjuntos e as bases de dados.
 
-[Tutorial de análise de inquilinos](saas-dbpertenant-log-analytics.md)
+Repita o [tutorial de análise do inquilino](saas-dbpertenant-log-analytics.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que criar após a implementação de aplicação Wingtip bilhetes SaaS da base de dados por inquilino inicial](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Tutoriais adicionais que criar na implementação da aplicação de base de dados por inquilino inicial do Wingtip bilhetes SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Log Analytics do Azure](../log-analytics/log-analytics-azure-sql.md)
-* [OMS](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)
+* [Operations Management Suite](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)

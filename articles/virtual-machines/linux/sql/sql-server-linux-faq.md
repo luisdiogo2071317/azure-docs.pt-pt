@@ -1,8 +1,8 @@
 ---
-title: "SQL Server em máquinas virtuais do Linux Azure FAQ | Microsoft Docs"
-description: "Este artigo fornece respostas às perguntas mais frequentes sobre a execução do SQL Server em VMs do Linux do Azure."
+title: SQL Server em máquinas virtuais do Linux Azure FAQ | Microsoft Docs
+description: Este artigo fornece respostas às perguntas mais frequentes sobre a execução do SQL Server em VMs do Linux do Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Perguntas mais frequentes para o SQL Server no Linux Virtual Machines do Azure
 
@@ -31,7 +31,7 @@ Este artigo fornece respostas a algumas perguntas mais comuns sobre a execução
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a>Imagens
+## <a id="images"></a> Imagens
 
 1. **As imagens de Galeria de máquina virtual do SQL Server estão disponíveis?**
 
@@ -71,13 +71,17 @@ Este artigo fornece respostas a algumas perguntas mais comuns sobre a execução
 
 1. **Pode alterar uma VM para utilizar o meu próprio licença do SQL Server se foi criada a partir de uma das imagens gallery pay as you go?**
 
-   Não. Não é possível mudar do licenciamento de pagamento por minuto para a sua própria licença de utilização. Tem de criar uma nova VM do Linux, instalar o SQL Server e migrar os dados. Consulte a pergunta anterior para obter mais detalhes sobre como colocar a sua própria licença.
+   Não. Não é possível mudar do licenciamento pay por segundo para utilizar a sua própria licença. Tem de criar uma nova VM do Linux, instalar o SQL Server e migrar os dados. Consulte a pergunta anterior para obter mais detalhes sobre como colocar a sua própria licença.
 
 ## <a name="administration"></a>Administração
 
 1. **Pode gerir uma máquina virtual de Linux SQL Server com o SQL Server Management Studio (SSMS)?**
 
    Sim, mas o SSMS atualmente é uma ferramenta como só de Windows. Deve ligar remotamente a partir de uma máquina Windows para utilizar o SSMS com VMs do Linux SQL Server. Localmente no Linux, a nova [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) ferramenta pode executar muitas tarefas administrativas. Para pré-visualizar uma ferramenta de gestão de base de dados de várias plataformas, consulte [(pré-visualização) do SQL Server operações Studio](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+
+1. **Pode remover o servidor SQL completamente de uma VM do SQL Server?**
+
+   Sim, mas continuará a cobradas para a VM do SQL Server, tal como descrito em [preços orientação para as VMs do SQL do Azure](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Se já não necessita do SQL Server, pode implementar uma nova máquina virtual e migrar os dados e aplicações para a nova máquina virtual. Em seguida, pode remover a máquina virtual do SQL Server.
 
 ## <a name="updating-and-patching"></a>A atualização e aplicação de patches
 
