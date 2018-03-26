@@ -131,6 +131,8 @@
           items:
             - name: Arquitetura
               href: service-fabric-reliable-actors-platform.md
+            - name: Implementar funcionalidades de nível de serviço
+              href: service-fabric-reliable-actors-using.md
             - name: Ciclo de vida e libertação da memória
               href: service-fabric-reliable-actors-lifecycle.md
             - name: Gestão de estados
@@ -389,7 +391,15 @@
               href: service-fabric-reliable-services-backup-restore.md
         - name: Criar um serviço do Reliable Actors
           items:
-            - name: Enviar notificações
+            - name: 'Aceder, guardar e remover o estado do ator'
+              href: service-fabric-reliable-actors-access-save-remove-state.md
+            - name: Enumerar atores
+              href: service-fabric-reliable-actors-enumerate.md
+            - name: Eliminar atores e o respetivo estado
+              href: service-fabric-reliable-actors-delete-actors.md
+            - name: Fazer cópias de segurança e restaurar atores
+              href: service-fabric-reliable-actors-backup-and-restore.md
+            - name: Enviar notificações de ator
               href: service-fabric-reliable-actors-events.md
             - name: Definir temporizadores e lembretes
               href: service-fabric-reliable-actors-timers-reminders.md

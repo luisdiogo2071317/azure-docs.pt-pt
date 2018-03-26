@@ -41,6 +41,7 @@
 ### [Análise de sentimentos do Twitter](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Deteção de fraudes em tempo real](stream-analytics-real-time-fraud-detection.md)
 ### [Executar tarefas no IoT Edge](stream-analytics-edge.md) 
+### [Análise de dados do sensor de portagens](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [Executar uma UDA do JavaScript](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Negociação de elevada frequência](stream-analytics-high-frequency-trading.md)
 ### [Executar Funções do Azure](stream-analytics-with-azure-functions.md)

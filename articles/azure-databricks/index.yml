@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação da Pré-visualização do Azure Databricks
+title: Documentação do Azure Databricks
 metadata:
   title: Documentação do Azure Databricks - Tutoriais | Microsoft Docs
   description: Aprenda a utilizar o Azure Databricks com o início rápido e outras ligações fornecidas aqui. O Azure Databricks é uma plataforma de análise baseada no Apache Spark e otimizada para a plataforma de serviços cloud Microsoft Azure.
@@ -11,13 +11,13 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/15/2017
+  ms.date: 03/19/2018
   ms.author: nitinme
-  ms.openlocfilehash: 8bbb8bb020c8c64e11d072729b59074a406a03ca
-  ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+  ms.openlocfilehash: 2c0bbbe6d9799258b983723c5d6980754a9908ae
+  ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/17/2018
+  ms.lasthandoff: 03/23/2018
 abstract:
   description: Aprenda a utilizar o Azure Databricks com o início rápido e outras ligações fornecidas aqui. O Azure Databricks é uma plataforma de análise baseada no Apache Spark e otimizada para a plataforma de serviços cloud Microsoft Azure. Concebida com os fundadores do Apache Spark, o Databricks está integrado com o Azure para prestar configurações com um clique, fluxos de trabalho fluídos e uma área de trabalho interativa que permite a colaboração entre cientistas de dados, engenheiros de dados e analistas empresariais.
   aside:
@@ -41,6 +41,10 @@ sections:
         src: /azure/azure-databricks/media/index/portal.svg
       text: Portal do Azure
       href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
+    - image:
+        src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
+      text: Modelo do Resource Manager
+      href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
@@ -48,10 +52,15 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Transmitir dados dos Hubs de Eventos com o Azure Databricks</a>
-    - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Análise de sentimento com o Azure Databricks e com os Serviços Cognitivos</a>
-    - html: <a href="https://go.microsoft.com/fwlink/?linkid=864083" target="_blank">Importar dados do Armazenamento do Azure</a>
-    - hmtl: <a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>
-    - html: <a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Trabalhar com blocos de notas</a>
-    - html: <a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Executar tarefas do Spark</a>
-    - html: <a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Utilizar origens de dados do Spark</a>
+    - html: <a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Extrair, transformar e carregar dados</a>
+    - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Transmitir dados a partir dos Hubs de Eventos</a>
+    - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Análise de sentimentos com os Serviços Cognitivos</a>
+    - html: <a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">Transmitir dados a partir do HDInsight Kafka</a>
+- title: Referência
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="/rest/api/databricks">API REST</a></p>
