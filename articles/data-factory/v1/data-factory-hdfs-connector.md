@@ -2,10 +2,9 @@
 title: Mover dados do HDFS no local | Microsoft Docs
 description: Saiba mais sobre como mover dados do HDFS no local utilizando o Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 3215b82d-291a-46db-8478-eac1a3219614
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 87acbe81d20e0f2b209565eace16de1b979b1d96
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 62a1052c0b2674e3292d5f89c0b8863439dd3928
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Mover dados do HDFS no local utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -119,7 +118,7 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| folderPath |Caminho para a pasta. Exemplo:`myfolder`<br/><br/>Utilize o caráter de escape ' \ ' para carateres especiais na cadeia. Por exemplo: para folder\subfolder, especifique a pasta\\\\subpasta e para d:\samplefolder, especifique d:\\\\samplefolder.<br/><br/>Pode combinar esta propriedade com **partitionBy** ter pasta caminhos com base no setor início/fim tempos de data. |Sim |
+| folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Utilize o caráter de escape ' \ ' para carateres especiais na cadeia. Por exemplo: para folder\subfolder, especifique a pasta\\\\subpasta e para d:\samplefolder, especifique d:\\\\samplefolder.<br/><br/>Pode combinar esta propriedade com **partitionBy** ter pasta caminhos com base no setor início/fim tempos de data. |Sim |
 | fileName |Especifique o nome do ficheiro no **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não for especificado qualquer valor para esta propriedade, a tabela de pontos a todos os ficheiros na pasta.<br/><br/>Quando não for especificado o nome de ficheiro para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: <br/><br/>Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy pode ser utilizado para especificar um folderPath dinâmica, o nome de ficheiro de dados de séries de tempo. Exemplo: folderPath parametrizada para cada hora dos dados. |Não |
 | formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formato](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída. |Não |
@@ -434,7 +433,7 @@ Existem duas opções para configurar o ambiente no local, de modo a utilizar a 
 
   **Reiniciar** o serviço KDC após a configuração.
 
-2.  Preparar um principal com o nome  **krbtgt/REALM.COM@AD.COM**  no servidor do KDC com o seguinte comando:
+2.  Preparar um principal com o nome **krbtgt/REALM.COM@AD.COM** no servidor do KDC com o seguinte comando:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
@@ -447,7 +446,7 @@ Existem duas opções para configurar o ambiente no local, de modo a utilizar a 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Estabelece confiança do domínio do Windows para Kerberos Realm. [palavra-passe] é a palavra-passe para o principal  **krbtgt/REALM.COM@AD.COM** .
+2.  Estabelece confiança do domínio do Windows para Kerberos Realm. [palavra-passe] é a palavra-passe para o principal **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

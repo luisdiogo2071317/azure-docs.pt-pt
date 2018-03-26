@@ -1,11 +1,11 @@
 ---
 title: Copiar dados de HDFS utilizando o Azure Data Factory | Microsoft Docs
-description: "Saiba como copiar dados de uma origem HDFS nuvem ou no local para os arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory."
+description: Saiba como copiar dados de uma origem HDFS nuvem ou no local para os arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 400c58abf04d28dd0e5f1d7aac204f09c43b942e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 98a03bf1637ce21320b749feb7dfb55096bf091c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados de HDFS utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -329,7 +329,7 @@ Existem duas opções para configurar o ambiente no local, de modo a utilizar a 
 
   **Reiniciar** o serviço KDC após a configuração.
 
-2.  Preparar um principal com o nome  **krbtgt/REALM.COM@AD.COM**  no servidor do KDC com o seguinte comando:
+2.  Preparar um principal com o nome **krbtgt/REALM.COM@AD.COM** no servidor do KDC com o seguinte comando:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
@@ -342,7 +342,7 @@ Existem duas opções para configurar o ambiente no local, de modo a utilizar a 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Estabelece confiança do domínio do Windows para Kerberos Realm. [palavra-passe] é a palavra-passe para o principal  **krbtgt/REALM.COM@AD.COM** .
+2.  Estabelece confiança do domínio do Windows para Kerberos Realm. [palavra-passe] é a palavra-passe para o principal **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

@@ -1,11 +1,11 @@
 ---
-title: "Solução de Monitor de desempenho no Azure de rede | Microsoft Docs"
+title: Solução de Monitor de desempenho no Azure de rede | Microsoft Docs
 description: Monitor de desempenho no Azure de rede ajuda a monitorizar o desempenho das suas redes-in quase real tempo a detetar e localizar congestionamentos de desempenho de rede.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: abshamsft
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 399fe552d5c7d9a96cdabc2a1dfafe99635d4a61
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 90fd9b09f90d5b209e0eb8cc6996ef7fb1e7e0b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -38,6 +38,8 @@ NPM oferece três capacidades abrangentes:
 Esta capacidade ajuda-o a efetuar http, HTTPS, TCP e ICMP com base em testes para monitorizar no quase em tempo real ou historicamente a disponibilidade e o tempo de resposta do seu serviço e a contribuição da rede em perda de pacotes e latência. Com o mapa de topologia de rede, pode isolar abrandamentos de rede ao identificar oportunidades de problema que ocorrem ao longo do caminho de rede a partir do nó para o serviço, com dados de latência em cada hop. Com testes incorporados, monitorize a conectividade de rede para o Office 365 e Dynamics CRM sem qualquer pré configuração de. Com esta capacidade, pode monitorizar a conectividade de rede para qualquer ponto final com capacidade de TCP, tais como Web sites, SaaS, PaaS aplicações, bases de dados do SQL Server, etc.  
 
 [Monitor de ExpressRoute](log-analytics-network-performance-monitor-expressroute.md): monitorizar a conetividade ponto a ponto e o desempenho entre os escritórios e o Azure, através do ExpressRoute do Azure.  
+
+Obter mais informações sobre as diversas capacidades suportadas pelo [Monitor de desempenho de rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) está disponível online.
  
 
 ## <a name="set-up-and-configure"></a>Configurar

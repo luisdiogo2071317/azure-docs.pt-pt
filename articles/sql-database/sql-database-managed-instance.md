@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral de instância de geridos de base de dados SQL do Azure | Microsoft Docs"
-description: "Este tópico descreve uma instância do Azure SQL da base de dados geridos e explica como funciona e como é diferente da base de dados individual na SQL Database do Azure."
+title: Descrição geral de instância de geridos de base de dados SQL do Azure | Microsoft Docs
+description: Este tópico descreve uma instância do Azure SQL da base de dados geridos e explica como funciona e como é diferente da base de dados individual na SQL Database do Azure.
 services: sql-database
 author: bonova
 ms.reviewer: carlrab
@@ -8,17 +8,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: bonova
-ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e13583e0364b01c3a4560d88882eb1dcf82b8c99
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância geridos (pré-visualização)?
 
-Instância do Azure SQL da base de dados geridos (pré-visualização) é uma nova funcionalidade da SQL Database do Azure, fornecendo quase 100% a compatibilidade com SQL Server no local, fornecendo um nativo [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) implementação endereços preocupações de segurança comuns e um [modelo de negócio](https://azure.microsoft.com/pricing/details/sql-database/) favoráveis para clientes de SQL Server no local. Instância gerida permite que os clientes existentes do SQL Server para comparação de precisão e deslocar às suas aplicações no local para a nuvem com alterações mínimas de aplicação e da base de dados. Ao mesmo tempo, a instância geridos preserva todas as PaaS capacidades (atualizações automáticas de aplicação de patches e a versão da cópia de segurança, elevada disponibilidade), que reduz significativamente a sobrecarga de gestão e o TCO.
+Instância do Azure SQL da base de dados geridos (pré-visualização) é uma nova funcionalidade da SQL Database do Azure, fornecendo quase 100% a compatibilidade com o SQL Server no local (Enterprise Edition), fornecendo um nativo [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) implementação endereços preocupações de segurança comuns, e um [modelo de negócio](https://azure.microsoft.com/pricing/details/sql-database/) favoráveis para clientes de SQL Server no local. Instância gerida permite que os clientes existentes do SQL Server para comparação de precisão e deslocar às suas aplicações no local para a nuvem com alterações mínimas de aplicação e da base de dados. Ao mesmo tempo, a instância geridos preserva todas as PaaS capacidades (atualizações automáticas de aplicação de patches e a versão da cópia de segurança, elevada disponibilidade), que reduz significativamente a sobrecarga de gestão e o TCO.
 
 > [!IMPORTANT]
 > Para obter uma lista de regiões em que está atualmente disponível instância geridos, consulte [migrar as bases de dados para um serviço completamente gerido com o Azure SQL da base de dados geridos instância](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
@@ -58,6 +58,9 @@ A tabela seguinte mostra várias propriedades, acessíveis através do Transact 
 
 ## <a name="key-features-and-capabilities-of-a-managed-instance"></a>As principais funcionalidades e capacidades de uma instância geridos 
 
+> [!IMPORTANT]
+> Executa uma instância geridos com todas as funcionalidades da versão mais recente do SQL Server, incluindo operações online, as correções plano automática e outros melhoramentos de desempenho de empresa. 
+
 | **Vantagens de PaaS** | **Continuidade do negócio** |
 | --- | --- |
 |Não é a compra de hardware e gestão <br>Nenhuma gestão de sobrecarga de gerir a infraestrutura subjacente <br>Aprovisionamento rápido e dimensionamento de serviço <br>Atualização de versão e de aplicação de patches automatizada <br>Integração com outros serviços de dados PaaS |SLA de 99,99% disponibilidade  <br>Incorporada na elevada disponibilidade <br>Dados protegidos com cópias de segurança automatizadas <br>Período de retenção de cópias de segurança configurável de cliente (fixo para pré-visualização pública de 7 dias) <br>Cópias de segurança iniciada pelo utilizador <br>Capacidade de restaurar ponto na base de dados do tempo |
@@ -90,6 +93,7 @@ A seguir descreve as funcionalidades principais da camada de serviços de objeti
 | Versão do SQL Server / compilar | SQL Server mais recente (disponível) |
 | Tamanho de armazenamento mín. | 32 GB |
 | Tamanho máximo de armazenamento | 8 TB |
+| Armazenamento máximo por base de dados | 4 TB |
 | Armazenamento esperado IOPS | 500-7500 IOPS por ficheiro de dados (depende o ficheiro de dados). Consulte [armazenamento Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Número de ficheiros de dados (linhas) pela base de dados | Vários | 
 | Número de ficheiros de registo (registo) por base de dados | 1 | 
@@ -120,7 +124,7 @@ O diagrama a seguir descreve a estrutura de isolamento:
 
 ### <a name="auditing-for-compliance-and-security"></a>Auditoria para conformidade e segurança 
 
-Gerido instância [auditoria](sql-database-auditing.md) controla da base de dados eventos e escreve-los para uma auditoria iniciar sessão na sua conta do storage do Azure. Auditoria pode ajudar a manter a conformidade de regulamentação, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que poderão indicar preocupações para a empresa ou suspeitas de violação de segurança. 
+[Gerido instância auditoria](sql-database-managed-instance-auditing.md) controla da base de dados eventos e escreve-los para uma auditoria iniciar sessão na sua conta do storage do Azure. Auditoria pode ajudar a manter a conformidade de regulamentação, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que poderão indicar preocupações para a empresa ou suspeitas de violação de segurança. 
 
 ### <a name="data-encryption-in-motion"></a>Encriptação de dados ativa 
 
@@ -138,7 +142,7 @@ Base de dados SQL [máscara de dados dinâmicos](/sql/relational-databases/secur
 
 ### <a name="threat-detection"></a>Deteção de ameaças 
 
-Base de dados SQL do Azure [a deteção de ameaças](sql-database-threat-detection.md) complementa a auditoria, fornecendo uma camada adicional de intelligence de segurança incorporada para o serviço que Deteta tentativas invulgares e potencialmente prejudiciais para aceder ou exploram bases de dados. Se for alertado sobre atividades suspeitas, potenciais vulnerabilidades, e ataques de injeção de SQL, bem como os padrões de acesso de base de dados anómalas. Alertas de deteção de ameaças podem ser visualizadas [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) e forneça detalhes de atividade suspeita e recomendamos ação sobre a investigar e mitigar a ameaça.  
+[Gerido a deteção de ameaças de instância](sql-database-managed-instance-threat-detection.md) complementa [geridos instância auditoria](sql-database-managed-instance-auditing.md) , fornecendo uma camada adicional de intelligence de segurança incorporada para o serviço que Deteta tentativas invulgares e potencialmente prejudiciais acesso ou exploração bases de dados. Se for alertado sobre atividades suspeitas, potenciais vulnerabilidades, e ataques de injeção de SQL, bem como os padrões de acesso de base de dados anómalas. Alertas de deteção de ameaças podem ser visualizadas [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) e forneça detalhes de atividade suspeita e recomendamos ação sobre a investigar e mitigar a ameaça.  
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator 
 
@@ -197,4 +201,4 @@ Gerido instância ativar administrador de sistema focar-se naquilo que realmente
 
 - Para funcionalidades e a lista de comparação, consulte [funcionalidades comuns do SQL Server](sql-database-features.md).
 - Para um tutorial que cria uma instância geridos e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância geridos](sql-database-managed-instance-tutorial-portal.md).
-- Para um tutorial, utilizando o serviço de migração de base de dados do Azure (DMS) para a migração, consulte [migração instância geridos utilizando o DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Para obter um tutorial, utilizando o Azure Database Migration Service (DMS) para migração, veja [Migração de Instância Gerida com o DMS](../dms/tutorial-sql-server-to-managed-instance.md).

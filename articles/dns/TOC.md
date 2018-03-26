@@ -7,6 +7,8 @@
 ## [Delegação DNS com o DNS do Azure](dns-domain-delegation.md)
 ## [FAQ sobre DNS](dns-faq.md)
 ## [Utilizar zonas DNS privadas](private-dns-overview.md)
+## [Cenários de DNS privado](private-dns-scenarios.md)
+
 
 # Introdução
 
@@ -17,6 +19,7 @@
 
 ## Criar uma zona e um registo DNS privados
 ### [PowerShell](private-dns-getstarted-powershell.md)
+### [CLI do Azure](private-dns-getstarted-cli.md)
 ## [Delegar o domínio no DNS do Azure](dns-delegate-domain-azure-dns.md)
 ## [Criar registos DNS personalizados para uma aplicação web](dns-web-sites-custom-domain.md)
 
