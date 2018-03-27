@@ -1,43 +1,43 @@
 ---
-title: "Como dados de gráfico de consulta na base de dados do Azure Cosmos? | Microsoft Docs"
-description: "Saiba como consultar dados de gráfico do BD Azure Cosmos"
+title: Como consultar dados de gráfico no Azure Cosmos DB? | Microsoft Docs
+description: Saiba como consultar dados de gráfico no Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
 manager: jhubbard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: eb1da11c8b27a429ffcf9ea8fb50b6c7cee26ec0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: Como consultar com a Graph API?
+# <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Tutorial: Consultar a Graph API do Azure Cosmos DB através do Gremlin
 
-A BD do Cosmos Azure [Graph API](graph-introduction.md) suporta [Gremlin](https://github.com/tinkerpop/gremlin/wiki) consultas. Este artigo fornece documentos de exemplo e consultas para começar. A detalhadas Gremlin referência é fornecida no [suporte Gremlin](gremlin-support.md) artigo.
+A [Graph API](graph-introduction.md) do Azure Cosmos DB suporta consultas [Gremlin](https://github.com/tinkerpop/gremlin/wiki). Este artigo fornece documentos e consultas de exemplo para poder começar. É fornecida uma referência ao Gremlin detalhada no artigo [Suporte para Gremlin](gremlin-support.md).
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
-> * Consultar os dados com Gremlin
+> * Consultar dados com o Gremlin
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para estas consultas funcione, tem de ter uma conta de base de dados do Azure Cosmos e ter dados de gráfico no contentor. Não tem qualquer um desses? Concluir o [início rápido de 5 minutos](create-graph-dotnet.md) ou [tutorial programador](tutorial-query-graph.md) para criar uma conta e preencher a base de dados. Pode executar as seguintes consultas utilizando o [biblioteca de gráfico de .NET de BD do Azure Cosmos](graph-sdk-dotnet.md), [consola Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), ou o controlador de Gremlin favorito.
+Para estas consultas funcionarem, tem de ter uma conta do Azure Cosmos DB e dados de gráfico no contentor. Não tem qualquer um destes? Conclua o [início rápido de 5 minutos](create-graph-dotnet.md) ou o [tutorial do programador](tutorial-query-graph.md) para criar uma conta e povoar a base de dados. Pode executar as seguintes consultas com a [biblioteca de gráfico .NET do Azure Cosmos DB](graph-sdk-dotnet.md), a [consola do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) ou o seu controlador Gremlin favorito.
 
-## <a name="count-vertices-in-the-graph"></a>Contagem de vértices no gráfico
+## <a name="count-vertices-in-the-graph"></a>Contar vértices no gráfico
 
-O fragmento seguinte mostra como contabilizar o número de vértices no gráfico de:
+O fragmento seguinte mostra como contabilizar o número de vértices no gráfico:
 
 ```
 g.V().count()
@@ -45,7 +45,7 @@ g.V().count()
 
 ## <a name="filters"></a>Filtros
 
-Pode efetuar filtros através do Gremlin `has` e `hasLabel` passos e combine-os utilizando `and`, `or`, e `not` para criar filtros mais complexos. BD do Azure do Cosmos fornece desconhecidas do esquema de indexação de todas as propriedades dentro da sua vértices e graus para consultas rápidas:
+Pode executar filtros através dos passos `has` e `hasLabel` do Gremlin e combiná-los com `and`, `or` e `not` para criar filtros mais complexos. O Azure Cosmos DB fornece uma indexação independente de esquema de todas as propriedades nos vértices e graus para consultas rápidas:
 
 ```
 g.V().hasLabel('person').has('age', gt(40))
@@ -53,36 +53,36 @@ g.V().hasLabel('person').has('age', gt(40))
 
 ## <a name="projection"></a>Projeção
 
-Pode projetar a algumas propriedades nos resultados da consulta utilizando o `values` passo:
+Pode projetar algumas propriedades nos resultados da consulta com o passo `values`:
 
 ```
 g.V().hasLabel('person').values('firstName')
 ```
 
-## <a name="find-related-edges-and-vertices"></a>Localizar contornos relacionados e vértices
+## <a name="find-related-edges-and-vertices"></a>Localizar arestas e vértices relacionados
 
-Até ao momento, estamos apenas viu operadores de consulta que funcionam em qualquer base de dados. Gráficos são rápidos e eficientes para operações de transversal quando precisar navegar para contornos relacionados e vértices. Vamos localizar todos os amigos de blogue. Podemos fazê-lo através do Gremlin `outE` passo para localizar todas as de out-extremidades do blogue, em seguida, que atravessa no-vértices desses contornos através do Gremlin `inV` passo:
+Até ao momento, apenas vimos operadores de consulta que funcionam em qualquer base de dados. Os gráficos são rápidos e eficientes para operações transversais quando precisar de navegar para arestas e vértices relacionados. Vamos localizar todos os amigos do Tomás. Podemos fazê-lo através do passo `outE` do Gremlin para localizar todas as arestas exteriores do Tomás e atravessá-las nos vértices interiores dessas arestas através do passo `inV` do Gremlin:
 
 ```cs
 g.V('thomas').outE('knows').inV().hasLabel('person')
 ```
 
-A consulta seguinte executa duas saltos para localizar todos os "amigos de blogue de amigos", chamando `outE` e `inV` duas vezes. 
+A consulta seguinte executa dois saltos para localizar todos os "amigos de amigos" do Tomás ao chamar `outE` e `inV` duas vezes. 
 
 ```cs
 g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 
-Pode construir consultas mais complexas e implementar a lógica do gráfico poderosas transversal utilizando Gremlin, incluindo a mistura de expressões de filtro, efetuar a utilizar o ciclo de `loop` passo e a utilização de navegação condicional implementar o `choose` passo. Saiba mais sobre o que pode fazer com [suporte Gremlin](gremlin-support.md)!
+Pode criar consultas mais complexas e implementar uma lógica de gráfico transversal poderosa com o Gremlin, incluindo misturar expressões de filtro, efetuar o ciclo com o passo `loop` e implementar a navegação condicional com o passo `choose`. Saiba mais sobre o que pode fazer com o [Suporte para Gremlin](gremlin-support.md)!
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, fez o seguinte:
 
 > [!div class="checklist"]
-> * Aprendeu a consultar com gráfico 
+> * Aprendeu a fazer consultas com o Graph 
 
-Agora pode avançar para o próximo tutorial para saber como distribuir dados globalmente.
+Agora pode avançar para o tutorial seguinte para saber como distribuir dados globalmente.
 
 > [!div class="nextstepaction"]
 > [Distribuir dados globalmente](tutorial-global-distribution-sql-api.md)

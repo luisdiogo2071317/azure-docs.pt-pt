@@ -1,41 +1,41 @@
 ---
-title: Como a consulta com o SQL na base de dados do Azure Cosmos? | Microsoft Docs
-description: Saiba como consultar com SQL na base de dados do Azure Cosmos
+title: Como fazer consultas com SQL na Azure Cosmos DB? | Microsoft Docs
+description: Saiba como fazer consultas com SQL na Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: ffef6ec2120a80d907449470efb7b4ab6dca8037
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 60910b602f9386738f9d8895fd151d15f3ebf058
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: Como consultar o SQL Server a utilizar?
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: consultar a Azure Cosmos DB utilizando a API do SQL
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-A BD do Cosmos Azure [API do SQL Server](documentdb-introduction.md) suporta consultar documentos utilizando o SQL Server. Este artigo fornece um documento de exemplo e dois exemplos de consultas SQL e os resultados.
+A [API do SQL](documentdb-introduction.md) da Azure Cosmos DB suporta a consulta de documentos utilizando o SQL. Este artigo fornece um documento de exemplo e dois exemplos de consultas SQL e os resultados.
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
-> * Consultar os dados com o SQL Server
+> * Consultar dados com o SQL
 
 ## <a name="sample-document"></a>Documento de exemplo
 
-As consultas de SQL Server neste artigo utilizam o documento de exemplo seguinte.
+As consultas de SQL neste artigo utilizam o documento de exemplo seguinte.
 
 ```json
 {
@@ -65,20 +65,20 @@ As consultas de SQL Server neste artigo utilizam o documento de exemplo seguinte
   "isRegistered": false
 }
 ```
-## <a name="where-can-i-run-sql-queries"></a>Onde posso executar consultas do SQL Server?
+## <a name="where-can-i-run-sql-queries"></a>Onde posso executar consultas SQL?
 
-Pode executar consultas utilizando o Explorador de dados no portal do Azure, através de [REST API e SDKs](sql-api-sdk-dotnet.md)e até mesmo [Query playground](https://www.documentdb.com/sql/demo), que é executada consultas num conjunto de dados de exemplo.
+Pode executar consultas utilizando o Data Explorer no portal do Azure, através de [REST API e SDK](sql-api-sdk-dotnet.md)e até mesmo [Teste de consulta](https://www.documentdb.com/sql/demo), que executada consultas num conjunto de dados de exemplo.
 
 Para obter mais informações sobre as consultas SQL, consulte:
-* [Consulta SQL e a sintaxe do SQL Server](sql-api-sql-query.md)
+* [Consulta SQL e sintaxe SQL](sql-api-sql-query.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial parte do princípio de que tem uma conta de base de dados do Azure Cosmos e a coleção. Não tem qualquer um desses? Concluir o [início rápido de 5 minutos](create-mongodb-nodejs.md) ou [tutorial programador](tutorial-develop-mongodb.md) para criar uma conta e a coleção.
+Este tutorial parte do princípio de que tem uma conta e coleção da Azure Cosmos DB. Não tem qualquer um destas? Conclua o [início rápido de 5 minutos](create-mongodb-nodejs.md) ou o [tutorial do programador](tutorial-develop-mongodb.md) para criar uma conta e uma coleção.
 
 ## <a name="example-query-1"></a>Consulta de exemplo 1
 
-Tendo em conta o documento família de exemplo acima, a seguinte consulta SQL devolve os documentos em que o campo id corresponde ao `WakefieldFamily`. Uma vez que é um `SELECT *` instrução, o resultado da consulta é o documento JSON concluído:
+Tendo em conta o documento de família de exemplo acima, a seguinte consulta SQL devolve os documentos em que o campo ID corresponde a `WakefieldFamily`. Uma vez que é uma declaração `SELECT *`, o resultado da consulta é o documento JSON completo:
 
 **Consulta**
 
@@ -119,7 +119,7 @@ Tendo em conta o documento família de exemplo acima, a seguinte consulta SQL de
 
 ## <a name="example-query-2"></a>Consulta de exemplo 2
 
-A seguinte consulta devolve todos os nomes de especificado de elementos subordinados na família cujo id corresponde ao `WakefieldFamily` ordenadas pelo respetivo nível.
+A seguinte consulta devolve todos os nomes de elementos subordinados na família cujo ID corresponde aos `WakefieldFamily` ordenados pelo respetivo nível.
 
 **Consulta**
 
@@ -142,9 +142,9 @@ A seguinte consulta devolve todos os nomes de especificado de elementos subordin
 Neste tutorial, fez o seguinte:
 
 > [!div class="checklist"]
-> * Aprendeu a consulta utilizando o SQL Server  
+> * Aprendeu a fazer consultas utilizando o SQL  
 
-Agora pode avançar para o próximo tutorial para saber como distribuir dados globalmente.
+Agora pode avançar para o tutorial seguinte para saber como distribuir dados globalmente.
 
 > [!div class="nextstepaction"]
 > [Distribuir dados globalmente](tutorial-global-distribution-sql-api.md)

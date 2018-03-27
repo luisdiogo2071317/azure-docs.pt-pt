@@ -1,35 +1,35 @@
 ---
-title: 'Azure Cosmos DB: Como consultar utilizando a API do MongoDB? | Microsoft Docs'
-description: Saiba como consultar com a API do MongoDB para a base de dados do Azure Cosmos
+title: 'Azure Cosmos DB: como fazer consultas utilizando a API do MongoDB? | Microsoft Docs'
+description: Saiba como fazer consultas com a API do MongoDB na Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 05/10/2017
+ms.workload: ''
+ms.date: 03/16/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 1818476a95ddf373701ad93860b02ea4c2ad761d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: Como consultar com a API para o MongoDB?
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Tutorial: fazer consultas na Azure Cosmos DB com a API do MongoDB
 
-A BD do Cosmos Azure [API para o MongoDB](mongodb-introduction.md) suporta [consultas de shell do MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+A API da [Cosmos Azure DB do MongoDB](mongodb-introduction.md) suporta [consultas de shell do MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
-> * Consultar os dados com o MongoDB
+> * Consultar dados com o MongoDB
 
 ## <a name="sample-document"></a>Documento de exemplo
 
@@ -63,9 +63,9 @@ As consultas neste artigo utilizam o documento de exemplo seguinte.
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a>Consulta de exemplo 1 
+## <a id="examplequery1"></a> Consulta de exemplo 1 
 
-Tendo em conta o documento família de exemplo acima, a seguinte consulta indica os documentos em que o campo id corresponde `WakefieldFamily`.
+Tendo em conta o documento de família de exemplo acima, a seguinte consulta devolve os documentos em que o campo ID corresponde a `WakefieldFamily`.
 
 **Consulta**
     
@@ -115,11 +115,11 @@ Tendo em conta o documento família de exemplo acima, a seguinte consulta indica
 
 ## <a id="examplequery2"></a>Consulta de exemplo 2 
 
-A seguinte consulta devolve todos os elementos subordinados em cada família. 
+A seguinte consulta devolve todos os elementos subordinados na família. 
 
 **Consulta**
     
-    db.familes.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: “WakefieldFamily” }, { children: true } )
 
 **Resultados**
 
@@ -148,7 +148,7 @@ A seguinte consulta devolve todos os elementos subordinados em cada família.
 
 ## <a id="examplequery3"></a>Consulta de exemplo 3 
 
-A consulta seguinte devolve todas as famílias de que estão registadas. 
+A consulta seguinte devolve todas as famílias que estão registadas. 
 
 **Consulta**
     
@@ -157,7 +157,7 @@ A consulta seguinte devolve todas as famílias de que estão registadas.
 
 ## <a id="examplequery4"></a>Consulta de exemplo 4
 
-A consulta seguinte devolve todas as famílias de que não estão registadas. 
+A consulta seguinte devolve todas as famílias que não estão registadas. 
 
 **Consulta**
     
@@ -201,7 +201,7 @@ A consulta seguinte devolve todas as famílias de que não estão registadas.
 
 ## <a id="examplequery5"></a>Consulta de exemplo 5
 
-A consulta seguinte devolve todas as famílias de que não estão registadas e estado é NY. 
+A consulta seguinte devolve todas as famílias que não estão registadas e o estado é NY. 
 
 **Consulta**
     
@@ -247,7 +247,7 @@ A consulta seguinte devolve todas as famílias de que não estão registadas e e
 
 ## <a id="examplequery6"></a>Consulta de exemplo 6
 
-A consulta seguinte devolve todas as famílias de onde grades subordinados são 8.
+A consulta seguinte devolve todas as famílias em que as classificações de elementos subordinados são 8.
 
 **Consulta**
   
@@ -292,7 +292,7 @@ A consulta seguinte devolve todas as famílias de onde grades subordinados são 
 
 ## <a id="examplequery7"></a>Consulta de exemplo 7
 
-A consulta seguinte devolve todas as famílias de onde o tamanho da matriz de elementos subordinados é 3.
+A consulta seguinte devolve todas as famílias em que a matriz de elementos subordinados é 3.
 
 **Consulta**
   
@@ -300,16 +300,16 @@ A consulta seguinte devolve todas as famílias de onde o tamanho da matriz de el
 
 **Resultados**
 
-Não serão possível devolver resultados como não existe mais do que 2 elementos subordinados. Apenas quando o parâmetro é 2 esta consulta será concluída com êxito e devolver o documento completo.
+Não são devolvidos resultados, porque não temos mais de 2 elementos subordinados. Esta consulta só será concluída com êxito e devolve o documento completo se o parâmetro for 2.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, fez o seguinte:
 
 > [!div class="checklist"]
-> * Aprendeu a consultar com MongoDB 
+> * Aprendeu a fazer consultas utilizando o MongoDB 
 
-Agora pode avançar para o próximo tutorial para saber como distribuir dados globalmente.
+Agora pode avançar para o tutorial seguinte para saber como distribuir dados globalmente.
 
 > [!div class="nextstepaction"]
 > [Distribuir dados globalmente](tutorial-global-distribution-sql-api.md)

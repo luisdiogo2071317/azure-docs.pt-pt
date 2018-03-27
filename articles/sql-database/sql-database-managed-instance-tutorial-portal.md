@@ -7,18 +7,15 @@ author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: ''
 ms.topic: tutorial
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
-ms.openlocfilehash: 0d6261392dfdab0d48cb0c524d1fcf416c85d72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Criar uma MI no portal do Azure
 
@@ -26,6 +23,9 @@ Este tutorial demonstra como criar uma MI (pré-visualização) com o portal do 
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
+> [!IMPORTANT]
+> Para obter uma lista das regiões nas quais a Instância Gerida está atualmente disponível, consulte [Migrar as bases de dados para um serviço completamente gerido com Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
+ 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
@@ -203,9 +203,9 @@ Os passos seguintes mostram como criar uma segunda sub-rede na VNet para uma má
    | ------ | --------------- | ----------- |
    |**Nome**|Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Intervalo de endereços (bloco CIDR)**|Qualquer intervalo de endereços válido dentro da VNet (utilizar a predefinição)||
-   |**Grupo de segurança de rede**|Nenhuma||
+   |**Grupo de segurança de rede**|Nenhum||
    |**Tabela de rotas**|Nenhum||
-   |**Pontos finais de serviço**|Nenhuma||
+   |**Pontos finais de serviço**|Nenhum||
 
    ![detalhes da sub-rede vm](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)
 
@@ -284,7 +284,7 @@ Os passos seguintes mostram como transferir e instalar o SQL Server Management S
     ![configuração de segurança avançada do internet explorer](./media/sql-database-managed-instance-tutorial/internet-explorer-security-configuration.png)  
 4. Abra o **Internet Explorer** a partir da barra de tarefas.
 5. Selecione **Utilizar as definições de segurança e compatibilidade recomendadas** e, em seguida, clique em **OK** para concluir a configuração do Internet Explorer 11.
-6. Introduza https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms na caixa do endereço de URL e clique em **Enter**. 
+6. Introduza https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms na caixa de endereço de URL e clique em **Enter**. 
 7. Transfira a versão mais recente do SQL Server Management Studio e clique em **Executar** quando lhe for pedido.
 8. Quando lhe for pedido, clique em **Instalar** para começar.
 9. Quando concluir a instalação, clique em **Fechar**.
@@ -299,7 +299,7 @@ Depois de ligar, pode ver as bases de dados do sistema e dos utilizadores no nó
 
 Utilize os seguintes passos para transferir o Wide World Importers - ficheiro de cópia de segurança Standard.
 
-Com o Internet Explorer, introduza https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak na caixa do endereço de URL e, em seguida, quando lhe for pedido, clique em **Guardar** para guardar este ficheiro na pasta **Transferências**.
+Com o Internet Explorer, introduza https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak na caixa de endereço do URL e, em seguida, quando for solicitado, clique em **Guardar** para guardar este ficheiro na pasta **Transferências**.
 
 ## <a name="create-azure-storage-account-and-upload-backup-file"></a>Criar conta de armazenamento do Azure e carregar o ficheiro de cópia de segurança
 
