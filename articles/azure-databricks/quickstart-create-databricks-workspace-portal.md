@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/09/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a0e69e1ab2c52586b447d8a249b52b09bbff705
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9eff06934eefa44db94de3d01be470ca69a2d88c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure
 
@@ -40,17 +40,21 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 2. Em **Azure Databricks (Pré-visualização)**, clique em **Criar**.
 
-3. Em **Serviço Azure Databricks**, forneça os valores seguintes:
+3. Em **Serviço Azure Databricks**, forneça os valores para criar uma área de trabalho do Databricks.
 
     ![Criar uma área de trabalho do Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Criar uma área de trabalho do Azure Databricks")
 
-    * Em **Nome da área de trabalho**, indique um nome para a sua área de trabalho do Databricks.
-    * Em **Subscrição**, na lista pendente, selecione a sua subscrição do Azure.
-    * Em **Grupo de recursos**, especifique se pretende criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../azure-resource-manager/resource-group-overview.md).
-    * Em **Localização**, selecione **E.U.A. Leste 2**. Para outras regiões disponíveis, veja [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).
-    * Para **Escalão de Preço**, selecione entre **Standard** ou **Premium**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).
+    Forneça os seguintes valores: 
+     
+    |Propriedade  |Descrição  |
+    |---------|---------|
+    |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
+    |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
+    |**Grupo de recursos**     | Especifique se pretende criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../azure-resource-manager/resource-group-overview.md). |
+    |**Localização**     | Selecione **E.U.A. Leste 2**. Para outras regiões disponíveis, veja [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).        |
+    |**Escalão de Preço**     |  Escolha entre **Standard** ou **Premium**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-    Clique em **Criar**.
+    Selecione **Afixar ao dashboard** e, em seguida, clique em **Criar**.
 
 4. A criação da conta demora alguns minutos. Durante a criação da conta, o portal apresenta o mosaico **Submeter a implementação para o Azure Databricks** no lado direito. Pode ter de se deslocar para a direita no dashboard para ver o mosaico. É também apresentada uma barra de progresso junto à parte superior do ecrã. Pode ver qualquer área de progresso.
 
@@ -84,7 +88,7 @@ Antes de começar esta secção, tem de satisfazer os seguintes pré-requisitos:
 * Transferir um ficheiro JSON de exemplo [a partir do Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
 * Carregar o ficheiro JSON de exemplo para a conta de armazenamento do Azure que criou. Pode utilizar o [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar ficheiros.
 
-Execute os passos seguintes para criar um bloco de notas no Databricks, configure o bloco de notas para ler dados a partir de uma conta de armazenamento de Blobs do Azure e, em seguida, execute uma tarefa SQL do Spark nos dados.
+Execute as tarefas seguintes para criar um bloco de notas no Databricks, configure o bloco de notas para ler dados a partir de uma conta de armazenamento de Blobs do Azure e, em seguida, execute uma tarefa SQL do Spark nos dados.
 
 1. No painel do lado esquerdo, clique em **Área de trabalho**. No menu pendente de **Área de trabalho**, clique em **Criar** e, em seguida, clique em **Bloco de Notas**.
 
@@ -96,7 +100,7 @@ Execute os passos seguintes para criar um bloco de notas no Databricks, configur
 
     Clique em **Criar**.
 
-3. Neste passo, associe a conta de Armazenamento do Azure ao cluster do Spark no Databricks. Existem duas formas de realizar esta tarefa: através da montagem da conta de Armazenamento do Azure no Sistema de Ficheiros de Databricks (DBFS) ou do acesso direto à conta de Armazenamento do Azure a partir da aplicação criada por si.  
+3. Neste passo, associe a conta de Armazenamento do Azure ao cluster do Spark no Databricks. Há duas formas de concretizar esta associação. Pode montar a conta de Armazenamento do Azure no Sistema de Ficheiros de Databricks (DBFS) ou aceder diretamente à conta de Armazenamento do Azure a partir da aplicação criada por si.  
 
     > [!IMPORTANT]
     >Este artigo utiliza a **abordagem de montagem do armazenamento com o DBFS**. Esta abordagem garante que o armazenamento montado é associado ao sistema de ficheiros do cluster propriamente dito. Deste modo, qualquer aplicação que aceder ao cluster também será capaz de utilizar o armazenamento associado. A abordagem de acesso direto está limitada à aplicação a partir da qual o acesso é configurado.
@@ -171,15 +175,15 @@ Execute os passos seguintes para criar um bloco de notas no Databricks, configur
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Ao criar o cluster do Spark, se tiver selecionado a caixa de verificação **Terminar após ___ minutos de inatividade**, o cluster terminará automaticamente caso tenha estado inativo durante o período de tempo especificado.
+Depois de ler o artigo, pode terminar o cluster. Para tal, na área de trabalho do Azure Databricks, no painel esquerdo, selecione **Clusters**. Para o cluster que pretende terminar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
 
-Se não selecionou a caixa de verificação, tem de terminar manualmente o cluster. Para tal, na área de trabalho do Azure Databricks, no painel esquerdo, clique em **Clusters**. Para o cluster que pretende terminar, mova o cursor sobre o botão de reticências na coluna **Ações** e clique no ícone **Terminar**.
+![Parar um cluster do Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
-![Terminar o cluster do Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Terminar o cluster do Databricks")
+Se não terminar manualmente o cluster, este irá parar automaticamente, desde que tenha selecionado a caixa de verificação **Terminar após __ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, criou um cluster do Spark no Azure Databricks e executou uma tarefa do Spark com dados do armazenamento do Azure. Também pode ver a página [Origens de dados do Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) para saber como importar dados de outras origens de dados para o Azure Databricks. Avance para o artigo seguinte para aprender a utilizar o Azure Data Lake Store com o Azure Databricks.
+Neste artigo, criou um cluster do Spark no Azure Databricks e executou uma tarefa do Spark com dados do armazenamento do Azure. Também pode ver a página [Origens de dados do Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) para saber como importar dados de outras origens de dados para o Azure Databricks. Avance para o artigo seguinte para saber como transmitir dados para o Azure Data Lake Store com os Hubs de Eventos.
 
 > [!div class="nextstepaction"]
->[Utilizar o Data Lake Store com o Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)
+>[Transmitir dados para o Azure Databricks utilizando os Hubs de Eventos](databricks-stream-from-eventhubs.md)

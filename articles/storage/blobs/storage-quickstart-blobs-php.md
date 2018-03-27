@@ -8,13 +8,13 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 474c03921369035cd7334fdddd9806f8f90b7d58
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4adad6fe3da16653bbd654a3e93e14f9e68b7c90
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferir objetos de/para o armazenamento de Blobs do Azure com PHP
 Neste início rápido, vai aprender a utilizar PHP para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. 
@@ -23,7 +23,7 @@ Neste início rápido, vai aprender a utilizar PHP para carregar, transferir e l
 
 Para concluir este guia de início rápido: 
 * Instalar [PHP](http://php.net/downloads.php)
-* Instalar [Azure SDK para PHP](https://github.com/Azure/azure-storage-php)
+* Instalar [o SDK de armazenamento do Azure para PHP](https://github.com/Azure/azure-storage-php)
 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -196,6 +196,13 @@ Se já não precisar dos blobs carregados neste início rápido, pode eliminar o
     echo "<br />";
     unlink($fileToUpload);   
 ```
+
+## <a name="resources-for-developing-php-applications-with-blobs"></a>Recursos para desenvolver aplicações PHP com blobs
+
+Consulte estes recursos adicionais para o desenvolvimento de PHP com armazenamento de blobs:
+
+- Veja, transfira e instale o [código fonte em PHP da biblioteca cliente](https://github.com/Azure/azure-storage-php) do Armazenamento do Azure no GitHub.
+- Explore os [exemplos de armazenamento de blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob) escritos com a biblioteca de cliente PHP.
 
 ## <a name="next-steps"></a>Passos seguintes
  

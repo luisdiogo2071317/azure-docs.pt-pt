@@ -1,23 +1,23 @@
 ---
-title: Tutorial para implementar um modelo para os serviços do Azure Machine Learning (pré-visualização) | Microsoft Docs
-description: Este tutorial completo mostra como utilizar os serviços do Azure Machine Learning (pré-visualização) ponto a ponto. Esta é a parte três e aborda o modelo de implementação.
+title: Implementar um tutorial de modelo para os serviços do Azure Machine Learning
+description: Este tutorial completo mostra como utilizar os serviços do Azure Machine Learning ponto a ponto. Esta é a parte três e aborda o modelo de implementação.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, j-martens, aashishb
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
-ms.openlocfilehash: 13ddc0ef8c7eac86e6cd7abb684ce35ae18fba84
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 3/13/2018
+ms.openlocfilehash: 87d1e605bfd7603e4e07f6b427033fe2c1d2b83e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Tutorial: classificar Iris, parte 3: implementar um modelo
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: classificar Íris: implementar um modelo
 O Azure Machine Learning (pré-visualização) é uma solução de análise avançada e ciência de dados completa e integrada para os cientistas de dados profissionais. Os cientistas de dados podem utilizá-los para preparar dados, desenvolver experimentações e implementar modelos à escala da cloud.
 
 Este tutorial é a **terceira parte de uma série composta por três partes**. Nesta parte do tutorial, vai utilizar o Machine Learning (pré-visualização) para:
@@ -30,17 +30,15 @@ Este tutorial é a **terceira parte de uma série composta por três partes**. N
 > * Executar o serviço Web em tempo real.
 > * Examinar os dados de blob de saída. 
 
-Este tutorial utiliza o [conjunto de dados flor de Iris](https://en.wikipedia.org/wiki/iris_flower_data_set) intemporal. As capturas de ecrã são específicas do Windows, mas a experiência em macOS é praticamente idêntica.
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Este tutorial utiliza o [conjunto de dados flor de Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) intemporal. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Conclua as duas primeiras partes desta série de tutoriais.
 
-   * Siga o [tutorial Prepare data](tutorial-classifying-iris-part-1.md) (Preparar dados) para criar recursos do Machine Learning e instalar a aplicação Azure Machine Learning Workbench.
-   * Siga o [Tutorial para criar um modelo](tutorial-classifying-iris-part-2.md), para criar um modelo de regressão logística no Machine Learning.
-
-É necessário um motor do Docker instalado e em execução localmente. Em alternativa, pode implementar um cluster do Azure Container Service no Azure.
+Para concluir este tutorial, precisa de:
+- Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+- Uma conta de experimentação e o Azure Machine Learning Workbench instalado, conforme descrito neste [manual de início rápido](quickstart-installation.md)
+- O modelo de classificação do [Tutorial parte 2](tutorial-classifying-iris-part-2.md)
+- Um motor de Docker instalado e em execução a nível local
 
 ## <a name="download-the-model-pickle-file"></a>Transferir o ficheiro pickle do modelo
 Na parte anterior do tutorial, o script **iris_sklearn.py** foi executado no Machine Learning Workbench localmente. Esta ação serializou o modelo de regressão logística mediante a utilização do popular pacote de serialização de objetos do Python, o [pickle](https://docs.python.org/3/library/pickle.html). 
@@ -91,7 +89,7 @@ Para implementar o serviço Web juntamente com o ficheiro de modelo, também pre
 
 4. Para obter o ficheiro de esquema, execute o script. Selecione o ambiente **local** e o script **score_iris.py** na barra de comandos e selecione **Executar**. 
 
-5. Este script cria um ficheiro JSON na secção **Saídas**, que captura o esquema de dados de entrada de que o modelo precisa.
+   Este script cria um ficheiro JSON na secção **Saídas**, que captura o esquema de dados de entrada de que o modelo precisa.
 
 6. Repare no painel **Tarefas**, no lado direito do painel **Dashboard do Projeto**. Aguarde até que o último trabalho de **score_iris.py** apresente o estado verde **Concluído**. Em seguida, selecione a hiperligação **score_iris.py [1]** relativa à última execução de trabalho para ver os detalhes da execução. 
 
@@ -128,7 +126,10 @@ Utilize a implementação de _modo local_ para executar em contentores do Docker
 Pode utilizar o _modo local_ para desenvolvimento e testes. O motor do Docker tem de estar em execução localmente para concluir os passos seguintes de modo a operacionalizar o modelo. Pode utilizar o sinalizador `-h` no final de cada comando para mostrar a mensagem de ajuda correspondente.
 
 >[!NOTE]
->Se não tiver um motor do Docker local, pode, mesmo assim, continuar, mediante a criação de um cluster no Azure para a implementação. Certifique-se apenas de que elimina o cluster a seguir ao tutorial, para que não incorra em custos contínuos.
+>Se não tiver o motor do Docker localmente, pode, mesmo assim, continuar, mediante a criação de um cluster no Azure para a implementação. Pode manter o cluster para reutilização ou eliminá-lo para que não incorra em custos contínuos.
+
+>[!NOTE]
+>Os serviços Web implementados a nível local não aparece na lista de serviços do Portal do Azure. Estes vão ser executados no Docker no computador local.
 
 1. Abra a interface de linha de comandos (CLI).
    Na aplicação Machine Learning Workbench, no menu **Ficheiro**, selecione **Abrir Linha de Comandos**.

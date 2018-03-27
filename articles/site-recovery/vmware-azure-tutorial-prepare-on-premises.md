@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware no local para a recuperação após desastre para o Azure
 
@@ -59,34 +59,16 @@ O serviço de Mobilidade tem de ser instalado na VM que quer replicar. O Site Re
 3. Para instalar em VMs do Linux, prepare uma conta raiz no servidor Linux de origem.
 
 
-## <a name="check-vmware-server-requirements"></a>Verificar os requisitos de servidor VMware
+## <a name="check-vmware-requirements"></a>Verificar os requisitos de VMware
 
-Certifique-se de que os servidores VMware cumprem os seguintes requisitos.
+Certifique-se de que os servidores do VMware e as VM cumprem os requisitos.
 
-**Componente** | **Requisito**
---- | ---
-**Servidor vCenter** | vCenter 6.5, 6.0 ou 5.5
-**Anfitrião vSphere** | vSphere 6.5, 6.0, 5.5
+1. [Verifique](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers) os requisitos do servidor do VMware.
+2. Para Linux, [verifique](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) o sistema de ficheiros e os requisitos de armazenamento. 
+3. Verifique a [rede](vmware-physical-azure-support-matrix.md#network) local e o suporte de [armazenamento](vmware-physical-azure-support-matrix.md#storage). 
+4. Verifique o que é suportado para [redes do Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [armazenamento](vmware-physical-azure-support-matrix.md#azure-storage), e [computação](vmware-physical-azure-support-matrix.md#azure-compute), após a ativação pós-falha.
+5. As suas VM no local que replica para o Azure devem estar em conformidade com os [requisitos de VM do Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 
-## <a name="check-vmware-vm-requirements"></a>Verificar os requisitos de VM de VMware
-
-Certifique-se de que a VM cumpre os requisitos do Azure resumidos na tabela seguinte.
-
-**Requisito de VM** | **Detalhes**
---- | ---
-**Tamanho do disco do sistema operativo** | Até 2048 GB.
-**Contagem de discos do sistema operativo** | 1
-**Contagem de discos de dados** | 64 ou menos
-**Tamanho do VHD do disco de dados** | Até 4095 GB
-**Adaptadores de rede** | São suportados vários adaptadores
-**VHD partilhado** | Não suportado
-**Disco FC** | Não suportado
-**Formato de disco rígido** | VHD ou VHDX.<br/><br/> Apesar de o formato VHDX não ser suportado atualmente no Azure, o Site Recovery converte automaticamente VHDX em VHD quando executa a ativação pós-falha para o Azure. Quando executa a reativação pós-falha para o plano local, as VMs continuam a utilizar o formato VHDX.
-**BitLocker** | Não suportado. Desative antes de ativar a replicação para uma VM.
-**Nome da VM** | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e hífenes. O nome da VM tem de começar e terminar com uma letra ou um número.
-**Tipo de VM** | Geração 1 - Linux ou Windows<br/><br/>Geração 2 - Apenas Windows
-
-A VM tem também de estar a executar um sistema operativo suportado. Consulte a [Matriz de suporte do servidor físico e VMware](vmware-physical-azure-support-matrix.md#replicated-machines) para obter uma lista completa das versões suportadas.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar a ligação para VMs do Azure após a ativação pós-falha
 

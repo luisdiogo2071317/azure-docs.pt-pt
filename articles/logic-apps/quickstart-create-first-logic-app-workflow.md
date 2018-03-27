@@ -1,12 +1,12 @@
 ---
 title: Criar o primeiro fluxo de trabalho automatizado - Azure Logic Apps | Microsoft Docs
-description: "Este início rápido mostra como automatizar o primeiro fluxo de trabalho com o Azure Logic Apps para cenários de integração de sistemas e integração de aplicações empresariais (EAI) que integram sistemas e serviços cloud"
+description: Este início rápido mostra como automatizar o primeiro fluxo de trabalho com o Azure Logic Apps para cenários de integração de sistemas e integração de aplicações empresariais (EAI) que integram sistemas e serviços cloud
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-keywords: "fluxos de trabalho, serviços cloud, integração de sistemas, integração de aplicações empresariais, EAI"
-documentationcenter: 
+keywords: fluxos de trabalho, serviços cloud, integração de sistemas, integração de aplicações empresariais, EAI
+documentationcenter: ''
 ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Início Rápido: Criar o primeiro fluxo de trabalho de aplicação lógica - portal do Azure
 
@@ -60,6 +60,8 @@ Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do A
    ![Escolher o modelo de aplicação lógica em branco](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts) que é desencadeado quando um novo item do feed RSS é apresentado. Todas as aplicações lógicas têm de iniciar com um acionador, que é desencadeado quando um evento específico acontece ou quando uma condição específica é cumprida. Sempre que o acionador é acionado, o motor do Logic Apps cria uma instância da aplicação lógica que inicia e executa o fluxo de trabalho.
+
+<a name="add-rss-trigger"></a>
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Verificar o feed RSS com um acionador
 
@@ -144,7 +146,7 @@ Agora, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conc
       ![Adicione conteúdo para o corpo do e-mail](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | Definição | Descrição | 
-      | ----- | ----------- | 
+      | ------- | ----------- | 
       | **Título do feed** | O título do item | 
       | **Feed publicado em** | A data e hora de publicação do item | 
       | **Ligação principal do feed** | O URL do item | 
@@ -156,15 +158,16 @@ Em seguida, teste a aplicação lógica.
 
 ## <a name="run-your-logic-app"></a>Executar a aplicação lógica
 
-Para iniciar manualmente a sua aplicação lógica, na barra de ferramentas do estruturador, escolha **Executar**. Em alternativa, aguarde que a aplicação lógica seja executada de acordo com o agendamento especificado (a cada minuto). Se o feed RSS tiver itens novos, a sua aplicação lógica envia um e-mail para cada item novo. Porém, se o feed não tiver itens novos, a aplicação lógica ignora a ativação do acionador e aguarda pelo próximo intervalo antes de voltar a verificar. 
+Para iniciar manualmente a sua aplicação lógica, na barra de ferramentas do estruturador, escolha **Executar**. Em alternativa, aguarde que a aplicação lógica verifique o feed RSS de acordo com o agendamento especificado (a cada minuto). Se o feed RSS tiver itens novos, a sua aplicação lógica envia um e-mail para cada item novo. Caso contrário, a aplicação lógica aguarda até o intervalo seguinte antes de verificar novamente. 
 
-Por exemplo, eis um exemplo de mensagem de e-mail enviado por esta aplicação lógica:
+Por exemplo, eis um exemplo de uma mensagem de e-mail enviada por esta aplicação lógica. Se não receber nenhum e-mail, veja a pasta de e-mail de lixo.
 
 ![E-mail enviado para novo item de feed RSS](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Se não receber nenhuma mensagem de e-mail, verifique a pasta de lixo do e-mail. O filtro de lixo de e-mail poderá redirecionar estes tipos de mensagem de e-mail. 
+Em termos técnicos, quando o acionador verifica o feed RSS e encontra itens novos, este é acionado e o motor do Logic Apps cria uma instância do fluxo de trabalho da aplicação lógica que executa as ações no fluxo de trabalho.
+Se o acionador não encontrar itens novos, este não é acionado e "ignora" a criação de instâncias do fluxo de trabalho.
 
-Parabéns! Criou e executou a sua primeira aplicação lógica.
+Parabéns, criou com êxito e executou a sua primeira aplicação lógica com o portal do Azure!
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

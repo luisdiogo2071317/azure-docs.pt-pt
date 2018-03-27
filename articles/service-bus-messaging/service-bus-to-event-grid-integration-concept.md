@@ -1,11 +1,11 @@
 ---
-title: "Descrição Gera de integração do Azure Service Bus para o Event Grid | Microsoft Docs"
-description: "Descrição de mensagens do Service Bus e integração do Event Grid"
+title: Descrição Gera de integração do Azure Service Bus para o Event Grid | Microsoft Docs
+description: Descrição de mensagens do Service Bus e integração do Event Grid
 services: service-bus-messaging
 documentationcenter: .net
 author: ChristianWolf42
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
 ms.workload: na
@@ -14,46 +14,48 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: bf771428505081cb60ca4417f87a4f6c2afbd25d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8bd1c431788d78ae937cc047e82cb41504a19075
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-service-bus-to-azure-event-grid-integration-overview"></a>Descrição Geral de integração do Azure Service Bus para o Azure Event Grid
+# <a name="azure-service-bus-to-event-grid-integration-overview"></a>Descrição geral de integração do Azure Service Bus para o Event Grid
 
-O Azure Service Bus lançou uma nova integração ao Azure Event Grid. O cenário principal desta funcionalidade é as Filas ou Subscrições do Service Bus que têm um volume baixo de mensagens, não precisarem de ter constantemente uma consulta de recetor para mensagens. O Service Bus agora pode emitir eventos para o Azure Event Grid quando existem mensagens numa Fila ou Subscrição quando não existem recetores. Pode criar subscrições do Azure Event Grid para os seus espaços de nomes do Service Bus e escutam estes eventos e reagem aos eventos ao iniciar um recetor. Com esta funcionalidade, o Service Bus pode ser utilizado em modelos de programação reativa.
+O Azure Service Bus lançou uma nova integração para o Azure Event Grid. O cenário principal desta funcionalidade é as filas ou subscrições do Service Bus que têm um volume baixo de mensagens não precisarem de ter continuamente uma consulta de recetor para mensagens. 
 
-Para ativar a funcionalidade, precisa do seguinte:
+O Service Bus agora pode emitir eventos para o Event Grid quando existem mensagens numa fila ou subscrição quando não existem recetores. Pode criar subscrições do Event Grid para os seus espaços de nomes do Service Bus, escutar estes eventos e, em seguida, reagir aos eventos ao iniciar um recetor. Com esta funcionalidade, pode utilizar o Service Bus em modelos de programação reativa.
 
-* Um espaço de nomes Premium do Azure Service Bus com, pelo menos, uma Fila do Service Bus ou um Tópico do Service Bus com, pelo menos, uma Subscrição.
-* Acesso do contribuinte ao Espaço de Nomes do Azure Service Bus.
-* Além disso, precisa de uma subscrição do Azure Event Grid para o Espaço de Nomes do Service Bus. Esta subscrição recebe a notificação do Azure Event Grid indicando que existem mensagens a ser escolhidas. Os subscritores típicos podem ser Logic Apps, Funções do Azure ou um Web Hook que contacta uma Aplicação Web que depois processa as mensagens. 
+Para ativar a funcionalidade, precisa dos seguintes itens:
+
+* Um espaço de nomes Premium do Service Bus com, pelo menos, uma fila ou um tópico do Service Bus com, pelo menos, uma subscrição.
+* Acesso de contribuidor ao espaço de nomes do Service Bus.
+* Além disso, precisa de uma subscrição do Event Grid para o espaço de nomes do Service Bus. Esta subscrição recebe uma notificação do Event Grid a indicar que existem mensagens a ser escolhidas. Os subscritores típicos podem ser a funcionalidade Logic Apps do Serviço de Aplicações do Azure, as Funções do Azure ou um webhook que contacta uma aplicação Web. Em seguida, o subscritor processa as mensagens. 
 
 ![19][]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verifique se tem acesso de contribuinte
 
-Navegue para o Espaço de Nomes do Service Bus e selecione "Controlo de acesso (IAM)", conforme mostrado abaixo:
+Aceda ao espaço de nomes do Service Bus e selecione **Controlo de acesso (IAM)**, conforme mostrado aqui:
 
 ![1][]
 
-### <a name="events-and-event-schemas"></a>Eventos e Esquemas de Eventos
+### <a name="events-and-event-schemas"></a>Eventos e esquemas de eventos
 
-O Azure Service Bus envia hoje eventos para dois cenários.
+O Service Bus envia atualmente eventos para dois cenários:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Além disso, utiliza a Segurança do Azure Event Grid standard e [mecanismos de autenticação](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication).
+Além disso, utiliza a segurança padrão do Event Grid e [mecanismos de autenticação](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication).
 
-Para obter mais detalhes sobre Esquemas de Eventos do Event Grid, siga [esta](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) ligação.
+Para obter mais informações, veja [Esquemas de eventos do Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/event-schema).
 
 #### <a name="active-messages-available-event"></a>Evento Disponível de Mensagens Ativas
 
-Este Evento é gerado se tiver mensagens ativas numa Fila ou Subscrição, sem recetores à escuta.
+Este evento é gerado se tiver mensagens ativas numa fila ou subscrição, sem recetores à escuta.
 
-O esquema para este Evento é o seguinte:
+O esquema para este evento é o seguinte:
 
 ```JSON
 {
@@ -75,11 +77,11 @@ O esquema para este Evento é o seguinte:
 }
 ```
 
-#### <a name="dead-lettered-messages-available-event"></a>Evento Disponível de Mensagens não entregues
+#### <a name="dead-letter-messages-available-event"></a>Evento Disponível de Mensagens Não Entregues
 
-Obtém, pelo menos, um evento por Fila de Mensagens Não Entregues, que tem mensagens e recetores não ativos.
+Obtém, pelo menos, um evento por fila de Mensagens Não Entregues, que tem mensagens e recetores não ativos.
 
-O esquema para este Evento é o seguinte:
+O esquema para este evento é o seguinte:
 
 ```JSON
 [{
@@ -101,44 +103,49 @@ O esquema para este Evento é o seguinte:
 }]
 ```
 
-### <a name="how-often-and-how-many-events-are-emitted"></a>Qual a frequência e o número de eventos emitidos?
+### <a name="how-many-events-are-emitted-and-how-often"></a>Qual o número e a frequência de eventos emitidos?
 
-Se tiver várias Filas e Tópicos/Subscrições no espaço de nomes, obtém, pelo menos, um evento por Fila e um por Subscrição. Os eventos são emitidos imediatamente se não existirem mensagens na entidade do Service Bus e uma nova mensagem chegar, ou a cada dois minutos, a menos que o Azure Service Bus detete um recetor ativo. A procura de mensagem não interrompe os eventos.
+Se tiver várias filas e tópicos ou subscrições no espaço de nomes, obtém, pelo menos, um evento por fila e um por subscrição. Os eventos são emitidos imediatamente se não existirem mensagens na entidade do Service Bus e é entregue uma nova mensagem. Em alternativa, os eventos são emitidos a cada dois minutos, a menos que o Service Bus detete um recetor ativo. A procura de mensagem não interrompe os eventos.
 
-Por predefinição, o Azure Service Bus emite eventos para todas as entidades no espaço de nomes. Se pretender receber eventos apenas para entidades específicas, veja a seguinte secção de filtragem.
+Por predefinição, o Service Bus emite eventos para todas as entidades no espaço de nomes. Se quiser receber eventos apenas para entidades específicas, veja a secção seguinte.
 
-### <a name="filtering-limiting-from-where-you-get-events"></a>Filtragem e limitação de onde recebe eventos
+### <a name="use-filters-to-limit-where-you-get-events-from"></a>Utilizar filtros para limitar a origem dos eventos
 
-Se pretender receber eventos apenas para, por exemplo, uma Fila ou uma Subscrição no seu espaço de nomes, pode utilizar os filtros "Começa com" ou "Termina com" fornecidos pelo Azure Event Grid. Em algumas interfaces, os filtros são denominados "Pre" e "Sufixo". Se quiser receber eventos para várias Filas e Subscrições, mas não todas, pode criar várias Subscrições do Azure Event Grid diferentes e fornecer um filtro para cada.
+Se quiser receber eventos apenas de, por exemplo, uma fila ou uma subscrição no seu espaço de nomes, pode utilizar os filtros *Começa com* ou *Termina com* fornecidos pelo Event Grid. Em algumas interfaces, os filtros são denominados *Pre* e *Sufixo*. Se quiser receber eventos para várias filas e subscrições, mas não todas, pode criar várias subscrições do Event Grid e fornecer um filtro para cada uma.
 
-## <a name="how-to-create-azure-event-grid-subscriptions-for-service-bus-namespaces"></a>Como criar Subscrições do Azure Event Grid para Espaços de Nomes do Service Bus
+## <a name="create-event-grid-subscriptions-for-service-bus-namespaces"></a>Criar subscrições do Event Grid para espaços de nomes do Service Bus
 
-Existem três formas diferentes de criar Subscrições do Event Grid para Espaços de Nomes do Service Bus.
+Pode criar subscrições do Event Grid para espaços de nomes do Service Bus de três formas diferentes:
 
-* [O portal do Azure](#portal-instructions)
-* [CLI do Azure](#azure-cli-instructions)
-* [PowerShell](#powershell-instructions)
+* No [portal do Azure](#portal-instructions)
+* Na [CLI do Azure](#azure-cli-instructions)
+* No [PowerShell](#powershell-instructions)
 
-## <a name="portal-instructions"></a>Instruções do portal
+## <a name="azure-portal-instructions"></a>Instruções do portal do Azure
 
-Para criar uma nova subscrição do Azure Event Grid, navegue para o seu espaço de nomes no portal do Azure e selecione o painel Event Grid. Clicar em "+ Subscrição de Evento" abaixo, mostra um espaço de nomes que já tem algumas subscrições do Event Grid.
+Para criar uma nova subscrição do Event Grid, efetue o seguinte:
+1. No portal do Azure, aceda ao seu espaço de nomes.
+2. No painel esquerdo, selecione **Event Grid**. 
+3. Selecione **Subscrição de Eventos**.  
 
-![20][]
+   A imagem seguinte mostra um espaço de nomes que tem algumas subscrições do Event Grid:
 
-A captura de ecrã seguinte mostra um exemplo de como subscrever uma Função do Azure ou um Hook de Web sem filtragem específica:
+   ![20][]
 
-![21][]
+   A imagem seguinte mostra como subscrever uma função ou um webhook sem filtragem específica:
+
+   ![21][]
 
 ## <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
-Primeiro, certifique-se de que tem, pelo menos, a versão da CLI do Azure 2.0 instalada. Pode transferir o instalador aqui. Em seguida, prima "Windows + X" e abra uma nova consola do PowerShell com permissões de Administrador. Em alternativa, também pode utilizar um shell de comandos no portal do Azure.
+Primeiro, certifique-se de que tem a versão 2.0 da CLI do Azure ou posterior instalada. [Transfira o instalador](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X** e, em seguida, abra uma nova consola do PowerShell com permissões de administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
 
 Execute o seguinte código:
 
-```PowerShell
+```PowerShell-interactive
 Az login
 
-Aa account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+Az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
 
 $namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
 
@@ -147,9 +154,9 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Instruções do PowerShell
 
-Confirme que instalou o Azure PowerShell. Pode encontrá-lo aqui. Em seguida, prima "Windows + X" e abra uma nova consola do PowerShell com permissões de Administrador. Em alternativa, também pode utilizar um shell de comandos no portal do Azure.
+Confirme que instalou o Azure PowerShell. [Transfira o instalador](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Selecione **Windows + X** e, em seguida, abra uma nova consola do PowerShell com permissões de Administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
 
-```PowerShell
+```PowerShell-interactive
 Login-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
@@ -167,11 +174,11 @@ A partir de aqui, pode explorar as outras opções de configuração ou [testar 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Exemplos](service-bus-to-event-grid-integration-example.md) do Service Bus e do Event Grid.
-* Saiba mais sobre o [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Obtenha [exemplos](service-bus-to-event-grid-integration-example.md) do Service Bus e Event Grid.
+* Saiba mais sobre o [Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
 * Saiba mais sobre as [Funções do Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Saiba mais sobre o [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Saiba mais sobre o [Azure Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Saiba mais sobre o [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
+* Saiba mais sobre o [Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png
