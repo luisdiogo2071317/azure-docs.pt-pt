@@ -1,20 +1,20 @@
 ---
-title: "Descrição geral do Azure Policy | Microsoft Docs"
-description: "O Azure Policy é um serviço no Azure utilizado para criar, atribuir e gerir definições de política no seu ambiente do Azure."
+title: Descrição geral do Azure Policy | Microsoft Docs
+description: O Azure Policy é um serviço no Azure utilizado para criar, atribuir e gerir definições de política no seu ambiente do Azure.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 01/17/2018
+ms.date: 03/14/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bb6f08e8e6252233c51c47c63ca0aec4636247dd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 72b3e46e4755d50589eeefeeb0478ab9af49e97b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -30,6 +30,9 @@ Para utilizar políticas, tem de ser autenticado através do RBAC. Especificamen
 
 - Permissão `Microsoft.Authorization/policydefinitions/write` para definir uma política.
 - Permissão `Microsoft.Authorization/policyassignments/write` para atribuir uma política.
+- Permissão `Microsoft.Authorization/policySetDefinitions/write` para definir uma iniciativa.
+- Permissão `Microsoft.Authorization/policyassignments/write` para atribuir uma iniciativa.
+
 
 Estas permissões não estão incluídas na função **Contribuinte**.
 

@@ -1,25 +1,18 @@
 ---
-title: "Gerir atualizações e correções para as VMs Windows do Azure | Microsoft Docs"
-description: "Este artigo apresenta uma descrição geral de como utilizar a Automatização do Azure - Gestão de atualizações para gerir atualizações e correções para as suas VMs Windows do Azure."
+title: Gerir atualizações e correções para as VMs Windows do Azure
+description: Este artigo apresenta uma descrição geral de como utilizar a Automatização do Azure - Gestão de atualizações para gerir atualizações e correções para as suas VMs Windows do Azure.
 services: automation
-documentationcenter: 
 author: zjalexander
-manager: jwhit
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 614b5bd7a2663c3b61f511dcc6b6a49218ac439a
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: bded1621dc56a6e621408e567ce39a3107bec7c9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Gerir atualizações do Windows com a Automatização do Azure
 

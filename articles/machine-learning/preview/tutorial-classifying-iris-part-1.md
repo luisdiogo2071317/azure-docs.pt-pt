@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: caddfff329d0e8f4c4007386b377ea56a51249a5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 16aa3e88217094c259a0dccbe3c52431682ea2e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>Tutorial: Classificar Íris, parte 1 – preparar os dados
+# <a name="tutorial-1-classify-iris---preparing-the-data"></a>Tutorial 1: Classificar Íris – Preparar os dados
 
 O serviço Azure Machine Learning (pré-visualização) é uma solução de análise avançada e de ciência de dados ponto a ponto integrada orientada para cientistas de dados profissionais tendo em vista a preparação de dados, o desenvolvimento de experimentações e a implementação de modelos à escala da cloud.
 

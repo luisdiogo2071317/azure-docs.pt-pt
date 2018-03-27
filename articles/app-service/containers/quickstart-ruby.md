@@ -1,12 +1,12 @@
 ---
-title: "Criar uma Aplicação Ruby e implementar no Serviço de Aplicações no Linux | Microsoft Docs"
-description: "Saiba como criar aplicações Ruby com o Serviço de Aplicações no Linux."
-keywords: "serviço de aplicações do azure, linux, oss, ruby"
+title: Criar uma Aplicação Ruby e implementar no Serviço de Aplicações no Linux | Microsoft Docs
+description: Saiba como criar aplicações Ruby com o Serviço de Aplicações no Linux.
+keywords: serviço de aplicações do azure, linux, oss, ruby
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Criar uma Aplicação Ruby no Serviço de Aplicações no Linux
 
@@ -88,37 +88,23 @@ A sua aplicação está agora configurada. No browser, navegue para `http://loca
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Criar uma aplicação Web Ruby no Azure
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
-É preciso um grupo de recursos que contém os elementos precisos para a sua aplicação Web. Para criar um grupo de recursos, utilize o comando [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-```azurecli-interactive
-az group create --location westeurope --name myResourceGroup
-```
+## <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-Utilize o comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) para criar um plano do serviço de aplicações para a sua aplicação Web.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
-```
-
-Em seguida, emita o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) para criar a aplicação Web que utiliza o plano do serviço criado recentemente. Note que o runtime está definido como `ruby|2.3`. Não se esqueça de substituir `<app name>` por um nome de aplicação único.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
---runtime "ruby|2.3" --deployment-local-git
-```
-
-O resultado do comando revela informações sobre a aplicação Web recentemente criada, bem como o URL de implementação. Deve ter um aspeto semelhante ao exemplo seguinte. Copie o URL para utilização posterior neste tutorial.
+Navegue para o site para ver a sua aplicação Web criada recentemente com imagem incorporada. Substitua _&lt;nome da aplicação>_ pelo nome da sua aplicação Web.
 
 ```bash
-https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
+http://<app_name>.azurewebsites.net
 ```
 
-Assim que a aplicação Web for criada, pode ver a página **Descrição geral**. Navegue até à mesma. É apresentada a página inicial que se segue:
+A aplicação Web deve ter o seguinte aspeto:
 
 ![Página inicial](./media/quickstart-ruby/splash-page.png)
-
 
 ## <a name="deploy-your-application"></a>Implementar a sua aplicação
 

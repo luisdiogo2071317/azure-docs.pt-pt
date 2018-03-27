@@ -1,8 +1,8 @@
 ---
-title: "Criar uma fábrica de dados do Azure com a IU do Azure Data Factory | Microsoft Docs"
-description: "Este tutorial mostra-lhe como criar uma fábrica de dados com um pipeline que copia dados de uma pasta para outra pasta no Armazenamento de Blobs do Azure."
+title: Criar uma fábrica de dados do Azure com a IU do Azure Data Factory | Microsoft Docs
+description: Crie uma fábrica de dados com um pipeline que copia dados de uma localização no armazenamento de Blobs do Azure para outra localização.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 7065b0b6e0576238e3b32fdbf7ac43b7fc2ae9e6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 79b19121b25b03181eeda1bedd800f45a2adf57e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Criar uma fábrica de dados com a IU do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]

@@ -8,7 +8,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 Siga estes passos para criar uma base de dados SQL vazia. 
 
-1. Clique em **Criar um recurso** no canto superior esquerdo do portal do Azure.
+1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
 2. Selecione **Bases de Dados** na página **Novo** e selecione **Criar na Base de Dados SQL** em **Base de Dados SQL** na página **Novo**.
 
@@ -47,7 +47,7 @@ Siga estes passos para criar uma base de dados SQL vazia.
    > [!IMPORTANT]
    > \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Canadá Central, Leste do Canadá, Centro de França, Alemanha Central, Leste do Japão, Coreia Central, E.U.A. Centro-Sul, Sudeste Asiático, E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Canadá Central, Leste do Canadá, Centro de França, Alemanha Central, Leste do Japão, Coreia Central, E.U.A. Centro-Sul, Sudeste Asiático, E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Depois de selecionar o escalão de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  

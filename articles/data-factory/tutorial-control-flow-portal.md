@@ -1,8 +1,8 @@
 ---
-title: "Ramificação no pipeline do Azure Data Factory | Microsoft Docs"
-description: "Saiba como controlar o fluxo de dados no Azure Data Factory através de atividades de ramificação e encadeamento."
+title: Ramificação no pipeline do Azure Data Factory | Microsoft Docs
+description: Saiba como controlar o fluxo de dados no Azure Data Factory através de atividades de ramificação e encadeamento.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 00b377b8ed7454c64d146a2de1867eca8ab1fb67
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade Copy tiver êxito, o pipeline envia detalhes da operação Copy bem-sucedida (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade Copy falhar, o pipeline envia detalhes da falha da cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
@@ -309,7 +309,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 3. Na janela **Execução de Pipeline**, siga os passos abaixo: 
 
     1. Introduza **adftutorial/dummy/input** no parâmetro **sourceBlobContainer**. Confirme que a pasta fictícia não existe no contentor adftutorial. 
-    2. Introduza **adftutorial/dummy/inputt** no parâmetro **sinkBlobContainer**. 
+    2. Introduza **adftutorial/dummy/output** para o parâmetro **sinkBlobContainer**. 
     3. Introduza um **endereço de e-mail** do **recetor**. 
     4. Clique em **Concluir**.
 

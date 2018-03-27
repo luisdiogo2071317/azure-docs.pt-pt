@@ -1,19 +1,19 @@
 ---
-title: "Início Rápido do Azure - carregar, transferir e listar os blobs no Armazenamento do Microsoft Azure através de Ruby | Microsoft Docs"
-description: "Neste início rápido, crie uma conta de armazenamento e um contentor. Em seguida, utilize a biblioteca de clientes de armazenamento para Ruby, para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor."
+title: Início Rápido do Azure - carregar, transferir e listar os blobs no Armazenamento do Microsoft Azure através de Ruby | Microsoft Docs
+description: Neste início rápido, crie uma conta de armazenamento e um contentor. Em seguida, utilize a biblioteca de clientes de armazenamento para Ruby, para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: seguler
-ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fa92875fe859e7d1364267d6157f7a706d9eb8df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Início Rápido: carregar, transferir e listar blobs através de Ruby
 
@@ -177,6 +177,12 @@ blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
 File.delete(full_path_to_file2)    
 ```
+## <a name="resources-for-developing-ruby-applications-with-blobs"></a>Recursos para desenvolver aplicações Ruby com blobs
+
+Veja estes recursos adicionais para desenvolvimento de Ruby com Armazenamento de blobs:
+
+- Veja e transfira o [código fonte da biblioteca de cliente Ruby](https://github.com/Azure/azure-storage-ruby) para o Armazenamento do Azure no GitHub.
+- Explore os [Exemplos de armazenamento de blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=ruby&term=blob) escritos com a biblioteca de cliente Ruby.
 
 ## <a name="next-steps"></a>Passos seguintes
  

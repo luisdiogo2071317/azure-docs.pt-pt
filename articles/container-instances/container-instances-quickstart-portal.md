@@ -1,21 +1,21 @@
 ---
-title: "Guia de introdução - Criar o seu primeiro contentor do Azure Container Instances com o portal do Azure"
-description: "Implementar e começar a utilizar o Azure Container Instances"
+title: Guia de introdução - Criar o seu primeiro contentor do Azure Container Instances com o portal do Azure
+description: Neste início rápido, vai utilizar o portal do Azure para implementar um contentor no Azure Container Instances
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 63f22544276da07ec98e779cc524879603655db6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 18238c94ba9acff15497a666a63b65b95779d4ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>Criar o seu primeiro contentor no Azure Container Instances
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início rápido: Criar o seu primeiro contentor no Azure Container Instances
 
 O Azure Container Instances permite criar e gerir facilmente contentores no Azure. Neste guia de introdução, cria um contentor no Azure e expõe-no na Internet com um endereço IP público. Esta operação foi concluída com o portal do Azure. Com apenas alguns cliques, verá isto no seu browser:
 

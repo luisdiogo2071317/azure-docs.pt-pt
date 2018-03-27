@@ -1,23 +1,7 @@
+-Título: ' Tutorial: criar uma base de dados do Azure para PostgreSQL utilizando a CLI do Azure' Descrição: Este tutorial mostra como criar, configurar e consultar a sua primeira base de dados do Azure para o servidor de PostgreSQL utilizando a CLI do Azure.
+services: postgresql author: rachel-msft ms.author: raagyema manager: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure-cli ms.topic: tutorial ms.date: 03/20/2018
 ---
-title: Tutorial - conceber a sua primeira Base de Dados do Azure para PostgreSQL com a CLI do Azure
-description: Este tutorial mostra como criar, configurar e consultar o seu primeiro servidor da Base de Dados do Azure para PostgreSQL com a CLI do Azure.
-services: postgresql
-author: rachel-msft
-ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
-ms.service: postgresql
-ms.custom: mvc
-ms.devlang: azure-cli
-ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 7eeb3b01ddaea56b1e11fc37bbeba7d3f328772d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
----
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Tutorial: Conceber a sua primeira Base de Dados do Azure para PostgreSQL com a CLI do Azure 
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Tutorial: Conceber uma Base de Dados do Azure para PostgreSQL com a CLI do Azure 
 Neste tutorial, utiliza a CLI do Azure (interface de linha de comandos) e outros utilitários para saber como:
 > [!div class="checklist"]
 > * Criar uma Base de Dados do Azure para o servidor PostgreSQL
@@ -32,7 +16,7 @@ Pode utilizar o Azure Cloud Shell no browser ou [instalar a CLI 2.0 do Azure]( /
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso existe ou é cobrado. Selecione um ID de subscrição específica na sua conta com o comando [az account set](/cli/azure/account#az_account_set).
 ```azurecli-interactive
@@ -61,11 +45,11 @@ O JSON de retorno deve incluir o seguinte:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.3"
+    "version": "0.0.4"
 }
 ```
 
-Se não for devolvida a versão 0.0.3, execute o seguinte para atualizar a extensão: 
+Se não for devolvido versão 0.0.4, execute o seguinte ao atualizar a extensão: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -79,7 +63,7 @@ az postgres server create --resource-group myresourcegroup --name mydemoserver -
 ```
 
 > [!IMPORTANT]
-> O início de sessão e a palavra-passe de administrador de servidor que especificar aqui serão necessários para iniciar sessão no servidor e nas respetivas bases de dados mais tarde neste guia de introdução. Lembre-se ou grave estas informações para utilização posterior.
+> O início de sessão e a palavra-passe de administrador de servidor que especificar aqui serão necessários para iniciar sessão no servidor e nas respetivas bases de dados mais tarde neste início rápido. Lembre-se ou grave estas informações para utilização posterior.
 
 Por predefinição, é criada a base de dados **postgres** no seu servidor. A base de dados [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é uma base de dados predefinida que se destina a ser utilizada por utilizadores, utilitários e aplicações de terceiros. 
 
@@ -149,7 +133,7 @@ psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<db
   Por exemplo, o comando seguinte liga à base de dados predefinida com o nome **postgres** no servidor PostgreSQL **mydemoserver.postgres.database.azure.com**, com as credenciais de acesso. Introduza o `<server_admin_password>` que escolheu quando lhe for pedida a palavra-passe.
   
   ```azurecli-interactive
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 
 2.  Assim que estiver ligado ao servidor, crie uma base de dados em branco na linha de comandos:
@@ -163,9 +147,9 @@ CREATE DATABASE mypgsqldb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Criar tabelas na base de dados
-Agora que sabe como ligar à Base de Dados do Azure para PostgreSQL, pode passar para as indicações de como concluir algumas tarefas básicas.
+Agora que sabe como ligar à Base de Dados do Azure para PostgreSQL, pode concluir algumas tarefas básicas:
 
-Em primeiro lugar, podemos criar uma tabela e carregá-a com alguns dados. Vamos criar uma tabela que controla as informações de inventário:
+Em primeiro lugar, crie uma tabela e carregue-a com alguns dados. Por exemplo, vamos criar uma tabela que controla as informações de inventário:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -180,7 +164,7 @@ Agora pode ver a tabela criada recentemente na lista de tabelas ao escrever:
 ```
 
 ## <a name="load-data-into-the-table"></a>Carregar dados para a tabela
-Agora que temos uma tabela, podemos inserir alguns dados na mesma. Na janela da linha de comandos aberta, execute a seguinte consulta para inserir algumas linhas de dados:
+Agora que já criámos uma tabela, insira alguns dados. Na janela da linha de comandos aberta, execute a seguinte consulta para inserir algumas linhas de dados:
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
@@ -225,7 +209,7 @@ Restaurar um servidor para um ponto anterior no tempo cria um novo servidor, cop
 O comando é síncrono e irá regressar depois de o servidor ser restaurado. Depois de o restauro ser concluído, localize o novo servidor que foi criado. Certifique-se de que os dados foram restaurados conforme esperado.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a utilizar a CLI (interface de linha de comandos) do Azure e outros utilitários para:
 > [!div class="checklist"]
 > * Criar uma Base de Dados do Azure para o servidor PostgreSQL
