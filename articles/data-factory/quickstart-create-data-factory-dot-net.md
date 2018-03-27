@@ -1,23 +1,23 @@
 ---
-title: "Criar uma fábrica de dados do Azure com .NET | Microsoft Docs"
-description: "Crie uma fábrica de dados do Azure para copiar dados de uma localização num Armazenamento de Blobs do Azure para outra localização no mesmo Armazenamento de Blobs."
+title: Criar uma fábrica de dados do Azure com .NET | Microsoft Docs
+description: Crie uma fábrica de dados do Azure para copiar dados de uma localização no armazenamento de Blobs do Azure para outra localização.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: b430f5932bcd54d5e2ab787fb6c4491b48dbc416
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4829fde008516aff70652cff337838a162582c24
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Criar uma fábrica de dados e um pipeline com o SDK .NET
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,7 +105,7 @@ Transfira e instale o [SDK do Azure para .NET](http://azure.microsoft.com/downlo
 Siga as instruções apresentadas [neste artigo](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) para realizar as seguintes tarefas: 
 
 1. **Crie uma aplicação no Azure Active Directory**. Crie uma aplicação no Azure Active Directory que represente a aplicação .NET que está a criar neste tutorial. Para o URL de início de sessão, pode fornecer um URL fictício conforme mostrado no artigo (`https://contoso.org/exampleapp`).
-2. Obtenha o **ID da aplicação** e a **chave de autenticação**\*\* com base nas instruções da secção **Obter o ID da aplicação e a chave de autenticação** no artigo. Tome nota destes valores que irá utilizar posteriormente neste tutorial. 
+2. Obtenha o **ID da aplicação** e a **chave de autenticação*** com base nas instruções da secção **Obter o ID da aplicação e a chave de autenticação** no artigo. Tome nota destes valores que irá utilizar posteriormente neste tutorial. 
 3. Obtenha o **ID do inquilino** com base nas instruções da secção **Obter ID do inquilino** no artigo. Tome nota deste valor. 
 4. Atribua a aplicação à função **Contribuidor** ao nível da subscrição para que a aplicação possa criar fábricas de dados na subscrição. Siga as instruções apresentadas na secção **Atribuir a aplicação a uma função** do artigo. 
 

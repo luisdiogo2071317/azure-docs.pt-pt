@@ -1,12 +1,12 @@
 ---
-title: "Criar uma aplicação de contentor do Windows no Azure Service Fabric | Microsoft Docs"
-description: "Neste guia de introdução, crie a sua primeira aplicação de contentor do Windows no Azure Service Fabric."
+title: Criar uma aplicação de contentor do Windows no Azure Service Fabric | Microsoft Docs
+description: Neste guia de introdução, crie a sua primeira aplicação de contentor do Windows no Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
 editor: vturecek
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7a8d28ef842ba77355628c79c20fa7fd3c693380
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d4fe2d410152fc4d65f2d22bc26e5e72b91bc282
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Início Rápido: implementar uma aplicação de contentor do Windows do Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores dimensionáveis e fiáveis. 
@@ -83,7 +83,7 @@ Configure o mapeamento de portas, da porta para o anfitrião do contentor, de mo
 Um ficheiro de exemplo completo do ApplicationManifest.xml está disponível no final deste artigo.
 
 ## <a name="create-a-cluster"></a>Criar um cluster
-Para implementar a aplicação num cluster no Azure, pode optar por aderir a um cluster de terceiros. Os party clusters são clusters do Service Fabric gratuitos, limitados temporalmente, alojados no Azure e executados pela equipa do Service Fabric, nos quais qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. O cluster utiliza um certificado autoassinado para o nó "nó para nó", bem como a segurança de "cliente para nó". 
+Para implementar a aplicação num cluster no Azure, pode optar por aderir a um cluster de terceiros. Os party clusters são clusters do Service Fabric gratuitos, limitados temporalmente, alojados no Azure e executados pela equipa do Service Fabric, nos quais qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma.  O cluster utiliza um certificado autoassinado para o nó "nó para nó", bem como a segurança de "cliente para nó". Os party clusters suportam contentores. No entanto, se configurar o seu próprio cluster, este tem de ser executado no Windows Server 2016 com Contentores para executar contentores.
 
 Inicie sessão e [adira a um cluster do Windows](http://aka.ms/tryservicefabric). Transfira o certificado PFX para o seu computador ao clicar na ligação **PFX**. O certificado e o valor do **Ponto final da ligação** são utilizados nos passos seguintes.
 

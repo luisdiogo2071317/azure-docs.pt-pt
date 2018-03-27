@@ -1,11 +1,11 @@
 ---
-title: "Playbook de Segurança no Centro de Segurança do Azure | Microsoft Azure"
-description: "Este documento ajuda-o a utilizar os playbooks de segurança no Centro de Segurança do Azure para automatizar as respostas a incidentes de segurança."
+title: Playbook de Segurança no Centro de Segurança do Azure | Microsoft Azure
+description: Este documento ajuda-o a utilizar os playbooks de segurança no Centro de Segurança do Azure para automatizar as respostas a incidentes de segurança.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: a89048b0d49d5b3715931285accafda2406ab969
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 76f2666df76b802c175eadc38d2ac4100799ceae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook de Segurança no Centro de Segurança do Azure (Pré-visualização)
 Este documento ajuda-o a utilizar os playbooks de segurança no Centro de Segurança do Azure para responder a problemas relacionados com segurança.
@@ -45,7 +45,7 @@ Siga estes passos para criar um playbook de segurança novo a partir do Centro d
 
     ![Criar uma aplicação lógica](./media/security-center-playbooks/security-center-playbooks-fig3.png)
 
-5. Surge o **Estruturador da Aplicação Lógica**. Clique em **Aplicação Lógica em Branco **para criar um playbook novo. Também pode selecionar **Segurança**, nas categorias, e utilizar um dos modelos.
+5. Surge o **Estruturador da Aplicação Lógica**. Clique em **Aplicação Lógica em Branco** para criar um playbook novo. Também pode selecionar **Segurança**, nas categorias, e utilizar um dos modelos.
     
     ![Estruturador da Aplicação Lógica](./media/security-center-playbooks/security-center-playbooks-fig4.png)
 

@@ -1,31 +1,31 @@
 ---
-title: "Criar uma base de dados de gráficos do Azure Cosmos DB com Java | Microsoft Docs"
-description: "Apresenta um exemplo de código Java que pode utilizar para ligar e consultar dados de gráficos no Azure Cosmos DB com Gremlin."
+title: Criar uma base de dados de gráficos do Azure Cosmos DB com Java | Microsoft Docs
+description: Apresenta um exemplo de código Java que pode utilizar para ligar e consultar dados de gráficos no Azure Cosmos DB com Gremlin.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b28300c4ed0a0c6f35bf49808b8ed12d4e180610
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: e336546526c8ae5ee04dd9737f828685f8c4c009
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar uma base de dados de gráficos com Java e o portal do Azure
 
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Com o Azure Cosmos DB, pode criar e consultar rapidamente documentos geridos, tabelas e bases de dados de gráfico. 
 
-Este guia de início rápido cria uma base de dados de gráficos simples com as ferramentas do portal do Azure para o Azure Cosmos DB. Este guia de início rápido também lhe mostra como criar rapidamente uma aplicação de consola Java com o controlador [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver). As instruções deste guia de início rápido podem ser seguidas em qualquer sistema operativo capaz de executar Java. Esta início rápido irá familiarizá-lo-á com a criação e modificação de gráficos na IU ou programaticamente, conforme a sua preferência. 
+Este guia de início rápido cria uma base de dados de gráficos simples com as ferramentas do portal do Azure para o Azure Cosmos DB. Este início rápido também lhe mostra como criar rapidamente uma aplicação de consola Java com o controlador OSS [Apache TinkerPop](http://tinkerpop.apache.org/). As instruções deste guia de início rápido podem ser seguidas em qualquer sistema operativo capaz de executar Java. Esta início rápido irá familiarizá-lo-á com a criação e modificação de gráficos na IU ou programaticamente, conforme a sua preferência. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

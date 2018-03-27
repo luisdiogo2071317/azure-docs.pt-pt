@@ -1,6 +1,6 @@
 ---
 title: Criar um Reliable Services do Azure Service Fabric com C#
-description: "Crie, implemente e depure uma aplicação Reliable Services baseada no Azure Service Fabric com o Visual Studio."
+description: Crie, implemente e depure uma aplicação Reliable Services baseada no Azure Service Fabric com o Visual Studio.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2018
+ms.date: 03/14/2018
 ms.author: ryanwi
-ms.openlocfilehash: 43f77a1a2e1bbe28bb646aa23c28c253c20e8dda
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 858e322fd7e516f756aa209be92745efa6cf75f7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Criar a sua primeira aplicação Reliable Services com monitorização de estado do Service Fabric em C#
 
@@ -40,7 +40,7 @@ Antes de começar, certifique-se de que [configurou o seu ambiente de desenvolvi
 
    ![Caixa de diálogo Novo projeto no Visual Studio][1]
 
-5. Pode criar qualquer tipo de aplicação do Service Fabric na caixa de diálogo seguinte. Neste início rápido, escolha **Serviço com Estado** .
+5. Pode criar qualquer tipo de aplicação do Service Fabric na caixa de diálogo seguinte. Neste início rápido, selecione **.Net Core 2.0** > **Serviço com Estado**.
 
 6. Atribua o nome **MyStatefulService** ao serviço. Em seguida, selecione **OK**.
 

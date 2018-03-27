@@ -1,8 +1,8 @@
 ---
-title: "Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud | Microsoft Docs"
-description: "Saiba como escolher entre o Serviço de Aplicações do Azure, as Máquinas Virtuais, o Service Fabric e os Serviços Cloud para alojar aplicações Web."
+title: Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud | Microsoft Docs
+description: Saiba como escolher entre o Serviço de Aplicações do Azure, as Máquinas Virtuais, o Service Fabric e os Serviços Cloud para alojar aplicações Web.
 services: app-service\web, virtual-machines, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: erikre
 editor: jimbe
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 627782d3d6dd9f2eeff1b79e9cf721f9a4eb4ac2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f930cec984a8b92e00ec613ce3bba91a40518911
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud
 ## <a name="overview"></a>Descrição geral
@@ -49,7 +49,7 @@ A tabela seguinte compara as capacidades do Serviço de Aplicações, dos Servi�
 | Alojar a camada Web ou a camada dos serviços Web de uma arquitetura com várias camadas |X |X |X |X | |
 | Alojar a camada média de uma arquitetura com várias camadas |X |X |X |X |As aplicações Web do Serviço de Aplicações podem alojar facilmente uma camada intermédia da API REST e a funcionalidade [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode alojar trabalhos de processamento em segundo plano. Pode executar o WebJobs num site dedicado para obter escalabilidade independente para a camada. |
 | Suporte integrado para MySQL como serviço |X |X | | | |
-| Suporte para ASP.NET, ASP clássico, Node.js, PHP, Python |X |X |X |X |O Service Fabric suporta a criação de front-ends da Web através de [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) ou a implementação de qualquer tipo de aplicação (Node.js, Java, etc.) como [executável convidado](../service-fabric/service-fabric-deploy-existing-app.md). |
+| Suporte para ASP.NET, ASP clássico, Node.js, PHP, Python |X |X |X |X |O Service Fabric suporta a criação de front-ends da Web através de [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) ou a implementação de qualquer tipo de aplicação (Node.js, Java, etc.) como [executável convidado](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Aumentar horizontalmente para várias instâncias sem reimplementar |X |X |X |X |As Máquinas Virtuais podem ser aumentadas horizontalmente para várias instâncias, mas os serviços que estão em execução nas mesmas têm de ser escritos de forma a suportar esse aumento horizontal. Tem de configurar um balanceador de carga para encaminhar os pedidos entre as máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a falhas de manutenção ou do hardware. |
 | Suporte para SSL |X |X |X |X |Nas aplicações Web do Serviço de Aplicações, o SSL para nomes de domínios personalizados só é suportado nos modos Básico e Standard. Para obter informações sobre como utilizar o SSL com as aplicações Web, veja [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md) (Configurar certificados SSL para sites do Azure). |
 | Integração com o Visual Studio |X |X |X |X | |
@@ -59,7 +59,7 @@ A tabela seguinte compara as capacidades do Serviço de Aplicações, dos Servi�
 | Suporte para o [Gestor de Tráfego do Azure](/azure/traffic-manager/) |X |X |X |X | |
 | Monitorização de pontos finais integrada |X |X |X | | |
 | Acesso de ambiente de trabalho remoto aos servidores | |X |X |X | |
-| Instalar qualquer MSI personalizado | |X |X |X |O Service Fabric permite-lhe alojar qualquer ficheiro executável como [executável convidado](../service-fabric/service-fabric-deploy-existing-app.md) ou pode instalar qualquer aplicação nas VMs. |
+| Instalar qualquer MSI personalizado | |X |X |X |O Service Fabric permite-lhe alojar qualquer ficheiro executável como [executável convidado](../service-fabric/service-fabric-guest-executables-introduction.md) ou pode instalar qualquer aplicação nas VMs. |
 | Capacidade de definir/executar tarefas de arranque | |X |X |X | |
 | Pode escutar eventos do ETW | |X |X |X | |
 
@@ -156,7 +156,7 @@ Com os serviços Web baseados em HTTP, pode suportar uma grande variedade de cli
 * Utilizar o site publicado para fornecer APIs REST para clientes HTTP, incluindo clientes móveis.
 
 > [!NOTE]
-> Se pretender começar a utilizar o Serviço de Aplicações do Azure antes de se inscrever numa conta, aceda a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, onde pode criar imediatamente uma aplicação de início de curta duração grátis no Serviço de Aplicações do Azure. Sem necessidade de cartões de crédito, sem compromissos.
+> Se quiser começar a utilizar o Serviço de Aplicações do Azure antes de se inscrever numa conta, aceda a<a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, onde pode criar imediatamente uma aplicação de início de curta duração grátis no Serviço de Aplicações do Azure. Sem necessidade de cartões de crédito, sem compromissos.
 > 
 > 
 

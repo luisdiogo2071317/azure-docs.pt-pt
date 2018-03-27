@@ -1,6 +1,6 @@
 ---
-title: "Quotas e disponibilidade das regiões do Azure Container Instances"
-description: "As quotas predefinidas e a disponibilidade das regiões do serviço do Azure Container Instances."
+title: Quotas e disponibilidade das regiões do Azure Container Instances
+description: As quotas predefinidas e a disponibilidade das regiões do serviço do Azure Container Instances.
 services: container-instances
 author: mmacy
 manager: timlt
@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: 008b07402cb0b937174488982cac64811baa5d5d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 28177e17a15c5e3b92b9af52e05fa2f8e95db95f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quotas e disponibilidade das regiões do Azure Container Instances
 
@@ -29,9 +29,9 @@ O Azure Container Instances está disponível nas seguintes regiões com a CPU e
 | Localização | SO | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
 | Europa Ocidental, E.U.A. Oeste, E.U.A Leste | Linux | 4 | 14 |
-| Sudeste Asiático  | Linux | 1 | 1.5 |
+| E.U.A. Oeste 2, Sudeste Asiático | Linux | 2 | 7 |
 | Europa Ocidental, E.U.A. Oeste, E.U.A Leste | Windows | 4 | 14 |
-| Sudeste Asiático  | Windows | 2 | 3.5 |
+| E.U.A. Oeste 2, Sudeste Asiático | Windows | 2 | 3.5 |
 
 As instâncias de contentor criadas dentro destes limites de recursos estão sujeitas à disponibilidade numa região de implementação. Quando uma região está sob muita carga, pode ocorrer uma falha ao implementar instâncias. Para mitigar essa falha de implementação, experimente implementar instâncias com definições de memória e CPU inferior ou tente implementar mais tarde.
 
