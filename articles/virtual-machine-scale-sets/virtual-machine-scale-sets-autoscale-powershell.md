@@ -1,11 +1,11 @@
 ---
-title: "Conjuntos de dimensionamento de máquina virtual de dimensionamento automático com o Azure PowerShell | Microsoft Docs"
-description: "Define como criar regras de dimensionamento automático para dimensionamento da máquina virtual com o Azure PowerShell"
+title: Conjuntos de dimensionamento de máquina virtual de dimensionamento automático com o Azure PowerShell | Microsoft Docs
+description: Define como criar regras de dimensionamento automático para dimensionamento da máquina virtual com o Azure PowerShell
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8928e56f353858234db314714d411a9c2990eb4e
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Dimensionar automaticamente um conjunto com o Azure PowerShell de dimensionamento de máquina virtual
 Quando cria um conjunto de dimensionamento, é possível definir o número de instâncias VM que pretende executar. Como muda o seu pedido de aplicação, pode automaticamente aumentar ou reduzir o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a pedido do cliente ou responder a alterações de desempenho da aplicação durante todo o ciclo de vida da sua aplicação.
@@ -50,13 +50,13 @@ Os parâmetros seguintes são utilizados para esta regra:
 | Parâmetro               | Explicação                                                                                                         | Valor          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
 | *-MetricName*           | A métrica de desempenho para monitorizar e aplicar escala definir ações.                                                   | Percentagem da CPU |
-| *Intervalo-de agregação*            | Frequência as métricas são recolhidas para análise.                                                                   | um minuto       |
+| *-TimeGrain*            | Frequência as métricas são recolhidas para análise.                                                                   | 1 minuto       |
 | *-MetricStatistic*      | Define a forma como as métricas recolhidas devem ser agregadas para análise.                                                | Média        |
 | *-TimeWindow*           | A quantidade de tempo monitorizado antes em comparação com os valores da métrica e de limiar.                                   | 10 minutos      |
 | *-Operador*             | Operador utilizado para comparar os dados métricos contra o limiar.                                                     | Maior que   |
-| *-Limiar*            | O valor que faz com que a regra de dimensionamento automático acionar uma ação.                                                      | 70%            |
+| *-Threshold*            | O valor que faz com que a regra de dimensionamento automático acionar uma ação.                                                      | 70%            |
 | *-ScaleActionDirection* | Define se o conjunto de dimensionamento deve aumentar ou reduzir verticalmente quando a regra se aplica.                                             | Aumentar       |
-| *– ScaleActionScaleType* | Indica que o número de instâncias VM deve ser alterado por um período de percentagem.                                 | Percentagem de alteração |
+| *–ScaleActionScaleType* | Indica que o número de instâncias VM deve ser alterado por um período de percentagem.                                 | Percentagem de alteração |
 | *-ScaleActionValue*     | A percentagem de instâncias de VM deve ser alterada quando a regra é acionado.                                            | 20             |
 | *-ScaleActionCooldown*  | A quantidade de tempo de espera antes da regra é aplicada novamente para que as ações de dimensionamento automático de ter a hora entre em vigor. | 5 minutos      |
 

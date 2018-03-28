@@ -1,6 +1,6 @@
 ---
-title: "Notas de versão do Azure ML Workbench para sprint 1 de Novembro de 2017"
-description: "Este documento fornece detalhes sobre as atualizações para a versão de sprint 1 do Azure ML"
+title: Notas de versão do Azure ML Workbench para sprint 1 de Novembro de 2017
+description: Este documento fornece detalhes sobre as atualizações para a versão de sprint 1 do Azure ML
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
 ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="sprint-1---november-2017"></a>Sprint 1 - Novembro de 2017 
 
@@ -96,14 +96,14 @@ Segue-se uma lista das atualizações de detalhado cada área de componente do A
 - Aplicação terminação já não interfere com tarefas arrancou na CLI.
 - Tarefas arrancou CLI agora continua a spit saída standard out, mesmo após uma hora de execução.
 - Melhor mensagens de erro são apresentadas quando ocorre uma falha do pacote de preparação de dados executar no Python/PySpark.
-- `az ml experiment clean`Limpa agora imagens de Docker na VM remoto bem.
-- `az ml experiment clean`agora funciona corretamente para o destino local no macOS.
+- `az ml experiment clean` Limpa agora imagens de Docker na VM remoto bem.
+- `az ml experiment clean` agora funciona corretamente para o destino local no macOS.
 - Mensagens de erro quando executa filtragem Docker local ou remoto são limpos cópias de segurança e mais fáceis de ler.
 - Melhor mensagem de erro é apresentada quando o nome de nó principal do cluster de HDInsight não está formatado corretamente quando ligado como um destino de execução.
 - Melhor mensagem de erro é apresentada quando o segredo não foi encontrado no serviço de credencial. 
 - Biblioteca de MMLSpark é atualizada para suportar o Apache Spark 2.2.
 - MMLSpark incluem agora o requerente codificação transformação (Mesh codificação) para documentos médicas.
-- `matplotlib`versão 2.1.0 está agora incluída fora os caixa com Workbench.
+- `matplotlib` versão 2.1.0 está agora incluída fora os caixa com Workbench.
 
 ### <a name="jupyter-notebook"></a>Bloco de Notas do Jupyter
 - Pesquisa de nomes do bloco de notas agora funciona corretamente na vista de blocos de notas.
@@ -128,10 +128,10 @@ Segue-se uma lista das atualizações de detalhado cada área de componente do A
 
 ### <a name="sample-projects"></a>Projetos de exemplo
 - [_Classificar Iris_ ](./tutorial-classifying-iris-part-1.md) projeto de exemplo:
-    - `iris_pyspark.py`é mudado para `iris_spark.py`.
-    - `iris_score.py`é mudado para `score_iris.py`.
-    - `iris.dprep`e `iris.dsource` são atualizadas para refletir as atualizações de motor de preparação de dados mais recentes.
-    - `iris.ipynb`Bloco de notas é corrigido para funcionar no cluster do HDInsight.
+    - `iris_pyspark.py` é mudado para `iris_spark.py`.
+    - `iris_score.py` é mudado para `score_iris.py`.
+    - `iris.dprep` e `iris.dsource` são atualizadas para refletir as atualizações de motor de preparação de dados mais recentes.
+    - `iris.ipynb` Bloco de notas é corrigido para funcionar no cluster do HDInsight.
     - Histórico de execução estiver ativado no `iris.ipynb` célula de bloco de notas.
 - [_Avançadas preparação de dados utilizando os dados de partilha de bicicleta_ ](./tutorial-bikeshare-dataprep.md) projeto de exemplo passo "A lidar com o erro Value" fixo.
 - [_MMLSpark para adultos Census dados_ ](https://github.com/Azure/MachineLearningSamples-mmlspark) projeto de exemplo `docker.runconfig` formato atualizado de JSON para YAML.

@@ -1,11 +1,11 @@
 ---
-title: "Conjuntos de dimensionamento de máquina virtual de dimensionamento automático com a CLI do Azure | Microsoft Docs"
-description: "Define como criar regras de dimensionamento automático para dimensionamento da máquina virtual com o 2.0 CLI do Azure"
+title: Conjuntos de dimensionamento de máquina virtual de dimensionamento automático com a CLI do Azure | Microsoft Docs
+description: Define como criar regras de dimensionamento automático para dimensionamento da máquina virtual com o 2.0 CLI do Azure
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 83e93d9c-cac0-41d3-8316-6016f5ed0ce4
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8552f6b2723fef2c61d49a34d2d60c2a6c209a32
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Dimensionar automaticamente um conjunto com o 2.0 CLI do Azure de dimensionamento de máquina virtual
 Quando cria um conjunto de dimensionamento, é possível definir o número de instâncias VM que pretende executar. Como muda o seu pedido de aplicação, pode automaticamente aumentar ou reduzir o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a pedido do cliente ou responder a alterações de desempenho da aplicação durante todo o ciclo de vida da sua aplicação.
@@ -66,14 +66,14 @@ Os parâmetros seguintes são utilizados para esta regra:
 | Parâmetro         | Explicação                                                                                                         | Valor           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | A métrica de desempenho para monitorizar e aplicar escala definir ações.                                                   | Percentagem da CPU  |
-| *intervalo de agregação*       | Frequência as métricas são recolhidas para análise.                                                                   | um minuto        |
+| *timeGrain*       | Frequência as métricas são recolhidas para análise.                                                                   | 1 minuto        |
 | *timeAggregation* | Define a forma como as métricas recolhidas devem ser agregadas para análise.                                                | Média         |
 | *timeWindow*      | A quantidade de tempo monitorizado antes em comparação com os valores da métrica e de limiar.                                   | 10 minutos      |
-| *operador*        | Operador utilizado para comparar os dados métricos contra o limiar.                                                     | Maior que    |
-| *limiar*       | O valor que faz com que a regra de dimensionamento automático acionar uma ação.                                                      | 70%             |
-| *direção*       | Define se o conjunto de dimensionamento deve aumentar ou reduzir verticalmente quando a regra se aplica.                                             | Aumentar        |
-| *tipo*            | Indica que o número de instâncias VM deve ser alterado por um período de percentagem.                                 | Percentagem de alteração  |
-| *valor*           | Quantas instâncias VM devem ser escaladas para cima ou para baixo quando se aplica a regra.                                            | 20              |
+| *operator*        | Operador utilizado para comparar os dados métricos contra o limiar.                                                     | Maior que    |
+| *threshold*       | O valor que faz com que a regra de dimensionamento automático acionar uma ação.                                                      | 70%             |
+| *direction*       | Define se o conjunto de dimensionamento deve aumentar ou reduzir verticalmente quando a regra se aplica.                                             | Aumentar        |
+| *type*            | Indica que o número de instâncias VM deve ser alterado por um período de percentagem.                                 | Percentagem de alteração  |
+| *value*           | Quantas instâncias VM devem ser escaladas para cima ou para baixo quando se aplica a regra.                                            | 20              |
 | *cooldown*        | A quantidade de tempo de espera antes da regra é aplicada novamente para que as ações de dimensionamento automático de ter a hora entre em vigor. | 5 minutos       |
 
 O exemplo seguinte define a regra para aumentar horizontalmente o número de instâncias VM. O *metricResourceUri* utiliza as variáveis definidas anteriormente para o nome do conjunto do ID de subscrição, o nome do grupo de recursos e o dimensionamento:
