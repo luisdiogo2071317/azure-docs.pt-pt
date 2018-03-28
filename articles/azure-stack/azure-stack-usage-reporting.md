@@ -1,24 +1,24 @@
 ---
-title: "Reportar dados de utilização de pilha do Azure para o Azure | Microsoft Docs"
-description: "Saiba como configurar dados de utilização de relatórios na pilha do Azure."
+title: Reportar dados de utilização de pilha do Azure para o Azure | Microsoft Docs
+description: Saiba como configurar dados de utilização de relatórios na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Reportar dados de utilização de pilha do Azure para o Azure 
 
@@ -27,7 +27,7 @@ Dados de utilização, também designado por dados de consumo representa a quant
 Azure sistemas de vários nós pilha que utilizem o modelo de faturação baseada no consumo devem reportar dados de utilização do Azure para fins de faturação.  Os operadores do Azure da pilha devem configurar as respetivas instâncias de pilha do Azure para dados de utilização de relatórios para o Azure.
 
 > [!NOTE]
-> Relatórios de dados de utilização é necessário para os pilha do Azure com vários nós utilizadores no modelo de pagamento-como-,-utilização de licenças. É opcional para os clientes que licença no modelo de capacidade (consulte o [como comprar o página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Para os utilizadores do Kit de desenvolvimento de pilha do Azure, operadores de pilha do Azure podem reportar dados de utilização e a funcionalidade de teste. No entanto, os utilizadores não serão cobrados por qualquer utilização que implicar. 
+> Relatórios de dados de utilização é necessário para os pilha do Azure com vários nós utilizadores no modelo de pagamento-como-,-utilização de licenças. É opcional para os clientes que licença no modelo de capacidade (consulte o [como comprar o página](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/). Para os utilizadores do Kit de desenvolvimento de pilha do Azure, operadores de pilha do Azure podem reportar dados de utilização e a funcionalidade de teste. No entanto, os utilizadores não serão cobrados por qualquer utilização que implicar. 
 
 
 ![fluxo de faturação](media/azure-stack-usage-reporting/billing-flow.png)
