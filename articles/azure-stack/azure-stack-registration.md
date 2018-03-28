@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: e51a15b197e875c35997cfe2ac96d673c01a80f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1dc3d9a96b9b27927cc8cc66b5e80987fba4f8ea
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar a pilha do Azure com o Azure
 Registar [Azure pilha](azure-stack-poc.md) com o Azure permite-lhe para transferir os itens do marketplace a partir do Azure e configurar dados de comércio relatórios de volta à Microsoft. Depois de registar pilha do Azure, utilização é considerada comércio do Azure e pode vê-lo sob a subscrição utilizada para o registo. 
@@ -58,7 +58,7 @@ Podem aceder a ambientes ligados à internet e ao Azure. Para estes ambientes, t
 
 ### <a name="register-the-azure-stack-resource-provider"></a>Registar o fornecedor de recursos de pilha do Azure
 Para registar o fornecedor de recursos de pilha do Azure com o Azure, inicie o ISE do Powershell como administrador e utilize os seguintes comandos do PowerShell. Estes comandos serão:
-- Solicitar-lhe para iniciar sessão como um proprietário da subscrição do Azure a ser utilizado e definir o `EnvironmentName` parâmetro **AzureCloud**.
+- Solicitar-lhe para iniciar sessão como um proprietário da subscrição do Azure a ser utilizado e definir o **EnvironmentName** parâmetro **AzureCloud**.
 - Registar o fornecedor de recursos do Azure **Microsoft.AzureStack**.
 
 1. Adicione a conta do Azure que utiliza para registar a pilha do Azure. Para adicionar a conta, execute o **Add-AzureRmAccount** cmdlet. É-lhe pedido que introduza as suas credenciais de conta de administrador global do Azure e poderá ter de utilizar a autenticação de fator 2, com base na configuração da sua conta.
@@ -95,7 +95,7 @@ PowerShell para executar:
 
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -104,7 +104,7 @@ Set-AzsRegistration `
 
 |Parâmetro|Descrição|
 |-----|-----|
-|CloudAdminCredential|Objeto do PowerShell que contém informações de credenciais (nome de utilizador e palavra-passe) para o proprietário da subscrição do Azure.|
+|CloudAdminCredential|Objeto do PowerShell que contém informações de credenciais (nome de utilizador e palavra-passe) utilizadas para aceder ao ponto final com privilégios.|
 |PrivilegedEndpoint|Uma previamente configurada PowerShell consola remota que fornece capacidades, como a recolha de registos e outra post tarefas de implementação. Para obter mais informações, consulte o [utilizando o ponto final com privilégios](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint#access-the-privileged-endpoint) artigo.|
 |BillingModel|O modelo de faturação que utiliza a sua subscrição. Os valores para este parâmetro permitidos são: capacidade, PayAsYouUse e desenvolvimento.|
 
@@ -114,7 +114,7 @@ Siga as mesmas instruções utilizadas para registar utilizando o modelo de fatu
 PowerShell para executar:
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
