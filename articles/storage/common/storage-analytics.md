@@ -1,10 +1,10 @@
 ---
-title: "Utilizar a análise de armazenamento do Azure para recolher dados de registos e as métricas | Microsoft Docs"
-description: "Análise de armazenamento permite-lhe para controlar os dados de métricas para todos os serviços de armazenamento e para recolher registos de tabela, fila e Blob storage."
+title: Utilizar a análise de armazenamento do Azure para recolher dados de registos e as métricas | Microsoft Docs
+description: Análise de armazenamento permite-lhe para controlar os dados de métricas para todos os serviços de armazenamento e para recolher registos de tabela, fila e Blob storage.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: tamram
-ms.openlocfilehash: 9ae9dd0b078911a695d441cd3891be720dc204ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: edda01cbfe1b53d934f9f4a7bb01c645fa680873
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
@@ -79,7 +79,7 @@ A tabela seguinte descreve cada atributo no nome do registo.
 
 | Atributo | Descrição |
 | --- | --- |
-| < nome do serviço > |O nome do serviço de armazenamento. Por exemplo: blob, tabela ou fila. |
+| <service-name> |O nome do serviço de armazenamento. Por exemplo: blob, tabela ou fila. |
 | AAAA |O ano de quatro dígitos para o registo. Por exemplo: 2011. |
 | MM |O mês de dois dígitos para o registo. Por exemplo: 07. |
 | DD |O mês de dois dígitos para o registo. Por exemplo: 07. |
@@ -95,7 +95,7 @@ Segue-se um exemplo URI que pode ser utilizada para aceder ao registo anterior.
 
     https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log
 
-Quando um pedido de armazenamento é registado, o nome do registo resultante está correlacionada com a hora quando concluir a operação pedida. Por exemplo, se foi concluída uma requisição de GetBlob às 18:30:00 no 31/7/2011, o registo seria escrito com o seguinte prefixo:`blob/2011/07/31/1800/`
+Quando um pedido de armazenamento é registado, o nome do registo resultante está correlacionada com a hora quando concluir a operação pedida. Por exemplo, se foi concluída uma requisição de GetBlob às 18:30:00 no 31/7/2011, o registo seria escrito com o seguinte prefixo: `blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>Metadados de registo
 Todos os blobs de registo são armazenados com metadados que podem ser utilizado para identificar que dados de registo que contém o blob. A tabela seguinte descreve cada atributo de metadados.
@@ -104,15 +104,15 @@ Todos os blobs de registo são armazenados com metadados que podem ser utilizado
 | --- | --- |
 | LogType |Descreve se o registo contém informações relativas a ler, escrever ou eliminar operações. Este valor pode incluir um tipo ou uma combinação de três, separados por vírgulas. Exemplo 1: escrever; Exemplo 2: ler, escrever; Exemplo 3: ler, escrever, eliminar. |
 | StartTime |A hora mais antigo do que uma entrada no registo, no formato AAAA-MM-Aaaathh. Por exemplo: 2011-07-31T18:21:46Z. |
-| endTime |A hora mais recente de uma entrada no registo, no formato AAAA-MM-Aaaathh. Por exemplo: 2011-07-31T18:22:09Z. |
+| EndTime |A hora mais recente de uma entrada no registo, no formato AAAA-MM-Aaaathh. Por exemplo: 2011-07-31T18:22:09Z. |
 | LogVersion |A versão do formato de registo. Atualmente, o único valor suportado é 1.0. |
 
 A lista seguinte apresenta os metadados de exemplo completo utilizando os exemplos anteriores.
 
-* LogType = escrita
-* StartTime = 2011-07-31T18:21:46Z
-* EndTime = 2011-07-31T18:22:09Z
-* LogVersion = 1.0
+* LogType=write
+* StartTime=2011-07-31T18:21:46Z
+* EndTime=2011-07-31T18:22:09Z
+* LogVersion=1.0
 
 ### <a name="accessing-logging-data"></a>Aceder aos dados de registo
 Todos os dados no `$logs` contentor podem ser acedidos utilizando as APIs do serviço Blob, incluindo as APIs de .NET fornecido pelo Azure biblioteca gerida. O administrador de conta de armazenamento pode ler e eliminar os registos, mas não é possível criar ou atualizá-las. Os metadados do registo e o nome do registo podem ser utilizados quando consultar um registo. É possível que os registos de uma determinada hora aparecer fora de ordem, mas os metadados sempre Especifica o período de tempo de entradas de registo num registo. Por conseguinte, pode utilizar uma combinação de metadados e os nomes dos registos ao procurar um registo específico.
@@ -148,7 +148,7 @@ Para obter mais informações sobre as métricas de capacidade, consulte [armaze
 ### <a name="how-metrics-are-stored"></a>Como as métricas são armazenadas
 Todos os dados de métricas para cada um dos serviços de armazenamento são armazenados nas três tabelas reservadas para que o serviço: uma tabela para informações sobre transações, uma tabela para informações sobre transações minuto e outra tabela para obter informações de capacidade. Informações de transação de transação e minuto constituem em dados de pedido e resposta e informações de capacidade consiste em armazenamento dados de utilização. Métricas de hora, minutos métricas e capacidade para o serviço de Blob de uma conta de armazenamento podem ser acedidos em tabelas com o nome, tal como descrito na seguinte tabela.
 
-| Nível de métricas | Nomes das tabelas | Versões suportadas |
+| Nível de métricas | Nomes de tabelas | Versões suportadas |
 | --- | --- | --- |
 | Métricas de hora a hora, localização principal |$MetricsTransactionsBlob <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versões anteriores a 2013-08-15 apenas. Embora estes nomes ainda sejam suportados, recomenda-se que mude para utilizar as tabelas listadas abaixo. |
 | Métricas de hora a hora, localização principal |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Todas as versões, incluindo 2013-08-15. |
@@ -157,7 +157,7 @@ Todos os dados de métricas para cada um dos serviços de armazenamento são arm
 | Métricas de minutos, localização secundária |$MetricsMinuteSecondaryTransactionsBlob <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue |Todas as versões, incluindo 2013-08-15. Deve ser ativada a replicação georredundante de acesso de leitura. |
 | Capacidade (apenas ao serviço Blob) |$MetricsCapacityBlob |Todas as versões, incluindo 2013-08-15. |
 
-Estas tabelas são criadas automaticamente quando a análise de armazenamento está ativada para uma conta de armazenamento. Estes são acedidos através de espaço de nomes da conta de armazenamento, por exemplo:`https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
+Estas tabelas são criadas automaticamente quando a análise de armazenamento está ativada para uma conta de armazenamento. Estes são acedidos através de espaço de nomes da conta de armazenamento, por exemplo: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
 
 ### <a name="accessing-metrics-data"></a>Aceder aos dados de métricas
 Todos os dados nas tabelas métricas podem ser acedidos utilizando as APIs do serviço tabela, incluindo as APIs de .NET fornecido pelo Azure biblioteca gerida. O administrador de conta de armazenamento pode ler e eliminar entidades de tabela, mas não é possível criar ou atualizá-las.
@@ -177,7 +177,7 @@ Todos os pedidos efetuados ao serviço de uma conta de armazenamento está sujei
 
 Quando observar os dados de análise de armazenamento, pode utilizar as tabelas a [operações de registadas análise de armazenamento e as mensagens de estado](https://msdn.microsoft.com/library/azure/hh343260.aspx) tópico para determinar os pedidos são sujeito a faturação. Em seguida, pode comparar os registos e dados de métricas para as mensagens de estado para ver se foram cobrados para um pedido específico. Também pode utilizar as tabelas existentes no tópico anterior para investigar disponibilidade para um serviço de armazenamento ou a operação de API individual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 ### <a name="setting-up-storage-analytics"></a>Configurar a análise de armazenamento
 * [Monitorizar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md)
 * [Ativar e configurar a análise de armazenamento](https://msdn.microsoft.com/library/hh360996.aspx)

@@ -1,8 +1,8 @@
 ---
-title: "Configurar o mapa de serviço no Azure | Microsoft Docs"
-description: "O Mapa de Serviços é uma solução no Azure que deteta componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes para implementar o mapa de serviço no seu ambiente e utilizá-la numa variedade de cenários."
+title: Configurar o mapa de serviço no Azure | Microsoft Docs
+description: O Mapa de Serviços é uma solução no Azure que deteta componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes para implementar o mapa de serviço no seu ambiente e utilizá-la numa variedade de cenários.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: daveirwin1
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2a5e6367cef02b53cb0e24d644b7e3e8025e19ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c01d18b17906a2b243a46241a6ec5c4b1d9ab8d9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode utilizá-lo para ver os servidores que acha que deles – como interligados sistemas que fornecem serviços críticos. Mapa de serviço mostra as ligações entre servidores, processos e portas em qualquer arquitetura TCP ligados sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -28,8 +28,8 @@ Este artigo descreve os detalhes de configuração de agentes de mapa de serviç
 ## <a name="dependency-agent-downloads"></a>Transferências de agente de dependência
 | Ficheiro | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.2 | E0888727125FA4E4ECACFB4B2633284C014933EE0CC2F7A9F93F36AEDBD6C2C4  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.0 | 4125A88E60650FF168D6254AB4FCD14CDD3CC1C7B4CF168F3F5F3C1AF30895DD  |
 
 
 ## <a name="connected-sources"></a>Origens ligadas
@@ -168,7 +168,7 @@ ForEach-Object {
 }
 ```
 
-Uma forma mesmo mais fácil de garantir a é o agente de dependência em cada uma das suas VMs é para incluir o agente no seu modelo do Azure Resource Manager.  Tenha em atenção que o agente de dependência depende ainda o agente do OMS, por isso, o [extensão de VM de agente do OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) tem de ser implementada pela primeira vez.  É possível adicionar o seguinte fragmento de JSON para o *recursos* secção do seu modelo.
+É uma forma ainda mais fáceis de Certifique-se de que o agente de dependência encontra-se em cada uma das suas VMs para incluir o agente no seu modelo do Azure Resource Manager.  Tenha em atenção que o agente de dependência depende ainda o agente do OMS, por isso, o [extensão de VM de agente do OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) tem de ser implementada pela primeira vez.  É possível adicionar o seguinte fragmento de JSON para o *recursos* secção do seu modelo.
 ```JSON
 "type": "Microsoft.Compute/virtualMachines/extensions",
 "name": "[concat(parameters('vmName'), '/DependencyAgent')]",

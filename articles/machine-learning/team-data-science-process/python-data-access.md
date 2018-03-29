@@ -1,6 +1,6 @@
 ---
 title: Aceder a conjuntos de dados com a biblioteca de clientes do Machine Learning Python | Microsoft Docs
-description: "Instalar e utilizar a biblioteca de clientes do Python para aceder e gerir dados do Azure Machine Learning em segurança a partir de um ambiente Python local."
+description: Instalar e utilizar a biblioteca de clientes do Python para aceder e gerir dados do Azure Machine Learning em segurança a partir de um ambiente Python local.
 services: machine-learning
 documentationcenter: python
 author: bradsev
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: huvalo;bradsev
-ms.openlocfilehash: 3cffb90baadef570bbb7e4e2d96741cc0420b0a2
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5f0823e07f0e583e32829b664a1d3d463092169e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Utilizar a biblioteca de clientes de Python do Azure Machine Learning para aceder a conjuntos de dados com Python
 A pré-visualização da biblioteca de clientes do Microsoft Azure Machine Learning Python pode permitir um acesso seguro para os conjuntos de dados do Azure Machine Learning a partir de um ambiente Python local e permite a criação e gestão de conjuntos de dados numa área de trabalho.
@@ -41,7 +41,7 @@ A biblioteca de clientes do Python foi testada em seguintes ambientes:
 Tem uma dependência nos seguintes pacotes:
 
 * pedidos
-* Python dateutil
+* python-dateutil
 * pandas
 
 Recomendamos que utilize uma distribuição do Python, tais como [Anaconda](http://continuum.io/downloads#all) ou [Canopy](https://store.enthought.com/downloads/), que são fornecidos com o Python, IPython e instalar três pacotes listados acima. Embora não seja estritamente necessária IPython, é um ambiente excelente para manipular e visualizar dados de forma interativa.
@@ -106,7 +106,7 @@ Conjuntos de dados intermédios podem ser acedidos, desde que o formato dos dado
 
 São suportados os seguintes formatos (constantes para estes estão no `azureml.DataTypeIds` classe):
 
-* Texto simples
+* PlainText
 * GenericCSV
 * GenericTSV
 * GenericCSVNoHeader
@@ -242,7 +242,7 @@ Se os dados já está a ser serializados, pode utilizar:
 
 A biblioteca de clientes do Python é capaz de serializar um DataFrame Pandas para os seguintes formatos (constantes para estes estão no `azureml.DataTypeIds` classe):
 
-* Texto simples
+* PlainText
 * GenericCSV
 * GenericTSV
 * GenericCSVNoHeader

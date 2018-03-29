@@ -1,30 +1,30 @@
 ---
 title: Configurar o MPIO para o dispositivo StorSimple | Microsoft Docs
-description: "Descreve como configurar o Multipath i / o (MPIO) para o dispositivo StorSimple ligado a um anfitrião com o Windows Server 2012 R2."
+description: Descreve como configurar o Multipath i / o (MPIO) para o dispositivo StorSimple ligado a um anfitrião com o Windows Server 2012 R2.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f2b094604f486d283574f4669fcad6f72bd4431
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar o Multipath i / o para o dispositivo StorSimple
 
 Este tutorial descreve os passos que deverá seguir para instalar e utilizar a funcionalidade Multipath i / o (MPIO) num anfitrião com o Windows Server 2012 R2 e ligado a um dispositivo físico StorSimple. As orientações neste artigo aplica-se a série 8000 do StorSimple apenas a dispositivos físicos. O MPIO não é suportado num dispositivo StorSimple em nuvem.
 
-Microsoft incorporada suporte para a funcionalidade Multipath i / o (MPIO) no Windows Server para ajuda compilação altamente disponíveis, com tolerância a falhas SAN configurações. MPIO utiliza os componentes de caminho físico redundantes, placas, cabos e comutadores — para criar caminhos lógicos entre o servidor e o dispositivo de armazenamento. Se existir uma falha de componente, fazendo com que um caminho lógico falhe, a lógica de multipathing utiliza um caminho alternativo de e/s para que as aplicações ainda podem aceder aos respetivos dados. Além disso, consoante a configuração, MPIO pode também melhorar o desempenho ao reequilíbrio a carga em todos os estes caminhos. Para obter mais informações, consulte [descrição geral do MPIO](https://technet.microsoft.com/library/cc725907.aspx "MPIO descrição geral e funcionalidades").
+Microsoft incorporada suporte para a funcionalidade Multipath i / o (MPIO) no Windows Server para ajudar a criar configurações de rede iSCSI de elevada disponibilidade, com tolerância a falhas. MPIO utiliza os componentes de caminho físico redundantes, placas, cabos e comutadores — para criar caminhos lógicos entre o servidor e o dispositivo de armazenamento. Se existir uma falha de componente, fazendo com que um caminho lógico falhe, a lógica de multipathing utiliza um caminho alternativo de e/s para que as aplicações ainda podem aceder aos respetivos dados. Além disso, consoante a configuração, MPIO pode também melhorar o desempenho ao reequilíbrio a carga em todos os estes caminhos. Para obter mais informações, consulte [descrição geral do MPIO](https://technet.microsoft.com/library/cc725907.aspx "MPIO descrição geral e funcionalidades").
 
 Para elevada disponibilidade da solução StorSimple, MPIO deve ser configurado no dispositivo StorSimple. Quando é instalado MPIO nos servidores de anfitrião com o Windows Server 2012 R2, os servidores, em seguida, podem tolerar uma ligação, a rede ou a falha de interface.
 
@@ -83,7 +83,7 @@ MPIO tem de ser configurado para identificar os volumes do StorSimple. Para conf
 3. Selecione **adicionar suporte para dispositivos de iSCSI**e, em seguida, clique em **adicionar**.  
    ![Propriedades do MPIO detetar múltiplos caminhos](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. Reinicie o servidor quando lhe for pedido.
-5. No **MPIO propriedades** caixa de diálogo, clique em de **MPIO dispositivos** separador. Clique em **Adicionar**.
+5. No **MPIO propriedades** caixa de diálogo, clique em de **MPIO dispositivos** separador. Clique em **adicionar**.
     </br>![Dispositivos MPIO de propriedades do MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. No **adicionar suporte de MPIO** caixa de diálogo em **ID de Hardware do dispositivo**, introduza o seu número de série do dispositivo. Para obter o número de série do dispositivo, aceder ao serviço StorSimple Manager do dispositivo. Navegue para **dispositivos > Dashboard**. O número de série do dispositivo é apresentado no lado direito **relance rápida** painel do dashboard do dispositivo.
     </br>
@@ -139,7 +139,7 @@ Depois do MPIO está configurado no Windows Server, volumes criados no dispositi
     
     * Certifique-se de caminho período = 30
     * Contagem de tentativas = 3
-    * PDO remover período = 20
+    * PDO Remove Period = 20
     * Intervalo de repetição = 1
     * Certifique-se de caminho ativado = desmarcada.
 
@@ -149,12 +149,12 @@ Depois do MPIO está configurado no Windows Server, volumes criados no dispositi
 
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Passo 4: Configurar o MPIO para elevada disponibilidade e o balanceamento de carga
 
-Para multi-path com base no balanceamento de carga e de elevada disponibilidade, os múltiplas sessões têm de ser adicionadas manualmente para declarar os caminhos de diferentes disponíveis. Por exemplo, se o anfitrião tem duas interfaces de rede ligados à SAN e o dispositivo tem duas interfaces de rede ligadas à SAN, em seguida, terá de quatro sessões configuradas com (apenas duas sessões será necessário se cada interface de dados e a interface de anfitrião estiver numa sub-rede IP diferentes e não for encaminhável) de permutações de caminho adequado.
+Para multi-path com base no balanceamento de carga e de elevada disponibilidade, os múltiplas sessões têm de ser adicionadas manualmente para declarar os caminhos de diferentes disponíveis. Por exemplo, se o anfitrião tem duas interfaces de rede ligado à rede de iSCSI e o dispositivo tem duas interfaces de rede ligadas à rede iSCSI, em seguida, terá de quatro sessões configuradas com permutações caminho adequado (apenas duas sessões será necessárias se cada interface de dados e interface de anfitrião estiver numa sub-rede IP diferentes e não for encaminhável).
 
 **Recomendamos que tenha, pelo menos, 8 paralelas as sessões ativas entre o dispositivo e o anfitrião de aplicação.** Isto pode ser alcançado Ativando 4 interfaces de rede no seu sistema do Windows Server. Utilize interfaces de rede física ou virtuais interfaces através de tecnologias de Virtualização de rede no nível do sistema operativo ou de hardware no anfitrião do Windows Server. Com duas interfaces de rede no dispositivo, esta configuração resultaria em 8 sessões ativas. Esta configuração ajuda a otimizar o débito de dispositivo e da nuvem.
 
 > [!IMPORTANT]
-> **Recomendamos que não misture de 1 GbE e interfaces de rede 10 GbE. Se utilizar duas interfaces de rede, ambas as interfaces devem ser do tipo idêntico.**
+> **Recomendamos que não misture de 1 GbE e interfaces de rede 10 GbE. Se utilizar duas interfaces de rede, ambas as interfaces devem ser de um tipo idêntico.**
 
 O procedimento seguinte descreve como adicionar sessões quando um dispositivo StorSimple com duas interfaces de rede está ligado a um anfitrião com duas interfaces de rede. Isto dá-lhe apenas 4 sessões. Utilize este procedimento mesmo com um dispositivo StorSimple com duas interfaces de rede ligadas a um anfitrião com quatro interfaces de rede. Terá de configurar 8 em vez das 4 sessões descritas aqui.
 
@@ -172,22 +172,22 @@ O procedimento seguinte descreve como adicionar sessões quando um dispositivo S
 6. No **definições avançadas** caixa de diálogo:
    
    1. No **adaptador Local** na lista pendente, selecione **Iniciador do Microsoft iSCSI**.
-   2. No **iniciador IP** pendente lista, selecione o endereço IP do anfitrião.
-   3. No **IP do Portal de destino** na lista pendente, selecione o endereço IP da interface de dados ativado no dispositivo.
+   2. No **iniciador IP** pendente lista, selecione o endereço IP correspondente à primeira interface no anfitrião (interface de iSCSI).
+   3. No **IP do Portal de destino** na lista pendente, selecione o endereço IP para a primeira interface de dados ativada no dispositivo.
    4. Clique em **OK** para regressar à caixa de diálogo de propriedades do iniciador iSCSI.
 7. Clique em **propriedades**e, no **propriedades** caixa de diálogo, clique em **adicionar sessão**.
 8. No **ligar ao destino** caixa de diálogo, selecione o **multi-path ativar** caixa de verificação e, em seguida, clique em **avançadas**.
 9. No **definições avançadas** caixa de diálogo:
    
    1. No **adaptador Local** na lista pendente, selecione **Iniciador do Microsoft iSCSI**.
-   2. No **iniciador IP** pendente lista, selecione o endereço IP correspondente à interface segundo no anfitrião.
+   2. No **iniciador IP** pendente lista, selecione o endereço IP correspondente à interface segundo do iSCSI no anfitrião.
    3. No **IP do Portal de destino** na lista pendente, selecione o endereço IP para a interface de dados segundo ativada no dispositivo.
    4. Clique em **OK** para voltar para o **propriedades do iniciador iSCSI** caixa de diálogo. Agora ter adicionado uma segunda sessão para o destino.
 10. Repita os passos 8 a 10 para adicionar sessões adicionais (caminhos) para o destino. Com duas interfaces de rede no anfitrião e duas no dispositivo, pode adicionar um total de sessões de quatro.
 11. Depois de adicionar as sessões pretendidas (caminhos), o **propriedades do iniciador iSCSI** diálogo caixa, selecione o destino e clique em **propriedades**. No separador de sessões do **propriedades** caixa de diálogo, tenha em atenção a sessão de quatro identificadores que correspondem às combinações possíveis de caminho. Para cancelar uma sessão, selecione a caixa de verificação junto de um identificador de sessão e, em seguida, clique em **desligar**.
 12. Para ver os dispositivos apresentados dentro de sessões, selecione o **dispositivos** separador. Para configurar a política MPIO para um dispositivo selecionado, clique em **MPIO**. O **detalhes do dispositivo** é apresentada a caixa de diálogo. No **MPIO** separador, pode selecionar as adequadas **política de balanceamento de carga** definições. Também pode ver o **Active Directory** ou **Standby** tipo de caminho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [utilizando o serviço do Gestor de dispositivos do StorSimple para modificar a configuração do dispositivo StorSimple](storsimple-8000-modify-device-config.md).
 

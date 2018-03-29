@@ -1,29 +1,27 @@
 ---
-title: "Azure Cosmos DB: criar uma aplicação com Node.js e a API SQL | Microsoft Docs"
-description: "Apresenta um exemplo de código Node.js que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API"
+title: 'Azure Cosmos DB: criar uma aplicação com Node.js e a SQL API | Microsoft Docs'
+description: Apresenta um exemplo de código Node.js que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 9c0f033c-240e-4fee-8421-08907231087f
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: mimig
-ms.openlocfilehash: 4e411ead0456abd4728dcae2c204a424ff09b195
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 9aa603c438b267064c2238192669126847f953ef
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: criar uma aplicação da SQL API com Node.js e o portal do Azure
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 

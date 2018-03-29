@@ -1,23 +1,23 @@
 ---
-title: "Planeamento de projeto do processo de ciência de dados de equipa - Azure | Microsoft Docs"
-description: "Modelos de Microsoft Project e Excel que o ajudam a planear e gerir projetos de ciência de dados."
-documentationcenter: 
+title: Planeamento de projeto do processo de ciência de dados de equipa - Azure | Microsoft Docs
+description: Modelos de Microsoft Project e Excel que o ajudam a planear e gerir projetos de ciência de dados.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
-ms.author: bradsev;
-ms.openlocfilehash: 6512bf204a1fdc7a413a553b571e3b64b547855b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: bradsev
+ms.openlocfilehash: cc2dd8bd6d7733b3f35ce697d71c0abdab5f11dc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-data-science-process-project-planning"></a>O processo de ciência de dados de planeamento de projeto de equipa
 
@@ -53,7 +53,7 @@ Se não tiver acesso ao Microsoft Project, uma folha de cálculo do Excel com os
 
 Utilize estes modelos a sua conta e risco. O [exclusões de responsabilidade habituais](https://www.gnu.org/licenses/gpl-3.0.en.html) aplicar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Desenvolvimento seja ágil de projetos de ciência de dados](agile-development.md) este documento descreve a execução de um projeto de ciência de dados num systematic, versão controladas e forma colaboração dentro de uma equipa de projeto utilizando o processo de ciência de dados de equipa.
 

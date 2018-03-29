@@ -1,6 +1,6 @@
 ---
-title: "Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery (Pré-visualização)"
-description: "Saiba como configurar a recuperação após desastre de VMs do Azure para uma região diferente do Azure, utilizando o serviço Azure Site Recovery."
+title: Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery (Pré-visualização)
+description: Saiba como configurar a recuperação após desastre de VMs do Azure para uma região diferente do Azure, utilizando o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 03/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 47d9a1e8aecde8ba0f01034f1d172c3fbd87ccfe
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure (Pré-visualização)
 
@@ -144,7 +144,9 @@ O Site Recovery cria as predefinições e a política de replicação para a reg
 
 - **Contas de armazenamento em cache**: o Site Recovery utiliza uma conta de armazenamento na região de origem. As alterações às VMs de origem são enviadas para esta conta antes da replicação para a localização de destino.
 
-- **Contas de armazenamento de destino**: por predefinição, o Site Recovery cria uma nova conta de armazenamento na região de destino para espelhar a conta de armazenamento das VMs de origem.
+- **As contas de armazenamento de destino (se não utilizar a VM de origem gerido discos)**: por predefinição, a recuperação de sites cria uma nova conta do storage na região de destino para espelhar a conta de armazenamento VM de origem.
+
+- **Réplica discos geridos pelo (se a VM de origem utilizar discos geridos)**: por predefinição, a recuperação de sites cria discos de réplica gerido na região de destino para espelhar discos geridos da VM de origem com o mesmo tipo de armazenamento (Standard ou premium) como a VM de origem gerido disco.
 
 - **Conjuntos de disponibilidade de destino**: por predefinição, o Site Recovery cria um novo conjunto de disponibilidade na região de destino com o sufixo "asr". Só é possível adicionar conjuntos de disponibilidade se as VMs fizerem parte de um conjunto na região de origem.
 

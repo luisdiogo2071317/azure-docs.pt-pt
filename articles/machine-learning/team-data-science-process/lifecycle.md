@@ -1,8 +1,8 @@
 ---
-title: "O ciclo de vida do processo de ciência de dados de equipa - Azure | Microsoft Docs"
-description: "Os passos necessários para executar os seus projetos de ciência de dados"
+title: O ciclo de vida do processo de ciência de dados de equipa - Azure | Microsoft Docs
+description: Os passos necessários para executar os seus projetos de ciência de dados
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 5d69d4d2371b42b3595cf3dc71d99d913e225c59
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: a971e40bc4338f187991eeae991044248844d8b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>O ciclo de vida do processo de ciência de dados de equipa
 
@@ -47,7 +47,7 @@ Para cada fase, podemos fornecer as seguintes informações:
    * **Como fazê-lo**: uma descrição das tarefas específicas e orientações sobre como conclui-los.
    * **Artefactos**: A concentrarem e o suporte para produzi-los.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Fornecemos instruções completa ponto-a-ponto que demonstram todos os passos no processo de cenários específicos. O [instruções de exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com ligações e descrições em miniatura. As instruções mostram como combinar em nuvem, ferramentas no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente. 
 

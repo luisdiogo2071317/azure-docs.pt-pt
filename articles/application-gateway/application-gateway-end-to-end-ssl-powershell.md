@@ -1,24 +1,22 @@
 ---
-title: "Configurar o SSL de ponto a ponto com o Gateway de aplicação do Azure | Microsoft Docs"
-description: "Este artigo descreve como configurar o SSL de ponto a ponto com Gateway de aplicação do Azure utilizando o PowerShell"
+title: Configurar o SSL de ponto a ponto com o Gateway de aplicação do Azure
+description: Este artigo descreve como configurar o SSL de ponto a ponto com Gateway de aplicação do Azure utilizando o PowerShell
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: df14d5c4572a250f9f8951ee3b86e87e6f652782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/27/2018
+ms.author: victorh
+ms.openlocfilehash: 2de7086d7c26d5a655ad5998678f392126ea7e1d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurar o SSL de ponto a ponto ao utilizar o Gateway de aplicação com o PowerShell
 
@@ -160,7 +158,8 @@ Todos os itens de configuração estão definidos antes de criar o gateway de ap
    5. Configure o certificado para o gateway de aplicação. Este certificado é utilizado para desencriptar e reencrypt o tráfego no gateway de aplicação.
 
    ```powershell
-   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+   $password = ConvertTo-SecureString  <password for certificate file> -AsPlainText -Force 
+   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $password 
    ```
 
    > [!NOTE]
@@ -177,7 +176,7 @@ Todos os itens de configuração estão definidos antes de criar o gateway de ap
    > [!NOTE]
    > A sonda predefinida obtém a chave pública a partir de *predefinido* enlace de SSL no endereço IP e compara o valor da chave público receber para o valor da chave público fornecer aqui o back-end. 
    
-   > Se estiver a utilizar cabeçalhos de anfitrião e a indicação de nome de servidor (SNI) no back-end, a chave pública obtida poderá não ser site pretendido para os fluxos de tráfego. Se estiver em dúvida, visite https://127.0.0.1/ nos servidores de back-end para confirmar o certificado é utilizado para o *predefinido* enlace SSL. Utilize a chave pública esse pedido nesta secção. Se estiver a utilizar cabeçalhos de anfitrião e SNI nos enlaces de HTTPS e não receber uma resposta e o certificado de um pedido de manual browser para https://127.0.0.1/ nos servidores de back-end, tem de configurar um enlace de SSL predefinido nos mesmos. Se o fizer, sondas falharem e o back-end não está na lista de permissões.
+   > Se estiver a utilizar cabeçalhos de anfitrião e a indicação de nome de servidor (SNI) no back-end, a chave pública obtida poderá não ser site pretendido para os fluxos de tráfego. Se estiver em dúvida, visite https://127.0.0.1/ nos servidores de back-end para confirmar o certificado é utilizado para o *predefinido* enlace SSL. Utilize a chave pública esse pedido nesta secção. Se estiver a utilizar cabeçalhos de anfitrião e SNI nos enlaces de HTTPS e não receberá uma resposta e o certificado de um pedido de manual browser para https://127.0.0.1/ em servidores back-end, tem de configurar um enlace de SSL predefinido nos mesmos. Se o fizer, sondas falharem e o back-end não está na lista de permissões.
 
    ```powershell
    $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
@@ -283,7 +282,7 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a segurança das suas aplicações web com Firewall de aplicações Web através do Gateway de aplicação de proteção, consulte o [descrição geral de firewall de aplicações Web](application-gateway-webapplicationfirewall-overview.md).
 

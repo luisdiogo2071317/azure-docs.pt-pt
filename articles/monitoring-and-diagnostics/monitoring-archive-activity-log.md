@@ -1,9 +1,9 @@
 ---
 title: Arquivar o registo de atividade do Azure | Microsoft Docs
-description: "Saiba como o registo de atividade do Azure para a retenção de longa duração numa conta de armazenamento de arquivo."
+description: Saiba como o registo de atividade do Azure para a retenção de longa duração numa conta de armazenamento de arquivo.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o registo de atividade do Azure
 Neste artigo, mostramos como pode utilizar o portal do Azure, o Cmdlets do PowerShell ou a CLI de várias plataformas para arquivar a [ **registo de atividade do Azure** ](monitoring-overview-activity-logs.md) numa conta do storage. Esta opção é útil se gostaria de manter o registo de atividade mais de 90 dias (com controlo total sobre a política de retenção) para cópia de segurança, auditoria ou análise estático. Se pretender manter os eventos durante 90 dias ou menos não terá de configurar o arquivo para uma conta de armazenamento, uma vez que os eventos de registo de atividade são retidos na plataforma do Azure para 90 dias sem ativar o arquivo.
@@ -164,7 +164,7 @@ No ficheiro PT1H.json cada evento está armazenado na matriz "registos", segue e
 > 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Transferir blobs para análise](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [Transferir blobs para análise](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Fluxo de registo de atividade para os Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 * [Leia mais sobre o registo de atividade](monitoring-overview-activity-logs.md)
 

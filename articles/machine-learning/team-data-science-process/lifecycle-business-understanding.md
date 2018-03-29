@@ -1,24 +1,24 @@
 ---
-title: "Fase de compreensão de negócio o ciclo de vida do processo de ciência de dados de equipa - Azure | Microsoft Docs"
-description: "Os objetivos, tarefas e materiais a entregar para a fase de compreensão de empresas dos seus projetos de ciência de dados"
+title: Fase de compreensão de negócio o ciclo de vida do processo de ciência de dados de equipa - Azure | Microsoft Docs
+description: Os objetivos, tarefas e materiais a entregar para a fase de compreensão de empresas dos seus projetos de ciência de dados
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 82784cbfd5f12297c376a395b54a817a2ae915a5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: daaaccaeac196b5f4651183173c8e83085d5184d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="business-understanding"></a>Noções sobre empresas
 
@@ -80,10 +80,10 @@ Por exemplo, poderá achar que os sistemas existentes tem de recolher e registar
 Seguem-se a concentrarem nesta fase:
 
    * [Documento charter](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): é fornecido um modelo padrão na definição de estrutura de projeto do TDSP. O documento de charter é um documento de maior duração. Atualizar o modelo em todo o projeto como novas deteções e os como empresariais os requisitos se alteram. A chave é iterar após neste documento, a adição de mais detalhadamente, à medida que o processo de deteção. Manter o cliente e outros intervenientes envolvido na efetuar as alterações e claramente comunicam as razões para que as alterações aos mesmos.  
-   * [Origens de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): O **origens de dados não processados** secção o **definições de dados** relatório que está presente no projeto TDSP **relatório de dados** pasta contém o origens de dados. Esta secção especifica as localizações originais e de destino para os dados não processados. Em fases posteriores, preencha detalhes adicionais, como os scripts para mover os dados para o seu ambiente de análise.  
+   * [Origens de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): O **origens de dados não processados** secção o **definições de dados** relatório que está presente no projeto TDSP **relatório de dados** pasta contém os dados origens. Esta secção especifica as localizações originais e de destino para os dados não processados. Em fases posteriores, preencha detalhes adicionais, como os scripts para mover os dados para o seu ambiente de análise.  
    * [Dicionários dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): este documento fornece descrições dos dados que são fornecidos pelo cliente. Estas descrições incluem informações sobre o esquema (os tipos de dados e obter informações sobre as regras de validação, se aplicável) e os diagramas de relação da entidade, se disponível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Seguem-se ligações para cada passo no ciclo de vida do TDSP:
 

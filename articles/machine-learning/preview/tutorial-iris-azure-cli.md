@@ -1,9 +1,9 @@
 ---
-title: "Artigo de tutorial para as funcionalidades de pré-visualização do Azure Machine Learning - Interface de Linha de Comandos | Microsoft Docs"
-description: "Este tutorial orienta-o ao longo de todos os passos necessários para concluir uma classificação de Íris completa a partir da interface de linha de comandos."
+title: Artigo de tutorial para as funcionalidades de pré-visualização do Azure Machine Learning - Interface de Linha de Comandos | Microsoft Docs
+description: Este tutorial orienta-o ao longo de todos os passos necessários para concluir uma classificação de Íris completa a partir da interface de linha de comandos.
 services: machine-learning
 author: ahgyger
-ms.author: ahgyger, ritbhat
+ms.author: ahgyger
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2d7965c0028e8f2e82db2e3ddd4eed6e20f4f443
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Tutorial: Classificar Íris com a interface de linha de comandos
 Os serviços do Azure Machine Learning (pré-visualização) são uma solução de análise avançada e ciência de dados ponto a ponto integrada para os cientistas de dados profissionais prepararem dados, desenvolverem experimentações e implementarem modelos à escala da cloud.

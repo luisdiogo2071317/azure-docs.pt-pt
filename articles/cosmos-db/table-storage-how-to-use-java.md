@@ -1,6 +1,6 @@
 ---
-title: Como utilizar o Table storage do Azure de Java | Microsoft Docs
-description: "Armazene dados estruturados na nuvem através do Table Storage do Azure, um arquivo de dados NoSQL."
+title: Como utilizar o Table storage do Azure ou a API de tabela do Azure Cosmos DB de Java | Microsoft Docs
+description: Armazene dados estruturados na nuvem através do Table Storage do Azure, um arquivo de dados NoSQL.
 services: cosmos-db
 documentationcenter: java
 author: mimig1
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/20/2018
 ms.author: mimig
-ms.openlocfilehash: 6862475e05f49c7da823bcfb70f30ee484131d12
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b11faf56ac700399fc411c7feb9910ada355e952
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="how-to-use-azure-table-storage-from-java"></a>Como utilizar o Table storage do Azure de Java
+# <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Como utilizar o Table storage do Azure ou a API de tabela do Azure Cosmos DB de Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este guia irá mostrar como efetuar cenários comuns utilizando o serviço de armazenamento de tabelas do Azure. Os exemplos são escritos em Java e utilize o [SDK de armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários abrangidos incluem **criar**, **listagem**, e **eliminar** tabelas, bem como **a inserir**, **consultar**, **modificar**, e **eliminar** entidades numa tabela. Para obter mais informações sobre as tabelas, consulte o [passos](#Next-Steps) secção.
+Este artigo demonstra como efetuar cenários comuns utilizando o serviço de armazenamento de tabelas do Azure e Azure Cosmos DB. Os exemplos são escritos em Java e utilize o [SDK de armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários abrangidos incluem **criar**, **listagem**, e **eliminar** tabelas, bem como **a inserir**, **consultar**, **modificar**, e **eliminar** entidades numa tabela. Para obter mais informações sobre as tabelas, consulte o [passos](#next-steps) secção.
 
 > [!NOTE]
 > Um SDK está disponível para programadores que estiver a utilizar o armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte o [SDK de armazenamento do Azure para Android][Azure Storage SDK for Android].
@@ -36,12 +36,12 @@ Este guia irá mostrar como efetuar cenários comuns utilizando o serviço de ar
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-java-application"></a>Criar uma aplicação Java
-Neste guia, irá utilizar as funcionalidades de armazenamento que podem ser executadas dentro de uma aplicação Java localmente ou numa código em execução numa função da web ou função de trabalho no Azure.
+Neste guia, irá utilizar as funcionalidades de armazenamento que pode ser executado numa aplicação Java localmente, ou no código em execução numa função da web ou função de trabalho no Azure.
 
-Para tal, terá de instalar o Kit de desenvolvimento Java (JDK) e criar uma conta de armazenamento do Azure na sua subscrição do Azure. Assim que tiver feito, terá de verificar se o sistema de desenvolvimento cumpre os requisitos mínimos e as dependências que são apresentadas no [SDK de armazenamento do Azure para Java] [ Azure Storage SDK for Java] repositório no GitHub. Se o seu sistema cumpre os requisitos, pode seguir as instruções para transferir e instalar as bibliotecas de armazenamento do Azure para Java no seu sistema desse repositório. Depois de concluir essas tarefas, poderá criar uma aplicação de Java que utiliza os exemplos neste artigo.
+Para utilizar os exemplos neste artigo, instalar o Kit de desenvolvimento Java (JDK), em seguida, criar uma conta de armazenamento do Azure na sua subscrição do Azure. Assim que tiver feito, certifique-se de que o sistema de desenvolvimento cumpre os requisitos mínimos e as dependências estão listadas no [SDK de armazenamento do Azure para Java] [ Azure Storage SDK for Java] repositório no GitHub. Se o seu sistema cumpre os requisitos, pode seguir as instruções para transferir e instalar as bibliotecas de armazenamento do Azure para Java no seu sistema desse repositório. Depois de concluir essas tarefas, pode criar uma aplicação de Java que utiliza os exemplos neste artigo.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>Configurar a sua aplicação para aceder ao armazenamento de tabela
-Adicione as seguintes declarações de importação na parte superior do ficheiro de Java em que pretende utilizar APIs de armazenamento do Microsoft Azure para aceder a tabelas:
+Adicione as seguintes declarações de importação na parte superior do ficheiro de Java em que pretende utilizar APIs de armazenamento do Azure ou a API de tabela do Azure Cosmos DB a tabelas de acesso:
 
 ```java
 // Include the following imports to use table APIs
@@ -50,8 +50,10 @@ import com.microsoft.azure.storage.table.*;
 import com.microsoft.azure.storage.table.TableQuery.*;
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de ligação de armazenamento do Azure
-Um cliente de armazenamento do Azure utiliza uma cadeia de ligação de armazenamento para armazenar os pontos finais e credenciais para aceder aos serviços de gestão de dados. Quando em execução numa aplicação de cliente, tem de fornecer a cadeia de ligação de armazenamento no seguinte formato, com o nome da sua conta de armazenamento e a chave de acesso primária para a conta de armazenamento indicados no [portal do Azure](https://portal.azure.com) para o *AccountName* e *AccountKey* valores. Este exemplo mostra como podem declarar um campo estático para conter a cadeia de ligação:
+## <a name="add-an-azure-storage-connection-string"></a>Adicionar uma cadeia de ligação de armazenamento do Azure
+Um cliente de armazenamento do Azure utiliza uma cadeia de ligação de armazenamento para armazenar os pontos finais e credenciais para aceder aos serviços de gestão de dados. Quando em execução numa aplicação de cliente, tem de fornecer a cadeia de ligação de armazenamento no seguinte formato, com o nome da sua conta de armazenamento e a chave de acesso primária para a conta de armazenamento indicados no [portal do Azure](https://portal.azure.com) para o *AccountName* e *AccountKey* valores. 
+
+Este exemplo mostra como podem declarar um campo estático para conter a cadeia de ligação:
 
 ```java
 // Define the connection-string with your values.
@@ -61,7 +63,20 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-Na execução aplicação dentro de uma função no Microsoft Azure, esta cadeia pode ser armazenada no ficheiro de configuração do serviço, *serviceconfiguration. Cscfg*e pode ser acedido através de uma chamada para o **RoleEnvironment.getConfigurationSettings** método. Eis um exemplo de obter a cadeia de ligação de um **definição** elemento com o nome *StorageConnectionString* no ficheiro de configuração do serviço:
+## <a name="add-an-azure-cosmos-db-connection-string"></a>Adicionar uma cadeia de ligação de base de dados do Azure Cosmos
+Uma conta de base de dados do Azure Cosmos utiliza uma cadeia de ligação para armazenar o ponto final de tabela e as suas credenciais. Quando em execução numa aplicação de cliente, tem de fornecer a cadeia de ligação de base de dados do Azure Cosmos no seguinte formato, com o nome da sua conta de base de dados do Azure Cosmos e a chave de acesso primária para a conta listados no [portal do Azure](https://portal.azure.com) para o *AccountName* e *AccountKey* valores. 
+
+Este exemplo mostra como podem declarar um campo estático para conter a cadeia de ligação de base de dados do Azure Cosmos:
+
+```java
+public static final String storageConnectionString =
+    "DefaultEndpointsProtocol=https;" + 
+    "AccountName=your_cosmosdb_account;" + 
+    "AccountKey=your_account_key;" + 
+    "TableEndpoint=https://your_endpoint;" ;
+```
+
+Na execução aplicação dentro de uma função no Azure, pode armazenar esta cadeia no ficheiro de configuração do serviço, *serviceconfiguration. Cscfg*, e pode aceder ao mesmo através de uma chamada para o  **RoleEnvironment.getConfigurationSettings** método. Eis um exemplo de obter a cadeia de ligação de um **definição** elemento com o nome *StorageConnectionString* no ficheiro de configuração do serviço:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -69,13 +84,19 @@ String storageConnectionString =
     RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 ```
 
-Os exemplos seguintes partem do princípio de que utiliza um destes dois métodos para obter a cadeia de ligação de armazenamento.
+Pode também armazenar a cadeia de ligação no ficheiro do seu projeto Properties:
 
-## <a name="how-to-create-a-table"></a>Como: criar uma tabela
+```java
+StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=your_account;AccountKey=your_account_key;TableEndpoint=https://your_table_endpoint/
+```
+
+Os exemplos seguintes partem do princípio de que utiliza um dos seguintes métodos para obter a cadeia de ligação de armazenamento.
+
+## <a name="create-a-table"></a>Criar uma tabela
 A **CloudTableClient** objeto permite-lhe obter objetos de referência para as tabelas e entidades. O código seguinte cria um **CloudTableClient** de objeto e utiliza-o para criar um novo **CloudTable** objecto que representa uma tabela com o nome "as pessoas". 
 
 > [!NOTE]
-> Existem formas adicionais para criar **CloudStorageAccount** objetos; para obter mais informações, consulte **CloudStorageAccount** no [referência do SDK de cliente de armazenamento de Azure].)
+> Existem outras formas de criar **CloudStorageAccount** objetos; para obter mais informações, consulte **CloudStorageAccount** no [referência do SDK de cliente de armazenamento de Azure]).
 >
 
 ```java
@@ -100,7 +121,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-list-the-tables"></a>Como: listar as tabelas
+## <a name="list-the-tables"></a>Listar as tabelas
 Para obter uma lista de tabelas, chame o **CloudTableClient.listTables()** método para obter uma lista iterable de nomes de tabela.
 
 ```java
@@ -127,7 +148,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-add-an-entity-to-a-table"></a>Como: adicionar uma entidade a uma tabela
+## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
 As entidades mapeiam para objetos de Java utilizando uma classe personalizada implementar **TableEntity**. Para sua comodidade, a **TableServiceEntity** classe implementa **TableEntity** e utiliza reflexão para mapear propriedades para os métodos getter e setter com o nome para as propriedades. Para adicionar uma entidade a uma tabela, crie primeiro uma classe que define as propriedades de entidade. O código seguinte define uma classe de entidade que utiliza o nome próprio do cliente como a chave da fila e o apelido como a chave de partição. Em conjunto, a chave da fila e a partição da entidade identificam de forma exclusiva a entidade na tabela. Entidades com a mesma chave de partição podem ser consultadas mais rapidamente do que as chaves de partição diferentes.
 
 ```java
@@ -193,7 +214,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-insert-a-batch-of-entities"></a>Como: Inserir um lote de entidades
+## <a name="insert-a-batch-of-entities"></a>Inserir um lote de entidades
 Pode inserir um lote de entidades no serviço tabela numa operação de escrita. O código seguinte cria um **TableBatchOperation** objeto, em seguida, adiciona três operações ao mesmo de inserção. Cada operação de inserção é adicionada ao criar um novo objeto de entidade, os respetivos valores a definição e, em seguida, ao chamar o **inserir** método no **TableBatchOperation** objeto para associar a entidade com uma operação de inserção de novo. Em seguida, as chamadas de código **executar** no **CloudTable** objeto, especificar a tabela "pessoas" e o **TableBatchOperation** objeto, o que envia o lote de operações de tabela para o serviço de armazenamento num único pedido.
 
 ```java
@@ -247,7 +268,7 @@ Algumas coisas a salientar nas operações de lote:
 * Todas as entidades numa única operação em lote têm de ter a mesma chave de partição.
 * Uma operação em lote está limitada a um payload de dados de 4MB.
 
-## <a name="how-to-retrieve-all-entities-in-a-partition"></a>Como: obter todas as entidades numa partição
+## <a name="retrieve-all-entities-in-a-partition"></a>Obter todas as entidades numa partição
 Para consultar uma tabela para entidades numa partição, pode utilizar um **TableQuery**. Chamar **TableQuery.from** para criar uma consulta numa determinada tabela que devolve um tipo de resultado especificado. O código seguinte especifica um filtro para entidades em que "Santos" é a chave de partição. **TableQuery.generateFilterCondition** é um método de programa auxiliar para criar filtros para consultas. Chamar **onde** na referência devolvida pelo **TableQuery.from** método para aplicar o filtro à consulta. Quando a consulta é executada com uma chamada para **executar** no **CloudTable** objeto devolve um **Iterator** com o **CustomerEntity** especificado do tipo de resultado. Em seguida, pode utilizar o **Iterator** devolvida uma para cada ciclo consumir os resultados. Este código imprime os campos de cada entidade nos resultados da consulta para a consola.
 
 ```java
@@ -294,7 +315,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-retrieve-a-range-of-entities-in-a-partition"></a>Como: obter um intervalo de entidades numa partição
+## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Obter um intervalo de entidades numa partição
 Se não pretender consultar todas as entidades numa partição, pode especificar um intervalo através da utilização de operadores de comparação num filtro. O seguinte código combina dois filtros para obter todas as entidades numa partição "Santos", em que a chave de linha (nome próprio) começa com uma letra até 'E' do alfabeto. Em seguida, imprime os resultados da consulta. Se utilizar as entidades adicionadas à tabela no lote de inserir a secção deste guia, apenas duas entidades são devolvidas desta vez (Bernardo e Denise Santos); Jorge Santos não está incluído.
 
 ```java
@@ -352,8 +373,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-retrieve-a-single-entity"></a>Como: obter uma única entidade
-Pode escrever uma consulta para obter uma entidade única e específica. O seguinte código chamadas **TableOperation.retrieve** com partição de chave e linha de chave de parâmetros para especificar o cliente "Jorge Santos", em vez de criar um **TableQuery** e utilizar filtros para fazer a mesma coisa. Quando executar a operação de obtenção devolve apenas uma entidade em vez de uma coleção. O **getResultAsType** método casts o resultado para o tipo de destino de atribuição, um **CustomerEntity** objeto. Se este tipo não é compatível com o tipo especificado para a consulta, será emitida uma exceção. Se nenhuma entidade tem uma partição exata e a chave de linha corresponder, é devolvido um valor nulo. Especificar as chaves de partição e da fila numa consulta é a forma mais rápida de obter uma única entidade a partir do serviço Tabela.
+## <a name="retrieve-a-single-entity"></a>Obter uma única entidade
+Pode escrever uma consulta para obter uma entidade única e específica. O seguinte código chamadas **TableOperation.retrieve** com partição de chave e linha de chave de parâmetros para especificar o cliente "Jorge Santos", em vez de criar um **TableQuery** e utilizar filtros para fazer a mesma coisa. Quando executar a operação de obtenção devolve apenas uma entidade em vez de uma coleção. O **getResultAsType** método casts o resultado para o tipo de destino de atribuição, um **CustomerEntity** objeto. Se este tipo não é compatível com o tipo especificado para a consulta, é emitida uma exceção. Se nenhuma entidade tem uma partição exata e a chave de linha corresponder, é devolvido um valor nulo. Especificar as chaves de partição e da fila numa consulta é a forma mais rápida de obter uma única entidade a partir do serviço Tabela.
 
 ```java
 try
@@ -392,8 +413,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-modify-an-entity"></a>Como: modificar uma entidade
-Para modificar uma entidade, obtê-lo a partir do serviço tabela, efetuar alterações ao objeto de entidade e guardar as alterações novamente para o serviço de tabela com uma operação de substituição ou intercalação. O código seguinte altera o número de telefone de um cliente existente. Em vez de chamar **TableOperation.insert** , tal como foi feito para inserir, este código chama **TableOperation.replace**. O **Cloudtable** método chama o serviço de tabela e a entidade é substituída, a menos que outra aplicação alterado-dentro do tempo, uma vez que esta aplicação obtido. Quando isso acontece, é emitida uma exceção e a entidade tem de ter obtida, modificar e guardar novamente. Neste padrão de repetição de simultaneidade otimista é comum num sistema de armazenamento distribuído.
+## <a name="modify-an-entity"></a>Modificar uma entidade
+Para modificar uma entidade, obtê-lo a partir do serviço tabela, efetuar alterações ao objeto de entidade e guardar as alterações novamente para o serviço de tabela com uma operação de substituição ou intercalação. O código seguinte altera o número de telefone de um cliente existente. Em vez de chamar **TableOperation.insert** como foi feito para inserir, este código chama **TableOperation.replace**. O **Cloudtable** método chama o serviço de tabela e a entidade é substituída, a menos que outra aplicação alterado-dentro do tempo, uma vez que esta aplicação obtido. Quando isso acontece, é emitida uma exceção e a entidade tem de ter obtida, modificar e guardar novamente. Neste padrão de repetição de simultaneidade otimista é comum num sistema de armazenamento distribuído.
 
 ```java
 try
@@ -432,7 +453,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-query-a-subset-of-entity-properties"></a>Como: consultar um subconjunto de propriedades de entidade
+## <a name="query-a-subset-of-entity-properties"></a>Consultar um subconjunto de propriedades de entidade
 Uma consulta a uma tabela pode obter apenas algumas propriedades de uma entidade. Esta técnica, denominada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, especialmente para entidades grandes. A consulta no seguinte código utiliza o **selecione** método para devolver apenas os endereços de e-mail de entidades na tabela. Os resultados são projetados para uma coleção de **cadeia** com a ajuda de um **EntityResolver**, que tem a conversão do tipo entidades devolvido do servidor. Pode saber mais sobre a projeção na [tabelas do Azure: Upsert e da projeção da consulta][Azure Tables: Introducing Upsert and Query Projection]. Tenha em atenção que projeção não é suportada o emulador de armazenamento local, pelo que este código é executado apenas quando utilizar uma conta do serviço tabela.
 
 ```java
@@ -474,7 +495,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-insert-or-replace-an-entity"></a>Como: inserir ou substituir uma entidade
+## <a name="insert-or-replace-an-entity"></a>Inserir ou substituir uma entidade
 Muitas vezes, que pretende adicionar uma entidade a uma tabela sem saberem se já existir na tabela. Uma operação de inserção ou substituir permite-lhe efetuar um pedido único, que irá inserir a entidade se não existir ou substituir a existente se existir. O seguinte código compilar nos exemplos anteriores, insere ou substitui a entidade para "Walter Harp". Depois de criar uma nova entidade, este código chama o **TableOperation.insertOrReplace** método. Este código, em seguida, chama **executar** no **CloudTable** objeto com a tabela e a inserção ou operação de tabela como os parâmetros de substituição. Para atualizar apenas uma parte de uma entidade a **TableOperation.insertOrMerge** método pode ser utilizado em vez disso. Tenha em atenção que inserir ou substituir não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando utilizar uma conta do serviço tabela. Pode saber mais sobre inserir ou substituir e a inserção ou intercalação deste [tabelas do Azure: Upsert e da projeção da consulta][Azure Tables: Introducing Upsert and Query Projection].
 
 ```java
@@ -508,7 +529,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-delete-an-entity"></a>Como: eliminar uma entidade
+## <a name="delete-an-entity"></a>Eliminar uma entidade
 Pode facilmente eliminar uma entidade depois de a ter obtido. Assim que a entidade é obtida, chamar **TableOperation.delete** com a entidade para eliminar. Em seguida, chame **executar** no **CloudTable** objeto. O código seguinte obtém e elimina uma entidade de cliente.
 
 ```java
@@ -544,8 +565,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-delete-a-table"></a>Como: eliminar uma tabela
-Por fim, o seguinte código elimina uma tabela a partir de uma conta de armazenamento. Uma tabela que foi eliminada estará indisponível para ser recriada durante um período de tempo após a eliminação, normalmente, menos de forty segundos.
+## <a name="delete-a-table"></a>Eliminar uma tabela
+Por fim, o seguinte código elimina uma tabela a partir de uma conta de armazenamento. Para cerca de 40 segundos depois de eliminar uma tabela não é possível recriá-lo. 
 
 ```java
 try
@@ -571,6 +592,7 @@ catch (Exception e)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+* [Introdução ao serviço de tabela do Azure em Java](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 * [Armazenamento do Azure SDK para Java][Azure Storage SDK for Java]
 * [Referência do SDK de cliente de armazenamento do Azure][referência do SDK de cliente de armazenamento de Azure]
@@ -582,7 +604,7 @@ Para obter mais informações, visite [Azure para programadores Java](/java/azur
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[referência do SDK de cliente de armazenamento de Azure]: http://dl.windowsazure.com/storage/javadoc/
+[referência do SDK de cliente de armazenamento de Azure]: http://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

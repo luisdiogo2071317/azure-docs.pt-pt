@@ -1,13 +1,13 @@
 ---
-title: "Criar um conjunto de dimensionamento do Azure que utiliza VMs de baixa prioridade (pré-visualização) | Microsoft Docs"
-description: "Saiba como criar conjuntos de dimensionamento de máquina virtual do Azure que utilizam as VMs de prioridade baixa para guardar os custos"
+title: Criar um conjunto de dimensionamento do Azure que utiliza VMs de baixa prioridade (pré-visualização) | Microsoft Docs
+description: Saiba como criar conjuntos de dimensionamento de máquina virtual do Azure que utilizam as VMs de prioridade baixa para guardar os custos
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: rajraj
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: memccror
-ms.openlocfilehash: 9e4970ecc538caab537281931b89bfd57d994cfa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f25e4d1e3906a610e7c60e348f872a78d7db8fd3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Prioridade baixa VMs em conjuntos de dimensionamento (pré-visualização)
 
@@ -48,7 +48,7 @@ Para implementar prioridade baixa VMs em conjuntos de dimensionamento, pode defi
 
 ## <a name="use-the-azure-cli-20"></a>Utilizar a CLI do Azure 2.0
 
-O processo de criação de um conjunto com as VMs de prioridade baixa de dimensionamento é o mesmo, conforme detalhado no [introdução artigo](virtual-machine-scale-sets-create-cli.md). Basta adicionar o ' – Prioridade ' parâmetro para a cli chamar e defina-o como *baixa* conforme mostrado no exemplo abaixo:
+O processo de criação de um conjunto com as VMs de prioridade baixa de dimensionamento é o mesmo, conforme detalhado no [introdução artigo](quick-create-cli.md). Basta adicionar o ' – Prioridade ' parâmetro para a cli chamar e defina-o como *baixa* conforme mostrado no exemplo abaixo:
 
 ```azurecli
 az vmss create \
@@ -63,7 +63,7 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 
-O processo de criação de um conjunto com as VMs de prioridade baixa de dimensionamento é o mesmo, conforme detalhado no [introdução artigo](virtual-machine-scale-sets-create-powershell.md).
+O processo de criação de um conjunto com as VMs de prioridade baixa de dimensionamento é o mesmo, conforme detalhado no [introdução artigo](quick-create-powershell.md).
 Basta adicionar a '-Prioridade ' parâmetro para o [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) e defina-o como *baixa* conforme mostrado no exemplo abaixo:
 
 ```powershell
@@ -77,7 +77,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>Utilizar modelos Azure Resource Manager
 
-O processo de criação de um conjunto de dimensionamento que utiliza a prioridade baixa VMs é o mesmo conforme detalhado no artigo Introdução ao obter para [Linux](virtual-machine-scale-sets-create-template-linux.md) ou [Windows](virtual-machine-scale-sets-create-template-windows.md). Adicionar a propriedade 'priority' para o *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* recurso de tipo no modelo e especifique *baixa* como o valor. Certifique-se de utilizar *2017-10-30-preview* versão da API ou superior. 
+O processo de criação de um conjunto de dimensionamento que utiliza a prioridade baixa VMs é o mesmo conforme detalhado no artigo Introdução ao obter para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Adicionar a propriedade 'priority' para o *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* recurso de tipo no modelo e especifique *baixa* como o valor. Certifique-se de utilizar *2017-10-30-preview* versão da API ou superior. 
 
 Para definir a política de expulsão para eliminação, adicione o parâmetro de 'evictionPolicy' e defina-o como *eliminar*.
 
@@ -121,7 +121,7 @@ O exemplo seguinte cria um conjunto nomeado de dimensionamento do baixa Linux *m
   }
 }
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que criou um conjunto com as VMs de prioridade baixa de dimensionamento, experimente implementar nosso [modelo de dimensionamento automático com prioridade baixa](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
 Veja o [conjunto de dimensionamento de máquina virtual página de preços](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) para detalhes de preços.

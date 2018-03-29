@@ -2,9 +2,9 @@
 title: Utilizar a partilhado assinaturas de acesso (SAS) no Storage do Azure | Microsoft Docs
 description: Saiba como utilizar assinaturas de acesso partilhado (SAS) para delegar o acesso a recursos de armazenamento do Azure, incluindo ficheiros, tabelas, filas e blobs.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: tamram
-ms.openlocfilehash: 32e92e6ffc376d27297810596691f0371770e86d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: d3f8b3261f9e2e86dbcaa41b92111545abeffe54
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilizar assinaturas de acesso partilhado (SAS)
 
@@ -27,7 +27,7 @@ Uma assinatura de acesso partilhado (SAS) fornece uma forma de conceder acesso l
 Para obter exemplos de códigos adicionais através da SAS para além daquelas aqui apresentadas, consulte [introdução ao armazenamento de Blobs do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) e outros exemplos disponíveis no [exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?service=storage) biblioteca. Pode transferir as aplicações de exemplo e executá-los ou procurar o código no GitHub.
 
 ## <a name="what-is-a-shared-access-signature"></a>O que é uma assinatura de acesso partilhado?
-Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Com uma SAS, pode conceder clientes acesso a recursos na sua conta de armazenamento sem partilha as chaves de conta. Este é o ponto de chave da utilização de assinaturas de acesso partilhado nas suas aplicações – uma SAS é uma forma segura para partilhar os seus recursos de armazenamento sem comprometer as chaves de conta.
+Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Com uma SAS, pode conceder clientes acesso a recursos na sua conta de armazenamento sem partilha as chaves de conta. Este é o ponto fundamental da utilização de assinaturas de acesso partilhado nas suas aplicações – uma SAS é uma forma segura de partilhar os seus recursos de armazenamento sem comprometer as chaves da conta.
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -86,7 +86,7 @@ A conta SAS tokens SAS de serviço incluem alguns parâmetros comuns em também 
 * **Hora de expiração.** Este é o tempo após o qual a SAS já não é válida. Melhores práticas recomendado especifique uma hora de expiração para um SAS ou que associá-la a uma política de acesso armazenada. A hora de expiração tem de ser expresso em UTC (Hora Universal Coordenada), com um designador de UTC especial ("Z"), por exemplo `1994-11-05T13:15:30Z` (consulte mais abaixo).
 * **Permissões.** As permissões especificadas na SAS indicam as operações que pode executar o cliente contra o recurso de armazenamento através da SAS. Diferirem permissões disponíveis para uma conta SAS e um serviço SAS.
 * **IP.** Um parâmetro opcional que especifica um endereço IP ou um intervalo de endereços IP fora do Azure (consulte a secção [estado de configuração de sessão de encaminhamento](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) para Express Route) partir do qual aceitar pedidos.
-* **Protocolo.** Um parâmetro opcional que especifica o protocolo permitido para um pedido. Os valores possíveis são HTTPS e HTTP (`https,http`), que é apenas o valor predefinido ou HTTPS (`https`). Tenha em atenção que HTTP só não é um valor permitido.
+* **Protocol.** Um parâmetro opcional que especifica o protocolo permitido para um pedido. Os valores possíveis são HTTPS e HTTP (`https,http`), que é apenas o valor predefinido ou HTTPS (`https`). Tenha em atenção que HTTP só não é um valor permitido.
 * **Assinatura.** A assinatura é construída a partir de outros parâmetros especificados como parte de token e, em seguida, são encriptadas. É utilizado para autenticar a SAS.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Parâmetros para um token SAS de serviço
@@ -115,13 +115,13 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 
 | Nome | Parte da SAS | Descrição |
 | --- | --- | --- |
-| URI de blob |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |O endereço do blob. Tenha em atenção que através de HTTPS é vivamente recomendável. |
+| Blob URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |O endereço do blob. Tenha em atenção que através de HTTPS é vivamente recomendável. |
 | Versão de serviços de armazenamento |`sv=2015-04-05` |Para serviços de armazenamento versão 2012-02-12 e posterior, este parâmetro indica a versão a utilizar. |
 | Hora de início |`st=2015-04-29T22%3A18%3A26Z` |Especificado na hora UTC. Se pretender que a SAS para ser válida imediatamente, omita a hora de início. |
 | Hora de expiração |`se=2015-04-30T02%3A23%3A26Z` |Especificado na hora UTC. |
 | Recurso |`sr=b` |O recurso é um blob. |
 | Permissões |`sp=rw` |As permissões concedidas através da SAS incluem Read (r) e escrever (m). |
-| Intervalo de IP |`sip=168.1.5.60-168.1.5.70` |O intervalo de endereços IP do que um pedido serão aceites. |
+| Intervalo de IPs |`sip=168.1.5.60-168.1.5.70` |O intervalo de endereços IP do que um pedido serão aceites. |
 | Protocolo |`spr=https` |São permitidos apenas pedidos através de HTTPS. |
 | Assinatura |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Utilizado para autenticar o acesso para o blob. A assinatura é uma HMAC calculada através de uma cadeia para assinar e a chave, utilizando o algoritmo SHA256 e, em seguida, codificado com codificação Base64. |
 
@@ -425,7 +425,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ## <a name="conclusion"></a>Conclusão
 Assinaturas de acesso partilhado são úteis para fornecer permissões limitadas à sua conta de armazenamento para clientes que não devem ter a chave de conta. Como tal, são uma parte vital do modelo de segurança para qualquer aplicação utilizando o armazenamento do Azure. Se seguir as melhores práticas listadas aqui, pode utilizar a SAS para fornecer maior flexibilidade de acesso a recursos na sua conta de armazenamento, sem comprometer a segurança da sua aplicação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [Partilhado assinaturas de acesso, parte 2: Criar e utilizar um SAS com o Blob storage](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Gerir o acesso de leitura anónimo a contentores e blobs](../blobs/storage-manage-access-to-resources.md)
 * [Delegar Acesso com uma Assinatura de Acesso Partilhado](http://msdn.microsoft.com/library/azure/ee395415.aspx)

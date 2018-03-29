@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: f8159d8637967c3297c886ec79a002f0765047e4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ede128d23ca73dc46f2d4dc4b1dd4b1f83a2bc3f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação de eventos e coleção utilizando o Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -169,6 +169,18 @@ Em seguida, atualize o `VirtualMachineProfile` secção do ficheiro Template adi
 ```
 
 Depois de modificar o ficheiro Template, tal como descrito, voltar a publicar o modelo do Resource Manager. Se o modelo foi exportado, executar o ficheiro deploy.ps1 republishes o modelo. Depois de implementar, certifique-se de que **ProvisioningState** é **com êxito**.
+
+> [!TIP]
+> Se pretender implementar contentores para o cluster, ativar WAD recolher estatísticas de docker adicionando esta opção para sua **WadCfg > DiagnosticMonitorConfiguration** secção.
+>
+>```json
+>"DockerSources": {
+>    "Stats": {
+>        "enabled": true,
+>        "sampleRate": "PT1M"
+>    }
+>},
+>```
 
 ## <a name="log-collection-configurations"></a>Configurações de coleção de registo
 Também estão disponíveis para a recolha de registos de canais adicionais, seguem-se algumas das configurações mais comuns que pode efetuar no modelo de clusters em execução no Azure.

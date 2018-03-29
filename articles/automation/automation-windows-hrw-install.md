@@ -1,6 +1,6 @@
 ---
-title: "Função de Trabalho de Runbook Híbrida do Windows da Automatização do Azure"
-description: "Este artigo fornece informações sobre como instalar um Azure Automation Runbook Worker híbrido que permite a execução de runbooks em computadores baseados em Windows no seu local datacenter ou o ambiente de nuvem."
+title: Função de Trabalho de Runbook Híbrida do Windows da Automatização do Azure
+description: Este artigo fornece informações sobre como instalar um Azure Automation Runbook Worker híbrido que permite a execução de runbooks em computadores baseados em Windows no seu local datacenter ou o ambiente de nuvem.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c03b124e21603056219a6ff6458469b4ecd60969
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa74f2e2d8fb9fc9f11810a4af4978fb4b443bcc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Como implementar um Runbook Worker híbrido do Windows
 
@@ -68,7 +68,7 @@ Execute os seguintes passos para automatizar a instalação e configuração da 
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
 
-4. Lhe for pedido para aceitar instalar **NuGet** e lhe for pedido para autenticar com as suas credenciais do Azure.<br><br> ![Execução do script New-OnPremiseHybridWorker](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
+4. Lhe for pedido para aceitar instalar **NuGet** e lhe for pedido para autenticar com as suas credenciais do Azure.<br><br>![Execução do script New-OnPremiseHybridWorker](/media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
 5. Depois do script estiver concluído, a página de grupos de trabalho híbrida irá mostrar o novo grupo e o número de membros ou se um grupo existente, o número de membros é incrementado.  Pode selecionar o grupo da lista no **grupos de trabalho híbrida** página e selecione o **híbridos** mosaico.  No **híbridos** página, verá cada membro do grupo listado.  
 

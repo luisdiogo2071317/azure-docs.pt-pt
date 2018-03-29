@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 995ad557eb06e545b1813e1f4631e243a98830b3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: bradsev
+ms.openlocfilehash: 85589dfd60a32a28cecf427a7f5668dc36f8f5f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-lead-tasks"></a>Tarefas de fabrico de equipa
 
@@ -106,11 +106,11 @@ Conclua este passo se estiver a utilizar VSTS como o código de plataforma para 
 
 ### <a name="create-the-myprojecttemplate-repository-r3-on-git"></a>Criar repositório MyProjectTemplate (R3) no Git
 
-- Na página de repositório de Git do seu projeto de equipa, clique na seta ao lado do nome do repositório descendente **MyTeam**e selecione **gerir repositórios... **.
+- Na página de repositório de Git do seu projeto de equipa, clique na seta ao lado do nome do repositório descendente **MyTeam**e selecione **gerir repositórios...** .
 
     ![6](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
 
-- No **controlo de versão** separador do painel de controlo do seu projeto de equipa, clique em **MyTeam**, em seguida, selecione **repositório de mudança de nome... **. 
+- No **controlo de versão** separador do painel de controlo do seu projeto de equipa, clique em **MyTeam**, em seguida, selecione **repositório de mudança de nome...** . 
 
     ![7](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
 
@@ -120,7 +120,7 @@ Conclua este passo se estiver a utilizar VSTS como o código de plataforma para 
 
 ### <a name="create-the-myteamutilities-repository-r4-on-git"></a>Criar repositório MyTeamUtilities (R4) no Git
 
-- Para criar um novo repositório de *< nome da sua equipa\>utilitários* no seu projeto de equipa, clique em **novo repositório de... ** no **controlo de versão** separador do seu projeto de equipa painel de controlo.  
+- Para criar um novo repositório de *< nome da sua equipa\>utilitários* no seu projeto de equipa, clique em **novo repositório de...**  no **controlo de versão** separador do seu projeto de equipa painel de controlo.  
 
     ![9](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
 
@@ -183,7 +183,7 @@ Estes comandos clonagem o **GroupProjectTemplate** repositório (R1) no servidor
 
 ### <a name="clone-your-team-repositories-into-local-directories"></a>Clonar os repositórios de equipa em diretórios locais
 
-Estes comandos clonagem o **MyTeamProjectTemplate** (R3) e **MyTeamUtilities** repositórios (R4) no seu projeto de equipa **MyTeam** no seu servidor VSTS de grupo para o ** MyTeamProjectTemplate** (D3) e **MyTeamUtilities** (D4) diretórios no **GitRepos\MyTeam** no seu computador local. 
+Estes comandos clonagem o **MyTeamProjectTemplate** (R3) e **MyTeamUtilities** repositórios (R4) no seu projeto de equipa **MyTeam** no seu servidor VSTS de grupo para o  **MyTeamProjectTemplate** (D3) e **MyTeamUtilities** (D4) diretórios no **GitRepos\MyTeam** no seu computador local. 
 
 - Mude para diretório **GitRepos\MyTeam**
 - Execute os seguintes comandos, conforme adequado, no sistema operativo da sua máquina local. 

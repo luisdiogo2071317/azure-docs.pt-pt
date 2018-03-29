@@ -1,10 +1,10 @@
 ---
-title: "Manter a saída de tarefas e ao armazenamento do Azure com a API do serviço Azure Batch | Microsoft Docs"
-description: "Saiba como utilizar a API do serviço de Batch para manter a saída de tarefa e tarefas de lote ao Storage do Azure."
+title: Manter a saída de tarefas e ao armazenamento do Azure com a API do serviço Azure Batch | Microsoft Docs
+description: Saiba como utilizar a API do serviço de Batch para manter a saída de tarefa e tarefas de lote ao Storage do Azure.
 services: batch
 author: tamram
 manager: timlt
-editor: 
+editor: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
-ms.openlocfilehash: 2530b7c20347b9fb58aee4dfe693847cf3911741
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa124109bfc9d333469c255c50df0af96a26bebf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados da tarefa ao Storage do Azure com a API do serviço Batch
 
@@ -142,7 +142,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-Para obter mais informações sobre os diretórios virtuais no armazenamento do Azure, consulte [listar os blobs num contentor](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+Para obter mais informações sobre os diretórios virtuais no armazenamento do Azure, consulte [listar os blobs num contentor](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
 
 ## <a name="diagnose-file-upload-errors"></a>Diagnosticar erros de carregamento de ficheiros
@@ -187,7 +187,7 @@ O [PersistOutputs] [ github_persistoutputs] projeto de exemplo é uma do [exempl
 6. Quando lhe for pedido para escolher a tecnologia de persistência a utilizar para executar o exemplo, introduza **2** para executar o exemplo utilizando a API do serviço de Batch para manter o resultado da tarefa.
 7. Se assim o desejar, execute o exemplo, introduzir **3** para manter o resultado com a API do serviço Batch bem como para o caminho de blob e contentor de destino, de acordo com o padrão de ficheiro convenções de nomes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter mais informações sobre o resultado da tarefa persistentes com a biblioteca de convenções de ficheiro para o .NET, consulte [manter os dados de tarefas e ao armazenamento do Azure com a biblioteca de convenções de ficheiro Batch para .NET manter ](batch-task-output-file-conventions.md).
 - Para obter informações sobre outras abordagens para dados de saída persistentes no Azure Batch, consulte [manter tarefas e saída ao Storage do Azure](batch-task-output.md).

@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral do modelo de programação de serviço do Service Fabric fiável | Microsoft Docs"
-description: "Saiba mais sobre o modelo de programação do Service Fabric serviço fiável e começar a escrever os seus próprios serviços."
+title: Descrição geral do modelo de programação de serviço do Service Fabric fiável | Microsoft Docs
+description: Saiba mais sobre o modelo de programação do Service Fabric serviço fiável e começar a escrever os seus próprios serviços.
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 66e3939a59f09650ce76488c38eb46699ab9f63f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-overview"></a>Descrição geral do Reliable Services
 Azure Service Fabric simplifica escrever e gerir serviços fiável sem monitorização de estado e com monitorização de estado. Este tópico abrange:
@@ -111,5 +111,5 @@ Se qualquer uma das seguintes caracterizam suas necessidades de serviço de apli
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Início rápido de serviços fiável](service-fabric-reliable-services-quick-start.md)
-* [Reliable Services avançadas de utilização](service-fabric-reliable-services-advanced-usage.md)
+* [Coleções fiáveis](service-fabric-reliable-services-reliable-collections.md)
 * [O modelo de programação Reliable Actors](service-fabric-reliable-actors-introduction.md)

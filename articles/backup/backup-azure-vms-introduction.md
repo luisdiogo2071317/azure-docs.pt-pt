@@ -1,35 +1,35 @@
 ---
-title: "Planeamento da sua infraestrutura de cópia de segurança de VM no Azure | Microsoft Docs"
-description: "Considerações importantes sobre quando planear a cópia de segurança de máquinas virtuais no Azure"
+title: Planeamento da sua infraestrutura de cópia de segurança de VM no Azure | Microsoft Docs
+description: Considerações importantes sobre quando planear a cópia de segurança de máquinas virtuais no Azure
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "vms de cópia de segurança, a cópia de segurança de máquinas virtuais"
+editor: ''
+keywords: vms de cópia de segurança, a cópia de segurança de máquinas virtuais
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/18/2017
+ms.date: 3/23/2018
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planear a sua infraestrutura de cópias de segurança de VMs no Azure
 Este artigo fornece desempenho e sugestões de recursos para ajudar a planear a infraestrutura de cópia de segurança de VM. Também define aspetos fundamentais do serviço de cópia de segurança; Estes aspetos podem ser fundamental para determinar a arquitetura, planeamento de capacidade e agendamento. Se já [preparar o ambiente](backup-azure-arm-vms-prepare.md), planeamento é o passo seguinte antes de começar [para fazer uma cópia de segurança de VMs](backup-azure-arm-vms.md). Se precisar de mais informações sobre máquinas virtuais do Azure, consulte o [documentação de Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Como funciona o Azure cópia de segurança máquinas virtuais?
-Quando o serviço de cópia de segurança do Azure inicia uma tarefa de cópia de segurança na hora agendada, aciona a extensão de cópia de segurança para criar um instantâneo de ponto no tempo. As utilizações do serviço de cópia de segurança do Azure a _VMSnapshot_ extensão no Windows e o _VMSnapshotLinux_ extensão no Linux. A extensão é instalada durante a primeira cópia de segurança VM. Para instalar a extensão, tem de executar a VM. Se a VM não está em execução, o serviço de cópia de segurança tira um instantâneo de armazenamento subjacente (uma vez que não existem escritas de aplicação ocorrem enquanto a VM está parada).
+Quando o serviço de cópia de segurança do Azure inicia uma tarefa de cópia de segurança na hora agendada, os acionadores de serviço a extensão de cópia de segurança para criar um instantâneo de ponto no tempo. As utilizações do serviço de cópia de segurança do Azure a _VMSnapshot_ extensão no Windows e o _VMSnapshotLinux_ extensão no Linux. A extensão é instalada durante a primeira cópia de segurança VM. Para instalar a extensão, tem de executar a VM. Se a VM não estiver em execução, o serviço Backup cria um instantâneo do armazenamento subjacente (uma vez que não ocorrem escritas da aplicação enquanto a VM está parada).
 
 Quando um instantâneo de VMs do Windows, o serviço de cópia de segurança coordena com o serviço do Volume de cópia de sombra de volumes (VSS) para obter um instantâneo consistente dos discos da máquina virtual. Se estiver a cópia de segurança de VMs com Linux, pode escrever scripts personalizados para garantir consistência quando um instantâneo da VM. São fornecidos detalhes sobre como invocar estes scripts neste artigo.
 
-Assim que o serviço de cópia de segurança do Azure assume o instantâneo, os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica, transfere apenas os blocos de dados que foram alterados desde a cópia de segurança anterior.
+Assim que o serviço Azure Backup tira o instantâneo, os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde a cópia de segurança anterior.
 
 ![Arquitetura de cópia de segurança de máquina virtual do Azure](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
@@ -37,8 +37,8 @@ Quando a transferência de dados estiver concluída, o instantâneo é removido 
 
 > [!NOTE]
 > 1. Durante o processo de cópia de segurança, cópias de segurança do Azure não inclui o disco temporário anexado à máquina virtual. Para obter mais informações, consulte o blogue no [armazenamento temporário](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
-> 2. Uma vez que a cópia de segurança do Azure tira um instantâneo de nível de armazenamento e transfere esse instantâneo para o cofre, não altere as chaves de conta de armazenamento até que a conclusão da tarefa de cópia de segurança.
-> 3. Para VMs do premium, iremos copiar o instantâneo para a conta de armazenamento. Isto é certificar-se de que o serviço de cópia de segurança do Azure obtém IOPS suficiente para transferir dados para o cofre. Esta cópia de armazenamento adicional é cobrada de acordo com a VM alocada tamanho. 
+> 2. Guia de cópia de segurança do Azure um nível de armazenamento de instantâneos e transfere esse instantâneo para o cofre, não altere as chaves de conta de armazenamento até que a conclusão da tarefa de cópia de segurança.
+> 3. Para VMs do premium, o Backup do Azure copia o instantâneo para a conta de armazenamento. Este é certificar-se de que o serviço de cópia de segurança utiliza IOPS suficiente para transferir dados para o cofre. Esta cópia de armazenamento adicional é cobrada de acordo com a VM alocada tamanho. 
 >
 
 ### <a name="data-consistency"></a>Consistência dos dados
@@ -64,7 +64,7 @@ Esta tabela explica os tipos de consistência e as condições que possam ocorre
 | --- | --- | --- |
 | Consistência das aplicações |Sim para Windows|Consistência de aplicação é ideal para cargas de trabalho como assegura que:<ol><li> A VM *arranca*. <li>Não há *não danos*. <li>Não há *sem perda de dados*.<li> Os dados são consistentes da aplicação que utiliza os dados, pelo que envolve a aplicação no momento da cópia de segurança – utilizando VSS ou prévio/script.</ol> <li>*VMs do Windows*-cargas de trabalho Microsoft mais têm escritores VSS se que efetue as ações específicas relacionadas com a consistência dos dados. Por exemplo, o Microsoft SQL Server tem um escritor VSS assegura que as operações de escrita para o ficheiro de registo de transações e a base de dados são efetuadas corretamente. Para cópias de segurança de VM do Windows Azure, para criar um ponto de recuperação consistentes com aplicações, a extensão de cópia de segurança tem invocar o fluxo de trabalho do VSS e concluí-la antes de tirar o instantâneo VM. Para ser exato o instantâneo da VM do Azure, os escritores VSS de todas as aplicações da VM do Azure tem de concluir bem. (Obter o [Noções básicas do VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) e profundo aprofundar os detalhes da [como funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *VMs com Linux*-os clientes podem executar [pré-script de personalizado e scripts pós-implementação para garantir a consistência de aplicações](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
 | Consistência de sistema de ficheiros |Sim - para computadores baseados em Windows |Existem dois cenários em que o ponto de recuperação pode ser *sistema de ficheiros consistente*:<ul><li>Cópias de segurança de VMs com Linux no Azure, sem pré-script/post-script ou se pré-script/post-script falhou. <li>Falha do VSS durante a cópia de segurança para VMs do Windows no Azure.</li></ul> Ambos nestes casos, o melhor pode ser feito é Certifique-se de que: <ol><li> A VM *arranca*. <li>Não há *não danos*.<li>Não há *sem perda de dados*.</ol> Aplicações necessita de implementar os seus próprios mecanismo "garantia de cópia de segurança" nos dados restaurados. |
-| Consistência de falhas |Não |Esta situação é equivalente a uma máquina virtual com uma "Falha" (através de qualquer uma reposição recuperável ou disco rígida). Consistência de falhas ocorre normalmente quando a máquina virtual do Azure é encerrada no momento da cópia de segurança. Um ponto de recuperação consistentes com falhas fornece sem garantias relativamente a consistência dos dados de média de armazenamento – a partir da perspetiva do sistema operativo ou aplicação. Apenas os dados que já existe no disco no momento da cópia de segurança são capturados e cópia de segurança. <br/> <br/> Enquanto existirem não garante, normalmente, o sistema operativo arranques, seguido a verificação de disco procedimento, como o chkdsk, para corrigir os erros de danos. Quaisquer dados na memória ou operações de escrita que não tem sido transferidas para o disco são perdidas. A aplicação normalmente segue-se com o suas próprias mecanismo de verificação no caso de reversão de dados tem de ser feito. <br><br>Por exemplo, se o registo de transações tem entradas que não estão presentes na base de dados, em seguida, o software de base de dados efetua uma reversão até que os dados são consistentes. Quando dados é distribuídos por vários discos virtuais (como volumes expandidos), um ponto de recuperação consistentes com falhas fornece sem garantias de correcção dos dados. |
+| Consistência de falhas |Não |Esta situação é equivalente a uma máquina virtual com uma "Falha" (através de qualquer uma reposição recuperável ou disco rígida). Consistência de falhas ocorre normalmente quando a máquina virtual do Azure é encerrada no momento da cópia de segurança. Um ponto de recuperação consistentes com falhas fornece sem garantias relativamente a consistência dos dados de média de armazenamento – a partir da perspetiva do sistema operativo ou aplicação. Apenas os dados que já existe no disco no momento da cópia de segurança são capturados e cópia de segurança. <br/> <br/> Enquanto existirem não garante, normalmente, o sistema operativo arranques, seguido a verificação de disco procedimento, como o chkdsk, para corrigir os erros de danos. Quaisquer dados na memória ou operações de escrita que não tem sido transferidas para o disco são perdidas. A aplicação normalmente segue-se com o suas próprias mecanismo de verificação no caso de reversão de dados tem de ser feito. <br><br>Por exemplo, se o registo de transações tem entradas não está presentes na base de dados, faz o software de base de dados até que os dados são consistentes. Quando dados é distribuídos por vários discos virtuais (como volumes expandidos), um ponto de recuperação consistentes com falhas fornece sem garantias de correcção dos dados. |
 
 ## <a name="performance-and-resource-utilization"></a>Utilização de recursos e de desempenho
 Como o software de cópia de segurança que é implementado no local, deverá planear capacidade e a utilização de recursos necessidades ao fazer cópias de segurança de VMs no Azure. O [limites de armazenamento do Azure](../azure-subscription-service-limits.md#storage-limits) definir como implementações de VM para obter o máximo desempenho com um impacto mínimo para executar cargas de trabalho de estrutura.
@@ -125,24 +125,24 @@ Sugerimos seguindo estas práticas ao configurar cópias de segurança de máqui
 Cópia de segurança do Azure não encripta os dados como parte do processo de cópia de segurança. No entanto, pode encriptar dados dentro da VM e criar cópias de segurança dos dados protegidos de forma totalmente integrada (ler mais sobre [cópia de segurança dos dados encriptados](backup-azure-vms-encryption.md)).
 
 ## <a name="calculating-the-cost-of-protected-instances"></a>A calcular o custo de instâncias protegidas
-Máquinas virtuais do Azure, cópias de segurança efetuadas através de cópia de segurança do Azure estão sujeitos a [preços da cópia de segurança do Azure](https://azure.microsoft.com/pricing/details/backup/). O cálculo de instâncias protegidos baseia-se no *real* tamanho da máquina virtual, que é a soma de todos os dados a máquina virtual - excluindo o "disco de recursos".
+Máquinas virtuais do Azure, cópias de segurança efetuadas através de cópia de segurança do Azure estão sujeitos a [preços da cópia de segurança do Azure](https://azure.microsoft.com/pricing/details/backup/). O cálculo de instâncias protegidos baseia-se no *real* tamanho da máquina virtual, que é a soma de todos os dados a máquina virtual - excluindo o armazenamento temporário.
 
-Preços para fazer uma cópia de segurança de VMs é *não* com base no tamanho máximo suportado para cada disco de dados ligado à máquina virtual. Preços baseia-se em reais dados armazenados no disco de dados. Da mesma forma, a fatura do armazenamento de cópia de segurança baseia-se na quantidade de dados que são armazenados em cópia de segurança do Azure, que é a soma dos dados reais em cada ponto de recuperação.
+Preços para fazer uma cópia de segurança de VMs não baseia-se no tamanho máximo suportado para cada disco de dados ligado à máquina virtual. Preços baseia-se em reais dados armazenados no disco de dados. Da mesma forma, a fatura do armazenamento de cópia de segurança baseia-se na quantidade de dados que são armazenados em cópia de segurança do Azure, que é a soma dos dados reais em cada ponto de recuperação.
 
 Por exemplo, colocar uma máquina virtual tamanho A2 padrão, que tem dois discos de dados adicionais com um tamanho máximo de 1 TB. A tabela seguinte fornece os dados reais armazenados em cada um destes discos:
 
 | Tipo de disco | Tamanho máximo | Disponibilizar dados reais presentes |
-| --- | --- | --- |
+| --------- | -------- | ----------- |
 | Disco do sistema operativo |1023 GB |17 GB |
-| Disco local / disco de recursos |135 GB |5 GB (não incluído para cópia de segurança) |
+| Disco local / temporário disco |135 GB |5 GB (não incluído para cópia de segurança) |
 | Disco de dados 1 |1023 GB |30 GB |
 | Disco de dados 2 |1023 GB |0 GB |
 
-O *real* tamanho da máquina virtual neste caso é 17 GB + 30 GB + 0 GB = 47 GB. Este tamanho de instância protegido (47 GB) torna-se a base para a fatura mensal. Pelo contrário em conformidade à medida que aumenta a quantidade de dados na máquina virtual, o tamanho da instância protegidos utilizado para alterações de faturação.
+Neste caso, o tamanho real da máquina virtual é 17 GB + 30 GB + 0 GB = 47 GB. Este tamanho de instância protegido (47 GB) torna-se a base para a fatura mensal. Pelo contrário em conformidade à medida que aumenta a quantidade de dados na máquina virtual, o tamanho da instância protegidos utilizado para alterações de faturação.
 
-Faturação não inicia até concluir a primeira cópia de segurança com êxito. Neste momento, a faturação para armazenamento e instâncias protegido começa. Continua a faturação, desde que não há *quaisquer dados armazenados no Cofre de cópia de segurança* para a máquina virtual. Se parar a proteção na máquina virtual, mas os dados de cópia de segurança da máquina virtual existem num cofre, continua a faturação.
+Faturação não inicia até concluir a primeira cópia de segurança com êxito. Neste momento, a faturação para armazenamento e instâncias protegido começa. Faturação continua, desde que não há quaisquer dados de cópia de segurança armazenados num cofre para a máquina virtual. Se parar a proteção na máquina virtual, mas os dados de cópia de segurança da máquina virtual existem num cofre, continua a faturação.
 
-Faturação do deixa de uma máquina virtual especificada apenas se a proteção está parada *e* todos os dados de cópia de segurança é eliminado. Quando interrompe a proteção e existem não existem tarefas de cópia de segurança Active Directory, o tamanho da última bem-sucedida VM cópia de segurança torna-se o tamanho da instância protegidos utilizado para a fatura mensal.
+Deixa de faturação de uma máquina virtual especificada apenas se a proteção está parada e são eliminados todos os dados de cópia de segurança. Quando interrompe a proteção e existem não existem tarefas de cópia de segurança Active Directory, o tamanho da última bem-sucedida VM cópia de segurança torna-se o tamanho da instância protegidos utilizado para a fatura mensal.
 
 ## <a name="questions"></a>Tem dúvidas?
 Se tiver dúvidas ou se houver alguma funcionalidade que gostaria de ver incluída, [envie-nos comentários](http://aka.ms/azurebackup_feedback).

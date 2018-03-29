@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: a51b96641c80a6575c64f58fa09e0bf6078e4185
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c39cf464a7e838fecf7ebd4a3cbb08612388a5fa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure com ferramentas de ITSM utilizando o conector de gestão do serviço de TI
 
@@ -342,7 +342,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 2.  Se não está a obter sincronizados dados a partir do ServiceNow ao Log Analytics, certifique-se de que o ServiceNow instância não está suspenso. Instâncias de desenvolvimento do ServiceNow, por vezes, aceda a suspensão quando inativo durante um longo período. Relatório de outra forma, o problema.
 3.  Se OMS alertas acionados mas funcionar itens não são criados no produto ITSM ou itens de configuração não são criados/ligados a itens de trabalho ou para outras informações genéricos, procure nos seguintes locais:
  -  ITSMC: A solução mostra um resumo ligações/computador de trabalho itens/etc. Clique em Mostrar o mosaico **estado do conector**, que demora a **pesquisa registo** com a consulta relevante. Observe os registos de registo com LogType_S como erro para obter mais informações.
- - **Registo de pesquisa** página: ver as informações relacionadas com erros/diretamente utilizando a consulta *tipo = ServiceDeskLog_CL*.
+ - **Registo de pesquisa** página: ver as informações relacionadas com erros/diretamente utilizando a consulta `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Resolver problemas de implementação de aplicação de Web do Service Manager
 1.  Em caso de problemas de implementação de aplicações web, certifique-se de que tem permissões suficientes na subscrição mencionada para criar/implementar recursos.

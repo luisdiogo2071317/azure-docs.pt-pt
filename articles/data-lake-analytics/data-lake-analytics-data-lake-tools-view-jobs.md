@@ -2,7 +2,7 @@
 title: Utilizar o Browser de tarefa e vista de tarefas para tarefas do Azure Data Lake Analytics | Microsoft Docs
 description: 'Saiba como utilizar o Browser de tarefa e vista de tarefas para tarefas do Azure Data Lake Analytics. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
-ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Utilizar o Browser de tarefa e vista de tarefas para tarefas do Azure Data lake Analytics
 O serviço de Azure Data Lake Analytics arquiva tarefas submetidas um [arquivo de consultas](#query-store). Neste artigo, irá aprender a utilizar o Browser de tarefa e vista de tarefas no Azure Data Lake Tools para Visual Studio para encontrar as informações de histórico da tarefa. 
@@ -49,7 +49,7 @@ Contém a vista de tarefas:
       ![Estado de fases de tarefa do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * A preparar: Carregue o script para a nuvem, a compilação e otimizar o script utilizando o serviço de compilação.
-    * Em fila: As tarefas são whey em fila estão a aguardar recursos suficientes ou as tarefas de excedem as máximas tarefas simultâneas por limitação de conta. A definição de prioridade determina a sequência de tarefas em fila - a inferior o número, maior prioridade.
+    * Em fila: As tarefas são colocados em fila quando estão a aguardar recursos suficientes ou as tarefas de excedem as máximas tarefas simultâneas por limitação de conta. A definição de prioridade determina a sequência de tarefas em fila - a inferior o número, maior prioridade.
     * Em execução: A tarefa, na verdade, está em execução na sua conta do Data Lake Analytics.
     * A finalizar: A tarefa está a ser concluída (por exemplo, a finalizar o ficheiro).
       
@@ -171,7 +171,7 @@ Detalhes da tarefa mostra as informações detalhadas do trabalho, incluindo Scr
   
     Mostra vértices detalhes de execução. O perfil de tarefa arquiva cada registo de execução de vértice, tais como os dados totais leitura/escrita, tempo de execução, estado, etc. Através desta vista, pode obter mais detalhes sobre a forma como foi executada uma tarefa. Para obter mais informações, consulte [utilize a vista de execução de vértice ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Para obter informações de diagnóstico de registo, veja [Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)](data-lake-analytics-diagnostic-logs.md)
 * Para ver uma consulta mais complexa, consulte [Analisar registos de site através da Análise do Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 * Para utilizar a vista de execução de vértice, consulte [utilize a vista de execução de vértice ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.openlocfilehash: 2f95df26abcd2c0d5b62c395f92c359170d6d701
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>O Azure AD B2C: Utilizar o Azure AD Graph API
 
@@ -45,7 +45,7 @@ Depois de ter um inquilino do B2C, tem de registar a sua aplicação através do
 3. No painel de navegação da esquerda, escolha **todos os serviços**, clique em **registos de aplicação**e clique em **adicionar**.
 4. Siga os avisos e crie uma nova aplicação. 
     1. Selecione **aplicação Web / API** como o tipo de aplicação.    
-    2. Fornecer **qualquer URI de redirecionamento** (por exemplo, https://B2CGraphAPI) que não é relevante para este exemplo.  
+    2. Fornecer **qualquer URL de início de sessão** (por exemplo, https://B2CGraphAPI) dado que não é relevante para este exemplo.  
 5. A aplicação irá agora aparecem na lista de aplicações, clique nele para obter o **ID da aplicação** (também conhecido como ID de cliente). Copie-o como irá precisar das mesmas numa secção posterior.
 6. No menu de definições, clique em **chaves** e adicione uma nova chave (também conhecida como segredo do cliente). Também copiá-lo para utilização numa secção posterior.
 

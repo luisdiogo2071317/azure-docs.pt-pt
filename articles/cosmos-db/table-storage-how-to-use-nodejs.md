@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: dcd729da0b9e913046da1ad5619594f5ce485bdb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc6e3ca079b4d1edefa82e06dbe63b393ab2fbb3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Como utilizar o Table storage do Azure do Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -361,8 +361,6 @@ dc.table.queryEntities(tableName,
 ```
 
 Se a inspecionar o `continuationToken` objeto, encontrará propriedades, tais como `nextPartitionKey`, `nextRowKey` e `targetLocation`, que podem ser utilizadas para iterar através de todos os resultados.
-
-Há também uma amostra de continuação (continuationsample.js) com o [repositório de nó de armazenamento do azure](https://github.com/Azure/azure-storage-node/tree/master/examples/samples) no GitHub. 
 
 ## <a name="work-with-shared-access-signatures"></a>Trabalhar com assinaturas de acesso partilhado
 Assinaturas de acesso partilhado (SAS) são uma forma segura para fornecer acesso granular a tabelas sem fornecer o nome da conta de armazenamento ou chaves. SAS são frequentemente utilizado para fornecer acesso limitado aos seus dados, tais como permitir que uma aplicação móvel para registos de consulta.

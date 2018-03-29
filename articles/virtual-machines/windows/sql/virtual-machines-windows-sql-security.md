@@ -1,11 +1,11 @@
 ---
-title: "Considerações de segurança para o SQL Server no Azure | Microsoft Docs"
-description: "Este tópico fornece orientações gerais para proteger o SQL Server em execução de uma Máquina Virtual no Azure."
+title: Considerações de segurança para o SQL Server no Azure | Microsoft Docs
+description: Este tópico fornece orientações gerais para proteger o SQL Server em execução de uma Máquina Virtual no Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2017
+ms.date: 03/23/2018
 ms.author: jroth
-ms.openlocfilehash: 609e18cf2bdfdd84c71b67e31b66cd0ca7d47577
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b91638b6b76675711150323bee4aa9ad9d9a73d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerações de Segurança para SQL Server em Máquinas Virtuais do Azure
 
@@ -44,7 +44,7 @@ Quando cria uma máquina virtual do SQL Server com uma imagem de galeria, o **co
 
 ![Conectividade do SQL Server](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
-Para garantir a melhor segurança, escolha a opção mais restritiva para o seu cenário. Por exemplo, se estiver a executar uma aplicação que acede ao SQL Server na mesma VM, em seguida, **Local** é a opção mais segura. Se estiver a executar uma aplicação do Azure que requer acesso ao SQL Server, em seguida, **privada** protege a comunicação com o SQL Server apenas dentro especificado [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Se necessitar de **pública** (internest) aceder ao SQL Server VM, em seguida, certifique-se a seguir outros procedimentos recomendados neste tópico para reduzir a sua área de superfície de ataque.
+Para garantir a melhor segurança, escolha a opção mais restritiva para o seu cenário. Por exemplo, se estiver a executar uma aplicação que acede ao SQL Server na mesma VM, em seguida, **Local** é a opção mais segura. Se estiver a executar uma aplicação do Azure que requer acesso ao SQL Server, em seguida, **privada** protege a comunicação com o SQL Server apenas dentro especificado [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Se necessitar de **pública** (internet) de acesso para a VM do SQL Server, em seguida, certifique-se a seguir outros procedimentos recomendados neste tópico para reduzir a sua área de superfície de ataque.
 
 As opções selecionadas no portal do utilizam regras de segurança de entrada nas VMs [grupo de segurança de rede](../../../virtual-network/virtual-networks-nsg.md) (NSG) para permitir ou negar o tráfego de rede à máquina virtual. Pode modificar ou criar novas regras NSG de entrada para permitir tráfego para a porta do SQL Server (a predefinição é 1433). Também pode especificar endereços IP específicos que estão autorizados a comunicar através desta porta.
 
@@ -98,5 +98,5 @@ Para além das práticas descritas neste tópico, recomendamos que analise e imp
 
 Se também estiver interessado em melhores práticas em torno de desempenho, consulte o artigo [práticas recomendadas do SQL Server em Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
-Para outros tópicos relacionados com a executar o SQL Server em VMs do Azure, consulte [SQL Server em Virtual Machines do Azure descrição-geral](virtual-machines-windows-sql-server-iaas-overview.md). Se tiver dúvidas sobre máquinas virtuais do SQL Server, consulte o [perguntas mais frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
+Para outros tópicos relacionados com a executar o SQL Server em VMs do Azure, consulte [SQL Server em Virtual Machines do Azure descrição-geral](virtual-machines-windows-sql-server-iaas-overview.md). Se tiver dúvidas sobre máquinas virtuais do SQL Server, veja as [Perguntas Mais Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 

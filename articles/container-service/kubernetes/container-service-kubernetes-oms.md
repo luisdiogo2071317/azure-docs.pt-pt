@@ -1,6 +1,6 @@
 ---
-title: "Monitorizar o cluster Azure Kubernetes - operações de gestão"
-description: "Monitorização de Kubernetes cluster no serviço de contentor Azure utilizando o Microsoft Operations Management Suite"
+title: Monitorizar o cluster Azure Kubernetes - operações de gestão
+description: Monitorização de Kubernetes cluster no serviço de contentor do Azure através da análise do registo
 services: container-service
 author: bburns
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: e8a68896c923d785fea84cef60f8d2015906f342
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: efe4b3a1a63fa1986682a2fdde1a20221dc5d93a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>Monitor de um cluster do serviço de contentor do Azure com o Microsoft Operations Management Suite (OMS)
+# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Monitor de um cluster do serviço de contentor do Azure com a análise de registos
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
@@ -56,18 +56,19 @@ CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
-## <a name="monitoring-containers-with-operations-management-suite-oms"></a>Contentores de monitorização no Operations Management Suite (OMS)
+## <a name="monitoring-containers-with-log-analytics"></a>Monitorização de contentores com a análise de registos
 
-Gestão de operações do Microsoft (OMS) é baseado na nuvem IT solução de gestão que o ajuda a gerir e proteger no local e a infraestrutura de nuvem. da Microsoft Contentor é uma solução na análise de registos do OMS, que ajuda-o a ver o inventário de contentor, o desempenho e a registos numa única localização. Pode de auditoria, resolver problemas de contentores através da visualização de registos de localização centralizada e localizar inúteis consumir contentor em excesso num anfitrião.
+Análise de registos é baseado na nuvem IT solução de gestão que o ajuda a gerir e proteger no local e a infraestrutura de nuvem. da Microsoft Contentor é uma solução na análise de registos, que ajuda-o a ver o inventário de contentor, o desempenho e a registos numa única localização. Pode de auditoria, resolver problemas de contentores através da visualização de registos de localização centralizada e localizar inúteis consumir contentor em excesso num anfitrião.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
 Para obter mais informações sobre a solução de contentor, consulte o [análise de registos do contentor solução](../../log-analytics/log-analytics-containers.md).
 
-## <a name="installing-oms-on-kubernetes"></a>Instalar OMS Kubernetes
+## <a name="installing-log-analytics-on-kubernetes"></a>Análise de registos de instalação no Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Obter o ID da área de trabalho e a chave
-Para o OMS agente para comunicar com o serviço, tem de ser configurado com um id de área de trabalho e uma chave de área de trabalho. Para obter o id da área de trabalho e a chave tem de criar uma conta do OMS no <https://mms.microsoft.com>. Siga os passos para criar uma conta. Quando tiver terminado a criar a conta, tem de obter o id e a chave clicando **definições**, em seguida, **origens ligadas**e, em seguida, **servidores Linux**, conforme mostrado abaixo.
+Para o OMS agente para comunicar com o serviço, tem de ser configurado com um id de área de trabalho e uma chave de área de trabalho. Para obter o id da área de trabalho e a chave tem de criar uma conta no <https://mms.microsoft.com>.
+Siga os passos para criar uma conta. Quando tiver terminado a criar a conta, tem de obter o id e a chave clicando **definições**, em seguida, **origens ligadas**e, em seguida, **servidores Linux**, conforme mostrado abaixo.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -84,18 +85,18 @@ $ kubectl create -f oms-daemonset.yaml
 ```
 
 ### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Instalar o agente do OMS utilizando um segredo Kubernetes
-Para proteger o seu ID da área de trabalho OMS e da chave pode utilizar Kubernetes segredo como parte do ficheiro de DaemonSet YAML.
+Para proteger o seu ID da área de trabalho de análise de registos e a chave pode utilizar o segredo Kubernetes como parte do ficheiro de DaemonSet YAML.
 
  - Copie o script, ficheiro de modelo secreta e o ficheiro DaemonSet YAML (de [repositório](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e certifique-se de que estão no mesmo diretório. 
       - segredo gerar script - gen.sh segredo
       - modelo secreto - template.yaml segredo
    - Ficheiro DaemonSet YAML - omsagent-ds-secrets.yaml
- - Execute o script. O script irá perguntar-para o ID da área de trabalho OMS e a chave primária. Insira o que e o script irá criar um ficheiro de yaml secreta, pelo que pode executá-lo.   
+ - Execute o script. O script irá perguntar-para o ID de área de trabalho de análise do registo e a chave primária. Insira o que e o script irá criar um ficheiro de yaml secreta, pelo que pode executá-lo.   
    ```
    #> sudo bash ./secret-gen.sh 
    ```
 
-   - Crie o pod segredos executando o seguinte:``` kubectl create -f omsagentsecret.yaml ```
+   - Crie o pod segredos executando o seguinte: ``` kubectl create -f omsagentsecret.yaml ```
  
    - Para verificar, execute o seguinte: 
 
@@ -118,7 +119,7 @@ Para proteger o seu ID da área de trabalho OMS e da chave pode utilizar Kuberne
    KEY:    88 bytes 
    ```
  
-  - Criar a sua omsagent daemon-set executando``` kubectl create -f omsagent-ds-secrets.yaml ```
+  - Criar a sua omsagent daemon-set executando ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### <a name="conclusion"></a>Conclusão
 Já está! Após alguns minutos, deverá conseguir ver os dados enviados para o dashboard do OMS.

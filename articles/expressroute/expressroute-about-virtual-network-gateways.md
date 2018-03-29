@@ -5,7 +5,7 @@ services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, azure-service-management
 ms.assetid: 7e0d9658-bc00-45b0-848f-f7a6da648635
 ms.service: expressroute
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2018
+ms.date: 03/22/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0517caed3a7d6632c1a5650147f4db240dbe0a17
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ae971e7743d6dd3269c0a4f976bd2a5316300f58
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Acerca dos gateways de rede virtual para o ExpressRoute
 Um gateway de rede virtual é utilizado para enviar tráfego de rede entre redes virtuais do Azure e localizações no local. Quando configurar uma ligação ExpressRoute, tem de criar e configurar um gateway de rede virtual e uma ligação de gateway de rede virtual.
@@ -35,13 +35,13 @@ Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway
 
 Se pretender atualizar o gateway para um SKU de gateway mais poderoso, na maioria dos casos pode utilizar o cmdlet do PowerShell de 'Redimensionamento AzureRmVirtualNetworkGateway'. Isto irá funcionar para atualizações para Standard e HighPerformance SKUs. No entanto, para atualizar para o SKU de UltraPerformance, terá de recriar o gateway.
 
-### <a name="aggthroughput"></a>Débito agregado estimado por SKU de gateway
-A tabela seguinte mostra os tipos de gateways e o débito agregado estimado. Esta tabela aplica-se aos modelos de implementação clássica e Resource Manager.
+### <a name="aggthroughput"></a>Desempenhos estimados por SKU de gateway
+A tabela seguinte mostra os tipos de gateway e os desempenhos estimados. Esta tabela aplica-se aos modelos de implementação clássica e Resource Manager.
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Débito de aplicação depende de vários fatores, tais como a latência de ponto a ponto e o número de fluxos de tráfego que abre a aplicação. Os números existentes na tabela representam o limite superior de que a aplicação pode alcançar teoria num ambiente ideal. 
+> Desempenho da aplicação depende de vários fatores, tais como a latência de ponto a ponto e o número de fluxos de tráfego que abre a aplicação. Os números existentes na tabela representam o limite superior de que a aplicação pode alcançar teoria num ambiente ideal. 
 > 
 >
 

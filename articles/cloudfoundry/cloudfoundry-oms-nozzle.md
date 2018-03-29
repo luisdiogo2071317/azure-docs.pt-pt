@@ -1,11 +1,11 @@
 ---
-title: "Implementar Nozzle de análise de registos do Azure para a monitorização de nuvem Foundry | Microsoft Docs"
-description: "Orientações passo a passo sobre como implementar o loggregator nuvem Foundry Nozzle para Log Analytics do Azure. Utilize o Nozzle para monitorizar as métricas de desempenho e estado de funcionamento de sistema do Foundry de nuvem."
+title: Implementar Nozzle de análise de registos do Azure para a monitorização de nuvem Foundry | Microsoft Docs
+description: Orientações passo a passo sobre como implementar o loggregator nuvem Foundry Nozzle para Log Analytics do Azure. Utilize o Nozzle para monitorizar as métricas de desempenho e estado de funcionamento de sistema do Foundry de nuvem.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: ningk
 manager: timlt
-editor: 
+editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0d13d39d2921c51c537534a5b000564a9df91880
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar Nozzle de análise de registos do Azure para a monitorização de sistema de nuvem Foundry
 
-[Análise de registos do Azure](https://azure.microsoft.com/services/log-analytics/) é um serviço no Microsoft [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/) (OMS). Ajuda a recolher e analisar os dados que são gerados a partir da nuvem e no local ambientes.
+[Análise de registos do Azure](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure. Ajuda a recolher e analisar os dados que são gerados a partir da nuvem e no local ambientes.
 
 O Nozzle de análise do registo (o Nozzle) é um componente de nuvem Foundry (CF), que reencaminha as métricas do [nuvem Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose à análise de registos. Com o Nozzle, pode recolher, ver e analisar CF sistema estado de funcionamento e desempenho métricas, através de múltiplas implementações.
 
-Neste documento, irá aprender a implementar o Nozzle ao seu ambiente CF e, em seguida, aceder os dados a partir da consola de análise de registos OMS.
+Neste documento, irá aprender a implementar o Nozzle ao seu ambiente CF e, em seguida, aceder os dados a partir da consola de análise de registos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,9 +53,9 @@ O Nozzle também necessita da permissão de acesso para o firehose loggregator e
 
 Antes de configurar o cliente de linha de comandos UAA, certifique-se de que o Rubygems está instalada.
 
-### <a name="3-create-an-oms-workspace-in-azure"></a>3. Criar uma área de trabalho do OMS no Azure
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Criar uma área de trabalho de análise de registos no Azure
 
-Pode criar a área de trabalho do OMS manualmente ou utilizando um modelo. Carregar a alertas e vistas OMS previamente configuradas depois de concluir a implementação de Nozzle.
+Pode criar a área de trabalho de análise de registos manualmente ou utilizando um modelo. Carregar a alertas e vistas OMS previamente configuradas depois de concluir a implementação de Nozzle.
 
 Para criar manualmente a área de trabalho:
 
@@ -70,7 +70,7 @@ Para criar manualmente a área de trabalho:
 
 Para obter mais informações, consulte [introdução à análise de registos](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-Em alternativa, pode criar a área de trabalho do OMS através do modelo do OMS. Com este método, o modelo é carregado previamente configuradas vistas do OMS e alertas automaticamente. Para obter mais informações, consulte o [solução de análise de registos do Azure OMS para nuvem Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
+Em alternativa, pode criar uma área de trabalho de análise de registos através do modelo do OMS. Com este método, o modelo é carregado previamente configuradas vistas do OMS e alertas automaticamente. Para obter mais informações, consulte o [solução de análise de registos do Azure para a nuvem Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
 
 ## <a name="deploy-the-nozzle"></a>Implementar o Nozzle
 
@@ -116,16 +116,16 @@ git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
 ```
 
-#### <a name="set-environment-variables"></a>Variáveis de ambiente de conjunto
+#### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
-Agora pode definir variáveis de ambiente no ficheiro manifest.yml no seu diretório atual. O seguinte mostra o manifesto da aplicação para o Nozzle. Substitua os valores com informações da sua área de trabalho OMS específicas.
+Agora pode definir variáveis de ambiente no ficheiro manifest.yml no seu diretório atual. O seguinte mostra o manifesto da aplicação para o Nozzle. Substitua os valores a informações específicas para a área de trabalho de análise de registos.
 
 ```
-OMS_WORKSPACE             : OMS workspace ID: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to OMS Log Analytics. The default is 10 seconds.
-OMS_BATCH_TIME            : Interval for posting a batch to OMS Log Analytics. The default is 10 seconds.
-OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to OMS Log Analytics. The default is 1000.
+OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
 API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
@@ -135,8 +135,8 @@ SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and 
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
 LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to OMS Log Analytics as CounterEvents.
-LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to OMS Log Analytics. The default is 60 seconds.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Log Analytics as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
 ```
 
 ### <a name="push-the-application-from-your-development-computer"></a>Push da aplicação a partir do seu computador de desenvolvimento
@@ -165,7 +165,7 @@ Certifique-se que a aplicação da OMS Nozzle está em execução.
 
 ### <a name="1-import-the-oms-view"></a>1. Importar a vista do OMS
 
-No portal do OMS, navegue até à **estruturador de vistas** > **importação** > **procurar**e selecione um dos ficheiros omsview. Por exemplo, seleccione *nuvem Foundry.omsview*e guarde a vista. Agora é apresentado um mosaico no OMS **descrição geral** página. Selecione para ver as métricas visualizadas.
+No portal do OMS, navegue até à **estruturador de vistas** > **importação** > **procurar**e selecione um dos ficheiros omsview. Por exemplo, seleccione *nuvem Foundry.omsview*e guarde a vista. Agora é apresentado um mosaico no **descrição geral** página. Selecione para ver as métricas visualizadas.
 
 Pode personalizar estas vistas ou criar novas vistas através de **estruturador de vistas**.
 
@@ -175,16 +175,16 @@ O *"Nuvem Foundry.omsview"* é uma versão de pré-visualização do modelo de v
 
 Pode [criar os alertas](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts)e personalizar os valores de limiar de consultas e conforme necessário. São recomendados alertas:
 
-| Consulta de pesquisa                                                                  | Gerar alerta com base no | Descrição                                                                       |
+| Consulta de pesquisa                                                                  | Gerar alerta com base em | Descrição                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
-| Tipo = CF_ValueMetric_CL Origin_s = bbs Name_s = "Domain.cf-aplicações"                   | Número de resultados < 1   | **BBS. Aplicações Domain.cf** indica se o domínio de aplicações cf está atualizado. Isto significa que os pedidos de aplicação CF do controlador de nuvem são sincronizados com bbs. LRPsDesired (AIs pretendido de Diego) para execução. Não foram recebidos dados significa que Cf aplicações domínio não está atualizado na janela de tempo especificado. |
-| Tipo = CF_ValueMetric_CL Origin_s = rep Name_s = UnhealthyCell Value_d > 1            | Número de resultados > 0   | Para Diego células, 0 significa bom estado de funcionamento e 1 significa mau estado de funcionamento. Defina o alerta se forem detetadas várias células Diego mau estado de funcionamento na janela de tempo especificado. |
-| Tipo = CF_ValueMetric_CL Origin_s = "bosh-hm-reencaminhador" Name_s="system.healthy" Value_d = 0 | Número de resultados > 0 | 1 significa que o sistema está em bom estado, e 0 significa que o sistema não está em bom estado. |
+| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Número de resultados < 1   | **BBS. Aplicações Domain.cf** indica se o domínio de aplicações cf está atualizado. Isto significa que os pedidos de aplicação CF do controlador de nuvem são sincronizados com bbs. LRPsDesired (AIs pretendido de Diego) para execução. Não foram recebidos dados significa que Cf aplicações domínio não está atualizado na janela de tempo especificado. |
+| Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Número de resultados > 0   | Para Diego células, 0 significa bom estado de funcionamento e 1 significa mau estado de funcionamento. Defina o alerta se forem detetadas várias células Diego mau estado de funcionamento na janela de tempo especificado. |
+| Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Número de resultados > 0 | 1 significa que o sistema está em bom estado, e 0 significa que o sistema não está em bom estado. |
 | Tipo = CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d > 0 | Número de resultados > 0   | Consul emite periodicamente o estado de funcionamento. 0 significa que o sistema está em bom estado e 1 significa que o emitter rota Deteta que Consul está desativado. |
-| Tipo = CF_CounterEvent_CL Origin_s = Delta_d DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" ou Name_s="doppler.shedEnvelopes)" > 0 | Número de resultados > 0 | O número de diferenças de mensagens, ignorada intencionalmente pelo Doppler devido a pressão de back. |
-| Tipo = CF_LogMessage_CL SourceType_s = LGR MessageType_s = ERR                      | Número de resultados > 0   | Loggregator emite **LGR** para indicar problemas com o processo de registo. Um exemplo deste tipo um problema é quando o resultado de mensagem do registo é demasiado elevado. |
-| Tipo = CF_ValueMetric_CL Name_s = slowConsumerAlert                               | Número de resultados > 0   | Quando o Nozzle recebe um alerta de consumidor lenta de loggregator, envia o **slowConsumerAlert** ValueMetric OMS. |
-| Tipo = CF_CounterEvent_CL Job_s = nozzle Name_s = eventsLost Delta_d > 0              | Número de resultados > 0   | Se o número de diferenças de perder eventos atingir um limiar, significa que o Nozzle pode ter um problema ao executar. |
+| Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Número de resultados > 0 | O número de diferenças de mensagens, ignorada intencionalmente pelo Doppler devido a pressão de back. |
+| Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Número de resultados > 0   | Loggregator emite **LGR** para indicar problemas com o processo de registo. Um exemplo deste tipo um problema é quando o resultado de mensagem do registo é demasiado elevado. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o Nozzle recebe um alerta de consumidor lenta de loggregator, envia o **slowConsumerAlert** ValueMetric à análise de registos. |
+| Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Número de resultados > 0   | Se o número de diferenças de perder eventos atingir um limiar, significa que o Nozzle pode ter um problema ao executar. |
 
 ## <a name="scale"></a>Escala
 
@@ -218,7 +218,7 @@ Na janela do CF CLI, escreva:
 cf delete <App Name> -r
 ```
 
-Se remover o Nozzle, os dados no portal do OMS não são removidos automaticamente. Expirar com base nas suas definições de retenção de análise de registos do OMS.
+Se remover o Nozzle, os dados no portal do OMS não são removidos automaticamente. Expirar com base nas suas definições de retenção de análise de registos.
 
 ## <a name="support-and-feedback"></a>Suporte e comentários
 

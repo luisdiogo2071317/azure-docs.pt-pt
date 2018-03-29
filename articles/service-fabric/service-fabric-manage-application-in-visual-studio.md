@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/23/2018
+ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 16ca821f7cae252148e8901c2ccb8539a25d1d59
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c5c3dc20996fbbdee9f9ed61eb3b09e4b274d92
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Utilizar o Visual Studio para simplificar a escrever e gestão das suas aplicações de Service Fabric
 Pode gerir as suas aplicações do Azure Service Fabric e serviços através do Visual Studio. Assim que tiver [configurar o ambiente de desenvolvimento](service-fabric-get-started.md), pode utilizar o Visual Studio para criar aplicações de Service Fabric, adicionar serviços, ou o pacote, registar e implementar aplicações no seu cluster de desenvolvimento local.
@@ -32,7 +32,7 @@ Por predefinição, a implementar uma aplicação combina os seguintes passos pa
 4. Remover quaisquer instâncias de aplicações em execução
 5. Criar uma instância de aplicação
 
-No Visual Studio, premindo **F5** implementa a aplicação e anexe o depurador para todas as instâncias da aplicação. Pode utilizar **Ctrl + F5** para implementar uma aplicação sem depuração, ou pode publicar um cluster local ou remoto, utilizando o perfil de publicação. 
+No Visual Studio, premindo **F5** implementa a aplicação e anexe o depurador para todas as instâncias da aplicação. Pode utilizar **Ctrl + F5** para implementar uma aplicação sem depuração, ou pode publicar um cluster local ou remoto, utilizando o perfil de publicação.
 
 ### <a name="application-debug-mode"></a>Modo de depuração de aplicações
 Visual Studio fornecem uma propriedade denominada **modo de depuração da aplicação**, que controla a forma como pretende estúdios Visual para lidar com a implementação de aplicações como parte de depuração.
@@ -45,7 +45,7 @@ Visual Studio fornecem uma propriedade denominada **modo de depuração da aplic
 
 #### <a name="application-debug-modes"></a>Modos de depuração de aplicações
 
-1. **Atualizar aplicação** este modo permite-lhe alterar e depurar o seu código e suporta a edição de ficheiros estáticos web durante a depuração rapidamente. Este modo só funciona se o cluster de desenvolvimento local está a ser [1 nó modo](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Esta é a predefinição de modo de depuração da aplicação.
+1. **Atualizar aplicação** este modo permite-lhe alterar e depurar o seu código e suporta a edição de ficheiros estáticos web durante a depuração rapidamente. Este modo só funciona se o cluster de desenvolvimento local está em [modo de nó 1]. Esta é a predefinição de modo de depuração da aplicação. (/ service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
 2. **Remover aplicação** faz com que a aplicação a serem removidos quando termina a sessão de depuração.
 3. **Auto atualização** a aplicação continua a ser executado quando termina a sessão de depuração. A próxima sessão de depuração irão tratar a implementação como uma atualização. O processo de atualização preserva todos os dados que introduziu numa sessão de depuração anterior.
 4. **Manter aplicações** a aplicação mantém em execução no cluster quando termina a sessão de depuração. No início de sessão de depuração seguinte, a aplicação será removida.

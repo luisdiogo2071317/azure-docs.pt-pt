@@ -1,6 +1,6 @@
 ---
-title: "Arquitetura do Azure para o Azure replicação no Azure Site Recovery | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral dos componentes e arquitetura utilizada quando replicar VMs do Azure entre regiões do Azure utilizando o serviço do Azure Site Recovery."
+title: Arquitetura do Azure para o Azure replicação no Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece uma descrição geral dos componentes e arquitetura utilizada quando replicar VMs do Azure entre regiões do Azure utilizando o serviço do Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Arquitetura de replicação do Azure para o Azure
 
@@ -28,7 +28,7 @@ Este artigo descreve a arquitetura utilizada quando replicar, efetuar a ativaç�
 ## <a name="architectural-components"></a>Componentes da arquitetura
 
 O seguinte gráfico fornece uma vista de alto nível de um ambiente de VM do Azure numa região específica (neste exemplo, a localização EUA Leste). Num ambiente VM do Azure:
-- As aplicações podem estar em execução em VMs com discos distribuídos por contas de armazenamento.
+- As aplicações podem estar a executar em VMs com discos geridos ou não geridos discos distribuídos por contas de armazenamento.
 - As VMs podem ser incluídas numa ou mais sub-redes dentro de uma rede virtual.
 
 
@@ -49,7 +49,8 @@ Ao ativar a replicação de VM do Azure, os seguintes recursos são criados auto
 **Grupo de recursos de destino** | O grupo de recursos aos quais as VMs replicadas pertencem após a ativação pós-falha.
 **Rede virtual de destino** | A rede virtual no qual as VMs replicadas estão localizadas após a ativação pós-falha. Um mapeamento da rede é criado entre redes virtuais de origem e de destino e vice-versa.
 **Contas de armazenamento de cache** | Replicar as alterações VM de origem para uma conta de armazenamento de destino, são controladas e enviados para a conta de armazenamento de cache numa localização de origem. Este passo garante um impacto mínimo no aplicações de produção em execução na VM.
-**Contas de armazenamento de destino**  | Contas de armazenamento na localização de destino para o qual os dados são replicados.
+**As contas de armazenamento de destino (se não utilizar a VM de origem gerido discos)**  | Contas de armazenamento na localização de destino para o qual os dados são replicados.
+* * Réplica discos geridos pelo (se a origem a VM está em discos geridos pelo) * *  | Gerido discos na localização de destino para o qual os dados são replicados.
 **Conjuntos de disponibilidade de destino**  | Conjuntos de disponibilidade na qual as VMs replicadas estão localizadas após a ativação pós-falha.
 
 ### <a name="step-2"></a>Passo 2
@@ -76,7 +77,7 @@ Se pretender que as VMs do Linux pertençam a um grupo de replicação, certifiq
 
 ### <a name="step-3"></a>Passo 3
 
-Após a conclusão da replicação contínua em curso, escritas em disco imediatamente são transferidas para a conta de armazenamento de cache. Recuperação de site processa os dados e envia-a para a conta de armazenamento de destino. Depois dos dados são processados, pontos de recuperação são gerados na conta de armazenamento de destino em alguns minutos.
+Após a conclusão da replicação contínua em curso, escritas em disco imediatamente são transferidas para a conta de armazenamento de cache. Recuperação do site processa os dados e envia-a para o destino da conta de armazenamento ou réplica discos geridos pelo. Depois dos dados são processados, pontos de recuperação são gerados na conta de armazenamento de destino em alguns minutos.
 
 ## <a name="failover-process"></a>Processo de ativação pós-falha
 

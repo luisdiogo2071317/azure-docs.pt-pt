@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 8a5d05342a1db5f27d115364798885a278d09fc0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/23/2018
+---
 1. No portal, do lado esquerdo, clique em **+ Criar um recurso** e escreva "Gateway de Rede Virtual" na pesquisa. Localize **Gateway de rede virtual** no resultado da pesquisa e clique na entrada. Na página do **Gateway de rede virtual**, clique em **Criar** na parte inferior da página para abrir a página **Criar gateway de rede virtual**.
 2. Na página **Criar gateway de rede virtual**, preencha os valores para o gateway de rede virtual.
 

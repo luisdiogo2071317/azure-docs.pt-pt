@@ -1,9 +1,9 @@
 ---
 title: Conceitos e modelo de recursos do Azure do Cosmos DB | Microsoft Docs
-description: "Saiba mais sobre o modelo de hierárquico da BD do Azure Cosmos de bases de dados, coleções, a função definida pelo utilizador (UDF), documentos, permissões para gerir recursos e muito mais."
-keywords: "Modelo hierárquico cosmosdb, do azure, Microsoft azure"
+description: Saiba mais sobre o modelo de hierárquico da BD do Azure Cosmos de bases de dados, coleções, a função definida pelo utilizador (UDF), documentos, permissões para gerir recursos e muito mais.
+keywords: Modelo hierárquico cosmosdb, do azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
@@ -12,18 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a88f17a658987e1ff3ae0e0f38d6551c3acee1da
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f64d79cd3929a279c7e279e74b0b21d163c0fa45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Conceitos-chave e modelo de recursos hierárquicos do Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 As entidades de base de dados que gere a base de dados do Azure Cosmos são referidas como **recursos**. Cada recurso é identificado de forma exclusiva por um URI lógico. Pode interagir com os recursos utilizando verbos HTTP padrão, cabeçalhos de pedido/resposta e códigos de estado. 
 
@@ -34,6 +32,12 @@ Este artigo responde a questões que se seguem:
 * Como posso resolver um recurso?
 * Como funcionam com coleções
 * Como funcionam com procedimentos armazenados, acionadores e funções definidas pelo utilizador (UDFs)?
+
+No vídeo seguinte, Azure Gestor de programa do Cosmos DB Andrew Liu orienta-o modelo de recursos do Azure Cosmos DB. 
+
+> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
+>
+>
 
 ## <a name="hierarchical-resource-model"></a>Modelo de recursos hierárquica
 Como o diagrama seguinte ilustra, a BD do Cosmos Azure hierárquica **modelo de recursos** consiste em conjuntos de recursos numa conta de base de dados, cada endereçável através de um URI lógico e estável. Um conjunto de recursos são referidas como um **feed** neste artigo. 
@@ -112,16 +116,16 @@ Todos os recursos são URI endereçável. O valor da **Self** propriedade de um 
 
 | Valor da Self | Descrição |
 | --- | --- |
-| /DBS |Feed de bases de dados com uma conta de base de dados |
-| /DBS/ {dbName} |Base de dados com um id de correspondência do valor {dbName} |
-| /colls/ /DBS/ {dbName} |Feed de coleções de uma base de dados |
-| /colls/ /DBS/ {dbName} {collName} |Coleção com um id de correspondência do valor {collName} |
-| /colls/ /DBS/ {dbName} {collName} / docs |Feed de documentos numa coleção |
-| /DBS/ {dbName} /colls/ {collName} /docs/ {docId} |O documento com um id de correspondência do valor {documento} |
-| /users/ /DBS/ {dbName} |Feed de utilizadores numa base de dados |
-| /users/ /DBS/ {dbName} {userId} |Utilizador com um id de correspondência do valor {utilizador} |
-| /users/ /DBS/ {dbName} {userId} / permissões |Feed de permissões de um utilizador |
-| /DBS/ {dbName} /users/ {userId} /permissions/ {permissionId} |Permissão com um id de correspondência do valor {permissão} |
+| /dbs |Feed de bases de dados com uma conta de base de dados |
+| /dbs/{dbName} |Base de dados com um id de correspondência do valor {dbName} |
+| /dbs/{dbName}/colls/ |Feed de coleções de uma base de dados |
+| /dbs/{dbName}/colls/{collName} |Coleção com um id de correspondência do valor {collName} |
+| /dbs/{dbName}/colls/{collName}/docs |Feed de documentos numa coleção |
+| /dbs/{dbName}/colls/{collName}/docs/{docId} |O documento com um id de correspondência do valor {documento} |
+| /dbs/{dbName}/users/ |Feed de utilizadores numa base de dados |
+| /dbs/{dbName}/users/{userId} |Utilizador com um id de correspondência do valor {utilizador} |
+| /dbs/{dbName}/users/{userId}/permissions |Feed de permissões de um utilizador |
+| /dbs/{dbName}/users/{userId}/permissions/{permissionId} |Permissão com um id de correspondência do valor {permissão} |
 
 Cada recurso tem um nome exclusivo definido pelo utilizador exposto através da propriedade de id. Nota: para documentos, se o utilizador não especificar um id, os SDKs geram automaticamente um id exclusivo para o documento. O id é uma cadeia definida pelo utilizador, até 256 carateres que seja exclusivo dentro do contexto de um recurso principal específico. 
 
@@ -132,7 +136,7 @@ Suporta as APIs REST dos recursos de endereçamento e encaminhamento de pedidos 
 ## <a name="database-accounts"></a>Contas de base de dados
 Pode aprovisionar uma ou mais Cosmos DB da base de dados contas através da sua subscrição do Azure.
 
-Pode criar e gerir contas de base de dados de base de dados do Cosmos através do portal do Azure em [http://portal.azure.com/](https://portal.azure.com/). Criar e gerir uma conta de base de dados exigir acesso administrativo e só podem ser efetuada na sua subscrição do Azure. 
+Pode criar e gerir contas de base de dados de base de dados do Cosmos através do portal do Azure em [ http://portal.azure.com/ ](https://portal.azure.com/). Criar e gerir uma conta de base de dados exigir acesso administrativo e só podem ser efetuada na sua subscrição do Azure. 
 
 ### <a name="database-account-properties"></a>Propriedades da conta de base de dados
 Como parte do aprovisionamento e gestão de uma conta de base de dados que pode configurar e ler as propriedades seguintes:  
@@ -457,7 +461,7 @@ A única forma de obter uma chave de recurso é através da criação de um recu
 
 Como todos os outros recursos, permissões na base de dados do Azure Cosmos podem ser criadas, substituído, eliminar, ler ou enumerado facilmente através de REST APIs ou de qualquer um dos SDKs de cliente. BD do Azure do Cosmos fornece sempre consistência forte para ler ou consultar os metadados de uma permissão. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como trabalhar com recursos utilizando comandos HTTP no [RESTful interações com os recursos de base de dados do Azure Cosmos](https://msdn.microsoft.com/library/azure/mt622086.aspx).
 
 [1]: media/sql-api-resources/resources1.png

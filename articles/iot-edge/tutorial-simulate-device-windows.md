@@ -1,8 +1,8 @@
 ---
 title: Simular o limite de IoT do Azure no Windows | Microsoft Docs
-description: "Instalar o runtime do Azure IoT Edge num dispositivo simulado no Windows e implementar o seu módulo primeiro"
+description: Instalar o runtime do Azure IoT Edge num dispositivo simulado no Windows e implementar o seu módulo primeiro
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: ae974162a460289a34443879a9e78224684d94ed
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Implementar o Azure IoT Edge num dispositivo simulado Windows – pré-visualização
 
@@ -86,7 +86,7 @@ O tempo de execução do limite de IoT é implementado em todos os dispositivos 
 Configure o tempo de execução com a cadeia de ligação do dispositivo de limite de IoT da secção anterior.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Inicie o tempo de execução.
@@ -133,7 +133,7 @@ docker logs -f tempSensor
 
 Também pode ver a telemetria que o dispositivo está a enviar ao utilizar o [ferramenta do Explorador do IoT Hub][lnk-iothub-explorer]. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou um novo dispositivo de limite de IoT e utilizar a interface de nuvem do Azure IoT Edge para implementar o código no dispositivo. Agora, tem um dispositivo simulado, gerando dados não processados sobre o seu ambiente. 
 

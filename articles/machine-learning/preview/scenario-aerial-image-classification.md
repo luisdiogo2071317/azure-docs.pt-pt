@@ -1,6 +1,6 @@
 ---
-title: "Classificação de imagem com vista aérea | Microsoft Docs"
-description: "Fornece instruções para o cenário do mundo real na classificação de imagem com vista aérea"
+title: Classificação de imagem com vista aérea | Microsoft Docs
+description: Fornece instruções para o cenário do mundo real na classificação de imagem com vista aérea
 author: mawah
 ms.author: mawah
 manager: mwinkle
@@ -10,11 +10,11 @@ ms.service: machine-learning
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 42ebb7dc3abf8fdb6049f1114dc8604a7b810a7e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="aerial-image-classification"></a>Classificação de imagem com vista aérea
 
@@ -83,7 +83,7 @@ Este exemplo requer um cluster do HDInsight Spark e uma conta de armazenamento d
 
 Crie um novo projeto com este exemplo como um modelo:
 1.  Abra máquina do Azure Learning Workbench
-2.  No **projetos** página, clique em de  **+**  iniciar sessão e selecionar **novo projeto**
+2.  No **projetos** página, clique em de **+** iniciar sessão e selecionar **novo projeto**
 3.  No **criar novo projeto** painel, preencha as informações para o novo projeto
 4.  No **modelos de projeto de pesquisa** caixa de pesquisa, escreva "Com vista aérea de imagem de classificação" e selecione o modelo
 5.  Clique em **Criar**.
@@ -222,7 +222,7 @@ O cluster de AI do Batch acede aos seus dados de formação num servidor de fich
 1. Emita o comando seguinte para criar um servidor de ficheiros de rede:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p "Dem0Pa$$w0rd" --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Verifique o estado de aprovisionamento do seu servidor de ficheiros de rede utilizando o seguinte comando:
@@ -253,7 +253,7 @@ Se assim o desejar, pode confirmar que a transferência de dados tem proceeded c
 1. Crie o cluster ao emitir o comando seguinte:
 
     ```
-    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p "Dem0Pa$$w0rd" --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Utilize o seguinte comando para verificar o que seu cluster do Estado de aprovisionamento:
@@ -267,12 +267,12 @@ Se assim o desejar, pode confirmar que a transferência de dados tem proceeded c
 #### <a name="record-batch-ai-training-credentials"></a>Registos credenciais de formação de AI do Batch
 
 Enquanto a aguardar para atribuição de cluster a concluir, abra o `settings.cfg` ficheiro do subdiretório "Código" deste projeto no editor de texto à sua escolha. Atualize as seguintes variáveis com as suas próprias credenciais:
-- `bait_subscription_id`(o seu ID de subscrição do Azure 36 carateres)
-- `bait_aad_client_id`(o ID de aplicação/cliente de Azure Active Directory mencionado na secção "Pré-requisitos")
-- `bait_aad_secret`(o Azure Active Directory segredo da aplicação mencionado na secção "Pré-requisitos")
-- `bait_aad_tenant`(o ID de inquilino de Azure Active Directory mencionado na secção "Pré-requisitos")
-- `bait_region`(a partir desta redação é a única opção: eastus)
-- `bait_resource_group_name`(o grupo de recursos que selecionou anteriormente)
+- `bait_subscription_id` (o seu ID de subscrição do Azure 36 carateres)
+- `bait_aad_client_id` (o ID de aplicação/cliente de Azure Active Directory mencionado na secção "Pré-requisitos")
+- `bait_aad_secret` (o Azure Active Directory segredo da aplicação mencionado na secção "Pré-requisitos")
+- `bait_aad_tenant` (o ID de inquilino de Azure Active Directory mencionado na secção "Pré-requisitos")
+- `bait_region` (a partir desta redação é a única opção: eastus)
+- `bait_resource_group_name` (o grupo de recursos que selecionou anteriormente)
 
 Após ter atribuída estes valores, as linhas de modificação do ficheiro settings.cfg devem assemelhar-se o seguinte texto:
 

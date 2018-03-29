@@ -1,11 +1,11 @@
 ---
-title: "Série N controlador a configuração do Azure para Windows | Microsoft Docs"
-description: "Como configurar os controladores de NVIDIA GPU para VMs N série com o Windows no Azure"
+title: Série N controlador a configuração do Azure para Windows | Microsoft Docs
+description: Como configurar os controladores de NVIDIA GPU para VMs N série com o Windows no Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f3950c34-9406-48ae-bcd9-c0418607b37d
 ms.service: virtual-machines-windows
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e21115915808899e8455dc6d4f1f4cf8a100f483
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 61bcbe23ec3afd7091084dd0102010a9b8ef0b7c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Configurar controladores GPU para VMs N série com o Windows Server
-Para tirar partido das capacidades de GPU de VMs de série N do Azure com o Windows Server 2016 ou o Windows Server 2012 R2, instale controladores de gráficos NVIDIA suportados. Este artigo fornece os passos de configuração de controlador depois de implementar uma VM de série N. As informações de configuração do controlador também estão disponíveis para [VMs com Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para tirar partido das capacidades de GPU de VMs de série N do Azure com o Windows Server 2016 ou o Windows Server 2012 R2, os controladores da placa NVIDIA tem de estar instalados. Este artigo fornece os passos de configuração de controlador depois de implementar uma VM de série N. As informações de configuração do controlador também estão disponíveis para [VMs com Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para especificações básicas, as capacidades de armazenamento e detalhes do disco, consulte [tamanhos de VM do Windows para a GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
@@ -64,7 +64,7 @@ Para instalar a versão mais recente 1.1 HpcVMDrivers extensão numa VM com capa
 A rede RDMA suporta tráfego da Interface de passagem de mensagens (MPI) para aplicações em execução com [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) ou Intel MPI 5. x. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Os programadores criar aplicações para a GPU-acelerados para GPUs de Tesla NVIDIA também podem transferir e instalar o [CUDA Toolkit 9.1](https://developer.nvidia.com/cuda-downloads). Para obter mais informações, consulte o [guia de instalação CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 

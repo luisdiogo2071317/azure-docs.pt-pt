@@ -1,11 +1,11 @@
 ---
-title: "Serviço de metadados de instância do Azure | Microsoft Docs"
-description: "Interface rESTful para obter informações sobre computação, rede e eventos de manutenções da VM do Windows."
+title: Serviço de metadados de instância do Azure | Microsoft Docs
+description: Interface rESTful para obter informações sobre computação, rede e eventos de manutenções da VM do Windows.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: harijayms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 50a6004d6b52e48fe762a896f7ab1a523cee4f32
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e2a449442b766722213d2d9f279ff4a628ec3008
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -217,13 +217,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 **Pedido**
 
-Metadados de instância podem ser obtido no Windows através do utilitário de PowerShell `curl`: 
+Metadados de instância podem ser obtido no Windows através do `curl` programa: 
 
 ```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
-Ou através de `Invoke-RestMethod` cmdlet:
+Ou através de `Invoke-RestMethod` cmdlet do PowerShell:
     
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
@@ -414,6 +414,6 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
    ![Suporte de metadados de instância](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [eventos agendada](scheduled-events.md)

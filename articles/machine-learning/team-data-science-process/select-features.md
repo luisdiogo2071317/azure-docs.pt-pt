@@ -1,8 +1,8 @@
 ---
-title: "Funcionalidade de seleção no processo de ciência de dados de equipa | Microsoft Docs"
-description: "Explica o objectivo de seleção de funcionalidades e fornece exemplos da sua função no processo de melhoramento de dados de aprendizagem."
+title: Funcionalidade de seleção no processo de ciência de dados de equipa | Microsoft Docs
+description: Explica o objectivo de seleção de funcionalidades e fornece exemplos da sua função no processo de melhoramento de dados de aprendizagem.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: c69e7a7e86ccea2073209eabe123049e59a2b8e3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: 44159516a1785f5d65357935000eccc42a7458aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Seleção de características no Team Data Science Process (TDSP)
 Este artigo explica o efeito de seleção de funcionalidades e fornece exemplos da sua função no processo de melhoramento de dados de aprendizagem. Estes exemplos são desenhados a partir do Azure Machine Learning Studio. 

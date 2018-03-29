@@ -1,25 +1,25 @@
 ---
-title: "Ativação pós-falha na base de dados do Azure Cosmos | Microsoft Docs"
-description: "Saiba mais sobre como manual e automático funciona de ativação pós-falha com o Azure Cosmos DB."
+title: Ativação pós-falha na base de dados do Azure Cosmos | Microsoft Docs
+description: Saiba mais sobre como manual e automático funciona de ativação pós-falha com o Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8da3e2c970ab1e60e3396cb0aaeaba64dba1713c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Ativação pós-falha regional automática para a continuidade do negócio do BD Azure Cosmos
 BD do Azure do Cosmos simplifica a distribuição dos dados global por de oferta totalmente gerido, [contas de base de dados de multirregião](distribute-data-globally.md) que fornecem limpar responsabilidades entre consistência, disponibilidade e desempenho, tudo com garantias correspondentes. Contas do cosmos DB oferecem elevada disponibilidade, latências de ms único dígito, [níveis de consistência bem definidos](consistency-levels.md), ativação pós-falha regional transparente com APIs multi homing e a capacidade e dimensionar débito e armazenamento no globo. 
@@ -30,9 +30,10 @@ BD do cosmos suporta explícito e política orientadas pelas ativações pós-fa
 * Como trabalho as ativações pós-falha automática na base de dados do Cosmos e o que acontece quando uma data center ficar inativo?
 * Como pode utilizar as ativações pós-falha manual em arquiteturas de aplicações?
 
-Pode também saber sobre as ativações pós-falha regional neste Azure sexta-feira vídeo com autoria de Scott Hanselman e o Gestor de engenharia do Principal Karthik Raman.
+Também pode saber mais sobre as ativações pós-falha regional neste vídeo pelo Azure Gestor de programa do Cosmos DB Andrew Liu, que demonstra as funcionalidades de distribuição global, incluindo a ativação pós-falha.
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ## <a id="ConfigureMultiRegionApplications"></a>Configurar aplicações de multirregião
 Antes de Iremos aprofundar modos de ativação pós-falha, vamos ver como pode configurar uma aplicação para tirar partido de disponibilidade de multirregião e sejam resilientes face as ativações pós-falha regional.

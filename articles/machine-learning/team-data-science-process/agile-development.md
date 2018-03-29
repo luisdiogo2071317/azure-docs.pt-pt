@@ -1,23 +1,23 @@
 ---
-title: "Desenvolvimento seja ágil de projetos de ciência de dados - Azure Machine Learning | Microsoft Docs"
-description: "Como os programadores podem executar um projeto de ciência de dados numa versão systematic, controlada e forma colaboração dentro de uma equipa de projeto, utilizando o processo de ciência de dados de equipa."
-documentationcenter: 
+title: Desenvolvimento seja ágil de projetos de ciência de dados - Azure Machine Learning | Microsoft Docs
+description: Como os programadores podem executar um projeto de ciência de dados numa versão systematic, controlada e forma colaboração dentro de uma equipa de projeto, utilizando o processo de ciência de dados de equipa.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: 686f751b241d49d116948711c683f4b504d5d5f9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: dbaf2df0f5572c9b269000c741f1d736a7521d73
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento seja ágil de projetos de ciência de dados
 
@@ -89,7 +89,7 @@ Também pode ligar esta funcionalidade para o repositório de projeto. Clique em
 
 ## 4. <a name='AddStoryunderfeature-4'></a>Adicionar bloco sob funcionalidade 
 
-Sob a funcionalidade stories podem ser adicionados para descrever os principais passos necessários para concluir o projeto (funcionalidade). Para adicionar um novo bloco, clique o  **+**  iniciar sessão para a esquerda da funcionalidade na vista de registo de segurança.  
+Sob a funcionalidade stories podem ser adicionados para descrever os principais passos necessários para concluir o projeto (funcionalidade). Para adicionar um novo bloco, clique o **+** iniciar sessão para a esquerda da funcionalidade na vista de registo de segurança.  
 
 ![4](./media/agile-development/4-sprint-add-story.png)
 
@@ -106,7 +106,7 @@ Pode ligar este bloco para um repositório existente ao clicar em **+ adicionar 
 
 As tarefas são específicos os passos detalhados que são necessárias para concluir cada bloco. Depois de concluídas todas as tarefas de um bloco, o bloco deve ser concluído demasiado. 
 
-Para adicionar uma tarefa para um bloco, clique o  **+**  sessão junto ao item da bloco, selecione **tarefas**e, em seguida, preencha as informações detalhadas desta tarefa na janela de pop-up.
+Para adicionar uma tarefa para um bloco, clique o **+** sessão junto ao item da bloco, selecione **tarefas**e, em seguida, preencha as informações detalhadas desta tarefa na janela de pop-up.
 
 ![7](./media/agile-development/7-sprint-add-task.png)
 
@@ -117,7 +117,7 @@ Depois das funcionalidades, stories e tarefas de criação, pode visualizá-las 
 ![9](./media/agile-development/9-link-to-a-new-branch.png)
 
 
-## 6. <a name='set-up-agile-dsp-6'></a>Configurar um modelo de trabalho seja ágil TDSP no Visual Studio Online
+## 6. <a name='set-up-agile-dsp-6'></a> Configurar um modelo de trabalho seja ágil TDSP no Visual Studio Online
 
 Este artigo explica como configurar um modelo de processo de ciência de dados seja ágil que utiliza as fases de ciclo de vida de ciência de dados TDSP e controla a itens de trabalho com o Visual Studio Online (vso). Os passos abaixo percurso através de um exemplo de como configurar os dados ciência específicos seja ágil processam modelo *AgileDataScienceProcess* e mostram como criar itens de trabalho de ciências de dados com base no modelo.
 
@@ -178,14 +178,14 @@ Depois de criado o modelo de processo de ciência de dados, pode criar e control
     ![18](./media/agile-development/18-workitems.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [A codificação colaboração com o Git](collaborative-coding-with-git.md) descreve como fazer o desenvolvimento de colaboração código para projetos de ciência de dados utilizando o Git como o framework de desenvolvimento de código partilhado e como ligar estas atividades para o trabalho planeadas com o processo de seja ágil de codificação.
 
 Seguem-se ligações adicionais para recursos em processos de seja ágil.
 
-- Processo seja ágil [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
-- Fluxo de trabalho e tipos de item de trabalho do processo seja ágil [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
+- Processo seja ágil   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
+- Tipos de item de trabalho do processo seja ágil e fluxo de trabalho   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
 
 
 Instruções que demonstram todos os passos no processo de **cenários específicos** também são fornecidos. São listados e ligados com descrições de miniaturas no [instruções de exemplo](walkthroughs.md) artigo. Estes mostram como combinar em nuvem, ferramentas no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente. 

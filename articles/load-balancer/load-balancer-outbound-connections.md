@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 3fc9810f2f7f86b4c795a7f008e8e1bd174a84db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 990abc5c4e546d72d093bcd9e8f37932e93cbeb4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
-
->[!NOTE]
-> O SKU de padrão de Balanceador de carga está atualmente em pré-visualização. Durante a pré-visualização, a funcionalidade não pode ter o mesmo nível de disponibilidade e fiabilidade como versão de funcionalidades que estão em geral disponibilidade. Para obter mais informações, consulte [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Utilizar geralmente disponível [SKU básico de Balanceador de carga](load-balancer-overview.md) para os serviços de produção. Para utilizar [pré-visualização de zonas de disponibilidade](https://aka.ms/availabilityzones) com esta pré-visualização requer um [separado inscrição](https://aka.ms/availabilityzones), além de inscrever-se para o Balanceador de carga [pré-visualização padrão](#preview-sign-up).
 
 O Azure oferece a conectividade de saída para implementações de cliente através de vários mecanismos diferentes. Este artigo descreve quais são os cenários, quando estas são aplicadas, como funcionam e como geri-los.
 
@@ -55,7 +52,7 @@ Se não pretender que uma VM para comunicar com pontos finais fora do Azure no e
 
 Neste cenário, a VM possui uma instância do nível pública IP (ILPIP) atribuída. Como são preocupações ligações de saída, é irrelevante se a VM está ou não de balanceamento de carga. Este cenário tem precedência sobre as outras. Quando é utilizado um ILPIP, a VM utiliza o ILPIP para todos os fluxos de saída.  
 
-Não é utilizada a porta masquerading (TERESA) e a VM tem todas as portas efémeras disponíveis para utilização.
+Um público IP atribuído a uma VM é um 1:1 relação (em vez de 1:many) e implementado como um NAT de 1:1 sem monitorização de estado.  Não é utilizada a porta masquerading (TERESA) e a VM tem todas as portas efémeras disponíveis para utilização.
 
 Se muitos fluxos de saída inicia a sua aplicação e experiência de esgotamento de porta de realizar o SNAT, considere atribuir um [ILPIP para mitigar restrições de realizar o SNAT](#assignilpip). Reveja [esgotamento de realizar o SNAT gerir](#snatexhaust) na íntegra.
 

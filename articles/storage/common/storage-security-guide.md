@@ -1,18 +1,18 @@
 ---
-title: "Guia de segurança de armazenamento do Azure | Microsoft Docs"
-description: "Fornece detalhes sobre os vários métodos de proteger o Storage do Azure, incluindo mas não limitado a RBAC, encriptação do serviço de armazenamento, encriptação do lado do cliente, SMB 3.0 e Azure Disk Encryption."
+title: Guia de segurança de armazenamento do Azure | Microsoft Docs
+description: Fornece detalhes sobre os vários métodos de proteger o Storage do Azure, incluindo mas não limitado a RBAC, encriptação do serviço de armazenamento, encriptação do lado do cliente, SMB 3.0 e Azure Disk Encryption.
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: tamram
-ms.openlocfilehash: d1a81a9029f2e9b8a36ecebdcc4be44984e82515
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: cshoe
+ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
 
@@ -296,7 +296,7 @@ SSE está ativado para todas as contas de armazenamento e não pode ser desativa
 
 As chaves utilizadas para SSE são geridas pela Microsoft. A Microsoft gera as chaves originalmente e gere o respetivo armazenamento seguro, bem como as respetivas rotação regular, como definido pela política interna da Microsoft. As chaves gerida pelo cliente, eventualmente, ficarão disponíveis, juntamente com um caminho de migração de chaves gerida pela Microsoft para chaves gerida pelo cliente.
 
-SSE encripta automaticamente dados em todos os escalões de desempenho (Standard e Premium), todos os modelos de implementação (Azure Resource Manager e clássico) e todos os serviços de armazenamento do Azure (Blob, fila, tabela e ficheiro). 
+O SSE encripta automaticamente dados em todos os escalões de desempenho (Standard e Premium), todos os modelos de implementação (Azure Resource Manager e Clássico) e todos os serviços de Armazenamento do Azure (Blob, Fila, Tabela e Ficheiro). 
 
 ### <a name="client-side-encryption"></a>Encriptação do lado do cliente
 Encriptação do lado do cliente foi mencionado quando debater a encriptação dos dados em trânsito. Esta funcionalidade permite-lhe programaticamente encriptar os dados numa aplicação de cliente antes de a enviar através da transmissão escrita ao Storage do Azure e através de programação desencriptar os dados após a obtenção-lo a partir do armazenamento do Azure.
@@ -376,7 +376,7 @@ A encriptação do lado do cliente é mais carga no cliente e tem de ser uma con
 
 #### <a name="storage-service-encryption-sse"></a>Encriptação do serviço de armazenamento (SSE)
 
-SSE é gerida pelo armazenamento do Azure. SSE não fornece para garantir a segurança dos dados em trânsito, mas encriptar os dados que que é escritos no armazenamento do Azure. SSE não afeta o desempenho de armazenamento do Azure.
+SSE é gerida pelo armazenamento do Azure. SSE não fornece para garantir a segurança dos dados em trânsito, mas encriptar os dados que que é escritos no armazenamento do Azure. O SSE não afeta o desempenho do Armazenamento do Azure.
 
 Pode encriptar qualquer tipo de dados da conta de armazenamento utilizando SSE (blobs de blocos, blobs, os blobs de páginas, dados da tabela, fila dados e ficheiros de acréscimo).
 

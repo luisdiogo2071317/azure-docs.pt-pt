@@ -1,8 +1,8 @@
 ---
 title: Utilizar Beeline com Apache Hive - o Azure HDInsight | Microsoft Docs
-description: "Saiba como utilizar o cliente Beeline para executar consultas do Hive com o Hadoop no HDInsight. Beeline é um utilitário para trabalhar com HiveServer2 através de JDBC."
+description: Saiba como utilizar o cliente Beeline para executar consultas do Hive com o Hadoop no HDInsight. Beeline é um utilitário para trabalhar com HiveServer2 através de JDBC.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/02/2018
+ms.date: 03/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2beb42f51bbbf65abe7bb6d95579106cdf1857a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Utilize o cliente Beeline com Apache Hive
 
@@ -110,7 +110,7 @@ Beeline for um cliente de ramo de registo que está incluído em nós principais
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
 
-    Estas informações descrevem as colunas na tabela. Enquanto, pode efetuar algumas consultas contra estes dados, vamos em vez disso, crie uma nova tabela para demonstrar como carregar dados para o ramo e aplicar um esquema.
+    Estas informações descrevem as colunas na tabela.
 
 4. Introduza as seguintes instruções para criar uma tabela com o nome **log4jLogs** utilizando dados de exemplo fornecidos com o cluster do HDInsight:
 
@@ -143,7 +143,7 @@ Beeline for um cliente de ramo de registo que está incluído em nós principais
 
     * `SELECT` -Seleciona uma contagem de todas as linhas onde coluna **t4** contém o valor **[erro]**. Esta consulta devolve um valor **3** porque existem três linhas que contêm este valor.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` -Hive tenta aplicar o esquema para todos os ficheiros no diretório. Neste caso, o diretório contém ficheiros que não corresponde ao esquema. Para impedir que os dados de libertação da memória nos resultados, esta instrução diz ao ramo de registo que iremos deverá devolver apenas dados de ficheiros que termina em. registo.
+    * `INPUT__FILE__NAME LIKE '%.log'` -Hive tenta aplicar o esquema para todos os ficheiros no diretório. Neste caso, o diretório contém ficheiros que não corresponde ao esquema. Para impedir que os dados de libertação da memória nos resultados, esta instrução diz ao ramo de registo que que deverá devolver apenas dados de ficheiros que termina em. registo.
 
   > [!NOTE]
   > As tabelas externas devem ser utilizadas ao espera os dados subjacentes ser atualizados por uma origem externa. Por exemplo, um processo de carregamento de dados automática ou uma operação de MapReduce.

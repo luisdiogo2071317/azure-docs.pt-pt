@@ -1,8 +1,8 @@
 ---
-title: "O processo de ciência de dados de equipa em ação: utilizar o SQL Data Warehouse | Microsoft Docs"
-description: "Processo de análise avançada e tecnologia em ação"
+title: 'O processo de ciência de dados de equipa em ação: utilizar o SQL Data Warehouse | Microsoft Docs'
+description: Processo de análise avançada e tecnologia em ação
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev;weig
-ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: bradsev
+ms.openlocfilehash: 6566db5f186b92179df3125deaf5ad17c6f9e974
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Data Warehouse
 Neste tutorial, iremos guiá-lo através de criar e implementar um modelo de machine learning utilizar o SQL Data Warehouse (armazém de dados do SQL Server) para um conjunto de dados publicamente disponível – o [NYC Taxi viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O modelo de classificação binária construído prevê ou não uma sugestão é paga para uma viagem e modelos para classificação de várias classes e regressão também são abordados que prever a distribuição para as quantidades de sugestão pagas.
@@ -319,7 +319,7 @@ A localização geográfica das suas contas de armazenamento afeta tempos de car
 Terá de decidir que efetue se tiver ficheiros de origem e de destino duplicados.
 
 > [!NOTE]
-> Se o. csv de ficheiros copiados do armazenamento de BLOBs público à sua conta de armazenamento de BLOBs privada já existe na sua conta de armazenamento de BLOBs privada, o AzCopy irá pedir-lhe se pretende substituí-los. Se não pretende substituí-los, entrada  **n**  quando lhe for pedido. Se pretender substituir **todos os** dos mesmos, de entrada **um** quando lhe for pedido. Também pode introduzir **y** para substituir os ficheiros. csv individualmente.
+> Se o. csv de ficheiros copiados do armazenamento de BLOBs público à sua conta de armazenamento de BLOBs privada já existe na sua conta de armazenamento de BLOBs privada, o AzCopy irá pedir-lhe se pretende substituí-los. Se não pretende substituí-los, entrada **n** quando lhe for pedido. Se pretender substituir **todos os** dos mesmos, de entrada **um** quando lhe for pedido. Também pode introduzir **y** para substituir os ficheiros. csv individualmente.
 > 
 > 
 
@@ -836,7 +836,7 @@ Neste exercício, vamos já explorou e foi desenvolvido os dados no armazém de 
    
     ![Dados de importação do Azure ML][17]
 2. Selecione **SQL Database do Azure** como o **origem de dados** no **propriedades** painel.
-3. Introduza o nome DNS da base de dados no **nome do servidor de base de dados** campo. Formato:`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Introduza o nome DNS da base de dados no **nome do servidor de base de dados** campo. Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Introduza o **nome de base de dados** no campo correspondente.
 5. Introduza o *nome de utilizador do SQL Server* no **nome de conta de utilizador do servidor**e o *palavra-passe* no **palavra-passe de conta de utilizador do**.
 7. No **consulta de base de dados** editar a área de texto, cole a consulta que extrai os campos de base de dados necessárias (incluindo quaisquer campos calculados, tais como as etiquetas) e baixo amostras de dados para o tamanho da amostra pretendido.

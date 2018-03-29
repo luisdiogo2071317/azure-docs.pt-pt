@@ -1,6 +1,6 @@
 ---
-title: "Ativar a replicação para o Azure para as VMs de VMware com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como configurar a replicação de VMs de VMware para o Azure, utilizando o Azure Site Recovery."
+title: Ativar a replicação para o Azure para as VMs de VMware com o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como configurar a replicação de VMs de VMware para o Azure, utilizando o Azure Site Recovery.
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48d84f59a80ea14c2b40821d886fc410c7e3f2c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação para o Azure para as VMs de VMware
 
@@ -112,15 +112,15 @@ Em seguida, verifique as propriedades da máquina de origem. Lembre-se de que o 
     Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino suporta quatro, a máquina de destino tem dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino só suporta um, o computador de destino tem apenas um adaptador.
     - Se a máquina virtual tem vários adaptadores de rede, todos os ligam à mesma rede. Além disso, o primeiro um mostrado na lista torna-se a *predefinido* adaptador de rede na máquina virtual do Azure.
 
-### <a name="azure-hybrid-use-benefit"></a>Benefício Híbrido do Azure
+### <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
-Os clientes do Software Assurance da Microsoft podem utilizar a vantagem de utilizar híbrida do Azure para guardar no licenciamento de custos para máquinas de Windows Server que são migradas para o Azure ou para utilizar o Azure para recuperação após desastre. Se estiver elegível para utilizar o Azure híbrida utilizar beneficiar, pode especificar que a máquina virtual atribuída desta vantagem é um que Azure Site Recovery cria se houver uma ativação pós-falha. Para efetuar este procedimento:
+Os clientes do Software Assurance da Microsoft podem utilizar o benefício de híbrida do Azure para guardar no licenciamento de custos para máquinas de Windows Server que são migradas para o Azure ou para utilizar o Azure para recuperação após desastre. Se estiver elegível para utilizar o benefício de híbrida do Azure, pode especificar que a máquina virtual atribuída desta vantagem é um que Azure Site Recovery cria se houver uma ativação pós-falha. Para efetuar este procedimento:
 - Aceda à secção de propriedades de computação e rede da máquina virtual replicada.
-- Responda à pergunta que lhe pergunta se tiver uma licença de servidor do Windows que faz com que é elegível para o benefício de utilização de híbrida do Azure.
-- Selecione a caixa de verificação para confirmar que tem uma licença do Windows Server elegível com Software Assurance, que pode utilizar para aplicar a vantagem de utilizar híbrido no computador que será criada em ativação pós-falha.
+- Responda à pergunta que lhe pergunta se tiver uma licença de servidor do Windows que faz com que é elegível para o benefício de híbrida do Azure.
+- Selecione a caixa de verificação para confirmar que tem uma licença do Windows Server elegível com Software Assurance, que pode utilizar para aplicar o benefício de híbrida do Azure na máquina que será criada em ativação pós-falha.
 - Guarde as definições para a máquina replicada.
 
-Saiba mais sobre [benefício de utilização do Azure híbrida](https://aka.ms/azure-hybrid-use-benefit-pricing).
+Saiba mais sobre [Azure híbrida benefício](https://aka.ms/azure-hybrid-benefit-pricing).
 
 ## <a name="common-issues"></a>Problemas comuns
 

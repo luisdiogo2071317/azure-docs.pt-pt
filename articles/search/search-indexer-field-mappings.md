@@ -1,11 +1,11 @@
 ---
 title: Mapeamentos de campo na indexadores de pesquisa do Azure
-description: "Configurar os mapeamentos de campo de indexador de Azure Search para caber diferenças nos nomes de campo e representações de dados"
+description: Configurar os mapeamentos de campo de indexador de Azure Search para caber diferenças nos nomes de campo e representações de dados
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 0325a4de-0190-4dd5-a64d-4e56601d973b
 ms.service: search
 ms.devlang: rest-api
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 3f2ead208ea1525489a40d1fb637da47cd8a9b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4d6960e540641405b879064a8064d45521dc04f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mapeamentos de campo na indexadores de pesquisa do Azure
 Quando utilizar indexadores de pesquisa do Azure, pode encontrar sozinho ocasionalmente em situações em que os dados de entrada não bastante corresponde ao esquema do seu índice de destino. Nesses casos, pode utilizar **campo mapeamentos** para transformar os dados para a forma pretendida.
@@ -60,7 +60,7 @@ Um indexador pode ter vários mapeamentos de campo. Por exemplo, eis o que pode 
 
 "fieldMappings" : [
     { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" },
+    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }
 ]
 ```
 
@@ -151,7 +151,7 @@ A tabela seguinte compara as codificações de base64 diferente da cadeia `00>00
 | Base64 com preenchimento | `MDA+MDA/MDA=` | Utilizar URL segura carateres e remover preenchimento | Utilize carateres base64 padrão e adicione o preenchimento |
 | Base64 sem preenchimento | `MDA+MDA/MDA` | Utilizar URL segura carateres | Utilizar carateres base64 padrão |
 | URL segura base64 com preenchimento | `MDA-MDA_MDA=` | Remova o preenchimento | Adicionar o preenchimento |
-| URL segura base64 sem preenchimento | `MDA-MDA_MDA` | Nenhuma | Nenhuma |
+| URL segura base64 sem preenchimento | `MDA-MDA_MDA` | Nenhuma | Nenhum |
 
 <a name="extractTokenAtPositionFunction"></a>
 

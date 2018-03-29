@@ -1,11 +1,11 @@
 ---
-title: "Criar aplicações móveis com o Xamarin e base de dados do Azure Cosmos | Microsoft Docs"
-description: "Um tutorial que cria um Xamarin iOS, Android ou formulários de aplicação utilizando a BD do Cosmos do Azure. BD do Cosmos do Azure é um fast, a escala de planet, a base de dados de nuvem para aplicações móveis."
+title: Criar aplicações móveis com o Xamarin e base de dados do Azure Cosmos | Microsoft Docs
+description: Um tutorial que cria um Xamarin iOS, Android ou formulários de aplicação utilizando a BD do Cosmos do Azure. BD do Cosmos do Azure é um fast, a escala de planet, a base de dados de nuvem para aplicações móveis.
 services: cosmos-db
 documentationcenter: .net
 author: arramac
 manager: monicar
-editor: 
+editor: ''
 ms.assetid: ff97881a-b41a-499d-b7ab-4f394df0e153
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,15 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 34952fb1cbe5577fa00ed7799d51ba46e7173d7e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0cbe9a8463e8b471e3e4b0b4403c3a5d01ed59a0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Criar aplicações móveis com o Xamarin e base de dados do Azure Cosmos
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 As aplicações móveis mais necessitam para armazenar dados na nuvem e base de dados do Azure Cosmos é uma base de dados de nuvem para aplicações móveis. Tem tudo que necessita de um para programadores móveis. É uma base de dados completamente gerido como um serviço que dimensiona a pedido. -Pode colocar os dados para a aplicação de forma transparente, os seus utilizadores estão localizados em torno de todo o mundo. Utilizando o [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md), pode ativar a aplicações móveis do Xamarin interaja diretamente com a BD do Cosmos do Azure, sem uma camada média.
 
@@ -101,7 +99,7 @@ Como a popularidade de ganhos de aplicação, poderá obter utilizadores em todo
 
 Parabéns! Concluiu a solução e ter uma aplicação móvel com o Xamarin e base de dados do Azure Cosmos. Seguir passos semelhantes para compilar aplicações Cordova utilizando o Azure Cosmos DB JavaScript SDK e as aplicações nativas do iOS/Android utilizando APIs REST do Azure Cosmos DB.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Ver o código de origem para [Xamarin e BD do Cosmos do Azure no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 * Transferir o [Cosmos Azure DB .NET Core SDK](sql-api-sdk-dotnet-core.md).
 * Localizar mais exemplos de código para [aplicações .NET](sql-api-dotnet-samples.md).

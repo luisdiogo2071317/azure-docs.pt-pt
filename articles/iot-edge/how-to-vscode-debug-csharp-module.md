@@ -1,19 +1,19 @@
 ---
-title: "Utilizar o Visual Studio Code para depurar um módulo de c# com o Azure IoT Edge | Microsoft Docs"
-description: "Faça a depuração de um módulo de c# com o limite de IoT do Azure no Visual Studio Code."
+title: Utilizar o Visual Studio Code para depurar um módulo de c# com o Azure IoT Edge | Microsoft Docs
+description: Faça a depuração de um módulo de c# com o limite de IoT do Azure no Visual Studio Code.
 services: iot-edge
-keywords: 
+keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 12/06/2017
+ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5ed517cf8d70cd279a55b79ad448709116cf511b
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c2a1acd2c249bdbc92119bc92f055b095f318f00
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Utilizar o Visual Studio Code para depurar um módulo de c# com o Azure IoT Edge
 Este artigo fornece instruções detalhadas para utilizar [Visual Studio Code](https://code.visualstudio.com/) como a ferramenta de desenvolvimento principal para os módulos do Azure IoT contorno de depuração.
@@ -22,39 +22,33 @@ Este artigo fornece instruções detalhadas para utilizar [Visual Studio Code](h
 Este tutorial parte do princípio de que está a utilizar um computador ou máquina virtual com o Windows ou Linux como computador de desenvolvimento. O dispositivo de limite de IoT pode ser outro dispositivo físico, ou pode simular o seu dispositivo de limite de IoT no computador de desenvolvimento.
 
 Antes de começar esta orientação, conclua o tutorial seguinte:
-- [Utilizar o Visual Studio Code para desenvolver c# módulo com o Azure IoT Edge](how-to-vscode-develop-csharp-module.md)
+- [Desenvolver uma solução de IoT Edge com vários módulos no Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
 
 Depois de concluir o tutorial anterior, deve ter os seguintes itens prontos:
-- Um registo de Docker local em execução no computador de desenvolvimento. Isto é para fazer o protótipo e fins de teste.
-- O `Program.cs` ficheiros, com o código de módulo de filtro mais recente.
-- Um atualizado `deployment.json` ficheiro para os módulos do sensor e filtro.
-- Runtime de limite de IoT que é executado no computador de desenvolvimento.
+- Um registo de Docker local em execução no computador de desenvolvimento. É sugerida para utilizar um registo de Docker local para criar protótipos e fins de teste. Pode atualizar o registo de contentor do `module.json` ficheiro na pasta cada módulo.
+- Uma limite de IoT solução projeto área de trabalho com c# módulo subpasta na mesma.
+- O `Program.cs` ficheiros, com o código mais recente do módulo.
+- Um tempo de execução de limite, em execução no computador de desenvolvimento.
 
-## <a name="build-your-iot-edge-module-for-debugging"></a>Criar o módulo de limite de IoT para depuração
-1. Para iniciar a depuração, utilize **dockerfile.debug** para reconstruir a imagem de Docker e implementar a sua solução de IoT Edge novamente. No Explorador de código do Visual Studio, selecione a pasta de Docker para abri-lo. Em seguida, selecione o **linux x64** pasta, faça duplo clique **Dockerfile.debug**e selecione **imagem de Docker do módulo de limite de IoT criar**.
+## <a name="build-your-iot-edge-c-module-for-debugging"></a>Criar o módulo de IoT Edge c# para depuração
+1. Para iniciar a depuração, tem de utilizar o **Dockerfile.amd64.debug** para reconstruir a imagem de docker e implementar novamente a sua solução de ponta. No Explorador de VS Code, navegue para `deployment.template.json` ficheiro. Atualize o seu URL de imagem de função ao adicionar um `.debug` no fim.
 
-    ![Captura de ecrã do Explorador de código de VS](./media/how-to-debug-csharp-module/build-debug-image.png)
+2. Reconstrua a sua solução. Na paleta do comando de VS Code, escreva e execute o comando **Edge: solução de ponta de IoT criar**.
 
-3. No **selecionar pasta** janela, procurar ou introduzir **./bin/Debug/netcoreapp2.0/publish**. Em seguida, selecione **selecionar pasta como EXE_DIR**.
-4. Na caixa de texto de pop-up na parte superior da janela VS Code, introduza o nome da imagem. Por exemplo: `<your container registry address>/filtermodule:latest`. Se estiver a implementar no registo local, deve ser: `localhost:5000/filtermodule:latest`.
-5. A imagem de emissão para o seu repositório de Docker. Utilize o **Edge: imagem de Docker do módulo de limite de Push de IoT** de comandos e introduza o URL da imagem na caixa de texto de pop-up na parte superior da janela VS Code. Utilize o mesmo URL da imagem que utilizou no passo anterior.
-6. Pode reutilizar o `deployment.json` para voltar a implementar. Na paleta do comando, escreva e selecione **Edge: reiniciar Edge** para obter o módulo de filtro com a versão de depuração.
+3. No Explorador de dispositivos do Azure IoT Hub, clique com botão direito um ID de dispositivo de limite de IoT, em seguida, selecione **criar a implementação para o dispositivo de limite**. Selecione o `deployment.json` em `config` pasta. Em seguida, pode ver que a implementação foi criada com êxito com uma implementação que ID no VS Code integrado terminal.
 
-## <a name="start-debugging-in-vs-code"></a>Iniciar a depuração no VS Code
-1. Ir para a janela de depuração do código de VS. Prima **F5**e selecione **IoT Edge(.NET Core)**.
+> [!NOTE]
+> Pode verificar o estado do contentor no Explorador do Docker de código de VS ou ao executar o `docker images` comando no terminal.
 
-    ![Janela de depuração de captura de ecrã do VS Code](./media/how-to-debug-csharp-module/f5-debug-option.png)
+## <a name="start-debugging-c-module-in-vs-code"></a>Iniciar a depuração c# módulo no VS Code
+1. O VS Code mantém depuração informações de configuração num `launch.json` ficheiros localizados num `.vscode` pasta na sua área de trabalho. Isto `launch.json` ficheiro ter sido gerado ao criar uma nova solução de IoT Edge. E será atualizada sempre que adicionar um novo módulo que suportam a depuração. Navegue para a vista de depuração e selecione o ficheiro de configuração de depuração correspondente.
+    ![Configuração de depuração selecione](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
-2. No `launch.json`, navegue para o **depurar IoT Edge personalizada módulo (.NET Core)** secção. Em **pipeArgs**, preencha o `<container_name>`. Deve ser `filtermodule` neste tutorial.
+2. Navegue para `program.cs`. Adicione um ponto de interrupção neste ficheiro.
 
-    ![Captura de ecrã do VS Code launch.json](./media/how-to-debug-csharp-module/add-container-name.png)
+3. Clique no botão Iniciar depuração ou prima **F5**e selecionar o processo para anexar a.
 
-3. Navegue até à **Program.cs**. Adicionar um ponto de interrupção no `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
-4. Prima **F5** novamente e selecionar o processo para anexar a. Neste tutorial, deve ser o nome do processo `FilterModule.dll`.
-
-    ![Janela de depuração de captura de ecrã do VS Code](./media/how-to-debug-csharp-module/attach-process.png)
-
-5. Na janela de depuração VS Code, pode ver as variáveis no painel esquerdo. 
+4. Na vista de depuração do código de VS, pode ver as variáveis no painel esquerdo. 
 
 > [!NOTE]
 > O exemplo anterior mostra como depurar módulos .NET Core IoT Edge nos contentores. Se baseia na versão de depuração do `Dockerfile.debug`, que inclui VSDBG (o depurador da linha de comandos do .NET Core) da imagem do contentor ao criá-lo. Depois de concluir a depuração os módulos c#, é recomendável utilizar ou personalizar diretamente `Dockerfile` sem VSDBG para módulos de limite de IoT prontos para produção.
@@ -64,4 +58,5 @@ Depois de concluir o tutorial anterior, deve ter os seguintes itens prontos:
 Neste tutorial, criou um módulo de limite de IoT e implementado para depuração. Iniciar a depuração-lo no VS Code. Para mais informações sobre outros cenários quando estiver a desenvolver o limite de IoT do Azure no VS Code, consulte: 
 
 > [!div class="nextstepaction"]
-> [Desenvolver e implementar c# módulo no VS Code](how-to-vscode-develop-csharp-module.md)
+> [Desenvolver uma solução de IoT Edge com vários módulos no Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
+

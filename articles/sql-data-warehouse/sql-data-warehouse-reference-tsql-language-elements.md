@@ -1,11 +1,11 @@
 ---
-title: "Elementos de linguagem de Transact-SQL do armazém de dados SQL | Microsoft Docs"
-description: "Lista de ligações para conteúdo de referência para os elementos de linguagem de Transact-SQL utilizada para o SQL Data Warehouse."
+title: Elementos de linguagem de Transact-SQL do armazém de dados SQL | Microsoft Docs
+description: Lista de ligações para conteúdo de referência para os elementos de linguagem de Transact-SQL utilizada para o SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ea0b9a3e-e489-458e-addc-cc153e5cc158
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,63 +15,63 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: 7a20cd8f3c2f304d12a49755dbe6e04f9b1d36df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd9dc070c817a7276369a9be7126b0d48dc9e4eb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="language-elements"></a>Elementos de linguagem
 ## <a name="core-elements"></a>Elementos de Core
-* [convenções de sintaxe](https://msdn.microsoft.com/library/ms177563.aspx)
+* [Convenções de sintaxe](https://msdn.microsoft.com/library/ms177563.aspx)
 * [regras de nomenclatura de objeto](https://msdn.microsoft.com/library/ms175874.aspx)
 * [palavras-chave reservadas](https://msdn.microsoft.com/library/ms189822.aspx)
 * [conhecer os agrupamentos](https://msdn.microsoft.com/library/ff848763.aspx)
-* [comentários](https://msdn.microsoft.com/library/ms181627.aspx)
-* [constantes](https://msdn.microsoft.com/library/ms179899.aspx)
-* [tipos de dados](https://msdn.microsoft.com/library/ms187752.aspx)
-* [EXECUTAR](https://msdn.microsoft.com/library/ms188332.aspx)
-* [expressões](https://msdn.microsoft.com/library/ms190286.aspx)
+* [comments](https://msdn.microsoft.com/library/ms181627.aspx)
+* [constants](https://msdn.microsoft.com/library/ms179899.aspx)
+* [Tipos de dados](https://msdn.microsoft.com/library/ms187752.aspx)
+* [EXECUTE](https://msdn.microsoft.com/library/ms188332.aspx)
+* [expressions](https://msdn.microsoft.com/library/ms190286.aspx)
 * [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
 * [Solução de propriedade de identidade](https://msdn.microsoft.com/library/ms186775.aspx)
-* [IMPRESSÃO](https://msdn.microsoft.com/library/ms176047.aspx)
+* [PRINT](https://msdn.microsoft.com/library/ms176047.aspx)
 * [UTILIZE](https://msdn.microsoft.com/library/ms188366.aspx)
 
 ## <a name="batches-control-of-flow-and-variables"></a>Lotes, controlo de fluxo e variáveis
-* [INICIAR... FIM](https://msdn.microsoft.com/library/ms190487.aspx)
-* [QUEBRAR](https://msdn.microsoft.com/library/ms181271.aspx)
-* [DECLARAR@local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
-* [SE... PESSOA](https://msdn.microsoft.com/library/ms182717.aspx)
+* [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
+* [BREAK](https://msdn.microsoft.com/library/ms181271.aspx)
+* [DECLARAR @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
+* [IF...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 * [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 * [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
-* [ACIONE](https://msdn.microsoft.com/library/ee677615.aspx)
-* [TENTE... CATCH](https://msdn.microsoft.com/library/ms175976.aspx)
-* [TEMPO](https://msdn.microsoft.com/library/ms178642.aspx)
+* [THROW](https://msdn.microsoft.com/library/ee677615.aspx)
+* [TRY...CATCH](https://msdn.microsoft.com/library/ms175976.aspx)
+* [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>Operadores
-* [+ (Adicionar)](https://msdn.microsoft.com/library/ms178565.aspx)
+* [+ (Add)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (Concatenação de cadeia)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [-(Negativo)](https://msdn.microsoft.com/library/ms189480.aspx)
 * [-(Subtrair)](https://msdn.microsoft.com/library/ms189518.aspx)
 * [* (Multiplicar)](https://msdn.microsoft.com/library/ms176019.aspx)
 * [/ (Divisão)](https://msdn.microsoft.com/library/ms175009.aspx)
-* [Módulo](https://msdn.microsoft.com/library/ms190279.aspx)
+* [Modulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## <a name="wildcard-characters-to-match"></a>Carateres universais para corresponder
-* [= (Igual a)](https://msdn.microsoft.com/library/ms175118.aspx)
+* [= (Equals)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (Superior)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (Inferior a)](https://msdn.microsoft.com/library/ms179873.aspx)
 * [> = (ótimo que ou igual a)](https://msdn.microsoft.com/library/ms181567.aspx)
 * [< = (menor ou igual a)](https://msdn.microsoft.com/library/ms174978.aspx)
 * [<> (Não é igual a)](https://msdn.microsoft.com/library/ms176020.aspx)
 * [! = (Não é igual a)](https://msdn.microsoft.com/library/ms190296.aspx)
-* [E](https://msdn.microsoft.com/library/ms188372.aspx)
-* [ENTRE](https://msdn.microsoft.com/library/ms187922.aspx)
-* [EXISTE](https://msdn.microsoft.com/library/ms188336.aspx)
-* [EM](https://msdn.microsoft.com/library/ms177682.aspx)
+* [AND](https://msdn.microsoft.com/library/ms188372.aspx)
+* [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
+* [EXISTS](https://msdn.microsoft.com/library/ms188336.aspx)
+* [IN](https://msdn.microsoft.com/library/ms177682.aspx)
 * [[NOT] É NULO](https://msdn.microsoft.com/library/ms188795.aspx)
-* [COMO](https://msdn.microsoft.com/library/ms179859.aspx)
-* [NÃO](https://msdn.microsoft.com/library/ms189455.aspx)
+* [LIKE](https://msdn.microsoft.com/library/ms179859.aspx)
+* [NOT](https://msdn.microsoft.com/library/ms189455.aspx)
 * [OU](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Operadores bit a bit
@@ -97,13 +97,13 @@ ms.lasthandoff: 10/11/2017
 * [ATAN](https://msdn.microsoft.com/library/ms181746.aspx)
 * [ATN2](https://msdn.microsoft.com/library/ms173854.aspx)
 * [BINARY_CHECKSUM](https://msdn.microsoft.com/library/ms173784.aspx)
-* [CASO](https://msdn.microsoft.com/library/ms181765.aspx)
+* [CASE](https://msdn.microsoft.com/library/ms181765.aspx)
 * [CONVERTA e converter](https://msdn.microsoft.com/library/ms187928.aspx)
-* [LIMITE](https://msdn.microsoft.com/library/ms189818.aspx)
+* [CEILING](https://msdn.microsoft.com/library/ms189818.aspx)
 * [CHAR](https://msdn.microsoft.com/library/ms187323.aspx)
 * [CHARINDEX](https://msdn.microsoft.com/library/ms186323.aspx)
-* [SOMA DE VERIFICAÇÃO](https://msdn.microsoft.com/library/ms189788.aspx)
-* [UNIR](https://msdn.microsoft.com/library/ms190349.aspx)
+* [CHECKSUM](https://msdn.microsoft.com/library/ms189788.aspx)
+* [COALESCE](https://msdn.microsoft.com/library/ms190349.aspx)
 * [COL_NAME](https://msdn.microsoft.com/library/ms174974.aspx)
 * [COLLATIONPROPERTY](https://msdn.microsoft.com/library/ms190305.aspx)
 * [CONCAT](https://msdn.microsoft.com/library/hh231515.aspx)
@@ -138,7 +138,7 @@ ms.lasthandoff: 10/11/2017
 * [ERROR_STATE](https://msdn.microsoft.com/library/ms180031.aspx)
 * [EXP](https://msdn.microsoft.com/library/ms179857.aspx)
 * [FIRST_VALUE](https://msdn.microsoft.com/library/hh213018.aspx)
-* [PISO](https://msdn.microsoft.com/library/ms178531.aspx)
+* [FLOOR](https://msdn.microsoft.com/library/ms178531.aspx)
 * [GETDATE](https://msdn.microsoft.com/library/ms188383.aspx)
 * [GETUTCDATE](https://msdn.microsoft.com/library/ms178635.aspx)
 * [HAS_DBACCESS](https://msdn.microsoft.com/library/ms187718.aspx)
@@ -147,18 +147,18 @@ ms.lasthandoff: 10/11/2017
 * [ISDATE](https://msdn.microsoft.com/library/ms187347.aspx)
 * [ISNULL](https://msdn.microsoft.com/library/ms184325.aspx)
 * [ISNUMERIC](https://msdn.microsoft.com/library/ms186272.aspx)
-* [ATRASO](https://msdn.microsoft.com/library/hh231256.aspx)
+* [LAG](https://msdn.microsoft.com/library/hh231256.aspx)
 * [LAST_VALUE](https://msdn.microsoft.com/library/hh231517.aspx)
-* [LEVAR](https://msdn.microsoft.com/library/hh213125.aspx)
-* [À ESQUERDA](https://msdn.microsoft.com/library/ms177601.aspx)
+* [LEAD](https://msdn.microsoft.com/library/hh213125.aspx)
+* [LEFT](https://msdn.microsoft.com/library/ms177601.aspx)
 * [LEN](https://msdn.microsoft.com/library/ms190329.aspx)
-* [REGISTO](https://msdn.microsoft.com/library/ms190319.aspx)
+* [LOG](https://msdn.microsoft.com/library/ms190319.aspx)
 * [LOG10](https://msdn.microsoft.com/library/ms175121.aspx)
 * [INFERIOR](https://msdn.microsoft.com/library/ms174400.aspx)
 * [LTRIM](https://msdn.microsoft.com/library/ms177827.aspx)
-* [MÁX.](https://msdn.microsoft.com/library/ms187751.aspx)
-* [MÍN.](https://msdn.microsoft.com/library/ms179916.aspx)
-* [MÊS](https://msdn.microsoft.com/library/ms187813.aspx)
+* [MAX](https://msdn.microsoft.com/library/ms187751.aspx)
+* [MIN](https://msdn.microsoft.com/library/ms179916.aspx)
+* [MONTH](https://msdn.microsoft.com/library/ms187813.aspx)
 * [NCHAR](https://msdn.microsoft.com/library/ms182673.aspx)
 * [NTILE](https://msdn.microsoft.com/library/ms175126.aspx)
 * [NULLIF](https://msdn.microsoft.com/library/ms177562.aspx)
@@ -173,16 +173,16 @@ ms.lasthandoff: 10/11/2017
 * [PERCENTILE_CONT](https://msdn.microsoft.com/library/hh231473.aspx)
 * [PERCENTILE_DISC](https://msdn.microsoft.com/library/hh231327.aspx)
 * [PERCENT_RANK](https://msdn.microsoft.com/library/hh213573.aspx)
-* [INSTALADOR DE PLATAFORMA](https://msdn.microsoft.com/library/ms189512.aspx)
+* [PI](https://msdn.microsoft.com/library/ms189512.aspx)
 * [ENERGIA](https://msdn.microsoft.com/library/ms174276.aspx)
 * [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
 * [RADIANOS](https://msdn.microsoft.com/library/ms189742.aspx)
 * [RAND](https://msdn.microsoft.com/library/ms177610.aspx)
 * [CLASSIFICAÇÃO](https://msdn.microsoft.com/library/ms176102.aspx)
-* [SUBSTITUIR](https://msdn.microsoft.com/library/ms186862.aspx)
+* [REPLACE](https://msdn.microsoft.com/library/ms186862.aspx)
 * [REPLICAR](https://msdn.microsoft.com/library/ms174383.aspx)
-* [INVERSA](https://msdn.microsoft.com/library/ms180040.aspx)
-* [À DIREITA](https://msdn.microsoft.com/library/ms177532.aspx)
+* [REVERSE](https://msdn.microsoft.com/library/ms180040.aspx)
+* [RIGHT](https://msdn.microsoft.com/library/ms177532.aspx)
 * [ARREDONDAR](https://msdn.microsoft.com/library/ms175003.aspx)
 * [ROW_NUMBER](https://msdn.microsoft.com/library/ms186734.aspx)
 * [RTRIM](https://msdn.microsoft.com/library/ms178660.aspx)
@@ -191,18 +191,18 @@ ms.lasthandoff: 10/11/2017
 * [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
 * [SESSION_USER](https://msdn.microsoft.com/library/ms177587.aspx)
 * [INÍCIO DE SESSÃO](https://msdn.microsoft.com/library/ms188420.aspx)
-* [ÚNICO](https://msdn.microsoft.com/library/ms188377.aspx)
+* [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 * [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
 * [SOUNDEX](https://msdn.microsoft.com/library/ms187384.aspx)
-* [ESPAÇO](https://msdn.microsoft.com/library/ms187950.aspx)
+* [SPACE](https://msdn.microsoft.com/library/ms187950.aspx)
 * [SQL_VARIANT_PROPERTY](https://msdn.microsoft.com/library/ms178550.aspx)
 * [SQRT](https://msdn.microsoft.com/library/ms176108.aspx)
-* [PARÊNTESES](https://msdn.microsoft.com/library/ms173569.aspx)
+* [SQUARE](https://msdn.microsoft.com/library/ms173569.aspx)
 * [STATS_DATE](https://msdn.microsoft.com/library/ms190330.aspx)
 * [STDEV](https://msdn.microsoft.com/library/ms190474.aspx)
 * [STDEVP](https://msdn.microsoft.com/library/ms176080.aspx)
 * [STR](https://msdn.microsoft.com/library/ms189527.aspx)
-* [COISAS](https://msdn.microsoft.com/library/ms188043.aspx)
+* [STUFF](https://msdn.microsoft.com/library/ms188043.aspx)
 * [SUBCADEIA](https://msdn.microsoft.com/library/ms187748.aspx)
 * [SOMA](https://msdn.microsoft.com/library/ms187810.aspx)
 * [SUSER_SNAME](https://msdn.microsoft.com/library/ms174427.aspx)
@@ -228,14 +228,14 @@ ms.lasthandoff: 10/11/2017
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
 ## <a name="transactions"></a>Transações
-* [transações](https://msdn.microsoft.com/library/mt204031.aspx)
+* [transactions](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>Sessões de diagnóstico
 * [CRIAR A SESSÃO DE DIAGNÓSTICO](https://msdn.microsoft.com/library/mt204029.aspx)
 
 ## <a name="procedures"></a>Procedimentos
 * [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
-* [colunas_sp do](https://msdn.microsoft.com/library/ms176077.aspx)
+* [sp_columns](https://msdn.microsoft.com/library/ms176077.aspx)
 * [sp_configure](https://msdn.microsoft.com/library/ms188787.aspx)
 * [sp_datatype_info_90](https://msdn.microsoft.com/library/mt204014.aspx)
 * [sp_droprolemember](https://msdn.microsoft.com/library/ms188369.aspx)
@@ -257,33 +257,27 @@ ms.lasthandoff: 10/11/2017
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
 ## <a name="set-statements"></a>CONJUNTO de instruções
-* [CONJUNTO ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
-* [CONJUNTO ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
-* [CONJUNTO ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
-* [QUE CONJUNTO](https://msdn.microsoft.com/library/ms188048.aspx)
-* [CONJUNTO ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
-* [CONJUNTO ANSI_WARNINGS](https://msdn.microsoft.com/library/ms190368.aspx)
+* [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
+* [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
+* [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
+* [SET ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
+* [SET ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
+* [SET ANSI_WARNINGS](https://msdn.microsoft.com/library/ms190368.aspx)
 * [CONJUNTO ARITHABORT](https://msdn.microsoft.com/library/ms190306.aspx)
 * [CONJUNTO ARITHIGNORE](https://msdn.microsoft.com/library/ms184341.aspx)
-* [CONJUNTO CONCAT_NULL_YIELDS_NULL](https://msdn.microsoft.com/library/ms176056.aspx)
+* [SET CONCAT_NULL_YIELDS_NULL](https://msdn.microsoft.com/library/ms176056.aspx)
 * [SET DATEFIRST](https://msdn.microsoft.com/library/ms181598.aspx)
 * [SET DATEFORMAT](https://msdn.microsoft.com/library/ms189491.aspx)
 * [CONJUNTO FMTONLY](https://msdn.microsoft.com/library/ms173839.aspx)
-* [CONJUNTO IMPLICIT_TRANSACITONS](https://msdn.microsoft.com/library/ms187807.aspx)
-* [CONJUNTO LOCK_TIMEOUT](https://msdn.microsoft.com/library/ms189470.aspx)
-* [CONJUNTO NUMBERIC_ROUNDABORT](https://msdn.microsoft.com/library/ms188791.aspx)
-* [CONJUNTO QUOTED_IDENTIFIER](https://msdn.microsoft.com/library/ms174393.aspx)
+* [SET IMPLICIT_TRANSACITONS](https://msdn.microsoft.com/library/ms187807.aspx)
+* [SET LOCK_TIMEOUT](https://msdn.microsoft.com/library/ms189470.aspx)
+* [SET NUMBERIC_ROUNDABORT](https://msdn.microsoft.com/library/ms188791.aspx)
+* [SET QUOTED_IDENTIFIER](https://msdn.microsoft.com/library/ms174393.aspx)
 * [CONTAGEM DE LINHAS DO CONJUNTO](https://msdn.microsoft.com/library/ms188774.aspx)
 * [TEXTSIZE DE CONJUNTO](https://msdn.microsoft.com/library/ms186238.aspx)
 * [NÍVEL DE ISOLAMENTO DE TRANSAÇÃO DE CONJUNTO](https://msdn.microsoft.com/library/ms173763.aspx)
-* [CONJUNTO XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
+* [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações de referência, consulte [descrição geral de referência do SQL Data Warehouse][SQL Data Warehouse reference overview].
+## <a name="next-steps"></a>Passos Seguintes
+Para mais de TSQL de referência, consulte [instruções T-SQL do armazém de dados SQL](sql-data-warehouse-reference-tsql-statements.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-
-<!--MSDN references-->

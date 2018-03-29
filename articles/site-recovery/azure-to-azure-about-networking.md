@@ -1,18 +1,18 @@
 ---
-title: "Sobre o funcionamento em rede no recuperação de desastre do Azure para o Azure utilizando o Azure Site Recovery | Microsoft Docs"
-description: "Fornece uma descrição geral do funcionamento em rede para a replicação de VMs do Azure utilizando o Azure Site Recovery."
+title: Sobre o funcionamento em rede no recuperação de desastre do Azure para o Azure utilizando o Azure Site Recovery | Microsoft Docs
+description: Fornece uma descrição geral do funcionamento em rede para a replicação de VMs do Azure utilizando o Azure Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 5ce85761df4e0ad62c22a829f67464a3145fd827
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Sobre o funcionamento em rede no Azure para o Azure replicação
 
@@ -41,7 +41,7 @@ Normalmente, redes estão protegidas através de firewalls e os grupos de segura
 > Utilizar um proxy autenticado, a conectividade de rede do controlo não é suportada pela recuperação de Site e não é possível ativar a replicação.
 
 
-## <a name="outbound-connectivity-for-urls"></a>Conectividade de saída para os URLs
+## <a name="outbound-connectivity-for-urls"></a>Conectividade de saída para URLs
 
 Se estiver a utilizar um proxy de firewall baseada no URL para controlar a conectividade de saída, permitir que estes URLs de recuperação do Site:
 
@@ -154,9 +154,10 @@ Siga estas diretrizes para ligações entre a localização de destino e a local
 ### <a name="expressroute-configuration"></a>Configuração do ExpressRoute
 Siga estas práticas recomendadas para a configuração do ExpressRoute:
 
-- Terá de criar um circuito ExpressRoute em regiões de origem e de destino. Em seguida, terá de criar uma ligação entre:
-  - A rede virtual de origem e o circuito ExpressRoute.
-  - A rede virtual de destino e o circuito ExpressRoute.
+- Crie um circuito ExpressRoute em regiões de origem e de destino. Em seguida, terá de criar uma ligação entre:
+    - A rede virtual de origem e a rede no local, através de circuito do ExpressRoute na região de origem.
+    - A rede virtual de destino e a rede no local, através de circuito do ExpressRoute na região de destino.
+
 
 - Como parte do ExpressRoute standard, pode criar circuitos na mesma região geopolítica. Para criar circuito do ExpressRoute em diferentes regiões geopolíticas, Azure ExpressRoute Premium é necessário, que envolve um custo incremental. (Se já estiver a utilizar o ExpressRoute Premium, existe um custo extra.) Para obter mais detalhes, consulte o [documento de localizações do ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e [ExpressRoute preços](https://azure.microsoft.com/pricing/details/expressroute/).
 

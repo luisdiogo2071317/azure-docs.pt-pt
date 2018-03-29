@@ -1,12 +1,12 @@
 ---
-title: "Não é possível estabelecer ligação com RDP para uma VM do Windows no Azure | Microsoft Docs"
-description: "Resolver problemas quando não é possível ligar à máquina virtual Windows no Azure utilizando o ambiente de trabalho remoto"
-keywords: "Erro de ambiente de trabalho remoto, erro de ligação de ambiente de trabalho remoto, não é possível ligar à VM, resolução de ambiente de trabalho remoto"
+title: Não é possível estabelecer ligação com RDP para uma VM do Windows no Azure | Microsoft Docs
+description: Resolver problemas quando não é possível ligar à máquina virtual Windows no Azure utilizando o ambiente de trabalho remoto
+keywords: Erro de ambiente de trabalho remoto, erro de ligação de ambiente de trabalho remoto, não é possível ligar à VM, resolução de ambiente de trabalho remoto
 services: virtual-machines-windows
-documentationcenter: 
-author: genlin
+documentationcenter: ''
+author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
-ms.author: genli
-ms.openlocfilehash: 4731a34d143d402372aaff7c03f95dbf0bb508a4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 03/23/2018
+ms.author: danis
+ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Resolver problemas de ligações de ambiente de trabalho remoto para uma máquina virtual do Azure
 A ligação de protocolo RDP (Remote Desktop Protocol) ao seu baseados em Windows máquina virtual do Azure (VM) pode falhar por diversos motivos, deixando não é possível aceder à VM. O problema pode ser com o serviço de ambiente de trabalho remoto em VM, a ligação de rede ou o cliente de ambiente de trabalho remoto no computador anfitrião. Este artigo orienta-o através de alguns dos métodos mais comuns para resolver problemas de ligação de RDP. 
@@ -77,7 +77,7 @@ Depois de cada passo de resolução de problemas, tente ligar novamente à VM. S
     Selecione a VM no portal do Azure. Desloque para baixo do painel de definições para o **suporte + resolução de problemas** secção perto da parte inferior da lista. Clique em de **estado de funcionamento do recurso** botão. Uma bom estado de funcionamento VM relatórios como sendo **disponível**:
    
     ![Verifique o estado de funcionamento de recursos VM no portal do Azure](./media/troubleshoot-rdp-connection/check-resource-health.png)
-6. **Repor as credenciais de utilizador**. Este passo de resolução de problemas repõe a palavra-passe numa conta de administrador local quando não souber ou se tenha esquecido as credenciais.
+6. **Repor as credenciais de utilizador**. Este passo de resolução de problemas repõe a palavra-passe numa conta de administrador local quando não souber ou se tenha esquecido as credenciais.  Depois de ter a sessão iniciada para a VM, deve repor a palavra-passe para esse utilizador.
    
     Selecione a VM no portal do Azure. Desloque para baixo do painel de definições para o **suporte + resolução de problemas** secção perto da parte inferior da lista. Clique em de **Repor palavra-passe** botão. Certifique-se de que o **modo** está definido como **Repor palavra-passe** e, em seguida, introduza o nome de utilizador e uma palavra-passe nova. Por fim, clique em de **atualização** botão:
    
@@ -207,7 +207,7 @@ Depois de cada passo de resolução de problemas, tente restabelecer a ligação
     Selecione a VM no portal do Azure. Desloque para baixo do painel de definições para o **suporte + resolução de problemas** secção perto da parte inferior da lista. Clique em de **estado de funcionamento do recurso** botão. Uma bom estado de funcionamento VM relatórios como sendo **disponível**:
    
     ![Verifique o estado de funcionamento de recursos VM no portal do Azure](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
-5. **Repor as credenciais de utilizador**. Este passo de resolução de problemas repõe a palavra-passe da conta de administrador local que especificou quando não souber ou se tenha esquecido as credenciais.
+5. **Repor as credenciais de utilizador**. Este passo de resolução de problemas repõe a palavra-passe da conta de administrador local que especificou quando não souber ou se tenha esquecido as credenciais.  Depois de ter a sessão iniciada para a VM, deve repor a palavra-passe para esse utilizador.
    
     Selecione a VM no portal do Azure. Desloque para baixo do painel de definições para o **suporte + resolução de problemas** secção perto da parte inferior da lista. Clique em de **Repor palavra-passe** botão. Introduza o nome de utilizador e uma palavra-passe nova. Por fim, clique em de **guardar** botão:
    

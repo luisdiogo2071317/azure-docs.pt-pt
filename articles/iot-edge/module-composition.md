@@ -1,19 +1,19 @@
 ---
-title: "Composição do módulo de limite de IoT do Azure | Microsoft Docs"
-description: "Saiba o que fica em módulos de limite de IoT do Azure e como pode ser reutilizadas"
+title: Composição do módulo de limite de IoT do Azure | Microsoft Docs
+description: Saiba o que fica em módulos de limite de IoT do Azure e como pode ser reutilizadas
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b59a715919e38e68c3b7518932617e9950940e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7df566ced755e1e817b3107dac8f17e9f6e9b8e4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Compreender como módulos de IoT limite podem ser utilizados, configurado e reutilizada - pré-visualização
 
@@ -134,32 +134,21 @@ A origem Especifica onde provenientes as mensagens. Pode ser qualquer um dos seg
 ### <a name="condition"></a>Condição
 A condição é opcional numa declaração rota. Se pretender passar todas as mensagens do sink de para a origem, basta deixar o **onde** cláusula completamente. Ou pode utilizar o [idioma de consulta do IoT Hub] [ lnk-iothub-query] para filtrar para determinados tipos de mensagem que satisfaçam a condição ou mensagens.
 
-Mensagens de IoT do Azure estejam formatadas como JSON e têm sempre, pelo menos, uma **corpo** parâmetro. Por exemplo:
+As mensagens que transmita entre os módulos no limite de IoT são formatadas o mesmo que as mensagens que transmita entre os seus dispositivos e IoT Hub do Azure. Todas as mensagens são formatadas como JSON e ter **systemProperties**, **appProperties**, e **corpo** parâmetros. 
 
-```json
-"message": {
-    "body":{
-        "ambient":{
-            "temperature": 54.3421,
-            "humidity": 25
-        },
-        "machine":{
-            "status": "running",
-            "temperature": 62.2214
-        }
-    },
-    "appProperties":{
-        ...
-    }
-}
+Pode criar consultas em torno de todos os três parâmetros com a seguinte sintaxe: 
+
+* Propriedades do sistema: `$<propertyName>` ou `{$<propertyName>}`
+* Propriedades da aplicação: `<propertyName>`
+* Propriedades de corpo: `$body.<propertyName>` 
+
+Para obter exemplos sobre como criar consultas para as propriedades da mensagem, consulte [rotas expressões de consulta de mensagem de dispositivo para nuvem](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
+
+Um exemplo que é específico para limite de IoT é quando pretender filtrar mensagens em fila que chegaram a um dispositivo de gateway a partir de um dispositivo de folha. Mensagens provenientes de módulos contém uma propriedade de sistema chamada **connectionModuleId**. Por isso, se pretender encaminhar mensagens a partir de dispositivos de folha diretamente ao IoT Hub, utilize a rota seguinte para excluir mensagens do módulo:
+
+```sql
+FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
-
-Tendo em conta esta mensagem de exemplo, existem várias condições que podem ser definidas, tais como:
-* `WHERE $body.machine.status != "running"`
-* `WHERE $body.ambient.temperature <= 60 AND $body.machine.temperature >= 60`
-
-A condição também pode ser utilizada para ordenar os tipos de mensagem, por exemplo, num gateway que pretenda encaminhar mensagens provenientes dispositivos de folha. Mensagens provenientes de módulos contém uma propriedade específica chamada **connectionModuleId**. Por isso, se pretender encaminhar mensagens a partir de dispositivos de folha diretamente ao IoT Hub, utilize a rota seguinte para excluir mensagens do módulo:
-* `FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream`
 
 ### <a name="sink"></a>Sink
 O sink define onde as mensagens são enviadas. Pode ser qualquer um dos seguintes valores:

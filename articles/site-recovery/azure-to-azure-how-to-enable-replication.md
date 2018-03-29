@@ -1,6 +1,6 @@
 ---
-title: "Configurar a replicação para as VMs do Azure no Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como configurar a replicação para as VMs do Azure, de uma região do Azure para outro utilizando a recuperação de sites."
+title: Configurar a replicação para as VMs do Azure no Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como configurar a replicação para as VMs do Azure, de uma região do Azure para outro utilizando a recuperação de sites.
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 39d81ed6408e5f2c434a4fbaa681efc4c0b19a63
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e5947242295a9c57b1c73e202c061d222cd0842f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais do Azure para outra região do Azure
 
@@ -50,7 +50,8 @@ Ative a replicação. Este procedimento assume que a região do Azure primária 
     - **Localização de destino**: A localização onde os dados de máquina virtual de origem serão replicados. Consoante a sua localização máquinas selecionadas, a recuperação de sites fornece a lista de regiões de destino adequado. Recomendamos que mantenha a localização de destino a mesma como a localização do Cofre de serviços de recuperação.
     - **Grupo de recursos de destino**: O grupo de recursos para que todos os seus máquinas virtuais replicadas pertence. Por predefinição o Azure Site Recovery cria um novo grupo de recursos na região de destino com um nome que o sufixo "asr". No caso de grupo de recursos criado pelo Azure Site Recovery já existe, é reutilizado. Também pode optar por personalizá-la conforme mostrado na secção abaixo.
     - **Rede Virtual de destino**: por predefinição, a recuperação de sites cria uma nova rede virtual na região de destino com um nome que o sufixo "asr". Esta é mapeada para a sua rede de origem e utilizada para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre mapeamento da rede.
-    - **As contas de armazenamento de destino**: por predefinição, a recuperação de sites cria uma nova conta de armazenamento de destino mimicking a configuração de armazenamento VM de origem. No caso de conta de armazenamento já existe, é reutilizado.
+    - **As contas de armazenamento de destino (se a origem de VM não utiliza discos geridos pelo)**: por predefinição, a recuperação de sites cria uma nova conta de armazenamento de destino mimicking a configuração de armazenamento VM de origem. No caso de conta de armazenamento já existe, é reutilizado.
+    - **Réplica discos geridos pelo (se a sua VM de origem utilizar discos geridos)**: recuperação de sites cria a nova réplica gerida discos na região de destino para espelhar discos geridos da VM de origem com o mesmo tipo de armazenamento (Standard ou premium) como a VM de origem disco de gerido.
     - **As contas de armazenamento em cache**: recuperação de sites necessita de conta de armazenamento adicional chamou o armazenamento de cache na região de origem. Todas as alterações a acontecer nas VMs de origem são controladas e enviadas para a conta de armazenamento de cache antes de replicar os para a localização de destino.
     - **Conjunto de disponibilidade**: por predefinição, o Azure Site Recovery cria uma novo conjunto de disponibilidade na região de destino com um nome que o sufixo "asr". No caso de conjunto de disponibilidade criado pelo Azure Site Recovery já existe, é reutilizado.
     - **Política de replicação**: define as definições de recuperação ponto retenção histórico e aplicação consistente frequência de instantâneos. Por predefinição, o Azure Site Recovery cria uma nova política de replicação com as predefinições dos ' 24 horas para retenção do ponto de recuperação e ' 60 minutos para a frequência de instantâneos consistentes da aplicação.

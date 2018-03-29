@@ -1,8 +1,8 @@
 ---
-title: "Criar as funcionalidades para dados de um cluster de Hadoop através de consultas do Hive | Microsoft Docs"
+title: Criar as funcionalidades para dados de um cluster de Hadoop através de consultas do Hive | Microsoft Docs
 description: Exemplos de consultas do Hive que geram funcionalidades em dados armazenados no cluster Azure HDInsight Hadoop.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: hangzh;bradsev
-ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: bradsev
+ms.openlocfilehash: f49eeee2dd26d54674b4619e6c986952718caa47
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar as funcionalidades de dados num cluster de Hadoop através de consultas do Hive
 Este documento mostra como criar funcionalidades para os dados armazenados num cluster do Azure HDInsight Hadoop através de consultas do Hive. Estas consultas do Hive utilizam incorporados Hive User-Defined funções (UDFs), os scripts que são fornecidos.
@@ -93,14 +93,14 @@ Ramo de registo é fornecido com um conjunto de UDFs para processar os campos da
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Esta consulta do Hive parte do princípio de que o  *<datetime field>*  está no formato datetime predefinido.
+Esta consulta do Hive parte do princípio de que o *<datetime field>* está no formato datetime predefinido.
 
 Se um campo datetime não se encontra no formato predefinição, tem de converter o campo de datetime primeiro carimbo de hora do Unix e, em seguida, converter o carimbo de hora de Unix para uma cadeia de datetime está no formato predefinição. Quando a datetime no predefinido é formato, os utilizadores podem aplicar a datetime incorporada UDFs para extrair as funcionalidades.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Esta consulta, se o  *<datetime field>*  tem o padrão como *26/03/2015 04:12:39*, a  *<pattern of the datetime field>'* deve ser `'MM/dd/yyyy HH:mm:ss'`. Para testar, os utilizadores podem executar
+Esta consulta, se o *<datetime field>* tem o padrão como *26/03/2015 04:12:39*, a  *<pattern of the datetime field>'* deve ser `'MM/dd/yyyy HH:mm:ss'`. Para testar, os utilizadores podem executar
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

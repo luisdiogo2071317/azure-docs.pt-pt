@@ -1,23 +1,23 @@
 ---
-title: "Definição de esquema (ficheiro. csdef) para serviços em nuvem do Azure | Microsoft Docs"
-ms.custom: 
+title: Definição de esquema (ficheiro. csdef) para serviços em nuvem do Azure | Microsoft Docs
+ms.custom: ''
 ms.date: 04/14/2015
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: b7735dbf-8e91-4d1b-89f7-2f17e9302469
-caps.latest.revision: "42"
+caps.latest.revision: ''
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: b833fdc06e4193c1b478028733c336feb6d8b9ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d49112df207e3b8e781480e25855ebb259bbab8e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Esquema de definição de serviços em nuvem do Azure (ficheiro. csdef)
 O ficheiro de definição de serviço define o modelo de serviço para uma aplicação. O ficheiro contém as definições para as funções que estão disponíveis para um serviço em nuvem, especifica os pontos finais de serviço e estabelece definições de configuração para o serviço. Os valores de definição de configuração estão definidos no ficheiro de configuração do serviço, conforme descrito pelo [esquema de configuração do serviço em nuvem (clássica)](http://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35).
@@ -61,7 +61,7 @@ Os tópicos seguintes descrevem o esquema:
 - [Esquema de WorkerRole](schema-csdef-workerrole.md)
 - [Esquema de NetworkTrafficRules](schema-csdef-networktrafficrules.md)
 
-##  <a name="ServiceDefinition"></a>ServiceDefinition elemento
+##  <a name="ServiceDefinition"></a> ServiceDefinition elemento
 O `ServiceDefinition` elemento é o elemento de nível superior do ficheiro de definição de serviço.
 
 A tabela seguinte descreve os atributos do `ServiceDefinition` elemento.
@@ -69,6 +69,6 @@ A tabela seguinte descreve os atributos do `ServiceDefinition` elemento.
 | Atributo               | Descrição |
 | ----------------------- | ----------- |
 | nome                    |Necessário. O nome do serviço. O nome tem de ser exclusivo dentro da conta de serviço.|
-| topologyChangeDiscovery | Opcional. Especifica o tipo de notificação de alteração de topologia. Os valores possíveis são:<br /><br /> -   `Blast`-Envia a atualização logo que possível para todas as instâncias de função. Se escolher a opção, a função deve ser capaz de lidar com a atualização de topologia sem ser reiniciado.<br />-   `UpgradeDomainWalk`– Envia a atualização para cada instância de função de forma sequencial depois da instância anterior foi aceite com êxito a atualização.|
+| topologyChangeDiscovery | Opcional. Especifica o tipo de notificação de alteração de topologia. Os valores possíveis são:<br /><br /> -   `Blast` -Envia a atualização logo que possível para todas as instâncias de função. Se escolher a opção, a função deve ser capaz de lidar com a atualização de topologia sem ser reiniciado.<br />-   `UpgradeDomainWalk` – Envia a atualização para cada instância de função de forma sequencial depois da instância anterior foi aceite com êxito a atualização.|
 | schemaVersion           | Opcional. Especifica a versão do esquema de definição de serviço. A versão do esquema permite lado a lado de Visual Studio selecionar as ferramentas SDK corretas a utilizar para a validação de esquema se mais do que uma versão do SDK está instalada.|
-| upgradeDomainCount      | Opcional. Especifica o número de domínios de atualização em que são atribuídas a funções neste serviço. Instâncias de função são atribuídas a um domínio de atualização, quando o serviço é implementado. Para obter mais informações, consulte [atualizar de uma função de serviço de nuvem ou implementação](cloud-services-how-to-manage-portal.md#how-to-update-a-cloud-service-role-or-deployment).<br /><br /> Pode especificar até 20 domínios de atualização. Se não for especificado, o número predefinido de domínios de atualização é 5.|
+| upgradeDomainCount      | Opcional. Especifica o número de domínios de atualização em que são atribuídas a funções neste serviço. Instâncias de função são atribuídas a um domínio de atualização, quando o serviço é implementado. Para obter mais informações, consulte [atualizar de uma função de serviço de nuvem ou implementação](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment).<br /><br /> Pode especificar até 20 domínios de atualização. Se não for especificado, o número predefinido de domínios de atualização é 5.|

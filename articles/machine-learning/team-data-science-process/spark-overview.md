@@ -1,8 +1,8 @@
 ---
-title: "Descrição geral de ciência de dados com o Spark no Azure HDInsight | Microsoft Docs"
-description: "O toolkit de Spark MLlib coloca considerável de aprendizagem modelação capacidades para o ambiente distribuído do HDInsight."
+title: Descrição geral de ciência de dados com o Spark no Azure HDInsight | Microsoft Docs
+description: O toolkit de Spark MLlib coloca considerável de aprendizagem modelação capacidades para o ambiente distribuído do HDInsight.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: e1c4a507214b9686154fc8311121b56f42f5cd40
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: bradsev
+ms.openlocfilehash: a12e2f1af945c8186067b791c4e96a52eb23f52f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Descrição geral de ciência de dados com o Spark no Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -28,7 +28,7 @@ Este conjunto de tópicos mostra como utilizar o Spark do HDInsight para realiza
 ## <a name="spark-and-mllib"></a>O Spark e o MLlib
 [O Spark](http://spark.apache.org/) está a processar de uma arquitetura de processamento paralelo open source que suporta dentro da memória para melhorar o desempenho de aplicações de análise de macrodados. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e efetuar análises sofisticadas. Capacidades de computação distribuída na memória do Spark tornam uma boa opção para algoritmos iterativos utilizado no computações de machine learning e do graph. [MLlib](http://spark.apache.org/mllib/) é dimensionável de machine learning biblioteca do Spark que coloca o usam modelação capacidades para este ambiente distribuído. 
 
-## <a name="hdinsight-spark"></a>Spark do HDInsight
+## <a name="hdinsight-spark"></a>HDInsight Spark
 [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) é a oferta alojada do Azure do Spark open source. Também inclui suporte para **blocos de notas do Jupyter PySpark** no cluster Spark que pode executar consultas interativas do Spark SQL para transformar, filtragem e visualizar dados armazenados em Blobs do Azure (WASB). PySpark é a API do Python para Spark. Os fragmentos de código que fornecem as soluções e mostram rastreia relevante para visualizar os dados aqui executados em blocos de notas do Jupyter instalados nos clusters do Spark. Os passos de modelação nos seguintes tópicos contenham código que mostra como preparar, avaliar, guardar e consumir cada tipo de modelo. 
 
 ## <a name="setup-spark-clusters-and-jupyter-notebooks"></a>Configuração: Os clusters do Spark e blocos de notas do Jupyter
@@ -53,7 +53,7 @@ Estes blocos de notas estão a ser executados do kernel pySpark3 do servidor de 
 > [!NOTE]
 > O conjunto de dados companhia aérea foi adicionado a blocos de notas do Spark 2.0 para ilustrar melhor a utilização de algoritmos de classificação. Consulte as seguintes ligações para informações sobre companhia aérea em tempo de conjunto de dados de partida e meteorologia conjunto de dados:
 
->- Dados de partida de tempo companhia aérea: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
+>- Companhia aérea distanciamento no tempo de dados: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
 
 >- Dados de Meteorologia AIRport: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 

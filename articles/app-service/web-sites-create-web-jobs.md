@@ -1,8 +1,8 @@
 ---
 title: Executar tarefas em segundo plano com WebJobs no App Service do Azure
-description: "Saiba como utilizar WebJobs para executar tarefas em segundo plano nas web apps do App Service do Azure, as API apps ou as aplicações móveis."
+description: Saiba como utilizar WebJobs para executar tarefas em segundo plano nas web apps do App Service do Azure, as API apps ou as aplicações móveis.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: tdykstra
 manager: erikre
 editor: jimbe
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 3652e0171e0c6a53c16fb5b5fde20df9ed2ab7c7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f41cc83bfb18146e46e7d8501318acd68ce9c421
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com WebJobs no App Service do Azure
 
@@ -170,15 +170,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="cron-expressions"></a>Expressões de CRON
 
-A [expressão CRON](https://en.wikipedia.org/wiki/Cron) é composto de seis campos: `{second} {minute} {hour} {day} {month} {day of the week}`.  Eis alguns exemplos:
-
-* Cada 15 minutos: `0 */15 * * * *`
-* A cada hora (ou seja, sempre que o número de minutos é de 0): `0 0 * * * *` 
-* Hora a hora de 09: 00 para as 17: 00: `0 0 9-17 * * *` 
-* Às 9:30 AM todos os dias: `0 30 9 * * *`
-* Às 9:30 AM cada dia da semana: `0 30 9 * * 1-5`
-
-Pode introduzir a expressão de CRON no portal ou incluem um `settings.job` ficheiro na raiz da sua WebJob *. zip* ficheiro, como no exemplo seguinte:
+Pode introduzir um [expressão CRON](../azure-functions/functions-bindings-timer.md#cron-expressions) no portal ou incluem um `settings.job` ficheiro na raiz da sua WebJob *. zip* ficheiro, como no exemplo seguinte:
 
 ```json
 {

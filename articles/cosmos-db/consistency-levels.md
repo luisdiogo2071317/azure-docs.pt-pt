@@ -13,19 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/27/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa95cae5d62ebe23d6822232c4a5ab872e1f2c6a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência sincronizáveis dados na base de dados do Azure Cosmos
 BD do Azure do Cosmos foi concebido partir do zero cópias de segurança com distribuição global em mente para cada modelo de dados. Foi concebido para oferecer vários modelos de simples de consistência bem definidos e de garantias de latência baixa previsível. Atualmente, a base de dados do Azure Cosmos fornece cinco níveis de consistência: forte, consistência vinculada, sessão, prefixo consistente e eventual. Consistência vinculada, sessão, prefixo consistente e eventual são designados "modelos de consistência simples" que fornecem o menor consistência que segura, que é o modelo a maioria das consistente altamente disponível. 
 
 Besides o **forte** e **consistência eventual** modelos oferecidas normalmente pelas bases de dados distribuídas, BD do Cosmos Azure oferece três modelos de consistência cuidadosamente codified e operacionalizado mais:  **tem um vínculo vinculada**, **sessão**, e **prefixo consistente**. A utilidade dos cada um destes níveis de consistência foi validada contra casos de utilização do mundo real. Coletivamente estes níveis de cinco consistência permitem-lhe efetuar compromissos bem reasoned entre consistência, disponibilidade e a latência. 
+
+No vídeo seguinte, o Azure Gestor de programa do Cosmos DB Andrew Liu demonstra as funcionalidades de chave na mão distribuição global.
+
+>[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## <a name="distributed-databases-and-consistency"></a>Bases de dados distribuídas e consistência
 Bases de dados distribuídas comerciais enquadram-se em duas categorias: bases de dados que oferece opções de consistência provable bem definidos e as bases de dados que oferecem duas opções de programação para Alpine (fortes vs. a consistência eventual). 

@@ -1,26 +1,26 @@
 ---
 title: Conceitos de dispositivo no aprovisionamento de dispositivos do Azure | Microsoft Docs
-description: "Descreve conceitos específicos a dispositivos com o IoT Hub e o serviço de aprovisionamento de dispositivos de aprovisionamento de dispositivos"
+description: Descreve conceitos específicos a dispositivos com o IoT Hub e o serviço de aprovisionamento de dispositivos de aprovisionamento de dispositivos
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 09/05/2017
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5297bc57729d9e983d63244c71eb21995cf73f0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5482801461e2afea33d65d559723116f37a35d1f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceitos de dispositivo do serviço de aprovisionamento de dispositivos IoT Hub
 
-Aprovisionamento de serviço do dispositivos do Hub IoT é um serviço de programa auxiliar do IoT Hub que utiliza para configurar o dispositivo de zero touch aprovisionamento para um hub IoT especificado. Com o serviço de aprovisionamento de dispositivos pode aprovisionar milhões de dispositivos de forma segura e escalável.
+Aprovisionamento de serviço do dispositivos do Hub IoT é um serviço de programa auxiliar do IoT Hub que utiliza para configurar o dispositivo de zero touch aprovisionamento para um hub IoT especificado. Com o Serviço de Aprovisionamento de Dispositivos, pode aprovisionar milhões de dispositivos de forma segura e dimensionável.
 
 Este artigo fornece uma descrição geral sobre o *dispositivo* conceitos envolvidas no aprovisionamento de dispositivos. Este artigo é mais relevante para pessoas fictícias envolvidas no [fabrico passo](about-iot-dps.md#manufacturing-step) de preparar para a implementação de um dispositivo.
 
@@ -33,7 +33,7 @@ O mecanismo de atestado é o método utilizado para confirmar a identidade do di
 
 O serviço de aprovisionamento de dispositivos suporta duas formas de atestado:
 * **Certificados x. 509** com base no fluxo de autenticação de certificado de x. 509 padrão.
-* **Os tokens SAS** com base num desafio de nonce utilizando a norma TPM para chaves. Isto requer um TPM no dispositivo físico, mas o serviço espera atestem utilizando a chave de endossamento pelo [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Trusted Platform Module (TPM)** com base num desafio de nonce, utilizando o padrão TPM para chaves para apresentar um token de assinatura de acesso partilhado (SAS) assinado. Isto requer um TPM no dispositivo físico, mas o serviço espera atestem utilizando a chave de endossamento pelo [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Módulo de hardware de segurança
 

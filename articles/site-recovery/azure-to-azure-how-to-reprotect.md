@@ -1,6 +1,6 @@
 ---
-title: "Reproteção efetuada a ativação pós-falha de VMs do Azure para a região principal do Azure com o Azure Site Recovery | Microsoft Docs"
-description: "Descreve como voltar a proteger as VMs do Azure numa região secundária, após a ativação pós-falha de uma região primária, utilizando o Azure Site Recovery."
+title: Reproteção efetuada a ativação pós-falha de VMs do Azure para a região principal do Azure com o Azure Site Recovery | Microsoft Docs
+description: Descreve como voltar a proteger as VMs do Azure numa região secundária, após a ativação pós-falha de uma região primária, utilizando o Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4171a904626d3b624b39b8a3a261df0d342012df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reproteção efetuada a ativação pós-falha de VMs do Azure para a região primária
 
@@ -57,7 +57,8 @@ Pode personalizar as seguintes propriedades do destino VMe durante só.
 |---------|---------|
 |Grupo de recursos de destino     | Modificar o grupo de recursos de destino em que a VM ser criada. Como parte de uma só, a VM de destino foi eliminado. Pode escolher um novo grupo de recursos no qual pretende criar a VM após a ativação pós-falha.        |
 |Rede virtual de destino     | A rede de destino não pode ser alterada durante a tarefa de reproteção. Para alterar a rede, Refazer o mapeamento da rede.         |
-|Armazenamento de destino     | Pode alterar a conta de armazenamento que utiliza a VM após a ativação pós-falha.         |
+|Armazenamento de destino (VM secundário não utiliza discos geridos)     | Pode alterar a conta de armazenamento que utiliza a VM após a ativação pós-falha.         |
+|Réplica geridas discos (secundária VM utiliza discos geridos)    | Recuperação de sites cria discos de réplica gerido na região primária para espelhar discos geridos a VM secundário.         | 
 |Armazenamento de cache     | Pode especificar uma conta de armazenamento de cache a utilizar durante a replicação. Por predefinição, é possível criar uma nova conta de armazenamento de cache, se não existir.         |
 |Conjunto de Disponibilidade     |Se a VM com a região secundária faz parte de um conjunto de disponibilidade, pode escolher um conjunto de disponibilidade para a VM de destino na região primária. Por predefinição, a recuperação de Site tenta localizar o conjunto na região primária de disponibilidade existente e utilizá-lo. Durante a personalização, pode especificar um novo conjunto de disponibilidade.         |
 
@@ -68,7 +69,8 @@ Por predefinição ocorre o seguinte:
 
 1. É criada uma conta de armazenamento de cache na região primária
 2. Se a conta de armazenamento de destino (a original conta do storage na região primária) não existe, é criado um novo. O nome da conta de armazenamento atribuído é o nome da conta de armazenamento utilizado pela VM secundária, o sufixo com "asr".
-3. Se o conjunto de disponibilidade de destino não existe, uma nova é criada como parte da tarefa de reproteção, se necessário. Se tiver personalizado as definições de, em seguida, o conjunto selecionado é utilizado.
+3. Se a VM utiliza discos geridos, as réplica geridas discos são criados na região primária para armazenar os dados replicados a partir de discos da VM secundário. 
+4. Se o conjunto de disponibilidade de destino não existe, uma nova é criada como parte da tarefa de reproteção, se necessário. Se tiver personalizado as definições de, em seguida, o conjunto selecionado é utilizado.
 
 Quando acionar uma tarefa de reproteção e o destino da que VM existe, ocorre o seguinte:
 

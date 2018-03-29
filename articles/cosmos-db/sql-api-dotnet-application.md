@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de ASP.NET MVC para Azure Cosmos DB: Programação de Aplicações Web | Microsoft Docs"
-description: "Tutorial de ASP.NET MVC para criar uma aplicação Web de MVC com o Azure Cosmos DB. Irá armazenar dados de acesso e JSON a partir de uma aplicação de tarefas alojada no em Web Sites do Azure – tutorial ASP NET MVC passo a passo."
+title: 'Tutorial de ASP.NET MVC para Azure Cosmos DB: Programação de Aplicações Web | Microsoft Docs'
+description: Tutorial de ASP.NET MVC para criar uma aplicação Web de MVC com o Azure Cosmos DB. Irá armazenar dados de acesso e JSON a partir de uma aplicação de tarefas alojada no em Web Sites do Azure – tutorial ASP NET MVC passo a passo.
 keywords: asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step
 services: cosmos-db
 documentationcenter: .net
@@ -16,22 +16,20 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
 ms.custom: devcenter
-ms.openlocfilehash: a403af0f31823f89cdc79d6769dff61aeaefc4ad
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e4f9360bfde5f3212f0bbf184c52f59b2dd43d0b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="_Toc395809351"></a>Tutorial do MVC ASP.NET: desenvolvimento de aplicação Web com o Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Java](sql-api-java-application.md)
-> * [python](sql-api-python-application.md)
+> * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Para realçar como pode de forma eficiente tirar partido do Azure Cosmos DB para armazenar e consultar documentos JSON, este artigo serve de orientação ponto a ponto e mostra-lhe como criar uma aplicação de tarefas através do Azure Cosmos DB. As tarefas serão armazenadas como documentos JSON no Azure Cosmos DB.
 
@@ -377,7 +375,7 @@ Agora, se executar a aplicação, esta liga-se ao seu **ItemController** que ir�
 
 Se criar e executar agora este projeto, deverá ver algo semelhante a isto.    
 
-![Captura de ecrã da aplicação Web de lista de tarefas criada por este tutorial de base de dados](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
+![Captura de ecrã da aplicação Web ToDo List criada por este tutorial de base de dados](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
 
 ### <a name="_Toc395637771"></a>Adicionar Itens
 Vamos colocar alguns itens na nossa base de dados para que tenhamos algo mais do que uma grelha.
@@ -504,7 +502,7 @@ Para testar a aplicação no seu computador local, faça o seguinte:
 
 1. Prima F5 no Visual Studio para criar a aplicação no modo de depuração. Este deve compilar a aplicação e iniciar um browser com a página de grelha vazia que vimos anteriormente:
    
-    ![Captura de ecrã da aplicação Web de lista de tarefas criada por este tutorial de base de dados](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+    ![Captura de ecrã da aplicação Web ToDo List criada por este tutorial de base de dados](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
    
      
 2. Clique na ligação **Criar Novo** e adicione valores aos campos **Nome** e **Descrição**. Deixe a caixa de verificação **Concluído** desmarcada, caso contrário, o novo **Item** será adicionado a um estado concluído e não aparece na lista inicial.

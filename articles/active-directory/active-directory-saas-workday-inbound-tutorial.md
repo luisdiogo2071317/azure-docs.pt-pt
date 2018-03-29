@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas com o Azure Active Directory | Microsoft Docs"
+title: 'Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas com o Azure Active Directory | Microsoft Docs'
 description: Saiba como utilizar Workday como origem de dados de identidade do Active Directory e o Azure Active Directory.
 services: active-directory
 author: asmalser-msft
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas
 
@@ -397,9 +397,9 @@ Depois de instalar o agente, execute os comandos do Powershell abaixo para confi
 
 **Comando #1**
 
-> CD c:\\ficheiros de programa\\agente de sincronização do Active Directory do Microsoft Azure\\módulos\\AADSyncAgent
+> CD "C:\Program Files\Microsoft Azure AD Connect aprovisionamento Agent\Modules\AADSyncAgent" agente\\módulos\\AADSyncAgent
 
-> import-module AADSyncAgent.psd1
+> Import-Module "C:\Program Files\Microsoft Azure AD Connect aprovisionamento Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **Comando #2**
 
@@ -416,6 +416,9 @@ Depois de instalar o agente, execute os comandos do Powershell abaixo para confi
 
 >[!IMPORTANT]
 >Não há atualmente um problema conhecido com credenciais de administrador global não está a funcionar se utilizarem um domínio personalizado (exemplo: admin@contoso.com). Como solução, criar e utilizar uma conta de administrador global com um domínio onmicrosoft.com (exemplo: admin@contoso.onmicrosoft.com)
+
+>[!IMPORTANT]
+>Atualmente, não há um problema conhecido com credenciais de administrador global não está a funcionar se tiverem o multi-factor authentication ativada. Como solução, desative a autenticação multifator para o administrador global.
 
 
 **Comando #4**

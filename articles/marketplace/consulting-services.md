@@ -1,6 +1,6 @@
 ---
-title: Ofertas de consultadoria do Azure Marketplace
-description: Critérios de elegibilidade e requisitos de publicação para o novo tipo de oferta no Azure Marketplace
+title: Azure Marketplace consultadoria serviços
+description: Este artigo descreve os requisitos de publicação para novas ofertas de serviço consultadoria no Azure Marketplace e critérios de elegibilidade.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: ellacroi
@@ -14,22 +14,22 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: e063721f2fa2ac87b2f9dd7385b2d114a1b76cb3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8d414a7a2ad46fbe63cc6eb8e6a6a41bb76aa432
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-marketplace-consulting-services"></a>Serviços de consultoria do Azure Marketplace
-Com o objetivo da ligação de clientes com os serviços para suportar e expandir a sua utilização do Microsoft Azure, Azure Marketplace suporta a listagem das consultadoria ofertas de serviços de parceiros de integrador de sistema (TAMA) da Microsoft. 
+# <a name="azure-marketplace-consulting-services"></a>Azure Marketplace consultadoria serviços
+Com o objetivo da ligação de clientes com os serviços para suportar e expandir a sua utilização do Azure, Azure Marketplace suporta a listagem das ofertas de serviço consultadoria de parceiros de integrador de sistema (TAMA) da Microsoft. 
 
-Estes consultadoria ofertas são específicas do cliente ações de envolvimento, fixas no âmbito e na duração, os serviços podem ser corrigidas preços ou livre e tem um resultado definido. Potenciais clientes, podem facilmente pedir para ser contactado pelo parceiros de forma livre de friction. Parceiros de recebem uma notificação no seu sistema CRM e procure para responder aos utilizadores 48hrs.
+Estas ofertas de serviços consultadoria são específicas do cliente ações de envolvimento. Que está a ser corrigidos no âmbito e na duração, pode ser preço fixo ou livre e ter um resultado definido. Potenciais clientes, podem facilmente pedir para ser contactado pelo parceiros. Parceiros de recebem uma notificação no seu sistema CRM e têm como objetivo responder a pedidos de dentro de 48 horas.
 
-Serviço oferece com base no Microsoft Dynamics 365, o Microsoft Office 365 e o Microsoft Power BI são elegíveis para ser listadas no AppSource. Reveja detalhada [diretrizes para estes serviços aqui](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+Ofertas de serviço que se baseiam em Microsoft Dynamics 365, o Office 365 e o Power BI são elegíveis para ser listadas no AppSource. Para obter mais informações, consulte [Microsoft AppSource consultadoria serviços diretrizes de listagem](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
 ## <a name="eligible-services-and-partners"></a>Serviços elegíveis e parceiros
 
-Parceiros também são necessários para ter uma competência prata ou gold na área de relevante para o seu serviço. Consulte abaixo para competências elegíveis:
+Parceiros também são necessários para ter uma competência prata ou gold na área de relevante para o seu serviço. As competências elegíveis estão listadas na seguinte tabela:
 
 |Competência  |Área de solução  |
 |---------|---------|
@@ -37,22 +37,21 @@ Parceiros também são necessários para ter uma competência prata ou gold na �
 |Desenvolvimento de aplicações e ISV     |  DevOps de desenvolvimento, integração de aplicações, de aplicação       |
 |Gestão de dados e análise    |  Análise de dados, plataforma de dados       |
 
-Ofertas tem de ser de um dos seguintes tipos de cinco serviço. Tenha em atenção que pode listar mais do que uma oferta: 
+As ofertas têm de ser de um dos seguintes cinco tipos serviço (pode listar mais do que um): 
 
-1. **Avaliação:** uma edição de avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa do custo e temporização das atualizações. 
-2. Briefing: Uma introdução para uma solução ou um serviço de consultoria para desenhar o interesse de cliente utilizando as estruturas, demonstrações e exemplos de cliente. 
-3. **Implementação:** uma instalação completa, que resulta numa solução de trabalho completamente. Recomendamos limitar as soluções que pode ser implementado em 2 semanas ou menos. 
-4. **Prova de conceito:**uma implementação de âmbito limitado para determinar se uma solução irá cumprir os requisitos de um cliente. 
-5. **Workshop:** um compromisso interativo realizados em locais de um cliente que podem incluir formação, briefings, avaliações ou demonstrações incorporadas no ambiente ou dados do cliente. 
+* **Avaliação**: uma edição de avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa do custo e temporização das atualizações. 
+* **Briefing**: uma introdução para uma solução ou um serviço de consultoria para desenhar o interesse de cliente utilizando as estruturas, demonstrações e exemplos de cliente. 
+* **Implementação**: uma instalação completa, que resulta numa solução de trabalho completamente. Recomendamos limitá-lo para soluções que podem ser implementadas no prazo de duas semanas ou menos. 
+* **Prova de conceito**: uma implementação de âmbito limitado para determinar se uma solução cumpre os requisitos do cliente. 
+* **Workshop**: um compromisso interativo que é efetuado no local do cliente. -Pode envolver formação, briefings, avaliações ou demonstrações que são criadas no ambiente ou dados do cliente. 
 
-Exceto Briefings, consultadoria serviços pode ser oferecido na pessoa (ou seja, no local na localização de um cliente ou instalações de um parceiro) ou virtualmente (ou seja, através de teleconferencing conferências protegidas da web, implementação remota, etc.). Briefings tem de ser oferecidos pessoalmente.
+Exceto para o *Briefing* o tipo de serviço, consultadoria serviços pode ser oferecido na pessoa (ou seja, no local na localização de um cliente ou instalações de um parceiro) ou virtualmente (ou seja, através de teleconferencing, web conferências protegidas ou remoto implementação). Briefings tem de ser oferecidos pessoalmente.
 
-Leia mais sobre [competências através do Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies#simple-tab-content-1). 
+Para obter mais informações, consulte [competências através do Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
 
-## <a name="countries-supported"></a>Países suportados
+## <a name="supported-countries"></a>Países/regiões suportadas
 
-Parceiros de SI podem submeter ofertas de serviços de consultoria para 18 países seguintes. 
-
+Parceiros de SI podem submeter consultadoria-ofertas de serviço para os seguintes 18 países/regiões. 
 
 |Países elegíveis |  |  |
 |---------|---------|---------|
@@ -63,16 +62,15 @@ Parceiros de SI podem submeter ofertas de serviços de consultoria para 18 país
 |Finlândia     |México         |Reino Unido         |
 |França     |Países Baixos         |Estados Unidos         |
 
-A iniciação para serviços de consultoria do Azure Marketplace entrarão em direto pela primeira vez para a Austrália, Canadá, o Reino Unido e dos Estados Unidos. Depois de um número significativo e convincentes seleção das ofertas de serviços tenham sido submetidos por parceiros e aprovadas pela Microsoft que catálogos para outros países serão enviadas em direto.
+A iniciação do Azure Marketplace consultadoria serviços que serão enviadas em direto primeiro da Austrália, Canadá, o Reino Unido e dos Estados Unidos. Catálogos para outros países que serão enviadas em direto após um número significativo e apelativa seleção das ofertas de serviço foram submetidos por parceiros e aprovadas pela Microsoft.
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparar os seus artefactos de publicação
 Mesmo antes de para indicar o serviço, pode começar a recolher e preparar o conteúdo que o irão ajudar a listagem articule o valor do serviço e da solução para o seu cliente de destino. 
 
-
 |Configurar para publicadores novo  |
 |---------|
 |ID do MPN     |
-|Logótipos da empresa (48 x 48, 216 x 216)     |
+|Da empresa logótipos (48 &#215; 48, 216 &#215; 216)     |
 |Levar destino     |
 
 
@@ -83,17 +81,17 @@ Mesmo antes de para indicar o serviço, pode começar a recolher e preparar o co
 |Disponibilidade do país/região     |
 |Duração do engagement     |
 |Indústrias aplicáveis, categorias e as palavras a procurar     |
-|Vídeo de descrição geral do produto    |
-|Capturas de ecrã (5 máximo, 1280 x 720)     |
-|Documentos Marketing (máximo 3)     |
+|Descrição geral do produto vídeo    |
+|Capturas de ecrã (máximo de 5, 1280 &#215; 720)     |
+|Documentos de marketing (o máximo de 3)     |
 
 
 ## <a name="publishing-process"></a>Processo de publicação
-Listar a oferta de serviço consultoria no Azure Marketplace envolve o seguinte:
+Listar a oferta de serviço consultadoria no Azure Marketplace envolve as seguintes fases:
 
-1. **Pedido:** enviar no pedido [aqui](https://azuremarketplace.microsoft.com/en-us/sell/nominate) e diga-nos informações sobre a sua organização. 
-2. **Validação:**o pedido será analisado para validar que cumprem os critérios de elegibilidade. Iremos será, em seguida, enviar-lhe instruções para listar os serviços de consultoria da oferta. 
-3. **Submeter:** fornecem as informações necessárias nas instruções. Todos os conteúdos e material de suporte tem de ser submetido em inglês. 
-4. **Reveja:** nossa equipa de marketing e editorial irá rever a sua submissão e efetuar alterações para otimizar a legibilidade, gramática e eficácia. 
-5. **Transição:** submissão será, em seguida, testado para revisão por si. 
-6. **Publicação:** assim que o utilizador e a Microsoft forem satisfeitas com o conteúdo pré-configurado, a listagem está pronta para começar em direto no Azure Marketplace. A data em direto vá para a listagem dependerá o país/região especificado na sua oferta. Se o catálogo para o seu país/região selecionada já está em direto no Azure Marketplace, será apresentada a listagem dentro de algumas horas. Caso contrário, a listagem aparecerá assim que o catálogo para o seu país/região selecionada entra em direto.
+1. **Pedido**: para enviar o pedido, utilize o [Azure Marketplace Nomination formulário](https://azuremarketplace.microsoft.com/en-us/sell/nominate) e diga-nos informações sobre a sua organização. 
+2. **Validação**: O pedido é revisto para garantir que cumprem os critérios de elegibilidade. Em seguida, enviar-lhe instruções para listar os serviços de consultoria da oferta. 
+3. **Submeter**: forneça as informações necessárias que estão listadas nas instruções. Todos os conteúdos e material de suporte tem de ser submetidos em inglês. 
+4. **Reveja**: nossa equipa de marketing e editorial revê submissão e otimiza-as para legibilidade, gramática e eficácia. 
+5. **Teste**: submissão preparado para a revisão. 
+6. **Publicar**: quando o utilizador e a Microsoft forem satisfeitas com o conteúdo pré-configurado, a listagem está pronta para começar em direto no Azure Marketplace. A data em direto vá para a lista depende o país/região especificado na sua oferta. Se o catálogo para o seu país/região selecionada já está em direto no Azure Marketplace, será apresentada a listagem dentro de algumas horas. Caso contrário, a listagem aparecerá assim que o catálogo entra em direto.

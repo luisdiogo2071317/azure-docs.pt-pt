@@ -1,8 +1,8 @@
 ---
-title: "Ver registos de diagnóstico para o Azure Data Lake Store | Microsoft Docs"
-description: "Compreender como o programa de configuração e aceder a registos de diagnóstico para o Azure Data Lake Store "
+title: Ver registos de diagnóstico para o Azure Data Lake Store | Microsoft Docs
+description: 'Compreender como o programa de configuração e aceder a registos de diagnóstico para o Azure Data Lake Store '
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: b58a4b215b13d2e57a69a94a60e3e37471c926c8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Aceder a registos de diagnóstico para o Azure Data Lake Store
 Saiba mais ativar o diagnóstico de registo para a sua conta do Data Lake Store e ver os registos recolhidos para a sua conta.
@@ -31,7 +31,7 @@ As organizações podem ativar o registo de diagnóstico para a conta do Azure D
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Ativar o registo de diagnóstico para a sua conta do Data Lake Store
 1. Inicie sessão no novo [portal do Azure](https://portal.azure.com).
-2. Abra a sua conta do Data Lake Store e, no painel de conta do Data Lake Store, clique em **definições**e, em seguida, clique em **registos de diagnóstico**.
+2. Abra a sua conta do Data Lake Store e, no painel de conta do Data Lake Store, clique em **registos de diagnóstico**.
 3. No **registos de diagnóstico** painel, clique em **ative os diagnósticos**.
 
     ![Ativar o registo de diagnóstico](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "ativar registos de diagnóstico")
@@ -150,6 +150,7 @@ Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob 
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
+             "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
              "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
@@ -167,6 +168,7 @@ Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob 
 | categoria |Cadeia |A categoria de registo. Por exemplo, **auditoria**. |
 | operationName |Cadeia |Nome da operação que tem sessão iniciada. Por exemplo, getfilestatus. |
 | resultType |Cadeia |O estado da operação, por exemplo, 200. |
+| resultSignature |Cadeia |Detalhes adicionais sobre a operação. |
 | correlationId |Cadeia |O ID do registo que podem ser utilizado para agrupar um conjunto de entradas de registo relacionados |
 | identidade |Objeto |A identidade que gerou o registo |
 | propriedades |JSON |Consulte abaixo para obter detalhes |
@@ -186,7 +188,7 @@ search *
 ```
 
 
-O Azure Data Lake Store fornece um exemplo sobre como processar e analisar os dados de registo. Pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+O Azure Data Lake Store fornece um exemplo sobre como processar e analisar os dados de registo. Pode encontrar o exemplo em [ https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample ](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Consulte também
 * [Descrição geral do Azure Data Lake Store](data-lake-store-overview.md)

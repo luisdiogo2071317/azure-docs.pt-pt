@@ -1,23 +1,23 @@
 ---
-title: "Equipa de funções do processo de ciência de dados e tarefas - Azure | Microsoft Docs"
-description: "Uma descrição dos componentes chave, funções de pessoal e tarefas associadas para um projeto de equipa de ciência de dados."
-documentationcenter: 
+title: Equipa de funções do processo de ciência de dados e tarefas - Azure | Microsoft Docs
+description: Uma descrição dos componentes chave, funções de pessoal e tarefas associadas para um projeto de equipa de ciência de dados.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: b502a586cdb7351d5b22c6b0db966723b8ebb7b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: bradsev
+ms.openlocfilehash: b92bb8e633aa859324f2ff46f5d76a5934007ccf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Funções do processo de ciência de dados de equipa e tarefas
 
@@ -82,7 +82,7 @@ As seguintes tarefas são concluídas liderar a equipa (ou um administrador de p
 - Se VSTS está selecionado para ser a plataforma de alojamento de código para o controlo de versões e de colaboração, crie um **projeto de equipa** no servidor VSTS do grupo. Caso contrário, esta tarefa pode ser ignorada.
 - Criar o **repositório de modelo de projeto de equipa** sob o projeto de equipa e seed-lo no repositório de modelo de projeto de Grupo configurar o Gestor de grupo ou o delegado do gestor. 
 - Criar o **repositório do utilitário de equipa**e adicione os utilitários de equipa específicos para o repositório. 
-- (Opcional) Criar  **[file storage do Azure](https://azure.microsoft.com/services/storage/files/)**  a ser utilizado para armazenar os recursos de dados que podem ser úteis para a equipa de toda. Outros membros da equipa podem montar este arquivo de ficheiros de nuvem partilhada nos respetivos ambientes de trabalho de análise.
+- (Opcional) Criar **[file storage do Azure](https://azure.microsoft.com/services/storage/files/)** a ser utilizado para armazenar os recursos de dados que podem ser úteis para a equipa de toda. Outros membros da equipa podem montar este arquivo de ficheiros de nuvem partilhada nos respetivos ambientes de trabalho de análise.
 - (Opcional) Monte o file storage do Azure para o **máquinas de virtuais de ciência de dados** (DSVM) da equipa de levar e adicionar os recursos de dados no mesmo.
 - Configurar o **controlo de segurança** ao adicionar os membros da equipa e configurar os seus privilégios. 
 
@@ -130,7 +130,7 @@ O fluxo de trabalho inclui passos que podem ser agrupados em três atividades:
 
 Para obter instruções passo a passo detalhadas sobre o fluxo de trabalho de execução de projeto, consulte [execução de projetos de ciência de dados](project-execution.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Seguem-se ligações para as descrições das funções e tarefas definidas pelo processo de ciência de dados de equipa mais detalhadas:
 

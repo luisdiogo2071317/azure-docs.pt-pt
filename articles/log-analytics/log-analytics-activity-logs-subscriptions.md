@@ -1,11 +1,11 @@
 ---
-title: "Recolher Registos de Atividades do Azure no Log Analytics entre subscrições | Microsoft Docs"
-description: "Utilize os Hubs de Eventos e o Logic Apps para recolher dados a partir do Registo de Atividades do Azure e envie-os para uma área de trabalho do Azure Log Analytics noutro inquilino."
+title: Recolher Registos de Atividades do Azure no Log Analytics entre subscrições | Microsoft Docs
+description: Utilize os Hubs de Eventos e o Logic Apps para recolher dados a partir do Registo de Atividades do Azure e envie-os para uma área de trabalho do Azure Log Analytics noutro inquilino.
 services: log-analytics, logic-apps, event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 89c62563b9772fa07d63a24b4aa20857b0143f85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recolher Registos de Atividades do Azure no Log Analytics entre subscrições
 
@@ -113,7 +113,7 @@ Antes de criar a sua aplicação lógica, confirme que tem as seguintes informa�
 - O ID da área de trabalho do Log Analytics
 - A chave partilhada do Log Analytics
 
-Para obter o nome e a cadeia de ligação do Hub de Eventos, siga os passos em [Check Event Hubs namespace permissions and find the connection string](../connectors/connectors-create-api-azure-event-hubs.md#check-event-hubs-namespace-permissions-and-find-the-connection-string) (Verificar as permissões de espaços de nomes dos Hubs de Eventos e encontrar a cadeia de ligação).
+Para obter o nome e a cadeia de ligação do Hub de Eventos, siga os passos em [Check Event Hubs namespace permissions and find the connection string](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs) (Verificar as permissões de espaços de nomes dos Hubs de Eventos e encontrar a cadeia de ligação).
 
 
 ### <a name="create-a-new-blank-logic-app"></a>Criar uma aplicação lógica em branco nova

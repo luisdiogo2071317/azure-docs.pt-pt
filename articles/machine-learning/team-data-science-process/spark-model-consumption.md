@@ -2,7 +2,7 @@
 title: Operacionalizar modelos de incorporadas do Spark machine learning | Microsoft Docs
 description: Como carregar e Pontuar modelos learning armazenados no armazenamento de BLOBs de Azure (WASB) com o Python.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 9ff633b4543fbc537ffdb721756706e8de5e8e88
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 3a586d40a9d195fe5ec3fa456d450cb3d86f2e9d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalizar modelos de incorporadas do Spark machine learning
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -85,7 +85,7 @@ Eis o código para definir caminhos de diretório:
 
 **SAÍDA:**
 
-DateTime.DateTime (2016, 4, 25, 23, 56, 19, 229403)
+datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 ### <a name="import-libraries"></a>Bibliotecas de importação
 Definir o contexto de spark e importar necessárias bibliotecas com o seguinte código
@@ -115,7 +115,7 @@ Os PySpark kernels que são fornecidos com blocos de notas do Jupyter têm um co
 O kernel do PySpark fornece algumas predefinidas "magia", que são comandos especiais que pode chamar com % %. Existem dois esses comandos que são utilizados nestes exemplos de código.
 
 * **% % local** especificado que o código em linhas subsequentes é executado localmente. Código tem de ser código Python válido.
-* **% % -o SQL Server<variable name>** 
+* **%%sql -o <variable name>** 
 * Executa uma consulta do Hive contra o sqlContext. Se o parâmetro -o é transmitido, o resultado da consulta é continuado no % % contexto de Python local como uma dataframe Pandas.
 
 Para obter mais informações sobre os kernels para blocos de notas do Jupyter e predefinidos "magics" que fornecem, consulte [clusters Kernels disponíveis para blocos de notas do Jupyter com o HDInsight Spark Linux no HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -587,7 +587,7 @@ Se preferir uma experiência de cliente livre de código, utilize o [Azure Logic
 * Para fazer aparecer o **Designer de aplicações lógicas**, introduza o nome da aplicação lógica e plano do App Service.
 * Selecione uma ação de HTTP e introduza os parâmetros mostrados na figura seguinte:
 
-![Designer de aplicações lógicas](./media/spark-model-consumption/spark-logica-app-client.png)
+![Estruturador de Aplicações Lógicas](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>Passos seguintes?
 **Validação cruzada e hyperparameter varrimento**: consulte [avançada de exploração de dados e modelação com o Spark](spark-advanced-data-exploration-modeling.md) na forma como os modelos podem ser preparado varrimento de validação cruzada e hyper parâmetro a utilizar.

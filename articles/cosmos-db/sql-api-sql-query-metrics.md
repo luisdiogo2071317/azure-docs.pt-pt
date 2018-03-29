@@ -1,9 +1,9 @@
 ---
-title: "Métricas de consulta SQL para a API do SQL Server de base de dados do Azure Cosmos | Microsoft Docs"
-description: "Saiba mais sobre como instrumentar e o desempenho de consulta SQL da base de dados do Azure Cosmos pedidos de depuração."
-keywords: "sintaxe de SQL, consulta sql, as consultas sql, idioma de consulta json, conceitos de base de dados e as consultas de sql, as funções de agregação"
+title: Métricas de consulta SQL para a API do SQL Server de base de dados do Azure Cosmos | Microsoft Docs
+description: Saiba mais sobre como instrumentar e o desempenho de consulta SQL da base de dados do Azure Cosmos pedidos de depuração.
+keywords: sintaxe de SQL, consulta sql, as consultas sql, idioma de consulta json, conceitos de base de dados e as consultas de sql, as funções de agregação
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: monicar
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a2a42fd65ba4344f703ca423dc451802f3f0ac76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Otimização de desempenho de consulta com base de dados do Azure Cosmos
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 BD do Cosmos do Azure fornece um [API do SQL Server para consultar os dados](sql-api-sql-query.md), sem necessidade de esquema ou índices secundários. Este artigo fornece as seguintes informações para programadores:
 
@@ -151,7 +149,7 @@ Seguem-se os fatores mais comuns que afetam o desempenho de consulta de base de 
 | Divisão em partições e chaves de partição | Favor consultas com o valor de chave de partição na cláusula de filtro de latência baixa. |
 | Opções de consulta e SDK | Siga as melhores práticas SDK como ligação direta e otimizar as opções de execução de consulta do lado do cliente. |
 | Latência de rede | Rede sobrecarga na medida em conta e utilizar APIs multi homing para ler a partir da região mais próximo. |
-| Política de indexação | Certifique-se de que tem a indexação caminhos/política necessária para a consulta. |
+| Política de Indexação | Certifique-se de que tem a indexação caminhos/política necessária para a consulta. |
 | Métricas de execução da consulta | Analise as métricas de execução de consulta para identificar potenciais reescritas das formas de consulta e os dados.  |
 
 ### <a name="provisioned-throughput"></a>Débito aprovisionado
@@ -177,7 +175,7 @@ Para saber mais sobre a criação de partições e chaves de partição, consult
 Consulte [sugestões de desempenho](performance-tips.md) e [teste de desempenho](performance-testing.md) para saber como obter o melhor desempenho do lado do cliente da base de dados do Azure Cosmos. Isto inclui utilizar os SDKs mais recentes, configurações de plataforma específica, como o número predefinido de ligações, frequência de recolha de lixo, a configurar e utilizar opções de conectividade simples como direta/TCP. 
 
 
-#### <a name="max-item-count"></a>Contagem Máxima de Itens
+#### <a name="max-item-count"></a>Número de itens de máx.
 Para consultas, o valor de `MaxItemCount` pode ter um impacto significativo na hora de consulta de ponto a ponto. Cada ida e volta para o servidor irá devolver não mais do que o número de itens na `MaxItemCount` (predefinição de 100 itens). Definir este como um valor mais alto (a -1 é máximo e recomendada) irá melhorar a sua duração de consulta global ao limitar o número de ida e volta entre o servidor e cliente, especialmente para consultas com conjuntos de resultados grande.
 
 ```cs
@@ -191,7 +189,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ```
 
 #### <a name="max-degree-of-parallelism"></a>Máx. grau de paralelismo
-Para consultas, otimizar o `MaxDegreeOfParallelism` para identificar as configurações melhor para a sua aplicação, especialmente se executar consultas de partição cruzada (sem um filtro com o valor de chave de partição). `MaxDegreeOfParallelism`controla o número máximo de tarefas paralelas, ou seja, o número máximo de partições visitas em paralelo. 
+Para consultas, otimizar o `MaxDegreeOfParallelism` para identificar as configurações melhor para a sua aplicação, especialmente se executar consultas de partição cruzada (sem um filtro com o valor de chave de partição). `MaxDegreeOfParallelism`  controla o número máximo de tarefas paralelas, ou seja, o número máximo de partições visitas em paralelo. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -278,7 +276,7 @@ Seguem-se alguns exemplos de consultas e devolvido como interpretar algumas das 
 | `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | Consulta é executada como uma análise porque utiliza `LOWER`, e 500 fora 2491 documentos obtidos são devolvidos. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre os operadores de consulta SQL e palavras-chave suportados, consulte [consulta SQL](sql-api-sql-query.md). 
 * Para mais informações sobre unidades de pedido, consulte o artigo [unidades de pedido](request-units.md).
 * Para saber mais sobre a política de indexação, consulte [política de indexação](indexing-policies.md) 

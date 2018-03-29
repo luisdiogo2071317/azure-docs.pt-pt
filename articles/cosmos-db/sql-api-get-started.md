@@ -1,7 +1,7 @@
 ---
-title: "Azure Cosmos DB: API do SQL Server tutorial de introdução | Microsoft Docs"
-description: "Um tutorial que cria uma base de dados online e a aplicação de consola do c# utilizando a API do SQL Server."
-keywords: "tutorial nosql, base de dados online, aplicações de consola em c#"
+title: 'Azure Cosmos DB: API do SQL Server tutorial de introdução | Microsoft Docs'
+description: Um tutorial que cria uma base de dados online e a aplicação de consola do c# utilizando a API do SQL Server.
+keywords: tutorial nosql, base de dados online, aplicações de consola em c#
 services: cosmos-db
 documentationcenter: .net
 author: AndrewHoh
@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: anhoh
-ms.openlocfilehash: 28714106a6228b5bdaa1933d6e8ea89105eb4b30
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 870bdce0b909a882b99de92bbe5ad1e51db11a39
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: API do SQL Server tutorial de introdução
 > [!div class="op_single_selector"]
@@ -31,8 +31,6 @@ ms.lasthandoff: 12/18/2017
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Bem-vindo ao API do SQL Server de base de dados do Azure Cosmos tutorial de introdução! Depois de seguir este tutorial, terá de uma aplicação de consola que cria e consulta recursos do Cosmos DB.
 
@@ -542,7 +540,7 @@ Para restaurar as referências a Cosmos DB SDK .NET da Azure no Visual Studio, c
 Já está, basta criar e está pronto!
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Quer um tutorial ASP.NET MVC mais complexo? Consulte [Tutorial de ASP.NET MVC: programação de aplicações com a base de dados do Azure Cosmos Web](sql-api-dotnet-application.md).
 * Pretende testar o dimensionamento e desempenho com o Azure Cosmos DB? Consulte [desempenho e dimensionamento de teste com base de dados do Azure Cosmos](performance-testing.md)
 * Saiba como [monitorizar pedidos, utilização e armazenamento de base de dados do Azure Cosmos](monitor-accounts.md).

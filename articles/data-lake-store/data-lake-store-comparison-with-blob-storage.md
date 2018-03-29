@@ -1,8 +1,8 @@
 ---
-title: "Comparação de Azure Data Lake Store com o Blob de armazenamento do Azure | Microsoft Docs"
-description: "Comparação de Azure Data Lake Store com o Blob de armazenamento do Azure"
+title: Comparação de Azure Data Lake Store com o Blob de armazenamento do Azure | Microsoft Docs
+description: Comparação de Azure Data Lake Store com o Blob de armazenamento do Azure
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a8831278ef0e83571bf05d48e5d671f8dee92850
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: acdd829785c44f6683c356c135587be183cce392
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Comparar o Azure Data Lake Store e o armazenamento de Blobs do Azure
 A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o armazenamento de Blobs do Azure ao longo de alguns aspetos fundamentais grande de processamento de dados. Armazenamento de Blobs do Azure é um objetivo geral, o arquivo de objeto dimensionável, que foi concebido para uma grande variedade de cenários de armazenamento. O Azure Data Lake Store é um repositório de hiper escala que está otimizado para cargas de trabalho de análise de macrodados.
@@ -46,7 +46,4 @@ A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o ar
 | Disponibilidade regional |Consulte [aqui](https://azure.microsoft.com/regions/#services) |Disponível em todas as regiões do Azure |
 | Preço |Consulte [preços](https://azure.microsoft.com/pricing/details/data-lake-store/) |Consulte [preços](https://azure.microsoft.com/pricing/details/storage/) |
 
-### <a name="next-steps"></a>Passos Seguintes
-* [Descrição geral do Azure Data Lake Store](data-lake-store-overview.md)
-* [Introdução ao Data Lake Store](data-lake-store-get-started-portal.md)
 

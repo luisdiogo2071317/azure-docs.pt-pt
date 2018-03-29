@@ -1,25 +1,25 @@
 ---
-title: "Implementar uma aplicação do Azure Service Fabric num cluster a partir do Visual Studio | Microsoft Docs"
-description: "Saiba como implementar uma aplicação num cluster a partir do Visual Studio"
+title: Implementar uma aplicação do Azure Service Fabric num cluster a partir do Visual Studio | Microsoft Docs
+description: Saiba como implementar uma aplicação num cluster a partir do Visual Studio
 services: service-fabric
 documentationcenter: .net
 -author: mikkelhegn
 -manager: msfussell
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/21/2018
-ms.author: mikkelhegn
+ms.date: 02/23/2018
+ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 21c991a4e3f9ae19a4ad4a96427fdc1c91c55a1c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1d8f8d903046f1d471f7abbe08a957b81522e391
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementar uma aplicação num cluster do Service Fabric no Azure
 Este tutorial é a segunda parte de uma série e mostra-lhe como implementar uma aplicação do Azure Service Fabric num cluster novo no Azure diretamente a partir do Visual Studio.
@@ -65,7 +65,6 @@ Este tutorial irá percorrer os passos necessários para criar um cluster a part
 > Muitos serviços utilizam proxy inverso para comunicar entre si. Os clusters criados a partir do Visual Studio e os clusters de terceiros têm proxy inverso ativado por predefinição.  Se utilizar um cluster existente, tem de [ativar o proxy inverso no cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 ### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Implementar a aplicação no cluster do Service Fabric
-
 1. Clique com o botão direito do rato no projeto de aplicação no Explorador de Soluções e escolha **Publish**.
 
 2. Inicie sessão com a sua conta do Azure para poder aceder às suas subscrições. Este passo é opcional se estiver a utilizar um cluster de terceiros.

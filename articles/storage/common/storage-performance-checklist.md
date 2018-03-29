@@ -1,10 +1,10 @@
 ---
-title: "Azure armazenamento desempenho e escalabilidade lista de verificação | Microsoft Docs"
-description: "Uma lista de verificação das práticas comprovadas para utilização com o Storage do Azure no desenvolvimento performant aplicações."
+title: Azure armazenamento desempenho e escalabilidade lista de verificação | Microsoft Docs
+description: Uma lista de verificação das práticas comprovadas para utilização com o Storage do Azure no desenvolvimento performant aplicações.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
-ms.openlocfilehash: 6f5a136d1be7a4bb4093baad820271770305b718
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: 945289a172270eea56625287baf437fd4b70c7f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure
 ## <a name="overview"></a>Descrição geral
@@ -72,10 +72,10 @@ Este artigo organiza as práticas comprovadas para os seguintes grupos. Prática
 | &nbsp; | Tabelas |Dados devolvidos restritiva |[Está a utilizar a filtragem para evitar que devolvam entidades que não são necessários?](#subheading32) |
 | &nbsp; | Tabelas |Dados devolvidos restritiva |[Está a utilizar projeção para evitar que as propriedades que não são necessários?](#subheading33) |
 | &nbsp; | Tabelas |Denormalization |[Ter desnormalizadas os dados que evitar consultas ineficazes ou vários pedidos de leitura ao tentar obter dados?](#subheading34) |
-| &nbsp; | Tabelas |Inserir/atualizar/eliminar |[São a criação de batches de pedidos que precisem de ser transacional ou pode ser feita ao mesmo tempo para reduzir a ida e volta?](#subheading35) |
-| &nbsp; | Tabelas |Inserir/atualizar/eliminar |[São evitando obter uma entidade apenas para determinar se deve chamar insert ou update?](#subheading36) |
-| &nbsp; | Tabelas |Inserir/atualizar/eliminar |[Ter considerados armazenar série de dados que frequentemente serão obtidos em conjunto uma única entidade como propriedades em vez de várias entidades?](#subheading37) |
-| &nbsp; | Tabelas |Inserir/atualizar/eliminar |[Para entidades que sempre serão obtidas em conjunto e podem ser escritas em lotes (por exemplo, dados de séries de tempo), ter é considerado utilizar blobs em vez de tabelas?](#subheading38) |
+| &nbsp; | Tabelas |Insert/Update/Delete |[São a criação de batches de pedidos que precisem de ser transacional ou pode ser feita ao mesmo tempo para reduzir a ida e volta?](#subheading35) |
+| &nbsp; | Tabelas |Insert/Update/Delete |[São evitando obter uma entidade apenas para determinar se deve chamar insert ou update?](#subheading36) |
+| &nbsp; | Tabelas |Insert/Update/Delete |[Ter considerados armazenar série de dados que frequentemente serão obtidos em conjunto uma única entidade como propriedades em vez de várias entidades?](#subheading37) |
+| &nbsp; | Tabelas |Insert/Update/Delete |[Para entidades que sempre serão obtidas em conjunto e podem ser escritas em lotes (por exemplo, dados de séries de tempo), ter é considerado utilizar blobs em vez de tabelas?](#subheading38) |
 | &nbsp; | Filas |Objetivos de escalabilidade |[Está a aproximar-se os destinos de escalabilidade da mensagens por segundo?](#subheading39) |
 | &nbsp; | Filas |Configuração |[Ter tenha desativado Nagle para melhorar o desempenho de pedidos pequenos?](#subheading40) |
 | &nbsp; | Filas |Tamanho da Mensagem |[São sua compacto de mensagens para melhorar o desempenho da fila?](#subheading41) |
@@ -125,7 +125,7 @@ Pode seguir algumas melhores práticas para reduzir a frequência das operaçõe
 Enquanto a API chama independentemente, muitas vezes, as restrições de rede físico da aplicação tem um impacto significativo no desempenho. Os seguintes descrevem algumas das limitações que os utilizadores podem encontrar.  
 
 #### <a name="client-network-capability"></a>Capacidade de rede do cliente
-##### <a name="subheading2"></a>Débito
+##### <a name="subheading2"></a>Throughput
 Largura de banda, o problema é, muitas vezes, as capacidades do cliente. Por exemplo, enquanto uma única conta de armazenamento pode processar igual ou mais de entrada a 10 Gbps (consulte [metas de escalabilidade da largura de banda](#sub1bandwidth)), a velocidade de rede numa instância de função de trabalho do Azure "Pequeno" só é capaz de aproximadamente 100 Mbps. Maior instâncias do Azure têm NICs com maior capacidade, pelo que deve considerar a utilização de uma instância maior ou mais VM se precisar de limites de rede superiores de um único computador. Se está a aceder ao serviço de armazenamento de uma aplicação no local no, em seguida, a mesma regra aplica-se: compreender as capacidades de rede do dispositivo cliente e a conectividade de rede para a localização de armazenamento do Azure e a melhorar-os conforme necessário ou estruturar o aplicação funcione dentro as respetivas capacidades.  
 
 ##### <a name="subheading3"></a>Qualidade de ligação
@@ -134,7 +134,7 @@ Largura de banda, o problema é, muitas vezes, as capacidades do cliente. Por ex
 ##### <a name="useful-resources"></a>Recursos Úteis
 Para mais informações sobre os tamanhos de máquina virtual e largura de banda alocada, consulte [tamanhos de Windows VM](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [tamanhos de VM com Linux](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-#### <a name="subheading4"></a>Localização
+#### <a name="subheading4"></a>localização
 Em qualquer ambiente distribuído, colocar o cliente próximo do servidor fornece o melhor desempenho. Para aceder ao armazenamento do Azure com a latência mais baixa, a melhor localização para o cliente está na mesma região do Azure. Por exemplo, se tiver um Web Site do Azure que utiliza o armazenamento do Azure, deve localize-los ambos numa única região (por exemplo, EUA Oeste ou Sudeste asiático). Isto reduz a latência e o custo — no momento da escrita, a utilização de largura de banda numa única região é gratuita.  
 
 Se o cliente aplicações não alojadas no Azure (tais como aplicações de dispositivos móveis ou nos serviços de empresa no local), em seguida, novamente colocando a conta de armazenamento numa região próximo os dispositivos que irão aceder aos mesmos, será geralmente reduzir a latência. Se os clientes são distribuídos amplamente (por exemplo, alguns na América do Norte e algumas na Europa), em seguida, deve considerar a utilização de várias contas de armazenamento: uma localizado na região Norte American e um numa região Europa. Isto irá ajudar a reduzir a latência para os utilizadores em ambas as regiões. Esta abordagem é normalmente mais fácil a implementar se os dados a aplicação armazena é específico para utilizadores individuais e não necessita de replicar dados entre contas de armazenamento.  Abrangente para distribuição de conteúdos, recomenda-se uma CDN – consulte a secção seguinte para obter mais detalhes.  
@@ -261,7 +261,7 @@ Para carregar os blobs rápida, é a primeira pergunta para responder: tem a car
 Para carregar um único blob grande rapidamente, a aplicação cliente deverá carregar os respetivos blocos ou páginas em paralelo (que está a ser mindful dos destinos de escalabilidade para os blobs individuais e a conta de armazenamento como um todo).  Tenha em atenção que as bibliotecas oficiais da Microsoft fornecidos pelos clientes de armazenamento RTM (.NET, Java) têm a capacidade para efetuar este procedimento.  Para cada uma das bibliotecas, utilize o abaixo especificada/propriedade do objeto para definir o nível de concorrência:  
 
 * .NET: Conjunto ParallelOperationThreadCount num objeto BlobRequestOptions a ser utilizado.
-* Java/Android: Utilizar BlobRequestOptions.setConcurrentRequestCount()
+* Java/Android: Use BlobRequestOptions.setConcurrentRequestCount()
 * NODE.js: Utilize parallelOperationThreadCount nas opções de pedido ou o serviço blob.
 * C++: Utilize o método de blob_request_options::set_parallelism_factor.
 
@@ -355,7 +355,7 @@ Se a sua aplicação de cliente tiver apenas um conjunto limitado de propriedade
 ##### <a name="subheading34"></a>Denormalization
 Ao contrário de trabalhar com bases de dados relacionais, as práticas comprovadas de forma eficiente consultar os dados de tabela levar para denormalizing os seus dados. Duplicar ou seja, os mesmos dados em várias entidades (um para cada chave pode utilizar para localizar os dados) para minimizar o número de entidades que uma consulta deve analisar para localizar os dados de cliente precisa de, em vez de ter que analisar grandes quantidades de entidades para localizar os dados da aplicação tem de lication.  Por exemplo, num Web site comércio eletrónico, poderá encontrar uma ordem tanto por ID de cliente (Atribuir-me as ordens este cliente) e a data (Atribuir-me ordens numa data).  No Table Storage, é melhor armazenar a entidade (ou uma referência ao mesmo) duas vezes – uma vez com o nome de tabela, PK e RK para facilitar a localizar pelo cliente ID, uma vez para facilitar a encontrá-las na data.  
 
-#### <a name="insertupdatedelete"></a>Inserir/atualizar/eliminar
+#### <a name="insertupdatedelete"></a>Insert/Update/Delete
 Esta secção descreve comprovadas práticas para modificar entidades armazenadas no serviço tabela.  
 
 ##### <a name="subheading35"></a>Criação de batches

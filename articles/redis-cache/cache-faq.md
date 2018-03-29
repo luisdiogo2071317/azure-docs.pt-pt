@@ -1,11 +1,11 @@
 ---
 title: Cache de Redis do Azure FAQ | Microsoft Docs
-description: "Aprender as respostas a perguntas comuns, padrões e melhores práticas para a Cache de Redis do Azure"
+description: Aprender as respostas a perguntas comuns, padrões e melhores práticas para a Cache de Redis do Azure
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-redis-cache-faq"></a>FAQ da Cache de Redis do Azure
 Saiba as respostas a perguntas comuns, padrões e melhores práticas para a Cache de Redis do Azure.
@@ -89,7 +89,7 @@ Existem várias formas, que pode começar a utilizar a cache de Redis do Azure.
 
 * Pode consultar um dos nossos tutoriais disponíveis para [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), e [Python](cache-python-get-started.md).
 * Pode ver [como compilar elevado desempenho aplicações utilizando o Microsoft Azure Redis Cache](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
-* Pode consultar a documentação do cliente para os clientes que correspondem a linguagem de programação do seu projeto para ver como utilizar o Redis. Existem muitos clientes de Redis que podem ser utilizados com a Cache de Redis do Azure. Para obter uma lista de clientes de Redis, consulte [http://redis.io/clients](http://redis.io/clients).
+* Pode consultar a documentação do cliente para os clientes que correspondem a linguagem de programação do seu projeto para ver como utilizar o Redis. Existem muitos clientes de Redis que podem ser utilizados com a Cache de Redis do Azure. Para obter uma lista de clientes de Redis, consulte [ http://redis.io/clients ](http://redis.io/clients).
 
 Se ainda não tiver uma conta do Azure, pode:
 
@@ -111,7 +111,7 @@ As seguintes são considerações para escolher uma oferta de Cache.
 * **Cluster de redis**: criar caches superiores a 53 GB ou para dividir os dados em vários nós de Redis, pode utilizar clustering de Redis, que está disponível no escalão Premium. Cada nó é composta por um par de cache primário/réplica para elevada disponibilidade. Para obter mais informações, veja [Como configurar o clustering de uma Cache de Redis do Azure Premium](cache-how-to-premium-clustering.md).
 * **Melhorado isolamento de rede e segurança**: implementação de rede Virtual do Azure (VNET) proporciona maior segurança e isolamento para a Cache de Redis do Azure, bem como sub-redes, políticas de controlo de acesso e outras funcionalidades adicionais para restringem o acesso. Para obter mais informações, veja [Como configurar o suporte da Rede Virtual de uma Cache de Redis do Azure Premium](cache-how-to-premium-vnet.md).
 * **Configure Redis**: em camadas Standard e Premium, pode configurar Redis para notificações Keyspace.
-* **Número máximo de ligações de cliente**: escalão Premium o oferece o número máximo de clientes que possam ligar à Redis, com um número mais alto de ligações de caches de tamanho maior. Para obter mais informações, consulte [preços da Cache de Redis do Azure](https://azure.microsoft.com/pricing/details/cache/).
+* **Número máximo de ligações de cliente**: escalão Premium o oferece o número máximo de clientes que possam ligar à Redis, com um número mais alto de ligações de caches de tamanho maior. Clustering não aumenta o número de ligações disponíveis para uma cache em cluster. Para obter mais informações, consulte [preços da Cache de Redis do Azure](https://azure.microsoft.com/pricing/details/cache/).
 * **Dedicado núcleo para o servidor de Redis**: o escalão Premium, todos os tamanhos de cache de ter um núcleo dedicado para Redis. Os escalões básico/padrão, o tamanho de C1 em acima tem um núcleo dedicado para o servidor de Redis.
 * **Redis é o único thread** , de modo a ter mais de dois núcleos não fornece vantagem adicional com apenas dois núcleos, mas os tamanhos de VM maiores têm normalmente mais largura de banda que tamanhos mais pequenos. Se o cliente ou servidor de cache atingir os limites de largura de banda, em seguida, receberá tempos limite do lado do cliente.
 * **Melhorias de desempenho**: Caches no escalão Premium são implementadas no hardware que tenha processadores mais rápidos, fornecer um melhor desempenho em comparação comparado o escalão básico ou padrão. Caches de escalão Premium têm um maior débito e latências inferiores.

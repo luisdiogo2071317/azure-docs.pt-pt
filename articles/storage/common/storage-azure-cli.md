@@ -1,24 +1,24 @@
 ---
 title: Utilizar a CLI do Azure 2.0 com o Storage do Azure | Microsoft Docs
-description: "Saiba como utilizar a Interface de linha de comandos do Azure (CLI do Azure) 2.0 com armazenamento do Azure para criar e gerir contas de armazenamento e de trabalhar com blobs do Azure e os ficheiros. O 2.0 CLI do Azure é uma ferramenta de plataforma escrita no Python."
+description: Saiba como utilizar a Interface de linha de comandos do Azure (CLI do Azure) 2.0 com armazenamento do Azure para criar e gerir contas de armazenamento e de trabalhar com blobs do Azure e os ficheiros. O 2.0 CLI do Azure é uma ferramenta de plataforma escrita no Python.
 services: storage
 documentationcenter: na
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: tamram
-ms.openlocfilehash: 509c702054961c9d9fa525242ce0542059e32d81
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: rogarana
+ms.openlocfilehash: 99e67b9c8469f08f1cbfc980568eec35694d1ae2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Utilizar a CLI do Azure 2.0 com o Storage do Azure
 
@@ -95,10 +95,10 @@ Subgroups:
 
 Para trabalhar com os recursos na sua subscrição do Azure, tem primeiro de iniciar sessão sua conta do Azure com `az login`. Existem várias formas, que pode iniciar sessão:
 
-* **Início de sessão interativo**:`az login`
-* **Iniciar sessão com o nome de utilizador e palavra-passe**:`az login -u johndoe@contoso.com -p VerySecret`
+* **Início de sessão interativo**: `az login`
+* **Iniciar sessão com o nome de utilizador e palavra-passe**: `az login -u johndoe@contoso.com -p VerySecret`
   * Esta ação não funcionar com contas Microsoft ou contas que utilizam a autenticação multifator.
-* **Iniciar sessão com um principal de serviço**:`az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
+* **Iniciar sessão com um principal de serviço**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
 ## <a name="azure-cli-20-sample-script"></a>Script de exemplo 2.0 da CLI do Azure
 
@@ -146,11 +146,11 @@ echo "Done"
 
 3. Depois de atualizou as variáveis necessárias, guarde o script e saia do editor. Os passos partem do princípio de que com o nome do script **my_storage_sample.sh**.
 
-4. Marque o script como executável, se necessário:`chmod +x my_storage_sample.sh`
+4. Marque o script como executável, se necessário: `chmod +x my_storage_sample.sh`
 
-5. Execute o script. Por exemplo, no Bash:`./my_storage_sample.sh`
+5. Execute o script. Por exemplo, no Bash: `./my_storage_sample.sh`
 
-Deverá ver um resultado semelhante ao seguinte e o  **\<destination_file\>**  que especificou no script deve ser apresentadas no computador local.
+Deverá ver um resultado semelhante ao seguinte e o **\<destination_file\>** que especificou no script deve ser apresentadas no computador local.
 
 ```
 Creating the container...
@@ -187,10 +187,10 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location`[Necessário]: localização. Por exemplo, "EUA Oeste".
-* `--name`[Necessário]: O nome da conta de armazenamento. O nome tem de ter 3 a 24 carateres de comprimento e utilizar apenas carateres alfanuméricos minúsculos.
-* `--resource-group`[Necessário]: nome do grupo de recursos.
-* `--sku`[Necessário]: A conta de armazenamento SKU. Valores permitidos:
+* `--location` [Necessário]: localização. Por exemplo, "EUA Oeste".
+* `--name` [Necessário]: O nome da conta de armazenamento. O nome tem de ter 3 a 24 carateres de comprimento e utilizar apenas carateres alfanuméricos minúsculos.
+* `--resource-group` [Necessário]: nome do grupo de recursos.
+* `--sku` [Necessário]: A conta de armazenamento SKU. Valores permitidos:
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
@@ -236,7 +236,7 @@ az storage container create --name <container_name>
 
 Pode definir um de três níveis de acesso de leitura para um novo contentor, especificando o opcional `--public-access` argumento:
 
-* `off`(predefinição): os dados de contentor são privados para o proprietário da conta.
+* `off` (predefinição): os dados de contentor são privados para o proprietário da conta.
 * `blob`: Público acesso de leitura de blobs.
 * `container`: Lista de leitura e acesso público para o contentor inteiro.
 
@@ -396,7 +396,7 @@ Saída de exemplo
 
 ### <a name="list-share-snapshots"></a>Instantâneos de partilha de lista
 
-Pode listar os instantâneos de partilha de uma determinada partilha utilizando`az storage share list --include-snapshots`
+Pode listar os instantâneos de partilha de uma determinada partilha utilizando `az storage share list --include-snapshots`
 
 ```cli
 az storage share list --include-snapshots
@@ -439,7 +439,7 @@ az storage share list --include-snapshots
 ```
 
 ### <a name="browse-share-snapshots"></a>Procurar a partilha de instantâneos
-Também pode navegar para uma partilha específica para ver os conteúdos através de instantâneos `az storage file list`. Um tem de especificar o nome da partilha `--share-name <snare name>` e o carimbo`--snapshot '2017-10-04T19:45:18.0000000Z'`
+Também pode navegar para uma partilha específica para ver os conteúdos através de instantâneos `az storage file list`. Um tem de especificar o nome da partilha `--share-name <snare name>` e o carimbo `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
 ```azurecli-interactive
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable

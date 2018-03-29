@@ -1,6 +1,6 @@
 ---
 title: 'Do Azure Cosmos DB: API do SQL Server Async Java, SDK & recursos | Microsoft Docs'
-description: "Saiba tudo sobre a API do SQL Server Async Java e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do SDK de Java do assíncrona de BD SQL do Azure Cosmos."
+description: Saiba tudo sobre a API do SQL Server Async Java e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do SDK de Java do assíncrona de BD SQL do Azure Cosmos.
 services: cosmos-db
 documentationcenter: java
 author: mimig1
@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: 408080fd7d9788d13b13e2769e59946a81e6742c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d117f0571bef8f8a2ec48a067d7796f03c0e535a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async SDK Java para API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -34,8 +34,6 @@ ms.lasthandoff: 03/02/2018
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 O SDK Java do SQL Server API Async difere de acordo com o SDK de Java de API do SQL Server, fornecendo as operações assíncronas com suporte do [biblioteca Netty](http://netty.io/). O pré-existente [SQL API Java SDK](sql-api-sdk-java.md) não suporta operações assíncronas. 
 
@@ -72,7 +70,7 @@ Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo s
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
-| [1.0.0](#1.0.0) |27 de Fevereiro de 2018|--- |
+| [1.0.0](#1.0.0) |27 de fevereiro de 2018|--- |
 
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

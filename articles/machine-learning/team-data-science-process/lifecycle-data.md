@@ -1,24 +1,24 @@
 ---
-title: "Aquisição de dados e a fase de compreender o ciclo de vida do processo de ciência de dados de equipa - Azure | Microsoft Docs"
-description: "Os objetivos, tarefas e materiais a entregar para a aquisição de dados e a fase de compreensão dos seus projetos de ciência de dados"
+title: Aquisição de dados e a fase de compreender o ciclo de vida do processo de ciência de dados de equipa - Azure | Microsoft Docs
+description: Os objetivos, tarefas e materiais a entregar para a aquisição de dados e a fase de compreensão dos seus projetos de ciência de dados
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 9618653e8f77c69a3a95fe27ee55c4f05c55a66e
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: 028992561b1c2481dc72af3c4edcc16f65f25105
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-acquisition-and-understanding"></a>Aquisição e compreensão de dados
 
@@ -72,7 +72,7 @@ Seguem-se a concentrarem nesta fase:
    * **Arquitetura de solução**: arquitetura da solução pode ser um diagrama ou descrição dos seus dados de pipeline que utilizam para executar a classificação ou predições em novos dados depois de ter criado um modelo. Também contém o pipeline de reparametrização do seu modelo com base em novos dados. Armazene documentos no [projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) diretório quando utilizar o modelo de estrutura de diretório TDSP.
    * **Decisão de ponto de verificação**: antes de começar a funcionalidade completa de engenharia e criação de modelo, pode reevaluate o projeto para determinar se o valor esperado é suficiente para continuar a pursing-lo. Pode, por exemplo, estar pronto para continuar, tem de recolher mais dados ou abandonar o projeto como os dados não existe responder à pergunta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Seguem-se ligações para cada passo no ciclo de vida do TDSP:
 

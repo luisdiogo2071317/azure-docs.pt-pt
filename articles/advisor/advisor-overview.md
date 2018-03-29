@@ -1,12 +1,12 @@
 ---
-title: "Introdução ao Advisor do Azure | Microsoft Docs"
-description: "Utilize o Advisor do Azure para otimizar as implementações do Azure."
+title: Introdução ao Advisor do Azure | Microsoft Docs
+description: Utilize o Advisor do Azure para otimizar as implementações do Azure.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0aa97a7557706f0b704d4e31a84e9d356d1ad087
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Advisor do Azure
 
@@ -43,9 +43,6 @@ O dashboard do Advisor apresenta recomendações personalizadas para todas as su
 
   ![Tipos de recomendação do Advisor](./media/advisor-overview/advisor-dashboard.png)
 
-> [!NOTE]
-> Para utilizar o Advisor do Azure com uma subscrição, uma subscrição *proprietário* tem de iniciar o dashboard do Advisor.  Esta ação regista a subscrição com o Advisor.  Partir desse ponto, de qualquer subscrição *proprietário*, *contribuinte*, ou *leitor* pode aceder às recomendações do Advisor para a subscrição. 
-
 Pode clique numa categoria para ver a lista de recomendações dentro dessa categoria e selecione uma recomendação para saber mais acerca do mesmo.  Também pode saber mais sobre as ações que pode efetuar para tirar partido de uma oportunidade ou resolver um problema.
 
 ![Categoria de recomendação do Advisor](./media/advisor-overview/advisor-ha-category-example.png) 
@@ -62,12 +59,12 @@ Pode aceder ao Advisor através de [portal do Azure](https://aka.ms/azureadvisor
 Também pode ver as recomendações do Advisor através da interface de recurso de máquina virtual. Escolha uma máquina virtual e, em seguida, desloque-se para obter recomendações do assistente no menu. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Que permissões é necessário aceder do Advisor
-
-Para obter recomendações do Assistente para uma subscrição, tem primeiro de registar a subscrição do Advisor. Uma subscrição é registada quando uma subscrição *proprietário* inicia o dashboard do Advisor. Esta é uma operação única. Depois da subscrição está registada, pode aceder recomendações do assistente como *proprietário*, *contribuinte*, ou *leitor* de uma subscrição.
+ 
+Pode aceder às recomendações do assistente como *proprietário*, *contribuinte*, ou *leitor* de uma subscrição.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Que recursos Advisor fornecer recomendações para?
 
-Advisor fornece recomendações para máquinas virtuais, conjuntos de disponibilidade, gateways de aplicação, serviços de aplicações, servidores SQL, bases de dados SQL e a Cache de Redis.
+Advisor fornece recomendações para máquinas virtuais, conjuntos de disponibilidade, gateways de aplicação, serviços de aplicações, servidores SQL e a Cache de Redis.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Pode adiar ou ignorar uma recomendação?
 

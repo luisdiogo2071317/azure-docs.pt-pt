@@ -1,11 +1,11 @@
 ---
-title: "Referência para programadores de Java para as funções do Azure | Microsoft Docs"
-description: "Compreenda como desenvolver funções com o Java."
+title: Referência para programadores de Java para as funções do Azure | Microsoft Docs
+description: Compreenda como desenvolver funções com o Java.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "Azure funções, funções, processamento, webhooks, computação dinâmica, arquitetura sem servidor, java de eventos"
+keywords: Azure funções, funções, processamento, webhooks, computação dinâmica, arquitetura sem servidor, java de eventos
 ms.service: functions
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 71576e65d20d7e8cb7f5ff1c5f19c82439bb6807
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia para programadores do Java de funções do Azure
 > [!div class="op_single_selector"]
@@ -270,7 +270,7 @@ qual deve definir o enlace de saída no `function.json`:
 
 Por vezes, uma função tem de ter detalhadas controlo sobre entradas e saídas. Especializada tipos o `azure-functions-java-core` pacote são fornecidos para manipular informações de pedido e personalizar o estado de retorno de um acionador HTTP:
 
-| Tipo especializado      |       Alvo        | Utilização normal                  |
+| Tipo especializado      |       Destino        | Utilização normal                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    Acionador de HTTP     | Obter o método, cabeçalhos ou consultas |
 | `HttpResponseMessage<T>` | Enlace de saída de HTTP | Devolver o estado diferente de 200   |
@@ -325,9 +325,33 @@ public class Function {
 }
 ```
 
+## <a name="environment-variables"></a>Variáveis de ambiente
+
+Muitas vezes, é preferível para extrair informações secretas a partir do código de origem por motivos de segurança. Isto permite que o código ser publicados para repos de código de origem sem acidentalmente fornecer credenciais para outros programadores. Isto pode ser alcançado simplesmente utilizando variáveis de ambiente, ao executar as funções do Azure localmente tanto ao implementar as suas funções no Azure.
+
+Para configurar facilmente as variáveis de ambiente durante a execução das funções do Azure localmente, pode optar por adicionar estas variáveis para o ficheiro local.settings.json. Se não estiver presente no diretório de raiz do seu projeto de função, pode criar um. Eis o que o ficheiro deve ter o seguinte aspeto:
+
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": ""
+  }
+}
+```
+
+Cada chave / valor mapeamento no `values` mapa será disponibilizado no tempo de execução como uma variável de ambiente, acessível ao chamar `System.getenv("<keyname>")`, por exemplo, `System.getenv("AzureWebJobsStorage")`. Adicionar chave adicional / pares de valor é aceite e recomendado prática.
+
+> [!NOTE]
+> Se estiver atribuída esta abordagem, ser se considerar se adicionar o local.settings.json ficheiro para o seu repositório ignorar ficheiro, para que não está consolidada.
+
+Com o seu código agora consoante estas variáveis de ambiente, pode iniciar sessão portal do Azure para definir a mesma chave / valor pares nas suas definições de aplicação de função, para que o seu código equivalently funciona quando testar localmente e quando implementado no Azure.
+
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte os seguintes recursos:
 
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
 * [Referência para programadores das Funções do Azure](functions-reference.md)
 * [Acionadores de funções do Azure e os enlaces](functions-triggers-bindings.md)
+* [Depuração remota Java Azure funciona com o código do Visual Studio](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)

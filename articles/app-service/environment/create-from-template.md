@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d85384620b2e4c7ba0de84e0fe82ef3e83376dd8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Criar ASE utilizando um modelo Azure Resource Manager
 
@@ -54,10 +54,12 @@ Se pretender efetuar ILB ASE, utilize estes modelo do Resource Manager [exemplos
 
 Depois do *azuredeploy.parameters.json* ficheiro é preenchido, crie o ASE utilizando o fragmento de código do PowerShell. Altere os caminhos de ficheiro para corresponder as localizações de ficheiro de modelo do Resource Manager no seu computador. Lembre-se de fornecer os seus próprios valores para o nome da implementação do Resource Manager e o nome do grupo de recursos:
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 Demora cerca de uma hora para ASE a ser criado. Em seguida, o ASE aparece no portal na lista de ASEs para a subscrição que acionou a implementação.
 
@@ -82,17 +84,19 @@ Utilize o seguinte fragmento de código do PowerShell para:
 
 Este código do PowerShell para codificação base64 foi adaptado do [blogue de scripts do PowerShell][examplebase64encoding]:
 
-        $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```powershell
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-        $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-        $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-        $fileName = "exportedcert.pfx"
-        Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
-        $fileContentBytes = get-content -encoding byte $fileName
-        $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-        $fileContentEncoded | set-content ($fileName + ".b64")
+$fileContentBytes = get-content -encoding byte $fileName
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$fileContentEncoded | set-content ($fileName + ".b64")
+```
 
 Depois do certificado SSL é gerado e convertido numa cadeia com codificação base64 com êxito, utilize o modelo de Gestor de recursos de exemplo [configurar o certificado SSL predefinida] [ quickstartconfiguressl] no GitHub. 
 
@@ -107,41 +111,45 @@ Os parâmetros de *azuredeploy.parameters.json* ficheiro estão listados aqui:
 
 Um exemplo de abreviado *azuredeploy.parameters.json* é mostrada aqui:
 
-    {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-              "appServiceEnvironmentName": {
-                   "value": "yourASENameHere"
-              },
-              "existingAseLocation": {
-                   "value": "East US 2"
-              },
-              "pfxBlobString": {
-                   "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
-              },
-              "password": {
-                   "value": "PASSWORDGOESHERE"
-              },
-              "certificateThumbprint": {
-                   "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
-              },
-              "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
-              }
-         }
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceEnvironmentName": {
+      "value": "yourASENameHere"
+    },
+    "existingAseLocation": {
+      "value": "East US 2"
+    },
+    "pfxBlobString": {
+      "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
+    },
+    "password": {
+      "value": "PASSWORDGOESHERE"
+    },
+    "certificateThumbprint": {
+      "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
+    },
+    "certificateName": {
+      "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
     }
+  }
+}
+```
 
 Depois do *azuredeploy.parameters.json* ficheiro é preenchido, configure o certificado SSL predefinida, utilizando o fragmento de código do PowerShell. Altere os caminhos de ficheiro a corresponder onde os ficheiros de modelo do Resource Manager estão localizados no seu computador. Lembre-se de fornecer os seus próprios valores para o nome da implementação do Resource Manager e o nome do grupo de recursos:
 
-     $templatePath="PATH\azuredeploy.json"
-     $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 Demora cerca de 40 minutos por front-end de ASE para aplicar a alteração. Por exemplo, para um ASE tamanho predefinido que utiliza dois front-ends, o modelo demora aproximadamente uma hora e 20 minutos a concluir. Enquanto o modelo está em execução, não é possível aumentar o ASE.  
 
-Quando o modelo estiver concluído, as aplicações em ASE o ILB podem ser acedidas através de HTTPS. As ligações são protegidas utilizando o certificado SSL predefinido. O certificado SSL predefinido é utilizado quando as aplicações em ASE o ILB são resolvidas utilizando uma combinação do nome da aplicação, o nome de anfitrião predefinido. Por exemplo, https://mycustomapp.internal-contoso.com utiliza o certificado SSL predefinido para **.internal contoso.com*.
+Quando o modelo estiver concluído, as aplicações em ASE o ILB podem ser acedidas através de HTTPS. As ligações são protegidas utilizando o certificado SSL predefinido. O certificado SSL predefinido é utilizado quando as aplicações em ASE o ILB são resolvidas utilizando uma combinação do nome da aplicação, o nome de anfitrião predefinido. Por exemplo, https://mycustomapp.internal-contoso.com utiliza o certificado SSL predefinida para **.internal contoso.com*.
 
 No entanto, tal como as aplicações que são executados no serviço multi-inquilino público, os programadores podem configurar os nomes de anfitrião personalizado para aplicações individuais. Também pode configurar enlaces de certificado de SNI SSL exclusivos para aplicações individuais.
 

@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
-  ms.openlocfilehash: 77bf10c4cdb0acf2ef324b14de0d3ae153543bdc
-  ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+  ms.openlocfilehash: 97ccab1070bbf045b6ca7f9659bbdd82265b7075
+  ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/23/2018
+  ms.lasthandoff: 03/28/2018
 abstract:
   description: O Azure Container Instances é a forma mais rápida e simples de executar um contentor no Azure, sem que tenha de aprovisionar máquinas virtuais e sem que tenha de adotar um serviço de nível mais elevado. Saiba como criar e gerir instâncias de contentor com os nossos inícios rápidos, tutoriais e amostras.<p>Se precisar de uma solução de orquestração de contentores completa, veja a <a href="/azure/aks/">documentação do Azure Container Service (AKS)</a>.</p>
 sections:
@@ -59,6 +59,6 @@ sections:
     - title: Linha de Comandos
       html: <p><a href="/cli/azure/container">CLI do Azure</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>
     - title: Linguagens
-      html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstance">Node.js</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstances">Node.js</a></p>
     - title: REST
       html: <p><a href="/rest/api/container-instances">Referência da API REST</a></p><p><a href="/azure/templates/microsoft.containerinstance/containergroups">Modelo do Resource Manager</a></p>

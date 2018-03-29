@@ -1,8 +1,8 @@
 ---
-title: "O que é o processo de ciência de dados de equipa? | Microsoft Docs"
-description: "Fornece uma metodologia de ciência de dados para fornecer soluções de Análise Preditiva e aplicações inteligentes."
+title: O que é o Processo de Ciência de Dados de Equipa? | Microsoft Docs
+description: Fornece uma metodologia de ciência de dados para fornecer soluções de Análise Preditiva e aplicações inteligentes.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: bradsev;
-ms.openlocfilehash: 75e170f29f9a6abeeb3393e43e6a4c355749044d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.author: bradsev
+ms.openlocfilehash: f7c081dcd74164f4b1f054f5a65f2ff6aaabebd7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="what-is-the-team-data-science-process"></a>O que é o processo de ciência de dados de equipa?
+# <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 
-O processo de ciência de dados de equipa (TDSP) é uma metodologia de ciência de dados seja ágil e interativo para fornecer soluções de Análise Preditiva e aplicações inteligentes de forma eficiente. TDSP ajuda a melhorar a colaboração de equipa e de aprendizagem. Contém um distillation das melhores práticas e estruturas da Microsoft e outras pessoas na indústria que facilitam a implementação com êxito de iniciativas de ciência de dados. O objetivo é ajudar as empresas totalmente tenha em consideração as vantagens do seu programa de análise.
+O processo de ciência de dados de equipa (TDSP) é uma metodologia de ciência de dados seja ágil e interativo para fornecer soluções de Análise Preditiva e aplicações inteligentes de forma eficiente. O TDSP ajuda a melhorar a colaboração e a aprendizagem em equipa. Contém uma seleção das melhores práticas e estruturas da Microsoft e de outras empresas do setor para facilitar a implementação de iniciativas de ciência de dados. O objetivo é ajudar as empresas a atingir todo o potencial dos benefícios dos respetivos programas de análise.
 
 Este artigo fornece uma descrição geral da TDSP seus principais componentes. Podemos fornecer uma descrição genérica do processo aqui que pode ser implementada com uma variedade de ferramentas. Uma descrição mais detalhada das tarefas de projeto e funções envolvidos no ciclo de vida do processo é fornecida no adicionais Tópicos relacionados. Também é fornecida orientação sobre como implementar o TDSP utilizando um conjunto específico de ferramentas da Microsoft e a infraestrutura que utilizamos para implementar o TDSP no nosso equipas.
 
@@ -54,7 +54,7 @@ O ciclo de vida destaca as fases principais que projetos normalmente executar, m
 
 Eis uma representação visual do **ciclo de vida do processo de ciência de dados de equipa**. 
 
-![TDSP Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
+![TDSP-Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
 
 Os objetivos, tarefas e artefactos de documentação para cada fase do ciclo de vida da TDSP descritos o [ciclo de vida do processo de ciência de dados de equipa](lifecycle.md) tópico. Estas tarefas e os artefactos estão associados com funções do projeto:
 
@@ -65,7 +65,7 @@ Os objetivos, tarefas e artefactos de documentação para cada fase do ciclo de 
 
 O diagrama seguinte fornece uma vista de grelha de tarefas (azul) e artefactos (em verde) associados em cada fase do ciclo de vida (no eixo horizontal) para estas funções (no eixo vertical). 
 
-![TDSP-funções-e-tarefas](./media/overview/tdsp-tasks-by-roles.png)
+![TDSP-roles-and-tasks](./media/overview/tdsp-tasks-by-roles.png)
 
 ## <a name="standardized-project-structure"></a>Estrutura do projeto normalizado
 
@@ -79,7 +79,7 @@ Podemos fornecer modelos de estrutura de pastas e documentos necessários em loc
 - métricas de desempenho de modelo como curvas ROC ou MSE
 
 
-![TDSP diretórios](./media/overview/tdsp-dir-structure.png)
+![TDSP-directories](./media/overview/tdsp-dir-structure.png)
 
 A estrutura do diretório pode ser clonada a partir do [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -96,7 +96,7 @@ A infraestrutura de armazenamento e de análise pode ser na nuvem ou no local. E
 
 Eis um exemplo de uma equipa partilha vários componentes de infraestrutura de análise de nuvem e de trabalhar em vários projetos.
 
-![Infraestrutura de TDSP](./media/overview/tdsp-analytics-infra.png)
+![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png)
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Ferramentas e utilitários para execução do projeto
@@ -104,6 +104,6 @@ Eis um exemplo de uma equipa partilha vários componentes de infraestrutura de a
 Introdução ao processos na maioria das organizações é um desafio. Ferramentas fornecidas para implementar a ajuda de processo e o ciclo de vida da ciência de dados inferiores as barreiras as eficazes para e aumentar a consistência da respetiva adoção. TDSP fornece um conjunto de ferramentas e scripts para iniciar a adoção de TDSP dentro de uma equipa inicial. Também ajuda a automatizar alguns das tarefas comuns no ciclo de vida de ciência de dados, tais como a exploração de dados e modelação de linha de base. Há uma estrutura bem definida fornecida para indivíduos contribuir partilhadas ferramentas e utilitários no repositório de código partilhado da sua equipa. Estes recursos, em seguida, podem ser aproveitados pelas outros projetos dentro da equipa ou organização. TDSP também planos permitir contribuições de ferramentas e utilitários para a Comunidade de todo. Os utilitários TDSP podem ser clonados a partir do [Github](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Processo de ciência de dados do agrupamento: Funções e tarefas](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) descreve as funções de chave técnicos e as respetivas tarefas associadas para uma equipa de ciência de dados uniformiza neste processo. 

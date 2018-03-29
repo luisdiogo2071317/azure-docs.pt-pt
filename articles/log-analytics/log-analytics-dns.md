@@ -1,24 +1,24 @@
 ---
-title: "Solução de análise de DNS no Log Analytics do Azure | Microsoft Docs"
-description: "Configurar e utilizar a solução de análise de DNS na análise de registos para recolher informações sobre a infraestrutura de DNS de operações, desempenho e segurança."
+title: Solução de análise de DNS no Log Analytics do Azure | Microsoft Docs
+description: Configurar e utilizar a solução de análise de DNS na análise de registos para recolher informações sobre a infraestrutura de DNS de operações, desempenho e segurança.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ead058108f39eca8682eccc296760d4b756d336
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolher informações sobre a infraestrutura DNS com a solução de pré-visualização de análise de DNS
 
@@ -145,7 +145,6 @@ As informações de ajudam-o a identificar o:
 
 **Exemplo de consultas de análises DDI**. Contém uma lista de consultas de pesquisa mais comuns que obtenha dados de análise em bruto diretamente.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Consultas de exemplo](./media/log-analytics-dns/queries.png)
 
@@ -166,7 +165,7 @@ Pode utilizar estas consultas como um ponto de partida para criar as suas própr
 
 Na página de pesquisa de registo, pode criar uma consulta. Pode filtrar os resultados da pesquisa ao utilizar controlos de aspeto de restrições. Também pode criar consultas avançadas para a transformação, o filtro e o relatório no seu resultados. Comece por utilizar as seguintes consultas:
 
-1. No **caixa da consulta de pesquisa**, tipo `Type=DnsEvents` para ver todos os eventos DNS gerados por servidores DNS geridos pela solução. Os resultados da listam os dados de registo para todos os eventos relacionados com consultas de pesquisa, dinâmicos registos e as alterações de configuração.
+1. No **caixa da consulta de pesquisa**, tipo `DnsEvents` para ver todos os eventos DNS gerados por servidores DNS geridos pela solução. Os resultados da listam os dados de registo para todos os eventos relacionados com consultas de pesquisa, dinâmicos registos e as alterações de configuração.
 
     ![Pesquisa de registo DnsEvents](./media/log-analytics-dns/log-search-dnsevents.png)  
 
@@ -176,7 +175,7 @@ Na página de pesquisa de registo, pode criar uma consulta. Pode filtrar os resu
 
     c. Para ver os dados de registo de alterações de configuração, selecione **ConfigurationChange** como o **subtipo** filtro do controlo de aspeto de restrições à esquerda. É apresentada uma tabela que lista todos os eventos de alteração de configuração para o período de tempo selecionado.
 
-2. No **caixa da consulta de pesquisa**, tipo `Type=DnsInventory` para ver todas as relacionadas com o inventário dados DNS para servidores DNS geridos pela solução. Os resultados da listam os dados de registo de registos de recursos, servidores DNS e zonas DNS.
+2. No **caixa da consulta de pesquisa**, tipo `DnsInventory` para ver todas as relacionadas com o inventário dados DNS para servidores DNS geridos pela solução. Os resultados da listam os dados de registo de registos de recursos, servidores DNS e zonas DNS.
 
     ![Pesquisa de registo DnsInventory](./media/log-analytics-dns/log-search-dnsinventory.png)
 

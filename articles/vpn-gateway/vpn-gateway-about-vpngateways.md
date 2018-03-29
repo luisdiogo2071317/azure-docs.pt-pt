@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: ef6d61e9dfc7c30910d897478f07dabc14136b48
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 405af7d1191e8ea3c0ba1c526f0c5a526aef795b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-vpn-gateway"></a>Acerca do VPN Gateway
 
@@ -77,7 +77,7 @@ Utilize os diagramas e as descrições para ajudar a selecionar a topologia de l
 
 ### <a name="S2S"></a>Rede de VPN
 
-Uma ligação de gateway de VP de Site a Site (S2S) é uma ligação através do túnel VPN IPsec/IKE (S2S ou IKEv1). As ligações S2S podem ser utilizadas para configurações em vários locais e híbridas. A ligação S2S requer um dispositivo VPN localizado no local que tenha um endereço IP público atribuído ao mesmo e não se encontre protegido por um NAT. Para obter informações acerca da seleção de um dispositivo VPN, veja as [FAQs do Gateway de VPN - dispositivos VPN](/vpn-gateway-vpn-faq.md#s2s).
+Uma ligação de gateway de VP de Site a Site (S2S) é uma ligação através do túnel VPN IPsec/IKE (S2S ou IKEv1). As ligações S2S podem ser utilizadas para configurações em vários locais e híbridas. A ligação S2S requer um dispositivo VPN localizado no local que tenha um endereço IP público atribuído ao mesmo e não se encontre protegido por um NAT. Para obter informações acerca da seleção de um dispositivo VPN, veja as [FAQs do Gateway de VPN - dispositivos VPN](vpn-gateway-vpn-faq.md#s2s).
 
 ![Exemplo de ligação Site a Site de Gateway de VPN do Azure](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 

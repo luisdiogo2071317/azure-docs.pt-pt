@@ -1,23 +1,23 @@
 ---
-title: "Execução de projetos de ciência de dados - Azure Machine Learning | Microsoft Docs"
-description: "Como um scientist dados acompanhar o progresso de um projeto de ciência de dados."
-documentationcenter: 
+title: Execução de projetos de ciência de dados - Azure Machine Learning | Microsoft Docs
+description: Como um scientist dados acompanhar o progresso de um projeto de ciência de dados.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: c8e1882570a8cfcb4a75f0904a2138d007e0bc5b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: fe0c1b4917439221643bf481fdd21828f857e1c4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="track-progress-of-data-science-projects"></a>Controlar o progresso de projetos de ciência de dados
 
@@ -49,6 +49,6 @@ Os painéis restantes mostram o diagrama de fluxo cumulativo (CFD), burndown e b
 
 Para obter uma descrição de como criar estes gráficos, consulte os inícios rápidos e tutoriais em [Dashboards](https://docs.microsoft.com/vsts/report/dashboards/).
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Instruções que demonstram todos os passos no processo de **cenários específicos** também são fornecidos. São listados e ligados com descrições de miniaturas no [instruções de exemplo](walkthroughs.md) artigo. Estes mostram como combinar em nuvem, ferramentas no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente. 

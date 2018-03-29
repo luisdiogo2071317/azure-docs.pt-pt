@@ -1,12 +1,12 @@
 ---
 title: Desenvolver localmente com o emulador de BD do Azure Cosmos | Microsoft Docs
-description: "Utilizar o emulador de BD do Cosmos do Azure, pode desenvolver e testar a aplicação localmente para gratuitamente, sem criar uma subscrição do Azure."
+description: Utilizar o emulador de BD do Cosmos do Azure, pode desenvolver e testar a aplicação localmente para gratuitamente, sem criar uma subscrição do Azure.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 keywords: Emulador do Cosmos BD do Azure
 author: David-Noble-at-work
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 1991157330f6607efcf42ad42694c6b4d19fe609
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4a393887d8e82e833b0c956666bf36e5adb19e70
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Utilizar o emulador de BD do Cosmos do Azure para desenvolvimento local e o teste
 
@@ -105,7 +105,7 @@ O emulador de BD do Cosmos do Azure está instalado por predefinição, para o `
 
 ## <a name="start-data-explorer"></a>Iniciar o Explorador de dados
 
-Quando inicia o emulador de base de dados do Azure Cosmos automaticamente abre o Explorador de dados de base de dados do Azure Cosmos no seu browser. O endereço é apresentado como [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Se fechar o Explorador e gostaria de voltar a abri-lo mais tarde, pode abrir o URL no browser ou iniciar de emulador de BD do Cosmos do Azure no ícone de tabuleiro de Windows, conforme mostrado abaixo.
+Quando inicia o emulador de base de dados do Azure Cosmos automaticamente abre o Explorador de dados de base de dados do Azure Cosmos no seu browser. O endereço é apresentado como [ https://localhost:8081/_explorer/index.html ](https://localhost:8081/_explorer/index.html). Se fechar o Explorador e gostaria de voltar a abri-lo mais tarde, pode abrir o URL no browser ou iniciar de emulador de BD do Cosmos do Azure no ícone de tabuleiro de Windows, conforme mostrado abaixo.
 
 ![Iniciador do Explorador de dados de emulador local do Azure Cosmos DB](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -312,7 +312,7 @@ Se tentar criar uma coleção após a contagem da partição atual foi excedida,
     Sorry, we are currently experiencing high demand in this region, 
     and cannot fulfill your request at this time. We work continuously 
     to bring more and more capacity online, and encourage you to try again. 
-    Please do not hesitate to email docdbswat@microsoft.com at any time or 
+    Please do not hesitate to email askcosmosdb@microsoft.com at any time or
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
 Para alterar o número de coleções disponíveis para o emulador de BD do Cosmos do Azure, efetue o seguinte:

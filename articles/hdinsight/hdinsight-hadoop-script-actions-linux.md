@@ -1,8 +1,8 @@
 ---
-title: "Script de desenvolvimento de ações com o HDInsight baseado em Linux - Azure | Microsoft Docs"
-description: "Saiba como utilizar os scripts de Bash para personalizar clusters do HDInsight baseado em Linux. A funcionalidade de ação de script do HDInsight permite-lhe executar scripts durante ou após a criação do cluster. Scripts podem ser utilizados para alterar as definições de configuração de cluster ou instalar software adicional."
+title: Script de desenvolvimento de ações com o HDInsight baseado em Linux - Azure | Microsoft Docs
+description: Saiba como utilizar os scripts de Bash para personalizar clusters do HDInsight baseado em Linux. A funcionalidade de ação de script do HDInsight permite-lhe executar scripts durante ou após a criação do cluster. Scripts podem ser utilizados para alterar as definições de configuração de cluster ou instalar software adicional.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5074345533f0fdb0c72bf319646ad614632d1940
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ações de script com o HDInsight
 
@@ -66,7 +66,7 @@ Quando desenvolver um script personalizado para um cluster do HDInsight, existem
 
 Versões diferentes do HDInsight têm versões diferentes dos serviços de Hadoop e componentes instalados. Se o script espera uma versão específica de um serviço ou componente, só deve utilizar o script com a versão do HDInsight que inclui os componentes necessários. Pode encontrar informações sobre versões de componentes incluídos com o HDInsight com o [controlo de versões do HDInsight componente](hdinsight-component-versioning.md) documento.
 
-### <a name="bps10"></a>A versão do SO de destino
+### <a name="bps10"></a> A versão do SO de destino
 
 HDInsight baseado em Linux baseia-se a distribuição de Ubuntu Linux. Versões diferentes do HDInsight baseiam-se em diferentes versões do Ubuntu, que pode alterar a forma como se comporta seu script. Por exemplo, o HDInsight 3.4 e anterior baseiam-se em versões do Ubuntu que utilizam Upstart. Ubuntu 16.04, que utiliza Systemd baseiam versões 3.5 e superiores. Systemd e Upstart dependem comandos diferentes, pelo que o seu script deve ser escrito para trabalhar com ambos.
 
@@ -118,7 +118,7 @@ A melhor prática é transferir e arquivar tudo numa conta do Storage do Azure n
 > [!IMPORTANT]
 > A conta de armazenamento utilizada tem de ser a conta de armazenamento predefinido para o cluster ou um contentor público só de leitura em qualquer outra conta de armazenamento.
 
-Por exemplo, os exemplos fornecidos pela Microsoft são armazenados no [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) conta de armazenamento. Esta localização é um contentor de público só de leitura mantido pela equipa do HDInsight.
+Por exemplo, os exemplos fornecidos pela Microsoft são armazenados no [ https://hdiconfigactions.blob.core.windows.net/ ](https://hdiconfigactions.blob.core.windows.net/) conta de armazenamento. Esta localização é um contentor de público só de leitura mantido pela equipa do HDInsight.
 
 ### <a name="bPS4"></a>Utilizar recursos previamente compilados
 
@@ -168,11 +168,11 @@ Por predefinição, `echo` envia a cadeia para STDOUT. Para direcionar o mesmo e
 >&2 echo "An error occurred installing Foo"
 ```
 
-Isto redireciona informações escritas STDOUT em STDERR (2). Para obter mais informações sobre o redirecionamento de e/s, consulte [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Isto redireciona informações escritas STDOUT em STDERR (2). Para obter mais informações sobre o redirecionamento de e/s, consulte [ http://www.tldp.org/LDP/abs/html/io-redirection.html ](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Para obter mais informações sobre a visualização de informações registadas pelas ações de script, consulte [clusters do HDInsight de personalizar através da ação de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
-### <a name="bps8"></a>Guardar ficheiros como ASCII com endings de linha de LF
+### <a name="bps8"></a> Guardar ficheiros como ASCII com endings de linha de LF
 
 Scripts de bash devem ser armazenados em formato ASCII, com linhas terminadas por LF. Os ficheiros que são armazenados como UTF-8 ou utilizam CRLF como o fim da linha poderão falhar com o erro seguinte:
 
@@ -181,7 +181,7 @@ $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="bps9"></a>Utilize a lógica de repetição para recuperar de erros transitórios
+### <a name="bps9"></a> Utilize a lógica de repetição para recuperar de erros transitórios
 
 Quando a transferência de ficheiros, instalando pacotes com apt get ou outras ações que transmitem dados através da internet, a ação poderão falhar devido a erros de rede transitórios. Por exemplo, o recurso remoto que estão a comunicar com pode estar no processo de falhar ao longo de um nó de cópia de segurança.
 
@@ -221,7 +221,7 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helpermethods"></a>Métodos de programa auxiliar para scripts personalizados
 
-Métodos de programa auxiliar de ação de script são utilitários que pode utilizar ao escrever scripts personalizados. Estes métodos estão contidos no[https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) script. Utilize o seguinte procedimento para transferir e utilizá-los como parte do seu script:
+Métodos de programa auxiliar de ação de script são utilitários que pode utilizar ao escrever scripts personalizados. Estes métodos estão contidos no[ https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh ](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) script. Utilize o seguinte procedimento para transferir e utilizá-los como parte do seu script:
 
 ```bash
 # Import the helper method module.
@@ -251,7 +251,7 @@ Esta secção fornece orientação na implementação de algumas das comuns padr
 
 Em alguns casos, o script pode necessitar de parâmetros. Por exemplo, poderá ter a palavra-passe de administrador para o cluster, ao utilizar a API de REST do Ambari.
 
-Os parâmetros transmitidos para o script são conhecidos como *parâmetros posicionais*e são atribuídos ao `$1` para o primeiro parâmetro, `$2` para o segundo e, de modo-no. `$0`contém o nome do próprio script.
+Os parâmetros transmitidos para o script são conhecidos como *parâmetros posicionais*e são atribuídos ao `$1` para o primeiro parâmetro, `$2` para o segundo e, de modo-no. `$0` contém o nome do próprio script.
 
 Os valores transmitidos para o script como parâmetros devem ser colocadas entre por plicas ('). Se o fizer, assegura que o valor transmitido é tratado como um literal.
 
@@ -317,7 +317,7 @@ fi
 Seguem-se a tomar passos quando preparar a implementação de script:
 
 * Colocar os ficheiros que contêm os scripts personalizados num local que esteja acessível a nós do cluster durante a implementação. Por exemplo, o armazenamento de predefinido para o cluster. Ficheiros também podem ser armazenados nos serviços de alojamento legíveis publicamente.
-* Certifique-se de que o script é impotent. Se o fizer, permite que o script ser executada várias vezes no mesmo nó.
+* Certifique-se de que o script é idempotent. Se o fizer, permite que o script ser executada várias vezes no mesmo nó.
 * Utilize um diretório de ficheiro temporário /tmp para manter os ficheiros transferidos utilizados pelos scripts e, em seguida, limpe-los depois de tem executado scripts.
 * Se as definições de nível de SO ou ficheiros de configuração de serviço do Hadoop são alterados, pode pretender reinicie os serviços do HDInsight.
 
@@ -371,7 +371,7 @@ Este problema ocorre normalmente quando o script foi criado no ambiente do Windo
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
-Substitua `INFILE` com o ficheiro que contém o LM. `OUTFILE`deve ser um novo nome de ficheiro, que contém o script do LM.
+Substitua `INFILE` com o ficheiro que contém o LM. `OUTFILE` deve ser um novo nome de ficheiro, que contém o script do LM.
 
 ## <a name="seeAlso"></a>Passos seguintes
 

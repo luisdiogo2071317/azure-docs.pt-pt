@@ -1,9 +1,9 @@
 ---
-title: "Programação de JavaScript do lado do servidor de base de dados do Azure Cosmos | Microsoft Docs"
-description: "Saiba como utilizar a base de dados do Azure Cosmos para escrever e procedimentos armazenados, acionadores de base de dados, funções definidas pelo utilizador (UDFs) em JavaScript. Obter sugestões de programing de base de dados e muito mais."
+title: Programação de JavaScript do lado do servidor de base de dados do Azure Cosmos | Microsoft Docs
+description: Saiba como utilizar a base de dados do Azure Cosmos para escrever e procedimentos armazenados, acionadores de base de dados, funções definidas pelo utilizador (UDFs) em JavaScript. Obter sugestões de programing de base de dados e muito mais.
 keywords: Base de dados de acionadores de procedimento armazenado, procedimento armazenado, o programa de base de dados, sproc, do azure, do Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: aliuy
 manager: jhubbard
 editor: mimig
@@ -13,29 +13,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 2b55307c3122513b414c3f90a6a36d230f3459c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor de base de dados do Cosmos do Azure: e procedimentos armazenados, acionadores de base de dados, UDFs
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+Saiba como a execução transacional, linguagem integrada da BD do Azure Cosmos do JavaScript permite aos programadores escrever **procedimentos armazenados**, **acionadores**, e **funções definidas pelo utilizador (UDFs)**  nativamente num [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Esta integração do Javascript permite-lhe escrever a lógica de aplicação de programa de base de dados que pode ser fornecida e executada diretamente nas partições de armazenamento de base de dados. 
 
-Saiba como idioma da BD do Azure Cosmos integrados, execução transacional do JavaScript permite aos programadores escrever **procedimentos armazenados**, **acionadores** e **(UDFs)defunçõesdefinidaspeloutilizador** nativamente num [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Isto permite-lhe escrever a lógica de aplicação de programa de base de dados que pode ser fornecida e executada diretamente nas partições de armazenamento de base de dados. 
+Recomendamos que comece por ver o vídeo seguinte, onde Andrew Liu fornece uma introdução ao modelo de programação de base de dados do lado do servidor da BD do Cosmos do Azure. 
 
-Recomendamos que comece por ver o vídeo seguinte, onde Andrew Liu fornece uma breve introdução ao modelo de programação de base de dados do lado do servidor da BD do Cosmos. 
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
-> 
+> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
+>
 > 
 
 Em seguida, regresse a este artigo, onde poderá aprender as respostas às seguintes perguntas:  
 
-* Como escrever um um procedimento armazenado, acionador ou UDF através de JavaScript?
+* Como escrever um procedimento armazenado, acionador ou UDF através de JavaScript?
 * Como a base de dados do Cosmos garantir ACID?
 * Como funcionam as transações na base de dados do Cosmos?
 * Quais são previamente aciona e aciona pós-cópia e como escrever um?
@@ -46,17 +44,17 @@ Em seguida, regresse a este artigo, onde poderá aprender as respostas às segui
 Esta abordagem de *"JavaScript sendo um dia moderno T-SQL"* liberta os programadores de aplicações do complexidades de tipos incompatíveis de sistema e as tecnologias de mapeamento de objetos relacionais. Também tem várias vantagens intrínsecos que pode ser utilizado para criar aplicações avançadas:  
 
 * **Lógica de procedimento:** JavaScript como uma linguagem de programação alto nível, fornece uma interface avançada e familiar para expressar a lógica de negócio. Pode efetuar complexas sequências de operações próximo aos dados.
-* **Transações atómicas:** garantias Cosmos DB que operações executadas dentro de um procedimento armazenado único ou acionador de base de dados são atómicas. Isto permite que uma aplicação combinar relacionadas com operações num único lote para que todos eles concluída com êxito ou nenhum com êxito. 
+* **Transações atómicas:** garantias Cosmos DB que operações executadas dentro de um procedimento armazenado único ou acionador de base de dados são atómicas. Esta funcionalidade atómica permite uma aplicação combinar relacionadas com operações num único lote para que todos eles concluída com êxito ou nenhum com êxito. 
 * **Desempenho:** o facto de que JSON intrinsecamente está mapeado para o sistema de tipo de linguagem Javascript e também é a unidade básica de armazenamento na base de dados do Cosmos permite a um número de otimizações como materialization lento de documentos JSON no conjunto de memória intermédia e tornar disponível a pedido para o código em execução. Existem mais benefícios de desempenho associados envio lógica de negócio para a base de dados:
   
   * Criação de batches – os programadores podem operações como inserções de grupo e submetê-las em massa. A latência de tráfego de rede de custos e a sobrecarga de arquivo para criar transações separadas são significativamente reduzidas. 
-  * Pré-compilação – Cosmos DB precompiles procedimentos armazenados, acionadores e funções definidas pelo utilizador (UDFs) para evitar o custo de compilação do JavaScript para cada invocação. A sobrecarga de compilar o código de byte para a lógica de procedimento é amortized para um valor mínimo.
+  * Pré-compilação – Cosmos DB precompiles armazenados, acionadores, funções e procedimentos definidos pelo utilizador (UDFs) para evitar o custo de compilação do JavaScript para cada invocação. A sobrecarga de compilar o código de byte para a lógica de procedimento é amortized para um valor mínimo.
   * Sequenciação – muitas necessidade de operações-efeito ("acionador") que potencialmente envolve fazer uma ou várias operações de arquivo secundário. Para além de atomicity, este é mais performant quando movida para o servidor. 
-* **Encapsulamento:** os procedimentos armazenados podem ser utilizados para agrupar a lógica de negócio num único local. Isto tem duas vantagens:
-  * Adiciona uma camada de abstração sobre os dados não processados, que permite a arquitetos de dados evoluir as aplicações de forma independente a partir dos dados. Isto é particularmente vantajoso quando os dados sem esquema, devido aos pressupostos brittle que poderão ter de ser integrada na aplicação, se tiverem que lidar com os dados diretamente.  
+* **Encapsulamento:** os procedimentos armazenados podem ser utilizados para agrupar a lógica de negócio num único local, tem duas vantagens:
+  * Adiciona uma camada de abstração sobre os dados não processados, que permite a arquitetos de dados evoluir as aplicações de forma independente a partir dos dados. Esta camada de abstração, é vantajoso quando os dados sem esquema, devido aos pressupostos brittle que poderão ter de ser integrada na aplicação, se tiverem que lidar com os dados diretamente.  
   * Esta abstração permite que as empresas a manter os seus dados segura, simplificando o acesso a partir de scripts.  
 
-A criação e a execução de acionadores de base de dados, o procedimento armazenado e operadores de consulta personalizada é suportada através de [portal do Azure](https://portal.azure.com), a [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), e [SDKs de cliente](sql-api-sdk-dotnet.md) em muitas plataformas, incluindo .NET, Node.js e JavaScript.
+A criação e a execução de acionadores de base de dados, procedimentos armazenados e operadores de consulta personalizada é suportada através de [portal do Azure](https://portal.azure.com), a [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), e [SDKs de cliente](sql-api-sdk-dotnet.md) em muitas plataformas, incluindo .NET, Node.js e JavaScript.
 
 Este tutorial utiliza o [SDK Node.js com Q Promises](http://azure.github.io/azure-documentdb-node-q/) para ilustrar a sintaxe e a utilização de procedimentos armazenados, acionadores e UDFs.   
 
@@ -88,7 +86,7 @@ Os procedimentos armazenados são registados por coleção e podem operar em qua
         });
 
 
-Depois do procedimento armazenado é registado, iremos pode executá-lo contra a coleção e ler os resultados de volta ao cliente. 
+Depois do procedimento armazenado é registado, pode executá-lo contra a coleção e ler os resultados de volta ao cliente. 
 
     // execute the stored procedure
     client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
@@ -99,9 +97,9 @@ Depois do procedimento armazenado é registado, iremos pode executá-lo contra a
         });
 
 
-O objeto de contexto fornece acesso a todas as operações que podem ser executadas no armazenamento de base de dados do Cosmos, bem como acesso a objetos de pedido e resposta. Neste caso, utilizámos o objeto de resposta para definir o corpo da resposta que lhe foi enviado para o cliente. Para obter mais detalhes, consulte o [Azure Cosmos DB JavaScript servidor documentação do SDK](http://azure.github.io/azure-documentdb-js-server/).  
+O objeto de contexto fornece acesso a todas as operações que podem ser executadas no armazenamento de base de dados do Cosmos, bem como acesso a objetos de pedido e resposta. Neste caso, utilizámos o objeto de resposta para definir o corpo da resposta que lhe foi enviado para o cliente. Para obter mais informações, consulte o [Azure Cosmos DB JavaScript servidor documentação do SDK](http://azure.github.io/azure-documentdb-js-server/).  
 
-Informe-nos expanda neste exemplo e adicionar que mais funcionalidades relacionadas para o procedimento armazenado de base de dados. Procedimentos armazenados podem criar, atualizar, ler, consultar e eliminar documentos e anexos dentro da coleção.    
+Informe-nos expanda neste exemplo e adicionar mais funcionalidades relacionadas com a base de dados para o procedimento armazenado. Procedimentos armazenados podem criar, atualizar, ler, consultar e eliminar documentos e anexos dentro da coleção.    
 
 ### <a name="example-write-a-stored-procedure-to-create-a-document"></a>Exemplo: Escrever um procedimento armazenado para criar um documento
 O fragmento seguinte mostra como utilizar o objeto de contexto para interagir com recursos de BD do Cosmos.
@@ -227,7 +225,7 @@ Na base de dados do Cosmos, JavaScript está alojado no mesmo espaço de memóri
 
 Este procedimento armazenado utiliza transações dentro de uma aplicação de jogos a itens de compromissos entre duas jogadores numa única operação. O procedimento armazenado tenta ler dois documentos cada correspondentes aos player IDs transmitido como um argumento. Se ambos os documentos de leitor encontram-se, em seguida, o procedimento armazenado atualiza os documentos, troca os seus itens. Se forem encontrados erros ao longo do percurso, emite uma exceção de JavaScript implicitamente interrompe a transação.
 
-Se está registada na coleção o procedimento armazenado contra é uma coleção de partição única, em seguida, a transação tem um âmbito para todos os documentos dentro da coleção. Se a coleção estiver particionada, procedimentos armazenados são executados no âmbito de transação de uma chave de partição única. Execução do procedimento, em seguida, tem de incluir um valor de chave de partição correspondente para o âmbito da transação tem de executar em cada armazenado. Para obter mais detalhes, consulte [Azure Cosmos DB a criação de partições](partition-data.md).
+Se está registada na coleção o procedimento armazenado contra é uma coleção de partição única, em seguida, a transação tem um âmbito para todos os documentos dentro da coleção. Se a coleção estiver particionada, procedimentos armazenados são executados no âmbito de transação de uma chave de partição única. Execução do procedimento, em seguida, tem de incluir um valor de chave de partição correspondente para o âmbito da transação tem de executar em cada armazenado. Para obter mais informações, consulte [Azure Cosmos DB a criação de partições](partition-data.md).
 
 ### <a name="commit-and-rollback"></a>Consolidação e a reversão
 As transações são profundamente e nativamente integradas no modelo de programação do Cosmos DB JavaScript. Dentro de uma função de JavaScript, todas as operações são automaticamente encapsuladas sob uma única transação. Se o JavaScript concluída sem qualquer excepção, as operações para a base de dados são consolidadas. Em vigor, as instruções de "BEGIN TRANSACTION" e "CONSOLIDAR transação" em bases de dados relacionais são implícitas na base de dados do Cosmos.  
@@ -238,11 +236,11 @@ Se não houver qualquer exceção que é propagada do script, tempo de execuçã
 Acionadores e procedimentos armazenados são sempre executados na réplica primária do contentor do Azure Cosmos DB. Isto assegura que lê a partir de dentro armazenadas consistência forte de oferta de procedimentos. Consultas de funções definidas pelo utilizador a utilizar podem ser executadas num primário ou de qualquer réplica secundária, mas podemos assegurar para satisfazer o nível de consistência pedida ao escolher a réplica adequada.
 
 ## <a name="bounded-execution"></a>Execução vinculada
-Tem de concluir todas as operações de base de dados do Cosmos no servidor especificado duração do tempo limite do pedido. Esta restrição aplica-se também a funções de JavaScript (procedimentos armazenados, acionadores e funções definidas pelo utilizador). Se uma operação não for concluída com esse limite de tempo, a transação é revertida. Funções JavaScript tem de concluir dentro do tempo limite ou implementar um modelo de continuação com base para a execução de lote/retomar.  
+Tem de concluir todas as operações de base de dados do Cosmos no servidor especificado duração do tempo limite do pedido. Esta restrição aplica-se também a funções de JavaScript (procedimentos armazenados, acionadores e funções definidas pelo utilizador). Se uma operação não for concluída com esse limite de tempo, a transação é revertida. Funções JavaScript tem de concluir dentro do tempo limite ou implementar um modelo baseado em continuação para execução de lote/retomar.  
 
 Para simplificar o desenvolvimento de procedimentos armazenados e acionadores para lidar com os limites de tempo, todas as funções sob o objecto de coleção (para criar, ler, substitua e eliminação de documentos e anexos) devolver um valor boleano valor que representa se essa operação irá concluir. Se este valor for FALSO, é uma indicação de que o limite de tempo está prestes a expirar e de que o procedimento tem de encapsular cópias de segurança execução.  Para concluir se o procedimento armazenado é concluída no tempo e não espera mais pedidos garantidos operações em fila antes da primeira operação de arquivo não aceite.  
 
-Funções JavaScript são também tem um vínculo no consumo de recursos. BD do cosmos reserva débito por coleção com base no tamanho aprovisionado de uma conta de base de dados. Débito é expresso em termos de uma unidade normalizada de CPU, memória e unidades de pedido ou RUs de consumo de e/s. Funções JavaScript, potencialmente, podem utilizar um grande número de RUs num curto período de tempo de cópia de segurança e poderão obter taxa-limited caso seja atingido o limite da coleção. Procedimentos armazenados intensivas de recursos também podem ser colocados em quarentena para garantir a disponibilidade das operações de base de dados primitivos.  
+Funções JavaScript são também tem um vínculo no consumo de recursos. BD do cosmos reserva débito por coleção com base no tamanho aprovisionado de uma conta de base de dados. Débito é expresso em termos de uma unidade normalizada de CPU, memória e unidades de pedido ou RUs de consumo de e/s. Funções JavaScript, potencialmente, podem utilizar um grande número de RUs num curto período de tempo de cópia de segurança e poderão obter taxa-limited caso seja atingido o limite da coleção. Procedimentos armazenados consome também podem ser colocados em quarentena para garantir a disponibilidade das operações de base de dados primitivos.  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>Exemplo: Em massa importar dados para um programa de base de dados
 Abaixo está um exemplo de um procedimento armazenado que é escrito importar em massa documentos para uma coleção. Tenha em atenção a como o procedimento armazenado processa execução vinculada ao verificar o valor de booleano devolver o valor de createDocument e, em seguida, utiliza a contagem de documentos inseridos em cada invocação do procedimento armazenado para controlar e retomar o progresso em lotes.
@@ -296,9 +294,9 @@ Abaixo está um exemplo de um procedimento armazenado que é escrito importar em
         }
     }
 
-## <a id="trigger"></a>Acionadores de base de dados
+## <a id="trigger"></a> Acionadores de base de dados
 ### <a name="database-pre-triggers"></a>Pré-acionadores de base de dados
-BD do cosmos fornece acionadores que são executadas ou acionados por uma operação num documento. Por exemplo, pode especificar um pré-acionador de quando estiver a criar um documento – este pré-acionador será executado antes do documento é criado. Segue-se um exemplo de como os acionadores de pré-lançamento podem ser utilizadas para validar as propriedades de um documento que está a ser criada:
+BD do cosmos fornece acionadores que são executadas ou acionados por uma operação num documento. Por exemplo, pode especificar um pré-acionador de quando estiver a criar um documento – este pré-acionador será executado antes do documento é criado. O exemplo seguinte mostra como os acionadores de pré-lançamento podem ser utilizadas para validar as propriedades de um documento que está a ser criada:
 
     var validateDocumentContentsTrigger = {
         id: "validateDocumentContents",
@@ -485,7 +483,7 @@ UDF, subsequentemente, pode ser utilizado em consultas, como no seguinte exemplo
 Para além de emitir consultas através de gramática do SQL da BD do Cosmos do Azure, o SDK do lado do servidor permite-lhe efetuar consultas otimizadas com uma interface de JavaScript fluent sem qualquer conhecimento do SQL Server. A consulta de JavaScript que API permite-lhe para programaticamente criar consultas através da transmissão de predicado funções para a função de chainable chama, com uma sintaxe familiar do ECMAScript5 built-ins de matriz e populares bibliotecas de JavaScript como lodash. As consultas são analisadas pelo runtime JavaScript para ser executada de forma eficiente com índices da BD do Cosmos do Azure.
 
 > [!NOTE]
-> `__`(double-caráter de sublinhado) é um alias para `getContext().getCollection()`.
+> `__` (double-caráter de sublinhado) é um alias para `getContext().getCollection()`.
 > <br/>
 > Por outras palavras, pode utilizar `__` ou `getContext().getCollection()` para aceder a API de consulta do JavaScript.
 > 
@@ -495,7 +493,7 @@ As funções suportadas incluem:
 
 <ul>
 <li>
-<b>chain().... valor ([chamada de retorno] [, opções])</b>
+<b>chain() ... .value([callback] [, options])</b>
 <ul>
 <li>
 Inicia uma chamada em cadeia que tem de ser terminada com Value ().
@@ -506,12 +504,12 @@ Inicia uma chamada em cadeia que tem de ser terminada com Value ().
 <b>filtro (predicateFunction [, opções] [, chamada de retorno])</b>
 <ul>
 <li>
-Filtra a entrada através de uma função de predicado que devolve true/false para filtrar/out documentos de entrada para o conjunto resultante. Este comporta-se semelhante a uma cláusula WHERE no SQL Server.
+Filtra a entrada utilizando uma função de predicado devolve true/false para filtrar/out documentos de entrada para o conjunto resultante. Este comporta-se semelhante a uma cláusula WHERE no SQL Server.
 </li>
 </ul>
 </li>
 <li>
-<b>mapa (transformationFunction [, opções] [, chamada de retorno])</b>
+<b>map(transformationFunction [, options] [, callback])</b>
 <ul>
 <li>
 Aplica-se uma projeção dada uma função de transformação que mapeia cada item de entrada para um valor ou o objeto de JavaScript. Este comporta-se semelhante a cláusula de SELEÇÃO no SQL Server.
@@ -527,7 +525,7 @@ Este é um atalho para um mapa que extrai o valor de uma propriedade de único d
 </ul>
 </li>
 <li>
-<b>aplanar ([isShallow] [, opções] [, chamada de retorno])</b>
+<b>flatten([isShallow] [, options] [, callback])</b>
 <ul>
 <li>
 Combina e flattens matrizes de cada item na entrada para uma matriz única. Este comporta-se semelhante ao SelectMany no LINQ.
@@ -564,7 +562,7 @@ As seguintes construções de JavaScript não obter otimizadas para índices de 
 * Controlar o fluxo (por exemplo, se, enquanto)
 * Chamadas de função
 
-Para obter mais informações, consulte a nossa [JSDocs do lado do servidor](http://azure.github.io/azure-documentdb-js-server/).
+Para obter mais informações, consulte o [JSDocs do lado do servidor](http://azure.github.io/azure-documentdb-js-server/).
 
 ### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Exemplo: Escrever um procedimento armazenado utilizando a API de consulta de JavaScript
 O exemplo de código seguinte é um exemplo de como a API de consulta de JavaScript pode ser utilizada no contexto de um procedimento armazenado. O procedimento armazenado insere um documento, fornecido por um parâmetro de entrada e de atualizações de metadados de um documento, utilizando o `__.filter()` método, com minSize, maxSize e totalSize com base na propriedade de tamanho do documento de entrada.
@@ -628,12 +626,12 @@ Conforme com as consultas SQL, chaves de propriedade de documento (por exemplo, 
 
 |SQL| Consulta de JavaScript API|Descrição abaixo|
 |---|---|---|
-|SELECIONE *<br>DE documentos| __.Map(Function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;devolver o documento;<br>});|1|
-|SELECIONE docs.id, docs.message como tarifas de mensagens, docs.actions <br>DE documentos|__.Map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;devolver {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tarifas de mensagens: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions:doc.Actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|2|
-|SELECIONE *<br>DE documentos<br>WHERE docs.id="X998_Y998"|__.Filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;devolver doc.id === "X998_Y998";<br>});|3|
-|SELECIONE *<br>DE documentos<br>ONDE ARRAY_CONTAINS (docs. Etiquetas, 123)|__.Filter(Function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;devolver x.Tags & & x.Tags.indexOf(123) > -1;<br>});|4|
-|SELECIONE docs.id, docs.message como tarifas de mensagens<br>DE documentos<br>WHERE docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.Filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolver doc.id === "X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.Map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolver {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tarifas de mensagens: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.Value();|5|
-|Etiqueta de valor SELECIONE<br>DE documentos<br>ASSOCIE docs de IN tag. Etiquetas<br>Docs._ts ORDER BY|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.Filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolva o documento. Etiquetas & & Array.isArray (documento. Etiquetas);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolver doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.Value()|6|
+|SELECIONE *<br>DE documentos| __.map(function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;devolver o documento;<br>});|1|
+|SELECIONE docs.id, docs.message como tarifas de mensagens, docs.actions <br>DE documentos|__.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;devolver {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actions:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|2|
+|SELECIONE *<br>DE documentos<br>WHERE docs.id="X998_Y998"|__.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br>});|3|
+|SELECIONE *<br>DE documentos<br>WHERE ARRAY_CONTAINS(docs.Tags, 123)|__.filter(function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return x.Tags && x.Tags.indexOf(123) > -1;<br>});|4|
+|SELECIONE docs.id, docs.message como tarifas de mensagens<br>DE documentos<br>WHERE docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolver {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|5|
+|Etiqueta de valor SELECIONE<br>DE documentos<br>ASSOCIE docs de IN tag. Etiquetas<br>Docs._ts ORDER BY|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolva o documento. Etiquetas & & Array.isArray (documento. Etiquetas);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolver doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|6|
 
 As seguintes descrições explicam cada consulta na tabela acima.
 1. Resulta em todos os documentos (paginated com o token de continuação) como está.
@@ -641,7 +639,7 @@ As seguintes descrições explicam cada consulta na tabela acima.
 3. As consultas para documentos com o predicado: id = "X998_Y998".
 4. As consultas para documentos que tenham uma propriedade de etiquetas e etiquetas é uma matriz que contém o valor 123.
 5. As consultas para documentos com um predicado, id = "X998_Y998" e, em seguida, projetos, o id e a mensagem (um alias para tarifas de mensagens).
-6. Filtros para documentos que tem uma propriedade de matriz, etiquetas e ordena os documentos resultantes pela propriedade de sistema _ts timestamp e, em seguida, projetos + flattens a matriz de etiquetas.
+6. Filtros de documentos que tenham uma propriedade de matriz, etiquetas, e ordena os documentos resultantes pela propriedade de sistema de timestamp _ts e, em seguida, projetos + flattens a matriz de etiquetas.
 
 
 ## <a name="runtime-support"></a>Suporte de tempo de execução
@@ -654,7 +652,7 @@ Procedimentos armazenados do JavaScript e acionadores são um forma que os efeit
 Os procedimentos armazenados, acionadores e UDFs são implicitamente pré-compilados para o formato de código de byte para evitar o custo de compilação no momento da cada invocação de script. Isto garante invocações de procedimentos armazenados são rápidas e tem um reduzidos.
 
 ## <a name="client-sdk-support"></a>Suporte SDK do cliente
-Para além da base de dados do Azure Cosmos [Node.js](sql-api-sdk-node.md) API, base de dados do Azure Cosmos tem [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), e [Python SDKs](sql-api-sdk-python.md) para a API do SQL Server. Procedimentos armazenados, acionadores e UDFs podem ser criados e executado utilizando qualquer um destes SDKs bem. O exemplo seguinte mostra como criar e executar um procedimento armazenado com o cliente do .NET. Tenha em atenção a como os tipos .NET são transmitidos para o procedimento armazenado como JSON e ler novamente.
+Para além da base de dados do Azure Cosmos [Node.js](sql-api-sdk-node.md) API, base de dados do Azure Cosmos tem [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), e [Python SDKs](sql-api-sdk-python.md) para a API do SQL Server. E procedimentos armazenados, acionadores, UDFs podem ser criados e executado utilizando qualquer um destes SDKs bem. O exemplo seguinte mostra como criar e executar um procedimento armazenado com o cliente do .NET. Tenha em atenção a como os tipos .NET são transmitidos para o procedimento armazenado como JSON e ler novamente.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -776,7 +774,7 @@ Aqui, a entrada para o procedimento armazenado é transmitida no corpo do pedido
     }
 
 
-Acionadores, ao contrário de procedimentos armazenados, não não possível executar diretamente. Em vez disso, são executados como parte de uma operação num documento. Iremos pode especificar os acionadores para ser executada com um pedido com os cabeçalhos de HTTP. Segue-se o pedido para criar um documento.
+Acionadores, ao contrário de procedimentos armazenados, não não possível executar diretamente. Em vez disso, são executados como parte de uma operação num documento. Iremos pode especificar os acionadores para ser executada com um pedido com os cabeçalhos de HTTP. O código seguinte mostra o pedido para criar um documento.
 
     POST https://<url>/docs/ HTTP/1.1
     authorization: <<auth>>
@@ -793,14 +791,14 @@ Acionadores, ao contrário de procedimentos armazenados, não não possível exe
     }
 
 
-Aqui pré-acionar a ser executado com o pedido é especificado no cabeçalho x-ms-documentdb-pre-trigger-include. Proporcionalmente, acionadores pós-implementação são indicados no cabeçalho de x-ms-documentdb-post-trigger-include. Tenha em atenção que ambos pré e pós-implementação acionadores podem ser especificados para um determinado pedido.
+Aqui pré-acionar a ser executado com o pedido é especificado no cabeçalho x-ms-documentdb-pre-trigger-include. Proporcionalmente, acionadores pós-implementação são indicados no cabeçalho de x-ms-documentdb-post-trigger-include. Ambos pré e pós-implementação acionadores podem ser especificados para um determinado pedido.
 
 ## <a name="sample-code"></a>Código de exemplo
 Pode encontrar mais exemplos de código do lado do servidor (incluindo [eliminação em massa](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), e [atualizar](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) no nosso [repositório do GitHub](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Pretende partilhar o procedimento armazenado extraordinário? Envie-num pedido de solicitação! 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de ter um ou mais procedimentos armazenados, acionadores e funções definidas pelo utilizador criadas, pode carregá-los e visualizá-las no portal do Azure utilizando o Explorador de dados.
 
 Pode também considerar as seguintes referências e recursos útil no seu caminho para saber mais sobre a programação do lado do servidor de base de dados de Cosmos do Azure:

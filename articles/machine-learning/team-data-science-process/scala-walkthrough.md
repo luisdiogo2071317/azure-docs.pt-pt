@@ -1,8 +1,8 @@
 ---
-title: "Ciência de dados utilizando Scala e o Spark no Azure | Microsoft Docs"
-description: "Como utilizar o Scala para tarefas de aprendizagem máquina supervisionados com os Spark dimensionáveis MLlib e Spark ML pacotes num cluster do Azure HDInsight Spark."
+title: Ciência de dados utilizando Scala e o Spark no Azure | Microsoft Docs
+description: Como utilizar o Scala para tarefas de aprendizagem máquina supervisionados com os Spark dimensionáveis MLlib e Spark ML pacotes num cluster do Azure HDInsight Spark.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;deguhath
-ms.openlocfilehash: 940911144993f30723ad395722742c81a4b0a71c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: dbd68508d83936964d213d94d5a30c15548cbdfc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Utilizar o Scala e o Spark para Ciência de Dados no Azure
 Este artigo mostra como utilizar o Scala para tarefas de aprendizagem máquina supervisionados com os Spark dimensionáveis MLlib Spark ML pacotes e num cluster do Azure HDInsight Spark. Explica como as tarefas que constituem o [processo de ciência de dados](http://aka.ms/datascienceprocess): ingestão de dados e exploração, visualização, funcionalidade engenharia, modelação e consumo de modelo. Os modelos no artigo incluem regressão linear e logística da, florestas aleatórias e árvores elevada de gradação (GBTs), para além das duas supervisionado tarefas de machine learning:
@@ -42,7 +42,7 @@ Os passos de configuração e o código neste artigo são para o Azure HDInsight
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Tem de ter uma subscrição do Azure. Se já tiver um, [obtenha uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Precisa de uma subscrição do Azure. Se já tiver um, [obtenha uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Precisa de um cluster do Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos seguintes. Para criar um cluster, consulte as instruções no [introdução: criar o Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Definir o tipo de cluster e a versão de **selecionar tipo de Cluster** menu.
 
 ![Configuração de tipo de cluster do HDInsight](./media/scala-walkthrough/spark-cluster-on-portal.png)
@@ -77,14 +77,14 @@ Pode carregar o bloco de notas diretamente a partir do GitHub para o servidor de
 
 Os kernels Spark que são fornecidos com blocos de notas do Jupyter tem predefinido contextos. Não precisa de definir explicitamente o Spark ou contextos de ramo de registo antes de começar a trabalhar com a aplicação estiver a desenvolver. Os contextos predefinidos são:
 
-* `sc`para SparkContext
-* `sqlContext`para HiveContext
+* `sc` para SparkContext
+* `sqlContext` para HiveContext
 
 ### <a name="spark-magics"></a>O Spark magia
 O kernel do Spark fornece algumas predefinidas "magia", que são comandos especiais que pode chamar com `%%`. Dois destes comandos são utilizados os seguintes exemplos de código.
 
-* `%%local`Especifica que o código em linhas subsequentes será executado localmente. O código tem de ser código Scala válido.
-* `%%sql -o <variable name>`executa uma consulta do Hive contra `sqlContext`. Se o `-o` parâmetro é transmitido, o resultado da consulta é continuado no `%%local` Scala contexto como um intervalo de dados de Spark.
+* `%%local` Especifica que o código em linhas subsequentes será executado localmente. O código tem de ser código Scala válido.
+* `%%sql -o <variable name>` executa uma consulta do Hive contra `sqlContext`. Se o `-o` parâmetro é transmitido, o resultado da consulta é continuado no `%%local` Scala contexto como um intervalo de dados de Spark.
 
 Para obter mais informações sobre os kernels para blocos de notas do Jupyter e os respetivos predefinida "magics" que tem de chamar com `%%` (por exemplo, `%%local`), consulte [clusters Kernels disponíveis para blocos de notas do Jupyter com o HDInsight Spark Linux no HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -262,7 +262,7 @@ Depois de resolver os dados Spark, o próximo passo no processo de ciência de d
 Por predefinição, o resultado de qualquer fragmento de código que executa a partir de um bloco de notas do Jupyter está disponível no contexto de sessão que é mantida em nós de trabalho. Se pretender guardar uma viagem para os nós de trabalho para cada cálculo e se todos os dados que precisa para o cálculo está disponível localmente no nó de servidor Jupyter (que é o nó principal), pode utilizar o `%%local` magic para executar o fragmento de código no servidor do Jupyter.
 
 * **Magic SQL** (`%%sql`). O kernel do HDInsight Spark suporta consultas de HiveQL de fácil inline contra SQLContext. O (`-o VARIABLE_NAME`) argumento persistir o resultado da consulta SQL como moldura Pandas dados no servidor do Jupyter. Isto significa que terá de estar disponível no modo de local.
-* `%%local`**magic**. O `%%local` magic executa o código localmente no servidor do Jupyter, o que é o nó principal do cluster do HDInsight. Normalmente, utiliza `%%local` mágica em conjunto com o `%%sql` mágica com o `-o` parâmetro. O `-o` parâmetro seria manter o resultado da consulta SQL localmente e, em seguida, `%%local` magic acionaria o seguinte conjunto de fragmento de código para executar localmente o resultado das consultas de SQL Server que é localmente persistente.
+* `%%local` **Magic**. O `%%local` magic executa o código localmente no servidor do Jupyter, o que é o nó principal do cluster do HDInsight. Normalmente, utiliza `%%local` mágica em conjunto com o `%%sql` mágica com o `-o` parâmetro. O `-o` parâmetro seria manter o resultado da consulta SQL localmente e, em seguida, `%%local` magic acionaria o seguinte conjunto de fragmento de código para executar localmente o resultado das consultas de SQL Server que é localmente persistente.
 
 ### <a name="query-the-data-by-using-sql"></a>Consultar os dados utilizando o SQL Server
 Esta consulta obtém as viagens taxi pela quantidade de fare, a contagem de passenger e a quantidade de sugestão.

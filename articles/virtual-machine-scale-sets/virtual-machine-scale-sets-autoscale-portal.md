@@ -1,11 +1,11 @@
 ---
-title: "Conjuntos de dimensionamento de máquina virtual de dimensionamento automático no portal do Azure | Microsoft Docs"
-description: "Define como criar regras de dimensionamento automático para dimensionamento da máquina virtual no portal do Azure"
+title: Conjuntos de dimensionamento de máquina virtual de dimensionamento automático no portal do Azure | Microsoft Docs
+description: Define como criar regras de dimensionamento automático para dimensionamento da máquina virtual no portal do Azure
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: e43be53817e7fa65c3d7a95cab9821126ed88831
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 984b16dae26fb6d9d33ef68ac3e8c8b658e82e08
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionar automaticamente um conjunto no portal do Azure de dimensionamento de máquina virtual
 Quando cria um conjunto de dimensionamento, é possível definir o número de instâncias VM que pretende executar. Como muda o seu pedido de aplicação, pode automaticamente aumentar ou reduzir o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a pedido do cliente ou responder a alterações de desempenho da aplicação durante todo o ciclo de vida da sua aplicação.
@@ -28,7 +28,7 @@ Este artigo mostra como criar regras de dimensionamento automático no portal do
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para criar regras de dimensionamento automático, terá de uma máquina virtual existente conjunto de dimensionamento. Pode criar uma escala definida com o [portal do Azure](virtual-machine-scale-sets-create-portal.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), ou [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md).
+Para criar regras de dimensionamento automático, terá de uma máquina virtual existente conjunto de dimensionamento. Pode criar uma escala definida com o [portal do Azure](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), ou [Azure CLI 2.0](quick-create-cli.md).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Criar uma regra para ampliar automaticamente
@@ -51,8 +51,8 @@ Se aumentar o seu pedido de aplicação, a carga sobre as instâncias de VM no s
     | *Agregação de tempo*     | Define a forma como as métricas recolhidas devem ser agregadas para análise.                                                | Média        |
     | *Nome da métrica*          | A métrica de desempenho para monitorizar e aplicar escala definir ações.                                                   | Percentagem da CPU |
     | *Estatística de grão de tempo* | Define a forma como as métricas recolhidas em cada intervalo de tempo devem ser agregadas para análise.                             | Média        |
-    | *Operador*             | Operador utilizado para comparar os dados métricos contra o limiar.                                                     | Mais do que   |
-    | *Limiar*            | A percentagem que faz com que a regra de dimensionamento automático acionar uma ação.                                                 | 70             |
+    | *operador*             | Operador utilizado para comparar os dados métricos contra o limiar.                                                     | Mais do que   |
+    | *Threshold*            | A percentagem que faz com que a regra de dimensionamento automático acionar uma ação.                                                 | 70             |
     | *Duração*             | A quantidade de tempo monitorizado antes em comparação com os valores da métrica e de limiar.                                   | 10 minutos     |
     | *Operação*            | Define se o conjunto de dimensionamento deve Dimensionar cópias de segurança ou para baixo quando se aplica a regra e que incremento                        | Aumentar percentagem em |
     | *Contagem de instâncias*       | A percentagem de instâncias de VM deve ser alterada quando a regra é acionado.                                            | 20             |
@@ -75,8 +75,8 @@ Num evening ou fim de semana, pode diminuir o seu pedido de aplicação. Se este
     
     | Parâmetro              | Explicação                                                                                                          | Valor          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Operador*             | Operador utilizado para comparar os dados métricos contra o limiar.                                                      | Menos do que   |
-    | *Limiar*            | A percentagem que faz com que a regra de dimensionamento automático acionar uma ação.                                                 | 30             |
+    | *operador*             | Operador utilizado para comparar os dados métricos contra o limiar.                                                      | Menos do que   |
+    | *Threshold*            | A percentagem que faz com que a regra de dimensionamento automático acionar uma ação.                                                 | 30             |
     | *Operação*            | Define se o conjunto de dimensionamento deve Dimensionar cópias de segurança ou para baixo quando se aplica a regra e que incremento                         | Diminuir percentagem em |
     | *Contagem de instâncias*       | A percentagem de instâncias de VM deve ser alterada quando a regra é acionado.                                             | 20             |
 

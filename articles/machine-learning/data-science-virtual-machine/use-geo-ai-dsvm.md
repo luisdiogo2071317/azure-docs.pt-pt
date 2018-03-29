@@ -1,24 +1,24 @@
 ---
-title: "Utilizar a Georreplicação Artificial Intelligence dados ciência máquina - Azure | Microsoft Docs"
-description: "Como utilizar uma máquina de Virtual AI Georreplicação no Azure."
-keywords: "ligação avançada learning AI, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise Geoespacial"
+title: Utilizar a Georreplicação Artificial Intelligence dados ciência máquina - Azure | Microsoft Docs
+description: Como utilizar uma máquina de Virtual AI Georreplicação no Azure.
+keywords: ligação avançada learning AI, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise Geoespacial
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: gopitk
 manager: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
-ms.author: gokuma; bradsev;
-ms.openlocfilehash: f87b56ad2b19b10bca1e797f0a5aef5c2a92a5dd
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: gokuma
+ms.openlocfilehash: f7ee109c26f8b2f6107dfcb4853d5517384aef76
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Utilizar a máquina de Virtual ciência de dados do Georreplicação Artificial Intelligence
 

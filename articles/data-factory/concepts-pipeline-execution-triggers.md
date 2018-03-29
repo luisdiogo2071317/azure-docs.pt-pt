@@ -1,11 +1,11 @@
 ---
-title: "Execução de pipelines e acionadores no Azure Data Factory | Microsoft Docs"
-description: "Este artigo disponibiliza informações sobre como executar um pipeline no Azure Data Factory a pedido ou mediante a criação de um acionador."
+title: Execução de pipelines e acionadores no Azure Data Factory | Microsoft Docs
+description: Este artigo disponibiliza informações sobre como executar um pipeline no Azure Data Factory a pedido ou mediante a criação de um acionador.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/03/2018
 ms.author: shlo
-ms.openlocfilehash: e754986cb3653eb4b2a17edff4d57974331cdcbb
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 08fcc2eec1914d9f7535ea66d33045240452e2a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -280,8 +280,8 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 
 | Propriedade JSON | Tipo | Necessário | Valor predefinido | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Sim | Nenhuma | Data-horas no formato ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | objeto | Sim | Nenhum | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | string | Sim | Nenhum | Data-horas no formato ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | objeto | Sim | Nenhuma | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | número | Não | 1 | 1 a 1000 | `"interval":10` |
 | **endTime** | string | Sim | Nenhum | Um valor de data/hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | objeto | Não | Nenhum | Um objeto de agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |

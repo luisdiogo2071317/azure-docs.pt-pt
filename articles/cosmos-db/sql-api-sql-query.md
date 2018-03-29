@@ -1,9 +1,9 @@
 ---
 title: As consultas SQL para a base de dados do Azure Cosmos | Microsoft Docs
 description: Saiba mais sobre a sintaxe SQL, conceitos de base de dados e as consultas SQL para a base de dados do Azure Cosmos. SQL Server pode utilizado como um idioma de consulta JSON do BD Azure Cosmos.
-keywords: "sintaxe de SQL, consulta sql, as consultas sql, idioma de consulta json, conceitos de base de dados e as consultas de sql, as funções de agregação"
+keywords: sintaxe de SQL, consulta sql, as consultas sql, idioma de consulta json, conceitos de base de dados e as consultas de sql, as funções de agregação
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: LalithaMV
 manager: jhubbard
 editor: monicar
@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a79b1a97909a38b4bfba06186db875d0c0c25f03
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Consultas SQL para a base de dados do Azure Cosmos
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Base de dados do Microsoft Azure Cosmos suporta a consulta de documentos através de SQL (Structured Query Language) como uma linguagem de consulta JSON em contas de API do SQL Server. BD do Azure do Cosmos é verdadeiramente sem esquema. Em virtude da respetivo compromisso para o modelo de dados JSON diretamente dentro do motor de base de dados, fornece a indexação automática de documentos JSON sem necessidade de um esquema explícito ou criação de índices secundários.
 
@@ -34,11 +32,17 @@ Ao conceber o idioma de consulta de base de dados do Cosmos, tivemos de dois obj
 
 Acreditamos que estas capacidades são fundamentais para reduzir o friction entre a aplicação e a base de dados e são cruciais para produtividade de programador.
 
-Recomendamos que comece por ver o seguinte vídeo, onde Aravind Ramachandran mostra Cosmos DB da capacidades de consulta, e ao visitar nosso [Query Playground](http://www.documentdb.com/sql/demo), onde pode experimentar a base de dados do Cosmos e executar consultas SQL no nosso conjunto de dados.
+Recomendamos que comece por ver o vídeo seguinte, em que o Azure Gestor de programa do Cosmos DB Andrew Liu mostra as capacidades de consultas da BD do Azure Cosmos e demonstra a online [Query Playground](http://www.documentdb.com/sql/demo), onde pode experimentar o Azure BD do cosmos e executadas consultas SQL no nosso conjunto de dados, conforme demonstrado no vídeo.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
-> 
-> 
+> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
+>
+>
+
+Mais avançadas técnicas de consultas são demonstrados este siga segurança vídeo:
+
+> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
+>
+>
 
 Em seguida, regresse a este artigo, onde iremos começar com um tutorial de consulta SQL que explica-lhe algumas simples documentos JSON e comandos SQL.
 
@@ -2260,7 +2264,7 @@ O exemplo seguinte mostra como utilizar o queryDocuments no servidor de JavaScri
 6. JSON [http://json.org/](http://json.org/)
 7. Especificação de JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Consultar as técnicas de avaliação para bases de dados grandes [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+9. Técnicas de avaliação de consulta para bases de dados grandes [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Consulta de processamento em sistemas de base de dados relacional paralelas, IEEE computador Society prima, 1994, feitas
 11. Lu, Ooi, Tan, processamento de consultas no sistemas de base de dados relacional paralelas, IEEE computador Society prima, 1994, feitas.
 12. Christopher Olston Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: um idioma não-para-externa para o processamento de dados, SIGMOD 2008.

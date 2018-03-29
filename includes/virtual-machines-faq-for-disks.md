@@ -42,7 +42,7 @@ Não.
 
 **Existem algumas limitações de dimensionamento para os clientes que utilizam discos geridos?**
 
-Discos geridos elimina os limites associados a contas de armazenamento. No entanto, o número de discos geridos por subscrição está limitado a 2.000 por predefinição. Pode contactar o suporte para aumentar este número.
+Discos geridos elimina os limites associados a contas de armazenamento. No entanto, o limite máximo bem como a predefinição limite é 10 000 discos geridos por região e por tipo de disco para uma subscrição.
 
 **Pode tirar um instantâneo incremental de um disco gerido?**
 

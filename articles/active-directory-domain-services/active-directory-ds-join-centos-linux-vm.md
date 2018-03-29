@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory dos serviços de domínio: Associar um VM CentOS a um domínio gerido | Microsoft Docs"
-description: "Associar uma máquina virtual CentOS Linux nos serviços de domínio do Azure AD"
+title: 'Azure Active Directory dos serviços de domínio: Associar um VM CentOS a um domínio gerido | Microsoft Docs'
+description: Associar uma máquina virtual CentOS Linux nos serviços de domínio do Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 9f3b6425f3c13080985fb168f46ea1f6be5d18ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7095e82605d12221ba7beb0c48fd3eda75a2e7b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Associar uma máquina virtual CentOS Linux a um domínio gerido
 Este artigo mostra como associar uma máquina virtual CentOS Linux no Azure a um domínio gerido dos serviços de domínio do Azure AD.
@@ -133,7 +133,7 @@ Certifique-se de que o se o computador foi associado com êxito ao domínio geri
 
 
 ## <a name="troubleshooting-domain-join"></a>Resolução de problemas de associação a um domínio
-Consulte o [associação de domínio de resolução de problemas](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) artigo.
+Consulte o [associação de domínio de resolução de problemas](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) artigo.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Serviços de domínio do Azure AD - guia de introdução](active-directory-ds-getting-started.md)

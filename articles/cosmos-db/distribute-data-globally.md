@@ -1,24 +1,24 @@
 ---
 title: Distribuir dados globalmente com a base de dados do Azure Cosmos | Microsoft Docs
-description: "Saiba mais sobre a recuperação de dados, ativação pós-falha e a georreplicação de planet escala bases de dados global do Azure Cosmos DB, um serviço de base de dados globalmente distribuídas, o modelo de estiverem a utilizar."
+description: Saiba mais sobre a recuperação de dados, ativação pós-falha e a georreplicação de planet escala bases de dados global do Azure Cosmos DB, um serviço de base de dados globalmente distribuídas, o modelo de estiverem a utilizar.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Como distribuir dados globalmente com o Azure Cosmos DB
 Azure ubíquo - tem um requisitos de espaço global em 30 + regiões geográficas e continuamente está a expandir. Com a presença em todo o mundo, uma das capacidades de diferenciadas que Azure oferece aos respetivos programadores é a capacidade de criar, implementar e gerir facilmente aplicações distribuídas global. 
@@ -37,6 +37,11 @@ Neste artigo, podemos fornecer uma descrição geral das capacidades de distribu
 
 ## <a id="EnableGlobalDistribution"></a>Ativar distribuição global chave na mão
 BD do Azure do Cosmos fornece as seguintes funcionalidades para ativar a escrever facilmente aplicações de dimensionamento planet. Estas capacidades estão disponíveis através do recurso do Cosmos BD do Azure baseados em fornecedores [REST APIs](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) , bem como o portal do Azure.
+
+No vídeo seguinte, o Azure Gestor de programa do Cosmos DB Andrew Liu demonstra as funcionalidades de chave na mão distribuição global.
+
+> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ### <a id="RegionalPresence"></a>Presença regional ubíqua 
 Azure está constantemente a crescer a presença geográfica colocando [regiões novo](https://azure.microsoft.com/regions/) online. BD do Cosmos do Azure está disponível em todas as regiões do Azure nova por predefinição. Isto permite-lhe associar uma região geográfica com a sua conta de base de dados de base de dados do Azure Cosmos assim que a Azure abre-se a região novo para empresas.
@@ -226,10 +231,10 @@ BD do Azure do Cosmos transparente expõe as métricas de débito, latência, co
 ## <a id="References"></a>Referências
 1. Eric Brewer. [Para sistemas distribuídos robustos](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)
 2. Eric Brewer. [CAP doze anos mais tarde – como as regras foram alterados](http://informatik.unibas.ch/fileadmin/Lectures/HS2012/CS341/workshops/reportsAndSlides/PresentationKevinUrban.pdf)
-3. Gilbert, Lynch. - [Brewer &#39; s Conjecture e viabilidade da consistente, disponíveis, de serviços Web de tolerância a falhas de partição](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)
+3. Gilbert, Lynch. - [Brewer&#39;s Conjecture e viabilidade da consistente, disponíveis, de serviços Web de tolerância a falhas de partição](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)
 4. Daniel Abadi. [Consistência fala no moderna distribuídas Design de sistemas de base de dados](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf)
 5. Martin Kleppmann. [Pare a chamar bases de dados CP ou da Ásia-Pacífico](https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html)
 6. Peter Bailis ter usados. [Probabilistic Obsoletismo (. PBS) para práticas Quorums parciais](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 7. Naor e Wool. [Carga, a capacidade e a disponibilidade em sistemas de quórum](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)
 8. Herlihy e satisfeitas. [Lineralizability: Uma correcção condição para objetos em simultâneo](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)
-9. [SLA de BD do Cosmos do Azure](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
+9. [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)

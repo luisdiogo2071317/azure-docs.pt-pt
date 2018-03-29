@@ -1,11 +1,11 @@
 ---
-title: "Segurança de contentor do Azure Service Fabric | Microsoft Docs"
-description: "Saiba como proteger serviços de contentor."
+title: Importar certificados para um contentor em execução no Azure Service Fabric | Microsoft Docs
+description: Saiba como importar os ficheiros de certificado para um serviço de contentor do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,19 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: cc3095d9067ea529c565cc66a5e503218c822a39
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a26ebbe9395fd10563b32a27a66ed2e1595a00a3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="container-security"></a>Segurança do contentor
+# <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importar um ficheiro de certificado para um contentor em execução no Service Fabric
 
-O Service Fabric fornece um mecanismo para serviços no interior de um contentor para aceder a um certificado que está instalado em nós num cluster do Windows ou Linux (versão 5.7 ou superior). Além disso, a Service Fabric também suporta a gMSA (grupo contas de serviço geridas) para contentores do Windows. 
-
-## <a name="certificate-management-for-containers"></a>Gestão de certificados para contentores
-
-Pode proteger os serviços de contentor, especificando um certificado. O certificado tem de estar instalado no LocalMachine em todos os nós do cluster. As informações do certificado são fornecidas no manifesto da aplicação sob o `ContainerHostPolicies` etiquetas como o fragmento seguinte mostra:
+Pode proteger os serviços de contentor, especificando um certificado. O Service Fabric fornece um mecanismo para serviços no interior de um contentor para aceder a um certificado que está instalado em nós num cluster do Windows ou Linux (versão 5.7 ou superior). O certificado tem de estar instalado no LocalMachine em todos os nós do cluster. As informações do certificado são fornecidas no manifesto da aplicação sob o `ContainerHostPolicies` etiquetas como o fragmento seguinte mostra:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -34,51 +30,39 @@ Pode proteger os serviços de contentor, especificando um certificado. O certifi
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Para clusters do windows, ao iniciar a aplicação, o tempo de execução lê os certificados e gera um ficheiro PFX e a palavra-passe para cada certificado. Este ficheiro PFX e a palavra-passe estão acessíveis no interior do contentor utilizando as seguintes variáveis de ambiente: 
+Para clusters do Windows, ao iniciar a aplicação, o tempo de execução lê os certificados e gera um ficheiro PFX e a palavra-passe para cada certificado. Este ficheiro PFX e a palavra-passe estão acessíveis no interior do contentor utilizando as seguintes variáveis de ambiente: 
 
-* **Certificates_ServicePackageName_CodePackageName_CertName_PFX**
-* **Certificates_ServicePackageName_CodePackageName_CertName_Password**
+* Certificates_ServicePackageName_CodePackageName_CertName_PFX
+* Certificates_ServicePackageName_CodePackageName_CertName_Password
 
-Para os clusters do Linux, o certificates(PEM) simplesmente é copiado através da loja especificada pelo X509StoreName no contentor. As variáveis de ambiente correspondente no linux são:
+Para os clusters do Linux, os certificados (. PEM) são copiados através da loja especificada pelo X509StoreName no contentor. As variáveis de ambiente correspondente no Linux são:
 
-* **Certificates_ServicePackageName_CodePackageName_CertName_PEM**
-* **Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey**
+* Certificates_ServicePackageName_CodePackageName_CertName_PEM
+* Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
 
-Em alternativa, se já tiver os certificados no formato necessário e pretenda simplesmente para aceder ao mesmo no interior do contentor, pode criar um pacote de dados no interior do seu pacote de aplicação e especifique o seguinte no interior o manifesto da aplicação:
+Em alternativa, se já tiver os certificados no formato necessário e pretende aceder ao mesmo no interior do contentor, pode criar um pacote de dados no interior do seu pacote de aplicação e especifique o seguinte no interior o manifesto da aplicação:
 
 ```xml
-  <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
-   <CertificateRef Name="MyCert1" DataPackageRef="[DataPackageName]" DataPackageVersion="[Version]" RelativePath="[Relative Path to certificate inside DataPackage]" Password="[password]" IsPasswordEncrypted="[true/false]"/>
+<ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
+  <CertificateRef Name="MyCert1" DataPackageRef="[DataPackageName]" DataPackageVersion="[Version]" RelativePath="[Relative Path to certificate inside DataPackage]" Password="[password]" IsPasswordEncrypted="[true/false]"/>
  ```
 
-O serviço de contentor ou processo é responsável por importar os ficheiros de certificado para o contentor. Para importar o certificado, pode utilizar `setupentrypoint.sh` scripts ou executar código personalizado no processo do contentor. Código de exemplo em c# para importar o ficheiro PFX segue:
+O serviço de contentor ou processo é responsável por importar os ficheiros de certificado para o contentor. Para importar o certificado, pode utilizar `setupentrypoint.sh` scripts ou executar código personalizado no processo do contentor. Eis o código de exemplo em c# para importar o ficheiro PFX:
 
 ```csharp
-    string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
-    string passwordFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
-    X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-    string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
-    password = password.Replace("\0", string.Empty);
-    X509Certificate2 cert = new X509Certificate2(certificateFilePath, password, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet);
-    store.Open(OpenFlags.ReadWrite);
-    store.Add(cert);
-    store.Close();
+string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
+string passwordFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
+X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
+password = password.Replace("\0", string.Empty);
+X509Certificate2 cert = new X509Certificate2(certificateFilePath, password, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet);
+store.Open(OpenFlags.ReadWrite);
+store.Add(cert);
+store.Close();
 ```
 Este certificado PFX pode ser utilizado para autenticar a aplicação ou serviço ou uma comunicação segura com outros serviços. Por predefinição, os ficheiros estão ACLed apenas ao sistema. Pode ACL-lo para outras contas conforme exigido pelo serviço.
 
-
-## <a name="set-up-gmsa-for-windows-containers"></a>Configurar a gMSA para contentores do Windows
-
-Para configurar a gMSA (grupo de contas de serviço gerida), um ficheiro de especificação de credenciais (`credspec`) é colocada em todos os nós do cluster. O ficheiro pode ser copiado em todos os nós a utilizar uma extensão VM.  O `credspec` ficheiro tem de conter as informações de conta gMSA. Para mais informações sobre o `credspec` de ficheiros, consulte [contas de serviço](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/windows-server-container-tools/ServiceAccounts). A especificação de credenciais e o `Hostname` etiquetas são especificado no manifesto da aplicação. O `Hostname` etiqueta tem de corresponder ao nome da conta de gMSA o contentor é executado.  O `Hostname` etiquetas permite que o contentor para se autenticar perante outros serviços no domínio utilizando a autenticação Kerberos.  Um exemplo sobre como especificar o `Hostname` e `credspec` na aplicação do manifesto é mostrado no seguinte fragmento:
-
-```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" Hostname="gMSAAccountName">
-    <SecurityOption Value="credentialspec=file://WebApplication1.json"/>
-  </ContainerHostPolicies>
-</Policies>
-```
-## <a name="next-steps"></a>Passos Seguintes
+Como passo seguinte, leia os artigos seguintes:
 
 * [Implementar um contentor do Windows para o Service Fabric no Windows Server 2016](service-fabric-get-started-containers.md)
 * [Implementar um contentor de Docker Service Fabric no Linux](service-fabric-get-started-containers-linux.md)

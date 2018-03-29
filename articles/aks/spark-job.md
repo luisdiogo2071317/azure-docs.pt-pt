@@ -1,6 +1,6 @@
 ---
-title: "Executar uma tarefa do Apache Spark com o serviço de contentor do Azure (AKS)"
-description: "Utilizar o serviço de contentor do Azure (AKS) para executar uma tarefa do Apache Spark"
+title: Executar uma tarefa do Apache Spark com o serviço de contentor do Azure (AKS)
+description: Utilizar o serviço de contentor do Azure (AKS) para executar uma tarefa do Apache Spark
 services: container-service
 author: lenadroid
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 9d57f572ba159191f5b634b5ea604563ac2f7801
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3991312d7f7609bb0a206ccc0ecc67123ebec469
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Tarefas do Apache Spark em execução no AKS
 
@@ -33,7 +33,7 @@ Para concluir os passos neste artigo, precisa do seguinte.
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 Spark é utilizado para o processamento de dados em grande escala e requer que nós Kubernetes estão a ser dimensionados de forma a cumprir os requisitos de recursos do Spark. Recomendamos um tamanho mínimo de `Standard_D3_v2` para os nós do serviço de contentor do Azure (AKS).
- 
+
 Se precisar de um cluster AKS que cumpre esta recomendação mínima, execute os seguintes comandos.
 
 Crie um grupo de recursos para o cluster.
@@ -58,12 +58,12 @@ Se estiver a utilizar o registo de contentor do Azure (ACR) para armazenar image
 
 ## <a name="build-the-spark-source"></a>Criar a origem do Spark
 
-Antes de executar tarefas de Spark num AKS cluster, terá de criar o Spark código de origem e o pacote para uma imagem de contentor. A origem de Spark inclui scripts que podem ser utilizadas para concluir este processo. 
+Antes de executar tarefas de Spark num AKS cluster, terá de criar o Spark código de origem e o pacote para uma imagem de contentor. A origem de Spark inclui scripts que podem ser utilizadas para concluir este processo.
 
 Clone o repositório de projeto do Spark para o sistema de desenvolvimento.
 
 ```bash
-git clone https://github.com/apache/spark
+git clone -b branch-2.3 https://github.com/apache/spark
 ```
 
 Altere para o diretório do repositório clonado e guardar o caminho da origem de Spark a uma variável.
@@ -73,7 +73,7 @@ cd spark
 sparkdir=$(pwd)
 ```
 
-Se tiver várias versões do JDK instaladas, defina `JAVA_HOME` para utilizar a versão 8 para a sessão atual. 
+Se tiver várias versões do JDK instaladas, defina `JAVA_HOME` para utilizar a versão 8 para a sessão atual.
 
 ```bash
 export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
@@ -85,16 +85,21 @@ Execute o seguinte comando para criar o Spark código de origem com o suporte de
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-O seguinte comando cria o Spark imagens de contentor e envia-lo para um registo de imagem do contentor. Substitua `registry.example.com` pelo nome do seu registo de contentor. Se utilizar o Hub de Docker, este valor é o nome do registo. Se utilizar o registo de contentor do Azure (ACR), este valor é o nome de servidor de início de sessão ACR.
+Os seguintes comandos criar a imagem de contentor do Spark e enviá-lo para um registo de imagem do contentor. Substitua `registry.example.com` com o nome do seu registo de contentor e `v1` com a etiqueta que preferir utilizar. Se utilizar o Hub de Docker, este valor é o nome do registo. Se utilizar o registo de contentor do Azure (ACR), este valor é o nome de servidor de início de sessão ACR.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 build
+REGISTRY_NAME=registry.example.com
+REGISTRY_TAG=v1
+```
+
+```bash
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG build
 ```
 
 Enviar a imagem do contentor para o registo de imagem do contentor.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 push
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG push
 ```
 
 ## <a name="prepare-a-spark-job"></a>Preparar uma tarefa do Spark
@@ -196,18 +201,10 @@ Variável `jarUrl` contém agora o caminho para o ficheiro jar acessível public
 
 ## <a name="submit-a-spark-job"></a>Submeter uma tarefa do Spark
 
-Antes de submeter a tarefa de Spark, terá de endereço do servidor de Kubernetes API. Utilize o `kubectl cluster-info` comando para obter este endereço.
-
-Detete o URL que o servidor de Kubernetes API está em execução numa.
+Inicie kube proxy um separado da linha de comandos com o seguinte código.
 
 ```bash
-kubectl cluster-info
-```
-
-Tome nota do endereço e porta.
-
-```bash
-Kubernetes master is running at https://<your api server>:443
+kubectl proxy
 ```
 
 Navegue de volta para a raiz do repositório de Spark.
@@ -216,18 +213,16 @@ Navegue de volta para a raiz do repositório de Spark.
 cd $sparkdir
 ```
 
-Submeter a tarefa utilizando `spark-submit`. 
-
-Substitua o valor `<kubernetes-api-server>` com o endereço de servidor de API e a porta. Substitua `<spark-image>` com o nome de imagem no formato de contentor `<your container registry name>/spark:<tag>`.
+Submeter a tarefa utilizando `spark-submit`.
 
 ```bash
 ./bin/spark-submit \
-  --master k8s://https://<k8s-apiserver-host>:<k8s-apiserver-port> \
+  --master k8s://http://127.0.0.1:8001 \
   --deploy-mode cluster \
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
-  --conf spark.kubernetes.container.image=<spark-image> \
+  --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
 
@@ -316,7 +311,10 @@ Quando executar a tarefa, em vez de indicar um URL de jar remoto, o `local://` e
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+> [!WARNING]
+> Do Spark [documentação][spark-docs]: "o Programador de Kubernetes está atualmente experimental. Em versões futuras, poderão existir comportamentais alterações em torno da configuração, imagens de contentor e entrypoints".
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte a documentação do Spark para obter mais detalhes.
 

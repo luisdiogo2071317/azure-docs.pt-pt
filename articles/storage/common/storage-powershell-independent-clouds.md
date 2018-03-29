@@ -1,23 +1,23 @@
 ---
 title: Gerir o armazenamento de independente do Azure nuvens a utilizar o Azure PowerShell | Microsoft Docs
-description: "Gerir o armazenamento na nuvem de China, nuvem pública e, em alemão em nuvem com o Azure PowerShell"
+description: Gerir o armazenamento na nuvem de China, nuvem pública e, em alemão em nuvem com o Azure PowerShell
 services: storage
 documentationcenter: na
-author: robinsh
-manager: timlt
-ms.assetid: 
+author: roygara
+manager: jeconnoc
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: robinsh
-ms.openlocfilehash: 08e1af929d7ddc30c7dc149f6305ca1ca0bc22ae
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.author: rogarana
+ms.openlocfilehash: 31b36e6fb6a1ebf09c559b2777ffa5f554c3cfa0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerir o armazenamento em nuvens independentes do Azure com o PowerShell
 
@@ -61,7 +61,7 @@ Get-AzureRmLocation | select Location, DisplayName
 
 A tabela seguinte mostra as localizações para a nuvem em alemão.
 
-|Localização | displayName |
+|Localização | DisplayName |
 |----|----|
 | germanycentral | Alemanha Central|
 | germanynortheast | Alemanha Nordeste | 
@@ -85,10 +85,10 @@ Este comando devolve os seguintes resultados.
 
 | Nome| StorageEndpointSuffix|
 |----|----|
-|AzureChinaCloud | Core.chinacloudapi.CN|
-| AzureCloud | Core.Windows.NET |
-| AzureGermanCloud | Core.cloudapi.de|
-| AzureUSGovernment | Core.usgov.cloudapi.NET |
+|AzureChinaCloud | core.chinacloudapi.cn|
+| AzureCloud | core.windows.net |
+| AzureGermanCloud | core.cloudapi.de|
+| AzureUSGovernment | core.usgov.cloudapi.net |
 
 
 Para obter todas as propriedades para o ambiente especificado, chame **Get-AzureRmEnvironment** e especifique o nome da nuvem. Este fragmento de código devolve uma lista de propriedades; Procure **StorageEndpointSuffix** na lista. O exemplo seguinte é para a nuvem alemão.
@@ -103,14 +103,14 @@ Os resultados são semelhantes ao seguinte:
 |----|----|
 | Nome | AzureGermanCloud |
 | EnableAdfsAuthentication | Falso |
-| ActiveDirectoryServiceEndpointResourceI | http://Management.Core.cloudapi.de/ |
-| GalleryURL | https://Gallery.cloudapi.de/ |
+| ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
+| GalleryURL | https://gallery.cloudapi.de/ |
 | ManagementPortalUrl | https://portal.microsoftazure.de/ | 
-| ServiceManagementUrl | https://Manage.Core.cloudapi.de/ |
-| PublishSettingsFileUrl| https://Manage.microsoftazure.de/publishsettings/Index |
-| ResourceManagerUrl | http://Management.microsoftazure.de/ |
-| SqlDatabaseDnsSuffix | . database.cloudapi.de |
-| **StorageEndpointSuffix** | Core.cloudapi.de |
+| ServiceManagementUrl | https://manage.core.cloudapi.de/ |
+| PublishSettingsFileUrl| https://manage.microsoftazure.de/publishsettings/index |
+| ResourceManagerUrl | http://management.microsoftazure.de/ |
+| SqlDatabaseDnsSuffix | .database.cloudapi.de |
+| **StorageEndpointSuffix** | core.cloudapi.de |
 | ... | ... | 
 
 Para obter apenas a propriedade de sufixo de ponto final armazenamento, obtenha a nuvem específica e voltar a pedir apenas que uma propriedade.
@@ -159,13 +159,13 @@ De aqui daqui, pode utilizar o mesmo PowerShell utilizado para gerir as contas d
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se tiver criado um novo grupo de recursos e uma conta de armazenamento para este exercício, pode remover todos os recursos ao remover o grupo de recursos. Isto também elimina todos os recursos contidos dentro do grupo. Neste caso, remove a conta de armazenamento criada e o grupo de recursos em si.
+Se tiver criado um novo grupo de recursos e uma conta de armazenamento para este exercício, pode remover todos os recursos ao remover o grupo de recursos. Isto também elimina todos os recursos contidos no grupo. Neste caso, remove a conta de armazenamento criada e o grupo de recursos em si.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Persistentes inícios de sessão do utilizador entre sessões do PowerShell](/powershell/azure/context-persistence)
 * [Armazenamento do Azure Government](../../azure-government/documentation-government-services-storage.md)

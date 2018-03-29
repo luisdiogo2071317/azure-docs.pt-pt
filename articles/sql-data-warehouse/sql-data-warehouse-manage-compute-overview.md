@@ -1,11 +1,11 @@
 ---
-title: "Gerir recursos de computação no Azure SQL Data Warehouse | Microsoft Docs"
-description: "Saiba mais sobre o desempenho de ampliação capacidades no Azure SQL Data Warehouse. Aumentar horizontalmente ao ajustar as DWUs ou custos inferiores ao colocar em pausa o armazém de dados."
+title: Gerir recursos de computação no Azure SQL Data Warehouse | Microsoft Docs
+description: Saiba mais sobre o desempenho de ampliação capacidades no Azure SQL Data Warehouse. Aumentar horizontalmente ao ajustar as DWUs ou custos inferiores ao colocar em pausa o armazém de dados.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: 
+editor: ''
 ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gerir computação no Azure SQL Data Warehouse
 Saiba mais sobre a gestão de recursos de computação no Azure SQL Data Warehouse. Baixar os custos ao colocar em pausa o armazém de dados ou aumentar o armazém de dados para satisfazer os pedidos de desempenho. 
@@ -36,7 +36,7 @@ Para efetuar uma operação de dimensionamento, o SQL Data Warehouse inutilizam 
 
 A tabela seguinte mostra como o número de distribuições por alterações de nó de computação como as unidades de armazém de dados alterados.  DWU6000 fornece 60 nós de computação e distribui muito maior desempenho das consultas que DWU100. 
 
-| Unidades do Data warehouse  | \# de nós de computação | \# de distribuições por nó |
+| Unidades do armazém de dados  | \# de nós de computação | \# de distribuições por nó |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
@@ -110,7 +110,7 @@ Para automatizar as operações de gestão de computação, consulte [gerir comp
 
 Cada um de escalamento horizontal, colocar em pausa e operações de retoma pode demorar vários minutos a concluir. Se o dimensionamento são, colocar em pausa, ou retomar automaticamente, recomendamos que implementar a lógica para garantir que determinadas operações concluiu antes de continuar com a ação de outra. A verificar o estado do armazém de dados através de vários pontos finais permite-lhe implementar corretamente a automatização de operações. 
 
-Para verificar o estado do armazém de dados, consulte o [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) ou [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) início rápido. Também pode verificar o estado do armazém de dados com um [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+Para verificar o estado de armazém de dados, se o [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) ou [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) início rápido. Também pode verificar o estado do armazém de dados com um [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## <a name="permissions"></a>Permissões

@@ -1,24 +1,24 @@
 ---
-title: "Base de dados sem servidor informática - as funções do Azure e a base de dados do Azure Cosmos | Microsoft Docs"
-description: "Saiba como base de dados do Azure Cosmos e as funções do Azure podem ser utilizadas em conjunto para criar aplicações informáticas sem servidor condicionada por eventos."
+title: Base de dados sem servidor informática - as funções do Azure e a base de dados do Azure Cosmos | Microsoft Docs
+description: Saiba como base de dados do Azure Cosmos e as funções do Azure podem ser utilizadas em conjunto para criar aplicações informáticas sem servidor condicionada por eventos.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 39155a2407efa0cc13236a1bbbbcd292daac86b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Base de dados sem servidor informática utilizando as funções do Azure
 
@@ -113,12 +113,16 @@ Todos estes casos de utilização, porque a função foi desassociada aplicaçã
 
 ## <a name="tooling"></a>As ferramentas
 
-Integração nativa entre a base de dados do Azure Cosmos e as funções do Azure está disponível no portal do Azure.
+Integração nativa entre a base de dados do Azure Cosmos e as funções do Azure está disponível no portal do Azure e no Visual Studio 2017.
 * No portal das funções do Azure, pode criar um acionador de base de dados do Azure Cosmos. Para obter instruções de início rápido, consulte [criar um acionador de BD do Cosmos do Azure no portal do Azure](https://aka.ms/cosmosdbtriggerportalfunc) ![criar um acionador de BD do Cosmos do Azure no portal das funções do Azure](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
 * No portal das funções do Azure, também pode adicionar enlaces de entrada de BD do Cosmos do Azure e os enlaces de saída para outros tipos de acionadores. Para obter instruções de início rápido, consulte [armazenar dados não estruturados com as funções do Azure e a base de dados do Cosmos](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
     ![Criar um acionador de BD do Cosmos do Azure no portal das funções do Azure](./media/serverless-computing-database/function-portal-input-binding.png)
 *   No portal do Azure Cosmos DB, pode adicionar um acionador de base de dados do Azure Cosmos a uma aplicação de função do Azure existente no mesmo grupo de recursos.
     ![Criar um acionador de BD do Cosmos do Azure no portal das funções do Azure](./media/serverless-computing-database/cosmos-db-portal.png)
+* No Visual Studio 2017, pode criar um acionador de base de dados do Azure Cosmos utilizando o modelo integrado:
+
+    >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
+
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>Por que motivo escolhê integração das funções do Azure para a computação sem servidor?
 

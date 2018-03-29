@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 2689befc6a686d0ffc25d1fccbacb66cc6e10725
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b7ae08446e672c218e7278cff4f77739286fead
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é a base de dados do Azure para MySQL?
 Base de dados do Azure para MySQL é um serviço de base de dados relacional em nuvem da Microsoft com base no [MySQL Comunidade edição](https://www.mysql.com/products/community/) motor de base de dados. Fornece a base de dados do Azure para MySQL:
@@ -47,7 +47,7 @@ Como decidir quando aumentar e reduzir verticalmente? Utilize o desempenho incor
 Líderes 99,99% disponibilidade nível contrato de serviço (SLA), utiliza a tecnologia de uma rede global de datacenters gerida pela Microsoft, da indústria do Azure ajuda a manter a sua aplicação em execução 24/7. Com cada base de dados do Azure para o servidor de MySQL, pode tirar partido de segurança incorporadas, a tolerância a falhas e a proteção de dados que caso contrário, terá de comprar ou conceber, criar e gerir. Com base de dados do Azure para MySQL, pode utilizar o restauro de ponto no tempo para recuperar um servidor para um estado anterior, até 35 dias.
 
 ## <a name="secure-your-data"></a>Proteger os dados
-Serviços de base de dados do Azure tem um tradição de segurança de dados que mantém a base de dados do Azure para MySQL, com as funcionalidades que limitam o acesso, proteger dados em rest e em movimento e ajudarem a monitorizar a atividade. Visite o [Centro de Fidedignidade do Azure](https://www.microsoft.com/en-us/TrustCenter/Security/default.aspx) para obter informações sobre a segurança da plataforma do Azure.
+Serviços de base de dados do Azure tem um tradição de segurança de dados que mantém a base de dados do Azure para MySQL, com as funcionalidades que limitam o acesso, proteger dados em rest e em movimento e ajudarem a monitorizar a atividade. Visite o [Centro de Fidedignidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
 
 A base de dados do Azure para o serviço de MySQL utiliza a encriptação de armazenamento para dados em rest. Os dados, incluindo cópias de segurança, são encriptados em disco (à exceção dos ficheiros temporários criados pelo motor durante a execução de consultas). O serviço utiliza a cifra AES de 256 bits que está incluída na encriptação de armazenamento do Azure, sendo as chaves geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
 

@@ -3,7 +3,7 @@ title: Carregar dados para tarefas do Hadoop no HDInsight | Microsoft Docs
 description: Saiba como carregar e aceder a dados para tarefas do Hadoop no HDInsight utilizando a CLI do Azure, o Explorador de armazenamento do Azure, Azure PowerShell, a linha de comandos do Hadoop ou Sqoop.
 keywords: etl hadoop, ao obter dados no hadoop, hadoop carregar dados
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ddb6291cdff7e2b65f54e89196c2b07dd6e4aaff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carregue dados para tarefas Hadoop no HDInsight
 
@@ -45,7 +45,7 @@ A Microsoft fornece os seguintes utilitários para trabalhar com o Storage do Az
 | Ferramenta | Linux | SO X | Windows |
 | --- |:---:|:---:|:---:|
 | [Interface de linha de comandos do Azure][azurecli] |✔ |✔ |✔ |
-| [O Azure PowerShell][azure-powershell] | | |✔ |
+| [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Comando de Hadoop](#commandline) |✔ |✔ |✔ |
 
@@ -108,7 +108,7 @@ A CLI do Azure é uma ferramenta de plataforma que permite-lhe gerir os serviço
 >
 >
 
-#### <a id="powershell"></a>O Azure PowerShell
+#### <a id="powershell"></a>Azure PowerShell
 O Azure PowerShell é um ambiente de script que pode utilizar para controlar e automatizar a implementação e gestão das cargas de trabalho no Azure. Para obter informações sobre como configurar a sua estação de trabalho para executar o Azure PowerShell, consulte [instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
@@ -176,7 +176,7 @@ ou
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-Para obter uma lista de outro Hadoop os comandos que funcionam com ficheiros, consulte [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+Para obter uma lista de outros comandos do Hadoop que funcionam com ficheiros, consulte [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
 > Em clusters de HBase, a predefinição tamanho do bloco utilizado quando a escrita de dados é 256 KB. Enquanto funciona bem quando utilizar APIs de HBase ou REST APIs, utilizando o `hadoop` ou `hdfs dfs` comandos para escrever dados superiores ~ 12 GB resulta num erro. Para obter mais informações, consulte o [exceção de armazenamento para escrita no blob](#storageexception) secção deste artigo.
@@ -188,18 +188,18 @@ Também existem várias aplicações que fornecem uma interface gráfica para tr
 
 | Cliente | Linux | SO X | Windows |
 | --- |:---:|:---:|:---:|
-| [Ferramentas do Microsoft Visual Studio para o HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Ferramentas do Microsoft Visual Studio para o HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Explorador do Armazenamento do Azure](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [Armazenamento de nuvem Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Explorador do Azure](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Ferramentas do Visual Studio para o HDInsight
-Para obter mais informações, consulte [navegar nos recursos ligados](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+Para obter mais informações, consulte [navegar nos recursos ligados](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
 #### <a id="storageexplorer"></a>Explorador de armazenamento do Azure
-*Explorador de armazenamento do Azure* é uma ferramenta útil para inspecionar e alterar os dados em blobs. É uma ferramenta de origem livre, abra que pode ser transferida a partir do [http://storageexplorer.com/](http://storageexplorer.com/). O código de origem está disponível no bem esta ligação.
+*Explorador de armazenamento do Azure* é uma ferramenta útil para inspecionar e alterar os dados em blobs. É uma ferramenta de origem livre, abra que pode ser transferida a partir do [ http://storageexplorer.com/ ](http://storageexplorer.com/). O código de origem está disponível no bem esta ligação.
 
 Antes de utilizar a ferramenta, tem de conhecer a chave de conta e o nome da conta de armazenamento do Azure. Para obter instruções sobre como obter estas informações, consulte o "como: ver, copiar e armazenamento voltar a gerar chaves de acesso" secção [criar, gerir ou eliminar uma conta de armazenamento][azure-create-storage-account].
 
@@ -207,7 +207,7 @@ Antes de utilizar a ferramenta, tem de conhecer a chave de conta e o nome da con
 
     Introduza o nome e a chave para a conta de armazenamento utilizada pelo cluster do HDInsight e, em seguida, selecione **Guardar & OPEN**.
 
-    ![HDI. AzureStorageExplorer][image-azure-storage-explorer]
+    ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 2. Na lista de contentores para a esquerda da interface, clique no nome do contentor que está associado ao cluster do HDInsight. Por predefinição, este é o nome do cluster do HDInsight, mas pode ser diferente se introduziu um nome específico ao criar o cluster.
 3. Na barra de ferramentas, selecione o ícone de carregamento.
 
@@ -229,7 +229,7 @@ Pode ser utilizado o Azure Data Factory para mover dados para o Storage do Azure
 
 Para obter mais informações, consulte o [documentação do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
-#### <a id="sqoop"></a>O Apache Sqoop
+#### <a id="sqoop"></a>Apache Sqoop
 Sqoop é uma ferramenta concebida para transferir dados entre o Hadoop e bases de dados relacionais. Pode utilizá-lo para importar dados a partir de um sistema de gestão de base de dados relacional (RDBMS), tal como o SQL Server, MySQL ou Oracle para o sistema de ficheiros distribuído do Hadoop (HDFS), transformar os dados no Hadoop com o MapReduce ou Hive e, em seguida, exportar os dados de volta para um RDBMS.
 
 Para obter mais informações, consulte [utilize Sqoop com o HDInsight][hdinsight-use-sqoop].

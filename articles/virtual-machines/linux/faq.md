@@ -2,10 +2,10 @@
 title: Perguntas mais frequentes sobre as VMs do Linux no Azure | Microsoft Docs
 description: Fornece respostas a algumas das perguntas comuns sobre computadores virtuais Linux criados com o modelo do Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-management
 ms.assetid: 3648e09c-1115-4818-93c6-688d7a54a353
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: f7fb3f24e9ca6b1827028d118cf833aad830e6a1
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 8a4d93ff12affac56c12c0eab85168c609400ee2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Pergunta frequentes sobre as máquinas virtuais Linux
 Este artigo aborda algumas perguntas comuns sobre computadores virtuais Linux criados no Azure utilizando o modelo de implementação Resource Manager. Para a versão do Windows deste tópico, consulte [perguntas mais frequentes pergunta sobre máquinas virtuais do Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -58,34 +58,35 @@ Sim. O nome do computador pode ter um máximo de 64 carateres de comprimento. Co
 Sim. O nome do grupo de recursos pode ter um máximo de 90 carateres de comprimento. Consulte [restrições e regras de convenções de nomenclatura](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre grupos de recursos.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quais são os requisitos de nome de utilizador ao criar uma VM?
-Nomes de utilizador tem de ser 1-64 carateres de comprimento.
+
+Nomes de utilizador devem ser 1-32 carateres de comprimento.
 
 Não são permitidos nomes de utilizador seguintes:
 
 <table>
     <tr>
-        <td style="text-align:center">Administrador </td><td style="text-align:center"> Admin </td><td style="text-align:center"> utilizador </td><td style="text-align:center"> User1</td>
+        <td style="text-align:center">Administrador </td><td style="text-align:center"> admin </td><td style="text-align:center"> Utilizador </td><td style="text-align:center"> User1</td>
     </tr>
     <tr>
-        <td style="text-align:center">Teste </td><td style="text-align:center"> Utilizador2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
+        <td style="text-align:center">teste </td><td style="text-align:center"> Utilizador2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
     </tr>
     <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> A</td>
+        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> ADM </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> ASPNET</td>
+        <td style="text-align:center">actuser  </td><td style="text-align:center"> ADM </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
     </tr>
     <tr>
         <td style="text-align:center">cópia de segurança </td><td style="text-align:center"> Consola do </td><td style="text-align:center"> David </td><td style="text-align:center"> convidado</td>
     </tr>
     <tr>
-        <td style="text-align:center">João </td><td style="text-align:center"> Proprietário </td><td style="text-align:center"> raiz </td><td style="text-align:center"> servidor</td>
+        <td style="text-align:center">john </td><td style="text-align:center"> proprietário </td><td style="text-align:center"> raiz </td><td style="text-align:center"> servidor</td>
     </tr>
     <tr>
-        <td style="text-align:center">SQL Server </td><td style="text-align:center"> Suporte </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> SYS</td>
+        <td style="text-align:center">sql </td><td style="text-align:center"> suporte </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> SYS</td>
     </tr>
     <tr>
-        <td style="text-align:center">TEST2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
     </tr>
 </table>
 

@@ -1,13 +1,13 @@
 ---
 title: Autorizar utilizadores para vistas do Ambari - Azure HDInsight | Microsoft Docs
-description: "Como gerir as permissões de utilizador e grupos Ambari associados a um domínio para clusters do HDInsight."
+description: Como gerir as permissões de utilizador e grupos Ambari associados a um domínio para clusters do HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: f4dfb51cf344d1ec51363ef3a9f74c1ca59119a6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autorizar utilizadores para as Vistas do Ambari
 
@@ -35,7 +35,7 @@ Se ainda não o fez, siga [estas instruções](./domain-joined/apache-domain-joi
 
 ## <a name="access-the-ambari-management-page"></a>Aceder à página de gestão do Ambari
 
-Para obter o **página de gestão do Ambari** no [IU da Web do Ambari](hdinsight-hadoop-manage-ambari.md), navegue até à  **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Introduza o nome de utilizador de administrador de cluster e a palavra-passe que definiu quando criar o cluster. Em seguida, a partir do dashboard do Ambari, selecione **gerir Ambari** por baixo do **admin** menu:
+Para obter o **página de gestão do Ambari** no [IU da Web do Ambari](hdinsight-hadoop-manage-ambari.md), navegue até à **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Introduza o nome de utilizador de administrador de cluster e a palavra-passe que definiu quando criar o cluster. Em seguida, a partir do dashboard do Ambari, selecione **gerir Ambari** por baixo do **admin** menu:
 
 ![Gerir Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
@@ -122,7 +122,7 @@ A vista de lista fornece capacidades de edição rápidas em duas categorias: ut
 
     ![Vista - os utilizadores de lista de funções](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* A categoria de grupos de vista de lista apresenta todos os grupos e a função atribuído a cada grupo. No nosso exemplo, a lista de grupos é sincronizada a partir de grupos do Azure AD especificados no **grupo de utilizadores de acesso** propriedade das definições de domínio do cluster. Consulte [cluster do HDInsight criar](./domain-joined/apache-domain-joined-configure.md#create-an-hdinsight-cluster-in-the-vnet).
+* A categoria de grupos de vista de lista apresenta todos os grupos e a função atribuído a cada grupo. No nosso exemplo, a lista de grupos é sincronizada a partir de grupos do Azure AD especificados no **grupo de utilizadores de acesso** propriedade das definições de domínio do cluster. Consulte [criar um cluster do HDInsight associados a um domínio](/domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
 
     ![Vista - grupos de lista de funções](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

@@ -1,8 +1,8 @@
 ---
-title: "Exploração de dados e modelação com o Spark avançadas | Microsoft Docs"
-description: "Utilize o HDInsight Spark exploração de dados e dar formação sobre modelos de classificação e regressão binários através da otimização de validação cruzada e hyperparameter."
+title: Exploração de dados e modelação com o Spark avançadas | Microsoft Docs
+description: Utilize o HDInsight Spark exploração de dados e dar formação sobre modelos de classificação e regressão binários através da otimização de validação cruzada e hyperparameter.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 016d7760895e9b8cca082bac4e14388680fbbc05
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 3d4cd29596b14e6de07fdf06191f7d69c2d39641
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Exploração e modelação avançada de dados com o Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -87,7 +87,7 @@ O exemplo de código seguinte especifica a localização dos dados a ser lido e 
 
 **SAÍDA**
 
-DateTime.DateTime (2016, 4, 18, 17, 36, 27, 832799)
+datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
 
 ### <a name="import-libraries"></a>Bibliotecas de importação
 Importe necessárias bibliotecas com o seguinte código:
@@ -666,9 +666,9 @@ O código nesta secção mostra como preparar, avaliar e guardar um modelo de re
 
 **SAÍDA**
 
-Coefficients: [0.0082065285375-0.0223675576104,-0.0183812028036, - 3.48124578069e-05,-0.00247646947233,-0.00165897881503, 0.0675394837328,-0.111823113101,-0.324609912762,-0.204549780032,-1.36499216354, 0.591088507921,-0.664263411392,-1.00439726852, 3.46567827545,-3.51025855172,-0.0471341112232,-0.043521833294, 0.000243375810385, 0.054518719222]
+Coefficients: [0.0082065285375, -0.0223675576104, -0.0183812028036, -3.48124578069e-05, -0.00247646947233, -0.00165897881503, 0.0675394837328, -0.111823113101, -0.324609912762, -0.204549780032, -1.36499216354, 0.591088507921, -0.664263411392, -1.00439726852, 3.46567827545, -3.51025855172, -0.0471341112232, -0.043521833294, 0.000243375810385, 0.054518719222]
 
-Intercept:-0.0111216486893
+Intercept: -0.0111216486893
 
 Tempo decorrido para executar acima célula: 14.43 segundos
 
@@ -721,7 +721,7 @@ O código nesta secção mostra como avaliar um modelo de regressão logística 
 
 Área em ELI = 0.985336538462
 
-Área em ROC = 0.983383274312
+Area under ROC = 0.983383274312
 
 Estatísticas de resumidas
 
@@ -729,7 +729,7 @@ Precisão = 0.984174341679
 
 Recuperar = 0.984174341679
 
-F1 Pontuar = 0.984174341679
+F1 Score = 0.984174341679
 
 Tempo decorrido para executar acima célula: 2.67 segundos
 
@@ -940,7 +940,7 @@ O código nesta secção mostra como preparar, avaliar e guardar um regressão d
 
 **SAÍDA**
 
-Área em ROC = 0.985336538462
+Area under ROC = 0.985336538462
 
 Tempo decorrido para executar acima célula: 26.72 segundos
 
@@ -984,7 +984,7 @@ O código nesta secção mostra como preparar, avaliar e guardar um modelo de á
 
 **SAÍDA**
 
-Área em ROC = 0.985336538462
+Area under ROC = 0.985336538462
 
 Tempo decorrido para executar acima célula: 28.13 segundos
 
@@ -1055,13 +1055,13 @@ O código nesta secção mostra como utilizar funcionalidades dimensionadas para
 
 **SAÍDA**
 
-Coefficients: [0.0141707753435,-0.0252930927087,-0.0231442517137, 0.247070902996, 0.312544147152, 0.360296120645, 0.0122079566092,-0.00456498588241,-0.0898228505177, 0.0714046248793, 0.102171263868, 0.100022455632,-0.00289545676449,-0.00791124681938, 0.54396316518,-0.536293513569, 0.0119076553369,-0.0173039244582, 0.0119632796147, 0.00146764882502]
+Coefficients: [0.0141707753435, -0.0252930927087, -0.0231442517137, 0.247070902996, 0.312544147152, 0.360296120645, 0.0122079566092, -0.00456498588241, -0.0898228505177, 0.0714046248793, 0.102171263868, 0.100022455632, -0.00289545676449, -0.00791124681938, 0.54396316518, -0.536293513569, 0.0119076553369, -0.0173039244582, 0.0119632796147, 0.00146764882502]
 
 Intercetar: 0.854507624459
 
 RMSE = 1.23485131376
 
-R sqr = 0.597963951127
+R-sqr = 0.597963951127
 
 Tempo decorrido para executar acima célula: 38.62 segundos
 
@@ -1117,7 +1117,7 @@ O código nesta secção mostra como preparar, avaliar e guardar um modelo de fl
 
 RMSE = 0.931981967875
 
-R sqr = 0.733445485802
+R-sqr = 0.733445485802
 
 Tempo decorrido para executar acima célula: 25.98 segundos
 
@@ -1168,11 +1168,11 @@ O código nesta secção mostra como preparar, avaliar e guardar um modelo de á
 
 RMSE = 0.928172197114
 
-R sqr = 0.732680354389
+R-sqr = 0.732680354389
 
 Tempo decorrido para executar acima célula: 20.9 segundos
 
-**Desenhar**
+**Plot**
 
 *tmp_results* está registado como uma tabela do Hive na célula anterior. Resultados da tabela são de saída para o *sqlResults* moldura de dados para representar. Eis o código
 
@@ -1288,7 +1288,7 @@ Eis o código para calcular R sqr.
 
 **SAÍDA**
 
-R sqr = 0.619184907088
+R-sqr = 0.619184907088
 
 ### <a name="cross-validation-with-parameter-sweep-using-custom-code-for-random-forest-regression"></a>Validação de se estender com paramétrico parâmetro utilizando código personalizado para regressão de floresta aleatório
 O código nesta secção mostra como cruzada validação com paramétrico parâmetro utilizando código personalizado para regressão de floresta aleatórias e como avaliar o modelo de dados de teste.
@@ -1377,7 +1377,7 @@ O código nesta secção mostra como cruzada validação com paramétrico parâm
 
 RMSE = 0.906972198262
 
-R sqr = 0.740751197012
+R-sqr = 0.740751197012
 
 Tempo decorrido para executar acima célula: 69.17 segundos
 
@@ -1411,7 +1411,7 @@ Utilize `unpersist()` eliminar objetos em cache na memória.
 
 **SAÍDA**
 
-PythonRDD [122] em RDD em PythonRDD.scala: 43
+PythonRDD[122] at RDD at PythonRDD.scala: 43
 
 * * Caminho de printout para ficheiros de modelo para ser utilizado o bloco de notas do consumo. * * Para consumir e Pontuar um conjunto de dados independente, terá de copiar e colar estes nomes de ficheiro em "notas de consumo".
 

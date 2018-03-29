@@ -1,11 +1,11 @@
 ---
-title: "Tipos de endereços IP no Azure | Microsoft Docs"
-description: "Saiba mais sobre os endereços IP públicos e privados no Azure."
+title: Tipos de endereços IP no Azure | Microsoft Docs
+description: Saiba mais sobre os endereços IP públicos e privados no Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: a5cda1b5ecb686c9b03da27bdbca42ddc1a74f54
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -68,13 +68,10 @@ Os endereços IP de SKU Standard:
 
 - São atribuídos apenas com o método de alocação estático.
 - São atribuídos a interfaces de rede ou balanceadores de carga com acesso à Internet Standard. Para obter mais informações sobre os SKUs de balanceador de carga do Azure, veja [SKU standard de balanceador de carga do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Têm redundância de zona por predefinição. Podem ser criados zonais e garantidos numa zona de disponibilidade específica.  Para saber mais sobre as zonas de disponibilidade, veja [Descrição geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Têm redundância de zona por predefinição. Podem ser criados zonais e garantidos numa zona de disponibilidade específica. Para saber mais sobre as zonas de disponibilidade, veja [Descrição geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Quando atribui um endereço IP público de SKU standard a uma interface de rede de máquina virtual, tem de permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups).  A comunicação com o recurso falha até criar e associar um grupo de segurança de rede e permitir explicitamente o tráfego pretendido.
-
-O SKU standard encontra-se em versão de pré-visualização. Antes de criar um endereço IP público de SKU Standard, primeiro tem de se registar na pré-visualização e criar o endereço numa localização suportada. Para se registar na pré-visualização, veja [Registar-se na pré-visualização do SKU standard](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview). Para obter uma lista de localizações (regiões) suportadas, veja [Disponibilidade de região](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) e monitorize a página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network) para obter suporte de região adicional.
-
+> Quando atribui um endereço IP público de SKU standard a uma interface de rede de máquina virtual, tem de permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até criar e associar um grupo de segurança de rede e permitir explicitamente o tráfego pretendido.
 
 ### <a name="allocation-method"></a>Método de alocação
 

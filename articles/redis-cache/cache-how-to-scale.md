@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 0cf0e41fe03bf3be7ecf2172cff3e6ab5f3eb65d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Como dimensionar a Cache de Redis do Azure
 Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de funcionalidades e o tamanho da cache. Depois de criar uma cache, pode dimensionar o tamanho e o escalão de preço da cache se alteram os requisitos da sua aplicação. Este artigo mostra como dimensionar a sua cache com o portal do Azure e ferramentas como o Azure PowerShell e a CLI do Azure.
@@ -120,7 +120,7 @@ A lista seguinte contém as respostas a perguntas mais comuns sobre o dimensiona
 * Não é possível dimensionar desde um **Premium** colocar em cache até um **básico** ou **padrão** escalão de preço.
 * Pode dimensionar a partir de um **Premium** cache escalão para outro de preço.
 * Não é possível dimensionar desde um **básico** cache diretamente para um **Premium** cache. Em primeiro lugar, dimensionar desde **básico** para **padrão** numa operação de dimensionamento e, em seguida, **padrão** para **Premium** um subsequentes Dimensionar operação.
-* Se tiver ativado o clustering quando criou o **Premium** cache, pode [alterar o tamanho do cluster](cache-how-to-premium-clustering.md#cluster-size). Se a sua cache foi criada sem clustering ativado, não é possível configurar o clustering numa altura posterior.
+* Se tiver ativado o clustering quando criou o **Premium** cache, pode [alterar o tamanho do cluster](cache-how-to-premium-clustering.md#cluster-size). Se a sua cache foi criada sem clustering ativado, pode configurar o clustering numa altura posterior.
   
   Para obter mais informações, veja [Como configurar o clustering de uma Cache de Redis do Azure Premium](cache-how-to-premium-clustering.md).
 

@@ -2,7 +2,7 @@
 title: Expandir HDInsight com a rede Virtual - Azure | Microsoft Docs
 description: Saiba como utilizar a rede Virtual do Azure para ligar o HDInsight para outros recursos em nuvem ou recursos no datacenter
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: ea686ea5dd6166d6e4e4055cb4a2cdd70af81ab4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b02a4625e3973ca7679d1d2018bd37ff1d2ae2ba
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir o Azure HDInsight utilizando uma rede Virtual do Azure
 
@@ -173,11 +173,11 @@ Para permitir a resolução de nome entre a rede virtual e os recursos nas redes
 
     Para obter um exemplo de cada configuração, consulte o [exemplo: DNS personalizado](#example-dns) secção.
 
-Para obter mais informações, consulte o [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) documento.
+Para obter mais informações, consulte o [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) documento.
 
 ## <a name="directly-connect-to-hadoop-services"></a>Ligar diretamente a serviços do Hadoop
 
-A maioria das documentação no HDInsight parte do princípio de que tem acesso ao cluster através da internet. Por exemplo, se pode ligar ao cluster em https://CLUSTERNAME.azurehdinsight.net. Este endereço utiliza o gateway público, que não está disponível se tiver utilizado NSGs ou UDRs para restringir o acesso a partir da internet.
+A maioria das documentação no HDInsight parte do princípio de que tem acesso ao cluster através da internet. Por exemplo, que pode ligar ao cluster em https://CLUSTERNAME.azurehdinsight.net. Este endereço utiliza o gateway público, que não está disponível se tiver utilizado NSGs ou UDRs para restringir o acesso a partir da internet.
 
 Para ligar a Ambari e outras páginas web através da rede virtual, utilize os seguintes passos:
 

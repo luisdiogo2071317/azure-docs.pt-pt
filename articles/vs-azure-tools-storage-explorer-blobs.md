@@ -1,11 +1,11 @@
 ---
-title: "Gerir recursos de armazenamento de Blobs do Azure com o Explorador de armazenamento (pré-visualização) | Microsoft Docs"
-description: "Gerir os contentores de Blobs do Azure e Blobs com o Explorador de armazenamento (pré-visualização)"
+title: Gerir recursos de armazenamento de Blobs do Azure com o Explorador de armazenamento (pré-visualização) | Microsoft Docs
+description: Gerir os contentores de Blobs do Azure e Blobs com o Explorador de armazenamento (pré-visualização)
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: c23b87cca66df0834a31494be7d8657ff9f2a865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98a1016f78587b4139041f140634b98fa47edfd1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Gerir recursos de armazenamento de Blobs do Azure com o Explorador de armazenamento (pré-visualização)
 ## <a name="overview"></a>Descrição geral
@@ -31,7 +31,7 @@ Para executar os passos descritos neste artigo, é necessário o seguinte:
 * [Transfira e instale o Explorador de Armazenamento (pré-visualização)](http://www.storageexplorer.com)
 * [Ligar a um serviço ou a uma conta de armazenamento do Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
-## <a name="create-a-blob-container"></a>Criar um contentor de blob
+## <a name="create-a-blob-container"></a>Criar um contentor de blobs
 Todos os blobs tem de residir num contentor de blob, que é simplesmente um agrupamento lógico de blobs. Uma conta pode conter um número ilimitado de contentores, e cada contentor pode armazenar um número ilimitado de blobs.
 
 Os passos seguintes mostram como criar um contentor do blob no Explorador de armazenamento (pré-visualização).
@@ -41,7 +41,7 @@ Os passos seguintes mostram como criar um contentor do blob no Explorador de arm
 3. Clique com botão direito **contentores de BLOBs**e, no menu de contexto - selecione **criar contentor de Blob**.
 
    ![Criar o menu de contexto de contentores de BLOBs][0]
-4. Será apresentada uma caixa de texto abaixo o **contentores de BLOBs** pasta. Introduza o nome do contentor de blob. Consulte o [regras de nomenclatura de contentor](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container) secção para obter uma lista de restrições em contentores de BLOBs de atribuição de nomes e regras.
+4. Será apresentada uma caixa de texto abaixo o **contentores de BLOBs** pasta. Introduza o nome do contentor de blobs. Consulte o [criar o contentor e definir permissões](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) para obter informações sobre regras e as restrições na atribuição de nomes de contentores de Blobs.
 
    ![Criar caixa de texto de contentores de BLOBs][1]
 5. Prima **Enter** quando pronto para criar o contentor de blob, ou **Esc** para cancelar. Depois do contentor de blob foi criado com êxito, será apresentado sob o **contentores de BLOBs** pasta para a conta de armazenamento selecionada.
@@ -170,11 +170,11 @@ Os passos seguintes mostram como gerir os blobs (e as pastas) dentro de um conte
 
      1. Na barra de ferramentas do painel principal, selecione **Upload (Carregar)** e, em seguida, **Upload Files (Carregar Ficheiros)**, no menu pendente.
 
-        ![Carregar o menu de ficheiros][15]
+        ![Menu Carregar ficheiros][15]
      2. Na caixa de diálogo **Upload files (Carregar ficheiros)**, selecione o botão de reticências (**...**), no lado direito da caixa de texto **Files (Ficheiros)**, para selecionar o ficheiro ou ficheiros que quer carregar.
 
         ![Opções de ficheiros de carregamento][16]
-     3. Especifique o tipo de **Blob tipo**. O artigo [introdução ao Blob storage do Azure através do .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explica as diferenças entre os vários tipos de Blobs.
+     3. Especifique o tipo de **Blob tipo**. Consulte [criar o contentor e definir permissões](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) para obter mais informações.
      4. Opcionalmente, especifique uma pasta de destino no qual os ficheiros selecionados serão carregados. Se a pasta de destino não existir, será criada.
      5. Selecione **Upload**.
    * **Carregar uma pasta para um contentor do blob**
@@ -185,7 +185,7 @@ Os passos seguintes mostram como gerir os blobs (e as pastas) dentro de um conte
      2. Na caixa de diálogo **Upload folder (Carregar pasta)**, selecione o botão de reticências (**...**), no lado direito da caixa de texto **Folder (Pasta)**, para selecionar a pasta cujos conteúdos quer carregar.
 
         ![Carregue as opções de pastas][18]
-     3. Especifique o tipo de **Blob tipo**. O artigo [introdução ao Blob storage do Azure através do .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explica as diferenças entre os vários tipos de Blobs.
+     3. Especifique o tipo de **Blob tipo**. Consulte [criar o contentor e definir permissões](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) para obter mais informações.
      4. Opcionalmente, especifique uma pasta de destino no qual os conteúdos da pasta selecionada serão carregados. Se a pasta de destino não existir, será criada.
      5. Selecione **Upload**.
    * **Transferir um blob para o seu computador local**
@@ -211,7 +211,7 @@ Os passos seguintes mostram como gerir os blobs (e as pastas) dentro de um conte
      2. Na barra de ferramentas do painel principal, selecione **Delete (Eliminar)**.
      3. Selecione **Yes (Sim)**, na caixa de diálogo de confirmação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Vejas os [mais recentes vídeos e notas de versão do Storage Explorer (Preview)](http://www.storageexplorer.com).
 * Saiba como [utilizar blobs, tabelas, filas e ficheiros do Azure para criar aplicações](https://azure.microsoft.com/documentation/services/storage/).
 

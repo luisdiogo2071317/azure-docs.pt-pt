@@ -1,24 +1,24 @@
 ---
-title: "Fase de implementação, o ciclo de vida do processo de ciência de dados de equipa - Azure | Microsoft Docs"
-description: "Os objetivos, tarefas e materiais a entregar para a fase de implementação dos seus projetos de ciência de dados"
+title: Fase de implementação, o ciclo de vida do processo de ciência de dados de equipa - Azure | Microsoft Docs
+description: Os objetivos, tarefas e materiais a entregar para a fase de implementação dos seus projetos de ciência de dados
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 45d801bf0096879143f91feb230445625559379f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: 5cb6361ed674ffaaf776adafd6f3ff87272c73eb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deployment"></a>Implementação
 
@@ -35,7 +35,7 @@ Eis uma representação visual do ciclo de vida TDSP:
 ![Ciclo de vida TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-## <a name="goal"></a>Objetivo
+## <a name="goal"></a>Alvo
 Implemente modelos com um pipeline de dados para um produção ou ambiente de produção como para a aceitação do utilizador final. 
 
 ## <a name="how-to-do-it"></a>Como fazê-lo
@@ -43,7 +43,7 @@ A tarefa principal resolvida nesta fase:
 
 **Operacionalizar o modelo**: implementar o modelo e o pipeline um produção ou ambiente de produção como para consumo de aplicação.
 
-### <a name="operationalize-a-model"></a>Operacionalize um modelo
+### <a name="operationalize-a-model"></a>Operacionalizar um modelo
 Depois de ter um conjunto de modelos que efetuar corretamente, pode operacionalizá-las para outras aplicações consumir. Consoante os requisitos de negócio, predições efetuadas em tempo real ou numa base de batch. Para implementar modelos, exponha-com uma interface de API aberta. A interface permite que o modelo a facilmente ser consumidos de várias aplicações, tais como:
 
    * Web sites online
@@ -61,7 +61,7 @@ Para obter exemplos de operationalization de modelo com um serviço web Azure Ma
 * Um documento de arquitetura de solução final
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Seguem-se ligações para cada passo no ciclo de vida do TDSP:
 

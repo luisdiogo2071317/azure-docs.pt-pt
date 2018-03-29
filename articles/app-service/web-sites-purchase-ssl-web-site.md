@@ -1,6 +1,6 @@
 ---
-title: "Comprar e configurar um certificado SSL para o serviço de aplicações do Azure | Microsoft Docs"
-description: "Saiba como comprar um certificado de serviço de aplicações e vinculá-lo à sua aplicação de serviço de aplicações"
+title: Comprar e configurar um certificado SSL para o serviço de aplicações do Azure | Microsoft Docs
+description: Saiba como comprar um certificado de serviço de aplicações e vinculá-lo à sua aplicação de serviço de aplicações
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 759bd1e8be8aaebbf98e1c02d67f3e56609354aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Comprar e Configurar um Certificado SSL para o Serviço de Aplicações do Azure
 
@@ -42,8 +42,8 @@ Introduza um amigável **nome** para o SSL de certificado e introduza o **nome d
 
 Selecione o **subscrição**, **grupo de recursos**, e **SKU de certificado**
 
-> [!WARNING]
-> Certificados de serviço de aplicações só podem ser utilizados por outros serviços de aplicações dentro da mesma subscrição.  
+> [!TIP]
+> Certificados de serviço de aplicações pode ser utilizado para o Azure ou serviços de Azure e não está limitados a serviços de aplicações. Para tal, tem de criar uma cópia local do PFX de um certificado de serviço de aplicações que pode ser utilizado em qualquer local que pretende. Para obter mais informações, leia o artigo [criar uma cópia local do PFX de um certificado de serviço de aplicações](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 >
 
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Passo 3 - armazenar o certificado no Cofre de chaves do Azure
@@ -107,7 +107,7 @@ Clique em **importar certificado de serviço de aplicações** e selecione o cer
 
 ![Inserir uma imagem de importar certificado](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-No **enlaces ssl** secção clique no **adicionar enlaces**e utilize as dropdowns para selecionar o nome de domínio para proteger com SSL e o certificado a utilizar. Também pode selecionar se pretende utilizar  **[indicação de nome de servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)**  ou IP baseada em SSL.
+No **enlaces ssl** secção clique no **adicionar enlaces**e utilize as dropdowns para selecionar o nome de domínio para proteger com SSL e o certificado a utilizar. Também pode selecionar se pretende utilizar **[indicação de nome de servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou IP baseada em SSL.
 
 ![Inserir a imagem dos enlaces SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 

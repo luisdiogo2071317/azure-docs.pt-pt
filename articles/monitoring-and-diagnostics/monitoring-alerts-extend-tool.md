@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 9361c2a0a4854f463eb2d679c3884f84f6858997
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76b7481223566f16a5da8c08d9d76f2bdb6b542a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="initiate-extending-alerts-from-oms-into-azure"></a>Iniciar expandir alertas do OMS no Azure
 A partir **23 de Abril de 2018**, todos os clientes através de alertas que são configurados no [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), será expandido para o Azure. Alertas que são expandidos para o Azure comportam-se da mesma forma que OMS. As capacidades de monitorização permaneçam intactas. Expandir alertas criados no OMS para o Azure fornece várias vantagens. Para obter mais informações sobre as vantagens e o processo de alargar alertas do OMS no Azure, consulte [expandir os alertas do OMS no Azure](monitoring-alerts-extend.md).
@@ -40,16 +40,14 @@ Ecrã de exemplo abaixo.
 
     ![Expanda os alertas do OMS no Azure - passo 2](./media/monitor-alerts-extend/ExtendStep2.png)
 
-    > [!NOTE]
-    > Se a edição de alerta opção mostrada acima, é utilizada a; o utilizador não poderá regressar ao assistente. E será necessário para reiniciar o processo de alargar alertas do OMS no Azure, do passo 1. Também a lista mostra alteração proposta resumo, o resultado real pode variar com base nas alterações são efetuadas em paralelo.
 
-4. No último passo do assistente, pode pedir ao OMS para agendar a expandir a todos os alertas no Azure - através da criação de novos grupos de ação e associar os alertas, conforme mostrado no ecrã anterior. Para continuar escolher "Ter OMS automaticamente todos os alertas na sua área de trabalho para o Azure", em seguida, clique em Concluir e confirme na linha de comandos para iniciar o processo. Em alternativa, os clientes podem utilizar uma nova API de análise do registo - para acionar manualmente expandir os alertas, escolhendo a opção alternativa. 
+4. No último passo do assistente, pode pedir ao OMS para agendar a expandir a todos os alertas no Azure - através da criação de novos grupos de ação e associar os alertas, conforme mostrado no ecrã anterior. Para continuar escolha clique em Concluir e confirme na linha de comandos para iniciar o processo. Opcionalmente, os clientes também podem fornecer endereços de correio eletrónico para o qual gostaria OMS para enviar um relatório em a concluir o processamento.
 
     ![Expanda os alertas do OMS no Azure - passo 3](./media/monitor-alerts-extend/ExtendStep3.png)
 
-5. Depois do assistente estiver concluído, controlo regressará à página de definições de alerta e a opção "Expandir para Azure" será removida. Em segundo plano, OMS ação irá agendar alertas no OMS expandido no Azure; Isto pode demorar algum tempo e quando a operação começa um breve período alertas de no OMS não estarão disponível para serem modificadas. Depois de concluído o processo em segundo plano, mensagens de correio eletrónico serão enviadas para todos os utilizadores com função de administrador ou de contribuinte; com os detalhes dos grupos de ação criados e respetivas alertas foram associados com. 
+5. Depois do assistente estiver concluído, controlo regressará à página de definições de alerta e a opção "Expandir para Azure" será removida. Em segundo plano, OMS ação irá agendar alertas no OMS expandido no Azure; Isto pode demorar algum tempo e quando a operação começa um breve período alertas de no OMS não estarão disponível para serem modificadas. Será mostrado o estado atual através de faixa e se endereços de e-mail onde fornecida durante o passo 4, em seguida, será informado quando o processo em segundo plano expande com êxito todos os alertas no Azure. 
 
-6. Alertas irão continuar a ser listados na OMS, mesmo depois de serem obterem expandidos no Azure.
+6. Alertas irão continuar a ser listados na OMS, mesmo depois de serem obterem expandidos com êxito no Azure.
 
     ![Após expandir alertas no OMS no Azure](./media/monitor-alerts-extend/PostExtendList.png)
 
@@ -141,10 +139,11 @@ Se já tiver sido expandido todos os alertas na área de trabalho especificado, 
 }
 ```
 
-Para iniciar o agendamento de expandir os alertas no OMS no Azure, inicie um pedido POST para a API. Ao executar este comando/chamada confirma que o utilizador intenção, bem como aceitação tem os alertas no OMS expandido para o Azure e efetuar as alterações, conforme indicado na resposta GET chamada à API.
+Para iniciar o agendamento de expandir os alertas no OMS no Azure, inicie um pedido POST para a API. Ao executar este comando/chamada confirma que o utilizador intenção, bem como aceitação tem os alertas no OMS expandido para o Azure e efetuar as alterações, conforme indicado na resposta GET chamada à API. Opcionalmente, o utilizador pode fornecer uma lista de endereços de e-mail para o qual o OMS será correio um relatório, quando o processo em segundo plano agendada de expandir os alertas no OMS para o Azure for concluído com êxito.
 
 ```
-armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
+$emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
+armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $emailJSON
 ```
 
 > [!NOTE]

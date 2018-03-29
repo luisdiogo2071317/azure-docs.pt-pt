@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 70b39b854a3b7cb28716d3cb290998690dbeb549
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de carga padrão e zonas de disponibilidade
 
 SKU Standard do Azure do Balanceador de carga suporta [disponibilidade zonas](../availability-zones/az-overview.md) cenários. Vários novos conceitos estão disponíveis com o Balanceador de carga padrão, que lhe permitem otimizar disponibilidade no seu cenário de ponto a ponto ao alinhar recursos com zonas, bem como distribuí-los através de zonas.  Reveja [disponibilidade zonas](../availability-zones/az-overview.md) para obter orientações sobre o que são zonas de disponibilidade, as regiões que suportam atualmente zonas de disponibilidade e de outras relacionadas com produtos e conceitos. Zonas de disponibilidade em combinação com o padrão de Balanceador de carga é um conjunto de funcionalidades amplo e flexível que pode criar vários cenários diferentes.  Reveja este documento não compreende-las [conceitos](#concepts) e cenário fundamental [conceber de orientações](#design).
 
 >[!NOTE]
-> O SKU de padrão de Balanceador de carga está atualmente em pré-visualização. Durante a pré-visualização, a funcionalidade não pode ter o mesmo nível de disponibilidade e fiabilidade como versão de funcionalidades que estão em geral disponibilidade. Para obter mais informações, consulte [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Utilizar geralmente disponível [SKU básico de Balanceador de carga](load-balancer-overview.md) para os serviços de produção. Para utilizar [pré-visualização de zonas de disponibilidade](https://aka.ms/availabilityzones) com esta pré-visualização requer um [separado inscrição](https://aka.ms/availabilityzones), além de inscrever-se para o Balanceador de carga [pré-visualização padrão](#preview-sign-up).
+>Reveja [pré-visualização de zonas de disponibilidade](https://aka.ms/availabilityzones) para outros relacionadas com tópicos. 
 
 ## <a name="concepts"></a> Conceitos de zonas de disponibilidade aplicados ao balanceador de carga
 

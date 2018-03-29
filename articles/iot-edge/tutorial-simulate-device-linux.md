@@ -1,8 +1,8 @@
 ---
 title: Simular o limite de IoT do Azure no Linux | Microsoft Docs
-description: "Instalar o runtime do Azure IoT Edge num dispositivo simulado com Linux e implementar a sua primeira módulo"
+description: Instalar o runtime do Azure IoT Edge num dispositivo simulado com Linux e implementar a sua primeira módulo
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Implementar o Azure IoT Edge num dispositivo simulado com Linux ou MacOS – pré-visualização
 
@@ -37,6 +37,11 @@ Este tutorial utiliza o seu computador ou máquina virtual, como um dispositivo 
 
 * Pip de Python, para instalar o runtime de limite de IoT.
    * Linux: `sudo apt-get install python-pip`.
+     * _Tenha em atenção que no determinadas distribuições (por exemplo, Raspbian), também poderá ter de atualizar determinadas pacotes pip e instalar dependências adicionais:_
+     ```
+     sudo pip install --upgrade setuptools pip
+     sudo apt-get install python2.7-dev libffi-dev libssl-dev
+     ```
    * MacOS: `sudo easy_install pip`.
 * Docker, para executar o limite de IoT módulos
    * [Instalar Docker para Linux] [ lnk-docker-ubuntu] e certifique-se de que está em execução. 
@@ -70,7 +75,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 Configure o tempo de execução com a cadeia de ligação do dispositivo de limite de IoT da secção anterior:
 ```cmd
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Inicie o tempo de execução:

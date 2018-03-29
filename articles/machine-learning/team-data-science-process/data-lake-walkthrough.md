@@ -1,8 +1,8 @@
 ---
-title: "Dimensionável ciência de dados com o Azure Data Lake: uma instruções ponto a ponto | Microsoft Docs"
-description: "Como utilizar o Azure Data Lake para efetuar tarefas de classificação de exploração e binary dados num conjunto de dados."
+title: 'Dimensionável ciência de dados com o Azure Data Lake: uma instruções ponto a ponto | Microsoft Docs'
+description: Como utilizar o Azure Data Lake para efetuar tarefas de classificação de exploração e binary dados num conjunto de dados.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev; weig
-ms.openlocfilehash: b18b454d1fcdfb2b6e8ea77508f779aeabdc87a0
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 6d0f889e1cc76eced172d66755a0a9275e6b7bdf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Dimensionável ciência de dados com o Azure Data Lake: uma instruções ponto a ponto
 Estas instruções mostram como utilizar o Azure Data Lake exploração de dados e tarefas de classificação binária de uma amostra de viagem de taxi NYC e fare conjunto de dados para prever ou não uma sugestão é paga por um fare. -Explica os passos para o [o processo de ciência de dados de equipa](http://aka.ms/datascienceprocess)ponto-a- ponto, a partir da aquisição de dados para o modelo de formação e, em seguida, para a implementação de um serviço web que publica o modelo.
@@ -149,7 +149,7 @@ Para executar o U-SQL, abra Visual Studio, clique em **ficheiro--> novo--> proje
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Ingestão de dados: Ler dados a partir do blob público
-A localização dos dados no blob do Azure é referenciada como  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**  e pode ser extraída utilizando **Extractors.Csv()**. Substitua o seu nome de contentor e um nome de conta do storage em scripts seguintes para container_name@blob_storage_account_name no endereço wasb. Uma vez que os nomes de ficheiro no mesmo formato, é possível utilizar **viagem\_data_ {\*\}. csv** ler em todos os ficheiros de 12 viagem. 
+A localização dos dados no blob do Azure é referenciada como **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** e pode ser extraída utilizando **Extractors.Csv()**. Substitua o seu nome de contentor e um nome de conta do storage em scripts seguintes para container_name@blob_storage_account_name no endereço wasb. Uma vez que os nomes de ficheiro no mesmo formato, é possível utilizar **viagem\_data_ {\*\}. csv** ler em todos os ficheiros de 12 viagem. 
 
     ///Read in Trip data
     @trip0 =
@@ -562,7 +562,7 @@ Pretende operacionalizar o modelo de machine learning depois de ter sido concebi
 
 * Localize as credenciais da sua área de trabalho do Azure ML studio de definições. No Azure Machine Learning Studio, clique em **definições** --> **nome** --> **Tokens de autorização**. 
   
-    ![C3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
+    ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
         workspaceid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
         auth_token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'

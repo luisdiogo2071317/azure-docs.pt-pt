@@ -1,11 +1,11 @@
 ---
-title: "Perguntas mais frequentes de configuração para aplicações web do Azure | Microsoft Docs"
-description: "Obtenha respostas às perguntas mais frequentes sobre problemas de configuração e gestão para a funcionalidade Web Apps do App Service do Azure."
+title: Perguntas mais frequentes de configuração para aplicações web do Azure | Microsoft Docs
+description: Obtenha respostas às perguntas mais frequentes sobre problemas de configuração e gestão para a funcionalidade Web Apps do App Service do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Gestão de configuração e perguntas mais frequentes para aplicações Web no Azure
 
@@ -67,7 +67,7 @@ Para definir o fuso horário do servidor para a sua aplicação web:
 
 1. No portal do Azure, na sua subscrição do serviço de aplicações, vá para o **definições da aplicação** menu.
 2. Em **as definições de aplicação**, adicione esta definição:
-    * Chave = WEBSITE_TIME_ZONE
+    * Key = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário pretende*
 3. Selecione **Guardar**.
 
@@ -251,7 +251,7 @@ Para obter mais informações sobre WebJobs agendadas, consulte [criar um WebJob
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Como efetuar a penetração teste para a minha aplicação do app Service?
 
-Para efetuar testes a penetração, [submeter um pedido](https://security-forms.azure.com/penetration-testing/terms).
+Para efetuar testes a penetração, [submeter um pedido](https://portal.msrc.microsoft.com/en-us/engage/pentest).
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Como configurar a um nome de domínio personalizado para um aplicação web do app Service que utilize o Gestor de tráfego?
 

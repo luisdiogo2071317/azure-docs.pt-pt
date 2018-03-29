@@ -1,10 +1,10 @@
 ---
-title: "BD do Azure do Cosmos indexação políticas | Microsoft Docs"
-description: "Compreenda como indexação funciona do BD Azure Cosmos. Saiba como configurar e alterar a política de indexação para indexação automática e melhor desempenho."
-keywords: "como a indexação funciona, automática indexação, a indexação de base de dados"
+title: BD do Azure do Cosmos indexação políticas | Microsoft Docs
+description: Compreenda como indexação funciona do BD Azure Cosmos. Saiba como configurar e alterar a política de indexação para indexação automática e melhor desempenho.
+keywords: como a indexação funciona, automática indexação, a indexação de base de dados
 services: cosmos-db
-documentationcenter: 
-author: arramac
+documentationcenter: ''
+author: rafats
 manager: jhubbard
 editor: monicar
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/17/2017
-ms.author: arramac
-ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/26/2018
+ms.author: rafats
+ms.openlocfilehash: 5610c5fdc6a04f9ef13d2e4592f0d7e5d8eba30c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como funciona a dados do índice de BD do Cosmos do Azure?
 
 Por predefinição, todos os dados de base de dados do Azure Cosmos está indexada. Embora muitos clientes estiverem satisfeitos permitir que a base de dados do Cosmos do Azure processam automaticamente todos os aspetos da indexação, pode especificar um personalizado *política de indexação* para coleções durante a criação do BD Azure Cosmos. As políticas de indexação do BD Azure Cosmos são mais flexível e de índices secundários que são disponibilizados em outras plataformas de base de dados. Na base de dados do Azure Cosmos, pode criar e personalizar a forma do índice sem sacrificar a flexibilidade de esquema. 
 
 Para saber como indexação funciona do BD Azure Cosmos, é importante compreender que quando gere a política de indexação, pode efetuar detalhados compromissos entre tolerância de armazenamento de índice, escrita e débito de consulta e consistência de consulta.  
+
+No vídeo seguinte, o Azure Gestor de programa do Cosmos DB Andrew Liu demonstra a BD do Cosmos Azure capacidades e de como otimizar e configurar a política de indexação no contentor de base de dados do Azure Cosmos de indexação automática. 
+
+>[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
 Neste artigo, vamos observe fechar Azure Cosmos DB indexação políticas, como personalizar a política de indexação e compromissos associados. 
 
@@ -37,7 +41,7 @@ Depois de ler este artigo, poderá responder às seguintes questões:
 * Como efetuar alterações à política de indexação de uma coleção?
 * Como comparar armazenamento e o desempenho da indexação de políticas diferentes?
 
-## Personalizar a política de indexação de uma coleção<a id="CustomizingIndexingPolicy"></a>  
+## Personalizar a política de indexação de uma coleção <a id="CustomizingIndexingPolicy"></a>  
 Pode personalizar os compromissos entre o armazenamento, escrita e desempenho das consultas e consistência de consulta ao substituir a predefinição de indexação de política de uma coleção de BD do Cosmos do Azure. Pode configurar os seguintes aspetos:
 
 * **Incluir ou excluir os documentos e caminhos de e para o índice**. Pode excluir ou incluir documentos específicos no índice ao inserir ou substituir os documentos na coleção. Também pode incluir ou excluir propriedades JSON específicas, também denominadas *caminhos*, ser indexados em documentos que estão incluídos num índice. Caminhos incluem padrões de carateres universais.
@@ -69,7 +73,7 @@ Pode alterar a política de indexação de uma coleção no portal do Azure:
 2. No menu de navegação esquerdo, selecione **definições**e, em seguida, selecione **política de indexação**. 
 3. Em **política de indexação**, altere a sua política de indexação e, em seguida, selecione **OK**. 
 
-### Modos de indexação de base de dados<a id="indexing-modes"></a>  
+### Modos de indexação de base de dados <a id="indexing-modes"></a>  
 BD do Azure do Cosmos suporta três modos de indexação que pode ser configurada através da política de indexação de uma coleção de base de dados do Azure Cosmos: consistente, lento e nenhum.
 
 **Consistente**: se a política de uma coleção de base de dados do Azure Cosmos é consistente, as consultas de uma coleção específica da base de dados do Azure Cosmos siga o mesmo nível de consistência especificados para as ponto de leituras (forte, consistência vinculada, sessão, ou eventual). O índice é atualizado de forma síncrona como parte da atualização de documento (inserir, substituir, atualização e eliminar um documento numa coleção de base de dados do Azure Cosmos).
@@ -131,11 +135,11 @@ Seguem-se os padrões comuns para especificar os caminhos de índice:
 | Caminho                | Caso de utilização/descrição                                                                                                                                                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | Caminho predefinido para a coleção. Recursiva e aplica-se para a árvore de documentos completo.                                                                                                                                                                                                                                   |
-| prop /?             | Caminho de índice necessário para efetuar consultas semelhante ao seguinte (com Hash ou um intervalo de tipos, respetivamente):<br><br>SELECIONE da coleção c WHERE c.prop = "valor"<br><br>SELECIONE da coleção c WHERE c.prop > 5<br><br>SELECIONE a partir da coleção c ORDER BY c.prop                                                                       |
-| / prop / *             | Caminho de índice para todos os caminhos sob a etiqueta especificada. Funciona com as seguintes consultas<br><br>SELECIONE da coleção c WHERE c.prop = "valor"<br><br>SELECIONE da coleção c WHERE c.prop.subprop > 5<br><br>SELECIONE da coleção c WHERE c.prop.subprop.nextprop = "valor"<br><br>SELECIONE a partir da coleção c ORDER BY c.prop         |
-| [] propriedades / /?         | Caminho de índice necessários para servir iteração e associar as consultas em relação a matrizes de escalares comparáveis como ["a", "b", "c"]:<br><br>SELECIONE tag da tag IN collection.props tag onde = "valor"<br><br>SELECIONE tag da coleção c associação tag IN c.props onde tag > 5                                                                         |
-| /Props/ [] /subprop/? | Caminho de índice necessários para efetuar iteração e consultas de associação em relação a matrizes de objetos como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECIONE tag da tag IN collection.props onde tag.subprop = "valor"<br><br>SELECIONE tag da coleção c associação tag IN c.props onde tag.subprop = "valor"                                  |
-| / prop/subprop /?     | Caminho de índice necessário para efetuar consultas (com Hash ou um intervalo de tipos, respetivamente):<br><br>SELECIONE da coleção c WHERE c.prop.subprop = "valor"<br><br>SELECIONE da coleção c WHERE c.prop.subprop > 5                                                                                                                    |
+| prop /?             | Caminho de índice necessário para efetuar consultas semelhante ao seguinte (com Hash ou um intervalo de tipos, respetivamente):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECIONE da coleção c WHERE c.prop > 5<br><br>SELECIONE a partir da coleção c ORDER BY c.prop                                                                       |
+| / prop / *             | Caminho de índice para todos os caminhos sob a etiqueta especificada. Funciona com as seguintes consultas<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECIONE da coleção c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECIONE a partir da coleção c ORDER BY c.prop         |
+| /props/[]/?         | Caminho de índice necessários para servir iteração e associar as consultas em relação a matrizes de escalares comparáveis como ["a", "b", "c"]:<br><br>SELECIONE tag da tag IN collection.props tag onde = "valor"<br><br>SELECIONE tag da coleção c associação tag IN c.props onde tag > 5                                                                         |
+| /props/[]/subprop/? | Caminho de índice necessários para efetuar iteração e consultas de associação em relação a matrizes de objetos como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECIONE tag da tag IN collection.props onde tag.subprop = "valor"<br><br>SELECIONE tag da coleção c associação tag IN c.props onde tag.subprop = "valor"                                  |
+| /prop/subprop/?     | Caminho de índice necessário para efetuar consultas (com Hash ou um intervalo de tipos, respetivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECIONE da coleção c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
 > Quando definir caminhos de índice personalizado, é necessário especificar a regra de indexação predefinida para a árvore de documentos completo, que está em falta que o caminho especiais "/ *". 
@@ -192,9 +196,9 @@ Eis os tipos de índice suportados e exemplos de consultas que podem ser utiliza
 
 | Tipo de índice | Caso de utilização/descrição                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hash       | Hash através de/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE da coleção c WHERE c.prop = "valor"<br><br>Hash através de propriedades / [] /? (ou / ou propriedades /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE tag da coleção c associação tag IN c.props tag onde = 5                                                                                                                       |
-| Intervalo      | Intervalo de ativação pós-falha/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE da coleção c WHERE c.prop = "valor"<br><br>SELECIONE da coleção c WHERE c.prop > 5<br><br>SELECIONE a partir da coleção c ORDER BY c.prop                                                                                                                                                                                                              |
-| Espacial     | Intervalo de ativação pós-falha/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE da coleção c<br><br>ONDE ST_DISTANCE (c.prop, {"type": "Ponto", "coordenadas": [0.0, 10.0]}) < 40<br><br>SELECIONE de coleção c onde ST_WITHIN(c.prop, {"type": "Polygon",...}) – com a indexação pontos ativada<br><br>SELECIONE da coleção c onde ST_WITHIN({"type": "Point",...}, c.prop) – com a indexação polígonos ativados              |
+| Hash       | Hash através de/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash através de propriedades / [] /? (ou / ou propriedades /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE tag da coleção c associação tag IN c.props tag onde = 5                                                                                                                       |
+| Intervalo      | Intervalo de ativação pós-falha/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECIONE da coleção c WHERE c.prop > 5<br><br>SELECIONE a partir da coleção c ORDER BY c.prop                                                                                                                                                                                                              |
+| Espacial     | Intervalo de ativação pós-falha/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE da coleção c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECIONE de coleção c onde ST_WITHIN(c.prop, {"type": "Polygon",...}) – com a indexação pontos ativada<br><br>SELECIONE da coleção c onde ST_WITHIN({"type": "Point",...}, c.prop) – com a indexação polígonos ativados              |
 
 Por predefinição, é devolvido um erro de consultas com operadores de intervalo como > = Se não houver nenhum índice de intervalo (de qualquer precisão) para assinalar que uma análise poderá ser necessária servir a consulta. Consultas de intervalo podem ser realizadas sem um índice de intervalo utilizando o **x-ms-documentdb-enable-análise** cabeçalho na REST API ou o **EnableScanInQuery** pedir opção utilizando o SDK .NET. Se existirem quaisquer outros filtros na consulta que BD do Cosmos Azure pode utilizar o índice para filtrar contra, não é devolvido nenhum erro.
 
@@ -365,7 +369,7 @@ As seguintes alterações foram implementadas na especificação de JSON:
 * Cada caminho pode ter várias definições de índice. Pode ter um para cada tipo de dados.
 * A indexação de precisão suporta entre 1 e 8 para números, 1 a 100 cadeias e -1 (precisão máxima).
 * Os segmentos de caminho não necessitam de uma aspas para cada caminho de escape dupla. Por exemplo, pode adicionar um caminho para   **/título /?** em vez de **/ "title" /?**.
-* O caminho de raiz que representa a "todos os caminhos" pode ser representado como  **/ \***  (além  **/** ).
+* O caminho de raiz que representa a "todos os caminhos" pode ser representado como **/ \*** (além **/**).
 
 Se tiver código que Aprovisiona coleções com uma política de indexação personalizada escrita com a versão 1.1.0 do .NET SDK ou uma versão anterior, mover para o SDK versão 1.2.0, tem de alterar o código da aplicação para processar estas alterações. Se não tiver o código que configura a política de indexação ou, se pretender continuar a utilizar uma versão anterior do SDK, não são necessárias alterações.
 

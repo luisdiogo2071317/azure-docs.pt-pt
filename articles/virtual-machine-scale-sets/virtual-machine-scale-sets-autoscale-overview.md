@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral de dimensionamento automático com conjuntos de dimensionamento de máquina virtual do Azure | Microsoft Docs"
-description: "Saiba mais sobre as diferentes formas que pode dimensionar automaticamente um conjunto com base no desempenho ou numa agenda fixa de dimensionamento de máquina virtual do Azure"
+title: Descrição geral de dimensionamento automático com conjuntos de dimensionamento de máquina virtual do Azure | Microsoft Docs
+description: Saiba mais sobre as diferentes formas que pode dimensionar automaticamente um conjunto com base no desempenho ou numa agenda fixa de dimensionamento de máquina virtual do Azure
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 868523a3aca441a47218297be2ce9f9e46dd84a1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 03053f8427fbd20b0a7288d930dca258ee3070b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Define a descrição geral de dimensionamento automático com uma escala de máquina virtual do Azure
 Um conjunto de dimensionamento da máquina virtual do Azure automaticamente pode aumentar ou reduzir o número de instâncias VM que executar a sua aplicação. Este comportamento automatizado e elástico reduz os custos de gestão para monitorizar e otimizar o desempenho da sua aplicação. Criar regras que definem o desempenho minimamente aceitável para uma experiência de cliente positivo. Quando os limiares definidos são cumpridos, regras de dimensionamento automático tomar medidas para ajustar a capacidade do seu conjunto de dimensionamento. Também pode agendar eventos automaticamente aumentar ou diminuir a capacidade do seu conjunto de dimensionamento em fixo vezes. Este artigo fornece uma descrição geral do que desempenho métricas estão disponíveis e pode efetuar o dimensionamento automático de ações.
@@ -40,8 +40,9 @@ Pode criar regras de dimensionamento automático métricas esse anfitrião incor
 Podem ser criadas regras de dimensionamento automático que utilizem métricas baseadas no anfitrião com uma das seguintes ferramentas:
 
 - [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [CLI 2.0 do Azure](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [CLI 2.0 do Azure](tutorial-autoscale-cli.md)
+- [Modelo do Azure](tutorial-autoscale-template.md)
 
 Para criar regras de dimensionamento automático que utilizem métricas de desempenho mais detalhadas, pode [instalar e configurar a extensão de diagnóstico do Azure](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) em instâncias VM, ou [configurar a utilização da aplicação App Insights](#application-level-metrics-with-app-insights).
 
@@ -54,7 +55,7 @@ Regras de dimensionamento automático podem utilizar as métricas de uma das seg
 |----------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Conjunto de dimensionamento atual    | Baseada no anfitrião com base nas métricas que não necessitam de agentes adicionais a ser instalados ou configurados.                                  |
 | Conta de armazenamento      | A extensão de diagnóstico do Azure escreve métricas de desempenho para o storage do Azure que, em seguida, é consumido para acionar as regras de dimensionamento automático. |
-| Fila de barramento de serviço    | A aplicação ou outros componentes, podem transmitir mensagens numa fila do Service Bus do Azure para regras de Acionador.                   |
+| Fila do Service Bus    | A aplicação ou outros componentes, podem transmitir mensagens numa fila do Service Bus do Azure para regras de Acionador.                   |
 | Application Insights | Um pacote de instrumentação instalado na sua aplicação que fluxos métricas diretamente a partir da aplicação.                         |
 
 
@@ -63,15 +64,15 @@ As métricas seguintes baseada no anfitrião estão disponíveis para utilizaç�
 
 | Nome da métrica               |
 |---------------------------|
-| Percentagem de CPU            |
-| Rede no                |
-| Limite de rede               |
-| Bytes de leitura do disco           |
-| Bytes de escrita do disco          |
-| Disco lidos/seg de operações  |
-| Operações de escrita de disco/seg |
-| Créditos de CPU restante     |
-| Créditos de CPU consumidos      |
+| Percentagem da CPU            |
+| Entrada de Rede                |
+| Saída de Rede               |
+| Bytes de Leitura do Disco           |
+| Bytes de Escrita de Disco          |
+| Operações/Seg de Leitura do Disco  |
+| Operações/Seg de Escrita de Disco |
+| Créditos CPU Restantes     |
+| Créditos CPU Consumidos      |
 
 Quando criar regras de dimensionamento automático para monitorizar uma métrica fornecida, as regras de observar uma das ações de agregação de métricas seguintes:
 
@@ -81,19 +82,19 @@ Quando criar regras de dimensionamento automático para monitorizar uma métrica
 | Mínimo          |
 | Máximo          |
 | Total            |
-| última             |
+| Último             |
 | Contagem            |
 
 As regras de dimensionamento automático, em seguida, são acionadas quando as métricas são comparadas com o limiar definido com um dos seguintes operadores:
 
-| operador                 |
+| Operador                 |
 |--------------------------|
 | Mais do que             |
-| Maior ou igual a |
+| Maior que ou igual a |
 | Menos do que                |
-| Menor ou igual a    |
+| Menor que ou igual a    |
 | Igual a                 |
-| Não é igual a             |
+| Diferente de             |
 
 
 ### <a name="actions-when-rules-trigger"></a>Ações ao acionam as regras
@@ -101,12 +102,12 @@ Quando um acionadores de regra de dimensionamento automático, o conjunto de dim
 
 | Operação de dimensionamento     | Caso de utilização                                                                                                                               |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| Aumentar a contagem por   | Um número fixo de instâncias VM para criar. É útil em conjuntos de dimensionamento com um número mais pequeno de VMs.                                           |
-| Percentagem de aumento por | Um aumento de instâncias VM com base em percentagem. Boa para escala maior define onde um aumento fixo poderá não intensas em termos melhorar o desempenho. |
-| Aumentar a contagem a   | Crie várias instâncias de VM são necessários para atingir o período máximo pretendido.                                                            |
-| Contagem de diminuir a   | Um número fixo de instâncias VM para remover. É útil em conjuntos de dimensionamento com um número mais pequeno de VMs.                                           |
-| Diminuir por cento por | Um decréscimo baseado em percentagem de instâncias VM. Boa para escala maior define onde um aumento fixo pode não intensas em termos reduzir o consumo de recursos e os custos. |
-| Contagem de diminuir a   | Remova como várias instâncias de VM são necessários para atingir uma quantidade mínima pretendida.                                                            |
+| Aumentar contagem em   | Um número fixo de instâncias VM para criar. É útil em conjuntos de dimensionamento com um número mais pequeno de VMs.                                           |
+| Aumentar percentagem em | Um aumento de instâncias VM com base em percentagem. Boa para escala maior define onde um aumento fixo poderá não intensas em termos melhorar o desempenho. |
+| Aumentar contagem para   | Crie várias instâncias de VM são necessários para atingir o período máximo pretendido.                                                            |
+| Diminuir contagem até   | Um número fixo de instâncias VM para remover. É útil em conjuntos de dimensionamento com um número mais pequeno de VMs.                                           |
+| Diminuir percentagem em | Um decréscimo baseado em percentagem de instâncias VM. Boa para escala maior define onde um aumento fixo pode não intensas em termos reduzir o consumo de recursos e os custos. |
+| Diminuir contagem até   | Remova como várias instâncias de VM são necessários para atingir uma quantidade mínima pretendida.                                                            |
 
 
 ## <a name="in-guest-vm-metrics-with-the-azure-diagnostics-extension"></a>Métricas VM no convidado com a extensão de diagnóstico do Azure
@@ -133,12 +134,12 @@ Os exemplos seguintes são cenários que podem tirar partido da utilização de 
 - Quando existe um evento de marketing, promoção ou venda de férias, pode dimensionar o número de instâncias VM à frente da pedido do cliente previsto. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode criar regras de dimensionamento automático que utilizem métricas baseada no anfitrião com uma das seguintes ferramentas:
 
-- [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [CLI 2.0 do Azure](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [CLI 2.0 do Azure](tutorial-autoscale-cli.md)
+- [Modelo do Azure](tutorial-autoscale-template.md)
 
 Esta descrição geral detalhada como utilizar regras de dimensionamento automático para aumentar horizontalmente e aumentar ou diminuir o *número* de instâncias VM no seu dimensionamento definido. Também pode reduzir verticalmente para aumentar ou diminuir a instância VM *tamanho*. Para obter mais informações, consulte [Vertical dimensionamento automático com conjuntos de dimensionamento da Máquina Virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 

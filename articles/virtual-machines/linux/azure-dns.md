@@ -1,6 +1,6 @@
 ---
-title: "Opções de resolução de nome DNS de computadores virtuais Linux no Azure"
-description: "Serviços de DNS de cenários para computadores virtuais Linux no IaaS do Azure, incluindo fornecidos de resolução de nome, o servidor DNS e traga a sua própria DNS externo no híbrida."
+title: Opções de resolução de nome DNS de computadores virtuais Linux no Azure
+description: Serviços de DNS de cenários para computadores virtuais Linux no IaaS do Azure, incluindo fornecidos de resolução de nome, o servidor DNS e traga a sua própria DNS externo no híbrida.
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: cc06ee9305b4d3034154a0825c1aea53fe446f80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a445de3e1bfbeb2cd2e5674418688d6bb610a3c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para computadores virtuais Linux no Azure
 O Azure oferece resolução do nome DNS por predefinição para todas as máquinas virtuais que estão numa única rede virtual. Pode implementar a sua própria solução de resolução de nome DNS ao configurar os seus próprios serviços DNS no seu máquinas virtuais que aloja do Azure. Os cenários seguintes deverão ajudar a escolher aquele que funciona para a sua situação.
@@ -30,7 +30,7 @@ O tipo de resolução de nomes que utiliza depende de como as máquinas virtuais
 
 A tabela seguinte ilustra os cenários e soluções de resolução de nome correspondente:
 
-| **Cenário** | **Solução** | **Sufixo** |
+| **Cenário** | **Solução** | **Suffix** |
 | --- | --- | --- |
 | Resolução de nome entre instâncias de função ou máquinas virtuais na mesma rede virtual |[Resolução de nome fornecidos pelo Azure](#azure-provided-name-resolution) |nome de anfitrião ou nome de domínio completamente qualificado (FQDN) |
 | Resolução de nome entre instâncias de função ou máquinas virtuais em redes virtuais diferentes |Gerida pelo cliente servidores DNS que reencaminham consultas entre redes virtuais para a resolução pelo Azure (proxy DNS). Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Apenas FQDN |
@@ -75,7 +75,7 @@ Estão disponíveis várias DNS diferentes pacotes, tais como dnsmasq, a coloca�
 1. Instale o pacote de dnsmasq ("sudo zypper instalação dnsmasq").
 2. Ative o serviço de dnsmasq ("systemctl ativar dnsmasq.service").
 3. Inicie o serviço de dnsmasq ("systemctl início dnsmasq.service").
-4. Editar "/ etc/sysconfig/rede/configuração" e alterar NETCONFIG_DNS_FORWARDER = "" para "dnsmasq".
+4. Edit “/etc/sysconfig/network/config”, and change NETCONFIG_DNS_FORWARDER="" to ”dnsmasq”.
 5. Atualize resolv.conf ("netconfig update") para definir a cache, como a resolução DNS local.
 
 **CentOS pelo Software de Wave não autorizado (anteriormente OpenLogic; utiliza NetworkManager)**
@@ -112,7 +112,7 @@ O ficheiro de resolv.conf é gerado automaticamente e não deve ser editado. Os 
 2. Execute 'netconfig update' para atualizar.
 
 **CentOS pelo Software de Wave não autorizado (anteriormente OpenLogic)** (utiliza NetworkManager)
-1. Adicionar 'eco "opções timeout:1 tentativas: 5" ' para ' / etc/NetworkManager/dispatcher.d/11-dhclient'.
+1. Adicionar ' RES_OPTIONS = "timeout:1 tentativas: 5" ' para '/ sysconfig/etc/rede'.
 2. Execute o reinício de rede de serviço para atualizar.
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Resolução de nomes utilizando o seu próprio servidor DNS

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: 0041a58c8da58785ebc3ead6c8128316b153728c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização do contentor no Log Analytics
 
@@ -547,15 +547,15 @@ A tabela seguinte mostra exemplos de registos recolhidos pela solução de monit
 
 | Tipo de dados | Tipo de dados na pesquisa de registo | Campos |
 | --- | --- | --- |
-| Desempenho para os anfitriões e contentores | `Type=Perf` | Computador, ObjectName, CounterName &#40;% tempo do processador, o disco lê MB, disco escreve MB, MB de utilização de memória, rede receber Bytes, rede enviar Bytes, o processador de seg de utilização, rede&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
-| Inventário de contentor | `Type=ContainerInventory` | TimeGenerated, computador, nome do contentor, ContainerHostname, imagem, ImageTag, ContainerState, ExitCode, EnvironmentVar, comando, CreatedTime, StartedTime, FinishedTime, SourceSystem, ID do contentor, ImageID |
-| Inventário de imagem do contentor | `Type=ContainerImageInventory` | TimeGenerated, computador, imagem, ImageTag, ImageSize, VirtualSize, em execução, em pausa, parar, falha, SourceSystem, ImageID, TotalContainer |
-| Registo de contentor | `Type=ContainerLog` | TimeGenerated, o computador, o ID de imagem, o nome do contentor, LogEntrySource, LogEntry, SourceSystem, ID do contentor |
-| Registo do serviço de contentor | `Type=ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
-| Inventário de nó do contentor | `Type=ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Kubernetes inventário | `Type=KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| Processo de contentor | `Type=ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Eventos de Kubernetes | `Type=KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
+| Desempenho para os anfitriões e contentores | `Perf` | Computador, ObjectName, CounterName &#40;% tempo do processador, o disco lê MB, disco escreve MB, MB de utilização de memória, rede receber Bytes, rede enviar Bytes, o processador de seg de utilização, rede&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
+| Inventário de contentor | `ContainerInventory` | TimeGenerated, computador, nome do contentor, ContainerHostname, imagem, ImageTag, ContainerState, ExitCode, EnvironmentVar, comando, CreatedTime, StartedTime, FinishedTime, SourceSystem, ID do contentor, ImageID |
+| Inventário de imagem do contentor | `ContainerImageInventory` | TimeGenerated, computador, imagem, ImageTag, ImageSize, VirtualSize, em execução, em pausa, parar, falha, SourceSystem, ImageID, TotalContainer |
+| Registo de contentor | `ContainerLog` | TimeGenerated, o computador, o ID de imagem, o nome do contentor, LogEntrySource, LogEntry, SourceSystem, ID do contentor |
+| Registo do serviço de contentor | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| Inventário de nó do contentor | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes inventário | `KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| Processo de contentor | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Eventos de Kubernetes | `KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
 
 As etiquetas acrescentado ao *PodLabel* tipos de dados são as suas próprias etiquetas personalizadas. As etiquetas PodLabel anexadas mostradas na tabela são exemplos. Por isso, `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` irá diferem no conjunto de dados do seu ambiente e genericamente assemelhar-se `PodLabel_yourlabel_s`.
 
@@ -610,7 +610,7 @@ Análise de registos marca um contentor como **falha** se saiu com um código de
    ![Estado de contentores](./media/log-analytics-containers/containers-log-search.png)
 3. Em seguida, clique no valor de agregados de contentores com falhas para ver informações adicionais. Expanda **mostrar mais** para ver o ID de imagem.  
    ![Falha de contentores](./media/log-analytics-containers/containers-state-failed.png)  
-4. Em seguida, escreva o seguinte na consulta de pesquisa. `Type=ContainerInventory <ImageID>` Para ver detalhes sobre a imagem, tais como o tamanho da imagem e o número de imagens parados e falha.  
+4. Em seguida, escreva o seguinte na consulta de pesquisa. `ContainerInventory <ImageID>` Para ver detalhes sobre a imagem, tais como o tamanho da imagem e o número de imagens parados e falha.  
    ![Falha de contentores](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>Registos de pesquisa para dados de contentor
@@ -628,17 +628,17 @@ Quando estiver a resolver problemas com um erro específico, pode ajudar a ver o
 
 
 ### <a name="to-search-logs-for-container-data"></a>Para procurar os registos de dados de contentor
-* Escolha uma imagem que sabe que falhou recentemente e localize os registos de erros para a mesma. Comece por localizar um nome de contentor que está a executar essa imagem com um **ContainerInventory** pesquisa. Por exemplo, procure `Type=ContainerInventory ubuntu Failed`  
+* Escolha uma imagem que sabe que falhou recentemente e localize os registos de erros para a mesma. Comece por localizar um nome de contentor que está a executar essa imagem com um **ContainerInventory** pesquisa. Por exemplo, procure `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Procurar contentores Ubuntu](./media/log-analytics-containers/search-ubuntu.png)
 
-  O nome do contentor junto a **nome**e procure esses registos. Neste exemplo, é `Type=ContainerLog cranky_stonebreaker`.
+  O nome do contentor junto a **nome**e procure esses registos. Neste exemplo, é `ContainerLog | where Name == "cranky_stonebreaker"`.
 
 **Ver informações de desempenho**
 
 Quando estiver a começar a construir consultas, pode ajudar a ver o que é possível primeiro. Por exemplo, para ver todos os dados de desempenho, experimente uma consulta abrangente, escrevendo a seguinte consulta de pesquisa.
 
 ```
-Type=Perf
+Perf
 ```
 
 ![desempenho de contentores](./media/log-analytics-containers/containers-perf01.png)
@@ -646,7 +646,7 @@ Type=Perf
 Pode analisar os dados de desempenho que está a ver para um contentor específico, escrevendo o nome do mesmo para a direita da sua consulta.
 
 ```
-Type=Perf <containerName>
+Perf <containerName>
 ```
 
 Que mostra a lista de métricas de desempenho que são recolhidas para um contentor individuais.
@@ -655,8 +655,6 @@ Que mostra a lista de métricas de desempenho que são recolhidas para um conten
 
 ## <a name="example-log-search-queries"></a>Consultas de pesquisa de registo de exemplo
 Muitas vezes, é útil criar consultas começando com um exemplo ou dois e, em seguida, modificá-los para que se adeque ao seu ambiente. Como um ponto de partida, pode experimentar o **consultas de exemplo** área para o ajudar a criar consultas mais avançadas.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Consultas de contentores](./media/log-analytics-containers/containers-queries.png)
 

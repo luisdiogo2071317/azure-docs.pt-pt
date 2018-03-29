@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: jdial
-ms.openlocfilehash: 6ad001158a8babfb5178916813ee789b7ff7594b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e46f6617b1a6d73ace00d4eafa1410785315a8c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="name-resolution-for-virtual-machines-and-role-instances"></a>Resolução de nomes para máquinas virtuais e instâncias de função
 
@@ -27,7 +27,7 @@ Dependendo de como utilizar o Azure para alojar o IaaS, PaaS e soluções híbri
 Quando precisam de resolver os nomes de domínio para endereços IP internos instâncias de função e as VMs alojadas no Azure, podem utilizar um dos dois métodos:
 
 * [Resolução de nome fornecidos pelo Azure](#azure-provided-name-resolution)
-* [Resolução que utiliza o seu próprio servidor DNS de nomes](#name-resolution-using-your-own-dns-server) (que pode reencaminhar consultas para os servidores DNS fornecidos pelo Azure) 
+* [Resolução que utiliza o seu próprio servidor DNS de nomes](#name-resolution-that-uses-your-own-dns-server) (que pode reencaminhar consultas para os servidores DNS fornecidos pelo Azure) 
 
 O tipo de resolução de nomes que utiliza depende de como as VMs e instâncias de função têm de comunicar entre si. A tabela seguinte ilustra os cenários e soluções de resolução de nome correspondente:
 
@@ -38,13 +38,13 @@ O tipo de resolução de nomes que utiliza depende de como as VMs e instâncias 
 | **Cenário** | **Solução** | **Suffix** |
 | --- | --- | --- |
 | Resolução de nome entre instâncias de função ou VMs localizadas no mesmo serviço em nuvem ou de rede virtual. | [Zonas de DNS privado do Azure](../dns/private-dns-overview.md) ou [resolução de nome fornecidos pelo Azure](#azure-provided-name-resolution) |nome de anfitrião ou o FQDN |
-| Resolução de nome entre instâncias de função ou VMs localizadas em redes virtuais diferentes. |[Zonas de DNS privado do Azure](../dns/private-dns-overview.md) ou, servidores DNS geridos pelo cliente reencaminhamento consultas entre redes virtuais para a resolução pelo Azure (proxy DNS). Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Apenas FQDN |
-| Resolução de nome de um serviço de aplicações do Azure (aplicação Web, a função ou Bot) utilizando a integração de rede virtual para instâncias de função ou VMs localizado na mesma rede virtual. |Gerida pelo cliente servidores DNS reencaminhamento consultas entre redes virtuais para a resolução pelo Azure (proxy DNS). Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Apenas FQDN |
-| Resolução do nome de Web Apps do App Service para VMs localizado na mesma rede virtual. |Gerida pelo cliente servidores DNS reencaminhamento consultas entre redes virtuais para a resolução pelo Azure (proxy DNS). Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Apenas FQDN |
-| Resolução do nome de Web Apps do App Service para VMs localizados numa rede virtual diferente. |Gerida pelo cliente servidores DNS reencaminhamento consultas entre redes virtuais para a resolução pelo Azure (proxy DNS). Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server-for-web-apps). |Apenas FQDN |
-| Resolução de nomes de computador e o serviço no local de instâncias de função ou VMs no Azure. |Gerida pelo cliente servidores DNS (controlador de domínio no local, controlador de domínio só de leitura local ou um DNS secundário sincronizada com êxito utilizando transferências de zona, por exemplo). Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Apenas FQDN |
-| Resolução de nomes de anfitrião do Azure a partir de computadores no local. |Consultas de reencaminhar para um servidor de proxy gerida pelo cliente DNS na rede virtual correspondente, o servidor de proxy reencaminha consultas para o Azure para a resolução. Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Apenas FQDN |
-| Inverte o DNS para IPs interno. |[Resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Não aplicável |
+| Resolução de nome entre instâncias de função ou VMs localizadas em redes virtuais diferentes. |[Zonas de DNS privado do Azure](../dns/private-dns-overview.md) ou, servidores DNS geridos pelo cliente reencaminhamento consultas entre redes virtuais para a resolução pelo Azure (proxy DNS). Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Apenas FQDN |
+| Resolução de nome de um serviço de aplicações do Azure (aplicação Web, a função ou Bot) utilizando a integração de rede virtual para instâncias de função ou VMs localizado na mesma rede virtual. |Gerida pelo cliente servidores DNS reencaminhamento consultas entre redes virtuais para a resolução pelo Azure (proxy DNS). Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Apenas FQDN |
+| Resolução do nome de Web Apps do App Service para VMs localizado na mesma rede virtual. |Gerida pelo cliente servidores DNS reencaminhamento consultas entre redes virtuais para a resolução pelo Azure (proxy DNS). Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Apenas FQDN |
+| Resolução do nome de Web Apps do App Service para VMs localizados numa rede virtual diferente. |Gerida pelo cliente servidores DNS reencaminhamento consultas entre redes virtuais para a resolução pelo Azure (proxy DNS). Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server-for-web-apps). |Apenas FQDN |
+| Resolução de nomes de computador e o serviço no local de instâncias de função ou VMs no Azure. |Gerida pelo cliente servidores DNS (controlador de domínio no local, controlador de domínio só de leitura local ou um DNS secundário sincronizada com êxito utilizando transferências de zona, por exemplo). Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Apenas FQDN |
+| Resolução de nomes de anfitrião do Azure a partir de computadores no local. |Consultas de reencaminhar para um servidor de proxy gerida pelo cliente DNS na rede virtual correspondente, o servidor de proxy reencaminha consultas para o Azure para a resolução. Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Apenas FQDN |
+| Inverte o DNS para IPs interno. |[Resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Não aplicável |
 | Resolução de nome entre VMs ou instâncias de função localizadas nos serviços de nuvem diferente, não numa rede virtual. |Não aplicável. A conectividade entre VMs e instâncias de função nos serviços de nuvem diferente não é suportada fora de uma rede virtual. |Não aplicável|
 
 ## <a name="azure-provided-name-resolution"></a>Resolução de nome fornecidos pelo Azure
@@ -73,7 +73,7 @@ Seguem-se pontos a considerar quando estiver a utilizar a resolução de nome fo
 * Não é possível registar manualmente os seus próprios registos.
 * Não são suportados o WINS e NetBIOS (não é possível ver as suas VMs no Explorador do Windows).
 * Os nomes de anfitrião tem de ser compatível com o DNS. Nomes têm de utilizar apenas 0-9, a-z, e '-' e não pode começar nem terminar com um '-'.
-* O tráfego de consulta DNS está limitado para cada VM. Limitação não deve afetar a maioria das aplicações. Se a limitação do pedido é observado, certifique-se de que a colocação em cache do lado do cliente está ativada. Para obter mais informações, consulte [ao obter o máximo partido do resolução de nome fornecidos pelo Azure](#Getting-the-most-from-Azure-provided-name-resolution).
+* O tráfego de consulta DNS está limitado para cada VM. Limitação não deve afetar a maioria das aplicações. Se a limitação do pedido é observado, certifique-se de que a colocação em cache do lado do cliente está ativada. Para obter mais informações, consulte [configuração de cliente DNS](#dns-client-configuration).
 * Apenas as VMs nos serviços de 180 nuvem primeiro estão registadas para cada rede virtual de um modelo de implementação clássica. Este limite não é aplicável a redes virtuais no Gestor de recursos do Azure.
 
 ## <a name="dns-client-configuration"></a>Configuração de cliente DNS
@@ -158,7 +158,7 @@ Quando estiver a utilizar a resolução de nome fornecidos pelo Azure, Azure con
 
 Se necessário, pode determinar o sufixo DNS interno utilizando o PowerShell ou a API:
 
-* Para as redes virtuais em modelos de implementação Azure Resource Manager, o sufixo está disponível através de [cartão de interface de rede](virtual-network-network-interface.md) recursos ou o [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) cmdlet.
+* Para as redes virtuais em modelos de implementação Azure Resource Manager, o sufixo está disponível através de [REST API de interface de rede](/rest/api/virtualnetwork/networkinterfaces/get), a [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) cmdlet do PowerShell e o [mostrar de nic de rede az](/cli/azure/network/nic#az-network-nic-show) comando da CLI do Azure.
 * Modelos de implementação clássica, o sufixo está disponível através de [obter API de implementação](https://msdn.microsoft.com/library/azure/ee460804.aspx) chamar ou o [Get-AzureVM-depurar](/powershell/module/azure/get-azurevm) cmdlet.
 
 Se as consultas de reencaminhamento para o Azure não conforme as suas necessidades, deve fornecer as suas próprias soluções DNS. A solução DNS tem de:

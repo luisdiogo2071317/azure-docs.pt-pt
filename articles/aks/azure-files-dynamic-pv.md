@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a5126bc4c5e7c9cd9832f33fc908e6c8b9e02b91
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 78f447c96afe7955f115de4bbd28015cd231bb53
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Volumes persistentes com ficheiros do Azure
 
@@ -133,6 +133,37 @@ kubectl create -f azure-pvc-files.yaml
 ```
 
 Tem agora um pod em execução com o Azure disco montado no `/mnt/azure` diretório. Pode ver o quando inspecionar o pod através de montagem do volume `kubectl describe pod mypod`.
+
+## <a name="mount-options"></a>Opções de montagem
+ 
+Valores predefinidos para fileMode e dirMode diferem entre versões Kubernetes conforme descrito na seguinte tabela.
+ 
+| versão | valor |
+| ---- | ---- |
+| v1.6.x, v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
+| V1.8.6 ou superior | 0755 |
+| v1.9.0 | 0700 |
+| V1.9.1 ou superior | 0755 |
+ 
+Se utilizar um cluster de versão 1.8.5 ou superior, montagem opções podem ser especificadas num objeto de classe de armazenamento. Os seguintes conjuntos de exemplo `0777`.
+ 
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: azurefile
+provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+parameters:
+  skuName: Standard_LRS
+```
+ 
+Se utilizar um cluster versão 1.8.0 - 1.8.4, de um contexto de segurança pode ser especificado com o `runAsUser` valor definido como `0`. Para obter mais informações sobre o contexto de segurança Pod, consulte [configurar um contexto de segurança][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Passos Seguintes
 

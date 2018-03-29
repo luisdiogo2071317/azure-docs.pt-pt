@@ -1,8 +1,8 @@
 ---
-title: "Engenharia no ciência de dados da funcionalidade | Microsoft Docs"
-description: "Explica o efeito de engenharia da funcionalidade e fornece exemplos da sua função no processo de melhoramento de dados de aprendizagem."
+title: Engenharia no ciência de dados da funcionalidade | Microsoft Docs
+description: Explica o efeito de engenharia da funcionalidade e fornece exemplos da sua função no processo de melhoramento de dados de aprendizagem.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: 72a412c08e57491a306f405f400665e2b0d25a3c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: 70a78659bc14ce5ff9358ed11ad0af68be31bd17
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia da funcionalidade na ciência de dados
 Este artigo explica o efeito de engenharia da funcionalidade e fornece exemplos da sua função no processo de melhoramento de dados de aprendizagem. Os exemplos utilizados para ilustrar este processo são desenhados a partir do Azure Machine Learning Studio. 
@@ -70,7 +70,7 @@ Uma comparação dos resultados de desempenho dos modelos de quatro está resumi
 
 Obter os melhores resultados, são apresentados as funcionalidades de D + B + C. Tenha em atenção que a taxa de erros diminui quando o conjunto de funcionalidades adicionais estão incluídos os dados de preparação. Verifica o presumption que o conjunto de funcionalidades B, C fornece informações adicionais de relevantes para a tarefa de regressão. Mas, adicionar a funcionalidade de D aparentemente, não forneça quaisquer redução adicional da taxa de erros.
 
-## <a name="example2"></a>Exemplo 2: Criar funcionalidades na extração de texto
+## <a name="example2"></a> Exemplo 2: Criar funcionalidades na extração de texto
 Engenharia da funcionalidade é amplamente aplicada em tarefas relacionadas com a extração de texto, tal como a análise de classificação e dados de sentimento do documento. Por exemplo, quando pretende classificar documentos em várias categorias, um pressuposto típico é que o word/expressões incluídos numa categoria documento são menos provável é que ocorra noutra categoria do documento. Por outras palavras, a frequência da distribuição de palavras/expressões é capaz de caracterizam categorias de documento diferente. Em aplicações de extração de texto, porque partes individuais de conteúdos de texto normalmente servirem como os dados de entrada, a funcionalidade de processos de engenharia necessária para criar as funcionalidades que envolvam word/frase frequências.
 
 Para alcançar esta tarefa, denominada uma técnica **funcionalidade hash** é aplicado a forma eficiente ativar funcionalidades de texto arbitrários para índices. Em vez de associação de cada funcionalidade de texto (palavras/expressões) para um índice específico, este funções de método por aplicar uma função de hash para as funcionalidades e utilizar os respetivos valores de hash como índices diretamente.
