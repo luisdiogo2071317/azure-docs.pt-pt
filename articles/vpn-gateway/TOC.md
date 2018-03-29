@@ -84,9 +84,10 @@
 ## [Resolução de problemas](vpn-gateway-troubleshoot.md)
 ### [Validar o débito de VPN para uma VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Definições do dispositivo VPN ou de firewall sugeridas pela comunidade](vpn-gateway-third-party-settings.md)
-### [Problema de ligação Ponto a Site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-### [A ligação Site a Site desliga-se intermitentemente](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
-### [Não é possível estabelecer a ligação Site a Site](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Problemas de ligação Ponto a Site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [Problemas de ligação de ponto a site - cliente de VPN do Mac OS X](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### [Problemas de ligação de Site a Site](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [A ligação Site a Site desliga-se intermitentemente](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Configurar e validar ligações VNet ou VPN](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Referência

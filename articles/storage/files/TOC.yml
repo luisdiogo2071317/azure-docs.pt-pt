@@ -26,14 +26,20 @@
       items:
         - name: Opções da conta de armazenamento
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Planear uma implementação dos Ficheiros do Azure
-          href: storage-files-planning.md
-        - name: Como implementar os Ficheiros do Azure
-          href: storage-files-deployment-guide.md
-        - name: Planear uma implementação da Sincronização de Ficheiros do Azure
-          href: storage-sync-files-planning.md
-        - name: Como implementar a Sincronização de Ficheiros do Azure
-          href: storage-sync-files-deployment-guide.md
+        - name: Implementar os Ficheiros do Azure
+          items:
+            - name: Planear uma implementação dos Ficheiros do Azure
+              href: storage-files-planning.md
+            - name: Como implementar os Ficheiros do Azure
+              href: storage-files-deployment-guide.md
+        - name: Implementar Azure File Sync
+          items:
+            - name: Planear uma implementação da Sincronização de Ficheiros do Azure
+              href: storage-sync-files-planning.md
+            - name: Como implementar a Sincronização de Ficheiros do Azure
+              href: storage-sync-files-deployment-guide.md
+            - name: As definições do proxy e da firewall do Azure File Sync
+              href: storage-sync-files-firewall-and-proxy.md
         - name: Acerca dos instantâneos de partilha de ficheiros
           href: storage-snapshots-files.md
         - name: Como trabalhar com instantâneos de partilha de ficheiros
