@@ -351,6 +351,8 @@
           href: extensions-diagnostics-template.md
         - name: Agente do Observador de Rede
           href: extensions-nwa.md
+        - name: Restringir a instalação de extensões
+          href: extensions-rmpolicy-howto-ps.md
     - name: Migrar VMs
       items:
         - name: Migrar VMs AWS e VMs no local
@@ -396,6 +398,8 @@
           href: reset-network-interface.md
         - name: Diagnósticos de arranque
           href: boot-diagnostics.md
+        - name: Consola de série
+          href: serial-console.md
         - name: Criar uma VM
           href: troubleshoot-deployment-new-vm.md
         - name: Problemas de implementação

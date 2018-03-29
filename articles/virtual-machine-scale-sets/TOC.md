@@ -1,15 +1,38 @@
-# [Documentação dos Conjuntos de Dimensionamento de Máquinas Virtuais](index.md)
+# [Documentação dos Conjuntos de Dimensionamento de Máquinas Virtuais](index.yml)
 
 # Descrição geral
-## [O que são os conjuntos de dimensionamento de máquinas virtuais?](virtual-machine-scale-sets-overview.md)
+## [O que são os conjuntos de dimensionamento de máquinas virtuais?](overview.md)
 
-# Introdução
-## [Criar no portal do Azure](virtual-machine-scale-sets-create-portal.md)
-## [Criar com a CLI 2.0 do Azure](virtual-machine-scale-sets-create-cli.md)
-## [Criar com o Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+# Inícios rápidos
+## [Criar no portal do Azure](quick-create-portal.md)
+## [Criar com a CLI 2.0 do Azure](quick-create-cli.md)
+## [Criar com o Azure PowerShell](quick-create-powershell.md)
 ## Criar com um modelo
-### [Conjunto de dimensionamento do Linux](virtual-machine-scale-sets-create-template-linux.md)
-### [Conjunto de dimensionamento do Windows](virtual-machine-scale-sets-create-template-windows.md)
+### [Conjunto de dimensionamento do Linux](quick-create-template-linux.md)
+### [Conjunto de dimensionamento do Windows](quick-create-template-windows.md)
+
+# Tutoriais
+## 1 - Criar/gerir o conjunto de dimensionamento
+### [CLI 2.0 do Azure](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
+## 2 - Utilizar discos de dados
+### [CLI 2.0 do Azure](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
+## 3 - Utilizar uma imagem de VM personalizada
+### [CLI 2.0 do Azure](tutorial-use-custom-image-cli.md)
+### [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+## 4 - Implementar aplicações para um conjunto de dimensionamento
+### [CLI 2.0 do Azure](tutorial-install-apps-cli.md)
+### [Azure PowerShell](tutorial-install-apps-powershell.md)
+### [Modelo](tutorial-install-apps-template.md)
+## 5 - Dimensionar automaticamente um conjunto de dimensionamento
+### [CLI 2.0 do Azure](tutorial-autoscale-cli.md)
+### [Azure PowerShell](tutorial-autoscale-powershell.md)
+### [Modelo](tutorial-autoscale-template.md)
+
+# Amostras
+## [CLI 2.0 do Azure](cli-samples.md)
+## [PowerShell](powershell-samples.md)
 
 # Procedimento
 ## Planear e conceber
@@ -24,12 +47,9 @@
 
 ## Implementação
 ### [Criar com o Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Conjunto de dimensionamento com discos geridos](virtual-machine-scale-sets-managed-disks.md)
 ### [Utilizar Zonas de Disponibilidade](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Dimensionar automaticamente um conjunto de dimensionamento](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Utilizar o portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
-#### [Utilizar CLI 2.0 do Azure](virtual-machine-scale-sets-autoscale-cli.md)
-#### [Utilizar o Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 #### [Dimensionamento automático avançado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Aplicações em conjuntos de dimensionamento](virtual-machine-scale-sets-deploy-app.md)
 ### [Utilizar discos de dados com conjuntos de dimensionamento](virtual-machine-scale-sets-attached-disks.md)

@@ -445,3 +445,5 @@
       href: faq.md
     - name: Consistência dos dados explicada através do basebol
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+    - name: Resolver problemas do Azure Cosmos BD
+      href: troubleshoot-azure-cosmosdb.md
