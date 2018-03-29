@@ -8,20 +8,20 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/22/2018
 ms.author: bonova
-ms.openlocfilehash: e13583e0364b01c3a4560d88882eb1dcf82b8c99
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância geridos (pré-visualização)?
 
 Instância do Azure SQL da base de dados geridos (pré-visualização) é uma nova funcionalidade da SQL Database do Azure, fornecendo quase 100% a compatibilidade com o SQL Server no local (Enterprise Edition), fornecendo um nativo [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) implementação endereços preocupações de segurança comuns, e um [modelo de negócio](https://azure.microsoft.com/pricing/details/sql-database/) favoráveis para clientes de SQL Server no local. Instância gerida permite que os clientes existentes do SQL Server para comparação de precisão e deslocar às suas aplicações no local para a nuvem com alterações mínimas de aplicação e da base de dados. Ao mesmo tempo, a instância geridos preserva todas as PaaS capacidades (atualizações automáticas de aplicação de patches e a versão da cópia de segurança, elevada disponibilidade), que reduz significativamente a sobrecarga de gestão e o TCO.
 
 > [!IMPORTANT]
-> Para obter uma lista de regiões em que está atualmente disponível instância geridos, consulte [migrar as bases de dados para um serviço completamente gerido com o Azure SQL da base de dados geridos instância](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
+> Para obter uma lista das regiões nas quais a Instância Gerida está atualmente disponível, consulte [Migrar as bases de dados para um serviço completamente gerido com Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
 O diagrama a seguir descreve as principais funcionalidades de instância geridos:
 
@@ -34,16 +34,16 @@ Instância gerida é envisioned como plataforma preferencial para os seguintes c
 
 Através da disponibilidade geral, instância geridos visa para a entrega de perto com a última versão de SQL Server no local através de um plano de versão de teste de compatibilidade de área de superfície de 100%. 
 
-Destaques de tabela seguintes diferenças da chave e envisioned cenários de utilização entre IaaS do SQL Server, SQL Database do Azure e instância geridos:
+Destaques de tabela seguintes diferenças da chave e envisioned cenários de utilização entre IaaS do SQL Server, SQL Database do Azure e a instância de gerido da base de dados do SQL Server:
 
 | | Cenário de utilização | 
 | --- | --- | 
-|Instância Gerida |Para os clientes procura para migrar um grande número de aplicações no local ou IaaS, personalizada incorporada, ou ISV fornecido, com como esforço de migração baixa quanto possível, propor instância geridos. Utilizar totalmente automatizado [serviço de migração de dados (DMS)](/sql/dma/dma-overview) no Azure, os clientes podem de comparação de precisão e deslocar o respetivo SQL Server no local a uma instância de geridos oferece compatibilidade com o SQL Server no local e o isolamento completado do instâncias de cliente com suporte VNET nativo.  Com o Software Assurance, pode trocar as respetivas licenças existentes para taxas com desconto durante uma instância de geridos de base de dados do SQL Server utilizando o [benefício de utilização de híbrida do Azure para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  A instância de gerido da base de dados do SQL Server é o destino de migração melhores na nuvem para instâncias do SQL Server que necessitam de alta segurança e uma superfície de programação para avançado. |
-|Base de Dados SQL do Azure |**Conjuntos elásticos**: para os clientes desenvolver novas aplicações da multi-inquilinos de SaaS ou intencionalmente transformar existente no local aplicações numa aplicação SaaS multi-inquilino, propor conjuntos elásticos. Benefícios deste modelo são: <br><ul><li>Conversão do modelo de negócio de vender licenças para vender serviço subscrições (ISVs)</li></ul><ul><li>Isolamento de inquilinos fácil e marca-prova</li></ul><ul><li>Um modelo de programação de base de dados centrada simplificado</li></ul><ul><li>O potencial de ampliar sem atingir um limite rígido</li></ul>**Único bases de dados**: para os clientes a desenvolver novas aplicações que não sejam SaaS multi-inquilino, cuja carga de trabalho é estáveis e previsíveis, propor a bases de dados individuais. Benefícios deste modelo são:<ul><li>Um modelo de programação de base de dados centrada simplificado</li></ul>  <ul><li>Desempenho previsível para cada base de dados</li></ul>|
-|SQL IaaS |Para os clientes que necessitam personalizar o sistema operativo ou o servidor de base de dados, bem como os clientes ter requisitos específicos em termos de aplicações em execução por terceiros pelo lado com o SQL Server (na mesma VM), propor VMs de SQL / IaaS como a solução ideal|
+|Instância Gerida da Base de Dados SQL |Para os clientes procura para migrar um grande número de aplicações no local ou IaaS, personalizada incorporada, ou ISV fornecido, com como esforço de migração baixa quanto possível, propor instância geridos. Utilizar totalmente automatizado [serviço de migração de dados (DMS)](/sql/dma/dma-overview) no Azure, os clientes podem de comparação de precisão e deslocar o respetivo SQL Server no local a uma instância de geridos oferece compatibilidade com o SQL Server no local e o isolamento completado do instâncias de cliente com suporte VNET nativo.  Com o Software Assurance, pode trocar as respetivas licenças existentes para taxas com desconto durante uma instância de geridos de base de dados do SQL Server utilizando o [benefício de utilização de híbrida do Azure para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  A instância de gerido da base de dados do SQL Server é o destino de migração melhores na nuvem para instâncias do SQL Server que necessitam de alta segurança e uma superfície de programação para avançado. |
+|Base de dados SQL do Azure (único ou agrupamento) |**Conjuntos elásticos**: para os clientes desenvolver novas aplicações da multi-inquilinos de SaaS ou intencionalmente transformar existente no local aplicações numa aplicação SaaS multi-inquilino, propor conjuntos elásticos. Benefícios deste modelo são: <br><ul><li>Conversão do modelo de negócio de vender licenças para vender serviço subscrições (ISVs)</li></ul><ul><li>Isolamento de inquilinos fácil e marca-prova</li></ul><ul><li>Um modelo de programação de base de dados centrada simplificado</li></ul><ul><li>O potencial de ampliar sem atingir um limite rígido</li></ul>**Único bases de dados**: para os clientes a desenvolver novas aplicações que não sejam SaaS multi-inquilino, cuja carga de trabalho é estáveis e previsíveis, propor a bases de dados individuais. Benefícios deste modelo são:<ul><li>Um modelo de programação de base de dados centrada simplificado</li></ul>  <ul><li>Desempenho previsível para cada base de dados</li></ul>|
+|Máquina virtual IaaS do SQL Server|Para os clientes que necessitam personalizar o sistema operativo ou o servidor de base de dados, bem como os clientes ter requisitos específicos em termos de aplicações em execução por terceiros pelo lado com o SQL Server (na mesma VM), propor VMs de SQL / IaaS como a solução ideal|
 |||
 
-![posicionamento](./media/sql-database-managed-instance/positioning.png)
+<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Como identificar através de programação de uma instância geridos
 

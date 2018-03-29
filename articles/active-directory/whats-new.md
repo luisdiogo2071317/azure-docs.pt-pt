@@ -1,11 +1,11 @@
 ---
-title: "Novidades Notas de versão para o Azure Active Directory | Microsoft Docs"
-description: "Saiba o que há de novo no Azure Active Directory (Azure AD), tais como as notas de versão mais recentes, problemas conhecidos, correções de erros, funcionalidade preterida e as alterações futuras."
+title: Novidades Notas de versão para o Azure Active Directory | Microsoft Docs
+description: Saiba o que há de novo no Azure Active Directory (Azure AD), tais como as notas de versão mais recentes, problemas conhecidos, correções de erros, funcionalidade preterida e as alterações futuras.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 featureFlags:
 - clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a30b5d08377594b8ad7e10b63a23e2a9d168af9c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: MT
+ms.openlocfilehash: d356535bf1a7daf45108bc790a19578108a50bb7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que é novo no Azure Active Directory?
 
@@ -39,6 +39,218 @@ Azure AD recebe melhoramentos numa base contínua. Para se manter atualizado com
 -   Planos de alterações
 
 Esta página é atualizada mensalmente, por isso, revê-lo regularmente.
+
+## <a name="march-2018"></a>De 2018 Março
+ 
+
+### <a name="certificate-expire-notification"></a>Notificação de expiração do certificado
+
+**Tipo:** fixo  
+**Categoria de serviço:** aplicações da empresa  
+**Capacidade de produto:** SSO
+ 
+Azure AD envia uma notificação quando um certificado para uma galeria ou aplicação não galeria está prestes a expirar. 
+
+Alguns utilizadores não recebeu notificações para as aplicações empresariais configuradas para baseados em SAML-início de sessão único. Este problema foi resolvido. Azure AD envia a notificação de certificados irá expirar em 7, 30 e 60 dias. Que ere consiga ver este evento nos registos de auditoria. 
+
+Para obter mais informações, consulte:
+
+- [Gerir certificados para federado início de sessão no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
+- [Relatórios de atividade de auditoria no portal do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
+
+ 
+---
+ 
+
+### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Fornecedores de identidade twitter e o GitHub no Azure AD B2C
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** B2C - gestão de identidades de consumidor  
+**Capacidade de produto:** B2B/B2C
+ 
+Agora pode adicionar Twitter ou GitHub como um fornecedor de identidade no Azure AD B2C. Twitter está a mover de pré-visualização pública depois da disponibilidade geral Está a ser libertado GitHub na pré-visualização pública.
+
+
+Para obter mais informações, consulte [o que é a colaboração B2B do Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+ 
+---
+ 
+
+### <a name="app-proxy-cmdlets-in-powershell-ga-module"></a>Cmdlets do Proxy de aplicações no módulo do Powershell GA
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** do Proxy de aplicação  
+**Capacidade de produto:** controlo de acesso
+ 
+Suporte para os cmdlets do Proxy da aplicação está agora no módulo Powershell GA! Tenha em atenção que isto requer a se manter atualizado em módulos do Powershell - se tornar-se de mais de um ano atrás, alguns cmdlets poderá parar de funcionar. 
+
+
+Para obter mais informações, consulte [AzureAD](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0).
+ 
+---
+ 
+### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Os clientes nativos do Office 365 são suportados pelo SSO totalmente integrada utilizando um protocolo não interativo
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** autenticações (inícios de sessão)  
+**Capacidade de produto:** autenticação de utilizador
+ 
+Utilizador utilizando clientes nativos do Office 365 (versão 16.0.8730.xxxx e acima) um automática início de sessão experiência SSO totalmente integrado a utilizar. Este suporte é fornecido pela adição um protocolo não interativo (WS-Trust) para o Azure AD.
+
+Para obter mais informações, consulte [como início de sessão num cliente nativo com o trabalho de SSO totalmente integrado?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work).
+
+ 
+---
+ 
+
+### <a name="users-get-a-silent-sign-on-experience-with-seamless-sso-if-an-application-sends-sign-in-requests-to-azure-ads-tenanted-endpoints"></a>Os utilizadores obtêm uma automática início de sessão experiência, com o SSO totalmente integrada, se uma aplicação envia pedidos de início de sessão para os pontos finais de tenanted do Azure AD
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** autenticações (inícios de sessão)  
+**Capacidade de produto:** autenticação de utilizador
+ 
+Os utilizadores obtêm uma automática início de sessão experiência, com o SSO totalmente integrada, se uma aplicação (por exemplo, `https://contoso.sharepoint.com`) envia pedidos de início de sessão para pontos finais tenanted do Azure AD - ou seja, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>` - em vez de ponto final comum do Azure AD (`https://login.microsoftonline.com/common/<...>` ).
+
+Para obter mais informações, consulte [do Azure Active Directory totalmente integrada Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
+
+---
+ 
+
+### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Tem de adicionar apenas um URL de AD do Azure, em vez de dois URLs anteriormente, as definições de zona de Intranet dos utilizadores para implementar SSO totalmente integrada
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** autenticações (inícios de sessão)  
+**Capacidade de produto:** autenticação de utilizador
+ 
+Para implementar SSO totalmente integrado aos seus utilizadores, terá de adicionar definições de zona de apenas um URL de AD do Azure à Intranet dos utilizadores através da política de grupo no Active Directory: `https://autologon.microsoftazuread-sso.com`. Anteriormente, os clientes era necessário adicionar dois URLs.
+
+Para obter mais informações, consulte [do Azure Active Directory totalmente integrada Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
+ 
+---
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Novas federado aplicações disponíveis na Galeria de aplicações do Azure AD
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** aplicações da empresa  
+**Capacidade de produto:** 3rd integração de terceiros
+ 
+De 2018 de Março, foram adicionados seguintes 15 novas aplicações na nossa Galeria de aplicações com a Federação suportam:
+
+[Boxcryptor](https://docs.microsoft.com/azure/active-directory/active-directory-saas-boxcryptor-tutorial), [CylancePROTECT](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cylanceprotect-tutorial), Wrike, [SignalFx](https://docs.microsoft.com/azure/active-directory/active-directory-saas-signalfx-tutorial), Assistente por FirstAgenda, [YardiOne](https://docs.microsoft.com/azure/active-directory/active-directory-saas-yardione-tutorial), Vtiger CRM, inwink, [Amplitude](https://docs.microsoft.com/azure/active-directory/active-directory-saas-amplitude-tutorial), [Spacio](https://docs.microsoft.com/azure/active-directory/active-directory-saas-spacio-tutorial), [ContractWorks](https://docs.microsoft.com/azure/active-directory/active-directory-saas-contractworks-tutorial), [Bersin](https://docs.microsoft.com/azure/active-directory/active-directory-saas-bersin-tutorial), [Mercell](https://docs.microsoft.com/azure/active-directory/active-directory-saas-mercell-tutorial), [Trisotech Digital Enterprise Server](https://docs.microsoft.com/azure/active-directory/active-directory-saas-trisotechdigitalenterpriseserver-tutorial), [Qumu nuvem](https://docs.microsoft.com/azure/active-directory/active-directory-saas-qumucloud-tutorial).
+ 
+Pode encontrar a documentação para todas as aplicações aqui: [https://aka.ms/appstutorial](https://aka.ms/appstutorial)
+
+
+ 
+---
+ 
+
+### <a name="pim-for-azure-resources-is-generally-available"></a>PIM para recursos do Azure está normalmente disponível
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** Privileged Identity Management  
+**Capacidade de produto:** Privileged Identity Management
+ 
+Se estiver a utilizar o Azure AD Privileged Identity Management para funções de diretório, agora, pode utilizar o acesso de vínculo de tempo e as capacidades de atribuição do PIM para funções de recursos do Azure, tais como as subscrições, grupos de recursos, máquinas virtuais e quaisquer outros recursos suportados pelo Azure Resource Manager. Impor o multi-factor Authentication durante a ativação em funções Just-In-Time e agendar ativações em coordenação com o windows de alteração aprovados. Além disso, esta versão adiciona melhoramentos não está disponíveis durante a pré-visualização pública, incluindo uma IU atualizada, fluxos de trabalho de aprovação e a capacidade para expandir as funções expira em breve e renovar funções expiradas.
+
+Para obter mais informações, consulte [PIM para recursos do Azure (pré-visualização)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
+ 
+---
+ 
+
+### <a name="adding-optional-claims-to-your-apps-tokens-public-preview"></a>Adicionar opcional afirmações para os tokens de aplicações (pré-visualização pública)
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** autenticações (inícios de sessão)  
+**Capacidade de produto:** autenticação de utilizador
+ 
+A aplicação do Azure AD pode agora afirmações do pedido, personalizado ou opcional no JWTs ou SAML tokens.  Estes são afirmações sobre o utilizador ou o inquilino que não estão incluídas por predefinição no token, devido a restrições de tamanho ou aplicabilidade.  Esta é atualmente em pré-visualização pública para aplicações do Azure AD nos pontos finais v 1.0 e a v 2.0.  Consulte a documentação para obter informações sobre quais as afirmações que podem ser adicionados e editar o manifesto da aplicação para solicitar-lhes.  
+
+Para obter mais informações, consulte [opcional afirmações no Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims).
+ 
+---
+ 
+
+### <a name="azure-ad-supports-pkce-for-more-secure-oauth-flows"></a>AD do Azure suporta PKCE para fluxos de OAuth mais seguros
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** autenticações (inícios de sessão)  
+**Capacidade de produto:** autenticação de utilizador
+ 
+Foram atualizados os documentos do Azure AD a ter em atenção o suporte para PKCE, que permite a comunicação mais segura durante o fluxo de concessão do código de autorização do OAuth 2.0.  São suportados os pontos finais v 1.0 e a v 2.0 code_challenges S256 e texto simples. 
+
+Para obter mais informações, consulte o pedido um código de autorização[](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code). 
+
+ 
+---
+ 
+
+### <a name="support-for-provisioning-all-user-attribute-values-available-in-the-workday-getworkers-api"></a>Suporte para o aprovisionamento de todos os valores de atributo de utilizador disponíveis na Workday Get_Workers API
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** aprovisionamento de aplicações  
+**Capacidade de produto:** 3rd integração de terceiros
+ 
+A pré-visualização pública da entrada de aprovisionamento do Workday para o Active Directory e o Azure AD agora suporta todos os valores de atributo disponíveis na Workday Get_Workers API de aprovisionamento e a capacidade, a extrair. Esta ação adiciona suporte para centenas de padrão adicional e entrada de atributos personalizados além dos fornecidos com a versão inicial do evidenciam aprovisionamento conector.
+
+Para obter mais informações, consulte: [personalizar a lista de atributos de utilizador do Workday](https://docs.microsoft.com/azure/active-directory/active-directory-saas-workday-inbound-tutorial#customizing-the-list-of-workday-user-attributes)
+
+---
+
+
+
+### <a name="changing-group-membership-from-dynamic-to-static-and-vice-versa"></a>Alterar associação ao grupo de dinâmico como estático e vice versa
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** grupo de gestão  
+**Capacidade de produto:** colaboração
+ 
+É possível alterar como é gerida a associação num grupo. Isto é útil quando pretender manter o mesmo nome de grupo e ID no sistema, todas as referências existentes para o grupo ainda são válidas; criar um novo grupo seria necessários atualizar essas referências.
+Atualizámos o Centro de administração do Azure AD para adicionar suporte esta funcionalidade. Agora, os clientes podem converter grupos existentes de associação dinâmica associação atribuída e vice-versa. Os cmdlets do PowerShell existentes também ainda estão disponíveis.
+
+Para obter mais informações, consulte [a alteração de associação dinâmica para estática e vice-versa](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal#changing-dynamic-membership-to-static-and-vice-versa)
+
+ 
+
+ 
+---
+ 
+
+### <a name="improved-sign-out-behavior-with-seamless-sso"></a>Comportamento de início de sessão melhorado com o SSO totalmente integrada
+
+**Tipo:** funcionalidade foi alterado  
+**Categoria de serviço:** autenticações (inícios de sessão)  
+**Capacidade de produto:** autenticação de utilizador
+ 
+Anteriormente, mesmo que os utilizadores com sessão iniciada explicitamente fora de uma aplicação protegida pelo Azure AD, estes seriam ser iniciadas automaticamente no utilizando SSO totalmente integrado se que estava a tentar aceder a uma aplicação do Azure AD novamente na sua rede empresarial dos seus dispositivos associados a um domínio. Com esta alteração, a sessão é suportada.  Isto permite aos utilizadores escolher do Azure idêntica ou diferente conta do AD para iniciar sessão novamente em, em vez de a ser iniciada automaticamente sessão através de SSO totalmente integrada.
+
+Para obter mais informações, consulte [do Azure Active Directory totalmente integrada Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)
+
+ 
+---
+ 
+
+### <a name="application-proxy-connector-version-154020-released"></a>Versão do conector de Proxy de aplicação 1.5.402.0 lançadas
+
+**Tipo:** funcionalidade foi alterado  
+**Categoria de serviço:** do Proxy de aplicação  
+**Capacidade de produto:** segurança de identidade e de proteção
+ 
+Esta versão do conector gradualmente está a ser revertida através de Novembro. Esta nova versão do conector inclui as seguintes alterações:
+
+- O conector agora define os cookies de nível de domínio em vez disso, ao nível do subdomínio. Isto garante uma experiência SSO smoother e evita os pedidos de autenticação redundante.
+- Suporte para pedidos de codificação fragmentados
+- Monitorização de estado de funcionamento do conector melhorada 
+- Várias correções de erros e melhorias estabilidade
+
+Para obter mais informações, consulte [conetores da Proxy da aplicação Azure compreender AD](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors).
+
+ 
+---
+ 
+
+ 
 
 
 
