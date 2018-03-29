@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/09/2017
+ms.date: 03/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: d74c8f568a21168ebe7a34b6bb6296ae5d85fcbe
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6c440acc68583860bc01fdb249833c4c4c6148d8
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-status"></a>Estado do Azure
 [Estado do Azure](https://azure.microsoft.com/en-us/status/) fornece-lhe uma vista global do Estado de funcionamento dos serviços do Azure. Com o estado do Azure, pode obter up-to-the-minute informações sobre a disponibilidade do serviço. Todos os utilizadores têm acesso para o estado do Azure e pode ver todos os serviços que comunicar o respetivo estado de funcionamento do serviço. 

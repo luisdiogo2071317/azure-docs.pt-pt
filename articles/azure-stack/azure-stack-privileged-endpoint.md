@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f786d99718b82dba052909e566f1b0571701127e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilizar o ponto final com privilégios na pilha do Azure
 
@@ -76,6 +76,8 @@ Recomendamos que ligue ao PEP apenas a partir do anfitrião de ciclo de vida de 
 
       - **Nome de utilizador**: Especifique a conta de CloudAdmin, no formato  **&lt; *domínio Azure pilha*&gt;\accountname**. (Para ASDK, o nome de utilizador é **azurestack\accountname**.) 
       - **Palavra-passe**: introduza a mesma palavra-passe que foi fornecido durante a instalação para a conta de administrador de domínio AzureStackAdmin.
+    > [!NOTE]
+    > Se não for possível estabelecer ligação ao ponto final do ERCS, tente os passos uma e duas com o endereço IP de uma VM ERCS ao qual que ainda não já tentou estabelecer ligação.
     
 3.  Depois de ligar, a linha de comandos será alterado para **[*nome do endereço IP ou ERCS VM*]: PS >** ou **[azs ercs01]: PS >**, consoante o ambiente. Aqui, execute `Get-Command` para ver a lista dos cmdlets disponíveis.
 

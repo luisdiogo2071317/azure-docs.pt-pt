@@ -1,12 +1,12 @@
 ---
 title: Azure de registo e auditoria | Microsoft Docs
-description: "Saiba mais sobre como pode utilizar dados de registo para obter conhecimentos aprofundados sobre a sua aplicação."
+description: Saiba mais sobre como pode utilizar dados de registo para obter conhecimentos aprofundados sobre a sua aplicação.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Auditoria e registo do Azure
 ## <a name="introduction"></a>Introdução
@@ -313,7 +313,7 @@ O Application Insights destina-se à equipa de programação, para o ajudar a co
 |[Exportação contínua](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Exportação em massa de dados não processados para o armazenamento quando este chega.||
 
 ### <a name="azure-security-center-alerts"></a>Alertas do Centro de segurança do Azure
-[Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) automaticamente recolhe, analisa e integra-se dados de registo dos seus recursos do Azure, rede e soluções de parceiros ligadas, como soluções de proteção de ponto final e firewall, para detetar ameaças reais e reduzir os falsos positivos. Uma lista de alertas de segurança prioritários é apresentada no Centro de Segurança juntamente com as informações necessárias para investigar rapidamente o problema e fornecer recomendações sobre como remediar um ataque.
+[Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) automaticamente recolhe, analisa e integra-se dados de registo dos seus recursos do Azure, rede e soluções de parceiros ligadas, como soluções de proteção de ponto final e firewall, para detetar ameaças reais e reduzir false positivos. Uma lista de alertas de segurança prioritários é apresentada no Centro de Segurança juntamente com as informações necessárias para investigar rapidamente o problema e fornecer recomendações sobre como remediar um ataque.
 
 A deteção de ameaças do Centro de Segurança funciona através da recolha automática de informações de segurança a partir dos seus recursos do Azure, da rede e das soluções de parceiros ligadas. Analisa esta informação, muitas vezes correlacionando informações de várias origens, para identificar ameaças. Os alertas de segurança são prioritários no Centro de Segurança, juntamente com recomendações sobre como remediar a ameaça.
 
@@ -355,7 +355,7 @@ Existem quatro formas diferentes de [recolher registos e as métricas para os se
 | Serviço | Tipo de Recurso | Registos | Métricas | Solução |
 | :------ | :------------ | :--- | :------ | :------- |
 |Gateways de aplicação|  Microsoft.Network/<br>applicationGateways|  Diagnóstico|Diagnóstico|    [Aplicação Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [análise de Gateway](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
-|Informações de aplicação||     Conector|  Conector|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [conector (pré-visualização)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
+|Application Insights||     Conector|  Conector|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [conector (pré-visualização)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Contas de Automatização|   Microsoft.Automation/<br>AutomationAccounts|    Diagnóstico||       [Obter mais informações](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Contas de Batch|    Microsoft.Batch/<br>batchAccounts|  Diagnóstico|    Diagnóstico||
 |Serviços cloud clássico||       Armazenamento||       [Obter mais informações](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|
@@ -364,12 +364,12 @@ Existem quatro formas diferentes de [recolher registos e as métricas para os se
 |Arquivo data Lake|   Microsoft.DataLakeStore/<br>accounts|   Diagnóstico|||
 |Espaço de nomes do Hub de Eventos|   Microsoft.EventHub/<br>Espaços de nomes|  Diagnóstico|    Diagnóstico||
 |Hubs IoT|  Microsoft.Devices/<br>IotHubs||     Diagnóstico||
-|Cofre de Chaves| Microsoft.KeyVault/<br>cofres|  Diagnóstico  || [Análise de KeyVault](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
+|Cofre de Chaves| Microsoft.KeyVault/<br>vaults|  Diagnóstico  || [KeyVault Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Balanceadores de Carga|    Microsoft.Network/<br>loadBalancers|    Diagnóstico|||
 |Aplicações Lógicas|    Microsoft.Logic/<br>Fluxos de trabalho|  Diagnóstico|    Diagnóstico||
 ||Microsoft.Logic/<br>integrationAccounts||||
 |Grupos de Segurança de Rede|   Microsoft.Network/<br>networksecuritygroups|Diagnóstico||   [Análise de grupo de segurança de rede do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
-|Cofres de recuperação|   Microsoft.RecoveryServices/<br>cofres|||[O Azure Recovery Services análise (pré-visualização)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
+|Cofres de recuperação|   Microsoft.RecoveryServices/<br>vaults|||[O Azure Recovery Services análise (pré-visualização)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Procurar serviços|   Microsoft.Search/<br>searchServices|    Diagnóstico|    Diagnóstico||
 |Espaço de nomes do Service Bus| Microsoft.ServiceBus/<br>Espaços de nomes|    Diagnóstico|Diagnóstico|    [Análise de barramento de serviço (pré-visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Armazenamento||    [Análise de recursos de infraestrutura de serviço (pré-visualização)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
@@ -379,10 +379,10 @@ Existem quatro formas diferentes de [recolher registos e as métricas para os se
 |Virtual Machines|  Microsoft.Compute/<br>virtualMachines|  Extensão|  Extensão||
 ||||Diagnóstico||
 |Conjuntos de dimensionamento de máquinas virtuais|   Microsoft.Compute/<br>virtualMachines    ||Diagnóstico||
-||Microsoft.Compute/<br>virtualMachineScaleSets /<br>virtualMachines||||
+||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |Web farms de servidores|Microsoft.Web/<br>serverfarms||   Diagnóstico
 |Web Sites| Microsoft.Web/<br>sites ||      Diagnóstico|    [Obter mais informações](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
-||Microsoft.Web/<br>sites /<br>ranhuras|||||
+||Microsoft.Web/<br>sites/<br>ranhuras|||||
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Integração de registo com sistemas SIEM no local
@@ -415,7 +415,7 @@ Cenários de integração
 
 -   [Registos do Azure integração perguntas mais frequentes (FAQ) do sobre](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq) -FAQ este respondem a dúvidas sobre a integração de registos do Azure.
 
--   [Integrar o Centro de segurança de alertas com o Azure registo integração](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) – este documento mostra como sincronizar alertas do Centro de segurança, juntamente com eventos de segurança de máquina virtual recolhidos por diagnósticos do Azure e os registos de auditoria do Azure, com a solução do SIEM ou de análise de registos.
+-   [Integrar o Centro de segurança de alertas com o Azure registo integração](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) – este documento mostra como sincronizar alertas do Centro de segurança, juntamente com eventos de segurança de máquina virtual recolhidos pelo diagnósticos do Azure e os registos de auditoria do Azure, com a sua análise de registos ou Solução do SIEM.
 
 ## <a name="next-steps"></a>Próximos Passos
 

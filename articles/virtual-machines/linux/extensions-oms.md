@@ -1,11 +1,11 @@
 ---
-title: "Extensão da máquina virtual do Azure do OMS para Linux | Microsoft Docs"
-description: "Implemente o agente do OMS na máquina de virtual com Linux utilizando uma extensão da máquina virtual."
+title: Extensão da máquina virtual do Azure do OMS para Linux | Microsoft Docs
+description: Implemente o agente do OMS na máquina de virtual com Linux utilizando uma extensão da máquina virtual.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/27/2018
 ms.author: danis
-ms.openlocfilehash: 5174e599f12314a657d142304ffec18fbff847b1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c0b7224d0f534661950117813e1a4f348810853
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual OMS para Linux
 
@@ -195,10 +195,11 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 
 | Código de Erro | Significado | Ação possíveis |
 | :---: | --- | --- |
+| 9 | Ativar chamado prematuramente | [Atualizar o agente Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
 | 10 | VM já está ligada a uma área de trabalho de análise de registos | Para ligar a VM para a área de trabalho especificada no esquema de extensão, defina stopOnMultipleConnections como false nas definições públicas ou remova esta propriedade. Esta VM obtém cobrada depois de cada área de trabalho está ligado a um. |
 | 11 | Configuração inválida fornecida para a extensão | Siga os exemplos anteriores para definir todos os valores de propriedade necessários para a implementação. |
 | 12 | O Gestor de pacotes dpkg está bloqueado | Certifique-se de que todos os dpkg operações de atualização na máquina tiver concluído e tente novamente. |
-| 20 | Ativar chamado prematuramente | [Atualizar o agente Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
+| 20 | Falha de instalação do pacote SCX |
 | 51 | Esta extensão não é suportada no sistema de operação da VM | |
 | 55 | Não é possível ligar ao serviço do Microsoft Operations Management Suite | Verifique se o sistema tem acesso à Internet ou que foi fornecido um proxy HTTP válido. Além disso, verifique a correção do ID de área de trabalho. |
 

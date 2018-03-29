@@ -1,12 +1,12 @@
 ---
-title: "Criar um balanceador de carga públicos com o IPv6 - CLI do Azure | Microsoft Docs"
-description: "Saiba como criar um balanceador de carga públicos com o IPv6 no Gestor de recursos do Azure utilizando a CLI do Azure."
+title: Criar um balanceador de carga públicos com o IPv6 - CLI do Azure | Microsoft Docs
+description: Saiba como criar um balanceador de carga públicos com o IPv6 no Gestor de recursos do Azure utilizando a CLI do Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
 tags: azure-resource-manager
-keywords: "IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móveis, iot"
+keywords: IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móveis, iot
 ms.assetid: a1957c9c-9c1d-423e-9d5c-d71449bc1f37
 ms.service: load-balancer
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3abd47460999f7b059469a58a59a3e297e88effb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 62f22ccadfabd2f3d6906beb3c241703d4e6383f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Criar um balanceador de carga público com o IPv6 no Gestor de recursos do Azure, utilizando a CLI do Azure
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/18/2017
 > * [CLI do Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modelo](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Um balanceador de carga do Azure é um balanceador de carga de Camada 4 (TCP, UDP). Balanceadores de carga fornecem elevada disponibilidade através de distribuição de tráfego de entrada entre instâncias de bom estado de funcionamento de serviço nos serviços em nuvem ou de máquinas virtuais num conjunto de Balanceador de carga. Balanceadores de carga podem também apresentar estes serviços em várias portas ou vários endereços IP ou ambos.
 
@@ -187,7 +186,7 @@ Este exemplo cria os seguintes itens:
 * Uma regra NAT traduzir todo o tráfego de entrada na porta 3391 à porta 3389 para o protocolo de ambiente de trabalho remoto (RDP).\*
 * uma regra de Balanceador de carga para equilibrar a todo o tráfego de entrada na porta 80 para a porta 80 nos endereços do conjunto de back-end.
 
-\*Regras NAT que estão associadas uma instância específica da máquina virtual por trás do Balanceador de carga. O tráfego de rede que são recebidos na porta 3389 é enviado para a máquina virtual específica e a porta que está associada a regra NAT. Tem de especificar um protocolo (UDP ou TCP) para uma regra NAT. Não é possível atribuir os dois protocolos para a mesma porta.
+\* Regras NAT que estão associadas uma instância específica da máquina virtual por trás do Balanceador de carga. O tráfego de rede que são recebidos na porta 3389 é enviado para a máquina virtual específica e a porta que está associada a regra NAT. Tem de especificar um protocolo (UDP ou TCP) para uma regra NAT. Não é possível atribuir os dois protocolos para a mesma porta.
 
 1. Configure as variáveis de PowerShell:
 
@@ -341,7 +340,7 @@ Para criar VMs, tem de ter uma conta de armazenamento. Balanceamento de carga, a
     $vm2 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Começar a configurar um balanceador de carga interno](load-balancer-get-started-ilb-arm-cli.md)  
 [Configurar um modo de distribuição de balanceador de carga](load-balancer-distribution-mode.md)  

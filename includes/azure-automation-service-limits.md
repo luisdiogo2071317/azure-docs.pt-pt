@@ -7,4 +7,4 @@
 | Tempo de execução de tarefa - escalão gratuito |500 minutos por subscrição por mês de calendário |
 | Quantidade máxima de memória especificada para uma tarefa |400 MB |
 | Número máx. de sockets rede permitido por tarefa |1000 |
-
+| Número máx. de contas de automatização numa subscrição |Sem Limite |

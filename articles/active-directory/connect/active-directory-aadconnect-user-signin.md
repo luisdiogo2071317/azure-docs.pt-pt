@@ -1,8 +1,8 @@
 ---
-title: "O Azure AD Connect: Utilizador início de sessão | Microsoft Docs"
-description: "Azure AD Connect-sessão do utilizador para definições personalizadas."
+title: 'O Azure AD Connect: Utilizador início de sessão | Microsoft Docs'
+description: Azure AD Connect-sessão do utilizador para definições personalizadas.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções do Azure AD Connect utilizador iniciar sessão
 Ligar do Azure Active Directory (Azure AD) permite aos utilizadores iniciar sessão recursos de nuvem e no local utilizando as mesmas palavras-passe. Este artigo descreve conceitos chave para cada modelo de identidade para o ajudar a escolher a identidade que pretende utilizar para iniciar sessão com o Azure AD.
 
 Se já estiver familiarizado com o modelo de identidade do Azure AD e pretender obter mais informações sobre um método específico, consulte a hiperligação adequada:
 
-* [Sincronização de hash de palavra-passe](#password-synchronization) com [totalmente integrada-início de sessão único (SSO)](active-directory-aadconnect-sso.md)
+* [Sincronização de hash de palavra-passe](#password-hash-synchronization) com [totalmente integrada-início de sessão único (SSO)](active-directory-aadconnect-sso.md)
 * [A autenticação pass-through](active-directory-aadconnect-pass-through-authentication.md) com [totalmente integrada-início de sessão único (SSO)](active-directory-aadconnect-sso.md)
 * [SSO Federado (com serviços de Federação do Active Directory (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
@@ -42,7 +42,7 @@ Sincronizar automaticamente o novo utilizador, contacte e contas de grupo no Act
 Configure os meus inquilinos para cenários de híbridos do Office 365.|x|x|x|
 Ative os meus utilizadores iniciar sessão e aceder aos serviços de nuvem utilizando a palavra-passe no local.|x|x|x|
 Implemente o início de sessão único utilizando as credenciais da empresa.|x|x|x|
-Certifique-se de que nenhuma palavra-passe é armazenados na nuvem.||x *|x|
+Certifique-se de que nenhuma palavra-passe é armazenados na nuvem.||x*|x|
 Ative soluções de autenticação multifator no local.|||x|
 
 * Através de um agente simples.
@@ -54,7 +54,7 @@ Além disso, pode ativar [SSO totalmente integrado](active-directory-aadconnect-
 
 ![Sincronização de hash de palavra-passe](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-Para obter mais informações, consulte o [sincronização de hash de palavra-passe](active-directory-aadconnectsync-implement-password-synchronization.md) artigo.
+Para obter mais informações, consulte o [sincronização de hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) artigo.
 
 ### <a name="pass-through-authentication"></a>Autenticação pass-through
 Com a autenticação pass-through, palavra-passe do utilizador é validado com o controlador de Active Directory no local. A palavra-passe não tem de estar presente no Azure AD em qualquer outra forma. Isto permite às políticas no local, tais como restrições de hora de início de sessão, a ser avaliada durante a autenticação na nuvem de serviços.
@@ -176,6 +176,6 @@ No **sessão do utilizador** página, selecione o utilizador pretendido início 
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).
 - Saiba mais sobre [conceitos de design do Azure AD Connect](active-directory-aadconnect-design-concepts.md).

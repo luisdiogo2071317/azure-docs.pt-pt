@@ -1,16 +1,16 @@
 ---
-ms.assetid: 
-title: "Eliminação de forma recuperável Cofre de chaves do Azure | Microsoft Docs"
+ms.assetid: ''
+title: Eliminação de forma recuperável Cofre de chaves do Azure | Microsoft Docs
 ms.service: key-vault
 author: lleonard-msft
 ms.author: alleonar
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 01357e4fdb9b6f27e9baf5f5c8e4c7d6b582ad35
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6a3573cf31418309a31126b2a0c6a43ea2e0c745
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação de forma recuperável Cofre de chaves do Azure
 
@@ -68,7 +68,14 @@ Permanentemente a eliminar, remover, um cofre de chaves é possível através de
 
 Uma exceção é o caso quando a subscrição do Azure tiver sido marcada como *undeletable*. Neste caso, apenas o serviço, em seguida, pode efetuar a eliminação real e é feito como um processo agendado. 
 
-## <a name="next-steps"></a>Passos seguintes
+### <a name="billing-implications"></a>Implicações de faturação
+
+Em geral, quando um objeto (um cofre de chaves ou uma chave ou segredo) está no Estado eliminado, existem apenas duas operações possíveis: 'Remover' e 'Recuperar'. Todas as outras operações irão falhar. Por conseguinte, apesar do objeto existe, não existem operações podem ser efetuadas e, por conseguinte, não irá ocorrer nenhuma utilização, por isso, não fatura. No entanto, está a seguir exceções:
+
+- ações 'Remover' e 'Recuperar' contabilizará operações do Cofre de chaves normal e serão cobradas.
+- Se o objeto é uma chave de HSM, a taxa de ' HSM para chave protegida por' por versão chave por encargos de mês será aplicada se foi utilizada uma versão de chave nos últimos 30 dias. Depois disso, uma vez que o objeto está no Estado eliminado, não existem operações podem executar, por isso, sem qualquer encargo será aplicada.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Os guias seguintes dois oferecem os cenários de utilização principal para utilizar a eliminação de forma recuperável.
 

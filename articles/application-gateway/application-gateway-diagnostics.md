@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: dfa451a06fbadbb63c83f800ac164db399efd583
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento de back-end, os registos de diagnóstico e métricas de Gateway de aplicação
 
@@ -27,7 +27,7 @@ Ao utilizar o Gateway de aplicação do Azure, pode monitorizar os recursos das 
 
 * [Estado de funcionamento de back-end](#back-end-health): Gateway de aplicação fornece a capacidade de monitorizar o estado de funcionamento dos servidores nos agrupamentos de back-end através do portal do Azure e através do PowerShell. Também pode encontrar o estado de funcionamento dos agrupamentos de back-end através de registos de diagnóstico de desempenho.
 
-* [Os registos](#diagnostic-logs): permitir que os registos de desempenho, acesso e outros dados a ser guardado ou consumido de um recurso para efeitos de monitorização.
+* [Os registos](#diagnostic-logging): permitir que os registos de desempenho, acesso e outros dados a ser guardado ou consumido de um recurso para efeitos de monitorização.
 
 * [Métricas](#metrics): Gateway de aplicação não tem atualmente uma métrica. Esta métrica mede o débito do gateway de aplicação em bytes por segundo.
 

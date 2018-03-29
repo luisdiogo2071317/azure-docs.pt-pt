@@ -1,11 +1,11 @@
 ---
 title: Integrar o Cofre de chaves com o SQL Server em VMs do Windows no Azure (Gestor de recursos) | Microsoft Docs
-description: "Saiba como automatizar a configuração de encriptação do SQL Server para utilização com o Cofre de chaves do Azure. Este tópico explica como utilizar a integração do Cofre de chaves do Azure com máquinas virtuais do SQL Server criadas com o Resource Manager."
+description: Saiba como automatizar a configuração de encriptação do SQL Server para utilização com o Cofre de chaves do Azure. Este tópico explica como utilizar a integração do Cofre de chaves do Azure com máquinas virtuais do SQL Server criadas com o Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/23/2017
 ms.author: jroth
-ms.openlocfilehash: 2d24bb839368b4f7fff61f0696c79a00c03af917
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7df0bc4b74694baa6b1c8a30d0c126b248e51168
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurar a integração do Cofre de chaves do Azure para o SQL Server em Virtual Machines do Azure (Gestor de recursos)
 > [!div class="op_single_selector"]
@@ -55,6 +55,11 @@ No **configuração do SQL Server** painel, clique em de **editar** botão na se
 ![Configurar a integração AKV SQL para VMs existentes](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-configuration.png)
 
 Quando terminar, clique em de **OK** botão na parte inferior do **configuração do SQL Server** painel para guardar as alterações.
+
+> [!NOTE]
+> O nome da credencial que criámos aqui será mapeado para um início de sessão do SQL Server mais tarde. Isto permite que o início de sessão do SQL Server para o Cofre de chaves de acesso. 
+>
+>
 
 > [!NOTE]
 > Também pode configurar a integração AKV através de um modelo. Para obter mais informações, consulte [modelo de início rápido do Azure para a integração do Cofre de chaves do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).

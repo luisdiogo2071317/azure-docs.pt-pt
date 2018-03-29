@@ -1,6 +1,6 @@
 ---
-title: "Do Azure Machine Learning pré-visualização de 2017 FAQ | Microsoft Docs"
-description: "Este artigo contém perguntas mais comuns e funcionalidades de pré-visualização do Azure Machine Learning: respostas"
+title: Do Azure Machine Learning pré-visualização de 2017 FAQ | Microsoft Docs
+description: 'Este artigo contém perguntas mais comuns e funcionalidades de pré-visualização do Azure Machine Learning: respostas'
 services: machine-learning
 author: serinakaye
 ms.author: serinak
@@ -10,25 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 6146e1ce98144a05bef2ca29705f451aa3f5fb50
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 864e9ff5551637a93b957e5011a8857072c6eaaf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Perguntas mais frequentes sobre o Azure Machine Learning
 
+Azure Machine Learning é um serviço do Azure completamente gerido que lhe permite criar, testar, gerir e implementar modelos de AI e de aprendizagem. Os nossos serviços e aplicações transferível oferecem uma abordagem de código primeiro que tira partido da nuvem, no local e limite para fornecer a formação, implementar, gerir e monitorizar modelos com capacidade, a velocidade e a flexibilidade. Em alternativa, o Azure Machine Learning Studio oferece um baseada no browser, visual arrastar e largar criação ambiente em que nenhum codificação é necessária. 
+
 ## <a name="general-product-questions"></a>Perguntas gerais do produto
-
-**O que é o Azure Machine Learning?**
-
-Azure Machine Learning é um serviço do Azure completamente gerido que lhe permite criar, testar, gerir e implementar modelos de AI e de aprendizagem. Os nossos novos serviços e aplicações transferível oferecem uma abordagem de código primeiro que tira partido da nuvem, no local e limite para fornecer a formação, implementar, gerir e monitorizar modelos com capacidade, a velocidade e a flexibilidade. Em alternativa, o Azure Machine Learning Studio oferece um baseada no browser, visual arrastar e largar criação ambiente em que nenhum codificação é necessária. 
-
-**Em que regiões estão que os novos serviços estar disponível?**
-
-Procurar suportadas regiões do Azure para experimentação e modelo de serviço de gestão do Azure Machine Learning no [produtos do Azure por região](https://azure.microsoft.com/regions/services/) página.
-
-Serão adicionadas mais regiões como podemos desenvolver o produto.  Pode ajudar-na priorizar as regiões que para implementar no nosso [Azure Machine Learning comentários](https://feedback.azure.com/forums/257792-machine-learning) site. 
 
 **Que outros serviços do Azure são necessários?**
 

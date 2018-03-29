@@ -1,6 +1,6 @@
 ---
 title: Configurar o Balanceador de carga para o SQL Server sempre no | Microsoft Docs
-description: "Configurar o Balanceador de carga para trabalhar com o SQL Server Always On e aprender a utilizar o PowerShell para criar um balanceador de carga para a implementação do SQL Server"
+description: Configurar o Balanceador de carga para trabalhar com o SQL Server Always On e aprender a utilizar o PowerShell para criar um balanceador de carga para a implementação do SQL Server
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5e890f8314c8f191dbfa6c6818d810b91d0e829d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a0c2345b47b9103ac6a7ae998f13a12332e3907e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-a-load-balancer-for-sql-server-always-on"></a>Configurar um balanceador de carga para o SQL Server Always On
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 SQL Server Always On nos grupos de disponibilidade podem agora executar com um balanceador de carga interno. Um grupo de disponibilidade é a solução de flagship do SQL Server para elevada disponibilidade e recuperação após desastre. O serviço de escuta do grupo de disponibilidade permite aplicações liguem de forma totalmente integrada a réplica primária, independentemente do número de réplicas na configuração de cliente.
 
@@ -57,7 +57,7 @@ Utilizando um interno o Balanceador de carga no serviço de escuta, o ponto fina
 
 Para obter mais informações sobre o SQL Server Always On, consulte [configurar um balanceador de carga interno para um grupo de disponibilidade Always On no Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Começar a configurar um balanceador de carga público](load-balancer-get-started-internet-arm-ps.md)
 * [Começar a configurar um balanceador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 * [Configurar um modo de distribuição de balanceador de carga](load-balancer-distribution-mode.md)

@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 33e0d1d54a533d68ac08f223e1a41e65c7b301a4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b038052776cad63030ca8a48a43b4b579ce6c83a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e compressão codecs no Azure Data Factory
 
@@ -444,6 +444,30 @@ Tenha em atenção os seguintes pontos:
 * Os tipos de dados complexos não são suportados (ESTRUTURA, MAPA, LISTA, UNIÃO)
 * O ficheiro ORC tem três [opções relacionadas com a compressão](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NENHUM, ZLIB, SNAPPY. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro ORC, o Data Factory escolhe a opção ZLIB, que é a predefinição para ORC. De momento, não existem opções para contornar este comportamento.
 
+### <a name="data-type-mapping-for-orc-files"></a>Tipo de dados de mapeamento de ficheiros ORC
+
+| Tipo de dados intermédio de fábrica de dados | Tipos ORC |
+|:--- |:--- |
+| Booleano | Booleano |
+| SByte | Bytes |
+| Bytes | Curto |
+| Int16 | Curto |
+| UInt16 | Int |
+| Int32 | Int |
+| UInt32 | Longo |
+| Int64 | Longo |
+| UInt64 | Cadeia |
+| Solteiro | Número de vírgula flutuante |
+| Duplo | Duplo |
+| Decimal | Decimal |
+| Cadeia | Cadeia |
+| DateTime | Carimbo de data/hora |
+| DateTimeOffset | Carimbo de data/hora |
+| TimeSpan | Carimbo de data/hora |
+| ByteArray | Binário |
+| GUID | Cadeia |
+| char | Char(1) |
+
 ## <a name="parquet-format"></a>Formato de parquet
 
 Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet, defina a propriedade `format` `type` como **ParquetFormat**. Não precisa de especificar quaisquer propriedades na secção Formato no âmbito da secção typeProperties. Exemplo:
@@ -463,6 +487,31 @@ Tenha em atenção os seguintes pontos:
 
 * Os tipos de dados complexos não são suportados (MAPA, LISTA)
 * O ficheiro Parquet tem as seguintes opções relacionadas com a compressão: NENHUM, SNAPPY, GZIP e LZO. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro Parquet, o Data Factory escolhe a opção SNAPPY, que é a predefinição para o formato Parquet. De momento, não existem opções para contornar este comportamento.
+
+### <a name="data-type-mapping-for-parquet-files"></a>Tipo de dados de mapeamento de ficheiros de Parquet
+
+| Tipo de dados intermédio de fábrica de dados | Tipo primitivo parquet | Parquet tipo Original (anular a serialização) | Parquet tipo Original (serializar) |
+|:--- |:--- |:--- |:--- |
+| Booleano | Booleano | N/A | N/A |
+| SByte | Int32 | Int8 | Int8 |
+| Bytes | Int32 | UInt8 | Int16 |
+| Int16 | Int32 | Int16 | Int16 |
+| UInt16 | Int32 | UInt16 | Int32 |
+| Int32 | Int32 | Int32 | Int32 |
+| UInt32 | Int64 | UInt32 | Int64 |
+| Int64 | Int64 | Int64 | Int64 |
+| UInt64 | Int64/binário | UInt64 | Decimal |
+| Solteiro | Número de vírgula flutuante | N/A | N/A |
+| Duplo | Duplo | N/A | N/A |
+| Decimal | Binário | Decimal | Decimal |
+| Cadeia | Binário | Utf8 | Utf8 |
+| DateTime | Int96 | N/A | N/A |
+| TimeSpan | Int96 | N/A | N/A |
+| DateTimeOffset | Int96 | N/A | N/A |
+| ByteArray | Binário | N/A | N/A |
+| GUID | Binário | Utf8 | Utf8 |
+| char | Binário | Utf8 | Utf8 |
+| CharArray | Não suportado | N/A | N/A |
 
 ## <a name="compression-support"></a>Suporte de compressão
 

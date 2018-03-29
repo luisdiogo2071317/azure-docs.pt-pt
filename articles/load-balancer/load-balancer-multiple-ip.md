@@ -1,6 +1,6 @@
 ---
-title: "Várias configurações de IP no Azure de balanceamento de carga | Microsoft Docs"
-description: "Balanceamento de carga entre as configurações de IP primários e secundários."
+title: Várias configurações de IP no Azure de balanceamento de carga | Microsoft Docs
+description: Balanceamento de carga entre as configurações de IP primários e secundários.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Carga de balanceamento em várias configurações de IP utilizando o portal do Azure
 
@@ -27,7 +27,6 @@ ms.lasthandoff: 02/21/2018
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Neste artigo, vamos mostrar-lhe como utilizar o Balanceador de carga do Azure com vários endereços IP num controlador de interface de rede secundária (NIC). O diagrama seguinte ilustra o nosso cenário:
 
@@ -63,7 +62,7 @@ Conclua os passos seguintes para conseguir o cenário descrito neste artigo.
 
 Para cada VM na sua rede virtual, adicione a configuração de IP para a NIC secundária:  
 
-1. Navegue para o portal do Azure: http://portal.azure.com. Inicie sessão com a sua conta do Azure.
+1. Navegue até ao portal do Azure: http://portal.azure.com. Inicie sessão com a sua conta do Azure.
 
 2. No canto superior esquerdo do ecrã, selecione o **grupo de recursos** ícone. Em seguida, selecione o grupo de recursos onde sejam encontram as suas VMs (por exemplo, **contosofabrikam**). O **grupos de recursos** painel apresenta todos os recursos e NICs para as VMs.
 
@@ -87,7 +86,7 @@ Após a configuração de IP segundo para o NIC secundário está concluído, se
 
 Crie o seu Balanceador de carga para a configuração:
 
-1. Navegue para o portal do Azure: http://portal.azure.com. Inicie sessão com a sua conta do Azure.
+1. Navegue até ao portal do Azure: http://portal.azure.com. Inicie sessão com a sua conta do Azure.
 
 2. No canto superior esquerdo do ecrã, selecione **crie um recurso** > **redes** > **Balanceador de carga**. Em seguida, selecione **criar**.
 

@@ -1,8 +1,8 @@
 ---
-title: "Artigo de índice para a gestão de aplicações no Azure Active Directory | Microsoft Azure"
-description: "Saiba como personalizar a data de expiração para os certificados de Federação e como renovar os certificados que irão expirar em breve."
+title: Artigo de índice para a gestão de aplicações no Azure Active Directory | Microsoft Azure
+description: Saiba como personalizar a data de expiração para os certificados de Federação e como renovar os certificados que irão expirar em breve.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ffb8e822644ba8f0bccc3e81edc4da6085ff3ec7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de Artigos da Gestão da Aplicação no Azure Active Directory
 Esta página fornece uma lista completa de todos os documentos escritas sobre as várias funcionalidades relacionadas com a aplicação no Azure Active Directory (Azure AD).
@@ -43,7 +43,7 @@ Esta secção fornece acesso rápido para guias de resolução de problemas rele
 | Federado Single Sign-On |[Resolução de problemas baseados em SAML Single Sign-On](active-directory-saml-debugging.md) |
 | Baseado em palavra-passe de início de sessão |[A extensão do painel de acesso de resolução de problemas para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Proxy da Aplicação |[Guia de resolução de problemas de Proxy de aplicações](active-directory-application-proxy-troubleshoot.md) |
-| Início de sessão único no local AD e o Azure AD |[Resolução de problemas de sincronização de palavra-passe](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[Resolução de problemas de repetição de escrita de palavras-passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Início de sessão único no local AD e o Azure AD |[Resolução de problemas de sincronização de Hash de palavra-passe](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Resolução de problemas de repetição de escrita de palavras-passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Associações de grupo dinâmico |[As associações de grupo dinâmico de resolução de problemas](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Início de Sessão Único (SSO)
@@ -95,7 +95,7 @@ Se a sua organização manter um Windows Server Active Directory no local, junta
 |:---:| --- |
 | Uma descrição geral sobre as opções de início de sessão único disponibilizadas no Azure AD Connect, bem como informações sobre gerir ambientes híbridos |[Início de sessão do utilizador em Opções no Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Orientações gerais para gerir ambientes com ambos no local do Active Directory e o Azure Active Directory |[Considerações de conceção de identidade híbrida do Azure AD](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md) |
-| Documentação de orientação sobre como utilizar a sincronização de palavra-passe para permitir SSO |[Implementar a sincronização de palavra-passe com o Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Resolver problemas de sincronização de palavra-passe](https://support.microsoft.com/en-us/kb/2855271) |
+| Documentação de orientação sobre como utilizar a sincronização de palavra-passe para permitir SSO |[Implementar a sincronização de palavra-passe com o Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Resolver problemas de sincronização de palavra-passe](https://support.microsoft.com/en-us/kb/2855271) |
 | Documentação de orientação sobre como utilizar a repetição de escrita de palavras-passe para permitir SSO |[Introdução à gestão de palavra-passe no Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Resolver problemas na Repetição de Escrita de Palavras-passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Documentação de orientação sobre como utilizar fornecedores de identidade de terceiros para permitir SSO |[Lista de fornecedores de identidade de terceiros compatível que podem ser utilizadas para ativar o início de sessão único](https://aka.ms/ssoproviders) |
 | Como o Windows 10 utilizadores possam desfrutar as vantagens de início de sessão através da associação do Azure AD |[Expandir as capacidades de nuvem para o Windows 10 dispositivos através do Azure Active Directory aderir](active-directory-azureadjoin-overview.md) |

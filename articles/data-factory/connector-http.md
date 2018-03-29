@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0092564dce9424b445240ebd2c3247e763a237e9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiar dados de ponto final de HTTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,6 +40,9 @@ Especificamente, este conector HTTP suporta:
 - Copiar a resposta HTTP como-está ou análise-o com o [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md).
 
 A diferença entre este conector e a [conector Web da tabela](connector-web-table.md) que a última opção é utilizada para extrair conteúdo de tabela de página web HTML.
+
+>[!TIP]
+>Para testar o pedido HTTP para obter antes de configurar o conetor HTTP ADF de dados, pode obter a partir de especificação de API no cabeçalho e requisitos de corpo e utilize ferramentas como o Postman ou web browser para validar.
 
 ## <a name="getting-started"></a>Introdução
 

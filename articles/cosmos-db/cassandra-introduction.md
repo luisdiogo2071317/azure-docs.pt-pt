@@ -1,10 +1,10 @@
 ---
-title: "Introdução ao Cassandra do Cosmos BD do Azure API | Microsoft Docs"
-description: "Saiba como pode utilizar a base de dados do Azure Cosmos para aplicações existentes \"comparação de precisão e shift\" e criar novas aplicações utilizando a API de Cassandra utilizando os controladores de Cassandra e CQL já estiver familiarizado com."
+title: Introdução ao Cassandra do Cosmos BD do Azure API | Microsoft Docs
+description: Saiba como pode utilizar a base de dados do Azure Cosmos para aplicações existentes "comparação de precisão e shift" e criar novas aplicações utilizando a API de Cassandra utilizando os controladores de Cassandra e CQL já estiver familiarizado com.
 services: cosmos-db
 author: govindk
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 88364cecc1fa1ad7318cb28c9708a42e6a807347
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Introdução ao Apache Cassandra API para o Azure Cosmos DB
+# <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Introdução ao Azure Cosmos DB: Apache Cassandra API
 
 BD do Azure do Cosmos fornece a API de Cassandra (pré-visualização) para aplicações que são escritas para Apache Cassandra que precisam de capacidades premium, como:
 

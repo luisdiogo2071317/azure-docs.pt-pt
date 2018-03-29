@@ -1,11 +1,11 @@
 ---
-title: "Sincronização do Azure AD Connect: Noções e personalizar a sincronização | Microsoft Docs"
+title: 'Sincronização do Azure AD Connect: Noções e personalizar a sincronização | Microsoft Docs'
 description: Explica como o Azure AD Connect sincronizar funciona e como personalizar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a808f929dcd27b53821f59ed8fd3ab67af81a273
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronização do Azure AD Connect: Noções e personalizar a sincronização
 Os serviços de sincronização do Azure Active Directory Connect (sincronização do Azure AD Connect) é um componente principal do Azure AD Connect. Trata-se de que todas as operações relacionadas com a sincronizar dados de identidade entre o seu ambiente no local e o Azure AD. Sincronização do Azure AD Connect é o sucessor do DirSync, Azure AD Sync e Forefront Identity Manager com o conector Azure Active Directory configurado.
@@ -46,7 +46,7 @@ O serviço de sincronização é composta por dois componentes, o local **sincro
 | **Cenários e funcionalidades** | |
 | [Impedir eliminações acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |Descreve o *impedir eliminações acidentais* funcionalidade e como configurá-lo. |
 | [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) |Descreve o programador incorporado, que está a importar, sincronizar e exportar dados. |
-| [Implementar a sincronização de palavra-passe](active-directory-aadconnectsync-implement-password-synchronization.md) |Descreve como funciona a sincronização de palavra-passe, como implementar e como operar e resolver problemas. |
+| [Implementar a sincronização de hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |Descreve como funciona a sincronização de palavra-passe, como implementar e como operar e resolver problemas. |
 | [Repetição de escrita do dispositivo](active-directory-aadconnect-feature-device-writeback.md) |Descreve como funciona a repetição de escrita do dispositivo no Azure AD Connect. |
 | [Extensões de diretórios](active-directory-aadconnectsync-feature-directory-extensions.md) |Descreve como expandir o esquema do Azure AD com os seus próprios atributos personalizados. |
 | [PreferredDataLocation do Office 365](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Descreve como colocar recursos do Office 365 do utilizador na mesma região que o utilizador. |

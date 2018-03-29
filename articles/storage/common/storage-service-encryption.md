@@ -1,6 +1,6 @@
 ---
-title: "Encriptação do serviço de armazenamento do Azure para dados Inativos | Microsoft Docs"
-description: "Utilize a funcionalidade de encriptação do serviço do Storage do Azure para encriptar o armazenamento de Blobs do Azure no lado do serviço ao armazenar os dados e desencriptá-lo ao obter os dados."
+title: Encriptação do serviço de armazenamento do Azure para dados Inativos | Microsoft Docs
+description: Utilize a funcionalidade de encriptação do serviço do Storage do Azure para encriptar o armazenamento de Blobs do Azure no lado do serviço ao armazenar os dados e desencriptá-lo ao obter os dados.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Encriptação do Serviço de Armazenamento do Azure para Dados Inativos
 
@@ -52,7 +52,7 @@ R: encriptação do serviço de armazenamento de está ativada por predefiniçã
 
 **P: como encriptam os dados numa conta de armazenamento do Resource Manager?**
 
-R: encriptação do serviço de armazenamento está ativada por predefinição para todas as contas de armazenamento – clássicas e Resource Manager. No entanto, os dados existentes não são encriptados. Para encriptar os dados existentes, pode copiá-lo para outro nome ou outro contentor e, em seguida, remover as versões não encriptadas. 
+R: encriptação do serviço de armazenamento está ativada por predefinição para todas as contas de armazenamento – clássicas e Resource Manager, todos os ficheiros existentes na conta de armazenamento criadas antes de encriptação foi ativada retroactively irão obter encriptados por um processo de encriptação em segundo plano.
 
 **P: pode criar contas de armazenamento com a encriptação do serviço de armazenamento ativado ao utilizar o Azure PowerShell e da CLI do Azure?**
 

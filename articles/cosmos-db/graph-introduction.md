@@ -1,9 +1,9 @@
 ---
-title: "Introdução ao Azure Cosmos DB gráfico APIs | Microsoft Docs"
-description: "Saiba como pode utilizar o Azure Cosmos DB armazenar, consulta, e atravessar enormes gráficos com baixa latência, utilizando o idioma de consulta de gráfico Gremlin do Apache TinkerPop."
+title: Introdução ao Azure Cosmos DB gráfico APIs | Microsoft Docs
+description: Saiba como pode utilizar o Azure Cosmos DB armazenar, consulta, e atravessar enormes gráficos com baixa latência, utilizando o idioma de consulta de gráfico Gremlin do Apache TinkerPop.
 services: cosmos-db
-author: luisbosquez
-documentationcenter: 
+author: LuisBosquez
+documentationcenter: ''
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
 ms.workload: data-services
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: ba58377614326a10405be4a64d4b39f116b75bfe
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 50030434f3b2e59ba97efca2946be1a5115bc145
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introdução ao Azure Cosmos DB: Graph API
 
@@ -111,8 +111,8 @@ A tabela seguinte mostra controladores Gremlin populares, que pode utilizar em r
 | --- | --- | --- |
 | [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Criar o gráfico através do .NET](create-graph-dotnet.md) |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Criar o gráfico de linguagem Java](create-graph-java.md) |
-| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript no Github](https://github.com/jbmusso/gremlin-javascript) | [Criar o gráfico com o Node.js](create-graph-nodejs.md) |
-| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python no Github](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Criar o gráfico com o Python](create-graph-python.md) |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript no GitHub](https://github.com/jbmusso/gremlin-javascript) | [Criar o gráfico com o Node.js](create-graph-nodejs.md) |
+| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Criar o gráfico com o Python](create-graph-python.md) |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP no GitHub](https://github.com/PommeVerte/gremlin-php) | [Criar o gráfico linguagem PHP](create-graph-php.md) |
 | [Consola gremlin](https://tinkerpop.apache.org/downloads.html) | [TinkerPop docs](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Criar o gráfico utilizando a consola de Gremlin](create-graph-gremlin-console.md) |
 
@@ -123,7 +123,7 @@ Seguem-se alguns cenários onde o suporte de gráfico de BD do Cosmos Azure pode
 
  Ao combinar dados sobre os seus clientes e os respetivos interações com outras pessoas, pode desenvolver experiências personalizadas, prever o comportamento do cliente ou ligar a pessoas com outras pessoas com interesses semelhantes. BD do Azure do Cosmos pode ser utilizado para gerir redes sociais e controlar as preferências de cliente e dados.
 
-* Motores de recomendação
+* Motores de recomendações
 
  Este cenário é frequentemente utilizado na indústria de revenda. Ao combinar as informações sobre produtos, os utilizadores e as interações do utilizador, como a compra, navegação ou classificação um item, pode criar recomendações personalizadas. A latência baixa, escala elástica e nativo suporte de gráfico de base de dados do Azure Cosmos é ideal para estes interações de modelação.
 

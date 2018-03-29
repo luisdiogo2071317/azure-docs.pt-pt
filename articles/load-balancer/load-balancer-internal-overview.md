@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral do Balanceador de carga interno do Azure | Microsoft Docs"
-description: "Como um balanceador de carga interno funciona no Azure e cenários para configurar pontos finais internos."
+title: Descrição geral do Balanceador de carga interno do Azure | Microsoft Docs
+description: Como um balanceador de carga interno funciona no Azure e cenários para configurar pontos finais internos.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 54e390dbdb07cb4c45c801b638099aa0dcc6db1a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 0511165225f5a336291e86e0c504e60989933f3c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-azure-internal-load-balancer"></a>Descrição geral do Balanceador de carga interno do Azure
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Azure interno carga balanceador (ILB) apenas direciona o tráfego para recursos que estejam dentro de um serviço em nuvem ou uma VPN que utilizam para aceder à infraestrutura do Azure. No que esta respeita ILB difere de um balanceador de carga para a internet. Infraestrutura do Azure restringe o acesso para os balanceamento de carga endereços IP virtuais (VIP) de um serviço em nuvem ou para uma rede virtual. Endereços VIP e redes virtuais são expostos nunca diretamente para um ponto final de internet. Aplicações de linha de negócio internas executam no Azure e são acedidas a partir do Azure ou a partir dos recursos no local.
 
@@ -74,7 +74,7 @@ Outro cenário para aplicações de linha de negócio é uma VPN de site a site 
 
 Configurações de Balanceador de carga internas não suportam a realizar o SNAT. Neste artigo, realizar o SNAT refere-se para cenários que envolvem masquerading de porta tradução de endereços de rede de origem. Uma VM com um conjunto de Balanceador de carga tem de atingir o endereço IP Front-end do Balanceador de carga interno correspondentes. Falhas de ligação ocorrerem quando o fluxo é com balanceamento de carga para a VM que teve origem o fluxo. Estes cenários não são suportados para o ILB. Em vez disso, tem de ser utilizado num Balanceador de carga de estilo de proxy.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Suporte do Azure Resource Manager para o Balanceador de carga do Azure](load-balancer-arm.md)
 * [Introdução ao configurar um balanceador de carga para a internet](load-balancer-get-started-internet-arm-ps.md)

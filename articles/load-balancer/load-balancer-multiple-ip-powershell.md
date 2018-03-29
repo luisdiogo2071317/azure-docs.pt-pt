@@ -1,6 +1,6 @@
 ---
-title: "Várias configurações de IP no Azure de balanceamento de carga | Microsoft Docs"
-description: "Balanceamento de carga entre as configurações de IP primários e secundários."
+title: Várias configurações de IP no Azure de balanceamento de carga | Microsoft Docs
+description: Balanceamento de carga entre as configurações de IP primários e secundários.
 services: load-balancer
 documentationcenter: na
 author: anavinahar
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.openlocfilehash: 2235d007434dabde1639ab19bc6813c818ed5ed7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 12a978fc85d9502ce484859b436575b67364c9c4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Várias configurações de IP através do PowerShell de balanceamento de carga
 
@@ -27,7 +27,6 @@ ms.lasthandoff: 12/21/2017
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Este artigo descreve como utilizar o Balanceador de carga do Azure com vários endereços IP numa interface de rede secundária (NIC). Para este cenário, temos duas VMs com Windows, cada um com um site primário e um NIC secundário. Cada uma dos NICs secundários tem duas configurações de IP. Cada VM aloja contoso.com de Web sites e fabrikam.com. Cada Web site está vinculado a uma das configurações de IP no NIC secundário. Utilizamos o Balanceador de carga do Azure para expor dois endereços IP de front-end, um para cada Web site, distribuir o tráfego para a respetiva configuração de IP para o Web site. Este cenário utiliza o mesmo número de porta entre ambos frontends, bem como ambos os endereços IP do conjunto de back-end.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 15bbd32d982bdefc5665421b828ce0c8234b7257
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Descrição geral do padrão de Balanceador de carga do Azure
 
@@ -30,7 +30,7 @@ Este artigo concentra-se no balanceador de carga padrão.  Para obter uma descri
 
 Padrão de Balanceador de carga é um produto de Balanceador de carga novo para todos os TCP e UDP aplicações com uma funcionalidade expandida e mais granular definido através de Balanceador de carga básico.  Apesar de existirem diversas semelhanças, é importante para se familiarizar com as diferenças conforme descrito neste artigo.
 
-Pode utilizar o padrão de Balanceador de carga padrão como um balanceador de carga público ou interno. E pode ser ligada uma máquina virtual para um público e um recurso de Balanceador de carga interno.
+Pode utilizar o padrão de Balanceador de carga como um balanceador de carga público ou interno. E pode ser ligada uma máquina virtual para um público e um recurso de Balanceador de carga interno.
 
 Funções do recurso de Balanceador de carga são sempre expresso como um front-end, uma regra, uma pesquisa de estado de funcionamento e uma definição de conjunto de back-end.  Um recurso pode conter várias regras. Pode colocar as máquinas virtuais para o conjunto de back-end, especificando o conjunto de back-end do recurso de NIC da máquina virtual.  No caso de um conjunto de dimensionamento de máquina virtual, este parâmetro é transmitido através do perfil de rede e expandir.
 
@@ -175,6 +175,9 @@ Pode modificar o Balanceador de carga padrão de recursos e mover um endereço I
 ## <a name="migration-between-skus"></a>Migração entre os SKUs
 
 SKUs não são mutável. Siga os passos nesta secção para mover de um recurso SKU para outro.
+
+>[!IMPORTANT]
+>Reveja este documento na íntegra para compreender as diferenças entre os SKUs e ter examinadas cuidadosamente o seu cenário.  Terá de fazer alterações adicionais para alinhar com o seu cenário.
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>Migrar de básica para o Standard SKU
 

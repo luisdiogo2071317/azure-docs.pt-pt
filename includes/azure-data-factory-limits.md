@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 03/27/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: e68e87bb19b8c64cf06c03831b22cf43d773efde
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/29/2018
+---
 Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites predefinido para se certificar de que as subscrições de cliente estão protegidas de cargas de trabalho entre si. Muitas dos limites podem ser facilmente geradas para a sua subscrição até ao limite máximo contactando o suporte.
 
 ### <a name="version-2"></a>Versão 2
@@ -13,9 +29,9 @@ Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites
 | Pipeline em simultâneo é executada por pipeline | 20 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Atividades de máx. por pipeline | 20 | 30 |
 | Parâmetros de máx. por pipeline | 20 | 30 |
-| bytes por objeto para objetos de pipeline <sup>1</sup> | 200 KB | 200 KB |
-| bytes por objeto para o conjunto de dados e objetos do serviço ligado <sup>1</sup> | 100 KB | 2000 KB |
-| Unidades de movimento de dados de nuvem <sup>3</sup> | 32 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Bytes por objeto para objetos de pipeline <sup>1</sup> | 200 KB | 200 KB |
+| Bytes por objeto para o conjunto de dados e objetos do serviço ligado <sup>1</sup> | 100 KB | 2000 KB |
+| Unidades de movimento de dados de nuvem <sup>3</sup> | 256 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Repetir contagem pipeline para execuções de atividade | 1 day(timeout) | 1 dia (tempo limite) |
 | Escrever chamadas de API | 2500/hr<br/><br/> Este limite é imposta pelo Azure Resource Manager, não o Azure Data Factory. | [Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Chamadas da API de leitura | 12,500/hr<br/><br/> Este limite é imposta pelo Azure Resource Manager, não o Azure Data Factory. | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
@@ -29,8 +45,8 @@ Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites
 | pipelines dentro de uma fábrica de dados |2500 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | conjuntos de dados dentro de uma fábrica de dados |5000 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | setores em simultâneo por conjunto de dados |10 |10 |
-| bytes por objeto para objetos de pipeline <sup>1</sup> |200 KB |200 KB |
-| bytes por objeto para o conjunto de dados e objetos do serviço ligado <sup>1</sup> |100 KB |2000 KB |
+| Bytes por objeto para objetos de pipeline <sup>1</sup> |200 KB |200 KB |
+| Bytes por objeto para o conjunto de dados e objetos do serviço ligado <sup>1</sup> |100 KB |2000 KB |
 | Núcleos a pedido no cluster de HDInsight numa subscrição <sup>2</sup> |60 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Unidades de movimento de dados de nuvem <sup>3</sup> |32 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Repetir contagem pipeline para execuções de atividade |1000 |MaxInt (32 bits) |
@@ -39,7 +55,7 @@ Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites
 
 <sup>2</sup> HDInsight a pedido núcleos alocados fora da subscrição que contém a fábrica de dados. Como resultado, o limite superior é a fábrica de dados imposta limite núcleos núcleos de HDInsight a pedido e é diferente do que o limite de núcleos associado à subscrição do Azure.
 
-<sup>3</sup> unidade de movimento de dados de nuvem (DMU) está a ser utilizada numa operação de cópia da nuvem para a nuvem. É uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos de rede) de uma única unidade na fábrica de dados. Pode obter um maior débito de cópia utilizando mais DMUs para alguns cenários. Consulte [unidades de movimento de dados de nuvem](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) secção em detalhes.
+<sup>3</sup> unidade de movimento de dados de nuvem (DMU) está a ser utilizada numa operação de cópia da nuvem para a nuvem. É uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos de rede) de uma única unidade na fábrica de dados. Pode obter um maior débito de cópia utilizando mais DMUs para alguns cenários. Consulte [nuvem unidades de movimento de dados (V2)](../articles/data-factory/copy-activity-performance.md#cloud-data-movement-units) e [nuvem unidades de movimento de dados (V1)](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) secção em detalhes.
 
 <sup>4</sup> a integração do tempo de execução (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer as seguintes capacidades de integração de dados entre diferentes ambientes de rede: movimento de dados, distribuição de atividades para serviços de computação execução de pacotes SSIS. Para obter mais informações, consulte [descrição geral de tempo de execução de integração](../articles/data-factory/concepts-integration-runtime.md).
 

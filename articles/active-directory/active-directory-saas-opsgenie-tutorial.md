@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com OpsGenie | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e OpsGenie."
+title: 'Tutorial: Integração do Azure Active Directory com OpsGenie | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e OpsGenie.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: b0d8fa13c13ad8d4a85cb482bcd7e440006f0437
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b0cd54c7750e85eb7b4e1ba6be309c585d5a7b4e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integração do Azure Active Directory com OpsGenie
 
@@ -110,19 +110,35 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_url.png)
 
-    No **URL de início de sessão** caixa de texto, escreva o URL:`https://app.opsgenie.com/auth/login`
+    No **URL de início de sessão** caixa de texto, escreva o URL: `https://app.opsgenie.com/auth/login`
 
-4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
-
-    ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_certificate.png) 
-
-5. Clique em **guardar** botão.
+4. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
 
-6. No **OpsGenie configuração** secção, clique em **configurar OpsGenie** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+5. No **OpsGenie configuração** secção, clique em **configurar OpsGenie** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** da secção de referência rápida.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png) 
+    ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png)
+
+6. Para gerar o **URL de metadados**, execute os seguintes passos:
+
+    a. Clique em **registos de aplicação**.
+    
+    ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appregistrations.png)
+   
+    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
+    
+    ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpointicon.png)
+
+    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
+    
+    ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpoint.png)
+     
+    d. Agora, a página de propriedades do **OpsGenie** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
+ 
+    ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appid.png)
+
+    e. Gerar o **URL de metadados** utilizando o padrão do seguinte: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 7. Abrir outra instância do browser e, em seguida, inicie sessão na OpsGenie como administrador.
 
@@ -142,9 +158,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
    
     ![Definições de OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png)
     
-    a. Colar **único início de sessão no URL do serviço**, que copiou do portal do Azure para o **SAML 2.0 Endpoint** caixa de texto.
+    a. No **SAML 2.0 Endpoint** caixa de texto, colar **único início de sessão no URL do serviço**valor que copiou do portal do Azure.
     
-    b. Abra o certificado codificado de base-64 transferido no bloco de notas, copie o conteúdo do mesmo para a sua área de transferência e, em seguida, cole-o para o **500 certificado** caixa de texto.
+    b. No **Url de metadados:** caixa de texto, colar **URL de metadados**valor que copiou do portal do Azure.
     
     c. Clique em **guardar alterações**.
 

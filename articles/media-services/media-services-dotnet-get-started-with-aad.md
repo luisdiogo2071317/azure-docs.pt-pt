@@ -1,23 +1,23 @@
 ---
-title: "Autenticação de utilização do Azure AD para aceder à API de serviços de suporte de dados do Azure com o .NET | Microsoft Docs"
-description: "Este tópico mostra como utilizar a autenticação do Azure Active Directory (Azure AD) para aceder à API de serviços de suporte de dados do Azure (AMS) com o .NET."
+title: Autenticação de utilização do Azure AD para aceder à API de serviços de suporte de dados do Azure com o .NET | Microsoft Docs
+description: Este tópico mostra como utilizar a autenticação do Azure Active Directory (Azure AD) para aceder à API de serviços de suporte de dados do Azure (AMS) com o .NET.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8817bb0da526769470e96b63b9c80620309757bf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Utilize a autenticação do Azure AD para aceder à API de serviços de suporte de dados do Azure com o .NET
 
@@ -36,7 +36,7 @@ Quando estiver a utilizar a autenticação do Azure AD com Media Services do Azu
 - **Autenticação principal de serviço** autentica um serviço. As aplicações que utilizam frequentemente este método de autenticação são aplicações que executem serviços de daemon, serviços de camada média ou tarefas agendadas, tais como as web apps, aplicações de função, as logic apps, APIs ou micro-serviços.
 
 >[!IMPORTANT]
->Atualmente, o serviço de multimédia do Azure suporta um modelo de autenticação do serviço de controlo de acesso do Azure. No entanto, a autorização de controlo de acesso é vai preterido no dia 1 de Junho de 2018. Recomendamos a migração para um modelo de autenticação do Azure Active Directory logo que possível.
+>Atualmente, o serviço de multimédia do Azure suporta um modelo de autenticação do serviço de controlo de acesso do Azure. No entanto, a autorização de controlo de acesso é vai preterido no 22 de Junho de 2018. Recomendamos a migração para um modelo de autenticação do Azure Active Directory logo que possível.
 
 ## <a name="get-an-azure-ad-access-token"></a>Obtenha o token de acesso do Azure AD
 
@@ -185,6 +185,6 @@ O exemplo seguinte mostra como criar o token do Azure AD e o contexto:
         }
     }
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Introdução ao [carregar ficheiros para a conta](media-services-dotnet-upload-files.md).

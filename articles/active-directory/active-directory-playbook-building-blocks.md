@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory prova de conceito manual de comunicação social edifício blocos | Microsoft Docs"
-description: "Explorar e implementar rapidamente a cenários de identidade e gestão de acesso"
+title: Azure Active Directory prova de conceito manual de comunicação social edifício blocos | Microsoft Docs
+description: Explorar e implementar rapidamente a cenários de identidade e gestão de acesso
 services: active-directory
 keywords: do Azure Active Directory, manual, uma prova de conceito, PoC
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory prova do manual de comunicação social conceito: blocos modulares
 
@@ -40,8 +40,8 @@ Seguem-se alguns pré-requisitos necessários para qualquer POC com o Azure AD P
 
 | Pré-requisito | Recursos |
 | --- | --- |
-| Inquilino do Azure do AD definido com uma subscrição do Azure válida | [Como obter um inquilino do Azure Active Directory](active-directory-howto-tenant.md)<br/>**Nota:** se já tiver um ambiente com licenças do Azure AD Premium, pode obter uma subscrição de extremidade zero, navegando até https://aka.ms/accessaad <br/>Saiba mais em: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ e https://technet.microsoft.com/library/dn832618.aspx |
-| Domínios definido e verificado | [Adicionar um nome de domínio personalizado ao Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** algumas cargas de trabalho, tais como o Power BI foi aprovisionou um inquilino do azure do AD nos bastidores. Para verificar se um determinado domínio está associado a um inquilino, navegue até à https://login.microsoftonline.com/ {domain}/v2.0/.well-known/openid-configuration. Poderá ser necessário se obter uma resposta com êxito, em seguida, o domínio já está atribuído a um inquilino e assumir o controlo. Se assim for, contacte a Microsoft para obter orientações adicionais. Saiba mais sobre as opções alimentar em: [que é a inscrição Self-Service do Azure?](active-directory-self-service-signup.md) |
+| Inquilino do Azure do AD definido com uma subscrição do Azure válida | [Como obter um inquilino do Azure Active Directory](active-directory-howto-tenant.md)<br/>**Nota:** se já tiver um ambiente com licenças do Azure AD Premium, pode obter uma subscrição de extremidade zero, acedendo a https://aka.ms/accessaad <br/>Saiba mais em: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ e https://technet.microsoft.com/library/dn832618.aspx |
+| Domínios definido e verificado | [Adicionar um nome de domínio personalizado ao Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** algumas cargas de trabalho, tais como o Power BI foi aprovisionou um inquilino do azure do AD nos bastidores. Para verificar se um determinado domínio está associado a um inquilino, navegue até à https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Poderá ser necessário se obter uma resposta com êxito, em seguida, o domínio já está atribuído a um inquilino e assumir o controlo. Se assim for, contacte a Microsoft para obter orientações adicionais. Saiba mais sobre as opções alimentar em: [que é a inscrição Self-Service do Azure?](active-directory-self-service-signup.md) |
 | Azure AD Premium ou EMS ativado de avaliação | [Azure Active Directory Premium livre durante um mês](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Atribuiu o Azure AD Premium licenças ou EMS aos utilizadores de PoC | [Licença de si e aos utilizadores no Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Credenciais de Administrador Global do AD do Azure | [Atribuir funções de administrador no Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
@@ -71,7 +71,7 @@ Hora para concluído aproximada: uma hora para menos de 1000 utilizadores de PoC
 
 ### <a name="considerations"></a>Considerações
 
-1. Observe as considerações de segurança da sincronização de hash de palavra-passe [aqui](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  Se a sincronização de hash de palavra-passe para os utilizadores de produção piloto não definitively é uma opção, em seguida, considere as seguintes alternativas:
+1. Observe as considerações de segurança da sincronização de hash de palavra-passe [aqui](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  Se a sincronização de hash de palavra-passe para os utilizadores de produção piloto não definitively é uma opção, em seguida, considere as seguintes alternativas:
    * Crie utilizadores de teste no domínio de produção. Certifique-se de que não sincronizar a qualquer outra conta
    * Mover para um ambiente UAT
 2.  Se pretender pursue Federação, é valer a pena para compreender que os custos associados uma solução federada com o fornecedor de identidade no local para além de POC e medida contra as vantagens que procura:
@@ -101,7 +101,7 @@ Hora para concluído aproximada: 15 minutos
 | Aceda ao Portal de gestão do Azure AD | [Portal de gestão do Azure AD - imagem corporativa da empresa](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
 | Carregar os recursos para a página de início de sessão (logótipo heroína logótipo pequeno, etiquetas, etc.). Opcionalmente, se tiver o AD FS, alinha os elementos mesmos com páginas de início de sessão do AD FS | [Adicionar a imagem corporativa para o início de sessão e painel de acesso páginas: elementos personalizáveis](customize-branding.md) |
 | Aguarde alguns minutos para que a alteração totalmente em vigor |  |
-| Iniciar sessão com as credenciais de utilizador POC a https://myapps.microsoft.com |  |
+| Iniciar sessão com as credenciais de utilizador POC para https://myapps.microsoft.com |  |
 | Confirme o aspeto e funcionalidade no browser | [Adicionar a imagem corporativa para o início de sessão e painel de acesso páginas](customize-branding.md) |
 | Opcionalmente, confirme o aspeto e funcionalidade nos outros dispositivos |  |
 
@@ -209,7 +209,7 @@ Hora para concluído aproximada: 30 minutos
 | Pré-requisito | Recursos |
 | --- | --- |
 | A lista de aplicações de destino e os URLS exatos início de sessão antes de tempo. Por exemplo, pode utilizar o Twitter. | [Twitter no Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Inscrever-se no Twitter](https://twitter.com/signup?lang=en) |
-| Partilhado credenciais para esta aplicação SaaS. | [Partilha de contas de utilizar o Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automatizada palavra-passe roll a ativação pós-falha para o Facebook, Twitter e LinkedIn agora em pré-visualização! -Blogue Enterprise Mobility and Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| Partilhado credenciais para esta aplicação SaaS. | [Partilha de contas de utilizar o Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automatizada palavra-passe roll a ativação pós-falha para o Facebook, Twitter e LinkedIn agora em pré-visualização! -Blogue Enterprise Mobility and Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | Credenciais para, pelo menos, dois membros de equipa que serão a mesma conta de acesso. Têm de ser parte de um grupo de segurança. | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Acesso de administrador local para um computador para implementar a extensão do painel de acesso para o Internet Explorer, Chrome ou Firefox | [Extensão do painel de acesso de i/e](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão de painel de acesso para Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão de painel de acesso para o Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -443,7 +443,7 @@ Hora para concluído aproximada: 10 minutos
 | Utilizadores de PoC já estão atribuídos à aplicação |  |
 | As credenciais para o utilizador POC estão disponíveis |  |
 | O utilizador POC está registado para MFA. Utilizar um telefone com boa receção | https://aka.ms/ssprsetup |
-| Dispositivo na rede interna. Endereço IP configurado no intervalo de endereços interno | Localizar o endereço ip: https://www.bing.com/search?q=what%27s+my+ip |
+| Dispositivo na rede interna. Endereço IP configurado no intervalo de endereços interno | Localize o seu endereço de ip: https://www.bing.com/search?q=what%27s+my+ip |
 | Dispositivo na rede externa (pode ser um telefone com a rede móvel da operadora) |  |
 
 ### <a name="steps"></a>Passos
@@ -478,8 +478,8 @@ Hora para concluído aproximada: 15 minutos
 | --- | --- |
 | Início de sessão para https://portal.azure.com como um administrador global (GA) e o painel PIM de arranque. O Administrador Global que executa este passo é pré-propagadas como o administrador de segurança.  Vamos chamar esta ator GA1 | [Utilizar o Assistente de segurança no Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
 | Identificar o administrador global e movê-los a partir permanente para elegível. Deve ser um administrador separado da utilizada no passo 1 para efeitos de clareza. Vamos chamar esta ator GA2 | [Azure AD Privileged Identity Management: Como adicionar ou remover uma função de utilizador](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[O que é o Azure AD Privileged Identity Management?: configurar as definições de ativação de função](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
-| Agora, inicie sessão no como GA2 https://portal.azure.com e tente alterar a "Definições de utilizador". Tenha em atenção algumas opções são desativadas. | |
-| Num novo separador na mesma sessão como passo 3, navegue até agora para https://portal.azure.com e adicionar o painel do PIM ao dashboard. | [Como ativar ou desativar as funções no Azure AD Privileged Identity Management: adicionar a aplicação de Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Agora, inicie sessão como GA2 para https://portal.azure.com e tente alterar a "Definições de utilizador". Tenha em atenção algumas opções são desativadas. | |
+| Num novo separador e na mesma sessão como passo 3, navegue até agora para https://portal.azure.com e adicione o painel do PIM ao dashboard. | [Como ativar ou desativar as funções no Azure AD Privileged Identity Management: adicionar a aplicação de Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
 | Pedido de ativação para a função de Administrador Global | [Como ativar ou desativar as funções no Azure AD Privileged Identity Management: ativar uma função](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
 | Tenha em atenção que se GA2 nunca inscreveu MFA, o registo para o MFA do Azure será necessário |  |
 | Volte ao separador original no passo 3 e clique no botão Atualizar no browser. Tenha em atenção que tem agora acesso para alterar a "Definições de utilizador" | |
@@ -508,7 +508,7 @@ Hora para concluído aproximada: 20 minutos
 | Browser abrir tor | [Transferir Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Inicie sessão no https://myapps.microsoft.com com a conta de utilizador POC | [Azure Active Directory Identity Protection manual de comunicação social: simulando eventos de risco](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | Aguarde 5 a 7 minutos |  |
-| Inicie sessão como um administrador global para https://portal.azure.com e abrir o painel Identity Protection | https://aka.ms/aadipgetstarted |
+| Inicie sessão como um administrador global para https://portal.azure.com e abra o painel Identity Protection | https://aka.ms/aadipgetstarted |
 | Abra o painel de eventos de risco. Deverá ver uma entrada em "Inícios de sessão de endereços IP anónimos"  | [Azure Active Directory Identity Protection manual de comunicação social: simulando eventos de risco](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Considerações
@@ -532,7 +532,7 @@ Hora para concluído aproximada: 10 minutos
 
 | Passo | Recursos |
 | --- | --- |
-| Inicie sessão como um administrador global para https://portal.azure.com e abrir o painel de Identity Protection | https://aka.ms/aadipgetstarted |
+| Inicie sessão como um administrador global para https://portal.azure.com e abrir o painel Identity Protection | https://aka.ms/aadipgetstarted |
 | Ative uma política de início de sessão do risco da seguinte forma:<br/>-Atribuído a: utilizador POC<br/>-Condições: Início de sessão risco médio ou superior (início de sessão anónimo localização é considerado como um nível de risco média)<br/>-Controlos: Exigir a MFA | [Azure Active Directory Identity Protection manual de comunicação social: início de sessão risco](active-directory-identityprotection-playbook.md) |
 | Browser abrir tor | [Transferir Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Inicie sessão no https://myapps.microsoft.com com a conta de utilizador de PoC |  |

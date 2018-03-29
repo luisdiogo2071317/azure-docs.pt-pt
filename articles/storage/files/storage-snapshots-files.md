@@ -1,5 +1,5 @@
 ---
-title: Descrição geral de instantâneos de partilha de ficheiros do Azure (pré-visualização) | Microsoft Docs
+title: Descrição geral de instantâneos de partilha de ficheiros do Azure | Microsoft Docs
 description: Um instantâneo de partilha é uma versão só de leitura de uma partilha de ficheiros do Azure que é executada num ponto no tempo, como uma forma de fazer cópias de segurança da partilha.
 services: storage
 documentationcenter: .net
@@ -14,32 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6499bdf1af676898f7b2911612cbd206bccfa4fa
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Descrição geral de instantâneos de partilha de ficheiros do Azure 
 Ficheiros do Azure fornece a capacidade para criar instantâneos de partilha de partilhas de ficheiros. Partilhe instantâneos captura o estado de partilha neste ponto no tempo. Neste artigo, vamos descrever que capacidades fornecem de instantâneos de partilha e como pode tirar partido dos mesmos no seu caso de utilização personalizada.
 
-
 ## <a name="when-to-use-share-snapshots"></a>Quando utilizar instantâneos de partilha
 
 ### <a name="protection-against-application-error-and-data-corruption"></a>Proteção contra danos nos dados e de erro de aplicação
-
 As aplicações que utilizam partilhas de ficheiros efetuar operações como escrita, ler, armazenamento, a transmissão e processamento. Se uma aplicação está configurada incorretamente ou se é apresentado um erro não intencional, substituição acidental ou danos podem acontecer alguns blocos. Para ajudar a proteger contra estes cenários, pode tirar um instantâneo da partilha antes de implementar o novo código de aplicação. Se é apresentado um erro de erros ou aplicação com a nova implementação, pode voltar atrás para uma versão anterior dos seus dados em que a partilha de ficheiros. 
 
 ### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Proteção contra eliminações acidentais ou não intencional de alterações
-
 Imagine que está a trabalhar num ficheiro de texto numa partilha de ficheiros. Depois de fechar o ficheiro de texto, perderá a capacidade de anular as alterações. Nestes casos, em seguida, terá de recuperar uma versão anterior do ficheiro. Pode utilizar instantâneos de partilha para recuperar versões anteriores do ficheiro se acidentalmente tiver mudado ou eliminado.
 
 ### <a name="general-backup-purposes"></a>Fins de cópia de segurança gerais
-
 Depois de criar uma partilha de ficheiros, pode criar um instantâneo de partilha da partilha de ficheiros para utilizá-lo para cópia de segurança de dados periodicamente. Uma partilha de instantâneos, quando executada periodicamente, ajuda a manter as versões anteriores de dados que podem ser utilizadas para a requisitos futuros de auditoria ou de recuperação após desastre.
 
 ## <a name="capabilities"></a>Capacidades
-
 Um instantâneo de partilha é uma cópia de ponto no tempo só de leitura dos seus dados. Pode criar, eliminar e gerir instantâneos utilizando a API REST. Capacidades também estão disponíveis no portal do Azure, CLI do Azure e biblioteca de clientes. 
 
 Pode ver os instantâneos de uma partilha utilizando a REST API e o SMB. Pode obter a lista das versões do diretório ou ficheiro e podem montar uma versão específica diretamente como uma unidade. 
@@ -59,9 +54,7 @@ Quando cria um instantâneo de partilha de uma partilha de ficheiros, nas propri
 
 Não é possível eliminar uma partilha que tenha instantâneos de partilha, a menos que a elimine primeiro todos os instantâneos de partilha.
 
-
 ## <a name="space-usage"></a>Utilização de espaço 
-
 Os instantâneos de partilha são incrementais natureza. Apenas os dados que foi alterado após o instantâneo de partilha mais recente é guardado. Isto minimiza o tempo necessário para criar o instantâneo de partilha e guarda os custos de armazenamento. Qualquer operação de escrita para o objeto ou propriedade ou metadados de operação de atualização é contabilizada na direção "conteúdo alterado" e está armazenada no instantâneo de partilha. 
 
 Para poupar espaço, pode eliminar o instantâneo de partilha para o período de quando o volume de alterações foi mais elevado.
@@ -71,13 +64,11 @@ Apesar de instantâneos de partilha são guardados incrementalmente, é necessá
 Instantâneos não contam para o limite de partilha de 5 TB. Não há nenhum limite para a quantidade de instantâneos de partilha de espaço ocupam no total. Limites de conta de armazenamento ainda são aplicáveis.
 
 ## <a name="limits"></a>Limites
-
 O número máximo de instantâneos de partilha de ficheiros do Azure permite hoje é 200. Depois de instantâneos de partilha de 200, tem de eliminar instantâneos de partilha anteriores para criar campanhas novas. 
 
 Não há nenhum limite para as chamadas simultâneas para criação de instantâneos de partilha. Não há nenhum limite para a quantidade de espaço que a partilha de instantâneos de uma partilha de ficheiros específica podem consumir. 
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Copiar dados para uma partilha de instantâneo de partilha
-
 Operações de cópia que envolvem ficheiros e partilham instantâneos siga estas regras:
 
 Pode copiar ficheiros individuais num instantâneo de partilha de ficheiros através de para a partilha de base ou qualquer outra localização. Pode restaurar uma versão anterior de um ficheiro ou restaurar a partilha de ficheiro completo ao copiar o ficheiro ao ficheiro do instantâneo de partilha. O instantâneo de partilha não é promovido a partilha de base. 
@@ -89,7 +80,6 @@ Pode copiar um ficheiro num instantâneo partilha para um destino com um nome di
 Quando um ficheiro de destino é substituído por uma cópia, todos os instantâneos partilha associados ao ficheiro de destino original permaneçam intactos.
 
 ## <a name="general-best-practices"></a>Melhores práticas gerais 
-
 Quando estiver a executar a infraestrutura no Azure, automatizar as cópias de segurança para recuperação de dados sempre que possível. Ações automatizadas são mais fiáveis do que processos manuais, ajudando a melhorar a proteção de dados e a capacidade de recuperação. Pode utilizar a API REST, o SDK do cliente ou para a automatização de script.
 
 Antes de implementar o Programador de instantâneo de partilha, pondere cuidadosamente as definições de retenção para evitar incorrer em custos desnecessários e frequência de instantâneos de partilha.
@@ -97,6 +87,8 @@ Antes de implementar o Programador de instantâneo de partilha, pondere cuidados
 Instantâneos de partilha fornecem apenas uma proteção ao nível dos ficheiros. Partilha de instantâneos não impedem eliminações fat mas numa conta de armazenamento ou de partilha de ficheiros. Para ajudar a proteger uma conta de armazenamento de eliminações acidentais, pode bloquear a conta de armazenamento ou o grupo de recursos.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Trabalhar com instantâneos de partilha](storage-how-to-use-files-snapshots.md)
-* [Partilhar o instantâneo FAQ](storage-files-faq.md#share-snapshots)
-
+- Trabalhar com instantâneos de partilha no:
+    - [Portal](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
+    - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
+    - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+- [Partilhar o instantâneo FAQ](storage-files-faq.md#share-snapshots)

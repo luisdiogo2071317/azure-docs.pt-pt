@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 03/15/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0cfa79b9c44953c613eaec8d701f351c6f2ce212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76e7be62caae7e33caefc3f90a5e57c5f71a31d3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Afirmações opcionais no Azure AD (pré-visualização)
 
@@ -69,9 +69,7 @@ O conjunto de afirmações opcionais disponíveis por predefinição para as apl
 | `is_device_managed`        | Indica se o dispositivo tem MDM instalado. Relacionadas com a política de acesso condicional.                                                                                                                  | SAML       |           | Para JWTs, convergida para signin_state                                                                                                                                                                                                                                                   |
 | `is_device_compliant`      | Indica que o MDM determinou que o dispositivo estiver em conformidade com as políticas de segurança de dispositivos da organização.                                                                                  | SAML       |           | Para JWTs, convergida para signin_state                                                                                                                                                                                                                                                   |
 | `kmsi`                     | Indica se o utilizador tiver escolhido a opção de manter-Me assinado no.                                                                                                                                    | SAML       |           | Para JWTs, convergida para signin_state                                                                                                                                                                                                                                                   |
-| `upn`                      | UserPrincipalName afirmação.  Embora esta afirmação é automaticamente incluída, pode especificá-la como uma afirmação opcional para anexar propriedades adicionais para modificar o respetivo comportamento no caso de utilizador convidado. | JWT, SAML  |           | Propriedades adicionais: <br> include_externally_authenticated_upn <br> include_externally_authenticated_upn_without_hash                                                                                                                                                                 |
-| `groups`                   | Os grupos de que um utilizador é membro.                                                                                                                                                               | JWT, SAML  |           | Propriedades adicionais: <br> Sam_account_name<br> Dns_domain_and_sam_account_name<br> Netbios_domain_and_sam_account<br> Max_size_limit<br> Emit_as_roles<br>                                                                                                                            |
-
+| `upn`                      | UserPrincipalName afirmação.  Embora esta afirmação é automaticamente incluída, pode especificá-la como uma afirmação opcional para anexar propriedades adicionais para modificar o respetivo comportamento no caso de utilizador convidado. | JWT, SAML  |           | Propriedades adicionais: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
 ### <a name="v20-optional-claims"></a>Afirmações opcionais v 2.0
 Estas afirmações sempre estão incluídas no v 1.0 tokens, mas são removidas de tokens de v 2.0, a menos que o pedido.  Estas afirmações só são aplicáveis para JWTs (tokens de identidade e Tokens de acesso).  
 
@@ -90,26 +88,19 @@ Estas afirmações sempre estão incluídas no v 1.0 tokens, mas são removidas 
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de afirmações opcionais
 
-Alguns afirmações opcionais podem ser configuradas para alterar a forma como a afirmação é devolvida.  Estes intervalos de propriedades adicionais de formatação alterações (por exemplo, `include_externally_authenticated_upn_without_hash`) para alterar o conjunto de dados devolvido (`Dns_domain_and_sam_account_name`).
+Alguns afirmações opcionais podem ser configuradas para alterar a forma como a afirmação é devolvida.  Estas propriedades adicionais são utilizadas principalmente para ajudar a migração das aplicações no local com as expectativas de dados diferentes (por exemplo, `include_externally_authenticated_upn_without_hash` ajuda-o com os clientes que não podem processar hashmarks (`#`) no UPN)
 
 **Tabela 4: Valores para configurar afirmações opcionais padrão**
 
 | Nome da propriedade                                     | Nome de propriedade adicionais                                                                                                             | Descrição |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `Upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |             |
 | | `include_externally_authenticated_upn`              | Inclui o convidado UPN conforme armazenado no inquilino do recurso.  Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Mesmo que acima, exceto que a hashmarks (`#`) são substituídos por carateres de sublinhado (`_`), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com` |             
-| `groups`                                              |                                                                                                                                      |             |
-| | `sam_account_name`                                  |                                                                                                                                      |             
-| | `dns_domain_and_sam_account_name`                   |                                                                                                                                      |             
-| | `netbios_domain_and_sam_account_name`               |                                                                                                                                      |             
-| | `max_size_limit`                                    | Gera o número de grupos devolvido para o limite de tamanho de grupo máximo (1000).                                                            |             
-| | `emit_as_roles`                                     | Emite uma afirmação "funções" em vez de afirmações de "grupos", com os mesmos valores.  Se destina a aplicações migrar a partir de um ambiente no local onde o RBAC tradicionalmente foi controlada através da associação ao grupo.   |             
 
 > [!Note]
 >Especificar que a afirmação opcional upn sem uma propriedade adicional não altera nenhum comportamento – para ver uma nova afirmação emitida no token, pelo menos uma das propriedades adicionais têm de ser adicionada. 
->
->O `account_name` propriedades adicionais para grupos não são interoperável e ordenação das propriedades adicionais é importante – apenas a primeira conta nome propriedade adicionais listados será utilizado. 
+
 
 #### <a name="additional-properties-example"></a>Exemplo de propriedades adicionais:
 
@@ -118,15 +109,15 @@ Alguns afirmações opcionais podem ser configuradas para alterar a forma como a
    {
        "idToken": [ 
              { 
-                "name": "groups", 
+                "name": "upn", 
             "essential": false,
-                "additionalProperties": [ "netbios_domain_and_sam_account_name", "sam_account_name" , "emit_as_roles"]  
+                "additionalProperties": [ "include_externally_authenticated_upn"]  
               }
         ]
 }
 ```
 
-Este objeto OptionalClaims irá devolver o mesmo `groups` afirmações como se `sam_account_name` não estavam incluídas – porque se encontra após `netbios_domain_and_sam_account_name`, será ignorada. 
+Este objeto OptionalClaims faz com que o token de ID devolvido ao cliente para incluir o upn de outro com o inquilino de raiz adicional e informações de inquilino de recursos.  
 
 ## <a name="configuring-optional-claims"></a>Configurar afirmações opcionais
 

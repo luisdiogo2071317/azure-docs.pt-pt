@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: f53a8641a50a6c968a6ba7b841e0e8f938b5d9f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 830f9c76d9d1bf11692fa9f2f5c49cbecdb69f25
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteger um servidor de ficheiros ao utilizar o Azure Site Recovery 
 
@@ -48,7 +48,7 @@ No diagrama anterior, vários servidores de ficheiros chamados membros ativament
 
     * Pode utilizar esta abordagem se as VMs têm configurações que não são suportadas pela recuperação de sites. Um exemplo é um disco de cluster partilhado, o que é por vezes, normalmente utilizado em ambientes de servidor de ficheiros. DFSR também funciona bem em ambientes de pouca largura de banda com a taxa de rotatividade média. Precisa de considerar o custo adicional de ter uma VM do Azure, cópias de segurança e sempre executadas. 
 
-* **Utilizar a sincronização de ficheiros do Azure para replicar os ficheiros**: Se planeia utilizar a nuvem ou já utilizar uma VM do Azure, pode utilizar a sincronização de ficheiros. Sincronização de ficheiros oferece a sincronizar completamente gerido de partilhas de ficheiros na nuvem que estão acessíveis através da norma da indústria [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protocolo (SMB). Partilhas de ficheiros do Azure, em seguida, podem ser montadas em simultâneo por implementações de nuvem ou no local do Windows, Linux e macOS. 
+* **Utilizar a sincronização de ficheiros do Azure para replicar os ficheiros**: Se planeia utilizar a nuvem ou já utilizar uma VM do Azure, pode utilizar a sincronização de ficheiros do Azure. Sincronização de ficheiros do Azure oferece a sincronizar completamente gerido de partilhas de ficheiros na nuvem que estão acessíveis através da norma da indústria [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protocolo (SMB). Partilhas de ficheiros do Azure, em seguida, podem ser montadas em simultâneo por implementações de nuvem ou no local do Windows, Linux e macOS. 
 
 O diagrama seguinte ajuda-o a determinar a estratégia de que a utilizar para o seu ambiente de servidor de ficheiros.
 

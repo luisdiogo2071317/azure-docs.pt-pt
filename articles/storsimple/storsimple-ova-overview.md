@@ -1,24 +1,24 @@
 ---
-title: "Descrição geral de matriz Virtual do Microsoft Azure StorSimple | Microsoft Docs"
-description: "Descreve a matriz de Virtual StorSimple, uma solução de armazenamento integrada que gere as tarefas de armazenamento entre uma matriz virtual no local e o armazenamento do Microsoft Azure na nuvem."
+title: Descrição geral de matriz Virtual do Microsoft Azure StorSimple | Microsoft Docs
+description: Descreve a matriz de Virtual StorSimple, uma solução de armazenamento integrada que gere as tarefas de armazenamento entre uma matriz virtual no local e o armazenamento do Microsoft Azure na nuvem.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/16/2017
+ms.date: 03/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b9a5797751fa970c569c93e5efe300d4d74319ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução à matriz Virtual StorSimple
 
@@ -73,7 +73,7 @@ A tabela seguinte descreve algumas das principais vantagens que fornece a soluç
 
 Um resumo das cargas de trabalho suportadas do StorSimple é apresentado abaixo.
 
-|Cenário     |Carga de trabalho     |Suportado      |Restrições               |
+|Cenário     |Carga de trabalho     |Suportadas      |Restrições               |
 |-------------|-------------|---------------|---------------------------|
 |ROBO  |Partilha de ficheiros     |Sim      |Consulte [os limites máximos para servidor de ficheiros](storsimple-ova-limits.md).<br></br>Consulte [requisitos de sistema para as versões suportadas do SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
 |Arquivo de nuvem  |Partilha de ficheiros de arquivo     |Sim      |Consulte [os limites máximos para servidor de ficheiros](storsimple-ova-limits.md).<br></br>Consulte [requisitos de sistema para as versões suportadas do SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
@@ -90,7 +90,7 @@ Matriz Virtual StorSimple não é adequado para cargas de trabalho que requerem 
 
 A matriz de Virtual StorSimple é particularmente adequada para os fluxos de trabalho seguintes:
 
-* [Gestão de armazenamento baseado na nuvem](#cloud-based-storage-management)
+* [gestão de armazenamento baseado na nuvem](#cloud-based-storage-management)
 * [Independente de localização de cópia de segurança](#location-independent-backup)
 * [Recuperação após desastre e proteção de dados](#data-protection-and-disaster-recovery)
 
@@ -136,7 +136,7 @@ A matriz virtual tem as seguintes funcionalidades:
 > [!NOTE]
 > Uma matriz de virtual não pode ser expandida. Por conseguinte, é importante aprovisionar armazenamento adequados ao criar a matriz virtual.
 
-### <a name="storsimple-device-manager-service"></a>Serviço do Gestor de dispositivos do StorSimple
+### <a name="storsimple-device-manager-service"></a>Serviço do Gestor de Dispositivos do StorSimple
 
 Microsoft Azure StorSimple fornece uma interface de utilizador baseadas na web, o serviço do Gestor de dispositivos do StorSimple, que lhe permite gerir centralmente armazenamento StorSimple. Pode utilizar o serviço StorSimple Manager de dispositivos para realizar as seguintes tarefas:
 
@@ -206,6 +206,15 @@ StorSimple utiliza compressão de dados e a eliminação de duplicados para redu
 
 Funcionalidades de proteção de dados do StorSimple permitem-lhe criar cópias de segurança a pedido. Além disso, uma agenda de cópia de segurança predefinida assegura que dados é uma cópia de segurança diária. São efetuadas cópias de segurança sob a forma de instantâneos incrementais, que são armazenados na nuvem. Instantâneos, o qual gravar apenas as alterações desde a última cópia de segurança, podem ser criados e restaurados rapidamente. Estes instantâneos podem ser extremamente importantes em cenários de recuperação após desastre, pois substituir sistemas de armazenamento secundário (por exemplo, a cópia de segurança de banda) e, permitem-lhe restaurar dados para o seu centro de dados ou para sites alternativos, se necessário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="gdpr-compliance"></a>Conformidade GDPR
+[Geral regulamento de proteção de dados (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é um leis de privacidade e proteção de dados do União Europeia (EU). O GDPR contém muitos requisitos sobre como recolher, armazenar e utilize as informações pessoais. As regras GDPR são impostas em empresas, agências governamentais e outras organizações que operam em EU e recolhem, analisam dados associados ao residentes de EU.
+
+O Gestor de dispositivos do StorSimple para série virtual é GDPR em conformidade. Existem duas instâncias de chaves em que as informações pessoais são recolhidas e apresentadas no serviço:
+ - As definições de utilizador em que estão configurados endereços de correio eletrónico de utilizadores de alertas. Estas informações podem ser eliminadas pelo administrador. 
+ - Utilizadores que podem aceder aos dados que reside nas partilhas. Uma lista de utilizadores que podem aceder os dados de partilha é apresentada e pode ser exportada. Esta lista também é eliminada quando é eliminado as partilhas.
+
+Para obter mais informações, consulte o [política Microsoft Privacy no Centro de confiança](https://www.microsoft.com/trustcenter).
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como [preparar o portal de matriz virtual](storsimple-virtual-array-deploy1-portal-prep.md).

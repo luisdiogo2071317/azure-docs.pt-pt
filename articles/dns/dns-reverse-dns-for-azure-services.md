@@ -1,6 +1,6 @@
 ---
-title: "Inversa de DNS para serviços do Azure | Microsoft Docs"
-description: "Saiba como configurar pesquisas inversas de DNS para serviços alojados no Azure"
+title: Inversa de DNS para serviços do Azure | Microsoft Docs
+description: Saiba como configurar pesquisas inversas de DNS para serviços alojados no Azure
 services: dns
 documentationcenter: na
 author: KumudD
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: kumud
-ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: bba2d75ed760a6e4eef2caacb0bb5924680b1f4b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurar o DNS inversa para serviços alojados no Azure
 
@@ -245,9 +245,9 @@ Não. Azure atualmente suporta inversa DNS apenas para IPv4 PublicIpAddress recu
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Posso enviar e-mails para domínios externos dos meus serviços de computação do Azure?
 
-Não. [Serviços de computação do Azure não suportam o envio de mensagens de correio eletrónico para domínios externos](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)
+A capacidade técnica para enviar correio eletrónico diretamente a partir de uma implementação do Azure depende do tipo de subscrição. Independentemente do tipo de subscrição, a Microsoft recomenda a utilização dos serviços de reencaminhamento de correio fidedigna para enviar correio de saída. Para obter mais detalhes, consulte [segurança avançada do Azure para enviar mensagens de correio eletrónico – Novembro de 2017 atualização](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre inversa DNS, consulte [pesquisa inversa de DNS em Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>

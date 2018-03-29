@@ -1,11 +1,11 @@
 ---
-title: "Resolver problemas de uma aplicação web no serviço de aplicações do Azure com o Visual Studio"
-description: "Saiba como resolver problemas de uma aplicação web do Azure através da utilização de depuração remota, o rastreio e ferramentas de registo que são incorporadas no Visual Studio 2013."
+title: Resolver problemas de uma aplicação web no serviço de aplicações do Azure com o Visual Studio
+description: Saiba como resolver problemas de uma aplicação web do Azure através da utilização de depuração remota, o rastreio e ferramentas de registo que são incorporadas no Visual Studio 2013.
 services: app-service
 documentationcenter: .net
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Resolver problemas de uma aplicação web no serviço de aplicações do Azure com o Visual Studio
 ## <a name="overview"></a>Descrição geral
@@ -125,12 +125,14 @@ Esta secção mostra como depurar remotamente utilizando o projeto que criar no 
 
 3. Eliminar o `About()` método e inserir o seguinte código no seu lugar.
 
-        public ActionResult About()
-        {
-            string currentTime = DateTime.Now.ToLongTimeString();
-            ViewBag.Message = "The current time is " + currentTime;
-            return View();
-        }
+``` c#
+public ActionResult About()
+{
+    string currentTime = DateTime.Now.ToLongTimeString();
+    ViewBag.Message = "The current time is " + currentTime;
+    return View();
+}
+```
 4. [Definir um ponto de interrupção](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) no `ViewBag.Message` linha.
 
 5. No **Explorador de soluções**, clique com o botão direito no projeto e, em **publicar**.
@@ -171,7 +173,7 @@ Esta secção mostra como depurar remotamente utilizando o projeto que criar no 
 
      ![Sobre página com o novo valor](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remotedebugwj"></a>WebJobs depuração remotas
+## <a name="remotedebugwj"></a> WebJobs depuração remotas
 Esta secção mostra como depurar remotamente utilizando a projeto e a aplicação web que criar no [começar com o SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 As funcionalidades apresentadas nesta secção estão disponíveis apenas no Visual Studio 2013 com a atualização 4 ou posterior.
@@ -241,10 +243,12 @@ Se a função [escreveu registos](https://github.com/Azure/azure-webjobs-sdk/wik
 * Enquanto estiver a depuração, o servidor está a enviar dados para o Visual Studio, que podem afetar a custos de largura de banda. Para obter informações sobre as taxas de largura de banda, consulte [preços do Azure](https://azure.microsoft.com/pricing/calculator/).
 * Certifique-se de que o `debug` atributo do `compilation` elemento o *Web. config* ficheiro está definido como true. Está definido para verdadeiro por predefinição quando publica uma configuração de compilação de depuração.
 
-        <system.web>
-          <compilation debug="true" targetFramework="4.5" />
-          <httpRuntime targetFramework="4.5" />
-        </system.web>
+``` xml
+<system.web>
+  <compilation debug="true" targetFramework="4.5" />
+  <httpRuntime targetFramework="4.5" />
+</system.web>
+```
 * Se achar que o depurador não avance para o código que pretende depurar, poderá ter de alterar a definição de apenas código My.  Para obter mais informações, consulte [restringir avance para apenas código My](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
 * Inicia um temporizador no servidor, quando ativar a funcionalidade de depuração remota e, depois de 48 horas a funcionalidade é automaticamente desativada. Este limite de 48 horas é feita por motivos de segurança e desempenho. Pode facilmente ativar a funcionalidade novamente como número de vezes que for necessário. Recomendamos a inclusão desativada quando está não ativamente a depurar.
 * Pode anexar manualmente o depurador qualquer processo, não apenas o web app processo (w3wp.exe). Para obter mais informações sobre como utilizar o modo de depuração no Visual Studio, consulte [depuração no Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
@@ -277,32 +281,35 @@ Para obter informações sobre como criar aplicações que inicia sessão no Web
 ### <a name="add-tracing-statements-to-the-application"></a>Adicionar declarações de rastreio à aplicação
 1. Abra *Controllers\HomeController.cs*e substitua o `Index`, `About`, e `Contact` métodos com o seguinte código para poder adicionar `Trace` instruções e um `using` declaração do `System.Diagnostics`:
 
-        public ActionResult Index()
-        {
-            Trace.WriteLine("Entering Index method");
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Index method");
-            return View();
-        }
+```c#
+public ActionResult Index()
+{
+    Trace.WriteLine("Entering Index method");
+    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Index method");
+    return View();
+}
 
-        public ActionResult About()
-        {
-            Trace.WriteLine("Entering About method");
-            ViewBag.Message = "Your app description page.";
-            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-            Trace.WriteLine("Leaving About method");
-            return View();
-        }
+public ActionResult About()
+{
+    Trace.WriteLine("Entering About method");
+    ViewBag.Message = "Your app description page.";
+    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+    Trace.WriteLine("Leaving About method");
+    return View();
+}
 
-        public ActionResult Contact()
-        {
-            Trace.WriteLine("Entering Contact method");
-            ViewBag.Message = "Your contact page.";
-            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Contact method");
-            return View();
-        }        
+public ActionResult Contact()
+{
+    Trace.WriteLine("Entering Contact method");
+    ViewBag.Message = "Your contact page.";
+    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Contact method");
+    return View();
+}        
+```
+
 2. Adicionar um `using System.Diagnostics;` declaração na parte superior do ficheiro.
 
 ### <a name="view-the-tracing-output-locally"></a>Ver o resultado do rastreio localmente
@@ -315,23 +322,28 @@ Para obter informações sobre como criar aplicações que inicia sessão no Web
     Os passos seguintes mostram como ver resultados de rastreio numa página web, sem a compilação no modo de depuração.
 2. Abra o ficheiro Web. config da aplicação (aquele localizado na pasta do projeto) e adicione um `<system.diagnostics>` elemento no fim do ficheiro, imediatamente antes da tag de fecho `</configuration>` elemento:
 
-          <system.diagnostics>
-            <trace>
-              <listeners>
-                <add name="WebPageTraceListener"
-                    type="System.Web.WebPageTraceListener,
-                    System.Web,
-                    Version=4.0.0.0,
-                    Culture=neutral,
-                    PublicKeyToken=b03f5f7f11d50a3a" />
-              </listeners>
-            </trace>
-          </system.diagnostics>
+``` xml
+<system.diagnostics>
+<trace>
+  <listeners>
+    <add name="WebPageTraceListener"
+        type="System.Web.WebPageTraceListener,
+        System.Web,
+        Version=4.0.0.0,
+        Culture=neutral,
+        PublicKeyToken=b03f5f7f11d50a3a" />
+  </listeners>
+</trace>
+</system.diagnostics>
+```
 
-    O `WebPageTraceListener` saída de rastreio permite visualizar, navegando até `/trace.axd`.
+O `WebPageTraceListener` saída de rastreio permite visualizar, navegando até `/trace.axd`.
 3. Adicionar um <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">rastreio elemento</a> em `<system.web>` no ficheiro Web. config, tais como o exemplo seguinte:
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+``` xml
+<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+```       
+
 4. Prima CTRL+F5 para executar a aplicação.
 5. Na barra de endereço da janela do browser, adicione *trace.axd* para o URL e, em seguida, prima Enter (o URL é semelhante à http://localhost:53370/trace.axd).
 6. No **aplicação rastreio** página, clique em **ver detalhes** na primeira linha (não a linha BrowserLink).
@@ -646,15 +658,18 @@ Não existem não existem introduções de detalhado e atualizadas para o rastre
 * [Rastreio no ASP.NET MVC Razor vistas](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Para além de rastreio nas vistas de Razor, a mensagem também explica como criar um filtro de erro para iniciar a sessão de todas as exceções não processadas numa aplicação MVC. Para informações sobre como iniciar sessão exceções todos os não processadas numa aplicação formulários Web, consulte o exemplo de global. asax na [exemplo completo para processadores erro](http://msdn.microsoft.com/library/bb397417.aspx) no MSDN. Em MVC ou formulários Web, se pretender registar determinadas exceções, mas permitir a estrutura da predefinição processamento ativado para os mesmos, pode detetar e rethrow como no exemplo seguinte:
 
-        try
-        {
-           // Your code that might cause an exception to be thrown.
-        }
-        catch (Exception ex)
-        {
-            Trace.TraceError("Exception: " + ex.ToString());
-            throw;
-        }
+``` c#
+try
+{
+   // Your code that might cause an exception to be thrown.
+}
+catch (Exception ex)
+{
+    Trace.TraceError("Exception: " + ex.ToString());
+    throw;
+}
+```
+
 * [Transmissão em fluxo rastreio de diagnóstico registo a partir da linha de comandos do Azure (mais Glimpse!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Como utilizar a linha de comandos para que este tutorial mostra como fazê-lo no Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) é uma ferramenta para depuração de aplicações do ASP.NET.
 * [Com as Web Apps do registo e diagnóstico - David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) e [registos de aplicações Web - com o David Ebbo de transmissão em fluxo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
@@ -669,7 +684,7 @@ Para obter mais informações sobre como analisar os registos do servidor web, c
 
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Uma ferramenta para visualizar os dados no registos do servidor web (*. log* ficheiros).
-* [Resolução de problemas de desempenho do IIS ou erros de aplicações utilizando LogParser](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Resolução de problemas de desempenho do IIS ou erros de aplicações utilizando LogParser ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Uma introdução à ferramenta Analisador de registo que pode utilizar para analisar os registos do servidor web.
 * [Mensagens do blogue por Robert McMurray utilizando LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [O código de estado HTTP no IIS 7.0, IIS 7.5 e IIS 8.0](http://support.microsoft.com/kb/943891)

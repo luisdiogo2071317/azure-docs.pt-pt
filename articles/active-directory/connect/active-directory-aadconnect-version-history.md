@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 8bae1140d4a3ac4762bdcbabb16851d29415a8fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Do Azure AD Connect: Histórico de lançamento de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funções. Nem todas as adições são aplicáveis a todos os público.
@@ -49,6 +49,7 @@ Estado 3/22/2018: lançado para atualização automática e a transferência.
 #### <a name="fixed-issues"></a>Problemas fixos
 
 * Cmdlet do Set-ADSyncAutoUpgrade anteriormente bloqueariam Autoupgrade se o estado de atualização automática está definido como suspenso. Isto é agora alterado pelo que não bloqueia AutoUpgrade das compilações futuras.
+* Alterar o **sessão do utilizador** página opção "Sincronização de palavras-passe" para "Sincronização de Hash de palavra-passe".  O Azure AD Connect sincroniza os hashes de palavra-passe, não as palavras-passe, pelo que este está alinhada com que, na verdade, está a ocorrer.  Para obter mais informações consulte [implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 
 ## <a name="117490"></a>1.1.749.0
 Estado: Lançado para selecionar os clientes
@@ -558,7 +559,7 @@ Sincronização do Azure AD Connect
   * Adicionar **userType** para o esquema do Metaverso e esquema de conector AAD. Os clientes que pretendem atualizar qualquer um dos atributos no Azure AD, podem implementar regras de sincronização personalizados para o fazer.
 
 * O Azure AD Connect agora ativa automaticamente a utilização do atributo ConsistencyGuid como o atributo âncora de origem para on-premises objetos do AD. Adicional, Azure AD Connect preenche o atributo ConsistencyGuid com o valor do atributo de objectGuid se estiver vazia. Esta funcionalidade é aplicável a nova implementação apenas. Para obter mais informações sobre esta funcionalidade, consulte a secção do artigo [do Azure AD Connect: conceitos - utilizando msDS-ConsistencyGuid como sourceAnchor de Design](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
-* Resolução de problemas novo cmdlet Invoke-ADSyncDiagnostics foi adicionado ajudar a diagnosticar a sincronização de Hash de palavra-passe problemas relacionados com o. Para obter informações sobre como utilizar o cmdlet, consulte o artigo [resolver problemas de sincronização de palavras-passe com a sincronização do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization).
+* Resolução de problemas novo cmdlet Invoke-ADSyncDiagnostics foi adicionado ajudar a diagnosticar a sincronização de Hash de palavra-passe problemas relacionados com o. Para obter informações sobre como utilizar o cmdlet, consulte o artigo [resolver problemas de sincronização de hash de palavra-passe com a sincronização do Azure AD Connect](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 * O Azure AD Connect, agora suporta a pasta de pública Mail-Enabled sincronizar objetos de AD no local ao Azure AD. Pode ativar a funcionalidade com o Assistente do Azure AD Connect em funcionalidades opcionais. Para obter mais informações sobre esta funcionalidade, consulte o artigo [Office 365 diretório baseado em Edge bloquear suporte para o local correio ativado pastas públicas](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * O Azure AD Connect requer um anúncio conta DS para sincronizar a partir do AD no local. Anteriormente, se tiver instalado o Azure AD Connect, utilizando o modo de rápida, pode fornecer que as credenciais de uma conta de administrador de empresa e do Azure AD Connect iriam criar a conta de AD DS necessária. No entanto, para uma instalação personalizada e adicionar florestas a uma implementação existente, era necessário para fornecer em vez disso, a conta do AD DS. Agora, tem também a opção para fornecer as credenciais de uma conta de administrador de empresa durante uma instalação personalizada e permitir que o Azure AD Connect, criar a conta do AD DS necessária.
 * O Azure AD Connect suporta agora AOA do SQL Server. Tem de ativar o SQL Server AOA antes de instalar o Azure AD Connect. Durante a instalação, o Azure AD Connect Deteta se a instância do SQL Server fornecida está ativada para SQL Server AOA ou não. Se AOA do SQL Server estiver ativada, o Azure AD Connect mais figuras se AOA do SQL Server está configurado para utilizar replicação síncrona ou assíncrona. Quando configurar o serviço de escuta do grupo de disponibilidade, é recomendável que defina a propriedade RegisterAllProvidersIP para 0. Isto acontece porque o Azure AD Connect utiliza atualmente SQL Native Client para ligar ao SQL Server e SQL Server Native Client não suporta a utilização da propriedade MultiSubNetFailover.
@@ -748,7 +749,7 @@ Data da versão: Junho de 2016
 **Fixos problemas e melhorias:**
 
 * Agora pode ser instalado o Azure AD Connect num servidor compatíveis com FIPS.
-  * Para a sincronização de palavra-passe, consulte [sincronização de palavra-passe e FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips).
+  * Para a sincronização de palavra-passe, consulte [sincronização de hash de palavra-passe e FIPS](active-directory-aadconnectsync-implement-password-hash-synchronization.md#password-hash-synchronization-and-fips).
 * Foi corrigido um problema onde não foi possível resolver um nome NetBIOS para o FQDN no conector do Active Directory.
 
 ## <a name="111800"></a>1.1.180.0

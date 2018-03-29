@@ -1,7 +1,7 @@
 ---
-title: "Migrar a instância do SQL Server para instância geridos base de dados SQL do Azure | Microsoft Docs"
-description: "Saiba como migrar uma instância do SQL Server para a base de dados geridas por instância de SQL do Azure."
-keywords: "migração de base de dados, migração de base de dados do sql server, ferramentas de migração de base de dados, migrar base de dados, migrar base de dados sql"
+title: Migrar a instância do SQL Server para instância geridos base de dados SQL do Azure | Microsoft Docs
+description: Saiba como migrar uma instância do SQL Server para a base de dados geridas por instância de SQL do Azure.
+keywords: migração de base de dados, migração de base de dados do sql server, ferramentas de migração de base de dados, migrar base de dados, migrar base de dados sql
 services: sql-database
 author: bonova
 ms.reviewer: carlrab
@@ -11,11 +11,11 @@ ms.custom: managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: bonova
-ms.openlocfilehash: fd8225b2c5c4f897bbf3d7e1b2ba7659f564409d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4546f03294ea8ab01ecb2b2777c5b92dbc5a7f4a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de instância do SQL Server para instância geridos base de dados SQL do Azure
 

@@ -1,4 +1,4 @@
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de ativar a integração do Cofre de chaves do Azure, pode ativar a encriptação do SQL Server na sua VM do SQL Server. Em primeiro lugar, terá de criar uma chave assimétrica no interior do seu Cofre de chaves e uma chave simétrica dentro do SQL Server na VM. Em seguida, poderá executar instruções T-SQL para ativar a encriptação para as bases de dados e as cópias de segurança.
 
@@ -18,36 +18,22 @@ Cada exemplo é baseado nos duas pré-requisitos: chamada de uma chave assimétr
 USE master;
 GO
 
-sp_configure [show advanced options], 1;
-GO
-RECONFIGURE;
-GO
-
--- Enable EKM provider
-sp_configure [EKM provider enabled], 1;
-GO
-RECONFIGURE;
-
---create provider
-CREATE CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov
-FROM FILE = 'C:\Program Files\SQL Server Connector for Microsoft Azure Key Vault\Microsoft.AzureKeyVaultService.EKM.dll';
-GO
-
 --create credential
+--The <<SECRET>> here requires the <Application ID> (without hyphens) and <Secret> to be passed together without a space between them.
 CREATE CREDENTIAL sysadmin_ekm_cred
     WITH IDENTITY = 'keytestvault', --keyvault
     SECRET = '<<SECRET>>'
 FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov;
 
 
---must have sysadmin
-ALTER LOGIN [TDE_Login]
+--Map the credential to a SQL login that have sysadmin permissions, this will allows the SQL login to access the key vault when creating the asymmetric key in the next step.
+ALTER LOGIN [SQL_Login]
 ADD CREDENTIAL sysadmin_ekm_cred;
 
 
 CREATE ASYMMETRIC KEY CONTOSO_KEY
 FROM PROVIDER [AzureKeyVault_EKM_Prov]
-WITH PROVIDER_KEY_NAME = 'keytestvault',  --key name
+WITH PROVIDER_KEY_NAME = 'KeyName_in_KeyVault',  --The key name here requires the key we created in the key vault
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
@@ -60,14 +46,14 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    -- Create a SQL Server login associated with the asymmetric key
    -- for the Database engine to use when it loads a database
    -- encrypted by TDE.
-   CREATE LOGIN TDE_Login
+   CREATE LOGIN EKM_Login
    FROM ASYMMETRIC KEY CONTOSO_KEY;
    GO
 
    -- Alter the TDE Login to add the credential for use by the
    -- Database Engine to access the key vault
-   ALTER LOGIN TDE_Login
-   ADD CREDENTIAL Azure_EKM_TDE_cred;
+   ALTER LOGIN EKM_Login
+   ADD CREDENTIAL Azure_EKM_cred;
    GO
    ```
 
@@ -96,14 +82,14 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    USE master;
    -- Create a SQL Server login associated with the asymmetric key
    -- for the Database engine to use when it is encrypting the backup.
-   CREATE LOGIN Backup_Login
+   CREATE LOGIN EKM_Login
    FROM ASYMMETRIC KEY CONTOSO_KEY;
    GO
 
    -- Alter the Encrypted Backup Login to add the credential for use by
    -- the Database Engine to access the key vault
-   ALTER LOGIN Backup_Login
-   ADD CREDENTIAL Azure_EKM_Backup_cred ;
+   ALTER LOGIN EKM_Login
+   ADD CREDENTIAL Azure_EKM_cred ;
    GO
    ```
 

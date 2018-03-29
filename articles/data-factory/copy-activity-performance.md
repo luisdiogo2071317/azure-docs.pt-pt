@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 733a396117a58d8dc51e55614e503853f13141c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o desempenho de atividade e o guia de otimização
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ A **unidade de movimento de dados de nuvem (DMU)** é uma medida que representa 
 | Copiar dados entre os arquivos de ficheiros | Entre 4 e 32 consoante o número e tamanho dos ficheiros. |
 | Todos os outros cenários de cópia | 4 |
 
-Para substituir esta predefinição, especifique um valor para o **cloudDataMovementUnits** propriedade da seguinte forma. O **valores permitidos** para o **cloudDataMovementUnits** propriedade são 2, 4, 8, 16, 32. O **número real de nuvem DMUs** que a operação de cópia utiliza em tempo de execução é igual ou inferior ao valor configurado, dependendo do seu padrão de dados. Para obter informações sobre o nível de ganhos de desempenho poderá obter quando configurar mais unidades para uma origem de cópia específico e o sink, consulte o [referência de desempenho](#performance-reference).
+Para substituir esta predefinição, especifique um valor para o **cloudDataMovementUnits** propriedade da seguinte forma. O **valores permitidos** para o **cloudDataMovementUnits** propriedade é **até 256**. O **número real de nuvem DMUs** que a operação de cópia utiliza em tempo de execução é igual ou inferior ao valor configurado, dependendo do seu padrão de dados. Para obter informações sobre o nível de ganhos de desempenho poderá obter quando configurar mais unidades para uma origem de cópia específico e o sink, consulte o [referência de desempenho](#performance-reference).
 
 Pode ver as unidades de movimento de dados de nuvem, na verdade, utilizado para cada cópia executar a atividade de cópia ao monitorizar uma execução da atividade de saída. Saiba os detalhes da [copiar a monitorização da atividade](copy-activity-overview.md#monitoring).
 
@@ -133,11 +133,14 @@ Para cada cópia de execução da atividade, o Data Factory determina o número 
 
 | Cenário de cópia | Contagem de cópia paralelas predefinido determinada pelo serviço |
 | --- | --- |
-| Copiar dados entre os arquivos de ficheiros |Entre 1 e 64. Depende do tamanho dos ficheiros e o número de nuvem movimento unidades do data (DMUs) utilizados para copiar dados entre dois arquivos de dados de nuvem ou a configuração da máquina de tempo de execução de integração de Self-hosted física. |
+| Copiar dados entre os arquivos de ficheiros |Depende do tamanho dos ficheiros e o número de nuvem movimento unidades do data (DMUs) utilizados para copiar dados entre dois arquivos de dados de nuvem ou a configuração da máquina de tempo de execução de integração de Self-hosted física. |
 | Copiar dados a partir de qualquer arquivo de dados de origem para o Table storage do Azure |4 |
 | Todos os outros cenários de cópia |1 |
 
-Normalmente, o comportamento predefinido deverá dar-lhe o melhor débito. No entanto controlar a carga em computadores que alojam os dados armazena ou para otimizar o desempenho de cópia, pode optar por substituir o valor predefinido e especifique um valor para o **parallelCopies** propriedade. O valor tem de ser um número inteiro maior que ou igual a 1. No momento de execução para o melhor desempenho, atividade de cópia utiliza um valor que é menor ou igual ao valor que definir.
+[!TIP]
+> Quando copiar dados entre os arquivos de ficheiros, o comportamento predefinido (determinado automática), normalmente, dar-lhe o melhor débito. 
+
+Para controlar a carga em computadores que alojam os dados armazena ou para otimizar o desempenho de cópia, pode optar por substituir o valor predefinido e especifique um valor para o **parallelCopies** propriedade. O valor tem de ser um número inteiro maior que ou igual a 1. No momento de execução para o melhor desempenho, atividade de cópia utiliza um valor que é menor ou igual ao valor que definir.
 
 ```json
 "activities":[

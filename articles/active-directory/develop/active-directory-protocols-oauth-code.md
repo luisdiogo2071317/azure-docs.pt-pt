@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 87a24ae9b620557e3106eb7f51b3f002cd76dd03
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 241f872b3069a58a35df7104f3335964298c7a20
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Authorize access to web applications using OAuth 2.0 and Azure Active Directory (Autorizar o acesso a aplicações Web com OAuth 2.0 e o Azure Active Directory)
 Azure Active Directory (Azure AD) utiliza OAuth 2.0 para que possa autorizar o acesso a aplicações web e APIs web no inquilino do Azure AD. Este guia é independente de idioma e descreve como enviar e receber mensagens HTTP sem utilizar qualquer uma das nossas bibliotecas de open source.
@@ -138,9 +138,9 @@ grant_type=authorization_code
 | grant_type |Necessário |Tem de ser `authorization_code` para que o fluxo de código de autorização. |
 | código |Necessário |O `authorization_code` que obteve na secção anterior |
 | redirect_uri |Necessário |O mesmo `redirect_uri` valor que utilizou para adquirir o `authorization_code`. |
-| client_secret |necessário para aplicações web |O segredo de aplicação que criou no portal de registo de aplicação para a sua aplicação.  Não deve ser utilizado numa aplicação nativa, porque client_secrets não pode ser fiável armazenado nos dispositivos.  É necessário para as aplicações web e web APIs, que têm a capacidade de armazenar o `client_secret` em segurança no lado do servidor. |
+| client_secret |necessário para as web apps, não é permitidas para clientes públicos |O segredo de aplicação que criou no portal de registo de aplicação para a sua aplicação.  Não pode ser utilizado numa aplicação nativa (cliente público), porque client_secrets não pode ser fiável armazenado nos dispositivos.  É necessário para as aplicações web e web APIs (confidenciais todos os clientes), que têm a capacidade de armazenar o `client_secret` em segurança no lado do servidor. |
 | Recurso |necessário se especificado num pedido de código de autorização, caso contrário, opcional |O URI de ID de aplicação da web API (recursos protegidos). |
-| code_verifier | opcional              | O mesmo code_verifier que foi utilizado para obter o authorization_code.  Necessário se PKCE foi utilizada no pedido de concessão do código de autorização.  Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+| code_verifier | opcional              | O mesmo code_verifier que foi utilizado para obter o authorization_code.  Necessário se PKCE foi utilizada no pedido de concessão do código de autorização.  Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
 Para obter o URI de ID de aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório, clique na aplicação e, em seguida, clique em **configurar**.
 
