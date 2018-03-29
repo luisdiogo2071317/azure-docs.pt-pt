@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcbed424ffd6f781639b9dc524a576e963896583
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4c76083c7b1478ba865f047584ba313d029a1e35
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um peering de rede virtual - diferentes modelos de implementação e as subscrições
 
@@ -35,7 +35,7 @@ Os passos para criar um peering de rede virtual são diferentes, dependendo se a
 
 Não é possível criar uma rede virtual peering entre duas redes virtuais implementadas através do modelo de implementação clássica. Este tutorial utiliza redes virtuais que existem na mesma região. A capacidade de elemento redes virtuais em diferentes regiões está em pré-visualização. Para utilizar essa capacidade, tem de [registar](#register). 
 
-Ao criar uma rede virtual peering entre redes virtuais que existam em diferentes subscrições, as subscrições têm de ter ambos associadas ao mesmo inquilino do Azure Active Directory. Se ainda não tiver um inquilino do Azure Active Directory, pode rapidamente [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). Pode ligar redes virtuais em diferentes subscrições e diferente do Azure Active Directory inquilinos com um Azure [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Ao criar uma rede virtual peering entre redes virtuais que existam em diferentes subscrições, as subscrições têm de ter ambos associadas ao mesmo inquilino do Azure Active Directory. Se ainda não tiver um inquilino do Azure Active Directory, pode rapidamente [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Pode ligar redes virtuais em diferentes subscrições e diferente do Azure Active Directory inquilinos com um Azure [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Pode utilizar o [portal do Azure](#portal), o Azure [interface de linha de comandos](#cli) (CLI), ou do Azure [PowerShell](#powershell) para criar um peering de rede virtual. Clique em qualquer uma das ligações de ferramenta anterior para ir diretamente para os passos para criar um peering de rede virtual com a ferramenta de escolha.
 

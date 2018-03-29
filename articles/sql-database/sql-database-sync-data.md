@@ -1,6 +1,6 @@
 ---
-title: "Sincronização de dados SQL do Azure (pré-visualização) | Microsoft Docs"
-description: "Esta descrição geral apresenta a sincronização de dados de SQL do Azure (pré-visualização)"
+title: Sincronização de dados SQL do Azure (pré-visualização) | Microsoft Docs
+description: Esta descrição geral apresenta a sincronização de dados de SQL do Azure (pré-visualização)
 services: sql-database
 author: douglaslms
 manager: craigg
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5abe3e5a56dfca263f109b86f473ac490da3eac7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e0b8a999cf38cbef37498d4ee0fb2bceae8f292
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados do SQL Server (pré-visualização)
 
@@ -92,6 +92,8 @@ Sincronização de dados utiliza insere, atualizar e eliminar acionadores para c
 
 -   Uma tabela não pode ter uma coluna de identidade que não é a chave primária.
 
+-   Uma chave primária não pode ter o tipo de dados de datetime.
+
 -   Os nomes dos objetos (bases de dados, tabelas e colunas) não podem conter o período de caracteres imprimíveis (.), à esquerda parêntesis Reto ([), ou Reto direito square (]).
 
 -   Não é suportada a autenticação do Azure Active Directory.
@@ -117,7 +119,7 @@ Sincronização de dados utiliza insere, atualizar e eliminar acionadores para c
 | Tabelas num grupo de sincronização                                          | 500                    | Criar vários grupos de sincronização |
 | Colunas existentes numa tabela num grupo de sincronização                              | 1000                   |                             |
 | Tamanho de linha de dados numa tabela                                        | 24 Mb                  |                             |
-| Intervalo de sincronização mínima                                           | 5 minutos              |                             |
+| Intervalo de sincronização mínima                                           | 5 Minutos              |                             |
 |||
 
 ## <a name="faq-about-sql-data-sync"></a>FAQ sobre a sincronização de dados do SQL Server
@@ -160,20 +162,20 @@ Base de dados de raiz de Federação pode ser utilizado no serviço de sincroniz
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre a sincronização de dados do SQL Server, consulte:
+Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 
--   [Configurar a sincronização de dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
--   [Melhores práticas para a sincronização de dados SQL do Azure](sql-database-best-practices-data-sync.md)
--   [Monitor sincronização de dados SQL do Azure com a análise de registos do OMS](sql-database-sync-monitor-oms.md)
--   [Resolver problemas com a sincronização de dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
+-   [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
+-   [Melhores práticas da Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
+-   [Monitorizar a Sincronização de Dados SQL do Azure com o OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Resolver problemas da Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 
--   Conclua os exemplos do PowerShell que mostram como configurar a sincronização de dados do SQL Server:
+-   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:
     -   [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [Utilizar o PowerShell para sincronizar entre uma base de dados do SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)
+    -   [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)
 
--   [Transferir a documentação da API de REST de sincronização de dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Transferir a documentação da API REST da Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-Para obter mais informações sobre a base de dados SQL, consulte:
+Para obter mais informações sobre a Base de Dados SQL, veja:
 
--   [Descrição geral da base de dados do SQL Server](sql-database-technical-overview.md)
--   [Gestão de ciclo de vida de base de dados](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Descrição Geral da Base de Dados SQL](sql-database-technical-overview.md)
+-   [Gestão do Ciclo de Vida da Base de Dados](https://msdn.microsoft.com/library/jj907294.aspx)

@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 14375dc7777a4f24db9f7246e6e99f26bd0eb858
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 33a63538e3b96c5a37ddda6be31a0d972884b9b7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="internet-facing-load-balancer-overview"></a>Internet destinado ao balanceador descrição geral de carga
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Balanceador de carga do Azure mapeia o público IP endereço e número de porta de tráfego de entrada para o privada IP endereço e número de porta da máquina virtual e vice versa para o tráfego de resposta da máquina virtual. Regras de balanceamento de carga permitem-lhe distribuir tipos específicos de tráfego entre várias máquinas virtuais ou serviços. Por exemplo, pode propagar-se a carga do tráfego de pedido web em vários servidores web ou funções da web.
 

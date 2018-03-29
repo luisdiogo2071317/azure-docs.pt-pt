@@ -1,11 +1,11 @@
 ---
-title: "Configuração do estado pretendido de para descrição geral do Azure | Microsoft Docs"
-description: "Saiba como utilizar o processador de extensão do Microsoft Azure para PowerShell pretendido Estado Configuration (DSC). O artigo inclui os pré-requisitos, arquitetura e cmdlets."
+title: Configuração do estado pretendido de para descrição geral do Azure | Microsoft Docs
+description: Saiba como utilizar o processador de extensão do Microsoft Azure para PowerShell pretendido Estado Configuration (DSC). O artigo inclui os pré-requisitos, arquitetura e cmdlets.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: 14d29223435e9a133b112a61f2ecdde0aad581a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5b16261c9a9f046b7bc55a06dd71aa154a0cec27
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução para o processador de extensão de configuração de estado pretendido do Azure
 
@@ -71,7 +71,7 @@ Na maioria dos cenários, os modelos de implementação do Resource Manager são
 
 Os cmdlets do PowerShell que são utilizados para gerir a extensão de DSC são melhor utilizados na resolução de problemas interativa e cenários de recolha de informações. Pode utilizar os cmdlets para o pacote, publicar e monitorizar as implementações de extensão de DSC. Tenha em atenção que os cmdlets para a extensão de DSC ainda não são atualizados para funcionarem com a [predefinida de script de configuração](#default-configuration-script).
 
-O **publicar AzureRMVMDscConfiguration** cmdlet aceita um ficheiro de configuração, analisa-lo para recursos de DSC dependentes e, em seguida, cria um ficheiro. zip. O ficheiro. zip contém a configuração e os recursos de DSC são necessárias para enact a configuração. O cmdlet também pode criar o pacote localmente ao utilizar o *- ConfigurationArchivePath* parâmetro. Caso contrário, o cmdlet publica o ficheiro. zip ao blob storage e protege-o com um token SAS.
+O **publicar AzureRMVMDscConfiguration** cmdlet aceita um ficheiro de configuração, analisa-lo para recursos de DSC dependentes e, em seguida, cria um ficheiro. zip. O ficheiro. zip contém a configuração e os recursos de DSC são necessárias para enact a configuração. O cmdlet também pode criar o pacote localmente ao utilizar o *- OutputArchivePath* parâmetro. Caso contrário, o cmdlet publica o ficheiro. zip ao blob storage e protege-o com um token SAS.
 
 O script de configuração. ps1 que o cmdlet cria existe no ficheiro. zip na raiz da pasta de arquivo. A pasta do módulo é colocada na pasta de arquivo de recursos.
 
@@ -133,7 +133,7 @@ Para configurar o DSC no portal:
 
 O portal requer a entrada seguinte:
 
-* **Módulos de configuração ou Script**: Este campo é obrigatório (o formato não tiver sido atualizado para o [predefinida de script de configuração](#default-configuration-script)). Módulos de configuração e scripts necessitam de um ficheiro. ps1, que tem um script de configuração ou de um ficheiro. zip com um script de configuração. ps1 na raiz. Se utilizar um ficheiro. zip, todos os recursos dependentes têm de ser incluídos nas pastas de módulo no. zip. Pode criar o ficheiro. zip, utilizando o **publicar AzureVMDscConfiguration - ConfigurationArchivePath** cmdlet que está incluído no SDK do Azure PowerShell. O ficheiro. zip é carregado para o armazenamento de BLOBs de utilizador e protegido por um token SAS.
+* **Módulos de configuração ou Script**: Este campo é obrigatório (o formato não tiver sido atualizado para o [predefinida de script de configuração](#default-configuration-script)). Módulos de configuração e scripts necessitam de um ficheiro. ps1, que tem um script de configuração ou de um ficheiro. zip com um script de configuração. ps1 na raiz. Se utilizar um ficheiro. zip, todos os recursos dependentes têm de ser incluídos nas pastas de módulo no. zip. Pode criar o ficheiro. zip, utilizando o **publicar AzureVMDscConfiguration - OutputArchivePath** cmdlet que está incluído no SDK do Azure PowerShell. O ficheiro. zip é carregado para o armazenamento de BLOBs de utilizador e protegido por um token SAS.
 
 * **Ficheiro de configuração de dados PSD1**: Este campo é opcional. Se a configuração necessita de um ficheiro de dados de configuração. psd1, utilize este campo para selecionar o campo de dados e carregá-la para o armazenamento de Blobs do utilizador. O ficheiro de dados de configuração está protegido por um token SAS no blob storage.
 

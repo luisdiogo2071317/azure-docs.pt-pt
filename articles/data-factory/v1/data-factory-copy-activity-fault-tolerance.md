@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 29c78eb850b418772126dea50b40e924b6e71423
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8b91b76d049d1a7f299b7890665dd9281e08321e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicione tolerância a falhas na atividade de cópia ao ignorar linhas incompatíveis
 > [!NOTE]
@@ -39,7 +39,7 @@ Atividade de cópia suporta três cenários para detetar, ignorar, dados e regis
 
     Por exemplo: copiar dados de um ficheiro CSV no armazenamento de BLOBs para base de dados SQL com uma definição de esquema que contenha seis colunas. As linhas do ficheiro CSV que contenha seis colunas são copiadas com êxito para o arquivo de sink. As linhas do ficheiro CSV que contenha colunas mais ou menos de seis são detetadas como incompatíveis e são ignoradas.
 
-- **Violação da chave primária ao escrever para uma base de dados relacional**
+- **Violação da chave primária ao escrever a base de dados do SQL Server/Azure SQL da base de dados/Azure Cosmos**
 
     Por exemplo: copiar dados do SQL server para uma base de dados do SQL Server. É definida uma chave primária na base de dados do SQL Server sink, mas essa nenhuma chave primária está definido no servidor SQL de origem. As linhas duplicadas que existe na origem não não possível copiar o sink. Atividade de cópia copia apenas a primeira linha dos dados de origem para o sink. As linhas subsequentes de origem que contêm o valor de chave primária duplicado são detetadas como incompatíveis e são ignoradas.
 

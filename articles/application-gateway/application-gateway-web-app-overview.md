@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral de back-ends multi-inquilino com o Gateway de Aplicação do Azure | Microsoft Docs"
-description: "Esta página fornece uma descrição geral do suporte de Gateway de Aplicação para back-ends multi-inquilino."
+title: Descrição geral de back-ends multi-inquilino com o Gateway de Aplicação do Azure | Microsoft Docs
+description: Esta página fornece uma descrição geral do suporte de Gateway de Aplicação para back-ends multi-inquilino.
 documentationcenter: na
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
-ms.openlocfilehash: d093af064bca46aa1f454b61b1099f47f61ccd33
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f5ec916fcf45734ab85751e749bd6bb312f05b1a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Suporte de Gateway de Aplicação para back-ends multi-inquilino
 
@@ -32,7 +32,7 @@ A capacidade de especificar uma substituição de anfitrião é definida nas def
 2. Capacidade de derivar o nome de anfitrião a partir do IP ou do FQDN dos membros do conjunto de back-end. As definições de HTTP também disponibilizam uma opção que permite escolher o nome de anfitrião a partir do FQDN de um membro do conjunto de back-end, se este estiver configurado com a opção de derivar o nome de anfitrião a partir de um membro do conjunto de back-end individual. Ao utilizar o SSL ponto a ponto, este nome de anfitrião é derivado a partir do FQDN e é utilizado na extensão SNI. Esta capacidade possibilita cenários nos quais um conjunto de back-end pode ter dois ou mais serviços de PaaS multi-inquilino, como as aplicações Web do Azure, e o cabeçalho de anfitrião do pedido para cada membro contém o nome de anfitrião derivado a partir do respetivo FQDN.
 
 > [!NOTE]
-> Em ambos os casos descritos atrás, as definições afetam apenas o comportamento do tráfego ativo e não o comportamento da pesquisa do estado de funcionamento. As pesquisas personalizadas já suportam a capacidade de especificar um cabeçalho de anfitrião na configuração da pesquisa. Agora, as pesquisas personalizadas também suportam a capacidade de derivar o comportamento do cabeçalho de anfitrião a partir das definições de HTTP configuradas atualmente. Esta configuração pode ser especificada com o parâmetro `PickHostNameFromback endAddress` na configuração da pesquisa. Para a funcionalidade ponto a ponto funcionar, tanto a pesquisa como as definições de HTTP têm de ser modificadas de modo a refletirem a configuração correta.
+> Em ambos os casos descritos atrás, as definições afetam apenas o comportamento do tráfego ativo e não o comportamento da pesquisa do estado de funcionamento. As pesquisas personalizadas já suportam a capacidade de especificar um cabeçalho de anfitrião na configuração da pesquisa. Agora, as pesquisas personalizadas também suportam a capacidade de derivar o comportamento do cabeçalho de anfitrião a partir das definições de HTTP configuradas atualmente. Esta configuração pode ser especificada com o parâmetro `PickHostNameFromBackendHttpSettings` na configuração da pesquisa. Para a funcionalidade ponto a ponto funcionar, tanto a pesquisa como as definições de HTTP têm de ser modificadas de modo a refletirem a configuração correta.
 
 Com esta capacidade, os clientes especificam as opções nas definições de HTTP e as pesquisas personalizadas com a configuração adequada. Em seguida, esta definição é associada a um serviço de escuta e a um conjunto de back-end através de uma regra.
 

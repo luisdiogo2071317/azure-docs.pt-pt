@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: Kumud
-ms.openlocfilehash: 1d39cdc13e69740dc99e67f935b60db218536044
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7d60925381abe617f6e2fac51176b8e30517c3ba
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Diagnóstico de estado de funcionamento e métricas padrão Balanceador de carga
 
@@ -88,7 +88,7 @@ Disponibilidade de VIP falha pelos seguintes motivos:
 - A implementação tem sem VMs bom restante no conjunto de back-end. 
 - Ocorreu uma falha de infraestrutura que faz com que a disponibilidade de VIP falhar.
 
-Pode utilizar o [métrica de disponibilidade de VIP juntamente com o estado de sonda de estado de funcionamento para fins de diagnóstico](https://aka.ms/lbdiagnostics#vipavailabilityandhealthprobes).
+Pode utilizar o [métrica de disponibilidade de VIP juntamente com o estado de sonda de estado de funcionamento para fins de diagnóstico](#vipavailabilityandhealthprobes).
 
 Utilize **médio** como a agregação para a maioria dos cenários.
 

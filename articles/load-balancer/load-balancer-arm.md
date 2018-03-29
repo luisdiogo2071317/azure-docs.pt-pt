@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 6ba329e55f03cf984ae795c1d3a509e196064e2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1d098f45c391363523b6a56ec0c6fdb40e64d68
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Utilizar o suporte do Azure Resource Manager com o Balanceador de carga do Azure
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 O Azure Resource Manager é a arquitetura de gestão preferenciais para serviços no Azure. Balanceador de carga do Azure pode ser gerido utilizando APIs do Azure Resource Manager e as ferramentas.
 
@@ -65,7 +65,7 @@ Começar a utilizar os cmdlets do Azure Resource Manager, as ferramentas de linh
 * [Utilizar a CLI do Azure com gestão de recursos do Azure](../xplat-cli-azure-resource-manager.md)
 * [REST APIs do Balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Também pode [começar a criar um Internet Balanceador de carga com acesso à](load-balancer-get-started-internet-arm-ps.md) e configurar o tipo de [modo de distribuição](load-balancer-distribution-mode.md) para um comportamento de tráfego de rede de Balanceador de carga específicos.
 

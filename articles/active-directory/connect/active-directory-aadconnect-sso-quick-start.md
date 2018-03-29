@@ -1,9 +1,9 @@
 ---
-title: "O Azure AD Connect: Totalmente integrada Single Sign-On - introdução | Microsoft Docs"
-description: "Este artigo descreve como começar com Azure Active Directory totalmente integrada Single Sign-On"
+title: 'O Azure AD Connect: Totalmente integrada Single Sign-On - introdução | Microsoft Docs'
+description: Este artigo descreve como começar com Azure Active Directory totalmente integrada Single Sign-On
 services: active-directory
-keywords: "o que é o Azure AD Connect, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único"
-documentationcenter: 
+keywords: o que é o Azure AD Connect, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 67f6ca36c334a60b634094f07e5d9696a6961eb8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d026009151f85a01f14ce4dd8a510f60ff407da1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory totalmente integrada Single Sign-On: início rápido
 
@@ -32,7 +32,7 @@ Para implementar o SSO totalmente integrada, siga estes passos.
 
 Certifique-se de que os seguintes pré-requisitos estão assegurados:
 
-* **Configurar o servidor do Azure AD Connect**: Se utilizar [autenticação pass-through](active-directory-aadconnect-pass-through-authentication.md) como método de início de sessão, não é necessária nenhuma verificação de pré-requisitos adicional. Se utilizar [sincronização de hash de palavra-passe](active-directory-aadconnectsync-implement-password-synchronization.md) como método de início de sessão e se existir uma firewall entre o Azure AD Connect e o Azure AD, certifique-se de que:
+* **Configurar o servidor do Azure AD Connect**: Se utilizar [autenticação pass-through](active-directory-aadconnect-pass-through-authentication.md) como método de início de sessão, não é necessária nenhuma verificação de pré-requisitos adicional. Se utilizar [sincronização de hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) como método de início de sessão e se existir uma firewall entre o Azure AD Connect e o Azure AD, certifique-se de que:
    - Utilizar a versão 1.1.644.0 ou posterior do Azure AD Connect. 
    - Se a sua firewall ou proxy permite a listas brancas DNS, lista branca as ligações para o  **\*. msappproxy.net** URLs através da porta 443. Se não, permitir o acesso à [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizada semanalmente. Este pré-requisito é aplicável apenas quando ativar a funcionalidade. Não é necessária para inícios de sessão de utilizador reais.
 
@@ -87,7 +87,7 @@ Além disso, tem de ativar uma política de zona de Intranet definição chamado
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Por que motivo é necessário modificar as definições de zona de Intranet dos utilizadores?
 
-Por predefinição, o browser calcula automaticamente a zona correta, Internet ou da Intranet, a partir de um URL específico. Por exemplo, "http://contoso/" mapeia para a zona da Intranet, enquanto "http://intranet.contoso.com/" mapeia para a zona de Internet (porque o URL contém um período). Browsers não enviará permissões de Kerberos para um ponto final da nuvem, como o URL do Azure AD, a menos que adicionar explicitamente o URL para a zona de Intranet do browser.
+Por predefinição, o browser calcula automaticamente a zona correta, Internet ou da Intranet, a partir de um URL específico. Por exemplo, "http://contoso/"mapeia para a zona da Intranet, enquanto"http://intranet.contoso.com/" mapeia para a zona de Internet (porque o URL contém um período). Browsers não enviará permissões de Kerberos para um ponto final da nuvem, como o URL do Azure AD, a menos que adicionar explicitamente o URL para a zona de Intranet do browser.
 
 ### <a name="detailed-steps"></a>Passos detalhados
 

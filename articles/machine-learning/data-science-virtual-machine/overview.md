@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f62f6c4b2679457e8aaddb81e8a37622ca878ffc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introdução à máquina de Virtual de ciência de dados do Azure para Linux e Windows
 
@@ -29,7 +29,7 @@ Este tópico descreve o que pode fazer com que a VM de ciência de dados, descre
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>O que posso fazer com a máquina de Virtual de ciência de dados?
-O objetivo da máquina de Virtual de ciência de dados consiste em fornecer profissionais de dados em todas as funções e níveis de skill com um ambiente de ciência de dados sem friction. Esta VM guarda um tempo considerável que seria gastam se que tinha implementado num ambiente comparável por si. Em vez disso, inicie imediatamente o projeto de ciência de dados numa instância de VM recentemente criada. 
+O objetivo da Máquina Virtual de ciência de dados (DSVM) consiste em fornecer dados profissionais de todos os níveis de skill em todas as funções com um ambiente de ciência de dados gratuita por friction, previamente configurada e totalmente integrado. Em vez de disponibilizando uma área de trabalho comparável por si, pode aprovisionar um DSVM - poupando dias ou mesmo _semanas_ sobre a instalação, configuração e processos de pacote de gestão. Depois do DSVM foi alocado, pode começar imediatamente a trabalhar no seu projeto de ciência de dados.
 
 A VM de ciência de dados está concebida e configurada para trabalhar com uma vasta gama de cenários de utilização. Pode dimensionar o seu ambiente ou reduzir verticalmente como o projeto tem de alteração. É possível utilizar a linguagem preferencial a tarefas de ciência de dados do programa. Pode instalar outras ferramentas e personalizar o sistema para as suas exatas necessidades.
 

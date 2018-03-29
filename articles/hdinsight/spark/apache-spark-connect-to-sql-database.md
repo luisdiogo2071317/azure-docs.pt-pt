@@ -1,8 +1,8 @@
 ---
-title: "Utilizar o Apache Spark para ler e escrever dados à base de dados SQL do Azure | Microsoft Docs"
-description: "Saiba como configurar uma ligação entre o cluster do HDInsight Spark e uma base de dados SQL do Azure para ler os dados, escrever dados e fluxo de dados numa base de dados SQL"
+title: Utilizar o Apache Spark para ler e escrever dados à base de dados SQL do Azure | Microsoft Docs
+description: Saiba como configurar uma ligação entre o cluster do HDInsight Spark e uma base de dados SQL do Azure para ler os dados, escrever dados e fluxo de dados numa base de dados SQL
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/29/2018
+ms.date: 03/28/2018
 ms.author: nitinme
-ms.openlocfilehash: 28ed6b9774bb85c7ec806c7775c34f8bc3d66bde
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011471224d79ae326ccc33fc23fd6fada347497b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Utilize o cluster do HDInsight Spark para ler e escrever dados à base de dados SQL do Azure
 
@@ -234,7 +234,7 @@ Nesta secção, iremos transmitir dados para o **hvactable** que já criados na 
         
          var streamingQuery = WriteToSQLQuery.start()
 
-6. Certifique-se de que os dados estão a ser transmissão em fluxo para o **hvactable** executando a seguinte consulta. Everytime executar a consulta, mostra o número de linhas no aumento de tabela.
+6. Certifique-se de que os dados estão a ser transmissão em fluxo para o **hvactable** executando a seguinte consulta no SQL Server Management Studio (SSMS). Everytime executar a consulta, mostra o número de linhas no aumento de tabela.
 
         SELECT COUNT(*) FROM hvactable
 

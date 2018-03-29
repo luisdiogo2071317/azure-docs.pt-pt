@@ -1,12 +1,12 @@
 ---
-title: "Resolver problemas de um objeto que não está a sincronizar com o Azure AD | Microsoft Docs"
-description: "Resolver problemas relacionados com a razão pela qual um objeto não está a sincronizar com o Azure AD."
+title: Resolver problemas de um objeto que não está a sincronizar com o Azure AD | Microsoft Docs
+description: Resolver problemas relacionados com a razão pela qual um objeto não está a sincronizar com o Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Resolver problemas de um objeto que não está a sincronizar com o Azure AD
 
@@ -110,7 +110,7 @@ Pode inspecionar o objeto e que a regra aplicada para um fluxo de atributo espec
 ![Gestor do serviço de sincronização](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### <a name="log"></a>Registar
-A página de registo é utilizada para ver o estado de sincronização de palavra-passe e histórico. Para obter mais informações, consulte [resolver problemas de sincronização de palavra-passe](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+A página de registo é utilizada para ver o estado de sincronização de palavra-passe e histórico. Para obter mais informações, consulte [resolver problemas de sincronização de hash de palavra-passe](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Propriedades do objeto de Metaverso
 É, normalmente, é melhor iniciar a pesquisa da origem do Active Directory [espaço de conector](#connector-space). Mas também pode iniciar a pesquisa de metaverso.

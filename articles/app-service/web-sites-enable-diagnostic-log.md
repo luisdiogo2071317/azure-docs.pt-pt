@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: c39a8fafef9a45f5e80d00f8cbc75833201df150
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8dc955b3556477e04e6ef3e92b1c7dbe82ac7f35
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Ativar o registo de diagnóstico para web apps no App Service do Azure
 ## <a name="overview"></a>Descrição geral
@@ -120,7 +120,7 @@ Este comando guarda os registos da aplicação web especificada pelo **-nome** p
 ### <a name="download-with-azure-command-line-interface"></a>Transferir com a Interface de linha de comandos do Azure
 Para transferir os ficheiros de registo utilizando a Interface de linha de comandos do Azure, abra uma nova linha de comandos, PowerShell, Bash ou sessão de Terminal e introduza o seguinte comando:
 
-    az webapp log download --name webappname
+    az webapp log download --resource-group resourcegroupname --name webappname
 
 Este comando guarda os registos da aplicação web com o nome 'webappname' para um ficheiro denominado **diagnostics.zip** no diretório atual.
 
@@ -148,7 +148,7 @@ Ao desenvolver uma aplicação, muitas vezes, é útil ver informações de regi
 > Alguns tipos de memória intermédia de registo de escrita para o ficheiro de registo, o que pode resultar em eventos fora de ordem na sequência. Por exemplo, uma entrada de registo de aplicação que ocorre quando um utilizador visita uma página poderão ser apresentada no fluxo antes da entrada de registo HTTP correspondente para o pedido de página.
 >
 > [!NOTE]
-> Registo de transmissão em fluxo também fluxos informações escritas para qualquer ficheiro de texto armazenado no **D:\\raiz\\LogFiles\\ ** pasta.
+> Registo de transmissão em fluxo também fluxos informações escritas para qualquer ficheiro de texto armazenado no **D:\\raiz\\LogFiles\\**  pasta.
 >
 >
 

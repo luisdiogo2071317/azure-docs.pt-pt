@@ -1,12 +1,12 @@
 ---
-title: "O Azure AD Connect: Selecione o tipo de instalação | Microsoft Docs"
-description: "Este tópico explica como selecionar o tipo de instalação a utilizar para o Azure AD Connect"
+title: 'O Azure AD Connect: Selecione o tipo de instalação | Microsoft Docs'
+description: Este tópico explica como selecionar o tipo de instalação a utilizar para o Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 76f1ce12ab149f57ec6e995d132de83105c5e0ca
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecione o tipo de instalação a utilizar para o Azure AD Connect
 O Azure AD Connect tem dois tipos de instalação para a instalação do novo: Express e personalizados. Este tópico ajuda-o a decidir qual a opção a utilizar durante a instalação.
@@ -34,7 +34,7 @@ Pressupõe que:
 
 Obter:
 
-- [Sincronização de palavra-passe](active-directory-aadconnectsync-implement-password-synchronization.md) no local ao Azure AD para o início de sessão único.
+- [Sincronização de hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) no local ao Azure AD para o início de sessão único.
 - Uma configuração que se sincroniza [utilizadores, grupos, contactos e computadores Windows 10](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Sincronização de todos os objetos elegíveis todos os domínios e UOs todos os.
 - [A atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) está ativada para se certificar de que utilize sempre a versão mais recente disponível.

@@ -1,6 +1,6 @@
 ---
-title: "Monitorização de desempenho para aplicações web de Java no Azure Application Insights | Microsoft Docs"
-description: "Expandida monitorização de desempenho e utilização do seu site em Java com o Application Insights."
+title: Monitorização de desempenho para aplicações web de Java no Azure Application Insights | Microsoft Docs
+description: Expandida monitorização de desempenho e utilização do seu site em Java com o Application Insights.
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: ecfcf7a3b3698435f98b74474d0ca7223ab2b46c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b327e7f062cdf3e6b1b34a9540461dcb18caf21c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Monitorizar dependências, exceções e os tempos de execução nas web apps do Java
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorizar dependências, exceções atualizadas e tempos de execução do método nas web apps do Java
 
 
 Se tiver [instrumentados a sua aplicação web de Java com o Application Insights][java], pode utilizar o agente Java para obter informações mais aprofundadas, sem quaisquer alterações de código:
 
 * **Dependências:** dados sobre chamadas que torna a sua aplicação para outros componentes, incluindo:
-  * **Chamadas REST** efetuadas através de HttpClient, OkHttp e RestTemplate (mola).
-  * **Redis** chamadas efetuadas através do cliente Jedis. Se a chamada demora mais que 10s, o agente também obtém os argumentos de chamada.
-  * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby DB. chamadas de "executeBatch" são suportadas. Para o MySQL e PostgreSQL, se a chamada demora mais que 10s, o agente reporta o plano de consulta.
-* **Detetada exceções:** dados sobre as exceções que são processados pelo seu código.
-* **Tempo de execução do método:** dados sobre o tempo que demora a executar métodos específicos.
+  * **Chamadas REST** efetuadas através de HttpClient, OkHttp e RestTemplate (mola) são capturadas.
+  * **Redis** chamadas efetuadas através do cliente Jedis são capturadas.
+  * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -comandos MySQL, SQL Server e Oracle DB são capturados automaticamente. Para MySQL, se a chamada demora mais que 10s, o agente reporta o plano de consulta.
+* **Detetada exceções:** informações sobre as exceções que são processados pelo seu código.
+* **Tempo de execução do método:** informações sobre o tempo que demora a executar métodos específicos.
 
 Para utilizar o agente Java, instalá-lo no seu servidor. As suas aplicações web têm de ser equipadas com o [Application Insights SDK de Java][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Instalar o agente do Application Insights para Java
-1. No computador a executar o servidor de Java [transferir o agente](https://aka.ms/aijavasdk).
+1. No computador a executar o servidor de Java [transferir o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Certifique-se para transferir o mesmo verson de agente Java como pacotes de núcleos e web do Application Insights SDK de Java.
 2. Edite o script de arranque do servidor de aplicação e adicione as JVM seguinte:
    
     `javaagent:`*caminho completo para o ficheiro JAR do agente*

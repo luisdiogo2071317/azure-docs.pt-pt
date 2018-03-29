@@ -1,25 +1,25 @@
 ---
-title: "Ligue à BD do Cosmos do Azure utilizando as ferramentas de análise de BI | Microsoft Docs"
-description: "Saiba como utilizar o controlador ODBC de BD do Cosmos do Azure para criar tabelas e vistas que normalizado dados podem ser visualizados no software de análise do BI e os dados."
+title: Ligue à BD do Cosmos do Azure utilizando as ferramentas de análise de BI | Microsoft Docs
+description: Saiba como utilizar o controlador ODBC de BD do Cosmos do Azure para criar tabelas e vistas que normalizado dados podem ser visualizados no software de análise do BI e os dados.
 keywords: ODBC, o controlador odbc
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 03/22/2018
 ms.author: mimig
-ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 445acafeef67027712826f644afaa1784569b30d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligue à BD do Cosmos do Azure utilizando as ferramentas de análise de BI com o controlador ODBC
 
@@ -30,7 +30,7 @@ O controlador ODBC de BD do Azure Cosmos é ODBC 3.8 em conformidade e suporta A
 ## <a name="why-do-i-need-to-normalize-my-data"></a>Por que motivo é necessário normalizar os meus dados?
 BD do Cosmos do Azure é uma base de dados sem esquemas, pelo que permite um desenvolvimento rápido de aplicações, permitindo aplicações iterar o respetivo modelo de dados no momento e não confine-los para um esquema strict. Uma única base de dados de base de dados do Azure Cosmos pode conter documentos JSON de várias estruturas. Esta é uma grande para o desenvolvimento da aplicação rápida, mas quando pretende analisar e criar relatórios de dados utilizando ferramentas de BI e de análise de dados, os dados, muitas vezes, tem de ser simplificado e segue um esquema específico.
 
-Este é onde o controlador ODBC é apresentada no. Ao utilizar o controlador ODBC, pode agora renormalized dados na base de dados do Azure Cosmos em tabelas e vistas de ajuste para as suas necessidades de analíticas e de relatórios de dados. Os esquemas renormalized não tem nenhum impacto nos dados subjacentes e não confine aos programadores-las cumprir, basta permitem-lhe tirar partido das ferramentas compatível com ODBC para aceder aos dados. Agora, por isso, a base de dados de base de dados do Azure Cosmos não só será um favorito para a sua equipa de desenvolvimento, mas os analistas de dados serão o adoram demasiado.
+Este é onde o controlador ODBC é apresentada no. Ao utilizar o controlador ODBC, pode agora de renormalize dados na base de dados do Azure Cosmos em tabelas e vistas de ajuste para as suas necessidades de analíticas e de relatórios de dados. Os esquemas renormalized não tem nenhum impacto nos dados subjacentes e não confine programadores aderir aos mesmos, dão-lhe tirar partido das ferramentas compatível com ODBC para aceder aos dados. Agora, por isso, a base de dados de base de dados do Azure Cosmos não só será um favorito para a sua equipa de desenvolvimento, mas os analistas de dados serão o adoram demasiado.
 
 Permite agora começar com o controlador ODBC.
 
@@ -40,7 +40,7 @@ Permite agora começar com o controlador ODBC.
 
     | Instalador | Sistemas operativos suportados| 
     |---|---| 
-    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) para Windows de 64 bits| versões de 64 bits do Windows 8.1 ou posterior, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2.| 
+    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) para Windows de 64 bits| as versões de 64 bits do Windows 8.1 ou posterior, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2.| 
     |[Microsoft Azure Cosmos DB ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) de 32 bits em Windows de 64 bits| as versões de 64 bits do Windows 8.1 ou posterior, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 e Windows Server 2003.| 
     |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) para Windows de 32 bits|versões de 32 bits do Windows 8.1 ou posterior, Windows 8, Windows 7, Windows XP e Windows Vista.|
 
@@ -53,7 +53,7 @@ Permite agora começar com o controlador ODBC.
 
 ## <a id="connect"></a>Passo 2: Ligar à base de dados do Azure Cosmos DB
 
-1. Depois de [instalar o controlador ODBC de BD do Azure Cosmos](#install), no **administrador de origem de dados de ODBC** janela, clique em **adicionar**. Pode criar um utilizador ou sistema DSN. Neste exemplo, estamos a criar um DSN de utilizador.
+1. Depois de [instalar o controlador ODBC de BD do Azure Cosmos](#install), no **administrador de origem de dados de ODBC** janela, clique em **adicionar**. Pode criar um utilizador ou sistema DSN. Neste exemplo, está a criar um DSN de utilizador.
 2. No **criar uma nova origem de dados** janela, selecione **o controlador de ODBC do Microsoft Azure Cosmos DB**e, em seguida, clique em **concluir**.
 3. No **configuração SDN de controladores ODBC Azure Cosmos DB** janela, preencha o seguinte: 
 
@@ -71,7 +71,7 @@ Permite agora começar com o controlador ODBC.
     - **Ficheiro de esquema**: tiver um número de opções aqui.
         - Por predefinição, deixar esta entrada é (em branco), o controlador analisa os dados de página primeiro para todas as coleções determinar o esquema de cada coleção. Isto é conhecido como mapeamento de coleção. Sem um ficheiro de esquema definido, o controlador tem de executar a análise para cada sessão de controladores e pode resultar num tempo de arranque superior de uma aplicação utilizando o DSN. Recomendamos que associa sempre um ficheiro de esquema para um DSN.
         - Se já tiver um ficheiro de esquema (possivelmente uma que criou utilizando o [Editor de esquema](#schema-editor)), pode clicar em **procurar**, navegue para o ficheiro, clique em **guardar**e, em seguida, clique em **OK**.
-        - Se pretender criar um novo esquema, clique em **OK**e, em seguida, clique em **Editor de esquema** na janela principal. Em seguida, avance para o [Editor de esquema](#schema-editor) informações. Após criar o novo ficheiro de esquema, não se esqueça de voltar para o **opções avançadas** janela incluir o ficheiro de esquema recentemente criado.
+        - Se pretender criar um novo esquema, clique em **OK**e, em seguida, clique em **Editor de esquema** na janela principal. Em seguida, avance para o [Editor de esquema](#schema-editor) informações. Depois de criar o novo ficheiro de esquema, lembre-se regressar à **opções avançadas** janela incluir o ficheiro de esquema recentemente criado.
 
 6. Depois de concluir e fechar o **configuração DSN de controladores ODBC Azure Cosmos DB** janela, o novo utilizador DSN é adicionada ao separador DSN de utilizador.
 
@@ -114,10 +114,60 @@ Os seguintes passos criar um esquema para os dados numa ou mais coleções utili
 4. Clique em **OK**. 
 5. Depois de concluir as definições de mapeamento para as coleções que pretende, além de exemplo a **Editor de esquema** janela, clique em **exemplo**.
      Para cada coluna, pode modificar o nome SQL da coluna, o tipo SQL, o comprimento SQL (se aplicável), dimensionamento (se aplicável), precisão (se aplicável) e Nullable.
-    - Pode definir **Ocultar coluna** para **verdadeiro** se de que pretende excluir essa coluna de resultados da consulta. Colunas marcado Ocultar coluna = true não são devolvidos para a seleção e a projeção, embora ainda sejam parte do esquema. Por exemplo, pode ocultar todas as propriedades de sistema necessário de base de dados do Azure Cosmos começados por "_".
+    - Pode definir **Ocultar coluna** para **verdadeiro** se de que pretende excluir essa coluna de resultados da consulta. Colunas marcado Ocultar coluna = true não são devolvidos para a seleção e a projeção, embora ainda sejam parte do esquema. Por exemplo, pode ocultar todas as propriedades do sistema necessário Azure Cosmos DB começadas `_`.
     - O **id** coluna é o campo apenas que não é possível ocultar porque é utilizado como a chave primária no esquema normalizado. 
 6. Quando tiver concluído a definir o esquema, clique em **ficheiro** | **guardar**, navegue para o diretório para guardar o esquema e, em seguida, clique em **guardar**.
-7. Volta a **configuração DSN de controladores ODBC Azure Cosmos DB** janela, clique em * * Opções avançadas *. Em seguida, no **ficheiro de esquema** caixa, navegue para o ficheiro de esquema guardada e clique em **OK**. Clique em **OK** novamente para guardar o DSN. Isto poupa o esquema que criou para o DSN. 
+7. Volta a **configuração DSN de controladores ODBC Azure Cosmos DB** janela, clique em **opções avançadas**. Em seguida, no **ficheiro de esquema** caixa, navegue para o ficheiro de esquema guardada e clique em **OK**. Clique em **OK** novamente para guardar o DSN. Isto poupa o esquema que criou para o DSN. 
+
+## <a name="optional-set-up-linked-server-connection"></a>(Opcional) Configurar ligação ao servidor ligado
+
+Pode consultar o Azure Cosmos BD do SQL Server Management Studio (SSMS), configurar uma ligação de servidor ligado.
+
+1. Crie uma origem de dados do sistema, conforme descrito em [passo 2](#connect), por exemplo denominado `SDS Name`.
+2. [Instalar o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+3. No editor de consultas SSMS, criar um objeto servidor ligado `DEMOCOSMOS` da origem de dados com os seguintes comandos. Substitua `DEMOCOSMOS` com o nome do servidor ligado, e `SDS Name` com o nome da sua origem de dados do sistema.
+
+    ```sql
+    USE [master]
+    GO
+    
+    EXEC master.dbo.sp_addlinkedserver @server = N'DEMOCOSMOS', @srvproduct=N'', @provider=N'MSDASQL', @datasrc=N'SDS Name'
+    
+    EXEC master.dbo.sp_addlinkedsrvlogin @rmtsrvname=N'DEMOCOSMOS', @useself=N'False', @locallogin=NULL, @rmtuser=NULL, @rmtpassword=NULL
+    
+    GO
+    ```
+    
+Para ver o novo nome de servidor ligado, atualize a lista de servidores ligados.
+
+![Servidor ligado no SSMS](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
+
+### <a name="query-linked-database"></a>Consultar a base de dados ligada
+
+Para consultar a base de dados ligado, introduza uma consulta do SSMS. Neste exemplo, a consulta seleciona da tabela na coleção com o nome `customers`:
+
+```sql
+SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
+```
+
+Execute a consulta. O resultado deve ser semelhante a isto:
+
+```
+attachments/  1507476156    521 Bassett Avenue, Wikieup, Missouri, 5422   "2602bc56-0000-0000-0000-59da42bc0000"   2015-02-06T05:32:32 +05:00 f1ca3044f17149f3bc61f7b9c78a26df
+attachments/  1507476156    167 Nassau Street, Tuskahoma, Illinois, 5998   "2602bd56-0000-0000-0000-59da42bc0000"   2015-06-16T08:54:17 +04:00 f75f949ea8de466a9ef2bdb7ce065ac8
+attachments/  1507476156    885 Strong Place, Cassel, Montana, 2069       "2602be56-0000-0000-0000-59da42bc0000"   2015-03-20T07:21:47 +04:00 ef0365fb40c04bb6a3ffc4bc77c905fd
+attachments/  1507476156    515 Barwell Terrace, Defiance, Tennessee, 6439     "2602c056-0000-0000-0000-59da42bc0000"   2014-10-16T06:49:04 +04:00      e913fe543490432f871bc42019663518
+attachments/  1507476156    570 Ruby Street, Spokane, Idaho, 9025       "2602c156-0000-0000-0000-59da42bc0000"   2014-10-30T05:49:33 +04:00 e53072057d314bc9b36c89a8350048f3
+```
+
+> [!NOTE]
+> O servidor de base de dados do Cosmos ligado não suporta a nomenclatura de quatro partes. É devolvido um erro semelhante a mensagem seguinte:
+
+```
+Msg 7312, Level 16, State 1, Line 44
+
+Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server "DEMOCOSMOS". A four-part name was supplied, but the provider does not expose the necessary interfaces to use a catalog or schema.
+``` 
 
 ## <a name="optional-creating-views"></a>(Opcional) Criar vistas
 Pode definir e criar vistas como parte do processo de amostragem. Estas vistas são equivalentes às vistas do SQL Server. São só de leitura e são âmbito as seleções e projeções de SQL de BD do Azure Cosmos definido. 

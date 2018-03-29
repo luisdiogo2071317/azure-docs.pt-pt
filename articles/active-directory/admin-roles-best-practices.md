@@ -1,8 +1,8 @@
 ---
-title: "Melhores práticas para proteger o acesso administrativo no Azure AD | Microsoft Docs"
-description: "Certifique-se de que a acesso e admin as contas administrativas sua organização são seguras. Arquitetos de sistema e profissionais de TI que configurar o Azure AD, do Azure e do Microsoft Online Services."
+title: Melhores práticas para proteger o acesso administrativo no Azure AD | Microsoft Docs
+description: Certifique-se de que a acesso e admin as contas administrativas sua organização são seguras. Arquitetos de sistema e profissionais de TI que configurar o Azure AD, do Azure e do Microsoft Online Services.
 services: active-directory
-keywords: 
+keywords: ''
 author: curtand
 ms.author: curtand
 ms.date: 03/09/2018
@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e em nuvem no Azure AD
 
@@ -156,7 +156,7 @@ Certifique-se de que todos os utilizadores tem sessão iniciada para as respetiv
 
 #### <a name="turn-on-password-synchronization"></a>Ativar sincronização de palavra-passe
 
-Sincronização de palavra-passe é uma funcionalidade utilizada para sincronizar os hashes de hashes de palavra-passe de utilizador de uma instância do Active Directory no local para um Azure baseados na nuvem de instância do AD. Mesmo que se optar por utilizar a Federação com serviços de Federação do Active Directory (AD FS) ou de outros fornecedores de identidade, opcionalmente, pode configura a sincronização de palavra-passe como uma cópia de segurança no caso a infraestrutura no local como o AD ou servidores ADFS falhar ou ficar temporariamente indisponível. Isto permite aos utilizadores iniciar sessão para o serviço utilizando a mesma palavra-passe que podem utilizar para iniciar sessão no local instância do AD. Além disso, permite proteção de identidade detetar credenciais comprometidas comparando os hashes de palavra-passe com palavras-passe conhecidas for comprometida, se um utilizador tem aproveitadas os respetivos mesmo endereço de e-mail e a palavra-passe noutros serviços não ligado ao Azure AD.  Para obter mais informações, consulte [implementar a sincronização de palavra-passe com a sincronização do Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).
+Sincronização de palavra-passe é uma funcionalidade utilizada para sincronizar os hashes de hashes de palavra-passe de utilizador de uma instância do Active Directory no local para um Azure baseados na nuvem de instância do AD. Mesmo que se optar por utilizar a Federação com serviços de Federação do Active Directory (AD FS) ou de outros fornecedores de identidade, opcionalmente, pode configura a sincronização de palavra-passe como uma cópia de segurança no caso a infraestrutura no local como o AD ou servidores ADFS falhar ou ficar temporariamente indisponível. Isto permite aos utilizadores iniciar sessão para o serviço utilizando a mesma palavra-passe que podem utilizar para iniciar sessão no local instância do AD. Além disso, permite proteção de identidade detetar credenciais comprometidas comparando os hashes de palavra-passe com palavras-passe conhecidas for comprometida, se um utilizador tem aproveitadas os respetivos mesmo endereço de e-mail e a palavra-passe noutros serviços não ligado ao Azure AD.  Para obter mais informações, consulte [implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Exigir autenticação multifator (MFA) para utilizadores nas funções com todos os privilégios, bem como os utilizadores expostos
 

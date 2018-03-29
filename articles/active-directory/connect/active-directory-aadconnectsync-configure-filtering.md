@@ -1,11 +1,11 @@
 ---
-title: "Sincronização do Azure AD Connect: configurar a filtragem | Microsoft Docs"
-description: "Explica como configurar a filtragem de sincronização do Azure AD Connect."
+title: 'Sincronização do Azure AD Connect: configurar a filtragem | Microsoft Docs'
+description: Explica como configurar a filtragem de sincronização do Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5af82e889a80994dd47d4fc3b89f8eece2201355
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Ao utilizar a filtragem, pode controlar quais os objetos são apresentados no Azure Active Directory (Azure AD) do seu diretório no local. A configuração predefinida demora todos os objetos em todos os domínios em florestas configurados. Em geral, esta é a configuração recomendada. Os utilizadores com cargas de trabalho do Office 365, como o Exchange Online e Skype para empresas, beneficiam de uma lista completa de endereços Global para que podem enviar correio eletrónico e chamar todas as pessoas. A configuração predefinida, seria têm a mesma experiência que têm com uma implementação no local do Exchange ou o Lync.
@@ -44,7 +44,7 @@ Porque filtragem, pode remover muitos objetos ao mesmo tempo, pretende assegurar
 
 Para proteção contra eliminação muitos objetos acidentalmente, a funcionalidade "[impedir eliminações acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)" está ativada por predefinição. Se eliminar muitos objetos devido a filtragem (500 por predefinição), tem de seguir os passos neste artigo para permitir que as eliminações percorrer para o Azure AD.
 
-Se utilizar uma compilação antes de Novembro de 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), efetuar uma alteração para uma configuração de filtro e utilizar a sincronização de palavra-passe, em seguida, é necessário acionar uma sincronização completa de todas as palavras-passe após concluir a configuração. Para obter os passos sobre como acionar uma sincronização completa de palavra-passe, consulte [acionar uma sincronização completa de todas as palavras-passe](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Se estiver numa compilação 1.0.9125 ou posterior, em seguida, o regular **completa sincronização** ação calcula também indica se devem ser sincronizadas palavras-passe e se este passo adicional já não é necessário.
+Se utilizar uma compilação antes de Novembro de 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), efetuar uma alteração para uma configuração de filtro e utilizar a sincronização de hash de palavra-passe, em seguida, é necessário acionar uma sincronização completa de todas as palavras-passe após concluir a configuração. Para obter os passos sobre como acionar uma sincronização completa de palavra-passe, consulte [acionar uma sincronização completa de todas as palavras-passe](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Se estiver numa compilação 1.0.9125 ou posterior, em seguida, o regular **completa sincronização** ação calcula também indica se devem ser sincronizadas palavras-passe e se este passo adicional já não é necessário.
 
 Se **utilizador** objetos foram eliminados inadvertidamente no Azure AD devido a um erro de filtragem, pode recriar os objetos de utilizador no Azure AD, removendo as configurações de filtragem. Em seguida, pode sincronizar os diretórios novamente. Esta ação restaura os utilizadores a partir da Reciclagem no Azure AD. No entanto, não é possível anular eliminação outros tipos de objeto. Por exemplo, se elimina acidentalmente um grupo de segurança e foi utilizado para a ACL de um recurso, o grupo e a ACL não pode ser recuperado.
 
@@ -255,7 +255,7 @@ Neste exemplo, altere a filtragem de modo a que apenas os utilizadores que tenha
 4. Dependendo da versão do Connect utilizar, encontrar uma regra com o nome **Out para o AAD – associar utilizador** ou **enviados para o AAD - utilizador aderir ao SOAInAD**e clique em **editar**.
 5. No pop-up, responder **Sim** para criar uma cópia da regra.
 6. No **Descrição** página, altere **precedência** para um valor de não utilizado, tais como 50.
-7. Clique em **Scoping filtro** na navegação esquerda e, em seguida, clique **Adicionar cláusula**. No **atributo**, selecione **correio**. No **operador**, selecione **ENDSWITH**. No **valor**, tipo  **@contoso.com** e, em seguida, clique em **Adicionar cláusula**. No **atributo**, selecione **userPrincipalName**. No **operador**, selecione **ENDSWITH**. No **valor**, tipo  **@contoso.com** .
+7. Clique em **Scoping filtro** na navegação esquerda e, em seguida, clique **Adicionar cláusula**. No **atributo**, selecione **correio**. No **operador**, selecione **ENDSWITH**. No **valor**, tipo **@contoso.com**e, em seguida, clique em **Adicionar cláusula**. No **atributo**, selecione **userPrincipalName**. No **operador**, selecione **ENDSWITH**. No **valor**, tipo **@contoso.com**.
 8. Clique em **Guardar**.
 9. Para concluir a configuração, tem de executar um **sincronização completa**. Continuar a ler a secção [aplicar e verificar as alterações](#apply-and-verify-changes).
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: f42a23a8d4e6a90f104c97d4a1cbdef5343e585e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5cd486d9953979fe8aa9c8354c5fad5a9e11af1e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -144,7 +144,7 @@ Se pretender que as redes virtuais para comunicar por vezes, mas nem sempre, em 
 - Recursos em ambas as redes virtuais no peering de podem comunicar entre si com o mesmo largura de banda e latência como se estivessem na mesma rede virtual. Cada tamanho da máquina virtual tem no entanto a sua própria largura de banda de rede máxima. Para saber mais sobre a largura de banda de rede máxima para os diferentes tamanhos de máquinas virtuais, leia os artigos sobre os tamanhos de máquinas virtuais do [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou do [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Pode elemento redes virtuais implementadas através do Gestor de recursos que estão em subscrições idêntica ou diferentes.
 - Pode elemento redes virtuais implementadas através de modelos de implementação diferentes nas subscrições idêntica ou diferentes. 
-- As subscrições que ambas as redes virtuais estão no tem de estar associadas ao mesmo inquilino do Azure Active Directory. Se ainda não tiver um inquilino do AD, pode rapidamente [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). Pode utilizar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais que existam em diferentes subscrições associadas aos inquilinos diferentes do Active Directory.
+- As subscrições que ambas as redes virtuais estão no tem de estar associadas ao mesmo inquilino do Azure Active Directory. Se ainda não tiver um inquilino do AD, pode rapidamente [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json##create-a-new-azure-ad-tenant). Pode utilizar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais que existam em diferentes subscrições associadas aos inquilinos diferentes do Active Directory.
 - Uma rede virtual pode estar em modo de peering para outra rede virtual e também de estar ligada a outra rede virtual com um gateway de rede virtual do Azure. Quando estão ligados a redes virtuais através de peering e um gateway, o tráfego entre as redes virtuais flui através da configuração do peering, em vez do gateway.
 - Existe uma cobrança nominal para o tráfego de entrada e de saída que utilize um peering de rede virtual. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
 

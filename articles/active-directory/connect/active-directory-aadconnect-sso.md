@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6a106ba59f09ffc20f8461c5267ae06695df4cd0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory totalmente integrada Single Sign-On
 
@@ -28,7 +28,7 @@ Azure Active Directory totalmente integrada Single Sign-On (Azure AD totalmente 
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-SSO totalmente integrada pode ser combinado com uma o [sincronização de Hash de palavra-passe](active-directory-aadconnectsync-implement-password-synchronization.md) ou [autenticação pass-through](active-directory-aadconnect-pass-through-authentication.md) métodos de início de sessão.
+SSO totalmente integrada pode ser combinado com uma o [sincronização de Hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) ou [autenticação pass-through](active-directory-aadconnect-pass-through-authentication.md) métodos de início de sessão.
 
 ![Totalmente integrado Single Sign-On](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -42,7 +42,7 @@ SSO totalmente integrada pode ser combinado com uma o [sincronização de Hash d
   - Os utilizadores não têm de introduzir repetidamente as palavras-passe.
 - *Fácil de implementar e administrar*
   - Não existem componentes adicionais necessários no local para isto funcionar.
-  - Funciona com qualquer método de autenticação em nuvem - [sincronização de Hash de palavra-passe](active-directory-aadconnectsync-implement-password-synchronization.md) ou [autenticação pass-through](active-directory-aadconnect-pass-through-authentication.md).
+  - Funciona com qualquer método de autenticação em nuvem - [sincronização de Hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) ou [autenticação pass-through](active-directory-aadconnect-pass-through-authentication.md).
   - Pode ser implementado para alguns ou todos os utilizadores através da política de grupo.
   - Registe dispositivos não Windows 10 com o Azure AD sem a necessidade de qualquer infraestrutura de AD FS. Esta capacidade tem de utilizar a versão 2.1 ou posterior do [cliente associação à área de trabalho](https://www.microsoft.com/download/details.aspx?id=53554).
 

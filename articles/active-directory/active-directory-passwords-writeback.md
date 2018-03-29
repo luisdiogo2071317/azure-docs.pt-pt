@@ -1,26 +1,26 @@
 ---
-title: "Azure AD SSPR com repetição de escrita de palavras-passe | Microsoft Docs"
-description: "Utilizar o Azure AD e do Azure AD Connect para palavras-passe de repetição de escrita para um diretório no local"
+title: Azure AD SSPR com repetição de escrita de palavras-passe | Microsoft Docs
+description: Utilizar o Azure AD e do Azure AD Connect para palavras-passe de repetição de escrita para um diretório no local
 services: active-directory
-keywords: "Gestão de palavras-passe do Active Directory, gestão de palavras-passe, do Azure AD Self-repor a palavra-passe do serviço"
-documentationcenter: 
+keywords: Gestão de palavras-passe do Active Directory, gestão de palavras-passe, do Azure AD Self-repor a palavra-passe do serviço
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: bcb7074a6d590a08ad683c8746156245bc60c5e8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7a81f51e0873da38f25deb687e4d03ccf67e11a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="password-writeback-overview"></a>Descrição geral de repetição de escrita de palavras-passe
 
@@ -30,7 +30,7 @@ Repetição de escrita de palavras-passe fornece as seguintes funcionalidades:
 
 * **Fornece comentários zero atraso**: repetição de escrita de palavras-passe é uma operação síncrona. Os utilizadores são notificados imediatamente se a palavra-passe não cumpria a política ou não foi possível ser repor ou alterada por qualquer motivo.
 * **Reposições de palavra-passe de suporta para os utilizadores que utilizam serviços de Federação do Active Directory (AD FS) ou outras tecnologias de Federação**: com repetição de escrita de palavras-passe, desde que as contas de utilizador federado que são sincronizadas no seu inquilino do Azure AD, são capazes de gerir as respetivas palavras-passe no local do Active Directory na nuvem.
-* **Reposições de palavra-passe de suporta para os utilizadores que utilizam** [sincronização de hash de palavra-passe](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): quando o serviço de reposição de palavra-passe Deteta se uma conta de utilizador sincronizadas está ativada para sincronização de hash de palavra-passe, repomos no local ambas desta conta e palavra-passe da nuvem em simultâneo.
+* **Reposições de palavra-passe de suporta para os utilizadores que utilizam** [sincronização de hash de palavra-passe](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md): quando o serviço de reposição de palavra-passe Deteta se uma conta de utilizador sincronizadas está ativada para sincronização de hash de palavra-passe, repomos no local ambas desta conta e palavra-passe da nuvem em simultâneo.
 * **Reposições de palavra-passe de suporta para os utilizadores que utilizam a autenticação pass-through**: com repetição de escrita de palavras-passe, desde que as contas de autenticação pass-through são sincronizadas para o inquilino do Azure AD, são capazes de gerir o seu Active Directory no local Diretório palavras-passe da nuvem.
 * **Alterações de palavra-passe de suporta do painel de acesso e do Office 365**: quando federado ou utilizadores de palavra-passe sincronizada são fornecidos para alterar as expirado ou não expirou palavras-passe, podemos repetição de escrita dessas palavras-passe para o seu ambiente do Active Directory local.
 * **Suporta a repetição de escrita de palavras-passe quando um administrador repõe-los a partir do portal do Azure**: sempre que um administrador repõe a palavra-passe de um utilizador no [portal do Azure](https://portal.azure.com), se estiver federado que o utilizador ou palavra-passe sincronizado, iremos definir a palavra-passe Seleciona o administrador do Active Directory local, bem como. Esta funcionalidade não é atualmente suportada no portal de administração do Office.

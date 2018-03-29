@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -96,6 +96,19 @@ Versões futuras do Windows Server serão adicionadas à medida que são lançad
 
 > [!Note]  
 > São suportados apenas os volumes NTFS. O reFS, FAT, FAT32 e outros sistemas de ficheiros não são suportados.
+
+### <a name="files-skipped"></a>Ficheiros ignorados
+| Ficheiro/pasta | Nota |
+|-|-|
+| Desktop.ini | Específica do sistema de ficheiros |
+| ethumbs.db$ | Ficheiro temporário para miniaturas |
+| ~$\*.\* | Ficheiro temporário do Office |
+| \*.tmp | Ficheiro temporário |
+| \*.laccdb | Ficheiro de bloqueio de acesso DB|
+| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| \\Informações de Volume do sistema | Pasta específica para volume |
+| $RECYCLE.BIN| Pasta |
+| \\SyncShareState | Pasta para sincronização |
 
 ### <a name="failover-clustering"></a>Clustering de ativação pós-falha
 Clustering de ativação pós-falha do Windows Server é suportada pela sincronização de ficheiros do Azure para a opção de implementação de "Servidor de ficheiros de utilização geral". Clustering de ativação pós-falha não é suportada em "Servidor de ficheiros de escalamento horizontal para dados de aplicação" (SOFS) ou em Volumes Partilhados em cluster (CSVs).

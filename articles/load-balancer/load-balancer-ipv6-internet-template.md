@@ -1,13 +1,13 @@
 ---
-title: "Implementar um balanceador de carga com acesso à Internet com o IPv6 - modelo Azure | Microsoft Docs"
+title: Implementar um balanceador de carga com acesso à Internet com o IPv6 - modelo Azure | Microsoft Docs
 description: Como implementar o suporte de IPv6 para o Azure Load Balancer e as VMs com balanceamento de carga.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: "IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móveis, iot"
+keywords: IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móveis, iot
 ms.assetid: 2998e943-13fc-4ea9-a68c-875e53a08db3
 ms.service: load-balancer
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 431b43979ac364d943c58c40b4199b7f30f9acf6
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implementar um acesso à Internet Balanceador de carga solução com o IPv6 através de um modelo
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 > * [CLI do Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modelo](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Um balanceador de carga do Azure é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece elevada disponibilidade, ao distribuir o tráfego de entrada entre instâncias de serviço com bom estado de funcionamento nos serviços cloud ou máquinas virtuais num conjunto de balanceador de carga. O Balanceador de Carga do Azure pode também apresentar esses serviços em várias portas, vários endereços IP ou ambos.
 
@@ -54,43 +54,43 @@ Este artigo faz referência a um modelo que é publicado no [modelos de início 
 1. Abra o portal do Azure e inicie sessão com uma conta que tenha permissões para criar as VMs e recursos de rede dentro de uma subscrição do Azure. Além disso, a menos que estiver a utilizar recursos existentes, a conta necessita da permissão para criar um grupo de recursos e uma conta de armazenamento.
 2. Clique em "+ nova" partir do menu, em seguida, o tipo "modelo" na caixa de pesquisa. Selecione "Implementação do modelo" os resultados da pesquisa.
 
-    ![LB ipv6-portal step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
 3. Em tudo, o painel, clique em "Implementação do modelo".
 
-    ![LB-ipv6-portal-passo 3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. Clique em "Criar".
 
-    ![LB ipv6-portal step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
+    ![lb-ipv6-portal-step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
 5. Clique em "Editar o modelo". Elimine o conteúdo existente e copiar/colar em todo o conteúdo do ficheiro de modelo (para incluir o início e fim {}), em seguida, clique em "Guardar".
 
     > [!NOTE]
     > Se estiver a utilizar o Microsoft Internet Explorer, quando, colar recebem uma caixa de diálogo a pedir-lhe para permitir o acesso para a área de transferência do Windows. Clique em "Permitir o acesso."
 
-    ![LB ipv6-portal step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
+    ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
 6. Clique em "Editar parâmetros". No painel parâmetros, especifique os valores de orientação na secção de parâmetros de modelo, em seguida, clique em "Guardar" para fechar o painel de parâmetros. No painel implementação personalizada, selecione a sua subscrição, um grupo de recursos existente ou criar um. Se estiver a criar um grupo de recursos, em seguida, selecione uma localização para o grupo de recursos. Em seguida, clique em **termos legais**, em seguida, clique em **Compra** para os termos legais. Azure começa a implementar os recursos. Demora alguns minutos para implementar todos os recursos.
 
-    ![LB ipv6-portal step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
+    ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
     Para obter mais informações sobre estes parâmetros, consulte o [modelo parâmetros e variáveis](#template-parameters-and-variables) secção neste artigo.
 
 7. Para ver os recursos criados pelo modelo, clique em Procurar, desloque para baixo a lista até ver "Grupos de recursos", em seguida, clique no mesmo.
 
-    ![LB ipv6-portal step7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
+    ![lb-ipv6-portal-step7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
 
 8. No painel de grupos de recursos, clique no nome do grupo de recursos que especificou no passo 6. É apresentada uma lista de todos os recursos que foram implementadas. Se todos os correu bem, deverá a indicar "Com êxito" em "Última implementação". Se não, certifique-se de que a conta que está a utilizar tem permissões para criar os recursos necessários.
 
-    ![LB ipv6-portal step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
+    ![lb-ipv6-portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
     > Se procurar os grupos de recurso imediatamente depois de concluir o passo 6, "Última implementação de" apresentará o estado de "Implementar" enquanto os recursos estão a ser implementados.
 
 9. Clique em "myIPv6PublicIP" na lista de recursos. Pode ver que tem um endereço IPv6 no endereço IP e de que o respetivo nome DNS é o valor especificado para o parâmetro dnsNameforIPv6LbIP no passo 6. Este recurso se encontra o IPv6 anfitrião e endereço nome público que esteja acessível aos clientes de Internet.
 
-    ![LB ipv6-portal step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
+    ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
 ## <a name="validate-connectivity"></a>Valide a conectividade
 

@@ -1,24 +1,24 @@
 ---
-title: "Segurança de série 8000 do StorSimple | Microsoft Docs"
-description: "Descreve as funcionalidades de segurança e privacidade que proteger o serviço StorSimple, dispositivos e dados no local e na nuvem."
+title: Segurança de série 8000 do StorSimple | Microsoft Docs
+description: Descreve as funcionalidades de segurança e privacidade que proteger o serviço StorSimple, dispositivos e dados no local e na nuvem.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/23/2018
+ms.date: 03/27/2018
 ms.author: alkohli
-ms.openlocfilehash: c14927f82ca01320206ccec83216777b7d1b8708
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e de segurança do StorSimple
 
@@ -267,6 +267,20 @@ Seguem-se algumas perguntas e respostas sobre segurança e o Microsoft Azure Sto
 **P:** o que acontece se uma entidade governamental pede-lhe Microsoft os meus dados?
 
 **R:** porque todos os dados são encriptados no serviço e a chave privada é mantida com o dispositivo, a entidade governamental tem de pedir ao cliente para os dados.
+
+## <a name="gdpr-compliance"></a>Conformidade GDPR
+
+[Geral regulamento de proteção de dados (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é um leis de privacidade e proteção de dados do União Europeia (EU). O GDPR contém muitos requisitos sobre como recolher, armazenar e utilize as informações pessoais. As regras GDPR são impostas em empresas, agências governamentais e outras organizações que operam em EU e recolhem, analisam dados associados ao residentes de EU. 
+
+O Gestor de dispositivos do StorSimple para série física e virtual é GDPR em conformidade. Existem duas instâncias de chaves em que as informações pessoais são recolhidas e apresentadas no serviço:
+
+- Alerta de definições de utilizador onde o endereço de correio eletrónico de utilizadores estão configuradas. Estas informações podem ser visualizadas e limpo pelo administrador. Isto aplica-se aos dispositivos de série 8000 do StorSimple e matrizes Virtual StorSimple.
+ * Para ver e limpar as definições da série 8000 do StorSimple, siga os passos no [ver e gerir alertas do StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+ * Para ver e limpar as definições para a matriz Virtual StorSimple, siga os passos no [ver e gerir alertas do StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+- Utilizadores que podem aceder aos dados que reside nas partilhas. Uma lista de utilizadores que podem aceder os dados de partilha é apresentada e pode ser visualizada. Esta lista também é eliminada quando é eliminado as partilhas. Isto aplica-se apenas a matrizes Virtual StorSimple.
+ * Para ver a lista de utilizador que pode aceder ou eliminar uma partilha, siga os passos no [gerir partilhas na matriz Virtual StorSimple](storsimple-virtual-array-manage-shares.md)
+
+Para obter mais informações, consulte a política do Microsoft Privacy ao [Centro de confiança](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

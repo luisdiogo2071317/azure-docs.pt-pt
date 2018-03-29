@@ -2,10 +2,10 @@
 title: Como utilizar a API Management do Azure com redes virtuais internas | Microsoft Docs
 description: Saiba como configurar a API Management do Azure numa rede virtual interna
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: kjoshi
-editor: 
+editor: ''
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço de API Management do Azure com uma rede virtual interna
 Com redes virtuais do Azure, a API Management do Azure pode gerir APIs não está acessíveis na internet. Um número de tecnologias VPN está disponível para efetuar a ligação. API Management podem ser implementada em dois modos principais dentro de uma rede virtual:
 * Externo
-* Interna
+* Interno
 
 
 Quando a API Management implementa no modo de rede virtual interna, todos os serviço pontos finais (gateway, o portal do programador, o portal do Azure, gestão direta e Git) apenas estão visíveis no interior de uma rede virtual que controlam o acesso ao. Nenhum dos pontos finais do serviço estão registados no servidor DNS público.
@@ -44,7 +44,7 @@ Para efetuar os passos descritos neste artigo, tem de ter:
 
 + **Uma instância de API Management do Azure**. Para obter mais informações, consulte [criar uma instância de API Management do Azure](get-started-create-service-instance.md).
 
-## <a name="enable-vpn"></a>Criar uma API Management numa rede virtual interna
+## <a name="enable-vpn"> </a>Criar uma API Management numa rede virtual interna
 O serviço de API Management numa rede virtual interna está alojado por trás de um balanceador de carga interno (ILB).
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Ativar uma ligação de rede virtual com o portal do Azure
@@ -72,7 +72,7 @@ Também pode ativar a conectividade de rede virtual utilizando cmdlets do PowerS
 Quando a API Management está no modo de rede virtual externa, o DNS é gerido pelo Azure. Para o modo de rede virtual interna, tem de gerir os seus próprios encaminhamento.
 
 > [!NOTE]
-> Serviço de API Management escutar para pedidos provenientes de endereços IP. Apenas responde a pedidos para o nome de anfitrião configuradas nos respetivos pontos finais de serviço. Estes pontos finais incluem gateway, o portal do programador, Azurethe portal, ponto final de gestão direta e Git.
+> Serviço de API Management escutar para pedidos provenientes de endereços IP. Apenas responde a pedidos para o nome de anfitrião configuradas nos respetivos pontos finais de serviço. Estes pontos finais incluem gateway, o portal do Azure e o portal do programador, o ponto final de gestão direta e o Git.
 
 ### <a name="access-on-default-host-names"></a>Acesso em nomes de anfitrião predefinido
 Quando cria um serviço de API Management, com o nome "contoso", por exemplo, os seguintes pontos finais de serviço estão configurados por predefinição:
@@ -105,13 +105,13 @@ Em seguida, pode aceder a todos os pontos finais do serviço da máquina virtual
 
    2. Em seguida, pode criar registos no seu servidor DNS para aceder os pontos finais que só estão acessíveis a partir de dentro da sua rede virtual.
 
-## <a name="routing"></a> Encaminhamento
+## <a name="routing"> </a> Encaminhamento
 + Um balanceamento de carga virtual endereço IP privado de intervalo de sub-rede será reservado e utilizado para aceder os API Management pontos finais do serviço de dentro da vnet.
 + Também será possível reservar um endereço IP público com balanceamento de carga (VIP) para fornecer acesso ao ponto final do serviço de gestão apenas através da porta 3443.
 + Um endereço IP de um intervalo de sub-rede IP (DIP) será utilizado para aceder a recursos dentro da vnet e um endereço IP público (VIP) será utilizado para aceder a recursos fora da vnet.
 + Público com balanceamento de carga e endereços IP privados podem ser encontrados no painel de descrição geral/Essentials no portal do Azure.
 
-## <a name="related-content"></a>Relacionados com o conteúdo
+## <a name="related-content"> </a>Conteúdo relacionado
 Para obter mais informações, consulte os artigos seguintes:
 * [Problemas comuns de configuração de rede ao configurar a API Management do Azure numa rede virtual][Common network configuration problems]
 * [Perguntas mais frequentes de rede virtual](../virtual-network/virtual-networks-faq.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 91eccd2b4587d7cb926ca506ae2f2e5b91ea1f3e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cbd5b57d0cde3743c7ef70437f702536c27ac999
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquina virtual
 Ao longo do ciclo de vida das suas aplicações, poderá ter de modificar ou atualizar o conjunto de dimensionamento de máquina virtual. Estas atualizações podem incluir como atualizar a configuração do conjunto de dimensionamento, ou alterar a configuração da aplicação. Este artigo descreve como modificar um conjunto com as REST APIs, o Azure PowerShell ou o Azure CLI 2.0 de dimensionamento existente.
@@ -35,7 +35,7 @@ Um conjunto de dimensionamento tem um "escala conjunto modelo" que capture o *pr
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
     ```
 
-- O Azure Powershell com [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
+- O Azure PowerShell com [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
 
     ```powershell
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -79,7 +79,7 @@ Um conjunto também de dimensionamento tem uma "escala conjunto instância ver" 
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
     ```
 
-- O Azure Powershell com [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
+- O Azure PowerShell com [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
 
     ```powershell
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
@@ -133,7 +133,7 @@ Semelhante à forma como um conjunto de dimensionamento tem uma vista de modelo,
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId?api-version={apiVersion}
     ```
 
-- O Azure Powershell com [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
+- O Azure PowerShell com [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
 
     ```powershell
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
@@ -173,7 +173,7 @@ Semelhante à forma como um conjunto de dimensionamento tem uma vista de instân
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
     ```
 
-- O Azure Powershell com [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
+- O Azure PowerShell com [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
 
     ```powershell
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
@@ -252,7 +252,7 @@ Para atualizar uma propriedade de conjunto de dimensionamento global, tem de atu
 
 - Pode implementar um modelo do Resource Manager com as propriedades a partir da API de REST ao atualizar as propriedades do conjunto de dimensionamento global.
 
-- O Azure Powershell com [atualização AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss):
+- O Azure PowerShell com [atualização AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss):
 
     ```powershell
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
@@ -299,7 +299,7 @@ Para atualizar as VMs existentes, tem de efetuar uma "atualização manual" de c
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
     ```
 
-- O Azure Powershell com [atualização AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance):
+- O Azure PowerShell com [atualização AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance):
     
     ```powershell
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
@@ -324,7 +324,7 @@ Não há um tipo de modificação para propriedades do conjunto de dimensionamen
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- O Azure Powershell com [conjunto AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm):
+- O Azure PowerShell com [conjunto AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm):
 
     ```powershell
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
@@ -384,7 +384,7 @@ Se utilizar imagens personalizadas, pode atualizar a imagem, atualizando o *imag
 ### <a name="update-the-os-image-for-your-scale-set"></a>Atualizar a imagem do SO para o conjunto de dimensionamento
 Pode ter um conjunto de dimensionamento que executa uma versão antiga do Ubuntu LTS 16.04. Pretende atualizar para uma versão mais recente do Ubuntu LTS 16.04, tais como versão *16.04.201801090*. A propriedade de versão de referência de imagem não faz parte de uma lista, pelo que pode modificar diretamente estas propriedades com um dos seguintes comandos:
 
-- O Azure Powershell com [atualização AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) da seguinte forma:
+- O Azure PowerShell com [atualização AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) da seguinte forma:
 
     ```powershell
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
@@ -403,16 +403,16 @@ Imaginemos que tem uma escala definida com um balanceador de carga do Azure e qu
 - O Azure Powershell:
 
     ```powershell
-    # Get the current model of the scale set and store it in a local powershell object named $vmss
+    # Get the current model of the scale set and store it in a local PowerShell object named $vmss
     $vmss=Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
     
-    # Create a local powershell object for the new desired IP configuration, which includes the referencerence to the application gateway
+    # Create a local PowerShell object for the new desired IP configuration, which includes the referencerence to the application gateway
     $ipconf = New-AzureRmVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
     
-    # Replace the existing IP configuration in the local powershell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
+    # Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
     $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
     
-    # Update the model of the scale set with the new configuration in the local powershell object
+    # Update the model of the scale set with the new configuration in the local PowerShell object
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 

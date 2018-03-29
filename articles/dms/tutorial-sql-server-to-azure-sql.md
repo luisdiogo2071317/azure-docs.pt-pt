@@ -1,21 +1,21 @@
 ---
-title: "Utilizar o serviço de migração de base de dados do Azure para migrar o SQL Server a SQL Database do Azure | Microsoft Docs"
-description: "Saiba como migrar a partir do SQL Server no local para o Azure SQL, utilizando o serviço de migração de base de dados do Azure."
+title: Utilizar o serviço de migração de base de dados do Azure para migrar o SQL Server a SQL Database do Azure | Microsoft Docs
+description: Saiba como migrar a partir do SQL Server no local para o Azure SQL, utilizando o serviço de migração de base de dados do Azure.
 services: dms
 author: HJToland3
 ms.author: jtoland
 manager: jhubbard
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 01/24/2018
-ms.openlocfilehash: 8dc8b4db80d5e319fad0b681924ab5a8e5642b2e
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.date: 03/29/2018
+ms.openlocfilehash: b16c3666b932beb771c51bb8dec3ebd5fa36e8a0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Migrar o servidor SQL para a base de dados SQL do Azure
 Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados de uma instância do SQL Server no local para a SQL Database do Azure. Neste tutorial, migra a **Adventureworks2012** base de dados restaurada para uma instância no local do SQL Server 2016 (ou superior) para uma base de dados do SQL do Azure utilizando o serviço de migração de base de dados do Azure.
@@ -39,7 +39,8 @@ Para concluir este tutorial, precisa de:
 - Criar uma VNET para o serviço de migração de base de dados do Azure utilizando o modelo de implementação Azure Resource Manager, que fornece a conectividade de site a site para os seus servidores de origem no local através de um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Certifique-se de que a sua escolha de regras do Azure (VNET) rede segurança grupo de rede Virtual bloquear a comunicação seguinte portas 443, 53, 9354, 445, 12000. Para mais detalhes sobre a filtragem de tráfego do Azure VNET NSG, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
 - Configurar o seu [Firewall do Windows para acesso ao motor de base de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Abra a firewall do Windows para permitir que o serviço de migração de base de dados do Azure para aceder à origem de SQL Server.
+- Abra a firewall do Windows para permitir que o serviço de migração de base de dados do Azure para aceder à origem de SQL Server, que, por predefinição, é a porta TCP 1433.
+- Se estiver a executar várias instâncias do SQL Server com nome utilizando as portas dinâmicas, poderá pretender ativar o serviço de Browser do SQL Server e permitir o acesso à porta UDP 1434 através das firewalls para que o serviço de migração de base de dados do Azure podem ligar a uma instância nomeada na sua origem servidor.
 - Quando utilizar uma aplicação de firewall à frente da sua bases de dados de origem, poderá ter de adicionar regras de firewall para permitir que o serviço de migração de base de dados do Azure para aceder a bases de dados de origem para migração.
 - Criar um nível de servidor [regra de firewall](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) para o servidor da SQL Database do Azure permitir o acesso de serviço de migração de base de dados do Azure para as bases de dados de destino. Forneça o intervalo de sub-rede da VNET utilizado para o serviço de migração de base de dados do Azure.
 - Certifique-se de que as credenciais utilizadas para ligar à instância do SQL Server de origem têm [controlo servidor](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permissões.
