@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.openlocfilehash: ad4228ade68f4494e5be0454643752e742c1cc81
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 4270bf0b8002b5328241c6d31f399511fc38274e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo de vida dos Reliable Services
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ O ciclo de vida de um serviço sem monitorização de estado é bastante simples
 
 1. O serviço é construído.
 2. Estes eventos ocorrem em paralelo:
-    - `StatelessService.createServiceInstanceListeners()`é invocado, e qualquer devolvido os serviços de escuta estão abertos. `CommunicationListener.openAsync()`é chamado para cada serviço de escuta.
+    - `StatelessService.createServiceInstanceListeners()` é invocado, e qualquer devolvido os serviços de escuta estão abertos. `CommunicationListener.openAsync()` é chamado para cada serviço de escuta.
     - O serviço `runAsync` método (`StatelessService.runAsync()`) é chamado.
 3. Se estiver presente, do serviço próprio `onOpenAsync` método é chamado. Especificamente, `StatelessService.onOpenAsync()` é chamado. Esta é uma substituição invulgar, mas está disponível.
 
@@ -63,19 +63,19 @@ O ciclo de vida de um serviço sem monitorização de estado é bastante simples
 Quando encerrar um serviço sem monitorização de estado, o mesmo padrão é seguido, mas em inversa:
 
 1. Estes eventos ocorrem em paralelo:
-    - Quaisquer serviços de escuta abertos são fechados. `CommunicationListener.closeAsync()`é chamado para cada serviço de escuta.
+    - Quaisquer serviços de escuta abertos são fechados. `CommunicationListener.closeAsync()` é chamado para cada serviço de escuta.
     - O token de cancelamento que foi transmitido aos `runAsync()` foi cancelada. A verificar o token de cancelamento `isCancelled` propriedade devolve `true`e se a chamada, o token `throwIfCancellationRequested` método gera um `CancellationException`.
-2. Quando `closeAsync()` terminar em cada serviço de escuta e `runAsync()` também estiver concluído, o serviço `StatelessService.onCloseAsync()` se chama o método, se estiver presente. Novamente, este não é uma substituição comuns.
+2. Quando `closeAsync()` terminar em cada serviço de escuta e `runAsync()` também estiver concluído, o serviço `StatelessService.onCloseAsync()` se chama o método, se estiver presente. Novamente, não se trata de uma substituição comum, mas pode ser utilizado para em segurança fechar recursos, pare processamento em segundo plano, concluir guardar Estado externo ou fechar-se para baixo de ligações existentes.
 3. Depois de `StatelessService.onCloseAsync()` é destructed estiver concluída, o objeto de serviço.
 
 ## <a name="stateful-service-startup"></a>Arranque do serviço com estado
-Os serviços com monitorização de estado têm um padrão que é semelhante aos serviços sem monitorização de estado, com algumas alterações. Segue-se a ordem dos eventos de início de um serviço com monitorização de estado:
+Os serviços com monitorização de estado têm um padrão que é semelhante aos serviços sem monitorização de estado, com algumas alterações.  Segue-se a ordem dos eventos de início de um serviço com monitorização de estado:
 
 1. O serviço é construído.
-2. `StatefulServiceBase.onOpenAsync()`é chamado. Esta chamada não é normalmente substituída no serviço.
+2. `StatefulServiceBase.onOpenAsync()` é chamado. Esta chamada não é normalmente substituída no serviço.
 3. Estes eventos ocorrem em paralelo:
-    - `StatefulServiceBase.createServiceReplicaListeners()`é invocado. 
-      - Se o serviço é um serviço principal, todos os serviços de escuta devolvidos estão abertos. `CommunicationListener.openAsync()`é chamado para cada serviço de escuta.
+    - `StatefulServiceBase.createServiceReplicaListeners()` é invocado. 
+      - Se o serviço é um serviço principal, todos os serviços de escuta devolvidos estão abertos. `CommunicationListener.openAsync()` é chamado para cada serviço de escuta.
       - Se o serviço é um serviço secundário, apenas os serviços de escuta marcada como `listenOnSecondary = true` estão abertas. É menos comum ter os serviços de escuta que são abertos em bases de dados secundárias.
     - Se o serviço está atualmente um site primário, o serviço `StatefulServiceBase.runAsync()` método é chamado.
 4. Depois do todos os o serviço de escuta réplica `openAsync()` chama concluir e `runAsync()` denomina-se, `StatefulServiceBase.onChangeRoleAsync()` é chamado. Esta chamada não é normalmente substituída no serviço.
@@ -86,7 +86,7 @@ Semelhante aos serviços sem monitorização de estado, no serviço com estado, 
 Como os serviços sem monitorização de estado, os eventos de ciclo de vida durante o encerramento são os mesmos que durante o arranque, mas invertido. Quando um serviço com monitorização de estado está a ser encerrado, ocorrem os seguintes eventos:
 
 1. Estes eventos ocorrem em paralelo:
-    - Quaisquer serviços de escuta abertos são fechados. `CommunicationListener.closeAsync()`é chamado para cada serviço de escuta.
+    - Quaisquer serviços de escuta abertos são fechados. `CommunicationListener.closeAsync()` é chamado para cada serviço de escuta.
     - O token de cancelamento que foi transmitido aos `runAsync()` foi cancelada. Uma chamada para o token de cancelamento `isCancelled()` método devolve `true`e se a chamada, o token `throwIfCancellationRequested()` método gera um `OperationCanceledException`.
 2. Depois de `closeAsync()` terminar em cada serviço de escuta e `runAsync()` também estiver concluído, o serviço `StatefulServiceBase.onChangeRoleAsync()` é chamado. Esta chamada não é normalmente substituída no serviço.
 
@@ -103,7 +103,7 @@ Enquanto estiver a executar um serviço com estado, os serviços de escuta de co
 Service Fabric tem da réplica primária, que é despromovida para parar o processamento das mensagens e parar qualquer trabalho em segundo plano. Este passo é semelhante à quando o serviço é encerrado. Uma diferença é que o serviço não se encontra destructed ou fechado, porque continua a ser como uma secundária. Ocorrerem os seguintes eventos:
 
 1. Estes eventos ocorrem em paralelo:
-    - Quaisquer serviços de escuta abertos são fechados. `CommunicationListener.closeAsync()`é chamado para cada serviço de escuta.
+    - Quaisquer serviços de escuta abertos são fechados. `CommunicationListener.closeAsync()` é chamado para cada serviço de escuta.
     - O token de cancelamento que foi transmitido aos `runAsync()` foi cancelada. Uma verificação do token de cancelamento `isCancelled()` método devolve `true`. Se a chamada, o token `throwIfCancellationRequested()` método gera um `OperationCanceledException`.
 2. Depois de `closeAsync()` terminar em cada serviço de escuta e `runAsync()` também estiver concluído, o serviço `StatefulServiceBase.onChangeRoleAsync()` é chamado. Esta chamada não é normalmente substituída no serviço.
 
@@ -111,7 +111,7 @@ Service Fabric tem da réplica primária, que é despromovida para parar o proce
 Da mesma forma, o Service Fabric tem a réplica secundária, que é promovida para começar a escutar mensagens na rede e iniciar quaisquer tarefas em segundo plano que necessita para concluir. Este processo é semelhante à quando o serviço é criado. A diferença é que a réplica próprio já existe. Ocorrerem os seguintes eventos:
 
 1. Estes eventos ocorrem em paralelo:
-    - `StatefulServiceBase.createServiceReplicaListeners()`é invocada e qualquer devolvido os serviços de escuta estão abertos. `CommunicationListener.openAsync()`é chamado para cada serviço de escuta.
+    - `StatefulServiceBase.createServiceReplicaListeners()` é invocada e qualquer devolvido os serviços de escuta estão abertos. `CommunicationListener.openAsync()` é chamado para cada serviço de escuta.
     - O serviço `StatefulServiceBase.runAsync()` método é chamado.
 2. Depois do todos os o serviço de escuta réplica `openAsync()` chama concluir e `runAsync()` denomina-se, `StatefulServiceBase.onChangeRoleAsync()` é chamado. Esta chamada não é normalmente substituída no serviço.
 
@@ -127,15 +127,14 @@ Exceções acionadas pelo serviço de recursos de infraestrutura são permanente
 Uma parte importante de teste e a validar Reliable Services está a processar as exceções que vêm da utilização de `ReliableCollections` em conjunto com eventos de ciclo de vida do serviço. Recomendamos que são sempre executadas o serviço de carga. Também deve efetuar atualizações e [chaos testar](service-fabric-controlled-chaos.md) antes de implementar para produção. Os passos básicos ajudam a garantir que o seu serviço é implementado corretamente e processa os eventos de ciclo de vida corretamente.
 
 ## <a name="notes-on-service-lifecycle"></a>Notas sobre o ciclo de vida do serviço
-* Tanto o `runAsync()` método e o `createServiceInstanceListeners/createServiceReplicaListeners` chamadas são opcionais. Um serviço pode ter um, ambos ou nenhum dos dois. Por exemplo, se o serviço não todos os respetivo trabalho em resposta a chamadas de utilizador, não é necessário para o mesmo implementar `runAsync()`. Apenas os serviços de escuta de comunicação e o respetivo código associado são necessárias. 
-
-  Da mesma forma, criar e devolver os serviços de escuta de comunicação é opcional. O serviço poderá ter apenas trabalho em segundo plano para, pelo que só tem de implementar `runAsync()`.
+* Tanto o `runAsync()` método e o `createServiceInstanceListeners/createServiceReplicaListeners` chamadas são opcionais. Um serviço pode ter um, ambos ou nenhum dos dois. Por exemplo, se o serviço não todos os respetivo trabalho em resposta a chamadas de utilizador, não é necessário para o mesmo implementar `runAsync()`. Apenas os serviços de escuta de comunicação e o respetivo código associado são necessárias.  Da mesma forma, criar e devolver os serviços de escuta de comunicação é opcional. O serviço poderá ter apenas trabalho em segundo plano para, pelo que só tem de implementar `runAsync()`.
 * É válido para um serviço concluir `runAsync()` com êxito e retorno do mesmo. Esta não é considerada uma condição de falha. Representa o trabalho em segundo plano de serviço a concluir. Para Reliable Services com monitorização de estado, `runAsync()` seria possível novamente chamado se o serviço é despromovido do site primário e, em seguida, promovido novamente para o site primário.
 * Se um serviço sai do `runAsync()` por argumentoutofrangeexception algumas exceção inesperada, esta é uma falha. O objeto de serviço é encerrado e é comunicado um erro de estado de funcionamento.
 * Apesar de não existe nenhum limite de tempo na devolução destes métodos, imediatamente perderá a capacidade de escrever. Por conseguinte, não é possível concluir o trabalho real. Recomendamos que pode ser devolvido como rapidamente possível após receber o pedido de cancelamento. Se o serviço não responder a estas chamadas de API num período de tempo razoável, Service Fabric pode forçar a terminar o serviço. Normalmente, isto acontece apenas durante as atualizações de aplicações ou quando um serviço está a ser eliminado. Este tempo limite é de 15 minutos por predefinição.
-* Falhas no `onCloseAsync()` resultado de caminho no `onAbort()` a ser chamado. Esta chamada é uma oportunidade de última oportunidade, melhor esforço limpar e quaisquer recursos que possam tem reclamado da versão do serviço.
+* Falhas no `onCloseAsync()` resultado de caminho no `onAbort()` a ser chamado. Esta chamada é uma oportunidade de última oportunidade, melhor esforço limpar e quaisquer recursos que possam tem reclamado da versão do serviço. Geralmente, chama-se quando é detetada uma falha permanente no nó, ou quando o Service Fabric fiável não é possível gerir o ciclo de vida da instância de serviço devido a falhas internos.
+* `OnChangeRoleAsync()` é chamado quando a réplica de serviço com estado está a alterar função, por exemplo a primária ou secundária. Réplicas primárias recebem o estado de escrita (estão autorizados a criar e escrever coleções fiável). As réplicas secundárias são indicadas o estado de leitura (pode apenas ler a partir do coleções fiável existente). A maioria das trabalho num serviço de monitorização de estado é efetuado na réplica primária. As réplicas secundárias podem efetuar a validação de só de leitura, a geração de relatórios, extração de dados ou outras tarefas só de leitura.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução a Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Guia de introdução de serviços fiável](service-fabric-reliable-services-quick-start-java.md)
-* [Reliable Services avançadas de utilização](service-fabric-reliable-services-advanced-usage.md)
+

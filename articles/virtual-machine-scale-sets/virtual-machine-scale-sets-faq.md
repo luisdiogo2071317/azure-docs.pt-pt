@@ -1,11 +1,11 @@
 ---
-title: "Perguntas mais frequentes de conjuntos de dimensionamento de máquina virtual do Azure | Microsoft Docs"
-description: "Obtenha respostas às perguntas mais frequentes sobre os conjuntos de dimensionamento de máquina virtual."
+title: Perguntas mais frequentes de conjuntos de dimensionamento de máquina virtual do Azure | Microsoft Docs
+description: Obtenha respostas às perguntas mais frequentes sobre os conjuntos de dimensionamento de máquina virtual.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -16,15 +16,55 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas mais frequentes de conjuntos de dimensionamento de máquina virtual do Azure
 
 Obtenha respostas às perguntas mais frequentes sobre os conjuntos de dimensionamento de máquina virtual no Azure.
+
+## <a name="top-frequently-asked-questions-for-scale-sets"></a>Parte superior perguntas mais frequentes para conjuntos de dimensionamento
+**P.** Quantas VMs posso ter num conjunto de dimensionamento?
+
+**R.** Os conjuntos de dimensionamento podem ter entre zero e mil VMs com base nas imagens da plataforma ou entre zero e 300 VMs com base em imagens personalizadas. 
+
+**P.** Os conjuntos de dimensionamento suportam discos de dados?
+
+**R.** Sim. Os conjuntos de dimensionamento podem definir uma configuração de discos de dados anexados, que se aplica a todas as VMs nos conjuntos. Para obter mais informações, veja [Conjuntos de dimensionamento de VMs do Azure e discos de dados anexados](virtual-machine-scale-sets-attached-disks.md). As outras opções para armazenar dados são:
+
+* Ficheiros do Azure (unidades SMB partilhadas)
+* Unidade do sistema Operativo
+* Unidade temporária (local, sem o suporte do Armazenamento do Azure)
+* Serviço de dados do Azure (por exemplo, tabelas do Azure e blobs do Azure)
+* Serviço de dados externo (por exemplo, base de dados remota)
+
+**P.** Que regiões do Azure suportam os conjuntos de dimensionamento?
+
+**R.** Todas as regiões suportam conjuntos de dimensionamento.
+
+**P.** Como posso utilizar uma imagem personalizada para criar um conjunto de dimensionamento?
+
+**R.** Crie um disco gerido com base no VHD da sua imagem personalizada e faça referência ao mesmo no modelo do conjunto de dimensionamento. [Segue-se um exemplo](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+
+**P.** Se reduzir a capacidade do conjunto de dimensionamento de 20 para 15, que VMs são removidas?
+
+**R.** As máquinas virtuais são removidas do conjunto de dimensionamento de forma uniforme entre domínios de atualização e domínios de falha, para maximizar a disponibilidade. São removidas primeiro as VMs com os IDs mais altos.
+
+**P.** E se, depois, aumentar a capacidade de 15 para 18?
+
+**R.** Se aumentar a capacidade para 18, então, são criadas três VMs novas. Sempre que isso acontecer, o ID da instância da VM é aumentado a partir do valor mais alto anterior (por exemplo, 20, 21, 22). As VMs são balanceadas entre os domínios de falhas e os domínios de atualização.
+
+**P.** Se utilizar várias extensões num conjunto de dimensionamento, posso forçar uma sequência de execução?
+
+**R.** Não diretamente, mas, relativamente à extensão customScript, o script pode aguardar pela conclusão de outra extensão. Pode obter orientações adicionais sobre a sequenciação de extensões nesta mensagem do blogue: [ (Sequenciação de Extensões em conjuntos de dimensionamento de máquinas virtuais do Azure)](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+
+**P.** Os conjuntos de dimensionamento funcionam com os conjuntos de disponibilidade do Azure?
+
+**R.** Sim. Os conjuntos de dimensionamento são conjuntos de disponibilidade implícitos com cinco domínios de falha e cinco domínios de atualização. Os conjuntos de dimensionamento com mais de cem VMs abrangem vários *grupos de posicionamento*, que são equivalentes a vários conjuntos de disponibilidade. Para obter mais informações sobre os grupos de posicionamento, veja [Trabalhar com conjuntos de dimensionamento de máquinas virtuais de grande escala](virtual-machine-scale-sets-placement-groups.md). Um conjunto de disponibilidade de VMs pode existir na mesma rede virtual como um conjunto de dimensionamento de VMs. Uma configuração comum é colocar as VMs de nó de controlo (que, muitas vezes, requerem uma configuração exclusiva) num conjunto de disponibilidade e os nós de dados no conjunto de dimensionamento.
+
 
 ## <a name="autoscale"></a>Dimensionamento Automático
 
@@ -558,7 +598,7 @@ Para criar um conjunto com uma configuração de DNS personalizada de dimensiona
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Como configurar a um conjunto para atribuir um endereço IP público para cada VM de dimensionamento?
 
-Para criar um conjunto de dimensionamento de máquina virtual que atribui um endereço IP público para cada VM, certifique-se de que a versão da API do recurso Microsoft.Compute/virtualMAchineScaleSets 2017-03-30 e adicione um _publicipaddressconfiguration_ JSON pacote para a escala definir ipConfigurations secção. Exemplo:
+Para criar um conjunto de dimensionamento de máquina virtual que atribui um endereço IP público para cada VM, certifique-se de que a versão da API do recurso Microsoft.Compute/virtualMachineScaleSets 2017-03-30 e adicione um _publicipaddressconfiguration_ JSON pacote para a escala definir ipConfigurations secção. Exemplo:
 
 ```json
     "publicipaddressconfiguration": {

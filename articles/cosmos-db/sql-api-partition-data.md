@@ -1,10 +1,10 @@
 ---
-title: "Criação de partições e dimensionamento do BD Azure Cosmos | Microsoft Docs"
-description: "Saiba mais sobre funciona como criação de partições de BD do Cosmos do Azure, como configurar a criação de partições e chaves de partição e como escolher a chave de partição adequado para a sua aplicação."
+title: Criação de partições e dimensionamento do BD Azure Cosmos | Microsoft Docs
+description: Saiba mais sobre funciona como criação de partições de BD do Cosmos do Azure, como configurar a criação de partições e chaves de partição e como escolher a chave de partição adequado para a sua aplicação.
 services: cosmos-db
 author: rafats
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,15 +14,13 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfed50eef02c237ce0ea4480e2e208f2e61ccbef
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: a48c1bb246e3e8659aada614d39fdc608e5bc8d8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>A criação de partições na base de dados do Cosmos do Azure utilizando a API do SQL Server
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Base de dados do Microsoft Azure Cosmos](../cosmos-db/introduction.md) é um serviço de base de dados distribuída, com vários modelo global concebido para ajudar a alcançar o desempenho previsível, rápido e dimensionamento de forma totalmente integrada, juntamente com a aplicação à medida que o que aumenta. 
 
@@ -62,7 +60,7 @@ Na API do SQL Server, especifique a definição de chave de partição sob a for
             <td valign="top"><p>Corresponde ao valor de doc.properties.name onde o documento é o item (propriedade aninhada).</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>formado</p></td>
+            <td valign="top"><p>/id</p></td>
             <td valign="top"><p>Corresponde ao valor de doc.id (chave de partição e id são a mesma propriedade).</p></td>
         </tr>
         <tr>
@@ -223,7 +221,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
    
 Na secção seguinte, vamos ver como pode mover a contentores particionadas de contentores de partição única.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, fornecemos-lhe uma descrição geral de como trabalhar com a criação de partições de contentores de BD do Cosmos do Azure com a API do SQL Server. Consulte também [criação de partições e dimensionamento horizontal](../cosmos-db/partition-data.md) para uma descrição geral dos conceitos e procedimentos recomendados para a criação de partições com qualquer API de BD do Cosmos do Azure. 
 
 * Efetue o dimensionamento e desempenho de teste com base de dados do Azure Cosmos. Consulte [desempenho e dimensionamento de teste com base de dados do Azure Cosmos](performance-testing.md) para um exemplo.

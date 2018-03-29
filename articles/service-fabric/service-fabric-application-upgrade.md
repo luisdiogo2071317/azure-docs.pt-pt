@@ -1,11 +1,11 @@
 ---
-title: "Atualização da aplicação de Service Fabric | Microsoft Docs"
-description: "Este artigo fornece uma introdução ao atualizar uma aplicação de Service Fabric, incluindo escolher entre modos de atualização e executar verificações do Estado de funcionamento."
+title: Atualização da aplicação de Service Fabric | Microsoft Docs
+description: Este artigo fornece uma introdução ao atualizar uma aplicação de Service Fabric, incluindo escolher entre modos de atualização e executar verificações do Estado de funcionamento.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60bbd75496b6e835a76edb4251aac6ea249187b3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Atualização de aplicação do Service Fabric
 Uma aplicação de Service Fabric do Azure é uma coleção de serviços. Durante uma atualização, o Service Fabric compara o novo [manifesto da aplicação](service-fabric-application-and-service-manifests.md) com a versão anterior e determina qual serviços nas atualizações de requerem a aplicação. Service Fabric compara a versão números no serviço de manifestos com os números de versão na versão anterior. Se não tiver sido alterado um serviço, esse serviço não está atualizado.
@@ -57,6 +57,13 @@ Quando uma atualização da aplicação é revertida, os parâmetros de serviço
 
 > [!TIP]
 > O [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) definição de configuração do cluster tem de ser *verdadeiro* para ativar as regras de 2) e 3) acima (atualização de serviço predefinido e eliminação). Esta funcionalidade é suportada a partir do Service Fabric versão 5.5.
+
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Atualizar várias aplicações com pontos finais HTTPS
+Tem de ser cuidado para não utilizar o **mesma porta** para várias instâncias da mesma aplicação ao utilizar HTTP**S**. O motivo é que Service Fabric não será possível atualizar o certificado para uma das instâncias da aplicação. Por exemplo, se quiser atualizar os respetivos certificados 1 para o certificado 2 aplicação 1 ou aplicação 2 ambas. Quando a atualização acontece, Service Fabric poderá ter limpar o registo de certificados 1 com o http.sys, apesar da outra aplicação ainda está a utilizá-la. Para evitar esta situação, o Service Fabric Deteta que não existe já está registada na porta com o certificado (devido a http.sys) outra instância da aplicação e falhará a operação.
+
+Por conseguinte, Service Fabric não suporta a atualizar dois os diferentes serviços utilizando **a mesma porta** em instâncias de aplicação diferente. Por outras palavras, não é possível utilizar o mesmo certificado no serviços diferentes na mesma porta. Se precisar de ter um certificado partilhado na mesma porta, tem de garantir que os serviços são colocados em computadores diferentes com restrições de posicionamento. Ou, considere utilizar portas dinâmicas do Service Fabric para cada serviço em cada instância da aplicação, se possível. 
+
+Se vir uma atualização falhar com https, um erro de aviso a indicar "O servidor de HTTP API do Windows não suporta vários certificados para as aplicações que partilham uma porta."
 
 ## <a name="application-upgrade-flowchart"></a>Fluxograma de atualização de aplicação
 O fluxograma a seguir esta parágrafo pode ajudá-lo a compreender o processo de atualização de uma aplicação de Service Fabric. Em particular, descreve o fluxo de como os tempos limite, incluindo *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, e *UpgradeHealthCheckInterval*, ajudar controlo quando a atualização no domínio de uma atualização é considerada um êxito ou a uma falha.

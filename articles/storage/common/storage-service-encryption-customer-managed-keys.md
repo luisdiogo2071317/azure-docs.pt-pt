@@ -1,6 +1,6 @@
 ---
-title: "Encriptação do serviço de armazenamento do Azure gerida pelo cliente chaves a utilizar no Cofre de chaves do Azure | Microsoft Docs"
-description: "Utilizar a funcionalidade de encriptação do serviço do Storage do Azure para encriptar o armazenamento de Blobs do Azure no lado do serviço ao armazenar os dados e desencriptá-lo ao obter os dados de utilização de chaves gerida pelo cliente."
+title: Encriptação do serviço de armazenamento do Azure gerida pelo cliente chaves a utilizar no Cofre de chaves do Azure | Microsoft Docs
+description: Utilizar a funcionalidade de encriptação do serviço do Storage do Azure para encriptar o armazenamento de Blobs do Azure no lado do serviço ao armazenar os dados e desencriptá-lo ao obter os dados de utilização de chaves gerida pelo cliente.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 04688f943ac9eba27ca193aa2054c69b6a94547d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação do serviço de armazenamento gerida pelo cliente chaves a utilizar no Cofre de chaves do Azure
 
@@ -111,11 +111,11 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Passo 5: Copiar dados para a conta de armazenamento
 
-Para transferir dados para a sua nova conta de armazenamento, de modo a que está encriptada, consulte o passo 3 de [introdução na encriptação do serviço de armazenamento para dados Inativos](storage-service-encryption.md#step-3-copy-data-to-storage-account).
+Para transferir dados para a sua nova conta de armazenamento, de modo a que está encriptada. Para obter mais informações consulte [FAQ acerca de encriptação do serviço de armazenamento](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Passo 6: Consultar o estado dos dados encriptados
 
-Para consultar o estado dos dados encriptados, consulte o passo 4 da [introdução na encriptação do serviço de armazenamento para dados Inativos](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
+Consulta o estado dos dados encriptados.
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>FAQ acerca de SSE com chaves cliente gerido
 
@@ -167,7 +167,7 @@ R: SSE com chaves gerida pelo cliente está disponível em todas as regiões par
 
 R: contacto [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) para quaisquer problemas relacionados com a encriptação do serviço de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 -   Para mais informações sobre o conjunto completo de segurança capacidades que ajudam os programadores criem aplicações seguras, consulte o [manual de segurança de armazenamento](storage-security-guide.md).
 

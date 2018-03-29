@@ -1,25 +1,25 @@
 ---
-title: "Exemplos e instruções para os dados de ciência de Máquina Virtual - Azure | Microsoft Docs"
-description: "Exemplos e instruções para a máquina de Virtual de ciência de dados."
-keywords: "ferramentas de ciência de dados, a máquina de virtual de ciência de dados, as ferramentas de ciência de dados, ciência de dados do linux"
+title: Exemplos e instruções para os dados de ciência de Máquina Virtual - Azure | Microsoft Docs
+description: Exemplos e instruções para a máquina de Virtual de ciência de dados.
+keywords: ferramentas de ciência de dados, a máquina de virtual de ciência de dados, as ferramentas de ciência de dados, ciência de dados do linux
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: gokuma
+ms.openlocfilehash: 6c5b5c8c9dbb03a2189eb5f1539499ace55e7dfc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Amostras nas máquinas de virtuais de ciência de dados (DSVM)
 
@@ -47,22 +47,22 @@ Os DSVMs vêm incluídos exemplos de escalamento de trabalhado totalmente sob a 
 
 ## <a name="access-jupyter"></a>Acesso Jupyter 
 
-Visite Jupyter Home acedendo a  **`https://localhost:9999`**  no Windows ou  **`https://localhost:8000`**  no Ubuntu.
+Visite Jupyter Home acedendo a **`https://localhost:9999`** no Windows ou **`https://localhost:8000`** no Ubuntu.
 
 
 ### <a name="enabling-jupyter-access-from-browser"></a>Ativar o acesso do Jupyter do Browser
 
 **Windows DSVM**
 
-Executar  **`Jupyter SetPassword`**  do atalho do ambiente de trabalho e siga o pedido para o conjunto/repor a palavra-passe para Jupyter e iniciar o Jupyter processar. 
+Executar **`Jupyter SetPassword`** do atalho do ambiente de trabalho e siga o pedido para o conjunto/repor a palavra-passe para Jupyter e iniciar o Jupyter processar. 
 <br/>![Ativar a exceção do Jupyter](./media/jupyter-setpassword.png)<br/>
-Pode aceder a home page do Jupyter depois do processo de Jupyter foi iniciada com êxito na sua VM, visitando  **`https://localhost:9999`**  no seu browser. Consulte a captura de ecrã para adicionar a exceção e ativar o acesso do Jupyter através do browser
+Pode aceder a home page do Jupyter depois do processo de Jupyter foi iniciada com êxito na sua VM, visitando **`https://localhost:9999`** no seu browser. Consulte a captura de ecrã para adicionar a exceção e ativar o acesso do Jupyter através do browser
 <br/>![Ativar a exceção do Jupyter](./media/windows-jupyter-exception.png)<br/>
 Inicie sessão com a nova palavra-passe que apenas tinha sido definido.
 <br/>
 **Linux DSVM**
 
-Pode aceder à home page do Jupyter na sua VM, visitando  **`https://localhost:8000`**  no seu browser. Consulte a captura de ecrã para adicionar a exceção e ativar o acesso do Jupyter através do browser.
+Pode aceder à home page do Jupyter na sua VM, visitando **`https://localhost:8000`** no seu browser. Consulte a captura de ecrã para adicionar a exceção e ativar o acesso do Jupyter através do browser.
 <br/>![Ativar a exceção do Jupyter](./media/ubuntu-jupyter-exception.png)<br/>
 Inicie sessão com a mesma palavra-passe como o início de sessão para o DSVM.
 <br/>

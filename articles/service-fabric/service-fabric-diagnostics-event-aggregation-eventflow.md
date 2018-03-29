@@ -1,12 +1,12 @@
 ---
-title: "Agregação de eventos de recursos de infraestrutura de serviço do Azure com EventFlow | Microsoft Docs"
-description: "Saiba mais sobre agregar e recolha de eventos utilizando EventFlow para monitorização e diagnóstico de clusters de Service Fabric do Azure."
+title: Agregação de eventos de recursos de infraestrutura de serviço do Azure com EventFlow | Microsoft Docs
+description: Saiba mais sobre agregar e recolha de eventos utilizando EventFlow para monitorização e diagnóstico de clusters de Service Fabric do Azure.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: fd4c28c2317356cbc6e3fd4d46a10509c029d530
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 37cae133dda2f274a83db1df37e798c5da58c539
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação de eventos e coleção utilizando EventFlow
 
@@ -30,7 +30,7 @@ Binários EventFlow estão disponíveis como um conjunto de pacotes NuGet. Para 
 
 ![Pacotes de EventFlow NuGet no Gestor de pacote NuGet do Visual Studio da IU](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-Verá uma lista dos pacotes de vários aparecer, identificados com "Entradas" e "Saídas". EventFlow suporta vários fornecedores de registo diferentes e analisadores. O serviço de alojamento EventFlow deve incluir pacotes adequadas, consoante a origem e destino para os registos da aplicação. Para além do pacote de ServiceFabric core, também precisa de, pelo menos, uma entrada e saída configurado. Por exemplo, pode adicionar os seguintes pacotes para eventos de EventSource enviados para o Application Insights:
+Verá uma lista dos pacotes de vários aparecer, identificados com "Entradas" e "Saídas". EventFlow suporta vários fornecedores de registo diferentes e analisadores. O serviço de alojamento EventFlow deve incluir pacotes adequadas, consoante a origem e destino para os registos da aplicação. Para além do pacote de ServiceFabric core, também precisa de, pelo menos, uma entrada e saída configurado. Por exemplo, pode adicionar os seguintes pacotes para enviar eventos de EventSource ao Application Insights:
 
 * `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` para capturar os dados da classe de EventSource do serviço e a partir de EventSources padrão, tais como *dos serviços Microsoft-ServiceFabric* e *Microsoft-ServiceFabric-Atores*)
 * `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (Iremos enviar os registos para um recurso do Application Insights do Azure)

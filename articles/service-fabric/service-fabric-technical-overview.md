@@ -1,6 +1,6 @@
 ---
 title: Saiba terminologia do Azure Service Fabric | Microsoft Docs
-description: "Uma descrição geral de terminologia do Service Fabric. Descreve os conceitos de terminologia-chave e termos utilizados no resto da documentação."
+description: Uma descrição geral de terminologia do Service Fabric. Descreve os conceitos de terminologia-chave e termos utilizados no resto da documentação.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/18/2017
+ms.date: 03/26/2018
 ms.author: ryanwi
-ms.openlocfilehash: dc7e536ce40bf95e1950e1e44844cd8fe26ea1a1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: bd57b6344baef3bdf97c850564ae2d3afa9c811e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-terminology-overview"></a>Descrição geral de terminologia do Service Fabric
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis. Este artigo fornece detalhes sobre a terminologia utilizada pelo serviço de recursos de infraestrutura para compreender os termos utilizados na documentação.
@@ -26,9 +26,9 @@ O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita 
 Os conceitos apresentados nesta secção são também apresentados os vídeos seguintes do Microsoft Virtual Academy: <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">principais conceitos</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">conceitos do momento da conceção</a>, e <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">conceitos de tempo de execução</a>.
 
 ## <a name="infrastructure-concepts"></a>Conceitos de infraestrutura
-**Cluster**: um conjunto de ligados à rede de máquinas virtuais ou físicos para o qual os micro-serviços são implementados e geridos.  Clusters podem dimensionar a milhares de máquinas.
+**Cluster**: um conjunto de ligados à rede de máquinas virtuais ou físicos para o qual os micro-serviços são implementados e geridos.  Os clusters podem ser dimensionados para milhares de máquinas.
 
-**Nó**: um computador ou a VM que faz parte de um cluster é designado uma *nó*. Cada nó é atribuído um nome de nó (uma cadeia). Os nós têm características, tais como as propriedades de colocação. Cada computador ou a VM tem um serviço de início automático do Windows, `FabricHost.exe`, que inicia a executar após o arranque e, em seguida, inicia duas executáveis: `Fabric.exe` e `FabricGateway.exe`. Estes dois executáveis constituem o nó. Para cenários de teste, pode alojar vários nós num único computador ou VM ao executar várias instâncias do `Fabric.exe` e `FabricGateway.exe`.
+**Nó**: um computador ou a VM que faz parte de um cluster é designado uma *nó*. É atribuído um nome de nó (uma cadeia) a cada nó. Os nós têm características, tais como as propriedades de colocação. Cada computador ou a VM tem um serviço de início automático do Windows, `FabricHost.exe`, que inicia a executar após o arranque e, em seguida, inicia duas executáveis: `Fabric.exe` e `FabricGateway.exe`. Estes dois executáveis constituem o nó. Para cenários de teste, pode alojar vários nós num único computador ou VM ao executar várias instâncias do `Fabric.exe` e `FabricGateway.exe`.
 
 ## <a name="application-concepts"></a>Conceitos da aplicação
 **Tipo de aplicação**: O nome/versão atribuído a uma coleção de tipos de serviço. Está definido num `ApplicationManifest.xml` de ficheiros e incorporado num diretório do pacote de aplicação. O diretório é, em seguida, copiado para o arquivo de imagens do cluster do Service Fabric. Em seguida, pode criar uma aplicação com o nome deste tipo de aplicação no cluster.
@@ -89,12 +89,22 @@ Leia o [implementar uma aplicação](service-fabric-deploy-remove-applications.m
    - Orquestra as atualizações de aplicações e do cluster.
    - Interage com outros componentes do sistema.
 
+**Reparar o serviço do Gestor de**: Este é um serviço de sistema opcional que permite que ações de reparação ser efetuada num cluster de uma forma que é seguro, no automatable e transparente. Gestor de reparação é utilizado em:
+   - Efetuar a manutenção do Azure repara no [durabilidade prata e Gold](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) clusters do Service Fabric do Azure.
+   - Execute as ações de reparação de [Patch Orchestration aplicação](service-fabric-patch-orchestration-application.md)
+
 ## <a name="built-in-programming-models"></a>Modelos de programação incorporados
-Modelos de programação do .NET Framework estão disponíveis para que possa criar serviços do Service Fabric:
+Modelos de programação do .NET Framework e o Java estão disponíveis para que possa criar serviços do Service Fabric:
 
 **Reliable Services**: uma API para criar serviços sem monitorização de estado e com monitorização de estado. Serviços com monitorização de estado armazenam o respetivo estado em coleções fiável, como um dicionário ou uma fila. Também pode fixação em vários pilhas de comunicação, tais como Web API e Windows Communication Foundation (WCF).
 
 **Reliable Actors**: uma API para criar objetos sem monitorização de estado e com monitorização de estado através do modelo de programação de Ator virtual. Este modelo é útil quando tem muitas unidades independentes de cálculo ou estado. Este modelo utiliza um baseado em Ativar modelo de thread, pelo é melhor evitar o código que chama a outros serviços de atores ou porque uma ator individuais não é possível processar outros pedidos recebidos, até que todos os pedidos saídos estiverem concluídos.
+
+Também pode executar as suas aplicações existentes no Service Fabric:
+
+**Contentores**: Service Fabric suporta a implementação de contentores de Docker em contentores de Linux e Windows Server no Windows Server 2016, juntamente com suporte para o modo de isolamento de Hyper-V. No Service Fabric [modelo de aplicação](service-fabric-application-model.md), um contentor representa um anfitrião de aplicações no serviço várias réplicas são colocadas. Service Fabric pode executar quaisquer contentores, e o cenário é semelhante do cenário de executável do convidado, onde o pacote que uma aplicação existente no interior de um contentor. Além disso, pode [executar serviços do Service Fabric no interior de contentores](service-fabric-services-inside-containers.md) bem.
+
+**Executáveis convidado**: pode executar qualquer tipo de código, tal como o Node.js, Java ou C++ no Azure Service Fabric como um serviço. Service Fabric refere-se para estes tipos de serviços como convidado executáveis, que são tratadas como serviços sem monitorização de estado. As vantagens à execução de um executável de um cluster do Service Fabric de convidados incluem elevada disponibilidade, monitorização de estado de funcionamento, gestão de ciclo de vida de aplicações, alta densidade e capacidade de deteção.
 
 Leia o [escolher um modelo de programação para o seu serviço](service-fabric-choose-framework.md) artigo para obter mais informações.
 

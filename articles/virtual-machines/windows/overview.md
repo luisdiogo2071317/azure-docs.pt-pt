@@ -1,11 +1,11 @@
 ---
-title: "Descrição Geral das Máquinas Virtuais do Windows | Microsoft Docs"
-description: "Saiba mais sobre a criação e gestão de máquinas virtuais do Windows no Azure."
+title: Descrição Geral das Máquinas Virtuais do Windows | Microsoft Docs
+description: Saiba mais sobre a criação e gestão de máquinas virtuais do Windows no Azure.
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
-editor: tysonn
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e33186b189394172cba6cf550c01954db941c19
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6ab964760ea06c2e82d0c9f69f89fe62dec8ceac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Descrição Geral das Máquinas Virtuais do Windows no Azure
 
@@ -145,7 +145,7 @@ Utilize o botão Ligar no Portal do Azure para [iniciar uma sessão de Ambiente 
 ### <a name="manage-availability"></a>Gerir a disponibilidade
 É importante compreender como [garantir a elevada disponibilidade](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) da sua aplicação. Esta configuração envolve a criação de várias VMs para garantir que pelo menos uma está em execução.
 
-Para a sua implementação se qualificar para o nosso Contrato de Nível de Serviço da VM 99.95, tem de implementar duas ou mais VMs que executam a carga de trabalho num [conjunto de disponibilidade](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esta configuração garante que as VMs são distribuídas em vários domínios de falhas e são implementadas em anfitriões com janelas de manutenção diferentes. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) completo explica a disponibilidade garantida do Azure em termos globais.
+Para a sua implementação se qualificar para o nosso Contrato de Nível de Serviço da VM 99.95, tem de implementar duas ou mais VMs que executam a carga de trabalho num [conjunto de disponibilidade](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esta configuração garante que as VMs são distribuídas em vários domínios de falhas e são implementadas em anfitriões com janelas de manutenção diferentes. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
 
 ### <a name="back-up-the-vm"></a>Realizar uma cópia de segurança da VM
 Para proteger dados e ativos nos serviços do Azure Backup e do Azure Site Recovery é utilizado um [Cofre dos Serviços de Recuperação](../../backup/backup-introduction-to-azure-backup.md). Pode utilizar um cofre dos Serviços de Recuperação para [implementar e gerir cópias de segurança para VMs implementadas pelo Gestor de Recursos com o PowerShell](../../backup/backup-azure-vms-automation.md). 

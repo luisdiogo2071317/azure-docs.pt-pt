@@ -1,25 +1,25 @@
 ---
-title: "Enlaces de funções de HTTP e webhook do Azure"
-description: "Compreenda como utilizar o HTTP e webhook acionadores e enlaces das funções do Azure."
+title: Enlaces de funções de HTTP e webhook do Azure
+description: Compreenda como utilizar o HTTP e webhook acionadores e enlaces das funções do Azure.
 services: functions
 documentationcenter: na
-author: mattchenderson
+author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "das funções do Azure, funções, eventos de processamento, webhooks, dinâmicos de computação, arquitetura sem servidor, HTTP, API, REST"
+editor: ''
+tags: ''
+keywords: das funções do Azure, funções, eventos de processamento, webhooks, dinâmicos de computação, arquitetura sem servidor, HTTP, API, REST
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: mahender
-ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 94a039ab1973cbd4112ddd0cd7548baa69924d26
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces de funções de HTTP e webhook do Azure
 
@@ -536,7 +536,7 @@ Autorização de Webhook é processada pelo componente de recetor de webhook, pa
 
 ## <a name="trigger---limits"></a>Acionador - limites
 
-O comprimento do pedido HTTP está limitado a 100 (102,400) KBytes e o comprimento do URL é limitado a 4 k (4,096) bytes. Estes limites especificados pelo `httpRuntime` elemento do tempo de execução [ficheiro Web. config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+O comprimento do pedido HTTP está limitado a 100MB (104,857,600 bytes) e o comprimento do URL está limitado a 4KB (4.096 bytes). Estes limites especificados pelo `httpRuntime` elemento do tempo de execução [ficheiro Web. config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
 Se uma função que utiliza o acionador HTTP não concluída dentro do cerca de 2,5 minutos, o limite de tempo do gateway será e devolver um erro de HTTP 502. A função continuará em execução, mas será possível devolver uma resposta HTTP. Para funções de longa execução, recomendamos que siga async padrões e devolver uma localização onde consegue enviar pings para o estado do pedido. Para obter informações sobre como o tempo que uma função pode executar, consulte [escala e aloja - consumo planear](functions-scale.md#consumption-plan). 
 

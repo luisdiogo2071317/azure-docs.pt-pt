@@ -1,8 +1,8 @@
 ---
-title: "Ferramenta de avaliação do Cortana Intelligence solução | Microsoft Docs"
-description: "Como Partner Microsoft, seguem-se todos os passos que tem de seguir para publicar a sua solução do Cortana Intelligence AppSource."
+title: Ferramenta de avaliação do Cortana Intelligence solução | Microsoft Docs
+description: Como Partner Microsoft, seguem-se todos os passos que tem de seguir para publicar a sua solução do Cortana Intelligence AppSource.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: c9ea8164d5866662a7ed81672ee1ba776603b193
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: anupams
+ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Ferramenta de avaliação da solução do Cortana Intelligence
 ## <a name="overview"></a>Descrição geral
@@ -46,7 +46,7 @@ Ligar à sua subscrição do Azure e forneça o grupo de recursos que contém a 
 Assim que o grupo de recursos terem sido carregado, selecione os recursos que estão incluídos na sua solução e identificam a acessibilidade de quaisquer recursos de dados como:
 - Ingestão
 - Consumo
-- Interna
+- Interno
 
 Estas informações são utilizadas para compreender melhor a sua solução é a utilização de vários componentes e para garantir que são consistentes com as melhores práticas componentes destinada ao utilizador.
 
@@ -61,7 +61,7 @@ Consumo neste caso, significa que os conjuntos de dados que são utilizados para
 >[!NOTE]
 Se for utilizado um recurso específico para ingestão e consumo, escolha **consumo**.
 
-### <a name="internal"></a>Interna
+### <a name="internal"></a>Interno
 Utilize o parâmetro interno quaisquer recursos de dados que são utilizadas apenas no processamento de aplicação interna.
 
 Em seguida, será solicitado para fornecer credenciais válidas para quaisquer bases de dados especificados no passo anterior:

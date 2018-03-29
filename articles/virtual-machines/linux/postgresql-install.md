@@ -1,11 +1,11 @@
 ---
 title: Configurar PostgreSQL numa VM com Linux | Microsoft Docs
-description: "Saiba como instalar e configurar PostgreSQL numa máquina virtual com Linux no Azure"
+description: Saiba como instalar e configurar PostgreSQL numa máquina virtual com Linux no Azure
 services: virtual-machines-linux
-documentationcenter: 
-author: SuperScottz
-manager: timlt
-editor: 
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: mingzhan
-ms.openlocfilehash: 0bccdc1cfdbda06b57da8cd662373ef137768672
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: iainfou
+ms.openlocfilehash: 7741f861c5697da1e453c0d613b4b762511cf555
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalar e configurar o PostgreSQL no Azure
 PostgreSQL é uma avançadas open source base de dados semelhante a Oracle e DB2. Inclui funcionalidades de preparada para empresa, tais como a conformidade completa ACID, processamento transacional fiável e o controlo de simultaneidade de versão multi. Também suporta as normas, como ANSI SQL e SQL/MED (incluindo wrappers de dados externa para Oracle, MySQL, MongoDB e muitas outras). É altamente extensível com suporte para 12 mais idiomas procedimental, índices GIN e GiST, suporte de dados geográficos e várias funcionalidades como o NoSQL para JSON ou chave-valor baseados em aplicações.
@@ -28,7 +28,7 @@ Neste artigo, ficará a saber como instalar e configurar PostgreSQL numa máquin
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="install-postgresql"></a>Instalar PostgreSQL
+## <a name="install-postgresql"></a>Install PostgreSQL
 > [!NOTE]
 > Já tem de ter uma máquina virtual do Azure com o Linux para concluir este tutorial. Para criar e configurar uma VM com Linux antes de continuar, consulte o [tutorial da VM do Linux do Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
@@ -72,7 +72,7 @@ Estabelecer ligação com o Linux VM criada através do PuTTY. Se esta for a pri
    
         PostgreSQL, contrib, and documentation successfully made. Ready to install.
 
-## <a name="configure-postgresql"></a>Configurar PostgreSQL
+## <a name="configure-postgresql"></a>Configure PostgreSQL
 1. (Opcional) Crie uma ligação simbólica para bastante a referência de PostgreSQL por não incluir o número de versão:
    
         # ln -s /opt/pgsql9.3.5 /opt/pgsql
@@ -126,7 +126,7 @@ Estabelecer ligação com o Linux VM criada através do PuTTY. Se esta for a pri
 
 ![Imagem](./media/postgresql-install/no1.png)
 
-## <a name="set-up-postgresql"></a>Configurar PostgreSQL
+## <a name="set-up-postgresql"></a>Set up PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
 
 Execute os seguintes comandos:
@@ -147,7 +147,7 @@ Altere o ficheiro para torná-lo executável:
 
     # chmod +x /etc/init.d/postgresql
 
-Inicie PostgreSQL:
+Start PostgreSQL:
 
     # /etc/init.d/postgresql start
 

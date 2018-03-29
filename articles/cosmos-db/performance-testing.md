@@ -5,8 +5,8 @@ keywords: Teste de desempenho
 services: cosmos-db
 author: arramac
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 36665c0c26dad4e3b667b341b63c5859ece7605b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Desempenho e dimensionamento de teste com base de dados do Azure Cosmos
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Desempenho e dimensionamento de teste é um passo chave no desenvolvimento de aplicações. Para muitas aplicações, a camada de base de dados tem um impacto significativo no desempenho geral e a escalabilidade. Por conseguinte, é um componente crítico de teste de desempenho. [BD do Azure do Cosmos](https://azure.microsoft.com/services/cosmos-db/) é específico para a escala elástica e um desempenho previsível. Estas capacidades tornam uma excelente opção para aplicações que necessitam de uma camada de base de dados de elevado desempenho. 
 
@@ -102,7 +100,7 @@ A forma mais rápida para começar a utilizar é compilar e executar o exemplo d
 
 Depois de ter a aplicação em execução, pode experimentar diferentes [indexação políticas](indexing-policies.md) e [níveis de consistência](consistency-levels.md) para compreender o impacto na débito e latência. Também pode rever o código de origem e implementar configurações semelhantes para as suas próprias aplicações de produção ou conjuntos de teste.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, vamos consultou como pode efetuar o desempenho e dimensionamento de teste com base de dados do Azure Cosmos utilizando uma aplicação de consola .NET. Para obter mais informações, veja os artigos seguintes:
 
 * [Exemplo de testes de desempenho de base de dados do Cosmos do Azure](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)

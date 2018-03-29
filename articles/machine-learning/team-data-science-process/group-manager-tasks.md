@@ -1,23 +1,23 @@
 ---
-title: "Tarefas do Gestor de grupo do processo do equipa dados ciência - Azure | Microsoft Docs"
-description: "Uma descrição das tarefas de um Gestor de grupo num projeto de equipa de ciência de dados."
-documentationcenter: 
+title: Tarefas do Gestor de grupo do processo do equipa dados ciência - Azure | Microsoft Docs
+description: Uma descrição das tarefas de um Gestor de grupo num projeto de equipa de ciência de dados.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 58cea8b0288469a76dd8c4eb967caa8e87cd3dd7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 3c39ae865ec26567f70706b042dab2aa8e4939d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="group-manager-tasks"></a>Grupo do Gestor de tarefas
 
@@ -311,7 +311,7 @@ Na home page do grupo VSTS do seu servidor, clique em de **engrenagem ícone** j
 ![24](./media/group-manager-tasks/add_member_to_group.PNG) 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Seguem-se ligações para as descrições das funções e tarefas definidas pelo processo de ciência de dados de equipa mais detalhadas:
 

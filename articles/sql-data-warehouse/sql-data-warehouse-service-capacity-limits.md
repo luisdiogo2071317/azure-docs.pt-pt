@@ -1,11 +1,11 @@
 ---
 title: Os limites de capacidade do SQL Data Warehouse | Microsoft Docs
-description: "Valores máximos para ligações, bases de dados, tabelas e as consultas SQL do armazém de dados."
+description: Valores máximos para ligações, bases de dados, tabelas e as consultas SQL do armazém de dados.
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 03/15/2018
+ms.date: 03/27/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: b1ff33f80a8dd0a0861a5c39731c9f59689db101
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa7d8a9880ff97f30dc583d792e39aa914ea5435
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
 As tabelas seguintes contêm os valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
@@ -39,13 +39,13 @@ As tabelas seguintes contêm os valores máximos permitidos para vários compone
 |:--- |:--- |:--- |
 | Base de Dados |Tamanho máximo |240 TB comprimido no disco<br/><br/>Este espaço é independente de espaço em tempdb ou de registo e, por conseguinte, este espaço dedicado para tabelas permanentes.  Compressão columnstore em cluster estima-se em 5 X.  Esta compressão permite que a base de dados aumente aproximadamente 1 PB quando todas as tabelas columnstore em cluster (o tipo de tabela predefinido). |
 | Tabela |Tamanho máximo |60 TB comprimido no disco |
-| Tabela |Tabelas por base de dados |2 mil milhões |
+| Tabela |Tabelas por base de dados |10,000 |
 | Tabela |Colunas por tabela |1024 colunas |
 | Tabela |Bytes por coluna |Depende de coluna [tipo de dados][data type].  Limite é 8000 para tipos de dados char, 4000 para nvarchar, ou 2 GB para os tipos de dados máxima. |
 | Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma forma como está para o SQL Server com compressão de página. Como o SQL Server, do armazém de dados do SQL Server suporta o armazenamento de capacidade excedida de linha, que permite **colunas de comprimento variável** para fazer o Push consecutivos. Quando as linhas de comprimento variável são enviadas por push consecutivos, apenas 24 bytes raiz é armazenado no registo principal. Para obter mais informações, consulte o [exceder de dados de capacidade excedida de linha 8-KB][Row-Overflow Data Exceeding 8 KB]. |
 | Tabela |Partições por tabela |15,000<br/><br/>Para elevado desempenho, recomendamos a minimizar o número de partições necessário enquanto ainda suportar os requisitos de negócio. À medida que cresce o número de partições, a sobrecarga para operações de linguagem de definição de dados (DDL) e de idioma de manipulação de dados (DML) que vai crescendo e faz com que um desempenho mais lento. |
 | Tabela |Carateres por valor de limite de partição. |4000 |
-| Índice |Índices não em cluster por tabela. |999<br/><br/>Aplica-se apenas a tabelas rowstore. |
+| Índice |Índices não em cluster por tabela. |50<br/><br/>Aplica-se apenas a tabelas rowstore. |
 | Índice |Índices em cluster por tabela. |1<br><br/>Aplica-se a tabelas rowstore e columnstore. |
 | Índice |Tamanho de chave do índice. |900 bytes.<br/><br/>Aplica-se apenas a índices rowstore.<br/><br/>Os índices em colunas de varchar com um tamanho máximo de 900 bytes, mais do que podem ser criados se os dados existentes nas colunas não pode exceder 900 bytes quando o índice é criado. No entanto, inserir mais tarde ou ações de ATUALIZAÇÃO em colunas que fazer com que o tamanho total exceder os 900 bytes irão falhar. |
 | Índice |Colunas de chave por índice. |16<br/><br/>Aplica-se apenas a índices rowstore. Índices columnstore em cluster incluem todas as colunas. |
@@ -72,8 +72,9 @@ As tabelas seguintes contêm os valores máximos permitidos para vários compone
 | SELECIONAR |Subconsultas aninhadas |32<br/><br/>Nunca pode ter mais do que 32 subconsultas aninhadas numa instrução SELECT. Não há nenhuma garantia que possam ter sempre a 32. Por exemplo, uma associação pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado pela memória disponível. |
 | SELECIONAR |Colunas por associação |1024 colunas<br/><br/>Nunca pode ter mais de 1024 colunas na União. Não há nenhuma garantia que possam ter sempre a 1024. Se o plano de associação necessita de uma tabela temporária com mais colunas do que o resultado da JUNÇÃO, o limite de 1024 aplica-se a tabela temporária. |
 | SELECIONAR |Total de bytes por grupo por colunas. |8060<br/><br/>As colunas na cláusula GROUP BY podem ter um máximo de 8060 bytes. |
-| SELECIONAR |Bytes por colunas ORDER BY |8060 bytes.<br/><br/>As colunas na cláusula ORDER BY podem ter um máximo de 8060 bytes. |
-| Os identificadores e constantes por declaração |Número de identificadores referenciados e constantes. |65,535<br/><br/>O SQL Data Warehouse limita o número de identificadores e constantes que podem ser incluídas sob uma única expressão de uma consulta. Este limite é de 65535. A exceder este número resulta num erro do SQL Server 8632. Para obter mais informações, consulte [erro interno: foi atingido um limite de serviços de expressão][Internal error: An expression services limit has been reached]. |
+| SELECIONAR |Bytes por colunas ORDER BY |8060 bytes<br/><br/>As colunas na cláusula ORDER BY podem ter um máximo de 8060 bytes |
+| Identificadores por declaração |Número de identificadores referenciados |65,535<br/><br/>O SQL Data Warehouse limita o número de identificadores que podem ser incluídos sob uma única expressão de uma consulta. A exceder este número resulta num erro do SQL Server 8632. Para obter mais informações, consulte [erro interno: foi atingido um limite de serviços de expressão][Internal error: An expression services limit has been reached]. |
+| Literais de cadeia | Número de cadeias literais numa instrução | 20,000 <br/><br/>Limites de armazém de dados do SQL Server o número de constantes de cadeia que podem ser incluídos sob uma única expressão de uma consulta. A exceder este número resulta num erro do SQL Server 8632. Para obter mais informações, consulte [erro interno: foi atingido um limite de serviços de expressão][Internal error: An expression services limit has been reached]. |
 
 ## <a name="metadata"></a>Metadados
 | Vista de sistema | Linhas máximas |

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 9de332324ba853d3df0aacce2db4bbc3d4d9d62d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -338,13 +338,17 @@ O resultado, o qual pretende conceder acesso de leitura a todas as identidades d
 
 ## <a name="supported-x509-certificates"></a>Suportado certificados x. 509
 
-Pode utilizar qualquer certificado x. 509 para autenticar um dispositivo com o IoT Hub. Certificados incluem:
+Pode utilizar qualquer certificado x. 509 para autenticar um dispositivo com o IoT Hub, carregar um thumbprint de certificado ou uma autoridade de certificação (AC) para o IoT Hub do Azure. Utilizar apenas os thumbprints de certificado de autenticação verifica que o thumbprint apresentado correspondente ao thumbprint configurado. Autenticação de autoridade de certificação valida a cadeia de certificados. 
 
-* **Um certificado x. 509 existente**. Um dispositivo pode já ter um certificado x. 509 com associados. O dispositivo pode utilizar este certificado para autenticar com o IoT Hub.
-* **A Self-gerados e X-509 certificado autoassinado**. Um fabricante do dispositivo ou implementador interna, pode gerar estes certificados e armazenar a chave privada correspondente (e certificados) no dispositivo. Pode utilizar ferramentas como [OpenSSL] [ lnk-openssl] e [Windows SelfSignedCertificate] [ lnk-selfsigned] utilitário para esta finalidade.
-* **Certificado assinado para AC de x. 509**. Para identificar um dispositivo e autenticá-lo com o IoT Hub, pode utilizar um certificado x. 509 gerados e assinado por uma autoridade de certificação (AC). IoT Hub apenas verifica que o thumbprint apresentado correspondente ao thumbprint configurado. IotHub não valida a cadeia de certificados.
+Certificados suportados incluem:
+
+* **Um certificado x. 509 existente**. Um dispositivo pode já ter um certificado x. 509 com associados. O dispositivo pode utilizar este certificado para autenticar com o IoT Hub. Funciona com o thumbprint ou autenticação de AC. 
+* **Certificado assinado para AC de x. 509**. Para identificar um dispositivo e autenticá-lo com o IoT Hub, pode utilizar um certificado x. 509 gerados e assinado por uma autoridade de certificação (AC). Funciona com o thumbprint ou autenticação de AC.
+* **A Self-gerados e X-509 certificado autoassinado**. Um fabricante do dispositivo ou implementador interna, pode gerar estes certificados e armazenar a chave privada correspondente (e certificados) no dispositivo. Pode utilizar ferramentas como [OpenSSL] [ lnk-openssl] e [Windows SelfSignedCertificate] [ lnk-selfsigned] utilitário para esta finalidade. Só funciona com a autenticação de thumbprint. 
 
 Um dispositivo pode utilizar um certificado x. 509 ou um token de segurança para autenticação, mas não ambos.
+
+Para obter mais informações sobre autenticação com a autoridade de certificação, consulte [compreensão Conceptual de certificados da AC de x. 509](iot-hub-x509ca-concept.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registe um certificado x. 509 para um dispositivo
 
@@ -354,10 +358,7 @@ O [SDK do serviço do Azure IoT para c#] [ lnk-service-sdk] (versão 1.0.8+) sup
 
 O **RegistryManager** classe fornece uma forma programática para registar um dispositivo. Em particular, a **AddDeviceAsync** e **UpdateDeviceAsync** métodos permitem-lhe registar e atualização de um dispositivo no registo de identidade do IoT Hub. Estes dois métodos recolhem uma **dispositivo** instância como entrada. O **dispositivo** classe inclui um **autenticação** propriedade permite-lhe especificar thumbprints de certificado x. 509 primários e secundários. O thumbprint representa um hash SHA-1 do certificado x. 509 (armazenado utilizando binário de codificação DER). Tem a opção de especificar um thumbprint primário ou um thumbprint secundário ou ambos. Thumbprints primários e secundários são suportados para processar cenários de rollover de certificado.
 
-> [!NOTE]
-> IoT Hub não necessita ou armazenar o certificado x. 509 completo, apenas o thumbprint.
-
-Eis um exemplo C\# fragmento de código para registar um dispositivo ao utilizar um certificado x. 509:
+Eis um exemplo C\# fragmento de código para registar um dispositivo com um thumbprint de certificado x. 509:
 
 ```csharp
 var device = new Device(deviceId)

@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory dos serviços de domínio: Associar uma VM do Linux CoreOS a um domínio gerido | Microsoft Docs"
-description: "Associar uma máquina virtual CoreOS Linux nos serviços de domínio do Azure AD"
+title: 'Azure Active Directory dos serviços de domínio: Associar uma VM do Linux CoreOS a um domínio gerido | Microsoft Docs'
+description: Associar uma máquina virtual CoreOS Linux nos serviços de domínio do Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 790ad85df0dbf68674e2b9c6254858100ddfd0fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c7290db73645a4e1e745142f266aabc6df735df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Associar uma máquina virtual CoreOS Linux a um domínio gerido
 Este artigo mostra como associar uma máquina virtual CoreOS Linux no Azure a um domínio gerido dos serviços de domínio do Azure AD.
@@ -140,7 +140,7 @@ Certifique-se de que o se o computador foi associado com êxito ao domínio geri
 
 
 ## <a name="troubleshooting-domain-join"></a>Resolução de problemas de associação a um domínio
-Consulte o [associação de domínio de resolução de problemas](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) artigo.
+Consulte o [associação de domínio de resolução de problemas](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) artigo.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Serviços de domínio do Azure AD - guia de introdução](active-directory-ds-getting-started.md)

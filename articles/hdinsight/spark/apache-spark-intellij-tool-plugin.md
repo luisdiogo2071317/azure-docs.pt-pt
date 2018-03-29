@@ -1,8 +1,8 @@
 ---
-title: "Toolkit do Azure para o IntelliJ: criar Spark aplicações para um cluster do HDInsight | Microsoft Docs"
-description: "Utilize o Toolkit do Azure para o IntelliJ para desenvolver aplicações do Spark escritas no Scala e submetê-las para um cluster do HDInsight Spark."
+title: 'Toolkit do Azure para o IntelliJ: criar Spark aplicações para um cluster do HDInsight | Microsoft Docs'
+description: Utilize o Toolkit do Azure para o IntelliJ para desenvolver aplicações do Spark escritas no Scala e submetê-las para um cluster do HDInsight Spark.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 69f5857f89271b3e4865b93e42e5233ead572715
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2ebf87b0436dbc5ee12a1c41d33ff3d17af1f043
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Utilize o Toolkit do Azure para o IntelliJ para criar Spark aplicações para um cluster do HDInsight
 
@@ -44,6 +44,10 @@ Para criar o projeto, ver o [criar aplicações do Spark com o Toolkit do Azure 
 
 ## <a name="install-azure-toolkit-for-intellij"></a>Instalar o Toolkit do Azure para o IntelliJ
 Para obter instruções de instalação, consulte [instalar o Toolkit do Azure para o IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
+
+## <a name="get-started"></a>Introdução
+O utilizador pode optar por [iniciar sessão na subscrição do Azure](#sign-in-to-your-azure-subscription), ou [ligar um cluster do HDInsight](#link-a-cluster) com o Ambari nome de utilizador/palavra-passe ou domínio associado a credencial para iniciar.
+
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Inicie sessão na sua subscrição do Azure
 
@@ -75,12 +79,14 @@ Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, t
 
    ![menu de contexto do cluster de ligação](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Introduza **nome do Cluster**, **conta de armazenamento**, **chave de armazenamento**, em seguida, selecione um contentor de **contentor de armazenamento**, pela última vez, introduza o nome de utilizador e a palavra-passe. Tem de verificar o nome de utilizador e palavra-passe se obter a falha de autenticação.
+2. Introduza **nome do Cluster**, **nome de utilizador** e **palavra-passe**. Tem de verificar o nome de utilizador e palavra-passe se foi a falha de autenticação. Opcionalmente, adicione a conta do Storage, chave de armazenamento, em seguida, selecione um contentor do contentor de armazenamento. Informações de armazenamento estão no Explorador de armazenamento na árvore da esquerda do
    
    ![caixa de diálogo de cluster de ligação](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
 
    > [!NOTE]
-   > Utilizamos a chave de armazenamento ligado, o nome de utilizador e a palavra-passe se o cluster tem sessão iniciada na subscrição do Azure tanto ligado um cluster. 
+   > Utilizamos a chave de armazenamento ligado, o nome de utilizador e a palavra-passe se o cluster tem sessão iniciada na subscrição do Azure tanto ligado um cluster.
+   > ![Explorador de armazenamento no IntelliJ](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
+
    
 3. Pode ver um cluster de ligado no **HDInsight** nós se as informações de entrada estão corretas. Agora pode submeter uma aplicação para este cluster ligado.
 

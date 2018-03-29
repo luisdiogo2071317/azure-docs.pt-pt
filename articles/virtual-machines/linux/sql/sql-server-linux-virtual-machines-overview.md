@@ -1,8 +1,8 @@
 ---
-title: "Descrição Geral do SQL Server em Máquinas Virtuais do Linux no Azure | Microsoft Docs"
-description: "Saiba como executar edições completas do SQL Server em máquinas virtuais do Linux no Azure. Obtenha ligações diretas para todas as imagens de VMs do SQL Server do Linux e conteúdos relacionados."
+title: Descrição Geral do SQL Server em Máquinas Virtuais do Linux no Azure | Microsoft Docs
+description: Saiba como executar edições completas do SQL Server em máquinas virtuais do Linux no Azure. Obtenha ligações diretas para todas as imagens de VMs do SQL Server do Linux e conteúdos relacionados.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -10,13 +10,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
-ms.date: 10/02/2017
+ms.date: 03/22/2018
 ms.author: jroth
-ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: e752ad844a6efe572564e7081ebac87193e9c2a7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Descrição Geral do SQL Server em Máquinas Virtuais do Azure (Linux)
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-Este tópico descreve as opções para executar o SQL Server em máquinas virtuais (VMs) do Linux no Azure e inclui [ligações para imagens do portal](#option-1-create-a-sql-vm-with-per-minute-licensing).
+Este tópico descreve as opções para executar o SQL Server em máquinas virtuais (VMs) do Linux no Azure e inclui [ligações para imagens do portal](#create).
 
 > [!NOTE]
 > Se já estiver familiarizado com o SQL Server e quiser ver apenas como implementar uma VM do Linux do SQL Server, veja [Aprovisionar uma VM do SQL Server do Linux no Azure](provision-sql-server-linux-virtual-machine.md). Em alternativa, se quiser criar uma VM do Windows com o SQL Server, veja [Aprovisionar uma VM do SQL Server do Windows no Azure](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md).

@@ -1,10 +1,10 @@
 ---
-title: "Configurar uma cadeia de ligação para o Storage do Azure | Microsoft Docs"
-description: "Configure uma cadeia de ligação para uma conta de armazenamento do Azure. Uma cadeia de ligação contém informações necessárias para autenticar o acesso a uma conta de armazenamento a partir da sua aplicação no tempo de execução."
+title: Configurar uma cadeia de ligação para o Storage do Azure | Microsoft Docs
+description: Configure uma cadeia de ligação para uma conta de armazenamento do Azure. Uma cadeia de ligação contém informações necessárias para autenticar o acesso a uma conta de armazenamento a partir da sua aplicação no tempo de execução.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: tamram
-ms.openlocfilehash: 192799cb44dc9a56c65a6414c1267c506252fe29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: dee0fd68ccaf80ff6e44ee10fa24bb19e220d0d5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar Cadeias de Ligação do Storage do Azure
 
@@ -132,7 +132,7 @@ EndpointSuffix=core.chinacloudapi.cn;
 ## <a name="parsing-a-connection-string"></a>Analisar uma cadeia de ligação
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Utilizar o emulador de armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md)
 * [Exploradores de armazenamento do Azure](storage-explorers.md)
 * [Utilizar assinaturas de acesso partilhado (SAS)](storage-dotnet-shared-access-signature-part-1.md)

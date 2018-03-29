@@ -1,19 +1,19 @@
 ---
-title: "Módulo do Azure IoT Edge c# | Microsoft Docs"
-description: "Criar um módulo de limite de IoT com código c# e implementá-la para um dispositivo de limite"
+title: Módulo do Azure IoT Edge c# | Microsoft Docs
+description: Criar um módulo de limite de IoT com código c# e implementá-la para um dispositivo de limite
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 605f0cfe34e4fda14030bb38686095882846c7c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 95ca66f34548f86e25c1e7af331fa88797847906
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Desenvolver e implementar um módulo de limite de IoT c# para o seu dispositivo simulado – pré-visualização
 
@@ -53,25 +53,25 @@ Pode utilizar qualquer registo compatível com o Docker para este tutorial. Dois
 ## <a name="create-an-iot-edge-module-project"></a>Criar um projeto do módulo de limite de IoT
 A mostrar os passos seguintes, como criar um módulo de limite de IoT com base no .NET core 2.0 utilizando o Visual Studio Code e a extensão de limite de IoT do Azure.
 1. No Visual Studio Code, selecione **vista** > **integrada Terminal** para abrir o terminal integrado VS Code.
-3. No terminal integrado, introduza o seguinte comando para instalar (ou atualizar) as **AzureIoTEdgeModule** modelo no dotnet:
+2. No terminal integrado, introduza o seguinte comando para instalar (ou atualizar) as **AzureIoTEdgeModule** modelo no dotnet:
 
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
-2. Crie um projeto para o módulo de novo. O comando seguinte cria a pasta do projeto, **FilterModule**, na pasta de trabalho atual:
+3. Crie um projeto para o módulo de novo. O comando seguinte cria a pasta do projeto, **FilterModule**, com o seu repositório de contentor. O segundo parâmetro deve ter o formato de `<your container registry name>.azurecr.io` se estiver a utilizar o registo de contentor do Azure. Introduza o seguinte comando na pasta de trabalho atual:
 
     ```cmd/sh
-    dotnet new aziotedgemodule -n FilterModule
+    dotnet new aziotedgemodule -n FilterModule -r <your container registry address>/filtermodule
     ```
  
-3. Selecione **ficheiro** > **Abrir pasta**.
-4. Navegue para o **FilterModule** pasta e clique em **selecionar pasta** para abrir o projeto no VS Code.
-5. No Explorador de VS Code, clique em **Program.cs** para abri-lo.
+4. Selecione **ficheiro** > **Abrir pasta**.
+5. Navegue para o **FilterModule** pasta e clique em **selecionar pasta** para abrir o projeto no VS Code.
+6. No Explorador de VS Code, clique em **Program.cs** para abri-lo.
 
    ![Abertos Program. CS][1]
 
-6. Na parte superior do **FilterModule** espaço de nomes, adicionar três `using` instruções para tipos de utilizados mais tarde:
+7. Na parte superior do **FilterModule** espaço de nomes, adicionar três `using` instruções para tipos de utilizados mais tarde:
 
     ```csharp
     using System.Collections.Generic;     // for KeyValuePair<>
@@ -79,13 +79,13 @@ A mostrar os passos seguintes, como criar um módulo de limite de IoT com base n
     using Newtonsoft.Json;                // for JsonConvert
     ```
 
-6. Adicionar o `temperatureThreshold` variável para o **programa** classe. Esta variável define o valor pode exceder a temperatura medida para que os dados a ser enviadas ao IoT Hub. 
+8. Adicionar o `temperatureThreshold` variável para o **programa** classe. Esta variável define o valor pode exceder a temperatura medida para que os dados a ser enviadas ao IoT Hub. 
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-7. Adicionar o `MessageBody`, `Machine`, e `Ambient` classes para o **programa** classe. Estas classes definem o schema esperado para o corpo de mensagens a receber.
+9. Adicionar o `MessageBody`, `Machine`, e `Ambient` classes para o **programa** classe. Estas classes definem o schema esperado para o corpo de mensagens a receber.
 
     ```csharp
     class MessageBody
@@ -106,7 +106,7 @@ A mostrar os passos seguintes, como criar um módulo de limite de IoT com base n
     }
     ```
 
-8. No **Init** método, o código que cria e configura um **DeviceClient** objeto. Este objeto permite que o módulo ligar a execução do Azure IoT Edge local para enviar e receber mensagens. A cadeia de ligação utilizada no **Init** método é fornecido para o módulo pelo tempo de execução do limite de IoT. Depois de criar o **DeviceClient**, o código lê a TemperatureThreshold a partir das propriedades de pretendido o duplo módulo e regista uma chamada de retorno para a receção de mensagens do hub IoT limite através de **input1**ponto final. Substitua o `SetInputMessageHandlerAsync` método com um novo e adicione um `SetDesiredPropertyUpdateCallbackAsync` método para atualizações de propriedades pretendido. Para efetuar esta alteração, substitua a última linha do **Init** método com o seguinte código:
+10. No **Init** método, o código que cria e configura um **DeviceClient** objeto. Este objeto permite que o módulo ligar a execução do Azure IoT Edge local para enviar e receber mensagens. A cadeia de ligação utilizada no **Init** método é fornecido para o módulo pelo tempo de execução do limite de IoT. Depois de criar o **DeviceClient**, o código lê a TemperatureThreshold a partir das propriedades de pretendido o duplo módulo e regista uma chamada de retorno para a receção de mensagens do hub IoT limite através de **input1**ponto final. Substitua o `SetInputMessageHandlerAsync` método com um novo e adicione um `SetDesiredPropertyUpdateCallbackAsync` método para atualizações de propriedades pretendido. Para efetuar esta alteração, substitua a última linha do **Init** método com o seguinte código:
 
     ```csharp
     // Register callback to be called when a message is received by the module
@@ -127,7 +127,7 @@ A mostrar os passos seguintes, como criar um módulo de limite de IoT com base n
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
-9. Adicionar o `onDesiredPropertiesUpdate` método para o **programa** classe. Este método recebe atualizações nas propriedades de pretendido de duplo o módulo e atualiza o **temperatureThreshold** variável para corresponder. Todos os módulos têm os seus próprios duplo de módulo, que lhe permite configurar o código em execução no interior de um módulo diretamente a partir da nuvem.
+11. Adicionar o `onDesiredPropertiesUpdate` método para o **programa** classe. Este método recebe atualizações nas propriedades de pretendido de duplo o módulo e atualiza o **temperatureThreshold** variável para corresponder. Todos os módulos têm os seus próprios duplo de módulo, que lhe permite configurar o código em execução no interior de um módulo diretamente a partir da nuvem.
 
     ```csharp
     static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -158,7 +158,7 @@ A mostrar os passos seguintes, como criar um módulo de limite de IoT com base n
     }
     ```
 
-10. Substitua o `PipeMessage` método com o `FilterMessages` método. Este método é denominado sempre que o módulo recebe uma mensagem do hub IoT Edge. Filtra de mensagens em fila que temperatures inferior ao limiar de temperatura definidas através de duplo o módulo de relatórios. Também adiciona o **MessageType** propriedade à mensagem com o valor definido **alerta**. 
+12. Substitua o `PipeMessage` método com o `FilterMessages` método. Este método é denominado sempre que o módulo recebe uma mensagem do hub IoT Edge. Filtra de mensagens em fila que temperatures inferior ao limiar de temperatura definidas através de duplo o módulo de relatórios. Também adiciona o **MessageType** propriedade à mensagem com o valor definido **alerta**. 
 
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
@@ -214,27 +214,20 @@ A mostrar os passos seguintes, como criar um módulo de limite de IoT com base n
     }
     ```
 
-11. Para compilar o projeto, clique com botão direito do **FilterModule.csproj** ficheiro no Explorer e clique **módulo criar limite de IoT**. Este processo compila o módulo e exporta o binário e as respetivas dependências para uma pasta que é utilizado para criar uma imagem de Docker.
-
-   ![Criar o módulo de limite de IoT][2]
+13. Guarde este ficheiro.
 
 ## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Criar uma imagem de Docker e publicá-lo no seu registo
 
-1. No Explorador de VS Code, expanda o **Docker** pasta. Em seguida, expanda a pasta para a sua plataforma de contentor, quer **linux x64** ou **windows nano**.
-
-   ![Selecione a plataforma de contentor do Docker][3]
-
-2. Clique com botão direito do **Dockerfile** do ficheiro e clique em **imagem de Docker do módulo de limite de IoT criar**. 
-3. No **selecionar pasta** janela, procurar ou introduzir `./bin/Debug/netcoreapp2.0/publish`. Clique em **selecionar pasta como EXE_DIR**.
-4. Na caixa de texto de pop-up na parte superior da janela VS Code, introduza o nome da imagem. Por exemplo: `<your container registry address>/filtermodule:latest`. O endereço de registo do contentor é o mesmo que o servidor de início de sessão que copiou do seu registo. Deverá estar no formato `<your container registry name>.azurecr.io`.
-5. Inicie sessão no Docker utilizando o nome de utilizador, a palavra-passe e o servidor de início de sessão que copiou do seu registo de contentor do Azure quando o criou. Introduza o comando seguinte no terminal VS Code integrado: 
+1. Iniciar sessão para Docker, introduzindo o comando seguinte no terminal VS Code integrado: 
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-6. Enviar a imagem para o registo de contentor. Selecione **vista** > **paleta de comando** e procure o **Edge: imagem de Docker do módulo de limite de Push de IoT** comandos de menu. Introduza o nome da imagem na caixa de texto de pop-up na parte superior da janela VS Code. Utilize o mesmo nome de imagem utilizada no passo 4.
-7. Para ver a imagem no portal do Azure, navegue para o registo de contentor do Azure e selecione **repositórios**. Deverá ver **filtermodule** listados.
+2. No Explorador de VS Code, clique com botão direito do **module.json** do ficheiro e clique em **compilação e o limite de Push de IoT a imagem do Docker módulo**. Na caixa de lista pendente de pop-up na parte superior da janela VS Code, selecione a plataforma do contentor: **amd64** para o contentor de Linux ou **windows amd64** para o contentor do Windows. O VS Code, em seguida, cria o seu código, containerize o `FilterModule.dll` e enviá-lo para o registo de contentor especificado.
+
+
+3. Pode obter o endereço de imagem de contentor completa com etiqueta com o código de VS integrado terminal. Para obter mais informações sobre a definição de push e de compilação, pode consultar o `module.json` ficheiro.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Adicionar credenciais de registo ao tempo de execução do contorno
 Adicione as credenciais para o registo para o tempo de execução do Edge no computador onde está a executar o dispositivo de limite. Estas credenciais conceder o acesso de tempo de execução para o contentor de extração. 
@@ -256,15 +249,15 @@ Adicione as credenciais para o registo para o tempo de execução do Edge no com
 1. No [portal do Azure](https://portal.azure.com), navegue até ao seu IoT hub.
 2. Aceda a **IoT Edge (pré-visualização)** e selecione o seu dispositivo IoT Edge.
 3. Selecione **definir módulos**. 
-2. Verifique se o **tempSensor** módulo é preenchido automaticamente. Se não for, utilize os seguintes passos para adicioná-lo:
+4. Verifique se o **tempSensor** módulo é preenchido automaticamente. Se não for, utilize os seguintes passos para adicioná-lo:
     1. Selecione **Adicionar módulo IoT Edge**.
     2. No **nome** campo, introduza `tempSensor`.
     3. No **URI de imagem** campo, introduza `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
     4. Deixe as outras definições inalteradas e clique em **guardar**.
-9. Adicionar o **filterModule** módulo que criou nas secções anteriores. 
+5. Adicionar o **filterModule** módulo que criou nas secções anteriores. 
     1. Selecione **Adicionar módulo IoT Edge**.
     2. No **nome** campo, introduza `filterModule`.
-    3. No **URI de imagem** campo, introduza o seu endereço de imagem; por exemplo `<your container registry address>/filtermodule:latest`.
+    3. No **URI de imagem** campo, introduza o seu endereço de imagem; por exemplo `<your container registry address>/filtermodule:0.0.1-amd64`. É possível localizar o endereço de imagem completa da secção anterior.
     4. Verifique o **ativar** caixa para que pode editar o duplo de módulo. 
     5. Substitua o JSON na caixa de texto para o duplo módulo com o seguinte JSON: 
 
@@ -277,8 +270,8 @@ Adicione as credenciais para o registo para o tempo de execução do Edge no com
         ```
  
     6. Clique em **Guardar**.
-12. Clique em **Seguinte**.
-13. No **especificar rotas** passo, copie o JSON abaixo na caixa de texto. Módulos publicar todas as mensagens para o tempo de execução do limite. As regras de declarativas em tempo de execução definem onde as mensagens de fluxo. Neste tutorial, precisa de dois rotas. A rota primeiro transportes mensagens do sensor de temperatura para o módulo de filtro através de ponto final "input1", que é o ponto final que configurou com o **FilterMessages** processador. A segunda rota transportes mensagens do módulo de filtro ao IoT Hub. Nesta rota `upstream` é um destino especial que diz ao Hub Edge para enviar mensagens para o IoT Hub. 
+6. Clique em **Seguinte**.
+7. No **especificar rotas** passo, copie o JSON abaixo na caixa de texto. Módulos publicar todas as mensagens para o tempo de execução do limite. As regras de declarativas em tempo de execução definem onde as mensagens de fluxo. Neste tutorial, precisa de dois rotas. A rota primeiro transportes mensagens do sensor de temperatura para o módulo de filtro através de ponto final "input1", que é o ponto final que configurou com o **FilterMessages** processador. A segunda rota transportes mensagens do módulo de filtro ao IoT Hub. Nesta rota `upstream` é um destino especial que diz ao Hub Edge para enviar mensagens para o IoT Hub. 
 
     ```json
     {
@@ -289,21 +282,21 @@ Adicione as credenciais para o registo para o tempo de execução do Edge no com
     }
     ```
 
-4. Clique em **Seguinte**.
-5. No **rever modelo** passo, clique em **submeter**. 
-6. Regressar à página de detalhes do dispositivo IoT limite e clique em **atualizar**. Deverá ver o novo **filtermodule** executar juntamente com o **tempSensor** módulo e a **IoT Edge runtime**. 
+8. Clique em **Seguinte**.
+9. No **rever modelo** passo, clique em **submeter**. 
+10. Regressar à página de detalhes do dispositivo IoT limite e clique em **atualizar**. Deverá ver o novo **filtermodule** executar juntamente com o **tempSensor** módulo e a **IoT Edge runtime**. 
 
 ## <a name="view-generated-data"></a>Dados de vista gerada
 
 Para monitorizar as mensagens da nuvem enviados a partir do seu dispositivo de limite de IoT ao seu IoT hub do dispositivo:
 1. Configure a extensão do Toolkit de IoT do Azure com a cadeia de ligação do IoT hub: 
     1. Abra o Explorador de VS Code selecionando **vista** > **Explorer**. 
-    3. No Explorador de, clique em **dispositivos do HUB IOT** e, em seguida, clique em **...** . Clique em **definir a cadeia de ligação do IoT Hub** e introduza a cadeia de ligação para o IoT hub que o dispositivo de limite de IoT liga na janela de pop-up. 
+    2. No Explorador de, clique em **dispositivos do HUB IOT** e, em seguida, clique em **...** . Clique em **definir a cadeia de ligação do IoT Hub** e introduza a cadeia de ligação para o IoT hub que o dispositivo de limite de IoT liga na janela de pop-up. 
 
         Para localizar a cadeia de ligação, clique no mosaico do hub IoT no portal do Azure e, em seguida, clique em **políticas de acesso partilhado**. No **políticas de acesso partilhado**, clique em de **iothubowner** política e copie a ligação do IoT Hub da cadeia no **iothubowner** janela.   
 
-1. Para monitorizar os dados que chegam ao IoT hub, selecione **vista** > **paleta de comando** e procure o **IoT: iniciar a monitorização de mensagem D2C** comandos de menu. 
-2. Para parar a monitorização de dados, utilize o **IoT: parar a monitorização D2C mensagem** comandos de menu. 
+2. Para monitorizar os dados que chegam ao IoT hub, selecione **vista** > **paleta de comando** e procure o **IoT: iniciar a monitorização de mensagem D2C** comandos de menu. 
+3. Para parar a monitorização de dados, utilize o **IoT: parar a monitorização D2C mensagem** comandos de menu. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,8 +1,8 @@
 ---
-title: "O Azure Machine Learning automatizada cábula de pipeline de dados | Microsoft Docs"
-description: "Uma imprimível cábula que mostra-lhe como configurar um pipeline de dados automática ao seu serviço web do Azure Machine Learning, se os dados estão no local, para transmissão em fluxo, no Azure ou num serviço em nuvem de terceiros."
+title: O Azure Machine Learning automatizada cábula de pipeline de dados | Microsoft Docs
+description: Uma imprimível cábula que mostra-lhe como configurar um pipeline de dados automática ao seu serviço web do Azure Machine Learning, se os dados estão no local, para transmissão em fluxo, no Azure ou num serviço em nuvem de terceiros.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: mithal;garye
-ms.openlocfilehash: a2b14dd39c0247c35ef006385eceebfa4fbe82d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: garye
+ms.openlocfilehash: f07e7cc9c97dcd5ef6ebc2d4c16d31b831869352
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Referência rápida para um pipeline de dados automático para predições do Azure Machine Learning
 O **Microsoft Azure Machine Learning automatizada cábula de pipeline de dados** ajuda a navegar através da tecnologia que pode utilizar para obter os seus dados para o Machine Learning web service em que pode ser classificada pela sua análise preditiva modelo.

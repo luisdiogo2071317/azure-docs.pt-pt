@@ -1,12 +1,12 @@
 ---
-title: "Monitorização de infraestrutura de serviço do Azure e a descrição geral de diagnóstico | Microsoft Docs"
-description: "Saiba mais sobre a monitorização e diagnóstico para clusters, aplicações e serviços do Azure Service Fabric."
+title: Monitorização de infraestrutura de serviço do Azure e a descrição geral de diagnóstico | Microsoft Docs
+description: Saiba mais sobre a monitorização e diagnóstico para clusters, aplicações e serviços do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f784576547f0d85a825ad9dd107c6c84cd261092
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorização e diagnóstico para o Azure Service Fabric
 
@@ -86,7 +86,7 @@ A plataforma de Service Fabric inclui um modelo de estado de funcionamento, que 
 
 ![Dashboard de estado de funcionamento SFX](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-Para além de ver relatórios de estado de funcionamento mais recentes no SFX, cada relatório também está disponível como um evento. Eventos de estado de funcionamento podem ser recolhidos através do canal operacional (consulte [agregação de evento com o Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#collect-health-and-load-events)) e armazenadas na análise de registos do OMS para alertas e consultar no futuro. Isto ajuda a detetar problemas que possam afetar a disponibilidade de aplicações, pelo que recomendamos que configure alertas para cenários de falha adequado (alertas personalizados através do OMS).
+Para além de ver relatórios de estado de funcionamento mais recentes no SFX, cada relatório também está disponível como um evento. Eventos de estado de funcionamento podem ser recolhidos através do canal operacional (consulte [agregação de evento com o Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)) e armazenadas na análise de registos do OMS para alertas e consultar no futuro. Isto ajuda a detetar problemas que possam afetar a disponibilidade de aplicações, pelo que recomendamos que configure alertas para cenários de falha adequado (alertas personalizados através do OMS).
 
 ## <a name="monitoring-workflow"></a>Fluxo de trabalho de monitorização 
 

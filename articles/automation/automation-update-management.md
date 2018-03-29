@@ -1,6 +1,6 @@
 ---
-title: "Solução de gestão de atualizações no Azure"
-description: "Este artigo destina-se a ajudá-lo a saber como utilizar esta solução para gerir atualizações aos seus computadores Windows e Linux."
+title: Solução de gestão de atualizações no Azure
+description: Este artigo destina-se a ajudá-lo a saber como utilizar esta solução para gerir atualizações aos seus computadores Windows e Linux.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -36,7 +36,7 @@ O diagrama seguinte mostra uma vista concetual do comportamento e ligados de flu
 
 Depois de um computador efetua uma análise de compatibilidade de atualização, o agente reencaminha as informações em massa à análise de registos. Em computadores Windows, a análise de conformidade é realizada de 12 em 12 horas, por predefinição. Para além do agendamento da análise, a análise da compatibilidade da atualização é iniciada em 15 minutos, se o Microsoft Monitoring Agent (MMA) for reiniciado, antes da instalação da atualização e, após a instalação da atualização. Em computadores Linux, a análise de conformidade é realizada de três em três horas por predefinição e são iniciadas ao fim de 15 minutos após o agente MMA ser reiniciado.
 
-A solução reporta até que ponto o computador está atualizado com base na origem com a qual está configurado para sincronizar. Se o computador Windows estiver configurado para reportar para o WSUS, dependendo da última vez que o WSUS se sincronizou com o Microsoft Update, os resultados poderão ser diferentes face àquilo que o Microsoft Update mostra. O mesmo se aplica aos computadores Linux que estão configurados para reportar para um repositório local versus um repositório público.
+A solução reporta até que ponto o computador está atualizado com base na origem com a qual está configurado para sincronizar. Se o computador Windows estiver configurado para reportar para o WSUS, dependendo da última vez que o WSUS se sincronizou com o Microsoft Update, os resultados poderão ser diferentes face àquilo que o Microsoft Update mostra. Este é o mesmo para computadores com Linux que estão configurados para o relatório para um repositório local versus um repositório público.
 
 Pode criar uma implementação agendada para implementar e instalar atualizações de software em computadores que precisam das atualizações. As atualizações classificadas como *Opcionais* não estão incluídas no âmbito da implementação para computadores Windows, apenas as atualizações obrigatórias. A implementação planeada define os computadores de destino recebem as atualizações aplicáveis, explicitamente a especificação de computadores ou selecionar um [grupo de computadores](../log-analytics/log-analytics-computer-groups.md) que baseia-se remotas pesquisas de registo de um conjunto específico de computadores. Também pode especificar uma agenda para aprovar e designar um período de tempo durante o qual as atualizações estão autorizadas a ser instaladas. As atualizações são instaladas por runbooks na Automatização do Azure. Não pode ver estes runbooks, que não requerem nenhuma configuração. Quando é criada uma Implementação de Atualização, é criada uma agenda que inicia um runbook de atualização principal num momento especificado nos computadores incluídos. Este runbook principal inicia um runbook subordinado em cada agente que efetua a instalação das atualizações obrigatórias.
 

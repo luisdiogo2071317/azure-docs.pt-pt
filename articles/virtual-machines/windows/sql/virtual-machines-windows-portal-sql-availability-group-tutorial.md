@@ -1,5 +1,5 @@
 ---
-title: "Grupos de disponibilidade do SQL Server - máquinas virtuais do Azure - Tutorial | Microsoft Docs"
+title: Grupos de disponibilidade do SQL Server - máquinas virtuais do Azure - Tutorial | Microsoft Docs
 description: Este tutorial mostra como criar um servidor sempre no grupo de disponibilidade SQL em Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar sempre no grupo de disponibilidade na VM do Azure manualmente
 
@@ -352,11 +352,11 @@ Máquinas virtuais do Azure, um grupo de disponibilidade do SQL Server necessita
    | Definição | Campo |
    | --- | --- |
    | **Nome** |Utilize um nome de texto para o Balanceador de carga, por exemplo **sqlLB**. |
-   | **Tipo** |Interna |
+   | **Tipo** |Interno |
    | **Rede virtual** |Utilize o nome da rede virtual do Azure. |
    | **Sub-rede** |Utilize o nome da sub-rede que a máquina virtual está numa.  |
-   | Atribuição de endereços IP |Estático |
-   | **Endereço IP** |Utilize um endereço disponível da sub-rede. |
+   | **Atribuição de endereços IP** |Estático |
+   | **Endereço IP** |Utilize um endereço disponível da sub-rede. Tenha em atenção que isto é diferente do seu endereço IP de cluster |
    | **Subscrição** |Utilize a mesma subscrição que a máquina virtual. |
    | **Localização** |Utilize a mesma localização que a máquina virtual. |
 
@@ -422,7 +422,7 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
    | **Porta** | Utilizar a porta para a instância do SQL Server | 1433 |
    | **Porta de back-end** | Este campo não é utilizado quando o IP flutuante está definido para direta do servidor retorno | 1433 |
    | **Sonda** |O nome especificado para a sonda | SQLAlwaysOnEndPointProbe |
-   | **Persistência da sessão** | Na lista pendente | Nenhum |
+   | **Persistência da sessão** | Na lista pendente | **Nenhum** |
    | **Tempo limite de inatividade** | Minutos para manter uma ligação de TCP aberta | 4 |
    | **Vírgula flutuante (devolução direta do servidor) de IP** | |Ativado |
 

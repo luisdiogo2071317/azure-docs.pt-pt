@@ -1,10 +1,10 @@
 ---
-title: "Ativar as métricas do storage no portal do Azure | Microsoft Docs"
-description: "Como ativar as métricas do storage para os serviços Blob, fila, tabela e ficheiro"
+title: Ativar as métricas do storage no portal do Azure | Microsoft Docs
+description: Como ativar as métricas do storage para os serviços Blob, fila, tabela e ficheiro
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
-ms.author: tamram
-ms.openlocfilehash: 8abb4f968c1fa84e03c8cc807826d3684713847a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: 0caa4eff80877ad4bf8d501a276e82922b1a84c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Ativar as métricas do Storage do Azure e visualizar dados de métricas
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -135,12 +135,12 @@ Para poder aceder programaticamente as tabelas de análise, tenha em atenção q
 
 Pode encontrar detalhes completos dos esquemas para estas tabelas em [armazenamento esquema da tabela de métricas de análise](https://msdn.microsoft.com/library/azure/hh343264.aspx). As linhas de exemplo abaixo mostram apenas um subconjunto das colunas disponíveis, mas ilustram algumas funcionalidades importantes da forma como métricas do Storage guarda estas métricas:
 
-| PartitionKey | RowKey | Timestamp | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Disponibilidade | AverageE2ELatency | AverageServerLatency | PercentSuccess |
+| PartitionKey | RowKey | Carimbo de data/hora | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Disponibilidade | AverageE2ELatency | AverageServerLatency | PercentSuccess |
 | --- |:---:| ---:| --- | --- | --- | --- | --- | --- | --- | --- |
-| 20140522T1100 |utilizador; Todos os |2014-05-22T11:01:16.7650250Z |7 |7 |4003 |46801 |100 |104.4286 |6.857143 |100 |
-| 20140522T1100 |utilizador; QueryEntities |2014-05-22T11:01:16.7640250Z |5 |5 |2694 |45951 |100 |143.8 |7.8 |100 |
-| 20140522T1100 |utilizador; QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
-| 20140522T1100 |utilizador; UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
+| 20140522T1100 |user;All |2014-05-22T11:01:16.7650250Z |7 |7 |4003 |46801 |100 |104.4286 |6.857143 |100 |
+| 20140522T1100 |user;QueryEntities |2014-05-22T11:01:16.7640250Z |5 |5 |2694 |45951 |100 |143.8 |7.8 |100 |
+| 20140522T1100 |user;QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
+| 20140522T1100 |user;UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
 
 Dados de métricas minuto neste exemplo, a chave de partição utiliza o tempo em minuto resolução. A chave de linha identifica o tipo de informações que são armazenadas na linha. A chave de linha é composta por duas partes de informações, o tipo de acesso e o tipo de pedido:
 
@@ -212,5 +212,5 @@ A utilizada pelas tabelas de métricas de capacidade também está sujeito a fat
 * Se a cada hora um serviço utiliza a cada API em cada serviço, em seguida, aproximadamente 12KB de dados é armazenado nas tabelas de transação métricas a cada hora se tiver ativado apenas nível de serviço resumo.
 * A tabela de capacidade para os blobs tem duas linhas adicionadas por dia (fornecidos pelo utilizador foi optada ativamente por participar para os registos): Isto implica que todos os dias o tamanho desta tabela aumenta ao até aproximadamente 300 bytes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Ativar o armazenamento de registo e aceder aos dados de registo](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)

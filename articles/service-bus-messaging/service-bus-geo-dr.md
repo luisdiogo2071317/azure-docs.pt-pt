@@ -1,11 +1,11 @@
 ---
-title: "Recuperação de Georreplicação-desastre do Service Bus do Azure | Microsoft Docs"
-description: "Como utilizar regiões geográficas a ativação pós-falha e efetuar a recuperação de desastre no Service Bus do Azure"
+title: Recuperação de Georreplicação-desastre do Service Bus do Azure | Microsoft Docs
+description: Como utilizar regiões geográficas a ativação pós-falha e efetuar a recuperação de desastre no Service Bus do Azure
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: christianwolf42
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de Georreplicação-desastre do Service Bus do Azure
 
@@ -86,12 +86,13 @@ Se tiver um cenário em que não é possível alterar as ligações de produtore
 
 ## <a name="samples"></a>Amostras
 
-O [exemplos em GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) mostram como configurar e inicie uma ativação pós-falha. Estes exemplos demonstram os seguintes conceitos:
+O [exemplos em GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) mostram como configurar e inicie uma ativação pós-falha. Estes exemplos demonstram os seguintes conceitos:
 
-- Definições necessárias no Azure Active Directory para utilizar o Azure Resource Manager com o Service Bus. 
-- Passos necessários para executar o código de exemplo. 
-- Envio e receção do espaço de nomes de principal atual. 
+- Um exemplo de .net e as definições necessárias no Azure Active Directory para utilizar o Azure Resource Manager com o Service Bus para a configuração e ativar a recuperação após desastre de Georreplicação.
+- Passos necessários para executar o código de exemplo.
 - Como utilizar um espaço de nomes existente como alias.
+- Passos para ativar a recuperação de desastre Georreplicação através do PowerShell ou o CLI em alternativa.
+- [Enviar e receber](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) do espaço de nomes primário ou secundário atual utilizando o alias.
 
 ## <a name="considerations"></a>Considerações
 

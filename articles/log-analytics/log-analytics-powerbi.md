@@ -1,6 +1,6 @@
 ---
 title: Importar dados de análise de registos do Azure para o Power BI | Microsoft Docs
-description: Power BI é um serviço de análise de negócio baseada na nuvem da Microsoft que fornece visualizações otimizadas e relatórios para análise dos diferentes conjuntos de dados.  Este artigo descreve como configurar a importar dados de análise de registos para o Power BI e configurá-lo para atualizar automaticamente.
+description: Power BI é um serviço de análise de negócio baseada na nuvem da Microsoft que fornece visualizações otimizadas e relatórios para análise dos diferentes conjuntos de dados.  Este artigo descreve como configurar e importar dados de análise de registos para o Power BI e configurá-lo para atualizar automaticamente.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 6d7f8f89f90223dc5dd186a63b3912a13910cb34
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 725828c2acc5ac4bb53c5e6af14d20578a3d3652
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importar dados de análise de registos do Azure para o Power BI
 
 
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) é um serviço de análise de negócio baseada na nuvem da Microsoft que fornece visualizações otimizadas e relatórios para análise dos diferentes conjuntos de dados.  Pode importar os resultados da pesquisa de análise de registos de registo para um conjunto de dados do Power BI, pelo que pode tirar partido do respetivo suchas funcionalidades combing dados de diferentes origens e partilha relatórios na web e dispositivos móveis.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) é um serviço de análise de negócio baseada na nuvem da Microsoft que fornece visualizações otimizadas e relatórios para análise dos diferentes conjuntos de dados.  Pode importar os resultados da pesquisa de análise de registos de registo para um conjunto de dados do Power BI, pelo que pode tirar partido das respetivas funcionalidades como combinar dados de diferentes origens e partilha relatórios na web e dispositivos móveis.
 
 ## <a name="overview"></a>Descrição geral
 Para importar dados a partir de uma área de trabalho de análise de registos para o Power BI, crie um conjunto de dados no Power BI com base numa consulta de pesquisa de registo na análise de registos.  A consulta é executada sempre que o conjunto de dados está atualizado.  Em seguida, pode criar relatórios do Power BI que utilizam dados do conjunto de dados.  Para criar o conjunto de dados no Power BI, exportar a consulta de análise de registos para [idioma de consulta de energia (M)](https://msdn.microsoft.com/library/mt807488.aspx).  Em seguida, utilize esta opção para criar uma consulta no Power BI Desktop e, em seguida, publicá-lo no Power BI como um conjunto de dados.  Os detalhes para este processo são descritos abaixo.

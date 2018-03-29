@@ -2,22 +2,22 @@
 title: Perguntas mais frequentes sobre ficheiros do Azure | Microsoft Docs
 description: Encontrar respostas a perguntas mais frequentes sobre os ficheiros do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb44f1d456ec12b7fd21e397b749117942560f05
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Perguntas mais frequentes sobre os ficheiros do Azure
 [Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (também conhecido como sistema de ficheiros Internet comum ou CIFS). É possível montar partilhas de ficheiros do Azure em simultâneo em implementações de nuvem ou no local do Windows, Linux e macOS. Também pode colocar em cache as partilhas de ficheiros do Azure nas máquinas do Windows Server utilizando a sincronização de ficheiros do Azure (pré-visualização) para acesso rápido próximo de onde os dados são utilizados.
@@ -232,7 +232,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 ## <a name="backup"></a>Cópia de segurança
 * <a id="backup-share"></a>
 **Como posso fazer cópia de segurança os meus ficheiros do Azure partilhar?**  
-    Pode utilizar periódica [partilhar instantâneos (pré-visualização)](storage-how-to-use-files-snapshots.md) para proteção contra eliminações acidentais. Também pode utilizar AzCopy, Robocopy ou uma ferramenta de cópia de segurança de terceiros que pode fazer cópias de segurança de uma partilha de ficheiros montada. 
+    Pode utilizar periódica [partilhar instantâneos](storage-how-to-use-files-snapshots.md) para proteção contra eliminações acidentais. Também pode utilizar AzCopy, Robocopy ou uma ferramenta de cópia de segurança de terceiros que pode fazer cópias de segurança de uma partilha de ficheiros montada. 
 
 ## <a name="share-snapshots"></a>Partilhar instantâneos
 ### <a name="share-snapshots-general"></a>Partilhar instantâneos: gerais
@@ -255,6 +255,10 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 * <a id="snapshot-limits"></a>
 **Existem limites sobre o número de instantâneos de partilha que posso utilizar?**  
     Sim. Ficheiros do Azure podem manter um máximo de instantâneos de partilha de 200. Instantâneos de partilha não é considerado a quota de partilha, pelo que não existe nenhum limite por partilha no total de espaço que é utilizado por todos os instantâneos de partilha. Limites de conta de armazenamento ainda são aplicáveis. Depois de instantâneos de partilha de 200, tem de eliminar instantâneos anteriores para criar a partilha dos novos instantâneos.
+* <a id="snapshot-cost"></a>
+**Quantidade partilha o custo de instantâneo?**  
+    Transação padrão e o custo de armazenamento standard serão aplicada a instantâneo. Os instantâneos são incrementais natureza. O instantâneo de base é a partilha de si próprio. Todos os instantâneos subsequentes são incrementais e apenas armazenará diff do instantâneo anterior. Isto significa que as alterações de delta que irão ser vistas na factura será mínimas se o volume de alterações de carga de trabalho é mínimo. Consulte [página de preços](https://azure.microsoft.com/en-us/pricing/details/storage/files/) para ficheiros de Azure padrão obter informações sobre preços. Hoje, a forma de ver tamanho consumido na partilha de instantâneo é comparando a capacidade billed com utilizado capacidade. Estamos a trabalhar ferramentas para melhorar o Reporting Services.
+
 
 ### <a name="create-share-snapshots"></a>Criar partilha de instantâneos
 * <a id="file-snaphsots"></a>

@@ -1,26 +1,26 @@
 ---
-title: "Conceitos de segurança no serviço de aprovisionamento de dispositivos do Azure IoT Hub | Microsoft Docs"
-description: "Descreve conceitos específicos a dispositivos com o IoT Hub e o serviço de aprovisionamento de dispositivos de aprovisionamento de segurança"
+title: Conceitos de segurança no serviço de aprovisionamento de dispositivos do Azure IoT Hub | Microsoft Docs
+description: Descreve conceitos específicos a dispositivos com o IoT Hub e o serviço de aprovisionamento de dispositivos de aprovisionamento de segurança
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 03/27/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ab2bfff571af659552eef8117de041ca6367ce56
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceitos de segurança do serviço de aprovisionamento de dispositivos IoT Hub 
 
-Aprovisionamento de serviço do dispositivos do Hub IoT é um serviço de programa auxiliar do IoT Hub que utiliza para configurar o dispositivo de zero touch aprovisionamento para um hub IoT especificado. Com o serviço de aprovisionamento de dispositivos pode aprovisionar milhões de dispositivos de forma segura e escalável. Este artigo fornece uma descrição geral sobre o *segurança* conceitos envolvidas no aprovisionamento de dispositivos. Este artigo é relevante para todas as pessoas fictícias envolvidas na obtenção de um dispositivo preparado para a implementação.
+Aprovisionamento de serviço do dispositivos do Hub IoT é um serviço de programa auxiliar do IoT Hub que utiliza para configurar o dispositivo de zero touch aprovisionamento para um hub IoT especificado. Com o Serviço de Aprovisionamento de Dispositivos, pode aprovisionar milhões de dispositivos de forma segura e dimensionável. Este artigo fornece uma descrição geral sobre o *segurança* conceitos envolvidas no aprovisionamento de dispositivos. Este artigo é relevante para todas as pessoas fictícias envolvidas na obtenção de um dispositivo preparado para a implementação.
 
 ## <a name="attestation-mechanism"></a>Mecanismo de atestado
 
@@ -31,7 +31,7 @@ O mecanismo de atestado é o método utilizado para confirmar a identidade do di
 
 Serviço de aprovisionamento de dispositivos suporta duas formas de atestado:
 * **Certificados x. 509** com base no fluxo de autenticação de certificado de x. 509 padrão.
-* **Os tokens SAS** com base num desafio de nonce utilizando a norma TPM para chaves. Isto requer um TPM no dispositivo físico, mas o serviço espera atestem utilizando a chave de endossamento pelo [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Trusted Platform Module (TPM)** com base num desafio de nonce, utilizando o padrão TPM para chaves para apresentar um token de assinatura de acesso partilhado (SAS) assinado. Isto requer um TPM no dispositivo físico, mas o serviço espera atestem utilizando a chave de endossamento pelo [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Módulo de hardware de segurança
 
@@ -42,13 +42,13 @@ O módulo de hardware de segurança ou HSM, é utilizado para armazenamento segu
 
 Segredos do dispositivo também podem ser armazenados no software (memória), mas é um formulário menos seguro do armazenamento de um HSM.
 
-## <a name="trusted-platform-module-tpm"></a>Trusted Platform Module (TPM)
+## <a name="trusted-platform-module"></a>Trusted Platform Module
 
 TPM pode fazer referência a um padrão para armazenar as chaves utilizadas para autenticar a plataforma de forma segura, ou podem referir-se para a interface de e/s utilizada para interagir com os módulos implementar padrão. Podem existir TPMs como hardware discreta, integrada hardware, firmware, funções ou baseada em software. Saiba mais sobre [TPMs e TPM atestado](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Serviço de aprovisionamento de dispositivos só suporta TPM 2.0.
 
 ### <a name="endorsement-key"></a>Chave de endossamento
 
-A chave de endossamento é uma chave assimétrica contida no interior do TPM que foi gerado internamente ou injetado no tempo de fabrico e é exclusivo para cada TPM. A chave de endossamento não pode ser alterada ou removida. A parte privada da chave de endossamento nunca é libertada fora do TPM, enquanto a parte pública da chave de endossamento é utilizada para reconhecer um TPM genuíno. Saiba mais sobre o [chave de endossamento](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
+A chave de endossamento é uma chave assimétrica contida no interior do TPM, o que foi gerado internamente ou injetado no tempo de fabrico e é exclusivo para cada TPM. A chave de endossamento não pode ser alterada ou removida. A parte privada da chave de endossamento nunca é libertada fora do TPM, enquanto a parte pública da chave de endossamento é utilizada para reconhecer um TPM genuíno. Saiba mais sobre o [chave de endossamento](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 
 ### <a name="storage-root-key"></a>Chave de raiz de armazenamento
 
@@ -66,7 +66,7 @@ Um certificado de raiz é um certificado x. 509 autoassinado que representa uma 
 
 ### <a name="intermediate-certificate"></a>Intermediária
 
-Um certificado intermediária é um certificado de x. 509 que assinado pelo certificado de raiz (ou outro certificado intermédio com o certificado de raiz na cadeia). O último certificado intermédio numa cadeia é utilizado para assinar o certificado de folha. Um certificado intermediária pode também ser referido como um certificado de AC intermediária.
+Um certificado intermediária é um certificado x. 509, que assinado pelo certificado de raiz (ou outro certificado intermédio com o certificado de raiz na cadeia). O último certificado intermédio numa cadeia é utilizado para assinar o certificado de folha. Um certificado intermediária pode também ser referido como um certificado de AC intermediária.
 
 ### <a name="leaf-certificate"></a>Certificado de folha
 
@@ -76,10 +76,10 @@ O certificado de folha ou o certificado de entidade final, identifica o marcador
 
 O serviço de aprovisionamento expõe dois tipos de entrada de registo que pode utilizar para controlar o acesso para dispositivos que utilizam o mecanismo de atestado de x. 509:  
 
-- [Inscrição individuais](./concepts-service.md#individual-enrollment) entradas estão configuradas com o certificado de dispositivo associado a um dispositivo específico. Estas entradas controlam a inscrição para dispositivos específicos.
-- [Grupo de inscrição](./concepts-service.md#enrollment-group) entradas associados a um intermédio específico ou um certificado de AC de raiz. Estas entradas controlam a inscrição para todos os dispositivos que tenham intermediária ou certificado na respetiva cadeia de certificados de raiz. 
+- [Inscrição individuais](./concepts-service.md#individual-enrollment) entradas estão configuradas com o certificado de dispositivo associado a um dispositivo específico. Estas entradas controlam as inscrições de dispositivos específicos.
+- [Grupo de inscrição](./concepts-service.md#enrollment-group) entradas associados a um intermédio específico ou um certificado de AC de raiz. Estas entradas controlam as inscrições para todos os dispositivos que tenham intermediária ou certificado na respetiva cadeia de certificados de raiz. 
 
-Quando um dispositivo se liga ao serviço de aprovisionamento, o serviço dá prioridade à entradas de registo mais específicas sobre entradas de registo inferior específicas. Ou seja, se existir um registo individual para o dispositivo, o serviço de aprovisionamento aplica-se essa entrada. Se não houver nenhuma inscrição individuais para o dispositivo e existe um grupo de inscrição para o primeiro intermediária na cadeia de certificados do dispositivo, o serviço aplica-se essa entrada, e assim sucessivamente se a cadeia para a raiz. O serviço aplica-se a primeira entrada aplicável que encontra, para que:
+Quando um dispositivo se liga ao serviço de aprovisionamento, o serviço dá prioridade à entradas de registo mais específicas sobre entradas de registo inferior específicas. Ou seja, se existir um registo individual para o dispositivo, o serviço de aprovisionamento aplica-se essa entrada. Se não houver nenhuma inscrição individuais para o dispositivo e existe um grupo de inscrição para o primeiro intermediária na cadeia de certificados do dispositivo, o serviço aplica-se essa entrada e assim sucessivamente, se a cadeia para a raiz. O serviço aplica-se a primeira entrada aplicável que encontra, para que:
 
 - Se a entrada de inscrição de primeiro localizar estiver ativada, o serviço Aprovisiona o dispositivo.
 - Se a entrada de inscrição de primeiro localizar estiver desativada, o serviço não Aprovisiona o dispositivo.  

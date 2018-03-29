@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: d4022a89b8e0e08679e1c593dc1b691a23d21471
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8ab2e7cdc8472be9c0800eea5bef9322b0ed87f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorizar fábricas de dados utilizando o Monitor do Azure  
 Aplicações em nuvem são complexas com várias partes mover. A monitorização fornece dados para se certificar de que a aplicação permanece cópias de segurança e em execução em bom estado. Também o ajuda a stave desativar potenciais problemas ou resolver passado aqueles. Além disso, pode utilizar dados de monitorização para obter conhecimentos aprofundados sobre a sua aplicação. Este conhecimento pode ajudar a melhorar o desempenho da aplicação ou maintainability ou automatizar ações que caso contrário necessitem intervenção manual.
@@ -381,7 +381,7 @@ Obter mais informações aqui] (https://msdn.microsoft.com/en-us/library/azure/d
 |start| Cadeia | Início do acionador fire no timespan, formato UTC | `2017-06-26T20:55:29.5007959Z`|
 |status| Cadeia | Estado final de se acionador acionado com êxito (com êxito ou falha) | `Succeeded`|
 
-### <a name="metrics"></a>Métricas
+## <a name="metrics"></a>Métricas
 
 Monitor do Azure permite-lhe consumir telemetria ganhar visibilidade sobre o desempenho e estado de funcionamento das suas cargas de trabalho no Azure. O tipo de dados de telemetria do Azure mais importante é as métricas (também denominadas de contadores de desempenho) emitidas pelo Azure mais recursos. Monitor do Azure fornece várias formas de configurar e consumir estas métricas de monitorização e resolução de problemas.
 
@@ -397,6 +397,51 @@ ADFV2 emite as métricas seguintes
 | TriggerFailedRuns    | Falha de métricas de execução do acionador     | Contagem    | Total                | Acionador total é executado falhada dentro de uma janela de minuto      |
 
 Para aceder às métricas, siga as instruções no artigo- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+
+## <a name="alerts"></a>Alertas
+
+Poderá emitir alertas nas métricas suportadas na fábrica de dados. Clique em de **alertas** botão na fábrica de dados **Monitor** página.
+
+![Opção de alertas](media/monitor-using-azure-monitor/alerts_image1.png)
+
+Isto leva-o para o **alertas** página.
+
+![Página de alertas](media/monitor-using-azure-monitor/alerts_image2.png)
+
+Também pode iniciar sessão no portal do Azure e clique em **Monitor -&gt; alertas** para alcançar o **alertas** página diretamente.
+
+![Alertas no menu do portal](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### <a name="create-alerts"></a>Criar alertas
+
+1.  Clique em **+ nova regra de alerta** para criar um novo alerta.
+
+    ![nova regra de alerta](media/monitor-using-azure-monitor/alerts_image4.png)
+
+2.  Definir o **condição do alerta**.
+
+    > [!NOTE]
+    > Certifique-se de que seleciona **todos os** no **filtrar por tipo de recurso**.
+
+    ![Condição de alerta, ecrã 1 de 3](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    ![Condição de alerta, ecrã 2 de 3](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    ![Condição de alerta, ecrã 3 de 3](media/monitor-using-azure-monitor/alerts_image7.png)
+
+3.  Definir o **detalhes do alerta**.
+
+    ![Detalhes do alerta](media/monitor-using-azure-monitor/alerts_image8.png)
+
+4.  Definir o **grupo ação**.
+
+    ![Grupo de ação, ecrã 1 de 4](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![Grupo de ação, ecrã 2 de 4](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![Grupo de ação, ecrã 3 de 4](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![Grupo de ação, ecrã 4 de 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte [monitorizar e gerir pipelines programaticamente](monitor-programmatically.md) artigo para saber mais sobre como monitorizar e gerir pipelines, executando a aplicação. 

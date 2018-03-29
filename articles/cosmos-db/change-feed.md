@@ -1,25 +1,25 @@
 ---
-title: "Suporte de feed de trabalhar com a alteração do BD Azure Cosmos | Microsoft Docs"
-description: "Utilize o suporte de feed de alteração de base de dados do Azure Cosmos para controlar as alterações em documentos e executar processamento baseadas em eventos como acionadores e manter os sistemas de caches e análise atualizado."
-keywords: "Alteração do feed"
+title: Suporte de feed de trabalhar com a alteração do BD Azure Cosmos | Microsoft Docs
+description: Utilize o suporte de feed de alteração de base de dados do Azure Cosmos para controlar as alterações em documentos e executar processamento baseadas em eventos como acionadores e manter os sistemas de caches e análise atualizado.
+keywords: Alteração do feed
 services: cosmos-db
 author: rafats
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e0940ab11f8840ffa2dbdbfd739340f8af5caf51
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 16f339540767246ef82bce020aacf9846c8d2e0b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhar com a alteração de feed de suporte do BD Azure Cosmos
 
@@ -34,7 +34,13 @@ O **alteração feed suporte** do BD Azure Cosmos permite-lhe criar soluções e
 ![Utilizar base de dados do Azure Cosmos alteração feed análise em tempo real de energia e condicionada por eventos cenários de computação](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Alteração de feed de suporte é fornecida para todos os contentores do BD Azure Cosmos e modelos de dados. No entanto, o feed de alteração de leitura com o cliente do SQL Server e serializa itens em formato JSON. Devido ao JSON de formatação, MongoDB, os clientes irão sentir um erro de correspondência entre documentos BSON formatado e o JSON com formato alteração feed. 
+> Alteração de feed de suporte é fornecida para todos os contentores do BD Azure Cosmos e modelos de dados. No entanto, o feed de alteração de leitura com o cliente do SQL Server e serializa itens em formato JSON. Devido ao JSON de formatação, MongoDB, os clientes irão sentir um erro de correspondência entre documentos BSON formatado e o JSON com formato alteração feed.
+
+No vídeo seguinte, o Azure Gestor de programa do Cosmos DB Andrew Liu demonstra como a alteração da base de dados do Azure Cosmos feed funciona.
+
+> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
+>
+>
 
 ## <a name="how-does-change-feed-work"></a>Como a alteração feed trabalho?
 

@@ -1,28 +1,28 @@
 ---
-title: "Criar uma VM e uma conta de armazenamento para uma aplicação dimensionável no Azure | Microsoft Docs"
-description: "Saiba como implementar uma VM para servir para executar uma aplicação dimensionável através do armazenamento de blobs do Azure"
+title: Criar uma VM e uma conta de armazenamento para uma aplicação dimensionável no Azure | Microsoft Docs
+description: Saiba como implementar uma VM para servir para executar uma aplicação dimensionável através do armazenamento de blobs do Azure
 services: storage
-documentationcenter: 
-author: tamram
+documentationcenter: ''
+author: roygara
 manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/20/2018
-ms.author: tamram
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: aafb79a021b76b1347314815b1786a23f699be7a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: fdc88f4ba893eed516aeca174e68fdda12a42a0f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Criar uma máquina virtual e uma conta de armazenamento para uma aplicação dimensionável
 
 Este tutorial é a primeira parte de uma série. Este tutorial mostra como implementar uma aplicação que carrega e transfere grandes quantidades de dados aleatórios com uma conta de armazenamento do Azure. Quando tiver terminado, terá uma aplicação de consola em execução numa máquina virtual na qual carrega e transfere grandes quantidades de dados para uma conta de armazenamento.
 
-Na primeira parte da série, ficará a saber como:
+Na primeira parte da série, saiba como:
 
 > [!div class="checklist"]
 > * Criar uma conta do Storage

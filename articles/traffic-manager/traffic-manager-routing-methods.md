@@ -1,11 +1,11 @@
 ---
-title: "Métodos de encaminhamento de tráfego do Traffic Manager do Azure - | Microsoft Docs"
-description: "Artigos de ajuda a compreender os métodos de encaminhamento de tráfego diferentes utilizados pelo Gestor de tráfego"
+title: Métodos de encaminhamento de tráfego do Traffic Manager do Azure - | Microsoft Docs
+description: Artigos de ajuda a compreender os métodos de encaminhamento de tráfego diferentes utilizados pelo Gestor de tráfego
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: db1efbf6-6762-4c7a-ac99-675d4eeb54d0
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9bd9b4913e38ed5c1f7f4ec8ee7e3210fa3be8f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Traffic Manager
 
@@ -50,7 +50,7 @@ O método de encaminhamento de tráfego de mensagens em fila 'Ponderado' permite
 
 ![Azure Traffic Manager método da 'Ponderado' Encaminhamento de tráfego][2]
 
-O método de encaminhamento de tráfego ponderado, atribua uma ponderação para cada ponto final na configuração de perfil do Traffic Manager. O peso é um número inteiro entre 1 e 1000. Este parâmetro é opcional. Se for omitido, o tráfego gestores utiliza uma ponderação predefinido de '1'.
+O método de encaminhamento de tráfego ponderado, atribua uma ponderação para cada ponto final na configuração de perfil do Traffic Manager. O peso é um número inteiro entre 1 e 1000. Este parâmetro é opcional. Se for omitido, o tráfego gestores utiliza uma ponderação predefinido de '1'. A maior ponderação, maior prioridade.
 
 Para cada consulta DNS recebida, o Gestor de tráfego escolhe aleatoriamente um ponto de final disponível. A probabilidade de escolher um ponto final é baseada em ponderações atribuídas para todos os pontos finais disponíveis. Em todos os resultados de pontos finais uma distribuição de tráfego, mesmo que a utilizar a mesma ponderação. Utilizar ponderações superiores ou inferiores em pontos finais específicos, faz com que esses pontos finais deve ser devolvida mais ou menos frequência nas respostas DNS.
 
@@ -124,7 +124,7 @@ Gestor de tráfego lê o endereço IP de origem da consulta DNS e decide que est
 Conforme explicado no [como Gestor de tráfego funciona](traffic-manager-how-traffic-manager-works.md), Gestor de tráfego não receber as consultas de DNS diretamente a partir de clientes. Em vez disso, as consultas DNS provenientes do serviço DNS recursiva que os clientes estão configurados para utilizar. Por conseguinte, o endereço IP utilizado para determinar a região não é o endereço IP do cliente, mas é o endereço IP do serviço DNS recursiva. Na prática, este endereço IP é um boa proxy para o cliente.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como desenvolver aplicações de elevada disponibilidade utilizando [monitorização de pontos finais do Gestor de tráfego](traffic-manager-monitoring.md)
 

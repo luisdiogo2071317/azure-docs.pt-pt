@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric inverso diagnóstico proxy | Microsoft Docs"
+title: Azure Service Fabric inverso diagnóstico proxy | Microsoft Docs
 description: Saiba como monitorizar e diagnosticar o processamento de pedidos no proxy inverso.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
 manager: vipulm
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e645d86e4527cab1e650575c4d9a10dbd4b9de4e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorizar e diagnosticar o processamento de pedidos no proxy inverso
 
 Começando com a versão 5.7 do Service Fabric, estão disponíveis para a recolha de eventos de proxy inverso. Os eventos estão disponíveis dois canais, uma com só erro eventos relacionados com a falha de processamento de pedidos no proxy inverso e segundo canal que contém eventos verbosos com entradas de pedidos com êxito ou falhadas.
 
-Consulte [recolher eventos de proxy inverso](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) para ativar a recolha de eventos destes canais no local e clusters de Service Fabric do Azure.
+Consulte [recolher eventos de proxy inverso](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) para ativar a recolha de eventos destes canais no local e clusters de Service Fabric do Azure.
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>Resolver problemas com os registos de diagnóstico
 Seguem-se alguns exemplos sobre como interpretar os registos comuns de falha que uma pode encontrar:
@@ -195,7 +195,7 @@ O primeiro evento abaixo registos os detalhes do pedido foi recebido no proxy in
 > [!NOTE]
 > Eventos relacionados com o processamento de pedidos de websocket não são atualmente registados. Isto será adicionado na próxima versão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Agregação de eventos e coleção utilizando o Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para ativar a recolha de registos em clusters do Azure.
 * Para ver eventos de Service Fabric no Visual Studio, consulte [monitorizar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 * Consulte [Configurar proxy inverso para ligar aos serviços segurados](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) para o Azure Resource Manager amostras de modelo para configurar o secure proxy inverso com o certificado de serviço diferentes opções de validação.

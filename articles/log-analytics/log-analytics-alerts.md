@@ -1,8 +1,8 @@
 ---
 title: Alertas de compreender no Log Analytics do Azure | Microsoft Docs
-description: "Alertas na análise de registos identificar informações importantes no seu repositório do OMS e podem proativamente notificá-lo de problemas ou da invocação ações para tentar corrigir as entradas.  Este artigo descreve os diferentes tipos de regras de alertas e como são definidos."
+description: Alertas na análise de registos identificar informações importantes no seu repositório do OMS e podem proativamente notificá-lo de problemas ou da invocação ações para tentar corrigir as entradas.  Este artigo descreve os diferentes tipos de regras de alertas e como são definidos.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: ece2e7eeb53aebbb18bce4bb34e03307b0aea74c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Alertas de compreender na análise de registos
 
-Alertas na análise de registos identificam informações importantes no seu repositório de análise de registos.  Este artigo descreve algumas das decisões de conceção que têm de ser efetuadas com base na frequência de recolha de dados que está a ser consultados, aleatórios atrasos com possivelmente causado pela latência de rede ou capacidade de processamento e consolidar os dados para o registo de ingestão de dados Repositório de análise.  Também fornece detalhes de regras de alerta como em projetos de análise de registos e descreve as diferenças entre os diferentes tipos de regras de alertas.
+Os Alertas no Log Analytics identificam informações importantes no seu repositório do Log Analytics.  Este artigo descreve algumas das decisões de conceção que têm de ser efetuadas com base na frequência de recolha de dados que está a ser consultados, aleatórios atrasos com possivelmente causado pela latência de rede ou capacidade de processamento e consolidar os dados para o registo de ingestão de dados Repositório de análise.  Também fornece detalhes de regras de alerta como em projetos de análise de registos e descreve as diferenças entre os diferentes tipos de regras de alertas.
 
 Para o processo de criação de regras de alertas, consulte os artigos seguintes:
 
@@ -41,7 +41,7 @@ Detalhes sobre a frequência de recolha de dados para várias soluções e tipo 
 
 ## <a name="alert-rules"></a>Regras de alerta
 
-Os alertas são criados pelas regras de alerta que execute automaticamente pesquisas de registo em intervalos regulares.  Se os resultados da pesquisa de registo correspondentes aos critérios de específicos, em seguida, é criado um registo de alerta.  A regra pode, em seguida, execute automaticamente uma ou mais ações para notificá-lo do alerta proativamente ou da invocação do outro processo.  Diferentes tipos de regras de alerta utilizam lógica diferente para efetuar esta análise.
+Os alertas são criados por regras de alerta que executam automaticamente pesquisas de registos em intervalos regulares.  Se os resultados da pesquisa de registo correspondentes aos critérios de específicos, em seguida, é criado um registo de alerta.  A regra pode, em seguida, executar automaticamente uma ou mais ações para notificá-lo do alerta proativamente ou invocar outro processo.  Diferentes tipos de regras de alerta utilizam lógica diferente para efetuar esta análise.
 
 ![Alertas do Log Analytics](media/log-analytics-alerts/overview.png)
 
@@ -52,7 +52,7 @@ Não há um compromisso entre fiabilidade de alertas e a capacidade de resposta 
 Regras de alerta são definidas pelos seguintes detalhes:
 
 - **Pesquisa de registo**.  A consulta que é executada sempre que a regra de alerta é acionado.  Os registos devolvidos por esta consulta é utilizado para determinar se é criado um alerta.
-- **Janela de tempo**.  Especifica o intervalo de tempo para a consulta.  A consulta devolve apenas os registos que foram criados dentro deste intervalo da hora atual.  Isto pode ser qualquer valor entre cinco minutos e 24 horas. O intervalo deve ser suficientemente grande para acomodar razoáveis atrasos na ingestão. A janela de tempo tem de ser duas vezes o comprimento do atraso mais longo, que quer ser capaz de processar.<br> Por exemplo, se pretender que os alertas para ser fiável para atrasos de 30 minutos, em seguida, o intervalo tem de ser uma hora.  
+- **Janela de tempo**.  Especifica o intervalo de tempo para a consulta.  A consulta devolve apenas os registos que foram criados neste intervalo da hora atual.  Isto pode ser qualquer valor entre cinco minutos e 24 horas. O intervalo deve ser suficientemente grande para acomodar razoáveis atrasos na ingestão. A janela de tempo tem de ser duas vezes o comprimento do atraso mais longo, que quer ser capaz de processar.<br> Por exemplo, se pretender que os alertas para ser fiável para atrasos de 30 minutos, em seguida, o intervalo tem de ser uma hora.  
 
     Existem dois sintomas que pode ocorrer se o intervalo de tempo é demasiado pequeno.
 
@@ -66,7 +66,7 @@ Regras de alerta são definidas pelos seguintes detalhes:
 
 - **Frequência**.  Especifica a frequência de consulta deve ser executada e pode ser utilizada para tornar os alertas mais dinâmico para o cenário normal. O valor pode ser entre cinco minutos e 24 horas e deve ser igual ou menor do que a janela de tempo de alerta.  Se o valor é maior do que a janela de tempo, em seguida, o risco de registos que está a ser omitidos.<br>Se o objetivo é fiáveis para atrasa até 30 minutos e o atraso normal é de 10 minutos, a janela de tempo deve ser uma hora e o valor de frequência deve ser de 10 minutos. Isto seria acionar um alerta com os dados têm um atraso de 10 minutos a ingestão entre 10 e 20 minutos de quando os dados do alerta foi gerados.<br>Para evitar criar vários alertas para os mesmos dados, porque a janela de tempo é demasiado grande, o [suprimir alertas](log-analytics-tutorial-response.md#create-alerts) opção pode ser utilizada para suprimir alertas para, pelo menos, desde a janela de tempo.
   
-- **Limiar**.  Os resultados da pesquisa de registo são avaliados para determinar se deve ser criado um alerta.  O limiar é diferente para os diferentes tipos de regras de alertas.
+- **Threshold**.  Os resultados da pesquisa de registo são avaliados para determinar se deve ser criado um alerta.  O limiar é diferente para os diferentes tipos de regras de alertas.
 
 Cada regra de alerta no Log Analytics é um dos dois tipos.  Cada um destes tipos é descrita detalhadamente nas secções que se seguem.
 
@@ -102,12 +102,12 @@ Por exemplo, se pretendesse para o alertar quando o processador é executada mai
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-Se quisesse para o alertar quando o processador apresentou uma média de mais de 90% de uma janela de tempo específico, teria de utilizar uma consulta utilizando o [medir comando](log-analytics-search-reference.md#commands) com o seguinte com o limiar para a regra de alerta **maior que 0**.
+Se quisesse para o alertar quando o processador apresentou uma média de mais de 90% de uma janela de tempo específico, teria de utilizar uma consulta utilizando o `measure` comando semelhante ao seguinte com o limiar para a regra de alerta **maior que 0**.
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 >[!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), em seguida, as consultas acima alteraria o seguinte:`Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), em seguida, as consultas acima alteraria o seguinte: `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
 > `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
 
@@ -119,7 +119,7 @@ Se quisesse para o alertar quando o processador apresentou uma média de mais de
 **Medida de métrica** regras de alerta criar um alerta para cada objeto numa consulta com um valor que excede um limiar especificado.  Têm as seguintes diferenças distintas de **número de resultados** regras de alertas.
 
 #### <a name="log-search"></a>Pesquisas de registos
-Apesar de poder utilizar qualquer consulta para um **número de resultados** regra de alerta, existem requisitos específicos a consulta para uma regra de alerta de métrica de medida.  Tem de incluir um [medir comando](log-analytics-search-reference.md#commands) para agrupar os resultados num campo específico. Este comando tem de incluir os seguintes elementos.
+Apesar de poder utilizar qualquer consulta para um **número de resultados** regra de alerta, existem requisitos específicos a consulta para uma regra de alerta de métrica de medida.  Tem de incluir um `measure` comando para agrupar os resultados num campo específico. Este comando tem de incluir os seguintes elementos.
 
 - **A função de agregação**.  Determina o cálculo que é executado e potencialmente uma numérica campo a agregar.  Por exemplo, **existente** irá devolver o número de registos da consulta, **avg(CounterValue)** irá devolver a média do campo CounterValue ao longo do intervalo.
 - **Campo de grupo**.  É criado um registo com um valor de agregados para cada instância deste campo e pode ser gerado um alerta para cada.  Por exemplo, se pretendesse gerar um alerta para cada computador, teria de utilizar **por computador**.   
@@ -150,7 +150,7 @@ Alerta registos criados pelas regras de alerta na análise de registos tem um **
 |:--- |:--- |
 | Tipo |*Alerta* |
 | SourceSystem |*OMS* |
-| *Objeto*  | [Alertas de medida métrica](#metric-measurement-alert-rules) terá uma propriedade para o campo de grupo.  Por exemplo, se a pesquisa de registo de grupos no computador, o registo de alerta com tem um campo de computador com o nome do computador como o valor.
+| *Object*  | [Alertas de medida métrica](#metric-measurement-alert-rules) terá uma propriedade para o campo de grupo.  Por exemplo, se a pesquisa de registo de grupos no computador, o registo de alerta com tem um campo de computador com o nome do computador como o valor.
 | AlertName |Nome do alerta. |
 | AlertSeverity |Nível de gravidade do alerta. |
 | LinkToSearchResults |Ligar a pesquisa de registo de análise de registos que devolve os registos da consulta que criou o alerta. |

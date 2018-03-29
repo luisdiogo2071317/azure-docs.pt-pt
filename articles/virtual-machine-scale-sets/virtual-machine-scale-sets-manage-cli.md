@@ -1,13 +1,13 @@
 ---
-title: "Gerir conjuntos de dimensionamento de Máquina Virtual com a CLI do Azure 2.0 | Microsoft Docs"
-description: "Capacidade de conjunto de comandos de Azure CLI 2.0 comuns para gerir conjuntos de dimensionamento de Máquina Virtual, tais como iniciar e parar uma instância ou altere a escala."
+title: Gerir conjuntos de dimensionamento de Máquina Virtual com a CLI do Azure 2.0 | Microsoft Docs
+description: Capacidade de conjunto de comandos de Azure CLI 2.0 comuns para gerir conjuntos de dimensionamento de Máquina Virtual, tais como iniciar e parar uma instância ou altere a escala.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: a484cf6734ff663a852be1a46e2b2ca2f75bb17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1afb43b65203406a7d49b0e3f641bc22d164a4a9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gerir um conjunto com o 2.0 CLI do Azure de dimensionamento de máquina virtual
-Ao longo do ciclo de vida de um conjunto de dimensionamento de máquina virtual, poderá ter de executar um ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizem várias tarefas de ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos do Azure CLI 2.0 comuns que permitem-lhe efetuar estas tarefas.
+Ao longo do ciclo de vida de um conjunto de dimensionamento de máquina virtual, poderá ter de executar um ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos do Azure CLI 2.0 comuns que permitem-lhe efetuar estas tarefas.
 
-Para concluir estas tarefas de gestão, terá de compilação mais recente do Azure CLI 2.0. Para obter informações sobre como instalar e utilizar a versão mais recente, consulte [instalar o 2.0 CLI do Azure](/cli/azure/install-azure-cli). Se precisar de criar um conjunto de dimensionamento de máquina virtual, pode [criar um conjunto no portal do Azure de dimensionamento](virtual-machine-scale-sets-create-portal.md).
+Para concluir estas tarefas de gestão, terá do CLI 2.0 mais recente do Azure. Para informações, consulte [instalar o 2.0 CLI do Azure](/cli/azure/install-azure-cli). Se precisar de criar um conjunto de dimensionamento de máquina virtual, pode [criar um conjunto com o 2.0 CLI do Azure de dimensionamento](quick-create-cli.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Ver informações sobre um conjunto de dimensionamento
@@ -35,7 +35,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 ```
 
 
-## <a name="view-vms-in-a-scale-set"></a>Vista VMs num conjunto de dimensionamento
+## <a name="view-vms-in-a-scale-set"></a>Ver VMs num conjunto de dimensionamento
 Para ver uma lista de instância de VM num conjunto de dimensionamento, utilize [az vmss-instâncias da lista](/cli/azure/vmss#list-instances). O exemplo seguinte lista todas as instâncias de VM o conjunto nomeado de dimensionamento *myScaleSet* no *myResourceGroup* grupo de recursos. Forneça os seus próprios valores para estes nomes de:
 
 ```azurecli
@@ -68,7 +68,7 @@ az vmss list-instance-connection-info \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Alterar a capacidade de um conjunto de dimensionamento
 Os comandos anteriores mostrou informações sobre o conjunto de dimensionamento e as instâncias de VM. Para aumentar ou reduzir o número de instâncias no conjunto de dimensionamento, pode alterar a capacidade. O conjunto de dimensionamento cria ou remove o número necessário de VMs, em seguida, configura as VMs para receber tráfego de aplicações.
 
-Para ver o número de instâncias tem atualmente num conjunto de dimensionamento, utilize [mostrar de vmss az](/cli/azure/vmss#az_vmss_show) e consultar no *sku.capacity*:
+Para ver o número de instâncias atualmente existentes num conjunto de dimensionamento, utilize [az vmss show](/cli/azure/vmss#az_vmss_show) e consulte *sku.capacity*:
 
 ```azurecli
 az vmss show \
@@ -78,7 +78,7 @@ az vmss show \
     --output table
 ```
 
-Pode, em seguida, manualmente aumentar ou reduzir o número de máquinas virtuais da escala com [escala de vmss az](/cli/azure/vmss#az_vmss_scale). O exemplo a seguir define o número de VMs no seu dimensionamento definido como *5*:
+Em seguida, pode aumentar ou reduzir manualmente o número de máquinas virtuais existentes no conjunto de dimensionamento com [az vmss scale](/cli/azure/vmss#az_vmss_scale). O exemplo a seguir define o número de VMs no seu dimensionamento definido como *5*:
 
 ```azurecli
 az vmss scale \

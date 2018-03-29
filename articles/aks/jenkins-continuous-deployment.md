@@ -1,19 +1,19 @@
 ---
-title: "Implementação contínua Jenkins com Kubernetes no serviço de contentor do Azure"
-description: "Como automatizar um processo de implementação contínua com Jenkins para implementar e atualizar uma aplicação no Kubernetes no serviço de contentor do Azure"
+title: Implementação contínua Jenkins com Kubernetes no serviço de contentor do Azure
+description: Como automatizar um processo de implementação contínua com Jenkins para implementar e atualizar uma aplicação no Kubernetes no serviço de contentor do Azure
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1293fda45602203570a0f7f75481f67bdcb6edf3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8238e0f55b88e4fa207357630aa4228250c33249
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Implementação contínua com Jenkins e o serviço de contentor do Azure
 
@@ -57,7 +57,7 @@ Quando tiver sido criada a bifurcação, clone-o sistema de desenvolvimento. Cer
 git clone https://github.com/<your-github-account>/azure-voting-app-redis.git
 ```
 
-Altere os diretórios para que estiver a trabalhar a partir do diretório clonado.
+Altere os diretórios para trabalhar a partir do diretório clonado.
 
 ```bash
 cd azure-voting-app-redis
@@ -71,7 +71,7 @@ docker-compose up -d
 
 Quando tiver terminado, utilize o [imagens docker] [ docker-images] comando para ver a imagem de criação.
 
-Tenha em atenção que foram transferidas ou criadas três imagens. O `azure-vote-front` imagem contém a aplicação e utiliza o `nginx-flask` imagem como base. O `redis` imagem é utilizada para iniciar uma instância de Redis.
+Repare que foram transferidas ou criadas três imagens. A imagem `azure-vote-front` contém a aplicação e utilizar a imagem `nginx-flask` como base. A imagem `redis` é utilizada para iniciar uma instância do Redis.
 
 ```console
 $ docker images
@@ -160,6 +160,20 @@ Open a browser to http://52.166.118.64:8080
 Enter the following to Unlock Jenkins:
 667e24bba78f4de6b51d330ad89ec6c6
 ```
+
+Se ocorrerem problemas em iniciar sessão no Jenkins, criar uma sessão SSH com a VM Jenkins e reinicie o serviço de Jenkins. O endereço IP da VM é o mesmo endereço fornecida pelo script de compilação. O nome de utilizador de administrador VM é `azureuser`.
+
+```bash
+ssh azureuser@52.166.118.64
+```
+
+Reinicie o serviço de Jenkins.
+
+```bash
+sudo service jenkins restart
+```
+
+Atualize o browser e o formulário de início de sessão Jenkins deve ser apresentado.
 
 ## <a name="jenkins-environment-variables"></a>Variáveis de ambiente de Jenkins
 

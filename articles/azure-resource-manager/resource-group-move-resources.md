@@ -1,8 +1,8 @@
 ---
-title: "Mover recursos do Azure para a nova subscrição ou grupo de recursos | Microsoft Docs"
-description: "Utilize o Gestor de recursos do Azure para mover recursos para um novo grupo de recursos ou subscrição."
+title: Mover recursos do Azure para a nova subscrição ou grupo de recursos | Microsoft Docs
+description: Utilize o Gestor de recursos do Azure para mover recursos para um novo grupo de recursos ou subscrição.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -87,6 +87,11 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
   az provider register --namespace Microsoft.Batch
   ```
 
+4. A conta de mover os recursos tem de ter, pelo menos, as seguintes permissões:
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** no grupo de recursos de origem.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** no grupo de recursos de destino.
+
 ## <a name="when-to-call-support"></a>Quando contactar o suporte
 
 Pode mover a maioria dos recursos através de operações de self-service apresentadas neste artigo. Utilize as operações de self-service para:
@@ -105,6 +110,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 
 * Gestão de API
 * Aplicações de serviço de aplicações (aplicações web) - consulte [limitações do serviço de aplicações](#app-service-limitations)
+* Certificados de Serviço de Aplicações
 * Application Insights
 * Automatização
 * Azure Cosmos DB
@@ -193,7 +199,9 @@ Não é possível mover uma rede virtual para uma subscrição diferente se a re
 
 ## <a name="app-service-limitations"></a>Limitações do serviço de aplicações
 
-As limitações para mover os recursos do serviço de aplicações diferem com base em se estiver a mover os recursos numa subscrição ou para uma nova subscrição.
+As limitações para mover os recursos do serviço de aplicações diferem com base em se estiver a mover os recursos numa subscrição ou para uma nova subscrição. 
+
+As limitações descritas nestas secções aplicam-se aos certificados carregados, certificados de serviço de aplicações não. Pode mover os certificados de serviço de aplicações para um novo grupo de recursos ou subscrição, sem limitações. Se tiver várias aplicações web que utilizam o mesmo certificado de serviço de aplicações, mover primeiro todas as aplicações web, em seguida, mova o certificado.
 
 ### <a name="moving-within-the-same-subscription"></a>Mover dentro da mesma subscrição
 

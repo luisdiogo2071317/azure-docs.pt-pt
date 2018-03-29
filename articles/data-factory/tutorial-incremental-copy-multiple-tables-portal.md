@@ -1,11 +1,11 @@
 ---
-title: "Copiar várias tabelas de forma incremental com o Azure Data Factory | Microsoft Docs"
-description: "Neste tutorial, vai criar um pipeline do Azure Data Factory, que copia dados delta de forma incremental de várias tabelas numa base de dados do SQL Server local para uma base de dados SQL do Azure."
+title: Copiar várias tabelas de forma incremental com o Azure Data Factory | Microsoft Docs
+description: Neste tutorial, vai criar um pipeline do Azure Data Factory, que copia dados delta de forma incremental de várias tabelas numa base de dados do SQL Server local para uma base de dados SQL do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 399e132f0a28ffc6b60e3d757afff5aae60f7674
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
@@ -30,7 +30,7 @@ Vai executar os seguintes passos neste tutorial:
 > * Criar um integration runtime autoalojado.
 > * Instalou o integration runtime. 
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de marca d'água.
+> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
 > * Criar, executar e monitorizar um pipeline.
 > * Reveja os resultados.
 > * Adicionou ou atualizou os dados nas tabelas de origem.
@@ -49,17 +49,17 @@ Eis os passos importantes para criar esta solução:
 
 2. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho**.   
     
-    Neste tutorial, vai armazenar o valor de marca d'água numa base de dados SQL.
+    Neste tutorial, vai armazenar o valor de limite superior numa base de dados SQL.
 
 3. **Criar um pipeline com as seguintes atividades:** 
     
     a. Criar uma atividade ForEach que itera através de uma lista de nomes de tabelas de origem que é transmitida como um parâmetro para o pipeline. Para cada tabela de origem, este invoca as seguintes atividades para efetuar o carregamento de diferenças para essa tabela.
 
-    b. Criar duas atividades de pesquisa. Utilize a primeira atividade Pesquisa para obter o último valor de limite de tamanho. Utilize a segunda atividade Pesquisa para obter o valor de marca d'água novo. Estes valores de marca d'água são transmitidos para a atividade de Cópia.
+    b. Criar duas atividades de pesquisa. Utilize a primeira atividade Pesquisa para obter o último valor de limite de tamanho. Utilize a segunda para obter o valor de limite de tamanho novo. Estes valores de limite de tamanho são transmitidos para a atividade Copy.
 
-    c. Crie uma atividade de Cópia que copia linhas do arquivo de dados de origem com o valor da coluna de marca d'água superior ao valor de marca d'água antigo e inferior ao valor novo. Em seguida, copia os dados delta do arquivo de dados de origem para o armazenamento de Blobs do Azure como um ficheiro novo.
+    c. Criar uma atividade Copy que copia linhas do arquivo de dados de origem com o valor da coluna de limite de tamanho superior ao valor de limite de tamanho antigo e inferior ao valor novo. Em seguida, copia os dados delta do arquivo de dados de origem para o armazenamento de Blobs do Azure como um ficheiro novo.
 
-    d. Crie uma atividade StoredProcedure, que atualiza o valor de marca d'água do pipeline que vai ser executado da próxima vez. 
+    d. Criar uma atividade StoredProcedure, que atualiza o valor de limite de tamanho do pipeline que vai ser executado da próxima vez. 
 
     Eis o diagrama da solução de alto nível: 
 
@@ -380,7 +380,7 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
 
        ![Conjunto de Dados de Sink - propriedades](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
 
-### <a name="create-a-dataset-for-a-watermark"></a>Criar um conjunto de dados para uma marca d'água
+### <a name="create-a-dataset-for-a-watermark"></a>Criar um conjunto de dados para um limite de tamanho
 Neste passo, vai criar um conjunto de dados para armazenar um valor de limite superior de tamanho. 
 
 1. No painel esquerdo, clique em **+ (mais)** e clique em **Conjunto de Dados**.
@@ -722,7 +722,7 @@ Neste tutorial, executou os passos seguintes:
 > * Criou um integration runtime autoalojado (IR).
 > * Instalou o integration runtime.
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de marca d'água.
+> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
 > * Criar, executar e monitorizar um pipeline.
 > * Reveja os resultados.
 > * Adicionou ou atualizou os dados nas tabelas de origem.

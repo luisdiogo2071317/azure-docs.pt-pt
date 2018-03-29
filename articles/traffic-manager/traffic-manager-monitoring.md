@@ -1,11 +1,11 @@
 ---
-title: "Monitorização de pontos finais do Traffic Manager do Azure | Microsoft Docs"
-description: "Este artigo pode ajudá-lo a compreender como o Gestor de tráfego utiliza a monitorização de pontos finais e a ativação pós-falha do ponto final automática, para ajudar os clientes do Azure, implementar aplicações de elevada disponibilidade"
+title: Monitorização de pontos finais do Traffic Manager do Azure | Microsoft Docs
+description: Este artigo pode ajudá-lo a compreender como o Gestor de tráfego utiliza a monitorização de pontos finais e a ativação pós-falha do ponto final automática, para ajudar os clientes do Azure, implementar aplicações de elevada disponibilidade
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 3b30aa04854b779c25582abafc0f9ebba65b71ba
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização de pontos finais do Gestor de tráfego
 
@@ -56,7 +56,7 @@ Todos os pontos finais num perfil do Traffic Manager partilham as definições d
 
 Pode ativar e desativar perfis do Traffic Manager e os pontos finais. No entanto, uma alteração de estado de ponto final também poderão ocorrer como um resultado de Gestor de tráfego automatizada definições e processos.
 
-### <a name="endpoint-status"></a>Estado de ponto final
+### <a name="endpoint-status"></a>Estado do ponto final 
 
 Pode ativar ou desativar um ponto final específico. O serviço subjacente, o que poderá estar ainda em bom estado, não é afetado. Alterar o estado de ponto final controla a disponibilidade do ponto final do perfil do Traffic Manager. Quando um Estado de ponto final está desativado, o Gestor de tráfego não verifica se o seu estado de funcionamento e o ponto final não está incluído numa resposta DNS.
 
@@ -68,16 +68,19 @@ Utilizar a definição do Estado do perfil, pode ativar ou desativar um perfil e
 
 Estado do monitor de ponto final é um valor gerado pelo Gestor de tráfego que mostra o estado do ponto final. Não é possível alterar esta definição manualmente. O estado do monitor de ponto final é uma combinação dos resultados da monitorização de pontos finais e o estado de ponto final configurado. Os valores possíveis de estado do monitor de ponto final são apresentados na tabela seguinte:
 
-| Estado do perfil | Estado de ponto final | Estado do monitor de ponto final | Notas |
+| Estado do perfil | Estado do ponto final  | Estado do monitor de ponto final | Notas |
 | --- | --- | --- | --- |
-| Desativado |Ativado |Inativos |O perfil foi desativado. Apesar do Estado do ponto final está ativado, o estado do perfil (desativada) tem precedência. Pontos finais em perfis desativados não são monitorizados. É devolvido um código de resposta NXDOMAIN para a consulta DNS. |
-| &lt;qualquer&gt; |Desativado |Desativado |O ponto final foi desativado. Pontos finais desativados não são monitorizados. O ponto final não está incluído em respostas DNS, por conseguinte, não receber tráfego. |
+| Desativado |Ativado |Inativa |O perfil foi desativado. Apesar do Estado do ponto final está ativado, o estado do perfil (desativada) tem precedência. Pontos finais em perfis desativados não são monitorizados. É devolvido um código de resposta NXDOMAIN para a consulta DNS. |
+| &lt;any&gt; |Desativado |Desativado |O ponto final foi desativado. Pontos finais desativados não são monitorizados. O ponto final não está incluído em respostas DNS, por conseguinte, não receber tráfego. |
 | Ativado |Ativado |Online |O ponto final está a ser monitorizado e está em bom estado. Está incluído nas respostas DNS e pode receber tráfego. |
-| Ativado |Ativado |Atualmente degradado. |Verificações de estado de funcionamento de monitorização ponto final estão a falhar. O ponto final não está incluído em respostas DNS e não receber o tráfego. <br>Uma exceção é se todos os pontos finais estão degradados, caso em que todos eles são considerados a ser devolvido na resposta consulta).</br>|
+| Ativado |Ativado |Degradado |Verificações de estado de funcionamento de monitorização ponto final estão a falhar. O ponto final não está incluído em respostas DNS e não receber o tráfego. <br>Uma exceção é se todos os pontos finais estão degradados, caso em que todos eles são considerados a ser devolvido na resposta consulta).</br>|
 | Ativado |Ativado |CheckingEndpoint |O ponto final está a ser monitorizado, mas os resultados da primeira sonda ainda não foram recebidos. CheckingEndpoint é um estado temporário que normalmente ocorre imediatamente após a adição ou ativar um ponto final do perfil. Um ponto final neste estado está incluído nas respostas DNS e pode receber tráfego. |
 | Ativado |Ativado |Parada |A aplicação de web ou serviço em nuvem que o ponto final aponta para não está em execução. Verifique as definições de aplicação de web ou serviço em nuvem. Isto também pode acontecer se o ponto final do ponto final de tipo aninhado e o perfil subordinado está desativado ou está inativo. <br>Um ponto final com um estado parado, não é monitorizado. Este não está incluída em respostas DNS e não receber o tráfego. Uma exceção é se todos os pontos finais estão degradados, caso em que todos eles serão considerados para ser devolvido em resposta a consulta.</br>|
 
 Para obter mais informações sobre como monitorizar estado do ponto final é calculado para pontos finais aninhados, consulte [aninhada perfis do Traffic Manager](traffic-manager-nested-profiles.md).
+
+>[!NOTE]
+> Um Estado de monitor de ponto final parado pode acontecer no App Service, se a sua aplicação web não está em execução no escalão Standard ou superior. Para obter mais informações, consulte [Gestor de tráfego de integração com o App Service](/azure/app-service/web-sites-traffic-manager).
 
 ### <a name="profile-monitor-status"></a>Estado do monitor de perfil
 
@@ -86,10 +89,10 @@ O estado do monitor de perfil é uma combinação do Estado do perfil configurad
 | Estado do perfil (conforme configurado) | Estado do monitor de ponto final | Estado do monitor de perfil | Notas |
 | --- | --- | --- | --- |
 | Desativado |&lt;qualquer&gt; ou um perfil com não existem pontos finais definidos. |Desativado |O perfil foi desativado. |
-| Ativado |O estado de, pelo menos, um ponto final está atualmente degradado. |Atualmente degradado. |Reveja os valores de estado de ponto final individuais para determinar quais os pontos finais mais necessitam de atenção. |
+| Ativado |O estado de, pelo menos, um ponto final está atualmente degradado. |Degradado |Reveja os valores de estado de ponto final individuais para determinar quais os pontos finais mais necessitam de atenção. |
 | Ativado |O estado de, pelo menos, um ponto final está Online. Não existem pontos finais de ter o estado Degraded. |Online |O serviço está a aceitar o tráfego. É necessária nenhuma ação adicional. |
 | Ativado |O estado de, pelo menos, um ponto final é CheckingEndpoint. Não existem pontos finais estão num Estado Online ou Degraded. |CheckingEndpoints |Este estado de transição ocorre quando um perfil se criadas ou ativadas. O estado de funcionamento do ponto final está a ser verificado pela primeira vez. |
-| Ativado |Os Estados de todos os pontos finais no perfil são desativado ou parado ou o perfil não tem definidas pontos finais. |Inativos |Não existem pontos finais estão ativos, mas o perfil ainda está ativado. |
+| Ativado |Os Estados de todos os pontos finais no perfil são desativado ou parado ou o perfil não tem definidas pontos finais. |Inativa |Não existem pontos finais estão ativos, mas o perfil ainda está ativado. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Ponto final de ativação pós-falha e recuperação
 
@@ -130,7 +133,7 @@ A seguinte linha de tempo na figura 2 é uma descrição detalhada do processo d
 Quando um ponto final tem um Estado de Degraded, já não é devolvido em resposta a consultas DNS. Em vez disso, um ponto final alternativo é escolhido e devolvido. O método de encaminhamento de tráfego configurado no perfil determina a forma como o ponto final alternativo é escolhido.
 
 * **Prioridade**. Pontos finais formam uma lista prioritária. O primeiro ponto de final disponível na lista sempre é devolvido. Se um Estado de ponto final está atualmente degradado, em seguida, é devolvido o próximo ponto final disponível.
-* **Ponderado**. Qualquer ponto final disponível é escolhido aleatoriamente com base nas respetivas importâncias atribuídas e as ponderações de outros disponíveis pontos finais.
+* **Weighted**. Qualquer ponto final disponível é escolhido aleatoriamente com base nas respetivas importâncias atribuídas e as ponderações de outros disponíveis pontos finais.
 * **Desempenho**. O ponto final mais próximo para o utilizador final é devolvido. Se esse ponto final não estiver disponível, o Gestor de tráfego move o tráfego para os pontos finais na região do Azure mais próxima seguinte. Pode configurar planos de ativação pós-falha alternativo para o encaminhamento de tráfego de desempenho utilizando [aninhada perfis do Traffic Manager](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geográfica**. O ponto final mapeado para servir a localização geográfica, com base no pedido de consulta é devolvido do IP. Se esse ponto final não estiver disponível, outro ponto final não será selecionado como a ativação pós-falha, uma vez que uma localização geográfica pode ser mapeada apenas para um ponto final num perfil (estão mais detalhes no [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Como melhor prática, ao utilizar o encaminhamento geográfica, recomendamos que clientes utilizem aninhada perfis do Traffic Manager com mais do que um ponto final, como os pontos finais do perfil.
 
@@ -150,7 +153,7 @@ Para obter mais informações sobre resolução de problemas de falhas de verifi
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba [como funciona o Gestor de tráfego](traffic-manager-how-traffic-manager-works.md)
 

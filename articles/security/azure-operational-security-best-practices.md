@@ -1,12 +1,12 @@
 ---
-title: "Azure melhores práticas de segurança operacional | Microsoft Docs"
-description: "Este artigo fornece um conjunto de melhores práticas de segurança operacionais do Azure."
+title: Azure melhores práticas de segurança operacional | Microsoft Docs
+description: Este artigo fornece um conjunto de melhores práticas de segurança operacionais do Azure.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb7e0df046ecc2ffcd3fa59ac53edf36095933c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure melhores práticas de segurança operacional
 Segurança operacionais do Azure refere-se os serviços, controlos e funcionalidades disponíveis para os utilizadores para proteger os seus dados, aplicações e outros recursos no Microsoft Azure. Segurança operacionais do Azure é construída numa estrutura que incorpora o conhecimento adquirido através de várias funcionalidades que são exclusivas para a Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e a deteção profunda de ameaças atuais.
@@ -68,7 +68,7 @@ Para o ajudar a evitar, detetar e responder a ameaças, [segurança Operations M
 ## <a name="manage-identity-and-implement-single-sign-on"></a>Gerir identidades e implementar o início de sessão único
 [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) é o diretório de nuvem multi-inquilino, com base da Microsoft e o serviço de gestão de identidade.
 
-[Azure AD](https://azure.microsoft.com/services/active-directory/) também inclui um conjunto completo de [gestão de identidades](https://docs.microsoft.com/azure/security/security-identity-management-overview) capacidades, incluindo [autenticação multifator](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), registo de dispositivos, gestão de palavra-passe self-service, gestão de grupos self-service, gestão de contas com privilégios, controlo de acesso baseado em funções, monitorização, avançada de auditoria e segurança monitorização e alertas de utilização da aplicação.
+[Azure AD](https://azure.microsoft.com/services/active-directory/) também inclui um conjunto completo de [gestão de identidades](https://docs.microsoft.com/azure/security/security-identity-management-overview) capacidades, incluindo [autenticação multifator](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), registo de dispositivos, gestão de palavra-passe self-service, gestão de grupos self-service, a gestão de conta com privilégios, o controlo de acesso baseado em funções, a utilização da aplicação e de monitorização, avançada de auditoria, monitorização e alertas de segurança.
 
 As seguintes capacidades podem ajudar a proteger aplicações baseado na nuvem, simplificar processos de TI, cortar os custos e ajudar a garantir que são cumpridos os objetivos de conformidade empresarial:
 
@@ -167,12 +167,12 @@ Para obter mais informações sobre como configurar o observador de rede e como 
 Estas são algumas da lista de Azure DevOps práticas neste espaço Microsoft Cloud, o que faz com que as empresas e equipas produtivos e eficiente.
 
 -   **Infraestrutura como código (IaC):** infraestrutura como o código é um conjunto de técnicas e práticas, que ajudam os profissionais de TI remova a carga associada a compilação do dia a dia e a gestão da infraestrutura modular. Permite que os profissionais de TI criar e manter o respetivo ambiente server moderno de uma forma que é semelhante a forma como os programadores de software criar e manter o código da aplicação. Para o Azure, temos [do Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) permite-lhe aprovisionar das suas aplicações com um modelo declarativo. Num único modelo, pode implementar vários serviços, bem como as respetivas dependências. Pode utilizar o mesmo modelo para implementar repetidamente a sua aplicação durante cada fase do ciclo de vida da aplicação.
--   **A integração e a implementação contínua:** pode configurar os Visual Studio Online projetos de equipa para [criar e implementar automaticamente](https://www.visualstudio.com/docs/build/overview) para aplicações web do Azure ou serviços em nuvem. VSO implementa automaticamente os binários depois de efetuar uma compilação para o Azure após cada dar entrada no código. O processo de criação de pacote descrito aqui é equivalente ao comando de pacote no Visual Studio e os passos de publicação são equivalentes ao comando Publicar no Visual Studio.
+-   **A integração e a implementação contínua:** pode configurar os seus projetos de equipa de serviços de equipa do Visual Studio (VSTS) para [criar e implementar automaticamente](https://www.visualstudio.com/docs/build/overview) para aplicações web do Azure ou serviços em nuvem. VSTS implementa automaticamente os binários depois de efetuar uma compilação para o Azure após cada dar entrada no código. O processo de criação de pacote descrito aqui é equivalente ao comando de pacote no Visual Studio e os passos de publicação são equivalentes ao comando Publicar no Visual Studio.
 -   **Gestão de versões:** Visual Studio [versão gestão](https://msdn.microsoft.com/library/vs/alm/release/overview) é uma excelente solução para automatizar a implementação de vários fase e gerir o processo de versão. Crie pipelines geridos a implementação contínua para libertar rapidamente, facilmente e frequentemente. Com a gestão de versão, é muito pode automatizar o processo nossa versão e pode ter predefinidas fluxos de trabalho de aprovação. Implementar no local e na nuvem, expandir e personalizar conforme necessário.
 -   **Monitorização de desempenho da aplicação:** detetar problemas, resolver problemas e melhorar continuamente as suas aplicações. Diagnostique rapidamente quaisquer problemas na sua aplicação em direto. Compreenda o que os utilizadores fazem com isso. A configuração é fácil independentemente de adicionar código JS e uma entrada de webconfig e verá resultados dentro de minutos no portal com todos os detalhes. [Insights aplicação](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) ajuda as empresas deteção mais rápidos de problemas de & remediação.
--   **Carregar teste & dimensionamento automático:** pode encontrar problemas de desempenho na nossa aplicação para melhorar a qualidade de implementação e para se certificar de que a nossa aplicação está sempre disponível para se adaptar a empresa ou se precisa. Certifique-se a que sua aplicação pode processar o tráfego para a sua campanha de início ou de marketing seguinte. Iniciar a execução de baseado na nuvem [carregar testes](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) em quase sem tempo com o Visual Studio Online.
+-   **Carregar teste & dimensionamento automático:** pode encontrar problemas de desempenho na nossa aplicação para melhorar a qualidade de implementação e para se certificar de que a nossa aplicação está sempre disponível para se adaptar a empresa ou se precisa. Certifique-se a que sua aplicação pode processar o tráfego para a sua campanha de início ou de marketing seguinte. Iniciar a execução de baseado na nuvem [carregar testes](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) em quase sem tempo com VSTS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [segurança operacionais do Azure](https://docs.microsoft.com/azure/security/azure-operational-security).
 - Para saber mais [Operations Management Suite | Segurança e conformidade](https://www.microsoft.com/cloud-platform/security-and-compliance).
 - [Introdução ao Operations Management Suite segurança e a solução de auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started).

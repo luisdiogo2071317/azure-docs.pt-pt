@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com ADP | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e ADP."
+title: 'Tutorial: Integração do Azure Active Directory com ADP | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e ADP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 038b2337ea49b769c6b19e9d50a5f0f2edd13d56
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Tutorial: Integração do Azure Active Directory com ADP
 
@@ -122,7 +122,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio ADP e os URLs únicos de informações de início de sessão](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
-    No **identificador** caixa de texto, escreva um URL: `https://fed.adp.com/` 
+    No **identificador** caixa de texto, escreva um URL: `https://fed.adp.com` 
     
 5. A aplicação de ADP espera as asserções de SAML num formato específico, que necessita para adicionar mapeamentos de atributos personalizado à sua configuração de atributos token SAML. A seguinte captura de ecrã mostra um exemplo para este. O nome de afirmação será sempre **"PersonImmutableID"** e o valor que podemos ter mapeado **campo IDdeEmpregado**. 
 
@@ -238,10 +238,6 @@ Após a receção de confirmação do seu representante ADP, configure os seus A
  
 11. No caso de confirmação de um teste com êxito, atribua o serviço de ADP federado para utilizadores individuais ou grupos de utilizadores, que é explicada mais tarde no tutorial e implementar para os seus empregados. 
 
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
@@ -319,6 +315,8 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 

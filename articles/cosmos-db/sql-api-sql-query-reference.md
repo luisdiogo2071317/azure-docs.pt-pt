@@ -1,12 +1,12 @@
 ---
-title: "Do Azure Cosmos DB: Referência de consulta de sintaxe SQL | Microsoft Docs"
-description: "Documentação de referência para o idioma de consulta de base de dados SQL do Azure Cosmos."
+title: 'Do Azure Cosmos DB: Referência de consulta de sintaxe SQL | Microsoft Docs'
+description: Documentação de referência para o idioma de consulta de base de dados SQL do Azure Cosmos.
 services: cosmos-db
 author: LalithaMV
 manager: jhubbard
 editor: mimig
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 012fa27fdebebf1c86a324c49c53d665a15a91c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referência de sintaxe Cosmos BD SQL do Azure
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure suporta a BD do Cosmos consultar documentos através de um familiar SQL (Structured Query Language) como gramática através de documentos JSON hierárquicos sem necessidade de um esquema explícito ou criação de índices secundários. Este tópico fornece documentação de referência para o idioma de consulta do SQL Server, que são compatível com as contas de API do SQL Server.
 
@@ -33,7 +31,7 @@ Também Convidamo-lo para visitar o [Query Playground](http://www.documentdb.com
 ## <a name="select-query"></a>Consulta SELECT  
 Obtém os documentos JSON da base de dados. Suporta a avaliação da expressão, projeções, filtragem e associa.  As convenções de utilizada para descrever as instruções SELECT são apresentadas na secção de convenções de sintaxe.  
   
-**Sintaxe**  
+**Syntax**  
   
 ```
 <select_query> ::=  
@@ -74,14 +72,14 @@ Todos os carateres de espaço em branco que não façam parte de uma cadeia deli
 
 O idioma de consulta suporta comentários de estilo de T-SQL, como  
 
--   Instrução de SQL`-- comment text [newline]`  
+-   Instrução de SQL `-- comment text [newline]`  
 
 Enquanto carateres de espaço em branco e comentários não têm qualquer significância a gramática, tem de ser utilizados para separar os tokens. Por exemplo: `-1e5` é o único tempo token, número`: – 1 e5` é um token minus seguido pelo número de 1 e e5 identificador.  
 
-##  <a name="bk_select_query"></a>Cláusula SELECT  
+##  <a name="bk_select_query"></a> Cláusula SELECT  
 As cláusulas na instrução SELECT tem de ser ordenadas conforme mostrado acima. Pode ser omitido a qualquer um das cláusulas opcionais. Mas, quando são utilizadas cláusulas opcionais, deve aparecer na ordem correta.  
 
-**Sintaxe**  
+**Syntax**  
 ```  
 SELECT <select_specification>  
 
@@ -119,7 +117,7 @@ Expressão que representa o valor a ser calculado. Consulte [expressões escalar
   
 **Observações**  
   
-O `SELECT *` sintaxe só é válida se a cláusula FROM tem declaradas exatamente um alias. `SELECT *`Fornece uma projeção de identidade, o que pode ser útil se não for necessária nenhuma projecção. SELECIONE * só é válido se a cláusula FROM for especificado e apresentados apenas uma única origem de entrada.  
+O `SELECT *` sintaxe só é válida se a cláusula FROM tem declaradas exatamente um alias. `SELECT *` Fornece uma projeção de identidade, o que pode ser útil se não for necessária nenhuma projecção. SELECIONE * só é válido se a cláusula FROM for especificado e apresentados apenas uma única origem de entrada.  
   
 Tenha em atenção que `SELECT <select_list>` e `SELECT *` são "sugar diferenças sintáticas" e podem ser expressas em alternativa, utilizando instruções SELECT simples, conforme mostrado abaixo.  
   
@@ -140,10 +138,10 @@ Tenha em atenção que `SELECT <select_list>` e `SELECT *` são "sugar diferenç
 [Expressões escalares](#bk_scalar_expressions)  
 [Cláusula SELECT](#bk_select_query)  
   
-##  <a name="bk_from_clause"></a>A cláusula FROM  
+##  <a name="bk_from_clause"></a> A cláusula FROM  
 Especifica a origem ou origens associadas. A cláusula FROM é opcional. Se não for especificadas, outras cláusulas ainda serão executadas como se a cláusula FROM fornecido um único documento.  
   
-**Sintaxe**  
+**Syntax**  
   
 ```  
 FROM <from_specification>  
@@ -173,11 +171,11 @@ Especifica uma origem de dados, com ou sem um alias. Se não for especificado o 
   
 -   Se a expressão é `<collection_expression>`, em seguida, property_name, property_name será utilizado como um alias. Se a expressão for um collection_name, collection_name será utilizado como um alias.  
   
-TAL COMO`input_alias`  
+AS `input_alias`  
   
 Especifica que o `input_alias` é um conjunto de valores devolvidos pela expressão de coleção subjacente.  
  
-`input_alias`EM  
+`input_alias` EM  
   
 Especifica que o `input_alias` deve representam o conjunto de valores obtidos pelo iterating através de todos os elementos de matriz de cada matriz devolvida pela expressão de coleção subjacente. Qualquer valor devolvido pela expressão de coleção subjacente que não é uma matriz é ignorada.  
   
@@ -237,7 +235,7 @@ A avaliação da associação a um depende do âmbito do contexto dos conjuntos 
   
 **Exemplos de associações:**  
   
-Vamos observar a cláusula FROM seguintes:`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Vamos observar a cláusula FROM seguintes: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Permitir que cada origem definir `input_alias1, input_alias2, …, input_aliasN`. Esta cláusula FROM devolve um conjunto de cadeias de identificação de N (cadeia de identificação com valores N). Cada cadeia de identificação tem valores produzidos pelo iterating todos os aliases de coleção ao longo do respetivos respetivos conjuntos.  
   
@@ -247,11 +245,11 @@ Vamos observar a cláusula FROM seguintes:`<from_source1> JOIN <from_source2> JO
   
 - Permitir que `<from_source2>` ser confinada documento referenciar input_alias1 e conjuntos de representar:  
   
-    {1, 2} para`input_alias1 = A,`  
+    {1, 2} para `input_alias1 = A,`  
   
-    {3} para`input_alias1 = B,`  
+    {3} para `input_alias1 = B,`  
   
-    {4, 5} para`input_alias1 = C,`  
+    {4, 5} para `input_alias1 = C,`  
   
 - A cláusula FROM `<from_source1> JOIN <from_source2>` resultará nas cadeias de identificação seguintes:  
   
@@ -265,17 +263,17 @@ Vamos observar a cláusula FROM seguintes:`<from_source1> JOIN <from_source2> JO
   
 - Permitir que `<from_source2>` estar no âmbito do documento referenciar `input_alias1` e conjuntos de representar:  
   
-    {1, 2} para`input_alias1 = A,`  
+    {1, 2} para `input_alias1 = A,`  
   
-    {3} para`input_alias1 = B,`  
+    {3} para `input_alias1 = B,`  
   
-    {4, 5} para`input_alias1 = C,`  
+    {4, 5} para `input_alias1 = C,`  
   
 - Permitir que `<from_source3>` estar no âmbito do documento referenciar `input_alias2` e conjuntos de representar:  
   
-    {100, 200} para`input_alias2 = 1,`  
+    {100, 200} para `input_alias2 = 1,`  
   
-    {300} para`input_alias2 = 3,`  
+    {300} para `input_alias2 = 3,`  
   
 - A cláusula FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` resultará nas cadeias de identificação seguintes:  
   
@@ -294,23 +292,23 @@ Vamos observar a cláusula FROM seguintes:`<from_source1> JOIN <from_source2> JO
   
 - Permitem < from_source2 > ser input_alias1 de referência no âmbito do documento e conjuntos de representar:  
   
-    {1, 2} para`input_alias1 = A,`  
+    {1, 2} para `input_alias1 = A,`  
   
-    {3} para`input_alias1 = B,`  
+    {3} para `input_alias1 = B,`  
   
-    {4, 5} para`input_alias1 = C,`  
+    {4, 5} para `input_alias1 = C,`  
   
 - Permitir que `<from_source3>` incluído `input_alias1` e conjuntos de representar:  
   
-    {100, 200} para`input_alias2 = A,`  
+    {100, 200} para `input_alias2 = A,`  
   
-    {300} para`input_alias2 = C,`  
+    {300} para `input_alias2 = C,`  
   
 - A cláusula FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` resultará nas cadeias de identificação seguintes:  
   
     (`input_alias1, input_alias2, input_alias3`):  
   
-    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), (C, 4, 300), (C, 5, 300)  
+    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200),  (C, 4, 300) ,  (C, 5, 300)  
   
 > [!NOTE]
 > Isto resultou num produto cruzado entre `<from_source2>` e `<from_source3>` porque ambos estão confinadas ao mesmo `<from_source1>`.  Isto resultou numa 4 (2 x 2) cadeias de identificação que tenham o valor A, cadeias de identificação 0 ter o valor B (1, 0) e (2 x 1) de 2 cadeias de identificação ter valor C.  
@@ -319,10 +317,10 @@ Vamos observar a cláusula FROM seguintes:`<from_source1> JOIN <from_source2> JO
   
  [Cláusula SELECT](#bk_select_query)  
   
-##  <a name="bk_where_clause"></a>Cláusula WHERE  
+##  <a name="bk_where_clause"></a> Cláusula WHERE  
  Especifica a condição de pesquisa para os documentos devolvidos pela consulta.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 WHERE <filter_condition>  
@@ -344,10 +342,10 @@ WHERE <filter_condition>
   
  Para que o documento a ser devolvida uma expressão especificada como filtro de condição tem de avaliar como verdadeiro. Apenas true valor booleano satisfaçam a condição, qualquer outro valor: indefinido, null, false, número, matriz nem um objeto não satisfaçam a condição.  
   
-##  <a name="bk_orderby_clause"></a>Cláusula ORDER BY  
+##  <a name="bk_orderby_clause"></a> Cláusula ORDER BY  
  Especifica a sequência de ordenação para resultados devolvidos pela consulta.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ORDER BY <sort_specification>  
@@ -382,12 +380,12 @@ ORDER BY <sort_specification>
   
  Enquanto a gramática de consulta suporta vários ordem pelas propriedades, o tempo de execução de consulta de base de dados do Azure Cosmos suporta a ordenação apenas em relação a uma única propriedade e apenas com os nomes de propriedades, ou seja, não contra propriedades calculadas. A ordenação também requer que a política de indexação inclui um índice de intervalo para a propriedade e o tipo especificado, com a precisão máxima. Consulte a documentação de política de indexação para obter mais detalhes.  
   
-##  <a name="bk_scalar_expressions"></a>Expressões escalares  
+##  <a name="bk_scalar_expressions"></a> Expressões escalares  
  Uma expressão escalar é uma combinação de operadores que podem ser avaliados como para obter um valor único e símbolos. Expressões simples podem ser constantes, referências de propriedade, referências de elemento de matriz, referências de alias ou chamadas de função. As expressões simples podem ser combinadas nas expressões complexas utilizando operadores.  
   
  Para obter detalhes sobre qual expressão escalar poderá ter de valores, consulte [constantes](#bk_constants) secção.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 <scalar_expression> ::=  
@@ -475,7 +473,7 @@ ORDER BY <sort_specification>
   
  Quando a criação de uma matriz, qualquer valor de elemento que é atribuído **indefinido** valor será ignorado e não incluído no objeto criado. Isto fará com que o seguinte elemento definido tirar o seu lugar de forma a que a matriz criada não irá ter ignorada índices.  
   
-##  <a name="bk_operators"></a>Operadores  
+##  <a name="bk_operators"></a> Operadores  
  Esta secção descreve os operadores suportados. Cada operador pode ser atribuído a exatamente uma categoria.  
   
  Consulte **categorias de operador** tabela abaixo, para obter detalhes sobre o processamento de **indefinido** valores, requisitos de tipo para os valores de entrada e de processamento de valores com os tipos não correspondentes.  
@@ -484,28 +482,28 @@ ORDER BY <sort_specification>
   
 |**Categoria**|**Detalhes**|  
 |-|-|  
-|**aritmética**|Operador espera input(s) ser Number(s). Saída também é um número. Se qualquer uma das entradas é **indefinido** ou um tipo diferente, em seguida, o resultado de número **indefinido**.|  
-|**bit a bit**|Operador espera input(s) ser número inteiro com sinal de 32 bits Number(s). O resultado é também o número inteiro com sinal de 32 bits número.<br /><br /> Qualquer valor de não-inteiros será arredondado. Um valor positivo será arredondado para baixo, negativa valores arredondar por excesso.<br /><br /> Qualquer valor que está fora do intervalo de número inteiro de 32 bits será convertido, efetuando os últimos 32 bits da respetivo dois notação complemento.<br /><br /> Se qualquer uma das entradas é **indefinido** ou escreva outro número, em seguida, o resultado é **indefinido**.<br /><br /> **Nota:** o comportamento acima é compatível com o comportamento de operador bit a bit JavaScript.|  
-|**lógica**|Operador espera input(s) ser Boolean(s). Saída também é um valor booleano.<br />Se qualquer uma das entradas é **indefinido** ou escreva exceto Boolean, em seguida, o resultado será **indefinido**.|  
-|**comparação**|Operador espera input(s) para ter o mesmo tipo e não pode ser definido. O resultado é um valor booleano.<br /><br /> Se qualquer uma das entradas é **indefinido** ou entradas têm tipos diferentes, em seguida, o resultado é **indefinido**.<br /><br /> Consulte **ordenação dos valores de comparação** tabela para o valor de ordenação detalhes.|  
-|**cadeia**|Operador espera input(s) ser cadeia. Saída também é uma cadeia.<br />Se qualquer uma das entradas é **indefinido** ou escreva à cadeia, em seguida, o resultado é **indefinido**.|  
+|**arithmetic**|Operador espera input(s) ser Number(s). Saída também é um número. Se qualquer uma das entradas é **indefinido** ou um tipo diferente, em seguida, o resultado de número **indefinido**.|  
+|**bitwise**|Operador espera input(s) ser número inteiro com sinal de 32 bits Number(s). O resultado é também o número inteiro com sinal de 32 bits número.<br /><br /> Qualquer valor de não-inteiros será arredondado. Um valor positivo será arredondado para baixo, negativa valores arredondar por excesso.<br /><br /> Qualquer valor que está fora do intervalo de número inteiro de 32 bits será convertido, efetuando os últimos 32 bits da respetivo dois notação complemento.<br /><br /> Se qualquer uma das entradas é **indefinido** ou escreva outro número, em seguida, o resultado é **indefinido**.<br /><br /> **Nota:** o comportamento acima é compatível com o comportamento de operador bit a bit JavaScript.|  
+|**logical**|Operador espera input(s) ser Boolean(s). Saída também é um valor booleano.<br />Se qualquer uma das entradas é **indefinido** ou escreva exceto Boolean, em seguida, o resultado será **indefinido**.|  
+|**comparison**|Operador espera input(s) para ter o mesmo tipo e não pode ser definido. O resultado é um valor booleano.<br /><br /> Se qualquer uma das entradas é **indefinido** ou entradas têm tipos diferentes, em seguida, o resultado é **indefinido**.<br /><br /> Consulte **ordenação dos valores de comparação** tabela para o valor de ordenação detalhes.|  
+|**string**|Operador espera input(s) ser cadeia. Saída também é uma cadeia.<br />Se qualquer uma das entradas é **indefinido** ou escreva à cadeia, em seguida, o resultado é **indefinido**.|  
   
  **Operadores unários:**  
   
-|**Nome**|**Operador**|**Detalhes**|  
+|**Nome**|**operador**|**Detalhes**|  
 |-|-|-|  
-|**aritmética**|+<br /><br /> -|Devolve o valor numérico.<br /><br /> Negação bit a bit. Devolve negated valor numérico.|  
-|**bit a bit**|~|Daqueles complemento. Devolve um conjunto de um valor numérico.|  
-|**Lógica**|**NÃO**|Negação. Devolve negated valor booleano.|  
+|**arithmetic**|+<br /><br /> -|Devolve o valor numérico.<br /><br /> Negação bit a bit. Devolve negated valor numérico.|  
+|**bitwise**|~|Daqueles complemento. Devolve um conjunto de um valor numérico.|  
+|**Logical**|**NOT**|Negação. Devolve negated valor booleano.|  
   
  **Operadores binários:**  
   
-|**Nome**|**Operador**|**Detalhes**|  
+|**Nome**|**operador**|**Detalhes**|  
 |-|-|-|  
-|**aritmética**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Adição.<br /><br /> Subtração.<br /><br /> Multiplicação.<br /><br /> Divisão.<br /><br /> Reforçada.|  
-|**bit a bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bit a bit OR.<br /><br /> Bit a bit AND.<br /><br /> Operação XOR.<br /><br /> Shift esquerdo.<br /><br /> Shift à direita.<br /><br /> Shift à direita do preenchimento de zero.|  
-|**lógica**|**E**<br /><br /> **OU**|Conjunção lógica. Devolve **verdadeiro** se ambos os argumentos forem **verdadeiro**, devolve **falso** caso contrário.<br /><br /> Conjunção lógica. Devolve **verdadeiro** se ambos os argumentos forem **verdadeiro**, devolve **falso** caso contrário.|  
-|**comparação**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Igual a. Devolve **verdadeiro** se argumentos são iguais, devolve **falso** caso contrário.<br /><br /> Não é igual a. Devolve **verdadeiro** se argumentos não são iguais, devolve **falso** caso contrário.<br /><br /> Maior. Devolve **verdadeiro** se o primeiro argumento for maior do que o segundo, devolver **falso** caso contrário.<br /><br /> Maior ou igual a. Devolve **verdadeiro** se o primeiro argumento é maior que ou igual a segunda, devolver **falso** caso contrário.<br /><br /> Menor. Devolve **verdadeiro** se o primeiro argumento é menor que o um segundo, retorno **falso** caso contrário.<br /><br /> Menor ou igual a. Devolve **verdadeiro** se o primeiro argumento é menor ou igual a segunda, devolver **falso** caso contrário.<br /><br /> Unir. Devolve o segundo argumento, se o primeiro argumento é uma **indefinido** valor.|  
+|**arithmetic**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Adição.<br /><br /> Subtração.<br /><br /> Multiplicação.<br /><br /> Divisão.<br /><br /> Reforçada.|  
+|**bitwise**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bit a bit OR.<br /><br /> Bit a bit AND.<br /><br /> Operação XOR.<br /><br /> Shift esquerdo.<br /><br /> Shift à direita.<br /><br /> Shift à direita do preenchimento de zero.|  
+|**logical**|**AND**<br /><br /> **OU**|Conjunção lógica. Devolve **verdadeiro** se ambos os argumentos forem **verdadeiro**, devolve **falso** caso contrário.<br /><br /> Conjunção lógica. Devolve **verdadeiro** se ambos os argumentos forem **verdadeiro**, devolve **falso** caso contrário.|  
+|**comparison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Igual a. Devolve **verdadeiro** se argumentos são iguais, devolve **falso** caso contrário.<br /><br /> Não é igual a. Devolve **verdadeiro** se argumentos não são iguais, devolve **falso** caso contrário.<br /><br /> Maior. Devolve **verdadeiro** se o primeiro argumento for maior do que o segundo, devolver **falso** caso contrário.<br /><br /> Maior ou igual a. Devolve **verdadeiro** se o primeiro argumento é maior que ou igual a segunda, devolver **falso** caso contrário.<br /><br /> Menor. Devolve **verdadeiro** se o primeiro argumento é menor que o um segundo, retorno **falso** caso contrário.<br /><br /> Menor ou igual a. Devolve **verdadeiro** se o primeiro argumento é menor ou igual a segunda, devolver **falso** caso contrário.<br /><br /> Unir. Devolve o segundo argumento, se o primeiro argumento é uma **indefinido** valor.|  
 |**Cadeia**|**&#124;&#124;**|Concatenação. Devolve uma concatenação de ambos os argumentos.|  
   
  **Operadores ternary:**  
@@ -518,11 +516,11 @@ ORDER BY <sort_specification>
 |**Tipo**|**Ordem de valores**|  
 |-|-|  
 |**Indefinido**|Não é comparável.|  
-|**Valor nulo**|Único valor: **nulo**|  
+|**Null**|Único valor: **nulo**|  
 |**Número**|Número de real natural.<br /><br /> Valor de infinito negativo é menor do que qualquer outro valor de número.<br /><br /> Valor de infinito positivo é maior do que qualquer outro valor de número. **NaN** valor não é comparável. Comparar com **NaN** resultará na **indefinido** valor.|  
 |**Cadeia**|Lexicographical ordem.|  
 |**Matriz**|Não existem ordenação, mas equitable.|  
-|**Objeto**|Não existem ordenação, mas equitable.|  
+|**Object**|Não existem ordenação, mas equitable.|  
   
  **Observações**  
   
@@ -538,7 +536,7 @@ ORDER BY <sort_specification>
   
  Os objetos são iguais se ambos os objetos têm propriedades mesmas definidas e valores de propriedades de correspondência também são iguais. Se comparar qualquer par de resultados de valores de propriedade no não definida, o resultado de comparação de objeto não está definido.  
   
-##  <a name="bk_constants"></a>Constantes  
+##  <a name="bk_constants"></a> Constantes  
  Uma constante, também conhecido como um literal ou um valor escalar, é um símbolo que representa um valor de dados específicos. O formato de uma constante depende do valor representa o tipo de dados.  
   
  **Tipos de dados escalar suportados:**  
@@ -546,14 +544,14 @@ ORDER BY <sort_specification>
 |**Tipo**|**Ordem de valores**|  
 |-|-|  
 |**Indefinido**|Único valor: **indefinido**|  
-|**Valor nulo**|Único valor: **nulo**|  
+|**Null**|Único valor: **nulo**|  
 |**Valor booleano**|Valores: **falso**, **verdadeiro**.|  
 |**Número**|Um dupla precisão número de vírgula flutuante, IEEE 754 padrão.|  
 |**Cadeia**|Uma sequência de zero ou mais carateres Unicode. Cadeias de têm de estar entre aspas único ou duplo.|  
 |**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto Undefined.|  
-|**Objeto**|Um conjunto não ordenado de zero ou mais pares nome/valor. O nome é uma cadeia Unicode, o valor pode ser de qualquer tipo de dados escalar, exceto **Undefined**.|  
+|**Object**|Um conjunto não ordenado de zero ou mais pares nome/valor. O nome é uma cadeia Unicode, o valor pode ser de qualquer tipo de dados escalar, exceto **Undefined**.|  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 <constant> ::=  
@@ -629,18 +627,18 @@ ORDER BY <sort_specification>
   
 |**Sequência de escape**|**Descrição**|**Carácter Unicode**|  
 |-|-|-|  
-|\\'|apóstrofo (')|U + 0027|  
-|\\"|aspas (")|U + 0022|  
-|\\\|solidus inversa (\\)|U + 005C|  
-|\\/|solidus (/)|U + 002F|  
-|\b|RETROCESSO|U + 0008|  
-|\f|feed do formulário|U + 000C|  
-|\n|linha|U + 000A|  
-|\r|avanço retorno|U + 000D|  
-|\t|Separador|U + 0009|  
-|\uXXXX|Um carácter Unicode definido pelo 4 dígitos hexadecimais.|U + XXXX|  
+|\\'|apóstrofo (')|U+0027|  
+|\\"|aspas (")|U+0022|  
+|\\\|solidus inversa (\\)|U+005C|  
+|\\/|solidus (/)|U+002F|  
+|\b|RETROCESSO|U+0008|  
+|\f|feed do formulário|U+000C|  
+|\n|linha|U+000A|  
+|\r|avanço retorno|U+000D|  
+|\t|tabulação|U+0009|  
+|\uXXXX|Um carácter Unicode definido pelo 4 dígitos hexadecimais.|U+XXXX|  
   
-##  <a name="bk_query_perf_guidelines"></a>Diretrizes de desempenho de consulta  
+##  <a name="bk_query_perf_guidelines"></a> Diretrizes de desempenho de consulta  
  Ordem de uma consulta ser executada de forma eficiente para uma coleção de grandes dimensões, deverá utilizar os filtros que podem ser servidos através de um ou mais índices.  
   
  Os seguintes filtros serão considerados para a pesquisa do índice:  
@@ -671,18 +669,18 @@ ORDER BY <sort_specification>
     |-|-|    
     |EM MAIÚSCULAS|Palavras-chave sensível.|  
     |minúsculas|Palavras-chave de maiúsculas e minúsculas.|  
-    |\<nonterminal >|Nonterminal, definidas separadamente.|  
-    |\<nonterminal >:: =|Definição de sintaxe do nonterminal.|  
+    |\<nonterminal>|Nonterminal, definidas separadamente.|  
+    |\<nonterminal> ::=|Definição de sintaxe do nonterminal.|  
     |other_terminal|Terminal (token), descrito detalhadamente nas palavras.|  
     |Identificador|Identificador. Permite que os seguintes carateres: caráter de _First. a-z A-Z 0-9 não pode ser um dígito.|  
     |"cadeia"|Cadeia delimitada por aspas. Permite que qualquer cadeia de caracteres válida. Ver descrição de um string_literal.|  
     |'símbolo'|Símbolo literal que faz parte da sintaxe.|  
-    |&#124; (barra vertical)|Alternativas para itens de sintaxe. Pode utilizar apenas um dos itens especificados.|  
+    |&#124;(barra vertical)|Alternativas para itens de sintaxe. Pode utilizar apenas um dos itens especificados.|  
     |[] /(brackets)|Retos coloque um ou mais itens opcionais.|  
     |[,.. n]|Indica que o item anterior pode ser n repetida diversas vezes. As ocorrências são separadas por vírgulas.|  
     |[.. n]|Indica que o item anterior pode ser n repetida diversas vezes. As ocorrências são separadas por espaços em branco.|  
   
-##  <a name="bk_built_in_functions"></a>Funções incorporadas  
+##  <a name="bk_built_in_functions"></a> Funções incorporadas  
  BD do Cosmos do Azure fornece várias funções incorporadas do SQL Server. As categorias de funções incorporadas são listadas abaixo.  
   
 |Função|Descrição|  
@@ -693,24 +691,24 @@ ORDER BY <sort_specification>
 |[Funções de matriz](#bk_array_functions)|As funções de matriz efetuar uma operação num valor de entrada da matriz e devolver um valor numérico, o valor de cadeia Boolean ou matriz.|  
 |[Funções geográficos](#bk_spatial_functions)|As funções geográficos efetuar uma operação num valor de entrada do objeto espacial e devolvem um valor numérico ou booleano.|  
   
-###  <a name="bk_mathematical_functions"></a>Funções matemática  
+###  <a name="bk_mathematical_functions"></a> Funções matemática  
  As seguintes funções cada efetuar um cálculo, normalmente, com base nos valores de entrada que são fornecidos como argumentos e devolvem um valor numérico.  
   
 ||||  
 |-|-|-|  
 |[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
-|[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[LIMITE](#bk_ceiling)|  
+|[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[CEILING](#bk_ceiling)|  
 |[COS](#bk_cos)|[COT](#bk_cot)|[GRAUS](#bk_degrees)|  
-|[EXP](#bk_exp)|[PISO](#bk_floor)|[REGISTO](#bk_log)|  
-|[LOG10](#bk_log10)|[INSTALADOR DE PLATAFORMA](#bk_pi)|[ENERGIA](#bk_power)|  
-|[RADIANOS](#bk_radians)|[ARREDONDAR](#bk_round)|[ÚNICO](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[PARÊNTESES](#bk_square)|[INÍCIO DE SESSÃO](#bk_sign)|  
+|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
+|[LOG10](#bk_log10)|[PI](#bk_pi)|[ENERGIA](#bk_power)|  
+|[RADIANOS](#bk_radians)|[ARREDONDAR](#bk_round)|[SIN](#bk_sin)|  
+|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[INÍCIO DE SESSÃO](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
-####  <a name="bk_abs"></a>ABS  
+####  <a name="bk_abs"></a> ABS  
  Devolve o valor absoluto (positivo) da expressão numérica especificada.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ABS (<numeric_expression>)  
@@ -740,10 +738,10 @@ SELECT ABS(-1), ABS(0), ABS(1)
 [{$1: 1, $2: 0, $3: 1}]  
 ```  
   
-####  <a name="bk_acos"></a>ACOS  
+####  <a name="bk_acos"></a> ACOS  
  Devolve o ângulo em radianos, cujo co-seno é a expressão numérica especificada; Também denominado o arco de co-seno.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ACOS(<numeric_expression>)  
@@ -773,10 +771,10 @@ SELECT ACOS(-1)
 [{"$1": 3.1415926535897931}]  
 ```  
   
-####  <a name="bk_asin"></a>ASIN  
+####  <a name="bk_asin"></a> ASIN  
  Devolve o ângulo em radianos, cujo seno é a expressão numérica especificada. Isto também é denominado o arco de seno.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ASIN(<numeric_expression>)  
@@ -806,10 +804,10 @@ SELECT ASIN(-1)
 [{"$1": -1.5707963267948966}]  
 ```  
   
-####  <a name="bk_atan"></a>ATAN  
+####  <a name="bk_atan"></a> ATAN  
  Devolve o ângulo em radianos, cuja tangente é a expressão numérica especificada. Isto também é denominado o arco de tangente.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ATAN(<numeric_expression>)  
@@ -839,10 +837,10 @@ SELECT ATAN(-45.01)
 [{"$1": -1.5485826962062663}]  
 ```  
   
-####  <a name="bk_atn2"></a>ATN2  
+####  <a name="bk_atn2"></a> ATN2  
  Devolve o valor principal do tangente arco de y / x, expressado em radianos.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ATN2(<numeric_expression>, <numeric_expression>)  
@@ -872,10 +870,10 @@ SELECT ATN2(35.175643, 129.44)
 [{"$1": 1.3054517947300646}]  
 ```  
   
-####  <a name="bk_ceiling"></a>LIMITE  
+####  <a name="bk_ceiling"></a> LIMITE  
  Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 CEILING (<numeric_expression>)  
@@ -905,10 +903,10 @@ SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)
 [{$1: 124, $2: -123, $3: 0}]  
 ```  
   
-####  <a name="bk_cos"></a>COS  
+####  <a name="bk_cos"></a> COS  
  Devolve o co-seno do ângulo especificado, trigonometric em radianos, a expressão especificada.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 COS(<numeric_expression>)  
@@ -938,10 +936,10 @@ SELECT COS(14.78)
 [{"$1": -0.59946542619465426}]  
 ```  
   
-####  <a name="bk_cot"></a>COT  
+####  <a name="bk_cot"></a> COT  
  Devolve a co-tangente do ângulo especificado, trigonometric em radianos, a expressão numérica especificado.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 COT(<numeric_expression>)  
@@ -971,10 +969,10 @@ SELECT COT(124.1332)
 [{"$1": -0.040311998371148884}]  
 ```  
   
-####  <a name="bk_degrees"></a>GRAUS  
+####  <a name="bk_degrees"></a> GRAUS  
  Devolve o ângulo correspondente em graus para um ângulo especificado em radianos.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 DEGREES (<numeric_expression>)  
@@ -1004,10 +1002,10 @@ SELECT DEGREES(PI()/2)
 [{"$1": 90}]  
 ```  
   
-####  <a name="bk_floor"></a>PISO  
+####  <a name="bk_floor"></a> FLOOR  
  Devolve o maior número inteiro menor ou igual a expressão numérica especificada.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 FLOOR (<numeric_expression>)  
@@ -1037,10 +1035,10 @@ SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)
 [{$1: 123, $2: -124, $3: 0}]  
 ```  
   
-####  <a name="bk_exp"></a>EXP  
+####  <a name="bk_exp"></a> EXP  
  Devolve o valor da expressão especificada numérico exponencial.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 EXP (<numeric_expression>)  
@@ -1090,10 +1088,10 @@ SELECT EXP(LOG(20)), LOG(EXP(20))
 [{$1: 19.999999999999996, $2: 20}]  
 ```  
   
-####  <a name="bk_log"></a>REGISTO  
+####  <a name="bk_log"></a> LOG  
  Devolve o logaritmo natural da expressão numérica especificado.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 LOG (<numeric_expression> [, <base>])  
@@ -1147,10 +1145,10 @@ SELECT EXP(LOG(10))
 [{$1: 10.000000000000002}]  
 ```  
   
-####  <a name="bk_log10"></a>LOG10  
+####  <a name="bk_log10"></a> LOG10  
  Devolve o logaritmo base 10 da expressão numérica especificada.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 LOG10 (<numeric_expression>)  
@@ -1184,10 +1182,10 @@ SELECT LOG10(100)
 [{$1: 2}]  
 ```  
   
-####  <a name="bk_pi"></a>INSTALADOR DE PLATAFORMA  
+####  <a name="bk_pi"></a> PI  
  Devolve o valor de PI constante.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 PI ()  
@@ -1217,10 +1215,10 @@ SELECT PI()
 [{"$1": 3.1415926535897931}]  
 ```  
   
-####  <a name="bk_power"></a>ENERGIA  
+####  <a name="bk_power"></a> ENERGIA  
  Devolve o valor da expressão especificada para a potência especificada.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 POWER (<numeric_expression>, <y>)  
@@ -1254,10 +1252,10 @@ SELECT POWER(2, 3), POWER(2.5, 3)
 [{$1: 8, $2: 15.625}]  
 ```  
   
-####  <a name="bk_radians"></a>RADIANOS  
+####  <a name="bk_radians"></a> RADIANS  
  Devolve radianos quando uma expressão numérica, em graus, é introduzida.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 RADIANS (<numeric_expression>)  
@@ -1293,10 +1291,10 @@ SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIAN
    }]  
 ```  
   
-####  <a name="bk_round"></a>ARREDONDAR  
+####  <a name="bk_round"></a> ARREDONDAR  
  Devolve um valor numérico, arredondado para o valor de número inteiro mais próximo.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ROUND(<numeric_expression>)  
@@ -1326,10 +1324,10 @@ SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)
 [{$1: 2, $2: 3, $3: 3, $4: -2, $5: -3}]  
 ```  
   
-####  <a name="bk_sign"></a>INÍCIO DE SESSÃO  
+####  <a name="bk_sign"></a> SIGN  
  Devolve o positivo (+ 1), zero (0) ou negativo sessão (-1) da expressão numérica especificada.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 SIGN(<numeric_expression>)  
@@ -1359,10 +1357,10 @@ SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)
 [{$1: -1, $2: -1, $3: 0, $4: 1, $5: 1}]  
 ```  
   
-####  <a name="bk_sin"></a>ÚNICO  
+####  <a name="bk_sin"></a> SIN  
  Devolve o seno do ângulo especificado, trigonometric em radianos, a expressão especificada.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 SIN(<numeric_expression>)  
@@ -1392,10 +1390,10 @@ SELECT SIN(45.175643)
 [{"$1": 0.929607286611012}]  
 ```  
   
-####  <a name="bk_sqrt"></a>SQRT  
+####  <a name="bk_sqrt"></a> SQRT  
  Devolve a raiz quadrada do valor numérico especificado.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 SQRT(<numeric_expression>)  
@@ -1425,10 +1423,10 @@ SELECT SQRT(1), SQRT(2.0), SQRT(3)
 [{$1: 1, $2: 1.4142135623730952, $3: 1.7320508075688772}]  
 ```  
   
-####  <a name="bk_square"></a>PARÊNTESES  
+####  <a name="bk_square"></a> SQUARE  
  Devolve o quadrado do valor numérico especificado.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 SQUARE(<numeric_expression>)  
@@ -1458,10 +1456,10 @@ SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)
 [{$1: 1, $2: 4, $3: 9}]  
 ```  
   
-####  <a name="bk_tan"></a>TAN  
+####  <a name="bk_tan"></a> TAN  
  Devolve a tangente do ângulo especificado, em radianos, a expressão especificada.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 TAN (<numeric_expression>)  
@@ -1491,10 +1489,10 @@ SELECT TAN(PI()/2);
 [{"$1": 16331239353195370 }]  
 ```  
   
-####  <a name="bk_trunc"></a>TRUNC  
+####  <a name="bk_trunc"></a> TRUNC  
  Devolve um valor numérico, truncada de acordo com o valor de número inteiro mais próximo.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 TRUNC(<numeric_expression>)  
@@ -1524,7 +1522,7 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 [{$1: 2, $2: 2, $3: 2, $4: -2, $5: -2}]  
 ```  
   
-###  <a name="bk_type_checking_functions"></a>A verificar as funções de tipo  
+###  <a name="bk_type_checking_functions"></a> A verificar as funções de tipo  
  As seguintes funções suportam o tipo de verificação contra os valores de entrada e cada devolver um valor booleano.  
   
 ||||  
@@ -1533,10 +1531,10 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 |[IS_NULL](#bk_is_null)|[IS_NUMBER](#bk_is_number)|[IS_OBJECT](#bk_is_object)|  
 |[IS_PRIMITIVE](#bk_is_primitive)|[IS_STRING](#bk_is_string)||  
   
-####  <a name="bk_is_array"></a>IS_ARRAY  
+####  <a name="bk_is_array"></a> IS_ARRAY  
  Devolve um valor booleano que indica se o tipo da expressão especificada é uma matriz.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 IS_ARRAY(<expression>)  
@@ -1573,10 +1571,10 @@ SELECT
 [{$1: false, $2: false, $3: false, $4: false, $5: false, $6: true}]  
 ```  
   
-####  <a name="bk_is_bool"></a>IS_BOOL  
+####  <a name="bk_is_bool"></a> IS_BOOL  
  Devolve um valor booleano que indica se o tipo de expressão especificado é um valor booleano.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 IS_BOOL(<expression>)  
@@ -1613,10 +1611,10 @@ SELECT
 [{$1: true, $2: false, $3: false, $4: false, $5: false, $6: false}]  
 ```  
   
-####  <a name="bk_is_defined"></a>IS_DEFINED  
+####  <a name="bk_is_defined"></a> IS_DEFINED  
  Devolve um valor boleano que indica se a propriedade foi atribuída um valor.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 IS_DEFINED(<expression>)  
@@ -1649,10 +1647,10 @@ SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)
    }]  
 ```  
   
-####  <a name="bk_is_null"></a>IS_NULL  
+####  <a name="bk_is_null"></a> IS_NULL  
  Devolve um valor booleano que indica se o tipo da expressão especificada é nulo.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 IS_NULL(<expression>)  
@@ -1689,10 +1687,10 @@ SELECT
 [{$1: false, $2: false, $3: false, $4: true, $5: false, $6: false}]  
 ```  
   
-####  <a name="bk_is_number"></a>IS_NUMBER  
+####  <a name="bk_is_number"></a> IS_NUMBER  
  Devolve um valor booleano que indica se o tipo de expressão especificado é um número.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 IS_NUMBER(<expression>)  
@@ -1729,10 +1727,10 @@ SELECT
 [{$1: false, $2: true, $3: false, $4: false, $5: false, $6: false}]  
 ```  
   
-####  <a name="bk_is_object"></a>IS_OBJECT  
+####  <a name="bk_is_object"></a> IS_OBJECT  
  Devolve um valor booleano que indica se o tipo de expressão especificado é um objeto JSON.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 IS_OBJECT(<expression>)  
@@ -1769,10 +1767,10 @@ SELECT
 [{$1: false, $2: false, $3: false, $4: false, $5: true, $6: false}]  
 ```  
   
-####  <a name="bk_is_primitive"></a>IS_PRIMITIVE  
+####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
  Devolve um valor booleano que indica se o tipo da expressão especificada é uma primitiva (string, Boolean, numérico ou null).  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 IS_PRIMITIVE(<expression>)  
@@ -1809,10 +1807,10 @@ SELECT
 [{"$1": true, "$2": true, "$3": true, "$4": true, "$5": false, "$6": false, "$7": false}]  
 ```  
   
-####  <a name="bk_is_string"></a>IS_STRING  
+####  <a name="bk_is_string"></a> IS_STRING  
  Devolve um valor booleano que indica se o tipo da expressão especificada é uma cadeia.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 IS_STRING(<expression>)  
@@ -1849,22 +1847,22 @@ SELECT
 [{$1: false, $2: false, $3: true, $4: false, $5: false, $6: false}]  
 ```  
   
-###  <a name="bk_string_functions"></a>Funções de cadeia  
+###  <a name="bk_string_functions"></a> Funções de cadeia  
  As seguintes funções escalares efetuar uma operação num valor de cadeia de entrada e devolvem uma cadeia, o valor numérico ou booleano.  
   
 ||||  
 |-|-|-|  
 |[CONCAT](#bk_concat)|[CONTÉM](#bk_contains)|[ENDSWITH](#bk_endswith)|  
-|[INDEX_OF](#bk_index_of)|[À ESQUERDA](#bk_left)|[COMPRIMENTO](#bk_length)|  
-|[INFERIOR](#bk_lower)|[LTRIM](#bk_ltrim)|[SUBSTITUIR](#bk_replace)|  
-|[REPLICAR](#bk_replicate)|[INVERSA](#bk_reverse)|[À DIREITA](#bk_right)|  
+|[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTH](#bk_length)|  
+|[INFERIOR](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
+|[REPLICAR](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBCADEIA](#bk_substring)|  
 |[SUPERIOR](#bk_upper)|||  
   
-####  <a name="bk_concat"></a>CONCAT  
+####  <a name="bk_concat"></a> CONCAT  
  Devolve uma cadeia que é o resultado da concatenar duas ou mais valores de cadeia.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 CONCAT(<str_expr>, <str_expr> [, <str_expr>])  
@@ -1894,10 +1892,10 @@ SELECT CONCAT("abc", "def")
 [{"$1": "abcdef"}  
 ```  
   
-####  <a name="bk_contains"></a>CONTÉM  
+####  <a name="bk_contains"></a> CONTÉM  
  Devolve um booleano que indica se a primeira cadeia de expressão contém o segundo.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 CONTAINS(<str_expr>, <str_expr>)  
@@ -1927,10 +1925,10 @@ SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")
 [{"$1": true, "$2": false}]  
 ```  
   
-####  <a name="bk_endswith"></a>ENDSWITH  
+####  <a name="bk_endswith"></a> ENDSWITH  
  Devolve um booleano que indica se a primeira expressão de cadeia termina com o segundo.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ENDSWITH(<str_expr>, <str_expr>)  
@@ -1960,10 +1958,10 @@ SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")
 [{"$1": false, "$2": true}]  
 ```  
   
-####  <a name="bk_index_of"></a>INDEX_OF  
+####  <a name="bk_index_of"></a> INDEX_OF  
  Devolve a posição inicial da primeira ocorrência da segunda cadeia de expressão na primeira expressão de cadeia especificada ou -1 se a cadeia não foi encontrada.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 INDEX_OF(<str_expr>, <str_expr>)  
@@ -1993,10 +1991,10 @@ SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")
 [{"$1": 0, "$2": 1, "$3": -1}]  
 ```  
   
-####  <a name="bk_left"></a>À ESQUERDA  
+####  <a name="bk_left"></a> À ESQUERDA  
  Devolve a parte esquerda de uma cadeia com o número especificado de carateres.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 LEFT(<str_expr>, <num_expr>)  
@@ -2030,10 +2028,10 @@ SELECT LEFT("abc", 1), LEFT("abc", 2)
 [{"$1": "a", "$2": "ab"}]  
 ```  
   
-####  <a name="bk_length"></a>COMPRIMENTO  
+####  <a name="bk_length"></a> COMPRIMENTO  
  Devolve o número de carateres da expressão de cadeia especificada.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 LENGTH(<str_expr>)  
@@ -2063,10 +2061,10 @@ SELECT LENGTH("abc")
 [{"$1": 3}]  
 ```  
   
-####  <a name="bk_lower"></a>INFERIOR  
+####  <a name="bk_lower"></a> INFERIOR  
  Devolve uma expressão de cadeia após a conversão de dados do caráter em maiúsculas em minúsculas.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 LOWER(<str_expr>)  
@@ -2097,10 +2095,10 @@ SELECT LOWER("Abc")
   
 ```  
   
-####  <a name="bk_ltrim"></a>LTRIM  
+####  <a name="bk_ltrim"></a> LTRIM  
  Devolve uma expressão de cadeia após remove espaços em branco à esquerda.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 LTRIM(<str_expr>)  
@@ -2130,10 +2128,10 @@ SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")
 [{"$1": "abc", "$2": "abc", "$3": "abc   "}]  
 ```  
   
-####  <a name="bk_replace"></a>SUBSTITUIR  
+####  <a name="bk_replace"></a> SUBSTITUIR  
  Substitui todas as ocorrências de um valor de cadeia especificada com outro valor de cadeia.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 REPLACE(<str_expr>, <str_expr>, <str_expr>)  
@@ -2163,10 +2161,10 @@ SELECT REPLACE("This is a Test", "Test", "desk")
 [{"$1": "This is a desk"}]  
 ```  
   
-####  <a name="bk_replicate"></a>REPLICAR  
+####  <a name="bk_replicate"></a> REPLICAR  
  Repete-se um valor de cadeia um número de vezes especificado.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 REPLICATE(<str_expr>, <num_expr>)  
@@ -2200,10 +2198,10 @@ SELECT REPLICATE("a", 3)
 [{"$1": "aaa"}]  
 ```  
   
-####  <a name="bk_reverse"></a>INVERSA  
+####  <a name="bk_reverse"></a> INVERSA  
  Devolve a ordem inversa de um valor de cadeia.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 REVERSE(<str_expr>)  
@@ -2233,10 +2231,10 @@ SELECT REVERSE("Abc")
 [{"$1": "cbA"}]  
 ```  
   
-####  <a name="bk_right"></a>À DIREITA  
+####  <a name="bk_right"></a> À DIREITA  
  Devolve a parte direita de uma cadeia com o número especificado de carateres.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 RIGHT(<str_expr>, <num_expr>)  
@@ -2270,10 +2268,10 @@ SELECT RIGHT("abc", 1), RIGHT("abc", 2)
 [{"$1": "c", "$2": "bc"}]  
 ```  
   
-####  <a name="bk_rtrim"></a>RTRIM  
+####  <a name="bk_rtrim"></a> RTRIM  
  Devolve uma expressão de cadeia após remove espaços em branco à direita.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 RTRIM(<str_expr>)  
@@ -2303,10 +2301,10 @@ SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")
 [{"$1": "   abc", "$2": "abc", "$3": "abc"}]  
 ```  
   
-####  <a name="bk_startswith"></a>STARTSWITH  
+####  <a name="bk_startswith"></a> STARTSWITH  
  Devolve um booleano que indica se a primeira expressão de cadeia começa com o segundo.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 STARTSWITH(<str_expr>, <str_expr>)  
@@ -2336,10 +2334,10 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
 [{"$1": false, "$2": true}]  
 ```  
   
-####  <a name="bk_substring"></a>SUBCADEIA  
+####  <a name="bk_substring"></a> SUBCADEIA  
  Devolve a parte de uma expressão de cadeia a partir da posição carácter especificado baseado em zero e continua ao comprimento especificado ou para o fim da cadeia.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])  
@@ -2373,10 +2371,10 @@ SELECT SUBSTRING("abc", 1, 1)
 [{"$1": "b"}]  
 ```  
   
-####  <a name="bk_upper"></a>SUPERIOR  
+####  <a name="bk_upper"></a> SUPERIOR  
  Devolve uma expressão de cadeia após a conversão de dados de carateres em minúsculas em maiúsculas.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 UPPER(<str_expr>)  
@@ -2406,7 +2404,7 @@ SELECT UPPER("Abc")
 [{"$1": "ABC"}]  
 ```  
   
-###  <a name="bk_array_functions"></a>Funções de matriz  
+###  <a name="bk_array_functions"></a> Funções de matriz  
  As seguintes funções escalares efetuar uma operação num valor de entrada da matriz e devolver um valor numérico, valor de cadeia Boolean ou matriz  
   
 ||||  
@@ -2414,10 +2412,10 @@ SELECT UPPER("Abc")
 |[ARRAY_CONCAT](#bk_array_concat)|[ARRAY_CONTAINS](#bk_array_contains)|[ARRAY_LENGTH](#bk_array_length)|  
 |[ARRAY_SLICE](#bk_array_slice)|||  
   
-####  <a name="bk_array_concat"></a>ARRAY_CONCAT  
+####  <a name="bk_array_concat"></a> ARRAY_CONCAT  
  Devolve uma matriz que é o resultado da concatenar duas ou mais valores de matriz.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])  
@@ -2447,10 +2445,10 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 [{"$1": ["apples", "strawberries", "bananas"]}]  
 ```  
   
-####  <a name="bk_array_contains"></a>ARRAY_CONTAINS  
+####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
 Devolve um valor boleano que indica se a matriz contém o valor especificado. Pode especificar se a correspondência total ou parcial. 
 
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
@@ -2509,10 +2507,10 @@ SELECT
 }] 
 ```  
   
-####  <a name="bk_array_length"></a>ARRAY_LENGTH  
+####  <a name="bk_array_length"></a> ARRAY_LENGTH  
  Devolve o número de elementos da expressão de matriz especificada.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ARRAY_LENGTH(<arr_expr>)  
@@ -2542,10 +2540,10 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])
 [{"$1": 3}]  
 ```  
   
-####  <a name="bk_array_slice"></a>ARRAY_SLICE  
+####  <a name="bk_array_slice"></a> ARRAY_SLICE  
  Devolve a parte de uma expressão de matriz.
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])  
@@ -2584,7 +2582,7 @@ SELECT
        }]  
 ```  
   
-###  <a name="bk_spatial_functions"></a>Funções geográficos  
+###  <a name="bk_spatial_functions"></a> Funções geográficos  
  As seguintes funções escalares efetuar uma operação num valor de entrada do objeto espacial e devolvem um valor numérico ou booleano.  
   
 ||||  
@@ -2592,10 +2590,10 @@ SELECT
 |[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|  
 |[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)|||  
   
-####  <a name="bk_st_distance"></a>ST_DISTANCE  
+####  <a name="bk_st_distance"></a> ST_DISTANCE  
  Devolve a distância entre duas expressões de ponto de GeoJSON, polígono ou LineString.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ST_DISTANCE (<spatial_expr>, <spatial_expr>)  
@@ -2629,10 +2627,10 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 }]  
 ```  
   
-####  <a name="bk_st_within"></a>ST_WITHIN  
+####  <a name="bk_st_within"></a> ST_WITHIN  
  Devolve uma expressão booleana que indica se o objeto GeoJSON (ponto, polígono ou LineString) especificado no primeiro argumento é dentro GeoJSON (ponto, polígono ou LineString) no segundo argumento.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ST_WITHIN (<spatial_expr>, <spatial_expr>)  
@@ -2671,10 +2669,10 @@ WHERE ST_WITHIN(f.location, {
 [{ "id": "WakefieldFamily" }]  
 ```  
 
-####  <a name="bk_st_intersects"></a>ST_INTERSECTS  
+####  <a name="bk_st_intersects"></a> ST_INTERSECTS  
  Devolve uma expressão booleana que indica se o objeto GeoJSON (ponto, polígono ou LineString) especificado no primeiro argumento intersetar GeoJSON (ponto, polígono ou LineString) no segundo argumento.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ST_INTERSECTS (<spatial_expr>, <spatial_expr>)  
@@ -2713,10 +2711,10 @@ WHERE ST_INTERSECTS(a.location, {
 [{ "id": "IntersectingPolygon" }]  
 ```  
   
-####  <a name="bk_st_isvalid"></a>ST_ISVALID  
+####  <a name="bk_st_isvalid"></a> ST_ISVALID  
  Devolve um valor booleano que indica se a expressão de ponto de GeoJSON, polígono ou LineString especificada é válida.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ST_ISVALID(<spatial_expr>)  
@@ -2750,10 +2748,10 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 [{ "$1": false }]  
 ```  
   
-####  <a name="bk_st_isvaliddetailed"></a>ST_ISVALIDDETAILED  
+####  <a name="bk_st_isvaliddetailed"></a> ST_ISVALIDDETAILED  
  Devolve um valor JSON que contém um valor boleano valor se a expressão de ponto de GeoJSON, polígono ou LineString especificada é válida e se inválido, além do motivo como um valor de cadeia.  
   
- **Sintaxe**  
+ **Syntax**  
   
 ```  
 ST_ISVALID(<spatial_expr>)  

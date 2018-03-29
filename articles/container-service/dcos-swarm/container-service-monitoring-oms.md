@@ -1,6 +1,6 @@
 ---
-title: "Monitorizar o cluster do Azure DC/SO - operações de gestão"
-description: "Monitorize um cluster DC/OS do serviço de contentor do Azure com o Microsoft Operations Management Suite."
+title: Monitorizar o cluster do Azure DC/SO - operações de gestão
+description: Monitorize um cluster DC/OS do serviço de contentor do Azure com a análise de registos.
 services: container-service
 author: keikhara
 manager: timlt
@@ -9,45 +9,46 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: a675f0b57ed9e5d515cfa79a3a841e0f133fff6f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ba76f8480dedb37326505f7ed756eb51a41ee0fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Monitor de um cluster DC/OS do serviço de contentor do Azure com o Operations Management Suite
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>Monitor de um cluster DC/OS do serviço de contentor do Azure com a análise de registos
 
-O Microsoft Operations Management Suite (OMS) é a solução de gestão de TI baseada na nuvem da Microsoft que o ajuda a gerir e a proteger a sua infraestrutura no local e na nuvem. Contentor é uma solução na análise de registos do OMS, que ajuda-o a ver o inventário de contentor, o desempenho e a registos numa única localização. Pode de auditoria, resolver problemas de contentores através da visualização de registos de localização centralizada e localizar inúteis consumir contentor em excesso num anfitrião.
+Análise de registos é baseado na nuvem IT solução de gestão que o ajuda a gerir e proteger no local e a infraestrutura de nuvem. da Microsoft Contentor é uma solução na análise de registos, que ajuda-o a ver o inventário de contentor, o desempenho e a registos numa única localização. Pode de auditoria, resolver problemas de contentores através da visualização de registos de localização centralizada e localizar inúteis consumir contentor em excesso num anfitrião.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
 Para obter mais informações sobre a solução de contentor, consulte o [análise de registos do contentor solução](../../log-analytics/log-analytics-containers.md).
 
-## <a name="setting-up-oms-from-the-dcos-universe"></a>Configurar o OMS do universo de DC/OS
+## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>Configurar a análise de registos do universo de DC/OS
 
 
 Este artigo pressupõe que configurou um DC/OS e implementar aplicações do contentor web simples no cluster.
 
 ### <a name="pre-requisite"></a>Pré-requisito
 - [Subscrição do Microsoft Azure](https://azure.microsoft.com/free/) -pode obter esta gratuitamente.  
-- Configuração de área de trabalho do Microsoft OMS - consulte "Passo 3" abaixo
+- Inicie o programa de configuração de área de trabalho de análise - consulte "Passo 3" abaixo
 - [DC/SO CLI](https://dcos.io/docs/1.8/usage/cli/install/) instalado.
 
 1. No dashboard do DC/OS, clique em universo e procure OMS conforme mostrado abaixo.
 
 ![](media/container-service-monitoring-oms/image2.png)
 
-2. Clique em **Instalar**. Verá um pop cópias de segurança com as informações de versão do OMS e um **Instalar pacote** ou **avançadas instalação** botão. Ao clicar em **avançadas instalação**, que leva ao **propriedades de configuração específicas do OMS** página.
+2. Clique em **Instalar**. Verá um pop cópias de segurança com as informações de versão e um **Instalar pacote** ou **avançadas instalação** botão. Ao clicar em **avançadas instalação**, que leva ao **propriedades de configuração específicas do OMS** página.
 
 ![](media/container-service-monitoring-oms/image3.png)
 
 ![](media/container-service-monitoring-oms/image4.png)
 
-3. Aqui, será solicitado para introduzir o `wsid` (o ID da área de trabalho OMS) e `wskey` (OMS chave primária para o id da área de trabalho). Para obter ambos `wsid` e `wskey` tem de criar uma conta do OMS no <https://mms.microsoft.com>. Siga os passos para criar uma conta. Quando tiver terminado a criar a conta, tem de obter o `wsid` e `wskey` clicando **definições**, em seguida, **origens ligadas**e, em seguida, **servidores Linux**, conforme mostrado abaixo.
+3. Aqui, será solicitado para introduzir o `wsid` (ID de área de trabalho de análise de registos) e `wskey` (a chave primária para o id da área de trabalho). Para obter ambos `wsid` e `wskey` tem de criar uma conta no <https://mms.microsoft.com>.
+Siga os passos para criar uma conta. Quando tiver terminado a criar a conta, tem de obter o `wsid` e `wskey` clicando **definições**, em seguida, **origens ligadas**e, em seguida, **servidores Linux**, conforme mostrado abaixo.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-4. Selecione as número OMS instâncias que pretende e clique no botão 'Rever e instalar'. Normalmente, deverá ter o número de instâncias do OMS igual ao número da VM tem no seu cluster de agente. Agente do OMS para Linux é instala como contentores individuais em cada VM que se pretende recolher informações de monitorização e informações de registo.
+4. Selecione o número de instâncias que pretende e clique no botão 'Rever e instalar'. Normalmente, deverá ter o número de instâncias igual ao número da VM tem no seu cluster de agente. Instala o agente do OMS para Linux como contentores individuais em cada VM que se pretende recolher informações de monitorização e informações de registo.
 
 ## <a name="setting-up-a-simple-oms-dashboard"></a>Configurar um dashboard do OMS simple
 
@@ -81,7 +82,7 @@ Assim que tiver selecionado a sua área de trabalho, clique em **criar**.
 
 ![](media/container-service-monitoring-oms/image11.png)
 
-Para obter mais informações sobre a solução de contentor do OMS, consulte o [análise de registos do contentor solução](../../log-analytics/log-analytics-containers.md).
+Para obter mais informações sobre a solução de contentor de análise do registo, consulte o [análise de registos do contentor solução](../../log-analytics/log-analytics-containers.md).
 
 ### <a name="how-to-scale-oms-agent-with-acs-dcos"></a>Como dimensionar o agente do OMS com ACS DC/OS 
 
@@ -104,6 +105,6 @@ $ dcos package uninstall msoms
 ## <a name="let-us-know"></a>Indique!!!
 O que funciona? O que está em falta? Pessoa que precisa para esta opção para ser úteis para si? Indique em <a href="mailto:OMSContainers@microsoft.com">OMSContainers</a>.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
- Agora que configurou OMS para monitorizar os contentores[ver o dashboard de contentor](../../log-analytics/log-analytics-containers.md).
+ Agora que configurou análise de registos para monitorizar os contentores[ver o dashboard de contentor](../../log-analytics/log-analytics-containers.md).

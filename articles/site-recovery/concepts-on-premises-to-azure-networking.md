@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: ''
 author: mayanknayar
 manager: carmonm
-editor: ''
-ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/27/2018
+ms.date: 03/24/2018
 ms.author: manayar
-ms.openlocfilehash: 1833c576fe03bbfd1819fedc5630b915c6e9ee71
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e74ad30ea8c4be994c1c67735ee91ef8c033b9b3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configurar a ligação após a ativação pós-falha para o Azure de endereçamento IP
 
@@ -49,7 +44,7 @@ Recuperação de sites fornece a capacidade de manter IP fixo endereços quando 
 
 ### <a name="failover-example"></a>Exemplo de ativação pós-falha
 
-Vamos ver um exemplo de ativação pós-falha no Azure através de uma empresa de ficticious, o Banco Woodgrove.
+Vamos ver um exemplo de ativação pós-falha para o Azure utilizando numa empresa fictícia, o Banco Woodgrove.
 
 - Banco Woodgrove aloja as suas aplicações empresariais num site no local. Se alojam as aplicações móveis no Azure.
 - Não há conectividade a VPN site a site entre a rede de limite no local e a rede virtual do Azure. Devido a ligação VPN, a rede virtual no Azure aparece como uma extensão da rede no local.

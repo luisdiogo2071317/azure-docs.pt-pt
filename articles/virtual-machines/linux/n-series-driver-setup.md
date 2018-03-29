@@ -1,11 +1,11 @@
 ---
-title: "Série N controlador a configuração do Azure para Linux | Microsoft Docs"
-description: "Como configurar os controladores de NVIDIA GPU para VMs de série N executar Linux no Azure"
+title: Série N controlador a configuração do Azure para Linux | Microsoft Docs
+description: Como configurar os controladores de NVIDIA GPU para VMs de série N executar Linux no Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d353adcafed02832243277118da8480e54544ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d97afd2b5dccca64db2df7cb0d4f110987642cfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar controladores de NVIDIA GPU em VMs de série N executar Linux
 
-Para tirar partido das funcionalidades GPU do Azure N série as VMs com Linux, instale controladores de gráficos NVIDIA suportados. Este artigo fornece os passos de configuração de controlador depois de implementar uma VM de série N. As informações de configuração do controlador também estão disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para tirar partido das funcionalidades GPU do Azure N série as VMs com Linux, os controladores da placa NVIDIA tem de estar instalados. Este artigo fornece os passos de configuração de controlador depois de implementar uma VM de série N. As informações de configuração do controlador também estão disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Para a série N VM especificações, as capacidades de armazenamento e detalhes do disco, consulte [tamanhos de VM de Linux GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -32,15 +32,12 @@ Para a série N VM especificações, as capacidades de armazenamento e detalhes 
 
 ## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Instalar controladores CUDA para NC, NCv2, NCv3 e série ND VMs
 
-Seguem-se passos para instalar controladores NVIDIA a partir do Toolkit de CUDA NVIDIA em série N VMs. 
+Seguem-se passos para instalar controladores CUDA a partir do Toolkit de CUDA NVIDIA em série N VMs. 
+
 
 Os programadores C e C++, opcionalmente, podem instalar o Toolkit de completo para criar aplicações acelerados de GPU. Para obter mais informações, consulte o [guia de instalação CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
-> [!NOTE]
-> Ligações de transferência do controlador CUDA fornecido aqui estão atualizadas no momento da publicação. Para os controladores mais recentes do CUDA, visite o [NVIDIA](https://developer.nvidia.com/cuda-zone) Web site.
->
-
-Para instalar o Toolkit de CUDA, efetue uma ligação SSH cada VM. Para verificar que o sistema tem uma GPU compatível com CUDA, execute o seguinte comando:
+Para instalar controladores CUDA, efetue uma ligação SSH cada VM. Para verificar que o sistema tem uma GPU compatível com CUDA, execute o seguinte comando:
 
 ```bash
 lspci | grep -i NVIDIA
@@ -162,16 +159,13 @@ Conectividade de rede RDMA pode ser ativada em VMs de série N com capacidade RD
 
 ### <a name="distributions"></a>Distribuições
 
-Implemente VMs de série N com capacidade RDMA partir de uma imagem no Azure Marketplace que suporte a conectividade RDMA em série N VMs:
+Implemente com capacidade RDMA série N VMs de uma das imagens no Azure Marketplace que suporte a conectividade RDMA em série N VMs:
   
 * **Ubuntu 16.04 LTS** - configurar os controladores RDMA na VM e registar Intel para transferir Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-> [!NOTE]
-> Imagens HPC com base em centOS atualmente não são recomendadas para conectividade RDMA em série N VMs. RDMA não é suportado em CentOS 7.4 kernel mais recente que suporte NVIDIA GPUs.
-> 
-
+* **Com base em centOS 7.4 HPC** -controladores RDMA e Intel MPI 5.1 são instaladas na VM.
 
 ## <a name="install-grid-drivers-for-nv-series-vms"></a>Instalar controladores de grelha para VMs NV série
 
@@ -321,10 +315,10 @@ EndSection
  
 Além disso, atualize o `"Screen"` secção para utilizar este dispositivo.
  
-O BusID pode ser encontrado através da execução
+O decimal BusID pode ser encontrado através da execução
 
 ```bash
-/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
+echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
 ```
  
 O BusID pode ser alteradas quando uma VM obtém reatribuir porque ou reiniciada. Por conseguinte, pode querer utilizar um script para atualizar o BusID no X11 configuração quando uma VM for reiniciada. Por exemplo:
@@ -342,6 +336,6 @@ Este ficheiro pode ser invocado como raiz no arranque através da criação de u
 
 * Pode definir a utilizar o modo de persistência `nvidia-smi` , de modo a saída do comando é mais rápida quando precisar de cartões de consulta. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Tenha em atenção que se a VM é reiniciada, a definição de modo fica ausente. Pode sempre script a definição de modo a executar após o arranque.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para capturar uma imagem de VM com Linux com os controladores NVIDIA instaladas, consulte [como generalize e capturar uma máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

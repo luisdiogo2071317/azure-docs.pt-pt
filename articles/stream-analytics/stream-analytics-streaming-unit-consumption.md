@@ -1,13 +1,13 @@
 ---
-title: "O Azure Stream Analytics: Compreender e ajustar as unidades de transmissão em fluxo | Microsoft Docs"
+title: 'O Azure Stream Analytics: Compreender e ajustar as unidades de transmissão em fluxo | Microsoft Docs'
 description: Compreenda os fatores afetam o desempenho no Azure Stream Analytics.
-keywords: "unidade de transmissão em fluxo, consultar o desempenho"
+keywords: unidade de transmissão em fluxo, consultar o desempenho
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5c60b1808959c73759a78141566c5c49f0350e2f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as unidades de transmissão em fluxo
 
@@ -88,18 +88,18 @@ O tamanho do Estado de uma associação temporal é proporcional ao número de e
 
 O número de eventos sem correspondência na União afetar a utilização de memória para a consulta. A seguinte consulta está à procura de encontrar as visualizações de anúncios que geram cliques:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks 
-    INNER JOIN, impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
 
 Neste exemplo, é possível que muitos dos anúncios são apresentados algumas pessoas clicar na mesma e é necessário para manter todos os eventos na janela de tempo. A memória consumida é proporcional ao tamanho da janela e à velocidade dos eventos. 
 
 Para corrigir isto, enviar eventos para o Hub de eventos particionado as chaves de associação (id neste caso) e a consulta de escalamento horizontal, permitindo que o sistema para processar cada partição de entrada com o separadamente **PARTITION BY** conforme mostrado:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks PARTITION BY PartitionId
     INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 </code>
 
 Quando a consulta estiver particionada, é espalhada por vários nós. Como resultado o número de eventos provenientes em cada nó é reduzido, reduzindo o tamanho do estado mantido na janela de associação. 
@@ -124,7 +124,7 @@ Quando adiciona uma função UDF, o Azure Stream Analytics carrega o tempo de ex
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Criar consultas paralelizáveis no Azure Stream Analytics](stream-analytics-parallelization.md)
 * [Tarefas do Stream Analytics do Azure para aumentar o débito de escala](stream-analytics-scale-jobs.md)
 

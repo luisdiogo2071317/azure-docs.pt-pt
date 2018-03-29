@@ -1,12 +1,12 @@
 ---
-title: "Recomendações do Advisor custo do Azure | Microsoft Docs"
-description: "Utilize o Advisor do Azure para otimizar o custo das implementações do Azure."
+title: Recomendações do Advisor custo do Azure | Microsoft Docs
+description: Utilize o Advisor do Azure para otimizar o custo das implementações do Azure.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 7b9c7037271fabd67c1ada80420ad72c340e46bb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7a8807a580f1a7f1fe67e026a8fbd4cc0e96c41c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="advisor-cost-recommendations"></a>Recomendações de custo do Assistente
 
@@ -31,9 +31,6 @@ Advisor mostra o custo estimado continuar a executar a máquina virtual, para qu
 
 Se pretender ser mais agressiva em identificar subutilizadas máquinas virtuais, pode ajustar a regra de utilização da CPU média numa base por subscrição.
 
-## <a name="use-a-cost-effective-solution-to-manage-performance-goals-of-multiple-sql-databases"></a>Utilizar uma solução económica para gerir os objetivos de desempenho de várias bases de dados do SQL Server
-Advisor identifica as instâncias do SQL Server que podem beneficiar do criar conjuntos de bases de dados elásticas. Conjuntos de bases de dados elásticas fornecem uma solução simple e rentável para gerir os objetivos de desempenho de várias bases de dados que tenham diferentes padrões de utilização. Para obter mais informações sobre conjuntos elásticos do Azure, consulte [o que é um conjunto elástico do Azure?](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/).
-
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Reduzir os custos, eliminando não aprovisionados circuitos do ExpressRoute
 Advisor identifica os circuitos ExpressRoute que tenham sido do Estado de fornecedor de *não aprovisionado* para mais de um mês e recomenda a eliminar o circuito, se não estão a planear para aprovisionar o circuito com a conectividade fornecedor.
 
@@ -43,7 +40,7 @@ Advisor identifica os circuitos ExpressRoute que tenham sido do Estado de fornec
 
 2.  No dashboard do Advisor, clique em de **custo** separador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre as recomendações do assistente, consulte:
 * [Introdução ao Advisor](advisor-overview.md)

@@ -1,23 +1,23 @@
 ---
-title: "Equipa dados ciência processo projeto levar tarefas - Azure | Microsoft Docs"
-description: "Uma descrição das tarefas para um projeto levar num projeto de equipa de ciência de dados."
-documentationcenter: 
+title: Equipa dados ciência processo projeto levar tarefas - Azure | Microsoft Docs
+description: Uma descrição das tarefas para um projeto levar num projeto de equipa de ciência de dados.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: fe7cf1e6167de7d0dfaa5ed75c0b7f5ec23b18cf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5c769fda09e70cfb0a43e0305ffab4923fbe3307
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="project-lead-tasks"></a>Tarefas de oportunidades potenciais do projeto
 
@@ -100,8 +100,8 @@ Se precisar de personalizar o **DSProject1** repositório de projeto para satisf
 
 No seu computador local, crie um diretório:
 
-- *C:\GitRepos\MyTeamCommon* para Windows 
-- *$home/GitRepos/MyTeamCommon* para Linux
+- *C:\GitRepos\MyTeamCommon* for Windows 
+- *$home/GitRepos/MyTeamCommon* for Linux
 
 Alterar a esse diretório. Em seguida, execute o seguinte comando para clonar o repositório de modelo de projeto de equipa no seu computador local. 
 
@@ -127,7 +127,7 @@ Neste exemplo, temos de:
 
 Se estiver a utilizar VSTS como a plataforma de alojamento de código, normalmente, o *SSH URL do repositório de modelo de projeto de equipa* é:
 
-***SSH: / /\<nome do servidor VSTS\>@\<nome do servidor VSTS\>.visualstudio.com:22/\<o nome do projeto de equipa > /_git/\<seu repositório de modelo de projeto de equipa nome\>.*** 
+***SSH: / /\<nome do servidor VSTS\>@\<nome do servidor VSTS\>.visualstudio.com:22/\<o nome do projeto de equipa > /_git/\<o nome de repositório de modelo de projeto de equipa \>.*** 
 
 Neste exemplo, temos de:
 
@@ -151,7 +151,7 @@ Se estiver a utilizar VSTS como a plataforma de alojamento de código, normalmen
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Se estiver a utilizar VSTS como a plataforma de alojamento de código, normalmente, o _SSH URL do repositório projeto_ é _ssh: / / < nome do servidor VSTS\>@< nome do servidor VSTS\>.visualstudio.com:22/<Your Team Project Name> / \_git / < nome do repositório do projeto\>. Neste exemplo, temos  ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1*** .
+Se estiver a utilizar VSTS como a plataforma de alojamento de código, normalmente, o _SSH URL do repositório projeto_ é _ssh: / / < nome do servidor VSTS\>@< nome do servidor VSTS\>.visualstudio.com:22/<Your Team Project Name> / \_git / < nome do repositório do projeto\>. Neste exemplo, temos ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>Copiar conteúdos de D3 para D5 
 
@@ -186,7 +186,7 @@ Se o seu projeto tem algumas diretórios específicos ou documentos, sem ser aqu
 
 ### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-vsts-server"></a>Adicionar conteúdo de DSProject1 D5 para R5 no seu servidor VSTS de grupo
 
-Tem agora push o conteúdo  **_DSProject1_**  para _R5_ repositório no seu projeto de equipa no servidor VSTS do seu grupo. 
+Tem agora push o conteúdo **_DSProject1_** para _R5_ repositório no seu projeto de equipa no servidor VSTS do seu grupo. 
 
 
 - Mude para diretório **D5**. 
@@ -212,7 +212,7 @@ Tem agora push o conteúdo  **_DSProject1_**  para _R5_ repositório no seu proj
 Se pretender criar o file storage do Azure para partilhar dados, tais como o projeto de dados não processados ou as funcionalidades geradas para o seu projeto, para que todos os membros de projeto tenham acesso aos mesmos conjuntos de dados de vários DSVMs, siga as instruções nas secções 3 e 4 de [ Tarefas de antecedência para uma equipa de ciência de dados de equipa](team-lead-tasks.md). 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Seguem-se ligações para as descrições das funções e tarefas definidas pelo processo de ciência de dados de equipa mais detalhadas:
 

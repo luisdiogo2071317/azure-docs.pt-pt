@@ -1,8 +1,8 @@
 ---
 title: Monitorizar e gerir o Azure HDInsight utilizando a IU da Web do Ambari | Microsoft Docs
-description: "Saiba como utilizar Ambari para monitorizar e gerir clusters do HDInsight baseado em Linux. Neste documento, irá aprender a utilizar a IU da Web do Ambari incluído com clusters do HDInsight."
+description: Saiba como utilizar Ambari para monitorizar e gerir clusters do HDInsight baseado em Linux. Neste documento, irá aprender a utilizar a IU da Web do Ambari incluído com clusters do HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/04/2018
+ms.date: 03/23/2018
 ms.author: larryfr
-ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 922dfd475f27f182d8958887087fc2f4945cc43a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gerir clusters do HDInsight utilizando a IU da Web do Ambari
 
@@ -41,7 +41,7 @@ IU da Web do Ambari é fornecido por predefinição com clusters do HDInsight qu
 
 ## <a name="connectivity"></a>Conectividade
 
-IU da Web do Ambari está disponível no seu cluster do HDInsight em HTTPS://CLUSTERNAME.azurehdidnsight.net, onde **CLUSTERNAME** é o nome do cluster.
+IU da Web do Ambari está disponível no seu cluster do HDInsight em HTTPS://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome do cluster.
 
 > [!IMPORTANT]
 > A ligação a Ambari no HDInsight requer HTTPS. Quando lhe for pedido para a autenticação, utilize o nome da conta de administrador e a palavra-passe que forneceu quando o cluster foi criado.
@@ -50,7 +50,7 @@ IU da Web do Ambari está disponível no seu cluster do HDInsight em HTTPS://CLU
 
 Enquanto Ambari para o cluster está acessível diretamente através da Internet, algumas ligações a partir do IU da Web do Ambari (como juntar JobTracker) não são expostas na internet. Para aceder a estes serviços, tem de criar um túnel SSH. Para obter mais informações, consulte [utilize túnel SSH com o HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-## <a name="ambari-web-ui"></a>IU da Web do Ambari
+## <a name="ambari-web-ui"></a>Ambari Web UI
 
 > [!WARNING]
 > Nem todas as funcionalidades da IU da Web do Ambari são suportadas no HDInsight. Para obter mais informações, consulte o [não suportado operações](#unsupported-operations) secção deste documento.
@@ -59,7 +59,7 @@ Ao ligar a IU da Web do Ambari, lhe for pedido para autenticar para a página. U
 
 Quando abre a página, tenha em atenção a barra na parte superior. Esta barra contém as seguintes informações e controlos de:
 
-![ambari nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
+![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
 * **Logótipo do Ambari** -abre o dashboard, o que pode ser utilizado para monitorizar o cluster.
 
@@ -86,8 +86,8 @@ Quando abre a página, tenha em atenção a barra na parte superior. Esta barra 
 A lista seguinte contém os Estados de alerta comuns utilizados pelo Ambari:
 
 * **OK**
-* **Aviso**
-* **CRÍTICO**
+* **aviso**
+* **CRITICAL**
 * **DESCONHECIDO**
 
 Alertas que **OK** fazer com que o **alertas #** entrada na parte superior da página para apresentar o número de alertas. Selecionar esta entrada apresenta os alertas e o respetivo estado.

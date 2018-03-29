@@ -1,8 +1,8 @@
 ---
-title: "Dashboard do Power BI para o estado de funcionamento vehicle e ocasionar hábitos - Azure | Microsoft Docs"
-description: "Utilizar as capacidades do Cortana Intelligence para obter informações acerca de preditiva e em tempo real em estado de funcionamento vehicle e ocasionar hábitos."
+title: Dashboard do Power BI para o estado de funcionamento vehicle e ocasionar hábitos - Azure | Microsoft Docs
+description: Utilizar as capacidades do Cortana Intelligence para obter informações acerca de preditiva e em tempo real em estado de funcionamento vehicle e ocasionar hábitos.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 085ce90311d4d89b365f7fe51a95c00c1a734196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instruções de configuração de dashboard do vehicle telemetria análise solução modelo Power BI
 Liga menu-capítulos neste manual de comunicação social: 
@@ -308,7 +308,7 @@ Se configurou com êxito o relatório em tempo real "Veículos necessidade de ma
 
     ![Detalhes, áreas de legenda, eixo e tamanho](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
-25. Altere o gráfico **título** para **médio de fuel, média de engineTemperature e contagem de vin pelo modelo e o modelo**.
+25. Altere o gráfico **título** para **médio de fuel, média de engineTemperature e contagem de vin pelo modelo**.
 
     ![Título do gráfico de dispersão](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 

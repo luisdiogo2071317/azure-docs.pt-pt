@@ -1,8 +1,8 @@
 ---
 title: Utilize um MSI de VM do Windows para aceder ao SQL do Azure
-description: "Um tutorial que explica o processo de utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao SQL do Azure."
+description: Um tutorial que explica o processo de utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao SQL do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b5bab684a7b188d1dc2e1f1f29a772aab8955e43
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao SQL do Azure
 
@@ -39,7 +39,7 @@ Este tutorial mostra como utilizar uma identidade de serviço geridas (MSI) para
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inicie sessão no portal do Azure em [ https://portal.azure.com ](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows num novo grupo de recursos
 
@@ -137,7 +137,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Ativar a autenticação do Azure AD para o SQL server
 
-Agora que criou o grupo e adicionar o MSI da VM para a associação, pode [configurar a autenticação do Azure AD para o SQL server](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) utilizando os seguintes passos:
+Agora que criou o grupo e adicionar o MSI da VM para a associação, pode [configurar a autenticação do Azure AD para o SQL server](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) utilizando os seguintes passos:
 
 1.  No portal do Azure, selecione **servidores SQL** do painel de navegação esquerdo.
 2.  Clique no SQL server esteja ativado para a autenticação do Azure AD.
@@ -183,7 +183,7 @@ Código em execução na VM pode obter um token do MSI e utilizar o token para a
 
 SQL do Azure nativamente autenticação de suporte do Azure AD, para que possa aceitar tokens de acesso diretamente obtidos através de MSI.  Utilizar o **token de acesso** método de criação de uma ligação ao SQL Server.  Isto faz parte da integração do SQL do Azure com o Azure AD e é diferente de fornecer credenciais na cadeia de ligação.
 
-Eis um exemplo de código de .net de abrir uma ligação ao SQL Server utilizando um token de acesso.  Este código tem de executar na VM para poder aceder ao ponto final MSI da VM.  **.NET framework 4.6** ou superior, é necessário utilizar o método de token de acesso.  Substitua os valores do AZURE-SQL-SERVERNAME e base de dados em conformidade.  Tenha em atenção o ID de recurso para o SQL do Azure "https://database.windows.net/".
+Eis um exemplo de código de .net de abrir uma ligação ao SQL Server utilizando um token de acesso.  Este código tem de executar na VM para poder aceder ao ponto final MSI da VM.  **.NET framework 4.6** ou superior, é necessário utilizar o método de token de acesso.  Substitua os valores do AZURE-SQL-SERVERNAME e base de dados em conformidade.  Tenha em atenção o ID de recurso para o SQL do Azure é "https://database.windows.net/".
 
 ```csharp
 using System.Net;

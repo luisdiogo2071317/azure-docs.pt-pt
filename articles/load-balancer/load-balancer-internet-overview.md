@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral do Balanceador de carga de com acesso à Internet | Microsoft Docs"
-description: "Descrição geral para a Internet com o Balanceador de carga e as respetivas funcionalidades. Como um balanceador de carga funciona o Azure com máquinas virtuais e serviços em nuvem."
+title: Descrição geral do Balanceador de carga de com acesso à Internet | Microsoft Docs
+description: Descrição geral para a Internet com o Balanceador de carga e as respetivas funcionalidades. Como um balanceador de carga funciona o Azure com máquinas virtuais e serviços em nuvem.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5b9ffeadf6b1ffc4eaf4f49b85ba752c27da0e46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14375dc7777a4f24db9f7246e6e99f26bd0eb858
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="internet-facing-load-balancer-overview"></a>Internet destinado ao balanceador descrição geral de carga
 
@@ -38,11 +38,11 @@ A figura seguinte mostra um ponto final com balanceamento de carga para o tráfe
 
 Figura 1 - ponto final com balanceamento de carga para o tráfego web
 
-Quando os clientes de Internet enviam pedidos de página web para o endereço IP público do serviço de nuvem na porta TCP 80, o Azure Load Balancer distribui os pedidos entre as três máquinas virtuais no conjunto com balanceamento de carga. Para obter mais informações sobre os algoritmos de Balanceador de carga, consulte o [página de descrição geral do Balanceador de carga](load-balancer-overview.md#load-balancer-features).
+Quando os clientes de Internet enviam pedidos de página web para o endereço IP público do serviço de nuvem na porta TCP 80, o Azure Load Balancer distribui os pedidos entre as três máquinas virtuais no conjunto com balanceamento de carga. Para obter mais informações sobre os algoritmos de Balanceador de carga, consulte o [página de descrição geral do Balanceador de carga fundamentais](load-balancer-overview.md#fundamental-load-balancer-features).
 
 Por predefinição, o Balanceador de carga do Azure distribui o tráfego de rede equitativamente entre várias instâncias de máquina virtual. Também pode configurar a afinidade de sessão, para obter mais informações, consulte [modo de distribuição do Balanceador de carga](load-balancer-distribution-mode.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [Balanceador de carga interno](load-balancer-internal-overview.md) para compreender melhor o Balanceador de carga é uma melhor opção para a implementação de nuvem.
 

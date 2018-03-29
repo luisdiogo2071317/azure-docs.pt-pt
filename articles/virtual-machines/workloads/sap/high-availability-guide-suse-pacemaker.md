@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: 27fa58042b1d3dbed111d6ec7f3b3e96a9161180
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 75615de523f1fba808f44fb1a1015138fb190edc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configurar Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -28,14 +28,13 @@ ms.lasthandoff: 03/23/2018
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
 
-![Pacemaker na descrição geral do SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
-
-
 Existem duas opções para configurar um cluster de Pacemaker no Azure. Pode utilizar um agente de fencing, que trata da reiniciar um nó falha através das APIs do Azure ou pode utilizar um dispositivo SBD.
 
 O dispositivo SBD necessita de uma máquina virtual adicional que age como um servidor de destino iSCSI e fornece um dispositivo SBD. Este servidor de destino iSCSI no entanto pode ser partilhada com outros clusters Pacemaker. A vantagem de utilizar um dispositivo SBD é uma hora de ativação pós-falha mais rápida e, se estiver a utilizar SBD dispositivos no local, não requer quaisquer alterações no modo de funcionamento de pacemaker cluster. O fencing SBD ainda pode utilizar o agente do Azure fence como uma cópia de segurança fencing mecanismo no caso do servidor de destino iSCSI não está disponível.
 
 Se não pretende investir em máquinas virtuais adicionais, também pode utilizar o agente do Azure Fence. O downside é que uma ativação pós-falha pode demorar entre 10 a 15 minutos, se parar um recurso falha ou os nós de cluster não é possível comunicar que entre si já.
+
+![Pacemaker na descrição geral do SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 ## <a name="sbd-fencing"></a>SBD fencing
 
@@ -61,12 +60,11 @@ Terá primeiro de criar uma máquina de virtual de destino iSCSI, se ainda não 
 
 1. Ativar o serviço de destino iSCSI
 
-   <pre><code>
-   # This will make sure that targetcli was called at least once and the initial configuration was done.
-   sudo targetcli --help
-   
+   <pre><code>   
    sudo systemctl enable target
+   sudo systemctl enable targetcli
    sudo systemctl start target
+   sudo systemctl start targetcli
    </code></pre>
 
 ### <a name="create-iscsi-device-on-iscsi-target-server"></a>Criar dispositivo do iSCSI no servidor de destino iSCSI
@@ -79,15 +77,28 @@ Execute o seguinte comando **VM de destino iSCSI** para criar um disco iSCSI par
 # List all data disks with the following command
 sudo ls -al /dev/disk/azure/scsi1/
 
+# total 0
+# drwxr-xr-x 2 root root  80 Mar 26 14:42 .
+# drwxr-xr-x 3 root root 160 Mar 26 14:42 ..
+# lrwxrwxrwx 1 root root  12 Mar 26 14:42 lun0 -> ../../../<b>sdc</b>
+# lrwxrwxrwx 1 root root  12 Mar 26 14:42 lun1 -> ../../../sdd
+
+# Then use the disk name to list the disk id
+sudo ls -l /dev/disk/by-id/scsi-* | grep sdc
+
+# lrwxrwxrwx 1 root root  9 Mar 26 14:42 /dev/disk/by-id/scsi-14d53465420202020a50923c92babda40974bef49ae8828f0 -> ../../sdc
+# lrwxrwxrwx 1 root root  9 Mar 26 14:42 <b>/dev/disk/by-id/scsi-360022480a50923c92babef49ae8828f0 -> ../../sdc</b>
+
 # Use the data disk that you attached for this cluster to create a new backstore
-sudo targetcli backstores/block create <b>cl1</b> /dev/disk/azure/scsi1/<b>lun0</b>
+sudo targetcli backstores/block create <b>cl1</b> <b>/dev/disk/by-id/scsi-360022480a50923c92babef49ae8828f0</b>
 
 sudo targetcli iscsi/ create iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/luns/ create /backstores/block/<b>cl1</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create iqn.2006-04.<b>prod-cl1-0.local:prod-cl1-0</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create iqn.2006-04.<b>prod-cl1-1.local:prod-cl1-1</b>
 
-# restart the iSCSI target service to persist the changes
+# save the targetcli changes
+sudo targetcli saveconfig
 sudo systemctl restart target
 </code></pre>
 
@@ -370,7 +381,7 @@ O dispositivo STONITH utiliza um Principal de serviço para autorizar contra o M
    Aceda às propriedades e anotar o ID de diretório. Este é o **ID de inquilino**.
 1. Clique em registos de aplicação
 1. Clique em Adicionar
-1. Introduza um nome, selecione o tipo de aplicação "Aplicação Web/API", introduza um URL sign-on (por exemplo http://localhost) e clique em criar
+1. Introduza um nome, selecione o tipo de aplicação "Aplicação Web/API", introduza um URL de início de sessão (por exemplo http://localhost) e clique em criar
 1. O URL de início de sessão não é utilizado e pode ser qualquer URL válido
 1. Selecione a nova aplicação e clique em chaves no separador Definições
 1. Introduza uma descrição para uma nova chave, selecione "Nunca expira" e clique em Guardar
@@ -436,7 +447,7 @@ sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
 Se pretender utilizar um dispositivo SBD, ainda Recomendamos que utilize um agente do Azure fence como uma cópia de segurança no caso do servidor de destino iSCSI não está disponível.
 
 <pre><code>
-fencing_topology \
+sudo crm configure fencing_topology \
   stonith-sbd rsc_st_azure
 
 </code></pre>

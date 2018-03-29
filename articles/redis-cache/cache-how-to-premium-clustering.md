@@ -1,24 +1,24 @@
 ---
 title: Como configurar o clustering de Redis para uma Cache de Redis do Azure Premium | Microsoft Docs
-description: "Saiba como criar e gerir Redis clustering para o escalão Premium instâncias de Cache de Redis do Azure"
+description: Saiba como criar e gerir Redis clustering para o escalão Premium instâncias de Cache de Redis do Azure
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: wesmc
-ms.openlocfilehash: 16281cca4e4bc95e145317365d42382ab11fde93
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 4af6545058ab0031d7cd1b38618b6d80204f83b9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Como configurar o clustering de Redis para uma Cache de Redis do Azure Premium
 Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de funcionalidades, incluindo funcionalidades do escalão Premium, tais como clustering, persistência e suporte da virtual network e tamanho da cache. Este artigo descreve como configurar o clustering numa instância de Cache de Redis do Azure premium.
@@ -33,7 +33,7 @@ Cache de Redis do Azure oferece o cluster de Redis como [implementado no Redis](
 * Débito mais: débito de forma linear aumenta como aumentar o número de partições horizontais. 
 * Tamanho da memória mais: aumenta de forma linear como aumentar o número de partições horizontais.  
 
-Para obter mais informações sobre o tamanho, débito e largura de banda com premium caches, consulte [que tamanho e a oferta da Cache de Redis devo utilizar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Clustering não aumenta o número de ligações disponíveis para uma cache em cluster. Para obter mais informações sobre o tamanho, débito e largura de banda com premium caches, consulte [que tamanho e a oferta da Cache de Redis devo utilizar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 No Azure, o cluster de Redis é fornecido como um modelo de primário/réplica em que cada partição horizontal tem um par de primário/réplica com replicação em que a replicação é gerida pelo serviço de Cache de Redis do Azure. 
 
@@ -75,6 +75,8 @@ Para alterar o tamanho do cluster em execução cache premium com clustering ati
 ![Tamanho do cluster de redis][redis-cache-redis-cluster-size]
 
 Para alterar o tamanho do cluster, utilize o controlo de deslize ou escreva um número entre 1 e 10 no **contagem de partições horizontais** caixa de texto e clique em **OK** para guardar.
+
+Aumentar o tamanho do cluster aumenta o débito máximo e tamanho da cache. Aumentar o tamanho do cluster não aumenta o número máximo. ligações disponíveis para os clientes.
 
 > [!NOTE]
 > Dimensionamento de um cluster é executado o [MIGRAR](https://redis.io/commands/migrate) comando, que é um comando dispendiosas, por isso, para um impacto mínimo, considere executar esta operação durante o horário de pico. Durante o processo de migração, verá um pico de pedidos de carga do servidor. Dimensionamento de um cluster é uma longa execução processo e a quantidade de tempo que demora depende o número de chaves e o tamanho dos valores associados a essas chaves.
@@ -132,7 +134,7 @@ O maior tamanho da cache premium é 53 GB. Pode criar até 10 shards dando-lhe u
 Pode ligar à sua cache com o mesmo [pontos finais](cache-configure.md#properties), [portas](cache-configure.md#properties), e [chaves](cache-configure.md#access-keys) que utilizar ao ligar a uma cache que não tenha clustering ativada. Redis gere o clustering do back-end, pelo que não tem geri-lo a partir do seu cliente.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Posso diretamente ligar para os shards individuais da minha cache?
-Isto não é oficialmente suportado. Com que consiga aceder tal, cada partição horizontal é composta por um par de cache primário/réplica, coletivamente conhecido como uma instância da cache. Pode ligar a estes instâncias de cache utilizando o utilitário de redis-cli no [instável](http://redis.io/download) ramo do repositório de Redis no GitHub. Esta versão implementa o suporte básico quando começar a utilizar o `-c` mudar. Para obter mais informações consulte [reproduzir com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) no [http://redis.io](http://redis.io) no [tutorial do cluster de Redis](http://redis.io/topics/cluster-tutorial).
+Isto não é oficialmente suportado. Com que consiga aceder tal, cada partição horizontal é composta por um par de cache primário/réplica, coletivamente conhecido como uma instância da cache. Pode ligar a estes instâncias de cache utilizando o utilitário de redis-cli no [instável](http://redis.io/download) ramo do repositório de Redis no GitHub. Esta versão implementa o suporte básico quando começar a utilizar o `-c` mudar. Para obter mais informações consulte [reproduzir com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) no [ http://redis.io ](http://redis.io) no [tutorial do cluster de Redis](http://redis.io/topics/cluster-tutorial).
 
 Para não ssl, utilize os seguintes comandos.
 

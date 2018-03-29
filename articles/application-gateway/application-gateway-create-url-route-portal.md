@@ -1,21 +1,20 @@
 ---
-title: "Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento - portal do Azure | Microsoft Docs"
-description: "Saiba como criar URL caminho com base em regras de encaminhamento para um gateway de aplicação e o dimensionamento da máquina virtual definido no portal do Azure."
+title: Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento - portal do Azure
+description: Saiba como criar URL caminho com base em regras de encaminhamento para um gateway de aplicação e o dimensionamento da máquina virtual definido no portal do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 3/26/2018
+ms.author: victorh
+ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicação com o caminho com base em regras de encaminhamento utilizando o portal do Azure
 
@@ -154,11 +153,11 @@ Neste exemplo, crie três máquinas virtuais a ser utilizada como servidores de 
 
     ![Registar o endereço IP público do application gateway](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser. Por exemplo, http://http: / / 40.121.222.19.
+2. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser. Tal como http://http://40.121.222.19.
 
     ![URL de base de teste no gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. Altere o URL para http://&lt;endereço ip&gt;: 8080/video/test.htm, substituindo &lt;endereço ip&gt; endereço e com o IP deverá ver algo semelhante ao seguinte exemplo:
+3. Altere o URL para http://&lt;endereço ip&gt;: 8080/images/test.htm, substituindo &lt;endereço ip&gt; endereço e com o IP deverá ver algo semelhante ao seguinte exemplo:
 
     ![Testar o URL de imagens no gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 

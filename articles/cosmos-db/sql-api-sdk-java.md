@@ -1,6 +1,6 @@
 ---
 title: 'Do Azure Cosmos DB: API de Java do SQL Server, SDK & recursos | Microsoft Docs'
-description: "Saiba tudo sobre API Java do SQL Server e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do SDK de Java do Azure Cosmos BD SQL."
+description: Saiba tudo sobre API Java do SQL Server e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do SDK de Java do Azure Cosmos BD SQL.
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 979fcebd60d62c714a1c521013cf391ebf18a73c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a8917e85ce5fb0e43593c34fc83046ec727e4aac
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -35,8 +35,6 @@ ms.lasthandoff: 03/02/2018
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 O SDK de Java de API do SQL Server suporta operações síncronas. Para obter suporte assíncrono, utilize o [SDK Java do SQL Server API Async](sql-api-sdk-async-java.md). 
 

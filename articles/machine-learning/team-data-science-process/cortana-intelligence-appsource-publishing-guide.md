@@ -1,8 +1,8 @@
 ---
-title: "Guia de publicação do Cortana Intelligence AppSource | Microsoft Docs"
-description: "Como Partner Microsoft, seguem-se todos os passos que tem de seguir para publicar a sua solução do Cortana Intelligence AppSource."
+title: Guia de publicação do Cortana Intelligence AppSource | Microsoft Docs
+description: Como Partner Microsoft, seguem-se todos os passos que tem de seguir para publicar a sua solução do Cortana Intelligence AppSource.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: anupams
+ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Guia de publicação do Cortana Intelligence AppSource
 
@@ -109,10 +109,10 @@ O conteúdo que está a ser adicionado no AppSource deve ser de alta qualidade e
 ## <a name="publish-your-app-on-the-publishing-portal"></a>Publicar a aplicação no portal de publicação
 Assim que tiver avaliada os passos acima para a sua aplicação, irá obter acesso ao portal de publicação e pode ver [como publicar uma oferta do Cortana Intelligence através do Portal de parceiros de nuvem](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app) para instruções detalhadas sobre os passos seguintes.
 
-Se precisar de informações sobre qualquer um dos campos, de e-mail < appsourcecissupport@microsoft.com >.
+Se precisar de informações sobre qualquer um dos campos, de e-mail <appsourcecissupport@microsoft.com>.
 ## <a name="my-app-is-published-on-appsource---now-what"></a>A minha aplicação está publicada no AppSource - agora que?
 Firstly, parabéns sobre como começar a aplicação publicaram.
 O nível de devolve que obtém a partir da sua aplicação AppSource de publicação descontos elevados depende de como pode influencia o público-alvo. Consulte [pirataria crescimento da Cortana Intelligence aplicação AppSource](http://aka.ms/aagrowthhackguide) para obter mais detalhes sobre a forma como pode maximizar a devolve.
 
-Se tiver quaisquer dúvidas ou sugestões, entrar-nos < appsourcecissupport@microsoft.com >.
+Se tiver quaisquer dúvidas ou sugestões, entrar-nos <appsourcecissupport@microsoft.com>.
 

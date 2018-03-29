@@ -1,11 +1,11 @@
 ---
-title: "Solução de Cofre de chaves do Azure no Log Analytics | Microsoft Docs"
-description: "Pode utilizar a solução Cofre de chaves do Azure na análise de registos para rever os registos do Cofre de chaves do Azure."
+title: Solução de Cofre de chaves do Azure no Log Analytics | Microsoft Docs
+description: Pode utilizar a solução Cofre de chaves do Azure na análise de registos para rever os registos do Cofre de chaves do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b16ec11d1990de687014c5385314f0e0c602a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Soluções de análise do Cofre de chaves do Azure na análise de registos
 
@@ -118,8 +118,8 @@ A solução Cofre de chaves do Azure analisa os registos que tenham um tipo de *
 | Recurso |Nome do Cofre de chaves |
 | ResourceGroup |Grupo de recursos do Cofre de chaves |
 | ResourceId |ID do Recurso do Azure Resource Manager Para os registos do Cofre de chaves, este é o ID de recurso do Cofre de chaves. |
-| ResourceProvider |*MICROSOFT. KEYVAULT* |
-| ResourceType | *COFRES* |
+| ResourceProvider |*MICROSOFT.KEYVAULT* |
+| ResourceType | *VAULTS* |
 | ResultSignature |Estado de HTTP (por exemplo, *OK*) |
 | ResultType |Resultado do pedido de REST API (por exemplo, *êxito*) |
 | SubscriptionId |ID de subscrição do Azure da subscrição que contém o Cofre de chaves |
@@ -137,18 +137,18 @@ Para utilizar a solução atualizada:
 2. Ativar a solução Cofre de chaves do Azure utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md)
 3. Atualizar qualquer consultas guardadas, dashboards ou alertas para utilizar o novo tipo de dados
   + Tipo é alterar de: KeyVaults para AzureDiagnostics. Pode utilizar o ResourceType para filtrar nos registos do Cofre de chave.
-  - Em vez de: `Type=KeyVaults`, utilize`Type=AzureDiagnostics ResourceType=VAULTS`
+  - Em vez de: `KeyVaults`, utilize `AzureDiagnostics | where ResourceType'=="VAULTS"`
   + Campos: (nomes de campo são sensível a maiúsculas e minúsculas)
   - Para qualquer campo que têm um sufixo de \_s, \_d, ou \_g no nome, altere o primeiro caráter caso inferior
-  - Para qualquer campo que têm um sufixo de \_o nome e os dados está dividido em campos individuais com base nos nomes de campo aninhada. Por exemplo, o UPN do chamador é armazenado num campo`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+  - Para qualquer campo que têm um sufixo de \_o nome e os dados está dividido em campos individuais com base nos nomes de campo aninhada. Por exemplo, o UPN do chamador é armazenado num campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    - Campo CallerIpAddress alterado para CallerIPAddress
    - Campo RemoteIPCountry já não está presente
-4. Remova o *análise do Cofre de chave (preterido)* solução. Se estiver a utilizar o PowerShell, utilize`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
+4. Remova o *análise do Cofre de chave (preterido)* solução. Se estiver a utilizar o PowerShell, utilize `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Recolher os dados antes da alteração não é visível na solução de novo. Pode continuar a consultar estes dados com o tipo de antigo e nomes de campo.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Utilize [pesquisas de registo na análise de registos](log-analytics-log-searches.md) para ver os dados detalhados do Cofre de chaves do Azure.

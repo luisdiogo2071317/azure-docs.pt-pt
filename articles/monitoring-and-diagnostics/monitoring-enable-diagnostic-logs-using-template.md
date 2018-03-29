@@ -1,9 +1,9 @@
 ---
-title: "Ativar automaticamente definições de diagnóstico com um modelo do Resource Manager | Microsoft Docs"
-description: "Saiba como utilizar um modelo do Resource Manager para criar definições de diagnóstico que irão permitir-lhe transmitir os registos de diagnóstico para os Event Hubs ou armazená-las numa conta do storage."
+title: Ativar automaticamente definições de diagnóstico com um modelo do Resource Manager | Microsoft Docs
+description: Saiba como utilizar um modelo do Resource Manager para criar definições de diagnóstico que irão permitir-lhe transmitir os registos de diagnóstico para os Event Hubs ou armazená-las numa conta do storage.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: a8a88a8c-4a48-4df6-8f7e-d90634d39c57
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: ce61e50d5c00ef44b8eba562928d383510d4ccf4
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 80f427d5acb884be1752f470e2a9d9d04eee5518
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Ativar automaticamente definições de diagnóstico durante a criação de recursos através de um modelo do Resource Manager
 Neste artigo mostramos como pode utilizar um [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar definições de diagnóstico num recurso quando é criado. Isto permite-lhe iniciar automaticamente a transmissão em fluxo os registos de diagnóstico e métricas para os Event Hubs, arquivá-los numa conta de armazenamento ou enviando-as à análise de registos quando um recurso é criado.
@@ -46,7 +46,7 @@ Não-recursos de computação, terá de efetuar dois procedimentos:
     "settingName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the setting."
+        "description": "Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
       }
     },
     "storageAccountName": {
@@ -139,7 +139,7 @@ Eis um exemplo completo que cria uma aplicação lógica e ativa a transmissão 
     "settingName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the setting."
+        "description": "Name of the setting. Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
       }
     },
     "storageAccountName": {

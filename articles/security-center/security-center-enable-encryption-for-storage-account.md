@@ -1,12 +1,12 @@
 ---
-title: "Ativar a encriptação da conta de armazenamento no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar as recomendações do Centro de segurança do Azure * * ativar a encriptação para o Azure armazenamento conta *."
+title: Ativar a encriptação da conta de armazenamento no Centro de segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar as recomendações do Centro de segurança do Azure **ativar a encriptação da conta de armazenamento do Azure**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82bb201c0b518d0b45e06a1eb25d54f60cb3e028
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Ativar a encriptação para a conta de armazenamento do Azure no Centro de segurança do Azure
 Centro de segurança do Azure poderá recomendar que ativar a encriptação do serviço de armazenamento do Azure para dados inativos.
@@ -27,7 +27,7 @@ Encriptação de serviço de armazenamento (SSE) funciona por encriptar os dados
 
 
 > [!Note]
-> Depois de ativar a encriptação, apenas novos dados são encriptados. Os blobs existentes na sua conta de armazenamento de permanecer desencriptados. Para encriptar os blobs existentes, consulte o [FAQ de encriptação do serviço de armazenamento](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+> Depois de ativar a encriptação, apenas novos dados são encriptados. Os blobs existentes na sua conta de armazenamento de permanecer desencriptados. Para encriptar os blobs existentes, consulte o [FAQ de encriptação do serviço de armazenamento](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
 >
 >
 
@@ -50,7 +50,7 @@ Encriptação do serviço de armazenamento só é suportada em contas de armazen
 Agora que tiver ativado a encriptação de armazenamento para **storageacct1**.
 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Este documento mostrou como implementar a recomendação de centro de segurança "Ativar a encriptação para a conta de armazenamento do Azure." Para saber mais sobre a encriptação de serviço de armazenamento do Azure, consulte o seguinte:
 
 * [Encriptação do serviço de armazenamento do Azure para dados Inativos](../storage/common/storage-service-encryption.md)

@@ -1,19 +1,19 @@
 ---
-title: "Estrutura de definição de política do Azure | Microsoft Docs"
-description: "Descreve como definição de política de recurso é utilizada pela política do Azure para estabelecer as convenções de recursos na sua organização ao descrever quando a política é imposta e a ação a tomar."
+title: Estrutura de definição de política do Azure | Microsoft Docs
+description: Descreve como definição de política de recurso é utilizada pela política do Azure para estabelecer as convenções de recursos na sua organização ao descrever quando a política é imposta e a ação a tomar.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
-ms.custom: 
-ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -70,7 +70,9 @@ O **modo** determina que tipos de recursos serão avaliados para uma política. 
 * `all`: avaliar os grupos de recursos e todos os tipos de recursos 
 * `indexed`: apenas avaliar os tipos de recursos que suportam as etiquetas e a localização
 
-Recomendamos que defina **modo** para `all`. Todas as definições de política criadas através da utilização do portal de `all` modo. Se utilizar o PowerShell ou a CLI do Azure, tem de especificar o **modo** parâmetro e defina-o como `all`. 
+Recomendamos que defina **modo** para `all` na maioria dos casos. Todas as definições de política criadas através da utilização do portal de `all` modo. Se utilizar o PowerShell ou a CLI do Azure, tem de especificar o **modo** parâmetro manualmente.
+
+`indexed` deve ser utilizado quando a criação de políticas que irá impor localizações ou etiquetas. Não é necessária mas impedirá a recursos que não suportam as etiquetas e localizações de ser apresentado como não conformes nos resultados de compatibilidade. A única exceção é **grupos de recursos**. Devem definir políticas que estão a tentar aplicar etiquetas num grupo de recursos ou localização **modo** para `all` e o destino especificamente o `Microsoft.Resources/subscriptions/resourceGroup` tipo. Por exemplo, consulte [etiquetas de grupo de recursos de impor](scripts/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -126,7 +128,7 @@ No **, em seguida,** bloquear, definir o efeito que ocorre quando o **se** condi
     <condition> | <logical operator>
   },
   "then": {
-    "effect": "deny | audit | append"
+    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
   }
 }
 ```
@@ -165,16 +167,22 @@ Podem aninhar operadores lógicos. O seguinte exemplo mostra um **não** operaç
 A condição for avaliada se um **campo** cumpra determinados critérios. As condições suportadas são:
 
 * `"equals": "value"`
+* `"notEquals": "value"`
 * `"like": "value"`
+* `"notLike": "value"`
 * `"match": "value"`
+* `"notMatch": "value"`
 * `"contains": "value"`
+* `"notContains": "value"`
 * `"in": ["value1","value2"]`
+* `"notIn": ["value1","value2"]`
 * `"containsKey": "keyName"`
+* `"notContainsKey": "keyName"`
 * `"exists": "bool"`
 
-Ao utilizar o **como** condição, pode fornecer um caráter universal (*) no valor.
+Ao utilizar o **como** e **notLike** condições, pode fornecer um caráter universal (*) no valor.
 
-Ao utilizar o **corresponder** condição, fornecer `#` para representar um dígito, `?` para uma letra e quaisquer outros carateres para representar esse caráter real. Para obter exemplos, consulte [imagens da VM aprovados](scripts/allowed-custom-images.md).
+Ao utilizar o **corresponder** e **notMatch** condições, fornecer `#` para representar um dígito, `?` para uma letra e quaisquer outros carateres para representar esse caráter real. Para obter exemplos, consulte [imagens da VM aprovados](scripts/allowed-custom-images.md).
 
 ### <a name="fields"></a>Campos
 Condições são formadas campos. Um campo representa propriedades no payload de pedido de recurso que é utilizada para descrever o estado do recurso.  
@@ -182,12 +190,28 @@ Condições são formadas campos. Um campo representa propriedades no payload de
 São suportados os seguintes campos:
 
 * `name`
+* `fullName`
+  * Devolve o nome completo do recurso, incluindo quaisquer elementos principais (por exemplo, "myServer/myDatabase")
 * `kind`
 * `type`
 * `location`
 * `tags`
-* `tags.*`
+* `tags.tagName`
+* `tags[tagName]`
+  * Esta sintaxe Reto suporta nomes de etiqueta, que podem conter períodos de
 * aliases de propriedade - para obter uma lista, consulte [Aliases](#aliases).
+
+### <a name="alternative-accessors"></a>Acessores alternativos
+**Campo** é o acessor primário utilizado nas regras de política. -Lo diretamente inspeciona o recurso que está a ser avaliado. No entanto, a política suporta um outro acessor **origem**.
+
+```json
+"source": "action",
+"equals": "Microsoft.Compute/virtualMachines/write"
+```
+
+**Origem** suporta apenas um valor, **ação**. Ação devolve a ação de autorização do pedido que está a ser avaliado. Ações de autorização são expostas na secção autorização o [registo de atividade](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+
+Quando a política é avaliar recursos existentes em segundo plano define **ação** para um `/write` ação de autorização no tipo de recurso.
 
 ### <a name="effect"></a>Efeito
 Política suporta os seguintes tipos de efeito:
@@ -212,7 +236,7 @@ Para **acrescentar**, tem de fornecer os seguintes detalhes:
 
 O valor pode ser uma cadeia ou um objeto de formato JSON.
 
-Com **AuditIfNotExists** e **DeployIfNotExists** pode avaliar a existência de um recurso de subordinados e aplicar uma regra e um efeito correspondente ao recurso de não existe. Por exemplo, pode exigir que um observador de rede é implementado para todas as redes virtuais.
+Com **AuditIfNotExists** e **DeployIfNotExists** pode avaliar a existência de um recurso relacionado e aplicar uma regra e um efeito correspondente ao recurso de não existe. Por exemplo, pode exigir que um observador de rede é implementado para todas as redes virtuais.
 Para obter um exemplo de auditoria quando uma extensão da máquina virtual não está a ser implementada, consulte [auditoria se a extensão não existe](scripts/audit-ext-not-exist.md).
 
 

@@ -1,21 +1,21 @@
 ---
 title: Matriz de suporte do Azure Site Recovery para replicar a partir do Azure para o Azure | Microsoft Docs
-description: "Resume os sistemas operativos suportados e configurações para a replicação do Azure Site Recovery máquinas virtuais do Azure (VMs) de uma região para outro para as necessidades de recuperação (DR) após desastre."
+description: Resume os sistemas operativos suportados e configurações para a replicação do Azure Site Recovery máquinas virtuais do Azure (VMs) de uma região para outro para as necessidades de recuperação (DR) após desastre.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/24/2018
 ms.author: sujayt
-ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 30ee269b3f484256001af211181a517821d79617
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicar a partir do Azure para o Azure
+# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outro
 
 
 >[!NOTE]
@@ -148,8 +148,8 @@ VMs migrada utilizando a recuperação de sites | Suportadas | Se estiver a que 
 --- | --- | ---
 Tamanho máximo de disco do SO | 2048 GB | Consulte [discos utilizados por VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Tamanho do disco de dados | 4095 GB | Consulte [discos utilizados por VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Número de discos de dados | Até 64 como suportados por um tamanho de VM do Azure específico | Consulte [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
-Disco temporário | Sempre excluídos da replicação | Disco temporário foi excluído da replicação sempre. Não deve colocar todos os dados persistentes em disco temporário de acordo com nce guida do Azure. Consulte [disco temporário em VMs do Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para obter mais detalhes.
+Número de discos de dados | Até 64 como suportado por um tamanho de VM do Azure específico | Consulte [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
+Disco temporário | Sempre excluídos da replicação | Disco temporário foi excluído da replicação sempre. Não deve colocar todos os dados persistentes em disco temporário de acordo com a documentação de orientação do Azure. Consulte [disco temporário em VMs do Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para obter mais detalhes.
 Taxa de alteração de dados no disco | Máximo de 10 por disco para o Premium storage e 2 MBps por disco de armazenamento Standard | Se a taxa de alteração de média de dados no disco para além dos 10 (para Premium) e 2 MBps (para Standard) continuamente, a replicação não irá detetar cópias de segurança. No entanto, se for uma rajada ocasionais dados e a taxa de alteração de dados é maior que 10 (para Premium) e 2 MBps (para Standard) durante algum tempo e ficar, a replicação será acompanhar. Neste caso, poderá ver pontos de recuperação ligeiramente atrasado.
 Discos em contas de armazenamento standard | Suportadas |
 Discos em contas de armazenamento premium | Suportadas | Se uma VM tem discos distribuídos por contas do standard storage e premium, pode selecionar uma conta de armazenamento de destino diferente para cada disco garantir que têm a mesma configuração de armazenamento na região de destino
@@ -174,12 +174,12 @@ Contas de armazenamento de V2 para fins gerais (camada ambos frequente e esporá
 ## <a name="support-for-network-configuration"></a>Suporte para a configuração de rede
 **Configuração** | **Suportado/não suportado** | **Observações**
 --- | --- | ---
-Interface de rede (NIC) | Número máximo de um máximo de NICs suportado por um tamanho de VM do Azure específico | NICs são criados quando é criada a VM como parte da ativação pós-falha de teste ou de operação de ativação pós-falha. O número de NICs a ativação pós-falha da VM depende do número de NICs a VM tem no momento da ativação da replicação de origem. Se lhe adicionar/remover NIC depois de ativar a replicação, não afeta a contagem NIC na ativação pós-falha da VM.
+Interface de rede (NIC) | Até o número máximo de NICs suportado por um tamanho de VM do Azure específico | NICs são criados quando é criada a VM como parte da ativação pós-falha de teste ou de operação de ativação pós-falha. O número de NICs a ativação pós-falha da VM depende do número de NICs a VM tem no momento da ativação da replicação de origem. Se lhe adicionar/remover NIC depois de ativar a replicação, não afeta a contagem NIC na ativação pós-falha da VM.
 Balanceador de Carga de Externo | Suportadas | Precisa de associar o Balanceador de carga previamente configurada utilizando um script de automatização do azure num plano de recuperação.
 Balanceador de carga interno | Suportadas | Precisa de associar o Balanceador de carga previamente configurada utilizando um script de automatização do azure num plano de recuperação.
 IP público| Suportadas | Tem de associar um IP público já existente para o NIC ou crie um e associe a NIC utilizando um script de automatização do azure num plano de recuperação.
 NSG no NIC (Resource Manager)| Suportadas | Precisa de associar o NSG para o NIC utilizando um script de automatização do azure num plano de recuperação.  
-NSG na sub-rede (Resource Manager e clássico)| Suportadas | Precisa de associar o NSG para o NIC utilizando um script de automatização do azure num plano de recuperação.
+NSG na sub-rede (Resource Manager e clássico)| Suportadas | Precisa de associar o NSG para sub-rede a utilizar um script de automatização do azure num plano de recuperação.
 NSG na VM (clássica)| Suportadas | Precisa de associar o NSG para o NIC utilizando um script de automatização do azure num plano de recuperação.
 (IP estático) do IP reservado / manter o IP de origem | Suportadas | Se a NIC na VM de origem tiver uma configuração de IP estático e a sub-rede de destino tiver o mesmo IP disponível, é atribuída para a ativação pós-falha da VM. Se a sub-rede de destino não tem o mesmo IP disponível, uma dos IPs disponíveis na sub-rede é reservada para esta VM. Pode especificar um IP fixo da sua preferência em ' item replicados > Definições > computação e rede > interfaces de rede. Pode selecionar a NIC e especifique a sub-rede e o IP da sua preferência.
 IP dinâmico| Suportadas | Se a NIC na VM de origem tiver uma configuração de IP dinâmica, o NIC a ativação pós-falha de VM também é dinâmica por predefinição. Pode especificar um IP fixo da sua preferência em ' item replicados > Definições > computação e rede > interfaces de rede. Pode selecionar a NIC e especifique a sub-rede e o IP da sua preferência.

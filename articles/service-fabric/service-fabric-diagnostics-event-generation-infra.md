@@ -1,47 +1,62 @@
 ---
-title: "Plataforma de recursos de infraestrutura de serviço do Azure de nível de monitorização | Microsoft Docs"
-description: "Saiba mais sobre eventos de nível de plataforma e registos utilizados para monitorizar e diagnosticar os clusters de Service Fabric do Azure."
+title: Plataforma de recursos de infraestrutura de serviço do Azure de nível de monitorização | Microsoft Docs
+description: Saiba mais sobre eventos de nível de plataforma e registos utilizados para monitorizar e diagnosticar os clusters de Service Fabric do Azure.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/20/2017
+ms.date: 03/19/2018
 ms.author: dekapur
-ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 46ba7b6e638fafa512d4a3f291c49acc1ddf02e4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="platform-level-event-and-log-generation"></a>Geração de registo e evento nível no plataforma
-
-## <a name="monitoring-the-cluster"></a>O cluster de monitorização
+# <a name="monitoring-the-cluster-and-platform"></a>Monitorização do cluster e a plataforma
 
 É importante monitorizar a nível de plataforma para determinar se é ou não o hardware e o cluster se comportam conforme esperado. Apesar de Service Fabric pode manter as aplicações em execução durante uma falha de hardware, mas terá de diagnosticar se o erro está a ocorrer numa aplicação ou na infraestrutura subjacente. Também deverá monitorizar clusters para melhor planear a capacidade, ajudar a tomar decisões sobre a adição ou remoção de hardware.
 
 O Service Fabric fornece o seguinte registo canais out-of-a-box:
-* Canal operacional: operações de alto nível efetuadas pelo serviço de recursos de infraestrutura e o cluster, incluindo eventos de um nó de futuras cópias de segurança, uma nova aplicação que está a ser implementada ou uma atualização reversão, etc.
-* Canal operacional - detalhada: relatórios de estado de funcionamento e decisões de balanceamento de carga
-* Canal de mensagens & dados: críticos registos e eventos gerados no (atualmente apenas o ReverseProxy) de mensagens e o caminho de dados (modelos de reliable services)
-* Canal de mensagens & dados - detalhada: verboso canal que contém todos os registos não críticos de dados e mensagens do cluster (este canal tem um volume muito elevado de eventos)   
+
+* **Operacional**  
+Operações de alto nível efetuadas pelo serviço de recursos de infraestrutura e o cluster, incluindo eventos de um nó de futuras cópias de segurança, uma nova aplicação que está a ser implementada ou uma atualização reversão, etc.
+
+* **Operacional - detalhadas**  
+Relatórios de estado de funcionamento e decisões de balanceamento de carga.
+
+* **& Mensagens de dados**  
+Registos críticos e os eventos gerados no (atualmente apenas o ReverseProxy) de mensagens e o caminho de dados (modelos de serviços fiável).
+
+* **Dados & mensagens - detalhadas**  
+Canal verboso que contém todos os registos de mensagens do cluster (este canal tem um volume muito elevado de eventos) e de dados não críticos.
 
 Além destas, existem dois canais de EventSource estruturados fornecidos, bem como registos que recolhemos para fins de suporte.
-* [Eventos de serviços fiáveis](service-fabric-reliable-services-diagnostics.md): eventos específicos do modelo de programação
-* [Eventos de Atores fiáveis](service-fabric-reliable-actors-diagnostics.md): programação eventos específicos do modelo e os contadores de desempenho
-* Suporta registos: gerados pelo serviço de recursos de infraestrutura apenas ser utilizado por ao fornecer suporte de registos de sistema
+
+* [Eventos do Reliable Services](service-fabric-reliable-services-diagnostics.md)  
+Eventos específicos do modelo de programação.
+
+* [Eventos de Reliable Actors](service-fabric-reliable-actors-diagnostics.md)  
+Eventos específicos do modelo de programação e contadores de desempenho.
+
+* Registos de suporte  
+Registos do sistema gerados pelo serviço de recursos de infraestrutura apenas ser utilizado por ao fornecer suporte.
 
 Estes canais vários abrangem a maioria do registo de nível de plataforma que é recomendada. Para melhorar o registo ao nível da plataforma, considere o investimento em melhor compreender o modelo de estado de funcionamento e a adicionar relatórios de estado de funcionamento personalizado e adicionar personalizado **contadores de desempenho** para criar uma compreensão em tempo real sobre o impacto da sua os serviços e aplicações no cluster.
 
-### <a name="azure-service-fabric-health-and-load-reporting"></a>Estado de funcionamento de Service Fabric do Azure e relatórios de carga
+Para tirar partido destes registos, recomenda-se vivamente que durante a criação do cluster, "diagnóstico" está ativado. Ao ativar o diagnóstico, quando o cluster é implementado, Windows Azure Diagnostics é capaz de reconhecer o operacional, Reliable Services e canais Reliable actors e armazenar os dados como mais explained [agregar eventos com o Azure Diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md).
+
+## <a name="azure-service-fabric-health-and-load-reporting"></a>Estado de funcionamento de Service Fabric do Azure e relatórios de carga
 
 Service Fabric tem o seu próprio modelo de estado de funcionamento, que é descrito detalhadamente nestes artigos:
+
 - [Introdução à monitorização de estado de funcionamento do Service Fabric](service-fabric-health-introduction.md)
 - [Comunicar e verificar o estado de funcionamento dos serviços](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 - [Adicionar relatórios de estado de funcionamento personalizados do Service Fabric](service-fabric-report-health.md)
@@ -58,44 +73,9 @@ Métricas também podem ajudar a dar-lhe informações sobre como o serviço est
 
 Todas as informações que podem indicar o estado de funcionamento e desempenho da aplicação são uma candidata para relatórios de estado de funcionamento e as métricas. Um contador de desempenho da CPU pode indicar-lhe como o nó for utilizado, mas não indica se um determinado serviço está em bom estado, porque poderão estar em execução vários serviços num único nó. Mas, métricas como RPS, itens processadas, e latência de pedidos de todos os pode indicar o estado de funcionamento de um serviço específico.
 
-Para comunicar o estado de funcionamento, utilize o código semelhante a isto:
-
-  ```csharp
-    if (!result.HasValue)
-    {
-        HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
-        this.Partition.ReportInstanceHealth(healthInformation);
-    }
-  ```
-
-Para comunicar uma métrica, utilize código semelhante a isto:
-
-  ```csharp
-    this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
-  ```
-
-### <a name="service-fabric-support-logs"></a>Registos de suporte do Service Fabric
+## <a name="service-fabric-support-logs"></a>Registos de suporte do Service Fabric
 
 Se precisar de contactar o suporte da Microsoft para obter ajuda com o cluster do Service Fabric do Azure, os registos de suporte quase sempre são necessários. Se o cluster está alojado no Azure, os registos de suporte são automaticamente configurados e recolhidos como parte da criação de um cluster. Os registos são armazenados numa conta de armazenamento dedicado no grupo de recursos do cluster. A conta de armazenamento não tem um nome fixo, mas a conta, é apresentado o contentores de BLOBs e tabelas com nomes que começam com *recursos de infraestrutura*. Para obter informações sobre como configurar coleções de registo para um cluster autónomo, consulte [criar e gerir um cluster do Azure Service Fabric autónomo](service-fabric-cluster-creation-for-windows-server.md) e [definições de configuração para uma autónoma Windows cluster](service-fabric-cluster-manifest.md). Para instâncias de Service Fabric autónomas, os registos devem ser enviados para uma partilha de ficheiros local. É **necessário** ter estes registos para suporte, mas não se destinam a ser utilizada por todas as pessoas fora da equipa de suporte ao cliente da Microsoft.
-
-## <a name="enabling-diagnostics-for-a-cluster"></a>Ativar o diagnóstico para um cluster
-
-Para tirar partido destes registos, recomenda-se vivamente que durante a criação do cluster, "diagnóstico" está ativado. Ao ativar o diagnóstico, quando o cluster é implementado, Windows Azure Diagnostics é capaz de reconhecer o operacional, Reliable Services e canais Reliable actors e armazenar os dados como mais explained [agregar eventos com o Azure Diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md).
-
-Como mostrado acima, há também um campo opcional para adicionar uma chave de instrumentação do Application Insights (AI). Se optar por utilizar AI para quaisquer análises de eventos (Leia mais informações sobre este assunto na [análise de eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)), incluir aqui instrumentationKey de recurso AppInsights (GUID).
-
-
-Se pretender implementar contentores para o cluster, ative WAD recolher estatísticas de docker adicionando este à sua "WadCfg > DiagnosticMonitorConfiguration":
-
-```json
-"DockerSources": {
-    "Stats": {
-        "enabled": true,
-        "sampleRate": "PT1M"
-    }
-},
-
-```
 
 ## <a name="measuring-performance"></a>Medir o desempenho
 
@@ -105,10 +85,12 @@ Para obter uma lista de contadores de desempenho para recolher ao utilizar o Ser
 
 Seguem-se duas formas comuns na qual pode configurar a recolha de dados de desempenho para o cluster:
 
-* Através de um agente: Esta é a forma de recolha de desempenho de uma máquina, uma vez que os agentes têm, normalmente, uma lista de possíveis métricas de desempenho que podem ser recolhidas preferencial e é um processo é relativamente fácil para escolher as métricas que pretende recolher ou alterá-los. Leia sobre [como configurar o OMS de Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) e [como configurar o agente do OMS Windows](../log-analytics/log-analytics-windows-agent.md) artigos para saber mais sobre o agente do OMS, que é um desse agente de monitorização que consegue recolher desempenho dados para as VMs do cluster e contentores implementados.
+* **Através de um agente**  
+Esta é a forma de recolha de desempenho de uma máquina, uma vez que os agentes têm, normalmente, uma lista de possíveis métricas de desempenho que podem ser recolhidas preferencial e é um processo é relativamente fácil para escolher as métricas que pretende recolher ou alterá-los. Leia sobre [como configurar o OMS de Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) e [como configurar o agente do OMS Windows](../log-analytics/log-analytics-windows-agent.md) artigos para saber mais sobre o agente do OMS, que é um desse agente de monitorização que consegue recolher desempenho dados para as VMs do cluster e contentores implementados.
 
-* Configurar diagnósticos para escrever os contadores de desempenho na tabela: para os clusters no Azure, isto significa que a alteração da configuração de diagnósticos do Azure para recolher os contadores de desempenho adequadas de VMs do cluster e, permitindo-lhe recolher estatísticas de docker se for implementar quaisquer contentores. Leia sobre como configurar [os contadores de desempenho WAD](service-fabric-diagnostics-event-aggregation-wad.md) no Service Fabric para configurar a recolha do contador de desempenho.
+* **Configuração de diagnósticos de escrever os contadores de desempenho para uma tabela**  
+Para os clusters no Azure, isto significa que a alteração da configuração de diagnósticos do Azure para recolher os contadores de desempenho adequadas de VMs do cluster e, permitindo-lhe recolher estatísticas de docker se for implementar quaisquer contentores. Leia sobre como configurar [os contadores de desempenho WAD](service-fabric-diagnostics-event-aggregation-wad.md) no Service Fabric para configurar a recolha do contador de desempenho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os registos e eventos tem de ser agregada antes que podem ser enviadas para qualquer plataforma de análise. Leia sobre [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e [WAD](service-fabric-diagnostics-event-aggregation-wad.md) para melhor compreender algumas das opções recomendadas.

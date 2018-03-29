@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 0270fa207b782d2d89f2408a380b766f58fa05cb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/23/2018
+---
 1. No portal, em **Todos os recursos**, clique em **+Adicionar**. 
 2. Na caixa de pesquisa da página **Tudo**, escreva **Gateway de rede Local** e, em seguida, clique para procurar. Isto irá devolver uma lista. Clique em **Gateway de rede Local** para abrir a página e, em seguida, clique em **Criar** para abrir a página **Criar gateway de rede local**.
 

@@ -1,24 +1,24 @@
 ---
-title: "Solução de análise de redes do Azure no Log Analytics | Microsoft Docs"
-description: "Pode utilizar a solução de análise de redes do Azure na análise de registos para rever os registos de grupo de segurança de rede do Azure e os registos do Gateway de aplicação do Azure."
+title: Solução de análise de redes do Azure no Log Analytics | Microsoft Docs
+description: Pode utilizar a solução de análise de redes do Azure na análise de registos para rever os registos de grupo de segurança de rede do Azure e os registos do Gateway de aplicação do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: ewinner
-editor: 
+editor: ''
 ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 06b67322b3812a668a515ecc357171ede1d85441
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17dadd784d59a2cc0cab6ffbae144010f896b296
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluções de análise de registos de monitorização da rede do Azure
 
@@ -205,25 +205,25 @@ Para utilizar as soluções atualizadas:
 
 1. [Configurar diagnósticos para serem enviados diretamente ao Log Analytics dos Gateways de aplicação do Azure](#enable-azure-application-gateway-diagnostics-in-the-portal)
 2. [Configurar diagnósticos para serem enviados diretamente ao Log Analytics grupos de segurança de rede do Azure](#enable-azure-network-security-group-diagnostics-in-the-portal)
-2. Ativar o *análise de Gateway de aplicação do Azure* e *análises de grupo de segurança de rede de Azure* solução utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md)
+2. Ativar o *análise de Gateway de aplicação do Azure* e *análises de grupo de segurança de rede de Azure* solução utilizando o processo descrito no [soluções de análise de registos de adicionar do Galeria de soluções](log-analytics-add-solutions.md)
 3. Atualizar qualquer consultas guardadas, dashboards ou alertas para utilizar o novo tipo de dados
   + Tipo é AzureDiagnostics. Pode utilizar o ResourceType para filtrar nos registos de rede do Azure.
 
     | Em vez de: | Utilização: |
     | --- | --- |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`| `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess` |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance` | `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance` |
-    | `Type=NetworkSecuritygroups` | `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS` |
+    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; onde ResourceType = "APPLICATIONGATEWAYS" e OperationName = = "ApplicationGatewayAccess" |
+    | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayPerformance" | AzureDiagnostics &#124; onde ResourceType = = "APPLICATIONGATEWAYS" e OperationName = ApplicationGatewayPerformance |
+    | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Para qualquer campo que têm um sufixo de \_s, \_d, ou \_g no nome, altere o primeiro caráter caso inferior
    + Para qualquer campo que têm um sufixo de \_o nome e os dados está dividido em campos individuais com base nos nomes de campo aninhada.
 4. Remova o *redes a análise do Azure (preterido)* solução.
-  + Se estiver a utilizar o PowerShell, utilize`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
+  + Se estiver a utilizar o PowerShell, utilize `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
 Recolher os dados antes da alteração não é visível na solução de novo. Pode continuar a consultar estes dados com o tipo de antigo e nomes de campo.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Utilize [pesquisas de registo na análise de registos](log-analytics-log-searches.md) para ver detalhadas dados de diagnóstico do Azure.

@@ -1,12 +1,28 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: container-registry
+author: mmacy
+ms.service: container-registry
+ms.topic: include
+ms.date: 03/23/2018
+ms.author: marsma
+ms.custom: include file
+ms.openlocfilehash: 575483192954f4e05db50e701e223829e041cffc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/28/2018
+---
 | Recurso | Básica | Standard | Premium |
 |---|---|---|---|---|
-| Armazenamento | 10 giB | 100 giB| 500 giB |
-| ReadOps por minuto<sup>1, 2</sup> | 1k | 300k | 10 000 k |
-| WriteOps por minuto<sup>1, 3</sup> | 100 | 500 | k de 2 |
+| Armazenamento | 10 GiB | 100 GiB| 500 GiB |
+| ReadOps por minuto<sup>1, 2</sup> | 1000 | 3000 | 10000 |
+| WriteOps por minuto<sup>1, 3</sup> | 100 | 500 | 2000 |
 | Transferir a largura de banda MBps<sup>1</sup> | 30 | 60 | 100 |
 | Carregar MBps da largura de banda<sup>1</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 100 |
-| Georreplicação | N/D | N/D | [Suportado *(pré-visualização)*](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication) |
+| Georreplicação | N/A | N/A | [Suportado *(pré-visualização)*](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication) |
 
 <sup>1</sup> *ReadOps*, *WriteOps*, e *largura de banda* são estimativas mínimo. ACR strives melhorar o desempenho porque requer a utilização.
 

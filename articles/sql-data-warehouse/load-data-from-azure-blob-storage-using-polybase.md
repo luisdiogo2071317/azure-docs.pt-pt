@@ -1,31 +1,31 @@
 ---
 title: 'Tutorial: Carregamento de dados Polybase - Azure Storage Blob para o Azure SQL Data Warehouse | Microsoft Docs'
-description: "Um tutorial que utiliza o portal do Azure e o SQL Server Management Studio para carregar dados de táxis de Nova Iorque do armazenamento de blobs do Azure para o Azure SQL Data Warehouse."
+description: Um tutorial que utiliza o portal do Azure e o SQL Server Management Studio para carregar dados de táxis de Nova Iorque do armazenamento de blobs do Azure para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: ckarst
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-data-warehouse
 ms.custom: mvc,develop data warehouses
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 11/17/2017
+ms.date: 03/16/2018
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 4bb9b4a01d3efb90486e34d2b0eb5cfeef66e50c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Tutorial : Utilizar o PolyBase para carregar dados do armazenamento de blobs do Azure para o Azure SQL Data Warehouse
 
-O PolyBase é a tecnologia de carregamento padrão para carregar dados para o SQL Data Warehouse. Neste tutorial, utilize o PolyBase para carregar dados de táxis de Nova Iorque do armazenamento de blobs do Azure para o Azure SQL Data Warehouse. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) para: 
+O PolyBase é a tecnologia de carregamento padrão para carregar dados para o SQL Data Warehouse. Neste tutorial, utilize o PolyBase para carregar dados de táxis de Nova Iorque do armazenamento de blobs do Azure para o Azure SQL Data Warehouse. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para: 
 
 > [!div class="checklist"]
 > * Criar um armazém de dados no portal do Azure
@@ -41,7 +41,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
@@ -91,7 +91,7 @@ Siga estes passos para criar um armazém de dados SQL vazio.
     ![configurar o desempenho](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Clique em **Aplicar**.
-9. Na página do SQL Data Warehouse, selecione um **agrupamento** para a base de dados vazia. Para este tutorial, utilize o valor predefinido. Para obter mais informações sobre agrupamentos, veja [Agrupamentos](/sql/t-sql/statements/collations.md)
+9. Na página do SQL Data Warehouse, selecione um **agrupamento** para a base de dados vazia. Para este tutorial, utilize o valor predefinido. Para obter mais informações sobre agrupamentos, veja [Agrupamentos](/sql/t-sql/statements/collations)
 
 11. Agora que concluiu o formulário da Base de Dados SQL do Servidor, clique em **Criar** para aprovisionar a base de dados. O aprovisionamento demora alguns minutos. 
 
@@ -146,7 +146,7 @@ Obtenha o nome de servidor completamente qualificado para o servidor SQL no port
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ligar ao servidor como administrador do servidor
 
-Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) para estabelecer uma ligação ao servidor SQL do Azure.
+Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para estabelecer uma ligação ao servidor SQL do Azure.
 
 1. Abra o SQL Server Management Studio.
 
@@ -221,7 +221,7 @@ O primeiro passo para o carregamento de dados é iniciar sessão como LoaderRC20
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Criar tabelas externas para os dados de exemplo
 
-Está pronto para iniciar o processo de carregamento de dados para o novo armazém de dados. Este tutorial mostra-lhe como utilizar o [Polybase](/sql/relational-databases/polybase/polybase-guide.md) para carregar os dados de táxis da cidade de Nova Iorque a partir de um blob de armazenamento do Azure. Para referência futura e para saber como colocar os seus dados no armazenamento de blobs do Azure ou carregá-los diretamente da sua origem para o SQL Data Warehouse,veja a [descrição geral do carregamento](sql-data-warehouse-overview-load.md).
+Está pronto para iniciar o processo de carregamento de dados para o novo armazém de dados. Este tutorial mostra-lhe como utilizar o [Polybase](/sql/relational-databases/polybase/polybase-guide) para carregar os dados de táxis da cidade de Nova Iorque a partir de um blob de armazenamento do Azure. Para referência futura e para saber como colocar os seus dados no armazenamento de blobs do Azure ou carregá-los diretamente da sua origem para o SQL Data Warehouse,veja a [descrição geral do carregamento](sql-data-warehouse-overview-load.md).
 
 Execute os seguintes scripts SQL para especificar informações sobre os dados que pretende carregar. Estas informações incluem a localização dos dados, o formato do conteúdo dos dados e a definição da tabela dos dados. 
 
@@ -237,7 +237,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     CREATE MASTER KEY;
     ```
 
-4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) para definir a localização do blob do Azure. Esta é a localização dos dados externos de táxis.  Para executar um comando que anexou à janela de consulta, realce os comandos que pretende executar e clique em **Executar**.
+4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) para definir a localização do blob do Azure. Esta é a localização dos dados externos de táxis.  Para executar um comando que anexou à janela de consulta, realce os comandos que pretende executar e clique em **Executar**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -248,7 +248,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     );
     ```
 
-5. Execute a seguinte instrução T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) para especificar as características de formatação e as opções para o ficheiro de dados externos. Esta instrução especifica que os dados externos são armazenados como texto e que os valores são separados pelo caráter de pipe (“|”). O ficheiro externo é comprimido com Gzip. 
+5. Execute a seguinte instrução T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) para especificar as características de formatação e as opções para o ficheiro de dados externos. Esta instrução especifica que os dados externos são armazenados como texto e que os valores são separados pelo caráter de pipe (“|”). O ficheiro externo é comprimido com Gzip. 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -273,7 +273,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     );
     ```
 
-6.  Execute a seguinte instrução [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) para criar um esquema para o formato de ficheiro externo. O esquema é uma forma de organizar as tabelas externas que está prestes a criar.
+6.  Execute a seguinte instrução [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) para criar um esquema para o formato de ficheiro externo. O esquema é uma forma de organizar as tabelas externas que está prestes a criar.
 
     ```sql
     CREATE SCHEMA ext;
@@ -456,7 +456,7 @@ Esta secção utiliza as tabelas externas que acabou de definir para carregar os
 > Este tutorial carrega os dados diretamente para a tabela final. Num ambiente de produção, normalmente, utilizará CREATE TABLE AS SELECT para carregar para uma tabela de testes. Enquanto os dados estiverem na tabela de teste, pode efetuar quaisquer transformações necessárias. Para acrescentar os dados na tabela de teste a uma tabela de produção, pode utilizar a instrução INSERT...SELECT. Para obter mais informações, veja [Inserir dados na tabela de produção](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-O script utiliza a instrução T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) para carregar os dados do Azure Storage Blob para novas tabelas no armazém de dados. CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados dos resultados da instrução select. Quando a instrução select seleciona de uma tabela externa, o SQL Data Warehouse importa os dados para uma tabela relacional no armazém de dados. 
+O script utiliza a instrução T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para carregar os dados do Azure Storage Blob para novas tabelas no armazém de dados. CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados dos resultados da instrução select. Quando a instrução select seleciona de uma tabela externa, o SQL Data Warehouse importa os dados para uma tabela relacional no armazém de dados. 
 
 1. Execute o script seguinte para carregar os dados para novas tabelas no armazém de dados.
 

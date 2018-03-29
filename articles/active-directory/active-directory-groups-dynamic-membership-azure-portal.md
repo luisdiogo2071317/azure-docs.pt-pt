@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/23/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 22fdb448dda1c824ae5e1fee6f9b2e7377680d6b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2b42840bc1053e9574e7c8ab1c68611c3b2bc7df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributos para filiação dinâmica em grupos no Azure Active Directory
 No Azure Active Directory (Azure AD), pode criar regras avançadas para ativar complexas baseadas em atributos filiação dinâmica para grupos. Este artigo fornece detalhes sobre os atributos e a sintaxe para criar regras de associação dinâmica para utilizadores ou dispositivos.
@@ -74,7 +74,7 @@ Para obter a lista completa de parâmetros suportados e operadores de regra de e
 O comprimento total do corpo da sua regra avançada não pode exceder 2048 carateres.
 
 > [!NOTE]
-> As operações de cadeia e regex não são sensíveis a maiúsculas e minúsculas. Também pode executar verificações de Null, utilizando *nulo* como uma constante, por exemplo, user.department - eq *nulo*.
+> As operações de cadeia e regex não são sensíveis a maiúsculas e minúsculas. Também pode executar verificações de valores nulos, utilizando *nulo* como uma constante, por exemplo, user.department - eq *$null*.
 > As cadeias que contenham aspas "escape utilizando ' caráter, por exemplo, user.department - eq \`"Vendas".
 
 ## <a name="supported-expression-rule-operators"></a>Operadores de regra de expressão suportados
@@ -160,32 +160,32 @@ Operadores permitidos
 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
-| city |Qualquer valor de cadeia ou *nulo* |(user.city -eq "value") |
-| País |Qualquer valor de cadeia ou *nulo* |(user.country -eq "value") |
-| companyName | Qualquer valor de cadeia ou *nulo* | (user.companyName -eq "value") |
-| Departamento |Qualquer valor de cadeia ou *nulo* |(user.department - eq "value") |
+| city |Qualquer valor de cadeia ou *$null* |(user.city -eq "value") |
+| País |Qualquer valor de cadeia ou *$null* |(user.country -eq "value") |
+| companyName | Qualquer valor de cadeia ou *$null* | (user.companyName -eq "value") |
+| Departamento |Qualquer valor de cadeia ou *$null* |(user.department - eq "value") |
 | displayName |Qualquer valor de cadeia |(user.displayName -eq "value") |
-| campo IDdeEmpregado |Qualquer valor de cadeia |(user.employeeId -eq "value")<br>(user.employeeId - ne *nulo*) |
-| facsimileTelephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |Qualquer valor de cadeia ou *nulo* |(user.givenName -eq "value") |
-| jobTitle |Qualquer valor de cadeia ou *nulo* |(user.jobTitle -eq "value") |
-| capacidade de correio |Qualquer valor de cadeia ou *nulo* (endereço SMTP do utilizador) |(user.mail -eq "value") |
+| campo IDdeEmpregado |Qualquer valor de cadeia |(user.employeeId -eq "value")<br>(user.employeeId - ne *$null*) |
+| facsimileTelephoneNumber |Qualquer valor de cadeia ou *$null* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |Qualquer valor de cadeia ou *$null* |(user.givenName -eq "value") |
+| jobTitle |Qualquer valor de cadeia ou *$null* |(user.jobTitle -eq "value") |
+| capacidade de correio |Qualquer valor de cadeia ou *$null* (endereço SMTP do utilizador) |(user.mail -eq "value") |
 | mailNickName |Qualquer valor de cadeia (alias de correio do utilizador) |(user.mailNickName -eq "value") |
-| Mobile |Qualquer valor de cadeia ou *nulo* |(user.mobile -eq "value") |
+| Mobile |Qualquer valor de cadeia ou *$null* |(user.mobile -eq "value") |
 | objectId |GUID de objeto de utilizador |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | No local o identificador de segurança (SID) para os utilizadores que foram sincronizadas no local para a nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Qualquer valor de cadeia ou *nulo* |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |Qualquer valor de cadeia ou *nulo* |(user.postalCode -eq "value") |
+| physicalDeliveryOfficeName |Qualquer valor de cadeia ou *$null* |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |Qualquer valor de cadeia ou *$null* |(user.postalCode -eq "value") |
 | preferredLanguage |Código do ISO 639-1 |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Qualquer valor de cadeia ou *nulo* |(user.sipProxyAddress -eq "value") |
-| state |Qualquer valor de cadeia ou *nulo* |(user.state -eq "value") |
-| streetAddress |Qualquer valor de cadeia ou *nulo* |(user.streetAddress -eq "value") |
-| Apelido |Qualquer valor de cadeia ou *nulo* |(user.surname - eq "value") |
-| telephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.telephoneNumber -eq "value") |
+| sipProxyAddress |Qualquer valor de cadeia ou *$null* |(user.sipProxyAddress -eq "value") |
+| state |Qualquer valor de cadeia ou *$null* |(user.state -eq "value") |
+| streetAddress |Qualquer valor de cadeia ou *$null* |(user.streetAddress -eq "value") |
+| Apelido |Qualquer valor de cadeia ou *$null* |(user.surname - eq "value") |
+| telephoneNumber |Qualquer valor de cadeia ou *$null* |(user.telephoneNumber -eq "value") |
 | usageLocation |Indicativo de país lettered dois |(user.usageLocation -eq "US") |
 | userPrincipalName |Qualquer valor de cadeia |(user.userPrincipalName -eq "alias@domain") |
-| userType |o convidado de membro *nulo* |(user.userType -eq "Member") |
+| userType |o convidado de membro *$null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades de coleção de cadeia de tipo
 Operadores permitidos
@@ -230,7 +230,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 Para especificar um valor nulo numa regra, pode utilizar o *nulo* valor. Tenha cuidado para não utilizar as aspas à volta o word *nulo* -se o fizer, será interpretado como um valor de cadeia literal. A forma correta para fazer referência um valor nulo é o seguinte:
 ```
-   user.mail –ne null
+   user.mail –ne $null
 ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Atributos de extensões e atributos personalizados

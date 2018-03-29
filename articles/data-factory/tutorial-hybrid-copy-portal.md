@@ -1,11 +1,11 @@
 ---
 title: Copiar dados do SQL Server para o Armazenamento de Blobs com o Azure Data Factory | Microsoft Docs
-description: "Saiba como copiar dados de um arquivo de dados no local para a cloud mediante a utilização de um runtime de integração autoalojado no Azure Data Factory."
+description: Saiba como copiar dados de um arquivo de dados no local para a cloud mediante a utilização de um runtime de integração autoalojado no Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: ced708febe848d4555429b78c0227a35b7f0c79f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e21c08d418022430400ff14baedc1759d2d16069
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar a interface de utilizador (IU) do Azure Data Factory para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud.
@@ -48,7 +48,7 @@ Para criar instâncias de fábricas de dados, a conta de utilizador que utiliza 
 Para ver as permissões que tem na subscrição, aceda ao portal do Azure. No canto superior direito, selecione o nome de utilizador e, em seguida, selecione **Permissões**. Se tiver acesso a várias subscrições, selecione a subscrição apropriada. Para obter instruções de exemplo sobre como adicionar um utilizador a uma função, veja [Adicionar funções](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
-Neste tutorial, vai utilizar uma base de dados do SQL Server no local como um arquivo de dados de *origem*. O pipeline da fábrica de dados que vai criar neste tutorial copia dados desta base de dados do SQL Server no local (origem) para o armazenamento de Blobs (sink). Vai criar uma tabela com o nome **emp** na sua base de dados do SQL Server e inserir algumas entradas de exemplo na tabela. 
+Neste tutorial, vai utilizar uma base de dados do SQL Server no local como um arquivo de dados de *origem*. O pipeline da fábrica de dados que vai criar neste tutorial copia dados desta base de dados do SQL Server no local (origem) para o Armazenamento de blobs (sink). Vai criar uma tabela com o nome **emp** na sua base de dados do SQL Server e inserir algumas entradas de exemplo na tabela. 
 
 1. Inicie o SQL Server Management Studio. Se ainda não estiver instalado no seu computador, aceda a [Transferir o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). 
 
@@ -76,7 +76,7 @@ Neste tutorial, vai utilizar uma base de dados do SQL Server no local como um ar
 6. Na vista de árvore, clique com o botão direito do rato na base de dados que criou e selecione **Nova Consulta**.
 
 ### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
-Neste tutorial, utiliza uma conta de armazenamento do Azure para fins gerais (mais concretamente, o armazenamento de Blobs) como arquivo de dados de destino/sink. Se não tiver uma conta de armazenamento do Azure para fins gerais, veja [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account). O pipeline da fábrica de dados que vai criar neste tutorial copia dados desta base de dados do SQL Server no local (origem) para o armazenamento de Blobs (sink). 
+Neste tutorial, utiliza uma conta de armazenamento do Azure para fins gerais (mais concretamente, o Armazenamento de blobs) como arquivo de dados de destino/sink. Se não tiver uma conta de armazenamento do Azure para fins gerais, veja [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account). O pipeline da fábrica de dados que vai criar neste tutorial copia dados desta base de dados do SQL Server no local (origem) para o armazenamento de Blobs (sink). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obter o nome e a chave da conta de armazenamento
 Utilize o nome e a chave da sua conta de armazenamento neste tutorial. Para obter o nome e a chave da sua conta de armazenamento, siga os passos seguintes: 
@@ -96,7 +96,7 @@ Utilize o nome e a chave da sua conta de armazenamento neste tutorial. Para obte
 5. Nas caixas **Nome da conta de armazenamento** e **key1**, copie os valores e cole-os no Bloco de notas ou noutro editor, para utilizar mais adiante no tutorial. 
 
 #### <a name="create-the-adftutorial-container"></a>Criar o contentor adftutorial 
-Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no seu armazenamento de Blobs. 
+Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no seu Armazenamento de blobs. 
 
 1. Na janela **Conta de armazenamento**, vá para **Descrição Geral** e selecione **Blobs**. 
 
@@ -229,7 +229,7 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
     ![Separador Sink](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
 18. Na janela **Novo Conjunto de Dados**, selecione **Armazenamento de Blobs do Azure**. Em seguida, selecione **Concluir**. Verá um novo separador aberto para o conjunto de dados. Também verá o conjunto de dados na vista de árvore. 
 
-    ![Seleção do armazenamento de Blobs](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
+    ![Seleção do Armazenamento de blobs](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
 19. Em **Nome**, introduza **AzureBlobDataset**.
 
     ![Nome do conjunto de dados de sink](./media/tutorial-hybrid-copy-portal/sink-dataset-name.png)

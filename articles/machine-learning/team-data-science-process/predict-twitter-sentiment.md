@@ -1,24 +1,24 @@
 ---
-title: "Prever sentimento do Twitter com o word embeddings utilizando o processo de ciência de dados de equipa no Azure | Microsoft Docs"
-description: "Os passos necessários para executar os seus projetos de ciência de dados."
+title: Prever sentimento do Twitter com o word embeddings utilizando o processo de ciência de dados de equipa no Azure | Microsoft Docs
+description: Os passos necessários para executar os seus projetos de ciência de dados.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: bradsev;
-ms.openlocfilehash: 9bae3971f438659c121bfc18a23746a016e5ef97
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.author: bradsev
+ms.openlocfilehash: f22da892868a10ac18fdcd703249eaa172f8bf65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Prever sentimento do Twitter com o word embeddings utilizando o processo de ciência de dados de equipa
 
@@ -129,7 +129,7 @@ O modelo os aumentos gradação com a funcionalidade SSWE fornece o melhor desem
 
 O passo final é a implementação do modelo de previsão sentimento preparado para um serviço web num cluster no serviço de contentor do Azure. Este exemplo utiliza o modelo os aumentos gradação com o algoritmo embedding SSWE como o modelo treinado. O ambiente de operationalization Aprovisiona Docker e Kubernetes do cluster para gerir a implementação de serviço web, conforme mostrado na figura seguinte: 
 
-![Dashboard de Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
+![Dashboard do Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
 Para obter mais informações sobre o processo de operationalization, consulte [implementar um modelo do Azure Machine Learning como um serviço web](../preview/model-management-service-deploy.md).
 

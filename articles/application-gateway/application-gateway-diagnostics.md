@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: c739d98f81bafb6474995b141cab3400bcb4dc33
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dfa451a06fbadbb63c83f800ac164db399efd583
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento de back-end, os registos de diagnóstico e métricas de Gateway de aplicação
 
@@ -176,7 +176,7 @@ O registo de acesso é gerado apenas se tiver ativado, cada instância de Gatewa
 |clientPort     | Porta de origem para o pedido.       |
 |httpMethod     | Método HTTP utilizado por pedido.       |
 |requestUri     | URI do pedido recebido.        |
-|RequestQuery     | **Encaminhados por servidor**: instância de conjunto de Back-end que lhe foi enviada o pedido. </br> **X-AzureApplicationGateway-registo-ID**: ID de correlação utilizada no pedido. Pode ser utilizado para resolver problemas de tráfego em servidores de back-end. </br>**Estado do servidor**: código de resposta HTTP recebido de Gateway de aplicação de back-end.       |
+|RequestQuery     | **Encaminhados por servidor**: instância de conjunto de Back-end que lhe foi enviada o pedido.</br>**X-AzureApplicationGateway-registo-ID**: ID de correlação utilizada no pedido. Pode ser utilizado para resolver problemas de tráfego em servidores de back-end. </br>**Estado do servidor**: código de resposta HTTP recebido de Gateway de aplicação de back-end.       |
 |UserAgent     | Agente de utilizador do cabeçalho do pedido HTTP.        |
 |httpStatus     | Código de estado HTTP devolvido para o cliente do Gateway de aplicação.       |
 |httpVersion     | Versão HTTP do pedido.        |
@@ -316,9 +316,21 @@ Também pode ligar à sua conta do storage e obter as entradas de registo JSON p
 
 ## <a name="metrics"></a>Métricas
 
-As métricas são uma funcionalidade de certos recursos do Azure, onde pode ver os contadores de desempenho no portal. Gateway de aplicação, uma métrica está actualmente disponível. Esta métrica é o débito e pode vê-lo no portal. Navegue para um gateway de aplicação e clique em **métricas**. Para ver os valores, selecione o débito no **as métricas disponíveis** secção. Na imagem seguinte, pode ver um exemplo com os filtros que pode utilizar para apresentar os dados em intervalos de tempo diferente.
+As métricas são uma funcionalidade de certos recursos do Azure, onde pode ver os contadores de desempenho no portal. Gateway de aplicação, estão disponíveis as métricas seguintes:
 
-![Vista de métrica com filtros][5]
+- Ligações atuais
+- Pedidos Falhados
+- Contagem de anfitrião bom estado de funcionamento
+- Estado de resposta
+- Débito
+- Total de Pedidos
+- Contagem de anfitrião mau estado de funcionamento
+
+Navegue para um gateway de aplicação, em **monitorização** clique **métricas**. Para ver os valores disponíveis, selecione o **MÉTRICA** na lista pendente.
+
+Na imagem seguinte, ver um exemplo com três métricas apresentadas para os últimos 30 minutos:
+
+[![](media/application-gateway-diagnostics/figure5.png "Vista de métrica")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Para ver uma lista atual de métricas, consulte [suportado métricas com a monitorização do Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
@@ -336,7 +348,7 @@ O exemplo seguinte explica-lhe criar uma regra de alerta que envia uma mensagem 
 
    * No **condição** Seletor, selecione uma das quatro valores: **maior**, **igual ou maior do que**, **inferior a**, ou **menor ou igual a**.
 
-   * No **período** Seletor, selecione um período de 5 minutos para 6 horas.
+   * No **período** Seletor, selecione um período de cinco minutos para seis horas.
 
    * Se selecionar **proprietários, contribuintes e leitores de E-Mail**, mensagem de correio eletrónico pode ser dinâmica com base nos utilizadores que têm acesso a esse recurso. Caso contrário, pode fornecer uma lista separada por vírgulas de utilizadores no **administrador adicionais email(s)** caixa.
 

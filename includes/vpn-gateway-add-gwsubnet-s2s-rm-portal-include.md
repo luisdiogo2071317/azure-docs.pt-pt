@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 3e02242822283ec8597a7be217228cb95e748761
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/23/2018
+---
 1. No portal, navegue para a rede virtual para a qual pretende criar um gateway de rede virtual.
 2. Na secção **Definições** da página da VNet, clique em **Sub-redes** para expandir a página Sub-redes.
 3. Na página **Sub-redes**, clique em **+Sub-rede do gateway** na parte superior para abrir a página **Adicionar sub-rede**.

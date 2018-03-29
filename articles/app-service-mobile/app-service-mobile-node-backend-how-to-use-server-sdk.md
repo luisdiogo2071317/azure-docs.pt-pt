@@ -2,10 +2,10 @@
 title: Como trabalhar com o SDK Node.js do servidor de back-end para Mobile Apps | Microsoft Docs
 description: Saiba como trabalhar com o SDK Node.js do servidor de back-end para Mobile Apps do Azure App Service.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: elamalani
 manager: elamalani
-editor: 
+editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bd423d6fb62b2ace16832f665c8834b4aea7e26f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como utilizar o SDK do Mobile Apps Node.js
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -119,7 +119,7 @@ Visual Studio 2015 requer uma extensão para desenvolver aplicações Node.js no
         app.use(mobile);
 
    Guarde o ficheiro.
-10. Execute a aplicação localmente (a API é fornecida no http://localhost:3000) ou publicar no Azure.
+10. Quer executar a aplicação localmente (a API é fornecida no http://localhost:3000) ou publicar no Azure.
 
 ### <a name="create-node-backend-portal"></a>Criar um back-end de Node.js utilizando o portal do Azure
 Pode criar um Mobile Apps de back-end à direita no [portal do Azure]. Pode concluir os passos seguintes ou criar um cliente e servidor em conjunto, seguindo o [criar uma aplicação móvel](app-service-mobile-ios-get-started.md) tutorial. O tutorial contém uma versão simplificada destas instruções e é melhor para projetos de prova de conceito.
@@ -135,7 +135,7 @@ Quando cria um back-end de aplicações móveis do Node.js utilizando o portal *
 O procedimento seguinte utiliza um repositório de Git para transferir o código de projeto de início rápido:
 
 1. Instale o Git, se ainda não o tiver feito. Os passos necessários para instalar o Git variam entre sistemas operativos. Para as distribuições de específicas do sistema operativo e as diretrizes de instalação, consulte [instalar o Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Siga os passos no [ativar o repositório da aplicação de serviço de aplicações](../app-service/app-service-deploy-local-git.md#Step3) para ativar o repositório de Git para o seu site de back-end. Anote o nome de utilizador de implementação e a palavra-passe.
+2. Consulte [preparar o seu repositório](../app-service/app-service-deploy-local-git.md#prepare-your-repository) para ativar o repositório de Git para o seu site de back-end. Anote o nome de utilizador de implementação e a palavra-passe.
 3. No painel para as suas aplicações móveis back-end, anote o **URL de clone de Git** definição.
 4. Executar o `git clone` comando utilizando o URL do clone de Git. Introduza a palavra-passe quando necessário, como no exemplo seguinte:
 

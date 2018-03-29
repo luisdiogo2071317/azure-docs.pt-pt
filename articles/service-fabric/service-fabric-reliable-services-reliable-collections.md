@@ -1,6 +1,6 @@
 ---
-title: "Introdução às coleções fiável nos serviços de monitorização de estado de Service Fabric do Azure | Microsoft Docs"
-description: "Serviços de monitorização de estado de Service Fabric fornecem fiáveis coleções que permitem-lhe escrever aplicações em nuvem de elevada disponibilidade, dimensionáveis e baixa latência."
+title: Introdução às coleções fiável nos serviços de monitorização de estado de Service Fabric do Azure | Microsoft Docs
+description: Serviços de monitorização de estado de Service Fabric fornecem fiáveis coleções que permitem-lhe escrever aplicações em nuvem de elevada disponibilidade, dimensionáveis e baixa latência.
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: 0e89df79d2ff619343f914ce3a5ffe87b7bf25de
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c6425f7642d9dbecafc6779184a2a5b0cc1a2cab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introdução às coleções fiável nos serviços de monitorização de estado do Azure Service Fabric
 Coleções fiáveis permitem-lhe escrever aplicações em nuvem de elevada disponibilidade, dimensionáveis e baixa latência, como se se tratasse foram escrever as aplicações de computador individual. As classes no **Microsoft.ServiceFabric.Data.Collections** espaço de nomes fornecem um conjunto de coleções que tornam o estado de disponibilidade elevada automaticamente. Os programadores têm de programa apenas para as APIs de coleção fiável e permitir que as coleções fiável gerir o estado replicado e local.
@@ -44,7 +44,7 @@ Para alcançar consistência mais fraco, aplicações podem reconhecer novamente
 As APIs de coleções fiável são uma evolução de colecções simultâneas APIs (localizado no **System.Collections.Concurrent** espaço de nomes):
 
 * Assíncrona: Devolve uma tarefa, uma vez que, ao contrário das coleções em simultâneo, as operações são replicadas e persistente.
-* Não parâmetros out: utiliza `ConditionalValue<T>` para devolver um booleano e um valor em vez de parâmetros de saída. `ConditionalValue<T>`é como `Nullable<T>` mas não necessita de T ser uma estrutura.
+* Não parâmetros out: utiliza `ConditionalValue<T>` para devolver um booleano e um valor em vez de parâmetros de saída. `ConditionalValue<T>` é como `Nullable<T>` mas não necessita de T ser uma estrutura.
 * Transações: Utiliza um objeto de transação para permitir que o utilizador para ações de grupo em várias coleções fiável numa transação.
 
 Hoje em dia, **Microsoft.ServiceFabric.Data.Collections** contém três coleções:
@@ -53,11 +53,10 @@ Hoje em dia, **Microsoft.ServiceFabric.Data.Collections** contém três coleçõ
 * [Fila fiável](https://msdn.microsoft.com/library/azure/dn971527.aspx): representa uma replicados, transacional e assíncrona strict first in, First Out (FIFO) da fila. Semelhante ao **ConcurrentQueue**, o valor pode ser de qualquer tipo.
 * [Fila simultâneas fiável](service-fabric-reliable-services-reliable-concurrent-queue.md): representa um replicados, transacional e assíncrono melhor esforço ordenação fila para o débito elevado. Semelhante para o **ConcurrentQueue**, o valor pode ser de qualquer tipo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Coleção fiável diretrizes e recomendações](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Trabalhar com as Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transações e bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Gestor de estado fiável e características de coleção](service-fabric-reliable-services-reliable-collections-internals.md)
 * Gestão de dados
   * [Cópia de Segurança e Restauro](service-fabric-reliable-services-backup-restore.md)
   * [Notificações](service-fabric-reliable-services-notifications.md)

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: b1921820b5a1d94c6f5d6413204ee7814cc25c74
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b7c9f1acd79a2f170ecead9dedd200ad37d9388
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
-Depois de começar a utilizar um ou mais bases de dados de BD do Cosmos do Azure, pode querer monitorizar como e quando as bases de dados são acedidos. Este artigo fornece uma descrição geral dos registos que estão disponíveis na plataforma do Azure. Saiba como ativar o registo de diagnóstico para a monitorização fins para enviar registos ao [Storage do Azure](https://azure.microsoft.com/services/storage/), como transmitir os registos para [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/)e como exportar os registos para [Log Analytics do Azure ](https://azure.microsoft.com/services/log-analytics/), que faz parte de [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+Depois de começar a utilizar um ou mais bases de dados de BD do Cosmos do Azure, pode querer monitorizar como e quando as bases de dados são acedidos. Este artigo fornece uma descrição geral dos registos que estão disponíveis na plataforma do Azure. Saiba como ativar o registo de diagnóstico para a monitorização fins para enviar registos ao [Storage do Azure](https://azure.microsoft.com/services/storage/), como transmitir os registos para [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/)e como exportar os registos para [Log Analytics do Azure ](https://azure.microsoft.com/services/log-analytics/).
 
 ## <a name="logs-available-in-azure"></a>Registos disponíveis no Azure
 
@@ -57,7 +57,7 @@ Registos de atividade (controlo plane operações) podem ser mais rico natureza 
 
 Registos de diagnóstico do Azure são emitidos por um recurso e fornecer dados avançados, frequentes sobre o funcionamento desse recurso. O conteúdo estes registos varia consoante o tipo de recurso. Os registos de diagnóstico de nível de recursos também diferem dos registos de diagnóstico de nível de SO convidado. Os registos de diagnóstico de SO convidado são recolhidos por um agente que está a ser executado no interior de uma máquina virtual ou outro suportado tipo de recurso. Os registos de diagnóstico ao nível do recurso necessitam sem dados de recursos específicos de agente e captura da própria plataforma do Azure. Registos de diagnóstico de nível de SO convidado capturam os dados do sistema operativo e aplicações em execução numa máquina virtual.
 
-![Registo de diagnóstico para o armazenamento, os Event Hubs ou através de análise de registos do Operations Management Suite](./media/logging/azure-cosmos-db-logging-overview.png)
+![Registo de diagnóstico para o armazenamento, os Event Hubs ou análise de registos](./media/logging/azure-cosmos-db-logging-overview.png)
 
 ### <a name="what-is-logged-by-azure-diagnostic-logs"></a>O que é registado por registos de diagnóstico do Azure?
 

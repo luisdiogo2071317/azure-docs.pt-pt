@@ -1,12 +1,12 @@
 ---
-title: "Utilizar as funções do Azure para efetuar uma tarefa de limpeza da base de dados | Microsoft Docs"
-description: "Utilize as funções do Azure para agendar uma tarefa que estabelece ligação à base de dados do Azure SQL para limpar periodicamente linhas."
+title: Utilizar as funções do Azure para efetuar uma tarefa de limpeza da base de dados | Microsoft Docs
+description: Utilize as funções do Azure para agendar uma tarefa que estabelece ligação à base de dados do Azure SQL para limpar periodicamente linhas.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 2947fc6da0c4559e81cf97255b8375b020e0b657
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utilizar as funções do Azure para ligar a uma base de dados do SQL do Azure
-Este tópico mostra como utilizar as funções do Azure para criar uma tarefa agendada que limpa linhas numa tabela numa base de dados SQL do Azure. A nova função de c# é criada com base num modelo de Acionador de temporizador predefinidos no portal do Azure. Para suportar este cenário, também tem de definir uma cadeia de ligação de base de dados como uma definição de aplicação na aplicação de função. Este cenário utiliza uma operação em massa na base de dados. 
+Este tópico mostra como utilizar as funções do Azure para criar uma tarefa agendada que limpa linhas numa tabela numa base de dados SQL do Azure. A nova função de script do c# é criada com base num modelo de Acionador de temporizador predefinidos no portal do Azure. Para suportar este cenário, também tem de definir uma cadeia de ligação de base de dados como uma definição de aplicação na aplicação de função. Este cenário utiliza uma operação em massa na base de dados. 
 
 Para que o indivíduo do processo de função criar, ler, atualização e eliminar (CRUD) operações numa tabela Mobile Apps, em vez disso, deverá utilizar [enlaces de Mobile Apps](functions-bindings-mobile-apps.md).
 
@@ -40,7 +40,7 @@ Tem de obter a cadeia de ligação da base de dados que criou quando concluído 
  
 3. Selecione **bases de dados SQL** no menu da esquerda e selecione a base de dados no **bases de dados SQL** página.
 
-4. Selecione **Mostrar cadeias de ligação de base de dados** e copie todo **ADO.NET** cadeia de ligação.
+4. Selecione **Mostrar cadeias de ligação de base de dados** e copie todo **ADO.NET** cadeia de ligação. 
 
     ![Copie a cadeia de ligação do ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -62,7 +62,7 @@ Uma aplicação de função aloja a execução das suas funções no Azure. É u
     | ------------ | ------------------ | --------------------- | 
     | **Nome**  |  sqldb_connection  | Utilizado para aceder a cadeia de ligação armazenadas no seu código de função.    |
     | **Valor** | Cadeia copiada  | Cole a cadeia de ligação que copiou na secção anterior e substitua `{your_username}` e `{your_password}` marcadores de posição com os valores reais. |
-    | **Tipo** | Base de Dados SQL | Utilize a ligação de base de dados SQL predefinido. |   
+    | **Tipo** | SQL Database | Utilize a ligação de base de dados SQL predefinido. |   
 
 3. Clique em **Guardar**.
 
@@ -70,14 +70,16 @@ Agora, pode adicionar o função código c# que liga à sua base de dados do SQL
 
 ## <a name="update-your-function-code"></a>Atualize o código de função
 
-1. Na sua aplicação de função, selecione a função de acionada por temporizador.
+1. Na sua aplicação de função no portal, selecione a função de acionada por temporizador.
  
-3. Adicione as seguintes referências de assemblagem no topo do código de função existente:
+3. Adicione as seguintes referências de assemblagem no topo c# script função código existente:
 
     ```cs
     #r "System.Configuration"
     #r "System.Data"
     ```
+    >[!NOTE]
+    >O código nestes exemplos são c# script a partir do portal. Quando estiver a desenvolver uma pré-compilada função de c# localmente, em vez disso, tem de adicionar as referências a estes monta no seu projeto local.  
 
 3. Adicione o seguinte `using` instruções para a função:
     ```cs
@@ -113,7 +115,7 @@ Agora, pode adicionar o função código c# que liga à sua base de dados do SQL
 
     ![Consulte os registos de função.](./media/functions-scenario-database-table-cleanup/functions-logs.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Em seguida, saiba como utilizar as funções com Logic Apps para integrar com outros serviços.
 

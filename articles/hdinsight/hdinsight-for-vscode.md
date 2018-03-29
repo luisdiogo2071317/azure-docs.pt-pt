@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 7567ce516e6d08a458ff96f4554d9e92934408f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar as ferramentas do Azure HDInsight para Visual Studio Code
 
@@ -69,9 +69,9 @@ Crie uma área de trabalho no VS Code antes de poder ligar ao Azure.
 
 4. Abra **XXXX_hdi_settings.json** de **EXPLORADOR**, ou clique com o botão direito do editor de scripts para selecionar **definir configuração**. Pode configurar a entrada de início de sessão, predefinido do cluster e parâmetros de submissão da tarefa, conforme mostrado no exemplo no ficheiro. Também pode deixar os restantes parâmetros vazio.
 
-## <a name="connect-to-azure"></a>Ligar ao Azure
+## <a name="connect-to-hdinsight-cluster"></a>Ligar ao Cluster do HDInsight
 
-Para poder submeter scripts para clusters do HDInsight a partir do código de VS, precisa de ligar à sua conta do Azure.
+Para poder submeter scripts para clusters do HDInsight a partir do código de VS, terá de ligar à sua conta do Azure, ou ligar um cluster (com o Ambari nome de utilizador/palavra-passe ou domínio associado a um conta).
 
 **Para ligar ao Azure**
 

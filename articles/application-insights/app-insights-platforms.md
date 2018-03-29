@@ -1,8 +1,8 @@
 ---
-title: "Application Insights: linguagens, plataformas e integrações | Microsoft Docs"
-description: "Linguagens, plataformas e integrações disponíveis para o Application Insights"
+title: 'Application Insights: linguagens, plataformas e integrações | Microsoft Docs'
+description: Linguagens, plataformas e integrações disponíveis para o Application Insights
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: OlegAnaniev-MSFT
 manager: carmonm
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe8f826ca3e0f44cba3d0b246afb01b262dc330b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: e172b04144afec04579de92b2393587635d3fecf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Análise do programador: linguagens, plataformas e integrações
 Estes itens são implementações do [Application Insights](app-insights-overview.md) que já conhecemos, incluindo alguns de terceiros.
@@ -64,7 +64,7 @@ Estes itens são implementações do [Application Insights](app-insights-overvie
 * [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) – integra-se no [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Teste de carga baseado na nuvem](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [Plug-in do LogStash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
-* [OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
+* [Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
 
 ## <a name="content-management-systems"></a>Sistemas de Gestão de Conteúdo

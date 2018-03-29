@@ -1,11 +1,11 @@
 ---
 title: Planear a capacidade de cluster do Service Fabric | Microsoft Docs
-description: "Capacidade de cluster do Service Fabric considerações de planeamento. Nodetypes, operações, características de durabilidade e fiabilidade camadas"
+description: Capacidade de cluster do Service Fabric considerações de planeamento. Nodetypes, operações, características de durabilidade e fiabilidade camadas
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b39c22fb45b0e20a3aa7a6dcf59619a87df32ca1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, o planeamento de capacidade é um passo importante. Seguem-se alguns dos itens que terá de considerar como parte do processo.
@@ -69,7 +69,7 @@ O escalão de durabilidade é utilizado para indicar ao sistema os privilégios 
 
 Este privilégio é expresso nos seguintes valores:
 
-* Ouro - as tarefas de infraestrutura pode ser colocado em pausa durante um período de duas horas por UD. Características de durabilidade Gold podem ser ativada apenas no nó completa skus VM L32s, GS5, G5, DS15_v2, etc D15_v2 (em geral todos os tamanhos de VM listados em http://aka.ms/vmspecs, que são marcados como 'instância está isolada para hardware dedicado a um único cliente ' na nota VMS de nó completa)
+* Ouro - as tarefas de infraestrutura pode ser colocado em pausa durante um período de duas horas por UD. Características de durabilidade Gold podem ser ativada apenas no nó completa skus VM L32s, GS5, G5, DS15_v2, D15_v2 etc (em geral de todos os tamanhos de VM listados em http://aka.ms/vmspecs, que são marcados como 'instância está isolada para hardware dedicado a um único cliente ' na nota, VMS de nó completa)
 * Prata - as tarefas de infraestrutura pode ser colocado em pausa durante um período de dez minutos por UD e está disponíveis em todas as VMs padrão do único núcleo e acima.
 * Bronze – sem privilégios. Esta é a predefinição. Só utilize este nível de durabilidade para os tipos de nó que execute _apenas_ cargas de trabalho sem monitorização de estado. 
 
@@ -87,7 +87,7 @@ Obter para escolher o nível de durabilidade para cada um dos seus tipos de nó.
 **Desvantagens da utilização de níveis de durabilidade Silver ou Gold**
  
 1. As implementações para o conjunto de dimensionamento de Máquina Virtual e outros recursos relacionados do Azure) podem sofrer um atraso, podem tempo ou podem ser impedidas inteiramente por problemas no seu cluster ou ao nível da infraestrutura. 
-2. Aumenta o número de [eventos de ciclo de vida de réplica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (por exemplo, primárias trocas) devido a automatizada deactivations de nó durante as operações de infraestrutura do Azure.
+2. Aumenta o número de [eventos de ciclo de vida de réplica](service-fabric-reliable-services-lifecycle.md) (por exemplo, primárias trocas) devido a automatizada deactivations de nó durante as operações de infraestrutura do Azure.
 3. Demora nós fora de serviço para períodos de tempo durante as atualizações de software da plataforma do Azure ou a manutenção de hardware atividades estão a ocorrer. Poderá ver nós com o estado desativar/desativado durante estas atividades. Esta reduz temporariamente a capacidade do seu cluster, mas não deve afetar a disponibilidade do seu cluster ou aplicações.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recomendações sobre quando utilizar os níveis de durabilidade Silver ou Gold
@@ -101,10 +101,10 @@ Utilizar Silver ou Gold durabilidade para todos os tipos de nó serviços com mo
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recomendações operacionais para o nó de tipo que definiu para durabilidade prata ou gold nível.
 
-1. Manter o cluster e aplicações em bom estado de todas as vezes e certifique-se de que as aplicações respondem a todos os [Service eventos de ciclo de vida de réplica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como a réplica de compilação está encravada) atempadamente.
+1. Manter o cluster e aplicações em bom estado de todas as vezes e certifique-se de que as aplicações respondem a todos os [Service eventos de ciclo de vida de réplica](service-fabric-reliable-services-lifecycle.md) (como a réplica de compilação está encravada) atempadamente.
 2. Adotar formas mais segura para efetuar uma alteração de VM SKU (dimensionamento cima/para baixo): a alterar o SKU de VM de um conjunto de dimensionamento de Máquina Virtual é, inerentemente, uma operação não segura e, por isso, devem ser evitado se possível. Eis o processo que pode seguir para evitar problemas comuns.
     - **Para nodetypes não principal:** é recomendado que crie o novo conjunto de dimensionamento de Máquina Virtual, modifique a restrição de posicionamento de serviço a incluir o novo tipo de conjunto de dimensionamento da Máquina Virtual/nó e, em seguida, reduzir a instância de conjunto de dimensionamento da Máquina Virtual antiga Contagem como 0, um nó numa altura (trata-se para se certificar de que a remoção de nós não afeta a fiabilidade do cluster).
-    - **Para o principal nodetype:** a nossa recomendação é que não altere o SKU de VM do tipo de nó principal. A alteração do tipo de nó principal que SKU não é suportada. Se o motivo para o SKU nova capacidade, recomendamos adicionar mais instâncias. Se esse não é possível, crie um novo cluster e [restaurar o estado da aplicação](service-fabric-reliable-services-backup-restore.md) (se aplicável) do cluster antigo. Não é necessário restaurar o estado do serviço qualquer sistema, são recriadas quando implementa as aplicações para o novo cluster. Se foram apenas aplicações em execução sem monitorização de estado no seu cluster, em seguida, tudo o que fazer é implementar aplicações para o novo cluster, não tem nada para restaurar. Se optar por voltar a rota não suportada e pretender alterar o SKU de VM, em seguida, efetue as modificações à definição de modelo de conjunto de dimensionamento de Máquina Virtual para refletir o SKU de novo. Se o cluster tem apenas um nodetype, em seguida, certifique-se de que todas as suas aplicações com monitorização de estado respondem a todos os [Service eventos de ciclo de vida de réplica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como a réplica de compilação está encravada) em tempo útil e se a réplica de serviço reconstruir duração é inferior a cinco minutos (nível de durabilidade prata). 
+    - **Para o principal nodetype:** a nossa recomendação é que não altere o SKU de VM do tipo de nó principal. A alteração do tipo de nó principal que SKU não é suportada. Se o motivo para o SKU nova capacidade, recomendamos adicionar mais instâncias. Se esse não é possível, crie um novo cluster e [restaurar o estado da aplicação](service-fabric-reliable-services-backup-restore.md) (se aplicável) do cluster antigo. Não é necessário restaurar o estado do serviço qualquer sistema, são recriadas quando implementa as aplicações para o novo cluster. Se foram apenas aplicações em execução sem monitorização de estado no seu cluster, em seguida, tudo o que fazer é implementar aplicações para o novo cluster, não tem nada para restaurar. Se optar por voltar a rota não suportada e pretender alterar o SKU de VM, em seguida, efetue as modificações à definição de modelo de conjunto de dimensionamento de Máquina Virtual para refletir o SKU de novo. Se o cluster tem apenas um nodetype, em seguida, certifique-se de que todas as suas aplicações com monitorização de estado respondem a todos os [Service eventos de ciclo de vida de réplica](service-fabric-reliable-services-lifecycle.md) (como a réplica de compilação está encravada) em tempo útil e se a réplica de serviço reconstruir duração é inferior a cinco minutos (nível de durabilidade prata). 
 
 
 > [!WARNING]

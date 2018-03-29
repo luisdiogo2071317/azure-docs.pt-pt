@@ -1,24 +1,24 @@
 ---
-title: "Fase de aceitação de cliente do ciclo de vida o processo de ciência de dados de equipa - Azure | Microsoft Docs"
-description: "Os objetivos, tarefas e materiais a entregar para a fase de aceitação de cliente dos seus projetos de ciência de dados"
+title: Fase de aceitação de cliente do ciclo de vida o processo de ciência de dados de equipa - Azure | Microsoft Docs
+description: Os objetivos, tarefas e materiais a entregar para a fase de aceitação de cliente dos seus projetos de ciência de dados
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: e150b3e7c7e98443264dd5b8aaeda1bfe6047b2c
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: 0030698bafc3d92a1c6daf944ba496421080912c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="customer-acceptance"></a>Aceitação do cliente
 
@@ -35,7 +35,7 @@ Eis uma representação visual do ciclo de vida TDSP:
 ![Ciclo de vida TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-## <a name="goal"></a>Objetivo
+## <a name="goal"></a>Alvo
 **Finalizar a concentrarem projeto**: Confirme que o pipeline, o modelo e os respetivos implementação num ambiente de produção satisfazem objetivos do cliente.
 
 ## <a name="how-to-do-it"></a>Como fazê-lo
@@ -50,7 +50,7 @@ O cliente deve validar se o sistema cumpre as suas necessidades de negócio e de
 O artefacto principal produzido nesta fase final é o **sair relatório do projeto do cliente**. Este relatório técnico contém todos os detalhes do projeto que são úteis para saber mais sobre como operar o sistema. TDSP fornece um [sair relatório](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) modelo. Pode utilizar o modelo como está, ou pode personalizá-lo para as necessidades do cliente específico. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Seguem-se ligações para cada passo no ciclo de vida do TDSP:
 

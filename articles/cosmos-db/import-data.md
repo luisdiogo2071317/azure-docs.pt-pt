@@ -1,12 +1,12 @@
 ---
-title: "Ferramenta de migração de base de dados para a base de dados do Azure Cosmos | Microsoft Docs"
-description: "Saiba como utilizar as ferramentas de migração de dados de base de dados do Azure Cosmos de código aberto para importar dados para a BD do Cosmos Azure de várias origens, incluindo ficheiros MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV e JSON. CSV para a conversão de JSON."
-keywords: "CSV em json, as ferramentas de migração de base de dados, converter csv json"
+title: Ferramenta de migração de base de dados para a base de dados do Azure Cosmos | Microsoft Docs
+description: Saiba como utilizar as ferramentas de migração de dados de base de dados do Azure Cosmos de código aberto para importar dados para a BD do Cosmos Azure de várias origens, incluindo ficheiros MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV e JSON. CSV para a conversão de JSON.
+keywords: CSV em json, as ferramentas de migração de base de dados, converter csv json
 services: cosmos-db
 author: andrewhoh
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,15 +16,13 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1276fb119199b9dbb9b50bed8ac12cff0a55d2dd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Do Azure Cosmos DB: Ferramenta de migração de dados
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Este tutorial fornece instruções sobre como utilizar a ferramenta de migração de dados do Azure Cosmos DB, que pode importar dados de várias origens para coleções de base de dados do Azure Cosmos e tabelas. Pode importar a partir de JSON ficheiros, CSV ficheiros, SQL, MongoDB, tabelas do Azure armazenamento, Amazon DynamoDB e até mesmo coleções de API do Azure Cosmos BD SQL e migrar a que os dados em coleções e tabelas para utilizam com a base de dados do Azure Cosmos. Também pode ser utilizada a ferramenta de migração de dados quando a migrar de uma coleção de partições únicas para uma coleção de partição multi para a API do SQL Server.
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: a6b80c134351429ec85a20f7ab83b7674b8b7352
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Descrição geral de instantâneos de partilha de ficheiros do Azure (pré-visualização)
-Ficheiros do Azure fornece a capacidade para criar instantâneos de partilha de partilhas de ficheiros. Partilha de instantâneos (pré-visualização) capturam o estado de partilha neste ponto no tempo. Neste artigo, vamos descrever que capacidades fornecem de instantâneos de partilha e como pode tirar partido dos mesmos no seu caso de utilização personalizada.
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Descrição geral de instantâneos de partilha de ficheiros do Azure 
+Ficheiros do Azure fornece a capacidade para criar instantâneos de partilha de partilhas de ficheiros. Partilhe instantâneos captura o estado de partilha neste ponto no tempo. Neste artigo, vamos descrever que capacidades fornecem de instantâneos de partilha e como pode tirar partido dos mesmos no seu caso de utilização personalizada.
 
 
 ## <a name="when-to-use-share-snapshots"></a>Quando utilizar instantâneos de partilha

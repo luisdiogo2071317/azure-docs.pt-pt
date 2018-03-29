@@ -1,23 +1,23 @@
 ---
-title: "Ferramentas de ciência de dados e plataformas equipa projetos - Azure | Microsoft Docs"
-description: "Itemizes e descreve os recursos de dados e análise disponíveis para as empresas uniformizar do processo de ciência de dados de equipa."
-documentationcenter: 
+title: Ferramentas de ciência de dados e plataformas equipa projetos - Azure | Microsoft Docs
+description: Itemizes e descreve os recursos de dados e análise disponíveis para as empresas uniformizar do processo de ciência de dados de equipa.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 404e3dd106edf82f4f22e4c6a17987bd0bc51f65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Plataformas e ferramentas para projetos de equipa de ciência de dados
 
@@ -30,8 +30,8 @@ Os serviços de dados e análise disponíveis para as equipas de ciência de dad
 - SQL Data Warehouse
 - Azure Data Lake
 - Clusters do Hive do HDInsight
-- File Storage do Azure
-- Serviços do SQL Server 2016 R
+- Armazenamento de Ficheiros do Azure
+- SQL Server 2016 R Services
 
 Neste documento, iremos brevemente descrevem os recursos e fornecem ligações para os tutoriais e instruções as equipas TDSP tem publicado. Podem ajudar a saber como utilizá-los passo a passo e começar a utilizá-los para criar as suas aplicações inteligentes. Obter mais informações sobre estes recursos estão disponíveis no respetivas páginas de produto. 
 
@@ -39,7 +39,7 @@ Neste documento, iremos brevemente descrevem os recursos e fornecem ligações p
 
 As máquinas de ciência de dados disponibilizadas no Windows e Linux pela Microsoft, contém as ferramentas populares para atividades de desenvolvimento e modelação de ciência de dados. Inclui ferramentas, tais como:
 
-- Edição de programador do Microsoft R 
+- Microsoft R Server Developer Edition 
 - Distribuição do Python anaconda
 - Blocos de notas do Jupyter para Python e R 
 - Edição de Comunidade do Visual Studio com o Python e ferramentas de R no Windows / Eclipse no Linux
@@ -89,14 +89,14 @@ Para cientistas de dados, o ramo de registo pode executar funções Python User-
 Para obter mais informações sobre Clusters de ramo de registo do Azure HDInsight, consulte [utilizar o Hive e o HiveQL com o Hadoop no HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Para saber como construir uma solução de ciência de dados de ponto a ponto dimensionável com Clusters de ramo de registo do Azure HDInsight, consulte o artigo [o processo de ciência de dados de equipa em ação: com clusters do HDInsight Hadoop](hive-walkthrough.md).
 
 
-## <a name="azure-file-storage"></a>File Storage do Azure 
+## <a name="azure-file-storage"></a>Armazenamento de Ficheiros do Azure 
 
 File Storage do Azure é um serviço que oferece partilhas de ficheiros na nuvem utilizando o protocolo Server Message Block (SMB) padrão. O SMB 2.1 e o SMB 3.0 são suportados. Com o Armazenamento de ficheiros do Azure, pode migrar aplicações antigas que se baseiam em partilhas de ficheiros para o Azure rapidamente e sem reescritas dispendiosas. As aplicações em execução em máquinas virtuais ou serviços em nuvem do Azure ou em clientes no local podem montar uma partilha de ficheiros na nuvem, tal como uma aplicação de ambiente de trabalho monta uma partilha SMB típica. Em seguida, quaisquer componentes da aplicação podem montar e aceder à partilha do File Storage em simultâneo.
 
 Especialmente útil para projetos de ciência de dados é a capacidade de criar um arquivo de ficheiros do Azure como o local para partilhar os dados do projeto com os membros da equipa de projeto. Em seguida, cada um deles tem acesso para a mesma cópia dos dados no file storage do Azure. Também podem utilizar este armazenamento de ficheiros para partilhar os conjuntos de funcionalidades gerados durante a execução do projeto. Se o projeto é o engagement um cliente, os clientes podem criar um file storage do Azure na sua própria subscrição do Azure para partilhar os dados de projeto e funcionalidades consigo. Desta forma, o cliente tem controlo total sobre os recursos de dados do projeto. Para obter mais informações sobre o File Storage do Azure, consulte [introdução ao File storage do Azure no Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) e [como utilizar o File Storage do Azure com o Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
-## <a name="sql-server-2016-r-services"></a>Serviços do SQL Server 2016 R
+## <a name="sql-server-2016-r-services"></a>SQL Server 2016 R Services
 
 Serviços de R (na base de dados) fornecem uma plataforma para desenvolver e implementar aplicações inteligentes, que podem desvendar informações de novo. Pode utilizar a linguagem de R avançada e poderosa, incluindo o número de pacotes fornecido pela Comunidade R, para criar modelos e gerar predições dos seus dados do SQL Server. Porque os serviços de R (na base de dados) integram o idioma de R com o SQL Server, análise é mantida próximo os dados, que elimina os custos e riscos de segurança associados a mover os dados.
 
@@ -146,7 +146,7 @@ Se estiver a utilizar máquinas Linux (CentOS) para executar os comandos de git,
 - Colar o ssh chave acabou de ser copiada para a caixa de texto e guarde.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Total de instruções ponto-a-ponto que demonstram todos os passos no processo de **cenários específicos** também são fornecidos. São listados e ligados com descrições de miniaturas no [instruções de exemplo](walkthroughs.md) tópico. Estes mostram como combinar em nuvem, ferramentas no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente. 
 

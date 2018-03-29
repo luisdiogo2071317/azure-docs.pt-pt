@@ -1,7 +1,7 @@
 ---
 title: 'NoSQL tutorial: API do SQL Server para o Azure Cosmos DB Java SDK | Microsoft Docs'
-description: "Um tutorial NoSQL que cria uma base de dados online e a aplicação de consola Java utilizando a API do SQL Server para a base de dados do Azure Cosmos. SQL do Azure é uma base de dados NoSQL para JSON."
-keywords: "tutorial nosql, base de dados online, aplicação de consola java"
+description: Um tutorial NoSQL que cria uma base de dados online e a aplicação de consola Java utilizando a API do SQL Server para a base de dados do Azure Cosmos. SQL do Azure é uma base de dados NoSQL para JSON.
+keywords: tutorial nosql, base de dados online, aplicação de consola java
 services: cosmos-db
 documentationcenter: Java
 author: arramac
@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
-ms.openlocfilehash: 9714234411e96074daae17b4711a52991768bd7b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 5052c3cdeabd5001c6d0144dc77401a9495ba887
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL tutorial: criar uma aplicação de consola Java de API do SQL Server
 > [!div class="op_single_selector"]
@@ -31,8 +31,6 @@ ms.lasthandoff: 12/18/2017
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Bem-vindo ao NoSQL tutorial para a API de SQL do Azure Cosmos DB Java SDK! Depois de seguir este tutorial, terá de uma aplicação de consola que cria e consulta recursos do Cosmos DB.
 
@@ -190,7 +188,7 @@ Executar `mvn package` transfere a biblioteca do Azure Cosmos DB mais recente a 
 
 Parabéns! Concluiu este tutorial NoSQL e a sua aplicação de consola Java está a funcionar!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Quer um tutorial de aplicação Web de Java? Veja [Criar uma aplicação Web de Java utilizando o Azure Cosmos DB](sql-api-java-application.md).
 * Saiba como [monitorizar uma conta do Azure Cosmos DB](monitor-accounts.md).
 * Execute consultas no nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).

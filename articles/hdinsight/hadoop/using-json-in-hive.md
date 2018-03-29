@@ -1,8 +1,8 @@
 ---
 title: Analisar e processamento de documentos JSON com Apache Hive no Azure HDInsight | Microsoft Docs
-description: "Saiba como utilizar documentos JSON e analisá-las ao utilizar o apache Hive no Azure HDInsight"
+description: Saiba como utilizar documentos JSON e analisá-las ao utilizar o apache Hive no Azure HDInsight
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -15,75 +15,80 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 62b21db5c52287c1d0d058cba3a433434c364777
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 04c3a8262e52a630012a0a70e4b1ccb0ade76449
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar os documentos JSON utilizando o Apache Hive no Azure HDInsight
 
 Saiba como processar e analisar os ficheiros de JavaScript Object Notation (JSON) utilizando o Apache Hive no Azure HDInsight. Este tutorial utiliza o documento JSON seguinte:
 
+```json
+{
+  "StudentId": "trgfg-5454-fdfdg-4346",
+  "Grade": 7,
+  "StudentDetails": [
     {
-        "StudentId": "trgfg-5454-fdfdg-4346",
-        "Grade": 7,
-        "StudentDetails": [
-            {
-                "FirstName": "Peggy",
-                "LastName": "Williams",
-                "YearJoined": 2012
-            }
-        ],
-        "StudentClassCollection": [
-            {
-                "ClassId": "89084343",
-                "ClassParticipation": "Satisfied",
-                "ClassParticipationRank": "High",
-                "Score": 93,
-                "PerformedActivity": false
-            },
-            {
-                "ClassId": "78547522",
-                "ClassParticipation": "NotSatisfied",
-                "ClassParticipationRank": "None",
-                "Score": 74,
-                "PerformedActivity": false
-            },
-            {
-                "ClassId": "78675563",
-                "ClassParticipation": "Satisfied",
-                "ClassParticipationRank": "Low",
-                "Score": 83,
-                "PerformedActivity": true
-                    ]
+      "FirstName": "Peggy",
+      "LastName": "Williams",
+      "YearJoined": 2012
     }
+  ],
+  "StudentClassCollection": [
+    {
+      "ClassId": "89084343",
+      "ClassParticipation": "Satisfied",
+      "ClassParticipationRank": "High",
+      "Score": 93,
+      "PerformedActivity": false
+    },
+    {
+      "ClassId": "78547522",
+      "ClassParticipation": "NotSatisfied",
+      "ClassParticipationRank": "None",
+      "Score": 74,
+      "PerformedActivity": false
+    },
+    {
+      "ClassId": "78675563",
+      "ClassParticipation": "Satisfied",
+      "ClassParticipationRank": "Low",
+      "Score": 83,
+      "PerformedActivity": true
+    }
+  ]
+}
+```
 
-O ficheiro pode ser encontrado em  **wasb://processjson@hditutorialdata.blob.core.windows.net/** . Para obter mais informações sobre como utilizar o Blob storage do Azure com o HDInsight, consulte [compatível com a utilização HDFS Blob storage do Azure com o Hadoop no HDInsight](../hdinsight-hadoop-use-blob-storage.md). Pode copiar o ficheiro para o contentor predefinido do cluster.
+O ficheiro pode ser encontrado em **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Para obter mais informações sobre como utilizar o Blob storage do Azure com o HDInsight, consulte [compatível com a utilização HDFS Blob storage do Azure com o Hadoop no HDInsight](../hdinsight-hadoop-use-blob-storage.md). Pode copiar o ficheiro para o contentor predefinido do cluster.
 
 Neste tutorial, utilize a consola do Hive. Para obter instruções sobre como abrir a consola do Hive, consulte [utilizar o Hive com o Hadoop no HDInsight com o ambiente de trabalho remoto](apache-hadoop-use-hive-remote-desktop.md).
 
 ## <a name="flatten-json-documents"></a>Flatten JSON documents
 Os métodos apresentados na secção seguinte requerem que o documento JSON ser composto por uma única linha. Por isso, tem aplanar o documento JSON numa cadeia. Se o documento JSON já é simplificado, pode ignorar este passo e ir diretamente para a secção seguinte no analisar dados JSON. Para aplanar o documento JSON, execute o seguinte script:
 
-    DROP TABLE IF EXISTS StudentsRaw;
-    CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
+```sql
+DROP TABLE IF EXISTS StudentsRaw;
+CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
 
-    DROP TABLE IF EXISTS StudentsOneLine;
-    CREATE EXTERNAL TABLE StudentsOneLine
-    (
-      json_body string
-    )
-    STORED AS TEXTFILE LOCATION '/json/students';
+DROP TABLE IF EXISTS StudentsOneLine;
+CREATE EXTERNAL TABLE StudentsOneLine
+(
+  json_body string
+)
+STORED AS TEXTFILE LOCATION '/json/students';
 
-    INSERT OVERWRITE TABLE StudentsOneLine
-    SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
-          FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
-          GROUP BY INPUT__FILE__NAME;
+INSERT OVERWRITE TABLE StudentsOneLine
+SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
+      FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
+      GROUP BY INPUT__FILE__NAME;
 
-    SELECT * FROM StudentsOneLine
+SELECT * FROM StudentsOneLine
+```
 
-O ficheiro raw de JSON está localizado em  **wasb://processjson@hditutorialdata.blob.core.windows.net/** . O **StudentsRaw** pontos de tabela de ramo de registo para o documento JSON não processado que não é simplificado.
+O ficheiro raw de JSON está localizado em **wasb://processjson@hditutorialdata.blob.core.windows.net/**. O **StudentsRaw** pontos de tabela de ramo de registo para o documento JSON não processado que não é simplificado.
 
 O **StudentsOneLine** tabela do Hive armazena os dados no sistema de ficheiros predefinido HDInsight sob o **/json/estudantes/** caminho.
 
@@ -108,10 +113,12 @@ Ramo de registo fornece um UDF incorporada, denominada [get_json_object](https:/
 
 A seguinte consulta devolve o nome próprio e apelido para cada estudante:
 
-    SELECT
-      GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'),
-      GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName')
-    FROM StudentsOneLine;
+```sql
+SELECT
+  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'),
+  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName')
+FROM StudentsOneLine;
+```
 
 O resultado é ao executar esta consulta na janela da consola:
 
@@ -127,10 +134,12 @@ Existem limitações do get_json_object UDF:
 ### <a name="use-the-jsontuple-udf"></a>Utilize o json_tuple UDF
 Outro UDF fornecida pelo ramo de registo é chamado [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), que executa a melhor do que [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Este método utiliza um conjunto de chaves e uma cadeia JSON e devolve uma cadeia de identificação de valores através da utilização de uma função. A seguinte consulta devolve o ID de estudante e o nível do documento JSON:
 
-    SELECT q1.StudentId, q1.Grade
-      FROM StudentsOneLine jt
-      LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
-        AS StudentId, Grade;
+```sql
+SELECT q1.StudentId, q1.Grade
+FROM StudentsOneLine jt
+LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
+  AS StudentId, Grade;
+```
 
 O resultado deste script na consola do ramo de registo:
 

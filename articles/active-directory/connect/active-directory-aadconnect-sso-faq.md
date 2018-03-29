@@ -2,8 +2,8 @@
 title: 'O Azure AD Connect: Totalmente integrada Single Sign-On - perguntas mais frequentes | Microsoft Docs'
 description: Respostas a perguntas mais frequentes sobre o Azure Active Directory totalmente integrada Single Sign-On.
 services: active-directory
-keywords: "o que é o Azure AD Connect, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único"
-documentationcenter: 
+keywords: o que é o Azure AD Connect, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 8a91960f150e9298515cd52fe192ec1abdd89f9c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c34293796860e0ab72eecedab9cd8b023237050d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory totalmente integrada Single Sign-On: Perguntas mais frequentes
 
@@ -38,16 +38,23 @@ Não. SSO totalmente integrado só está disponível a instância mundial do Azu
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Que aplicações tirar partido das `domain_hint` ou `login_hint` capacidade de parâmetro do SSO totalmente integrado?
 
-Listadas abaixo é uma lista não exaustiva das aplicações que enviar estes parâmetros para o Azure AD e, por conseguinte, fornece aos utilizadores uma automática início de sessão experiência SSO totalmente integrado a utilizar:
+Listadas abaixo é uma lista não exaustiva das aplicações que enviar estes parâmetros para o Azure AD e, por conseguinte, fornece aos utilizadores uma automática início de sessão experiência SSO totalmente integrada (ou seja, não é necessário para os seus utilizadores para os respetivos nomes de utilizador de entrada) a utilizar:
 
 | Nome da aplicação | URL de aplicação a ser utilizada |
 | -- | -- |
 | Painel de acesso | myapps.microsoft.com/contoso.com |
 | Outlook na Web | outlook.office365.com/contoso.com |
 
-Na tabela acima, substitua "contoso.com" com o nome de domínio para obter os URLs de aplicação correta para o seu inquilino.
+Além disso, os utilizadores obtêm uma experiência de início de sessão automática, se uma aplicação enviar pedidos de início de sessão para pontos finais tenanted do Azure AD - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez do Azure AD comuns endpoint - ou seja, https://login.microsoftonline.com/common/<...>. Listadas abaixo é uma lista de aplicações que tornam estes tipos de pedidos de início de sessão não exaustiva.
 
-Se tiver outras aplicações que está interessado em, indique a secção de comentários.
+| Nome da aplicação | URL de aplicação a ser utilizada |
+| -- | -- |
+| SharePoint Online | contoso.sharepoint.com |
+| Portal do Azure | portal.azure.com/contoso.com |
+
+Nas tabelas acima, substitua "contoso.com" com o nome de domínio para obter os URLs de aplicação correta para o seu inquilino.
+
+Se pretender que outras aplicações utilizando a nossa experiência de início de sessão automática, indique a secção de comentários.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Suporta SSO totalmente integrado `Alternate ID` como o nome de utilizador, em vez de `userPrincipalName`?
 

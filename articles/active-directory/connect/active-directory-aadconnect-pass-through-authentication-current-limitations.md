@@ -1,9 +1,9 @@
 ---
-title: "Do Azure AD Connect: A autenticação pass-through - limitações atuais | Microsoft Docs"
-description: "Este artigo descreve as limitações atuais da autenticação do Azure Active Directory (Azure AD) pass-through"
+title: 'Do Azure AD Connect: A autenticação pass-through - limitações atuais | Microsoft Docs'
+description: Este artigo descreve as limitações atuais da autenticação do Azure Active Directory (Azure AD) pass-through
 services: active-directory
-keywords: "Authentication do Azure AD Connect pass-through, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único"
-documentationcenter: 
+keywords: Authentication do Azure AD Connect pass-through, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 680e9967010771b8e3651c6f4eed81237f8fb4c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Do Azure autenticação do Active Directory pass-through: Limitações atuais
 
@@ -50,7 +50,7 @@ Os cenários seguintes são _não_ suportados:
 - A Apple Device Enrollment Program (DEP da Apple) utilizando o Assistente de configuração de iOS não suporta a autenticação moderna. Isto irá falhar inscrever dispositivos de DEP da Apple no Intune para domínios geridos através da autenticação pass-through. Considere utilizar o [aplicação Portal da empresa](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) como alternativa.
 
 >[!IMPORTANT]
->Como uma solução para cenários não suportados _apenas_, ativar a sincronização de Hash de palavra-passe no [funcionalidades opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) página do Assistente do Azure AD Connect.
+>Como uma solução para cenários não suportados _apenas_, ativar a sincronização de Hash de palavra-passe no [funcionalidades opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) página do Assistente do Azure AD Connect. Quando a sessão de utilizadores em aplicações listado no "não suportado cenários" secção, os pedidos de início de sessão específicos são _não_ processado por agentes de autenticação pass-through e, por conseguinte, não irá ser registada no [ Os registos de autenticação pass-through](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
 Ativar a sincronização de hash de palavra-passe dá-lhe a opção de autenticação de ativação pós-falha se a sua infraestrutura no local é interrompida. Esta ativação pós-falha de autenticação pass-through para a sincronização de hash de palavra-passe do Active Directory não é automática. Terá de mudar o método de início de sessão manualmente utilizando o Azure AD Connect. Se o servidor que executa o Azure AD Connect ficar inativo, irá necessitar de ajuda do Support da Microsoft para desativar a autenticação pass-through.

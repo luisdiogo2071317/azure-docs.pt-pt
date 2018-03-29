@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/9/2018
+ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: bce74c80f53eda654bb0289a1ff8a6cb88fd13f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 977fd59b746d13e9bf331edc32c63dd5a21c69f7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>A criação de Visual no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite-lhe visualmente cria e implementar os recursos para a fábrica de dados sem ter de escrever qualquer código. Pode arraste as actividades à tela pipeline, efetuar execuções do teste, iteratively, depurar e implementar e monitorizar a execução de pipeline. Existem duas abordagens para utilizar o UX para efetuar a criação de visual:
@@ -33,7 +33,7 @@ A criação de Visual com o serviço Data Factory difere da criação visual com
 
 ![Configurar o serviço fábrica de dados ](media/author-visually/configure-data-factory.png)
 
-Quando utiliza o UX **criação tela** para criar diretamente com o serviço fábrica de dados, apenas o **publicar** modo está disponível. Quaisquer alterações efetuadas são publicadas diretamente para o serviço fábrica de dados.
+Quando utiliza o UX **criação tela** para criar diretamente com o serviço fábrica de dados, apenas o **publicar todas as** modo está disponível. Quaisquer alterações efetuadas são publicadas diretamente para o serviço fábrica de dados.
 
 ![Modo de publicação](media/author-visually/data-factory-publish.png)
 
@@ -61,9 +61,12 @@ O painel mostra o seguinte código VSTS repositório:
 | Definição | Descrição | Valor |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código VSTS.<br/>**Tenha em atenção**: GitHub não é atualmente suportado. | Visual Studio Team Services Git |
+| **Azure Active Directory** | Nome do seu inquilino do Azure AD. | <your tenant name> |
 | **Conta do Visual Studio Team Services** | Nome da sua conta VSTS. Pode localizar o nome da sua conta VSTS em `https://{account name}.visualstudio.com`. Pode [iniciar sessão na sua conta VSTS](https://www.visualstudio.com/team-services/git/) para aceder ao seu perfil do Visual Studio e ver as repositórios e projetos. | \<nome da sua conta > |
 | **ProjectName** | O nome de projeto VSTS. Pode localizar o nome do projeto VSTS em `https://{account name}.visualstudio.com/{project name}`. | \<o nome do projeto VSTS > |
 | **RepositoryName** | O nome de repositório de código VSTS. Projetos VSTS contêm repositórios de Git para gerir o seu código de origem à medida que cresce o projeto. Pode criar um novo repositório ou utilizar um repositório existente que já se encontra no seu projeto. | \<o nome de repositório de código VSTS > |
+| **Ramo de colaboração** | O ramo de colaboração VSTS que será utilizado para publicação. Por predefinição, é `master`. Altere esta opção caso pretenda publicar recursos a partir de outra sucursal. | \<o nome da sua sucursal colaboração > |
+| **Pasta raiz** | A pasta de raiz no seu ramo de colaboração VSTS. | \<nome da pasta de raiz > |
 | **Importar os recursos de fábrica de dados existentes para o repositório** | Especifica se pretende importar recursos existentes de fábrica de dados a partir do UX **criação tela** para um repositório de VSTS Git. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>O método de configuração 2: UX criação tela
@@ -76,41 +79,41 @@ No UX de fábrica de dados do Azure **criação tela**, localize a fábrica de d
 ### <a name="use-version-control"></a>Utilizar o controlo de versão
 Sistemas de controlo de versão (também conhecido como _controlo de origem_) permitem aos programadores colaborar em código e controlar as alterações efetuadas para o código base. Controlo de origem é uma ferramenta essencial para projetos de programação multi.
 
-Cada repositório de VSTS Git que está associada a uma fábrica de dados tem um ramo principal. Quando tiver acesso para um repositório de VSTS Git, pode alterar o código escolhendo **sincronização** ou **publicar**:
+Cada repositório de VSTS Git que está associada a uma fábrica de dados tem uma um ramo de colaboração. (`master` é o ramo de colaboração predefinido). Os utilizadores também podem criar ramos de funcionalidade clicando **+ novo ramo** e desenvolvimento nos ramos de funcionalidade.
 
 ![Alterar o código de sincronização ou publicando](media/author-visually/sync-publish.png)
 
-#### <a name="sync-code-changes"></a>Alterações de código de sincronização
-Depois de selecionar **sincronização**, pode solicitar as alterações do ramo principal para o ramo local ou push altera a partir do ramo local para o ramo principal.
+Quando estiver preparado com o desenvolvimento da funcionalidade no seu ramo funcionalidade, pode clicar em **criar pedido de solicitação**. Isto leva-o para GIT VSTS, onde pode aumentar solicitação pedidos, código de revisões e intercalação muda para o ramo de colaboração. (`master` é a predefinição). Só são permitidas para publicar para o serviço fábrica de dados a partir do ramo colaboração. 
 
-![Alterações de código de sincronização](media/author-visually/sync-change.png)
+![Criar um novo pedido de solicitação](media/author-visually/create-pull-request.png)
 
 #### <a name="publish-code-changes"></a>Publicar as alterações de código
-Selecione **publicar** publicar manualmente as alterações de código no ramo principal para o serviço fábrica de dados.
+Depois de ter intercalar as alterações para o ramo de colaboração (`master` é a predefinição), selecione **publicar** publicar manualmente as alterações de código no ramo principal para o serviço fábrica de dados.
+
+![Publicar as alterações no serviço Data Factory](media/author-visually/publish-changes.png)
 
 > [!IMPORTANT]
 > O ramo principal não é representativo do que é implementado no serviço Data Factory. O ramo principal *tem* publicados manualmente o serviço fábrica de dados.
 
 ## <a name="use-the-expression-language"></a>Utilizar a linguagem de expressão
-Pode especificar as expressões para valores de propriedade utilizando a linguagem de expressão que é suportada pelo Azure Data Factory. Para obter informações sobre as expressões suportadas, consulte [expressões e as funções no Azure Data Factory](control-flow-expression-language-functions.md).
+Pode especificar as expressões para valores de propriedade utilizando a linguagem de expressão que é suportada pelo Azure Data Factory. 
 
-Especificar expressões de valores de propriedade utilizando o UX **criação tela**:
+Especificar expressões de valores de propriedade selecionando **adicionar conteúdo dinâmico**:
 
-![Utilizar a linguagem de expressão](media/author-visually/expression-language.png)
+![Utilizar a linguagem de expressão](media/author-visually/dynamic-content-1.png)
 
-## <a name="specify-parameters"></a>Especifique parâmetros
-Pode especificar os parâmetros de pipelines e conjuntos de dados no Azure Data Factory **parâmetros** separador. Pode utilizar facilmente os parâmetros nas propriedades selecionando **adicionar conteúdo dinâmico**:
+## <a name="use-functions-and-parameters"></a>Utilize funções e parâmetros
 
-![Adicionar conteúdo dinâmico](media/author-visually/dynamic-content.png)
+Pode utilizar as funções ou especificar parâmetros para conjuntos de dados e pipelines na fábrica de dados **builder expressão**:
 
-Pode utilizar os parâmetros existentes ou especifique novos parâmetros para os valores de propriedade:
+Para obter informações sobre as expressões suportadas, consulte [expressões e as funções no Azure Data Factory](control-flow-expression-language-functions.md).
 
-![Especifique parâmetros para os valores de propriedade](media/author-visually/parameters.png)
+![Adicionar conteúdo dinâmico](media/author-visually/dynamic-content-2.png)
 
 ## <a name="provide-feedback"></a>Enviar comentários
 Selecione **comentários** comente sobre as funcionalidades ou notificar a Microsoft sobre problemas com a ferramenta:
 
-![Comentários](media/monitor-visually/feedback.png)
+![Comentários](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre monitorizar e gerir pipelines, consulte [monitorizar e gerir pipelines programaticamente](monitor-programmatically.md).

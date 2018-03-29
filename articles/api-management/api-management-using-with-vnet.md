@@ -1,11 +1,11 @@
 ---
 title: Como utilizar a API Management do Azure com redes virtuais
-description: "Saiba como configurar uma ligação a uma rede virtual na API Management do Azure e acesso serviços web através do mesmo."
+description: Saiba como configurar uma ligação a uma rede virtual na API Management do Azure e acesso serviços web através do mesmo.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: fe5e26a957d18f1f7f5ed360a27bb1f9c9826718
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: db0fab5b619ddbca4663a0f6afedfff373d406f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede routeable não internet que controla o acesso a. Estas redes, em seguida, podem ser ligadas a suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começar a utilizar as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -96,7 +96,7 @@ Depois do serviço de API Management está ligado a VNET, aceder aos serviços d
 ## <a name="network-configuration-issues"> </a>Problemas comuns de configuração de rede
 Segue-se uma lista dos problemas de configurações incorretas comuns que podem ocorrer durante a implementação de serviço de API Management numa rede Virtual.
 
-* **Configuração do servidor DNS personalizada**: gestão de API o serviço depende de vários serviços do Azure. Quando a API Management está alojado numa VNET com um servidor DNS personalizado, tem de resolver os nomes de anfitriões desses serviços do Azure. Siga [isto](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) orientações sobre a configuração DNS personalizada. Consulte a tabela de portas abaixo e outros requisitos de rede para referência.
+* **Configuração do servidor DNS personalizada**: gestão de API o serviço depende de vários serviços do Azure. Quando a API Management está alojado numa VNET com um servidor DNS personalizado, tem de resolver os nomes de anfitriões desses serviços do Azure. Siga [isto](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) orientações sobre a configuração DNS personalizada. Consulte a tabela de portas abaixo e outros requisitos de rede para referência.
 
 > [!IMPORTANT]
 > Se planeia utilizar um servidor de DNS personalizado (es) para a VNET, deve configurá-lo **antes** implementar um serviço de API Management para a mesma. Caso contrário, terá de atualizar o serviço de API Management sempre que alterar o servidor de DNS (es) executando o [aplicar a operação de configuração de rede](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)

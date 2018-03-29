@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: API de Node.js do SQL Server, SDK & recursos | Microsoft Docs'
-description: "Saiba tudo sobre API Node.js do SQL Server e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do Azure Cosmos DB Node.js SDK."
+description: Saiba tudo sobre API Node.js do SQL Server e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do Azure Cosmos DB Node.js SDK.
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8869d8a8eead8bdaeda5dc1d6eeb2f81b16928e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 58d043ac7037567d37321cb874804ad0e6cb5ed8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Node.js do Cosmos BD do Azure para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -35,8 +35,6 @@ ms.lasthandoff: 03/02/2018
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -164,7 +162,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="1.2.0"/>1.2.0</a>
 * Suporte adicionado para o índice de Geoespacial.
-* Valida a propriedade id de todos os recursos. Os IDs de recursos não podem conter?, /, # &#47; &#47; carateres nem terminar com um espaço.
+* Valida a propriedade id de todos os recursos. Os IDs de recursos não podem conter?, /, #, &#47; &#47;, carateres nem terminar com um espaço.
 * Adiciona ResourceResponse novo cabeçalho "índice transformação curso".
 
 ### <a name="1.1.0"/>1.1.0</a>

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/21/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b5dbc4cfd884538c8435371aa353b22cabef7400
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 157db4a9de41c9895d39469d3d42a45c1a929649
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatizar recursos no seu centro de dados ou a nuvem com o Runbook Worker híbrido
 
@@ -73,7 +73,7 @@ Execute os seguintes passos para automatizar a instalação e configuração da 
      > Atualmente as regiões de automatização apenas suportadas para integração com a análise de registos são - **Sudeste da Austrália**, **EUA Leste 2**, **Sudeste asiático**, e  **Europa Ocidental**. Se a sua conta de automatização não está dessas regiões, o script cria uma área de trabalho de análise de registos, mas avisa-o que este não pode associá-las em conjunto.
 
 2. No seu computador, inicie **do Windows PowerShell** do **iniciar** ecrã no modo de administrador.
-3. A shell de linha de comandos do PowerShell, navegue para a pasta que contém o script transferido e executá-lo alterando os valores para parâmetros *- AutomationAccountName*, *- ResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, e *- WorkspaceName*.
+3. A shell de linha de comandos do PowerShell, navegue para a pasta que contém o script transferido e executá-lo alterando os valores para parâmetros *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, e *- WorkspaceName*.
 
      > [!NOTE]
      > Lhe for pedido para autenticar com o Azure, depois de executar o script. **Tem** iniciar sessão com uma conta que seja um membro da função de administradores da subscrição e o coadministrador da subscrição.

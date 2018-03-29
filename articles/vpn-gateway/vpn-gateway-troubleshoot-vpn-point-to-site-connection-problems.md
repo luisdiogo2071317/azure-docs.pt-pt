@@ -1,12 +1,12 @@
 ---
-title: "Resolução de problemas de ligação de ponto a site do Azure | Microsoft Docs"
-description: "Saiba como resolver problemas de ligação de ponto a site."
+title: Resolução de problemas de ligação de ponto a site do Azure | Microsoft Docs
+description: Saiba como resolver problemas de ligação de ponto a site.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 51076c225167accaf386190eeda4ec159cb5657d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Resolução de problemas: Problemas de ligação de ponto a site do Azure
 
@@ -289,7 +289,7 @@ Cliente VPN ponto a site utiliza servidores de DNS do Azure que são configurado
 
 ### <a name="solution"></a>Solução
 
-Para resolver o problema, certifique-se de que os servidores de DNS do Azure utilizados na rede virtual do Azure, pode resolver os registos DNS para recursos locais. Para tal, pode utilizar os reencaminhadores de DNS ou reencaminhadores condicionais. Para obter mais informações, consulte [resolução de nomes utilizando o seu próprio servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+Para resolver o problema, certifique-se de que os servidores de DNS do Azure utilizados na rede virtual do Azure, pode resolver os registos DNS para recursos locais. Para tal, pode utilizar os reencaminhadores de DNS ou reencaminhadores condicionais. Para obter mais informações, consulte [resolução de nomes utilizando o seu próprio servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 
 ## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>É estabelecida a ligação de VPN ponto a site, mas ainda não é possível ligar aos recursos do Azure 
 

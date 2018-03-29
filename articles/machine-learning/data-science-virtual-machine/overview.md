@@ -1,10 +1,10 @@
 ---
-title: "Introdução à máquina de Virtual de ciência de dados do Azure para Linux e Windows | Microsoft Docs"
-description: "Cenários de análise de chave e componentes de máquinas de virtuais de ciência de dados de Linux e Windows."
-keywords: "ferramentas de ciência de dados, a máquina de virtual de ciência de dados, as ferramentas de ciência de dados, ciência de dados do linux"
+title: Introdução à máquina de Virtual de ciência de dados do Azure para Linux e Windows | Microsoft Docs
+description: Cenários de análise de chave e componentes de máquinas de virtuais de ciência de dados de Linux e Windows.
+keywords: ferramentas de ciência de dados, a máquina de virtual de ciência de dados, as ferramentas de ciência de dados, ciência de dados do linux
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: b50e98fa7bfff75efe8c9b926838ea847f640651
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: gokuma
+ms.openlocfilehash: f62f6c4b2679457e8aaddb81e8a37622ca878ffc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introdução à máquina de Virtual de ciência de dados do Azure para Linux e Windows
 

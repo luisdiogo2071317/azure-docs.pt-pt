@@ -1,24 +1,24 @@
 ---
 title: SDK .NET da Azure CosmosDB tabela API & recursos | Microsoft Docs
-description: "Saiba tudo sobre API do Azure Cosmos DB tabela, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão."
+description: Saiba tudo sobre API do Azure Cosmos DB tabela, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: af14e9dbd5f65d5cefa3d9424b8628f10d8160da
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2afd7df65e7b223845752fc6bea5bc0ab4d3efd8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Cosmos Azure API de .NET de tabela de base de dados: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -40,6 +40,11 @@ ms.lasthandoff: 02/23/2018
 >
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Foram adicionada validação para ETAGs com formato incorreto no modo direto.
+* Erros de consulta LINQ fixo no modo de Gateway.
+* APIs síncronas agora ser executada no conjunto de threads com SynchronizationContext.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Adicionar TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism e TableQueryContinuationTokenLimitInKb TableRequestOptions
@@ -63,6 +68,8 @@ Todos os pedidos de BD do Cosmos do Azure utilizando um SDK extinto são rejeita
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
+| [1.1.1](#1.1.1) |26 de Março de 2018|--- |
+| [1.1.0](#1.1.0) |21 de fevereiro de 2018|--- |
 | [1.0.0](#1.0.0) |15 de Novembro de 2017|--- |
 | [0.9.0-preview](#0.9.0-preview) |11 de Novembro de 2017 |--- |
 

@@ -1,9 +1,9 @@
 ---
 title: 'Azure AD Connect: Totalmente integrada Single Sign-On | Microsoft Docs'
-description: "Este tópico descreve o Azure Active Directory (Azure AD) totalmente integrada Single Sign-On e como permite-lhe fornecer verdadeiro-início de sessão único para os utilizadores empresariais de ambiente de trabalho dentro da sua rede empresarial."
+description: Este tópico descreve o Azure Active Directory (Azure AD) totalmente integrada Single Sign-On e como permite-lhe fornecer verdadeiro-início de sessão único para os utilizadores empresariais de ambiente de trabalho dentro da sua rede empresarial.
 services: active-directory
-keywords: "o que é o Azure AD Connect, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único"
-documentationcenter: 
+keywords: o que é o Azure AD Connect, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory totalmente integrada Single Sign-On
 
@@ -50,7 +50,8 @@ SSO totalmente integrada pode ser combinado com uma o [sincronização de Hash d
 
 - Início de sessão de nome de utilizador pode ser ambos o nome de utilizador de predefinição de no local (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (`Alternate ID`). Utilizam ambos trabalho casos porque utiliza o SSO totalmente integrado a `securityIdentifier` afirmação na permissão Kerberos para procurar o objeto de utilizador correspondente no Azure AD.
 - SSO totalmente integrada é uma funcionalidade oportunistas medida planeada. Se falhar por alguma razão, a experiência de início de sessão do utilizador fica novamente para o respetivo comportamento normal - revertidos, o utilizador tem de introduzir a palavra-passe na página de início de sessão.
-- Se uma aplicação reencaminha uma `domain_hint` (OpenID Connect) ou `whr` parâmetro (SAML) - identificar o seu inquilino, ou `login_hint` parâmetro - identificar o utilizador, no seu Azure AD início de sessão pedido, os utilizadores automaticamente iniciados sem-las introduzir os nomes de utilizador ou palavras-passe.
+- Se uma aplicação (por exemplo, https://myapps.microsoft.com/contoso.com) reencaminha uma `domain_hint` (OpenID Connect) ou `whr` parâmetro (SAML) - identificar o seu inquilino, ou `login_hint` parâmetro - identificar o utilizador, o Azure AD início de sessão pedido, os utilizadores são se inicie automaticamente sem nomes de utilizador entrá-las ou palavras-passe.
+- Os utilizadores obtêm também uma experiência de início de sessão automática se uma aplicação (por exemplo, https://contoso.sharepoint.com) envia pedidos de início de sessão para pontos finais tenanted do Azure AD - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez do Azure AD comuns endpoint - ou seja, https://login.microsoftonline.com/common/<...>.
 - Terminar é suportada. Isto permite aos utilizadores escolher outra conta do Azure AD para iniciar sessão, em vez de a ser iniciada automaticamente sessão através de SSO totalmente integrado automaticamente.
 - Os clientes do Office 365 (16.0.8730.xxxx e acima) são suportados através de um fluxo não interativo.
 - Pode ser ativado através do Azure AD Connect.

@@ -1,8 +1,8 @@
 ---
-title: "Ciência de dados com a dados de ciência de Máquina Virtual com Linux no Azure | Microsoft Docs"
-description: "Como efetuar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux."
+title: Ciência de dados com a dados de ciência de Máquina Virtual com Linux no Azure | Microsoft Docs
+description: Como efetuar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
-ms.author: bradsev;paulsh
-ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: bradsev
+ms.openlocfilehash: aff0dd17baa72b3f58ed5effbedb3a4c630f22c6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com um dados ciência de Máquina Virtual com Linux no Azure
 Estas instruções mostram como efetuar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux. A Máquina Virtual de ciência de dados de Linux (DSVM) é uma imagem de máquina virtual disponível no Azure que seja pré-instaladas com uma coleção de ferramentas normalmente utilizado para análise de dados e de aprendizagem. Os componentes de chaves de software estão descritos a [aprovisionar a Máquina Virtual de ciência de dados de Linux](linux-dsvm-intro.md) tópico. A imagem VM torna mais fácil começar a utilizar ao executar a ciência de dados em minutos, sem ter de instalar e configurar cada uma das ferramentas individualmente. Pode facilmente aumentar verticalmente a VM, se for necessário e pare-quando não está em utilização. Por isso este recurso é elástico e económico.
@@ -473,7 +473,7 @@ Para começar, inicie o Squirrel SQL no menu de aplicações. Para configurar o 
 Para configurar a ligação ao servidor local:
 
 * Selecione **Windows**, em seguida, **ver Aliases.**
-* Escolha o  **+**  botão para tornar um novo alias.
+* Escolha o **+** botão para tornar um novo alias.
 * Nome *base de dados de Spam*, escolha **PostgreSQL** no **controlador** pendente.
 * Definir o URL *jdbc:postgresql://localhost/spam*.
 * Introduza o *username* e *palavra-passe*.

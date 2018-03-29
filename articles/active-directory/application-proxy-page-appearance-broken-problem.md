@@ -1,23 +1,23 @@
 ---
-title: "Página da aplicação não é apresentado corretamente para uma aplicação de Proxy de aplicações | Microsoft Docs"
-description: "Orientações para quando a página não está corretamente apresentação de uma aplicação de Proxy de aplicação ter integrado com o Azure AD"
+title: Página da aplicação não é apresentado corretamente para uma aplicação de Proxy de aplicações | Microsoft Docs
+description: Orientações para quando a página não está corretamente apresentação de uma aplicação de Proxy de aplicação ter integrado com o Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 03/23/2018
 ms.author: asteen
-ms.openlocfilehash: 017267620a1bcd6242bceb395966cc4190677c1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d187b545a486be28fc80e6baf8e58079ff94ec5e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Página da aplicação não é apresentado corretamente para uma aplicação de Proxy de aplicações
 
@@ -34,7 +34,7 @@ Como um exemplo de neste caso, partem do princípio de ter publicado uma aplica�
 
 Se não for possível publicar todos os recursos na mesma aplicação, terá de publicar a várias aplicações e ativar as ligações entre eles.
 
-Para tal, é recomendável utilizar o [domínios personalizados](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) solução. No entanto, esta solução requer que o certificado que é proprietário para o seu domínio e as suas aplicações utilizam nomes de domínio completamente qualificado (FQDN). Para outras opções, consulte o [resolver problemas de ligações quebrada documentação](https://microsoft-my.sharepoint.com/personal/harshja_microsoft_com/_layouts/15/guestaccess.aspx?guestaccesstoken=IxuG3mFVbnPWI3Yn4Qi7wCNi8VIfHS5mwPt5quh8DMw%3d&docid=2_14558cd6ddea34c1c9887dc640feb5831&rev=1).
+Para tal, é recomendável utilizar o [domínios personalizados](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) solução. No entanto, esta solução requer que o certificado que é proprietário para o seu domínio e as suas aplicações utilizam nomes de domínio completamente qualificado (FQDN). Para outras opções, consulte o [resolver problemas de ligações quebrada documentação](application-proxy-page-links-broken-problem.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Publicar aplicações através do Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md)

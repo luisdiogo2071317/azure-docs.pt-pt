@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 4f46e796ff1ab85c0061c70ff9a725a6945a4f5d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Azure Load Balancer overview (Descrição Geral do Balanceador de Carga do Azure)
 
@@ -41,7 +41,7 @@ Balanceador de carga do Azure pode ser utilizado para:
 
 
 >[!NOTE]
-> O Azure oferece um conjunto de soluções para os seus cenários de balanceamento de carga completamente gerido.  Se estiver à procura de terminação de TLS ("descarga de SSL") ou processamento de camada de aplicação de HTTP/HTTPS, reveja [Gateway de aplicação](../application-gateway/application-gateway-introduction.md).  Se estiver à procura de global DNS balanceamento de carga, reveja [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md).  Os cenários de ponto a ponto podem tirar partido do combinar estas soluções conforme necessário.
+> O Azure oferece um conjunto de soluções para os seus cenários de balanceamento de carga completamente gerido.  Se estiver à procura para a terminação de TLS ("descarga de SSL") ou pelo processamento de camada de aplicação de pedidos HTTP/HTTPS, reveja [Gateway de aplicação](../application-gateway/application-gateway-introduction.md).  Se estiver à procura de global DNS balanceamento de carga, reveja [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md).  Os cenários de ponto a ponto podem tirar partido do combinar estas soluções conforme necessário.
 
 ## <a name="what-is-load-balancer"></a>O que é o Balanceador de Carga?
 
@@ -107,7 +107,7 @@ Balanceador de carga do Azure suporta dois SKUs diferentes: básico e padrão.  
 No entanto, dependendo do que é escolhido SKU, os detalhes da configuração do cenário completo poderão ser ligeiramente diferentes. A documentação do Balanceador de carga chama a atenção quando um artigo é aplicável a apenas um SKU específico. Reveja a tabela seguinte abaixo para comparar e compreender as diferenças.  Reveja [descrição geral do Balanceador de carga padrão](load-balancer-standard-overview.md) para obter mais detalhes.
 
 >[!NOTE]
-> Novos designs de devem utilizar o padrão de Balanceador de carga. 
+> Novos designs de devem considerar a utilização do padrão de Balanceador de carga. 
 
 Máquinas virtuais autónomas, conjuntos de disponibilidade e conjuntos de dimensionamento de máquina virtual só podem ser ligados a um SKU nunca ambos. Quando utilizado com endereços IP públicos, o Balanceador de carga e o endereço IP público SKU tem de corresponder. Balanceador de carga e SKUs de IP público não são mutável.
 
@@ -118,17 +118,17 @@ _É uma melhor prática para especificar os SKUs explicitamente, apesar de ainda
 
 | | [Standard SKU](load-balancer-standard-overview.md) | SKU Básico |
 | --- | --- | --- |
-| Tamanho do conjunto de back-end | até 1000 instâncias | até 100 instâncias|
+| Tamanho do conjunto de back-end | até 1000 instâncias | até 100 instâncias |
 | Pontos finais de conjunto de back-end | Qualquer máquina virtual numa única rede virtual, incluindo blend de máquinas virtuais, conjuntos de disponibilidade, conjuntos de dimensionamento de máquina virtual. | máquinas virtuais pertencentes uma escala de máquina virtual ou conjunto de disponibilidade único conjunto |
 | Zonas de Disponibilidade | Com redundância de zona e zonal frontends de entrada e de mapeamentos de fluxos de saída, saída continuam a vigorar após falha de zona, cross-zona balanceamento de carga | / |
 | Diagnóstico | Monitor do Azure, métricas multidimensionais, incluindo byte e contadores de pacotes, estado de funcionamento da sonda de estado, as tentativas de ligação (SIN de TCP), estado de funcionamento da ligação de saída (realizar o SNAT com êxito ou falhados fluxos), medidas plane de dados do Active Directory | Análise de registos do Azure, contagem de estado de funcionamento do conjunto de back-end de Balanceador de carga público só, alerta de esgotamento de realizar o SNAT |
 | HA portas | Balanceador de carga interno | / |
-| Seguro por predefinição | Balanceador de carga e IP pontos finais públicos sempre predefinido para o grupo de segurança de rede fechada, utilizado explicitamente lista branca | As predefinições, abra o grupo de segurança de rede opcional |
-| Ligações de saída | Vários frontends, por ativamente em regras. Associação de uma máquina virtual com um endereço de saída _tem_ explicitamente criado.  Isto inclui a conectividade a outros serviços do Azure PaaS ou [pontos finais do serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) tem de ser utilizado. Ligações de saída através de predefinição realizar o SNAT não estão disponíveis quando apenas um balanceador de carga interno está a servir uma máquina virtual. | Único front-end. Predefinição realizar o SNAT é utilizada quando apenas Balanceador de carga interno está a servir uma máquina virtual |
+| Seguro por predefinição | predefinição fechada para pontos finais públicos de Balanceador de carga e de IP e um grupo de segurança de rede deve ser utilizado para explicitamente lista branca para o tráfego flua | predefinição aberto, grupo de segurança opcional |
+| Ligações de saída | Vários frontends com por regra ativamente. Um cenário de saída _tem_ explicitamente criado para a máquina virtual para conseguir utilizar a conectividade de saída.  [Pontos finais do serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) podem ser acedidos sem conectividade de saída e não contam para processamento de dados.  Todos os endereços IP públicos, incluindo serviços do Azure PaaS não está disponíveis como pontos finais do serviço de VNet, devem ser atingidos através de conectividade de saída e a contagem para processamento de dados. Quando uma máquina virtual está a funcionar apenas um balanceador de carga interno, ligações de saída através de predefinição realizar o SNAT não estão disponíveis. Programação de realizar o SNAT saída é o protocolo de transporte específicos com base no protocolo de entrada de balanceamento de carga regra. | Único front-end, selecionado aleatória, quando várias frontends estão presentes.  Quando apenas Balanceador de carga interno está a servir uma máquina virtual, é utilizada a predefinição realizar o SNAT. |
 | Vários frontends | Entrada e saída | Apenas de entrada |
-| Operações | A maioria dos segundos de < 30 de operações | 60-90 segundos típica |
+| Operações de gestão | A maioria dos segundos de < 30 de operações | 60-90 segundos típica |
 | SLA | 99,99% de caminho de dados com duas máquinas virtuais em bom estado | Implícita no SLA de VM | 
-| Preços | Cobrados com base no número de regras, processados de dados de entrada ou saída associados a recursos  | Sem qualquer encargo |
+| Preços | -Lhe cobrados com base no número de regras, processados de dados de entrada ou saída associados a recursos  | Sem qualquer encargo |
 
 Reveja [os limites de serviço para o Balanceador de carga](https://aka.ms/lblimits).  Para o Balanceador de carga padrão Reveja também mais detalhadas [descrição geral](load-balancer-standard-overview.md), [preços](https://aka.ms/lbpricing), e [SLA](https://aka.ms/lbsla).
 

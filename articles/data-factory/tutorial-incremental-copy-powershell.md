@@ -1,11 +1,11 @@
 ---
-title: Copiar a tabela de forma incremental utilizando o Azure Data Factory | Microsoft Docs
-description: "Neste tutorial, vai criar um pipeline da fábrica de dados do Azure, que copia dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure."
+title: Copiar uma tabela de forma incremental com o Azure Data Factory | Microsoft Docs
+description: Neste tutorial, vai criar um pipeline da fábrica de dados do Azure, que copia dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 545228196a0d510571b2982a836b23acc976ffbf
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a543bb1ceb14bb8f618e1cf644cc269a99719c28
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure
-Neste tutorial, vai criar um pipeline da fábrica de dados do Azure, que carrega dados delta a partir de uma tabela numa base de dados SQL do Azure para o armazenamento de blobs do Azure. 
+Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure. 
 
 
 > [!NOTE]
@@ -33,7 +33,7 @@ Vai executar os seguintes passos neste tutorial:
 > * Preparar o arquivo de dados para armazenar o valor de limite de tamanho.
 > * Criar uma fábrica de dados.
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de marca d'água.
+> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
 > * Criar um pipeline.
 > * Executar o pipeline.
 > * Monitorizar a execução do pipeline. 
@@ -49,15 +49,15 @@ Eis os passos importantes para criar esta solução:
     Selecione uma coluna no arquivo de dados de origem, que pode ser utilizada para dividir os registos novos ou atualizados para cada execução. Normalmente, os dados nesta coluna selecionada (por exemplo, last_modify_time ou ID) continuam a aumentar quando as linhas são criadas ou atualizadas. O valor máximo nesta coluna é utilizado como limite de tamanho.
 
 2. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho**.   
-    Neste tutorial, vai armazenar o valor de marca d'água numa base de dados SQL.
+    Neste tutorial, vai armazenar o valor de limite superior numa base de dados SQL.
     
 3. **Crie um pipeline com o seguinte fluxo de trabalho**: 
     
     O pipeline nesta solução tem as seguintes atividades:
   
-    * Crie duas atividades de Pesquisa. Utilize a primeira atividade de Pesquisa para obter o último valor de marca d'água. Utilize a segunda atividade Pesquisa para obter o valor de marca d'água novo. Estes valores de marca d'água são transmitidos para a atividade de Cópia. 
-    * Crie uma atividade de Cópia que copia linhas do arquivo de dados de origem com o valor da coluna de marca d'água superior ao valor de marca d'água antigo e inferior ao valor novo. Em seguida, copia os dados delta do arquivo de dados de origem para um armazenamento de Blobs como um ficheiro novo. 
-    * Crie uma atividade StoredProcedure, que atualiza o valor de marca d'água do pipeline que vai ser executado da próxima vez. 
+    * Criar duas atividades Lookup. Utilize a primeira atividade Lookup para obter o último valor de limite de tamanho. Utilize a segunda para obter o valor de limite de tamanho novo. Estes valores de limite de tamanho são transmitidos para a atividade Copy. 
+    * Criar uma atividade Copy que copia linhas do arquivo de dados de origem com o valor da coluna de limite de tamanho superior ao valor de limite de tamanho antigo e inferior ao valor novo. Em seguida, copia os dados delta do arquivo de dados de origem para um armazenamento de Blobs como um ficheiro novo. 
+    * Criar uma atividade StoredProcedure, que atualiza o valor de limite de tamanho do pipeline que vai ser executado da próxima vez. 
 
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -65,12 +65,12 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Base de Dados SQL do Azure**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados SQL, veja [Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para seguir os passos para criar uma.
 * **Armazenamento do Azure**. Vai utilizar o armazenamento de blobs como arquivo de dados de sink. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para seguir os passos para criar uma. Crie um contentor com o nome adftutorial. 
-* **Azure PowerShell**. Siga as instruções em [Install and configure Azure PowerShell (Instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+* **Azure PowerShell**. Siga as instruções em [Instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Criar uma tabela de origem de dados na base de dados SQL
-1. Abra o SQL Server Management Studio. No **Explorador de Servidores**, clique com botão direito do rato na base de dados e escolha **Nova Consulta**.
+1. Abra o SQL Server Management Studio. No **Explorador de Servidores**, clique com p botão direito do rato na base de dados e escolha **Nova Consulta**.
 
-2. Execute o seguinte comando SQL na base de dados SQL para criar uma tabela com o nome `data_source_table` como o arquivo da origem de dados: 
+2. Execute o seguinte comando SQL na base de dados SQL para criar uma tabela com o nome `data_source_table` e armazenar o valor de limite de tamaho: 
     
     ```sql
     create table data_source_table
@@ -89,7 +89,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     (4, 'dddd','9/4/2017 3:21:00 AM'),
     (5, 'eeee','9/5/2017 8:06:00 AM');
     ```
-    Neste tutorial, vai utilizar LastModifytime como a coluna de marca d'água. Os dados no arquivo da origem de dados são apresentados na tabela seguinte:
+    Neste tutorial, vai utilizar LastModifytime como a coluna de limite de tamanho. Os dados no arquivo da origem de dados são apresentados na tabela seguinte:
 
     ```
     PersonID | Name | LastModifytime
@@ -333,7 +333,7 @@ Neste passo, vai criar conjuntos de dados para representar os dados de origem e 
     ```
 
     > [!IMPORTANT]
-    > Este fragmento parte do princípio de que tem um contentor de blobs denominado adftutorial no armazenamento de blobs. Crie o contentor se ainda não existir ou defina-o com o nome de um contentor existente. A pasta de saída `incrementalcopy` é criada automaticamente se não existir no contentor. Neste tutorial, o nome de ficheiro é gerado dinamicamente através da expressão `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
+    > Este fragmento parte do princípio de que tem um contentor de blobs denominado adftutorial no armazenamento de blobs. Crie o contentor se ainda não existir ou defina-o como o nome de um contentor existente. A pasta de saída `incrementalcopy` é criada automaticamente se não existir no contentor. Neste tutorial, o nome de ficheiro é gerado dinamicamente através da expressão `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
 2. Execute o cmdlet **Set-AzureRmDataFactoryV2Dataset** para criar o conjunto de dados SinkDataset.
     
@@ -351,7 +351,7 @@ Neste passo, vai criar conjuntos de dados para representar os dados de origem e 
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset    
     ```
 
-## <a name="create-a-dataset-for-a-watermark"></a>Criar um conjunto de dados para uma marca d'água
+## <a name="create-a-dataset-for-a-watermark"></a>Criar um conjunto de dados para um limite de tamanho
 Neste passo, vai criar um conjunto de dados para armazenar um valor de limite superior de tamanho. 
 
 1. Crie um ficheiro JSON com o nome WatermarkDataset.json na mesma pasta com o seguinte conteúdo: 
@@ -388,7 +388,7 @@ Neste passo, vai criar um conjunto de dados para armazenar um valor de limite su
     ```
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
-Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma atividade de Cópia e uma atividade StoredProcedure encadeadas num pipeline. 
+Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade Copy e uma atividade StoredProcedure encadeadas num pipeline. 
 
 
 1. Crie um ficheiro JSON IncrementalCopyPipeline.json na mesma pasta com o seguinte conteúdo: 
@@ -604,7 +604,7 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
     4,dddd,2017-09-04 03:21:00.0000000
     5,eeee,2017-09-05 08:06:00.0000000
     ``` 
-2. Verifique o valor mais recente do `watermarktable`. Verá que o valor de marca d’água foi atualizado.
+2. Verifique o valor mais recente do `watermarktable`. Verá que o valor de limite de tamanho foi atualizado.
 
     ```sql
     Select * from watermarktable
@@ -733,12 +733,12 @@ Neste tutorial, executou os passos seguintes:
 > * Preparar o arquivo de dados para armazenar o valor de limite de tamanho. 
 > * Criar uma fábrica de dados.
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de marca d'água.
+> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
 > * Criar um pipeline.
 > * Executar o pipeline.
 > * Monitorizar a execução do pipeline. 
 
-Neste tutorial, o pipeline copiou dados a partir de uma única tabela numa base de dados SQL para um armazenamento de Blobs. Avance para o tutorial seguinte para saber como copiar dados de várias tabelas para uma base de dados do SQL Server local para uma base de dados SQL. 
+Neste tutorial, o pipeline copiou dados a partir de uma única tabela numa base de dados SQL para um armazenamento de Blobs. Avance para o tutorial seguinte para saber como copiar dados de várias tabelas numa base de dados do SQL Server no local para uma base de dados SQL. 
 
 > [!div class="nextstepaction"]
 >[Carregar dados de forma incremental a partir de várias tabelas no SQL Server para a Base de Dados SQL do Azure](tutorial-incremental-copy-multiple-tables-powershell.md)

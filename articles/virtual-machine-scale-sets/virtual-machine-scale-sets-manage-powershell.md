@@ -1,11 +1,11 @@
 ---
-title: "Gerir conjuntos de dimensionamento de Máquina Virtual com o Azure PowerShell | Microsoft Docs"
-description: "Cmdlets do Azure PowerShell comuns para gerir conjuntos de dimensionamento de Máquina Virtual, tais como iniciar e parar uma instância ou altere a escala definir capacidade."
+title: Gerir conjuntos de dimensionamento de Máquina Virtual com o Azure PowerShell | Microsoft Docs
+description: Cmdlets do Azure PowerShell comuns para gerir conjuntos de dimensionamento de Máquina Virtual, tais como iniciar e parar uma instância ou altere a escala definir capacidade.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
 ms.service: virtual-machine-scale-sets
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c463dd26c106b3178becc977a8afd742220d7973
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gerir um conjunto com o Azure PowerShell de dimensionamento de máquina virtual
-Ao longo do ciclo de vida de um conjunto de dimensionamento de máquina virtual, poderá ter de executar um ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizem várias tarefas de ciclo de vida. Este artigo fornece detalhes sobre alguns dos cmdlets Azure PowerShell comuns que permitem-lhe efetuar estas tarefas.
+Ao longo do ciclo de vida de um conjunto de dimensionamento de máquina virtual, poderá ter de executar um ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos cmdlets Azure PowerShell comuns que permitem-lhe efetuar estas tarefas.
 
-Para concluir estas tarefas de gestão, terá do módulo Azure PowerShell mais recente. Para obter informações sobre como instalar e utilizar a versão mais recente, consulte [introdução ao Azure PowerShell](/powershell/azure/get-started-azureps). Se precisar de criar um conjunto de dimensionamento de máquina virtual, pode [criar um conjunto no portal do Azure de dimensionamento](virtual-machine-scale-sets-create-portal.md).
+Para concluir estas tarefas de gestão, terá do módulo Azure PowerShell mais recente. Para informações, consulte [introdução ao Azure PowerShell](/powershell/azure/get-started-azureps). Se precisar de criar um conjunto de dimensionamento de máquina virtual, pode [criar um conjunto com o Azure PowerShell de dimensionamento](quick-create-powershell.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Ver informações sobre um conjunto de dimensionamento
@@ -35,7 +35,7 @@ Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet
 ```
 
 
-## <a name="view-vms-in-a-scale-set"></a>Vista VMs num conjunto de dimensionamento
+## <a name="view-vms-in-a-scale-set"></a>Ver VMs num conjunto de dimensionamento
 Para ver uma lista de instância de VM num conjunto de dimensionamento, utilize [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). O exemplo seguinte lista todas as instâncias de VM o conjunto nomeado de dimensionamento *myScaleSet* e no *myResourceGroup* grupo de recursos. Forneça os seus próprios valores para estes nomes de:
 
 ```powershell
