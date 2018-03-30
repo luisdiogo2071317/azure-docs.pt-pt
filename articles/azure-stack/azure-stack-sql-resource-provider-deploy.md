@@ -1,11 +1,11 @@
 ---
 title: Bases de dados SQL a utilizar na pilha do Azure | Microsoft Docs
-description: "Saiba como pode implementar bases de dados do SQL Server como um serviço na pilha do Azure e os passos rápidos para implementar o adaptador de fornecedor de recursos do SQL Server."
+description: Saiba como pode implementar bases de dados do SQL Server como um serviço na pilha do Azure e os passos rápidos para implementar o adaptador de fornecedor de recursos do SQL Server.
 services: azure-stack
-documentationCenter: 
+documentationCenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1754d4b121fdaf4f7b8e4c1954dfd4202ba344b1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utilizar bases de dados do SQL Server na pilha do Microsoft Azure
 
@@ -71,7 +71,7 @@ Deve criar uma (ou mais) instâncias do SQL Server e/ou fornecer acesso a instâ
     | 1710: 1.0.171028.1 | [SQL Server RP versão 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. O certificado de raiz de pilha do Azure é obtido a partir do ponto final com privilégios. Para o SDK de pilha do Azure, é criado um certificado autoassinado como parte deste processo. Para sistemas integrados, tem de fornecer um certificado adequado.
+4. Forneça o certificado necessário. Para o SDK de pilha do Azure, é criado um certificado autoassinado como parte deste processo, é necessário nenhum certificado adicional. Para sistemas integrados, tem de fornecer um certificado adequado.
 
    Para fornecer o seu próprio certificado, colocar um ficheiro. pfx a **DependencyFilesLocalPath** da seguinte forma:
 
