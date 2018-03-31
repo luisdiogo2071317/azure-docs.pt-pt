@@ -1,12 +1,11 @@
 ---
 title: Evento em tempo real processamento com o processamento de eventos do Stream Analytics | Microsoft Docs
-description: "Saiba como um conjunto de serviços do Azure pode interagir para ativar o processamento de eventos em tempo real e a análise."
-keywords: "processamento em tempo real, processamento de eventos, arquitetura de referência"
+description: Saiba como um conjunto de serviços do Azure pode interagir para ativar o processamento de eventos em tempo real e a análise.
+keywords: processamento em tempo real, processamento de eventos, arquitetura de referência
 services: stream-analytics,event-hubs,storage,sql-database
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 11af48bc-313c-4527-8c80-91088dc9f3c6
 ms.service: stream-analytics
 ms.workload: big-data
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-ms.author: samacha
-ms.openlocfilehash: a5206f74e61c3cfd210ff80654e31f466ce08977
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: cf11a80a93a923f038b7d6a0f02a35938794c242
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitetura de referência: processamento com o Microsoft Azure Stream Analytics de eventos em tempo real
 A arquitetura de referência para o Azure Stream Analytics de processamento de eventos em tempo real destina-se para fornecer um blueprint genérico para a implementação de uma plataforma em tempo real como uma solução de processamento de fluxo de serviço (PaaS) com o Microsoft Azure.
@@ -53,7 +52,7 @@ Microsoft Azure fornece um catálogo um vasto conjunto de tecnologias de anális
 ## <a name="get-help"></a>Obter ajuda
 Para mais assistência, tente ler o nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

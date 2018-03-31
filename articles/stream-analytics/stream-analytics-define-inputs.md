@@ -1,12 +1,11 @@
 ---
-title: "Ligação de dados: entradas de um fluxo de eventos de fluxo de dados | Microsoft Docs"
-description: "Saiba mais sobre como configurar uma ligação de dados para o Stream Analytics chamado 'entradas'. Entradas incluem um fluxo de dados de eventos e também referenciam a dados."
-keywords: "fluxo de dados, a ligação de dados, a transmissão de eventos"
+title: 'Ligação de dados: entradas de um fluxo de eventos de fluxo de dados | Microsoft Docs'
+description: Saiba mais sobre como configurar uma ligação de dados para o Stream Analytics chamado 'entradas'. Entradas incluem um fluxo de dados de eventos e também referenciam a dados.
+keywords: fluxo de dados, a ligação de dados, a transmissão de eventos
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/11/2017
 ms.author: sngun
-ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Ligação de dados: saber mais sobre os dados de entradas de fluxo de eventos para o Stream Analytics
 A ligação de dados para uma tarefa de Stream Analytics é um fluxo de eventos a partir de uma origem de dados, que é conhecida como a tarefa *entrada*. Do Stream Analytics tem integração de primeira classe com origens de fluxo de dados do Azure, incluindo [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/), [IoT Hub do Azure](https://azure.microsoft.com/services/iot-hub/), e [Blob storage do Azure](https://azure.microsoft.com/services/storage/blobs/). Estas origens de entrada podem ser da mesma subscrição do Azure como a tarefa de análise, ou a partir de uma subscrição diferente.
@@ -61,7 +60,7 @@ A tabela seguinte explica cada propriedade no **nova entrada** painel no portal 
 | **Nome de política do hub de eventos** |A política de acesso partilhado fornece acesso ao hub de eventos. Cada política de acesso partilhado tem um nome, as permissões que define e chaves de acesso. |
 | **Grupo de consumidores do hub de eventos** (opcional) |O grupo de consumidores para utilizar para a ingestão de dados do hub de eventos. Não se for especificado nenhum grupo de consumidores, a tarefa de Stream Analytics utiliza o grupo de consumidores predefinido. Recomendamos que utilize um grupo de consumidores distinta para cada tarefa de Stream Analytics. |
 | **Formato de serialização de eventos** |O formato de serialização (JSON, CSV ou Avro) do fluxo de dados de entrada. |
-| **Codificação** | UTF-8 atualmente é o único formato de codificação suportado. |
+| **Encoding** | UTF-8 atualmente é o único formato de codificação suportado. |
 | **Compressão** (opcional) | O tipo de compressão (nenhum, GZip ou Deflate) do fluxo de dados de entrada. |
 
 Quando os dados é proveniente de um hub de eventos, terá acesso para os seguintes campos de metadados na sua consulta do Stream Analytics:
@@ -106,12 +105,12 @@ A tabela seguinte explica cada propriedade no **nova entrada** painel no portal 
 | --- | --- |
 | **Alias de entrada** |Um nome amigável que utilizar na consulta da tarefa para fazer referência a esta entrada.|
 | **IoT hub** |O nome do hub IoT para utilizar como entrada. |
-| **Ponto final** |O ponto final para o IoT hub.|
+| **Endpoint** |O ponto final para o IoT hub.|
 | **Nome da política de acesso partilhado** |A política de acesso partilhado fornece acesso ao IoT hub. Cada política de acesso partilhado tem um nome, as permissões que define e chaves de acesso. |
 | **Chave de política de acesso partilhado** |A chave de acesso partilhado utilizada para autorizar o acesso ao IoT hub. |
 | **Grupo de consumidores** (opcional) |O grupo de consumidores para utilizar para a ingestão de dados do IoT hub. Não se for especificado nenhum grupo de consumidores, uma tarefa de Stream Analytics utiliza o grupo de consumidores predefinido. Recomendamos que utilize um grupo de consumidores diferente para cada tarefa de Stream Analytics. |
 | **Formato de serialização de eventos** |O formato de serialização (JSON, CSV ou Avro) do fluxo de dados de entrada. |
-| **Codificação** |UTF-8 atualmente é o único formato de codificação suportado. |
+| **Encoding** |UTF-8 atualmente é o único formato de codificação suportado. |
 | **Compressão** (opcional) | O tipo de compressão (nenhum, GZip ou Deflate) do fluxo de dados de entrada. |
 
 Quando os dados é proveniente de um hub IoT, tem acesso para os seguintes campos de metadados na sua consulta do Stream Analytics:
@@ -149,12 +148,12 @@ A tabela seguinte explica cada propriedade no **nova entrada** painel no portal 
 | **Alias de entrada** | Um nome amigável que utilizar na consulta da tarefa para fazer referência a esta entrada. |
 | **Conta de armazenamento** | O nome da conta do storage onde estão localizados os ficheiros de blob. |
 | **Chave de conta de armazenamento** | A chave secreta associada à conta de armazenamento. |
-| **Contentor** | O contentor do blob de entrada. Contentores fornecem um agrupamento lógico blobs armazenados no Microsoft serviço Blob do Azure. Quando carregar um blob para o serviço de armazenamento de Blobs do Azure, tem de especificar um contentor para esse blob. |
-| **Padrão de caminho** (opcional) | O caminho do ficheiro utilizado para localizar os blobs no contentor especificado. No caminho, pode especificar uma ou mais instâncias das três variáveis seguintes: `{date}`, `{time}`, ou`{partition}`<br/><br/>Exemplo 1:`cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2:`cluster1/logs/{date}`<br/><br/>O `*` carácter não é um valor permitido para o prefixo do caminho. Só é válido <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">carateres de Blobs do Azure</a> são permitidos. |
-| **Formato de data** (opcional) | Se utilizar a variável de data no caminho, o formato da data em que os ficheiros estão organizados. Exemplo:`YYYY/MM/DD` |
+| **contentor** | O contentor do blob de entrada. Contentores fornecem um agrupamento lógico blobs armazenados no Microsoft serviço Blob do Azure. Quando carregar um blob para o serviço de armazenamento de Blobs do Azure, tem de especificar um contentor para esse blob. |
+| **Padrão de caminho** (opcional) | O caminho do ficheiro utilizado para localizar os blobs no contentor especificado. No caminho, pode especificar uma ou mais instâncias das três variáveis seguintes: `{date}`, `{time}`, ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O `*` carácter não é um valor permitido para o prefixo do caminho. Só é válido <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">carateres de Blobs do Azure</a> são permitidos. |
+| **Formato de data** (opcional) | Se utilizar a variável de data no caminho, o formato da data em que os ficheiros estão organizados. Exemplo: `YYYY/MM/DD` |
 | **Formato de hora** (opcional) |  Se utilizar a variável de tempo no caminho, o formato de hora em que os ficheiros estão organizados. Atualmente é o único valor suportado `HH`. |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV ou Avro) para fluxos de dados recebidos. |
-| **Codificação** | Para CSV e JSON, UTF-8 atualmente é o único formato de codificação suportado. |
+| **Encoding** | Para CSV e JSON, UTF-8 atualmente é o único formato de codificação suportado. |
 | **Compressão** (opcional) | O tipo de compressão (nenhum, GZip ou Deflate) do fluxo de dados de entrada. |
 
 Quando os dados provém de uma origem de armazenamento de BLOBs, terá acesso para os seguintes campos de metadados na sua consulta do Stream Analytics:
@@ -179,7 +178,7 @@ FROM Input
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Aprendeu sobre as opções de ligação de dados no Azure para as tarefas do Stream Analytics. Para saber mais sobre o Stream Analytics, consulte:
 
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

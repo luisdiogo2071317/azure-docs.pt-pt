@@ -1,27 +1,21 @@
 ---
 title: Analisar a carga de trabalho - Azure SQL Data Warehouse | Microsoft Docs
-description: "Técnicas para analisar a atribuição de prioridades de consulta para a carga de trabalho no Azure SQL Data Warehouse."
+description: Técnicas para analisar a atribuição de prioridades de consulta para a carga de trabalho no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/23/2017
-ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 98617f6b8366662e52d00420adc4c81abffc598d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.topic: conceptual
+ms.component: manage
+ms.date: 03/28/2018
+ms.author: joeyong
+ms.reviewer: jrj
+ms.openlocfilehash: 7fa5bbd8d9a50bb1dcd1ab5be73f4e248cbbf8fc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="analyze-your-workload"></a>Analisar a carga de trabalho
+# <a name="analyze-your-workload"></a>Analisar a sua carga de trabalho
 Técnicas para analisar a atribuição de prioridades de consulta para a carga de trabalho no Azure SQL Data Warehouse.
 
 ## <a name="workload-groups"></a>Grupos de carga de trabalho 
@@ -234,7 +228,7 @@ FROM    sys.dm_pdw_wait_stats w
 ;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a gestão de utilizadores de base de dados e segurança, consulte [proteger uma base de dados no SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Para obter mais informações sobre como maiores classes de recurso podem melhorar a qualidade de índice columnstore em cluster, consulte [reconstruir índices para melhorar a qualidade de segmento].
 
 <!--Image references-->

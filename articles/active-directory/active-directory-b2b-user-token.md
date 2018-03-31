@@ -1,13 +1,13 @@
 ---
-title: "Compreender os tokens de utilizador em colaboração B2B do Azure AD | Microsoft Docs"
-description: "Referência de token de utilizador para colaboração B2B do Azure Active Directory do"
+title: Compreender os tokens de utilizador em colaboração B2B do Azure AD | Microsoft Docs
+description: Referência de token de utilizador para colaboração B2B do Azure Active Directory do
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,15 +16,15 @@ ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 6afa7d01282d6c35b042ad69fcdcb5714c92de10
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c4f152aa4da9fcbe07179414aa8dc69f8633bb6b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Compreender os tokens de utilizador em colaboração B2B do Azure AD
 
-Se pretender saber aspeto o token para um utilizador de colaboração B2B, seguem-se os detalhes de token de portador e conteúdo token para um convidado do Azure Active Directory (Azure AD) e um convidado de conta Microsoft no inquilino do recurso (para tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). Para ver o conteúdo do Token Web JSON (JWT), utilize [https://jwt.io/](https://jwt.io/) ou [http://calebb.net](http://calebb.net/).
+Se pretender saber aspeto o token para um utilizador de colaboração B2B, seguem-se os detalhes de token de portador e conteúdo token para um convidado do Azure Active Directory (Azure AD) e um convidado de conta Microsoft no inquilino do recurso (para tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). Para ver o conteúdo do Token Web JSON (JWT), utilize [ https://jwt.io/ ](https://jwt.io/) ou [ https://jwt.ms/ ](https://jwt.ms/).
 
 ## <a name="azure-ad-guest-token"></a>Token de convidado do Azure AD
 ```

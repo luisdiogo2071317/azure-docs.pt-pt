@@ -1,11 +1,11 @@
 ---
-title: "Guias de resolução de problemas do Azure Mobile Engagement"
-description: "Guia de resolução de problemas do Azure Mobile Engagement"
+title: Guias de resolução de problemas do Azure Mobile Engagement
+description: Guia de resolução de problemas do Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 31134a29-a513-4e5e-b626-f6cf6fe04769
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 93b5e3f4892f974bf9df28955956136528470e03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1242b2b796821856561a82d4a585b26693aadadd
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---troubleshooting-guide"></a>Azure Mobile Engagement - Guia de Resolução de Problemas
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 ## <a name="introduction"></a>Introdução
 O guia de resolução de problemas seguinte irão ajudá-lo a compreender as causas raiz dos alguns problemas normalmente visualizados e irá ativar a resolver no seu próprio. 
 
@@ -109,7 +113,7 @@ Se não for possível resolver o problema por si, em seguida, que pode:
 3. Se tiver Microsoft suporta aberto um incidente de suporte, fornecendo os seguintes detalhes: 
    * ID de subscrição do Azure
    * Plataforma (por exemplo, iOS, Android etc)
-   * ID da aplicação
+   * ID da Aplicação
    * ID de campanha (para problemas de notificação push)
    * ID do dispositivo
    * Versão do SDK do Mobile Engagement (por exemplo, o Android SDK v2.1.0)

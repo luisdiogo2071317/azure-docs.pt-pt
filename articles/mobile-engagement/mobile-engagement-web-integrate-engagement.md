@@ -1,11 +1,11 @@
 ---
-title: "Integração do SDK do Mobile Engagement Web do Azure | Microsoft Docs"
-description: "As mais recentes atualizações e procedimentos para o SDK Web do Azure Mobile Engagement"
+title: Integração do SDK do Mobile Engagement Web do Azure | Microsoft Docs
+description: As mais recentes atualizações e procedimentos para o SDK Web do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b5daa2a2-942b-489d-aa1d-568c3b25e56f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
-ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bccfbdfe9d99900f58d5dbfa44183146c79b9c88
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>Integrar o Azure Mobile Engagement numa aplicação web
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -45,7 +49,7 @@ O SDK do Mobile Engagement Web vem incluído como um único ficheiro JavaScript,
 ## <a name="browser-compatibility"></a>Compatibilidade com o browser
 O SDK do Mobile Engagement Web utiliza JSON nativo e codificação e descodificação, além de pedidos de AJAX entre domínios (entidade confiadora na especificação W3C CORS). É compatível com os seguintes browsers:
 
-* Microsoft Edge 12 +
+* Microsoft Edge 12+
 * Internet Explorer 10 +
 * Firefox 3.5 +
 * Chrome 4 +
@@ -64,7 +68,7 @@ Escrever um script que cria um global `azureEngagement` objeto JavaScript, como 
 O `connectionString` valor para a aplicação é apresentada no portal do Azure.
 
 > [!NOTE]
-> `appVersionName`e `appVersionCode` são opcionais. No entanto, recomendamos que configure-os para que a análise pode processar as informações de versão.
+> `appVersionName` e `appVersionCode` são opcionais. No entanto, recomendamos que configure-os para que a análise pode processar as informações de versão.
 > 
 > 
 

@@ -1,12 +1,11 @@
 ---
-title: "Saída JSON para o Stream Analytics | Microsoft Docs"
-description: "Saiba como o Stream Analytics pode visar BD do Cosmos do Azure para saída JSON, para o arquivo de dados e consultas de latência baixa em dados não estruturados de JSON."
-keywords: "Saída JSON"
-documentationcenter: 
+title: Saída JSON para o Stream Analytics | Microsoft Docs
+description: Saiba como o Stream Analytics pode visar BD do Cosmos do Azure para saída JSON, para o arquivo de dados e consultas de latência baixa em dados não estruturados de JSON.
+keywords: Saída JSON
+documentationcenter: ''
 services: stream-analytics,documentdb
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8bda2abda6f2b7207a5a7195c24b07da9089fb06
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>BD de Cosmos do destino do Azure para a saída JSON a partir do Stream Analytics
 Pode visar do Stream Analytics [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para saída JSON, permitindo consultas de arquivo e baixa latência de dados em dados não estruturados de JSON. Este documento inclui algumas melhores práticas para implementar esta configuração.
@@ -69,5 +68,5 @@ Coleção particionada | Várias coleções de "Única partição"
 * **Padrão de nome de coleção** – o nome da coleção ou os respetivos padrão para as coleções a ser utilizado. O formato de nome de coleção pode ser construído utilizando o token {partition} opcional, onde as partições começam do 0. Seguem-se entradas de exemplo válido:  
   1\) MyCollection – uma coleção designada "MyCollection" tem de existir.  
   2\) MyCollection {partition} – essas coleções têm de ser existir – "MyCollection0", "MyCollection1", "MyCollection2" e assim sucessivamente.  
-* **Chave de partição** – opcional. Isto só é necessário se estiver a utilizar um token {partition} no seu padrão de nome de coleção. O nome do campo em eventos de saída utilizado para especificar a chave de partições da saída nas coleções. Para o resultado única coleção, pode ser qualquer coluna de saída arbitrários utilizado por PartitionId.  
+* **Chave de partição** – opcional. Isto só é necessário se estiver a utilizar um token {partition} no seu padrão de nome de coleção. O nome do campo em eventos de saída utilizado para especificar a chave para a criação de partições da saída nas coleções. Para o resultado única coleção, pode ser qualquer coluna de saída arbitrários utilizado por PartitionId.  
 * **ID de documento** – opcional. O nome do campo em eventos de saída utilizado para especificar a chave primária na qual insert ou update baseiam-se operações.  

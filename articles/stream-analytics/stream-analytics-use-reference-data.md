@@ -1,12 +1,11 @@
 ---
-title: "Utilize as tabelas de dados e de pesquisa de referência do Stream Analytics | Microsoft Docs"
-description: "Utilizar dados de referência numa consulta do Stream Analytics"
-keywords: "tabela de referência, os dados de referência"
+title: Utilize as tabelas de dados e de pesquisa de referência do Stream Analytics | Microsoft Docs
+description: Utilizar dados de referência numa consulta do Stream Analytics
+keywords: tabela de referência, os dados de referência
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: f7366b4b7d78add47ebab4a6fc72717107814f1f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 77a4a9a28060206a30c658216156d7339bddc398
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Utilizar as tabelas de dados ou de pesquisa de referência num fluxo de entrada do Stream Analytics
 Dados de referência (também conhecido como uma tabela de pesquisa) são um conjunto de dados finito que é estático ou abrandamento alterar natureza, utilizada para efetuar uma pesquisa de ou para correlacionar com o fluxo de dados. Para tornar a utilização de dados de referência na sua tarefa do Azure Stream Analytics, normalmente, utilizará um [associação de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) na sua consulta. Do Stream Analytics utiliza o Blob storage do Azure como a camada de armazenamento para dados de referência e com a referência do Azure Data Factory dados podem ser transformados e/ou copiados para o armazenamento de Blobs do Azure, para utilização como dados de referência, [qualquer número de baseado na nuvem e arquivos de dados no local](../data-factory/copy-activity-overview.md). Dados de referência são modelados como uma sequência de blobs (definido na configuração de entrada) por ordem de data/hora especificada no nome do blob ascendente. - **Apenas** suporta a adicionar ao fim da sequência com uma data/hora **maior** à especificada pela última blob na sequência.
@@ -46,7 +45,7 @@ Para configurar os dados de referência, terá primeiro de criar uma entrada que
 <td>O nome da conta do storage onde estão localizados os blobs. Se estiver na mesma subscrição que a tarefa do Stream Analytics, pode selecionar da lista pendente.</td>
 </tr>
 <tr>
-<td>Chave de conta de armazenamento</td>
+<td>Chave da Conta de Armazenamento</td>
 <td>A chave secreta associada à conta de armazenamento. Este obtém preenchido automaticamente se a conta do storage na mesma subscrição que a tarefa de Stream Analytics.</td>
 </tr>
 <tr>
@@ -100,7 +99,7 @@ Se os dados de referência for um conjunto de dados de alteração lenta, em seg
 ## <a name="get-help"></a>Obter ajuda
 Para mais assistência, tente ler o nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora já conhece o Stream Analytics, um serviço gerido para a transmissão da análise dos dados a partir da Internet das Coisas. Para obter mais informações sobre este serviço, consulte:
 
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

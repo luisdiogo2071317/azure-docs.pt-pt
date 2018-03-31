@@ -1,11 +1,11 @@
 ---
-title: "Do Azure Mobile Engagement SDK - Guia de resolução de problemas"
-description: "Resolução de problemas de integração do SDK no Azure Mobile Engagement"
+title: Do Azure Mobile Engagement SDK - Guia de resolução de problemas
+description: Resolução de problemas de integração do SDK no Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: de265cf1-2f88-43ef-8616-156ada5be7b6
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4d9d6165deb4bd0c65f1841aa7c457363a1f2865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f617b3c3b221a38b63be6f61f7553b390cf2f7c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-sdk-integration-issues"></a>Guia de resolução de problemas para problemas de integração do SDK
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Seguem-se possíveis problemas que pode surgir com o Azure Mobile Engagement integra-se na sua aplicação.
 
 ## <a name="sdk-issues-discovered-by-a-failure-in-another-area-of-your-application"></a>Problemas SDK detetados por uma falha na outra área da sua aplicação
@@ -78,7 +82,7 @@ Seguem-se possíveis problemas que pode surgir com o Azure Mobile Engagement int
 * Existem algumas limitações inerente para uma plataforma que não é possível controlar o Azure Mobile Engagement (como a forma como o system center funciona para fora da aplicação pushes em Android e iOS).
 * O Azure Mobile Engagement publica uma lista completa dos pacotes internos utilizado pelo Azure Mobile Engagement para iOS e Android para referência. Tenha em atenção que algumas funcionalidades do Azure Mobile Engagement são específicas da plataforma (Android, iOS, Web, Windows e Windows Phone).
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Resolução de problemas guia - Push][Link 23] 
 * [Documentação do SDK - notas de versão][Link 5]
 * [Documentação do SDK - guias de atualização][Link 5]
@@ -92,7 +96,7 @@ Seguem-se possíveis problemas que pode surgir com o Azure Mobile Engagement int
 * Pode encontrar o ID de dispositivo do seu dispositivo de teste e ter a mesma ação que causou a falha da aplicação para um utilizador final ajudar a identificar a causa da falha.
 * Problemas conhecidos com o Azure Mobile Engagement SDK que fazer com que as aplicações de falhas por vezes, são resolvidos através da atualização para a versão mais recente do SDK. Certifique-se verificar as notas de versão sobre a sua plataforma quando investigar falhas.
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Documentação do SDK - notas de versão][Link 5]
 * [Documentação do SDK - guias de atualização][Link 5]
 

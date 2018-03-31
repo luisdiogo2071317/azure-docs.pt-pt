@@ -1,21 +1,21 @@
 ---
-title: "Resolver problemas de VHDs anexados em máquinas virtuais do Linux do Azure | Microsoft Docs"
-description: "Como resolver problemas, tais como reinícios inesperados de VMs com Linux ou problemas eliminar uma conta de armazenamento que contém ligado VHDs."
-keywords: "SSH ligação recusada, ssh erro, azure ssh, ligação SSH falhou"
+title: Resolver problemas de VHDs anexados em máquinas virtuais do Linux do Azure | Microsoft Docs
+description: Como resolver problemas, tais como reinícios inesperados de VMs com Linux ou problemas eliminar uma conta de armazenamento que contém ligado VHDs.
+keywords: SSH ligação recusada, ssh erro, azure ssh, ligação SSH falhou
 services: virtual-machines-linux
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: iainfou
-ms.openlocfilehash: 10f5e2f4a48d335c6b7d05b5eb5b577765675c0e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: rogarana
+ms.openlocfilehash: 3e1bac226a75ace3efdbc9886d152da055075920
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-attached-vhds-on-azure-linux-virtual-machines"></a>Resolver problemas de VHDs anexados em máquinas virtuais do Linux do Azure
 
@@ -24,7 +24,7 @@ Máquinas virtuais do Azure baseiam-se em discos de dados de discos rígidos vir
   * [Reinícios inesperados de VMs com VHDs ligados]
   * [Erros de eliminação de armazenamento na implementação do Resource Manager]
 
-## <a name="you-are-experiencing-unexpected-reboots">Reinícios inesperados de VMs com VHDs ligados</a>
+## <a name="you-are-experiencing-unexpected-reboots"></a>Reinícios inesperados de VMs com VHDs ligados
 
 Se uma Máquina Virtual do Azure (VM) tem um grande número de VHDs anexados que estão na mesma conta do storage, pode exceder os destinos de escalabilidade para uma conta de armazenamento individuais, fazendo com que a VM falhar. Verifique as métricas de minutos para a conta de armazenamento (**TotalRequests**/**TotalIngress**/**TotalEgress**) para picos que excedem o objetivos de escalabilidade para uma conta de armazenamento. Consulte a secção "[Mostrar de métricas um aumento no PercentThrottlingError]" para obter ajuda a determinar se a limitação ocorreu na sua conta de armazenamento.
 
@@ -32,7 +32,7 @@ Em geral, cada entrada individuais ou a operação de saída num VHD de uma Máq
 
 Se está a exceder os destinos de escalabilidade para a sua conta de armazenamento, coloque os seus VHDs em várias contas de armazenamento para reduzir da atividade em cada conta individual.
 
-## <a name="storage-delete-errors-in-rm">Erros de eliminação de armazenamento na implementação do Resource Manager</a>
+## <a name="storage-delete-errors-in-rm"></a>Erros de eliminação de armazenamento na implementação do Resource Manager
 
 Esta secção fornece orientações para a resolução de problemas quando um dos seguintes erros ocorrem enquanto estiver a tentar eliminar uma conta de armazenamento do Azure, um contentor ou um blob numa implementação do Azure Resource Manager.
 

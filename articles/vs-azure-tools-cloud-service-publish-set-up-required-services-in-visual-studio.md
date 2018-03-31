@@ -1,11 +1,11 @@
 ---
-title: "Preparar para publicar ou implementar um serviço em nuvem do Visual Studio | Microsoft Docs"
-description: "Saiba os procedimentos para configurar os serviços de conta de nuvem e de armazenamento e configurar a sua aplicação do Azure."
+title: Preparar para publicar ou implementar um serviço em nuvem do Visual Studio | Microsoft Docs
+description: Saiba os procedimentos para configurar os serviços de conta de nuvem e de armazenamento e configurar a sua aplicação do Azure.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
-ms.author: kraigb
-ms.openlocfilehash: 5b2043ada193e5a08957656e153b58a61e7eba9e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: 8a7d6f114bfa10170cdfe7126e01a35b02affd20
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="prepare-to-publish-or-deploy-a-cloud-service-from-visual-studio"></a>Preparar para publicar ou implementar um serviço em nuvem do Visual Studio
 
@@ -40,12 +40,12 @@ Um serviço em nuvem executa as funções no ambiente do Azure. Pode criar um se
 
 ### <a name="create-a-cloud-service-through-the-azure-portal"></a>Criar um serviço em nuvem através do portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione **serviços em nuvem (clássica)** no lado esquerdo da página.
 1. Selecione **+ adicionar**, em seguida, forneça as informações necessárias (DNS nome, subscrição, grupo de recursos e localização). Não é necessário carregar um pacote neste momento, porque, fazê-lo mais tarde no Visual Studio.
 1. Selecione **criar** para concluir o processo.
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 Uma conta do storage fornece acesso aos serviços tabela, fila e Blob. Pode criar uma conta do storage através do Visual Studio ou o [portal do Azure](https://portal.azure.com/).
 
@@ -59,7 +59,7 @@ Uma conta do storage fornece acesso aos serviços tabela, fila e Blob. Pode cria
 
 ### <a name="create-a-storage-account-through-the-azure-portal"></a>Criar uma conta de armazenamento através do portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione **+ novo** na parte superior esquerda.
 1. Selecione **armazenamento** em "Azure Marketplace,", em seguida, **conta de armazenamento - BLOBs, ficheiro, tabela, fila** do lado direito.
 1. Forneça as informações necessárias (nome, modelo de implementação e assim sucessivamente.
@@ -81,6 +81,6 @@ O portal do Azure mostra os URLs que pode utilizar para aceder a recursos em cad
 
 A chave de acesso secundária fornece o mesmo acesso à sua conta de armazenamento como a chave de acesso primária e é gerada uma cópia de segurança a chave de acesso primária comprometida. Além disso, é recomendado que voltar a gerar as chaves de acesso regularmente. Pode modificar uma definição de cadeia de ligação para utilizar a chave secundária ao regenerar a chave primária, em seguida, pode modificar-a para utilizar a chave primária regenerada ao regenerar a chave secundária.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre a publicação de aplicações para o Azure a partir do Visual Studio, consulte [publicação de um serviço em nuvem com as ferramentas do Azure](vs-azure-tools-publishing-a-cloud-service.md).

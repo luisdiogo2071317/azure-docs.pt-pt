@@ -1,11 +1,11 @@
 ---
-title: "IOS do Mobile Engagement procedimento de atualização do SDK do Azure | Microsoft Docs"
-description: "Mais recentes atualizações e procedimentos para o SDK do iOS do Azure Mobile Engagement"
+title: IOS do Mobile Engagement procedimento de atualização do SDK do Azure | Microsoft Docs
+description: Mais recentes atualizações e procedimentos para o SDK do iOS do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72a9e493-3f14-4e52-b6e2-0490fd04b184
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac03593cf0c983297e583985a3e68ea6c17e39de
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="upgrade-procedures"></a>Procedimentos de atualização
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Se já tiver integrado uma versão antiga do Engagement na sua aplicação, terá de considerar os seguintes pontos ao atualizar o SDK.
 
 Para cada versão nova do SDK tem de substituir primeiro (remover e voltar a importar no xcode) as pastas EngagementSDK e EngagementReach.
@@ -48,7 +52,7 @@ XCode 8 é obrigatório iniciados a partir da versão 4.0.0 do SDK.
 ### <a name="usernotifications-framework"></a>UserNotifications framework
 Tem de adicionar o `UserNotifications` framework nas fases de criação.
 
-no Explorador de projeto, abra o painel de projeto e selecione o destino correto. Em seguida, abra o **"Fases de compilação"** separador e no **"Binário com bibliotecas de ligação"** menu, adicionar framework `UserNotifications.framework` -definir a ligação como`Optional`
+no Explorador de projeto, abra o painel de projeto e selecione o destino correto. Em seguida, abra o **"Fases de compilação"** separador e no **"Binário com bibliotecas de ligação"** menu, adicionar framework `UserNotifications.framework` -definir a ligação como `Optional`
 
 ### <a name="application-push-capability"></a>Capacidade de push da aplicação
 XCode 8 pode repor a sua aplicação push capacidade, volte a verificar `capability` separador de destino selecionado.
@@ -204,7 +208,7 @@ Todas as classes que o prefixo "CP" são mudar o nome com o prefixo "AE".
 
 Exemplo:
 
-* `CPModule.h`é mudado para `AEModule.h`.
+* `CPModule.h` é mudado para `AEModule.h`.
 
 Todas as classes que o prefixo "Capptain" são mudar o nome com o prefixo "Envolvimento".
 

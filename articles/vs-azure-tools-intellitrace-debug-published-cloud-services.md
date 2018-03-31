@@ -1,11 +1,11 @@
 ---
-title: "Depurar uma publicada um Azure serviço em nuvem com o Visual Studio e o IntelliTrace | Microsoft Docs"
-description: "Saiba como depurar um serviço em nuvem com o Visual Studio e de IntelliTrace"
+title: Depurar uma publicada um Azure serviço em nuvem com o Visual Studio e o IntelliTrace | Microsoft Docs
+description: Saiba como depurar um serviço em nuvem com o Visual Studio e de IntelliTrace
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: 5e6662fc-b917-43ea-bf2b-4f2fc3d213dc
 ms.service: visual-studio-online
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/21/2017
 ms.author: mikejo
-ms.openlocfilehash: d33a8338b37f7479196449238388c7dbf391bbb6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 2ca15bd5ffa88d2e8053decf5b81c265b1d9c6e1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="debugging-a-published-azure-cloud-service-with-visual-studio-and-intellitrace"></a>A depuração de um serviço em nuvem do Azure publicadas com o Visual Studio e o IntelliTrace
 Com IntelliTrace, que pode iniciar sessão extensas informações de depuração para uma instância de função quando for executada no Azure. Se precisar de descobrir a causa de um problema, pode utilizar os registos do IntelliTrace para seguir o código do Visual Studio como se estivesse em execução no Azure. Em vigor, registos do IntelliTrace de chave de execução de código e os dados de ambiente quando a aplicação do Azure está em execução como um serviço em nuvem no Azure e permite-lhe os dados do Visual Studio registados de reprodução. 
@@ -78,6 +78,6 @@ Pode continuar a trabalhar no Visual Studio, enquanto estiver a transferir os re
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Opções para depuração cloud services do Azure](vs-azure-tools-debugging-cloud-services-overview.md)
 - [Publicação de um serviço em nuvem do Azure com o Visual Studio](vs-azure-tools-publishing-a-cloud-service.md)

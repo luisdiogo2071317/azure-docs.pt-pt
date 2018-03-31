@@ -1,8 +1,8 @@
 ---
-title: "Guardar pesquisas e os alertas em soluções do OMS | Microsoft Docs"
-description: "Soluções na OMS incluem, geralmente, as pesquisas guardadas na análise de registos para analisar os dados recolhidos pela solução.  Estes podem também definir alertas para notificar o utilizador ou automaticamente tomar medidas em resposta a um problema crítico.  Este artigo descreve como definir a análise de registos guardar pesquisas e os alertas num modelo do Resource Manager pode ser incluídos em soluções de gestão."
+title: Guardar pesquisas e os alertas em soluções de gestão | Microsoft Docs
+description: As soluções de gestão incluem, geralmente, as pesquisas guardadas na análise de registos para analisar os dados recolhidos pela solução.  Estes podem também definir alertas para notificar o utilizador ou automaticamente tomar medidas em resposta a um problema crítico.  Este artigo descreve como definir a análise de registos guardar pesquisas e os alertas num modelo do Resource Manager pode ser incluídos em soluções de gestão.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,29 +14,29 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>A adição de análise de registos guardar pesquisas e os alertas à solução de gestão do OMS (pré-visualização)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>A adição de análise de registos guardar pesquisas e os alertas à solução de gestão (pré-visualização)
 
 > [!NOTE]
-> Esta documentação é de preliminar para criar soluções de gestão no OMS que estão atualmente em pré-visualização. Nenhum esquema descrita abaixo está sujeita a alterações.   
+> Esta documentação é de preliminar para criar soluções de gestão que estão atualmente em pré-visualização. Nenhum esquema descrita abaixo está sujeita a alterações.   
 
 
-[As soluções de gestão no OMS](operations-management-suite-solutions.md) normalmente incluirá a [pesquisas guardadas](../log-analytics/log-analytics-log-searches.md) na análise de registos para analisar os dados recolhidos pela solução.  Pode também definirem [alertas](../log-analytics/log-analytics-alerts.md) para notificar o utilizador ou automaticamente tomar medidas em resposta a um problema crítico.  Este artigo descreve como definir a análise de registos pesquisas guardadas e alertas num [modelo de gestão de recursos](../resource-manager-template-walkthrough.md) pelo que pode ser incluídos numa [soluções de gestão](operations-management-suite-solutions-creating.md).
+[As soluções de gestão](operations-management-suite-solutions.md) normalmente incluirá a [pesquisas guardadas](../log-analytics/log-analytics-log-searches.md) na análise de registos para analisar os dados recolhidos pela solução.  Pode também definirem [alertas](../log-analytics/log-analytics-alerts.md) para notificar o utilizador ou automaticamente tomar medidas em resposta a um problema crítico.  Este artigo descreve como definir a análise de registos pesquisas guardadas e alertas num [modelo de gestão de recursos](../resource-manager-template-walkthrough.md) pelo que pode ser incluídos numa [soluções de gestão](operations-management-suite-solutions-creating.md).
 
 > [!NOTE]
-> Os exemplos neste artigo utilizam parâmetros e variáveis que são necessários ou comuns para soluções de gestão e descrito em [criar soluções de gestão no Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
+> Os exemplos neste artigo utilizam parâmetros e variáveis que são necessários ou comuns para soluções de gestão e descrito em [estruturação e criação de uma solução de gestão no Azure](operations-management-suite-solutions-creating.md)  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que já está familiarizado com a [criar uma solução de gestão](operations-management-suite-solutions-creating.md) e a estrutura de um [modelo do Resource Manager](../resource-group-authoring-templates.md) e ficheiro de solução.
 
 
 ## <a name="log-analytics-workspace"></a>Área de trabalho de análise de registo
-Todos os recursos na análise de registos estão contidos num [área de trabalho](../log-analytics/log-analytics-manage-access.md).  Conforme descrito em [OMS área de trabalho e a conta de automatização](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), a área de trabalho não está incluída na solução de gestão, mas tem de existir antes da solução está instalada.  Se não estiver disponível, em seguida, a solução de instalação irá falhar.
+Todos os recursos na análise de registos estão contidos num [área de trabalho](../log-analytics/log-analytics-manage-access.md).  Conforme descrito em [área de trabalho de análise de registos e a conta de automatização](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), a área de trabalho não está incluída na solução de gestão, mas tem de existir antes da solução está instalada.  Se não estiver disponível, em seguida, a solução de instalação irá falhar.
 
 O nome da área de trabalho é nome cada recurso de análise de registos.  Isto é feito na solução com o **área de trabalho** parâmetro como no seguinte exemplo de um recurso de savedsearch.
 
@@ -189,7 +189,7 @@ As propriedades de recursos da ação de alerta são descritas nas tabelas segui
 | Tipo | Sim | Tipo de ação.  Este é **alerta** para ações de alerta. |
 | Nome | Sim | Nome a apresentar para o alerta.  Este é o nome que é apresentado na consola para a regra de alerta. |
 | Descrição | Não | Descrição opcional do alerta. |
-| Gravidade | Sim | Gravidade do alerta registo entre os valores seguintes:<br><br> **Critical**<br>**Aviso**<br>**Informativo** |
+| Gravidade | Sim | Gravidade do alerta registo entre os valores seguintes:<br><br> **Critical**<br>**aviso**<br>**Informativo** |
 
 
 ##### <a name="threshold"></a>Limiar

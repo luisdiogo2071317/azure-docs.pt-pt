@@ -1,11 +1,11 @@
 ---
-title: "IOS do Mobile Engagement SDK alcançar integração do Azure | Microsoft Docs"
-description: "Mais recentes atualizações e procedimentos para o SDK do iOS do Azure Mobile Engagement"
+title: IOS do Mobile Engagement SDK alcançar integração do Azure | Microsoft Docs
+description: Mais recentes atualizações e procedimentos para o SDK do iOS do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1f5f5857-867c-40c5-9d76-675a343a0296
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d531f5850e8f7f352774f5894285402bd4cc53e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>Como integrar o alcance do Engagement no iOS
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Tem de seguir o procedimento de integração descrito no [como integrar o Engagement num documento do iOS](mobile-engagement-ios-integrate-engagement.md) antes de seguir este guia.
 
 Esta documentação requer 8 do XCode. Se é realmente depende do XCode 7, em seguida, pode utilizar o [iOS o Engagement SDK v3.2.4](https://aka.ms/r6oouh). Não há um erro conhecido nesta versão anterior ao executar em dispositivos iOS 10: as notificações do sistema não estão alvo de ação. Para corrigir esta situação, terá de implementar a API preterida `application:didReceiveRemoteNotification:` na sua aplicação delegar da seguinte forma:
@@ -267,7 +271,7 @@ Para registar um processador de categoria para as notificações, tem de adicion
     [reach registerNotifier:myNotifier forCategory:@"my_category"];
     ...
 
-`myNotifier`tem de ser uma instância de um objeto que está em conformidade com o protocolo `AENotifier`.
+`myNotifier` tem de ser uma instância de um objeto que está em conformidade com o protocolo `AENotifier`.
 
 Pode implementar os métodos de protocolo por si ou pode optar por reimplement classe existente `AEDefaultNotifier` que já faz a maior parte do trabalho.
 
@@ -292,8 +296,8 @@ Neste exemplo simples da categoria partem do princípio de que tem um ficheiro d
 O ficheiro nib fornecido deve respeitem as seguintes regras:
 
 * Só deve conter uma vista.
-* Subviews deve ser dos mesmos tipos de que as dentro do ficheiro nib fornecido com o nome`AENotificationView.xib`
-* Subviews deve ter as mesmas etiquetas como aqueles dentro fornecido com o nome de ficheiro de nib`AENotificationView.xib`
+* Subviews deve ser dos mesmos tipos de que as dentro do ficheiro nib fornecido com o nome `AENotificationView.xib`
+* Subviews deve ter as mesmas etiquetas como aqueles dentro fornecido com o nome de ficheiro de nib `AENotificationView.xib`
 
 > [!TIP]
 > Apenas copiar o ficheiro nib fornecido, denominado `AENotificationView.xib`e começar a trabalhar a partir daí. Seja cuidadoso, a vista dentro deste ficheiro nib é associada à classe `AENotificationView`. Esta classe redefinir o método `layoutSubViews` mover e redimensionar os subviews, de acordo com contexto. Pretende substituí-lo com um `UIView` ou classe vista personalizada.
@@ -344,7 +348,7 @@ Pode optar por incluir nosso esquema de notificação no seu vistas existentes. 
        notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
        [self.view addSubview:notificationView];
 
-`NOTIFICATION_AREA_VIEW_TAG`a macro pode ser encontrada na `AEDefaultNotifier.h`.
+`NOTIFICATION_AREA_VIEW_TAG` a macro pode ser encontrada na `AEDefaultNotifier.h`.
 
 > [!NOTE]
 > O notifier predefinido Deteta automaticamente que o esquema de notificação está incluído nesta vista e não irá adicionar uma sobreposição para a mesma.

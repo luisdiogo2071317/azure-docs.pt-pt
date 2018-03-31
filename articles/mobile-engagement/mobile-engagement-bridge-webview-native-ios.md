@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: e1d6ff6f-cd67-4131-96eb-c3d6318de752
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,16 +14,20 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 35f7bdbeb480122513ae2a0b04a6d8cfd426802a
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07b2b8be80c090ce533f31cc28910f3ce7b91f73
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="bridge-ios-webview-with-native-mobile-engagement-ios-sdk"></a>Bridge iOS WebView com o SDK iOS do Mobile Engagement nativo
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 > [!div class="op_single_selector"]
 > * [Bridge de Android](mobile-engagement-bridge-webview-native-android.md)
-> * [Bridge de iOS](mobile-engagement-bridge-webview-native-ios.md)
+> * [iOS Bridge](mobile-engagement-bridge-webview-native-ios.md)
 > 
 > 
 

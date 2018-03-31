@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao armazenamento de tabelas e o Visual Studio ligado services (Serviços de cloud) | Microsoft Docs"
-description: "Como começar a utilizar o Table storage do Azure num projeto de serviço em nuvem no Visual Studio depois de ligar a uma conta de armazenamento com o Visual Studio ligada a serviços"
+title: Introdução ao armazenamento de tabelas e o Visual Studio ligado services (Serviços de cloud) | Microsoft Docs
+description: Como começar a utilizar o Table storage do Azure num projeto de serviço em nuvem no Visual Studio depois de ligar a uma conta de armazenamento com o Visual Studio ligada a serviços
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a3a11ed8-ba7f-4193-912b-e555f5b72184
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 51b71d783806d9b0d58d4473b8c07f77441dadd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 68ce9630c5224bd7d9bc4b093ce54dd94140f9e7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao table storage do Azure e o Visual Studio ligado serviços (projetos de serviços de nuvem)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -191,6 +191,6 @@ Pode eliminar uma entidade depois de encontrá-lo. O seguinte código procura um
     else
        Console.WriteLine("Couldn't delete the entity.");
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 

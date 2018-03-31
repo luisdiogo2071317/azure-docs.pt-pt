@@ -1,11 +1,11 @@
 ---
 title: Interface de utilizador do Azure Mobile Engagement - Monitor
-description: "Saiba como monitorizar dados em tempo real sobre a sua aplicação utilizando o Azure Mobile Engagement"
+description: Saiba como monitorizar dados em tempo real sobre a sua aplicação utilizando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 5f8a02e35db93585e0fe46d77b3ad18b94c99597
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b370a5db1acee37ce234f5ec3f004be20719cfea
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-monitor-real-time-data-about-your-application"></a>Como monitorizar dados em tempo real sobre a sua aplicação
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Este artigo descreve o **MONITOR** separador do **Mobile Engagement** portal. Utilizar o **Mobile Engagement** portal para monitorizar e gerir as suas aplicações móveis. Tenha em atenção que para começar a utilizar o portal terá primeiro de criar um **Azure Mobile Engagement** conta. 
 
 A secção de Monitor da IU fornece informações de análise em tempo real e permite-lhe definir alertas quando os limiares são atingidos para a maioria dessas mesmas informações que está disponíveis em historicamente o [análise](mobile-engagement-user-interface-analytics.md) secção da IU. Consulte o **glossário** secção o [conceitos](http://go.microsoft.com/fwlink/?LinkId=525555) tópico definições dos termos e abreviaturas na monitorização e de análise (tais como o seguinte: utilizador ativo, novo utilizador, utilizador retido, sessão, gráfico de caminho de utilizador, mapa de utilizadores, URLs de controlo, tendências, atividade, evento, o trabalho, erro, informações adicionais, falhas e App-info).
@@ -56,7 +60,7 @@ Também pode especificar uma taxa de deteção mínima, que é a quantidade mín
 
 ![Monitor4][17]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Conceitos][Link 6]
 * [Serviço de guia de resolução de problemas][Link 24]
 

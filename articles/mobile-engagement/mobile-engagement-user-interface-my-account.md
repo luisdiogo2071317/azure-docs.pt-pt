@@ -2,10 +2,10 @@
 title: Interface de utilizador do Azure Mobile Engagement - minha conta
 description: Saiba como gerir os dispositivos de perfil e teste de conta a utilizar o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 22832678-3959-4b8c-9fb2-f2ff5974e5d1
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89ef4f97a03ab0334f5474fb5b0ad2fd44f23518
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-your-account-profile-and-test-devices"></a>Como gerir os dispositivos de perfil e teste de conta
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Este artigo descreve o **home page** página do **Mobile Engagement** portal. Utilizar o **Mobile Engagement** portal para monitorizar e gerir as suas aplicações móveis. 
 
 Para obter o **minha conta** página, clique na sua conta no topo da página.
@@ -57,7 +61,7 @@ Para utilizar o Push API ou da Device API precisa de saber o identificador de di
 ## <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 * [Resolução de problemas guia - Service][Link 24]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Documentação de IU - inicial][Link 13]
 
 <!--Image references-->

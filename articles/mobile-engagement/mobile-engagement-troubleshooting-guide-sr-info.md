@@ -1,11 +1,11 @@
 ---
-title: "Do Azure Mobile Engagement guia - informações de pedido de serviço de resolução de problemas"
-description: "Informações de pedido de serviço necessárias pela equipa de suporte para resolução de problemas do Azure Mobile Engagement"
+title: Do Azure Mobile Engagement guia - informações de pedido de serviço de resolução de problemas
+description: Informações de pedido de serviço necessárias pela equipa de suporte para resolução de problemas do Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 28d49915-d0c2-4fac-b07a-b3e9b6b8528a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: a4497046df74003a733d80f190e82b5e798d398e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d08ccbe6639809f16c41b3399cbe374d34c9a5bb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="service-request-sr-information"></a>Informações de pedido (SR) do serviço
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Quando abre um pedido de serviço a qualquer serviço de Mobile Engagement, forneça as seguintes informações:
 
 ## <a name="ids-applicable-identifiers-related-to-your-issue"></a>Os iDs: Relacionados com o seu problema de identificadores aplicáveis:
-* ID da aplicação
+* ID da Aplicação
 * ID de campanha
 * ID do dispositivo
 * ID de Utilizador

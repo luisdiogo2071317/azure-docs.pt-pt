@@ -1,11 +1,11 @@
 ---
-title: "Utilizando o .NET SDK para aceder a APIs de serviço do Azure Mobile Engagement"
-description: "Descreve como utilizar o SDK .NET do Mobile Engagement para aceder às APIs de serviço do Azure Mobile Engagement"
+title: Utilizando o .NET SDK para aceder a APIs de serviço do Azure Mobile Engagement
+description: Descreve como utilizar o SDK .NET do Mobile Engagement para aceder às APIs de serviço do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c07728aa-43f2-4238-8b4a-c9eddf9d838b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6a497189268c5a1b7e269cc57904ebc77c1906fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99595eb1f9a1eab1db51796632d58df35bf45be6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-net-sdk-to-access-azure-mobile-engagement-service-apis"></a>Utilizando o .NET SDK para aceder a APIs de serviço do Azure Mobile Engagement
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 O Azure Mobile Engagement expõe um conjunto de APIs para gerir dispositivos, campanhas de alcance/enviar por Push etc. Para interagir com estas APIs, também fornecemos-lhe um [ficheiro Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) que pode utilizar com as ferramentas para gerar SDKs para o idioma preferencial. Recomendamos que utilize o [AutoRest](https://github.com/Azure/AutoRest) ferramenta para gerar o SDK do nosso ficheiro Swagger.
 
 > [!NOTE]

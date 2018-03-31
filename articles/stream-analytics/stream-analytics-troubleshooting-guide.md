@@ -1,25 +1,24 @@
 ---
-title: "Guia de resolução de problemas para o Azure Stream Analytics | Microsoft Docs"
+title: Guia de resolução de problemas para o Azure Stream Analytics | Microsoft Docs
 description: Como resolver problemas com a tarefa de Stream Analytics
-keywords: "Guia de resolução de problemas"
-documentationcenter: 
+keywords: Guia de resolução de problemas
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: dcff312e4a282b15e76ea32aadb1981a496a2446
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 87e8b99cb2774966ce22c76e1afed6a754749e9d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Guia de resolução de problemas para o Azure Stream Analytics
 
@@ -90,7 +89,7 @@ Para obter os melhores resultados na sua tarefa do Stream Analytics de resoluç�
 
 Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 045a7f97d9c4d380e83325c04c209a6afcc761a7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: abab73a047fb923fa2cd57a1c7194e440697bf64
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="extend-alerts-from-oms-into-azure"></a>Expanda os alertas do OMS no Azure
 A nova experiência de alertas tem agora a alerta experiência integrada em vários serviços e partes no Microsoft Azure. A nova experiência disponível como **alertas** no Monitor do Azure no Portal, foi colocado em conjunto num local comum - alertas de registo de atividade, métricas alertas e alertas de registo na análise de registos, bem como o Application Insights. 
@@ -28,8 +28,8 @@ Mas para alguns utilizadores, a utilização de análise de registos e a funcion
 Para além do benefício acumulado no não ter de navegar fora do portal do Azure, existem outras vantagens salientes expandir os alertas do OMS no Azure
 
 - Ao contrário na OMS, onde apenas 250 alertas foi criadas e visualizadas; nos alertas do Azure esta limitação não está presente
-- De alertas do Azure, todos os que alertas tipos podem ser geridos, enumerar e visualizados; alertas de análise de registos não apenas como as maiúsculas e minúsculas com o OMS
-- Utilizam alertas do Azure [ação grupos](monitoring-action-groups.md), que permitem-lhe ter para cada alerta várias ações, incluindo SMS, chamada de voz, o Runbook de automatização, Webhook, ITSM conector e muito mais. Onde no OMS alertas estão limitados tanto o número, bem como tipo de ações possíveis
+- De alertas do Azure, todos os tipos de alerta podem ser geridos, enumerar e visualizados; Análise de registos não apenas alertas como é o caso com o OMS
+- Utilizam alertas do Azure [ação grupos](monitoring-action-groups.md), que permitem-lhe ter mais de uma ação para cada alerta, incluindo SMS, chamada de voz, o Runbook de automatização, Webhook, ITSM conector e muito mais. Enquanto os alertas do OMS são limitadas em ambos os o número, bem como tipo de possíveis de ações
 
 ## <a name="process-of-extending-your-alerts"></a>Processo de alargar os alertas
 O processo de alargar alertas do OMS no Azure, **não** envolvem alterar a definição de alerta, a consulta ou a configuração de qualquer forma. A única alteração necessária é que, no Azure, todas as ações como notificação por correio eletrónico, chamada webhook, executar o runbook de automatização ou ligar à ferramenta ITSM são efetuadas através do grupo de ação. Por conseguinte, se o grupo de medidas adequadas está associado com o alerta - estes irão tornar-se expandido no Azure.

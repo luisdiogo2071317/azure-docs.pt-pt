@@ -2,24 +2,19 @@
 title: Cópia de segurança do armazém de dados SQL do Azure e de restauro - instantâneos, georredundante | Microsoft Docs
 description: Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilize cópias de segurança de armazém de dados para restaurar o seu armazém de dados para um ponto de restauro na região primária, ou as cópias de segurança georredundante restaurar para uma região geográfica diferentes.
 services: sql-data-warehouse
-documentationcenter: ''
-author: barbkess
+author: ronortloff
 manager: jhubbard
-editor: ''
-ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.custom: backup-restore
-ms.date: 03/22/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: e909cb6f31d8bc677d9dfd267dab242eb99f42df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: design
+ms.date: 03/28/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 7f540bca0d2eb2c9009a386bd14a5beda2912014
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
 Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilize cópias de segurança de armazém de dados para restaurar o seu armazém de dados para um ponto de restauro na região primária, ou as cópias de segurança georredundante restaurar para uma região geográfica diferentes. 

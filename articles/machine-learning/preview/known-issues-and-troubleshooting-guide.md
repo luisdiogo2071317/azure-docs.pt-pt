@@ -1,5 +1,5 @@
 ---
-title: "Problemas e o guia de resolução de problemas conhecidos | Microsoft Docs"
+title: Problemas e o guia de resolução de problemas conhecidos | Microsoft Docs
 description: Lista dos problemas conhecidos e um guia para ajudar a resolver problemas
 services: machine-learning
 author: svankam
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3699e2a59061d8a2870a263588917268ca504866
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - problemas conhecidos e guia de resolução de problemas 
 Este artigo ajuda-o a encontrar e corrija erros ou falhas encontradas como parte da utilização da aplicação do Azure Machine Learning Workbench. 
@@ -238,6 +238,14 @@ Geralmente, não precisa de efetuar este procedimento. Mas, no caso de tem de ap
     - [Script do Windows PowerShell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Poderá ter de executar `Set-ExecutionPolicy Unrestricted` numa janela do PowerShell elevada de privilégio antes de poder executar o script.)
 - On macOS:
   - Acabou de transferir e executar o [macOS bash script de shell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
+## <a name="azure-ml-using-a-different-python-location-than-the-azure-ml-installed-python-environment"></a>Azure ML com o ambiente do Azure ML python instalado numa localização diferente do python
+Devido a uma alteração recente no Azure Machine Learning Workbench, os utilizadores poderão reparar que executa local não pode apontar para o ambiente do python instalado pelo Workbench do Azure ML já. Isto pode acontecer se o utilizador tiver outro ambiente do python instalado nos respetivos computadores e o caminho "Python" está definido para apontar para nesse ambiente. Para poder utilizar o Azure ML Workbench instalado no ambiente do Python, siga estes passos:
+- Aceda ao ficheiro de local.compute na sua pasta aml_config na raiz do projeto.
+- Altere a variável "pythonLocation" para apontar para o caminho físico do workbench do Azure ML instalado ambiente python. Pode obter este caminho de duas formas:
+    - Localização de python do Azure ML pode ser encontrada em %localappdata%\AmlWorkbench\python\python.exe
+    - Pode abrir cmd a partir do Azure ML Workbench, escreva o python na linha de comandos, importar sys.exe, execute sys.executable e obter o caminho a partir daí. 
+
 
 
 ## <a name="some-useful-docker-commands"></a>Alguns comandos de Docker útil

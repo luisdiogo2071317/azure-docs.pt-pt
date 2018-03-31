@@ -2,12 +2,11 @@
 title: Consulta de teste no Azure Stream Analytics | Microsoft Docs
 description: Identificar problemas quando resolver problemas relacionados com tarefas do Stream Analytics.
 keywords: resolver problemas de amostragem de entrada, a entrada
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e2636b8b89b86bbb2a2991972386462535d5a10f
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 99c9f7f2dc84f53d09b7aee1916c5532427de692
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>A amostragem de fluxo de entrada e de teste de consulta do Stream Analytics do Azure
 
@@ -59,7 +58,7 @@ Depois de se satisfeito com os resultados, pode guardar a consulta, iniciar a su
 
 Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

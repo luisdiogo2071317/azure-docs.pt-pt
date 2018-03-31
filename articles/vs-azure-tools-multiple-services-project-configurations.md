@@ -1,11 +1,11 @@
 ---
-title: "Configurar o projeto do Azure através de várias configurações de serviço | Microsoft Docs"
-description: "Saiba como configurar um projeto de serviço em nuvem do Azure, alterando os ficheiros servicedefinition. Csdef, ServiceConfiguration.Local.cscfg e Serviceconfiguration."
+title: Configurar o projeto do Azure através de várias configurações de serviço | Microsoft Docs
+description: Saiba como configurar um projeto de serviço em nuvem do Azure, alterando os ficheiros servicedefinition. Csdef, ServiceConfiguration.Local.cscfg e Serviceconfiguration.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.service: multiple
 ms.devlang: multiple
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
-ms.author: kraigb
-ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.author: ghogen
+ms.openlocfilehash: 919568922ada2d842233ade029a54d474b4a1a0e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Configurar o projeto do Azure no Visual Studio para utilizar várias configurações de serviço
 
 Um projeto de serviço em nuvem do Azure no Visual Studio inclui três ficheiros de configuração: `ServiceDefinition.csdef`, `ServiceConfiguration.Local.cscfg`, e `ServiceConfiguration.Cloud.cscfg`:
 
-- `ServiceDefinition.csdef`é implementado no Azure para descrever os requisitos de serviço em nuvem e as respetivas funções e para fornecer definições que se aplicam a todas as instâncias. As definições podem ser lidos durante a execução utilizando a API de tempo de execução de alojamento do Azure Service. Este ficheiro pode ser atualizado no Azure apenas quando o serviço em nuvem está parado.
-- `ServiceConfiguration.Local.cscfg`e `ServiceConfiguration.Cloud.cscfg` fornecer valores para as definições na definição do ficheiro e especifique o número de instâncias para executar para cada função. O ficheiro "Local" contém valores utilizados na depuração local; o ficheiro "Nuvem" é implementado no Azure como `ServiceConfiguration.cscfg` e fornece as definições para o ambiente de servidor. Este ficheiro pode ser atualizado enquanto o serviço em nuvem está em execução no Azure.
+- `ServiceDefinition.csdef` é implementado no Azure para descrever os requisitos de serviço em nuvem e as respetivas funções e para fornecer definições que se aplicam a todas as instâncias. As definições podem ser lidos durante a execução utilizando a API de tempo de execução de alojamento do Azure Service. Este ficheiro pode ser atualizado no Azure apenas quando o serviço em nuvem está parado.
+- `ServiceConfiguration.Local.cscfg` e `ServiceConfiguration.Cloud.cscfg` fornecer valores para as definições na definição do ficheiro e especifique o número de instâncias para executar para cada função. O ficheiro "Local" contém valores utilizados na depuração local; o ficheiro "Nuvem" é implementado no Azure como `ServiceConfiguration.cscfg` e fornece as definições para o ambiente de servidor. Este ficheiro pode ser atualizado enquanto o serviço em nuvem está em execução no Azure.
 
 Definições de configuração são geridas e modificadas no Visual Studio com páginas de propriedades para a função aplicável (a função com o botão direito e selecione **propriedades**, ou faça duplo clique a função). As alterações podem ser confinadas para qualquer configuração é escolhida no **a configuração do serviço** pendente. As propriedades de funções web e de trabalho são semelhantes, exceto onde descritos nas secções seguintes.
 

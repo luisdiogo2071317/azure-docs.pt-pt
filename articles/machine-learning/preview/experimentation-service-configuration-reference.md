@@ -1,6 +1,6 @@
 ---
-title: "Ficheiros de configuração do serviço de experimentação do Machine Learning do Azure"
-description: "Este documento fornece detalhes sobre as definições de configuração do serviço de experimentação do Azure ML."
+title: Ficheiros de configuração do serviço de experimentação do Machine Learning do Azure
+description: Este documento fornece detalhes sobre as definições de configuração do serviço de experimentação do Azure ML.
 services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Ficheiros de configuração do serviço de experimentação do Machine Learning do Azure
 
@@ -149,6 +149,8 @@ _\<nome do destino de computação > .compute_ ficheiro Especifica as informaç�
 **nativeSharedDirectory**: Esta propriedade especifica o diretório de base (por exemplo: _~/.azureml/share/_) onde os ficheiros podem ser guardados para poder ser partilhadas em é executado no mesmo destino de computação. Se esta definição é utilizada quando em execução no contentor de Docker, _sharedVolumes_ tem de ser definido como true. Caso contrário, a execução falhará.
 
 **userManagedEnvironment**: Esta propriedade especifica se este destino de computação é gerido pelo utilizador diretamente ou através do serviço de experimentação.  
+
+**pythonLocation**: Esta propriedade especifica a localização do tempo de execução do python para ser utilizado no destino de computação para executar o programa do utilizador. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<Execute o nome de configuração > .runconfig
 _\<Execute o nome de configuração > .runconfig_ Especifica o comportamento de execução de experimentação do Azure ML. Pode configurar o comportamento de execução, tais como o controlo de histórico de execução ou o destino juntamente com muitas outras de computação. Os nomes dos ficheiros de configuração de execução são utilizados para preencher a lista pendente de contexto de execução da aplicação de ambiente de trabalho do Azure ML Workbench.

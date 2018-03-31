@@ -1,11 +1,11 @@
 ---
-title: "Integração do Android SDK do Azure Mobile Engagement"
-description: "Mais recentes atualizações e procedimentos para Android SDK do Azure Mobile Engagement"
+title: Integração do Android SDK do Azure Mobile Engagement
+description: Mais recentes atualizações e procedimentos para Android SDK do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a5487793-1a12-4f6c-a1cf-587c5a671e6b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 35bd92e52b7a02f58620a03156902f9f91be57ae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fffff6de996b8295639b3d595c5f778de8a0f74f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-on-android"></a>Como integrar o Engagement no Android
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -267,7 +271,7 @@ No contexto do Mobile Engagement, as permissões que necessitem de aprovação n
 
 * `ACCESS_COARSE_LOCATION`
 * `ACCESS_FINE_LOCATION`
-* `WRITE_EXTERNAL_STORAGE`(apenas quando a filtrar o nível de API do Android 23 para que este)
+* `WRITE_EXTERNAL_STORAGE` (apenas quando a filtrar o nível de API do Android 23 para que este)
 
 O armazenamento externo é utilizado apenas para a funcionalidade de visão geral de alcance. Se encontrar pedir aos utilizadores esta permissão para ser incómodas, pode removê-la se tiver utilizado apenas para Mobile Engagement mas, ao custo de desativar a funcionalidade de visão.
 
@@ -352,7 +356,7 @@ Se o Engagement está ativa quando chamar esta função, poderá demorar 1 minut
 
 Pode ativar novamente reporting chamando a mesma função com registo `true`.
 
-### <a name="integration-in-your-own-preferenceactivity"></a>Integração na sua própria`PreferenceActivity`
+### <a name="integration-in-your-own-preferenceactivity"></a>Integração na sua própria `PreferenceActivity`
 Em vez de chamar esta função, também pode integrar esta definição diretamente no existentes `PreferenceActivity`.
 
 Pode configurar o Engagement para utilizar o ficheiro de preferências (com o modo pretendido) no `AndroidManifest.xml` ficheiros com `application meta-data`:

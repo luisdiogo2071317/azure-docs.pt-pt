@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 98784b2d1ede5354c965e483b34b5fcb323394aa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7dc584c8fa9f4452b2bd9288df86492399c036c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de conectividade de base de dados SQL do Azure 
 
@@ -91,7 +91,7 @@ A tabela seguinte lista os IPs primário e secundário do gateway para todas as 
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Alterar a política de ligação de SQL Database do Azure
 
-Para alterar a política de ligação de SQL Database do Azure para um servidor de base de dados do Azure SQL, utilize o [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+Para alterar a política de ligação de SQL Database do Azure para um servidor de base de dados do Azure SQL, utilize o [conn política](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) comando.
 
 - Se a sua política de ligação é definida como **Proxy**, todos os pacotes de fluxo através do gateway da SQL Database do Azure de rede. Para esta definição, tem de permitir a saída para apenas o IP do gateway SQL Database do Azure. Utilizar uma definição de **Proxy** tem a latência mais que uma definição de **redirecionar**.
 - Se a política de ligação é **redirecionar**, todos os pacotes fluxo diretamente para o middleware de proxy de rede. Para esta definição, tem de permitir a saída para vários IPs.
@@ -181,6 +181,6 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter informações sobre como alterar a política de ligação de SQL Database do Azure para um servidor de base de dados do Azure SQL, consulte [Create ou política de ligação de servidor de atualização utilizando a API REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+- Para obter informações sobre como alterar a política de ligação de SQL Database do Azure para um servidor de base de dados do Azure SQL, consulte [conn política](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Para informações sobre o comportamento de ligação de SQL Database do Azure para clientes que utilizam ADO.NET 4.5 ou uma versão posterior, consulte [portas para além de 1433 para ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Para informações de descrição geral do desenvolvimento de aplicações gerais, consulte [descrição geral do desenvolvimento de aplicações de base de dados do SQL Server](sql-database-develop-overview.md).

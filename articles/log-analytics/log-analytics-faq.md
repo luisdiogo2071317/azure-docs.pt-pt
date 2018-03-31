@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 Estas FAQ Microsoft é uma lista de perguntas mais comuns sobre a análise de registos no Microsoft Azure. Se tiver alguma questão adicional sobre a análise de registos, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e publique as suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que possam ser localizada forma rápida e fácil.
@@ -51,7 +51,7 @@ R: um número de Análise de registos é um serviço em nuvem dimensionáveis qu
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Como resolver se a análise de registos já não está a recolher dados?
 
-R: Se estiver a livre no escalão de preço e ter enviado a mais do que 500 MB de dados dentro de um dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  
+R: para uma subscrição e a área de trabalho criado antes de 2 de Abril de 2018 que se encontra o *livres* preços camada, se mais do que 500 MB de dados é enviado num dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  
 
 Análise de registos cria um evento do tipo *Heartbeat* e pode ser utilizado para determinar se deixa de recolha de dados. 
 
@@ -68,7 +68,7 @@ A tabela seguinte descreve as razões que deixa de recolha de dados e uma ação
 | Atingiu o limite de dados gratuitos<sup>1</sup>       | Aguarde até o mês seguinte para a coleção reiniciar automaticamente, ou<br> Alterar para um escalão de preço pago |
 | Subscrição do Azure está num estado suspenso devido a: <br> Avaliação gratuita terminada <br> Passagem do Azure expirou <br> Limite de gastos mensalmente atingido (por exemplo, numa subscrição MSDN ou Visual Studio)                          | Converter uma subscrição paga <br> Converter uma subscrição paga <br> Remover o limite ou aguarde que o limite repõe |
 
-<sup>1</sup> se a sua área de trabalho é no escalão de preço gratuito, está limitado a enviar 500 MB de dados por dia para o serviço. Quando atingir o limite diário, deixa de recolha de dados até ao dia seguinte. Dados enviados enquanto a recolha de dados está parada não estão indexados e não estão disponíveis para pesquisa. Quando é retomada a recolha de dados, o processamento ocorre apenas para novos dados enviados. 
+<sup>1</sup> se a sua área de trabalho está no *livres* escalão de preço, está limitado a enviar 500 MB de dados por dia para o serviço. Quando atingir o limite diário, deixa de recolha de dados até ao dia seguinte. Dados enviados enquanto a recolha de dados está parada não estão indexados e não estão disponíveis para pesquisa. Quando é retomada a recolha de dados, o processamento ocorre apenas para novos dados enviados. 
 
 Análise de registos utiliza a hora UTC e começam a todos os dias à meia-noite UTC. Se a área de trabalho atingir o limite diário, retoma o processamento durante a primeira hora do dia seguinte UTC.
 
@@ -96,7 +96,7 @@ A. Não, não é atualmente possível ler a partir de tabelas arbitrários ou co
 
 A. O serviço de análise de registos é desenvolvido do Azure. Endereços de IP de análise do registo estão a ser o [intervalos de IP do Microsoft Azure Datacenter](http://www.microsoft.com/download/details.aspx?id=41653).
 
-Como implementações de serviços são efetuadas, alterar os endereços IP reais do serviço de análise de registos. Os nomes DNS para permitir a sua firewall estão documentados em [configurar as definições de proxy e de firewall na análise de registos](log-analytics-proxy-firewall.md).
+Como implementações de serviços são efetuadas, alterar os endereços IP reais do serviço de análise de registos. Os nomes DNS para permitir a sua firewall estão documentados na [requisitos de sistema](log-analytics-concept-hybrid.md#prerequisites).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. Utilizar o ExpressRoute para ligar ao Azure. A minha tráfego de análise de registos utiliza a ligação do ExpressRoute?
 
@@ -144,7 +144,7 @@ A. O plano gratuito define um limite diário de 500 MB por área de trabalho. Os
 
 O agente de análise de registos foi concebido para garantir que tem um ocupa pouco espaço. O volume de dados varia consoante as soluções que ativar. Pode encontrar informações detalhadas sobre o volume de dados e ver a divisão pela solução de [utilização](log-analytics-usage.md) página.
 
-Para obter mais informações, pode ler um [cliente blogue](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) sobre os requisitos de espaço pequeno do agente do OMS.
+Para obter mais informações, pode ler um [cliente blogue](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) que mostra os respetivos resultados depois de avaliar a utilização de recursos (requisitos de espaço) do agente do OMS.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. Quantidade largura de banda de rede é utilizada pelo agente de gestão do Microsoft (MMA) ao enviar dados para análise de registos?
 

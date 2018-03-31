@@ -1,11 +1,11 @@
 ---
-title: "A construção de cadeias de filtro para o estruturador de tabela | Microsoft Docs"
-description: "A construção de cadeias de filtro para o estruturador de tabela"
+title: A construção de cadeias de filtro para o estruturador de tabela | Microsoft Docs
+description: A construção de cadeias de filtro para o estruturador de tabela
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
 ms.service: storage
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: kraigb
-ms.openlocfilehash: 069224d84462b4955912ce1462a65298a5acc04a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 722052e351062efba85eb143b2ea7bd0136002a0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>A construção de cadeias de filtro para o estruturador de tabela
 ## <a name="overview"></a>Descrição geral
@@ -31,9 +31,9 @@ São suportados os seguintes operadores lógicos para todos os tipos de propried
 
 | Operador lógico | Descrição | Cadeia de filtro de exemplo |
 | --- | --- | --- |
-| EQ |Igual a |Cidade eq 'Redmond' |
+| EQ |Equal |Cidade eq 'Redmond' |
 | gt |Mais do que |Preços gt 20 |
-| ge |Maior ou igual a |Preços ge 10 |
+| ge |Maior que ou igual a |Preços ge 10 |
 | lt |Menos do que |Preços lt 20 |
 | Le |Menor ou igual |Le preços 100 |
 | ne |Não é igual |Cidade ne 'Londres' |
@@ -44,8 +44,8 @@ São suportados os seguintes operadores lógicos para todos os tipos de propried
 Quando construir uma string de filtragem, as seguintes regras são importantes:
 
 * Utilize os operadores lógicos para comparar uma propriedade para um valor. Tenha em atenção que não é possível comparar uma propriedade para um valor dinâmico; lado da expressão tem de ser uma constante.
-* Todas as partes da cadeia de filtro diferenciam maiúsculas de minúsculas.
-* O valor constante tem de ser o mesmo tipo de dados como a propriedade por ordem para o filtro para devolver resultados válidos. Para obter mais informações sobre os tipos de propriedade suportados, consulte [compreender o modelo de dados do serviço tabela](http://go.microsoft.com/fwlink/p/?LinkId=400448).
+* Todas as partes da cadeia de filtro são sensíveis a maiúsculas e minúsculas.
+* O valor constante tem de ser do mesmo tipo de dados da propriedade para que o filtro devolva resultados válidos. Para obter mais informações sobre os tipos de propriedade suportados, veja [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](http://go.microsoft.com/fwlink/p/?LinkId=400448).
 
 ## <a name="filtering-on-string-properties"></a>Filtragem nas propriedades de cadeia
 Ao filtrar nas propriedades de cadeia, coloque a constante de cadeia entre plicas.

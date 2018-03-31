@@ -1,5 +1,5 @@
 ---
-title: Desassociar a conta de Automatização do Azure a partir do Log Analytics
+title: Desassociar a conta de automatização do Azure do Log Analytics | Microsoft Docs
 description: Este artigo fornece uma descrição geral de como desassociar a sua conta de automatização do Azure a partir de uma área de trabalho de análise de registos.
 services: automation
 ms.service: automation
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2e6f887a7684ae995e9b7da84dace523843ff555
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b8b00f8a82dd63df13ccd0bc7e10429323c15ab3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Como desativar a sua conta de automatização a partir de uma área de trabalho de análise de registos a
 
@@ -46,4 +46,4 @@ Se utilizou as VMs de início/paragem durante a solução de off-hours, opcional
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para reconfigurar a sua conta de automatização para integrar com o OMS Log Analytics, consulte o artigo [reencaminhar estado da tarefa e fluxos de trabalho da automatização para análise de registos (OMS)](automation-manage-send-joblogs-log-analytics.md). 
+Para reconfigurar a sua conta de automatização para integrar com a análise de registos, consulte o artigo [reencaminhar o estado da tarefa e fluxos de trabalho da automatização para análise de registos](automation-manage-send-joblogs-log-analytics.md). 

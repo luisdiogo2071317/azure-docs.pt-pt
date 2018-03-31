@@ -1,12 +1,12 @@
 ---
-title: "Controlar Azure conteúdo rede de entrega de colocação em cache comportamento com colocação em cache regras | Microsoft Docs"
-description: "Pode utilizar a CDN regras a colocação em cache para definir ou modificar o comportamento de expiração da cache de predefinição global e com condições, por exemplo, extensões de ficheiro e caminho de URL."
+title: Controlar a colocação em cache comportamento com colocação em cache as regras a CDN do Azure | Microsoft Docs
+description: Pode utilizar a CDN regras a colocação em cache para definir ou modificar o comportamento de expiração da cache de predefinição global e com condições, por exemplo, extensões de ficheiro e caminho de URL.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Controlo do Azure conteúdo rede de entrega de colocação em cache comportamento com colocação em cache as regras
+# <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controlo do Azure CDN colocação em cache comportamento com colocação em cache as regras
 
 > [!NOTE] 
 > Regras de colocação em cache só estão disponíveis para **CDN do Azure da Verizon padrão** e **CDN do Azure da Akamai padrão**. Para **CDN do Azure da Verizon Premium**, pode utilizar o [motor de regras da CDN do Azure](cdn-rules-engine.md) no **gerir** portal para uma funcionalidade semelhante.
  
-Rede de entrega de conteúdos do Azure oferece duas formas de controlar a forma como os ficheiros são colocadas em cache: 
+Azure entrega rede conteúdos (CDN) oferece duas formas de controlar a forma como os ficheiros são colocadas em cache: 
 
 - Regras de colocação em cache: Este artigo descreve como pode utilizar a colocação em cache as regras de rede de entrega de conteúdos (CDN) para definir ou modificar o comportamento de expiração da cache de predefinição global e com condições personalizadas, tais como uma extensão de ficheiro e caminho do URL. CDN do Azure fornece dois tipos de regras a colocação em cache:
    - Global regras a colocação em cache: pode definir uma regra de colocação em cache global para cada ponto final no seu perfil, o que afeta todos os pedidos para o ponto final. A regra de colocação em cache global substitui quaisquer cabeçalhos de cache diretiva HTTP, se definir.
@@ -40,11 +40,11 @@ Para obter informações sobre predefinição comportamento de colocação em ca
 Como definir CDN regras a colocação em cache:
 
 1. Abra o portal do Azure, selecione um perfil da CDN e, em seguida, selecione um ponto final.
-2. No painel esquerdo em definições, clique em **regras a colocação em cache**.
+2. No painel esquerdo em definições, selecione **regras a colocação em cache**.
 
    ![Botão de regras de colocação em cache de CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-1. Crie uma regra de colocação em cache global da seguinte forma:
+3. Crie uma regra de colocação em cache global da seguinte forma:
    1. Em **Global regras a colocação em cache**, defina **comportamento de colocação em cache de cadeia de consulta** para **ignorar cadeias de consulta**.
    2. Definir **comportamento de colocação em cache** para **definir se estiverem em falta**.
        
@@ -62,6 +62,7 @@ Como definir CDN regras a colocação em cache:
 
     ![Regras personalizadas de colocação em cache](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
+    
 > [!NOTE] 
 > Os ficheiros que estão em cache antes de uma alteração de regra mantêm a respetiva definição de duração de cache de origem. Para repor o respetivas durações de cache, tem de [remover o ficheiro](cdn-purge-endpoint.md). Para **CDN do Azure da Verizon** pontos finais, pode demorar até 90 minutos para colocar em cache as regras serem aplicadas.
 
@@ -102,13 +103,13 @@ As regras de colocação em cache de global e personalizadas são processadas pe
 
 - A colocação em cache personalizada da regra #1:
    - Correspondem à condição: **caminho**
-   - Valor de correspondência:`/home/*`
+   - Valor de correspondência: `/home/*`
    - Comportamento de colocação em cache: **substituir**
    - Duração de expiração da cache: 2 dias
 
 - A colocação em cache personalizada da regra #2:
    - Correspondem à condição: **extensão**
-   - Valor de correspondência:`.html`
+   - Valor de correspondência: `.html`
    - Comportamento de colocação em cache: **definir se estiverem em falta**
    - Duração de expiração da cache: 3 dias
 

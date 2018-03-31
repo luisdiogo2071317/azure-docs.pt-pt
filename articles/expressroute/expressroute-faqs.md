@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3f33703ec86f131d18c89cf4b29514c5002349d1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 1893601f9fe9018cb51e6e31b6f9c397a0da38da
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -214,7 +214,7 @@ Sim. Terá de criar um gateway ExpressRoute na sua rede virtual. Não há um per
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Por que motivo é um endereço IP público associado ao gateway ExpressRoute numa rede virtual?
 
-O endereço IP público é utilizado para gestão interna apenas. Este endereço IP público não está exposto à Internet e não constituem uma exposição de segurança da sua rede virtual.
+O endereço IP público é utilizado para gestão interna apenas e não constituem uma exposição de segurança da sua rede virtual.
 
 ### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>O que é necessário ligar ao armazenamento do Azure através do ExpressRoute?
 

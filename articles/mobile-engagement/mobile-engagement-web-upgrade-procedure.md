@@ -1,11 +1,11 @@
 ---
-title: "Procedimentos de atualização de SDK do Mobile Engagement Web do Azure | Microsoft Docs"
-description: "As mais recentes atualizações e procedimentos para o SDK Web do Azure Mobile Engagement"
+title: Procedimentos de atualização de SDK do Mobile Engagement Web do Azure | Microsoft Docs
+description: As mais recentes atualizações e procedimentos para o SDK Web do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a20529b4-ec8d-4503-8ae9-09b5f0846d5b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42f78b5e6bfa028f3a798f6cb6c0dee3f17b3ebe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Procedimentos de atualização de SDK do Mobile Engagement Web do Azure
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Se já tiver integrado uma versão anterior do SDK Web do Azure Mobile Engagement na sua aplicação web, terá de considerar os seguintes pontos ao atualizar o SDK.
 
 Se saltou a várias versões do SDK do Mobile Engagement Web, poderá ter de concluir vários procedimentos durante o processo de atualização. Por exemplo, se migrar de 1.4.0 para 1.6.0, primeiro siga os procedimentos para atualizar do 1.4.0 para 1.5.0. Em seguida, siga os procedimentos para atualizar do 1.5.0 para 1.6.0.

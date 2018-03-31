@@ -1,11 +1,11 @@
 ---
-title: "Utilizando o emulador do Express para executar e depurar um serviço em nuvem do Azure num computador local | Microsoft Docs"
-description: "Utilizando o emulador do Express para executar e depurar um serviço em nuvem num computador local"
+title: Utilizando o emulador do Express para executar e depurar um serviço em nuvem do Azure num computador local | Microsoft Docs
+description: Utilizando o emulador do Express para executar e depurar um serviço em nuvem num computador local
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: 73108f98-a552-4817-b7a1-551367b71906
 ms.service: visual-studio-online
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: mikejo
-ms.openlocfilehash: 9c258ad7de5e25b4b304f5e56d93abeff1187f71
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 638aa005321963ce8bdcbb7df4317fc4bdec74ae
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-emulator-express-to-run-and-debug-an-azure-cloud-service-on-a-local-machine"></a>Utilizando o emulador do Express para executar e depurar um serviço em nuvem do Azure num computador local
 Ao utilizar o emulador Express, pode testar e depurar um serviço em nuvem sem executar o Visual Studio como administrador. Pode definir as definições de projeto para utilizar o emulador Express ou o emulador completo, dependendo dos requisitos do seu serviço em nuvem. Para obter mais informações sobre o emulador completo, consulte [executar uma aplicação do Azure no emulador de computação](storage/common/storage-use-emulator.md).
@@ -52,5 +52,5 @@ Os seguintes problemas são conhecidos limitações do emulador Express:
 - Não é possível aceder a números de porta abaixo 1000. Se utilizar um fornecedor de autenticação que normalmente utiliza uma porta abaixo 1000, poderá ter de alterar este valor para um número de porta que é superior a 1000.
 - Quaisquer limitações que se aplicam ao emulador de computação do Azure também se aplicam ao emulador Express. Por exemplo, não pode ter mais de 50 instâncias de função por implementação. Para obter mais informações sobre o emulador de computação do Azure, consulte [executar uma aplicação do Azure no emulador de computação](http://go.microsoft.com/fwlink/p/?LinkId=623050).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Depuração cloud services do Azure](https://msdn.microsoft.com/library/azure/ee405479.aspx)

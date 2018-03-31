@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 567f035bdb293353090ee107f8d24da845e15154
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Como distribuir dados globalmente com o Azure Cosmos DB
 Azure ubíquo - tem um requisitos de espaço global em 30 + regiões geográficas e continuamente está a expandir. Com a presença em todo o mundo, uma das capacidades de diferenciadas que Azure oferece aos respetivos programadores é a capacidade de criar, implementar e gerir facilmente aplicações distribuídas global. 
@@ -36,7 +36,7 @@ Com distribuição global chave na mão da BD do Cosmos do Azure, os programador
 Neste artigo, podemos fornecer uma descrição geral das capacidades de distribuição global da BD do Cosmos do Azure. Podemos também descrevem a abordagem de exclusiva da BD do Cosmos do Azure para fornecer SLAs abrangentes. 
 
 ## <a id="EnableGlobalDistribution"></a>Ativar distribuição global chave na mão
-BD do Azure do Cosmos fornece as seguintes funcionalidades para ativar a escrever facilmente aplicações de dimensionamento planet. Estas capacidades estão disponíveis através do recurso do Cosmos BD do Azure baseados em fornecedores [REST APIs](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) , bem como o portal do Azure.
+BD do Azure do Cosmos fornece as seguintes funcionalidades para ativar a escrever facilmente aplicações de dimensionamento planet. Estas capacidades estão disponíveis através do recurso do Cosmos BD do Azure baseados em fornecedores [REST APIs](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) , bem como o portal do Azure.
 
 No vídeo seguinte, o Azure Gestor de programa do Cosmos DB Andrew Liu demonstra as funcionalidades de chave na mão distribuição global.
 

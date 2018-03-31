@@ -1,12 +1,12 @@
 | Recurso | Limite Predefinido |
 | --- | --- |
-| Número de contas do storage por subscrição | 200<sup>1</sup> |
+| Número de contas do storage por região | 200<sup>1</sup> |
 | Capacidade de conta de armazenamento máximo | 500 TiB<sup>2</sup> |
 | Número máx. de contentores de BLOBs, blobs, partilhas de ficheiros, tabelas, filas, entidades ou mensagens por conta de armazenamento | Sem limite |
 | Taxa de pedidos máximo por conta de armazenamento | 20.000 pedidos por segundo<sup>2</sup> |
-| Entrada máximo<sup>3</sup> por conta de armazenamento (regiões EUA) | 10 Gbps se RA-GRS/ZRS<sup>4</sup> ativada, 20 Gbps para LRS<sup>2</sup> |
+| Entrada máximo<sup>3</sup> por conta de armazenamento (regiões EUA) | 10 Gbps se RA-GRS/GRS/ZRS<sup>4</sup> ativada, 20 Gbps para LRS<sup>2</sup> |
 | Saída máximo<sup>3</sup> por conta de armazenamento (regiões EUA) | 20 Gbps se RA-GRS/GRS/ZRS<sup>4</sup> ativada, 30 Gbps para LRS<sup>2</sup> |
-| Entrada máximo<sup>3</sup> por conta de armazenamento (regiões de não-US) | 5 Gbps se RA-GRS/ZRS<sup>4</sup> ativada, 10 Gbps para LRS<sup>2</sup> |
+| Entrada máximo<sup>3</sup> por conta de armazenamento (regiões de não-US) | 5 Gbps se RA-GRS/GRS/ZRS<sup>4</sup> ativada, 10 Gbps para LRS<sup>2</sup> |
 | Saída máximo<sup>3</sup> por conta de armazenamento (regiões de não-US) | 10 Gbps se RA-GRS/GRS/ZRS<sup>4</sup> ativada, 15 Gbps para LRS<sup>2</sup> |
 
 <sup>1</sup>inclui as contas do storage Standard e Premium. Se necessitar de mais de 200 contas de armazenamento, efetue um pedido através do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipa do Armazenamento do Azure analisará o seu caso comercial e pode aprovar até 250 contas de armazenamento. 
@@ -18,5 +18,5 @@
 <sup>4</sup>as opções de redundância do armazenamento do azure incluem:
 * **RA-GRS**: armazenamento georredundante com acesso de leitura. Se estiver ativada RA-GRS, destinos de saída para a localização secundária são idênticos para a localização primária.
 * **GRS**: armazenamento georredundante. 
-* **O ZRS**: armazenamento com redundância de zona. Disponível apenas para blobs de blocos. 
+* **O ZRS**: armazenamento com redundância de zona.
 * **LRS**: armazenamento localmente redundante. 

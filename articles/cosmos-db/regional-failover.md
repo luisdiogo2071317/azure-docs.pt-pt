@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8da3e2c970ab1e60e3396cb0aaeaba64dba1713c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5a4bdc49c5ab36a5026095b5d7b6f9856b020e1b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Ativação pós-falha regional automática para a continuidade do negócio do BD Azure Cosmos
 BD do Azure do Cosmos simplifica a distribuição dos dados global por de oferta totalmente gerido, [contas de base de dados de multirregião](distribute-data-globally.md) que fornecem limpar responsabilidades entre consistência, disponibilidade e desempenho, tudo com garantias correspondentes. Contas do cosmos DB oferecem elevada disponibilidade, latências de ms único dígito, [níveis de consistência bem definidos](consistency-levels.md), ativação pós-falha regional transparente com APIs multi homing e a capacidade e dimensionar débito e armazenamento no globo. 
@@ -86,7 +86,7 @@ Depois da região afetada recupera a partir da interrupção, todas as contas de
 
 **O que acontece se uma região de escrita tem uma falha?**
 
-Se a região afetada é a região atual de escrita e ativação pós-falha automática está ativada para a conta de base de dados do Azure Cosmos, em seguida, a região é marcada automaticamente como offline. Em seguida, uma região alternativa é promovida como a região de escrita para a conta de base de dados do Azure Cosmos afetada. Pode ativar a ativação pós-falha automática e controlar totalmente a ordem de seleção de região para as contas de base de dados do Azure Cosmos através do portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Se a região afetada é a região atual de escrita e ativação pós-falha automática está ativada para a conta de base de dados do Azure Cosmos, em seguida, a região é marcada automaticamente como offline. Em seguida, uma região alternativa é promovida como a região de escrita para a conta de base de dados do Azure Cosmos afetada. Pode ativar a ativação pós-falha automática e controlar totalmente a ordem de seleção de região para as contas de base de dados do Azure Cosmos através do portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Prioridades de ativação pós-falha para a base de dados do Azure Cosmos](./media/regional-failover/failover-priorities.png)
 
@@ -98,7 +98,7 @@ Depois da região afetada recupera a partir da interrupção, todas as contas de
 
 * Dados presentes na região de escrita anterior que não foi replicada para ler regiões durante a interrupção for publicados como um feed de conflito. Aplicações podem ler o feed de conflito, resolva os conflitos com base na lógica específica da aplicação e repetição de escrita de dados atualizados para a conta de base de dados do Azure Cosmos conforme apropriado. 
 * A região de escrita anterior é recriada como uma região de leitura e colocada online automaticamente. 
-* Pode reconfigurar a região de leitura que foi colocado online automaticamente como a região de escrita ao efetuar uma ativação pós-falha manual através do portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Pode reconfigurar a região de leitura que foi colocado online automaticamente como a região de escrita ao efetuar uma ativação pós-falha manual através do portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
 O fragmento de código seguinte ilustra como processar conflitos depois da região afetada recupera a partir da interrupção.
 
@@ -123,7 +123,7 @@ do
 
 ## <a id="ManualFailovers"></a>Ativações pós-falha manual
 
-Para além das ativações pós-falha automáticas, a região atual de escrita de uma conta de base de dados do Cosmos especificada pode ser manualmente alterada dinamicamente para uma das regiões leitura existentes. As ativações pós-falha manual podem ser iniciadas através do portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
+Para além das ativações pós-falha automáticas, a região atual de escrita de uma conta de base de dados do Cosmos especificada pode ser manualmente alterada dinamicamente para uma das regiões leitura existentes. As ativações pós-falha manual podem ser iniciadas através do portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
 Certifique-se das ativações pós-falha manual **zero perda de dados** e **zero disponibilidade** perda e transições de estado de escrita de transferência do antigo escrever região para a nova para a conta de base de dados do Cosmos especificada. Como em ativações pós-falha automáticas, o SDK de BD do Cosmos automaticamente processa as alterações de região de escrita durante as ativações pós-falha manual e assegura que as chamadas automaticamente são redirecionadas para a região de escrita de novo. Sem alterações de configuração ou de código são necessários na sua aplicação para gerir as ativações pós-falha. 
 

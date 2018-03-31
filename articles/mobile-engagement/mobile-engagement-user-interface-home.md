@@ -1,11 +1,11 @@
 ---
 title: Do Azure Mobile Engagement Interface de utilizador - home page
-description: "Saiba como gerir a sua aplicação existente e projetos, utilizando o Azure Mobile Engagement"
+description: Saiba como gerir a sua aplicação existente e projetos, utilizando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: aff578d2-40f6-43e4-b0ea-7d2674cb28a1
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0379e51a30927af88367fc687d8f8ce66eb827f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-your-existing-application-and-projects"></a>Como gerir a sua aplicação existente e projetos
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Este artigo descreve o **home page** página do **Mobile Engagement** portal. Utilizar o **Mobile Engagement** portal para monitorizar e gerir as suas aplicações móveis. Tenha em atenção que para começar a utilizar o portal terá primeiro de criar um **Azure Mobile Engagement** conta. 
 
 Para obter a página inicial, clique em **raiz** na parte superior esquerda da página. Contém a lista de todas as aplicações que fazem parte da coleção escolhida. Nesta página é apresentada apenas uma rápida descrição geral das suas aplicações.
@@ -31,7 +35,7 @@ Também pode ver o gráfico de comparação para as aplicações selecionadas. E
 
 ![Home1][0]
 
-## <a name="my-applications"></a>Minhas aplicações
+## <a name="my-applications"></a>As minhas aplicações
 Descrição geral rápida das suas aplicações permite-lhe selecionar as aplicações que pretende abrir para ver as opções de friso detalhadas. Pode clique no nome da sua aplicação para voltar para a localização de friso mais recentemente visitada na sua aplicação, ou clique no ícone de equipamento para ir diretamente para a página de "Definições" da sua aplicação. Pode pesquisar, filtrar ou ordenar as informações apresentadas nas tabelas de aplicações. Também pode arrastar e largar os cabeçalhos de coluna para alterar a ordem.
 
 Entre outras coisas, a descrição geral das suas aplicações inclui:
@@ -64,7 +68,7 @@ Clique num projeto para ver todas as aplicações que fazem parte deste projeto.
 
 ![Home2][3]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Conceitos][Link 6]
 * [Serviço de guia de resolução de problemas][Link 24]
 

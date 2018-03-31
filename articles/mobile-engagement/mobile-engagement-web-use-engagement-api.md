@@ -1,11 +1,11 @@
 ---
 title: Web do Azure Mobile Engagement APIs do SDK | Microsoft Docs
-description: "As mais recentes atualizações e procedimentos para o SDK Web do Azure Mobile Engagement"
+description: As mais recentes atualizações e procedimentos para o SDK Web do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8a87d5ac-d8b7-4a0d-bdee-414dbcc561b2
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d2ae75b384b60d0383c1682a00a4fc0d19d0f43
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>Utilize a API do Azure Mobile Engagement numa aplicação web
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Este documento é um complemento ao documento que indica como a [integrar o Mobile Engagement numa aplicação web](mobile-engagement-web-integrate-engagement.md). Fornece detalhes aprofundados sobre como utilizar a API do Azure Mobile Engagement para comunicar as estatísticas da aplicação.
 
 A API do Mobile Engagement é fornecida pelo `engagement.agent` objeto. A predefinição de alias é SDK Web do Azure Mobile Engagement `engagement`. Pode redefinir este alias da configuração do SDK.

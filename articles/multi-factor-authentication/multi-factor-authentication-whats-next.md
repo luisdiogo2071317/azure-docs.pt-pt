@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4259715fbb062bfb170509c928b5a1ad898ea394
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar definições de multi-factor Authentication do Azure
 
@@ -73,7 +73,7 @@ Configurar o _alerta de fraude_ funcionalidade para que os utilizadores podem co
 ### <a name="configuration-options"></a>Opções de configuração
 
 - **Bloquear utilizador quando é reportada fraude**: se um utilizador reportar fraude, a conta está bloqueada para 90 dias, ou até que um administrador unblocks a respetiva conta. Um administrador pode rever os inícios de sessão utilizando o relatório de início de sessão e tome as medidas necessárias para evitar fraude futura. Um administrador pode, em seguida, [desbloquear](#unblock-a-user) a conta de utilizador.
-- **Código para reportar fraude durante a saudação inicial**: quando os utilizadores recebem uma chamada telefónica para efetuar a verificação de dois passos, normalmente prima ** # ** para confirmar o seu início de sessão. Para reportar fraude, o utilizador introduzir um código antes prima ** # **. Este código é **0** por predefinição, mas pode personalizá-lo.
+- **Código para reportar fraude durante a saudação inicial**: quando os utilizadores recebem uma chamada telefónica para efetuar a verificação de dois passos, normalmente prima **#** para confirmar o seu início de sessão. Para reportar fraude, o utilizador introduzir um código antes prima **#**. Este código é **0** por predefinição, mas pode personalizá-lo.
 
   >[!NOTE]
   >Saudações de voz predefinido da Microsoft instruir os utilizadores que prima **0#** para submeter um alerta de fraude. Se pretender utilizar um código diferente de **0**, registar e carregar as suas próprias saudações de voz personalizadas com instruções adequadas para os seus utilizadores.
@@ -228,11 +228,7 @@ Independentemente se estiver ativada a funcionalidade de IPs fidedignos, verific
 
 Algumas aplicações, como o Office 2010 ou anterior e Apple Mail, não suportam a verificação de dois passos. As aplicações não estão configuradas para aceitar uma verificação de segundo. Para utilizar estas aplicações, tirar partido do _palavras-passe de aplicação_ funcionalidade. Pode utilizar uma palavra-passe de aplicação em vez da palavra-passe tradicional para permitir que uma aplicação ignorar a verificação de dois passos e continuar a trabalhar.
 
->[!NOTE]
->Autenticação moderna para os clientes do Microsoft Office 2013 e posterior
-> 
->Os clientes do Office 2013 e posterior (incluindo o Outlook), suporta os protocolos de autenticação moderna e podem ser ativados para funcionarem com verificação de dois passos. Depois do cliente estiver ativado, as palavras-passe de aplicação não são necessárias para o cliente. Para obter mais informações, consulte o [anúncio de pré-visualização pública de autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
->
+É suportada a autenticação moderna para os clientes do Microsoft Office 2013 e posterior. Os clientes do Office 2013, incluindo o Outlook, suporte de protocolos de autenticação moderna e podem ser ativados para funcionarem com verificação de dois passos. Depois do cliente estiver ativado, as palavras-passe de aplicação não são necessárias para o cliente.
 
 ### <a name="considerations-about-app-passwords"></a>Considerações sobre palavras-passe de aplicação
 

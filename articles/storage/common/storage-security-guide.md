@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
 
@@ -357,7 +357,7 @@ Esta funcionalidade garante que todos os dados nos seus discos da máquina virtu
 
 #### <a name="iaas-vms-and-their-vhd-files"></a>VMs de IaaS e os respetivos ficheiros VHD
 
-Para discos de dados utilizados por VMs de IaaS, recomenda-se Azure Disk Encryption. Se criar uma VM utilizando uma imagem do Azure Marketplace, o Azure executa um [shallow cópia](https://en.wikipedia.org/wiki/Object_copying) da imagem para o armazenamento de conta de armazenamento do Azure e não está encriptada, mesmo se tiver SSE ativada. Depois da VM de cria e inicia a atualização da imagem, SSE começará a encriptar os dados. Por este motivo, é melhor utilizar o Azure Disk Encryption em VMs criadas a partir de imagens no Azure Marketplace se de que quer que eles totalmente encriptados.
+Para discos de dados utilizados por VMs de IaaS, recomenda-se Azure Disk Encryption. Se criar uma VM com discos não geridos, utilizando uma imagem do Azure Marketplace, o Azure executa um [shallow cópia](https://en.wikipedia.org/wiki/Object_copying) da imagem para o armazenamento de conta de armazenamento do Azure e não está encriptada, mesmo se tiver SSE ativada. Depois da VM de cria e inicia a atualização da imagem, SSE começará a encriptar os dados. Por este motivo, é melhor utilizar o Azure Disk Encryption em VMs com discos não geridos, criados a partir de imagens no Azure Marketplace se de que quer que eles totalmente encriptados. Se criar uma VM com discos geridos, SSE encripta todos os dados por predefinição com chaves de plataforma gerida. 
 
 Se trouxer uma VM previamente encriptada no Azure no local, será possível carregar as chaves de encriptação para o Cofre de chaves do Azure e continuar a utilizar a encriptação para essa VM que estava a utilizar no local. Encriptação de disco do Azure está ativada para processar este cenário.
 

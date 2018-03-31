@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Blob do Azure Visual Studio e de armazenamento ligado serviços (ASP.NET) | Microsoft Docs"
-description: "Como começar a utilizar o armazenamento de Blobs do Azure num projeto ASP.NET no Visual Studio, depois de ligar a uma conta de armazenamento utilizando o Visual Studio ligado serviços"
+title: Introdução ao Blob do Azure Visual Studio e de armazenamento ligado serviços (ASP.NET) | Microsoft Docs
+description: Como começar a utilizar o armazenamento de Blobs do Azure num projeto ASP.NET no Visual Studio, depois de ligar a uma conta de armazenamento utilizando o Visual Studio ligado serviços
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: kraig
-ms.openlocfilehash: cb406e528568dafd1e142943f5273ad58e550609
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: ghogen
+ms.openlocfilehash: 657eff077f9a72bad97e8bea3ad3efc0da1420d5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Blob do Azure Visual Studio e de armazenamento ligado serviços (ASP.NET)
 
@@ -89,7 +89,7 @@ Os seguintes passos criar um método para ligar à conta de armazenamento, utili
 > [!NOTE]
 > Apesar de *contentor de BLOBs de teste* não existe ainda, este código cria uma referência ao mesmo. Isto é, para o contentor pode ser criado com o `CreateIfNotExists` método mostrado no próximo passo.
 
-## <a name="create-a-blob-container"></a>Criar um contentor de blob
+## <a name="create-a-blob-container"></a>Criar um contentor de blobs
 
 Os passos seguintes mostram como criar um contentor do blob:
 

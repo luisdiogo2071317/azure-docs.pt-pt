@@ -1,12 +1,11 @@
 ---
 title: Visualizar e resolver problemas relacionados com tarefas do Stream Analytics | Microsoft Docs
-description: "Saiba como visualizar um pipeline de tarefa do Stream Analytics para o self-service de resolução de problemas com a funcionalidade de diagrama de diagnóstico."
-keywords: 
-documentationcenter: 
+description: Saiba como visualizar um pipeline de tarefa do Stream Analytics para o self-service de resolução de problemas com a funcionalidade de diagrama de diagnóstico.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 820b73a5dbf9bb108e189313cf6ee2b924ab04c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: eae43a6a444514855229af760de6aa1cbec7840a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>Visualizar e resolver problemas relacionados com tarefas do Stream Analytics
 No Stream Analytics, tal como acontece com outras tecnologias baseado na nuvem, resolução de problemas é por vezes, necessário a razão pela qual uma tarefa não produzir o resultado esperado (ou qualquer saída para esse fim). Com este conceito em mente, o Stream Analytics fornece a capacidade para visualizar uma tarefa de transmissão em fluxo. Isto também é útil como uma ferramenta de modelação e tem o benefício do lado desses necessitando de documentação do seu trabalho.
@@ -29,17 +28,17 @@ No painel de visualização, as entradas estão visíveis, bem como a consulta a
 ## <a name="using-the-diagnosis-diagram-tool"></a>Utilizar a ferramenta de diagrama de diagnóstico
 Para aceder a este visualizador, basta clicar no botão "Diagrama de diagnóstico" na área da tarefa de Stream Analytics "Definições".
 
-![Stream-Analytics-Troubleshoot-visualization-Diagnosis-Diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
+![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 
 Cada entrada e saída são o estado de cor codificada para indicar atual desse componente, conforme mostrado da seguinte forma.
 
-![Stream-Analytics-Troubleshoot-visualization-Input-Map](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-input-map.png)
+![stream-analytics-troubleshoot-visualization-input-map](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-input-map.png)
 
 Quando o utilizador pretende ver passos da consulta intermédio para compreender os padrões de fluxo de dados dentro de uma tarefa, a ferramenta de visualização fornece uma vista de divisão da consulta para os passos de componente e a sequência de fluxo. Clicar em cada passo de consulta mostra a secção correspondente numa consulta painel conforme ilustrado a editar. 
 
-![Stream-Analytics-Troubleshoot-visualization-Intermediate-Steps](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-intermediate-steps.png)
+![stream-analytics-troubleshoot-visualization-intermediate-steps](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-intermediate-steps.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

@@ -3,9 +3,9 @@ title: Utilizar Scripts do Windows PowerShell para publicar a ambientes de teste
 description: Saiba como utilizar scripts do Windows PowerShell a partir do Visual Studio para publicar no desenvolvimento e ambientes de teste.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 5fff1301-5469-4d97-be88-c85c30f837c1
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 4e9409aac836a60e7ea01261840c084ff09e954e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: 58d1c8398e626544a7b02198ec0431203aedcc81
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Utilizar scripts do Windows PowerShell para publicar em ambientes de desenvolvimento e teste
 
@@ -313,40 +313,40 @@ Para obter ajuda para funções que pode utilizar a linha de comandos do Windows
 
 | Nome da função | Descrição |
 | --- | --- |
-| Adicionar-AzureSQLDatabase |Cria uma nova base de dados SQL do Azure. |
-| AzureSQLDatabases adicionar |Cria bases de dados SQL do Azure a partir dos valores no ficheiro de configuração JSON que gera o Visual Studio. |
-| Adicionar-AzureVM |Cria uma máquina virtual do Azure e devolve o URL da VM implementada. A função configura os pré-requisitos e, em seguida, chama o **New-AzureVM** função (módulo do Azure) para criar uma nova máquina virtual. |
-| AzureVMEndpoints adicionar |Adiciona pontos finais de entrada novo a uma máquina virtual e devolve a máquina virtual com o novo ponto final. |
-| AzureVMStorage adicionar |Cria uma nova conta de armazenamento do Azure na subscrição atual. O nome da conta começa com "devtest" seguido de uma cadeia alfanumérica exclusiva. A função devolve o nome da nova conta de armazenamento. Especifique uma localização ou um grupo de afinidade para a nova conta de armazenamento. |
-| AzureWebsite adicionar |Cria um Web site com o nome especificado e a localização. Esta função chama o **New-AzureWebsite** função no módulo do Azure. Se a subscrição já não inclui um Web site com o nome especificado, esta função cria o Web site e devolve um objeto de Web site. Caso contrário, devolve `$null`. |
+| Add-AzureSQLDatabase |Cria uma nova base de dados SQL do Azure. |
+| Add-AzureSQLDatabases |Cria bases de dados SQL do Azure a partir dos valores no ficheiro de configuração JSON que gera o Visual Studio. |
+| Add-AzureVM |Cria uma máquina virtual do Azure e devolve o URL da VM implementada. A função configura os pré-requisitos e, em seguida, chama o **New-AzureVM** função (módulo do Azure) para criar uma nova máquina virtual. |
+| Add-AzureVMEndpoints |Adiciona pontos finais de entrada novo a uma máquina virtual e devolve a máquina virtual com o novo ponto final. |
+| Add-AzureVMStorage |Cria uma nova conta de armazenamento do Azure na subscrição atual. O nome da conta começa com "devtest" seguido de uma cadeia alfanumérica exclusiva. A função devolve o nome da nova conta de armazenamento. Especifique uma localização ou um grupo de afinidade para a nova conta de armazenamento. |
+| Add-AzureWebsite |Cria um Web site com o nome especificado e a localização. Esta função chama o **New-AzureWebsite** função no módulo do Azure. Se a subscrição já não inclui um Web site com o nome especificado, esta função cria o Web site e devolve um objeto de Web site. Caso contrário, devolve `$null`. |
 | Subscrição de cópia de segurança |Guarda a subscrição do Azure atual no `$Script:originalSubscription` variável no âmbito de script. Esta função guarda a subscrição do Azure (tal como obtidas pelo `Get-AzureSubscription -Current`) e a conta de armazenamento e a subscrição que seja alterada por este script (armazenado na variável `$UserSpecifiedSubscription`) e a respetiva conta de armazenamento, no âmbito de script. Ao guardar os valores, pode utilizar uma função, tal como `Restore-Subscription`, para restaurar a conta de armazenamento e de subscrição atual original para o estado atual, se tiver alterado o estado atual. |
-| Localizar-AzureVM |Obtém a máquina virtual do Azure especificada. |
-| Formato DevTestMessageWithTime |Prepends a data e hora para uma mensagem. Esta função foi concebida para mensagens escritas para os fluxos de erro e Verbose. |
+| Find-AzureVM |Obtém a máquina virtual do Azure especificada. |
+| Format-DevTestMessageWithTime |Prepends a data e hora para uma mensagem. Esta função foi concebida para mensagens escritas para os fluxos de erro e Verbose. |
 | Get-AzureSQLDatabaseConnectionString |Monta uma cadeia de ligação para ligar a uma base de dados SQL do Azure. |
 | Get-AzureVMStorage |Devolve o nome da primeira conta de armazenamento com o padrão de nome "devtest*" (sensível) na localização especificada ou o grupo de afinidade. Se o "devtest*" conta de armazenamento não corresponde a localização ou o grupo de afinidade, a função ignora-lo. Especifique uma localização ou um grupo de afinidade. |
 | Get-MSDeployCmd |Devolve um comando para executar a ferramenta de MsDeploy.exe. |
-| Novo AzureVMEnvironment |Localiza ou cria uma máquina virtual na subscrição que correspondem aos valores no ficheiro de configuração JSON. |
-| WebPackage publicar |Uma web e utiliza MsDeploy.exe publicou o pacote. Ficheiro zip para implementar os recursos para um Web site. Esta função não gera qualquer saída. Se a chamada para MSDeploy.exe falhar, a função emite uma exceção. Para obter uma saída mais detalhada, utilize o **-Verbose** opção. |
-| WebPackageToVM publicar |Verifica os valores de parâmetros e, em seguida, chama o **publicar WebPackage** função. |
-| Leitura ConfigFile |Valida o ficheiro de configuração JSON e devolve uma tabela hash de valores selecionados. |
+| New-AzureVMEnvironment |Localiza ou cria uma máquina virtual na subscrição que correspondem aos valores no ficheiro de configuração JSON. |
+| Publish-WebPackage |Uma web e utiliza MsDeploy.exe publicou o pacote. Ficheiro zip para implementar os recursos para um Web site. Esta função não gera qualquer saída. Se a chamada para MSDeploy.exe falhar, a função emite uma exceção. Para obter uma saída mais detalhada, utilize o **-Verbose** opção. |
+| Publish-WebPackageToVM |Verifica os valores de parâmetros e, em seguida, chama o **publicar WebPackage** função. |
+| Read-ConfigFile |Valida o ficheiro de configuração JSON e devolve uma tabela hash de valores selecionados. |
 | Subscrição de restauro |Repõe a subscrição atual para a subscrição original. |
-| Teste AzureModule |Devolve `$true` se a versão do módulo do Azure instalado for 0.7.4 ou posterior. Devolve `$false` se o módulo não está instalado ou uma versão anterior. Esta função não tem parâmetros. |
-| Teste AzureModuleVersion |Devolve `$true` se a versão do módulo do Azure é 0.7.4 ou posterior. Devolve `$false` se o módulo não está instalado ou uma versão anterior. Esta função não tem parâmetros. |
-| Teste HttpsUrl |Converte o URL de entrada para um objeto de URI. Devolve `$True` se o URL absoluto e a esquema é https. Devolve `$false` se o URL é relativo, a esquema não é HTTPS ou cadeia de entrada não pode ser convertida para um URL. |
+| Test-AzureModule |Devolve `$true` se a versão do módulo do Azure instalado for 0.7.4 ou posterior. Devolve `$false` se o módulo não está instalado ou uma versão anterior. Esta função não tem parâmetros. |
+| Test-AzureModuleVersion |Devolve `$true` se a versão do módulo do Azure é 0.7.4 ou posterior. Devolve `$false` se o módulo não está instalado ou uma versão anterior. Esta função não tem parâmetros. |
+| Test-HttpsUrl |Converte o URL de entrada para um objeto de URI. Devolve `$True` se o URL absoluto e a esquema é https. Devolve `$false` se o URL é relativo, a esquema não é HTTPS ou cadeia de entrada não pode ser convertida para um URL. |
 | Membro de teste |Devolve `$true` se uma propriedade ou método é um membro do objeto. Caso contrário, devolve `$false`. |
-| Escrita ErrorWithTime |Escreve uma mensagem de erro prefixo com a hora atual. Esta função chama o **formato DevTestMessageWithTime** função preceder o tempo antes de escrever a mensagem para a sequência de erro. |
-| Escrita HostWithTime |Escreve uma mensagem para o programa de anfitrião (**escrita anfitrião**) prefixo com a hora atual. O efeito de escrita para o programa anfitrião varia. A maioria dos programas nesse anfitrião do Windows PowerShell escrever estas mensagens de saída padrão. |
-| Escrita VerboseWithTime |Escreve uma mensagem verbosa prefixo com a hora atual. Uma vez que chama **Write-Verbose**, a mensagem apresentada apenas quando o script é executado com o **verboso** parâmetro ou quando o **VerbosePreference** preferência estiver definida como **continuar**. |
+| Write-ErrorWithTime |Escreve uma mensagem de erro prefixo com a hora atual. Esta função chama o **formato DevTestMessageWithTime** função preceder o tempo antes de escrever a mensagem para a sequência de erro. |
+| Write-HostWithTime |Escreve uma mensagem para o programa de anfitrião (**escrita anfitrião**) prefixo com a hora atual. O efeito de escrita para o programa anfitrião varia. A maioria dos programas nesse anfitrião do Windows PowerShell escrever estas mensagens de saída padrão. |
+| Write-VerboseWithTime |Escreve uma mensagem verbosa prefixo com a hora atual. Uma vez que chama **Write-Verbose**, a mensagem apresentada apenas quando o script é executado com o **verboso** parâmetro ou quando o **VerbosePreference** preferência estiver definida como **continuar**. |
 
-**Publicar-WebApplication**
+**Publish-WebApplication**
 
 | Nome da função | Descrição |
 | --- | --- |
-| Novo AzureWebApplicationEnvironment |Cria recursos do Azure, tais como um Web site ou a máquina virtual. |
-| Novo WebDeployPackage |Esta função não está implementada. Pode adicionar os comandos nesta função para compilar o projeto. |
-| AzureWebApplication publicar |Publica uma aplicação web no Azure. |
-| Publicar-WebApplication |Cria e implementa as aplicações Web, as máquinas virtuais, bases de dados SQL e contas de armazenamento para um projeto web do Visual Studio. |
-| Teste-WebApplication |Esta função não está implementada. Pode adicionar os comandos nesta função para testar a aplicação. |
+| New-AzureWebApplicationEnvironment |Cria recursos do Azure, tais como um Web site ou a máquina virtual. |
+| New-WebDeployPackage |Esta função não está implementada. Pode adicionar os comandos nesta função para compilar o projeto. |
+| Publish-AzureWebApplication |Publica uma aplicação web no Azure. |
+| Publish-WebApplication |Cria e implementa as aplicações Web, as máquinas virtuais, bases de dados SQL e contas de armazenamento para um projeto web do Visual Studio. |
+| Test-WebApplication |Esta função não está implementada. Pode adicionar os comandos nesta função para testar a aplicação. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre os scripts do PowerShell através da leitura [Scripting com o Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e ver outros scripts do PowerShell do Azure no [Centro de scripts](https://azure.microsoft.com/documentation/scripts/).

@@ -1,24 +1,24 @@
 ---
-title: "Resolver problemas de uma ligação de VPN de site para site do Azure que não é possível ligar | Microsoft Docs"
-description: "Saiba como resolver problemas de uma ligação de VPN de site a site que subitamente deixa de funcionar e não pode ser novamente ligada."
+title: Resolver problemas de uma ligação de VPN de site para site do Azure que não é possível ligar | Microsoft Docs
+description: Saiba como resolver problemas de uma ligação de VPN de site a site que subitamente deixa de funcionar e não pode ser novamente ligada.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 03/29/2018
 ms.author: genli
-ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3e590df66f84cd88ba7ba251373c14a44a94ca77
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Resolução de problemas: Uma ligação de VPN de site para site do Azure não é possível ligar e deixa de funcionar
 
@@ -26,7 +26,7 @@ Depois de configurar uma ligação de VPN de site a site entre uma rede no local
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="troubleshooting-steps"></a>Passos da resolução de problemas
+## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 
 Para resolver o problema, tente primeiro [repor o gateway de VPN do Azure](vpn-gateway-resetgw-classic.md) e repor o túnel do dispositivo VPN no local. Se o problema persistir, siga estes passos para identificar a causa do problema.
 
@@ -92,14 +92,16 @@ Procurar e remover o encaminhamento definido pelo utilizador (UDR) ou grupos de 
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Passo 7. Certifique-se a pesquisa de estado de funcionamento do gateway do Azure
 
-1. Vá para a sonda de estado de funcionamento.
+1. Sonda de estado de funcionamento abra ao navegar para o seguinte URL:
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. Clicar no aviso de certificado.
 3. Se receber uma resposta, o gateway VPN é considerado em bom estado. Se não receber uma resposta, o gateway poderá não estar em bom estado de funcionamento ou um NSG a sub-rede de gateway está a causar o problema. O texto seguinte é uma resposta de exemplo:
 
     &lt;? a versão de xml = "1.0"? > <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">instância primário: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6 < / cadeia&gt;
 
-### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Passo 8. Verifique se o dispositivo VPN no local com a funcionalidade de perfeita secrecy reencaminhar ativada
+### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Passo 8. Verifique se o dispositivo VPN no local com a funcionalidade de perfeita secrecy reencaminhar ativada
 
 A funcionalidade de perfeita secrecy reencaminhar pode causar problemas de interrupção de ligação. Se o dispositivo VPN tem perfeita secrecy reencaminhar ativada, desative a funcionalidade. Em seguida, atualize o política IPsec do gateway de VPN.
 

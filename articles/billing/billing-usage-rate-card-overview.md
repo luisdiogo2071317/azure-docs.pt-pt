@@ -1,11 +1,11 @@
 ---
-title: "APIs de faturação do Azure | Microsoft Docs"
-description: "Saiba mais sobre a utilização de faturação do Azure e RateCard APIs, que são utilizados para fornecer informações de consumo de recursos do Azure e as tendências."
-services: 
-documentationcenter: 
-author: BryanLa
+title: APIs de faturação do Azure | Microsoft Docs
+description: Saiba mais sobre a utilização de faturação do Azure e RateCard APIs, que são utilizados para fornecer informações de consumo de recursos do Azure e as tendências.
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/9/2017
 ms.author: mobandyo;bryanla
-ms.openlocfilehash: 26217d6f4e14166a89fbb561cb12d0af78ae6f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0e546095ca1079ccc59c51b9b5230be04415eb5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Utilize as APIs de faturação do Azure para programaticamente conhecer a utilização do Azure
 Utilize as APIs de faturação do Azure para retirar dados de utilização e de recursos para as ferramentas de análise de dados preferencial. A utilização de recursos do Azure e RateCard APIs podem ajudá-lo com precisão prever e gerir os custos. As APIs são implementadas como um fornecedor de recursos e a parte da família de APIs expostas pelo Azure Resource Manager.  
@@ -45,7 +45,7 @@ Utilizar o Azure [API de utilização de recursos](https://msdn.microsoft.com/li
 ## <a name="azure-resource-ratecard-api-preview"></a>Recursos do Azure RateCard API (pré-visualização)
 Utilize o [API do Azure Resource RateCard](https://msdn.microsoft.com/library/azure/mt219005) para obter a lista de recursos do Azure disponíveis e as informações de preços estimadas para cada. A API inclui:
 
-* **Controlo de acesso baseado em funções do Azure** -configurar as políticas de acesso no [portal do Azure](https://portal.azure.com) ou através de [cmdlets Azure PowerShell](/powershell/azure/overview) para especificar quais os utilizadores ou aplicações podem obter acesso a os dados de RateCard. Os chamadores tem de utilizar tokens padrão do Azure Active Directory para autenticação. Adicione o autor da chamada à função ou o leitor, proprietário ou contribuinte obter acesso aos dados de utilização para uma determinada subscrição do Azure.
+* **Controlo de acesso baseado em funções do Azure** -configurar as políticas de acesso no [portal do Azure](https://portal.azure.com) ou através de [cmdlets Azure PowerShell](/powershell/azure/overview) para especificar quais os utilizadores ou aplicações podem obter acesso para o RateCard dados. Os chamadores tem de utilizar tokens padrão do Azure Active Directory para autenticação. Adicione o autor da chamada à função ou o leitor, proprietário ou contribuinte obter acesso aos dados de utilização para uma determinada subscrição do Azure.
 * **Suporte para pay as you go, MSDN, compromisso monetário e ofertas de crédito monetário (EA e [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) não suportada)** -esta API fornece informações de taxa de nível de oferta do Azure.  O autor da chamada desta API tem de passar as informações de oferta para obter os detalhes do recurso e taxas. Estamos atualmente não é possível fornecer taxas EA porque EA ofertas tem personalizado taxas por inscrição. 
 
 ## <a name="scenarios"></a>Cenários
@@ -63,7 +63,7 @@ Seguem-se alguns dos cenários que são efetuados possíveis com a combinação 
 ## <a name="partner-solutions"></a>Soluções de parceiros
 [Nuvem Cruiser e a integração de API de faturação do Microsoft Azure](billing-usage-rate-card-partner-solution-cloudcruiser.md) descreve como [rápida da nuvem Cruiser para Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) funciona diretamente a partir do portal do Windows Azure Pack (WAP). Totalmente integrada pode gerir aspetos operacionais e financeiros do Microsoft Azure alojada ou privada nuvem pública a partir de uma interface de utilizador único.   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Consulte os exemplos de código no GitHub:
   * [Exemplo de código da fatura API](https://go.microsoft.com/fwlink/?linkid=845124)
 

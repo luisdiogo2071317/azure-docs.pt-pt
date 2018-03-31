@@ -1,11 +1,11 @@
 ---
 title: Interface de utilizador do Azure Mobile Engagement - alcance como
-description: "Descrição geral de Interface de utilizador do Azure Mobile Engagement"
+description: Descrição geral de Interface de utilizador do Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 30af87e6-c816-4cce-8609-6cbd3e83de14
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 33a0a9d0c399cb7f0a791c4c16dde2e2d62364ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c536d378023ee4a9675bb2d67262fb485c8052b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>Como começar a utilizar e gerir pushes para aceder aos seus utilizadores finais
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Assim que o SDK está totalmente integrado na aplicação, pode começar a utilizar a secção de alcance da IU para enviar notificações Push para os utilizadores da sua aplicação.  
 
 ## <a name="do-your-first-push-notification-campaign"></a>Efetue a sua primeira campanha de notificações Push
@@ -58,13 +62,13 @@ Assim que o SDK está totalmente integrado na aplicação, pode começar a utili
 ![First7][7]
 
 ## <a name="test-your-push-notification-campaign"></a>Testar a sua campanha de notificações Push
-![test1][8]
+![Test1][8]
 
 * Registe o seu dispositivo.
 * Clique na caixa de verificação do dispositivo que pretende push.
 * Clique no botão "Teste" para enviar o push para o dispositivo.
 
-![TEST2][9]
+![Test2][9]
 
 * Ativar a campanha
 
@@ -83,7 +87,7 @@ Como ver acima o conteúdo de notificação push inclui o marcador ${rebate_code
 > [!WARNING]
 > Se a etiqueta de informações da aplicação não está definida para o utilizador, o utilizador não irá receber push.
 
-* resultado
+* Resultado
 
 ![Personalize2][12]
 
@@ -114,7 +118,7 @@ Como ver acima o conteúdo de notificação push inclui o marcador ${rebate_code
 "Apenas fora da aplicação" modo de entrega fornece notificação push, quando a aplicação está fechada. Esta é a notificação push padrão.
 Ao selecionar "apenas fora da aplicação", que tem já forneceu os certificados da plataforma que a aplicação está a criar em (APNS ou GCM).
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Certificados de serviço Apple Push Notification –](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), [Google Cloud Messaging – certificado](http://developer.android.com/google/gcm/index.html) 
 
 ### <a name="in-app-only-delivery-mode"></a>"na aplicação apenas" modo de entrega
@@ -192,7 +196,7 @@ Uma vista de texto permite-lhe apresentar mais conteúdos para o utilizador fina
 
 ![TextView6][26]
 
-* resultado
+* Resultado
 
 ![TextView7][27]
 
@@ -235,7 +239,7 @@ Isto também se a oportunidade para apresentar uma chamada para a ação, tal co
 * Clique na origem de botão de modo para edição de comutador e ver o aspeto que tem de editar.
 * Escreva o conteúdo que será apresentado no botão de ação (um botão de ação permite que a aplicação efetuar uma ação específica, tais como abrir uma página da aplicação, redireccionamento para um arquivo ou de qualquer tipo de origens que pode fornecer).
 * Escrever o conteúdo que será apresentado no botão de saída (clicando no botão de saída, a vista web desaparecerá).
-* resultado
+* Resultado
 
 ![WebView5][32]
 

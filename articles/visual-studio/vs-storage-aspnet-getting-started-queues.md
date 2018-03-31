@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao armazenamento de filas do Azure e o Visual Studio ligado serviços (ASP.NET) | Microsoft Docs"
-description: "Como começar a utilizar o armazenamento de filas do Azure num projeto ASP.NET no Visual Studio depois de se ligar a uma conta de armazenamento utilizando o Visual Studio ligado Services"
+title: Introdução ao armazenamento de filas do Azure e o Visual Studio ligado serviços (ASP.NET) | Microsoft Docs
+description: Como começar a utilizar o armazenamento de filas do Azure num projeto ASP.NET no Visual Studio depois de se ligar a uma conta de armazenamento utilizando o Visual Studio ligado Services
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2016
-ms.author: kraigb
-ms.openlocfilehash: 4687e5dfce72583728068c176d86d100313badf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 89baa741dcd916b70514f9703255b9e6d01c689b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligado serviços (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -572,9 +572,9 @@ Esta secção ilustra como eliminar uma fila.
 
 1. Executar a aplicação e selecione **obter o comprimento da fila** para ver os resultados semelhantes à captura de ecrã seguinte:
   
-    ![Eliminar a fila](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
+    ![Eliminar fila](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Ver mais guias de funcionalidades para saber mais sobre as opções adicionais para armazenar dados no Azure.
 
   * [Introdução ao blob storage do Azure e o Visual Studio ligado serviços (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)

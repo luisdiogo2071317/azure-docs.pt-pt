@@ -1,11 +1,11 @@
 ---
-title: "Integração do Android SDK do Azure Mobile Engagement"
-description: "Mais recentes atualizações e procedimentos para Android SDK do Azure Mobile Engagement"
+title: Integração do Android SDK do Azure Mobile Engagement
+description: Mais recentes atualizações e procedimentos para Android SDK do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 11618586-c709-49ca-bcd8-745323ff1af6
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 1f047f93fa8bc852b28c86e91d0c007a94fb4299
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77047cb1dc39fa3c05f58550ceea74e78396157f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="upgrade-procedures"></a>Procedimentos de atualização
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Se já tiver integrado uma versão mais antiga do nosso SDK na sua aplicação, terá de considerar os seguintes pontos ao atualizar o SDK.
 
 Terá de seguir vários procedimentos, se omitido várias versões do SDK. Por exemplo, se a migração do 1.4.0 para 1.6.0 que tem de primeiro siga o procedimento "de 1.4.0 para 1.5.0", em seguida, o procedimento "de 1.5.0 para 1.6.0".

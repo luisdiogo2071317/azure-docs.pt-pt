@@ -1,12 +1,11 @@
 ---
 title: Como configurar dados produz para tarefas do Stream Analytics | Microsoft Docs
-description: "Configure as saídas para tarefas do Stream Analytics | Learning segmento de caminho."
-keywords: "dados de saída, movimento de dados"
-documentationcenter: 
+description: Configure as saídas para tarefas do Stream Analytics | Learning segmento de caminho.
+keywords: dados de saída, movimento de dados
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 3bbea3da-bfce-4af1-a15e-d4b23874034f
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/26/2017
-ms.author: samacha
-ms.openlocfilehash: 1ffa517469da1a8d79917b9747abc97ca3bef463
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 9e1a8640421c4232cf4abc09794ca584995906f9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-configure-data-outputs-for-stream-analytics-jobs"></a>Como configurar dados produz para tarefas do Stream Analytics
 
@@ -52,7 +51,7 @@ Para adicionar um resultado para a tarefa de Stream Analytics:
 ## <a name="get-help"></a>Obter ajuda
 Para mais assistência, tente ler o nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

@@ -1,11 +1,11 @@
 ---
 title: Saiba como proteger o acesso aos dados na base de dados do Azure Cosmos | Microsoft Docs
-description: "Saiba mais sobre conceitos de controlo de acesso na BD do Cosmos do Azure, incluindo o mestre de chaves, chaves de só de leitura, os utilizadores e permissões."
+description: Saiba mais sobre conceitos de controlo de acesso na BD do Cosmos do Azure, incluindo o mestre de chaves, chaves de só de leitura, os utilizadores e permissões.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.openlocfilehash: 383e04f91eec2f465b381ce30f2d6d24c488b731
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771c4a539d240a6bfdc9770adc7cfada01571939
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Proteger o acesso aos dados da base de dados do Azure Cosmos
 Este artigo fornece uma descrição geral de proteger o acesso aos dados armazenados no [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/).
 
 BD do Cosmos do Azure utiliza dois tipos de chaves para autenticar os utilizadores e fornecer acesso aos seus dados e recursos. 
 
-|tipo de chave|Recursos|
+|Tipo de chave|Recursos|
 |---|---|
 |[Mestre de chaves](#master-keys) |Utilizado para recursos administrativos: contas, bases de dados, os utilizadores e permissões de base de dados|
 |[Tokens de recursos](#resource-tokens)|Utilizado para recursos de aplicação: coleções, documentos, os anexos, procedimentos armazenados, acionadores e UDFs|
@@ -104,7 +104,7 @@ Eis um padrão de conceção comuns na qual os tokens de recursos podem ser soli
 
     ![Fluxo de trabalho de tokens de recurso do Cosmos BD do Azure](./media/secure-access-to-data/resourcekeyworkflow.png)
 
-Gestão e de geração de token de recurso é processado pelo bibliotecas de cliente nativas do Cosmos DB; No entanto, se utilizar o resto deve construir os cabeçalhos de pedido/autenticação. Para obter mais informações sobre a criação de cabeçalhos de autenticação para REST, consulte [controlo de acesso nos recursos de BD do Cosmos](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) ou [código de origem para os nossos SDKs](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+Gestão e de geração de token de recurso é processado pelo bibliotecas de cliente nativas do Cosmos DB; No entanto, se utilizar o resto deve construir os cabeçalhos de pedido/autenticação. Para obter mais informações sobre a criação de cabeçalhos de autenticação para REST, consulte [controlo de acesso nos recursos de BD do Cosmos](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou [código de origem para os nossos SDKs](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
 
 Para obter um exemplo de um serviço de camada média utilizado para gerar ou Mediador de tokens de recursos, consulte o [ResourceTokenBroker aplicação](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
@@ -179,7 +179,7 @@ foreach (Permission perm in permFeed)
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre a segurança da base de dados de base de dados do Cosmos, consulte [Cosmos DB: base de dados de segurança](database-security.md).
 * Para saber mais sobre a gestão de chaves principais e só de leitura, consulte [como gerir uma conta de base de dados do Azure Cosmos](manage-account.md#keys).
-* Para saber como construir tokens de autorização de BD do Cosmos do Azure, consulte [controlo de acesso nos recursos do Azure Cosmos DB](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources).
+* Para saber como construir tokens de autorização de BD do Cosmos do Azure, consulte [controlo de acesso nos recursos do Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

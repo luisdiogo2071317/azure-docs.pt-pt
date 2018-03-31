@@ -1,11 +1,11 @@
 ---
-title: "Integração do Android SDK do Azure Mobile Engagement"
-description: "Mais recentes atualizações e procedimentos para Android SDK do Azure Mobile Engagement"
+title: Integração do Android SDK do Azure Mobile Engagement
+description: Mais recentes atualizações e procedimentos para Android SDK do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a7d719ec-67b3-4be3-9d7f-0b61a57fe978
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3b8f60333e6096411aad8499bb4bfc36e53f3c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>Como integrar o Engagement ADM
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 > [!IMPORTANT]
 > Tem de seguir o procedimento de integração descrito num documento do Android a como integrar o Engagement antes de seguir este guia.
 > 
@@ -41,7 +45,7 @@ Contém payloads ADM enviadas para o SDK sempre o `azme` chave do objeto de dado
 ## <a name="sign-up-to-adm"></a>Inscrever-se ADM
 Se não o tiver feito, tem de ativar ADM na sua conta Amazon.
 
-O procedimento está detalhado na: [ <https://developer.amazon.com/sdk/adm/credentials.html>].
+O procedimento está detalhado na: [ <https://developer.amazon.com/sdk/adm/credentials.html> ].
 
 Após concluir o procedimento, obter:
 
@@ -104,7 +108,7 @@ Certifique-se de que tem as seguintes permissões seu `AndroidManifest.xml` (ant
 ## <a name="grant-engagement-oauth-credentials"></a>Credenciais conceder Engagement OAuth
 Submeta as credenciais OAuth (ID de cliente e segredo do cliente) no Portal do Engagement.
 
-[< https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
+[<https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
 [biblioteca de clientes do ADM]:https://developer.amazon.com/sdk/adm/setup.html
 [integrado ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [este procedimento]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset

@@ -1,11 +1,11 @@
 ---
-title: "Integração do Android SDK do Azure Mobile Engagement"
-description: "Mais recentes atualizações e procedimentos para Android SDK do Azure Mobile Engagement"
+title: Integração do Android SDK do Azure Mobile Engagement
+description: Mais recentes atualizações e procedimentos para Android SDK do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9ec3fab3-35ec-458e-bf41-6cdd69e3fa44
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: piyushjo
-ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e71d8aeb8c8060161ade4262e0be0a093b5650
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-android"></a>Como integrar o Engagement alcance no Android
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 > [!IMPORTANT]
 > Tem de seguir o procedimento de integração descrito num documento do Android a como integrar o Engagement antes de seguir este guia.
 > 
@@ -102,7 +106,7 @@ Editar o `AndroidManifest.xml` ficheiro:
   
   Sem esta permissão, Android, impede que as notificações do sistema de que está a ser apresentado se tiver selecionado o toque ou a opção de vibrate no Gestor de campanhas de alcance.
 
-## <a name="native-push"></a>Push nativo
+## <a name="native-push"></a>Push Nativo
 Agora que configurou o módulo de alcance, terá de configurar o push nativo para conseguir recebe campanhas no dispositivo.
 
 Suportamos dois serviços no Android:
@@ -160,8 +164,8 @@ Eis algumas diretrizes para processar corretamente o parâmetro de retorno de `o
 
 O tipo de retorno é utilizado apenas para as estatísticas de alcance:
 
-* `Replied`é incrementado se um dos recetores difusão devolveu um `true` ou `false`.
-* `Actioned`é incrementado apenas se um dos recetores difusão devolveu `true`.
+* `Replied` é incrementado se um dos recetores difusão devolveu um `true` ou `false`.
+* `Actioned` é incrementado apenas se um dos recetores difusão devolveu `true`.
 
 ## <a name="how-to-customize-campaigns"></a>Como personalizar campanhas
 Para personalizar as campanhas, pode modificar as esquemas fornecidas no SDK do alcance.
@@ -233,7 +237,7 @@ Se não quiser sobreposição para ser adicionado a sua atividade e, se não inc
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
-#### <a name="categories"></a>Categorias
+#### <a name="categories"></a> Categorias
 Quando modifica as esquemas fornecidas, modifique o aspeto de todas as suas notificações. Categorias permitem-lhe definir o aspeto que tem de destino várias (possivelmente comportamentos) para notificações. É possível especificar uma categoria quando cria uma campanha de alcance. Tenha em atenção que categorias também permitem-lhe personalizar anúncios e inquéritos, que é descrita mais à frente neste documento.
 
 Para registar um processador de categoria para as notificações, tem de adicionar uma chamada quando a aplicação é inicializada.

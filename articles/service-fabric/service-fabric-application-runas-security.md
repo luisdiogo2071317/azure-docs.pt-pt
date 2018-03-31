@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: 62917a1d342158ec2114a9204ee1ca9e447284fa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3df5374911ee6381f25d08d23d565cdf8a7cd12f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Executar um serviço como uma conta de utilizador local ou como conta de sistema local
-Ao utilizar o Service Fabric do Azure, pode proteger aplicações em execução no cluster em contas de utilizador diferente. Por predefinição, as aplicações de Service Fabric executam sob a conta que executa o processo de Fabric.exe em. Serviço de recursos de infraestrutura também fornece a capacidade para executar aplicações com uma conta de utilizador local ou a conta de sistema local, o que é feita ao especificar uma política de RunAs no manifesto da aplicação. Tipos de conta de sistema local suportados são **Utilizador_local**, **NetworkService**, **LocalService**, e **LocalSystem**.
+Ao utilizar o Service Fabric do Azure, pode proteger aplicações em execução no cluster em contas de utilizador diferente. Por predefinição, as aplicações de Service Fabric executam sob a conta que executa o processo de Fabric.exe em. Serviço de recursos de infraestrutura também fornece a capacidade para executar aplicações com uma conta de utilizador local ou a conta de sistema local, o que é feita ao especificar uma política de RunAs no manifesto da aplicação. Tipos de conta de sistema local suportados são **Utilizador_local**, **NetworkService**, **LocalService**, e **LocalSystem**.  Se estiver a executar o Service Fabric num cluster de autónomo do Windows, pode executar um serviço em [contas de domínio do Active Directory](service-fabric-run-service-as-ad-user-or-group.md) ou [contas de serviço geridas de grupo](service-fabric-run-service-as-gmsa.md).
 
 Também pode definir e criar grupos de utilizadores que podem ser adicionados um ou mais utilizadores para cada grupo de ser geridos em conjunto. Isto é útil quando existem vários utilizadores para pontos de entrada de serviço diferente e que precisam para tem determinados privilégios comuns que estão disponíveis ao nível do grupo.
 

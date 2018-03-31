@@ -1,29 +1,24 @@
 ---
-title: "Conceber ELT para o armazém de dados SQL do Azure | Microsoft Docs"
-description: "Combine tecnologias para mover dados para o Azure e carregar dados para o SQL Data Warehouse por conceber um processo de extração, carregamento e transformação (ELT) para o Azure SQL Data Warehouse."
+title: Em vez de ETL, conceber ELT para o Azure SQL Data Warehouse | Microsoft Docs
+description: Em vez de ETL, crie um processo de extração, carregamento e transformação (ELT) para carregar os dados ou o Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 12/12/2017
-ms.author: cakarst;barbkess
-ms.openlocfilehash: e94dca69c77c46034e318205279be5188e1371f5
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.topic: conceptual
+ms.component: design
+ms.date: 03/28/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: c27ad843c9ee9beed871dcc03254cb1266f6ebe2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Conceber a extração, carregamento e transformação (ELT) para o armazém de dados SQL do Azure
 
-Combine as tecnologias para dados de destino no armazenamento do Azure e carregar dados para o SQL Data Warehouse por conceber um processo de extração, carregamento e transformação (ELT) para o Azure SQL Data Warehouse. Este artigo apresenta as tecnologias que suportam a carregar com o Polybase e, em seguida, concentra-se na conceção de um processo ELT que utiliza o PolyBase para carregar dados para o SQL Data Warehouse do armazenamento do Azure com o T-SQL.
+Em vez de extracção, transformação e carregamento (ETL), crie um processo de extração, carregamento e transformação (ELT) para carregar dados para o Azure SQL Data Warehouse. Este artigo apresenta formas para criar um processo ELT move os dados para um armazém de dados do Azure.
 
 ## <a name="what-is-elt"></a>O que é ELT?
 
@@ -104,7 +99,7 @@ Para formatar os ficheiros de texto:
 - Formato de dados no ficheiro de texto para alinhar com os tipos de dados e de colunas na tabela de destino do armazém de dados do SQL Server. Desalinhamento entre a tabela de armazém de dados e tipos de dados nos ficheiros de texto externo faz com que as linhas a ser rejeitada durante o carregamento.
 - Campos separados no ficheiro de texto com um terminador.  Não se esqueça de utilizar um caráter ou uma sequência de carateres que não se encontra na sua origem de dados. Utilize o terminador especificado com [criar formato de ficheiro externo](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
-## <a name="load-to-a-staging-table"></a>Para uma tabela de teste de carga
+## <a name="load-to-a-staging-table"></a>Carregar para uma tabela de teste
 Para obter dados no armazém de dados, funciona bem para o primeiro carregamento de dados para uma tabela de teste. Ao utilizar uma tabela de testes, pode processar erros sem que interfiram entre as tabelas de produção e evitar a execução de operações de reversão na tabela de produção. Uma tabela de testes também dá-lhe a oportunidade para utilizar o SQL Data Warehouse para executar transformações antes de inserir os dados em tabelas de produção.
 
 Para carregar com T-SQL, execute o [criar tabela AS SELECIONE (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) instrução T-SQL. Este comando insere os resultados de uma instrução select para uma nova tabela. Quando seleciona a instrução de uma tabela externa, importa os dados externos. 
@@ -133,7 +128,7 @@ Como criar um processo ETL, tente executar o processo de uma amostra de pequeno 
 ## <a name="partner-loading-solutions"></a>Soluções de carregamento de parceiros
 Muitos dos nossos parceiros tem carregar soluções. Para obter mais informações, consulte uma lista dos nossos [parceiros de solução](sql-data-warehouse-partner-business-intelligence.md). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para carregar orientações, consulte [orientações para dados de carga](guidance-for-loading-data.md).
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Recursos de automatização do Azure em soluções do OMS | Microsoft Docs"
-description: "Soluções na OMS incluem, geralmente, os runbooks na automatização do Azure para automatizar os processos tais como recolher e processar dados de monitorização.  Este artigo descreve como incluir runbooks e os respetivos recursos relacionados numa solução."
+title: Recursos de automatização do Azure em soluções de gestão | Microsoft Docs
+description: As soluções de gestão incluem, geralmente, os runbooks na automatização do Azure para automatizar os processos tais como recolher e processar dados de monitorização.  Este artigo descreve como incluir runbooks e os respetivos recursos relacionados numa solução.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5750cd1147ec861ea38ff2ebc9ce481d256c1959
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>A adição de recursos de automatização do Azure para uma solução de gestão do OMS (pré-visualização)
+# <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>A adição de recursos de automatização do Azure para uma solução de gestão (pré-visualização)
 > [!NOTE]
-> Esta documentação é de preliminar para criar soluções de gestão no OMS que estão atualmente em pré-visualização. Nenhum esquema descrita abaixo está sujeita a alterações.   
+> Esta documentação é de preliminar para criar soluções de gestão que estão atualmente em pré-visualização. Nenhum esquema descrita abaixo está sujeita a alterações.   
 
 
-[As soluções de gestão no OMS](operations-management-suite-solutions.md) normalmente incluirá a runbooks na automatização do Azure para automatizar os processos tais como recolher e processar dados de monitorização.  Para além de runbooks, as contas de automatização inclui recursos, tais como as variáveis e agendas que suportam os runbooks utilizados na solução.  Este artigo descreve como incluir runbooks e os respetivos recursos relacionados numa solução.
+[As soluções de gestão](operations-management-suite-solutions.md) normalmente incluirá a runbooks na automatização do Azure para automatizar os processos tais como recolher e processar dados de monitorização.  Para além de runbooks, as contas de automatização inclui recursos, tais como as variáveis e agendas que suportam os runbooks utilizados na solução.  Este artigo descreve como incluir runbooks e os respetivos recursos relacionados numa solução.
 
 > [!NOTE]
-> Os exemplos neste artigo utilizam parâmetros e variáveis que são necessários ou comuns para soluções de gestão e descrito em [criar soluções de gestão no Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
+> Os exemplos neste artigo utilizam parâmetros e variáveis que são necessários ou comuns para soluções de gestão e descrito em [estruturação e criação de uma solução de gestão no Azure ](operations-management-suite-solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -40,7 +40,7 @@ Este artigo pressupõe que já estiver familiarizado com as seguintes informaç�
 - Como [criar modelos do Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Conta de automatização
-Todos os recursos na automatização do Azure estão contidos num [conta de automatização](../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito em [OMS área de trabalho e a conta de automatização](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) a conta de automatização não está incluída na solução de gestão, mas tem de existir antes da solução está instalada.  Se não estiver disponível, a solução de instalação irá falhar.
+Todos os recursos na automatização do Azure estão contidos num [conta de automatização](../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito em [iniciar área de trabalho de análise e conta de automatização](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) a conta de automatização não está incluída na solução de gestão, mas tem de existir antes da solução está instalada.  Se não estiver disponível, a solução de instalação irá falhar.
 
 O nome de cada recurso de automatização inclui o nome da sua conta de automatização.  Isto é feito na solução com o **accountName** parâmetro como no seguinte exemplo de um recurso de runbook.
 
@@ -118,7 +118,7 @@ As propriedades para as tarefas de automatização são descritas na seguinte ta
 
 A tarefa inclui o nome do runbook e quaisquer valores de parâmetros para serem enviados para o runbook.  A tarefa deve [dependem](operations-management-suite-solutions-solution-file.md#resources) o runbook que está a iniciar desde o runbook tem de ser criado antes da tarefa.  Se tiver vários runbooks que deverão ser iniciados pode definir a sua ordem, fazendo com que uma tarefa de depender de quaisquer outras tarefas que devem ser executadas primeiro.
 
-O nome de um recurso de tarefa tem de conter um GUID que é normalmente atribuído por um parâmetro.  Pode ler mais sobre os parâmetros GUID das [criar soluções no Operations Management Suite (OMS)](operations-management-suite-solutions-solution-file.md#parameters).  
+O nome de um recurso de tarefa tem de conter um GUID que é normalmente atribuído por um parâmetro.  Pode ler mais sobre os parâmetros GUID das [criar um ficheiro de solução de gestão no Azure](operations-management-suite-solutions-solution-file.md#parameters).  
 
 
 ## <a name="certificates"></a>Certificados
@@ -281,7 +281,7 @@ Se definir o valor inicial para a variável, tem de ser configurado como o tipo 
 
 | Tipo de dados | Descrição | Exemplo | Resolve para |
 |:--|:--|:--|:--|
-| cadeia   | Coloque o valor entre aspas duplas.  | "\"Olá mundo\"" | "Olá mundo" |
+| string   | Coloque o valor entre aspas duplas.  | "\"Olá mundo\"" | "Olá mundo" |
 | um valor numérico  | Valor numérico com plicas.| "64" | 64 |
 | boolean  | **Verdadeiro** ou **falso** aspas.  Tenha em atenção que este valor tem de estar em minúsculo. | "true" | true |
 | datetime | Valor de data serializada.<br>Pode utilizar o cmdlet ConvertTo-Json no PowerShell para gerar este valor para uma data específica.<br>Exemplo: get-data "24/5/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |

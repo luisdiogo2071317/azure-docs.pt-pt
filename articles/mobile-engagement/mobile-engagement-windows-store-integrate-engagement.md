@@ -1,11 +1,11 @@
 ---
-title: "Integração de SDK do Engagement de aplicações universais do Windows"
-description: "Como integrar o Azure Mobile Engagement com aplicações universais do Windows"
+title: Integração de SDK do Engagement de aplicações universais do Windows
+description: Como integrar o Azure Mobile Engagement com aplicações universais do Windows
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 71236b68-5ebd-44aa-8c82-c7ca8098ea05
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: dc075ffe6565b4ef60e77f74ba4f065629c99952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Integração de SDK do Engagement de aplicações universais do Windows
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 > [!div class="op_single_selector"]
 > * [Universal Windows](mobile-engagement-windows-store-integrate-engagement.md) 
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
@@ -57,7 +61,7 @@ NuGet implementa automaticamente os recursos do SDK no `Resources` pasta na raiz
 NuGet não implementa automaticamente os recursos do SDK na aplicação UWP ainda. Terá de fazê-lo manualmente até que a implementação de recursos é reintroduced no NuGet:
 
 1. Abra o Explorador de ficheiros.
-2. Navegue para a seguinte localização (**x.x.x** é a versão do Engagement estiver a instalar): *% USERPROFILE %\\.nuget\packages\MicrosoftAzure.MobileEngagement\\**x.x.x**\\content\win81*
+2. Navegue para a seguinte localização (**x.x.x** é a versão do Engagement estiver a instalar): *% USERPROFILE %\\.nuget\packages\MicrosoftAzure.MobileEngagement\\  **x.x.x**\\content\win81*
 3. Arrastar e largar o **recursos** pasta a partir do Explorador de ficheiros para a raiz do projeto no Visual Studio.
 4. No Visual Studio selecione o seu projeto e ativar o **Mostrar todos os ficheiros** ícone do **Explorador de soluções**.
 5. Alguns ficheiros não estão incluídos no projeto. Para importá-los em simultâneo com o botão direito clique no **recursos** pasta, **excluir do projeto** e outra com o botão direito clique em de **recursos** pasta, **incluir no projeto** novamente incluir a pasta de toda. Todos os ficheiros do **recursos** pasta estão agora incluídas no seu projeto.

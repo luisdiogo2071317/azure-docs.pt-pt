@@ -45,11 +45,11 @@ Seguem-se algumas das funcionalidades do Premium Storage:
 
 * **Conta de armazenamento Premium**
 
-    Para começar a utilizar o Premium Storage, crie uma conta de armazenamento premium para os discos não geridos. No [portal do Azure](https://portal.azure.com)para criar uma conta de armazenamento premium, escolha o **Premium** camada de desempenho. Selecione o **armazenamento localmente redundante (LRS)** opção de replicação. Também pode criar uma conta de armazenamento premium, o tipo de definição **Premium_LRS** das seguintes localizações:
-    * [API REST do Storage](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (versão 2014-02-14 ou uma versão posterior)
-    * [API de REST de gestão do serviço](http://msdn.microsoft.com/library/azure/ee460799.aspx) (versão 2014-10-01 ou uma versão posterior; para implementações clássicas do Azure)
-    * [Azure API de REST do fornecedor de recursos de armazenamento](https://docs.microsoft.com/rest/api/storagerp) (para implementações do Azure Resource Manager)
-    * [O Azure PowerShell](/powershell/azureps-cmdlets-docs.md) (versão 0.8.10 ou uma versão posterior)
+    Para começar a utilizar o Premium Storage, crie uma conta de armazenamento premium para os discos não geridos. No [portal do Azure](https://portal.azure.com)para criar uma conta de armazenamento premium, escolha o **Premium** camada de desempenho. Selecione o **armazenamento localmente redundante (LRS)** opção de replicação. Também pode criar uma conta do premium storage ao definir a camada de desempenho para **Premium_LRS**. Para alterar a camada de desempenho, utilize uma das abordagens seguintes:
+     
+    - [PowerShell para o armazenamento do Azure](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+    - [CLI do Azure para armazenamento do Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+    - [Azure API de REST do fornecedor de recursos de armazenamento](https://docs.microsoft.com/rest/api/storagerp) (para implementações do Azure Resource Manager) ou uma das bibliotecas de cliente de fornecedor de recursos de armazenamento do Azure
 
     Para mais informações sobre limites de conta de armazenamento premium, consulte o artigo [metas de desempenho e escalabilidade do armazenamento Premium](#premium-storage-scalability-and-performance-targets).
 
