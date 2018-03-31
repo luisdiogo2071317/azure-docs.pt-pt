@@ -1,11 +1,11 @@
 ---
-title: "Configurar as credenciais de autenticação nomeado | Microsoft Docs"
-description: "Saiba como fornecer credenciais que pode utilizar o Visual Studio para autenticar pedidos para o Azure, pelo que pode publicar uma aplicação no Azure a partir do Visual Studio ou monitorizar um serviço em nuvem existente."
+title: Configurar as credenciais de autenticação nomeado | Microsoft Docs
+description: Saiba como fornecer credenciais que pode utilizar o Visual Studio para autenticar pedidos para o Azure, pelo que pode publicar uma aplicação no Azure a partir do Visual Studio ou monitorizar um serviço em nuvem existente.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 61570907-42a1-40e8-bcd6-952b21a55786
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2017
-ms.author: kraigb
-ms.openlocfilehash: fc6f88ee3b808e46e693de7c31b836be86728cd5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: ghogen
+ms.openlocfilehash: d63da89d3842b7fd6bc320ff4eedd2a0132cee71
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="set-up-named-authentication-credentials"></a>Configurar as credenciais de autenticação com o nome
 
@@ -39,7 +39,7 @@ No Explorador de servidores, clique com botão direito do **Azure** nó e seleci
 
 Se pretender criar um certificado por si, pode consultar as instruções em [criar e carregar um gestão de certificados para o Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) e, em seguida, carregar manualmente o certificado para o [portal do Azure](https://portal.azure.com/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Descrição geral geral das Web Apps](https://docs.microsoft.com/azure/app-service/)
 - [Implementar a aplicação no App Service do Azure](https://docs.microsoft.com/azure/app-service/app-service-deploy-local-git) 

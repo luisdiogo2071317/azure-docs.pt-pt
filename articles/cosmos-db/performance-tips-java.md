@@ -1,12 +1,12 @@
 ---
-title: "Sugestões de desempenho do Cosmos BD do Azure para Java | Microsoft Docs"
-description: "Saiba mais opções de configuração de cliente para melhorar o desempenho da base de dados de base de dados do Azure Cosmos"
+title: Sugestões de desempenho do Cosmos BD do Azure para Java | Microsoft Docs
+description: Saiba mais opções de configuração de cliente para melhorar o desempenho da base de dados de base de dados do Azure Cosmos
 keywords: como melhorar o desempenho de base de dados
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: fef5ed126575727c23cdff496c6684b9bf3192cf
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3a6c7c51810375574895643cea2e0e24508fa382
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/30/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -110,7 +110,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
     Quando efetuar uma em massa de leitura de documentos utilizando leitura feed funcionalidade (por exemplo, [readDocuments]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.readdocuments#com_microsoft_azure_documentdb__document_client_readDocuments_String_FeedOptions_c) ou ao emitir uma consulta de SQL Server, os resultados são devolvidos de uma forma segmentada se o conjunto de resultados for demasiado grande. Por predefinição, os resultados são devolvidos em segmentos de 100 itens ou de 1 MB, consoante o limite é atingido primeiro.
 
-    Para reduzir o número de rede arredondar viagens necessárias para obter resultados todos aplicáveis, pode aumentar o tamanho de página utilizando a [x-ms-máx.--número de itens](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) cabeçalho do pedido a até 1000. Nos casos em que seja necessário apresentar apenas alguns resultados, por exemplo, se a API de aplicação ou interface de utilizador devolve apenas os 10 resultados de uma hora, também pode diminuir o tamanho da página para 10 para reduzir o débito consumido para leituras e consultas.
+    Para reduzir o número de rede arredondar viagens necessárias para obter resultados todos aplicáveis, pode aumentar o tamanho de página utilizando a [x-ms-máx.--número de itens](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) cabeçalho do pedido a até 1000. Nos casos em que seja necessário apresentar apenas alguns resultados, por exemplo, se a API de aplicação ou interface de utilizador devolve apenas os 10 resultados de uma hora, também pode diminuir o tamanho da página para 10 para reduzir o débito consumido para leituras e consultas.
 
     Também pode definir o tamanho de página utilizando a [setPageSize método](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
@@ -143,7 +143,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
     A complexidade de uma consulta afeta o número de unidades de pedido são consumidas para uma operação. O número de predicados, natureza os predicados, número de UDFs e o tamanho do conjunto de dados de origem todos os influenciar o custo das operações de consulta.
 
-    Para medir a sobrecarga de qualquer operação (criar, atualizar ou eliminar), Inspecione o [x-ms-pedido-encargos](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) cabeçalho (ou a propriedade RequestCharge equivalente no [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) ou [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response) para medir o número de unidades de pedido consumidos por estas operações.
+    Para medir a sobrecarga de qualquer operação (criar, atualizar ou eliminar), Inspecione o [x-ms-pedido-encargos](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) cabeçalho (ou a propriedade RequestCharge equivalente no [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) ou [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response) para medir o número de unidades de pedido consumidos por estas operações.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -155,7 +155,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 <a id="429"></a>
 2. **Taxa de pedidos/limitação de taxa de identificador demasiado grande**
 
-    Quando um cliente tenta exceder o débito reservado para uma conta, há sem degradação do desempenho no servidor e sem utilização de capacidade de débito para além do nível reservado. O servidor irá preventivamente terminar o pedido com RequestRateTooLarge (código de estado HTTP 429) e devolver o [x-ms-repetição-após-ms](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) cabeçalho que indica a quantidade de tempo, em milissegundos, que o utilizador terá de aguardar antes de reattempting o pedido.
+    Quando um cliente tenta exceder o débito reservado para uma conta, há sem degradação do desempenho no servidor e sem utilização de capacidade de débito para além do nível reservado. O servidor irá preventivamente terminar o pedido com RequestRateTooLarge (código de estado HTTP 429) e devolver o [x-ms-repetição-após-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) cabeçalho que indica a quantidade de tempo, em milissegundos, que o utilizador terá de aguardar antes de reattempting o pedido.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge

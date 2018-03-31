@@ -1,11 +1,11 @@
 ---
-title: "Aplicação de demonstração do Azure Mobile Engagement | Microsoft Docs"
-description: "Descreve onde pode transferir, como utilizar e as vantagens de utilizar a aplicação de demonstração do Azure Mobile Engagement"
+title: Aplicação de demonstração do Azure Mobile Engagement | Microsoft Docs
+description: Descreve onde pode transferir, como utilizar e as vantagens de utilizar a aplicação de demonstração do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f624d5aa-254b-4ad0-96a3-f00e6c3a2c97
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 8381edb569e19a85c1259f7791b477cfa6e51ea3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b74afcadc52973a4d824afddc0abff6ac9f71d17
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-demo-app"></a>Aplicação de demonstração do Azure Mobile Engagement
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Iremos tiver publicado uma aplicação de demonstração do Azure Mobile Engagement para **iOS**, **Android**, e **Windows** plataformas para ajudar a localizar recursos úteis e saber mais sobre o Mobile Engagement.
 
 A aplicação ajuda-o a:

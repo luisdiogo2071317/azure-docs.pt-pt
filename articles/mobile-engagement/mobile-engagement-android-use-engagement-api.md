@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 09b62659-82ae-4a55-8784-fca0b6b22eaf
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79d0652be227dd6703a35d31409cf8e0d9c59519
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Como utilizar o Engagement API no Android
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Este documento é um suplemento para o documento [opções avançadas de relatórios para o Android SDK do Mobile Engagement](mobile-engagement-android-advanced-reporting.md). Fornece na profundidade obter detalhes sobre como utilizar a API de envolvimento para comunicar as estatísticas da aplicação.
 
 Tenha em atenção que se pretender que apenas o Engagement comunicar da sua aplicação sessões, atividades, as falhas e obter informações técnicas, em seguida, a forma mais simples consiste em efetuar todas as suas `Activity` classes secundárias herdarem correspondente `EngagementActivity` classe.
@@ -224,7 +228,7 @@ Dados arbitrários podem ser anexados a eventos, erros, atividades e tarefas.
 Estes dados podem ser estruturados, utiliza a classe de pacote do Android (na realidade, funciona como parâmetros adicionais no Android pendentes). Tenha em atenção que um grupo pode conter matrizes ou outro instâncias de pacote.
 
 > [!IMPORTANT]
-> Se o put nos parâmetros parcelable ou serializáveis, certifique-se os seus `toString()` método é implementado para devolver uma cadeia legível por humanos. Classes serializáveis que contêm campos não transitórios que não são serializáveis tornará falhas Android quando irá chamar`bundle.putSerializable("key",value);`
+> Se o put nos parâmetros parcelable ou serializáveis, certifique-se os seus `toString()` método é implementado para devolver uma cadeia legível por humanos. Classes serializáveis que contêm campos não transitórios que não são serializáveis tornará falhas Android quando irá chamar `bundle.putSerializable("key",value);`
 > 
 > [!WARNING]
 > Não são suportadas matrizes dispersas nos parâmetros adicionais, ou seja, não irá ser serializada como uma matriz. Deverá convertê-los em matrizes padrão antes de a utilizar nos parâmetros adicionais.

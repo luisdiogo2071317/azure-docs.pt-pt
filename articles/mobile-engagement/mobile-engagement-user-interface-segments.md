@@ -1,11 +1,11 @@
 ---
 title: Interface de utilizador do Azure Mobile Engagement - segmentos
-description: "Saiba como criar e gerir segmentos de utilizadores para identificar padrões de utilização, utilizando o Azure Mobile Engagement"
+description: Saiba como criar e gerir segmentos de utilizadores para identificar padrões de utilização, utilizando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6a4f2205-4a3c-406e-a04f-5e6f2a36653f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53c5b1b672a0d7212a3d298c3e411a9cc6ac0807
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>Como criar e gerir segmentos de utilizadores para identificar padrões de utilização
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Este artigo descreve o **segmentos** separador do **Mobile Engagement** portal. Utilizar o **Mobile Engagement** portal para monitorizar e gerir as suas aplicações móveis.
 
 A secção de segmentos da IU permite-lhe trabalhar nos segmentar os utilizadores com base no comportamento diferente e análises que pode aproveitar a aplicação e também pode aceder através da API de segmentos. Segmentos primeiro são calculados 24 horas depois de estes são criados e estes são recomputed a cada 24 horas com base nas mais recentes informações de análise. Assim que é calculado um segmento, apresenta um gráfico de "Dia ao histórico do dia" por dia.
@@ -107,7 +111,7 @@ Quando tiver concluído a definição de cópia de segurança seu critério, ser
 Porque um segmento é com base nos dados de análise, os segmentos são calculados uma vez por dia.
 Neste exemplo, 47,7% dos utilizadores finais totais correspondência critério. Devem ser os utilizadores que têm tido uma boa experiência e serão provável fornecer uma classificação superior se enviar uma notificação a solicitar-lhes para classificar a aplicação na loja.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Conceitos][Link 6]
 * [Serviço de guia de resolução de problemas][Link 24]
 

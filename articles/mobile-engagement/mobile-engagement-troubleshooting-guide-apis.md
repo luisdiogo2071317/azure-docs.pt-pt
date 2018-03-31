@@ -1,11 +1,11 @@
 ---
-title: "Do Azure Mobile Engagement guia - APIs de resolução de problemas"
-description: "Guias do Azure Mobile Engagement - APIs de resolução de problemas"
+title: Do Azure Mobile Engagement guia - APIs de resolução de problemas
+description: Guias do Azure Mobile Engagement - APIs de resolução de problemas
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3efc8a52-2b74-4917-b887-815ae8277474
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
-ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cda11c8d2f1d147a807083c5479d2b2cda65462c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-api-issues"></a>Guia de resolução de problemas para problemas de API
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Seguem-se possíveis problemas que pode surgir com como administradores interagem com o Azure Mobile Engagement através de APIs.
 
 ## <a name="syntax-issues"></a>Problemas de sintaxe
@@ -34,7 +38,7 @@ Seguem-se possíveis problemas que pode surgir com como administradores interage
   * Outro problema comuns com a integração do SDK e a utilização da API é confunda a chave do SDK e a chave de API.
   * Scripts que se ligam às APIs a precisam de enviar dados, pelo menos, a cada 10 minutos ou a ligação será o tempo limite (especialmente comuns em scripts de API de Monitor à escuta de dados). Para evitar tempos limite, ter o seu script enviar um ping com XMPP cada 10 minutos para manter a sessão alive com o servidor.
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Documentação da API][Link 4]
 * [Informações de protocolo com XMPP](http://xmpp.org/extensions/xep-0199.html)
 
@@ -45,7 +49,7 @@ Seguem-se possíveis problemas que pode surgir com como administradores interage
 ### <a name="causes"></a>Causas
 * Confirmar que pode efetuar a mesma ação a partir da IU do Azure Mobile Engagement mostra que esta funcionalidade do Azure Mobile Engagement corretamente ter integrado com o SDK.
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Documentação da IU][Link 1]
 
 ## <a name="error-messages"></a>Mensagens de erro
@@ -75,7 +79,7 @@ Seguem-se possíveis problemas que pode surgir com como administradores interage
         503        Analytics not available yet (the requested information is not computed yet for an application).
         504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Documentação da API - para erros detalhados em cada API específica][Link 4]
 
 ## <a name="silent-failures"></a>Falhas automáticas
@@ -86,7 +90,7 @@ Seguem-se possíveis problemas que pode surgir com como administradores interage
 * Número de itens vai ser desativado na IU do Azure Mobile Engagement se estes não são integrados corretamente, mas irá efetuar automaticamente a partir da API de, pelo que não se esqueça de testar a mesma funcionalidade da IU para ver se funciona.
 * O Azure Mobile Engagement bem como muitas funcionalidades avançadas do Azure Mobile Engagement está a tentar utilizar, tem de ser individualmente integrado na aplicação com o SDK como passos separados antes de poder utilizar.
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Resolução de problemas guia - SDK][Link 25]
 
 <!--Link references-->

@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: a31424da98205e97bdf57010cccfd044360f03dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 189a3029449a3161da2a20f940b77a5bb63bd1ef
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>Como utilizar o Engagement API no iOS
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Este documento é um suplemento para o documento como integrar o Engagement no iOS: fornece na profundidade obter detalhes sobre como utilizar a API de envolvimento para comunicar as estatísticas da aplicação.
 
 Tenha em atenção que se pretender que apenas o Engagement comunicar da sua aplicação sessões, atividades, as falhas e obter informações técnicas, em seguida, a forma mais simples é certificar-todos os seus personalizada `UIViewController` objetos herdarem correspondente `EngagementViewController` classe.
@@ -29,7 +33,7 @@ Se pretender obter mais informações, por exemplo, se precisar de comunicar eve
 
 O Engagement API é fornecida pelo `EngagementAgent` classe. Uma instância desta classe pode ser obtida ao chamar o `[EngagementAgent shared]` método estático (tenha em atenção que o `EngagementAgent` objeto devolvido é um singleton).
 
-Antes de quaisquer chamadas de API, o `EngagementAgent` objeto tem de ser inicializado ao chamar o método`[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
+Antes de quaisquer chamadas de API, o `EngagementAgent` objeto tem de ser inicializado ao chamar o método `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
 
 ## <a name="engagement-concepts"></a>Conceitos de envolvimento
 As seguintes partes refinar comuns [conceitos do Mobile Engagement](mobile-engagement-concepts.md) para a plataforma iOS.

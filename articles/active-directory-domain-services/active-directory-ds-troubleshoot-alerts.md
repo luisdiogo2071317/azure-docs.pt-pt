@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 436fa31b9fd1231b38b39d911d9b6c2d4829461d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5a9f1bfee1df41d25309e84fe9958ff19a368943
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Serviços de domínio do Azure AD - resolver problemas com alertas
 Este artigo fornece os guias de resolução de problemas de todos os alertas que pode deparar-se no seu domínio gerido.
@@ -34,7 +34,7 @@ Escolha os passos de resolução de problemas que correspondem para o ID ou a me
 | AADDS102 | *Um Principal de serviço necessária para os serviços de domínio do Azure AD para funcionarem corretamente foi eliminado do diretório do Azure AD. Esta configuração afeta a capacidade da Microsoft para monitorizar, gerir, patches e sincronizar o seu domínio gerido.* | [Falta o Principal de serviço](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *O intervalo de endereços IP para a rede virtual em que tiver ativado os serviços de domínio do Azure AD é um intervalo de IP público. Serviços de domínio do AD do Azure tem de estar ativados numa rede virtual com um intervalo de endereços IP privado. Esta configuração afeta a capacidade da Microsoft para monitorizar, gerir, patches e sincronizar o seu domínio gerido.* | [O endereço é um intervalo de IP público](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *A Microsoft está não é possível aceder aos controladores de domínio para este domínio gerido. Isto pode acontecer se um grupo de segurança de rede (NSG) configurado na sua rede virtual bloqueia o acesso a domínio gerido. Outra razão possível é se houver uma rota definida pelo utilizador que tráfego de entrada de blocos da internet.* | [Erro de rede](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS105 | *O principal de serviço com o ID de aplicação "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi eliminado e, em seguida, recriado. Este serviço principal gere outro principal de serviço e uma aplicação que são utilizados para sincronização de palavra-passe. O principal de serviço gerida e/ou a aplicação não foi autorizado sob o principal de serviço recentemente criado pelo que não pode ser geridos pelo nosso serviço. Isto significa que o principal de serviço criado recentemente será não é possível atualizar as antigas aplicações geridas e sincronização de palavras-passe será afetada.* | [A aplicação de sincronização de palavra-passe está desatualizada](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS105 | *O principal de serviço com o ID de aplicação "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi eliminado e, em seguida, recriado. A recriação deixa atrás inconsistentes permissões nos recursos de serviços de domínio do Azure AD necessários para atender o seu domínio gerido. Sincronização de palavras-passe no seu domínio gerido poderão ser afetada.* | [A aplicação de sincronização de palavra-passe está desatualizada](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *O domínio gerido última sincronização com o Azure AD no [date]. Os utilizadores poderão não conseguir iniciar sessão no domínio gerido ou associações a grupos podem não estar sincronizadas com o Azure AD.* | [Ainda não ocorreu sincronização no tempo](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *O domínio gerido última cópia de segurança no [date].* | [Uma cópia de segurança ainda não foram executada no tempo](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *O certificado LDAP seguro para o domínio gerido irá expirar no XX.* | [Certificado LDAP seguro prestes a expirar](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |

@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao armazenamento de filas e o Visual Studio ligado services (Serviços de cloud) | Microsoft Docs"
-description: "Como começar a utilizar o armazenamento de filas do Azure num projeto de serviço em nuvem no Visual Studio depois de ligar a uma conta de armazenamento com o Visual Studio ligada a serviços"
+title: Introdução ao armazenamento de filas e o Visual Studio ligado services (Serviços de cloud) | Microsoft Docs
+description: Como começar a utilizar o armazenamento de filas do Azure num projeto de serviço em nuvem no Visual Studio depois de ligar a uma conta de armazenamento com o Visual Studio ligada a serviços
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: da587aac-5e64-4e9a-8405-44cc1924881d
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 7a6e58a62b4cfbf99641559363dd0c860cdf8af2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: ee4228db093b840940152fcad6dfba793dbc4772
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligado serviços (projetos de serviços de nuvem)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -106,7 +106,7 @@ Existem duas formas através das quais pode personalizar a obtenção de mensage
 * Pode obter um lote de mensagens (até 32).
 * Pode definir um tempo limite de invisibilidade superiores ou inferiores, permitindo que o seu código mais ou menos tempo para processar totalmente cada mensagem. O seguinte código de exemplo utiliza o método **GetMessages** para obter 20 mensagens numa chamada. Em seguida, processa cada mensagem através de um ciclo **foreach**. Define também o tempo limite de invisibilidade para cinco minutos para cada mensagem. Tenha em atenção que os 5 minutos começam para todas as mensagens ao mesmo tempo, como tal, 5 minutos após a chamada para **GetMessages**, as mensagens que não tenham sido eliminadas ficarão visíveis novamente.
 
-Eis um exemplo:
+Segue-se um exemplo:
 
     foreach (CloudQueueMessage message in messageQueue.GetMessages(20, TimeSpan.FromMinutes(5)))
     {
@@ -153,6 +153,6 @@ Para eliminar uma fila e todas as mensagens nela contidas, chame o método **Eli
     // Delete the queue.
     messageQueue.Delete();
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 

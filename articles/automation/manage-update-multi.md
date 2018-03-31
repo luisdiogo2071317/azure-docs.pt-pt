@@ -1,6 +1,6 @@
 ---
-title: "Gerir atualizações para várias máquinas virtuais do Azure"
-description: "Este tópico descreve como gerir atualizações para as máquinas virtuais do Azure."
+title: Gerir atualizações para várias máquinas virtuais do Azure
+description: Este tópico descreve como gerir atualizações para as máquinas virtuais do Azure.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c227af1afa95243390152918a6b81015dbaceaeb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -61,7 +61,7 @@ Os agentes do Windows têm de ser configurados para comunicar com um Windows Ser
 
 Os agentes do Linux têm de ter acesso a um repositório de atualização.
 
-Esta solução não suporta agentes do OMS para Linux configurados para reportar a várias áreas de trabalho do Operations Management Suite.
+Esta solução não suporta um agente do OMS de Linux configurado para relatar para várias áreas de trabalho de análise de registos.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Ativar a gestão de atualização para máquinas virtuais do Azure
 
@@ -176,5 +176,5 @@ Para ver informações detalhadas sobre os erros da implementação, selecione *
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre a gestão de atualizações, incluindo registos, saídas e erros, veja [Solução de Gestão de Atualizações no OMS](../operations-management-suite/oms-solution-update-management.md).
+* Para obter mais informações sobre a gestão de atualização - consulte os registos, saída e erros – incluindo [solução de gestão de atualização no Azure](../operations-management-suite/oms-solution-update-management.md).
 

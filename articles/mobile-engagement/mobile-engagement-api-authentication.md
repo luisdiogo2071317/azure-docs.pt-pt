@@ -1,11 +1,11 @@
 ---
-title: "Autenticar com o Engagement móvel REST APIs"
+title: Autenticar com o Engagement móvel REST APIs
 description: Descreve como autenticar com as APIs REST do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: da82cb36-957a-4e19-a805-b44733cf6597
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,16 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 574e699a1cfca2caef0cf20872570bbb8650117b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 5979ded9afaa31054f835b5f16fe525809f5730d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Autenticar com o Engagement móvel REST APIs
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
 
 ## <a name="overview"></a>Descrição geral
 
@@ -102,11 +105,11 @@ Opcionalmente, também pode seguir as instruções de [configuração manual](mo
 
 1. Chame a API com os seguintes parâmetros. Certifique-se de que substitui **INQUILINO\_ID**, **cliente\_ID**, e **cliente\_segredo**:
    
-   * **O URL de pedido** como`https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
+   * **O URL de pedido** como `https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
 
-   * **Cabeçalho de HTTP. o Content-Type** como`application/x-www-form-urlencoded`
+   * **Cabeçalho de HTTP. o Content-Type** como `application/x-www-form-urlencoded`
    
-   * **Corpo do pedido de HTTP** como`grant_type=client\_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F`
+   * **Corpo do pedido de HTTP** como `grant_type=client\_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F`
      
     Segue-se um exemplo de pedido:
     ```

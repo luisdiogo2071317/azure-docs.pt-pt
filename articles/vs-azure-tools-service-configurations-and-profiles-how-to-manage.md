@@ -1,11 +1,11 @@
 ---
-title: "Como gerir configurações de serviço e perfis | Microsoft Docs"
-description: "Saiba como trabalhar com ficheiros de configuração de perfis e as configurações de serviço | que armazene as definições para os ambientes de implementação e publicar as definições para serviços em nuvem."
+title: Como gerir configurações de serviço e perfis | Microsoft Docs
+description: Saiba como trabalhar com ficheiros de configuração de perfis e as configurações de serviço | que armazene as definições para os ambientes de implementação e publicar as definições para serviços em nuvem.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 7da8c551-fb06-4057-b5c7-c77f4b39d803
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/11/2017
-ms.author: kraigb
-ms.openlocfilehash: af1205f8c3e477d123d4835c80a68b3afd6ee5ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 411daa8892bee1858c6930dfd8b2b811f164ec5d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-service-configurations-and-profiles"></a>Como gerir configurações de serviço e perfis
 ## <a name="overview"></a>Descrição geral
@@ -99,6 +99,6 @@ Quando executar o assistente pela primeira vez, é criado um perfil predefinido.
 4. Depois de concluir a alteração das definições, selecione **seguinte** para regressar à **definições** página.
 5. (Opcional) selecione **publicar** para publicar o serviço em nuvem, utilizando as novas definições. Se não quiser para publicar o seu serviço em nuvem neste momento e fechar o assistente publicar, o Visual Studio solicita-o se pretender guardar as alterações ao perfil.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre como configurar outras partes do seu projeto do Azure a partir do Visual Studio, consulte [configurar um projeto do Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 

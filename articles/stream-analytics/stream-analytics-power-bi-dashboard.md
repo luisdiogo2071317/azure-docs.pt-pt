@@ -1,12 +1,11 @@
 ---
 title: Dashboard do Power BI no Azure Stream Analytics | Microsoft Docs
-description: "Utilize um dashboard do Power BI de transmissão em fluxo em tempo real intelligence de negócio de recolher e analisar dados de elevado volume de uma tarefa de Stream Analytics."
-keywords: "dashboard de análise, dashboard em tempo real"
+description: Utilize um dashboard do Power BI de transmissão em fluxo em tempo real intelligence de negócio de recolher e analisar dados de elevado volume de uma tarefa de Stream Analytics.
+keywords: dashboard de análise, dashboard em tempo real
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: b446e2296f2747012849936b994c4a4a2044869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e o Power BI: um dashboard de análise em tempo real para transmissão em fluxo de dados
 O Azure Stream Analytics permite-lhe tirar partido de um das principais ferramentas de business intelligence, [Microsoft Power BI](https://powerbi.com/). Neste artigo, saiba como criar ferramentas de business intelligence, utilizando o Power BI como uma saída para as tarefas do Azure Stream Analytics. Também irá aprender a criar e utilizar um dashboard em tempo real.
@@ -252,7 +251,7 @@ Após ter sido atualizada a autorização com Power BI, um alerta de verde é ap
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

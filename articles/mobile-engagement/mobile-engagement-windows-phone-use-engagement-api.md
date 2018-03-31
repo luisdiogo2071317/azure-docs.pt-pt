@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ae2ba2e8-f75b-4dee-a164-a7dd65d35a23
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ec8b6c13ea052c8063dfde4321cdd286ab6cb817
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03673924ee7734fcf6f1f4f7c744616844fdc87a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-phone-silverlight"></a>Como utilizar o Engagement API no Windows Phone Silverlight
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Este documento é um suplemento para o documento [como integrar o Mobile Engagement na sua aplicação do Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md). Fornece na profundidade obter detalhes sobre como utilizar a API de envolvimento para comunicar as estatísticas da aplicação.
 
 Se pretender que apenas o Engagement comunicar da sua aplicação sessões, atividades, as falhas e obter informações técnicas, em seguida, a forma mais simples consiste em efetuar todas as sua `PhoneApplicationPage` classes secundárias herdam a `EngagementPage` classe.
@@ -229,7 +233,7 @@ Tem de inserir `EngagementAgent.Instance.OnActivated(e)` no `Application_Activat
               EngagementAgent.Instance.OnActivated(e);
             }
 
-## <a name="device-id"></a>Id de dispositivo
+## <a name="device-id"></a>Id do Dispositivo
             String GetDeviceId()
 
 Pode obter o id de dispositivo do engagement ao chamar este método.

@@ -1,11 +1,11 @@
 ---
-title: "Integração do SDK Windows Universal alcance de aplicações"
-description: "Como integrar o alcance do Azure Mobile Engagement com aplicações universais do Windows"
+title: Integração do SDK Windows Universal alcance de aplicações
+description: Como integrar o alcance do Azure Mobile Engagement com aplicações universais do Windows
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a31ca1d6-856f-4aec-898a-07969ae5f7ec
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,17 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8472af2ac72a1976871970963851be775b19859b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Integração do SDK Windows Universal alcance de aplicações
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Tem de seguir o procedimento de integração descrito no [Windows Universal integração SDK do Engagement](mobile-engagement-windows-store-integrate-engagement.md) antes de seguir este guia.
 
 ## <a name="embed-the-engagement-reach-sdk-into-your-windows-universal-project"></a>Incorporar o SDK de alcançar o Engagement no seu projeto Windows Universal
-Não tem nada para adicionar. `EngagementReach`as referências e recursos já estão no seu projeto.
+Não tem nada para adicionar. `EngagementReach` as referências e recursos já estão no seu projeto.
 
 > [!TIP]
 > Pode personalizar as imagens localizadas no `Resources` pasta do projeto, especialmente no ícone de marca (que predefinido para o ícone do Engagement). Nas aplicações universais também pode mover o `Resources` pasta no seu projeto partilhado, partilhar o respetivo conteúdo entre as aplicações, mas terá de manter o `Resources\EngagementConfiguration.xml` de ficheiros na localização predefinida é plataforma dependente.
@@ -67,7 +71,7 @@ A escolha entre a integração de dois pode ser resumida desta forma:
 ### <a name="overlay-integration"></a>Integração de sobreposição
 Sobreposição o Engagement dinamicamente adiciona os elementos de IU utilizados para apresentar as campanhas de alcance na sua página. Se a sobreposição não de acordo com a esquema deve considerar as vistas de web integração manual em vez disso.
 
-Na sua alteração de ficheiro primeiro `EngagementPage` referência ao`EngagementPageOverlay`
+Na sua alteração de ficheiro primeiro `EngagementPage` referência ao `EngagementPageOverlay`
 
 * Adicione às suas instruções de espaços de nomes:
   
@@ -279,7 +283,7 @@ Pode definir a chamada de retorno no seu método de "App() pública {}" do seu `
 > 
 > 
 
-## <a id="push-channel-sharing"></a>Partilha de canal de push
+## <a id="push-channel-sharing"></a> Partilha de canal de push
 Se estiver a utilizar notificações push para outra finalidade na sua aplicação, em seguida, tem de utilizar o canal de push partilha funcionalidade do SDK do Engagement. Isto é evitar push em falta.
 
 * Pode fornecer a suas próprias canal de push para a inicialização de alcance do Engagement. O SDK utilizá-lo em vez de solicitar um novo.

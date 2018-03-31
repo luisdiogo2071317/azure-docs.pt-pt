@@ -1,12 +1,11 @@
 ---
 title: Azure Stream Analytics JavaScript definido pelo utilizador agregados | Microsoft Docs
-description: "Executar consulta avançada mechanics com os agregados definidos pelo utilizador de JavaScript"
+description: Executar consulta avançada mechanics com os agregados definidos pelo utilizador de JavaScript
 keywords: JavaScript, os agregados, uda definido pelo utilizador
 services: stream-analytics
 author: minhe-msft
 manager: santoshb
-editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/28/2017
 ms.author: minhe
-ms.openlocfilehash: b3863a34ed146e54c6d60e035957b942a1976ff9
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9f9a2e33f97fc90265933ee9941f2d02a92cbc4c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript definido pelo utilizador agregados (pré-visualização)
 
@@ -94,7 +93,7 @@ Para UDA, o tipo de função deve ser **Javascript UDA**.
 
 Específico escreva essa tarefa de Stream Analytics suportada ou "Qualquer" se pretender processar o tipo na sua consulta.
 
-### <a name="function-name"></a>Nome de função
+### <a name="function-name"></a>Nome da função
 
 O nome deste objeto de função. O nome da função literalmente deve corresponder ao UDA alias (pré-visualize comportamento, iremos estiver a considerar função anónima de suporte quando GA).
 
@@ -233,7 +232,7 @@ Crie um ficheiro JSON local com abaixo conteúdo, carregue o ficheiro à tarefa 
 
 Para obter ajuda adicional, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

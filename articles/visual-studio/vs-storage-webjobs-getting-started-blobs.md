@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao blob storage e o Visual Studio ligado serviços (WebJob projetos) | Microsoft Docs"
-description: "Como começar a utilizar o Blob storage num projeto WebJob depois de ligar a um armazenamento do Azure com o Visual Studio ligado serviços."
+title: Introdução ao blob storage e o Visual Studio ligado serviços (WebJob projetos) | Microsoft Docs
+description: Como começar a utilizar o Blob storage num projeto WebJob depois de ligar a um armazenamento do Azure com o Visual Studio ligado serviços.
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 7d683f950e8847a18f38158a8f8727b1274fc711
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 60b25dd987e1b959a850614bf375ae434f2c0815
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao Blob do Azure Visual Studio e de armazenamento ligado serviços (projetos de trabalho Web)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -79,9 +79,9 @@ O exemplo de código seguinte altera a extensão de ficheiro, como copia blobs q
 ## <a name="types-that-you-can-bind-to-blobs"></a>Tipos de que é possível vincular para blobs
 Pode utilizar o **BlobTrigger** atributo nos seguintes tipos:
 
-* **cadeia**
+* **string**
 * **TextReader**
-* **Fluxo**
+* **Stream**
 * **ICloudBlob**
 * **CloudBlockBlob**
 * **CloudPageBlob**
@@ -217,6 +217,6 @@ Tópicos relacionados abordados esse artigo incluem o seguinte:
 * Acionar manualmente uma função
 * Escrever registos
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este artigo forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com blobs do Azure. Para obter mais informações sobre como utilizar WebJobs do Azure e o SDK de WebJobs, consulte [recursos de documentação de WebJobs do Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 

@@ -1,11 +1,11 @@
 ---
 title: Interface de utilizador do Azure Mobile Engagement - campanhas de alcance
-description: "Laern como criar e gerir a notificação push campanhas utilizando o Azure Mobile Engagement"
+description: Laern como criar e gerir a notificação push campanhas utilizando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d457a8d5f68f70f6bf7a5f086b5e1d65bd1ea95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>Como criar e gerir campanhas de notificações push
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Pode utilizar a secção de alcance da IU para criar uma nova campanha Push com uma fórmula complexa, fornecendo todas as informações que necessárias para enviar uma notificação push. As opções de uma campanha Push variam ligeiramente, consoante os tipos de quatro campanha: anúncios, inquéritos, Pushes de dados e os mosaicos (apenas Windows Phone).
 
 ### <a name="option-applies-to"></a>Opção aplica-se a:
@@ -37,7 +41,7 @@ Pode utilizar a secção de alcance da IU para criar uma nova campanha Push com 
 ## <a name="languages"></a>Linguagens
 Pode utilizar o menu de lista pendente de idiomas para enviar uma versão diferente do seu Push para dispositivos que estão definidos como utilizam idiomas diferentes. Por predefinição, todos os dispositivos irão receber o Push mesmo, independentemente da que idioma que estão definidas para utilizar. Os utilizadores com o respetivo dispositivo definido para um idioma diferente irão receber a versão de idioma predefinido do Push. Muitas das opções de campanha push permitem-lhe especificar conteúdo alternativo para cada um dos idiomas adicionais que selecionar. 
 
-![Campaign2 alcance][21]
+![Reach-Campaign2][21]
 
 ### <a name="language-differences-apply-to"></a>Diferenças de idioma aplicam-se a:
 * Idiomas: É possível selecionar idiomas exclusivos para além do idioma predefinido
@@ -63,7 +67,7 @@ Pode utilizar o menu de lista pendente de idiomas para enviar uma versão difere
 * Alemão (de) 
 * Grego (el) 
 * Hebraico (ele) 
-* Hindi (Olá) 
+* Hindi (hi) 
 * Húngaro (hu) 
 * Indonesian (id) 
 * Italiano () 
@@ -78,7 +82,7 @@ Pode utilizar o menu de lista pendente de idiomas para enviar uma versão difere
 * Romeno (ro) 
 * Russo (ru) 
 * Sérvio (sr) 
-* Eslovaco (sk) 
+* Slovak (sk) 
 * Esloveno (sl) 
 * Espanhol (es) 
 * Sueco (sv) 
@@ -94,7 +98,7 @@ Pode utilizar a secção da campanha para definir o nome e a categoria da sua ca
 > [!WARNING]
 > Se utilizar a opção "Ignorar audiência; push será enviado aos utilizadores através da API" na secção "Campanha" de uma campanha de alcance, a campanha não enviará automaticamente, terá de enviá-lo manualmente através da API de alcance.
 
-![Campaign3 alcance][22]
+![Reach-Campaign3][22]
 
 ### <a name="option-applies-to"></a>Opção aplica-se a:
 * Nome: todos os
@@ -111,7 +115,7 @@ Pode utilizar a secção de notificação para definir definições básicas par
 * A notificação utiliza o sistema de entrega Capptain para contactar o utilizador. Pode personalizar completamente a esquema/apresentação visual do seu push.
 * Sempre: Esta opção garante que enviar uma notificação que a aplicação está em execução ou não.
 
-![Campaign4 alcance][23]
+![Reach-Campaign4][23]
 
 ### <a name="option-applies-to"></a>Opção aplica-se a:
 * Notificação: Anúncios, inquéritos
@@ -119,7 +123,7 @@ Pode utilizar a secção de notificação para definir definições básicas par
 ## <a name="content"></a>Conteúdo
 Pode utilizar a secção de conteúdo para modificar o conteúdo do anúncios, inquéritos, Pushes de dados e os mosaicos (apenas Windows Phone). A definição de conteúdo das campanhas de Push é específica para o tipo da campanha. 
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Documentação de IU - chegar - Push o conteúdo][Link 29]
 
 ![Campaign5 alcance][24]
@@ -135,13 +139,13 @@ Pode utilizar a secção de público-alvo para definir uma lista de itens para l
 * Emitir apenas para os utilizadores do Active Directory (caixa de verificação "interagir apenas com utilizadores que podem ser contactados através de Push nativo" e "Interagir com apenas os utilizadores ativos") para que apenas os utilizadores que ainda tenham a aplicação instalada e utilização-lo, terá de ser analisados.
   Assim que o seu público-alvo estiver definida, pode utilizar o botão simular para determinar quantos utilizadores irão receber este Push. Isto irá calcule o número de utilizadores conhecidos potencialmente segmentados desta audiência (trata de uma estimativa baseada numa amostra aleatória de utilizadores). Lembre-se de que os utilizadores que desinstalaram a aplicação também fazem parte desta audiência, mas não não possível aceder.
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [IU documentação - alcance - novo critério de Push][Link 28]
 
-![Campaign6 alcance][25]
+![Reach-Campaign6][25]
 
 ### <a name="edit-expression"></a>Editar expressão
-![Campaign7 alcance][26]
+![Reach-Campaign7][26]
 
 ### <a name="limit-your-audience-option-applies-to"></a>Limite que a opção de audiência aplica-se a:
 * Interagir apenas com um subconjunto de utilizadores: todos os (anúncios, inquéritos, Pushes de dados, mosaicos)
@@ -157,7 +161,7 @@ Pode utilizar a secção de período de tempo para definir quando o push será e
 > [!NOTE]
 > As campanhas sem uma data de fim pode colocar em cache pushes localmente e ainda as pode apresentar depois de concluir manualmente campanhas. Para evitar este comportamento, específicos de uma hora de fim de campanhas.
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Alcançar - como Tos – agendamento][Link 3] 
 
 ![Campaign8 alcance][27]
@@ -171,7 +175,7 @@ Pode utilizar a secção de teste para enviar este push para o seu próprio disp
 > [!NOTE]
 > Pushes não do lado do servidor, os dados são registados quando utiliza o botão para "teste", os dados são registados apenas para as campanhas real push.
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Documentação de IU - minha conta][Link 14]
 
 ![Campaign9 alcance][28]

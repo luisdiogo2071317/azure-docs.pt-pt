@@ -1,24 +1,25 @@
 ---
-title: "Configurar definições da aplicação de função do Azure | Microsoft Docs"
-description: "Saiba como configurar as definições de aplicação de função do Azure."
-services: 
+title: Configurar definições da aplicação de função do Azure | Microsoft Docs
+description: Saiba como configurar as definições de aplicação de função do Azure.
+services: ''
 documentationcenter: .net
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerir uma aplicação de função no portal do Azure 
 
@@ -27,6 +28,24 @@ As funções do Azure, uma aplicação de função fornece o contexto de execuç
 Para começar, vá para o [portal do Azure](http://portal.azure.com) e inicie sessão na sua conta do Azure. Na barra de pesquisa na parte superior do portal, escreva o nome da sua aplicação de função e selecione-a na lista. Depois de selecionar a sua aplicação de função, consulte a seguinte página:
 
 ![Descrição geral da aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+
+## <a name="favorite"></a>Funções favoritas no portal 
+
+Por vezes, pode ser difícil localizar os recursos no [portal do Azure]. Para tornar mais fácil localizar as aplicações de função que criou, adicione aplicações a função aos seus favoritos no portal. 
+
+1. Inicie sessão no [portal do Azure].
+
+2. Clique na seta no canto inferior esquerdo para expandir todos os serviços, escreva `Functions` no campo **Filtro** e clique na estrela junto a **Aplicações Function App**.  
+ 
+    ![Criar uma aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
+
+    É adicionado o ícone Functions ao menu no lado esquerdo do portal.
+
+3. Feche o menu e desloque-se para a parte inferior para ver o ícone Functions. Clique neste ícone para ver uma lista de todas as suas aplicações Function App. Clique na sua aplicação Function App para trabalhar com funções nesta aplicação. 
+ 
+    ![Aplicações de função no Favoritos](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
+ 
+[portal do Azure]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>Separador de definições de aplicação de função
 
@@ -66,7 +85,7 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 
 ![O editor de serviço de aplicações](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings">Definições da aplicação</a>
+### <a name="settings"></a>Definições da aplicação
 
 | | |
 |-|-|
@@ -82,7 +101,7 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 
 ![Consola de aplicação de função](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-### <a name="kudu">Ferramentas Avançadas (Kudu)</a>
+### <a name="kudu"></a>Ferramentas Avançadas (Kudu)
 
 | | |
 |-|-|
@@ -115,7 +134,7 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 ![Configurar a autenticação para uma aplicação de função](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
-### <a name="swagger">Definição da API</a>
+### <a name="swagger"></a>Definição da API
 
 | | |
 |-|-|

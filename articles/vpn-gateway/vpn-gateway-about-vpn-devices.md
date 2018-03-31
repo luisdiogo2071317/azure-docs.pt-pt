@@ -1,25 +1,25 @@
 ---
-title: "Acerca de dispositivos VPN para ligações do Azure entre locais | Microsoft Docs"
-description: "Este artigo aborda os dispositivos VPN e os parâmetros IPsec para ligações entre locais do Gateway de VPN S2S. São fornecidas ligações para obter instruções e exemplos de configuração."
+title: Acerca de dispositivos VPN para ligações do Azure entre locais | Microsoft Docs
+description: Este artigo aborda os dispositivos VPN e os parâmetros IPsec para ligações entre locais do Gateway de VPN S2S. São fornecidas ligações para obter instruções e exemplos de configuração.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager, azure-service-management
 ms.assetid: ba449333-2716-4b7f-9889-ecc521e4d616
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: f75732761cefd7706fe1555484148efe6cdc0e56
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 7f69b5268adc857c6e45f8fa11fbcca42f64b71f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca dos dispositivos de VPN e dos parâmetros IPsec/IKE para ligações do Gateway da Rede de VPNs
 
@@ -57,7 +57,7 @@ Para obter ajuda na configuração do seu dispositivo VPN, veja as ligações qu
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Guia de configuração*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Exemplos de configuração\*\*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
-| Cisco |Meraki |N/D |Não compatível |Não compatível |
+| Cisco |Meraki |N/A |Não compatível |Não compatível |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 e posterior |[Guia de configuração](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Não compatível |
 | F5 |Série BIG-IP |12.0 |[Guia de configuração](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guia de configuração](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[Guia de configuração](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
@@ -67,11 +67,12 @@ Para obter ajuda na configuração do seu dispositivo VPN, veja as ligações qu
 | Juniper |ISG |ScreenOS 6.3 |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
 | Juniper |SSG |ScreenOS 6.2 |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft |Serviço de Encaminhamento e Acesso Remoto |Windows Server 2012 |Não compatível |[Exemplos de configuração](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
-| Open Systems AG |Gateway de Segurança do Controlo da Missão |N/D |[Guia de configuração](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Não compatível |
+| Open Systems AG |Gateway de Segurança do Controlo da Missão |N/A |[Guia de configuração](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Não compatível |
 | Palo Alto Networks |Todos os dispositivos com o PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 ou posterior<br>RouteBased: 7.1.4 |[Guia de configuração](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Guia de configuração](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
 | ShareTech | UTM de Próxima Geração (série NU) | 9.0.1.3 | Não compatível | [Guia de configuração](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |Série TZ, Série NSA<br>Série SuperMassive<br>Série NSA Classe E |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Não compatível |[Guia de configuração](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | Firewall de Próxima Geração XG | XG v17 | | [Guia de configuração](https://community.sophos.com/kb/127546) |
+| Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [BGP através de IKEv2/IPsec](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012374708&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=2EF5KFljZwtAGQDSm8%2FF2f6DqI2bkmA2qKG4u0rPgbQ%3D&reserved=0)<br><br>[VTI através de IKEv2/IPsec](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012305347&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=ycgiDJCOQYTPN7sAEBSigphzC6mBaADz%2FgdCOm7TsXA%3D&reserved=0)
 | WatchGuard |Todos |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guia de configuração](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guia de configuração](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 > [!NOTE]
@@ -79,6 +80,10 @@ Para obter ajuda na configuração do seu dispositivo VPN, veja as ligações qu
 > (*) As versões 8.4+ do Cisco ASA adicionam suporte para IKEv2 e permitem ligar ao gateway de VPN do Azure através da política IPsec/IKE personalizada com a opção "UsePolicyBasedTrafficSelectors". Veja este [artigo de procedimentos](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 >
 > (\*\*) Os routers da Série ISR 7200 só suportam VPNs PolicyBased.
+
+## <a name="Download VPN device configuration scripts from Azure"></a>Transfira scripts de configuração de dispositivo VPN do Azure
+
+Determinados dispositivos, pode transferir os scripts de configuração diretamente a partir do Azure. Para obter mais informações e transferências instruções, consulte [scripts de configuração do dispositivo VPN transferir](vpn-gateway-download-vpndevicescript.md).
 
 ## <a name="additionaldevices"></a>Dispositivos VPN não validados
 
@@ -140,7 +145,7 @@ Nas seguintes tabelas:
 | Duração de SA (Tempo)            |3600 segundos  |27,000 segundos                                |
 | Duração de SA (Bytes)           |102 400 000 KB | -                                           |
 | Perfect Forward Secrecy (PFS) |Não             |[Ofertas de RouteBased QM SA](#RouteBasedOffers) |
-| Deteção de Elemento Inutilizado (DPD)     |Não suportado  |Suportado                                    |
+| Deteção de Elemento Inutilizado (DPD)     |Não suportado  |Suportadas                                    |
 
 
 ### <a name ="RouteBasedOffers"></a>Ofertas de RouteBased VPN IPsec Security Association (SA do Modo Rápido de IKE)
@@ -151,24 +156,24 @@ A tabela seguinte apresenta as Ofertas de SA IPsec (Modo Rápido de IKE). As ofe
 
 |-  |**Encriptação**|**Autenticação**|**Grupo PFS**|
 |---| ---          |---               |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Nenhum         |
+| 1 |GCM AES256    |GCM (AES256)      |Nenhuma         |
 | 2 |AES256        |SHA1              |Nenhuma         |
 | 3 |3DES          |SHA1              |Nenhuma         |
-| 4 |AES256        |SHA256            |Nenhum         |
-| 5 |AES128        |SHA1              |Nenhum         |
+| 4 |AES256        |SHA256            |Nenhuma         |
+| 5 |AES128        |SHA1              |Nenhuma         |
 | 6 |3DES          |SHA256            |Nenhuma         |
 
 #### <a name="azure-gateway-as-responder"></a>Gateway do Azure como dispositivo de resposta
 
 |-  |**Encriptação**|**Autenticação**|**Grupo PFS**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Nenhum         |
+| 1 |GCM AES256    |GCM (AES256)      |Nenhuma         |
 | 2 |AES256        |SHA1              |Nenhuma         |
 | 3 |3DES          |SHA1              |Nenhuma         |
 | 4 |AES256        |SHA256            |Nenhuma         |
-| 5 |AES128        |SHA1              |Nenhum         |
+| 5 |AES128        |SHA1              |Nenhuma         |
 | 6 |3DES          |SHA256            |Nenhum         |
-| 7 |DES           |SHA1              |Nenhum         |
+| 7 |DES           |SHA1              |Nenhuma         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
@@ -183,7 +188,7 @@ A tabela seguinte apresenta as Ofertas de SA IPsec (Modo Rápido de IKE). As ofe
 | 19|AES256        |SHA256            |14           |
 | 20|AES256        |SHA1              |24           |
 | 21|AES256        |SHA256            |24           |
-| 22|AES128        |SHA256            |Nenhum         |
+| 22|AES128        |SHA256            |Nenhuma         |
 | 23|AES128        |SHA256            |1            |
 | 24|AES128        |SHA256            |2            |
 | 25|AES128        |SHA256            |14           |

@@ -1,12 +1,12 @@
 ---
 title: BD do Azure do Cosmos perguntas mais frequentes | Microsoft Docs
-description: "Obtenha respostas às perguntas mais frequentes sobre a BD do Cosmos do Azure, um serviço de base de dados globalmente distribuída e múltiplos modelo. Saiba mais sobre a capacidade, níveis de desempenho e dimensionamento."
+description: Obtenha respostas às perguntas mais frequentes sobre a BD do Cosmos do Azure, um serviço de base de dados globalmente distribuída e múltiplos modelo. Saiba mais sobre a capacidade, níveis de desempenho e dimensionamento.
 keywords: Perguntas de base de dados, perguntas mais frequentes perguntas, documentdb, azure, do Microsoft azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 946d0f6456ce27931c91066d63c028388ecec84c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Cosmos BD do Azure
@@ -76,7 +76,7 @@ Também pode utilizar o [emulador de BD do Azure Cosmos](local-emulator.md) para
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Como posso obter ajuda adicional com o Azure Cosmos DB?
 
 Para fazer uma pergunta técnica, pode publicar um destes dois pergunta e responder fóruns:
-* [Fórum do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Capacidade excedida da pilha](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Capacidade excedida da pilha é melhor para questões de programação. Certifique-se a sua pergunta [no tópico](https://stackoverflow.com/help/on-topic) e [fornecem detalhes tantas quanto possível, tornando a pergunta clara e answerable](https://stackoverflow.com/help/how-to-ask). 
 
 Para pedir novas funcionalidades, crie um novo pedido no [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -244,7 +244,7 @@ Se qualquer um destas diferenças são um problema para o seu projeto contacte [
 Pode partilhar os seus comentários em qualquer uma das seguintes formas:
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
-* [Fórum do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Capacidade excedida da pilha](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Capacidade excedida da pilha é melhor para questões de programação. Certifique-se a sua pergunta [no tópico](https://stackoverflow.com/help/on-topic) e [fornecem detalhes tantas quanto possível, tornando a pergunta clara e answerable](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>O que é a cadeia de ligação que tenho de utilizar para ligar à API de tabela?

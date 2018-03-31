@@ -1,32 +1,32 @@
 ---
-title: "Grupo de definições de política de nome de grupos do Office 365 no Azure Active Directory (pré-visualização) | Microsoft Docs"
-description: "Como configurar a expiração de grupos do Office 365 no Azure Active Directory (pré-visualização)"
+title: Grupo de definições de política de nome de grupos do Office 365 no Azure Active Directory (pré-visualização) | Microsoft Docs
+description: Como configurar a expiração de grupos do Office 365 no Azure Active Directory (pré-visualização)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: michael.tillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Impor uma política de atribuição de nomes de grupos do Office 365 no Azure Active Directory (pré-visualização)
 
 Para impor as convenções de nomenclatura consistentes de grupos do Office 365 criados ou editados pelos seus utilizadores, configure um grupo de política de atribuição de nomes para os inquilinos no Azure Active Directory (Azure AD). Por exemplo, pode utilizar a política de nomenclatura para comunicar a função de um grupo, a associação, a região geográfica ou quem criou o grupo. Também pode utilizar a política de nomenclatura para o ajudar a categorizar os grupos no livro de endereços. Pode utilizar a política para bloquear palavras específicas de que está a ser utilizado em nomes de grupo e aliases.
 
 > [!IMPORTANT]
-> Utilizar a pré-visualização de política de atribuição de nomes do Office 365 grupos requer licenças do Azure Active Directory Premium P1 para cada utilizador exclusivo que é um membro de um ou mais grupos do Office 365.
+> Utilizar a pré-visualização de política de atribuição de nomes do Office 365 grupos requer licenças do Azure Active Directory Premium P1 ou licenças do Azure AD Basic EDU para cada utilizador exclusivo que é um membro de um ou mais grupos do Office 365.
 
 É aplicada a política de nomenclatura para criação ou edição de grupos criados através de cargas de trabalho (por exemplo, Outlook, Teams da Microsoft, SharePoint, Exchange ou Planner). É aplicada para o nome de grupo e o alias de grupo. Se configurou a política de atribuição de nomes no Azure AD e tiver um grupo de Exchange existente nomenclatura política, o Azure AD nomenclatura política é aplicado.
 

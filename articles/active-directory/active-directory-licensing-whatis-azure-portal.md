@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 1d4151d6c00da618cc008257bcdad4607f8fec49
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1fc4b64a879f090955a5611672acb6b58eb19d73
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Com base no grupo Noções básicas licenciamento no Azure Active Directory
 
@@ -30,6 +30,9 @@ Utilizar o Microsoft paga serviços em nuvem, tais como o Office 365, Enterprise
 Até agora, licenças só foi possível atribuir ao nível do utilizador individual, que pode efetuar em grande escala gestão difícil. Por exemplo, para adicionar ou remover licenças de utilizador com base nas alterações organizacionais, tais como os utilizadores aderir ou abandonar o fileparser a organização ou de um departamento, um administrador, muitas vezes, tem de escrever um script do PowerShell complexo. Este script faz com que chamadas individuais para o serviço em nuvem.
 
 Para abordar os desafios, do Azure AD agora inclui baseadas em grupos de licenciamento. Pode atribuir um ou mais licenças de produtos a um grupo. Azure AD assegura que as licenças estão atribuídas a todos os membros do grupo. Os novos membros que aderir ao grupo são atribuídos as licenças adequadas. Quando estes deixam o grupo, essas licenças são removidas. Isto elimina a necessidade para automatizar a gestão de licenças através do PowerShell para refletir as alterações na organização e estrutura departamental numa base por utilizador.
+
+>[!NOTE]
+>Esta funcionalidade está atualmente em pré-visualização pública. Esteja preparado para reverter ou remover quaisquer alterações. A funcionalidade está disponível em qualquer subscrição do Azure Active Directory (Azure AD) durante a pré-visualização pública. No entanto, quando a funcionalidade torna-se geralmente disponível, alguns aspetos da funcionalidade poderão necessitar de um ou mais licenças do Azure Active Directory Premium.
 
 ## <a name="features"></a>Funcionalidades
 

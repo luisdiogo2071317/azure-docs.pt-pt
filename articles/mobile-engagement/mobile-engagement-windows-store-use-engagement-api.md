@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: bb501fca-9cfe-4495-81df-b5efd6e0137b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 75fc134a5535e6113331470cf61df9c06eb8e2ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f8f211764646bc53319f435d74a16a026329039
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-universal"></a>Como utilizar o Engagement API no Windows Universal
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Este documento é um suplemento para o documento [como integrar o Engagement no Windows Universal](mobile-engagement-windows-store-integrate-engagement.md): fornece na profundidade obter detalhes sobre como utilizar a API de envolvimento para comunicar as estatísticas da aplicação.
 
 Tenha em atenção que se pretender que apenas o Engagement comunicar da sua aplicação sessões, atividades, as falhas e obter informações técnicas, em seguida, a forma mais simples consiste em efetuar todas as suas `Page` classes secundárias herdarem do `EngagementPage` classe.
@@ -213,7 +217,7 @@ No App.xaml.cs na "App() pública {}" Adicione:
 
             Application.Current.UnhandledException += Current_UnhandledException;
 
-## <a name="device-id"></a>Id de dispositivo
+## <a name="device-id"></a>Id do Dispositivo
             String EngagementAgent.Instance.GetDeviceId()
 
 Pode obter o id de dispositivo do engagement ao chamar este método.

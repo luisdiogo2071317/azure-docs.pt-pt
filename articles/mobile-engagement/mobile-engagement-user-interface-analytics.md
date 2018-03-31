@@ -1,11 +1,11 @@
 ---
-title: "Interface de utilizador do Azure Mobile Engagement - análise"
-description: "Saiba como analisar dados históricos sobre a sua aplicação com o Azure Mobile Engagement"
+title: Interface de utilizador do Azure Mobile Engagement - análise
+description: Saiba como analisar dados históricos sobre a sua aplicação com o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fceae1ffff40fc525170121181e21726fe2bd3f7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>Como analisar dados históricos sobre a sua aplicação
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Este artigo descreve o **análise** separador do **Mobile Engagement** portal. Utilizar o **Mobile Engagement** portal para monitorizar e gerir as suas aplicações móveis. Tenha em atenção que para começar a utilizar o portal terá primeiro de criar um **Azure Mobile Engagement** conta.
 
 A secção de análise da IU fornece informação agregada sobre a sua aplicação com base nos dados históricos, que são atualizados a cada 24 horas. As informações são apresentadas em diferentes dashboards compostas de gráficos de barras/linha/circular, grelhas e mapas. Os dados também podem ser transferidos como ficheiros. csv. Na maioria desta mesma informação está disponível em tempo real na secção de Monitor da IU e também pode ser acedido a partir da API de análise.
@@ -33,7 +37,7 @@ O Azure Mobile Engagement fornece um conjunto de informações de análise bási
 
 ## <a name="analytics"></a>Análise
 * Dashboard: Mostra informações gerais sobre os seus utilizadores novos e actives e as tendências.
-* Os utilizadores: Os utilizadores são identificados pelo identificador do dispositivo: este identificador é exclusivo para cada dispositivo (um utilizador novo corresponde, na verdade, a um dispositivo novo). Um utilizador é considerados como estando novo um determinado intervalo de tempo caso tenham efetuado a sua primeira sessão durante esse intervalo de tempo. Utilizadores são considerados como estando retidos caso tenham efetuado, pelo menos, uma sessão durante os últimos 7 dias. Utilizadores ativos são os utilizadores que efetuou a, pelo menos, uma sessão durante um determinado período. Pode ordenar por, mensalmente, semanais, diária ou numa base horária períodos de tempo. Todos os gráficos semelhante, mas permitem-lhe filtrar por diferentes funcionalidades, tais como a versão da aplicação e, em seguida, para ordenar por um período de tempo. As informações padrão reunidas ao integrar o SDK incluem o seguinte: os utilizadores ativos, o novo utilizador, o número de sessões, o comprimento de cada sessão, informações técnicas sobre o país, locais, a localização, operadora de idioma, dispositivos, firmware, rede (Wi-Fi), as versões da aplicação e SDK, utilizados pelos clientes. Estas informações podem ser visualizadas em tempo real da secção de monitor.
+* Os utilizadores: Os utilizadores são identificados pelo identificador do dispositivo: este identificador é exclusivo para cada dispositivo (um utilizador novo corresponde, na verdade, a um dispositivo novo). Um utilizador é considerados como estando novo um determinado intervalo de tempo caso tenham efetuado a sua primeira sessão durante esse intervalo de tempo. Os utilizadores são considerados como estando retidos caso tenham executado, pelo menos, uma sessão nos últimos sete dias. Utilizadores ativos são os utilizadores que efetuou a, pelo menos, uma sessão durante um determinado período. Pode ordenar por, mensalmente, semanais, diária ou numa base horária períodos de tempo. Todos os gráficos semelhante, mas permitem-lhe filtrar por diferentes funcionalidades, tais como a versão da aplicação e, em seguida, para ordenar por um período de tempo. As informações padrão reunidas ao integrar o SDK incluem o seguinte: os utilizadores ativos, o novo utilizador, o número de sessões, o comprimento de cada sessão, informações técnicas sobre o país, locais, a localização, operadora de idioma, dispositivos, firmware, rede (Wi-Fi), as versões da aplicação e SDK, utilizados pelos clientes. Estas informações podem ser visualizadas em tempo real da secção de monitor.
 
 > [!NOTE]
 > O período de tempo baseia-se a data a partir das definições de dispositivo dos utilizadores, pelo que um utilizador cujo telefone com a data incorretamente foi apareçam no período de tempo errado.
@@ -41,7 +45,7 @@ O Azure Mobile Engagement fornece um conjunto de informações de análise bási
 * Retenção: Os utilizadores são considerados como estando retidos num determinado intervalo de tempo caso tenham efetuado a sua primeira sessão durante esse intervalo de tempo. Pode alterar os intervalos de tempo durante os quais os utilizadores retidos (e os novos utilizadores) são contados para horas, dias, semanas ou meses. A análise de retenção do utilizador é desenvolvida cohorts. Um coorte é o conjunto de novos utilizadores detetados para um determinado período (ou seja, o conjunto de utilizadores efetuar a primeira sessão durante este período). Utilizamos cohorts de 1 dia, dia 2, 4-dia, 7 dias ou 1 mês. Tendo em conta um coorte, cada 1 dia, dia 2, 4-dia, 7 dias, ou 1 mês, do Azure Mobile Engagement calcula o conjunto de todos os utilizadores que pertencem aos coorte e são ainda ativo (ou seja, o conjunto de utilizadores que executou, pelo menos, uma sessão durante o período de). Este conjunto de utilizadores é designado por uma versão de coorte. (O azure Mobile Engagement pode apresentar-lhe quantos dos seus utilizadores ainda estiver a utilizar a aplicação, mas apenas o arquivo específicas de plataforma pode indicar-lhe quantos dos seus utilizadores desinstalar a aplicação – por exemplo, GooglePlay Store do iTunes, Windows, etc.).
 * Sessões: Uma utilização da aplicação por um utilizador. As sessões são geradas a partir da sequência das atividades realizadas pelos utilizadores (uma atividade é normalmente associada a utilização de um ecrã da aplicação, mas isto pode variar, dependendo da forma o SDK foi integrado na aplicação). Um utilizador apenas pode executar uma atividade num momento: uma sessão é iniciada assim que o utilizador começa a primeira atividade e termina quando este conclui a última atividade. Se um utilizador mantém-se mais do que alguns segundos sem efetuar qualquer atividade, em seguida, STA sequência de atividades está dividida em duas sessões distintas.
 * Atividades: Os nomes de cada ecrã na sua aplicação e o período de tempo que os utilizadores passam cada ecrã. As atividades são uma opção de análise personalizada que será correspondem para as etiquetas "as informações da aplicação" que configurou para a sua própria aplicação:
-* Caminho de utilizador: Mostra a forma como os utilizadores navegam nas atividades (ecrãs) da sua aplicação. Pode mover o controlo de deslize para ajustar o nível de detalhes. Nós azuis representam as atividades da aplicação. O tamanho é proporcional ao tempo que os utilizadores despendem no mesmo. Os nós brancos representam o início de sessão e fim. Os nós vermelhos representam as falhas. As ligações representam as transições entre atividades da aplicação (ou entre atividades e falhas). Clique num nó ou numa ligação para ver uma sugestão com mais informações sobre os dados: o tempo despendido num ecrã específico, a contagem de transições e a percentagem de transições entre a atividade de origem para a atividade de destino. (Um---60%---> B significa que os utilizadores na atividade A passam para a atividade B 60% das vezes.) -Pode reorganizar o gráfico esclarecer que; posição é guardada sempre que faz uma alteração. Pode mostrar ou ocultar as falhas para simplificar o gráfico.
+* Caminho de utilizador: Mostra a forma como os utilizadores navegam nas atividades (ecrãs) da sua aplicação. Pode mover o controlo de deslize para ajustar o nível dos detalhes. Nós azuis representam as atividades da aplicação. O tamanho é proporcional ao tempo que os utilizadores despendem no mesmo. Os nós brancos representam o início e a paragem da sessão. Os nós vermelhos representam as falhas. As ligações representam as transições entre as atividades da aplicação (ou entre atividades e falhas). Clique num nó ou numa ligação para ver uma sugestão com mais informações sobre os dados: o tempo despendido num ecrã específico, a contagem de transições e a percentagem de transições entre a atividade de origem para a atividade de destino. (Um---60%---> B significa que os utilizadores na atividade A passam para a atividade B 60% das vezes.) -Pode reorganizar o gráfico esclarecer que; posição é guardada sempre que faz uma alteração. Pode mostrar ou ocultar as falhas para simplificar o gráfico.
 * Eventos: Específicas as ações executadas por um utilizador na aplicação. A distribuição de eventos é mostrada como a contagem de eventos por utilizador por sessão. Um evento representa uma ação instantânea; por exemplo, um clique num botão ou a receção de uma notificação. (O significado dos eventos depende da forma como o SDK foi integrado na aplicação.) Um evento pode ocorrer durante uma sessão ou uma tarefa ou pode ser autónomos.
 * Tarefas: Semelhante a eventos, exceto se concentrar-se ao comprimento da ação. Por exemplo, as tarefas foi indicam informações técnicas sobre quanto tempo os conteúdos de carga ou uma chamada para o serviço web. Foi também mostram quanto tempo um utilizador para preencher um formulário, crie uma conta ou fazerem uma compra. Uma tarefa representa a duração de uma tarefa, por exemplo, a duração de uma tarefa de transferência ou o tempo de uma faixa é apresentada no ecrã. (O significado das tarefas depende da forma como o SDK foi integrado na aplicação.) As tarefas são normalmente associadas a tarefas de segundo plano que são executadas fora do âmbito de uma sessão (ou seja, sem qualquer atividade de utilizador).
 * Technicals: A informações técnicas sobre os dispositivos dos utilizadores da sua aplicação que pode acompanhar, tais como região, operadora, rede, dispositivos, Firmware e o tamanho dos dispositivos dos utilizadores e a versão da sua aplicação e a versão SDK utilizada na sua aplicação de ecrã.
@@ -70,7 +74,7 @@ A descrição geral de retenção é apresentada no meio para várias placas, ca
 4. Isto indica que os valores utilizados para o cálculo.
 5. Este é um gráfico Sparkline do histórico dos valores de retenção. Permite-lhe ver os valores no passado para uma vista abrangente de forma evoluiu e deu lugar.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Conceitos][Link 6]
 * [Serviço de guia de resolução de problemas][Link 24]
 

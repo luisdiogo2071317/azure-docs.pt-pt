@@ -1,9 +1,9 @@
 ---
-title: "Criar, ver e gerir alertas utilizando o Azure Monitor - alertas (pré-visualização) | Microsoft Docs"
-description: "Utilize a nova experiência de unificada alertas do Azure para criar, ver e gerir a métrica e regras de alerta de registo a partir de um local."
+title: Criar, ver e gerir alertas utilizando o Azure Monitor - alertas (pré-visualização) | Microsoft Docs
+description: Utilize a nova experiência de unificada alertas do Azure para criar, ver e gerir a métrica e regras de alerta de registo a partir de um local.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6bd2c452059950f714de304cc30c7b4bd023fd86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Criar, ver e gerir alertas utilizando o Monitor do Azure - alertas (pré-visualização)
 
@@ -136,7 +136,7 @@ Para **alertas de registo** alertas podem ser baseados em:
 
 1. No [portal](https://portal.azure.com/), selecione **Monitor** e na secção MONITOR - escolha **alertas (pré-visualização)**.  
 
-2. O **alertas (pré-visualização) Dashboard** é apresentado - wherein todos os alertas do Azure são unified e apresentados num painel único ![Dashboard alerta](./media/monitoring-overview-unified/alerts-preview-overview.png)
+2. O **alertas (pré-visualização) Dashboard** é apresentado - wherein todos os alertas do Azure são unified e apresentados num painel único ![Dashboard alerta](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. Da parte superior esquerda para a direita, o Dashboard mostra rapidamente, o seguinte -, que pode ser clicado para ver uma lista detalhada:
     - *É desencadeado alertas*: O número de alertas atualmente, tiver cumprido lógica e no desencadeou o Estado
     - *Total de regras de alerta*: O número de regras de alerta criadas e na subtext, o número que estão atualmente ativadas
@@ -147,7 +147,7 @@ Para **alertas de registo** alertas podem ser baseados em:
 1. No [portal](https://portal.azure.com/), selecione **Monitor** e na secção MONITOR - escolha **alertas (pré-visualização)**.  
 2. Selecione o **gerir regras** botão na barra superior, para navegar para a secção de gestão de regra - onde estão apresentadas todas as regras de alerta criadas; incluindo alertas que foram desativados.
 3. Para localizar de regras de alerta específicas, um pode utilizar os filtros de lista pendente na parte superior, que permitem às regras de alerta shortlist específicos *subscrição, grupos de recursos e/ou recurso*. Em alternativa utilizando a pesquisa painel acima a lista de regra de alerta marcado *filtrar alertas*, um pode fornecer a palavra-chave, o que é comparado com *nome de alerta, a condição e o recurso de destino*; para mostrar apenas as regras de correspondência.
-   ![Alerta de gerir as regras](./media/monitoring-overview-unified/alerts-preview-rules.png)
+   ![Alerta de gerir as regras](./media/monitoring-alerts-unified-usage/alerts-preview-rules.png)
 4. Para ver ou modificar a regra de alerta específica, clique no respetivo nome que será mostrado como uma ligação clicável.
 5. Alerta definida é mostrada - na estrutura de três fase do: grupo de 3) ação de detalhado de 2) o alerta de condição de alerta de 1). **Critérios de destino** podem ser clicados para modificar a lógica de alerta ou uma nova critérios podem ser adicionados depois de utilizar o ícone de reciclagem para eliminar a lógica anterior. Da mesma forma, na secção de detalhes do alerta - **Descrição** e **gravidade** pode ser modificado. E o grupo de ação pode ser alterado ou um novo pode ser crafted para ligar para o alerta utilizando o **novo grupo de ação** botão.
 

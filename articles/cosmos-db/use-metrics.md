@@ -1,13 +1,13 @@
 ---
-title: "Monitorização e a depuração com métricas do BD Azure Cosmos | Microsoft Docs"
-description: "Utilize métricas do BD Azure Cosmos para depurar problemas comuns e monitorizar a base de dados."
-keywords: metrics
+title: Monitorização e a depuração com métricas do BD Azure Cosmos | Microsoft Docs
+description: Utilize métricas do BD Azure Cosmos para depurar problemas comuns e monitorizar a base de dados.
+keywords: métricas
 services: cosmos-db
 author: gnot
 manager: jhubbard
-editor: 
-documentationcenter: 
-ms.assetid: 
+editor: ''
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 37ef1bc01bd3679e664e71e6a6e3bede84615305
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Monitorização e a depuração com métricas do BD Azure Cosmos
 
@@ -34,7 +34,7 @@ Este artigo explica os casos de utilização comuns e como métricas de BD do Co
 
 ## <a name="understanding-how-many-requests-are-succeeding-or-causing-errors"></a>Noções sobre o número de pedidos está a ter êxito ou a causar erros
 
-Para começar, dirija-se ao [portal do Azure](https://portal.azure.com) e navegue para o **métricas** painel. No painel, localizar o **excedido o número de pedidos de capacidade por 1 minuto** gráfico. Este gráfico mostra um minuto por minuto total de pedidos segmentados pelo código de estado. Para obter mais informações sobre códigos de estado HTTP, consulte [códigos de estado de HTTP para a base de dados do Azure Cosmos](https://docs.microsoft.com/rest/api/documentdb/http-status-codes-for-documentdb).
+Para começar, dirija-se ao [portal do Azure](https://portal.azure.com) e navegue para o **métricas** painel. No painel, localizar o **excedido o número de pedidos de capacidade por 1 minuto** gráfico. Este gráfico mostra um minuto por minuto total de pedidos segmentados pelo código de estado. Para obter mais informações sobre códigos de estado HTTP, consulte [códigos de estado de HTTP para a base de dados do Azure Cosmos](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 O código de estado de erro mais comuns é 429 (otimização), o que significa que os pedidos à base de dados do Azure Cosmos estão a exceder o débito aprovisionado. A solução mais comuns para isto é [aumentar verticalmente os RUs](./set-throughput.md) para a coleção especificada.
 
@@ -93,7 +93,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 *QueryMetrics* fornece detalhes sobre cada componente da consulta de quanto tempo demorou a execução. A causa mais comum para execução longa consultas são análises (a consulta não foi possível tirar partido dos índices), que podem ser resolvidos com uma condição de filtro melhor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu como monitorizar e problemas de depuração utilizando as métricas fornecidas no portal do Azure, pode pretender obter mais informações sobre como melhorar o desempenho da base de dados ao ler os artigos seguintes:
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 76b7481223566f16a5da8c08d9d76f2bdb6b542a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5e8a66214efc27e8e59da354e54d68bb48d274cc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="initiate-extending-alerts-from-oms-into-azure"></a>Iniciar expandir alertas do OMS no Azure
 A partir **23 de Abril de 2018**, todos os clientes através de alertas que são configurados no [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), será expandido para o Azure. Alertas que são expandidos para o Azure comportam-se da mesma forma que OMS. As capacidades de monitorização permaneçam intactas. Expandir alertas criados no OMS para o Azure fornece várias vantagens. Para obter mais informações sobre as vantagens e o processo de alargar alertas do OMS no Azure, consulte [expandir os alertas do OMS no Azure](monitoring-alerts-extend.md).
@@ -155,7 +155,7 @@ Se a publicação for bem-sucedido, deverá devolver a resposta 200 OK juntament
     "version": 2
 }
 ```
-Com a indicação de que os alertas foram expandidos no Azure, conforme indicado pelo versão 2. Esta versão é apenas para a verificar se alertas tem sido expandidas para o Azure e não tem o nenhum efeito em utilização com [API de pesquisa de análise do registo](../log-analytics/log-analytics-api-alerts.md). Assim que os alertas são expandidos no Azure com êxito, todos os utilizadores associados a funções de administrador e contribuinte na área de trabalho irão receber um e-mail com detalhes sobre as alterações efetuadas.
+Com a indicação de que os alertas foram expandidos no Azure, conforme indicado pelo versão 2. Esta versão é apenas para a verificar se alertas tem sido expandidas para o Azure e não tem o nenhum efeito em utilização com [API de pesquisa de análise do registo](../log-analytics/log-analytics-api-alerts.md). Assim que os alertas são expandidos no Azure com êxito, todos os endereços de correio eletrónico fornecidos durante a GET será enviado um relatório com detalhes sobre as alterações efetuadas.
 
 
 E por fim, se todos os alertas na área de trabalho especificado, já ter sido agendado para ser expandido para o Azure - a resposta a POST 403 Proibido.

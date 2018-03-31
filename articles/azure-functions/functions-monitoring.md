@@ -1,12 +1,12 @@
 ---
-title: "Monitorizar as Funções do Azure"
-description: "Saiba como utilizar o Azure Application Insights com as funções do Azure para monitorizar a execução de função."
+title: Monitorizar as Funções do Azure
+description: Saiba como utilizar o Azure Application Insights com as funções do Azure para monitorizar a execução de função.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -493,7 +493,7 @@ Recomendamos que Application Insights para funções de monitorização, porque 
 
 ### <a name="logging-to-storage"></a>Registo para o armazenamento
 
-O registo incorporado utiliza a conta de armazenamento especificada pela cadeia de ligação no `AzureWebJobsDashboard` definição de aplicação. Se estiver configurada essa definição de aplicação, pode ver os dados de registo no portal do Azure. Na página da aplicação de função, selecione uma função e, em seguida, selecione o **Monitor** separador e obter uma lista de execuções de função. Selecione uma execução de função para consultar a duração, dados de entrada, erros e ficheiros de registo associados.
+O registo incorporado utiliza a conta de armazenamento especificada pela cadeia de ligação no `AzureWebJobsDashboard` definição de aplicação. Se estiver configurada essa definição de aplicação, pode ver os dados de registo no portal do Azure. No recurso de armazenamento, aceda a ficheiros, selecione o serviço de ficheiro para a função e, em seguida, aceda a `LogFiles > Application > Functions > Function > your_function` para ver o ficheiro de registo. Na página da aplicação de função, selecione uma função e, em seguida, selecione o **Monitor** separador e obter uma lista de execuções de função. Selecione uma execução de função para consultar a duração, dados de entrada, erros e ficheiros de registo associados.
 
 Se utilizar o Application Insights e tiver [incorporado registo desativado](#disable-built-in-logging), a **Monitor** separador leva-o para o Application Insights.
 

@@ -1,13 +1,13 @@
 ---
-title: "Filtrar o tráfego de rede com o Azure grupos de segurança de rede e de aplicação (pré-visualização) | Microsoft Docs"
-description: "Saiba como criar grupos de segurança de rede e de aplicação (pré-visualização) para restringir o tipo de tráfego de rede que entra e sai de máquinas virtuais."
+title: Filtrar o tráfego de rede com o Azure grupos de segurança de rede e de aplicação (pré-visualização) | Microsoft Docs
+description: Saiba como criar grupos de segurança de rede e de aplicação (pré-visualização) para restringir o tipo de tráfego de rede que entra e sai de máquinas virtuais.
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/31/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrar o tráfego de rede com grupos de segurança de rede e de aplicação (pré-visualização)
 

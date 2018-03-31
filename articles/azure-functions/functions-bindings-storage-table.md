@@ -1,13 +1,13 @@
 ---
-title: "Enlaces de armazenamento de tabela do Azure para as funções do Azure"
-description: "Compreenda como utilizar os enlaces de armazenamento de tabelas do Azure das funções do Azure."
+title: Enlaces de armazenamento de tabela do Azure para as funções do Azure
+description: Compreenda como utilizar os enlaces de armazenamento de tabelas do Azure das funções do Azure.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 8c028bd20518a07a5fb35e36d0819c001eb2a7d5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e6d2891a8ea531bf5c7cc7e1c74b890e01f2b56b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabela do Azure para as funções do Azure
 
@@ -389,6 +389,9 @@ O enlace de entrada do Table storage suporta os seguintes cenários:
 
 Utilize uma saída de armazenamento de Azure Table enlace escrever entidades a uma tabela de uma conta de armazenamento do Azure.
 
+> [!NOTE]
+> Este enlace de saída não suporta a atualização entidades existentes. Utilize o `TableOperation.Replace` operação [do SDK de armazenamento do Azure](https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) para atualizar uma entidade existente.   
+
 ## <a name="output---example"></a>De saída - exemplo
 
 Veja o exemplo de específicas do idioma:
@@ -641,7 +644,7 @@ O armazenamento de tabelas de saída do enlace suporta os seguintes cenários:
 
 ## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
 
-| Enlace | Referência |
+| Vínculo | Referência |
 |---|---|
 | Tabela | [Códigos de erro de tabela](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | BLOB, tabela, fila | [Códigos de erro do armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

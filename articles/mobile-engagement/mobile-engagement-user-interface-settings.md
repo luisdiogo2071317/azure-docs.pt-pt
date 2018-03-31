@@ -1,11 +1,11 @@
 ---
-title: "Interface de utilizador do Azure Mobile Engagement - definições"
-description: "Saiba como gerir as definições globais da sua aplicação utilizando o Azure Mobile Engagement"
+title: Interface de utilizador do Azure Mobile Engagement - definições
+description: Saiba como gerir as definições globais da sua aplicação utilizando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 858f4cb4-14de-4bb5-826f-28cadbfc928b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31df9f151febcb7e5f0f2cd4a83053b3aac416a3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>Como gerir as definições globais da aplicação
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 O **definições** opções de menu disponíveis para vary uma aplicação, dependendo da plataforma da aplicação e as permissões que lhe foram concedidas para a aplicação. As definições incluem o seguinte: detalhes, projetos, Push nativo, velocidade de Push, etiqueta (app-info) e que a pressão comercial. A opção do menu (as informações da aplicação) Tag da secção definições pode ser gerida pela sua aplicação (através do SDK) ou pelo seu back-end (através da Device API). 
 
 > [!NOTE]
@@ -44,7 +48,7 @@ Para obter mais informações, consulte: [documentação de IU – home page][Li
 
   ![settings3][48]
 
-## <a name="native-push"></a>Push nativo
+## <a name="native-push"></a>Push Nativo
 Permite-lhe registar um novo certificado ou a eliminação e o certificado existente para utilização com o push nativo. Push nativo ativa do Azure Mobile Engagement enviar para a aplicação em qualquer altura, mesmo quando este não está em execução. 
 
 Depois de fornecer as credenciais ou certificados para, pelo menos, um serviço de Push nativo, pode selecionar "Sempre" quando criar campanhas de alcance e utilize o parâmetro de "notifier" na PUSH API.
@@ -57,7 +61,7 @@ Para obter mais informações, consulte: [documentação do SDK - iOS - como pre
 ![settings4][49]
 
 ### <a name="windows-push-notification-service-wpns"></a>Serviço de notificações de Push do Windows (WPNS)
-Para ativar o Push nativo com o serviço de notificação do Windows, tem de fornecer credenciais da sua aplicação. Terá do identificador de segurança (SID) do seu pacote e a chave secreta.
+Para ativar o Push Nativo com o Serviço de Notificações do Windows, tem de fornecer as credenciais da sua aplicação. Terá do identificador de segurança (SID) do seu pacote e a chave secreta.
 
 ![settings5][50]
 
@@ -79,7 +83,7 @@ Para obter mais informações, consulte:
 
 ![settings6][51]
 
-## <a name="push-speed"></a>Velocidade de push
+## <a name="push-speed"></a>Velocidade de Push
 Mostra a velocidade de push atual da sua aplicação e permite-lhe definir a velocidade de push da aplicação.
 
   ![settings7][52]
@@ -90,7 +94,7 @@ Mostra a velocidade de push atual da sua aplicação e permite-lhe definir a vel
 ## <a name="commercial-pressure"></a>Pressão comercial
 ![settings12][57]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Conceitos][Link 6]
 * [Serviço de guia de resolução de problemas][Link 24]
 

@@ -1,25 +1,24 @@
 ---
-title: "Resolver problemas com registos de diagnóstico do Azure Stream Analytics | Microsoft Docs"
-description: "Saiba como analisar os registos de diagnóstico de tarefas do Stream Analytics no Microsoft Azure."
-keywords: 
-documentationcenter: 
+title: Resolver problemas com registos de diagnóstico do Azure Stream Analytics | Microsoft Docs
+description: Saiba como analisar os registos de diagnóstico de tarefas do Stream Analytics no Microsoft Azure.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: c9772df2c216d465ca6e90e69bce011969dd4f02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 164d522d7beaea222dbc408765877fa67a34c203
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Resolver problemas relacionados com o Azure Stream Analytics, utilizando os registos de diagnóstico
 
@@ -117,9 +116,9 @@ Nome | Descrição
 Erro | (opcional) Informações de erro. Normalmente, isto é informações de exceção, se estiver disponível.
 Mensagem| Mensagem do registo.
 Tipo | Tipo de mensagem. É mapeado para categorização interno de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
-ID de correlação | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identificam de forma a execução da tarefa. Todas as entradas de registo de execução desde o momento em que a tarefa é iniciada até interrompe a tarefa tem o mesmo **ID de correlação** valor.
+ID de Correlação | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identificam de forma a execução da tarefa. Todas as entradas de registo de execução desde o momento em que a tarefa é iniciada até interrompe a tarefa tem o mesmo **ID de correlação** valor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)

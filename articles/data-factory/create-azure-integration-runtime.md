@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: douglasl
-ms.openlocfilehash: e2ebb3db4d51bf4ec1dea4f2f5cc4cc9dcb2ad70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db757c5a8a1b51278ada24a5ff50a2da1b357397
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Runtime de integração do Azure
 O tempo de execução de integração (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados entre ambientes de rede diferentes. Para obter mais informações sobre a resposta a incidentes, consulte [integração runtime](concepts-integration-runtime.md).
@@ -29,7 +29,7 @@ Resposta a incidentes do Azure fornece uma computação completamente gerida par
 Este documento apresenta a forma como pode criar e configurar o Runtime de integração do Azure. 
 
 ## <a name="default-azure-ir"></a>Predefinição IR do Azure
-Por predefinição, cada fábrica de dados tem uma resposta a incidentes do Azure no back-end que suporte operações na nuvem de dados armazena e serviços na rede pública de computação. A localização de resposta a incidentes que do Azure é resolver automaticamente. Se **connectVia** propriedade não for especificada na definição do serviço ligado, a resposta a incidentes do Azure especificado é utilizada. Só tem de criar explicitamente uma resposta a incidentes Azure quando pretender definir explicitamente a localização da resposta a incidentes, ou se gostaria de virtualmente as execuções de atividade no IRs diferentes para fins de gestão de grupo. 
+Por predefinição, cada fábrica de dados tem uma resposta a incidentes do Azure no back-end que suporte operações na nuvem de dados armazena e serviços na rede pública de computação. A localização de resposta a incidentes que do Azure é resolver automaticamente. Se **connectVia** propriedade não for especificada na definição do serviço ligado, a predefinição é utilizado o Azure IR. Só tem de criar explicitamente uma resposta a incidentes Azure quando pretender definir explicitamente a localização da resposta a incidentes, ou se gostaria de virtualmente as execuções de atividade no IRs diferentes para fins de gestão de grupo. 
 
 ## <a name="create-azure-ir"></a>Criar IR do Azure
 Tempo de execução de integração pode ser criado utilizando o **conjunto AzureRmDataFactoryV2IntegrationRuntime** cmdlet do PowerShell. Para criar uma resposta a incidentes do Azure, especifique o nome, a localização e o tipo para o comando. Eis um comando de exemplo para criar uma resposta a incidentes do Azure com a localização definida como "Europa Ocidental":

@@ -1,11 +1,11 @@
 ---
 title: Interface de utilizador do Azure Mobile Engagement - Dashboard
-description: "Saiba como ver e gerir os gráficos de dados sobre a sua aplicação utilizando o Azure Mobile Engagement"
+description: Saiba como ver e gerir os gráficos de dados sobre a sua aplicação utilizando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d941b9858b964e11308061bae9e6dbc5e2fda767
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Como ver e gerir os gráficos de dados sobre a sua aplicação
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 A secção de Dashboard da IU permite que os clientes criem gráficos personalizados para maximizar o respectivo período, fornecendo as informações exatas que pretendem em vez de procurar na secção de análise. Um dashboard mostra as tendências da sua aplicação e o utilizador ativa contagens para as diferentes versões da aplicação durante um determinado período de tempo (hora/dia/semana/mês/personalizada). As tendências mostradas baseiam-se nos últimos sete dias.
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Resolução de problemas guia - análise][Link 21]
 
 ## <a name="dashboard"></a>Dashboard

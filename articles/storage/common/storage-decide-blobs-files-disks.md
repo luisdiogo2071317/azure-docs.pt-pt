@@ -2,23 +2,17 @@
 title: Decidir quando deve utilizar Blobs do Azure, ficheiros do Azure ou discos do Azure
 description: Saiba mais sobre as diferentes formas para armazenar e aceder a dados no Azure para o ajudar a que decidir qual tecnologia para utilizar.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidir quando deve utilizar Blobs do Azure, ficheiros do Azure ou discos do Azure
 
@@ -47,9 +41,9 @@ A tabela seguinte compara os ficheiros do Azure com Blobs do Azure.
 |Pontos Finais|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Diretórios|Espaço de nomes simples|Objetos de diretório verdadeiro|  
 |Sensibilidade maiúsculas e minúsculas de nomes|Sensível a maiúsculas e minúsculas|Às maiúsculas e minúsculas, mas preservam maiúsculas|  
-|Capacidade|Contentores do até 500 TB|Partilhas de ficheiros de 5 TB|  
-|Débito|Até 60 MB/s por BLOBs de blocos|Até 60 MB/s por partilha|  
-|Tamanho do objeto|Blob de bloco/GB até 200|Até 1 TB/ficheiro|  
+|Capacidade|Até 500 TiB contentores|5 TiB as partilhas de ficheiros|  
+|Débito|Até 60 MiB/s por BLOBs de blocos|Até 60 MiB/s por partilha|  
+|Tamanho do objeto|Até sobre 4.75 TiB por BLOBs de blocos|Até 1 TiB por ficheiro|  
 |Capacidade cobrada|Com base em bytes escritos|Com base no tamanho de ficheiro|  
 |Bibliotecas de cliente|Vários idiomas|Vários idiomas|  
   
@@ -68,9 +62,9 @@ A tabela seguinte compara os ficheiros do Azure com discos do Azure.
 |Autenticação|Incorporado|Configurar com utilização net|  
 |Limpeza|Automático|Manual|  
 |Acesso através de REST|Não não possível aceder a ficheiros dentro do VHD|Armazenado numa partilha de ficheiros podem ser acedidos|  
-|Tamanho máx.|Discos de 4 TB|Ficheiro de 5 TB de partilha de ficheiros e 1 TB dentro da partilha|  
+|Tamanho máx.|4 de TiB de disco|Partilha de ficheiros TiB 5 e 1 TiB ficheiro na partilha|  
 |IOps de 8KB máx.|500 IOps|1000 IOps|  
-|Débito|Até 60 MB/s por disco|Até 60 MB/s por partilha de ficheiros|  
+|Débito|Até 60 MiB/s por disco|Até 60 MiB/s por partilha de ficheiros|  
 
 ## <a name="next-steps"></a>Passos Seguintes
 

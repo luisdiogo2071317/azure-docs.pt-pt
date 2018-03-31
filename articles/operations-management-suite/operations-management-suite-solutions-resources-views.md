@@ -1,8 +1,8 @@
 ---
-title: "Vistas em soluções de gestão do Operations Management Suite (OMS) | Microsoft Docs"
-description: "Soluções de gestão no Operations Management Suite (OMS), normalmente, irão incluir um ou mais vistas para visualizar dados.  Este artigo descreve como exportar uma vista criada pelo estruturador de vistas e incluí-la numa solução de gestão. "
+title: Vistas em soluções de gestão | Microsoft Docs
+description: 'Soluções de gestão, normalmente, irão incluir um ou mais vistas para visualizar dados.  Este artigo descreve como exportar uma vista criada pelo estruturador de vistas e incluí-la numa solução de gestão. '
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b44763fe67b1c70c0b6ecdff73c32d8bb4fab3a4
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Vistas em soluções de gestão do Operations Management Suite (OMS) (pré-visualização)
+# <a name="views-in-management-solutions-preview"></a>Vistas em soluções de gestão (pré-visualização)
 > [!NOTE]
-> Esta documentação é de preliminar para criar soluções de gestão no OMS que estão atualmente em pré-visualização. Nenhum esquema descrita abaixo está sujeita a alterações.    
->
->
+> Esta documentação é de preliminar para criar soluções de gestão que estão atualmente em pré-visualização. Nenhum esquema descrita abaixo está sujeita a alterações.    
 
-[Soluções de gestão no Operations Management Suite (OMS)](operations-management-suite-solutions.md) normalmente incluirá a uma ou mais vistas para visualizar dados.  Este artigo descreve como exportar uma vista criada pelo [estruturador de vistas](../log-analytics/log-analytics-view-designer.md) e incluí-la numa solução de gestão.  
+
+[As soluções de gestão](operations-management-suite-solutions.md) normalmente incluirá a uma ou mais vistas para visualizar dados.  Este artigo descreve como exportar uma vista criada pelo [estruturador de vistas](../log-analytics/log-analytics-view-designer.md) e incluí-la numa solução de gestão.  
 
 > [!NOTE]
-> Os exemplos neste artigo utilizam parâmetros e variáveis que são necessários ou comuns para soluções de gestão e descrito em [criar soluções de gestão no Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)
+> Os exemplos neste artigo utilizam parâmetros e variáveis que são necessários ou comuns para soluções de gestão e descrito em [estruturação e criação de uma solução de gestão no Azure](operations-management-suite-solutions-creating.md)
 >
 >
 
@@ -48,7 +47,7 @@ Os passos básicos para adicionar uma vista para uma solução são os seguintes
 ## <a name="export-the-view-to-a-file"></a>A vista para um ficheiro de exportação
 Siga as instruções apresentadas em [estruturador de vistas de análise do registo](../log-analytics/log-analytics-view-designer.md) para exportar uma vista para um ficheiro.  O ficheiro exportado vai estar no formato JSON com o mesmo [elementos que o ficheiro de solução](operations-management-suite-solutions-solution-file.md).  
 
-O **recursos** tem um recurso com um tipo de elemento do ficheiro de vista **Microsoft.OperationalInsights/workspaces** que representa a área de trabalho do OMS.  Este elemento terá um subelemento com um tipo de **vistas** que representa a vista e contém a configuração detalhada.  Irá copiar os detalhes deste elemento e, em seguida, copie-o para a sua solução.
+O **recursos** tem um recurso com um tipo de elemento do ficheiro de vista **Microsoft.OperationalInsights/workspaces** que representa a área de trabalho de análise de registos.  Este elemento terá um subelemento com um tipo de **vistas** que representa a vista e contém a configuração detalhada.  Irá copiar os detalhes deste elemento e, em seguida, copie-o para a sua solução.
 
 ## <a name="create-the-view-resource-in-the-solution"></a>Criar o recurso de vista na solução
 Adicione o seguinte recurso de vista para o **recursos** elemento do seu ficheiro de solução.  Esta opção utiliza as variáveis que são descritas abaixo que tem de adicionar também.  Tenha em atenção que o **Dashboard** e **OverviewTile** propriedades são marcadores de posição que irá substituir com as propriedades correspondentes do ficheiro exportado vista.

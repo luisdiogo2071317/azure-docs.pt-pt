@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement implementação de aplicação de comunicação social"
-description: "Cenário de aplicação do suporte de dados para implementar o Azure Mobile Engagement"
+title: Azure Mobile Engagement implementação de aplicação de comunicação social
+description: Cenário de aplicação do suporte de dados para implementar o Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 48201cc8-4e04-485c-a8dc-d6406d23f3ed
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: c1591c3e436981e621830916cf0cdc4b7f395d7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e5d4585b47a4ca26b81b7168aa499f25722415a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>Implementar o Engagement móvel com suporte de dados de aplicação
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 ## <a name="overview"></a>Descrição geral
 O João é um Gestor de projeto móveis para uma empresa de grande de suporte de dados. Ele executada recentemente uma nova aplicação que tem uma contagem de transferência muito elevada. Ele atingiu os objetivos para transferência no entanto, ainda a devolver em Investment(ROI) por utilizador não cumpre os requisitos. 
 
@@ -56,7 +60,7 @@ Com base na recomendações da equipa de TI, foram adicionados os seguintes KPIs
 Para cada KPI, ele classifica os dados necessários e ele regista na localização correta dos seu manual de comunicação social.
 
 ## <a name="engagement-program-and-integration"></a>Programa de envolvimento e a integração
-Agora que o João concluiu a definir os KPIs, ele começa a fase de estratégia de envolvimento por definir os seus objetivos e 4 programas de envolvimento:![][1]
+Agora que o João concluiu a definir os KPIs, ele começa a fase de estratégia de envolvimento por definir os seus objetivos e 4 programas de envolvimento: ![][1]
 
 Em seguida, João fica mais profundo por com detalhes sobre as notificações push para cada programa. Notificação push são definidos por cinco elementos:
 

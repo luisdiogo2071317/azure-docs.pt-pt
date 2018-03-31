@@ -1,11 +1,11 @@
 ---
-title: "Configurar diagnósticos para máquinas virtuais e serviços Cloud do Azure | Microsoft Docs"
-description: "Saiba como configurar diagnósticos de depuração do Azure cloude serviços e máquinas virtuais (VMs) no Visual Studio."
+title: Configurar diagnósticos para máquinas virtuais e serviços Cloud do Azure | Microsoft Docs
+description: Saiba como configurar diagnósticos de depuração do Azure cloude serviços e máquinas virtuais (VMs) no Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
 ms.service: multiple
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: f00771d89749e7507d7f303f366fe63f537900ff
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configurar diagnósticos para máquinas virtuais e serviços Cloud do Azure
 Quando precisar de resolver problemas de uma máquina virtual ou serviço em nuvem do Azure, pode utilizar o Visual Studio para configurar mais facilmente o diagnóstico do Azure. Diagnóstico de captura de dados de sistema e dados de registo em máquinas virtuais e instâncias de máquina virtual com o seu serviço em nuvem. Dados de diagnóstico são transferidos para uma conta de armazenamento que escolher. Para obter mais informações sobre diagnósticos registo no Azure, consulte o artigo [ativar o registo de diagnóstico para Web Apps no App Service do Azure](app-service/web-sites-enable-diagnostic-log.md).
@@ -145,7 +145,7 @@ Para capturar os registos de eventos do Windows, selecione o **ativar a transfer
 
 ![Registos de eventos](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796664.png)
 
-Se estiver a utilizar o Azure SDK 2.6 ou posterior e pretender especificar uma origem de dados personalizada, introduza-o no  **\<nome da origem de dados\>**  caixa de texto e, em seguida, selecione **adicionar**. A origem de dados é adicionada ao ficheiro diagnostics.cfcfg.
+Se estiver a utilizar o Azure SDK 2.6 ou posterior e pretender especificar uma origem de dados personalizada, introduza-o no **\<nome da origem de dados\>** caixa de texto e, em seguida, selecione **adicionar**. A origem de dados é adicionada ao ficheiro diagnostics.cfcfg.
 
 Se estiver a utilizar o Azure SDK 2.5 e pretender especificar uma origem de dados personalizados, pode adicioná-lo para o `WindowsEventLog` secção o diagnostics.wadcfgx, ficheiro, como no exemplo seguinte:
 
@@ -187,12 +187,12 @@ Os eventos são capturados a partir de origens de eventos e manifestos de evento
 
 A estrutura ETW é suportada no ASP.NET através de classes no [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) espaço de nomes. O espaço de nomes do Microsoft.WindowsAzure.Diagnostics que herda e expande padrão [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) classes, permitem a utilização de [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) como um registo Framework no ambiente do Azure. Para obter mais informações, consulte [assumir o controlo de registo e rastreio no Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) e [ative os diagnósticos no Cloud Services do Azure e máquinas virtuais](cloud-services/cloud-services-dotnet-diagnostics.md).
 
-### <a name="crash-dumps"></a>Informações de falhas
+### <a name="crash-dumps"></a>Informações de falha de sistema
 Para capturar informações sobre quando falhas de uma instância de função, selecione o **ativar transferência de informações de falhas** caixa de verificação. (Porque o ASP.NET processa a maioria das exceções, isto é geralmente úteis apenas para as funções de trabalho.) Para aumentar ou diminuir a percentagem de espaço de armazenamento dedicado para as informações de estado de falha, altere o **Quota de diretório (%)** valor. Pode alterar o contentor de armazenamento onde são armazenadas as informações de estado de falha e selecione se pretende capturar um **completa** ou **Mini** informação.
 
 Os processos atualmente a ser controlados estão listados na seguinte captura de ecrã. Selecione as caixas de verificação para os processos que pretende capturar. Para adicionar outro processo à lista, introduza o nome do processo e, em seguida, selecione **processo adicionar**.
 
-![Informações de falhas](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766026.png)
+![Informações de falha de sistema](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766026.png)
 
 Para obter mais informações, consulte [assumir o controlo de registo e rastreio no Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) e [4 do Microsoft Azure Diagnostics parte: os componentes de registo personalizado e alterações de Azure Diagnostics 1.3](http://justazure.com/microsoft-azure-diagnostics-part-4-custom-logging-components-azure-diagnostics-1-3-changes/).
 
@@ -223,7 +223,7 @@ Após ter recolhido os dados de diagnóstico para um serviço em nuvem ou máqui
    | Contadores de desempenho |É possível recolher dados em qualquer contador de desempenho que está disponível na máquina virtual. O sistema operativo fornece os contadores de desempenho, que incluem estatísticas muitos, como o tempo de processador e utilização de memória. |WADPerformanceCountersTable |
    | Registos de infraestrutura |Registos gerados a partir da infraestrutura de diagnóstico próprio. |WADDiagnosticInfrastructureLogsTable |
    | Registos do IIS |Registos que registam pedidos web. Se o seu serviço em nuvem obtém uma quantidade significativa de tráfego, estes registos podem ser demorados. É uma boa ideia para recolher e armazenar estes dados apenas quando precisar dele. |Pode encontrar os registos de pedido falhou no contentor do blob em wad-iis-failedreqlogs sob um caminho para essa instância, a função e a implementação. Pode encontrar registos completos em wad-iis-logfiles. As entradas para cada ficheiro que são efetuadas na tabela WADDirectories. |
-   | Informações de falhas |Fornece imagens binárias do processo do seu serviço em nuvem (normalmente uma função de trabalho). |contentor de BLOBs de capturas de crush WAD |
+   | Informações de falha de sistema |Fornece imagens binárias do processo do seu serviço em nuvem (normalmente uma função de trabalho). |contentor de BLOBs de capturas de crush WAD |
    | Ficheiros de registo personalizado |Registos de dados que lhe predefinidos. |Pode especificar no código a localização dos ficheiros de registo personalizado na sua conta de armazenamento. Por exemplo, pode especificar um contentor do blob personalizado. |
 4. Se são truncados dados de qualquer tipo, pode experimentar aumentar a memória intermédia para que os dados de tipo ou encurtar o intervalo entre as transferências de dados da máquina virtual à sua conta de armazenamento.
 5. (Opcional) Remova os dados da conta do storage ocasionalmente para reduzir os custos de armazenamento geral.
@@ -301,6 +301,6 @@ Os métodos de **RoleEntryPoint** são denominados no contexto de WAIISHost.exe,
 
 No **propriedades** janela, defina o **copiar para o diretório de saída** propriedade **Copiar sempre**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre o diagnóstico de registo no Azure, consulte o artigo [ative os diagnósticos no Cloud Services do Azure e máquinas virtuais](cloud-services/cloud-services-dotnet-diagnostics.md) e [ativar o registo de diagnóstico para Web Apps no App Service do Azure](app-service/web-sites-enable-diagnostic-log.md).
 

@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao armazenamento de filas e o Visual Studio ligado serviços (WebJob projetos) | Microsoft Docs"
-description: "Como começar a utilizar o armazenamento de filas do Azure num projeto WebJob depois de ligar a uma conta de armazenamento com o Visual Studio ligado serviços."
+title: Introdução ao armazenamento de filas e o Visual Studio ligado serviços (WebJob projetos) | Microsoft Docs
+description: Como começar a utilizar o armazenamento de filas do Azure num projeto WebJob depois de ligar a uma conta de armazenamento com o Visual Studio ligado serviços.
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 5c3ef267-2a67-44e9-ab4a-1edd7015034f
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: efd2f1e471f67396d35f11f2eb1044a8afa469af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 52c089d2657d61ee42730a00def060dec74439fc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligado serviços (projetos de trabalho Web)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -79,9 +79,9 @@ Funções de assíncrona poderão demorar um [token de cancelamento](http://www.
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>O atributo QueueTrigger funciona com os tipos
 Pode utilizar **QueueTrigger** com os seguintes tipos:
 
-* **cadeia**
+* **string**
 * Um tipo POCO serializado como JSON
-* **byte]**
+* **byte[]**
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Algoritmo de consulta
@@ -104,7 +104,7 @@ Pode obter as seguintes propriedades da mensagem ao adicionar parâmetros para a
 * **cadeia** queueTrigger (contém o texto da mensagem)
 * **cadeia** id
 * **cadeia** popReceipt
-* **Int** dequeueCount
+* **int** dequeueCount
 
 Se pretende trabalhar diretamente com o armazenamento do Azure API, também pode adicionar um **CloudStorageAccount** parâmetro.
 
@@ -302,7 +302,7 @@ O **Blob** atributo pode ser utilizado com os seguintes tipos:
 * **saída cadeia** (escrever; cria um blob apenas se o parâmetro de cadeia não nulo quando a função devolve)
 * POCO (leitura)
 * saída POCO (escrever; sempre cria um blob, cria como um objeto nulo se POCO parâmetro é nulo quando a função devolve)
-* **CloudBlobStream** (escrita)
+* **CloudBlobStream** (write)
 * **ICloudBlob** (ler ou escrever)
 * **CloudBlockBlob** (ler ou escrever)
 * **CloudPageBlob** (ler ou escrever)
@@ -511,6 +511,6 @@ E uma tabela do Azure a **Console.Out** e **Console.Error** registos tem o segui
 
 ![Registo de erros na tabela](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este artigo forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com as filas do Azure. Para obter mais informações sobre como utilizar WebJobs do Azure e o SDK de WebJobs, consulte [recursos de documentação de WebJobs do Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 

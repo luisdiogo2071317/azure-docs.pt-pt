@@ -1,25 +1,24 @@
 ---
 title: Depurar o Azure Stream Analytics com recetores do hub de eventos | Microsoft Docs
-description: "Consultar as melhores práticas para a consideração dos grupos de consumidores de Event Hubs nas tarefas do Stream Analytics."
+description: Consultar as melhores práticas para a consideração dos grupos de consumidores de Event Hubs nas tarefas do Stream Analytics.
 keywords: limite de hub de eventos, grupo de consumidores
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+documentationcenter: ''
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: ede3137de92e251f4ad020bc1ce3f041918242b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: ba54e4c0146e797e300579415db170fd6d290034
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Depurar o Azure Stream Analytics com recetores do hub de eventos
 
@@ -82,7 +81,7 @@ Para consultas no qual os três ou mais entradas estão ligadas ao mesmo grupo d
 ## <a name="get-help"></a>Obter ajuda
 Para obter assistência adicional, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar tarefas do Stream Analytics](stream-analytics-scale-jobs.md)

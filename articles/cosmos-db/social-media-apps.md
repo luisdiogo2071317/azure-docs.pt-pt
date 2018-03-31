@@ -1,12 +1,12 @@
 ---
-title: "Padrão de conceção do Cosmos BD do Azure: aplicações de redes sociais | Microsoft Docs"
-description: "Saiba mais sobre um padrão de conceção para as redes sociais, tirando partido a flexibilidade de armazenamento de base de dados do Azure Cosmos e outros serviços do Azure."
-keywords: "Aplicações de redes sociais"
+title: 'Padrão de conceção do Cosmos BD do Azure: aplicações de redes sociais | Microsoft Docs'
+description: Saiba mais sobre um padrão de conceção para as redes sociais, tirando partido a flexibilidade de armazenamento de base de dados do Azure Cosmos e outros serviços do Azure.
+keywords: Aplicações de redes sociais
 services: cosmos-db
 author: ealsur
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: d223187ab1f8338c57e6aa32903ea9b762393ab5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Vai sociais com base de dados do Azure Cosmos
 Living num society em massa interligadas significa que, num ponto da vida, passam a fazer parte de um **rede social**. Podemos utilizar redes sociais manter entre em contacto com amigos, colegas, família, ou, por vezes, partilhar o nosso passion com pessoas com interesses comuns.
@@ -229,7 +229,7 @@ Suporte cosmos DB [criação dinâmica de partições](https://azure.microsoft.c
 
 Um ponto interessante mencionar é que a BD do Cosmos irá executar as suas consultas (incluindo [agregados](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) em todas as partições de forma transparente, não precisa de adicionar qualquer lógica à medida que aumenta os dados.
 
-Com a hora, eventualmente irá aumentar no tráfego e o consumo de recursos (medido em [RUs](request-units.md), ou unidades de pedido) irá aumentar. Será de leitura e escrita mais frequentemente como seu userbase cresce e começará a criar e ler mais conteúdos; a capacidade de **aumentar o débito** é vital. Aumentar o nosso RUs é muito fácil, podemos fazer com alguns cliques no Portal do Azure ou pelo [emitir comandos através da API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+Com a hora, eventualmente irá aumentar no tráfego e o consumo de recursos (medido em [RUs](request-units.md), ou unidades de pedido) irá aumentar. Será de leitura e escrita mais frequentemente como seu userbase cresce e começará a criar e ler mais conteúdos; a capacidade de **aumentar o débito** é vital. Aumentar o nosso RUs é muito fácil, podemos fazer com alguns cliques no Portal do Azure ou pelo [emitir comandos através da API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
 ![Como aumentar verticalmente e definir uma chave de partição](./media/social-media-apps/social-media-apps-scaling.png)
 
@@ -250,5 +250,5 @@ Este artigo tenta shed algumas claro para alternativas de criação de redes soc
 
 O truth é que não há nenhum marca prata para este tipo de cenários, é synergy criado pela combinação dos serviços excelente que permitem-nos criar experiências excelente: a velocidade e a liberdade de BD do Cosmos do Azure para fornecer uma aplicação excelente de redes social, o Intelligence atrás de uma solução de pesquisa de primeira classe, como a Azure Search, a flexibilidade de serviços de aplicações do Azure para alojar aplicações não mesmo idioma agnóstico mas processos em segundo plano poderosa e o expansível Storage do Azure e SQL Database do Azure para armazenar quantidades enormes de dados e a capacidade de análise do Azure Machine Learning para criar dados de conhecimento e intelligence, que pode fornecer comentários para a nossa processos e ajude-na entregar o conteúdo adequado para os utilizadores à direita.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre casos de utilização para Cosmos DB, consulte [casos de utilização comuns Cosmos DB](use-cases.md).

@@ -1,6 +1,6 @@
 ---
-title: "Iniciar um runbook de automatização do Azure com um webhook"
-description: "Webhook que permite que um cliente iniciar um runbook na automatização do Azure a partir de uma chamada HTTP.  Este artigo descreve como criar um webhook e como chamar um para iniciar um runbook."
+title: Iniciar um runbook de automatização do Azure com um webhook
+description: Webhook que permite que um cliente iniciar um runbook na automatização do Azure a partir de uma chamada HTTP.  Este artigo descreve como criar um webhook e como chamar um para iniciar um runbook.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,14 +8,14 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b3e8e489ef4b79a89facb2395543743c427b0310
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4ea7366a02dd95fac5c1a7307e6156a0481fa16d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook de automatização do Azure com um webhook
-A *webhook* permite-lhe iniciar um determinado runbook na automatização do Azure através de um único pedido HTTP. Isto permite que os serviços externos, como o Visual Studio Team Services, o GitHub, análise de registos do Microsoft Operations Management Suite ou aplicações personalizadas para iniciar runbooks sem a implementar uma solução completa utilizando a API de automatização do Azure.  
+A *webhook* permite-lhe iniciar um determinado runbook na automatização do Azure através de um único pedido HTTP. Isto permite que os serviços externos, como o Visual Studio Team Services, o GitHub, Log Analytics do Azure ou aplicações personalizadas para iniciar runbooks sem a implementar uma solução completa utilizando a API de automatização do Azure.  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 Pode comparar webhooks para outros métodos de iniciar um runbook [iniciar um runbook na automatização do Azure](automation-starting-a-runbook.md)

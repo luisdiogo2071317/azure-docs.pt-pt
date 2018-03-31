@@ -1,11 +1,11 @@
 ---
-title: "Interface de utilizador do Azure Mobile Engagement - alcance conteúdo"
-description: "Saiba como gerir o conteúdo exclusivo dos diferentes tipos de campanhas de notificações push no Azure Mobile Engagement"
+title: Interface de utilizador do Azure Mobile Engagement - alcance conteúdo
+description: Saiba como gerir o conteúdo exclusivo dos diferentes tipos de campanhas de notificações push no Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 982cc66ffe98aa6dff8fe290cc1c2d4bad03c9ac
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Como gerir o conteúdo exclusivo dos diferentes tipos de campanhas de notificações push
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Pode utilizar a secção de conteúdo de uma nova campanha de alcance para modificar o conteúdo do anúncios, inquéritos, Pushes de dados e os mosaicos (apenas Windows Phone). A definição de conteúdo das campanhas de Push é específica para o tipo da campanha. 
 
 ### <a name="content-types"></a>Tipos de conteúdo:
@@ -30,19 +34,19 @@ Pode utilizar a secção de conteúdo de uma nova campanha de alcance para modif
 * Mosaicos (apenas Windows Phone)
 
 ## <a name="content-of-announcements"></a>Conteúdo de anúncios
- ![Content1 alcance][30] 
+ ![Reach-Content1][30] 
 
 ### <a name="choose-the-type-of-your-announcement"></a>Selecione o tipo do anúncio:
 * Apenas notificação: é uma notificação de padrão simple. O que significa que se um utilizador clica no mesmo, será apresentado sem vista adicional, mas ocorrerá apenas a ação associada ao mesmo.
 * Anúncio de texto: é uma notificação que envolva ao utilizador para ver uma vista de texto.
 * Anúncio Web: é uma notificação que envolva ao utilizador para ver uma vista web.
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Alcançar - como Tos - anúncios][Link 3] 
 
 ### <a name="about-web-view-announcements"></a>Sobre anúncios de vista Web:
 As ocorrências do padrão "{deviceid}" no código HTML ou no código JavaScript que aqui indicadas serão substituídas automaticamente pelo identificador do dispositivo que apresenta o anúncio. Esta é uma forma fácil de obter os identificadores dos dispositivos do Azure Mobile Engagement em serviços web externos alojados no seu back office.
-Se pretender criar uma vista web de ecrã inteiro (sem as ação e saída botões predefinidos que fornecemos) pode utilizar as seguintes funções no código de JavaScript do seu anúncio de vista de web: 
+Se pretende criar uma vista Web de ecrã inteiro (sem os botões de Ação e Saída predefinidos que fornecemos), pode utilizar as seguintes funções no código JavaScript do seu anúncio de vista Web: 
 
 * executar a ação de anúncio: ReachContent.actionContent()
 * sair do anúncio: ReachContent.exitContent()
@@ -55,46 +59,46 @@ Cada ocorrência do padrão {"deviceid"} é substituída automaticamente pelo id
 
 * **Android + iOS ações**
   * Abrir uma página web
-  * http://\[web-site-domínio\] 
-  * Exemplo: http://www.azure.com
+  * http://\[web-site-domain\] 
+  * Exemplo:http://www.azure.com
   * Enviar um e-mail
-  * mailto:\[destinatário do correio electrónico\]? requerente =\[requerente\]& body =\[mensagem\] 
-  * Example:mailto:foo@example.com? requerente = saudações % 20from % 20Azure % 20Mobile % 20Engagement! & body = 20stuff boa %!
+  * mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
   * Enviar SMS
-  * SMS:\[número de telefone\] 
+  * sms:\[phone-number\] 
   * Exemplo: sms:2125551212
   * Marcar um número de telefone
-  * Tel:\[número de telefone\] 
-  * Exemplo: tel:2125551212
+  * tel:\[phone-number\] 
+  * Example:tel:2125551212
 * **Ações apenas Android**
   * Transferir uma aplicação na Play Store
   * Market://details?ID=\[pacote de aplicação\] 
-  * Exemplo: market://details?id=com.microsoft.office.word
+  * Example:market://details?id=com.microsoft.office.word
   * Iniciar uma pesquisa geolocalizados
   * Geo:0, 0? q =\[consulta de pesquisa\] 
   * Exemplo: geo:0, 0? q = starbucks, paris
 * **ações apenas do iOS**
   * Transferir uma aplicação na loja de aplicações
-  * formado de /app/ [nome da aplicação] http://iTunes.Apple.com/ [País] [id da aplicação]? mt = 8 
-  * Exemplo: http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+  * http://itunes.apple.com/formado de /app/ [nome da aplicação] de [País] [id da aplicação]? mt = 8 
+  * Exemplo:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Ações de Windows
   * Abrir uma página web
-  * http://\[web-site-domínio\] 
-  * Exemplo: http://www.azure.com
+  * http://\[web-site-domain\] 
+  * Exemplo:http://www.azure.com
   * Enviar um e-mail
-  * mailto:\[destinatário do correio electrónico\]? requerente =\[requerente\]& body =\[mensagem\] 
-  * Example:mailto:foo@example.com? requerente = saudações % 20from % 20Azure % 20Mobile % 20Engagement! & body = 20stuff boa %!
+  * mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
   * Enviar SMS (aplicação de loja Skype obrigatória)
-  * SMS:\[número de telefone\] 
+  * sms:\[phone-number\] 
   * Exemplo: sms:2125551212
   * Marcar um número de telefone (aplicação de loja Skype obrigatória)
-  * Tel:\[número de telefone\] 
-  * Exemplo: tel:2125551212
+  * tel:\[phone-number\] 
+  * Example:tel:2125551212
   * Transferir uma aplicação na Play Store
   * MS-windows-arquivo: PDP? PFN =\[ID de pacote de aplicação\] 
-  * Exemplo: ms-windows-arquivo: PDP? PFN = 4d91298a-07cb-40fb-aecc-4cb5615d53c1
+  * Example:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
   * Iniciar uma pesquisa de bingmaps
-  * bingmaps:? q =\[consulta de pesquisa\] 
+  * bingmaps:?q=\[search query\] 
   * Exemplo: bingmaps:? q = starbucks, paris
   * Utilizar um esquema personalizado
   * \[esquema personalizado\]://\[os parâmetros do esquema personalizado\] 
@@ -109,42 +113,42 @@ Cada ocorrência do padrão {"deviceid"} é substituída automaticamente pelo id
 ### <a name="define-the-texts-of-your-announcement"></a>Definir os textos do anúncio
 Preencha o título, o conteúdo e a textos do botão do anúncio. Pode visar um público-alvo de uma campanha futura com base nos comentários alcance da forma como os utilizadores respondeu para esta campanha. Público-alvo filtragem pode basear-se nos comentários de indica se esta campanha foi apenas enviadas por push, respondidas, alvo de ação ou fechadas.
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [IU documentação - alcance - novo critério de Push][Link 28]
 
 ## <a name="content-of-polls"></a>Conteúdo de inquéritos
-![Content2 alcance][31] 
+![Reach-Content2][31] 
 
 Preencha o título, a descrição e o textos do botão do anúncio. Em seguida, adicione perguntas e opções para as respostas às suas perguntas.
 Pode visar um público-alvo de uma campanha futura com base nos comentários alcance da forma como os utilizadores respondeu para esta campanha. Público-alvo filtragem pode basear-se no se esta campanha foi apenas enviadas por push, respondidas, alvo de ação ou fechadas. Público-alvo filtragem também pode basear-se nos comentários de resposta de consulta, onde a pergunta e resposta escolha são utilizadas como critérios.
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [IU documentação - alcance - novo critério de Push][Link 28]
 
 ## <a name="content-of-data-pushes"></a>Conteúdo de Pushes de dados
-![Content3 alcance][32] 
+![Reach-Content3][32] 
 
 ### <a name="choose-the-type-of-your-data"></a>Escolha o tipo de dados:
 * Texto
 * Dados binários
 * Dados em Base64
 
-### <a name="define-the-content-of-your-data"></a>Definir o conteúdo dos seus dados
+### <a name="define-the-content-of-your-data"></a>Definir o conteúdo dos dados
 * Caso tenha optado por enviar dados de texto, copie e cole o texto na caixa de "conteúdo".
 * Caso tenha optado por enviar dados binários ou base64, utilize o botão "carregar o ficheiro" para carregar o ficheiro.
 * Pode visar um público-alvo de uma campanha futura com base nos comentários alcance da forma como os utilizadores respondeu para esta campanha. Público-alvo filtragem pode basear-se no se esta campanha foi apenas enviadas por push, respondidas, alvo de ação ou fechadas.
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [IU documentação - alcance - novo critério de Push][Link 28]
 
 ## <a name="content-of-tiles-windows-phone-only"></a>Conteúdo de mosaicos (apenas Windows Phone)
-![Content4 alcance][33]
+![Reach-Content4][33]
 
 ### <a name="define-the-content-of-your-tile"></a>Definir o conteúdo do mosaico
 O payload de mosaico é o texto a ser apresentadas no mosaico da sua aplicação em dispositivos Windows Phone.
 Um mosaico push é a versão do serviço de notificação Push da Microsoft (MPNS) de um push nativo para Windows Phone. O tipo de mosaico de push é o único tipo de push que não tenha uma resposta e, por isso, não é possível basear o público-alvo de campanhas futuras nos resultados de uma campanha de emissão de mosaico. 
 
-### <a name="see-also"></a>Consultar também
+### <a name="see-also"></a>Consulte também
 * [Push nativas de documentação - API de alcance - API][Link 4]
 
 <!--Image references-->

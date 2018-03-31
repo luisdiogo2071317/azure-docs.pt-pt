@@ -1,11 +1,11 @@
 ---
-title: "Autenticar com as APIs REST do Mobile Engagement: configuração manual"
-description: "Descreve como configurar manualmente a autenticação para as APIs REST do Mobile Engagement"
+title: 'Autenticar com as APIs REST do Mobile Engagement: configuração manual'
+description: Descreve como configurar manualmente a autenticação para as APIs REST do Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2e79f9c9-41e4-45ac-b427-3b8338675163
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0d71908b34ddf8313aa45014420c9e63a00078c9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>Autenticar com as APIs REST do Mobile Engagement: configuração manual
+# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Autenticar com APIs REST do Mobile Engagement - configuração manual
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Esta documentação é de um anexo para [autenticar com as APIs REST do Mobile Engagement](mobile-engagement-api-authentication.md). Certifique-se de que esse artigo primeiro para compreender o contexto de leitura. Também descreve uma maneira alternativa para efetuar a configuração de autenticação única para as APIs REST do Mobile Engagement através do portal do Azure.
 
 > [!NOTE]
@@ -67,7 +71,7 @@ Esta documentação é de um anexo para [autenticar com as APIs REST do Mobile E
 
     ![Copie o ponto final][14]
 
-16. Este ponto final faz o seguinte formato, em que é o GUID no URL do seu **TENANT_ID**:`https://login.microsoftonline.com/<GUID>/oauth2/token`
+16. Este ponto final faz o seguinte formato, em que é o GUID no URL do seu **TENANT_ID**: `https://login.microsoftonline.com/<GUID>/oauth2/token`
 
 17. Em seguida, configure as permissões sobre esta aplicação. Para iniciar o processo, vá para o [portal do Azure](https://portal.azure.com).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas mais frequentes do Azure AD Connect Health
 Este artigo inclui as respostas a perguntas mais frequentes (FAQ) sobre o Azure Active Directory (Azure AD) Connect Health. Estas perguntas mais frequentes incluem perguntas sobre como utilizar o serviço, que inclui a faturação modelo, capacidades, limitações e suporte.
@@ -181,7 +181,7 @@ CheckForMS17-010
 
 **P: por que razão são os meus ADFS auditorias não gerado?**
 
-Utilize o cmdlet do PowerShell <i>Get-AdfsProperties - AuditLevel</i> garantir que os registos de auditoria não se encontra num Estado de desativada. Leia mais sobre [registos de auditoria do AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)
+Utilize o cmdlet do PowerShell <i>Get-AdfsProperties - AuditLevel</i> garantir que os registos de auditoria não se encontra num Estado de desativada. Leia mais sobre [registos de auditoria do AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Aviso que se são avançadas de definições de auditoria enviadas por push para o servidor do ADFS, quaisquer alterações com auditpol.exe será substituído (evento se gerado de aplicação não estiver configurado). Neste caso, defina a política de segurança local para iniciar sessão falhas de aplicação gerados e o sucesso. 
 
 
 ## <a name="related-links"></a>Ligações relacionadas

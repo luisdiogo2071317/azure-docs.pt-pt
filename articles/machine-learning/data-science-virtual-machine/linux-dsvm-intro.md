@@ -1,8 +1,8 @@
 ---
-title: "Aprovisionar uma máquina de Virtual de ciência de dados de CentOS do Linux no Azure | Microsoft Docs"
-description: "Configure e crie uma Máquina Virtual de ciência de dados de Linux no Azure para fazer análises e machine learning."
+title: Aprovisionar uma máquina de Virtual de ciência de dados de CentOS do Linux no Azure | Microsoft Docs
+description: Configure e crie uma Máquina Virtual de ciência de dados de Linux no Azure para fazer análises e machine learning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 550d49e3d6007c6b494deec95b785ea9bc214f3a
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7f683fff142a3654249560ed5299ed3cd7cb9cce
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de ciência de dados de CentOS do Linux no Azure
 
@@ -153,14 +153,16 @@ Para invocar uma sessão interativa de Python, basta escrevê **python** na shel
 
 Para instalar as bibliotecas adicionais do Python, tem de executar ```conda``` ou ````pip```` comandos em sudo e forneça o caminho completo do Gestor de pacote Python (conda ou pip) para instalar o ambiente do Python correto. Por exemplo:
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install <package> #pip for Python 2.7
+    sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
+    sudo /anaconda/bin/conda install [-n py27] <package> #conda for Python 2.7, default behavior
+    sudo /anaconda/bin/conda install -n py35 <package> #conda for Python 3.5
 
 
 ### <a name="jupyter-notebook"></a>Bloco de notas do Jupyter
 A distribuição de Anaconda também inclui um bloco de notas do Jupyter, um ambiente para partilhar o código e análise. O bloco de notas do Jupyter é acedido através do JupyterHub. Inicie sessão com o nome de utilizador de Linux local e a palavra-passe.
 
-O servidor de bloco de notas do Jupyter foi previamente configurado com o Python 2, Python 3 e R kernels. Não há um ícone de ambiente de trabalho com o nome "De notas do Jupyter" para iniciar o browser para aceder ao servidor de bloco de notas. Se estiver na VM através do cliente SSH ou X2Go, também pode visitar [https://localhost:8000 /](https://localhost:8000/) para aceder ao servidor de bloco de notas do Jupyter.
+O servidor de bloco de notas do Jupyter foi previamente configurado com o Python 2, Python 3 e R kernels. Não há um ícone de ambiente de trabalho com o nome "De notas do Jupyter" para iniciar o browser para aceder ao servidor de bloco de notas. Se estiver na VM através do cliente SSH ou X2Go, também pode visitar [ https://localhost:8000/ ](https://localhost:8000/) para aceder ao servidor de bloco de notas do Jupyter.
 
 > [!NOTE]
 > Continue se obter quaisquer avisos de certificado.
@@ -361,7 +363,7 @@ Agora uma interface gráfica abre-se com um conjunto de separadores. Eis os pass
 7. Clique em de **Evaluate** separador.
 8. Clique em de **risco** botão de opção e clique em **executar** a apresentar dois rastreia de desempenho de risco (Cumulative).
 9. Clique em de **registo** separador para mostrar o código de gerar R para as operações de anteriores.
-   (Resultam de erros na versão atual do Rattle, tem de inserir um  *#*  caráter à frente do *exportar este registo...*  no texto do registo.)
+   (Resultam de erros na versão atual do Rattle, tem de inserir um *#* caráter à frente do *exportar este registo...*  no texto do registo.)
 10. Clique em de **exportar** botão para guardar o ficheiro de script do R denominado *weather_script. R* para a pasta raiz.
 
 Pode sair Rattle e R. Agora pode modificar o script R gerado ou utilizá-lo, dado que está a executá-la em qualquer altura para repetir tudo o que foi concluído dentro da IU Rattle. Especialmente para principiantes em R, esta é uma forma fácil para fazer a análise e machine learning numa interface gráfica simple, ao gerar automaticamente o código no R para modificar e/ou mais rapidamente.

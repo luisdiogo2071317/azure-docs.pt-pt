@@ -1,11 +1,11 @@
 ---
 title: Interface de utilizador do Azure Mobile Engagement - alcance
-description: "Saiba como aceder aos utilizadores da sua aplicação com notificações push utilizando o Azure Mobile Engagement"
+description: Saiba como aceder aos utilizadores da sua aplicação com notificações push utilizando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d96e2590-08dd-4481-a352-2c18f26a1643
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ce30456e41ff1a2f4824bcb64246ee115fdd1ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d999b83df7d9d467f08ce8ec72468c738e8acfa5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>Como aceder aos utilizadores da sua aplicação com notificações push
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Este artigo descreve o **ALCANÇAR** separador do **Mobile Engagement** portal. Utilizar o **Mobile Engagement** portal para monitorizar e gerir as suas aplicações móveis. Tenha em atenção que para começar a utilizar o portal terá primeiro de criar um **Azure Mobile Engagement** conta. Para obter mais informações, consulte [criar uma conta do Azure Mobile Engagement](mobile-engagement-create.md).
 
 A secção de alcance da IU é a ferramenta de gestão de campanha Push onde pode criar/editar/ative/concluir/monitor e obter estatísticas sobre campanhas de notificações Push e as funcionalidades que também podem ser acedidas através da API de alcance (e alguns elementos de nível baixo Push API). Lembre-se de que, se estiver a utilizar as APIs ou o IU, terá de integrar o Azure Mobile Engagement e alcance na sua aplicação para cada plataforma com o SDK antes de poder utilizar campanhas de alcance.
@@ -80,7 +84,7 @@ Clique em **estatísticas** para ver os detalhes de uma campanha de alcance. O *
 
 ![Reach2][19]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Conceitos][Link 6]
 * [Serviço de guia de resolução de problemas][Link 24]
 

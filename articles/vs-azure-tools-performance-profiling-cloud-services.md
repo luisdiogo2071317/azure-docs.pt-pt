@@ -1,11 +1,11 @@
 ---
-title: "Testar o desempenho de um serviço em nuvem | Microsoft Docs"
-description: "Testar o desempenho de um serviço em nuvem utilizando o gerador de perfis do Visual Studio"
+title: Testar o desempenho de um serviço em nuvem | Microsoft Docs
+description: Testar o desempenho de um serviço em nuvem utilizando o gerador de perfis do Visual Studio
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: 7a5501aa-f92c-457c-af9b-92ea50914e24
 ms.service: visual-studio-online
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: 483b8b1c7c75c407cb55a1b3b027ae043c506ebb
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 74ffd70bdb204cee75b86a1e922ac67873a88758
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>Testar o desempenho de um serviço em nuvem
 ## <a name="overview"></a>Descrição geral
@@ -106,10 +106,10 @@ A ilustração seguinte mostra como configurar as definições de criação de p
 2. Escolha o nó de computação do Azure e, em seguida, escolha o nó de implementação do Azure para o serviço em nuvem que selecionou para o perfil quando publicado do Visual Studio.
 3. Para ver relatórios de criação de perfis para uma instância, escolha a função no serviço, abra o menu de atalho para uma instância específica e, em seguida, escolha **Ver relatório de criação de perfis**.
    
-    O relatório, um ficheiro de .vsp, agora é transferido a partir do Azure e o estado da transferência é apresentada no registo de atividade do Azure. Quando a transferência estiver concluída, o relatório de criação de perfis aparece um separador no editor do Visual Studio com o nome <Role name>  *<Instance Number>*  <identifier>.vsp. Dados de resumo para o relatório é apresentado.
+    O relatório, um ficheiro de .vsp, agora é transferido a partir do Azure e o estado da transferência é apresentada no registo de atividade do Azure. Quando a transferência estiver concluída, o relatório de criação de perfis aparece um separador no editor do Visual Studio com o nome <Role name> *<Instance Number>* <identifier>.vsp. Dados de resumo para o relatório é apresentado.
 4. Para apresentar vistas diferentes do relatório, na lista de vista atual, escolha o tipo de vista que pretende. Para obter mais informações, consulte [vistas de relatório de ferramentas de criação de perfis](https://msdn.microsoft.com/library/azure/bb385755.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Depuração serviços Cloud](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
 [Publicação de um serviço em nuvem do Azure a partir do Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)

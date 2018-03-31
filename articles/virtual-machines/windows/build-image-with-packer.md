@@ -4,7 +4,7 @@ description: Saiba como utilizar Packer criar imagens de máquinas virtuais do W
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -12,16 +12,16 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 03/29/2018
 ms.author: iainfou
-ms.openlocfilehash: b53b301a45fb7482aa05f24b386b79fcedc148e2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f174837b8d370ffabdf4148b18d3425d9f3d9f10
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como utilizar Packer para criar imagens de máquina virtual do Windows no Azure
-Cada máquina virtual (VM) no Azure é criada a partir de uma imagem que define a distribuição do Windows e a versão do SO. Imagens podem incluir aplicações pré-instaladas e configurações. No Azure Marketplace disponibiliza várias imagens primeira e de terceiros para mais comuns SO e ambientes de aplicação, ou pode criar as suas próprias imagens personalizadas e adaptadas às suas necessidades. Este artigo fornece detalhes sobre como utilizar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e criar imagens personalizadas no Azure.
+Cada máquina virtual (VM) no Azure é criada a partir de uma imagem que define a distribuição do Windows e a versão do SO. Imagens podem incluir aplicações pré-instaladas e configurações. No Azure Marketplace disponibiliza várias imagens primeira e de terceiros para mais comuns SO e ambientes de aplicação, ou pode criar as suas próprias imagens personalizadas e adaptadas às suas necessidades. Este artigo fornece detalhes sobre como utilizar a ferramenta de open source [Packer](https://www.packer.io/) para definir e criar imagens personalizadas no Azure.
 
 
 ## <a name="create-azure-resource-group"></a>Criar grupo de recursos do Azure
@@ -51,8 +51,8 @@ Para autenticar para o Azure, também terá de obter os IDs de inquilino e subsc
 
 ```powershell
 $sub = Get-AzureRmSubscription
-$sub.TenantId
-$sub.SubscriptionId
+$sub.TenantId[0]
+$sub.SubscriptionId[0]
 ```
 
 Utilize estes dois IDs no próximo passo.
@@ -117,7 +117,7 @@ Crie um ficheiro denominado *windows.json* e cole o seguinte conteúdo. Introduz
 }
 ```
 
-Este modelo cria uma VM do Windows Server 2016, instala o IIS e generaliza a VM com o Sysprep.
+Este modelo cria uma VM do Windows Server 2016, instala o IIS e generaliza a VM com o Sysprep. A instalação do IIS mostra como pode utilizar o provisioner do PowerShell para executar os comandos adicionais. A imagem de Packer final inclui, em seguida, a instalação do software necessário e a configuração.
 
 
 ## <a name="build-packer-image"></a>Compilar Packer imagem
@@ -206,90 +206,35 @@ ManagedImageLocation: eastus
 Demora alguns minutos para Packer criar a VM, execute os provisioners e limpar a implementação.
 
 
-## <a name="create-vm-from-azure-image"></a>Criar a VM da imagem do Azure
-Agora pode criar uma VM a partir da imagem com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Definir em primeiro lugar, um administrador do nome de utilizador e palavra-passe para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+## <a name="create-a-vm-from-the-packer-image"></a>Criar uma VM a partir da imagem Packer
+Agora pode criar uma VM a partir da imagem com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Os suporte recursos de rede são criados, caso ainda não existam. Quando lhe for pedido, introduza um nome de utilizador administrativo e a palavra-passe a ser criado na VM. O exemplo seguinte cria uma VM chamada *myVM* de *myPackerImage*:
 
 ```powershell
-$cred = Get-Credential
-```
-
-O exemplo seguinte cria uma VM chamada *myVM* de *myPackerImage*.
-
-```powershell
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+New-AzureRmVm `
     -ResourceGroupName $rgName `
+    -Name "myVM" `
     -Location $location `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -AllocationMethod "Static" `
-    -IdleTimeoutInMinutes 4 `
-    -Name "myPublicIP"
-
-# Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleWWW  `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1001 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 80 `
-    -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRuleWeb
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
-    -Name myNic `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIP.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Define the image created by Packer
-$image = Get-AzureRMImage -ImageName myPackerImage -ResourceGroupName $rgName
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -Id $image.Id | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -OpenPorts 80 `
+    -Image "myPackerImage"
 ```
 
 Demora alguns minutos para criar a VM a partir da sua imagem Packer.
 
 
-## <a name="test-vm-and-iis"></a>Testar a VM e IIS
+## <a name="test-vm-and-webserver"></a>Testar a VM e o servidor Web
 Obtenha o endereço IP público da sua VM com [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIP* criado anteriormente:
 
 ```powershell
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName $rgName `
-    -Name "myPublicIP" | select "IpAddress"
+    -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
-Em seguida, pode introduzir o endereço IP público num browser.
+Para ver a sua VM, que inclui a instalação do IIS do Packer provisioner, na ação, introduza o endereço IP público para um web browser.
 
 ![Site predefinido do IIS](./media/build-image-with-packer/iis.png) 
 

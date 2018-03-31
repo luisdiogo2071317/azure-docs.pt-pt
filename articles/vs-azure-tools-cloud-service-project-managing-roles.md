@@ -1,11 +1,11 @@
 ---
-title: "Gestão de funções nos serviços em nuvem do Azure com o Visual Studio | Microsoft Docs"
-description: "Saiba como adicionar e remover funções no cloud services do Azure com o Visual Studio."
+title: Gestão de funções nos serviços em nuvem do Azure com o Visual Studio | Microsoft Docs
+description: Saiba como adicionar e remover funções no cloud services do Azure com o Visual Studio.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 5ec9ae2e-8579-4e5d-999e-8ae05b629bd1
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
-ms.author: kraigb
-ms.openlocfilehash: 6ed857b857cf8c14506ca39725c214a7fea4fc95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: fb49eaa69f2265f6b312ecbdab1435e7c50236b8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>Gestão de funções nos serviços em nuvem do Azure com o Visual Studio
 Depois de ter criado o seu serviço de nuvem do Azure, pode adicionar novas funções ao mesmo ou remova funções existentes a partir do mesmo. Também pode importar um projeto existente e convertê-la a uma função. Por exemplo, pode importar uma aplicação web ASP.NET e designá-la como uma função da web.
@@ -50,7 +50,7 @@ Os seguintes passos guiá-lo através da remoção de uma função web ou de tra
 ## <a name="readding-a-role-to-an-azure-cloud-service-project"></a>Readding uma função a um projeto de serviço em nuvem do Azure
 Se remover uma função de projeto de serviço em nuvem, mas optar posteriormente voltar a adicionar a função ao projeto, apenas a declaração de função e os atributos básicos, tais como pontos finais e informações de diagnóstico, são adicionados. Não existem recursos adicionais ou referências são adicionadas à `ServiceDefinition.csdef` ficheiro ou o `ServiceConfiguration.cscfg` ficheiro. Se pretender adicionar esta informação, terá de adicioná-lo manualmente nestes ficheiros.
 
-Por exemplo, poderá remover uma função de serviço web e mais tarde decidir adicionar esta função novamente para a sua solução. Se o fizer, ocorre um erro. Para evitar este erro, terá de adicionar o `<LocalResources>` elemento mostrado na seguinte XML com o `ServiceDefinition.csdef` ficheiro. Utilize o nome da função de serviço web que adicionou no projeto como parte do atributo de nome para o  **<LocalStorage>**  elemento. Neste exemplo, o nome da função de serviço web é **WCFServiceWebRole1**.
+Por exemplo, poderá remover uma função de serviço web e mais tarde decidir adicionar esta função novamente para a sua solução. Se o fizer, ocorre um erro. Para evitar este erro, terá de adicionar o `<LocalResources>` elemento mostrado na seguinte XML com o `ServiceDefinition.csdef` ficheiro. Utilize o nome da função de serviço web que adicionou no projeto como parte do atributo de nome para o **<LocalStorage>** elemento. Neste exemplo, o nome da função de serviço web é **WCFServiceWebRole1**.
 
     <WebRole name="WCFServiceWebRole1">
         <Sites>
@@ -71,5 +71,5 @@ Por exemplo, poderá remover uma função de serviço web e mais tarde decidir a
        </LocalResources>
     </WebRole>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Configurar as funções para um serviço em nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md)

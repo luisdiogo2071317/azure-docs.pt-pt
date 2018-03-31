@@ -1,8 +1,8 @@
 ---
-title: "Serviços de domínio do Azure AD: Diretrizes de redes | Microsoft Docs"
-description: "Considerações sobre o funcionamento em rede para serviços de domínio do Active Directory do Azure"
+title: 'Serviços de domínio do Azure AD: Diretrizes de redes | Microsoft Docs'
+description: Considerações sobre o funcionamento em rede para serviços de domínio do Active Directory do Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações sobre o funcionamento em rede para serviços de domínio do Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Como selecionar uma Azure virtual network
@@ -73,7 +73,7 @@ As seguintes portas são necessárias para os serviços de domínio do Azure AD 
 **Porta 443 (sincronização com o Azure AD)**
 * É utilizado para sincronizar o seu diretório do Azure AD com o seu domínio gerido.
 * É obrigatório para permitir o acesso a esta porta no seu NSG. Sem acesso a esta porta, o seu domínio gerido não está sincronizado com o seu diretório do Azure AD. Os utilizadores poderão não conseguir iniciar sessão como alterações para as respetivas palavras-passe não serão sincronizadas com o seu domínio gerido.
-* Pode restringir o acesso de entrada para esta porta para endereços IP que pertençam ao intervalo de endereços IP do Azure.
+* Pode restringir o acesso de entrada para esta porta para endereços IP que pertençam ao intervalo de endereços IP do Azure. Tenha em atenção que o intervalo de endereços IP do Azure é um intervalo diferente que o intervalo de PowerShell mostrado na regra abaixo.
 
 **Porta 5986 (comunicação remota do PowerShell)**
 * É utilizado para efetuar tarefas de gestão a utilizar a comunicação remota do PowerShell no seu domínio gerido.

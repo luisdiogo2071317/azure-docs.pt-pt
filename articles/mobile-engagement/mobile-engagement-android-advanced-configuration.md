@@ -1,11 +1,11 @@
 ---
-title: "Configuração avançada para Android SDK do Azure Mobile Engagement"
-description: "Descreve as opções de configuração avançadas, incluindo o manifesto do Android com o Azure Mobile Engagement Android SDK"
+title: Configuração avançada para Android SDK do Azure Mobile Engagement
+description: Descreve as opções de configuração avançadas, incluindo o manifesto do Android com o Azure Mobile Engagement Android SDK
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 37d2c09a-86fa-473d-8987-c7e35a0eb3e8
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 29a7bb7daae59e2034504ce27c9ba66755b11e4b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Configuração avançada para Android SDK do Azure Mobile Engagement
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 > [!div class="op_single_selector"]
 > * [Universal Windows](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -88,7 +92,7 @@ Se o Engagement está ativa quando chamar esta função, poderá demorar um minu
 
 Pode ativar novamente reporting chamando a mesma função com registo `true`.
 
-### <a name="integration-in-your-own-preferenceactivity"></a>Integração na sua própria`PreferenceActivity`
+### <a name="integration-in-your-own-preferenceactivity"></a>Integração na sua própria `PreferenceActivity`
 Em vez de chamar esta função, também pode integrar esta definição diretamente no existentes `PreferenceActivity`.
 
 Pode configurar o Engagement para utilizar o ficheiro de preferências (com o modo pretendido) no `AndroidManifest.xml` ficheiros com `application meta-data`:

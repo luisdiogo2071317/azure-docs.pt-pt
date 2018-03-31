@@ -1,234 +1,164 @@
 ---
-title: "Criar conjuntos de dimensionamento de Máquina Virtual para o Windows no Azure | Microsoft Docs"
-description: "Criar e implementar uma aplicação altamente disponível em VMs do Windows utilizando um conjunto de dimensionamento de máquina virtual"
+title: Criar conjuntos de dimensionamento de Máquina Virtual para o Windows no Azure | Microsoft Docs
+description: Criar e implementar uma aplicação altamente disponível em VMs do Windows utilizando um conjunto de dimensionamento de máquina virtual
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 03/29/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d190d046f7572c51df0c5c9e14e14a41d93e3248
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 81d8cc85827b29beaaec03fd258b550948798641
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Criar um conjunto de dimensionamento de Máquina Virtual e implementar uma aplicação altamente disponível no Windows
-Um conjunto de dimensionamento de máquina virtual permite-lhe implementar e gerir um conjunto de máquinas virtuais idênticas de dimensionamento automático. Pode aumentar o número de VMs no conjunto de dimensionamento manualmente ou definir as regras para dimensionar automaticamente com base na utilização de recursos, tais como CPU, a pedido de memória ou tráfego de rede. Neste tutorial, implementa um conjunto no Azure de dimensionamento de máquina virtual. Saiba como:
+Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos, como CPU, exigência de memória ou tráfego de rede. Neste tutorial, vai implementar um conjunto de dimensionamento de máquinas virtuais no Azure. Saiba como:
 
 > [!div class="checklist"]
 > * Utilizar a extensão de Script personalizado para definir um site IIS a dimensionar
 > * Criar um balanceador de carga para o conjunto de dimensionamento
-> * Criar um conjunto de dimensionamento de máquina virtual
-> * Aumentar ou reduzir o número de instâncias de um conjunto de dimensionamento
+> * Criar um conjunto de dimensionamento de máquinas virtuais
+> * Aumentar ou reduzir o número de instâncias num conjunto de dimensionamento
 > * Criar regras de dimensionamento automático
 
-Este tutorial requer o Azure PowerShell versão do módulo 5.1.1 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o Azure PowerShell versão do módulo 5.6 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
 
 
-## <a name="scale-set-overview"></a>Descrição geral do conjunto de dimensionamento
-Um conjunto de dimensionamento de máquina virtual permite-lhe implementar e gerir um conjunto de máquinas virtuais idênticas de dimensionamento automático. VMs num conjunto de dimensionamento estão distribuídas por domínios de falhas e de atualização de lógica num ou mais *grupos colocação*. Estes são os grupos de VMs configurados da mesma forma, semelhantes à [conjuntos de disponibilidade](tutorial-availability-sets.md).
+## <a name="scale-set-overview"></a>Descrição geral de Conjunto de Dimensionamento
+Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. As VMs num conjunto de dimensionamento estão distribuídas por domínios de atualização e de falha lógicos num ou mais *grupos de posicionamento*. Estes são grupos de VMs configuradas de forma parecida, à semelhança dos [conjuntos de disponibilidade](tutorial-availability-sets.md).
 
-As VMs são criadas conforme necessário de um conjunto de dimensionamento. Pode definir regras de dimensionamento automático para controlar como e quando VMs são adicionadas ou removidas do conjunto de dimensionamento. Estas regras podem acionar com base nas métricas, tais como a carga de CPU, utilização de memória ou tráfego de rede.
+As VMs são criadas conforme necessário num conjunto de dimensionamento. Pode definir regras de dimensionamento automático para controlar como e quando as VMs são adicionadas ou removidas do conjunto de dimensionamento. Estas regras podem acionar com base nas métricas, tais como a carga de CPU, utilização de memória ou tráfego de rede.
 
-A conjuntos de dimensionamento suporte até 1000 VMs ao utilizar uma imagem de plataforma do Azure. Para cargas de trabalho com requisitos de personalização de VM ou instalação significativa, poderá pretender [criar uma imagem VM personalizada](tutorial-custom-images.md). Pode criar até 300 VMs em escala definida quando utilizar uma imagem personalizada.
+Os conjuntos de dimensionamento suportam até 1000 VMs quando utiliza uma imagem da plataforma Azure. Para cargas de trabalho com requisitos de instalação ou de personalização de VM significativos, poderá querer [Criar uma imagem de VM personalizada](tutorial-custom-images.md). Pode criar até 300 VMs num conjunto de dimensionamento quando utiliza uma imagem personalizada.
 
 
-## <a name="create-an-app-to-scale"></a>Criar uma aplicação a dimensionar
-Antes de poder criar um conjunto de dimensionamento, crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroupAutomate* no *EastUS* localização:
+## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
+Criar um conjunto com de dimensionamento de máquina virtual [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet* que utiliza a imagem de plataforma do *Windows Server 2016 Datacenter*. Os recursos de rede do Azure para a rede virtual, o endereço IP público e o Balanceador de carga são criados automaticamente. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias VM no conjunto de dimensionamento:
 
-```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location EastUS
+```azurepowershell-interactive
+New-AzureRmVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Location "EastUS" `
+  -VMScaleSetName "myScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicy "Automatic"
 ```
 
-Um tutorial anterior, aprendeu como [configuração de VM automatizar](tutorial-automate-vm-deployment.md) utilizando a extensão de Script personalizado. Criar uma configuração de conjunto de dimensionamento, em seguida, aplicar uma extensão de Script personalizado para instalar e configurar o IIS:
+A criação e configuração de todas as VMs e recursos do conjunto de dimensionamento demora alguns minutos.
 
-```powershell
-# Create a config object
-$vmssConfig = New-AzureRmVmssConfig `
-    -Location EastUS `
-    -SkuCapacity 2 `
-    -SkuName Standard_DS2 `
-    -UpgradePolicyMode Automatic
 
+## <a name="deploy-sample-application"></a>Implementar aplicação de exemplo
+Para testar o conjunto de dimensionamento, instale uma aplicação web básica. A extensão de Script personalizado do Azure é utilizado para transferir e executar um script que instale o IIS nas instâncias de VM. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](extensions-customscript.md).
+
+Utilize a extensão de Script personalizado para instalar um servidor de web IIS básico. Aplique a Extensão de Script Personalizado que instala o IIS da seguinte forma:
+
+```azurepowershell-interactive
 # Define the script for your Custom Script Extension to run
 $publicSettings = @{
     "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
     "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
 }
 
+# Get information about the scale set
+$vmss = Get-AzureRmVmss `
+            -ResourceGroupName "myResourceGroupScaleSet" `
+            -VMScaleSetName "myScaleSet"
+
 # Use Custom Script Extension to install IIS and configure basic website
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig `
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
     -Name "customScript" `
     -Publisher "Microsoft.Compute" `
     -Type "CustomScriptExtension" `
     -TypeHandlerVersion 1.8 `
     -Setting $publicSettings
+
+# Update the scale set and apply the Custom Script Extension to the VM instances
+Update-AzureRmVmss `
+    -ResourceGroupName "myResourceGroupScaleSet" `
+    -Name "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
 ```
 
-## <a name="create-scale-load-balancer"></a>Criar Balanceador de carga de escala
-Um balanceador de carga do Azure é um balanceador de carga de camada 4 (TCP, UDP) que fornece elevada disponibilidade, distribuição de tráfego de entrada entre VMs em bom estado. Uma sonda de estado de funcionamento do Balanceador de carga monitoriza uma porta especificada em cada VM e apenas distribui o tráfego para uma VM operacional. Para obter mais informações, consulte o próximo tutorial sobre [como carregar equilibrar as máquinas virtuais Windows](tutorial-load-balancer.md).
 
-Crie um balanceador de carga que tenha um endereço IP público e distribui o tráfego da web na porta 80:
+## <a name="test-your-scale-set"></a>Testar o conjunto de dimensionamento
+Para ver a escala definido em ação, obter o endereço IP público do seu Balanceador de carga com [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIP* criada como parte do conjunto de dimensionamento:
 
-```powershell
-# Create a public IP address
-$publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -Location EastUS `
-  -AllocationMethod Static `
-  -Name myPublicIP
-
-# Create a frontend and backend IP pool
-$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
-  -Name myFrontEndPool `
-  -PublicIpAddress $publicIP
-$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
-
-# Create the load balancer
-$lb = New-AzureRmLoadBalancer `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -Name myLoadBalancer `
-  -Location EastUS `
-  -FrontendIpConfiguration $frontendIP `
-  -BackendAddressPool $backendPool
-
-# Create a load balancer health probe on port 80
-Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
-  -LoadBalancer $lb `
-  -Protocol tcp `
-  -Port 80 `
-  -IntervalInSeconds 15 `
-  -ProbeCount 2
-
-# Create a load balancer rule to distribute traffic on port 80
-Add-AzureRmLoadBalancerRuleConfig `
-  -Name myLoadBalancerRule `
-  -LoadBalancer $lb `
-  -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
-  -BackendAddressPool $lb.BackendAddressPools[0] `
-  -Protocol Tcp `
-  -FrontendPort 80 `
-  -BackendPort 80
-
-# Update the load balancer configuration
-Set-AzureRmLoadBalancer -LoadBalancer $lb
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress `
+    -ResourceGroupName "myResourceGroupScaleSet" `
+    -Name "myPublicIPAddress" | select IpAddress
 ```
 
-## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
-Agora criar um conjunto com de dimensionamento de máquina virtual [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria um conjunto nomeado de dimensionamento *myScaleSet*:
-
-```powershell
-# Reference a virtual machine image from the gallery
-Set-AzureRmVmssStorageProfile $vmssConfig `
-  -ImageReferencePublisher MicrosoftWindowsServer `
-  -ImageReferenceOffer WindowsServer `
-  -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
-
-# Set up information for authenticating with the virtual machine
-Set-AzureRmVmssOsProfile $vmssConfig `
-  -AdminUsername azureuser `
-  -AdminPassword P@ssword! `
-  -ComputerNamePrefix myVM
-
-# Create the virtual network resources
-$subnet = New-AzureRmVirtualNetworkSubnetConfig `
-  -Name "mySubnet" `
-  -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName "myResourceGroupScaleSet" `
-  -Name "myVnet" `
-  -Location "EastUS" `
-  -AddressPrefix 10.0.0.0/16 `
-  -Subnet $subnet
-$ipConfig = New-AzureRmVmssIpConfig `
-  -Name "myIPConfig" `
-  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
-  -SubnetId $vnet.Subnets[0].Id
-
-# Attach the virtual network to the config object
-Add-AzureRmVmssNetworkInterfaceConfiguration `
-  -VirtualMachineScaleSet $vmssConfig `
-  -Name "network-config" `
-  -Primary $true `
-  -IPConfiguration $ipConfig
-
-# Create the scale set with the config object (this step might take a few minutes)
-New-AzureRmVmss `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -Name myScaleSet `
-  -VirtualMachineScaleSet $vmssConfig
-```
-
-Demora alguns minutos para criar e configurar todos os recursos de conjunto de dimensionamento e VMs.
-
-
-## <a name="test-your-app"></a>Testar a aplicação
-Para ver o Web site do IIS em ação, obter o endereço IP público do seu Balanceador de carga com [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIP* criada como parte do conjunto de dimensionamento:
-
-```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupScaleSet -Name myPublicIP | select IpAddress
-```
-
-Introduza o endereço IP público para um web browser. A aplicação é apresentada, incluindo o nome do anfitrião da VM que o Balanceador de carga distribuído tráfego para:
+Introduza o endereço IP público num browser. A aplicação web é apresentada, incluindo o nome do anfitrião da VM que o Balanceador de carga distribuído tráfego para:
 
 ![Site do IIS em execução](./media/tutorial-create-vmss/running-iis-site.png)
 
-Para ver o conjunto na ação de dimensionamento, pode forçar atualizar o web browser para ver o Balanceador de carga distribuir o tráfego entre todas as VMs com a sua aplicação.
+Para ver o conjunto de dimensionamento em ação, pode forçar a atualização do browser para ver o balanceador de carga distribuir o tráfego por todas as VMs que têm a sua aplicação em execução.
 
 
 ## <a name="management-tasks"></a>Tarefas de gestão
-Ao longo do ciclo de vida do conjunto de dimensionamento, poderá ter de executar um ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizem várias tarefas de ciclo de vida. O Azure PowerShell fornece uma forma rápida para realizar essas tarefas. Seguem-se algumas tarefas comuns.
+Ao longo do ciclo de vida do conjunto de dimensionamento, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. O Azure PowerShell fornece uma forma rápida para realizar essas tarefas. Seguem-se algumas tarefas comuns.
 
-### <a name="view-vms-in-a-scale-set"></a>Vista VMs num conjunto de dimensionamento
-Para ver uma lista de VMs em execução no seu conjunto de dimensionamento, utilize [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) da seguinte forma:
+### <a name="view-vms-in-a-scale-set"></a>Ver VMs num conjunto de dimensionamento
+Para ver uma lista de instâncias de VM num conjunto de dimensionamento, utilize [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) da seguinte forma:
+
+```azurepowershell-interactive
+Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet"
+```
+
+O resultado de exemplo seguinte mostra duas instâncias VM no conjunto de dimensionamento:
 
 ```powershell
-# Get current scale set
-$scaleset = Get-AzureRmVmss `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -VMScaleSetName myScaleSet
+ResourceGroupName                 Name Location             Sku InstanceID ProvisioningState
+-----------------                 ---- --------             --- ---------- -----------------
+MYRESOURCEGROUPSCALESET   myScaleSet_0   eastus Standard_DS1_v2          0         Succeeded
+MYRESOURCEGROUPSCALESET   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
+```
 
-# Loop through the instanaces in your scale set
-for ($i=1; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
-    Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
-      -VMScaleSetName myScaleSet `
-      -InstanceId $i
-}
+Para ver informações adicionais sobre uma instância VM específica, adicione o `-InstanceId` parâmetro [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). O exemplo seguinte visualiza informações sobre a instância de VM *1*:
+
+```azurepowershell-interactive
+Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 
-### <a name="increase-or-decrease-vm-instances"></a>Aumentar ou diminuir instâncias de VM
+### <a name="increase-or-decrease-vm-instances"></a>Aumentar ou reduzir as instâncias de VM
 Para ver o número de instâncias tem atualmente num conjunto de dimensionamento, utilize [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) e consultar no *sku.capacity*:
 
-```powershell
-Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
-    -VMScaleSetName myScaleSet | `
+```azurepowershell-interactive
+Get-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
+    -VMScaleSetName "myScaleSet" | `
     Select -ExpandProperty Sku
 ```
 
-Pode, em seguida, manualmente aumentar ou reduzir o número de máquinas virtuais da escala com [atualização AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). O exemplo a seguir define o número de VMs no seu dimensionamento definido como *3*:
+Pode, em seguida, manualmente aumentar ou reduzir o número de máquinas virtuais da escala com [atualização AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). O exemplo seguinte define o número de VMs no seu conjunto de dimensionamento como *3*:
 
-```powershell
+```azurepowershell-interactive
 # Get current scale set
 $scaleset = Get-AzureRmVmss `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -VMScaleSetName myScaleSet
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
 
 # Set and update the capacity of your scale set
 $scaleset.sku.capacity = 3
-Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
-    -Name myScaleSet `
+Update-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
+    -Name "myScaleSet" `
     -VirtualMachineScaleSet $scaleset
 ```
 
@@ -236,11 +166,11 @@ Se utiliza um alguns minutos a atualizar o número especificado de instâncias n
 
 
 ### <a name="configure-autoscale-rules"></a>Configurar regras de dimensionamento automático
-Em vez de conjunto de dimensionamento manualmente o número de instâncias no seu dimensionamento, pode definir regras de dimensionamento automático. Estas regras monitorizar instâncias do conjunto de dimensionamento e respondem em conformidade com base nas métricas e os limiares que define. O exemplo seguinte aumenta horizontalmente de forma o número de instâncias por um quando a carga média da CPU é superior a 60% durante um período de 5 minutos. Se a carga de CPU média, em seguida, descerem abaixo de 30% durante um período de 5 minutos, as instâncias são ampliadas por uma instância:
+Em vez de conjunto de dimensionamento manualmente o número de instâncias no seu dimensionamento, pode definir regras de dimensionamento automático. Estas regras monitorizaram as instâncias no seu conjunto de dimensionamento e respondem em conformidade com base nas métricas e nos limiares definidos por si. O exemplo seguinte aumenta horizontalmente o número de instâncias em uma instância quando a carga média da CPU é superior a 60% ao longo de um período de 5 minutos. Se a carga de CPU média, em seguida, descerem abaixo de 30% durante um período de 5 minutos, as instâncias são ampliadas por uma instância:
 
-```powershell
+```azurepowershell-interactive
 # Define your scale set information
-$mySubscriptionId = (Get-AzureRmSubscription).Id
+$mySubscriptionId = (Get-AzureRmSubscription)[0].Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
@@ -288,20 +218,20 @@ Add-AzureRmAutoscaleSetting `
   -AutoscaleProfiles $myScaleProfile
 ```
 
-Para obter mais informações de conceção sobre a utilização de dimensionamento automático, consulte [melhores práticas de dimensionamento automático](/azure/architecture/best-practices/auto-scaling).
+Para obter mais informações de estrutura sobre a utilização do dimensionamento automático, consulte [melhores práticas de dimensionamento automático](/azure/architecture/best-practices/auto-scaling).
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, vai criar um conjunto de dimensionamento de máquina virtual. Aprendeu a:
+Neste tutorial, criou um conjunto de dimensionamento de máquinas virtuais. Aprendeu a:
 
 > [!div class="checklist"]
 > * Utilizar a extensão de Script personalizado para definir um site IIS a dimensionar
 > * Criar um balanceador de carga para o conjunto de dimensionamento
-> * Criar um conjunto de dimensionamento de máquina virtual
-> * Aumentar ou reduzir o número de instâncias de um conjunto de dimensionamento
+> * Criar um conjunto de dimensionamento de máquinas virtuais
+> * Aumentar ou reduzir o número de instâncias num conjunto de dimensionamento
 > * Criar regras de dimensionamento automático
 
-Avançar para o próximo tutorial para saber mais sobre conceitos para máquinas virtuais de balanceamento de carga.
+Avance para o próximo tutorial para saber mais sobre conceitos de balanceamento de carga para máquinas virtuais.
 
 > [!div class="nextstepaction"]
-> [Máquinas virtuais de balanceamento de carga](tutorial-load-balancer.md)
+> [Fazer o balanceamento de carga de máquinas virtuais](tutorial-load-balancer.md)

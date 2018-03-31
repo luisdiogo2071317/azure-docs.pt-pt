@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/23/2018
 ms.author: mamit
 ms.custom: ''
-ms.openlocfilehash: 356988e8ae743d73c8e2cc7cc106cbc5b0d1a423
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c6252ab063ee074951f098e7814ea1cfec68a8b9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="the-new-alerts-experience-in-azure-monitor"></a>Experiência de novos alertas no Monitor do Azure
 
@@ -62,12 +62,12 @@ O objetivo da experiência de alertas está a ser o único local para ver e geri
 > [!NOTE]
 > É desencadeadas alertas apresentadas alertas estão limitadas a métrica suportada e alertas de registo de atividade; Descrição geral do Azure do Monitor mostra a contagem de alertas é desencadeadas, incluindo as existentes na alertas mais antigos do Azure
 
- ![alerts-overview](./media/monitoring-overview-unified/alerts-preview-overview.png) 
+ ![alerts-overview](./media/monitoring-overview-unified-alerts/alerts-preview-overview2.png) 
 
 ### <a name="alert-rules-management"></a>Gestão de regras de alertas
 **Monitor - alertas > regras** é uma única página para gerir todas as regras de alerta nas suas subscrições do Azure. Lista todas as regras de alertas (ativado ou desativado) e podem ser ordenados com base nos recursos de destino, os grupos de recursos, o nome da regra ou estado. Regras de alertas também podem ser ativado/desativado ou editá-lo a partir desta página.  
 
- ![regras de alertas](./media/monitoring-overview-unified/alerts-preview-rules.png)
+ ![regras de alertas](./media/monitoring-overview-unified-alerts/alerts-preview-rules.png)
 
 
 ## <a name="one-alert-authoring-experience-across-all-monitoring-sources"></a>Um alerta a experiência de criação em todas as origens de monitorização

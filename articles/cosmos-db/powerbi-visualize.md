@@ -1,35 +1,35 @@
 ---
 title: Tutorial de BI de energia para o conector Azure Cosmos DB | Microsoft Docs
-description: "Utilize este tutorial do Power BI para importar JSON, criar relatórios insightful e visualizar dados utilizando o conector de BD do Cosmos do Azure e o Power BI."
+description: Utilize este tutorial do Power BI para importar JSON, criar relatórios insightful e visualizar dados utilizando o conector de BD do Cosmos do Azure e o Power BI.
 keywords: Power bi tutorial, visualize os dados, o conector do power bi
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 6414cdc942c43f6eb13ca8f050d6503bdd3e0b42
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 74be3e5b25401a7811c1af23a0a7e2887f9055c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Tutorial de BI de energia de base de dados do Azure Cosmos: visualizar dados utilizando o conector do Power BI
-[PowerBI.com](https://powerbi.microsoft.com/) é um serviço online, onde pode criar e partilhar os dashboards e relatórios com os dados que são importantes para si e a sua organização para.  Ambiente de trabalho do Power BI é um ferramenta que permite-lhe obter dados de várias origens de dados, intercalar e transformar os dados, criar relatórios poderosos e visualizações e publicar os relatórios no Power BI de criação de relatórios dedicado.  Com a versão mais recente do Power BI Desktop, pode agora ligar à sua conta de base de dados do Cosmos através do conector Cosmos DB para o Power BI.   
+[PowerBI.com](https://powerbi.microsoft.com/) é um serviço online, onde pode criar e partilhar os dashboards e relatórios com os dados que são importantes para si e a sua organização para.  Ambiente de trabalho do Power BI é um ferramenta que permite-lhe obter dados de várias origens de dados, intercalar e transformar os dados, criar relatórios poderosos e visualizações e publicar os relatórios no Power BI de criação de relatórios dedicado.  Com a versão mais recente do Power BI Desktop, pode agora ligar à sua conta de base de dados do Azure Cosmos através do conector Azure Cosmos DB para o Power BI.   
 
-Neste tutorial do Power BI, vamos percorrer os passos para ligar a uma conta de base de dados do Cosmos no Power BI Desktop, navegue para uma coleção em que pretende extrair os dados utilizando o navegador, transformar dados JSON em formato tabular, utilizando o Editor de consultas de ambiente de trabalho do Power BI e criar e publicar um relatório no PowerBI.com.
+Neste tutorial do Power BI, vamos percorrer os passos para ligar a uma conta de base de dados do Azure Cosmos no Power BI Desktop, navegue para uma coleção em que pretende extrair os dados utilizando o navegador, transformar dados JSON em formato tabular, utilizando o Editor de consultas de ambiente de trabalho do Power BI e criar e publicar um relatório no PowerBI.com.
 
 Depois de concluir este tutorial do Power BI, poderá responder às seguintes questões:  
 
-* Como pode incorporar relatórios com os dados da base de dados do Cosmos utilizando o ambiente de trabalho do Power BI?
-* Como ligar a uma conta de base de dados do Cosmos no Power BI Desktop
+* Como pode incorporar relatórios com os dados da base de dados do Azure Cosmos utilizando o ambiente de trabalho do Power BI?
+* Como ligar a uma conta de base de dados do Azure Cosmos no Power BI Desktop
 * Como posso obter dados de uma coleção no Power BI Desktop?
 * Como pode transformar os dados JSON aninhados no Power BI Desktop?
 * Como publicar e partilhar os meus relatórios em PowerBI.com?
@@ -44,16 +44,16 @@ Depois de concluir este tutorial do Power BI, poderá responder às seguintes qu
 Antes de seguir as instruções neste tutorial do Power BI, certifique-se de que tem acesso para os seguintes recursos:
 
 * [A versão mais recente do Power BI Desktop](https://powerbi.microsoft.com/desktop).
-* Acesso a nossa conta de demonstração ou dados na sua conta de base de dados do Cosmos.
+* Acesso a nossa conta de demonstração ou dados na sua conta de base de dados do Azure Cosmos.
   * A conta de demonstração é preenchida com os dados de volcano mostrados neste tutorial. Esta conta de demonstração não está vinculada por qualquer SLA e destina-se apenas a fins de demonstração.  Estamos a reservar o direito de Efetue alterações para esta conta de demonstração, incluindo mas não se limitando a terminar a conta, alterar a chave, restringir o acesso, a alteração e eliminar os dados em qualquer altura, sem aviso prévio ou motivo.
     * URL: https://analytics.documents.azure.com
-    * Chave apenas de leitura: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR + YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw = =
+    * Read-only key: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
   * Ou, para criar a sua própria conta, consulte [criar uma conta de base de dados de base de dados do Azure Cosmos no portal do Azure](https://azure.microsoft.com/documentation/articles/create-account/). Em seguida, obter volcano exemplo dados que é semelhantes à que são utilizados neste tutorial (mas não contém os blocos de GeoJSON), consulte o [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) e, em seguida, importar os dados através de [ferramenta de migração de dados de base de dados do Azure Cosmos](import-data.md).
 
-Para partilhar os seus relatórios em PowerBI.com, tem de ter uma conta no site PowerBI.com.  Para mais informações sobre o Power BI para gratuito e Power BI Pro, visite [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
+Para partilhar os seus relatórios em PowerBI.com, tem de ter uma conta no site PowerBI.com.  Para mais informações sobre o Power BI para gratuito e Power BI Pro, visite [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
 
 ## <a name="lets-get-started"></a>Vamos começar
-Neste tutorial, vamos imagine que é um geologist studying princípios volcanoes em todo o mundo.  Os dados de volcano são armazenados numa conta de base de dados do Cosmos e os documentos JSON parecerem ser o documento de exemplo seguinte.
+Neste tutorial, vamos imagine que é um geologist studying princípios volcanoes em todo o mundo.  Os dados de volcano são armazenados numa conta de base de dados do Azure Cosmos e os documentos JSON parecerem ser o documento de exemplo seguinte.
 
     {
         "Volcano Name": "Rainier",
@@ -72,7 +72,7 @@ Neste tutorial, vamos imagine que é um geologist studying princípios volcanoes
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
-Pretende obter os dados de volcano da conta de base de dados do Cosmos e visualizar dados de um relatório do Power BI interativo como o relatório seguinte.
+Pretende obter os dados de volcano da conta de base de dados do Azure Cosmos e visualizar dados de um relatório do Power BI interativo como o relatório seguinte.
 
 ![Por concluir este tutorial do Power BI com o conector do Power BI, poderá visualizar dados com o relatório do Power BI Desktop volcano](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
@@ -86,16 +86,16 @@ Está pronto para experimentá-la? Vamos começar.
    
     ![Power BI Desktop relatório vista - conector do Power BI](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
 4. Selecione o **home page** do Friso, em seguida, clique em **obter dados**.  O **obter dados** deve aparecer a janela.
-5. Clique em **Azure**, selecione **(Beta) do Microsoft Azure DocumentDB**e, em seguida, clique em **Connect**. 
+5. Clique em **Azure**, selecione **BD do Cosmos Azure (Beta)**e, em seguida, clique em **Connect**. 
 
     ![Ambiente de trabalho do Power BI obter dados - conector do Power BI](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
-6. No **pré-visualização do conector** página, clique em **continuar**. O **Microsoft Azure DocumentDB Connect** surge a janela.
-7. Especifique o URL de ponto final de conta Cosmos DB teria de como obter os dados conforme mostrado abaixo e, em seguida, clique em **OK**. Para utilizar a sua própria conta, pode obter o URL na caixa URI no  **[chaves](manage-account.md#keys)**  painel do portal do Azure. Para utilizar a conta de demonstração, introduza `https://analytics.documents.azure.com` para o URL. 
+6. No **pré-visualização do conector** página, clique em **continuar**. O **Azure Cosmos DB** surge a janela.
+7. Especifique o URL de ponto final de conta do Azure Cosmos DB teria de como obter os dados conforme mostrado abaixo e, em seguida, clique em **OK**. Para utilizar a sua própria conta, pode obter o URL na caixa URI no **[chaves](manage-account.md#keys)** painel do portal do Azure. Para utilizar a conta de demonstração, introduza `https://analytics.documents.azure.com` para o URL. 
    
     Deixe o nome de base de dados, o nome da coleção e a instrução SQL em branco como estes campos são opcionais.  Em vez disso, utilizamos o navegador para selecionar a base de dados e a coleção para identificar de onde vêm os dados.
    
     ![Tutorial do Power BI para o conector do Power BI do Azure Cosmos DB - janela de estabelecer a ligação de ambiente de trabalho](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-8. Se estiver a ligar a este ponto final pela primeira vez, é-lhe pedida a chave de conta. Para a sua própria conta, obter a chave a partir de **chave primária** caixa o  **[chaves só de leitura](manage-account.md#keys)**  painel do portal do Azure. Para a conta de demonstração, a chave é `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Introduza a chave adequada e, em seguida, clique em **Connect**.
+8. Se estiver a ligar a este ponto final pela primeira vez, é-lhe pedida a chave de conta. Para a sua própria conta, obter a chave a partir de **chave primária** caixa o **[chaves só de leitura](manage-account.md#keys)** painel do portal do Azure. Para a conta de demonstração, a chave é `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Introduza a chave adequada e, em seguida, clique em **Connect**.
    
     Recomendamos que utilize a chave apenas de leitura durante a criação de relatórios.  Isto irá impedir que exposição desnecessária da chave mestra para potenciais riscos de segurança. A chave apenas de leitura está disponível a partir de [chaves](manage-account.md#keys) painel do portal do Azure ou pode utilizar as informações de conta de demonstração fornecidas acima.
    
@@ -218,11 +218,11 @@ Para uma atualização agendada, execute o seguinte:
 3. Clique em **editar credenciais**. 
    
     O pop-up de configurar aparece. 
-4. Introduza a chave para ligar à conta de base de dados do Cosmos esse conjunto de dados, em seguida, clique em **sessão**. 
+4. Introduza a chave para ligar à conta de base de dados do Azure Cosmos esse conjunto de dados, em seguida, clique em **sessão**. 
 5. Expanda **agendar atualização** e configurar a agenda que pretende atualizar o conjunto de dados. 
 6. Clique em **aplicar** e terminar de configurar a atualização agendada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre o Power BI, consulte [introdução ao Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
-* Para saber mais sobre a base de dados do Cosmos, consulte o [página de destino de documentação do Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).
+* Para saber mais sobre a BD do Cosmos do Azure, consulte o [página de destino de documentação do Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).
 

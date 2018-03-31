@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement – integração de back-end"
+title: Azure Mobile Engagement – integração de back-end
 description: Ligar o Azure Mobile Engagement com um back-end do SharePoint para criar campanhas do SharePoint
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 06297b43-579f-46e6-8a58-961a68f9aa09
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf530ca6dce32050487f367aa80b10bf7f20b7e7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Azure Mobile Engagement – integração de API
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Num sistema marketing automatizado, criar e ativar as campanhas de marketing também ocorrem automaticamente. Para esta finalidade - Azure Mobile Engagement permite criar essas campanhas de marketing automatizadas com APIs bem. 
 
 Normalmente os clientes utilizar a interface de front-end do Mobile Engagement para criar anúncios/inquérito etc como parte do respetivas campanhas de marketing. No entanto às campanhas de marketing ficam maduros, for necessário para tirar partido dos dados bloqueados nos sistemas de back-end (como qualquer sistema CRM ou sistema CMS, como o SharePoint), de modo a que é possível criar um pipeline totalmente automatizado que cria as campanhas no dinamicamente com base nos dados fluir em dos sistemas de back-end do Mobile Engagement. 
@@ -155,7 +159,7 @@ Este tutorial passa através de um cenário em que um utilizador de negócio do 
 4. Assim que tiver o anúncio criado, verá algo semelhante ao seguinte no portal do Mobile Engagement (tenha em atenção que o estado = Rascunho e ativado = n/d)
    
     ![][3]
-5. `CreateAzMECampaign`cria uma campanha de anúncio e devolve o respetivo Id para o autor da chamada. `ActivateAzMECampaign`requer este Id como parâmetro para ativar a campanha. 
+5. `CreateAzMECampaign` cria uma campanha de anúncio e devolve o respetivo Id para o autor da chamada. `ActivateAzMECampaign` requer este Id como parâmetro para ativar a campanha. 
    
         static async Task<bool> ActivateAzMECampaign(int campaignId)
         {
