@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: da2d95bc100a6160282c93682ad76f7ee881e105
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>VMs de início/paragem durante a solução de off-hours (pré-visualização) na automatização do Azure
 
@@ -55,7 +55,7 @@ Execute os seguintes passos para adicionar as VMs de início/paragem durante a s
 
 1. O **Adicionar solução** é apresentada a página. Lhe for pedido para configurar a solução antes de importá-lo na sua subscrição de automatização.
    ![Página de solução de adicionar de gestão de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
-1. No **Adicionar solução** página, selecione **área de trabalho**. Selecione uma área de trabalho do OMS que está ligada à mesma subscrição do Azure que está a ser a conta de automatização. Se não tiver uma área de trabalho, selecione **criar nova área de trabalho**. No **área de trabalho OMS** página, efetue o seguinte:
+1. No **Adicionar solução** página, selecione **área de trabalho**. Selecione uma área de trabalho de análise de registos que está ligada à mesma subscrição do Azure que está a ser a conta de automatização. Se não tiver uma área de trabalho, selecione **criar nova área de trabalho**. No **área de trabalho OMS** página, efetue o seguinte:
    * Especifique um nome para a **Área de Trabalho do OMS**.
    * Selecione um **subscrição** para ligar a selecionando a partir da lista pendente, se a predefinição selecionada não é adequada.
    * Para **grupo de recursos**, pode criar um novo grupo de recursos ou selecione um existente.
@@ -63,13 +63,13 @@ Execute os seguintes passos para adicionar as VMs de início/paragem durante a s
    * Selecione um **Escalão de preço**. A solução oferece duas camadas: **livres** e **por nó (OMS)**. O escalão gratuito tem um limite na quantidade de dados recolhidos por dia, o período de retenção e os minutos de tempo de execução da tarefa de runbook. A camada por nó não tem um limite na quantidade de dados recolhidos diariamente.
 
         > [!NOTE]
-        > Embora a camada por GB (autónomo) paga é apresentada como uma opção, não é aplicável. Se selecioná-lo e continuar com a criação desta solução na sua subscrição, falhará. Esta opção será contemplada quando a solução for lançada oficialmente. Minutos de tarefa de automatização solução apenas utiliza e deste ingestão de registo. Não adiciona nós OMS adicionais ao seu ambiente.
+        > Embora a camada por GB (autónomo) paga é apresentada como uma opção, não é aplicável. Se selecioná-lo e continuar com a criação desta solução na sua subscrição, falhará. Esta opção será contemplada quando a solução for lançada oficialmente. Minutos de tarefa de automatização solução apenas utiliza e deste ingestão de registo. Não adiciona nós adicionais ao seu ambiente.
 
 1. Depois de fornecer as informações necessárias sobre o **área de trabalho OMS** página, clique em **criar**. Pode controlar o progresso em **notificações** no menu, que devolve ao **Adicionar solução** página quando terminar.
-1. No **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho do OMS, terá de criar também uma nova conta de automatização ser associadas a ele. Selecione **criar uma conta de automatização**e o **conta de automatização de adicionar** , indique o seguinte:
+1. No **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho de análise de registos, terá de criar também uma nova conta de automatização ser associadas a ele. Selecione **criar uma conta de automatização**e o **conta de automatização de adicionar** , indique o seguinte:
    * No campo **Nome**, introduza o nome da conta de Automatização.
 
-    Todas as outras opções automaticamente são povoadas com base na área de trabalho OMS selecionada. Estas opções não podem ser modificadas. O método de autenticação predefinido para os runbooks incluídos nesta solução é a conta Run As do Azure. Depois de clicar em **OK**, as opções de configuração são validadas e a conta de automatização é criada. Pode acompanhar o progresso em **Notificações**, no menu.
+    Todas as outras opções automaticamente são povoadas com base na área de trabalho de análise de registos selecionada. Estas opções não podem ser modificadas. O método de autenticação predefinido para os runbooks incluídos nesta solução é a conta Run As do Azure. Depois de clicar em **OK**, as opções de configuração são validadas e a conta de automatização é criada. Pode acompanhar o progresso em **Notificações**, no menu.
 
 1. Por fim, no **Adicionar solução** página, selecione **configuração**. O **parâmetros** é apresentada a página.
 
@@ -230,7 +230,7 @@ Não deve ativar todas as agendas, porque pode criar ações de agenda sobrepost
 
 ## <a name="log-analytics-records"></a>Registos do Log Analytics
 
-Automatização cria dois tipos de registos no repositório de OMS: registos de tarefa e os fluxos da tarefa.
+Automatização cria dois tipos de registos na área de trabalho de análise de registos: registos de tarefa e os fluxos da tarefa.
 
 ### <a name="job-logs"></a>Registos de trabalhos
 

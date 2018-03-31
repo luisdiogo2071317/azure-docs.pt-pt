@@ -1,12 +1,12 @@
 ---
-title: "Funciona como colocação em cache | Microsoft Docs"
-description: "A colocação em cache é o processo de armazenar dados localmente para que o futuro pedidos para que os dados podem ser acedidos mais rapidamente."
+title: Funciona como colocação em cache | Microsoft Docs
+description: A colocação em cache é o processo de armazenar dados localmente para que o futuro pedidos para que os dados podem ser acedidos mais rapidamente.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 284b4bcbeafc422a2ed91cec00a5b5b83bb37b7b
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: da43e122c3e7d5e852107d4e4cca237ce4824267
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-caching-works"></a>Como funciona a colocação em cache
 
@@ -59,51 +59,50 @@ A colocação em cache é integral para a forma como uma CDN funciona para acele
 
 Semelhante à forma como a colocação em cache é implementada num browser, pode controlar como colocação em cache é efetuada numa CDN enviando cabeçalhos cache-diretiva. Cabeçalhos de cache diretiva são cabeçalhos HTTP, o que normalmente são adicionados através do servidor de origem. Embora a maioria destes cabeçalhos originalmente foram concebida para abordar a colocação em cache nos browsers do cliente, agora também são utilizados por todas as caches intermédios, como CDNs. 
 
-Dois cabeçalhos podem ser utilizados para definir a actualização da cache: `Cache-Control` e `Expires`. `Cache-Control`é mais atual e tem precedência sobre `Expires`, se existem ambas. Também existem dois tipos de cabeçalhos utilizados para a validação (denominada validações): `ETag` e `Last-Modified`. `ETag`é mais atual e tem precedência sobre `Last-Modified`, se ambos estiverem definidas.  
+Dois cabeçalhos podem ser utilizados para definir a actualização da cache: `Cache-Control` e `Expires`. `Cache-Control` é mais atual e tem precedência sobre `Expires`, se existem ambas. Também existem dois tipos de cabeçalhos utilizados para a validação (denominada validações): `ETag` e `Last-Modified`. `ETag` é mais atual e tem precedência sobre `Last-Modified`, se ambos estiverem definidas.  
 
 ## <a name="cache-directive-headers"></a>Cabeçalhos de directiva cache
 
 > [!IMPORTANT]
-> Por predefinição, um ponto final de CDN do Azure está otimizado para DSA ignora cabeçalhos cache-diretiva e ignora a colocação em cache. Pode ajustar a forma como um ponto final de CDN do Azure trata estes cabeçalhos utilizando CDN regras a colocação em cache para ativar a colocação em cache. Para obter mais informações, consulte [CDN do Azure de controlo de colocação em cache comportamento com colocação em cache regras](cdn-caching-rules.md).
+> Por predefinição, um ponto final de CDN do Azure está otimizado para DSA ignora cabeçalhos cache-diretiva e ignora a colocação em cache. Para **CDN do Azure da Verizon padrão** e **CDN do Azure da Akamai padrão** perfis, pode ajustar a forma como um ponto final de CDN do Azure trata estes cabeçalhos utilizando [regras de cache de CDN](cdn-caching-rules.md)para ativar a colocação em cache. Para **CDN do Azure da Verizon** perfis, utilize o [motor de regras](cdn-rules-engine.md) para ativar a colocação em cache.
 
-CDN do Azure suporta os seguintes cabeçalhos cache diretiva HTTP, definem a duração da cache e a partilha de cache: 
+CDN do Azure suporta os seguintes cabeçalhos cache diretiva HTTP, definem a duração da cache e a partilha de cache.
 
-`Cache-Control`
+**Cache-Control:**
 - Introduzida no HTTP 1.1 para dar os publicadores web mais controlo sobre o conteúdo e a abordar as limitações do `Expires` cabeçalho.
 - Substitui o `Expires` cabeçalho, se os dois-lo e `Cache-Control` são definidos.
-- Quando utilizado no cabeçalho de pedido, `Cache-Control` é ignorada por CDN do Azure, por predefinição.
-- Quando utilizado num cabeçalho de resposta, a CDN do Azure suporta as seguintes `Cache-Control` diretivas, de acordo com o produto: 
-   - **CDN do Azure da Verizon**: suporta todas as `Cache-Control` diretivas. 
-   - **CDN do Azure da Akamai**: suporta apenas o seguinte `Cache-Control` diretivas; todos os outros são ignorados: 
-      - `max-age`: Uma cache pode armazenar o conteúdo para o número de segundos especificado. Por exemplo, `Cache-Control: max-age=5`. Esta diretiva Especifica a quantidade máxima de tempo que o conteúdo é considerado raiz.
-      - `no-cache`: O conteúdo em cache, mas validar o conteúdo, sempre que a entrega de antes da cache. Equivalente ao `Cache-Control: max-age=0`.
-      - `no-store`: Nunca cache o conteúdo. Remova o conteúdo se foi anteriormente armazenado.
+- Quando utilizado no pedido de HTTP, `Cache-Control` é ignorada por CDN do Azure, por predefinição.
+- **CDN do Azure da Verizon** perfis suportam todos os `Cache-Control` diretivas, quando utilizado numa resposta de HTTP.
+- **CDN do Azure da Akamai** perfis suportam apenas as diretivas de seguintes, quando utilizado numa resposta de HTTP; todos os outros são ignorados:
+   - `max-age`: Uma cache pode armazenar o conteúdo para o número de segundos especificado. Por exemplo, `Cache-Control: max-age=5`. Esta diretiva Especifica a quantidade máxima de tempo que o conteúdo é considerado raiz.
+   - `no-cache`: O conteúdo em cache, mas validar o conteúdo, sempre que a entrega de antes da cache. Equivalente ao `Cache-Control: max-age=0`.
+   - `no-store`: Nunca cache o conteúdo. Remova o conteúdo se foi anteriormente armazenado.
 
-`Expires`
+**Expira:**
 - Cabeçalho legado introduzido no HTTP 1.0; suportado para efeitos de compatibilidade.
 - Utiliza uma hora de expiração com base na data com precisão. 
 - Semelhante ao `Cache-Control: max-age`.
 - Utilizado quando `Cache-Control` não existe.
 
-`Pragma`
+**Pragma:**
    - Não cumpridas pela CDN do Azure, por predefinição.
    - Cabeçalho legado introduzido no HTTP 1.0; suportado para efeitos de compatibilidade.
    - Utilizado como um cabeçalho de pedido de cliente com a diretiva seguinte: `no-cache`. Esta diretiva dá instruções ao servidor para fornecer uma nova versão do recurso.
-   - `Pragma: no-cache`é equivalente ao `Cache-Control: no-cache`.
+   - `Pragma: no-cache` é equivalente ao `Cache-Control: no-cache`.
 
 ## <a name="validators"></a>Validações
 
-Quando a cache está obsoleta, validações da cache HTTP são utilizadas para comparar a versão em cache de um ficheiro com a versão no servidor de origem. **CDN do Azure da Verizon** suporta ETag e Last-Modified validações por predefinição, enquanto **CDN do Azure da Akamai** só suporta Last-Modified por predefinição.
+Quando a cache está obsoleta, validações da cache HTTP são utilizadas para comparar a versão em cache de um ficheiro com a versão no servidor de origem. **CDN do Azure da Verizon** suporta `ETag` e `Last-Modified` validações por predefinição, enquanto **CDN do Azure da Akamai** só suporta `Last-Modified` por predefinição.
 
-`ETag`
+**ETag:**
 - **CDN do Azure da Verizon** utiliza `ETag` por predefinição ao **CDN do Azure da Akamai** não.
-- `ETag`Define uma cadeia que é exclusiva para cada ficheiro e a versão de um ficheiro. Por exemplo, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
+- `ETag` Define uma cadeia que é exclusiva para cada ficheiro e a versão de um ficheiro. Por exemplo, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introduzido no HTTP 1.1 e é mais atual que `Last-Modified`. Útil quando a data da última modificação é difícil determinar.
 - Suporta tanto a validação segura, como a validação fraca; No entanto, a CDN do Azure suporta apenas forte validação. Para validação forte, representações dois recursos têm de ser para bytes idênticos. 
 - Valida a uma cache de um ficheiro que utiliza `ETag` enviando um `If-None-Match` cabeçalho com um ou mais `ETag` validações no pedido. Por exemplo, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Se corresponder a versão do servidor um `ETag` validador na lista, envia o código de estado 304 (não modificados) na respetiva resposta. Se for diferente da versão, o servidor responde com o código de estado 200 (OK) e o recurso atualizado.
 
-`Last-Modified`
-- Para **CDN do Azure da Verizon apenas**, Last-Modified é utilizada se ETag não faz parte da resposta HTTP. 
+**Last-Modified:**
+- Para **CDN do Azure da Verizon apenas**, `Last-Modified` é utilizada se `ETag` não faz parte da resposta HTTP. 
 - Especifica a data e hora em que o servidor de origem tem determinou que o recurso foi modificado pela última vez. Por exemplo, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - Valida a uma cache utilizando um ficheiro `Last-Modified` enviando um `If-Modified-Since` cabeçalho com uma data e hora no pedido. O servidor de origem compara essa data com o `Last-Modified` cabeçalho do recurso mais recente. Se o recurso não foi modificado desde a hora especificada, o servidor devolve o código de estado 304 (não modificados) na respetiva resposta. Se o recurso foi modificado, o servidor devolve o estado do código 200 (OK) e o recurso atualizado.
 
@@ -114,14 +113,14 @@ Nem todos os recursos podem ser colocadas em cache. A tabela seguinte mostra os 
 |                   | CDN do Azure da Verizon | CDN do Azure da Akamai            |
 |------------------ |------------------------|----------------------------------|
 | Códigos de estado HTTP | 200                    | 200, 203, 300, 301, 302 e 401 |
-| Método HTTP       | GET                    | GET                              |
+| Método HTTP       | INTRODUÇÃO                    | INTRODUÇÃO                              |
 | Tamanho dos ficheiros         | 300 GB                 | -Otimização de entrega de web geral: 1.8 GB<br />-Suporte de dados de transmissão em fluxo otimizações: 1.8 GB<br />-Otimização de ficheiros grandes: 150 GB |
 
 ## <a name="default-caching-behavior"></a>Comportamento de colocação em cache predefinido
 
 A tabela seguinte descreve a predefinição comportamento para os produtos da CDN do Azure e os respetivos otimizações de colocação em cache.
 
-|                    | Verizon - entrega web geral | Verizon – DSA | Akamai - entrega web geral | Akamai - DSA | Akamai - transferência de ficheiros grandes | Akamai - geral ou VOD suporte de dados de transmissão em fluxo |
+|                    | Da Verizon: entrega de web gerais | Verizon: DSA | Akamai: entrega de web gerais | Akamai: DSA | Akamai: transferência de ficheiros grandes | Akamai: gerais ou VOD suporte de dados de transmissão em fluxo |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Origem de honor**   | Sim    | Não   | Sim | Não | Sim | Sim |
 | **Duração da cache CDN** | 7 dias | Nenhum | 7 dias | Nenhum | 1 dia | um ano |

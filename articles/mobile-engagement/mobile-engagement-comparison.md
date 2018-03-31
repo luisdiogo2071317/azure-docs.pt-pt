@@ -1,11 +1,11 @@
 ---
-title: "Comparar o Azure Mobile Engagement com outros serviços do Azure semelhantes"
-description: "Comparar o Azure Mobile Engagement com outros serviços do Azure semelhantes - HockeyApp, AppInsights, os Hubs de notificação"
+title: Comparar o Azure Mobile Engagement com outros serviços do Azure semelhantes
+description: Comparar o Azure Mobile Engagement com outros serviços do Azure semelhantes - HockeyApp, AppInsights, os Hubs de notificação
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1f114775-3a9a-4dd4-8d59-b10d1da9a68b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57be3b235c5f439741155a70df7ddbe8a80906f2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="comparing-azure-mobile-engagement-with-other-similar-azure-services"></a>Comparar o Azure Mobile Engagement com outros serviços do Azure semelhantes
+> [!IMPORTANT]
+> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 A lista de serviços oferecidas pelo Microsoft Azure nunca é de expansão e por vezes poderá wonder como é diferente deste serviço que apenas de leitura ou ouvir sobre o Azure Mobile Engagement. Este artigo tenta limpar a confusão e direciona-lhe para escolher o Azure Mobile Engagement quando é mais adequado para a sua utilização. 
 
 O Azure Mobile Engagement é um serviço direcionado especificamente **para os comerciantes/CMOs digitais** mas foi utilizada por qualquer **proprietário da aplicação móvel ou publicador** que pretende aumentar a utilização, retenção e monetization das respetivas aplicações móveis. 
@@ -38,7 +42,7 @@ Eliminar baixo esta definição, temos as seguintes características de chaves q
 3. **Segmentação de utilizador em tempo real**
    
    Depois de ter recolhidos dados de análise comportamental dos utilizadores da aplicação, iremos permitem-lhe segmento seu público-alvo com base em vários parâmetros e recolhidos dados para ativar a execução de campanhas push segmentada. 
-4. **Software-como-um-serviço (SaaS):**
+4. **Software-as-a-service (SaaS):**
    
    Temos um portal separado do portal de gestão do Azure que está otimizado para interagir e ver a análise comportamental avançada sobre os utilizadores da aplicação e execute as campanhas push de marketing. O produto é adaptado para ajudá-lo a ficar sem tempo!   
 

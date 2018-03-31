@@ -1,24 +1,24 @@
 ---
 title: Recolher e analisar registos de atividade do Azure no Log Analytics | Microsoft Docs
-description: "Pode utilizar a solução de registos de atividade do Azure para analisar e procurar o registo de atividade do Azure nas suas subscrições do Azure."
+description: Pode utilizar a solução de registos de atividade do Azure para analisar e procurar o registo de atividade do Azure nas suas subscrições do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b6e823d9338d76a350569091d6794e3ac4a2eae9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recolher e analisar registos de atividade do Azure na análise de registos
 
@@ -40,7 +40,7 @@ Quando os registos de atividade do Azure se liga à análise de registos, pode:
 - Identificar problemas de estado de funcionamento de serviço ou falha afetar os recursos
 - Utilize a procura de registo para correlacionar as atividades dos utilizadores, as operações de dimensionamento automático, as alterações de autorização e funcionamento de serviço para as métricas ou outros registos do seu ambiente
 
-<sup>1</sup>por predefinição, análise de registos mantém os seus registos de atividade do Azure para 90 dias, mesmo que estejam no escalão gratuito. Em alternativa, se tiver uma definição de retenção de área de trabalho de inferior a 90 dias. Se a sua área de trabalho tiver retenção é maior do que 90 dias, os registos de atividade são mantidos durante o período de retenção da sua área de trabalho.
+<sup>1</sup>por predefinição, análise de registos mantém os seus registos de atividade do Azure para 90 dias, mesmo que estejam no escalão gratuito. Em alternativa, se tiver uma definição de retenção de área de trabalho de inferior a 90 dias. Se a sua área de trabalho tiver retenção é maior do que 90 dias, os registos de atividade são mantidos com base no período de retenção da sua área de trabalho.
 
 Análise de registos recolhe registos de atividade gratuitas e armazena os registos de 90 dias gratuitamente. Se armazenar os registos para mais de 90 dias, será cobrado custo de retenção de dados para os dados armazenados já mais do que 90 dias.
 

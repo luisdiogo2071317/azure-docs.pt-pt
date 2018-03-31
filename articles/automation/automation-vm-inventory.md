@@ -1,18 +1,18 @@
 ---
-title: "Gerir uma máquina virtual do Azure com a recolha de inventário | Microsoft Docs"
-description: "Gerir uma máquina virtual com a recolha de inventário"
+title: Gerir uma máquina virtual do Azure com a recolha de inventário | Microsoft Docs
+description: Gerir uma máquina virtual com a recolha de inventário
 services: automation
-keywords: "inventário, automatização,alteração, controlo"
+keywords: inventário, automatização,alteração, controlo
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b23132f6e5693f5d731bf044ac5c2544a9308ee1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerir uma máquina virtual do Azure com a recolha de inventário
 
@@ -66,4 +66,4 @@ Para remover a máquina virtual da gestão de inventário:
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre a gestão de alterações nas definições de ficheiros e do registo nas suas máquinas virtuais, veja [Controlar as alterações de software com a solução Controlo de Alterações](../log-analytics/log-analytics-change-tracking.md).
-* Para saber mais sobre a gestão do Windows e atualizações de pacote em máquinas virtuais, veja [Solução de Gestão de Atualizações no OMS](../operations-management-suite/oms-solution-update-management.md).
+* Para saber mais sobre a gestão do Windows e atualizações de pacote em máquinas virtuais, consulte [solução de gestão de atualizações a no Azure](../operations-management-suite/oms-solution-update-management.md).
