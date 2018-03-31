@@ -1,24 +1,23 @@
 ---
-title: "Stream Analytics JavaScript definido pelo utilizador as funções do Azure | Microsoft Docs"
-description: "Executar consulta avançada mechanics com as funções definidas pelo utilizador de JavaScript"
-keywords: "JavaScript, funções, udf definidas pelo utilizador"
+title: Stream Analytics JavaScript definido pelo utilizador as funções do Azure | Microsoft Docs
+description: Executar consulta avançada mechanics com as funções definidas pelo utilizador de JavaScript
+keywords: JavaScript, funções, udf definidas pelo utilizador
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: e8c1c784a598416b478d1430258201053185fdee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f2b14029ebea7f9cf1fa74a384ecbb72b08b7ad6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Stream Analytics JavaScript definido pelo utilizador as funções do Azure
 O Azure Stream Analytics suporta as funções definidas pelo utilizador escritas em JavaScript. Com a avançada conjunto de **cadeia**, **RegExp**, **bibliotecas**, **matriz**, e **data** métodos que JavaScript Fornece, transformações de dados complexas Stream Analytics tarefas ficam mais fáceis de criar.
@@ -89,10 +88,10 @@ Stream Analytics | JavaScript
 bigint | Número (JavaScript só pode representar números inteiros até precisamente 2 ^ 53)
 DateTime | Data (JavaScript só suporta milissegundos)
 duplo | Número
-nvarchar (Max) | Cadeia
-registo | Objeto
+nvarchar(MAX) | Cadeia
+Gravar | Objeto
 Matriz | Matriz
-VALOR NULO | Valor nulo
+NULO | Valor nulo
 
 
 Seguem-se conversões de JavaScript para Stream Analytics:
@@ -102,10 +101,10 @@ JavaScript | Stream Analytics
 --- | ---
 Número | Bigint (se o número for arredondar e entre longa. MinValue e longa. MaxValue; caso contrário, é aspas)
 Data | DateTime
-Cadeia | nvarchar (Max)
-Objeto | registo
+Cadeia | nvarchar(MAX)
+Objeto | Gravar
 Matriz | Matriz
-Nulo, indefinido | VALOR NULO
+Nulo, indefinido | NULO
 Qualquer outro tipo (por exemplo, uma função ou erro) | Não é suportados (resultados de erro de tempo de execução)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
@@ -141,7 +140,7 @@ FROM
 ## <a name="get-help"></a>Obter ajuda
 Para obter ajuda adicional, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

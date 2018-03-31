@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6da0bf009fa71885d7d8e3bd5376c5a7c9d4a344
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 574b11f9ba38bda775610f2f9e90fbb2d2b05868
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Explorar os registos de rastreio do .NET no Application Insights
 Se utilizar o NLog, o log4Net ou Trace para o rastreio de diagnóstico na sua aplicação ASP.NET, pode ter os registos enviados para [Azure Application Insights][start], onde pode explorar e procure-os. Os registos serão Unidos com outra telemetria provenientes da sua aplicação, para que possa identificar os rastreios associados a cada pedido de utilizador de manutenção e correlacioná-los com outros eventos e os relatórios de exceções.
@@ -91,15 +91,15 @@ Pode configurar [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.
 ```
 
 Para cada origem, pode definir os seguintes parâmetros:
- * `Name`Especifica o nome de EventSource para recolher.
- * `Level`Especifica o nível de registo a recolher. Pode ser um dos `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords`(Opcional) Especifica o valor de número inteiro de combinações de palavras-chave a utilizar.
+ * `Name` Especifica o nome de EventSource para recolher.
+ * `Level` Especifica o nível de registo a recolher. Pode ser um dos `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (Opcional) Especifica o valor de número inteiro de combinações de palavras-chave a utilizar.
 
 ## <a name="using-diagnosticsource-events"></a>A utilização de eventos de DiagnosticSource
 Pode configurar [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) eventos enviados para o Application Insights como rastreios. Em primeiro lugar, instalar o [ `Microsoft.ApplicationInsights.DiagnosticSourceListener` ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) pacote NuGet. Em seguida, edite o `TelemetryModules` secção o [Applicationinsights](app-insights-configuration-with-applicationinsights-config.md) ficheiro.
 
 ```xml
-    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+    <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
       <Sources>
         <Add Name="MyDiagnosticSourceName" />
       </Sources>
@@ -123,10 +123,10 @@ Pode configurar eventos ETW sejam enviados para o Application Insights como rast
 ```
 
 Para cada origem, pode definir os seguintes parâmetros:
- * `ProviderName`é o nome do fornecedor ETW para recolher.
- * `ProviderGuid`Especifica o GUID do fornecedor ETW para recolher, pode ser utilizado em vez de `ProviderName`.
- * `Level`Define o nível de registo a recolher. Pode ser um dos `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords`(Opcional) define o valor de número inteiro de combinações de palavra-chave a utilizar.
+ * `ProviderName` é o nome do fornecedor ETW para recolher.
+ * `ProviderGuid` Especifica o GUID do fornecedor ETW para recolher, pode ser utilizado em vez de `ProviderName`.
+ * `Level` Define o nível de registo a recolher. Pode ser um dos `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (Opcional) define o valor de número inteiro de combinações de palavra-chave a utilizar.
 
 ## <a name="using-the-trace-api-directly"></a>Utilizar diretamente o rastreio de API
 Pode chamar o API de rastreio do Application Insights diretamente. Os adaptadores de registo utilizam esta API.
@@ -168,7 +168,7 @@ Pode, por exemplo:
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Diagnosticar falhas e exceções no ASP.NET][exceptions]
 
 [Saiba mais sobre pesquisa][diagnostic].

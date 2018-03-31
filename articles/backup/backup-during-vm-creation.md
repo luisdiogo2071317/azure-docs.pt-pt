@@ -1,23 +1,23 @@
 ---
-title: "Ativar a cópia de segurança de VM do Azure durante a criação | Microsoft Docs"
-description: "Consulte os passos para ativar a cópia de segurança da máquina virtual do Azure durante o processo de criação."
+title: Ativar a cópia de segurança de VM do Azure durante a criação | Microsoft Docs
+description: Consulte os passos para ativar a cópia de segurança da máquina virtual do Azure durante o processo de criação.
 services: backup, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4041fc555fe4b61d10f84236dcae5156c6282fd3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16714eee697d9dc8102b5f29d9639d650517562
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Ativar a cópia de segurança durante a criação da máquina virtual do Azure 
 
@@ -57,6 +57,10 @@ Se não estiver já em sessão iniciada na sua conta, inicie sessão no [portal 
 ## <a name="initiate-a-backup-after-creating-the-vm"></a>Iniciar uma cópia de segurança depois de criar a VM 
 
 Embora a política de cópia de segurança tiver sido criada, é recomendável criar uma cópia de segurança inicial. Para ver os detalhes de cópia de segurança para a virtual máquina uma vez as VM criação modelo depois de concluída, do **operações** definir no menu da esquerda, clique em **cópia de segurança**. Pode utilizar este para acionar uma cópia de segurança a pedido, restaurar uma VM completa ou de todos os discos, restaurar ficheiros a partir de cópia de segurança VM ou altere a política de cópia de segurança associada à máquina virtual.  
+
+## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>Utilizar um modelo do Resource Manager para implementar uma VM protegida
+
+Os passos anteriores explicam como utilizar o portal do Azure para criar uma máquina virtual e protegê-lo para um cofre dos serviços de recuperação. Se pretender rapidamente implementar uma ou mais máquinas virtuais e protegê-los para um cofre dos serviços de recuperação, consulte o modelo, [implementar uma VM do Windows e ativar a cópia de segurança](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
 

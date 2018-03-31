@@ -1,36 +1,34 @@
 ---
-title: "Ficheiros Hyperlapse de multimédia com Hyperlapse de multimédia do Azure | Microsoft Docs"
-description: "Hyperlapse de multimédia do Azure cria uniforme vídeos passado o tempo do conteúdo primeira pessoa ou ação câmara. Este tópico mostra como utilizar o indexador de suporte de dados."
+title: Ficheiros Hyperlapse de multimédia com Hyperlapse de multimédia do Azure | Microsoft Docs
+description: Hyperlapse de multimédia do Azure cria uniforme vídeos passado o tempo do conteúdo primeira pessoa ou ação câmara. Este tópico mostra como utilizar o indexador de suporte de dados.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: asolanki
 manager: johndeu
-editor: 
+editor: ''
 ms.assetid: 37d54db6-9cf3-4ae9-b3c6-0d29c744e965
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 86a9d44a93d7717d2ed949db2b1d1e94963781d0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Ficheiros Hyperlapse de multimédia com Hyperlapse de multimédia do Azure
 Hyperlapse de multimédia do Azure é um suporte de dados de processador (MP) que cria uniforme vídeos passado o tempo do conteúdo primeira pessoa ou ação câmara.  O colateral baseado na nuvem para [Microsoft Research Pro de Hyperlapse ambiente de trabalho e móvel de Hyperlapse baseada no telefone](http://aka.ms/hyperlapse), Microsoft Hyperlapse de Media Services do Azure utiliza a grande escala do processamento do suporte de dados do Azure suporte de dados serviços plataforma horizontalmente dimensionar e parallelize em massa Hyperlapse de processamento.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse foi concebida para funcionar melhor no conteúdo da primeira pessoa com uma câmara mover.  Embora filmagens de câmaras ainda podem continuarão a funcionar, o desempenho e a qualidade do processador de multimédia de Hyperlapse de suporte de dados do Azure, não poderá ser garantidos para outros tipos de conteúdo.  Para saber mais sobre o Microsoft Hyperlapse de Media Services do Azure e ver alguns vídeos de exemplo, consulte o [blogue introdutórias](http://aka.ms/azurehyperlapseblog) partir da pré-visualização pública.
+> Microsoft Hyperlapse foi concebida para funcionar melhor no conteúdo da primeira pessoa com uma câmara mover. Embora filmagens de câmaras ainda podem continuarão a funcionar, o desempenho e a qualidade do processador de multimédia de Hyperlapse de suporte de dados do Azure, não poderá ser garantidos para outros tipos de conteúdo.
 > 
 > 
 
 Um Hyperlapse de multimédia do Azure tarefa demora como um ficheiro de recurso MP4, MOV ou WMV juntamente com um ficheiro de configuração que especifica quais frames de vídeo devem ter passado o tempo e a que velocidade de entrada (por exemplo, 10 000 primeiro enquadra-se em 2 x).  O resultado é um rendition stabilized e passado o tempo do vídeo de entrada.
-
-As atualizações mais recentes do Hyperlapse de multimédia do Azure, consulte [blogues de Media Services](https://azure.microsoft.com/blog/topics/media-services/).
 
 ## <a name="hyperlapse-an-asset"></a>Um recurso de Hyperlapse
 Primeiro terá de carregar o ficheiro de entrada pretendido para Media Services do Azure.  Para saber mais sobre os conceitos envolvidos carregar e gerir conteúdo, leia o [artigo gestão de conteúdos](media-services-portal-vod-get-started.md).

@@ -1,12 +1,12 @@
 ---
-title: "Aceleração dinâmicas do site através da CDN do Azure"
-description: "Descrição detalhada da aceleração dinâmicas do site"
+title: Aceleração dinâmicas do site através da CDN do Azure
+description: CDN do Azure suporta otimização de aceleração (DSA) dinâmicas do site para os ficheiros com conteúdo dinâmico.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli
-ms.openlocfilehash: 713f00f432095b7a8a19996fb7bdb7e5f8d79b63
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração dinâmicas do site através da CDN do Azure
 
@@ -29,9 +29,9 @@ Capacidade de entrega de conteúdos padrão de rede (CDN) inclui a capacidade de
 **CDN do Azure da Akamai** e **CDN do Azure da Verizon** ambos oferecem otimização DSA através de **otimizado para** menu durante a criação do ponto final.
 
 > [!Important]
-> Para **CDN do Azure da Akamai** perfis, pode alterar a otimização de um ponto final de CDN depois de terem sido criadas.
+> Para **CDN do Azure da Akamai** perfis, pode alterar a otimização de um ponto final de CDN após ter sido criado.
 >   
-> **CDN do Azure da Verizon** perfis, não é possível alterar a otimização de um ponto final de CDN após ter sido criado.
+> Para **CDN do Azure da Verizon** perfis, não é possível alterar a otimização de um ponto final de CDN depois de terem sido criadas.
 
 ## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>Configurar o ponto final da CDN para acelerar a entrega de ficheiros dinâmicos
 
@@ -104,7 +104,7 @@ Protocolo de controlo de transmissão (TCP) é o padrão do conjunto de protocol
 
 TCP *lenta início* é um algoritmo do protocolo TCP que impede o congestionamento de rede ao limitar a quantidade de dados enviados através da rede. Começa com o tamanho de janela de congestionamento pequeno entre remetente e o recetor até que o máximo é alcançado ou perda de pacotes é detetada.
 
- Ambos **CDN do Azure da Akamai** e **CDN do Azure da Verizon** eliminar início lento de TCP com os seguintes três passos:
+ Ambos **CDN do Azure da Akamai** e **CDN do Azure da Verizon** perfis eliminar início lento de TCP com os seguintes três passos:
 
 1. Estado de funcionamento e a monitorização de largura de banda é utilizada para medir a largura de banda das ligações entre servidores de PoP edge.
     
@@ -152,19 +152,32 @@ Com DSA, colocação em cache está desativada por predefinição na CDN, mesmo 
 
 Se tiver um Web site com uma combinação de recursos dinâmicos e estáticos, é melhor adotar uma abordagem de híbrida para obter o melhor desempenho. 
 
-Para **CDN do Azure da Verizon Premium** perfis, pode ativar a colocação em cache para casos específicos utilizando o [motor de regras](cdn-rules-engine.md) para pontos finais DSA. Quaisquer regras que são criadas afetam apenas esses pontos finais do seu perfil que estão otimizados para DSA. 
+Para **CDN do Azure da Verizon padrão** e **CDN do Azure da Akamai padrão** perfis, pode ativar a colocação em cache para os pontos finais DSA utilizando [regras a colocação em cache](cdn-caching-rules.md).
 
-Para aceder ao motor de regras de pontos finais DSA:
+A colocação em cache as regras de acesso:
+
+1. Do **perfil da CDN** página, em definições, selecionadas **regras a colocação em cache**.  
+    
+    ![Botão de regras de colocação em cache de CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+
+    O **regras a colocação em cache** é aberta a página.
+
+2. Crie uma regra de colocação em cache global ou personalizada para ativar a colocação em cache para o ponto final DSA. 
+
+Para **CDN do Azure da Verizon Premium** perfis, ativar a colocação em cache para os pontos finais DSA utilizando o [motor de regras](cdn-rules-engine.md). Quaisquer regras que são criadas afetam apenas esses pontos finais do seu perfil que estão otimizados para DSA. 
+
+Para o motor de regras de acesso:
     
 1. Do **perfil da CDN** página, selecione **gerir**.  
     
-    ![Botão de gerir do perfil de CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Botão de gerir do perfil de CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     É aberto o portal de gestão do CDN.
 
 2. No portal de gestão CDN, selecione **ADN**, em seguida, selecione **motor de regras**. 
 
-    ![Motor de regras para DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![Motor de regras para DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
+
 
 
 Em alternativa, pode utilizar dois pontos finais da CDN: um ponto final otimizada com DSA para fornecer recursos dinâmicos e de outro ponto final otimizada com um tipo de otimização estáticos, tais como geral entrega web, a recursos colocáveis de entrega. Modificar o URL de página Web para ligar diretamente para o elemento no ponto final da CDN que planeia utilizar. 

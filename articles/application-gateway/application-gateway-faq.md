@@ -1,24 +1,19 @@
 ---
-title: Perguntas mais frequentes sobre o Gateway de aplicação do Azure | Microsoft Docs
+title: Perguntas mais frequentes sobre o Gateway de aplicação do Azure
 description: Esta página fornece respostas às perguntas mais frequentes sobre o Gateway de aplicação do Azure
-documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 3/29/2018
+ms.author: victorh
+ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -38,7 +33,19 @@ Gateway de aplicação é um balanceador de carga de camada 7, o que significa q
 
 **Q. Os protocolos suporta o Gateway de aplicação?**
 
-Gateway de aplicação suporta HTTP, HTTPS e WebSocket.
+Gateway de aplicação suporta HTTP, HTTPS, HTTP/2 e WebSocket.
+
+**Q. Como é que o Gateway de aplicação suportar HTTP/2?**
+
+Suporte de protocolos HTTP/2 está disponível para clientes que se ligam ao apenas serviços de escuta de Gateway de aplicação. A comunicação para agrupamentos de servidor de back-end é através de HTTP/1.1. 
+
+Por predefinição, o suporte HTTP/2 está desativado. O exemplo de fragmento de código do Azure PowerShell seguinte mostra como pode ativá-la:
+
+```
+$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw.EnableHttp2 = $true
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
+```
 
 **Q. Os recursos que são suportados atualmente como parte do conjunto back-end?**
 
@@ -314,7 +321,7 @@ Os registos de auditoria estão disponíveis para o Gateway de aplicação. No p
 
 **Q. Pode definir alertas com Gateway de aplicação?**
 
-Sim, Gateway de aplicação suportar alertas, alertas são configuradas desativar métricas.  Gateway de aplicação não tem atualmente uma métrica de "débito", que pode ser configurado para o alerta. Para obter mais informações sobre alertas, visite [receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Sim, Gateway de aplicação suportar alertas, alertas são configuradas desativar métricas. Gateway de aplicação não tem atualmente uma métrica de "débito", que pode ser configurado para o alerta. Para obter mais informações sobre alertas, visite [receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 **Q. Estado de funcionamento de back-end devolve Estado desconhecido, que pode causar este Estado?**
 

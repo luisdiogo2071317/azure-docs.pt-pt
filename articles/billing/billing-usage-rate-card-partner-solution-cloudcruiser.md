@@ -1,11 +1,11 @@
 ---
-title: "Nuvem Cruiser e a integração de API de faturação do Microsoft Azure | Microsoft Docs"
-description: "Fornece uma perspetiva exclusiva a partir do Microsoft Azure Billing parceiro Cruiser de nuvem, nas suas experiências integrar APIs de faturação do Azure para os seus produtos.  Isto é especialmente útil para os clientes do Azure e nuvem Cruiser que estão interessados nas utilizando/tentar Cruiser da nuvem para o Microsoft Azure Pack."
-services: 
-documentationcenter: 
-author: BryanLa
+title: Nuvem Cruiser e a integração de API de faturação do Microsoft Azure | Microsoft Docs
+description: Fornece uma perspetiva exclusiva a partir do Microsoft Azure Billing parceiro Cruiser de nuvem, nas suas experiências integrar APIs de faturação do Azure para os seus produtos.  Isto é especialmente útil para os clientes do Azure e nuvem Cruiser que estão interessados nas utilizando/tentar Cruiser da nuvem para o Microsoft Azure Pack.
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: mobandyo;sirishap;bryanla
-ms.openlocfilehash: 7d66cac98afa72c807f597403b1e2bd278e45cec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ddb81078e8019284c0481d4ea8d72253d3f0a5a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Nuvem Cruiser e a integração de API de faturação do Microsoft Azure
 Este artigo descreve como as informações recolhidas a partir do novo Microsoft Azure Billing APIs podem ser utilizadas na nuvem Cruiser para simulação de custo de fluxo de trabalho e de análise.
@@ -198,7 +198,7 @@ Agora precisamos apenas de adicionar um passo para publicar os dados de utiliza�
 
 A parte melhor é que só tem de passar por este processo, uma vez. Quando o livro estiver concluído, basta adicioná-lo para o programador e é executada hora a hora ou diariamente à hora agendada. Em seguida, é apenas um fim de criação de novos relatórios ou personalizar existentes, para analisar os dados para obter informações significativas da utilização de nuvem.
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Próximos Passos
 * Para obter instruções detalhadas sobre a criação de relatórios e livros Cruiser de nuvem, consulte da nuvem Cruiser online [documentação](http://docs.cloudcruiser.com/) (início de sessão válido necessário).  Para obter mais informações sobre a nuvem Cruiser, contacte [ info@cloudcruiser.com ](mailto:info@cloudcruiser.com).
 * Consulte [obter informações acerca do consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md) para uma descrição geral da utilização de recursos do Azure e RateCard APIs.
 * Veja o [referência de API de REST de faturação do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) para obter mais informações sobre as APIs, que fazem parte do conjunto de APIs fornecidas pelo Azure Resource Manager.
