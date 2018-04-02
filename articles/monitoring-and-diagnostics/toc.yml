@@ -39,7 +39,7 @@
       href: monitor-alerts-unified-log.md
     - name: Alertas do registo de atividades (Pré-visualização)
       href: monitoring-activity-log-alerts-new-experience.md
-    - name: Expandir alertas do OMS para o Azure
+    - name: Expandir os alertas do Log Analytics para o Azure
       href: monitoring-alerts-extend.md
     - name: Grupos de ação
       href: monitoring-action-groups.md
@@ -53,45 +53,45 @@
   items:
     - name: Instruções do Azure Monitor
       href: monitoring-get-started.md
+    - name: Criar gráficos de métricas no Explorador de Métricas
+      href: monitoring-metric-charts.md
     - name: Utilizar alertas
       items:
-        - name: Configurar novos alertas no portal do Azure
-          href: monitoring-near-real-time-metric-alerts.md
+        - name: Configurar novos alertas de métricas ou de registos no portal do Azure
+          href: monitor-alerts-unified-usage.md
         - name: Configurar alertas clássicos no portal do Azure
           href: insights-alerts-portal.md
-        - name: Configurar alertas de métricas ou de registos no portal do Azure
-          href: monitor-alerts-unified-usage.md
-        - name: Configurar alertas com a CLI
+        - name: Configurar alertas clássicos com a CLI
           href: insights-alerts-command-line-interface.md
-        - name: Configurar alertas com o Azure PowerShell
+        - name: Configurar os alertas clássicos com o Azure PowerShell
           href: insights-alerts-powershell.md
         - name: Ações de webhook para alertas de registo
           href: monitor-alerts-unified-log-webhook.md
-        - name: Criar um alerta de métrica com um modelo do Resource Manager
+        - name: Criar um alerta de métrica clássico com um modelo do Resource Manager
           href: monitoring-enable-alerts-using-template.md
-        - name: Iniciar a expansão de alertas do OMS para o Azure
+        - name: Copiar alertas do portal do OMS para o portal do Azure
           href: monitoring-alerts-extend-tool.md
-    - name: Utilizar dimensionamento automático
+    - name: Utilizar grupos de ação com alertas
       items:
-        - name: Instruções do dimensionamento automático
-          href: monitoring-autoscale-get-started.md
-        - name: Compreender as definições de Dimensionamento Automático
-          href: monitoring-understanding-autoscale-settings.md
-        - name: Melhores práticas
-          href: insights-autoscale-best-practices.md
-        - name: Métricas comuns
-          href: insights-autoscale-common-metrics.md
-        - name: Padrões comuns
-          href: monitoring-autoscale-common-scale-patterns.md
-        - name: Dimensionamento automático através de uma métrica personalizada
-          href: monitoring-autoscale-scale-by-custom-metric.md
-        - name: Dimensionar automaticamente os conjuntos de dimensionamento de VMs com modelos do Resource Manager
-          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
-        - name: Dimensionar automaticamente máquinas num conjunto de dimensionamento de VMs
-          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
-        - name: Configurar webhooks e notificações de e-mail no dimensionamento automático
-          href: insights-autoscale-to-webhook-email.md
-    - name: Utilizar o registo de atividades
+        - name: Saiba mais sobre o esquema de webhooks
+          href: monitoring-activity-log-alerts-webhook.md
+        - name: Comportamento dos alertas por SMS
+          href: monitoring-sms-alert-behavior.md
+        - name: Limitar a taxa de alertas
+          href: monitoring-alerts-rate-limiting.md
+        - name: Criar grupos de ação com o Resource Manager
+          href: monitoring-create-action-group-with-resource-manager-template.md
+    - name: Utilizar registos de diagnóstico
+      items:
+        - name: Arquivo
+          href: monitoring-archive-diagnostic-logs.md
+        - name: Enviar para o Log Analytics
+          href: monitor-stream-diagnostic-logs-log-analytics.md
+        - name: Transmitir em Fluxo para os Hubs de Eventos
+          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
+        - name: Ativar as definições de diagnóstico com modelos do Resource Manager
+          href: monitoring-enable-diagnostic-logs-using-template.md
+    - name: Utilizar registo de atividades
       items:
         - name: Ver eventos no registo de atividades
           href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
@@ -113,27 +113,13 @@
           href: monitoring-service-notifications.md
         - name: Configurar alertas nas notificações do serviço
           href: monitoring-activity-log-alerts-on-service-notifications.md
-    - name: Utilizar os grupos de ação
+    - name: Acesso programático
       items:
-        - name: Saiba mais sobre o esquema de webhooks
-          href: monitoring-activity-log-alerts-webhook.md
-        - name: Comportamento dos alertas por SMS
-          href: monitoring-sms-alert-behavior.md
-        - name: Limitar a taxa de alertas
-          href: monitoring-alerts-rate-limiting.md
-        - name: Criar grupos de ação com o Resource Manager
-          href: monitoring-create-action-group-with-resource-manager-template.md
-    - name: Utilizar registos de diagnóstico
-      items:
-        - name: Arquivo
-          href: monitoring-archive-diagnostic-logs.md
-        - name: Enviar para o Log Analytics
-          href: monitor-stream-diagnostic-logs-log-analytics.md
-        - name: Transmitir em Fluxo para os Hubs de Eventos
-          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
-        - name: Ativar as definições de diagnóstico com modelos do Resource Manager
-          href: monitoring-enable-diagnostic-logs-using-template.md
-    - name: Utilizar a API REST
+        - name: Guia de utilização da API REST
+          href: monitoring-rest-api-walkthrough.md
+        - name: Exemplos do Azure PowerShell
+          href: insights-powershell-samples.md
+    - name: Utilizar a extensão do Diagnóstico do Azure
       items:
         - name: Enviar para o Application Insights
           href: azure-diagnostics-configure-application-insights.md
@@ -141,12 +127,32 @@
           href: azure-diagnostics-streaming-event-hubs.md
         - name: Resolução de problemas
           href: azure-diagnostics-troubleshooting.md
-    - name: Criar Gráficos de Métricas no Explorador de Métricas
-      href: monitoring-metric-charts.md
-    - name: Enviar métricas para o Grafana
-      href: monitor-send-to-grafana.md
-    - name: Enviar dados de monitorização para um hub de eventos
-      href: monitor-stream-monitoring-data-event-hubs.md
+    - name: Utilizar dimensionamento automático
+      items:
+        - name: Instruções do dimensionamento automático
+          href: monitoring-autoscale-get-started.md
+        - name: Compreender as definições de Dimensionamento Automático
+          href: monitoring-understanding-autoscale-settings.md
+        - name: Melhores práticas
+          href: insights-autoscale-best-practices.md
+        - name: Métricas comuns
+          href: insights-autoscale-common-metrics.md
+        - name: Padrões comuns
+          href: monitoring-autoscale-common-scale-patterns.md
+        - name: Dimensionamento automático através de uma métrica personalizada
+          href: monitoring-autoscale-scale-by-custom-metric.md
+        - name: Dimensionar automaticamente os conjuntos de dimensionamento de VMs com modelos do Resource Manager
+          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Dimensionar automaticamente máquinas num conjunto de dimensionamento de VMs
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Configurar webhooks e notificações de e-mail no dimensionamento automático
+          href: insights-autoscale-to-webhook-email.md
+    - name: Encaminhar para outras localizações
+      items:
+        - name: Enviar métricas para o Grafana
+          href: monitor-send-to-grafana.md
+        - name: Enviar dados de monitorização para um hub de eventos
+          href: monitor-stream-monitoring-data-event-hubs.md
 - name: Referência
   items:
     - name: CLI do Azure
@@ -157,6 +163,8 @@
       href: /rest/api/monitor/
     - name: Métricas suportadas
       href: monitoring-supported-metrics.md
+    - name: Métricas suportadas para os alertas mais recentes
+      href: monitoring-near-real-time-metric-alerts.md
     - name: 'Serviços, categorias e esquemas suportados para os registos de diagnósticos'
       href: monitoring-diagnostic-logs-schema.md
     - name: Esquema de eventos do registo de atividades
