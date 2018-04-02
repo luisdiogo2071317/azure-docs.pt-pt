@@ -6,6 +6,10 @@
 ## [Subscrição e limites do serviço](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Introdução
+## [Criar um gateway VPN baseado em rotas - portal do Azure](create-routebased-vpn-gateway-portal.md)
+## [Criar um gateway VPN baseado em rotas - PowerShell](create-routebased-vpn-gateway-powershell.md)
+
+# Conceitos
 ## [Planear e conceber para o Gateway de VPN](vpn-gateway-plan-design.md)
 ## [Acerca das definições do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md)
 ## [Acerca de dispositivos VPN](vpn-gateway-about-vpn-devices.md)
