@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/02/2018
 ms.author: mabrigg
-ms.openlocfilehash: f495ca12e7cdb1bf61f09bd2d4a8a21654745d8a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c10dcf185c62f3672be80ad2e3d049eae82fe6b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Pilha do Azure de política de manutenção
 Este artigo descreve a política de manutenção para sistemas de pilha do Azure integrada e que terá de efetuar para manter o seu sistema num estado suportado. 
@@ -41,10 +41,11 @@ Um pacote de atualização da Microsoft tem a seguinte convenção de nomenclatu
 Por exemplo, uma atualização de software da Microsoft lançada a 15 de Junho de 2017 teria a versão "1.0.170615.1".
 
 ## <a name="keep-your-system-under-support"></a>Manter o seu sistema de suporte
+Para continuar a receber suporte, tem de manter a implementação de pilha do Azure atual. A política para diferimento por de atualizações é que para a pilha de Azure permaneça na suporte, tem de executar a versão de atualização mais recentemente lançada ou executar qualquer uma das duas versões de atualização principais anterior.  Correções não são consideradas versões de atualização principal.  Se a nuvem de pilha do Azure se encontrar atrás por *mais de duas atualizações*, que é considerado em conformidade e tem de atualizar para, pelo menos, a versão mínima suportada para receber suporte. 
 
-Para receber suporte para o seu sistema, tem de manter a pilha de Azure atualizadas dentro de um intervalo de tempo específico. A nossa política de diferimento por das atualizações de software da Microsoft é durante três meses. Se o sistema está Desatualizadas mais do que três meses, está a considerados como estando em conformidade. Tem de atualizar o sistema para, pelo menos, o mínimo suportado de versão para receber suporte. 
+Por exemplo, se a versão de atualização mais recentemente disponível é 1805 e dois pacotes de atualização anteriores foram versões 1804 e 1803, 1803 e 1804 permanecem no suporte. No entanto, 1802 está fora do suporte. A política se aplica quando não existe nenhuma versão de um mês ou dois. Por exemplo, se a versão atual é 1805 e não ocorreu nenhuma versão 1804, os pacotes de atualização de dois anterior de 1803 e 1802 permanecerá suporte.
 
-Pacotes de atualização de software Microsoft são não cumulativa e necessitam que o pacote de atualização anteriores como pré-requisito. Se decidir diferir atualizações de um ou mais, considere o tempo de execução global, se pretender obter a versão mais recente.
+Pacotes de atualização de software Microsoft são não cumulativa e necessitam que o pacote de atualização anteriores como pré-requisito. Se decidir diferir atualizações de um ou mais, considere o tempo de execução global, se pretender obter a versão mais recente. 
 
 A tabela seguinte mostra as versões de pacote de atualização de exemplo, os respetivos pré-requisitos e a versão mínima suportada que o sistema tem de ser, para manter o suporte. A tabela baseia-se na versão inicial do sistemas de pilha do Azure integrado (criar 1708), com a primeira atualização pacote versão (1709) em Setembro de 2017. 
 
@@ -53,11 +54,12 @@ A tabela seguinte mostra as versões de pacote de atualização de exemplo, os r
 | 1710 | 1709 | N/A |
 | 1711 | 1710 | 1709 |
 | 1712 | 1711 | 1710 |
-| 1802 | 1801 | 1712 |
-| 1803 | 1802 | 1801 |
+| 1802 | 1712 | 1711 |
+| 1803 | 1802 | 1712 |
 | 1804 | 1803 | 1802 |
 | 1805 | 1804 | 1803 |
 | | | 
+Na tabela anterior, não há nenhuma versão de lançamento 1801.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

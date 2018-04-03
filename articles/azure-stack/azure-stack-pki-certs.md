@@ -3,7 +3,7 @@ title: Requisitos de certificados de infraestrutura de chaves públicas de pilha
 description: Descreve os requisitos de implementação de certificados PKI de pilha do Azure para sistemas de pilha do Azure integrado.
 services: azure-stack
 documentationcenter: ''
-author: mabriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
-ms.author: mabrigg
+ms.date: 03/29/2018
+ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestrutura de chaves públicas de pilha do Azure
+
 Pilha do Azure tem uma rede de infraestrutura público com externamente acessíveis endereços IP públicos atribuídos a um pequeno conjunto de serviços de pilha do Azure e, possivelmente, VMs inquilinas. São necessários certificados PKI com os nomes DNS adequados para estes pontos finais públicos de infraestrutura de pilha do Azure durante a implementação de pilha do Azure. Este artigo fornece informações sobre:
 
 - Os certificados são necessários para implementar a pilha do Azure
@@ -37,7 +38,7 @@ A lista seguinte descreve os requisitos de certificados que são necessários pa
 - A infraestrutura de pilha do Azure tem de ter acesso de rede para a autoridade de certificado utilizado para assinar os certificados
 - Quando a rotação dos certificados, os certificados devem estar a emitido na mesma autoridade de certificado interno utilizado para assinar certificados fornecidos na implementação ou qualquer autoridade de certificação pública de acima
 - A utilização de certificados autoassinados não são suportados
-- O certificado pode ser um certificado de caráter universal único que abrangem a todos os espaços de nomes no campo do nome de alternativo do requerente (SAN). Em alternativa, pode utilizar certificados individuais utilizando os carateres universais para pontos finais, tais como acs e o Cofre de chaves, onde são necessárias. 
+- O certificado pode ser um certificado de caráter universal único que abrangem a todos os espaços de nomes no campo do nome de alternativo do requerente (SAN). Em alternativa, pode utilizar certificados individuais, tais como a utilizar os carateres universais para pontos finais **acs** e Cofre de chaves, onde são necessárias. 
 - O algoritmo de assinatura de certificado não pode ser SHA1, como deve ser mais forte. 
 - O formato de certificado tem de ser PFX, como as chaves públicas e privadas são necessárias para a instalação de pilha do Azure. 
 - Os ficheiros pfx do certificado tem um valor "Assinatura Digital" e "KeyEncipherment" do respetivo campo "Utilização de chave".
@@ -58,6 +59,23 @@ A tabela nesta secção descreve os certificados PKI do ponto final público de 
 São necessários certificados com os nomes DNS adequados para cada ponto final público da infraestrutura de pilha do Azure. Nome DNS de cada ponto final é expresso no formato:  *&lt;prefixo >.&lt; Região >. &lt;fqdn >*. 
 
 Para a sua implementação, a [Região] [externalfqdn] valores tem de coincidir com a região e nomes de domínio externo que escolheu para o seu sistema de pilha do Azure. Por exemplo, se o nome de região era *Redmond* e o nome de domínio externo era *contoso.com*, os nomes DNS teria o formato *&lt;prefixo >. redmond.contoso.com*. O  *&lt;prefixo >* valores são predesignated pela Microsoft para descrever o ponto final protegido pelo certificado. Além disso, o  *&lt;prefixo >* valores dos pontos finais externos infraestrutura dependem do serviço de pilha do Azure que utiliza o ponto final específico. 
+
+> [!note]  
+> Os certificados podem ser fornecido como um certificado de caráter universal único que abrangem a todos os espaços de nomes de campos de assunto e um nome de alternativo do requerente (SAN) copiados para todos os diretórios ou certificados individuais para cada ponto final copiado para o diretório correspondente. Lembre-se de que ambas as opções necessitam que utilize certificados de caráter universal para pontos finais, como **acs** e Cofre de chaves, onde são necessárias. 
+
+| Pasta de implementação | Assunto do certificado necessário e os nomes alternativos do requerente (SAN) | Âmbito (por região) | Espaço de nomes de subdomínios |
+|-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
+| Portal público | portal.&lt;region>.&lt;fqdn> | Portais | &lt;region>.&lt;fqdn> |
+| Portal de administração | adminportal.&lt;region>.&lt;fqdn> | Portais | &lt;region>.&lt;fqdn> |
+| Público de Gestor de recursos do Azure | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Administrador do Gestor de recursos do Azure | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Armazenamento de Tabelas | table.&lt;region>.&lt;fqdn> |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Armazenamento de filas | queue.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Cofre de Chaves | vault.&lt;region>.&lt;fqdn> |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) |  Keyvault interno |  adminvault.&lt;region>.&lt;fqdn> |
+
+### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Para o ambiente de pilha do Azure em versões de pré-1803
 
 |Pasta de implementação|Assunto do certificado necessário e os nomes alternativos do requerente (SAN)|Âmbito (por região)|Espaço de nomes de subdomínios|
 |-----|-----|-----|-----|
@@ -93,7 +111,7 @@ A tabela seguinte descreve os pontos finais e certificados necessários para os 
 |Âmbito (por região)|Certificado|Assunto do certificado necessário e os nomes de alternativo do requerente (SANs)|Espaço de nomes de subdomínios|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL Server e o MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL de caráter universal)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|Serviço de Aplicações|Certificado SSL do Web tráfego predefinido|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL de caráter universal de domínio de várias<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|Serviço de Aplicações|Certificado SSL do Web tráfego predefinido|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL de caráter universal de domínio de várias<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |Serviço de Aplicações|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |Serviço de Aplicações|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |Serviço de Aplicações|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|

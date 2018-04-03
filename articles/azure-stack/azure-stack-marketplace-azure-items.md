@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdce5ad971e345971aa5de9a9bb79379fb1ead48
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b91cfdfe89f1f15354595400ed9547496fdcd796
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure itens do Marketplace disponíveis para a pilha do Azure
 
@@ -220,4 +220,5 @@ Pilha do Microsoft Azure suporta as seguintes máquinas virtuais do Azure Market
 | ![Firewall de aplicação PT](media/azure-stack-marketplace-azure-items/pt.png) | [Firewall de aplicação PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Firewall de aplicação PT Deteta vulnerabilidades conhecidas & desconhecidas e impede ataques nas aplicações web. <b>Transfira ambos os itens do PT Marketplace.</b> | Tecnologias positivas |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise permite-lhe automatizar o ciclo de vida completo da sua infraestrutura de pilha do Azure. <b>Transfira ambos os itens do Puppet Marketplace.</b> | Puppet |
 | ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Gestão de infraestruturas de open source melhor na classe. | SUSE |
+| ![Cópia de segurança Veeam e replicação](media/azure-stack-marketplace-azure-items/veeam.png) | [Cópia de segurança Veeam e replicação ](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication) | Cópia de segurança Veeam & replicação 9.5. | Veeam |
 | ![Ferramenta ZeroDown Software](media/azure-stack-marketplace-azure-items/zerodown.png) | [Ferramenta ZeroDown Software ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown Software ferramenta v7.1 - migrar + HA. | ZeroDown Software |
