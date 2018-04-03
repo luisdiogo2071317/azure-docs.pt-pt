@@ -16,10 +16,10 @@ ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: dadb443f8b7739e3a18c0d3beb558d8c42e9d19c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/02/2018
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparar os certificados PKI de pilha do Azure para a implementação
 Os ficheiros de certificado [obtido a partir da sua AC escolhidas](azure-stack-get-pki-certs.md) tem de ser importados e exportados com propriedades correspondentes requisitos de certificado da pilha do Azure.
