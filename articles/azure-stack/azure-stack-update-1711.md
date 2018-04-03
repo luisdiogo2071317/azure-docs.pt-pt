@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f067656f510c14c4a2ac02d3629ae71432c342d2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1711-update"></a>Atualização de pilha 1711 do Azure
 
@@ -111,6 +111,7 @@ Esta secção contém pós-instalação problemas conhecidos com compilação **
 
 - A eliminar os resultados de subscrições do utilizador em recursos órfãos. Como solução, primeiro eliminar recursos de utilizador ou grupo de recursos completo e, em seguida, eliminar subscrições de utilizador.
 - Não é possível ver permissões à sua subscrição utilizando os portais de pilha do Azure. Como solução, pode verificar as permissões com o PowerShell.
+- O **estado de funcionamento do serviço** painel Falha ao carregar. Quando abrir o painel de estado de funcionamento do serviço no portal de administrador ou utilizador, a pilha de Azure apresenta um erro e não carregar informações. Este comportamento está previsto. Apesar de poder selecione e abra o estado de funcionamento do serviço, esta funcionalidade ainda não está disponível, mas irá ser implementada numa versão futura da pilha do Azure.
 
 #### <a name="health-and-monitoring"></a>Estado de funcionamento e a monitorização
 
