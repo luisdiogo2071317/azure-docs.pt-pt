@@ -1,8 +1,8 @@
 ---
 title: Registo do IIS no Log Analytics do Azure | Microsoft Docs
-description: "Serviços de informação Internet (IIS) armazena atividade do utilizador nos ficheiros de registo que podem ser recolhidos através da análise de registos.  Este artigo descreve como configurar a recolha de registos IIS e os detalhes dos registos que criarem na área de trabalho de análise de registos."
+description: Serviços de informação Internet (IIS) armazena atividade do utilizador nos ficheiros de registo que podem ser recolhidos através da análise de registos.  Este artigo descreve como configurar a recolha de registos IIS e os detalhes dos registos que criarem na área de trabalho de análise de registos.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
