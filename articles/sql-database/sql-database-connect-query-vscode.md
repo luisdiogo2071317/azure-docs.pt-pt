@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: carlrab
-ms.openlocfilehash: 689b54704b46f852f62f7d97496c7c04649f2ff1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a9fd44938c3f9b7c70dd9d95b8b45c24018cbfaa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Base de Dados SQL do Azure: utilize o Visual Studio Code para ligar e consultar dados
 
-O [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para Linux, macOS e Windows que suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, a Base de Dados SQL do Azure e o SQL Data Warehouse. Este guia de introdução demonstra como utilizar o Visual Studio Code para ligar a uma base de dados SQL do Azure e, em seguida, utilizar as declarações de Transact-SQL para consultar, inserir, atualizar e eliminar dados na base de dados.
+O [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para Linux, macOS e Windows que suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, a Base de Dados SQL do Azure e o SQL Data Warehouse. Este tutorial de início rápido demonstra como utilizar o Visual Studio Code para ligar a uma base de dados SQL do Azure e, em seguida, utilizar instruções Transact-SQL para consultar, inserir, atualizar e eliminar dados na base de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

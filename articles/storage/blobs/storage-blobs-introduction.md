@@ -1,30 +1,31 @@
 ---
-title: "Introdução ao Armazenamento de blobs do Azure | Microsoft Docs"
-description: "Introdução ao Armazenamento de blobs do Azure"
+title: Introdução ao Armazenamento de blobs - Armazenamento de objetos no Azure | Microsoft Docs
+description: O Armazenamento de blobs do Azure foi criado para armazenar grandes quantidades de dados de objetos não estruturados, como dados de texto ou binários. As aplicações podem aceder a objetos no Armazenamento de blobs do PowerShell ou da CLI do Azure, a partir do código através de bibliotecas de cliente do Armazenamento do Azure ou através do REST.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: overview
-ms.date: 09/28/2017
+ms.date: 03/27/2018
 ms.author: tamram
-ms.openlocfilehash: aabc10b1c1c501e4fa0eb31835c2818cfb8942c6
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0fff0032ec2452413bcd1df3175634b14a64208f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Introdução ao Armazenamento de blobs
 
-O Blob Storage do Azure é um serviço para armazenar grandes quantidades de dados de objetos não estruturados, como texto ou dados binários, que podem ser acedidos de qualquer local no mundo através de HTTP ou HTTPS. Pode utilizar o armazenamento de Blobs para expor publicamente os dados ao mundo ou para armazenar dados da aplicação em privado.
+O Armazenamento de blobs do Azure é a solução de armazenamento da cloud da Microsoft para objetos de dados. O Armazenamento de blobs pode armazenar grandes quantidades de dados de objetos não estruturados, como dados de texto ou binários. Os Dados no Armazenamento de blobs podem ser acedidos em qualquer local no mundo através de HTTP ou HTTPS. Pode utilizar o armazenamento de Blobs para expor publicamente os dados ao mundo ou para armazenar dados da aplicação em privado.
 
 Utilizações comuns do armazenamento de Blobs:
 
 * Entrega de imagens ou documentos diretamente a um browser
 * Armazenamento de ficheiros para acesso distribuído
 * Transmissão de áudio e vídeo
-* Armazenamento de dados de cópia de segurança e restauro, recuperação após desastre e arquivo
+* Armazenamento de cópia de segurança e restauro, recuperação após desastre e arquivo
 * Armazenamento de dados para análise por um serviço no local ou alojado no Azure
+* Armazenar VHDs para utilização com Máquinas Virtuais do Azure
 
 ## <a name="blob-service-concepts"></a>Conceitos do serviço Blob
 

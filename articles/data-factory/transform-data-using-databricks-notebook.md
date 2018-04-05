@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.date: 3/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: d1dcec26529c747a209dd10fcefbbadaa40365a3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7a90906f0bb41b0ced368e9010e0c8a4981f038c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a atividade do Databricks Notebook no Azure Data Factory
+# <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a Atividade do Databricks Notebook no Azure Data Factory
 
 Neste tutorial, utiliza o portal do Azure para criar um pipeline do Azure Data Factory que executa um Databricks Notebook no cluster de tarefas do Databricks. Também transmite os parâmetros do Azure Data Factory ao Databricks Notebook durante a execução.
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-  - **Área de trabalho do Azure Databricks**. [Crie uma área de trabalho do databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) ou utilize uma já existente. Crie um Python Notebook na sua área de trabalho do Azure Databricks. Em seguida, execute o Notebook e transmita os parâmetros ao mesmo através do Azure Data Factory.
+  - **Área de trabalho do Azure Databricks**. [Crie uma área de trabalho do Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) ou utilize uma já existente. Crie um Python Notebook na sua área de trabalho do Azure Databricks. Em seguida, execute o Notebook e transmita os parâmetros ao mesmo através do Azure Data Factory.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
@@ -125,7 +125,7 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
     ![Botões para criar um novo pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
-2.  Crie um **parâmetro** para ser utilizado no **Pipeline**. Mais tarde, transmita este parâmetro à atividade do Databricks Notebook. No pipeline vazio, clique no separador **Parâmetros** e, em seguida, em **Novo** e dê-lhe um nome no formato "**nome**".
+2.  Crie um **parâmetro** para ser utilizado no **Pipeline**. Mais tarde, transmita este parâmetro à Atividade do Databricks Notebook. No pipeline vazio, clique no separador **Parâmetros** e, em seguida, em **Novo** e dê-lhe um nome no formato "**nome**".
 
     ![Criar um novo parâmetro](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image10.png)
 
@@ -149,7 +149,7 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
           ![Criar uma nova pasta](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [Crie um novo Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) e denomine-o **mynotebook** na **Pasta** adftutorial **e** clique em **Criar**.
+       3. [Crie um novo Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) e denomine-o **mynotebook** na **Pasta** adftutorial**e**clique em **Criar**.
 
           ![Criar um novo Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 

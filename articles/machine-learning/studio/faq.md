@@ -1,11 +1,12 @@
 ---
 title: Perguntas mais frequentes do Azure Machine Learning (FAQ) | Microsoft Docs
-description: "Introdução do Azure Machine Learning: Perguntas mais frequentes que abrangem a faturação, capacidades e limitações de um serviço em nuvem para a modelação preditiva simplificada."
-keywords: "introdução ao machine learning, modelação preditiva, o que é o machine learning"
+description: 'Introdução do Azure Machine Learning: Perguntas mais frequentes que abrangem a faturação, capacidades e limitações de um serviço em nuvem para a modelação preditiva simplificada.'
+keywords: introdução ao machine learning, modelação preditiva, o que é o machine learning
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: paulettm
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.author: garye
-ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Perguntas mais frequentes do Azure Machine Learning: faturação, capacidades, limitações e suporte
 Seguem-se algumas perguntas mais frequentes (FAQ) e as respostas correspondentes sobre o Azure Machine Learning, um serviço cloud para desenvolver modelos preditivos e operacionalizar soluções através de serviços Web. Estas FAQ respondem a perguntas sobre como utilizar o serviço, o que inclui o modelo de faturação, as capacidades, as limitações e o suporte.
@@ -458,11 +458,11 @@ Os serviços que tenham o escalão de preço Dev/Test atribuído são parados at
 
 Para cargas de trabalho de RRS, é-lhe cobrada cada chamada de transação à API que fizer e o tempo de computação associado a esses pedidos. Os custos de transações de API de produção de RRS são calculados como o número total de chamadas à API que realiza multiplicado pelo preço de mil transações (rateado por transação individual). Os custos de hora de computação de API de produção de RRS são calculados como a quantidade de tempo necessária para a execução de cada chamada à API, multiplicada pelo número total de transações de API, multiplicado pelo preço por hora de computação de API de produção.
 
-Por exemplo, numa utilização excedida do escalão Standard S1, 1 000 000 de transações de API com um tempo de execução individual de 0,72 segundos teria um custo de (1 000. 00 * 0,50 $/Mil transações de API) 500 $ em custos de transação de API de produção e (1 000 000 * 0,72 * 2 $/h) 400 $ em horas de computação de API de produção, o que totaliza 900 $.
+Por exemplo, numa utilização excedida do escalão Standard S1, 1 000 000 de transações de API com um tempo de execução individual de 0,72 segundos teria um custo de (1 000. 00 0,50 $/Mil transações de API) 500 $ em custos de transação de API de produção e (1 000 000 0,72 * 2 $/h) 400 $ em horas de computação de API de produção, o que totaliza 900 $.
 
 As cargas de trabalho de BEST são cobradas da mesma forma. No entanto, os custos de transação de API representam o número de tarefas de lote que submeter e os custos de computação representam o tempo de computação associado a essas tarefas de lote. Os custos de transação de API de produção de BES são calculados como o número total de tarefas submetidas multiplicado pelo preço de mil transações (rateado por transação individual). Os custos de hora de computação de API de produção de BES são calculados como a quantidade de tempo necessária para a execução de cada linha na sua tarefa, multiplicada pelo número total de linhas na tarefa, multiplicado pelo preço por hora de computação de API de produção. Quando utiliza a calculadora do Machine Learning, o medidor de transação representa o número de tarefas que planeia submeter e o campo de tempo por transação representa o tempo combinado necessário para a execução de todas as linhas em cada tarefa.
 
-Por exemplo, imaginemos a utilização excedida de Standard S1 e submete 100 tarefas por dia, que cada consistem em 500 linhas que demoram 0,72 segundos cada. Os custos de utilização excedida mensais seriam de (100 tarefas por dia = 3100 tarefas/mês * 0,50 $/1 Mil transações de API) 1,55 $ em custos de transação de API de produção (500 linhas * 0,72 segundos * 3100 Tarefas * 2 $/hr) 620 $ em horas de computação de API de produção, num total de 621,55 $.
+Por exemplo, imaginemos a utilização excedida de Standard S1 e submete 100 tarefas por dia, que cada consistem em 500 linhas que demoram 0,72 segundos cada. Os custos de utilização excedida mensais seriam de (100 tarefas por dia = 3100 tarefas/mês 0,50 $/1 Mil transações de API) 1,55 $ em custos de transação de API de produção (500 linhas 0,72 segundos 3100 Tarefas 2 $/hr) 620 $ em horas de computação de API de produção, num total de 621,55 $.
 
 ### <a name="azure-machine-learning-classic-web-services"></a>Serviços Web Clássico do Azure Machine Learning
 **A opção Pay As You Go ainda está disponível?**

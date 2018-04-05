@@ -1,29 +1,27 @@
 ---
 title: Criar uma base de dados de documentos do Azure Cosmos DB com Java | Microsoft Docs | Microsoft Docs
-description: "Apresenta um exemplo de código Java que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API"
+description: Apresenta um exemplo de código Java que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 85f8310235e0f5b038f2b55c94fe044d1a9d9719
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 669a11368ed6ccec041701e691323a2bb2cac56a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar uma base de dados de documentos com Java e o portal do Azure
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Com o Azure Cosmos DB, pode criar e consultar rapidamente documentos geridos, tabelas e bases de dados de gráfico.
 
@@ -46,7 +44,7 @@ Além disso:
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
-Antes de poder criar uma base de dados de documentos, tem de criar uma conta de base de dados SQL com o Azure Cosmos DB.
+Antes de poder criar uma base de dados de documentos, tem de criar uma conta de API SQL com o Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -63,7 +61,7 @@ Pode agora utilizar o Data Explorer para adicionar dados à sua coleção nova.
 
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Agora, adicione um documento à coleção com a seguinte estrutura e clique em **Guardar**.
+2. Agora, adicione um documento à coleção com a seguinte estrutura e clique em **Guardar**. Utilize o botão **Copiar** na caixa de código para copiar o json para a sua área de transferência.
 
      ```json
      {
@@ -87,7 +85,7 @@ Pode utilizar agora consultas no Data Explorer para obter e filtrar os seus dado
 
     ![A consulta predefinida no Data Explorer é "SELECT * FROM c"](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
 
-2. Altere a consulta ao clicar no botão **Editar Filtro**, adicione `ORDER BY c._ts DESC` à caixa de predicado de consulta e, em seguida, clique em **Aplicar Fltro**.
+2. Mantenha-se no separador **Documentos** e altere a consulta ao clicar no botão **Editar Filtro**, adicionar `ORDER BY c._ts DESC` à caixa de predicado de consulta e, em seguida, ao clicar em **Aplicar Filtro**.
 
     ![Altere a consulta predefinida ao adicionar ORDER BY c._ts DESC e clique em Aplicar Filtro](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
 
@@ -119,9 +117,11 @@ Agora, vamos trabalhar com código. Vamos clonar uma aplicação da SQL API a pa
 
 ## <a name="review-the-code"></a>Rever o código
 
-Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Os fragmentos são obtidos a partir do ficheiro `Program.java` instalado na pasta C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string). 
+Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string). 
 
-* `DocumentClient` inicialização. O [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) oferece representação lógica do lado do cliente para o serviço de base de dados do Azure Cosmos DB. Este cliente serve para configurar e executar pedidos contra o serviço.
+Os fragmentos seguintes são retirados do ficheiro C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted\Program.java.
+
+* `DocumentClient` inicialização. O [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) oferece representação lógica do lado do cliente para o serviço de base de dados do Azure Cosmos DB. Este cliente serve para configurar e executar pedidos contra o serviço. As partes `FILLME` deste código serão atualizadas mais tarde no início rápido.
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.com",
@@ -231,13 +231,15 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     A janela do terminal apresenta uma notificação que a base de dados FamilyDB tinha criado. 
     
-4. Prima uma tecla para criar a coleção. 
+4. Prima uma tecla para criar a base de dados e, em seguida, outra tecla para criar a coleção. 
 
-5. Volte para o Data Explorer e verá que contém agora uma base de dados FamilyDB.
-    
-6. Continue a premir as teclas na janela da consola para que o código crie documentos e execute uma consulta.
-    
-    No final do programa, todos os recursos desta aplicação são eliminados da sua conta, para que não seja cobrado qualquer encargo. 
+    No fim do programa, todos os recursos são eliminados. Por isso, mude outra vez para o Data Explorer no seu browser para ver que contém agora uma base de dados FamilyDB e uma coleção FamilyCollection.
+
+5. Mude para a janela da consola e prima uma tecla para criar o primeiro documento e, em seguida, outra tecla para criar o segundo documento. Em seguida, mude novamente para o Data Explorer para vê-los. 
+
+6. Prima uma tecla para executar uma consulta e ver o resultado na janela da consola. 
+
+7. A próxima tecla que premir elimina os recursos. Se pretender manter os recursos, pode premir CTRL+C na janela da consola para terminar o programa. Caso contrário, prima qualquer tecla para eliminar os recursos da sua conta, para que não incorra em encargos. 
 
     ![Saída da consola](./media/create-sql-api-java/console-output.png)
 

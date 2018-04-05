@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7dab67b46a2853e9585c88c8e4d4263f844c3b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 487ffffca445fb3f98dcaa6550b0b1b74290b803
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Criar e Gerir VMs do Linux com a CLI do Azure
 
@@ -91,7 +91,7 @@ exit
 
 ## <a name="understand-vm-images"></a>Compreender as imagens de VM
 
-O Azure Marketplace inclui várias imagens que podem ser utilizadas para criar as VMs. Nos passos anteriores, uma máquina virtual foi criada com uma imagem de Ubuntu. Neste passo, a CLI do Azure é utilizada para procurar no marketplace uma imagem do CentOS, que é utilizada para implementar uma segunda máquina virtual.  
+O Azure Marketplace inclui várias imagens que podem ser utilizadas para criar as VMs. Nos passos anteriores, uma máquina virtual foi criada com uma imagem de Ubuntu. Neste passo, a CLI do Azure é utilizada para procurar no marketplace uma imagem do CentOS, que é utilizada para implementar uma segunda máquina virtual. 
 
 Para ver uma lista das imagens mais frequentemente utilizadas, utilize o comando [az vm image list](/cli/azure/vm/image#az_vm_image_list).
 
@@ -136,7 +136,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Para implementar uma VM utilizando uma imagem específica, tome nota do valor na coluna *Urn*. Ao especificar a imagem, o número de versão da imagem pode ser substituído por "mais recente", que seleciona a versão mais recente da distribuição. Neste exemplo, o argumento `--image` é utilizado para especificar a versão mais recente de uma imagem do CentOS 6.5.  
+Para implementar uma VM com uma imagem específica, anote o valor na coluna *Urn*, que consiste no publicador, oferta, SKU e, opcionalmente, um número de versão para [identificar](cli-ps-findimage.md#terminology) a imagem. Ao especificar a imagem, o número de versão da imagem pode ser substituído por "mais recente", que seleciona a versão mais recente da distribuição. Neste exemplo, o argumento `--image` é utilizado para especificar a versão mais recente de uma imagem do CentOS 6.5.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -257,9 +257,9 @@ Uma VM do Azure pode ter um de vários estados de energia. Este estado represent
 | Desalocada | Indica que a máquina virtual foi removida do hipervisor, mas continua disponível no painel de controlo. As máquinas virtuais no estado Desalocada não incorrem em custos de computação. |
 | - | Indica que o estado de energia da máquina virtual é desconhecido. |
 
-### <a name="find-power-state"></a>Localizar estado de energia
+### <a name="find-power-state"></a>Encontrar estado de energia
 
-Para obter o estado de uma VM específica, utilize o comando [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Certifique-se de que especifica um nome válido para a máquina virtual e o grupo de recursos. 
+Para obter o estado de uma VM específica, utilize o comando [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). Certifique-se de que especifica um nome válido para a máquina virtual e o grupo de recursos. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

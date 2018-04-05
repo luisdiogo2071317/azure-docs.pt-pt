@@ -1,12 +1,12 @@
 ---
 title: Azure Site Recovery Deployment Planner de VMware para o Azure | Microsoft Docs
-description: "Este é o manual do utilizador do Azure Site Recovery Deployment Planner."
+description: Este é o manual do utilizador do Azure Site Recovery Deployment Planner.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 63963804b81aa57e914e18fa474963a3830d04d5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 337217e66fe4d3780af197911a0e72c6f936e411
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custos do planeador de implementações do Azure Site Recovery  
 
@@ -136,7 +136,7 @@ Para adicionar VMs manualmente:
 
 **Data redundancy (Redundância de dados)**: pode ser um dos seguintes - Armazenamento localmente redundante (LRS), Armazenamento georredundante (GRS) ou Armazenamento georredundante com acesso de leitura (RA-GRS). A predefinição é LRS. Pode alterar o tipo com base na sua conta de armazenamento para VMs específicas ou pode aplicar o novo tipo a todas as VMs, alterando o tipo da linha superior e clicando no botão «Apply to all» (Aplicar a todos).  O custo de armazenamento para a replicação é calculado com base no preço da redundância de dados que selecionou. 
 
-**Azure Hybrid Use Benefit (Benefício Híbrido do Azure)**: pode aplicar o Benefício Híbrido do Azure a VMs do Windows, se aplicável.  A predefinição é Sim. Pode alterar a definição para VMs específicas ou atualizar todas as VMs ao clicar no botão «Apply to all» (Aplicar a todos).
+**Benefício Híbrido do Azure**: pode aplicar o Benefício Híbrido do Azure a VMs do Windows, se aplicável.  A predefinição é Sim. Pode alterar a definição para VMs específicas ou atualizar todas as VMs ao clicar no botão «Apply to all» (Aplicar a todos).
 
 **Total Azure consumption (Consumo total do Azure)**: inclui o custo de computação, armazenamento e licença do Azure Site Recovery para a sua DR. Com base na sua seleção, mostra o custo mensal ou anualmente.
 

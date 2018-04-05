@@ -1,6 +1,6 @@
 ---
-title: "Análise de aplicação Web em Java com o Application Insights do Azure | Microsoft Docs"
-description: "Monitorização do Desempenho de Aplicações para aplicações Web Java com o Application Insights. "
+title: Análise de aplicação Web em Java com o Application Insights do Azure | Microsoft Docs
+description: 'Monitorização do Desempenho de Aplicações para aplicações Web Java com o Application Insights. '
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights num projeto Web em Java
 
@@ -30,7 +30,7 @@ O Application Insights suporta aplicações em Java em execução no Linux, Unix
 
 É necessário:
 
-* Oracle JRE 1.6 ou posterior, ou Zulu JRE 1.6 ou posterior
+* Oracle ou Zulu JRE versão 1.7 ou 1.8
 * Uma subscrição do [Microsoft Azure](https://azure.microsoft.com/).
 
 *Se tiver uma aplicação Web que já está em direto, pode seguir o procedimento alternativo para [adicionar o SDK no tempo de execução ao servidor Web](app-insights-java-live.md). Essa alternativa evita a reconstrução do código, mas não tem a opção para escrever código de modo a controlar a atividade do utilizador.*
@@ -169,8 +169,7 @@ O SDK do Application Insights procura a chave pela seguinte ordem:
 Também pode [defini-lo no código](app-insights-api-custom-events-metrics.md#ikey):
 
 ```Java
-
-    telemetryClient.InstrumentationKey = "...";
+    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. Adicionar um filtro HTTP

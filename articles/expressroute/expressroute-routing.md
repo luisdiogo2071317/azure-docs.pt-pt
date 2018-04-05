@@ -1,24 +1,24 @@
 ---
 title: Requisitos de encaminhamento do Azure ExpressRoute | Microsoft Docs
-description: "Esta página apresenta os requisitos detalhados para configurar e gerir o encaminhamento para circuitos do ExpressRoute."
+description: Esta página apresenta os requisitos detalhados para configurar e gerir o encaminhamento para circuitos do ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: ganesr
-editor: 
+editor: ''
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 87cf32c23c2b3f50057016a23212c95b706f2910
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 829646be6404f86d9f370b3a402cfc0c0c980699
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -107,7 +107,7 @@ Certifique-se de que o endereço IP e o número AS estão registados em seu nome
 
 Se os prefixos e o número SA não estiverem atribuídos a si nos registos anteriores, terá de abrir um pedido de suporte para a validação manual dos seus prefixos e ASN. O suporte requer documentação, como uma Carta de Autorização, que prova que está autorizado a utilizar os recursos.
 
-É permitido um Número AS privado com Peering da Microsoft, mas também irá precisar de validação manual.
+É permitido um Número AS privado com Peering da Microsoft, mas também irá precisar de validação manual. Além disso, removemos os números privados COMO no COMO Caminho para os prefixos recebidos. Por consequência, não pode acrescentar números privados COMO no COMO Caminho de modo a [influenciar o encaminhamento para o Peering da Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
 > Os endereços IP públicos anunciados à Microsoft através do ExpressRoute não devem ser anunciados à Internet. Tal poderá interromper a conectividade a outros serviços Microsoft. No entanto, os endereços IP Públicos utilizados pelos servidores da rede que comunicam com pontos finais do O365 dentro da Microsoft poderão ser anunciados através do ExpressRoute. 
@@ -118,7 +118,7 @@ Se os prefixos e o número SA não estiverem atribuídos a si nos registos anter
 A troca do encaminhamento será feita através do protocolo eBGP. São estabelecidas sessões de EBGP entre os MSEEs e os seus routers. A autenticação das sessões de BGP não é um requisito. Se necessário, pode ser configurado um hash MD5. Veja [Configurar encaminhamento](expressroute-howto-routing-classic.md) e [Fluxos de trabalho de aprovisionamento dos circuitos e estados dos circuitos](expressroute-workflows.md) para obter informações sobre como configurar sessões de BGP.
 
 ## <a name="autonomous-system-numbers"></a>Números de Sistema Autónomos
-A Microsoft utiliza AS 12076 para o peering público do Azure, o peering privado do Azure e o peering da Microsoft. Reservamos os ASNs do 65515 ao 65520 para utilização interna. São suportados números AS de 16 e de 32 bits. É necessário um ASN registado publicamente apenas para o peering da Microsoft. Tanto o peering privado como público podem utilizar ASNs privados.
+A Microsoft utiliza AS 12076 para o peering público do Azure, o peering privado do Azure e o peering da Microsoft. Reservamos os ASNs do 65515 ao 65520 para utilização interna. São suportados números AS de 16 e de 32 bits.
 
 Não há requisitos quanto à simetria da transferência de dados. Os caminhos de reencaminhamento e do remetente podem atravessar pares de routers diferentes. As rotas idênticas têm de ser anunciadas nos dois lados nos vários pares de circuito que lhe pertençam. Não é necessário que a métrica das rotas seja idêntica.
 

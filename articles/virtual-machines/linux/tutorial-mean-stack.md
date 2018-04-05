@@ -1,49 +1,49 @@
 ---
-title: "Criar uma média da pilha de uma VM com Linux no Azure | Microsoft Docs"
-description: "Saiba como criar uma pilha de MongoDB, Express, AngularJS e Node.js (média) numa VM com Linux no Azure."
+title: Criar uma pilha MEAN numa VM do Linux no Azure | Microsoft Docs
+description: Saiba como criar uma pilha MongoDB, Express, AngularJS e Node.js (MEAN) numa VM do Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/08/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 2bd89bf25f619caef07ae099232add55dbe0cda7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Criar uma pilha de MongoDB, Express, AngularJS e Node.js (média) numa VM com Linux no Azure
+# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Criar uma pilha MongoDB, Express, AngularJS e Node.js (MEAN) numa VM do Linux no Azure
 
-Este tutorial mostra como implementar uma pilha de MongoDB, Express, AngularJS e Node.js (média) numa VM com Linux no Azure. A pilha de média que criar permite adicionar, eliminar e listar books numa base de dados. Saiba como:
+Este tutorial mostra como criar uma pilha MongoDB, Express, AngularJS e Node.js (MEAN) numa VM do Linux no Azure. A pila MEAN que cria permite adicionar, eliminar e listar livros numa base de dados. Saiba como:
 
 > [!div class="checklist"]
 > * Criar uma VM do Linux
 > * Instalar o Node.js
-> * Instalar MongoDB e configurar o servidor
-> * Instalar rápida e configurar as rotas ao servidor
-> * As rotas com AngularJS de acesso
+> * Instalar o MongoDB e configurar o servidor
+> * Instalar o Express e configurar caminhos para o servidor
+> * Aceder a caminhos com o AngularJS
 > * Executar a aplicação
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que está a executar a CLI do Azure versão 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Criar uma VM do Linux
 
-Criar um grupo de recursos com o [criar grupo az](https://docs.microsoft.com/cli/azure/group#az_group_create) de comandos e criar uma VM com Linux com o [az vm criar](https://docs.microsoft.com/cli/azure/vm#az_vm_create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) e crie uma VM do Linux com o comando [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-O exemplo seguinte utiliza a CLI do Azure para criar um grupo de recursos denominado *myResourceGroupMEAN* no *eastus* localização. É criada uma VM com o nome *myVM* com chaves SSH se estes ainda não existir numa localização chave predefinido. Para utilizar um conjunto específico de chaves, utilize o - opção de ssh-chave-valor.
+O exemplo seguinte utiliza a CLI do Azure para criar um grupo de recursos com o nome *myResourceGroupMEAN* na localização *eastus*. É criada uma VM com o nome *myVM* com chaves SSH caso estas ainda não existam numa localização chave predefinida. Para utilizar um conjunto específico de chaves, utilize a opção --ssh-key-value.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMEAN --location eastus
@@ -57,7 +57,7 @@ az vm create \
 az vm open-port --port 3300 --resource-group myResourceGroupMEAN --name myVM
 ```
 
-Quando a VM foi criada, a CLI do Azure mostra as informações semelhante ao seguinte exemplo: 
+Quando a VM tiver sido criada, a CLI do Azure mostra informações semelhantes ao seguinte exemplo: 
 
 ```azurecli-interactive
 {
@@ -73,7 +73,7 @@ Quando a VM foi criada, a CLI do Azure mostra as informações semelhante ao seg
 ```
 Tome nota do `publicIpAddress`. Este endereço é utilizado para aceder à VM.
 
-Utilize o seguinte comando para criar uma sessão SSH com a VM. Certifique-se de que utiliza o endereço IP público correto. No nosso exemplo acima nosso IP endereço era 13.72.77.9.
+Utilize o seguinte comando para criar uma sessão SSH com a VM. Certifique-se de que utiliza o endereço IP público correto. No exemplo acima, o nosso endereço IP era 13.72.77.9.
 
 ```bash
 ssh azureuser@13.72.77.9
@@ -81,31 +81,31 @@ ssh azureuser@13.72.77.9
 
 ## <a name="install-nodejs"></a>Instalar o Node.js
 
-[NODE.js](https://nodejs.org/en/) é um tempo de execução de JavaScript incorporado no motor de V8 JavaScript do Chrome. Para configurar as rotas de rápida e controladores AngularJS, node.js é utilizado neste tutorial.
+O [Node.js](https://nodejs.org/en/) é um runtime JavaScript criado no motor JavaScript V8 do Chrome. O Node.js é utilizado neste tutorial para configurar as rotas Express e os controladores AngularJS.
 
-Na VM, utilizando a shell de deteção que tiver aberto com SSH, instale o Node.js.
+Na VM, através da shell de bash que abriu com o SSH, instale o Node.js.
 
 ```bash
 sudo apt-get install -y nodejs
 ```
 
-## <a name="install-mongodb-and-set-up-the-server"></a>Instalar MongoDB e configurar o servidor
-[MongoDB](http://www.mongodb.com) armazena dados em documentos flexíveis, como o JSON. Campos numa base de dados podem variar a partir de um documento para o documento e estrutura de dados pode ser alterada ao longo do tempo. Para a nossa aplicação de exemplo que estamos a adicionar registos do livro para MongoDB que contêm o nome do livro, número de isbn, autor e número de páginas. 
+## <a name="install-mongodb-and-set-up-the-server"></a>Instalar o MongoDB e configurar o servidor
+O [MongoDB](http://www.mongodb.com) armazena dados em documentos flexíveis, semelhantes a JSON. Os campos numa base de dados podem variar de documento para documento e a estrutura de dados pode mudar ao longo do tempo. Na nossa aplicação de exemplo, vamos adicionar registos de livros ao MongoDB que contêm o nome do livro, o número ISBN, o autor e o número de páginas. 
 
-1. Na VM, utilizando a shell de deteção que tiver aberto com SSH, defina a chave do MongoDB.
+1. Na VM, através da shell de bash que abriu com o SSH, defina a chave MongoDB.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
     echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
-2. Atualize o Gestor de pacotes com a chave.
+2. Atualize o gestor de pacotes com a chave.
   
     ```bash
     sudo apt-get update
     ```
 
-3. Instale MongoDB.
+3. Instale o MongoDB.
 
     ```bash
     sudo apt-get install -y mongodb
@@ -117,21 +117,21 @@ sudo apt-get install -y nodejs
     sudo service mongodb start
     ```
 
-5. Também é necessário instalar o [corpo parser](https://www.npmjs.com/package/body-parser-json) pacote para o ajudar-na processar o JSON transmitido pedidos para o servidor.
+5. Precisamos também de instalar o pacote [body-parser](https://www.npmjs.com/package/body-parser-json) para ajudar-nos a processar o JSON passado em pedidos ao servidor.
 
-    Instale o Gestor de pacote npm.
+    Instale o gestor de pacotes npm.
 
     ```bash
     sudo apt-get install npm
     ```
 
-    Instale o pacote do analisador de corpo.
+    Instale o pacote de analisador de corpo.
     
     ```bash
     sudo npm install body-parser
     ```
 
-6. Crie uma pasta denominada *Books* e adicione um ficheiro para o mesmo nome *server.js* que contém a configuração para o servidor web.
+6. Crie uma pasta com o nome *Livros* e adicione um ficheiro à mesma, que contenha a configuração do servidor Web, com o nome *server.js*.
 
     ```node.js
     var express = require('express');
@@ -146,17 +146,17 @@ sudo apt-get install -y nodejs
     });
     ```
 
-## <a name="install-express-and-set-up-routes-to-the-server"></a>Instalar rápida e configurar as rotas ao servidor
+## <a name="install-express-and-set-up-routes-to-the-server"></a>Instalar o Express e configurar caminhos para o servidor
 
-[Express](https://expressjs.com) é uma mínima e flexível web estrutura de aplicação Node.js que fornece funcionalidades de aplicações móveis e web. Express é utilizado neste tutorial para passar informações para e da nossa base de dados de MongoDB de livro. [O mongoose](http://mongoosejs.com) fornece uma solução simples, com base no esquema para modelar os seus dados de aplicação. O mongoose é utilizado neste tutorial para fornecer um esquema de livro para a base de dados.
+O [Express](https://expressjs.com) é uma arquitetura de aplicação Web Node.js mínima e flexível que fornece funcionalidades para aplicações Web e móveis. O Express é utilizado neste tutorial para enviar informações de livros de e para a nossa base de dados MongoDB. O [Mongoose](http://mongoosejs.com) proporciona uma solução simples e baseada em esquema para modelar os seus dados de aplicações. O Mongoose é utilizado neste tutorial para fornecer um esquema de livros para a base de dados.
 
-1. Instale o Mongoose e o Express.
+1. Instale o Express e o Mongoose.
 
     ```bash
     sudo npm install express mongoose
     ```
 
-2. No *Books* pasta, crie uma pasta denominada *aplicações* e adicione um ficheiro denominado *routes.js* com as rotas rápidas definidas.
+2. Na pasta *Livros*, crie uma pasta com o nome *aplicações* e adicione um ficheiro com o nome *routes.js* com os caminhos expressos definidos.
 
     ```node.js
     var Book = require('./models/book');
@@ -198,7 +198,7 @@ sudo apt-get install -y nodejs
     };
     ```
 
-3. No *aplicações* pasta, crie uma pasta denominada *modelos* e adicione um ficheiro denominado *book.js* com a configuração de modelo do livro definida.  
+3. Na pasta *aplicações*, crie uma pasta com o nome *modelos* e adicione um ficheiro com o nome *book.js*, com a configuração de modelo de livros definida.  
 
     ```node.js
     var mongoose = require('mongoose');
@@ -216,11 +216,11 @@ sudo apt-get install -y nodejs
     module.exports = mongoose.model('Book', bookSchema); 
     ```
 
-## <a name="access-the-routes-with-angularjs"></a>As rotas com AngularJS de acesso
+## <a name="access-the-routes-with-angularjs"></a>Aceder a caminhos com o AngularJS
 
-[AngularJS](https://angularjs.org) proporciona uma arquitetura de web para criar vistas dinâmicas nas suas aplicações web. Neste tutorial, utilizamos AngularJS para ligar a nossa página web com rápida e executar ações no nossa base de dados do livro.
+O [AngularJS](https://angularjs.org) fornece uma arquitetura Web para criar vistas dinâmicas nas suas aplicações Web. Neste tutorial, utilizamos o AngularJS para ligar a nossa página Web ao Express e efetuar ações na nossa base de dados de livros.
 
-1. Altere o diretório de criar uma cópia de segurança *Books* (`cd ../..`) e, em seguida, crie uma pasta denominada *pública* e adicione um ficheiro denominado *script.js* com a configuração de controlador definida.
+1. Reverta o diretório para *Livros* (`cd ../..`) e, em seguida, crie uma pasta com o nome *público* e adicione um ficheiro com o nome *script.js* com a configuração de controlador definida.
 
     ```node.js
     var app = angular.module('myApp', []);
@@ -262,7 +262,7 @@ sudo apt-get install -y nodejs
     });
     ```
     
-2. No *pública* pasta, crie um ficheiro denominado *index.html* com a página web definida.
+2. Na pasta *público*, crie um ficheiro com o nome *index.html* com a página Web definida.
 
     ```html
     <!doctype html>
@@ -317,39 +317,39 @@ sudo apt-get install -y nodejs
 
 ##  <a name="run-the-application"></a>Executar a aplicação
 
-1. Altere o diretório de criar uma cópia de segurança *Books* (`cd ..`) e iniciar o servidor ao executar o comando:
+1. Reverta o diretório para *Livros* (`cd ..`) e inicie o servidor ao executar este comando:
 
     ```bash
     nodejs server.js
     ```
 
-2. Abra um browser para o endereço que registadas para a VM. Por exemplo, *http://13.72.77.9:3300*. Deverá ver algo semelhante a seguinte página:
+2. Abra um browser Web no endereço que registou para a VM. Por exemplo, *http://13.72.77.9:3300*. Deverá ver algo semelhante à seguinte página:
 
-    ![Registo de arranque](media/tutorial-mean/meanstack-init.png)
+    ![Registo de livros](media/tutorial-mean/meanstack-init.png)
 
-3. Introduzir dados de caixas de texto e clique em **adicionar**. Por exemplo:
+3. Introduza dados nas caixas de texto e clique em **Adicionar**. Por exemplo:
 
-    ![Adicionar o registo de arranque](media/tutorial-mean/meanstack-add.png)
+    ![Adicionar registo de livros](media/tutorial-mean/meanstack-add.png)
 
-4. Depois de atualizar a página, deverá ver algo semelhante a esta página:
+4. Após atualizar a página, deverá ver algo parecido com esta página:
 
-    ![Registos do livro de lista](media/tutorial-mean/meanstack-list.png)
+    ![Listar registos de livros](media/tutorial-mean/meanstack-list.png)
 
-5. Pode clicar em **eliminar** e remover o registo de arranque da base de dados.
+5. Pode clicar em **Eliminar** e remover o registo de livros da base de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou uma aplicação web que mantém um registo dos registos de livro utilizando uma média da pilha de uma VM com Linux. Aprendeu a:
+Neste tutorial, criou uma aplicação Web que acompanha os registos de livros através de uma pilha MEAN numa VM do Linux. Aprendeu a:
 
 > [!div class="checklist"]
 > * Criar uma VM do Linux
 > * Instalar o Node.js
-> * Instalar MongoDB e configurar o servidor
-> * Instalar rápida e configurar as rotas ao servidor
-> * As rotas com AngularJS de acesso
+> * Instalar o MongoDB e configurar o servidor
+> * Instalar o Express e configurar caminhos para o servidor
+> * Aceder a caminhos com o AngularJS
 > * Executar a aplicação
 
-Avançar para o próximo tutorial para saber como proteger servidores web com certificados SSL.
+Avance para o tutorial seguinte para aprender a proteger os servidores Web com certificados SSL.
 
 > [!div class="nextstepaction"]
-> [Proteger o servidor web com SSL](tutorial-secure-web-server.md)
+> [Proteger o servidor Web com SSL](tutorial-secure-web-server.md)

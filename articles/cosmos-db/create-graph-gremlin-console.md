@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial do Azure Cosmos DB: criar, consultar e percorrer na Consola Apache TinkerPops Gremlin | Microsoft Docs'
-description: "Um guia de introdução do Azure Cosmos DB para criar vértices, margens e consultas com a Graph API do Azure Cosmos DB."
+description: Um guia de introdução do Azure Cosmos DB para criar vértices, margens e consultas com a Graph API do Azure Cosmos DB.
 services: cosmos-db
 author: luisbosquez
 manager: jhubbard
@@ -13,17 +13,17 @@ ms.devlang: terminal
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 2729ad97b49e7284022adae06c5b5f006647849c
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 3f0ec59ccee61fd0dbb7587a9d2ec3e17b1cf873
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: criar, consultar e percorrer gráficos na consola Gremlin
 
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
-Este início rápido demonstra como criar uma conta, uma base de dados e um gráfico (contentor) do Azure Cosmos DB com o portal do Azure e, depois, utilizar a [Consola Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) do [Apache TinkerPop](http://tinkerpop.apache.org) para trabalhar com dados da Graph API. Neste tutorial, vai criar e consultar vértices e margens, atualizar uma propriedade de vértice, consultar vértices, percorrer o gráfico e eliminar um vértice.
+Este início rápido demonstra como criar uma conta [Graph API](graph-introduction.md), uma base de dados e um gráfico (contentor) do Azure Cosmos DB com o portal do Azure e, depois, utilizar a [Consola Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) do [Apache TinkerPop](http://tinkerpop.apache.org) para trabalhar com dados da Graph API. Neste tutorial, vai criar e consultar vértices e margens, atualizar uma propriedade de vértice, consultar vértices, percorrer o gráfico e eliminar um vértice.
 
 ![Azure Cosmos DB a partir da consola Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 

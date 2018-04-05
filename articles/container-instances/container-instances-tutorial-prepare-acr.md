@@ -1,131 +1,146 @@
 ---
-title: "Tutorial do Azure Container Instances – Preparar o Azure Container Registry"
-description: "Tutorial do Azure Container Instances, parte 2 de 3 – Preparar o Azure Container Registry"
+title: Tutorial do Azure Container Instances – Preparar o Azure Container Registry
+description: Tutorial do Azure Container Instances, parte 2 de 3 – Preparar o Azure Container Registry
 services: container-instances
-author: neilpeterson
+author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
-ms.author: seanmck
+ms.date: 03/21/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 94ecba44b8281460da4518c146aab814d2eaa850
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 6e5a6a64e6d7c53bb4ea84de646812c962469d4f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>Implementar e utilizar o Azure Container Registry
+# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial :implementar e utilizar o Azure Container Registry
 
-Esta é a parte dois de um tutorial de três partes. No [passo anterior](container-instances-tutorial-prepare-app.md), foi criada uma imagem de contentor para uma aplicação Web simples escrita em [Node.js][nodejs]. Neste tutorial, envia a imagem para um Azure Container Registry. Se não tiver criado a imagem de contentor, regresse ao [Tutorial 1 – Criar imagem de contentor](container-instances-tutorial-prepare-app.md).
+Esta é a parte dois de um tutorial de três partes. Na [Parte um](container-instances-tutorial-prepare-app.md) do tutorial criou uma imagem de contentor Docker para uma aplicação Web Node.js. Neste tutorial, vai enviar a imagem para o Azure Container Registry. Se ainda não tiver criado a imagem de contentor, regresse ao [Tutorial 1 – Criar imagem de contentor](container-instances-tutorial-prepare-app.md).
 
-O Azure Container Registry é um registo privado e baseado no Azure para imagens de contentor do Docker. Este tutorial orienta-o na implementação de uma instância do Azure Container Registry e no envio de uma imagem de contentor para a mesma.
-
-Neste artigo, parte dois da série, vai:
+O Azure Container Registry é o seu registo de Docker privado no Azure. Neste tutorial, vai criar uma instância do Azure Container Registry na sua subscrição e enviar por push a imagem de contentor criada anteriormente. Neste artigo, parte dois da série, vai:
 
 > [!div class="checklist"]
-> * Implementar uma instância do Azure Container Registry
+> * Criar uma instância do Azure Container Registry
 > * Marcar uma imagem de contentor para o seu registo de contentor do Azure
 > * Carregar a imagem para o seu registo
 
-No próximo artigo, o último tutorial da série, vai implementar o contentor do seu registo privado para o Azure Container Instances.
+No próximo artigo, o último da série, vai implementar o contentor do seu registo privado para o Azure Container Instances.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este tutorial requer a execução da versão 2.0.23 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0][azure-cli-install].
+[!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
-Para concluir este tutorial, precisa de um ambiente de desenvolvimento do Docker, localmente instalado. O Docker disponibiliza pacotes que o configuram facilmente em qualquer sistema [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
+## <a name="create-azure-container-registry"></a>Criar um registo de contentor do Azure
 
-O Azure Cloud Shell não inclui os componentes do Docker necessários para concluir todos os passos deste tutorial. Tem de instalar o CLI do Azure e o ambiente de desenvolvimento do Docker no seu computador local para concluir este tutorial.
+Antes de criar o registo de contentor, precisa de um *grupo de recursos* no qual o implementar. Um grupo de recursos é uma coleção lógica na qual todos os recursos do Azure são implementados e geridos.
 
-## <a name="deploy-azure-container-registry"></a>Implementar o Azure Container Registry
-
-Ao implementar um Azure Container Registry, tem de começar por obter um grupo de recursos. Um grupo de recursos do Azure é uma coleção lógica na qual os recursos do Azure são implementados e geridos.
-
-Crie um grupo de recursos com o comando [az group create][az-group-create]. Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *eastus*.
+Crie um grupo de recursos com o comando [az group create][az-group-create]. No exemplo seguinte, é criado um grupo de recursos designado *myResourceGroup* na região *eualeste*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie um registo de contentor do Azure com o comando [az acr create][az-acr-create]. O nome do registo de contentor tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. Substitua `<acrName>` por um nome exclusivo para o seu registo:
+Depois de criar o grupo de recursos, crie um registo de contentor do Azure com o comando [az acr create][az-acr-create]. O nome do registo de contentor tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. Substitua `<acrName>` por um nome exclusivo para o seu registo:
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Por exemplo, para criar um registo de contentor do Azure com o nome *mycontainerregistry082*:
+Segue-se um resultado de exemplo para um novo registo de contentor do Azure com o nome *mycontainerregistry082* (aqui apresentado como truncado):
 
-```azurecli
-az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
+```console
+$ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
+...
+{
+  "adminUserEnabled": true,
+  "creationDate": "2018-03-16T21:54:47.297875+00:00",
+  "id": "/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry082",
+  "location": "eastus",
+  "loginServer": "mycontainerregistry082.azurecr.io",
+  "name": "mycontainerregistry082",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "status": null,
+  "storageAccount": null,
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
 ```
 
-Em todo o resto deste tutorial, utilizamos `<acrName>` como um marcador de posição para o nome do registo de contentor que escolheu.
+O resto do tutorial refere-se a `<acrName>` como um marcador de posição para o nome do registo de contentor que escolheu neste passo.
 
-## <a name="container-registry-login"></a>Iniciar sessão no registo de contentor
+## <a name="log-in-to-container-registry"></a>Iniciar sessão no registo do contentor
 
-Tem de iniciar sessão na sua instância do Azure Container Registry antes de enviar imagens para a mesma. Utilize o comando [az acr login][az-acr-login] para concluir a operação. Tem de fornecer o nome exclusivo que forneceu para o registo de contentor quando o criou.
+Tem de iniciar sessão na sua instância do Azure Container Registry antes de enviar imagens para a mesma. Utilize o comando [az acr login][az-acr-login] para concluir a operação. Tem de fornecer o nome exclusivo que escolheu para o registo de contentor quando o criou.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-O comando devolve uma mensagem de `Login Succeeded` depois de estar concluído.
+O comando devolve `Login Succeeded` depois de estar concluído:
+
+```console
+$ az acr login --name mycontainerregistry082
+Login Succeeded
+```
 
 ## <a name="tag-container-image"></a>Imagem de contentor
 
-Para implementar uma imagem de contentor a partir de um registo privado, tem de marcar a imagem com o nome `loginServer` do registo.
+Para enviar por push uma imagem de contentor para um registo privado, como o Azure Container Registry, primeiro tem de marcar a imagem com o nome completo do servidor de início de sessão no registo.
 
-Para ver uma lista das imagens atuais, utilize o comando [docker images][docker-images].
-
-```bash
-docker images
-```
-
-Saída:
-
-```bash
-REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
-```
-
-Para obter o nome loginServer, execute o comando [az acr show][az-acr-show] comando. Substitua `<acrName>` pelo nome do seu registo de contentor.
+Em primeiro lugar, obtenha o nome completo do servidor de início de sessão do seu registo de contentor do Azure. Execute o seguinte comando [az acr show][az-acr-show] e substitua `<acrName>` pelo nome do registo que acabou de criar:
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Exemplo de saída:
+Por exemplo, se o registo tiver o nome *mycontainerregistry082*:
 
-```
+```console
+$ az acr show --name mycontainerregistry082 --query loginServer --output table
 Result
 ------------------------
 mycontainerregistry082.azurecr.io
 ```
 
-Marque a imagem *aci-tutorial-app* com o loginServer do seu registo de contentor. Além disso, adicione `:v1` ao final do nome da imagem. Esta etiqueta identifica o número da versão da imagem. Substitua `<acrLoginServer>` pelo resultado do comando [az acr show][az-acr-show] que acabou de executar.
-
-```bash
-docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
-```
-
-Depois de marcada, execute `docker images` para verificar a operação.
+Agora, apresente a lista das suas imagens locais com o comando [docker images][docker-images]:
 
 ```bash
 docker images
 ```
 
-Saída:
+Juntamente com quaisquer outras imagens que tiver no seu computador, deverá ver a imagem *aci-tutorial-app* que incorporou no [tutorial anterior](container-instances-tutorial-prepare-app.md):
+
+```console
+$ docker images
+REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
+aci-tutorial-app    latest    5c745774dfa9    39 minutes ago    68.1 MB
+```
+
+Marque a imagem *aci-tutorial-app* com o loginServer do seu registo de contentor. Além disso, adicione a etiqueta `:v1` ao fim do nome da imagem para indicar o número da versão da imagem. Substitua `<acrLoginServer>` pelo resultado do comando [az acr show][az-acr-show] que executou anteriormente.
 
 ```bash
-REPOSITORY                                                TAG                 IMAGE ID            CREATED             SIZE
-aci-tutorial-app                                          latest              5c745774dfa9        39 seconds ago      68.1 MB
-mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9dace4e1a17        7 minutes ago       68.1 MB
+docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
+```
+
+Execute `docker images` novamente para verificar a operação de marcação:
+
+```console
+$ docker images
+REPOSITORY                                            TAG       IMAGE ID        CREATED           SIZE
+aci-tutorial-app                                      latest    5c745774dfa9    39 minutes ago    68.1 MB
+mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    7 minutes ago     68.1 MB
 ```
 
 ## <a name="push-image-to-azure-container-registry"></a>Enviar imagens para o Azure Container Registry
 
-Envie a imagem *aci-tutorial-app* para o registo com o comando [docker push][docker-push]. Substitua `<acrLoginServer>` pelo nome completo de servidor de início de sessão que obteve no passo anterior.
+Agora que já marcou a imagem *aci-tutorial-app* com o nome completo do servidor de início de sessão do seu registo privado, pode enviá-la por push para o registo com o comando [docker push][docker-push]. Substitua `<acrLoginServer>` pelo nome completo de servidor de início de sessão que obteve no passo anterior.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
@@ -133,7 +148,8 @@ docker push <acrLoginServer>/aci-tutorial-app:v1
 
 A operação `push` deverá demorar alguns segundos a alguns minutos, consoante a sua ligação à Internet, e os resultados são semelhantes ao seguinte:
 
-```bash
+```console
+$ docker push mycontainerregistry082.azurecr.io/aci-tutorial-app:v1
 The push refers to a repository [mycontainerregistry082.azurecr.io/aci-tutorial-app]
 3db9cac20d49: Pushed
 13f653351004: Pushed
@@ -146,29 +162,31 @@ v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05
 
 ## <a name="list-images-in-azure-container-registry"></a>Listar imagens no Azure Container Registry
 
-Para devolver uma lista de imagens que foram enviadas para o seu registo de contentor do Azure, utilize o comando [az acr repository list][az-acr-repository-list]. Atualize o comando com o nome do registo de contentor.
+Para certificar-se de que a imagem que enviou por push está, de facto, no seu registo de contentor do Azure, liste as imagens no registo com o comando [az acr repository list][az-acr-repository-list]. Substitua `<acrName>` pelo nome do seu registo de contentor.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
-Saída:
+Por exemplo:
 
-```azurecli
+```console
+$ az acr repository list --name mycontainerregistry082 --output table
 Result
 ----------------
 aci-tutorial-app
 ```
 
-Em seguida, para ver as etiquetas de uma imagem específica, utilize o comando [az acr repository show-tags][az-acr-repository-show-tags].
+Para ver as *etiquetas* de uma imagem específica, utilize o comando [az acr repository show-tags][az-acr-repository-show-tags].
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
-Saída:
+Deverá ver um resultado semelhante ao seguinte:
 
-```azurecli
+```console
+$ az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
 Result
 --------
 v1
@@ -176,17 +194,17 @@ v1
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, preparou um Azure Container Registry para utilização com o Azure Container Instances e enviou uma imagem de contentor para o registo. Foram efetuados os seguintes passos:
+Neste tutorial, preparou um registo de contentor do Azure para utilização com o Azure Container Instances e enviou por push uma imagem de contentor para o registo. Foram efetuados os seguintes passos:
 
 > [!div class="checklist"]
 > * Implementou uma instância do Azure Container Registry
 > * Marcou uma imagem de contentor para o Azure Container Registry
 > * Carregou uma imagem para o Azure Container Registry
 
-Avance para o próximo tutorial para saber mais sobre implementar o contentor para o Azure através do Azure Container Instances.
+Avance para o próximo tutorial para saber como implementar o contentor para o Azure através do Azure Container Instances:
 
 > [!div class="nextstepaction"]
-> [Implementar contentores para o Azure Container Instances](./container-instances-tutorial-deploy-app.md)
+> [Implementar um contentor no Azure Container Instances](container-instances-tutorial-deploy-app.md)
 
 <!-- LINKS - External -->
 [docker-build]: https://docs.docker.com/engine/reference/commandline/build/

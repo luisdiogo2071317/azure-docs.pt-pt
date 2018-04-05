@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: e5c1a5a991284fcbeac53d2ce35be4e2634514fa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 97b14de64c4aa6bf134f2c293e4bb8b5725810d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portal do Azure: Utilizar o Editor de consultas SQL para ligar e consultar dados
 
-O Editor de consultas SQL é uma ferramenta de consulta de browser que oferece uma forma simples e eficiente de executar consultas SQL na Base de Dados SQL do Azure ou no Azure SQL Data Warehouse sem sair do portal do Azure. Este início rápido demonstra como utilizar o Editor de consultas para ligar a uma base de dados SQL e, em seguida, utilizar as instruções de Transact-SQL para consultar, inserir, atualizar e eliminar dados na base de dados.
+O Editor de consultas SQL é uma ferramenta de consulta de browser que oferece uma forma simples e eficiente de executar consultas SQL na Base de Dados SQL do Azure ou no Azure SQL Data Warehouse sem sair do portal do Azure. Este tutorial de início rápido demonstra como utilizar o Editor de consultas para ligar a uma base de dados SQL e, em seguida, utilizar as instruções Transact-SQL para consultar, inserir, atualizar e eliminar dados na base de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -142,19 +142,25 @@ Utilize o seguinte código para eliminar o produto novo que foi adicionado anter
 
 ## <a name="query-editor-considerations"></a>Considerações sobre o Editor de Consultas
 
-Existem alguns aspetos a saber ao trabalhar com o Editor de Consultas enquanto permanecer no estado de pré-visualização:
+Existem alguns aspetos a saber ao trabalhar com o Editor de consultas:
 
 1. Certifique-se de que definiu a opção "Permitir acesso aos serviços do Azure" nas definições de firewall do SQL Server como "ON". Esta opção dá ao Editor de Consultas SQL acesso às suas bases de dados SQL e armazéns de dados.
 
-2. O início de sessão de Administrador do Azure Active Directory não funciona com contas que têm a autenticação de dois fatores ativada.
+2. Se o servidor SQL estiver numa Rede Virtual, o Editor de consultas não poderá ser utilizado para consultar as bases de dados nesse servidor.
 
-3. As contas de e-mail (por exemplo, outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) ainda não são suportadas como administradores do Active Directory. Certifique-se de que escolhe um utilizador que tenha sido criado nativamente no Azure Active Directory ou federado no Azure Active Directory.
+3. Premir a tecla F5 atualiza a página do Editor de consultas e perde a consulta que está a ser executada. Utilize o botão Executar na barra de ferramentas para executar consultas.
 
-4. As consultas de tipos de dados geográficos ainda não são suportadas no Editor de consultas. Consultar colunas de dados geográficos resultará no erro "System.IO.FileNotFoundException".
+4. O Editor de consultas não suporta a ligação à BD principal
 
-5. Não existe suporte de IntelliSense para vistas e tabelas de bases de dados. No entanto, o editor suporta a conclusão automática de nomes que já tenham sido escritos.
+5. Existe um limite de tempo de 5 minutos para execução de consultas.
 
-6. Premir a tecla F5 atualiza a página do Editor de consultas e perde a consulta que está a ser executada. Utilize o botão Executar na barra de ferramentas para executar consultas.
+6. O início de sessão de Administrador do Azure Active Directory não funciona com contas que têm a autenticação de dois fatores ativada.
+
+7. As contas de e-mail (por exemplo, outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) ainda não são suportadas como administradores do Active Directory. Certifique-se de que escolhe um utilizador que tenha sido criado nativamente no Azure Active Directory ou federado no Azure Active Directory.
+
+8. O Editor de consultas suporta apenas a projeção cilíndrica para tipos de dados geográficos.
+
+9. Não existe suporte de IntelliSense para vistas e tabelas de bases de dados. No entanto, o editor suporta a conclusão automática de nomes que já tenham sido escritos.
 
 
 ## <a name="next-steps"></a>Passos seguintes

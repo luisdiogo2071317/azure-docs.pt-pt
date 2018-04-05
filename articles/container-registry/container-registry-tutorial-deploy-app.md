@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de registo de contentor do Azure – implemente a aplicação web a partir do registo de contentor do Azure"
-description: "Implemente uma aplicação web baseado em Linux utilizando uma imagem do contentor de um registo de contentor do Azure georreplicação. Parte dois de uma série de três partes."
+title: Tutorial do Azure Container Registry - Implementar uma aplicação Web do Azure Container Registry
+description: Implemente uma aplicação Web baseada no Linux através de uma imagem de contentor a partir de um Azure Container Registry georreplicado. Parte dois de uma série com três partes.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,110 +9,110 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.openlocfilehash: 51aa3c6fc56e974fc1729a1d2fe35c889adf35e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="deploy-web-app-from-azure-container-registry"></a>Implementar a aplicação web a partir do registo de contentor do Azure
+# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Tutorial: implementar aplicação Web do Azure Container Registry
 
-Esta é a parte dois numa série tutorial três partes. No [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registo de contentor privado, georreplicação e uma imagem do contentor foi criada a partir de origem e enviada para o registo. Neste artigo, implementa o contentor em duas instâncias de aplicação Web em duas regiões do Azure diferentes para tirar partido do aspeto de fecho de rede do registo georreplicação.
+Esta é a parte dois de um tutorial de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registo de contentor privado e georreplicado, e foi criada uma imagem de contentor da origem e publicada no registo. Neste artigo, implementa o contentor em dias instâncias de Aplicações Web em duas regiões do Azure diferente para tirar partido do aspeto sem rede do registo georreplicado.
 
-Neste tutorial, parte dois na série de:
+Neste tutorial, a segunda parte da série:
 
 > [!div class="checklist"]
-> * Implementar uma imagem de contentor em dois *Web Apps para contentores* instâncias
-> * Certifique-se a aplicação implementada
+> * Implemente uma imagem de contentor em duas instâncias de *Aplicações Web para Contentores*
+> * Verificar a aplicação implementada
 
-Se ainda não criou um registo georreplicação e a imagem da aplicação de exemplo para o registo é feito o Push regressar à anterior tutorial da série [preparar um registo de contentor do Azure georreplicação](container-registry-tutorial-prepare-registry.md).
+Se ainda não criou um registo georreplicado nem enviou a imagem da aplicação de exemplo em contentor para o registo, regresse ao tutorial anterior da série, [Preparar um registo de contentor georreplicado do Azure](container-registry-tutorial-prepare-registry.md).
 
-A parte seguinte da série, a atualizar a aplicação, em seguida, emitir uma nova imagem do contentor para o registo. Por fim, navegar para cada instância de aplicação Web em execução para ver a alteração refletida automaticamente no ambos, que mostra o registo de contentor do Azure georreplicação e webhooks em ação.
+Na próxima parte da série, irá atualizar a aplicação e enviar uma nova imagem de contentor para o registo. Por fim, navegue para cada instância de Aplicação Web em execução para ver a alteração automaticamente refletida em ambos os casos, mostrando os webhooks e a georreplicação do Azure Container Registry em ação.
 
-## <a name="automatic-deployment-to-web-apps-for-containers"></a>Implementação automática para as aplicações Web para contentores
+## <a name="automatic-deployment-to-web-apps-for-containers"></a>Implementação automática para Aplicações Web para Contentores
 
-Registo de contentor do Azure fornece suporte para a implementação de aplicações diretamente a [Web Apps para contentores](../app-service/containers/index.yml). Neste tutorial, utilize o portal do Azure para implementar a imagem de contentor criada no tutorial anterior para planos de aplicações web dois localizadas em diferentes regiões do Azure.
+O Azure Container Registry fornece suporte para implementar aplicações em contentores diretamente nas [Aplicações Web para Contentores](../app-service/containers/index.yml). Neste tutorial, utilizará o portal do Azure para implementar a imagem de contentor criada no tutorial anterior em dois planos de aplicações Web situados em regiões do Azure diferentes.
 
-Quando implementar uma aplicação web a partir de uma imagem do contentor no seu registo e tem um registo georreplicação na mesma região, o registo de contentor do Azure cria uma implementação de imagem [webhook](container-registry-webhook.md) por si. Quando enviar uma nova imagem para o seu repositório de contentor, o webhook escolherá a alteração e implementa automaticamente a nova imagem do contentor à sua aplicação web.
+Quando implementar uma aplicação Web a partir de uma imagem de contentor no seu registo e tiver um registo georreplicado na mesma região, o Azure Container Registry cria um [webhook](container-registry-webhook.md) de implementação de imagem por si. Quando enviar uma nova imagem para o seu repositório de contentor, o webhook deteta a alteração e implementa automaticamente a nova imagem de contentor na sua aplicação Web.
 
-## <a name="deploy-a-web-app-for-containers-instance"></a>Implementar uma aplicação Web para a instância de contentores
+## <a name="deploy-a-web-app-for-containers-instance"></a>Implementar uma instância de Aplicação Web para Contentores
 
-Neste passo, vai criar uma aplicação de Web para a instância de contentores no *EUA oeste* região.
+Neste passo, crie uma instância de Aplicação Web para Contentores na região *E.U.A. Oeste*.
 
-Iniciar sessão para o [portal do Azure](https://portal.azure.com) e navegue para o registo que criou no tutorial anterior.
+Inicie sessão no [Portal do Azure](https://portal.azure.com) e navegue para o registo criado no tutorial anterior.
 
-Selecione **repositórios de** > **acr-helloworld**, em seguida, faça duplo clique no **v1** tag em **etiquetas** e selecione **Implementar a aplicação web**.
+Selecione **Repositórios** > **acr-helloworld** e, em seguida, clique com o botão direito do rato na etiqueta **v1** em **Etiquetas** e selecione **Implementar na aplicação Web**.
 
-![Implementar no app service no portal do Azure][deploy-app-portal-01]
+![Implementar no serviço de aplicações no portal do Azure][deploy-app-portal-01]
 
-Em **aplicação Web para contentores** que é apresentado, especifique os seguintes valores para cada definição:
-
-| Definição | Valor |
-|---|---|
-| **Nome do site** | Um nome globalmente exclusivo para a aplicação web. Neste exemplo, utilizamos o formato `<acrName>-westus` para identificar facilmente o registo e a região for implementada a partir da aplicação web. |
-| **Grupo de Recursos** | **Utilizar existentes** > `myResourceGroup` |
-| **Plano de serviço de aplicações/localização** | Criar um novo plano com o nome `plan-westus` no **EUA oeste** região. |
-| **Imagem** | `acr-helloworld:v1`
-
-Selecione **criar** para aprovisionar a aplicação web para o *EUA oeste* região.
-
-![Aplicação Web na configuração do Linux no portal do Azure][deploy-app-portal-02]
-
-## <a name="view-the-deployed-web-app"></a>Ver a aplicação web implementada
-
-Quando a implementação estiver concluída, pode ver a aplicação em execução, ao navegar para o URL no browser.
-
-No portal, selecione **serviços aplicacionais**, em seguida, a aplicação web que aprovisionou no passo anterior. Neste exemplo, a aplicação web é denominada *uniqueregistryname westus*.
-
-Selecione o URL da aplicação web com hiperligação na parte superior direita do **do serviço de aplicações** descrição geral para ver a aplicação em execução no seu browser.
-
-![Aplicação Web na configuração do Linux no portal do Azure][deploy-app-portal-04]
-
-Depois da imagem de Docker é implementada a partir do seu registo de contentor georreplicação, o site é apresentado uma imagem que representa a região do Azure que aloja o registo de contentor.
-
-![Aplicação web implementada visualizada num browser][deployed-app-westus]
-
-## <a name="deploy-second-web-app-for-containers-instance"></a>Implementar a aplicação Web segunda instância de contentores
-
-Utilize o procedimento descrito na secção anterior para implementar uma aplicação web segundo para o *EUA Leste* região. Em **aplicação Web para contentores**, especifique os seguintes valores:
+Na **Aplicação Web para Contentores** apresentada, especifique os seguintes valores para cada definição:
 
 | Definição | Valor |
 |---|---|
-| **Nome do site** | Um nome globalmente exclusivo para a aplicação web. Neste exemplo, utilizamos o formato `<acrName>-eastus` para identificar facilmente o registo e a região for implementada a partir da aplicação web. |
-| **Grupo de Recursos** | **Utilizar existentes** > `myResourceGroup` |
-| **Plano de serviço de aplicações/localização** | Criar um novo plano com o nome `plan-eastus` no **EUA Leste** região. |
+| **Nome do Site** | Um nome exclusivo global para a aplicação Web. Neste exemplo, utilizamos o formato `<acrName>-westus` para identificar o registo e a região da qual a aplicação Web é implementada. |
+| **Grupo de Recursos** | **Utilizar existente** > `myResourceGroup` |
+| **Plano do serviço de aplicações/localização** | Crie um novo plano com o nome `plan-westus` na região **E.U.A. Oeste**. |
 | **Imagem** | `acr-helloworld:v1`
 
-Selecione **criar** para aprovisionar a aplicação web para o *EUA Leste* região.
+Selecione **Criar** para aprovisionar a aplicação Web na região *E.U.A. Oeste*.
 
-![Aplicação Web na configuração do Linux no portal do Azure][deploy-app-portal-06]
+![Configuração de aplicação Web no Linux no portal do Azure][deploy-app-portal-02]
 
-## <a name="view-the-deployed-web-app"></a>Ver a aplicação web implementada
+## <a name="view-the-deployed-web-app"></a>Ver a aplicação Web implementada
 
-Como anteriormente, pode ver a aplicação em execução, ao navegar para o URL no browser.
+Quando a implementação estiver concluída, pode ver a aplicação em execução ao navegar para o respetivo URL no seu browser.
 
-No portal, selecione **serviços aplicacionais**, em seguida, a aplicação web que aprovisionou no passo anterior. Neste exemplo, a aplicação web é denominada *uniqueregistryname eastus*.
+No portal, selecione **Serviços de Aplicações** e, em seguida, a aplicação Web que aprovisionou no passo anterior. Neste exemplo, a aplicação Web tem o nome *uniqueregistryname-westus*.
 
-Selecione o URL da aplicação web com hiperligação na parte superior direita do **descrição geral do serviço de aplicações** para ver a aplicação em execução no seu browser.
+Selecione o URL hiperligado da aplicação Web no canto superior esquerdo da descrição geral do **Serviço de Aplicações** para ver a aplicação em execução no seu browser.
 
-![Aplicação Web na configuração do Linux no portal do Azure][deploy-app-portal-07]
+![Configuração de aplicação Web no Linux no portal do Azure][deploy-app-portal-04]
 
-Depois da imagem de Docker é implementada a partir do seu registo de contentor georreplicação, o site é apresentado uma imagem que representa a região do Azure que aloja o registo de contentor.
+Após a imagem do Docker ser implementada a partir do seu registo de contentor georreplicado, o site mostra uma imagem a representar a região do Azure que aloja o registo de contentor.
 
-![Aplicação web implementada visualizada num browser][deployed-app-eastus]
+![Aplicação Web implementada visualizada num browser][deployed-app-westus]
+
+## <a name="deploy-second-web-app-for-containers-instance"></a>Implementar a segunda instância de Aplicação Web para Contentores
+
+Utilize o procedimento descrito na secção anterior para implementar uma segunda aplicação Web na região *E.U.A. Leste*. Em **Aplicação Web para Contentores**, especifique os seguintes valores:
+
+| Definição | Valor |
+|---|---|
+| **Nome do Site** | Um nome exclusivo global para a aplicação Web. Neste exemplo, utilizamos o formato `<acrName>-eastus` para identificar o registo e a região da qual a aplicação Web é implementada. |
+| **Grupo de Recursos** | **Utilizar existente** > `myResourceGroup` |
+| **Plano do serviço de aplicações/localização** | Crie um novo plano com o nome `plan-eastus` na região **E.U.A. Leste**. |
+| **Imagem** | `acr-helloworld:v1`
+
+Selecione **Criar** para aprovisionar a aplicação Web na região *E.U.A. Leste*.
+
+![Configuração de aplicação Web no Linux no portal do Azure][deploy-app-portal-06]
+
+## <a name="view-the-deployed-web-app"></a>Ver a aplicação Web implementada
+
+Conforme anteriormente, pode ver a aplicação em execução ao navegar para o respetivo URL no seu browser.
+
+No portal, selecione **Serviços de Aplicações** e, em seguida, a aplicação Web que aprovisionou no passo anterior. Neste exemplo, a aplicação Web tem o nome *uniqueregistryname-eastus*.
+
+Selecione o URL hiperligado da aplicação Web no canto superior esquerdo da **descrição geral do Serviço de Aplicações** para ver a aplicação em execução no seu browser.
+
+![Configuração de aplicação Web no Linux no portal do Azure][deploy-app-portal-07]
+
+Após a imagem do Docker ser implementada a partir do seu registo de contentor georreplicado, o site mostra uma imagem a representar a região do Azure que aloja o registo de contentor.
+
+![Aplicação Web implementada visualizada num browser][deployed-app-eastus]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, implementou duas aplicações Web para instâncias de contentores de um registo de contentor do Azure georreplicação. Ao seguir os passos neste tutorial, pode:
+Neste tutorial, implementou duas instâncias de Aplicação Web para Contentores a partir de um registo de contentor georreplicado do Azure. Ao seguir os passos neste tutorial, conseguiu:
 
 > [!div class="checklist"]
-> * Implementar uma imagem de contentor dois *Web Apps para contentores* instâncias
-> * Verificar aplicação implementada
+> * Implementou uma imagem de contentor em duas instâncias de *Aplicações Web para Contentores*
+> * Verificou a aplicação implementada
 
-Avançar para o próximo tutorial para atualizar e, em seguida, implementar uma nova imagem do contentor no registo de contentor, em seguida, certifique-se de que as aplicações web em execução em ambas as regiões foram atualizadas automaticamente.
+Avance para o próximo tutorial para atualizar e, em seguida, implementar uma nova imagem de contentor no registo de contentor e, em seguida, verifique que as aplicações Web executadas em ambas as regiões foram automaticamente atualizadas.
 
 > [!div class="nextstepaction"]
-> [Implementar uma atualização para a imagem de contentor georreplicação](./container-registry-tutorial-deploy-update.md)
+> [Implementar uma atualização a uma imagem de contentor georreplicada](./container-registry-tutorial-deploy-update.md)
 
 <!-- IMAGES -->
 [deploy-app-portal-01]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-01.png

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do Azure Container Service – Atualizar aplicação"
-description: "Tutorial do Azure Container Service – Atualizar Aplicação"
+title: Tutorial do Azure Container Service – Atualizar aplicação
+description: Tutorial do Azure Container Service – Atualizar Aplicação
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5f22bb3ac378bc9b1ff94db486d6ea6053c64514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 87de0f23a00b035b12bac6cf655781961b1fb9e5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Atualizar uma aplicação no Kubernetes
 
@@ -29,7 +29,7 @@ Neste tutorial, parte seis de sete, a aplicação Azure Vote de exemplo é atual
 > * Enviar a imagem de contentor para o Azure Container Registry
 > * Implementar a imagem de contentor atualizada
 
-Nos tutoriais subsequentes, o Operations Management Suite está configurado para monitorizar o cluster de Kubernetes.
+Nos tutoriais subsequentes, o Log Analytics está configurado para monitorizar o cluster de Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -71,7 +71,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Testar a aplicação localmente
 
-Procure http://localhost:8080 para ver a aplicação atualizada.
+Procure o http://localhost:8080 para ver a aplicação atualizada.
 
 ![Imagem do cluster do Kubernetes no Azure no Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -166,7 +166,7 @@ Neste tutorial, atualiza uma aplicação e implementa esta atualização num clu
 > * Enviou a imagem de contentor para o Azure Container Registry
 > * Implementou a aplicação atualizada
 
-Avançar para o próximo tutorial para saber mais sobre como monitorizar o Kubernetes com o Operations Management Suite.
+Avance para o próximo tutorial para saber mais sobre como monitorizar o Kubernetes com o Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Monitorizar o Kubernetes com o OMS](./container-service-tutorial-kubernetes-monitor.md)
+> [Monitorizar o Kubernetes com o Log Analytics (Monitor Kubernetes with Log Analytics)](./container-service-tutorial-kubernetes-monitor.md)

@@ -1,6 +1,6 @@
 ---
 title: Tutorial do Azure Container Registry - Preparar um registo de contentor do Azure georreplicado
-description: "Criar um registo de contentor do Azure, configurar a georreplicação, preparar uma imagem do Docker e implementá-la para o registo. Parte um de uma série com três partes."
+description: Criar um registo de contentor do Azure, configurar a georreplicação, preparar uma imagem do Docker e implementá-la para o registo. Parte um de uma série com três partes.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3463acc3db3dae9633635aaf7410d876aacf9b38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="prepare-a-geo-replicated-azure-container-registry"></a>Preparar um registo de contentor georreplicado do Azure
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um registo de contentor georreplicado do Azure
 
 Um registo de contentor do Azure é um registo privado do Docker implementado no Azure que pode manter próximo em rede das suas implementações. Neste conjunto de três tutoriais, vai aprender a utilizar a georreplicação para implementar uma aplicação web em ASP.NET Core a executar num contentor do Linux para duas instâncias das [Aplicações Web para Contentores](../app-service/containers/index.yml). Vai ver como o Azure implementa automaticamente a imagem para cada instância de imagem Web a partir do repositório georreplicado mais próximo.
 

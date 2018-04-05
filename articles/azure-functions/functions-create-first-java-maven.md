@@ -1,11 +1,11 @@
 ---
-title: "Criar a sua primeira função no Azure com o Java e o Maven | Microsoft Docs"
-description: "Crie e publique uma função acionada por HTTP simples no Azure com o Java e o Maven."
+title: Criar a sua primeira função no Azure com o Java e o Maven | Microsoft Docs
+description: Crie e publique uma função acionada por HTTP simples no Azure com o Java e o Maven.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "funções do azure, funções, processamento de eventos, computação, arquitetura sem servidor"
+keywords: funções do azure, funções, processamento de eventos, computação, arquitetura sem servidor
 ms.service: functions
 ms.devlang: java
 ms.topic: quickstart
@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0984075cd8e372cce09ea100378dcd4e8cddabe
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Crie a sua primeira função com o Java e o Maven (Pré-visualização)
 
@@ -34,18 +34,25 @@ Este guia de introdução acompanha-o ao longo da criação de um projeto de fun
 ## <a name="prerequisites"></a>Pré-requisitos
 Para desenvolver uma aplicação de funções com o Java, tem de ter o seguinte instalado:
 
--  [.NET Core](https://www.microsoft.com/net/core), versão mais recente.
 -  [Java Development Kit](https://www.azul.com/downloads/zulu/), versão 8.
--  [CLI do Azure](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), versão 3.0 ou superior.
--  [Node.js](https://nodejs.org/download/) versão 8.6 ou superior.
+-  [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > A variável de ambiente do JAVA_HOME tem de ser definida para a localização de instalação do JDK para concluir este guia de introdução.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalar as Ferramentas de Núcleo de Funções do Azure
 
-As [Ferramentas de Núcleo das Funções do Azure 2.0](https://www.npmjs.com/package/azure-functions-core-tools) oferecem um ambiente de desenvolvimento local para escrever, executar e depurar Funções do Azure. Instale as ferramentas com [npm](https://www.npmjs.com/), incluído com [Node.js](https://nodejs.org/).
+As [Ferramentas de Núcleo das Funções do Azure 2.0](https://www.npmjs.com/package/azure-functions-core-tools) oferecem um ambiente de desenvolvimento local para escrever, executar e depurar Funções do Azure. 
+
+Para instalar, consulte a secção [Instalar](https://github.com/azure/azure-functions-core-tools#installing) e saiba quais as instruções específicas do seu sistema operativo (Windows, Linux, Mac).
+
+Pode também instalar manualmente com o [npm](https://www.npmjs.com/), incluído com o [Node.js](https://nodejs.org/), após instalar os seguintes requisitos:
+
+-  [.NET Core](https://www.microsoft.com/net/core), versão mais recente.
+-  [Node.js](https://nodejs.org/download/) versão 8.6 ou superior.
+
+Para avançar com uma instalação baseada em npm, consulte:
 
 ```
 npm install -g azure-functions-core-tools@core
@@ -185,6 +192,4 @@ Criou uma aplicação de funções do Java com um acionador HTTP simples e imple
 - Reveja o [Guia para programadores das Funções do Java](functions-reference-java.md) para obter mais informações sobre a programação de funções do Java.
 - Adicione mais funções com diferentes acionadores ao seu projeto com o destino do Maven `azure-functions:add`.
 - Depure funções localmente com o Visual Studio Code. Com o [pacote de extensão do Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) instalado e o projeto de Funções aberto no Visual Studio Code, [anexe o depurador](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) à porta 5005. Em seguida, defina um ponto de interrupção no editor e acione a função enquanto está a ser executado localmente: ![Debug functions in Visual Studio Code (Depurar funções no Visual Studio Code)](media/functions-create-java-maven/vscode-debug.png)
-
-
-
+- Depure funções remotamente com o Visual Studio Code. Consulte a documentação sobre [Escrever Aplicações Java sem servidor](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) para obter instruções.

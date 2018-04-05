@@ -1,11 +1,11 @@
 ---
 title: 'Ligar uma rede virtual do Azure a outra VNet: Portal | Microsoft Docs'
-description: "Crie uma ligação do Gateway de VPN entre VNets com o Gestor de Recursos e o Portal do Azure."
+description: Crie uma ligação do Gateway de VPN entre VNets com o Gestor de Recursos e o Portal do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 03/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: a24bd41adbe26b1905f7817f5e5888e492d234f4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a95fdf078baa35eb9ca8ade462223b204be77d8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com o Portal do Azure
 
@@ -127,7 +127,7 @@ Pode adicionar espaços de endereços adicionais e criar sub-redes assim que a V
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Criar uma sub-rede do gateway
-Antes de ligar a rede virtual a um gateway, primeiro tem de criar a sub-rede do gateway para a rede virtual à qual pretende ligar. Se possível, é melhor criar uma sub-rede do gateway com um bloco CIDR de /28 ou /27, de modo a fornecer endereços IP suficientes para contemplar requisitos de configuração futuros adicionais.
+Antes de criar um gateway de rede virtual para a rede virtual, primeiro tem de criar a sub-rede do gateway. A sub-rede do gateway contém os endereços IP que o gateway de rede virtual utiliza. Se possível, é melhor criar uma sub-rede do gateway com um bloco CIDR de /28 ou /27, de modo a fornecer endereços IP suficientes para contemplar requisitos de configuração futuros adicionais.
 
 Se estiver a criar esta configuração como um exercício, veja estes [Definições de exemplo](#values) ao criar a sub-rede do gateway.
 

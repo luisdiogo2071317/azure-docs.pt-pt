@@ -1,6 +1,6 @@
 ---
-title: "Início Rápido: Criar um servidor da Base de Dados do Azure para MySQL - CLI do Azure"
-description: "Este guia de introdução descreve como utilizar a CLI do Azure para criar uma Base de Dados do Azure para o servidor MySQL num grupo de recursos do Azure."
+title: 'Início Rápido: Criar um servidor da Base de Dados do Azure para MySQL - CLI do Azure'
+description: Este guia de introdução descreve como utilizar a CLI do Azure para criar uma Base de Dados do Azure para o servidor MySQL num grupo de recursos do Azure.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 2cd867f09550f922479955b885f10ff329715c1c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a4ae31e133cb275a8b795d53e73e0e83bb64b045
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure
 Este guia de introdução descreve como utilizar a CLI do Azure para criar uma Base de Dados do Azure para o servidor MySQL num grupo de recursos do Azure em cerca de cinco minutos. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts.
@@ -56,11 +56,11 @@ O JSON de retorno deve incluir o seguinte:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.3"
+    "version": "0.0.4"
 }
 ```
 
-Se não for devolvida a versão 0.0.3, execute o seguinte para atualizar a extensão: 
+Se não for devolvida a versão 0.0.4, execute o seguinte para atualizar a extensão: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```

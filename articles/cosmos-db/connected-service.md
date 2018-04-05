@@ -1,26 +1,26 @@
 ---
-title: "Serviço Ligado do Visual Studio para o Azure Cosmos DB"
-description: "Permite aos programadores ligar facilmente a respetiva conta do Azure Cosmos DB e gerir recursos através dos Serviços Ligados do Visual Studio"
+title: Serviço Ligado do Visual Studio para o Azure Cosmos DB
+description: Permite aos programadores ligar facilmente a respetiva conta do Azure Cosmos DB e gerir recursos através dos Serviços Ligados do Visual Studio
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
 manager: DJ
 +tags: cosmos-db
 editor: Jenny Jiang
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 93be368d34f02e64d11abe9a04b11272ce18124d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Serviço Ligado do Visual Studio (Pré-visualização)
 
@@ -41,6 +41,8 @@ Certifique-se de que tem os itens seguintes:
     Também pode instalar o Serviço Ligado do Azure Cosmos DB a partir do [Visual Studio Marketplace](https://go.microsoft.com/fwlink/?linkid=858709).
 
     ![Captura de ecrã do bits.png de transferência do Serviço Ligado](./media/connected-service/connected-service-downloadbits.png) 
+
+Assim que transferir a extensão do Serviço Ligado do Azure Cosmos DB, feche o Visual Studio para instalar a extensão.
 
 ## <a id="SetupVS"></a>Configurar a sua solução Visual Studio
 1. Abra o **Visual Studio** no seu computador.

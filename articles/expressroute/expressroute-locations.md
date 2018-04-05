@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/20/2018
 ms.author: pareshmu
-ms.openlocfilehash: 001dca30121d51cfdee5b26a431c7a3702024e5e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bad06add368c42970d235b335d14185eb8abf3a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -77,7 +77,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Suportado |Suportado |Montreal, Toronto, Cidade do Quebeque |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Suportado |Suportado |Amesterdão, RAE de Hong Kong, Londres, Silicon Valley, Singapura, Sydney, Tóquio, Washington D.C. |
 | **[C3ntro](https://c3ntro.com/)** |Brevemente |Brevemente |Miami |
-| **[CenturyLink](http://www.centurylink.com/business/enterprise/services/data-network/mpls-vpn.html)** |Brevemente |Brevemente |Silicon Valley |
+| **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Suportado |Suportado |Nova Iorque, San Antonio, Tóquio, Toronto |
 | **China Telecom Global** |Suportado |Não suportado |RAE de Hong Kong |
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Suportado |Suportado |Dallas, Montreal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Suportado |Suportado |Amesterdão, Dublin, Londres, Paris, Tóquio |
@@ -98,7 +98,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **Jisc** |Suportado |Suportado |Londres |
 | **KINX** |Suportado |Suportado |Seoul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Suportado | Suportado | Amesterdão | 
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Las Vegas, Londres, Newport, Nova Iorque, San Antonio, São Paulo, Seattle, Silicon Valley, Singapura, Tóquio, Washington D.C. |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Las Vegas, Londres, Newport, São Paulo, Seattle, Silicon Valley, Singapura Washington D.C. |
 | **LG CNS** |Suportado |Suportado |Busan, Seul |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportado |Amesterdão, Chicago, Cidade do Quebeque, Dallas, Denver, Dublin, Hong Kong, Las Vegas, Londres, Los Angeles, Melbourne, Miami, Nova Iorque, San Antonio, Seattle, Silicon Valley, Singapura, Singapura2, Sydney, Toronto, Washington D.C. |
 | **MTN** |Suportado |Suportado |Londres |

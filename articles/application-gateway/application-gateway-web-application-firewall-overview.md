@@ -1,6 +1,6 @@
 ---
-title: "Introdução à firewall de aplicações Web (WAF) para o Gateway de Aplicação do Azure| Microsoft Docs"
-description: "Esta página proporciona uma descrição geral da firewall de aplicações Web (WAF) para o Gateway de Aplicação"
+title: Introdução à firewall de aplicações Web (WAF) para o Gateway de Aplicação do Azure| Microsoft Docs
+description: Esta página proporciona uma descrição geral da firewall de aplicações Web (WAF) para o Gateway de Aplicação
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3945436a369f624ccb1d862b9623b8cfb1ed376
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="web-application-firewall-waf"></a>Firewall de aplicações Web (WAF)
 
@@ -44,7 +44,7 @@ Seguem-se as principais vantagens proporcionadas pelo Gateway de Aplicação e p
 
 * Utilize um registo da WAF em tempo real para monitorizar a sua aplicação Web contra ataques. Este registo está integrado no [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) para registar alertas e registos da WAF e monitorizar tendências facilmente.
 
-* A WAF vai ser integrada no Centro de Segurança do Azure brevemente. O Centro de Segurança do Azure permite obter uma visão central do estado de segurança de todos os seus recursos do Azure.
+* O WAF integra-se no Centro de Segurança do Azure. O Centro de Segurança do Azure permite obter uma visão central do estado de segurança de todos os seus recursos do Azure.
 
 ### <a name="customization"></a>Personalização
 
@@ -114,7 +114,7 @@ A WAF do Gateway de Aplicação pode ser configurada para ser executada nos dois
 
 ### <a name="application-gateway-waf-reports"></a>Monitorização da WAF
 
-É importante monitorizar o estado de funcionamento do gateway de aplicação. A monitorização do estado de funcionamento da sua firewall de aplicações Web e das aplicações que esta protege é proporcionada através do registo e da integração no Azure Monitor, no Centro de Segurança do Azure (brevemente) e no Log Analytics.
+É importante monitorizar o estado de funcionamento do gateway de aplicação. A monitorização do estado de funcionamento da sua firewall de aplicações Web e das aplicações que esta protege é proporcionada através do registo e da integração no Azure Monitor, no Centro de Segurança do Azure e no Log Analytics.
 
 ![diagnósticos](./media/application-gateway-web-application-firewall-overview/diagnostics.png)
 
@@ -124,7 +124,7 @@ Cada registo do gateway de aplicação é integrado no [Azure Monitor](../monito
 
 #### <a name="azure-security-center"></a>Centro de Segurança do Azure
 
-O [Centro de Segurança do Azure](../security-center/security-center-intro.md) ajuda-o a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. O gateway de aplicação [está agora integrado no Centro de Segurança do Azure](application-gateway-integration-security-center.md). O Centro de Segurança do Azure analisa o seu ambiente para detetar aplicações Web desprotegidas. Já pode recomendar o WAF do gateway de aplicação para proteger estes recursos vulneráveis. Pode criar diretamente o WAF do gateway de aplicação a partir do Centro de Segurança do Azure.  Estas instâncias do WAF são integradas no Centro de Segurança do Azure e irão enviar alertas e informações do estado de funcionamento para o Centro de Segurança do Azure para os relatórios.
+O [Centro de Segurança do Azure](../security-center/security-center-intro.md) ajuda-o a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. O gateway de aplicação [está integrado no Centro de Segurança do Azure](application-gateway-integration-security-center.md). O Centro de Segurança do Azure analisa o seu ambiente para detetar aplicações Web desprotegidas. Já pode recomendar o WAF do gateway de aplicação para proteger estes recursos vulneráveis. Pode criar diretamente o WAF do gateway de aplicação a partir do Centro de Segurança do Azure.  Estas instâncias do WAF são integradas no Centro de Segurança do Azure e irão enviar alertas e informações do estado de funcionamento para o Centro de Segurança do Azure para os relatórios.
 
 ![figura 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
 

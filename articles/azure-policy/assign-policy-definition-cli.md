@@ -9,11 +9,11 @@ ms.date: 03/13/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: f56f00aabbef2cfa86264d3e962af9a9c0bafa98
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1ff1240073e25bf406e7da6b79135264376a5b3f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Criar uma atribuição de política para identificar recursos incompatíveis no seu ambiente do Azure com a CLI do Azure
 
@@ -46,7 +46,7 @@ O comando anterior utiliza as seguintes informações:
 - **Nome** - nome a apresentar da atribuição de política. Neste caso, está a utilizar *Máquinas Virtuais de Auditoria sem Atribuição de Managed Disks*.
 - **Política** – O ID de definição de política, com base no qual está a utilizar para criar a atribuição. Neste caso, é a definição de política – *Máquinas Virtuais de Auditoria sem Managed Disks*. Para obter o ID de definição de política, execute este comando: `az policy definition show --name 'Audit Virtual Machines without Managed Disks Assignment'`
 - **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos. Não se esqueça de substituir &lt;âmbito&gt; pelo nome do seu grupo de recursos.
-- **Sku** – Este comando cria uma atribuição de política com o escalão standard. O escalão standard permite-lhe alcançar a gestão à escala, a avaliação de conformidade e a remediação. Atualmente, o escalão standard é gratuito. No futuro, o escalão standard vai ser pago. Quando a alteração de preço for processada, esta vai ser comunicada e vão ser fornecidos mais detalhes no [preço do Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+- **Sku** – Este comando cria uma atribuição de política com o escalão standard. O escalão standard permite-lhe alcançar a gestão à escala, a avaliação de conformidade e a remediação. Para obter detalhes adicionais sobre os escalões de preço, veja [Preços do Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos não compatíveis

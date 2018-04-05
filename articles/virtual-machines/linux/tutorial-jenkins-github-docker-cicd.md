@@ -1,26 +1,26 @@
 ---
 title: Criar um pipeline de desenvolvimento no Azure com o Jenkins | Microsoft Docs
-description: "Saiba como criar uma máquina virtual do Jenkins no Azure que solicita dados do GitHub em cada consolidação de código e cria um novo contentor do Docker para executar a aplicação"
+description: Saiba como criar uma máquina virtual do Jenkins no Azure que solicita dados do GitHub em cada consolidação de código e cria um novo contentor do Docker para executar a aplicação
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/15/2017
+ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9250e40c491257b554333f4606cbf0b476d8db21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Como criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com o Jenkins, GitHub e Docker
 Para automatizar a fase de criação e teste do desenvolvimento de aplicações, pode utilizar um pipeline de integração e implementação (CI/CD) contínuas. Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure, incluindo como:
@@ -64,7 +64,6 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
-  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
@@ -118,10 +117,13 @@ Se o ficheiro ainda não estiver disponível, aguarde alguns minutos para que a 
 
 Agora, abra um browser e vá para `http://<publicIps>:8080`. Conclua a configuração inicial do Jenkins da seguinte forma:
 
-- Introduza o nome de utilizador **admin** e forneça a *initialAdminPassword* obtida da VM no passo anterior.
-- Selecione **Gerir Jenkins** e em **Gerir plug-ins**.
-- Escolha **Disponível** e procure *GitHub* na caixa de texto na parte superior. Marque a caixa de *Plug-in do GitHub* e selecione **Transferir agora e instalar após o reinício**.
-- Marque a caixa **Reiniciar o Jenkins quando a instalação estiver concluída e nenhuma tarefa se encontrar em execução** e aguarde até que o plug-in do processo de instalação esteja concluído.
+- Escolha **Selecionar plug-ins a instalar**
+- Procure *GitHub* na caixa de texto na parte superior. Marque a caixa de *GitHub* e, em seguida, selecione **Instalar**
+- Crie o primeiro utilizador administrador. Introduza um nome de utilizador, como **administrador** e forneça a sua palavra-passe segura. Por fim, escreva um nome completo e o endereço de e-mail.
+- Selecionar **Guardar e Concluir**
+- Assim que o Jenkins estiver pronto, selecione **Começar a utilizar o Jenkins**
+  - Se o browser apresentar uma página em branco quando começar a utilizar o Jenkins, reinicie o serviço Jenkins. A partir da sua sessão SSH, escreva `sudo service jenkins restart` e, em seguida, atualize o browser.
+- Inicie sessão no Jenkins com o nome de utilizador e a palavra-passe que criou.
 
 
 ## <a name="create-github-webhook"></a>Criar um webhook do GitHub
@@ -139,7 +141,7 @@ Crie um webhook no interior do fork que criou:
 
 
 ## <a name="create-jenkins-job"></a>Criar tarefa do Jenkins
-Para que o Jenkins responda a um evento no GitHub, como consolidar código, crie uma tarefa do Jenkins. 
+Para que o Jenkins responda a um evento no GitHub, como consolidar código, crie uma tarefa do Jenkins. Utilize os URLs do seu próprio fork do GitHub.
 
 No seu site do Jenkins, selecione **Criar novas tarefas** na home page:
 

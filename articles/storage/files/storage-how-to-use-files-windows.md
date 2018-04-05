@@ -1,12 +1,12 @@
 ---
-title: "Montar uma partilha de Ficheiros do Azure e aceder à partilha no Windows | Microsoft Docs"
-description: "Monte uma partilha de Ficheiros do Azure e aceda à partilha no Windows."
+title: Montar uma partilha de Ficheiros do Azure e aceder à partilha no Windows | Microsoft Docs
+description: Monte uma partilha de Ficheiros do Azure e aceda à partilha no Windows.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5d6d81678d1b3c63b52b34e79979d06fdc981ad0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montar uma partilha de Ficheiros do Azure e aceder à partilha no Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de Ficheiros do Azure podem ser montadas no Windows e no Windows Server. Este artigo mostra três formas diferentes de montar uma partilha de Ficheiros do Azure no Windows - com a IU do Explorador de Ficheiros, através do PowerShell e através da Linha de Comandos. 
@@ -50,6 +50,31 @@ Pode montar partilhas de ficheiros do Azure numa instalação do Windows que est
 * **Chave da Conta de Armazenamento**: para montar uma partilha de Ficheiros do Azure, precisa da chave de armazenamento primária (ou secundária). Atualmente, não são suportadas chaves SAS para a montagem.
 
 * **Certifique-se de que a porta 445 está aberta**: os Ficheiros do Azure utilizam o protocolo SMB. O SMB comunica através da porta TCP 445 - verifique se a firewall não está a bloquear as portas TCP 445 no computador cliente.
+
+## <a name="persisting-connections-across-reboots"></a>Persistir ligações entre reinícios
+### <a name="cmdkey"></a>CmdKey
+A forma mais fácil de estabelecer ligações persistentes é guardar as suas credenciais de contas de armazenamento no Windows ao utilizar o utilitário da linha de comandos "CmdKey". Segue-se um exemplo de linhas de comandos para fazer as suas credenciais de conta de armazenamento persistir na VM:
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> Neste caso, "domainname" será "AZURE"
+
+CmdKey permite-lhe também listar as credenciais que armazenou:
+
+```
+C:\>cmdkey /list
+```
+O resultado será o seguinte:
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+Quando as credenciais tiverem persistido, já não terá de fornecê-las ao ligar à sua partilha. Em alternativa, pode ligar-se sem especificar credenciais.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Montar a partilha de Ficheiros do Azure com o Explorador de Ficheiros
 > [!Note]  

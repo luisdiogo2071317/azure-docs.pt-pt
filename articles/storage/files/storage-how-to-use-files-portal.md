@@ -1,79 +1,114 @@
 ---
-title: Como gerir os Ficheiros do Azure a partir do portal do Azure | Microsoft Docs
+title: Gerir partilhas de ficheiros do Azure com o Portal do Azure
 description: Aprenda a utilizar o portal do Azure para gerir os Ficheiros do Azure.
 services: storage
-documentationcenter: 
-author: RenaShahMSFT
-manager: aungoo
-editor: tysonn
-ms.assetid: 
+documentationcenter: ''
+author: wmgries
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
-ms.author: renash
-ms.openlocfilehash: e56f8bf1057a8bc2cfcde841f69022104bafff27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/26/2018
+ms.author: wgries
+ms.openlocfilehash: 588d260bb939c8f6439ca66828296ea455f1524a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="how-to-use-azure-files-from-the-azure-portal"></a>Como utilizar os Ficheiros do Azure a partir do Portal do Azure
-O [portal do Azure](https://portal.azure.com) fornece uma interface de utilizador para a gestão dos Ficheiros do Azure. Pode efetuar as seguintes ações a partir do seu navegador:
+# <a name="managing-azure-file-shares-with-the-azure-portal"></a>Gerir partilhas de ficheiros do Azure com o Portal do Azure 
+[Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser montadas no Windows, Linux e macOS. Este guia orienta-o pelas noções básicas de utilizar partilhas de ficheiros do Azure com o [Portal do Azure](https://portal.azure.com/). Aprenda a:
 
-* Criar Partilhas de Ficheiros
-* Carregar e transferir ficheiros de e para a partilha de ficheiros.
-* Monitorizar a utilização real de cada partilha de ficheiros.
-* Ajustar a quota de tamanho da partilha de ficheiros.
-* Copiar os comandos de montagem a utilizar para montar a partilha de ficheiros a partir de um cliente Windows ou Linux.
+> [!div class="checklist"]
+> * Criar um grupo de recursos e uma conta de armazenamento
+> * Criar uma partilha de ficheiros do Azure 
+> * Criar um diretório
+> * Carregar um ficheiro 
+> * Transferir um ficheiro
+> * Criar e utilizar um instantâneo de partilha
 
-## <a name="create-file-share"></a>Criar a partilha de ficheiros
-1. Inicie sessão no Portal do Azure.
-2. No menu de navegação, clique em **Contas de armazenamento** ou **Contas de armazenamento (clássicas)**.
-    
-    ![Captura de ecrã que mostra como criar a partilha de ficheiros no portal](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share1.png)
+Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-3. Escolha a sua conta de armazenamento.
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+[!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
 
-    ![Captura de ecrã que mostra como criar a partilha de ficheiros no portal](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share2.png)
+## <a name="create-a-file-share"></a>Criar uma partilha de ficheiros
+Para criar uma partilha de ficheiros:
 
-4. Escolha o serviço “Ficheiros”.
+1. Selecione a conta de armazenamento a partir do dashboard.
+2. Na página da conta de armazenamento, na secção **Serviços**, selecione **Ficheiros**.
+    ![Uma captura de ecrã da secção Serviços da conta de armazenamento; selecione o Serviço de Ficheiros](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-    ![Captura de ecrã que mostra como criar a partilha de ficheiros no portal](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share3.png)
+3. No menu na parte superior da página **Serviço de Ficheiros**, clique em **+ Partilha de ficheiros**. É apresentada a página **Nova partilha de ficheiros**.
+4. Em **Nome**, escreva *myshare*.
+5. Clique em **OK** para criar a partilha de ficheiros do Azure.
 
-5. Clique em “Partilhas de ficheiros” e siga a ligação para criar a sua primeira partilha de ficheiros.
+## <a name="manipulating-the-contents-of-the-azure-file-share"></a>Manipular o conteúdo da partilha de ficheiros do Azure
+Agora que criou uma partilha de ficheiros do Azure, pode montá-la com SMB no [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) ou [macOS](storage-how-to-use-files-mac.md). Em alternativa, pode manipular a partilha de ficheiros do Azure com o Portal do Azure. Todos os pedidos através do Portal do Azure são efetuados com a API REST de Ficheiros, o que lhe permite criar, modificar e eliminar ficheiros e diretórios nos clientes sem acesso SMB.
 
-    ![Captura de ecrã que mostra como criar a partilha de ficheiros no portal](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share4.png)
+### <a name="create-directory"></a>Criar um diretório
+Para criar um novo diretório com o nome *myDirectory* na raiz da partilha de ficheiros do Azure:
 
-6. Preencha o nome da partilha de ficheiros e o tamanho da partilha de ficheiros (até 5120 GB) para criar a primeira partilha de ficheiros. Quando a partilha de ficheiros tiver sido criada, é possível montá-la a partir de qualquer sistema de ficheiros que suporte o SMB 2.1 ou SMB 3.0. Pode clicar em **Quota** na partilha de ficheiros para alterar o tamanho do ficheiro até 5120 GB. Veja a [Calculadora de Preços do Azure](https://azure.microsoft.com/pricing/calculator/) para calcular os custos de armazenamento da utilização dos Ficheiros do Azure.
+1. Na página **Serviço de Ficheiros**, selecione a partilha de ficheiros **myshare**. É aberta a página da partilha de ficheiros.
+2. No menu na parte superior da página, selecione **+ Adicionar diretório**. É apresentada a página **Novo diretório**.
+3. Escreva *myDirectory* e, em seguida, clique em **OK**.
 
-    ![Captura de ecrã que mostra como criar a partilha de ficheiros no portal](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share5.png)
+### <a name="upload-a-file"></a>Carregar um ficheiro 
+Para demonstrar o carregamento de um ficheiro, primeiro tem de criar ou selecionar um ficheiro a ser carregado. Pode fazê-lo da forma que considerar adequada. Depois de selecionar o ficheiro que quer carregar:
 
-## <a name="upload-and-download-files"></a>Carregar e transferir os ficheiros
-1. Escolha uma partilha de ficheiros que já criou.
+1. Clique no diretório **myDirectory**. É aberto o painel **myDirectory**.
+2. No menu na parte superior, clique em **Carregar**. É aberto o painel **Carregar ficheiros**.  
+    ![Uma captura de ecrã do painel Carregar ficheiros](media/storage-how-to-use-files-portal/upload-file-1.png)
 
-    ![Captura de ecrã que mostra como carregar e transferir os ficheiros do portal](./media/storage-how-to-use-files-portal/use-files-portal-upload-file1.png)
+3. Clique no ícone de pasta para abrir uma janela para procurar os ficheiros locais. 
+4. Selecione um ficheiro e, em seguida, clique em **Abrir**. 
+5. Na página **Carregar ficheiros**, verifique o nome de ficheiro e, em seguida, clique em **Carregar**.
+6. Quando terminar, o ficheiro deve aparecer na lista na página **myDirectory**.
 
-2. Clique em **Carregar** para abrir a interface de utilizador para o carregamento de ficheiros.
+### <a name="download-a-file"></a>Transferir um ficheiro
+Pode transferir uma cópia do ficheiro que carregou ao clicar com o botão direito do rato no ficheiro. Depois de clicar no botão de transferência, a experiência exata dependerá do sistema operativo e do browser que estiver a utilizar.
 
-    ![Captura de ecrã que mostra como carregar ficheiros do portal](./media/storage-how-to-use-files-portal/use-files-portal-upload-file2.png)
+## <a name="create-and-modify-share-snapshots"></a>Criar e modificar instantâneos de partilha
+Uma tarefa útil adicional que pode fazer com uma partilha de ficheiros do Azure é criar instantâneos de partilha. Um instantâneo preserva um ponto no tempo para uma partilha de ficheiros do Azure. Os instantâneos de partilha são semelhantes às tecnologias de sistema operativo com as quais pode já estar familiarizado, tais como:
+- [Serviço de Cópia Sombra de Volumes (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) para sistemas de ficheiros Windows, como NTFS e ReFS
+- Instantâneos do [Gestor de Volumes Lógicos (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
+- Instantâneos do [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS. 
 
-## <a name="connect-to-file-share"></a>Ligar à partilha de ficheiros
--  Clique em **Ligar** para obter a linha de comandos para montar a partilha de ficheiros a partir do Windows e Linux. Os utilizadores do Linux também podem ver [Como utilizar os Ficheiros do Azure com o Linux](../storage-how-to-use-files-linux.md) para obter mais instruções de montagem para outras distribuições do Linux.
+Para criar um instantâneo de partilha:
 
-    ![Captura de ecrã que mostra como montar a partilha de ficheiros](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
--  Pode copiar os comandos para a montagem de partilha de ficheiros no Windows ou Linux e executá-los a partir da sua VM do Azure ou na máquina no local.
+1. Abra a página da partilha de ficheiros ao abrir a conta de armazenamento no dashboard > **Ficheiros** > **myshare**. 
+2. Na página da partilha de ficheiros, clique no botão **Instantâneo** no menu na parte superior da página e, em seguida, selecione **Criar um instantâneo**.  
+    ![Uma captura de ecrã que ilustra como localizar o botão Criar instantâneo](media/storage-how-to-use-files-portal/create-snapshot-1.png)
 
-    ![Captura de ecrã que mostra os comandos de montagem para o Windows e Linux](./media/storage-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
+### <a name="list-and-browse-share-snapshots"></a>Listar e procurar instantâneos de partilha
+Após a criação do instantâneo, pode clicar novamente em **Instantâneo** e, em seguida, selecionar **Ver instantâneos** para listar os instantâneos da partilha. O painel resultante irá mostrar os instantâneos desta partilha. Clique num instantâneo de partilha para navegar no mesmo.
 
-**Sugestão:**  
-Para localizar a chave de acesso da conta de armazenamento para a montagem, clique em **Visualizar as chaves de acesso desta conta de armazenamento** na parte inferior da página de ligação.
+### <a name="restore-from-a-share-snapshot"></a>Restaurar a partir de um instantâneo de partilha
+Para demonstrar o restauro de um ficheiro a partir de um instantâneo de partilha, primeiro é necessário eliminar um ficheiro da partilha de ficheiros do Azure em direto. Navegue para a pasta *myDirectory*, clique com o botão direito do rato no ficheiro que carregou e, em seguida, clique em **Eliminar**. Em seguida, para restaurar esse ficheiro a partir do instantâneo de partilha:
 
-## <a name="see-also"></a>Consultar também
-Veja estas ligações para obter mais informações sobre os Ficheiros do Azure.
+1. Clique em **Instantâneos** no menu superior e selecione **Ver instantâneos**. 
+2. Clique no instantâneo que criou anteriormente e este abre o conteúdo numa nova página. 
+3. Clique em **myDirectory** no instantâneo e deverá ver o ficheiro que eliminou. 
+4. Clique com o botão direito do rato no ficheiro eliminado e selecione **Restaurar**.
+5. É apresentado um pop-up com a opção de restaurar o ficheiro como uma cópia ou substituir o ficheiro original. Uma vez que o ficheiro original foi eliminado, pode selecionar **Substituir ficheiro original** para restaurar o ficheiro, tal como estava antes de ser eliminado. Clique em **OK** para restaurar o ficheiro para a partilha de ficheiros do Azure.  
+    ![Uma captura de ecrã da caixa de diálogo Restaurar ficheiro](media/storage-how-to-use-files-portal/restore-snapshot-1.png)
 
-* [FAQ](../storage-files-faq.md)
-* [Resolução de Problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      
-* [Resolução de Problemas no Linux](storage-troubleshoot-linux-file-connection-problems.md)    
+6. Depois de o ficheiro ser restaurado, feche a página do instantâneo e volte a **myshare** > **myDirectory** e o ficheiro deverá estar no local original.
+
+### <a name="delete-a-share-snapshot"></a>Eliminar um instantâneo de partilha
+Para eliminar um instantâneo de partilha, [navegue para a lista de instantâneos de partilha](#list-and-browse-a-share-snapshot). Clique na caixa de verificação junto ao nome do instantâneo de partilha e selecione o botão **Eliminar**.
+
+![Uma captura de ecrã da eliminação de um instantâneo de partilha](media/storage-how-to-use-files-portal/delete-snapshot-1.png)
+
+## <a name="clean-up-resources"></a>Limpar recursos
+[!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
+
+## <a name="next-steps"></a>Passos seguintes
+- [Gerir partilhas de ficheiros com o Azure PowerShell](storage-how-to-use-files-powershell.md)
+- [Gerir partilhas de ficheiros com a CLI do Azure](storage-how-to-use-files-cli.md)
+- [Gerir partilhas de ficheiros com o Explorador de Armazenamento do Azure](storage-how-to-use-files-storage-explorer.md)
+- [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)

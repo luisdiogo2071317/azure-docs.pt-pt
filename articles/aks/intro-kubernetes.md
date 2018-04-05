@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Azure Container Service para Kubernetes"
-description: "O Azure Container Service para Kubernetes permite a implementação e gestão fácil de aplicações baseadas em contentores no Azure."
+title: Introdução ao Azure Container Service para Kubernetes
+description: O Azure Container Service para Kubernetes permite a implementação e gestão fácil de aplicações baseadas em contentores no Azure.
 services: container-service
 author: gabrtv
 manager: timlt
@@ -9,17 +9,21 @@ ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 2980d4733dcf138c3a9aa1713cff994bbf5a296c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bfa445eb11ed8be608278d0b95249372f9976ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="introduction-to-azure-container-service-aks"></a>Introdução ao Azure Container Service (AKS)
+# <a name="introduction-to-azure-container-service-aks-preview"></a>Pré-visualização da Introdução ao Azure Container Service (AKS)
 
 O Azure Container Service (AKS) simplifica a criação, configuração e gestão de um cluster de máquinas virtuais que estão pré-configuradas para executar aplicações em contentores. Isto permite-lhe utilizar as suas competências ou basear-se num corpo extenso e crescente de conhecimentos da comunidade, para implementar e gerir aplicações baseadas em contentores do Microsoft Azure.
 
 Ao utilizar o AKS, pode tirar partido das funcionalidades de nível empresarial do Azure, mantendo, ao mesmo tempo, a portabilidade da aplicação através de Kubernetes e do formato de imagens do Docker.
+
+> [!IMPORTANT]
+> O Azure Container Service (AKS) está atualmente em **pré-visualização**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+>
 
 ## <a name="managed-kubernetes-in-azure"></a>Managed Kubernetes no Azure
 

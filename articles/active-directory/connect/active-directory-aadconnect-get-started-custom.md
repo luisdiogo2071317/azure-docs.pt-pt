@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Instalação personalizada | Microsoft Docs"
-description: "Este documento fornece detalhes sobre as opções de instalação personalizada do Azure AD Connect. Utilize estas instruções para instalar o Active Directory através do Azure AD Connect."
+title: 'Azure AD Connect: Instalação personalizada | Microsoft Docs'
+description: Este documento fornece detalhes sobre as opções de instalação personalizada do Azure AD Connect. Utilize estas instruções para instalar o Active Directory através do Azure AD Connect.
 services: active-directory
-keywords: "o que é o Azure AD Connect, instale o Active Directory, componentes precisos para o Azure AD"
-documentationcenter: 
+keywords: o que é o Azure AD Connect, instale o Active Directory, componentes precisos para o Azure AD
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ee16fe9e15e52fea482e0db34857780449c2ccb4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 680e70ce572e182aa35c736f61036415d8714ea0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](active-directory-aadconnect-get-started-express.md) não satisfaz a sua implementação ou topologia.
@@ -49,7 +49,7 @@ Depois de instalar os componentes necessários, é-lhe pedido que selecione o m�
 
 | Opção Início de Sessão Único | Descrição |
 | --- | --- |
-| Sincronização hash de palavra-passe |Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local. As palavras-passe dos utilizadores são sincronizadas para o Azure AD como um hash de palavra-passe e a autenticação ocorre na nuvem. Para obter mais informações, veja [Password hash synchronization (Sincronização hash de palavra-passe)](active-directory-aadconnectsync-implement-password-synchronization.md). |
+| Sincronização hash de palavra-passe |Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local. As palavras-passe dos utilizadores são sincronizadas para o Azure AD como um hash de palavra-passe e a autenticação ocorre na nuvem. Para obter mais informações, veja [Password hash synchronization (Sincronização hash de palavra-passe)](active-directory-aadconnectsync-implement-password-hash-synchronization.md). |
 |Autenticação pass-through|Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local.  A palavra-passe dos utilizadores é transmitida para o controlador de domínio do Active Directory no local para ser validada.
 | Federação com o AD FS |Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local.  Os utilizadores serão redirecionados para a respetiva instância do AD FS no local para iniciarem sessão e a autenticação ocorre no local. |
 | Não configurar |Nenhuma funcionalidade de início de sessão de utilizador é instalada e configurada. Escolha esta opção se já tiver instalado um servidor de federação de terceiros ou outra solução existente. |
@@ -165,7 +165,7 @@ Este ecrã permite-lhe selecionar as funcionalidades opcionais para os seus cen�
 | Implementação Híbrida do Exchange |A funcionalidade Implementação Híbrida do Exchange permite a coexistência de caixas de correio do Exchange no local e no Office 365. O Azure AD Connect está a sincronizar um conjunto específico de [atributos](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) do Azure AD para o diretório no local. |
 | Pastas Públicas de Correio do Exchange | A funcionalidade Pastas Públicas de Correio do Exchange permite-lhe sincronizar objetos de Pastas Públicas ativadas para correio do seu Active Directory no local para o Azure AD. |
 | Aplicação Azure AD e filtragem de atributos |Ao ativar a aplicação Azure AD e a filtragem de atributos, o conjunto de atributos sincronizados pode ser personalizado. Esta opção adiciona mais duas páginas de configuração ao assistente. Para obter mais informações, consulte [Aplicação Azure AD e filtragem de atributos](#azure-ad-app-and-attribute-filtering). |
-| Sincronização de palavras-passe |Se tiver selecionado a federação como solução de início de sessão, poderá ativar esta opção. A sincronização de palavras-passe pode ser utilizada como uma opção de cópia de segurança. Para obter mais informações, consulte [Sincronização de palavras-passe](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Se tiver selecionado a Autenticação Pass-through, esta opção também poderá ser ativada para assegurar o suporte para clientes legados e como uma opção de cópia de segurança. Para obter mais informações, consulte [Sincronização de palavras-passe](active-directory-aadconnectsync-implement-password-synchronization.md).|
+| Sincronização de hash de palavra-passe |Se tiver selecionado a federação como solução de início de sessão, poderá ativar esta opção. A sincronização de hash de palavras-passe pode ser utilizada como uma opção de cópia de segurança. Para obter mais informações, consulte [Sincronização de hash de palavras-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md). </br></br>Se tiver selecionado a Autenticação Pass-through, esta opção também poderá ser ativada para assegurar o suporte para clientes legados e como uma opção de cópia de segurança. Para obter mais informações, consulte [Sincronização de hash de palavras-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md).|
 | Repetição de escrita de palavras-passe |Ao ativar a repetição de escrita de palavras-passe, as alterações de palavras-passe com origem no Azure AD são reescritas no diretório no local. Para mais informações, consulte [Introdução à gestão de palavras-passe](../active-directory-passwords-getting-started.md) |
 | Repetição de escrita do grupo |Se utilizar a funcionalidade **Grupos do Office 365**, pode ter estes grupos representados no Active Directory no local. Esta opção só está disponível se tiver o Exchange presente no Active Directory no local. Para obter mais informações, consulte [Repetição de escrita do grupo](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Repetição de escrita do dispositivo |Permite-lhe a repetição de escrita de objetos de dispositivo no Azure AD para o Active Directory no local para cenários de acesso condicional. Para mais informações, consulte [Ativar a repetição de escrita do dispositivo no Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |

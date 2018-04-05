@@ -9,11 +9,11 @@ ms.date: 3/14/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 9f7d32d3d1208b6fe6075f7dacdd6d350aee03e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 45c5ccd0f891a5592eee7400de108c5097f75286
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Início rápido: criar uma atribuição de política para identificar recursos incompatíveis com o módulo Azure RM PowerShell
 
@@ -48,7 +48,7 @@ Os comandos anteriores utilizam as seguintes informações:
 - **Nome** - nome a apresentar da atribuição de política. Neste caso, está a utilizar *Máquinas Virtuais de Auditoria sem Atribuição de Managed Disks*.
 - **Definição** – A definição de política, com base na qual está a utilizar para criar a atribuição. Neste caso, é a definição de política – *Máquinas Virtuais de Auditoria sem Managed Disks*.
 - **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos. Não se esqueça de substituir &lt;âmbito&gt; pelo nome do seu grupo de recursos.
-- **Sku** – Este comando cria uma atribuição de política com o escalão standard. O escalão standard permite-lhe alcançar a gestão à escala, a avaliação de conformidade e a remediação. Atualmente, o escalão standard é gratuito. No futuro, o escalão standard vai ser pago. Quando a alteração de preço for processada, esta vai ser comunicada e vão ser fornecidos mais detalhes no [preço do Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+- **Sku** – Este comando cria uma atribuição de política com o escalão standard. O escalão standard permite-lhe alcançar a gestão à escala, a avaliação de conformidade e a remediação. Para obter detalhes adicionais sobre os escalões de preço, veja [Preços do Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 
 Agora, está pronto para identificar recursos incompatíveis para compreender o estado de compatibilidade do seu ambiente.

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do Azure Container Service – Dimensionar Aplicação"
-description: "Tutorial do Azure Container Service – Dimensionar Aplicação"
+title: Tutorial do Azure Container Service – Dimensionar Aplicação
+description: Tutorial do Azure Container Service – Dimensionar Aplicação
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 36c5586f79cf127ec069fd3c6ef95dd073fdbdb6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ea64f9c52dc89dc8eb75a39afbb087a5127505f1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Dimensionar pods e infraestrutura do Kubernetes
 
@@ -28,7 +28,7 @@ Neste tutorial, parte cinco de sete, aumenta horizontalmente pods na aplicação
 > * Configurar pods de Dimensionamento automático com o front-end da aplicação
 > * Dimensionar os nós de agente do Azure do Kubernetes
 
-Nos tutoriais subsequentes, a aplicação do Azure Vote é atualizada e o Operations Management Suite configurado para monitorizar o cluster de Kubernetes.
+Nos tutoriais subsequentes, a aplicação Azure Vote é atualizada e o Log Analytics é configurado para monitorizar o cluster de Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 

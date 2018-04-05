@@ -8,17 +8,17 @@ ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/09/2017
+ms.date: 03/26/2018
 ms.author: carlrab
-ms.openlocfilehash: 532323a8511bc7ba8c2c322fe9f69d354691136b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f22a6d38648cf60bac09a751697e1c1d63d1db4f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Utilizar o Python para consultar uma base de dados SQL do Azure
 
- Este guia de introdução demonstra como utilizar o [Python](https://python.org) para ligar a uma base de dados SQL do Azure e utilizar as instruções Transact-SQL para consultar dados. Para obter mais detalhes de sdk, veja a nossa documentação de [referência](https://docs.microsoft.com/python/api/overview/azure/sql), um [exemplo](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) do pyodbc e o repositório do GitHub do [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) .
+ Este tutorial de início rápido demonstra como utilizar o [Python](https://python.org) para ligar a uma base de dados SQL do Azure e utilizar as instruções Transact-SQL para consultar dados. Para obter mais detalhes de sdk, veja a nossa documentação de [referência](https://docs.microsoft.com/python/api/overview/azure/sql), um [exemplo](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) do pyodbc e o repositório do GitHub do [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +51,7 @@ database = 'your_database'
 username = 'your_username'
 password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
 cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
 row = cursor.fetchone()

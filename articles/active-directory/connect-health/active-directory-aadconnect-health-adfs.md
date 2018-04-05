@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e82b1364593ff70ed87efcaa24c135277002904
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ad8ed320a8dd91ea83dbaf71e2e9514b4df4cdb5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorizar o AD FS utilizando o Azure AD Connect Health
 A seguinte documentação é específica para monitorizar a infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre a monitorização do Azure AD Connect (Sincronização) com o Azure AD Connect Health, consulte [Utilizar Azure AD Connect Health para Sincronização](active-directory-aadconnect-health-sync.md). Além disso, para obter informações sobre a monitorização dos Serviços de Domínio do Active Directory com o Azure AD Connect Health, consulte [Utilizar Azure AD Connect Health com AD DS](active-directory-aadconnect-health-adds.md).
@@ -126,9 +126,9 @@ Além disso, é possível que um único endereço IP tente vários inícios de s
 - Relatórios transferíveis para análise offline e integração com outros sistemas através de automatização
 
 > [!NOTE]
-> Para utilizar este relatório, tem de se certificar de que a auditoria do AD FS está ativada. Para obter mais informações, consulte [Ativar Auditoria do AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
->
->
+> Para utilizar este relatório, tem de se certificar de que a auditoria do AD FS está ativada. Para obter mais informações, consulte [Ativar Auditoria do AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
+> Para aceder à pré-visualização, precisa da permissão do Administrador Global ou do [Leitor de Segurança](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#security-reader).  
+> 
 
 ### <a name="what-is-in-the-report"></a>Novidades do relatório
 Cada item no relatório de IP em Risco mostra informações agregadas sobre as atividades de início de sessão do AD FS falhadas que excedam o limiar designado. Disponibiliza as informações seguintes: ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4a.png)

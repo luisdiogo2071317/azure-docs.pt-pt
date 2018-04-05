@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: análise de sentimentos na transmissão em fluxo de dados com o Azure Databricks | Microsoft Docs'
-description: Saiba como utilizar o Azure Databricks com os Hubs de Eventos e a API de Serviços Cognitivos para executar a análise de sentimentos na transmissão em fluxo de dados em tempo real.
+description: Saiba como utilizar o Azure Databricks com os Hubs de Eventos e a API de Serviços Cognitivos para executar a análise de sentimentos na transmissão em fluxo de dados em quase tempo real.
 services: azure-databricks
 documentationcenter: ''
-author: nitinme
+author: lenadroid
 manager: cgronlun
 editor: ''
 tags: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/15/2018
-ms.author: nitinme
-ms.openlocfilehash: 00456bdc4dc0e8562af9be6c827e8ab32bf03a31
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/20/2018
+ms.author: alehall
+ms.openlocfilehash: 8858df394885ae7820a4bc72458f4f1d851965e6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: análise de sentimentos na transmissão em fluxo de dados com o Azure Databricks
 
-Neste tutorial, irá aprender a executar a análise de sentimentos numa transmissão em fluxo de dados em tempo real com o Azure Databricks. Configure o sistema de ingestão de dados em tempo real com os Hubs de Eventos do Azure. Consuma as mensagens de Hubs de Eventos para o Azure Databricks através do conector de Hubs de Eventos do Apache Spark. Por fim, pode utilizar as API de Serviço Cognitivo da Microsoft para executar a análise de sentimentos nos dados transmitidos em fluxo. 
+Neste tutorial, irá aprender a executar a análise de sentimentos numa transmissão em fluxo de dados em quase tempo real com o Azure Databricks. Configure o sistema de ingestão de dados com os Hubs de Eventos do Azure. Consuma as mensagens de Hubs de Eventos para o Azure Databricks através do conector de Hubs de Eventos do Apache Spark. Por fim, pode utilizar as API de Serviço Cognitivo da Microsoft para executar a análise de sentimentos nos dados transmitidos em fluxo.
 
 No final deste tutorial, deverá ter transmitido tweets do Twitter em fluxo, que incluem o termo "Azure" nos mesmos, e executado análise de sentimentos nos tweets.
 
@@ -32,12 +32,12 @@ A ilustração seguinte mostra o fluxo da aplicação:
 
 ![Azure Databricks com Hubs de Eventos e Serviços Cognitivos](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png "Azure Databricks com Hubs de Eventos e Serviços Cognitivos")
 
-Este tutorial abrange as seguintes tarefas: 
+Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar uma área de trabalho do Azure Databricks
 > * Criar um cluster do Spark no Azure Databricks
-> * Criar uma aplicação do Twitter para aceder a dados em tempo real
+> * Criar uma aplicação no Twitter para aceder a dados de transmissão
 > * Criar blocos de notas no Azure Databricks
 > * Anexar bibliotecas aos Hubs de Eventos e à API do Twitter
 > * Criar uma conta dos Serviços Cognitivos da Microsoft e obter a chave de acesso
@@ -52,7 +52,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 Antes de começar este tutorial, certifique-se de que cumpre os seguintes requisitos:
 - Um espaço de nomes dos Hubs de Eventos do Azure.
 - Um Hub de Eventos no espaço de nomes.
-- Cadeia de ligação para aceder ao espaço de nomes dos Hubs de Eventos. A cadeia de ligação deve ter um formato semelhante a `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>”`.
+- Cadeia de ligação para aceder ao espaço de nomes dos Hubs de Eventos. A cadeia de ligação deve ter um formato semelhante a `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`.
 - O nome da política de acesso partilhado e a chave da política dos Hubs de Eventos.
 
 Pode satisfazer estes requisitos, efetuando os passos no artigo, [Criar um espaço de nomes e um hub de eventos dos Hubs de Eventos do Azure](../event-hubs/event-hubs-create.md).
@@ -63,20 +63,18 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
-Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal do Azure. 
+Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal do Azure.
 
-1. No portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks (Pré-visualização)**.
+1. No portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**.
 
     ![Databricks no portal do Azure](./media/databricks-sentiment-analysis-cognitive-services/azure-databricks-on-portal.png "Databricks no portal do Azure")
-
-2. Em **Azure Databricks (Pré-visualização)**, selecione **Criar**.
 
 3. Em **Serviço Azure Databricks**, forneça os valores para criar uma área de trabalho do Databricks.
 
     ![Criar uma área de trabalho do Azure Databricks](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-workspace.png "Criar uma área de trabalho do Azure Databricks")
 
-    Forneça os seguintes valores: 
-     
+    Forneça os seguintes valores:
+
     |Propriedade  |Descrição  |
     |---------|---------|
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
@@ -106,14 +104,14 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
     Aceite todos os outros valores predefinidos que não sejam os seguintes:
 
     * Introduza um nome para o cluster.
-    * Para este artigo, crie um cluster com o runtime **4.0 (beta)**. 
+    * Para este artigo, crie um cluster com o runtime **4.0 (beta)**.
     * Certifique-se de que seleciona a caixa de verificação **Terminar após ___ minutos de atividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
 
     Selecione **Criar cluster**. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
 
 ## <a name="create-a-twitter-application"></a>Criar uma aplicação do Twitter
 
-Para receber um fluxo em tempo real de tweets, tem de criar uma aplicação no Twitter. Siga os passos para criar uma aplicação no Twitter e registe os valores que precisa para concluir este tutorial.
+Para receber um fluxo de tweets, tem de criar uma aplicação no Twitter. Siga os passos para criar uma aplicação no Twitter e registe os valores que precisa para concluir este tutorial.
 
 1. A partir de um browser, aceda a [Gestão de Aplicações do Twitter](http://twitter.com/app) e selecione **Criar Nova Aplicação**.
 
@@ -121,11 +119,11 @@ Para receber um fluxo em tempo real de tweets, tem de criar uma aplicação no T
 
 2. Na página **Criar uma aplicação**, forneça os detalhes da nova aplicação e, em seguida, selecione **Criar a sua aplicação do Twitter**.
 
-    ![Detalhes da aplicação do Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Detalhes da aplicação do Twitter")
+    ![Detalhes da aplicação no Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Detalhes da aplicação no Twitter")
 
 3. Na página da aplicação, selecione o separador **Chaves e Tokens de Acesso** e copie os valores de **Chave de Consumo** e **Segredo de Consumidor**. Além disso, selecione **Criar o meu token de acesso** para gerar os tokens de acesso. Copie os valores de **Token de Acesso** e **Segredo de Token de Acesso**.
 
-    ![Detalhes da aplicação do Twitter](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Detalhes da aplicação do Twitter")
+    ![Detalhes da aplicação no Twitter](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Detalhes da aplicação no Twitter")
 
 Guarde os valores que obteve da aplicação do Twitter. Vai precisar dos valores mais tarde no tutorial.
 
@@ -139,7 +137,7 @@ Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs 
 
 2. Na página Nova Biblioteca, em **Origem**, selecione **Coordenada do Maven**. Em **Coordenada**, introduza a coordenada do pacote que quer adicionar. Eis as coordenadas do Maven para as bibliotecas utilizadas neste tutorial:
 
-    * Conector de Hubs de Eventos do Spark – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.0`
+    * Conector de Hubs de Eventos do Spark – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
     * API do Twitter – `org.twitter4j:twitter4j-core:4.0.6`
 
     ![Fornecer coordenadas do Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Fornecer coordenadas do Maven")
@@ -158,12 +156,12 @@ Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs 
 
 ## <a name="get-a-cognitive-services-access-key"></a>Obter uma chave de acesso aos Serviços Cognitivos
 
-Neste tutorial, utilize as [APIs de Análise de Texto dos Serviços Cognitivos da Microsoft](../cognitive-services/text-analytics/overview.md) para executar a análise de sentimentos numa sequência de tweets em tempo real. Antes de utilizar as APIs, tem de criar uma conta dos Serviços Cognitivos da Microsoft no Azure e obter uma chave de acesso para utilizar as APIs de Análise de Texto.
+Neste tutorial, utilize as [APIs de Análise de Texto dos Serviços Cognitivos da Microsoft](../cognitive-services/text-analytics/overview.md) para executar a análise de sentimentos numa sequência de tweets em quase tempo real. Antes de utilizar as APIs, tem de criar uma conta dos Serviços Cognitivos da Microsoft no Azure e obter uma chave de acesso para utilizar as APIs de Análise de Texto.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione **+ Criar um recurso**.
- 
+
 3. No Microsoft Azure Marketplace, selecione **IA + Serviços Cognitivos** > **API de Análise de Texto**.
 
     ![Criar conta de serviços cognitivos](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-text-api.png "Criar conta de serviços cognitivos")
@@ -219,7 +217,7 @@ No bloco de notas **SendTweetsToEventHub**, cole o seguinte código e substitua 
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
     import java.util.concurrent._
-    
+
     val namespaceName = "<EVENT HUBS NAMESPACE>"
     val eventHubName = "<EVENT HUB NAME>"
     val sasKeyName = "<POLICY NAME>"
@@ -229,51 +227,51 @@ No bloco de notas **SendTweetsToEventHub**, cole o seguinte código e substitua 
                 .setEventHubName(eventHubName)
                 .setSasKeyName(sasKeyName)
                 .setSasKey(sasKey)
-    
+
     val pool = Executors.newFixedThreadPool(1)
     val eventHubClient = EventHubClient.create(connStr.toString(), pool)
-    
+
     def sendEvent(message: String) = {
       val messageData = EventData.create(message.getBytes("UTF-8"))
-      eventHubClient.get().send(messageData) 
+      eventHubClient.get().send(messageData)
       System.out.println("Sent event: " + message + "\n")
     }
-    
+
     import twitter4j._
     import twitter4j.TwitterFactory
     import twitter4j.Twitter
     import twitter4j.conf.ConfigurationBuilder
-    
+
     // Twitter configuration!
     // Replace values below with yours
-    
+
     val twitterConsumerKey = "<CONSUMER KEY>"
     val twitterConsumerSecret = "<CONSUMER SECRET>"
     val twitterOauthAccessToken = "<ACCESS TOKEN>"
     val twitterOauthTokenSecret = "<TOKEN SECRET>"
-    
+
     val cb = new ConfigurationBuilder()
       cb.setDebugEnabled(true)
       .setOAuthConsumerKey(twitterConsumerKey)
       .setOAuthConsumerSecret(twitterConsumerSecret)
       .setOAuthAccessToken(twitterOauthAccessToken)
       .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
-    
+
     val twitterFactory = new TwitterFactory(cb.build())
     val twitter = twitterFactory.getInstance()
-    
+
     // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
-    
+
     val query = new Query(" #Azure ")
     query.setCount(100)
     query.lang("en")
     var finished = false
     while (!finished) {
-      val result = twitter.search(query) 
+      val result = twitter.search(query)
       val statuses = result.getTweets()
       var lowestStatusId = Long.MaxValue
       for (status <- statuses.asScala) {
-        if(!status.isRetweet()){ 
+        if(!status.isRetweet()){
           sendEvent(status.getText())
         }
         lowestStatusId = Math.min(status.getId(), lowestStatusId)
@@ -281,24 +279,24 @@ No bloco de notas **SendTweetsToEventHub**, cole o seguinte código e substitua 
       }
       query.setMaxId(lowestStatusId - 1)
     }
-    
+
     // Closing connection to the Event Hub
     eventHubClient.get().close()
 
-Para executar o bloco de notas, prima **SHIFT + ENTER**. Verá um resultado conforme mostrado no seguinte fragmento. Cada evento no resultado é um tweet em tempo real que é ingerido para os Hubs de Eventos. 
+Para executar o bloco de notas, prima **SHIFT + ENTER**. Verá um resultado conforme mostrado no seguinte fragmento. Cada evento no resultado é um tweet que é ingerido para os Hubs de Eventos.
 
     Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
 
     Sent event: Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
-    https://t.co/7vs7cKtvah 
+    https://t.co/7vs7cKtvah
     #cloudcomputing #Azure
-    
+
     Sent event: 4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie
-    
+
     Sent event: Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
-    
+
     Sent event: Top 10 Tricks to #Save Money with #Azure Virtual Machines https://t.co/F2wshBXdoz #Cloud
-    
+
     ...
     ...
 
@@ -308,26 +306,26 @@ No bloco de notas **AnalyzeTweetsFromEventHub**, cole o seguinte código e subst
 
     import org.apache.spark.eventhubs._
 
-    // Build connection string with the above information 
+    // Build connection string with the above information
     val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
       .setEventHubName("<EVENT HUB NAME>")
       .build
-    
-    val customEventhubParameters = 
+
+    val customEventhubParameters =
       EventHubsConf(connectionString)
       .setMaxEventsPerTrigger(5)
-    
+
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
-    
+
     incomingStream.printSchema
-    
+
     // Sending the incoming stream into the console.
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
 Obtém o resultado seguinte:
 
-  
+
     root
      |-- body: binary (nullable = true)
      |-- offset: long (nullable = true)
@@ -335,7 +333,7 @@ Obtém o resultado seguinte:
      |-- enqueuedTime: long (nullable = true)
      |-- publisher: string (nullable = true)
      |-- partitionKey: string (nullable = true)
-   
+
     -------------------------------------------
     Batch: 0
     -------------------------------------------
@@ -343,9 +341,9 @@ Obtém o resultado seguinte:
     |body  |offset|sequenceNumber|enqueuedTime   |publisher|partitionKey|
     +------+------+--------------+---------------+---------+------------+
     |[50 75 62 6C 69 63 20 70 72 65 76 69 65 77 20 6F 66 20 4A 61 76 61 20 6F 6E 20 41 70 70 20 53 65 72 76 69 63 65 2C 20 62 75 69 6C 74 2D 69 6E 20 73 75 70 70 6F 72 74 20 66 6F 72 20 54 6F 6D 63 61 74 20 61 6E 64 20 4F 70 65 6E 4A 44 4B 0A 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 37 76 73 37 63 4B 74 76 61 68 20 0A 23 63 6C 6F 75 64 63 6F 6D 70 75 74 69 6E 67 20 23 41 7A 75 72 65]                              |0     |0             |2018-03-09 05:49:08.86 |null     |null        |
-    |[4D 69 67 72 61 74 65 20 79 6F 75 72 20 64 61 74 61 62 61 73 65 73 20 74 6F 20 61 20 66 75 6C 6C 79 20 6D 61 6E 61 67 65 64 20 73 65 72 76 69 63 65 20 77 69 74 68 20 41 7A 75 72 65 20 53 51 4C 20 44 61 74 61 62 61 73 65 20 4D 61 6E 61 67 65 64 20 49 6E 73 74 61 6E 63 65 20 7C 20 23 41 7A 75 72 65 20 7C 20 23 43 6C 6F 75 64 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 73 4A 48 58 4E 34 74 72 44 6B]            |168   |1             |2018-03-09 05:49:24.752|null     |null        | 
+    |[4D 69 67 72 61 74 65 20 79 6F 75 72 20 64 61 74 61 62 61 73 65 73 20 74 6F 20 61 20 66 75 6C 6C 79 20 6D 61 6E 61 67 65 64 20 73 65 72 76 69 63 65 20 77 69 74 68 20 41 7A 75 72 65 20 53 51 4C 20 44 61 74 61 62 61 73 65 20 4D 61 6E 61 67 65 64 20 49 6E 73 74 61 6E 63 65 20 7C 20 23 41 7A 75 72 65 20 7C 20 23 43 6C 6F 75 64 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 73 4A 48 58 4E 34 74 72 44 6B]            |168   |1             |2018-03-09 05:49:24.752|null     |null        |
     +------+------+--------------+---------------+---------+------------+
-    
+
     -------------------------------------------
     Batch: 1
     -------------------------------------------
@@ -356,19 +354,19 @@ Dado que o resultado está num modo binário, utilize o seguinte fragmento para 
 
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
-    
+
     // Event Hub message format is JSON and contains "body" field
     // Body is binary, so we cast it to string to see the actual content of the message
-    val messages = 
+    val messages =
       incomingStream
       .withColumn("Offset", $"offset".cast(LongType))
       .withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType))
       .withColumn("Timestamp", $"enqueuedTime".cast(LongType))
       .withColumn("Body", $"body".cast(StringType))
       .select("Offset", "Time (readable)", "Timestamp", "Body")
-    
+
     messages.printSchema
-    
+
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
 O resultado assemelha-se agora ao seguinte fragmento:
@@ -378,7 +376,7 @@ O resultado assemelha-se agora ao seguinte fragmento:
      |-- Time (readable): timestamp (nullable = true)
      |-- Timestamp: long (nullable = true)
      |-- Body: string (nullable = true)
-    
+
     -------------------------------------------
     Batch: 0
     -------------------------------------------
@@ -386,7 +384,7 @@ O resultado assemelha-se agora ao seguinte fragmento:
     |Offset|Time (readable)  |Timestamp |Body
     +------+-----------------+----------+-------+
     |0     |2018-03-09 05:49:08.86 |1520574548|Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
-    https://t.co/7vs7cKtvah 
+    https://t.co/7vs7cKtvah
     #cloudcomputing #Azure          |
     |168   |2018-03-09 05:49:24.752|1520574564|Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |
     |0     |2018-03-09 05:49:02.936|1520574542|@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|
@@ -406,12 +404,12 @@ Comece por adicionar uma nova célula de código ao bloco de notas e colar o fra
 
     import java.io._
     import java.net._
-    import java.util._    
+    import java.util._
 
-    class Document(var id: String, var text: String, var language: String = "", var sentiment: Double = 0.0) extends Serializable 
+    class Document(var id: String, var text: String, var language: String = "", var sentiment: Double = 0.0) extends Serializable
 
     class Documents(var documents: List[Document] = new ArrayList[Document]()) extends Serializable {
-    
+
         def add(id: String, text: String, language: String = "") {
             documents.add (new Document(id, text, language))
         }
@@ -436,9 +434,9 @@ Adicione uma nova célula de código e cole o fragmento fornecido abaixo. Este f
     import com.google.gson.JsonObject
     import com.google.gson.JsonParser
     import scala.util.parsing.json._
-    
+
     object SentimentDetector extends Serializable {
-      
+
       // Cognitive Services API connection settings
       val accessKey = "<PROVIDE ACCESS KEY HERE>"
       val host = "<PROVIDE HOST HERE>"
@@ -446,7 +444,7 @@ Adicione uma nova célula de código e cole o fragmento fornecido abaixo. Este f
       val sentimentPath = "/text/analytics/v2.0/sentiment"
       val languagesUrl = new URL(host+languagesPath)
       val sentimenUrl = new URL(host+sentimentPath)
-      
+
       def getConnection(path: URL): HttpsURLConnection = {
         val connection = path.openConnection().asInstanceOf[HttpsURLConnection]
         connection.setRequestMethod("POST")
@@ -455,14 +453,14 @@ Adicione uma nova célula de código e cole o fragmento fornecido abaixo. Este f
         connection.setDoOutput(true)
         return connection
       }
-      
+
       def prettify (json_text: String): String = {
         val parser = new JsonParser()
         val json = parser.parse(json_text).getAsJsonObject()
         val gson = new GsonBuilder().setPrettyPrinting().create()
         return gson.toJson(json)
       }
-      
+
       // Handles the call to Cognitive Services API.
       // Expects Documents as parameters and the address of the API to call.
       // Returns an instance of Documents in response.
@@ -474,7 +472,7 @@ Adicione uma nova célula de código e cole o fragmento fornecido abaixo. Este f
         wr.write(encoded_text, 0, encoded_text.length)
         wr.flush()
         wr.close()
-    
+
         val response = new StringBuilder()
         val in = new BufferedReader(new InputStreamReader(connection.getInputStream()))
         var line = in.readLine()
@@ -485,10 +483,10 @@ Adicione uma nova célula de código e cole o fragmento fornecido abaixo. Este f
         in.close()
         return response.toString()
       }
-      
+
       // Calls the language API for specified documents.
       // Returns a documents with language field set.
-      def getLanguage (inputDocs: Documents): Documents = { 
+      def getLanguage (inputDocs: Documents): Documents = {
         try {
           val response = processUsingApi(inputDocs, languagesUrl)
           // In case we need to log the json response somewhere
@@ -511,7 +509,7 @@ Adicione uma nova célula de código e cole o fragmento fornecido abaixo. Este f
               case e: Exception => return new Documents()
         }
       }
-      
+
       // Calls the sentiment API for specified documents. Needs a language field to be set for each of them.
       // Returns documents with sentiment field set, taking a value in the range from 0 to 1.
       def getSentiment (inputDocs: Documents): Documents = {
@@ -535,7 +533,7 @@ Adicione uma nova célula de código e cole o fragmento fornecido abaixo. Este f
         }
       }
     }
-    
+
     // User Defined Function for processing content of messages to return their sentiment.
     val toSentiment = udf((textContent: String) => {
       val inputDocs = new Documents()
@@ -554,7 +552,7 @@ Adicione uma célula de código final para preparar um dataframe com o conteúdo
 
     // Prepare a dataframe with Content and Sentiment columns
     val streamingDataFrame = incomingStream.selectExpr("cast (body as string) AS Content").withColumn("Sentiment", toSentiment($"Content"))
-    
+
     // Display the streaming data with the sentiment
     streamingDataFrame.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
@@ -571,11 +569,11 @@ Deve ver um resultado como o seguinte fragmento:
     |Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |0.8558163642883301|
     |@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|0.5               |
     |4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie                                                    |0.5               |
-    +--------------------------------+------------------+ 
+    +--------------------------------+------------------+
 
-Um valor perto de **1** na coluna **Sentimento** sugere uma excelente experiência com o Azure. Um valor perto de **0** sugere problemas sentidos pelos utilizadores ao trabalharem com o Microsoft Azure. 
+Um valor perto de **1** na coluna **Sentimento** sugere uma excelente experiência com o Azure. Um valor perto de **0** sugere problemas sentidos pelos utilizadores ao trabalharem com o Microsoft Azure.
 
-Já está! Ao utilizar o Azure Databricks, transmitiu dados em fluxo e em tempo real para os Hubs de Eventos do Azure, consumiu os dados de transmissão em fluxo com o conector dos Hubs de Eventos e, em seguida, executou a análise de sentimentos nos dados de transmissão em fluxo.
+Já está! Ao utilizar o Azure Databricks, transmitiu dados em fluxo para os Hubs de Eventos do Azure, consumiu os dados de transmissão em fluxo com o conector dos Hubs de Eventos e, em seguida, executou a análise de sentimentos nos dados de transmissão em fluxo em quase tempo real.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -585,12 +583,12 @@ Depois de executar o tutorial, pode terminar o cluster. Para tal, na área de tr
 
 Se não terminar manualmente o cluster, este irá parar automaticamente, desde que tenha selecionado a caixa de verificação **Terminar após __ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a utilizar o Azure Databricks para transmitir dados em fluxo aos Hubs de Eventos do Azure e, em seguida, ler os dados de transmissão em fluxo dos Hubs de Eventos em tempo real. Aprendeu a:
 > [!div class="checklist"]
 > * Criar uma área de trabalho do Azure Databricks
 > * Criar um cluster do Spark no Azure Databricks
-> * Criar uma aplicação do Twitter para aceder a dados em tempo real
+> * Criar uma aplicação no Twitter para aceder a dados de transmissão
 > * Criar blocos de notas no Azure Databricks
 > * Adicionar e anexar bibliotecas aos Hubs de Eventos e à API do Twitter
 > * Criar uma conta dos Serviços Cognitivos da Microsoft e obter a chave de acesso

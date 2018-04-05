@@ -1,26 +1,26 @@
 ---
-title: "Criar e Gerir VMs do Windows com o módulo do Azure PowerShell | Microsoft Docs"
-description: "Tutorial - Criar e Gerir VMs do Windows com o módulo do Azure PowerShell"
+title: Criar e Gerir VMs do Windows com o módulo do Azure PowerShell | Microsoft Docs
+description: Tutorial - Criar e Gerir VMs do Windows com o módulo do Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cf406dfbab40631c99da70085e99ba90f563411
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9bc5154486bf09072bdf3da6bbeb05407a140354
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Criar e Gerir VMs do Windows com o módulo do Azure PowerShell
 
@@ -90,9 +90,11 @@ Utilize o seguinte comando na sua máquina virtual para criar uma sessão de amb
 mstsc /v:<publicIpAddress>
 ```
 
+Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Escreva o nome de utilizador e a palavra-passe que criou para a máquina virtual e clique em **OK**.
+
 ## <a name="understand-vm-images"></a>Compreender as imagens de VM
 
-O Azure marketplace inclui várias imagens de máquina virtual que podem ser utilizadas para criar uma nova máquina virtual. Nos passos anteriores, uma máquina virtual foi criada com uma imagem do Windows Server 2016-Datacenter. Neste passo, o módulo do PowerShell serve para pesquisar outras imagens do Windows no marketplace, pode também servir como base para novas VMs. Este processo consiste em encontrar o publicador, a oferta e o nome da imagem (Sku). 
+O Azure marketplace inclui várias imagens de máquina virtual que podem ser utilizadas para criar uma nova máquina virtual. Nos passos anteriores, uma máquina virtual foi criada com uma imagem do Windows Server 2016-Datacenter. Neste passo, o módulo do PowerShell serve para pesquisar outras imagens do Windows no marketplace, que pode também ser utilizado como base para novas VMs. Este processo consiste em encontrar o publicador, a oferta, o SKU e, opcionalmente, um número de versão para [identificar](cli-ps-findimage.md#terminology) a imagem. 
 
 Utilize o comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) para devolver uma lista de editores de imagem:
 
@@ -139,7 +141,7 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-Estas informações podem ser utilizadas para implementar uma VM com uma imagem específica. Este exemplo implementa uma máquina virtual com uma imagem de Contentores do Windows Server 2016.
+Estas informações podem ser utilizadas para implementar uma VM com uma imagem específica. Este exemplo implementa uma máquina virtual com a versão mais recente de uma imagem de Contentores do Windows Server 2016.
 
 ```azurepowershell-interactive
 New-AzureRmVm `

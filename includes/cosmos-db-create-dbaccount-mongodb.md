@@ -1,25 +1,32 @@
+---
+title: Criar uma conta da API do MongoDB do Azure Cosmos DB
+description: Descreve como criar uma conta da API do MongoDB do Azure Cosmos DB no portal do Azure
+services: cosmos-db
+author: mimig1
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 03/20/2018
+ms.author: mimig
+ms.custom: include file
+ms.openlocfilehash: 02ea0e011642313b885bc48ec48104fa2789da81
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/28/2018
+---
 1. Numa nova janela, inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu esquerdo, clique em **Criar um recurso**, **Bases de Dados**e, em **Azure Cosmos DB** e **Criar**.
    
    ![Captura de ecrã do portal do Azure, com destaque para Mais Serviços e Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
 
-3. No painel **Nova conta**, especifique a configuração pretendida para a conta do Azure Cosmos DB. 
-
-    Com o Azure Cosmos DB, pode escolher um de quatro modelos de programação: Gremlin (gráficos), MongoDB, SQL e Table (chave-valor). 
-       
-    Neste guia de introdução, vamos programar com a API MongoDB, pelo que vai escolher **MongoDB** quando preencher o formulário. Contudo, se tiver dados de gráficos para aplicações de redes sociais, dados de documentos de aplicações de catálogos ou dados de chaves-valores (tabela), tenha em conta que o Azure Cosmos DB pode proporcionar uma plataforma de serviço de bases de dados de elevada disponibilidade e distribuída globalmente para todas as aplicações críticas para a sua atividade.
-
-    Preencha o painel **Nova conta** com as informações que estão na tabela como guia.
+3. No painel **Nova conta**, especifique **MongoDB** como a API e preencha a configuração pretendida para a conta do Azure Cosmos DB.
  
     ![Captura de ecrã do painel Novo Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
-   
-    Definição|Valor sugerido|Descrição
-    ---|---|---
-    ID|*Valor exclusivo*|Um nome exclusivo que vai escolher para identificar a conta do Azure Cosmos DB. *documents.azure.com* é anexado ao ID que indicar para criar o seu URI, pelo que deve utilizar um ID exclusivo, mas identificável. O ID pode conter apenas minúsculas, números, o caráter “-” e tem de ter entre três e 50 carateres.
-    API|MongoDB|A API determina o tipo de conta a criar. O Azure do Cosmos DB oferece cinco APIs que se adequam às necessidades da sua aplicação: SQL Server (base de dados do documento), Gremlin (base de dados do gráfico), MongoDB (base de dados do documento), Tabela do Azure e Cassandra, cada qual necessita atualmente de uma conta separada. <br><br>Selecione **MongoDB** porque neste início rápido está a criar uma base de dados de documento que é consultável com o MongoDB.<br><br>[Saiba mais sobre a API do MongoDB](../articles/cosmos-db/mongodb-introduction.md)|
-    Subscrição|*A sua subscrição*|A subscrição do Azure que quer utilizar para a conta do Azure Cosmos DB. 
-    Grupo de Recursos|*O mesmo valor que o ID*|O nome do grupo de recursos novo para a sua conta. Para simplicidade, pode utilizar o mesmo nome do ID. 
-    Localização|*A região mais próxima dos seus utilizadores*|A localização geográfica na qual vai alojar a sua conta do Azure Cosmos DB. Escolha a localização mais próxima dos seus utilizadores para lhes dar o acesso mais rápido aos dados.
+
+    * O **ID** tem de ser um nome exclusivo que vai utilizar para identificar a sua conta do Azure Cosmos DB. Pode conter apenas minúsculas, números, o caráter "-" e tem de ter entre três e 50 carateres.
+    * A **Subscrição** é a sua subscrição do Azure. Será preenchida para si.
+    * O **Grupo de Recursos** é o nome do grupo de recursos para a sua conta do Azure Cosmos DB.
+    * A **Localização** é a localização geográfica onde está localizada a sua instância da instância do Azure Cosmos DB. Escolha a localização mais próxima dos seus utilizadores.
 
 4. Clique em **Criar** para criar a conta.
 5. Na barra de ferramentas, clique em **Notificações** para monitorizar o processo de implementação.
