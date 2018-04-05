@@ -1,31 +1,46 @@
+---
+title: Distribuição global do Azure Cosmos DB
+description: Saiba como replicar dados globalmente com o Azure Cosmos DB no Portal do Azure
+services: cosmos-db
+author: mimig1
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 03/26/2018
+ms.author: mimig
+ms.custom: include file
+ms.openlocfilehash: b62d1cc3b7ea79adbf24f214ba3bb9e92c3a1f0c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/28/2018
+---
+Pode obter mais informações sobre a distribuição global do Azure Cosmos DB no vídeo seguinte, em que o Gestor de programa do Azure Cosmos DB, Andrew Liu, explica a funcionalidade de distribuição global.
 
-Pode saber sobre a base de dados do Azure Cosmos distribuição global neste Azure sexta-feira vídeo com autoria de Scott Hanselman e o Gestor de engenharia do Principal Karthik Raman.
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+Para obter mais informações sobre como funciona a replicação de base de dados global no Azure Cosmos DB, veja [Distribuir dados globalmente com o Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
 
-Para obter mais informações sobre a replicação de base de dados como global funciona do BD Azure Cosmos, consulte [distribuir dados globalmente com Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
+## <a id="addregion"></a>Adicionar regiões de base de dados globais com o Portal do Azure
+O Azure Cosmos DB está disponível em todas as [regiões do Azure][azureregions] a nível mundial. Depois de selecionar o nível de consistência predefinido para a sua conta de base de dados, pode associar uma ou mais regiões (dependendo da sua escolha do nível de consistência predefinido e das suas necessidades de distribuição global).
 
-## <a id="addregion"></a>Adicionar regiões de base de dados global através do Portal do Azure
-BD do Cosmos do Azure está disponível em todos os [regiões do Azure] [ azureregions] em todo o mundo. Depois de selecionar o nível de consistência predefinida para a sua conta de base de dados, pode associar um ou mais regiões (dependendo da sua escolha de necessidades de distribuição global e nível de consistência predefinida).
-
-1. No [portal do Azure](https://portal.azure.com/), na barra da esquerda, clique em **Azure Cosmos DB**.
-2. No **Azure Cosmos DB** painel, selecione a base de dados de conta para modificar.
-3. No painel de conta, clique em **replicar dados globalmente** no menu.
-4. No **replicar dados globalmente** painel, selecione as regiões para adicionar ou remover, clicando em regiões no mapa e, em seguida, clique em **guardar**. Existe um custo a adição de regiões, consulte o [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) ou [distribuir dados globalmente com a base de dados do Azure Cosmos](../articles/cosmos-db/distribute-data-globally.md) artigo para obter mais informações.
+1. No [Portal do Azure](https://portal.azure.com/), na barra esquerda, clique em **Azure Cosmos DB**.
+2. Na página **Azure Cosmos DB**, selecione a conta de base de dados a modificar.
+3. Na página da conta, clique em **Replicar dados globalmente** no menu.
+4. Na página **Replicar dados globalmente**, selecione as regiões a adicionar ou remover, clicando em regiões do mapa e, em seguida, clique em **Guardar**. Existe um custo para a adição de regiões, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) ou o artigo [Distribuir dados globalmente com o Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md) para obter mais informações.
    
-    ![Clique em regiões no mapa para adicionar ou removê-las][1]
+    ![Clicar em regiões do mapa para adicioná-las ou removê-las][1]
     
-Depois de adicionar uma segunda região, o **ativação pós-falha do Manual** opção está ativada no **replicar dados globalmente** painel no portal. Pode utilizar esta opção para testar o processo de ativação pós-falha ou alterar a região primária escrita. Depois de adicionar uma terceira região, o **prioridades de ativação pós-falha** opção está ativada no mesmo painel, para que possa alterar a ordem de ativação pós-falha para leituras.  
+Depois de adicionar uma segunda região, a opção **Ativação Pós-falha Manual** fica ativada na página **Replicar dados globalmente** no portal. Pode utilizar esta opção para testar o processo de ativação pós-falha ou alterar a região de escrita principal. Depois de adicionar uma terceira região, a opção **Prioridades da Ativação Pós-falha** fica ativada na mesma página, para que possa alterar a ordem de ativação pós-falha para as leituras.  
 
-### <a name="selecting-global-database-regions"></a>A seleção de regiões de base de dados globais
-Existem dois cenários comuns para configurar dois ou mais regiões:
+### <a name="selecting-global-database-regions"></a>Selecionar regiões globais de bases de dados
+Existem dois cenários comuns para configurar duas ou mais regiões:
 
-1. Entrega de latência baixa acesso aos dados para os utilizadores finais, independentemente de onde estão localizados em torno de todo o mundo
-2. Adicionar regional resiliência de continuidade do negócio e recuperação após desastre (BCDR)
+1. Proporcionar acesso de latência baixa aos dados pelos utilizadores finais, independentemente da respetiva localização em todo o mundo
+2. Adicionar resiliência regional para continuidade empresarial e recuperação após desastre (BCDR)
 
-Para entrega de latência baixa para os utilizadores finais, é recomendado para implementar ambas a aplicação e adicionar BD do Azure do Cosmos nas regiões que correspondem é onde os utilizadores da aplicação estão localizados.
+Para proporcionar latência baixa aos utilizadores finais, recomenda-se que implemente a aplicação e o Azure Cosmos DB nas regiões que correspondem àquelas onde os utilizadores da aplicação estão localizados.
 
-Para BCDR, recomenda-se para adicionar regiões com base nos pares de região descritos a [recuperação de continuidade e desastre de negócio (BCDR): Azure emparelhado regiões] [ bcdr] artigo.
+Para BCDR, recomenda-se que adicione regiões com base nos pares de região descritos no artigo [Continuidade empresarial e recuperação após desastre (BCDR): Regiões Emparelhadas do Azure][bcdr].
 
 <!--
 

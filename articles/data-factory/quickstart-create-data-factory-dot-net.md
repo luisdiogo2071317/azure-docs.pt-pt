@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/22/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7e3fd12b2157d28c5d61bfa8d5fb69a00557a1f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5b7af290a5e5c45d3f64ccb50586db0811dd592
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Criar uma fábrica de dados e um pipeline com o SDK .NET
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,12 +102,12 @@ As instruções neste artigo utilizam o Visual Studio 2017. Também pode utiliza
 Transfira e instale o [SDK do Azure para .NET](http://azure.microsoft.com/downloads/) no seu computador.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Criar uma Aplicação no Azure Active Directory
-Siga as instruções apresentadas [neste artigo](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) para realizar as seguintes tarefas: 
+Siga as instruções das secções apresentadas [neste artigo](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) para realizar as seguintes tarefas: 
 
 1. **Crie uma aplicação no Azure Active Directory**. Crie uma aplicação no Azure Active Directory que represente a aplicação .NET que está a criar neste tutorial. Para o URL de início de sessão, pode fornecer um URL fictício conforme mostrado no artigo (`https://contoso.org/exampleapp`).
-2. Obtenha o **ID da aplicação** e a **chave de autenticação*** com base nas instruções da secção **Obter o ID da aplicação e a chave de autenticação** no artigo. Tome nota destes valores que irá utilizar posteriormente neste tutorial. 
-3. Obtenha o **ID do inquilino** com base nas instruções da secção **Obter ID do inquilino** no artigo. Tome nota deste valor. 
-4. Atribua a aplicação à função **Contribuidor** ao nível da subscrição para que a aplicação possa criar fábricas de dados na subscrição. Siga as instruções apresentadas na secção **Atribuir a aplicação a uma função** do artigo. 
+2. Obtenha o **ID de aplicação** e a **chave de autenticação** e tome nota destes valores que irá utilizar posteriormente neste tutorial. 
+3. Obtenha o **ID de inquilino** e tome nota deste valor que irá utilizar posteriormente neste tutorial.
+4. Atribua a aplicação à função **Contribuidor** ao nível da subscrição para que a aplicação possa criar fábricas de dados na subscrição.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 

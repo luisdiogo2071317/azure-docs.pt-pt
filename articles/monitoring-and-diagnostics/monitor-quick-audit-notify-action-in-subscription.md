@@ -1,6 +1,6 @@
 ---
-title: "Auditoria e receber notificações sobre ações importantes efetuadas na sua subscrição do Azure | Microsoft Docs"
-description: "Compreenda o histórico de gestão de recursos, o estado de funcionamento do serviço e outra atividade de subscrição no Registo de Atividades e, em seguida, utilize um alerta de Registo de Atividades para receber uma notificação por e-mail quando uma operação de privilégios elevados for efetuada na sua subscrição."
+title: Auditoria e receber notificações sobre ações importantes efetuadas na sua subscrição do Azure | Microsoft Docs
+description: Compreenda o histórico de gestão de recursos, o estado de funcionamento do serviço e outra atividade de subscrição no Registo de Atividades e, em seguida, utilize um alerta de Registo de Atividades para receber uma notificação por e-mail quando uma operação de privilégios elevados for efetuada na sua subscrição.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b0a79f46788dc7efb588110dc50805c45c373a49
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Auditoria e receber notificações sobre ações importantes efetuadas na sua subscrição do Azure
 
@@ -28,7 +28,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do portal do Azure.
+1. Clique no botão **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
 2. Selecione **Rede**, selecione **Grupo de segurança de rede**.
 
@@ -74,7 +74,7 @@ Clique no separador **JSON** para ver os detalhes completos do evento. Isto incl
 
 5. Em **Alertar através de**, selecione **Novo** grupo de ação e forneça um **nome** e um **nome abreviado** para o grupo de ação. O grupo de ação define o conjunto de ações executadas quando o alerta é ativado (quando os critérios correspondem a um novo evento).
 
-6. Em **Ações**, adicione 1 ou mais ações ao fornecer um **Nome** para a ação, o **Tipo de ação** (por exemplo, e-mail ou SMS) e os **Detalhes** para esse tipo de ação específico (por exemplo, um URL do webhook, endereço de e-mail ou número SMS).
+6. Em **Ações**, adicione uma ou mais ações ao indicar um **Nome** para a ação, o **Tipo de ação** (por exemplo, e-mail, SMS ou webhook) e os **Detalhes** para esse tipo de ação específico (por exemplo, um URL do webhook, endereço de e-mail ou número SMS).
 
     ![Criar um grupo de segurança de rede no portal](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -83,7 +83,7 @@ Clique no separador **JSON** para ver os detalhes completos do evento. Isto incl
 ## <a name="test-the-activity-log-alert"></a>Testar o alerta de Registo de Atividades
 
 > [!NOTE]
-> Demora cerca de 10 minutos para que um alerta de Registo de Atividades fique totalmente ativado. Os novos eventos ocorridos antes de o alerta de Registo de Atividades ficar totalmente ativado não geram notificações.
+> Demora cerca de 5 minutos para que um alerta de Registo de Atividades fique totalmente ativado. Os novos eventos ocorridos antes de o alerta de Registo de Atividades ficar totalmente ativado não geram notificações.
 >
 >
 

@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: carlrab
-ms.openlocfilehash: 987429dce79fe2adc852f33d98adc048d2e86937
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91e7759784732320d88a9f22381df265b3eb8aab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Base de Dados SQL do Azure: utilize o SQL Server Management Studio para ligar e consultar dados
 
-O [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) é um ambiente integrado para gerir qualquer infraestrutura SQL, do SQL Server à Base de Dados SQL do Microsoft Windows. Este guia de introdução demonstra como utilizar o SSMS para ligar a uma base de dados SQL do Azure e, em seguida, utilizar as declarações de Transact-SQL para consultar, inserir, atualizar e eliminar dados na base de dados. 
+O [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) é um ambiente integrado para gerir qualquer infraestrutura SQL, do SQL Server à Base de Dados SQL do Microsoft Windows. Este tutorial de início rápido demonstra como utilizar o SSMS para ligar a uma base de dados SQL do Azure e, em seguida, utilizar instruções Transact-SQL para consultar, inserir, atualizar e eliminar dados na base de dados. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

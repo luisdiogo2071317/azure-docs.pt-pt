@@ -1,11 +1,11 @@
 ---
-title: "Utilizar o portal do Azure para criar um pipeline de fábrica de dados | Microsoft Docs"
-description: "Este tutorial disponibiliza instruções passo-a-passo para utilizar o portal do Azure para criar uma fábrica de dados com um pipeline. O pipeline utiliza a atividade para copiar os dados de um Armazenamento de blobs do Azure para uma base de dados SQL."
+title: Utilizar o portal do Azure para criar um pipeline de fábrica de dados | Microsoft Docs
+description: Este tutorial disponibiliza instruções passo-a-passo para utilizar o portal do Azure para criar uma fábrica de dados com um pipeline. O pipeline utiliza a atividade para copiar os dados de um Armazenamento de blobs do Azure para uma base de dados SQL.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 116832175a4b7e4497c9005be7841cb56c1d235b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de blobs do Azure para a base de dados SQL com o Azure Data Factory
 Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O pipeline nesta fábrica de dados copia os dados do Armazenamento de blobs do Azure para uma base de dados SQL. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -73,7 +73,7 @@ Agora, prepare o Armazenamento de blobs e a Base de Dados SQL para o tutorial, a
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Permita que os serviços do Azure acedam ao SQL Server. Certifique-se de que **Permitir acesso aos serviços do Azure** está **ATIVADO** para o SQL Server, para que o Data Factory possa escrever dados no SQL Server. Para verificar e ativar desta definição, siga os passos seguintes:
+2. Permita que os serviços do Azure acedam ao SQL Server. Certifique-se de que **Permitir acesso aos serviços do Azure** está **ATIVADO** para o SQL Server, para que o Data Factory possa escrever dados no SQL Server. Para verificar e ativar esta definição, execute estes passos:
 
     a. No lado esquerdo, selecione **Mais serviços** > **Servidores SQL**.
 
@@ -84,7 +84,7 @@ Agora, prepare o Armazenamento de blobs e a Base de Dados SQL para o tutorial, a
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para criar um pipeline na fábrica de dados. 
 
-1. Abra o browser do **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas em browsers do Microsoft Edge e Google Chrome.
+1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 2. No menu da esquerda, selecione **Novo** > **Dados + Análise** > **Data Factory**. 
   
    ![Criação de nova fábrica de dados](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
@@ -95,21 +95,21 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se vir a seguinte mensagem de erro no campo de nome, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
   
    ![Mensagem de erro](./media/tutorial-copy-data-portal/name-not-available-error.png)
-4. Selecione a **subscrição** do Azure na qual pretende criar a fábrica de dados. 
+4. Selecione a **subscrição** do Azure na qual quer criar a fábrica de dados. 
 5. Em **Grupo de Recursos**, efetue um destes passos:
      
     a. Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
 
     b. Selecione **Criar novo** e introduza o nome de um grupo de recursos. 
          
-    Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md). 
+    Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md). 
 6. Em **Versão**, selecione **V2 (Pré-visualização)**.
 7. Em **Localização**, selecione uma localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (por exemplo, o Armazenamento do Azure e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) que a fábrica de dados utiliza podem estar noutras regiões.
 8. Selecione **Afixar ao dashboard**. 
 9. Selecione **Criar**. 
 10. No dashboard, é apresentado o mosaico seguinte, com o estado **A Implementar o Data Factory**: 
 
-    ![Mosaico de implementação da fábrica da dados](media/tutorial-copy-data-portal/deploying-data-factory.png)
+    ![Mosaico A Implementar o Data Factory](media/tutorial-copy-data-portal/deploying-data-factory.png)
 11. Depois de concluída a criação, vai ver a página **Fábrica de dados**, conforme mostrado na imagem.
    
     ![Home page da fábrica de dados](./media/tutorial-copy-data-portal/data-factory-home-page.png)
@@ -150,7 +150,7 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
     ![Nome do conjunto de dados](./media/tutorial-copy-data-portal/dataset-name.png)
 9. Vá para o separador **Ligação** da janela **Propriedades**. Junto à caixa de texto **Serviço ligado**, selecione **+ Novo**. 
 
-    Os serviços ligados ligam um arquivo de dados ou uma computação à fábrica de dados. Neste caso, vai criar um serviço ligado de Armazenamento para ligar a sua conta de armazenamento ao arquivo de dados. O serviço ligado tem as informações de ligação que o Data Factory utiliza para se ligar ao Armazenamento de blobs no runtime. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) que contém os dados de origem. 
+    Os serviços ligados ligam um arquivo de dados ou uma computação à fábrica de dados. Neste caso, vai criar um serviço ligado de Armazenamento para ligar a sua conta de armazenamento ao arquivo de dados. O serviço ligado tem as informações de ligação que o Data Factory utiliza para ligar ao Armazenamento de blobs em runtime. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) que contém os dados de origem. 
 
     ![Botão Novo serviço ligado](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 10. Na janela **Novo Serviço Ligado**, siga os passos seguintes: 
@@ -191,14 +191,14 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 19. No separador **Geral** da janela **Propriedades**, em **Nome**, introduza **OutputSqlDataset**. 
     
     ![Nome do conjunto de dados de saída](./media/tutorial-copy-data-portal/output-dataset-name.png)
-20. Vá para o separador **Ligação** e, junto a **Serviço ligado**, selecione **+ Novo**. Os conjuntos de dados têm de estar associados a um serviço ligado. O serviço ligado tem a cadeia de ligação que o Data Factory utiliza para ligar à base de dados SQL no runtime. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) para os quais os dados são copiados. 
+20. Vá para o separador **Ligação** e, junto a **Serviço ligado**, selecione **+ Novo**. Os conjuntos de dados têm de estar associados a um serviço ligado. O serviço ligado tem a cadeia de ligação que o Data Factory utiliza para ligar à base de dados SQL em runtime. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) para os quais os dados são copiados. 
     
     ![Serviço ligado](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
 21. Na janela **Novo Serviço Ligado**, siga os passos seguintes: 
 
     a. Em **Name**, introduza **AzureSqlDatabaseLinkedService**.
 
-    b. Em **Nome do servidor**, selecione a sua instância do SQL Server.
+    b. Em **Nome do servidor**, selecione a sua instância de SQL Server.
 
     c. Em **Nome da base de dados**, selecione a sua base de dados SQL.
 
@@ -303,7 +303,7 @@ Pode testar um pipeline antes de publicar artefactos (serviços ligados, conjunt
     ![Mostrar notificações](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## <a name="configure-code-repository"></a>Configurar o repositório de código
-Pode publicar o código associado aos artefactos da sua fábrica de dados num repositório de código do Visual Studio Team Services. Neste passo, vai criar o repositório de código. 
+Pode publicar o código associado aos artefactos da sua fábrica de dados num repositório de código do Visual Studio Team Services. Neste passo, vai criar o repositório de código.  Para saber mais sobre a criação de visual com a integração de VSTS, veja [Criar com a integração de VSTS Git](author-visually.md#author-with-vsts-git-integration).
 
 Se não quiser trabalhar com o repositório de código do Visual Studio Team Services, pode ignorar este passo. Pode continuar a publicar no Data Factory, tal como fez no passo anterior. 
 
@@ -369,7 +369,7 @@ Neste passo, vai acionar manualmente o pipeline que publicou no passo anterior.
 2. Vá para o separador **Monitorizar**, no lado esquerdo. Verá uma execução de pipeline que é acionada por um acionador manual. Pode utilizar as ligações na coluna **Ações** para ver os detalhes das atividades e para voltar a executar o pipeline.
 
     ![Monitorizar execuções de pipeline](./media/tutorial-copy-data-portal/monitor-pipeline.png)
-3. Para ver as execuções de atividade associadas à execução do pipeline, selecione a ligação **Ver Execuções de Atividade** na coluna **Ações**. Neste exemplo, há apenas uma atividade, pelo que só vai ver uma entrada na lista. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos), na coluna **Ações**. Selecione **Pipelines**, na parte superior, para regressar à vista **Execuções do Pipeline**. Para atualizar a vista, selecione **Atualizar**.
+3. Para ver as execuções de atividade associadas à execução do pipeline, selecione a ligação **Ver Execuções de Atividade** na coluna **Ações**. Neste exemplo, há apenas uma atividade, pelo que só vai ver uma entrada na lista. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos) na coluna **Ações**. Selecione **Pipelines**, na parte superior, para regressar à vista **Execuções do Pipeline**. Para atualizar a vista, selecione **Atualizar**.
 
     ![Monitorização de execuções de atividade](./media/tutorial-copy-data-portal/view-activity-runs.png)
 4. Verifique se são adicionadas mais duas linhas à tabela **emp** na base de dados SQL. 
@@ -439,7 +439,7 @@ O pipeline neste exemplo copia dados de uma localização para outra localizaç�
 > * Monitorizar o pipeline e execuções de atividades.
 
 
-Avance para o tutorial seguinte, para saber como copiar dados do local para a cloud: 
+Avance para o tutorial seguinte para saber como copiar dados do plano local para a cloud: 
 
 > [!div class="nextstepaction"]
->[Copiar dados do local para a cloud](tutorial-hybrid-copy-portal.md)
+>[Copiar dados do plano local para a cloud](tutorial-hybrid-copy-portal.md)

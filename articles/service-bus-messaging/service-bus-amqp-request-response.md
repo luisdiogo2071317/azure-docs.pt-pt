@@ -24,7 +24,7 @@ ms.lasthandoff: 03/23/2018
 
 Este artigo define a lista de operações baseadas em pedido/resposta do Microsoft Azure Service Bus. Esta informação é baseada no rascunho de trabalho AMQP gestão versão 1.0.  
   
-Para obter um detalhadas durante a transmissão nível AMQP 1.0 protocolo guia, que explica como o Service Bus implementa e baseia-se a especificação de técnica OASIS AMQP, consulte o [AMQP 1.0 no guia de protocolo do Service Bus do Azure e do Event Hubs] [ Guia de protocolo AMQP 1.0].  
+Para obter um detalhadas durante a transmissão nível AMQP 1.0 protocolo guia, que explica como o Service Bus implementa e baseia-se a especificação de técnica OASIS AMQP, consulte o [AMQP 1.0 no guia de protocolo do Service Bus do Azure e do Event Hubs][Guia do protocolo AMQP 1.0].  
   
 ## <a name="concepts"></a>Conceitos  
   

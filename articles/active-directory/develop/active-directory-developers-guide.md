@@ -1,10 +1,10 @@
 ---
 title: Azure Active Directory para programadores | Microsoft Docs
-description: "Este artigo fornece uma descrição geral sobre o início de sessão nas contas profissionais e escolares da Microsoft através da utilização do Azure Active Directory."
+description: Este artigo fornece uma descrição geral sobre o início de sessão nas contas profissionais e escolares da Microsoft através da utilização do Azure Active Directory.
 services: active-directory
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
@@ -14,14 +14,17 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: e1f9fbf6cb80065ea796e2d53d09f48fe57b207b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8d70f36c5e434a26fce4d6b4bd1ddefc22234ab5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para programadores
-O Azure Active Directory (Azure AD) é um serviço de identidade em cloud que permite que os programadores iniciem a sessão dos utilizadores de forma segura com uma conta profissional ou escolar da Microsoft. Esta documentação mostra-lhe como adicionar suporte do Azure AD à aplicação através da utilização de protocolos padrão da indústria: o OAuth2.0 e o OpenID Connect.
+O Azure Active Directory (Azure AD) é um serviço de identidade na cloud que permite que os programadores criem aplicações que iniciam a sessão dos utilizadores de forma segura com uma conta escolar ou profissional da Microsoft. O Azure AD suporta programadores que criam aplicações de inquilino único e de linha de negócio (LOB), bem como os programadores que procuram desenvolver aplicações multi-inquilino. Para além do início de sessão básico, o Azure AD também permite que as aplicações chamem APIs da Microsoft, como o [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview), e APIs personalizadas que são criadas na plataforma do Azure AD.  Esta documentação mostra como adicionar suporte do Azure AD à sua aplicação através da utilização de protocolos padrão da indústria, como o OAuth2.0 e o OpenID Connect. 
+
+> [!NOTE]
+> A maioria do conteúdo desta página centra-se no ponto final do Azure AD v1, que suporta apenas contas escolares ou profissionais da Microsoft. Se pretender iniciar sessão de contas Microsoft pessoais ou de consumidor, veja mais informações sobre o [ponto final do Azure AD v2.0](active-directory-appmodel-v2-overview.md). O ponto final do Azure AD v2.0 oferece uma experiência de programação unificada para as aplicações que pretendem iniciar sessão de utilizadores com contas do Azure AD (profissionais e escolares) e contas Microsoft pessoais. 
 
 | | |
 | --- | --- |
@@ -29,7 +32,7 @@ O Azure Active Directory (Azure AD) é um serviço de identidade em cloud que pe
 |[Tipos de aplicações](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Descrição geral dos cenários autenticação que são suportado pelo Azure AD. |                                
                                                                               
 ## <a name="get-started"></a>Introdução
-As seguintes configurações assistidas vão guiá-lo através da utilização das bibliotecas de autenticação da Microsoft para iniciar a sessão dos utilizadores do Azure AD.
+As configurações orientadas abaixo explicam como criar uma aplicação na sua plataforma preferida com o SDK do Azure Active Directory Library (ADAL). Se está à procura de informações sobre como utilizar o Microsoft Authentication Library (MSAL), veja a nossa documentação sobre o [ponto final do Azure AD v2.0](active-directory-appmodel-v2-overview.md).
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -40,7 +43,7 @@ As seguintes configurações assistidas vão guiá-lo através da utilização d
 | <center>![Serviço a serviço](./media/active-directory-developers-guide/Service_App.png)<br />Serviço a Serviço</center> | [Descrição geral](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |
 
 ## <a name="how-to-guides"></a>Guias de procedimentos
-As seguintes guias informam-no sobre como realizar tarefas comuns com o Azure AD.
+Os guias abaixo explicam algumas das tarefas mais comuns no Azure AD.
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
@@ -58,10 +61,6 @@ Os seguintes artigos fornecem informações detalhadas sobre APIs, mensagens de 
 | [Exemplos de código](active-directory-code-samples.md)                                  | Uma lista de todos os exemplos de código do Azure AD. |
 | [Glossário](active-directory-dev-glossary.md)                                      | Terminologia e definições de palavras que são utilizadas nesta documentação. |
 | [Tópicos de referência adicionais](active-directory-developers-guide-index.md#reference)| Uma lista de tópicos de referência que estão disponíveis para o Azure AD.   |
-
-
-> [!NOTE]
-> Caso precise de iniciar sessão em contas pessoais Microsoft, poderá querer considerar a utilização do [ponto final do Azure AD v2.0](active-directory-appmodel-v2-overview.md). O ponto final do Azure ADv 2.0 é unificação de contas pessoais e contas profissionais da Microsoft (a partir do Azure AD) num sistema de autenticação único.
 
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

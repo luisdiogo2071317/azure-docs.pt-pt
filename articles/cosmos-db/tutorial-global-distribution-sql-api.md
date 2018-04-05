@@ -1,9 +1,9 @@
 ---
-title: "Tutorial de distribuição global do Cosmos BD do Azure para a API do SQL Server | Microsoft Docs"
-description: "Saiba como configurar a base de dados do Azure Cosmos distribuição global utilizando a API do SQL Server."
+title: Tutorial de distribuição global do Azure Cosmos DB para a API SQL | Microsoft Docs
+description: Saiba como configurar a distribuição global do Azure Cosmos DB com a API SQL.
 services: cosmos-db
-keywords: "Distribuição global"
-documentationcenter: 
+keywords: distribuição global
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -15,53 +15,51 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 0cee55673c8abca29b7e389fa4fd62a48566904b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 58cfa4f8898febf6d0bbe4c5a7a1dad4fcc6c854
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Como configurar a base de dados do Azure Cosmos distribuição global utilizando a API do SQL Server
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Como configurar a distribuição global do Azure Cosmos DB com a API SQL
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
-Neste artigo, vamos mostrar como utilizar o portal do Azure para distribuição global do Azure Cosmos DB de configuração e, em seguida, ligue-se utilizando a API do SQL Server.
+Neste artigo, vamos mostrar como utilizar o portal do Azure para configurar a distribuição global do Azure Cosmos DB e, em seguida, ligar através da API SQL.
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
 > * Configurar a distribuição global com o portal do Azure
-> * Configurar a distribuição global utilizando o [APIs do SQL Server](sql-api-introduction.md)
+> * Configurar a distribuição global com as [APIs SQL](sql-api-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Ligar a uma região preferencial utilizando a API do SQL Server
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Ligar a uma região preferencial com a API SQL
 
-Para tirar o máximo partido das [distribuição global](distribute-data-globally.md), aplicações de cliente podem especificar a lista de preferência ordenada de regiões para ser utilizado para executar operações de documento. Isto pode ser feito ao definir a política de ligação. Com base na configuração da conta de base de dados do Azure Cosmos, disponibilidade regional atual e a lista de preferência especificado, o ponto final ideal será selecionado pelo SDK do SQL Server para efetuar a escrita e operações de leitura.
+Para tirar o máximo partido da [distribuição global](distribute-data-globally.md), as aplicações cliente podem especificar a lista de preferência ordenada de regiões a utilizar nas operações de documentos. Isto pode ser feito ao definir a política de ligação. Com base na configuração da conta do Azure Cosmos DB, disponibilidade regional atual e lista de preferência especificada, o SDK SQL selecionará o ponto final ideal para efetuar operações de escrita e leitura.
 
-Esta lista de preferência é especificada ao inicializar uma ligação com os SDKs do SQL Server. Os SDKs aceitam um parâmetro opcional "PreferredLocations" que é uma lista ordenada de regiões do Azure.
+Esta lista de preferência é especificada ao inicializar uma ligação com os SDKs SQL. Os SDKs aceitam um parâmetro opcional "PreferredLocations" que é uma lista ordenada de regiões do Azure.
 
-O SDK irá enviar automaticamente todas as operações de escrita para o atual escrever região.
+O SDK enviará automaticamente todas as escritas para a região de escrita atual.
 
-Todas as leituras serão enviadas para a região disponível primeiro na lista PreferredLocations. Se falhar o pedido, o cliente irá falhar para baixo a lista para a região seguinte e assim sucessivamente.
+Todas as leituras serão enviadas para a primeira região disponível na lista PreferredLocations. Se o pedido falhar, o cliente falhará a lista para a região seguinte e assim sucessivamente.
 
-Os SDKs só irão tentar ler a partir de regiões especificadas no PreferredLocations. Por isso, por exemplo, se a conta de base de dados está disponível em quatro regiões, mas o cliente especifica apenas duas regiões read(non-write) para PreferredLocations, em seguida, nenhum leituras serão servidas fora da região de leitura que não foram especificada no PreferredLocations. Se as regiões leitura especificadas no PreferredLocations não estiverem disponíveis, serão servidas leituras fora de região de escrita.
+Os SDKs só tentarão ler a partir das regiões especificadas em PreferredLocations. Por exemplo, se a Conta de Base de Dados estiver disponível em quatro regiões, mas o cliente apenas especificar duas regiões de leitura (não escrita) para PreferredLocations, não serão fornecidas leituras fora da região de leitura não especificada em PreferredLocations. Se as regiões de leitura especificadas em PreferredLocations não estiverem disponíveis, serão fornecidas leituras fora da região de escrita.
 
-A aplicação pode verificar o ponto final de escrita atual e ler o ponto final escolhido pelo SDK, verificando duas propriedades WriteEndpoint e ReadEndpoint, disponível na versão 1.8 do SDK e acima.
+A aplicação pode verificar o ponto final de escrita atual e o ponto final de leitura escolhido pelo SDK ao consultar duas propriedades, WriteEndpoint e ReadEndpoint, disponíveis na versão 1.8 e posterior do SDK.
 
-Se a propriedade PreferredLocations não estiver definida, serão servidos todos os pedidos de região de escrita atual.
+Se a propriedade PreferredLocations não estiver definida, todos os pedidos serão fornecidos a partir da região de escrita atual.
 
 ## <a name="net-sdk"></a>SDK .NET
-O SDK pode ser utilizado sem quaisquer alterações de código. Neste caso, o SDK automaticamente direciona ambas as leituras e escritas para a região de escrita atual.
+O SDK pode ser utilizado sem quaisquer alterações de código. Neste caso, o SDK direciona automaticamente as leituras e as escritas para a região de escrita atual.
 
-Na versão 1.8 e mais tarde do .NET SDK, o parâmetro ConnectionPolicy para o construtor de DocumentClient tem uma propriedade denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propriedade é do tipo de coleção `<string>` e deve conter uma lista de nomes de região. Os valores de cadeia são formatados pela coluna de nome de região no [regiões do Azure] [ regions] página, sem espaços antes ou depois do primeiro e último caráter, respetivamente.
+Na versão 1.8 e posterior do SDK .NET, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma propriedade denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propriedade é do tipo de Coleção `<string>` e deve conter uma lista de nomes de região. Os valores de cadeia são formatados pela coluna Nome da Região na página [Regiões do Azure][regions], sem espaços antes ou depois do primeiro e do último caráter, respetivamente.
 
-A escrita atual e os pontos finais de leitura estão disponíveis em DocumentClient.WriteEndpoint e DocumentClient.ReadEndpoint respetivamente.
+Os pontos finais de escrita e leitura atuais estão disponíveis em DocumentClient.WriteEndpoint e DocumentClient.ReadEndpoint, respetivamente.
 
 > [!NOTE]
-> Os URLs para os pontos finais não devem ser considerados como constantes de longa duração. O serviço pode atualizar estes em qualquer momento. O SDK processa automaticamente esta alteração.
+> Os URLs para os pontos finais não devem ser considerados como constantes de longa duração. O serviço pode atualizá-los em qualquer momento. O SDK processa esta alteração automaticamente.
 >
 >
 
@@ -87,19 +85,19 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS, JavaScript e SDKs de Python
-O SDK pode ser utilizado sem quaisquer alterações de código. Neste caso, o SDK irá encaminhar automaticamente região de escrita de leituras e escritas para o atual.
+## <a name="nodejs-javascript-and-python-sdks"></a>SDKs NodeJS, JavaScript e Python
+O SDK pode ser utilizado sem quaisquer alterações de código. Neste caso, o SDK direcionará automaticamente as leituras e as escritas para a região de escrita atual.
 
-Na versão 1.8 e posterior de cada SDK, o parâmetro ConnectionPolicy para o construtor de DocumentClient uma nova propriedade denominada DocumentClient.ConnectionPolicy.PreferredLocations. Este é o parâmetro é uma matriz de cadeias que utiliza uma lista de nomes de região. Os nomes são formatados pela coluna de nome de região no [regiões do Azure] [ regions] página. Também pode utilizar as constantes predefinidas no objeto conveniência AzureDocuments.Regions
+Na versão 1.8 e posterior de cada SDK, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma nova propriedade denominada DocumentClient.ConnectionPolicy.PreferredLocations. Este parâmetro é uma matriz de cadeias que utiliza uma lista de nomes de região. Os nomes são formatados pela coluna Nome da Região na página [Regiões do Azure][regions]. Também pode utilizar as constantes predefinidas no objeto de conveniência AzureDocuments.Regions
 
-A escrita atual e os pontos finais de leitura estão disponíveis em DocumentClient.getWriteEndpoint e DocumentClient.getReadEndpoint respetivamente.
+Os pontos finais de escrita e leitura atuais estão disponíveis em DocumentClient.getWriteEndpoint e DocumentClient.getReadEndpoint, respetivamente.
 
 > [!NOTE]
-> Os URLs para os pontos finais não devem ser considerados como constantes de longa duração. O serviço pode atualizar estes em qualquer momento. O SDK processará automaticamente esta alteração.
+> Os URLs para os pontos finais não devem ser considerados como constantes de longa duração. O serviço pode atualizá-los em qualquer momento. O SDK processará esta alteração automaticamente.
 >
 >
 
-Segue-se um exemplo de código para NodeJS/Javascript. Python e Java seguirá o mesmo padrão.
+Segue-se um exemplo de código para NodeJS/Javascript. Python e Java seguirão o mesmo padrão.
 
 ```java
 // Creating a ConnectionPolicy object
@@ -116,13 +114,13 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 ```
 
 ## <a name="rest"></a>REST
-Depois de uma conta de base de dados disponibilizada em várias regiões, os clientes podem consultar a disponibilidade do mesmo através de um pedido GET no URI seguinte.
+Depois de uma conta de base de dados ter sido disponibilizada em várias regiões, os clientes podem consultar a respetiva disponibilidade ao efetuar um pedido GET no URI seguinte.
 
     https://{databaseaccount}.documents.azure.com/
 
-O serviço irá devolver uma lista de regiões e os respetivos correspondente Azure Cosmos DB ponto final URIs para as réplicas. A região de escrita atual será indicada na resposta. O cliente, em seguida, pode selecionar o ponto final adequado para obter todos os pedidos de REST API da seguinte forma.
+O serviço devolverá uma lista de regiões e os URIs de ponto final correspondentes do Azure Cosmos DB para as réplicas. A região de escrita atual será indicada na resposta. Em seguida, o cliente pode selecionar o ponto final adequado para obter todos os pedidos da API REST da seguinte forma.
 
-Exemplo de resposta
+Resposta de exemplo
 
     {
         "_dbs": "//dbs/",
@@ -155,14 +153,14 @@ Exemplo de resposta
     }
 
 
-* Pedidos PUT, POST e DELETE tem de ir para a operação de escrita indicada URI
-* Obtém todas as e outros pedidos de só de leitura (por exemplo consultas) podem ir para qualquer ponto final da preferência do cliente
+* Todos os pedidos PUT, POST e DELETE têm de ir para o URI de escrita indicado
+* Todos os GETs e outros pedidos só de leitura (por exemplo, consultas) podem ir para qualquer ponto final à escolha do cliente
 
-Escreva irão falhar pedidos de regiões de só de leitura com o código de erro HTTP 403 ("proibido").
+Os pedidos de escrita para regiões só de leitura falharão com o código de erro HTTP 403 ("Proibido").
 
-Se a região de escrita for alterada após a fase de deteção inicial do cliente, escreve subsequentes para a região de escrita anterior irá falhar com o código de erro HTTP 403 ("proibido"). O cliente, em seguida, deve obter a lista de regiões novamente para obter a região de escrita atualizado.
+Se a região de escrita for alterada após a fase de deteção inicial do cliente, as escritas subsequentes para a região de escrita anterior falharão com o código de erro HTTP 403 ("Proibido"). Em seguida, o cliente deve obter novamente a lista de regiões para obter a região de escrita atualizada.
 
-Que é, que conclui neste tutorial. Pode saber como gerir a consistência da sua conta replicada globalmente o lendo [níveis de consistência na base de dados do Azure Cosmos](consistency-levels.md). E para obter mais informações sobre a replicação de base de dados como global funciona do BD Azure Cosmos, consulte [distribuir dados globalmente com a base de dados do Azure Cosmos](distribute-data-globally.md).
+Já está, isto conclui este tutorial. Pode saber como gerir a consistência da sua conta replicada globalmente ao ler [Níveis de consistência no Azure Cosmos DB](consistency-levels.md). Para obter mais informações sobre como funciona a replicação de base de dados global no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -170,9 +168,9 @@ Neste tutorial, fez o seguinte:
 
 > [!div class="checklist"]
 > * Configurar a distribuição global com o portal do Azure
-> * Configurar a distribuição global com as APIs do SQL Server
+> * Configurar a distribuição global com as APIs SQL
 
-Agora pode avançar para o próximo tutorial para saber como desenvolver localmente, utilizando o emulador local da base de dados do Azure Cosmos.
+Agora, pode avançar para o próximo tutorial para saber como desenvolver localmente com o emulador local do Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Desenvolver localmente com o emulador](local-emulator.md)

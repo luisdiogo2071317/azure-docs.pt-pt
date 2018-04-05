@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de registo de contentor do Azure – enviar por Push uma imagem atualizada para implementações regionais"
-description: "Emita uma imagem de Docker modificada para o seu Azure georreplicação contém registo e ver as alterações implementadas automaticamente em aplicações web em execução em várias regiões. Parte três de uma série de três partes."
+title: Tutorial do Azure Container Registry - Enviar uma imagem atualizada para implementações regionais
+description: Envie uma imagem de Docker modificada para o seu Azure Container Registry georreplicado e veja as alterações automaticamente implementadas nas aplicações Web executadas em múltiplas regiões. Parte três de uma série com três partes.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,37 +9,37 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 359fdcabd579d277e40f02eba2d4603ebd9f5f1f
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.openlocfilehash: f8eab93d1e6633ae4f17c5bb4836d96629d55cd4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="push-an-updated-image-to-regional-deployments"></a>Emita uma imagem atualizada para implementações regionais
+# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Tutorial: enviar uma imagem atualizada para implementações regionais
 
-Esta é a parte três numa série tutorial três partes. No [tutorial anterior](container-registry-tutorial-deploy-app.md), georreplicação foi configurada para duas implementações de aplicação Web regionais diferentes. Neste tutorial, primeiro modificar a aplicação, em seguida, criar uma nova imagem de contentor e enviá-lo para o registo de georreplicação. Por fim, ver a alteração, implementada automaticamente pelo registo de contentor do Azure webhooks em ambas as instâncias da aplicação Web.
+Esta é a parte três de um tutorial de três partes. No [tutorial anterior](container-registry-tutorial-deploy-app.md), a georreplicação foi configurada para duas implementações regionais de Aplicações Web. Neste tutorial, comece por modificar a aplicação e, em seguida, crie uma nova imagem de contentor e envie-a para o seu registo georreplicado. Finalmente, verá a alteração, implementada automaticamente pelos webhooks do Azure Container Registry, em ambas as instâncias de Aplicações Web.
 
-Neste tutorial, a parte final na série de:
+Neste tutorial, a última parte da série:
 
 > [!div class="checklist"]
-> * Modificar a aplicação web HTML
-> * Criar e a etiqueta da imagem do Docker
-> * Push a alteração ao registo de contentor do Azure
+> * Modificar o HTML da aplicação Web
+> * Criar e etiquetar a imagem do Docker
+> * Enviar a alteração para o Azure Container Registry
 > * Ver a aplicação atualizada em duas regiões diferentes
 
-Se ainda não configurou as duas *aplicação Web para contentores* regionais implementações, devolver o tutorial da série anterior [aplicação web de implementar a partir do registo de contentor do Azure](container-registry-tutorial-deploy-app.md).
+Se ainda não configurou as duas implementações regionais da *Aplicação Web para Contentores*, regresse ao tutorial anterior na série, [Implementar a aplicação Web a partir do Azure Container Registry](container-registry-tutorial-deploy-app.md).
 
 ## <a name="modify-the-web-application"></a>Modificar a aplicação Web
 
-Neste passo, efetue uma alteração à aplicação web que estarão visível elevada disponibilidade depois de emitir a imagem do contentor atualizadas para o registo de contentor do Azure.
+Neste passo, efetue uma alteração à aplicação Web que será altamente visível quando enviar a imagem de contentor atualizada para o Azure Container Registry.
 
-Localizar o `AcrHelloworld/Views/Home/Index.cshtml` ficheiro da origem de aplicação [clonado a partir do GitHub](container-registry-tutorial-prepare-registry.md#get-application-code) um tutorial anterior e abri-lo no seu editor de texto favorito. Adicione a seguinte linha abaixo existente `<h1>` linha:
+Localize o ficheiro `AcrHelloworld/Views/Home/Index.cshtml` na origem de aplicação que [clonou do GitHub](container-registry-tutorial-prepare-registry.md#get-application-code) num tutorial anterior e abra-o no seu editor de texto favorito. Adicione a seguinte linha abaixo da linha `<h1>` existente:
 
 ```html
 <h1>MODIFIED</h1>
 ```
 
-A modificação `Index.cshtml` deve ter um aspeto semelhante a:
+O seu `Index.cshtml` modificado deverá ter um aspeto semelhante a:
 
 ```html
 @{
@@ -70,21 +70,21 @@ A modificação `Index.cshtml` deve ter um aspeto semelhante a:
 
 ## <a name="rebuild-the-image"></a>Recriar a imagem
 
-Agora que atualizou a aplicação web, recriar a imagem de contentor. Como anteriormente, utilize o nome de imagem completamente qualificado, incluindo o URL do servidor de início de sessão, para a etiqueta:
+Agora que atualizou a aplicação Web, recrie a respetiva imagem de contentor. Conforme anteriormente, utilize o nome de imagem totalmente qualificado, incluindo o URL do servidor de início de sessão, para a etiqueta:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-## <a name="push-image-to-azure-container-registry"></a>Imagem de push para o registo de contentor do Azure
+## <a name="push-image-to-azure-container-registry"></a>Enviar imagens para o Azure Container Registry
 
-Agora, push a atualização *acr olámundo* imagem de contentor para o registo de georreplicação. Aqui, está a executar um único `docker push` comando para implementar a imagem atualizada para as réplicas de registo em ambos os *EUA oeste* e *EUA Leste* regiões.
+Agora, envie a imagem de contentor *acr-helloworld* atualizada para o seu registo georreplicado. Aqui, vai executar um único comando `docker push` para implementar a imagem atualizada nas réplicas de registo nas regiões *E.U.A. Oeste* e *E.U.A. Leste*.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Saída deverá ser semelhante ao seguinte:
+O resultado deverá ser semelhante ao seguinte:
 
 ```bash
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
@@ -98,47 +98,47 @@ a75caa09eb1f: Layer already exists
 v1: digest: sha256:4c3f2211569346fbe2d1006c18cbea2a4a9dcc1eb3a078608cef70d3a186ec7a size: 1792
 ```
 
-## <a name="view-the-webhook-logs"></a>Ver os registos do webhook
+## <a name="view-the-webhook-logs"></a>Ver os registos de webhooks
 
-Enquanto está a ser replicada a imagem, pode ver os webhooks de registo de contentor do Azure que está a ser acionados.
+Enquanto a imagem está a ser replicada, pode ver os webhooks do Azure Container Registry a serem acionados.
 
-Para ver os webhooks regionais que foram criados quando implementou o contentor para *Web Apps para contentores* um tutorial anterior, navegue para o registo de contentor no portal do Azure, em seguida, selecione **Webhooks**em **serviços**.
+Para ver os webhooks regionais que foram criados quando implementou o container nas *Aplicações Web para Contentores* num tutorial anterior, navegue para o seu registo de contentor no portal do Azure e, em seguida, selecione **Webhooks** em **SERVIÇOS**.
 
-![Registo de contentor Webhooks no portal do Azure][tutorial-portal-01]
+![Webhooks de registo de contentor no portal do Azure][tutorial-portal-01]
 
-Selecione cada Webhook para ver o histórico dos seus chamadas e as respostas. Deverá ver uma linha para o **push** ação nos registos de ambos os Webhooks. Aqui, o registo para o Webhook localizado no *EUA oeste* região mostra o **push** ação acionada pelo `docker push` no passo anterior:
+Selecione cada Webhook para ver o histórico de chamadas e respostas do mesmo. Deverá ver uma linha para a ação de **envio** nos registos de ambos os Webhooks. Neste caso, o registo do Webhook localizado na região *E.U.A. Oeste* mostra a ação de **envio** acionada pelo `docker push` no passo anterior:
 
-![Registo de Webhook de registo de contentor no portal do Azure (EUA oeste)][tutorial-portal-02]
+![Registo de Webhooks de registo de contentor no portal do Azure (E.U.A. Oeste)][tutorial-portal-02]
 
-## <a name="view-the-updated-web-app"></a>Ver a aplicação web atualizadas
+## <a name="view-the-updated-web-app"></a>Ver a aplicação Web atualizada
 
-Os Webhooks notificar as Web Apps do que uma nova imagem tiver sido feito o push para o registo, que implementa o contentor atualizadas automaticamente para as aplicações regional web dois.
+Os Webhooks notificam as Aplicações Web de que uma nova imagem foi enviada para o registo, o que implementa automaticamente o contentor atualizado para duas aplicações Web regionais.
 
-Certifique-se de que a aplicação foi atualizada em ambas as implementações, navegando para ambas as implementações de aplicação Web regionais no seu browser. Como um lembrete, pode encontrar o URL para a aplicação web implementada na parte superior direita do cada separador de descrição geral do serviço de aplicações.
+Certifique-se de que a aplicação foi atualizada em ambas as implementações ao navegar para ambas as implementações de Aplicações Web regionais no seu browser. Lembre-se de que pode encontrar o URL da aplicação Web implementada no canto superior direito de cada separador de descrição geral do Serviço de Aplicações do Azure.
 
-![Descrição geral do serviço de aplicações no portal do Azure][tutorial-portal-03]
+![Descrição geral do Serviço de Aplicações do Azure no portal do Azure][tutorial-portal-03]
 
-Para ver a aplicação atualizada, selecione a hiperligação na descrição geral do serviço de aplicações. Eis uma vista de exemplo de aplicação em execução no *EUA oeste*:
+Para ver a atualização aplicada, selecione a ligação na descrição geral do Serviço de Aplicações do Azure. Eis uma vista de exemplo da aplicação executada na região *E.U.A. Oeste*:
 
-![Vista de browser da aplicação web modificadas em execução na região EUA oeste][deployed-app-westus-modified]
+![Vista de browser da aplicação Web modificada executada na região E.U.A. Oeste][deployed-app-westus-modified]
 
-Certifique-se de que a imagem do contentor atualizadas também foi implementada para o *EUA Leste* implementação ao visualizá-lo no seu browser.
+Verifique se a imagem de contentor atualizada também foi implementada na implementação *E.U.A. Leste* ao vê-la no seu browser.
 
-![Vista de browser da aplicação web modificadas em execução na região EUA leste][deployed-app-eastus-modified]
+![Vista de browser da aplicação Web modificada executada na região E.U.A. Leste][deployed-app-eastus-modified]
 
-Com um único `docker push`, atualizou ambas as implementações de aplicação Web regionais e registo de contentor do Azure servida as imagens de contentor do repositórios de fecho de rede.
+Com um único `docker push`, atualizou ambas as implementações de Aplicações Web regionais e o Azure Container Registry apresentou ao contentor imagens dos repositórios sem rede.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, atualizada e instalada uma versão nova do contentor de aplicação web no seu registo de georreplicação. Webhooks no registo de contentor do Azure notificado Web Apps para contentores de atualização, o que acionou uma solicitação local a partir das réplicas registo.
+Neste tutorial, atualizou e enviou uma nova versão do contentor de aplicações Web para o seu registo georreplicado. Os webooks no Azure Container Registry notificaram as Aplicações Web para Contentores da atualização, o que acionou uma solicitação local das réplicas de registo.
 
-Deste tutorial final da série:
+Neste tutorial, a última parte da série, o utilizador:
 
 > [!div class="checklist"]
-> * Atualizar a aplicação web de HTML
-> * Incorporada e etiquetados a imagem do Docker
-> * Instalada a alteração no registo de contentor do Azure
-> * Visualizar a aplicação atualizada em duas regiões diferentes
+> * Atualizou o HTML da aplicação Web
+> * Criou e etiquetou a imagem do Docker
+> * Publicou a alteração no Azure Container Registry
+> * Visualizou a aplicação atualizada em duas regiões diferentes
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

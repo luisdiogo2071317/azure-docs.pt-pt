@@ -1,24 +1,24 @@
 ---
-title: "Implementar uma aplicação .NET num contentor para o Azure Service Fabric | Microsoft Docs"
-description: "Ensina como empacotar uma aplicação .NET no Visual Studio num Contentor do Docker. Esta nova aplicação \"contentor\" é então implementada num cluster do Service Fabric."
+title: Implementar uma aplicação .NET num contentor para o Azure Service Fabric | Microsoft Docs
+description: Ensina como empacotar uma aplicação .NET no Visual Studio num Contentor do Docker. Esta nova aplicação "contentor" é então implementada num cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 11bb34939e5fa3699973051664e85f9ef2147ff7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Implementar uma aplicação .NET num contentor do Windows para o Azure Service Fabric
 
@@ -49,13 +49,6 @@ As aplicações do Service Fabric são executadas num cluster, um conjunto de m�
 Agora que tem um cluster do Service Fabric em execução no Azure, está pronto para criar e implementar uma aplicação que se encontre num contentor. Para começar a executar a nossa aplicação num contentor, precisamos de adicionar **Suporte do Docker** ao projeto no Visual Studio. Quando adiciona **suporte Docker** à aplicação, acontecem duas coisas. Primeiro, é adicionado _Dockerfile_ ao projeto. Este novo ficheiro descreve como a imagem de contentor tem de ser criada. Segundo, é adicionado um novo projeto _docker-compose_ à solução. O novo projeto contém alguns ficheiros docker-compose. Os ficheiros docker-compose podem servir para descrever como o contentor é executado.
 
 Obtenha mais informações sobre como trabalhar com [Ferramentas de Contentor do Visual Studio][link-visualstudio-container-tools].
-
->[!NOTE]
->Se é a primeira vez que executa imagens de contentor do Windows no seu computador, o Docker CE tem obter as imagens de base para os contentores. As imagens utilizadas neste tutorial têm 14 GB. Avance e execute o seguinte comando do terminal para pedir as imagens de base:
->```cmd
->docker pull microsoft/mssql-server-windows-developer
->docker pull microsoft/aspnet:4.6.2
->```
 
 ### <a name="add-docker-support"></a>Adicionar suporte do Docker
 

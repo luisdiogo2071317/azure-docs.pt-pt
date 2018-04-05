@@ -1,8 +1,8 @@
 ---
-title: "Descrição geral do controlo de acesso no Data Lake Store | Microsoft Docs"
+title: Descrição geral do controlo de acesso no Data Lake Store | Microsoft Docs
 description: Compreender o funcionamento do controlo de acesso no Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Controlo de acesso no Azure Data Lake Store
 
@@ -124,15 +124,15 @@ Seguem-se alguns cenários comuns para o ajudar a compreender que permissões s�
 
 ## <a name="viewing-permissions-in-the-azure-portal"></a>Permissões de visualização no portal do Azure
 
-A partir do painel **Data Explorer** da conta do Data Lake Store, clique em **Acesso**, para ver as ACLs de um ficheiro ou pasta. Clique em **Acesso** para ver as ACLs da pasta **catalog**, na conta **mydatastore**.
+A partir do painel **Data Explorer** da conta do Data Lake Store, clique em **Acesso** para ver as ACLs do ficheiro ou pasta que está a ser visualizado no Data Explorer. Clique em **Acesso** para ver as ACLs da pasta **catalog**, na conta **mydatastore**.
 
 ![ACLs do Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-Neste painel, a secção superior mostra uma descrição geral das permissões que tem. (Na captura de ecrã, o utilizador é Bob.) Depois disso, são apresentadas as permissões de acesso. Depois disso, a partir do painel **Acesso**, clique em **Vista Simples** para ver a vista mais simples.
+Neste painel, a secção superior mostra as permissões dos proprietários. (Na captura de ecrã, o utilizador proprietário é Bob.) A seguir, são apresentadas as ACLs de Acesso atribuídas. 
 
 ![ACLs do Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Clique em **Vista Avançada** para ver a vista mais avançada, onde são mostrados os conceitos de ACLs Predefinidas, de máscara e de superutilizador.
+Clique em **Vista Avançada** para ver a vista mais avançada, onde são apresentadas as ACLs Predefinidas, a máscara e uma descrição do superutilizador.  Este painel também proporciona uma forma de definir recursivamente ACLs de Acesso e Predefinidas para ficheiros e pastas subordinados com base nas permissões da pasta atual.
 
 ![ACLs do Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -164,7 +164,7 @@ O utilizador que criou o item é automaticamente o utilizador proprietário do i
 * Alterar o grupo proprietário de um ficheiro que é propriedade, desde que o utilizador proprietário também seja membro do grupo de destino.
 
 > [!NOTE]
-> O utilizador proprietário *não pode* alterar o utilizador proprietário de outro ficheiro que é propriedade. Apenas os superutilizadores podem alterar o utilizador proprietário de um ficheiro ou pasta.
+> O utilizador proprietário *não pode* alterar o utilizador proprietário de um ficheiro ou pasta. Apenas os superutilizadores podem alterar o utilizador proprietário de um ficheiro ou pasta.
 >
 >
 
@@ -177,9 +177,14 @@ Quando é criado um novo item do sistema de ficheiros, o Data Lake Store atribui
 * **Caso 1**: a pasta raiz "/". Esta pasta é criada quando é criada uma conta do Data Lake Store. Neste caso, o grupo proprietário está definido como o utilizador que criou a conta.
 * **Caso 2** (todos os outros casos): quando é criado um item novo, o grupo proprietário é copiado da pasta principal.
 
+Caso contrário, o grupo proprietário tem um comportamento semelhante ao das permissões atribuídas para outros utilizadores/grupos.
+
 O grupo proprietário pode ser alterado por:
 * Qualquer superutilizador.
 * Pelo utilizador proprietário, se o utilizador proprietário também for membro do grupo de destino.
+
+> [!NOTE]
+> O grupo proprietário *não pode* alterar as ACLs de um ficheiro ou pasta.
 
 ## <a name="access-check-algorithm"></a>Algoritmo de verificação de acesso
 
@@ -209,7 +214,7 @@ Para referência, é aqui que é apresentada a máscara de um ficheiro ou pasta 
 ![ACLs do Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> Nas contas novas do Data Lake Store, a máscara da ACL de Acesso e da ACL Predefinida da pasta raiz ("/") está predefinida como RWX.
+> Nas contas novas do Data Lake Store, a máscara da ACL de Acesso da pasta raiz ("/") está predefinida como RWX.
 >
 >
 
@@ -308,7 +313,7 @@ Quando um utilizador deixa de existir no Azure AD, é apresentado um GUID. Norma
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>O Data Lake Store suporta a herança de ACLs?
 
-Não.
+Não, mas as ACLs Predefinidas podem ser utilizadas para definir ACLs para ficheiros e pastas subordinados criados recentemente na pasta principal.  
 
 ### <a name="what-is-the-difference-between-mask-and-umask"></a>Qual é a diferença entre mask e umask?
 
@@ -317,7 +322,7 @@ Não.
 | A propriedade **mask** está disponível em todos os ficheiros e pastas. | A propriedade **umask** é uma propriedade da conta do Data Lake Store. Portanto, existe apenas uma única umask no Data Lake Store.    |
 | A propriedade mask num ficheiro ou pasta pode ser alterada pelo utilizador proprietário ou grupo proprietário de um ficheiro ou por um superutilizador. | A propriedade umask não pode ser modificada por nenhum utilizador, nem mesmo por superutilizadores. É um valor constante, inalterável.|
 | A propriedade mask é utilizada durante o algoritmo de verificação de acesso em runtime para determinar se um utilizador tem o direito de realizar uma operação num ficheiro ou pasta. A função da mask é criar "permissões efetivas" no momento da verificação de acesso. | A umask não é utilizada durante a verificação de acesso. A umask é utilizada para determinar a ACL de Acesso de novos itens subordinados de uma pasta. |
-| A mask é um valor RWX de 3 bits que se aplica ao utilizador nomeado, ao grupo nomeado e ao utilizador proprietário no momento da verificação de acesso.| A umask é um valor de 9 bits que se aplica ao utilizador proprietário, ao grupo proprietário e a **outros** de um novo item subordinado.|
+| A mask é um valor RWX de 3 bits que se aplica ao utilizador nomeado, ao grupo proprietário e ao grupo nomeado no momento da verificação de acesso.| A umask é um valor de 9 bits que se aplica ao utilizador proprietário, ao grupo proprietário e a **outros** de um novo item subordinado.|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Onde posso obter mais informações sobre o modelo de controlo de acesso POSIX?
 

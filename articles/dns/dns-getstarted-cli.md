@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao DNS do Azure com a CLI 2.0 do Azure | Microsoft Docs"
-description: "Saiba como criar uma zona DNS e o registar no DNS do Azure. Este é um guia passo a passo para criar e gerir a sua primeira zona DNS e registar com a CLI 2.0 do Azure."
+title: Introdução ao DNS do Azure com a CLI 2.0 do Azure | Microsoft Docs
+description: Saiba como criar uma zona DNS e o registar no DNS do Azure. Este é um guia passo a passo para criar e gerir a sua primeira zona DNS e registar com a CLI 2.0 do Azure.
 services: dns
 documentationcenter: na
 author: KumuD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: kumud
-ms.openlocfilehash: 76782ac1e78cd0f7da4bc1aad8eff00d79865ed7
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d24eaa4974f8bff09b337384e4fd139edb6ebd70
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Introdução ao DNS do Azure com a CLI 2.0 do Azure
 
@@ -33,6 +33,8 @@ Este artigo explica-lhe os passos para criar a primeira zona DNS e registar com 
 Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Por fim, para publicar a zona DNS na Internet, tem de configurar os servidores de nomes do domínio. Cada um destes passos está descrito abaixo.
 
 Estas instruções partem do princípio de que já instalou e iniciou sessão no CLI 2.0 do Azure. Para obter ajuda, consulte [How to manage DNS zones using Azure CLI 2.0 (Como gerir zonas DNS com a CLI 2.0 do Azure)](dns-operations-dnszones-cli.md).
+
+O DNS do Azure também suporta agora zonas DNS privadas (atualmente em pré-visualização pública). Para saber mais sobre zonas DNS privadas, veja [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md). Para obter um exemplo de como criar uma zona DNS privada, veja [Começar a utilizar zonas privadas do DNS do Azure com a CLI](./private-dns-getstarted-cli.md).
 
 ## <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
@@ -52,7 +54,6 @@ O exemplo seguinte cria uma zona DNS denominada *contoso.com* no grupo de recurs
 az network dns zone create -g MyResourceGroup -n contoso.com
 ```
 
-
 ## <a name="create-a-dns-record"></a>Criar um registo DNS
 
 Para criar um registo DNS, utilize o comando `az network dns record-set [record type] add-record`. Para obter ajuda, para um registo A, por exemplo, consulte `azure network dns record-set A add-record -h`.
@@ -65,7 +66,6 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 Para outros tipos de registos, para conjuntos de registos com mais de um registo, para os valores de TTL alternativos e para modificar registos existentes, consulte [Manage DNS records and record sets using the Azure CLI 2.0 (Gerir registos DNS e conjuntos de registos com a CLI 2.0 do Azure)](dns-operations-recordsets-cli.md).
 
-
 ## <a name="view-records"></a>Ver registos
 
 Para listar os registos DNS na sua zona, utilize:
@@ -73,7 +73,6 @@ Para listar os registos DNS na sua zona, utilize:
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
 ```
-
 
 ## <a name="update-name-servers"></a>Atualizar servidores de nomes
 

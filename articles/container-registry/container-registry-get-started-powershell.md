@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9603ac779c7dbc640a7c24856c32f04edbac849d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>Criar um Azure Container Registry utilizando o PowerShell
+# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Início Rápido: Criar um Azure Container Registry com o PowerShell
 
 O Azure Container Registry é um serviço de registo do contentor Docker gerido, utilizado para armazenar imagens de contentor do Docker privadas. Este guia detalha a criação de uma instância do Azure Container Registry através do PowerShell, o envio de uma imagem de contentor para o registo e, por fim, a implementação do contentor a partir do registo no Azure Container Instances (ACI).
 
@@ -73,7 +73,7 @@ Para enviar uma imagem para um registo do Azure Container, primeiro tem de ter u
 docker pull microsoft/aci-helloworld
 ```
 
-A imagem tem de ser etiquetada com o nome de servidor de início de sessão ACR. Utilize o comando [docker tag][docker-tag] para efetuar este procedimento. 
+A imagem tem de ser etiquetada com o nome de servidor de início de sessão ACR. Utilize o comando [docker tag][docker-tag] para efetuar este procedimento.
 
 ```powershell
 $image = $registry.LoginServer + "/aci-helloworld:v1"

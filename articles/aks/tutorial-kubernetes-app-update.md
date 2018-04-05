@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do Kubernetes no Azure tutorial - Atualizar aplicação"
-description: "Tutorial de AKS – Atualizar Aplicação"
+title: Tutorial do Kubernetes no Azure tutorial - Atualizar aplicação
+description: Tutorial de AKS – Atualizar Aplicação
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 82a6b6580fbe69b11fdb8a47e2ca09c19b341bbc
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="update-an-application-in-azure-container-service-aks"></a>Atualizar uma aplicação no Azure Container Service (AKS)
+# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>Tutorial: Atualizar uma aplicação no Azure Container Service (AKS)
 
 Depois de a aplicação ser implementada no Kubernetes, pode ser atualizada, ao especificar uma nova imagem de contentor ou uma versão de imagem. Ao fazê-lo, a atualização é testada, para que apenas uma parte da implementação seja atualizada em simultâneo. Esta atualização testada permite que a aplicação continue a ser executada durante a atualização. Também apresenta um mecanismo de reversão se ocorrer uma falha de implementação. 
 
@@ -27,7 +27,7 @@ Neste tutorial, parte seis de oito, a aplicação Azure Vote de exemplo é atual
 > * Enviar a imagem de contentor para o Azure Container Registry
 > * Implementar a imagem de contentor atualizada
 
-Nos tutoriais subsequentes, o Operations Management Suite está configurado para monitorizar o cluster de Kubernetes.
+Nos tutoriais subsequentes, o Log Analytics está configurado para monitorizar o cluster de Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -89,7 +89,7 @@ Utilize a [etiqueta do docker][docker-tag] para etiquetar a imagem. Substitua `<
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Utilize o [push do docker][docker-push] para carregar a imagem para o seu registo. Substitua `<acrLoginServer>` pelo nome do servidor de início de sessão do Azure Container Registry.
+Utilize o [push do docker][docker-push] para carregar a imagem para o seu registo. Substitua `<acrLoginServer>` pelo nome do servidor de início de sessão do Azure Container Registry. Se tiver problemas ao enviar para o seu registo do ACR, certifique-se de que executou o comando [az acr login][az-acr-login].
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -164,7 +164,7 @@ Neste tutorial, atualiza uma aplicação e implementa esta atualização num clu
 > * Enviou a imagem de contentor para o Azure Container Registry
 > * Implementou a aplicação atualizada
 
-Avançar para o próximo tutorial para saber mais sobre como monitorizar o Kubernetes com o Operations Management Suite.
+Avance para o próximo tutorial para saber mais sobre como monitorizar o Kubernetes com o Log Analytics.
 
 > [!div class="nextstepaction"]
 > [Monitorizar o Kubernetes com o Log Analytics][aks-tutorial-monitor]
@@ -179,3 +179,4 @@ Avançar para o próximo tutorial para saber mais sobre como monitorizar o Kuber
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

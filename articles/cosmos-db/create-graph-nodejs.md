@@ -1,31 +1,31 @@
 ---
-title: "Criar uma aplicação Node.js do Azure Cosmos DB com o Graph API | Microsoft Docs"
-description: "Apresenta um exemplo de código Node.js que pode utilizar para ligar e consultar o Azure Cosmos DB"
+title: Criar uma aplicação Node.js do Azure Cosmos DB com o Graph API | Microsoft Docs
+description: Apresenta um exemplo de código Node.js que pode utilizar para ligar e consultar o Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 95c0ac43e468d3655cfddc7ae0de6cefb649131d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: bba876d2530b3b1c418e18fd807cfdfbfdfc4296
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Criar uma aplicação Node.js com o Graph API
 
 O Azure Cosmos DB é um serviço de bases de dados da Microsoft com vários modelos e distribuído globalmente. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
-Este artigo do Início Rápido demonstra como criar uma conta do Azure Cosmos DB para o Graph API, bases de dados e gráficos com o portal do Azure. Em seguida, irá criar e executar uma aplicação de consola com o controlador [Gremlin Node.js](https://www.npmjs.com/package/gremlin) «open-source».
+Este início rápido demonstra como criar uma conta da [Graph API](graph-introduction.md) do Azure Cosmos DB, bases de dados e gráficos com o portal do Azure. Em seguida, irá criar e executar uma aplicação de consola com o controlador [Gremlin Node.js](https://www.npmjs.com/package/gremlin) «open-source».
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

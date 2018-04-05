@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do Kubernetes no Azure - Preparar Aplicação"
-description: "Tutorial do AKS - Preparar Aplicação"
+title: Tutorial do Kubernetes no Azure - Preparar Aplicação
+description: Tutorial do AKS - Preparar Aplicação
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c4a1459a49fb60578f9f38ea65cd1400b538382
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8a2c2e53ed04cf00cc02135c5e5f82ded18fc2bc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="prepare-application-for-azure-container-service-aks"></a>Preparar aplicação para o Azure Container Service (AKS)
+# <a name="tutorial-prepare-application-for-azure-container-service-aks"></a>Tutorial: Preparar aplicação para o Azure Container Service (AKS)
 
 Neste tutorial, a parte um de oito, uma aplicação de vários contentores é preparada para utilização com o Kubernetes. Os passos concluídos incluem:  
 
@@ -32,7 +32,7 @@ Nos tutoriais subsequentes, a imagem de contentor é carregada para o Azure Cont
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentores e comandos simples do Docker. Se for necessário, veja [Introdução ao Docker][docker-get-started] para obter um manual sobre as noções básicas dos contentores. 
+Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentores e comandos simples do Docker. Se for necessário, veja a [Introdução ao Docker][docker-get-started] para obter um manual sobre as noções básicas dos contentores. 
 
 Para concluir este tutorial, precisa de um ambiente de desenvolvimento do Docker. O Docker disponibiliza pacotes que o configuram facilmente em qualquer sistema [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
 

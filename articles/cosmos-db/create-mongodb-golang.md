@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: criar uma aplicação de consola da API do MongoDB com o Golang e o portal do Azure | Microsoft Docs"
-description: "Apresenta um código Golang de exemplo que pode utilizar para ligar e consultar o Azure Cosmos DB"
+title: 'Azure Cosmos DB: criar uma aplicação de consola da API do MongoDB com o Golang e o portal do Azure | Microsoft Docs'
+description: Apresenta um código Golang de exemplo que pode utilizar para ligar e consultar o Azure Cosmos DB
 services: cosmos-db
 author: Durgaprasad-Budhwani
 manager: jhubbard
@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 29a47646074819492e2c5179276a0c4de7f0d2d9
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 49bf6aed5a8daa482be9d22ecd97b6ab43cae5fe
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: criar uma aplicação de consola da API do MongoDB com o Golang e o portal do Azure
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB.
 
-Este guia de introdução demonstra como utilizar uma aplicação [MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) existente escrita em [Golang](https://golang.org/) e como ligá-la à base de dados do Azure Cosmos DB, que suporta ligações de cliente da MongoDB.
+Este início rápido demonstra como utilizar uma aplicação [MongoDB](https://golang.org/) existente escrita em Golang e como ligá-la à base de dados do Azure Cosmos DB, que suporta ligações de cliente do MongoDB com a [API MongoDB](mongodb-introduction.md).
 
 Por outras palavras, a aplicação Golang sabe apenas que está a ligar a uma base de dados através das APIs do MongoDB. É transparente para a aplicação onde os dados são armazenados no Azure Cosmos DB.
 

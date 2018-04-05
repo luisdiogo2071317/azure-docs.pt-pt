@@ -1,6 +1,6 @@
 ---
-title: "Início Rápido - criar uma Base de Dados do Azure para PostgreSQL com a CLI do Azure"
-description: "Guia de introdução para criar e gerir a Base de Dados do Azure para o servidor PostgreSQL com a CLI (interface de linha de comandos) do Azure."
+title: Início Rápido - criar uma Base de Dados do Azure para PostgreSQL com a CLI do Azure
+description: Guia de introdução para criar e gerir a Base de Dados do Azure para o servidor PostgreSQL com a CLI (interface de linha de comandos) do Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: feb99ae5bae16125d65a6c6e5776e6f3f286f0e3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 14007bff572f5ecf71b4595dcab8f24d9cf2d17e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Início Rápido: criar uma Base de Dados do Azure para PostgreSQL com a CLI do Azure
 A Base de Dados do Azure para o PostgreSQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados de alta disponibilidade do PostgreSQL na cloud. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este guia de introdução mostra-lhe como criar uma Base de Dados do Azure para o servidor PostgreSQL num [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) com a CLI do Azure.
@@ -58,11 +58,11 @@ O JSON de retorno deve incluir o seguinte:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.3"
+    "version": "0.0.4"
 }
 ```
 
-Se não for devolvida a versão 0.0.3, execute o seguinte para atualizar a extensão: 
+Se não for devolvida a versão 0.0.4, execute o seguinte para atualizar a extensão: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -92,7 +92,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 ```
 
 > [!NOTE]
-> O servidor PostgreSQL do Azure comunica através da porta 5432. Ao ligar a partir de uma rede empresarial, o tráfego de saída através da porta 5432 poderá não ser permitido pela firewall da rede. Peça ao departamento de TI para abrir a porta 5432, para ligar ao servidor da Base de Dados SQL do Azure.
+> O servidor PostgreSQL do Azure comunica através da porta 5432. Ao ligar a partir de uma rede empresarial, o tráfego de saída através da porta 5432 poderá não ser permitido pela firewall da rede. Peça ao departamento de TI para abrir a porta 5432, para ligar ao servidor do Azure PostgreSQL.
 
 ## <a name="get-the-connection-information"></a>Obter as informações da ligação
 

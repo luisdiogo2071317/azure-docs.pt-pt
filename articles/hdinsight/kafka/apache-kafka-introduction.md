@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4a4f2c6734de211cd20ee4b9f6815bdefefb25bc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Introdução ao Apache Kafka no HDInsight
 
@@ -31,7 +31,7 @@ O Kafka no HDInsight oferece as funcionalidades :
 
 * __99,9% de tempo de atividade do Contrato de Nível de Serviço (SLA) no Kafka__: para obter mais informações, veja o documento [Informações do SLA para o HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
-* __Tolerância a falhas e conhecimento de bastidores__: o Kafka foi concebido com uma visão uni-dimensional de um bastidor que funciona bem em alguns ambientes. No entanto, em ambientes como o Azure, um bastidor é separado em duas dimensões - Domínios de Atualização (UDs) e Domínios de Falha (FDs). A Microsoft fornece ferramentas que garantem o reequilíbrio de réplicas e partições do Kafka em UDs e FDs. 
+* __Tolerância a falhas__: O Kafka foi concebido com uma visão uni-dimensional de um bastidor que funciona bem em alguns ambientes. No entanto, em ambientes como o Azure, um bastidor é separado em duas dimensões - Domínios de Atualização (UDs) e Domínios de Falha (FDs). A Microsoft oferece ferramentas que podem reequilibrar as réplicas e partições do Kafka em UDs e FDs. 
 
     Para obter mais informações, consulte [Elevada disponibilidade com o Kafka no HDInsight](apache-kafka-high-availability.md).
 

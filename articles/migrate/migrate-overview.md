@@ -1,21 +1,21 @@
 ---
 title: Acerca do Azure Migrate | Microsoft Docs
-description: "Disponibiliza uma descrição geral do serviço do Azure Migrate."
+description: Disponibiliza uma descrição geral do serviço do Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 02/26/2018
+ms.date: 03/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 45eac1d1ecb173ba0a62ab13f47b7ee6e12f7af3
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 857dab5474cba24445daf7d139ae49d923038196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
-O serviço do Azure Migrate avalia as cargas de trabalho no local para migração para o Azure. O serviço avalia a adequabilidade de migração de máquinas no local para o Azure, o dimensionamento com base no desempenho e oferece estimativas de custos para executar as suas máquinas no local no Azure. Se estiver a considerar migrações lift-and-shift ou estiver nas primeiras etapas da migração, este serviço é para si. Após a avaliação, pode utilizar serviços como o [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) e o [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) para migrar as máquinas para o Azure.
+O serviço do Azure Migrate avalia as cargas de trabalho no local para migração para o Azure. O serviço avalia a adequabilidade de migração de máquinas no local, o dimensionamento com base no desempenho e oferece estimativas de custos para executar as suas máquinas no local no Azure. Se estiver a considerar migrações lift-and-shift ou estiver nas primeiras etapas da migração, este serviço é para si. Após a avaliação, pode utilizar serviços como o [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) e o [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) para migrar as máquinas para o Azure.
 
 ## <a name="why-use-azure-migrate"></a>Porquê utilizar o Azure Migrate?
 
@@ -28,14 +28,12 @@ O Azure Migrate ajuda-o a:
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-- Atualmente, pode avaliar máquinas virtuais (VMs) do VMware no local apenas para migração para VMs do Azure. As VMs do VMware têm de ser geridas pelo vCenter Server (versão 5.5, 6.0 ou 6.5)
-
-> [!NOTE]
-> O suporte para o Hyper-V está nas previsões e será ativado brevemente. Até lá, recomendamos que utilize o [Planeador de Implementações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para planear a migração de cargas de trabalho do Hyper-V. 
-
+- Atualmente, pode avaliar máquinas virtuais (VMs) do VMware no local apenas para migração para VMs do Azure. As VMs do VMware têm de ser geridas pelo vCenter Server (versão 5.5, 6.0 ou 6.5).
+- O suporte para Hyper-V está no nosso plano. Até lá, recomendamos que utilize o [Planeador de Implementações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para planear a migração de cargas de trabalho do Hyper-V. 
 - Pode detetar até 1000 VMs numa única deteção e até 1500 VMs num único projeto. Além disso, pode avaliar até 400 VMs numa única avaliação. Se precisar de detetar ou avaliar mais máquinas, pode aumentar o número de deteções ou de avaliações. [Saiba mais](how-to-scale-assessment.md).
 - Só pode criar um projeto do Azure Migrate na região E.U.A. Centro-Oeste ou Leste. No entanto, esta limitação não afeta a possibilidade de planear a sua migração para outra localização de destino do Azure. A localização do projeto de migração é utilizada apenas para armazenar os metadados detetados a partir do ambiente no local.
 - O Azure Migrate só suporta discos geridos para avaliação de migrações.
+
 
 ## <a name="what-do-i-need-to-pay-for"></a>O que vou pagar?
 

@@ -1,5 +1,5 @@
 ---
-title: "Início rápido - Início rápido de criação de cluster Kubernetes no portal do Azure"
+title: Início rápido - Início rápido de criação de cluster Kubernetes no portal do Azure
 description: Aprenda rapidamente a criar um cluster do Kubernetes para contentores do Linux no AKS com o portal do Azure.
 services: container-service
 author: neilpeterson
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 35886217328d35229a59b9713f5bb4bf0244569a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 4aad45559d167e6c046822200c9bbb98113d463b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementar um cluster do Azure Container Service (AKS)
+# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Início Rápido: Implementar um cluster do Azure Container Service (AKS)
 
 Neste guia de introdução, vai implementar um cluster do AKS com o portal do Azure. Depois, é executada no cluster uma aplicação de vários contentores que consiste num front-end da Web e numa instância de Redis. Depois de concluída, a aplicação está acessível através da Internet.
 
@@ -25,7 +25,7 @@ Este guia de introdução parte do princípio de que possui conhecimentos básic
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure, em http://portal.azure.com.
+Inicie sessão no portal do Azure em http://portal.azure.com.
 
 ## <a name="create-service-principal"></a>Criar um principal de serviço
 

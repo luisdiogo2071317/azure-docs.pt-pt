@@ -12,21 +12,21 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/2018
+ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4c81baec0c047b551e1bdac2152b330f010baa18
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6038251ba79797312a0fec61e4a6f3d2e99d5435
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Início Rápido: criar uma aplicação .NET do Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores dimensionáveis e fiáveis. 
 
 Este início rápido mostra como implementar a sua primeira aplicação .NET no Service Fabric. Quando tiver terminado, terá uma aplicação de votações com um front-end da Web ASP.NET que guarda os resultados das votações num serviço de back-end com estado no cluster.
 
-![Captura de ecrã da aplicação](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
+![Captura de Ecrã da Aplicação](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 Com esta aplicação, vai aprender a:
 > [!div class="checklist"]
@@ -91,6 +91,7 @@ Quando vota na aplicação, ocorrem os seguintes eventos:
 3. O serviço de back-end recebe o pedido de entrada e armazena os resultados atualizados num dicionário fiável, que é replicado para vários nós dentro do cluster e persistido no disco. Todos os dados da aplicação são armazenados no cluster, pelo que não é necessária uma base de dados.
 
 ## <a name="debug-in-visual-studio"></a>Depurar no Visual Studio
+
 Ao depurar a aplicação no Visual Studio, vai utilizar um cluster de desenvolvimento local do Service Fabric. Tem a opção de ajustar a sua experiência de depuração para o seu cenário. Nesta aplicação, os dados são armazenados no serviço de back-end através de um dicionário fiável. O Visual Studio remove a aplicação por predefinição, quando para o depurador. Remover a aplicação faz com que os dados no serviço de back-end sejam também removidos. Para persistir os dados entre as sessões de depuração, pode alterar o **Modo de Depuração da Aplicação** como propriedade no projeto **Voting** no Visual Studio.
 
 Para ver o que acontece no código, conclua os passos seguintes:
@@ -123,7 +124,7 @@ Para parar a sessão de depuração, prima **Shift + F5**.
 Para implementar a aplicação no Azure, precisa de um cluster do Service Fabric que executa a aplicação. 
 
 ### <a name="join-a-party-cluster"></a>Aderir a um party cluster
-Os party clusters são clusters do Service Fabric gratuitos, limitados temporalmente, alojados no Azure e executados pela equipa do Service Fabric, nos quais qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. O cluster utiliza um certificado autoassinado para o nó "nó para nó", bem como a segurança de "cliente para nó". 
+Os party clusters são clusters do Service Fabric gratuitos, limitados temporalmente, alojados no Azure e executados pela equipa do Service Fabric, nos quais qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. O cluster utiliza um certificado autoassinado para o "nó para nó", bem como a segurança de "cliente para nó". 
 
 Inicie sessão e [adira a um cluster do Windows](http://aka.ms/tryservicefabric). Transfira o certificado PFX para o seu computador ao clicar na ligação **PFX**. Clique na ligação **Como ligar a um cluster de terceiro seguro?** e copie a palavra-passe do certificado. O certificado, a palavra-passe do certificado e o valor **Ponto final da ligação** são utilizados nos passos seguintes.
 

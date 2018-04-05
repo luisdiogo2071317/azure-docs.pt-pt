@@ -1,11 +1,11 @@
 ---
-title: "Armazenamento frequente, esporádico e de arquivos para blobs | Microsoft Docs"
-description: "Armazenamento frequente, esporádico e de arquivos para contas de Armazenamento do Azure."
+title: Armazenamento frequente, esporádico e de arquivos para blobs | Microsoft Docs
+description: Armazenamento frequente, esporádico e de arquivos para contas de Armazenamento do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kuhussai
 manager: jwillis
-editor: 
+editor: ''
 ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: 2adb301f1d047c7762a35880da6e6094a5afbd75
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivos
 
@@ -79,7 +79,7 @@ Podem coexistir na mesma conta blobs nas três camadas de armazenamento. Um blob
 
 ### <a name="blob-level-tiering-billing"></a>Faturação da criação de camadas ao nível de blobs
 
-Quando um blob é movido para uma camada mais esporádica (frequente->esporádica, frequente->arquivos ou esporádica->arquivos), a operação é faturada como uma operação de escrita para a camada de destino e a operação de escrita (por 10 000) e os encargos de escrita de dados (por GB) da camada de destino são aplicáveis. Quando um blob é movido para uma camada mais frequente (arquivo->esporádica, arquivo->frequente ou esporádica->frequente), a operação é faturada como uma leitura da camada de origem e a operação de leitura (por 10 000) e os encargos de obtenção de dados (por GB) da camada de origem são aplicáveis.
+Quando um blob é movido para uma camada mais esporádica (frequente->esporádica, frequente->arquivos ou esporádica->arquivos), a operação é faturada como uma operação de escrita da camada de destino na qual a operação de escrita (por 10 000) e os encargos de escrita de dados (por GB) da camada de destino são aplicáveis. Quando um blob é movido para uma camada mais frequente (arquivo->esporádica, arquivo->frequente ou esporádica->frequente), a operação é faturada como uma leitura da camada de origem onde a operação de leitura (por 10 000) e os encargos de obtenção de dados (por GB) da camada de origem são aplicáveis.
 
 Se mudar a camada da conta de frequente para esporádica, são-lhe cobradas operações de escrita (por 10 000) para todos os blobs que não tenham uma camada definida em contas GPv2 apenas. Estas cobranças não acontecem nas contas de Armazenamento de Blobs. Se mudar a conta GPv2 ou de Armazenamento de Blobs de esporádica para frequente, são-lhe cobradas as operações de escrita (por 10 000) e obtenção de dados (por GB). Podem também aplicar-se cobranças com deteções precoces para qualquer blob que seja retirado da camada esporádica ou de arquivo.
 

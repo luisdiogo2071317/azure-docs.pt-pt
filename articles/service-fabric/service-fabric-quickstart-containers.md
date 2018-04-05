@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d4fe2d410152fc4d65f2d22bc26e5e72b91bc282
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: eb4de9d7781ae355e42a6fec9f7732ad67228e70
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Início Rápido: implementar uma aplicação de contentor do Windows do Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores dimensionáveis e fiáveis. 
@@ -83,17 +83,20 @@ Configure o mapeamento de portas, da porta para o anfitrião do contentor, de mo
 Um ficheiro de exemplo completo do ApplicationManifest.xml está disponível no final deste artigo.
 
 ## <a name="create-a-cluster"></a>Criar um cluster
-Para implementar a aplicação num cluster no Azure, pode optar por aderir a um cluster de terceiros. Os party clusters são clusters do Service Fabric gratuitos, limitados temporalmente, alojados no Azure e executados pela equipa do Service Fabric, nos quais qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma.  O cluster utiliza um certificado autoassinado para o nó "nó para nó", bem como a segurança de "cliente para nó". Os party clusters suportam contentores. No entanto, se configurar o seu próprio cluster, este tem de ser executado no Windows Server 2016 com Contentores para executar contentores.
+Para implementar a aplicação num cluster no Azure, pode aderir a um cluster de terceiros. Os party clusters são clusters do Service Fabric gratuitos, limitados temporalmente, alojados no Azure e executados pela equipa do Service Fabric, nos quais qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma.  O cluster utiliza um certificado autoassinado para o nó "nó para nó", bem como a segurança de "cliente para nó". Os party clusters suportam contentores. Se optar por configurar e utilizar o seu próprio cluster, o cluster tem de estar em execução numa SKU que suporte contentores (por exemplo, o Windows Server 2016 Datacenter com Contentores).
 
-Inicie sessão e [adira a um cluster do Windows](http://aka.ms/tryservicefabric). Transfira o certificado PFX para o seu computador ao clicar na ligação **PFX**. O certificado e o valor do **Ponto final da ligação** são utilizados nos passos seguintes.
+Inicie sessão e [adira a um cluster do Windows](http://aka.ms/tryservicefabric). Transfira o certificado PFX para o seu computador ao clicar na ligação **PFX**. Clique na ligação **Como ligar a um cluster de terceiro seguro?** e copie a palavra-passe do certificado. O certificado, a palavra-passe do certificado e o valor **Ponto final da ligação** são utilizados nos passos seguintes.
 
 ![PFX e ponto final de ligação](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+> [!Note]
+> Há um número limitado de clusters de terceiros por hora. Se aparecer um erro ao tentar inscrever-se num cluster de terceiros, pode ter aguardar algum tempo e tentar novamente ou pode seguir estes passos no tutorial [Implementar uma aplicação .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) para criar um cluster Service Fabric na subscrição do Azure e implementar a aplicação ao mesmo. O cluster criado através do Visual Studio suporta contentores. Depois de ter implementado e verificado a aplicação no seu cluster, pode avançar diretamente para [Concluir a aplicação do Service Fabric de exemplo e manifestos do serviço](#complete-example-service-fabric-application-and-service-manifests) neste início rápido. 
+>
 
 Num computador Windows, instale o PFX no arquivo de certificados *CurrentUser\My*.
 
 ```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
-\CurrentUser\My
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
 
 
   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
@@ -118,7 +121,7 @@ Clique em **Publicar**.
 
 Cada aplicação no cluster tem de ter um nome exclusivo.  Contudo, os clusters de party são ambientes públicos e partilhados, pelo que poderá haver um conflito com aplicações já existentes.  Se houver um conflito de nomes, mude o nome do projeto do Visual Studion e reimplemente-o.
 
-Abra um browser e navegue para http://zwin7fh14scd.westus.cloudapp.azure.com:80. Deverá ver a página Web predefinida do IIS: ![Página Web predefinida do IIS][iis-default]
+Abra um browser e navegue para o **Ponto final de ligação** especificado na página do cluster de Terceiros. Opcionalmente, pode preceder o identificador do esquema, `http://`, e acrescentar a porta, `:80`, ao URL. Por exemplo, http://zwin7fh14scd.westus.cloudapp.azure.com:80. Deverá ver a página Web predefinida do IIS: ![Página Web predefinida do IIS][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Exemplo completo da aplicação do Service Fabric e dos manifestos do serviço
 Seguem-se os manifestos completos do serviço e da aplicação utilizados neste início rápido.
