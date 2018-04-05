@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 1cf23a8f564553e65ac2c0fd34d44d81fe2327ea
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7dc467d9977d536011e1c3fcf663fc335f90a492
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Executar um serviço como um grupo ou utilizador do Active Directory
-Ao utilizar o Service Fabric do Azure, pode proteger aplicações em execução no cluster em contas de utilizador diferente. Isto faz com que aplicações em execução, mesmo num ambiente alojado partilhado, mais segura entre si. Por predefinição, as aplicações de Service Fabric executam sob a conta que executa o processo de Fabric.exe em. Para um cluster de autónomo do Windows Server, pode executar um serviço como um [grupo conta de serviço gerida (gMSA)](service-fabric-run-service-as-gmsa.md) ou um utilizador do Active Directory ou o grupo através de uma política de RunAs. Tenha em atenção que esta utiliza o Active Directory no local dentro do seu domínio e não do Azure Active Directory (Azure AD).
+Num cluster do Windows Server autónomo, pode executar um serviço como um utilizador do Active Directory ou o grupo através de uma política de RunAs.  Por predefinição, as aplicações de Service Fabric executam sob a conta que executa o processo de Fabric.exe em. A execução de aplicações em diferentes contas, mesmo num ambiente alojado partilhado, torna-os mais segura entre si. Tenha em atenção que esta utiliza o Active Directory no local dentro do seu domínio e não do Azure Active Directory (Azure AD).  Também pode executar um serviço como um [grupo conta de serviço gerida (gMSA)](service-fabric-run-service-as-gmsa.md).
 
 Através da utilização de um utilizador de domínio ou grupo, em seguida, pode aceder a outros recursos no domínio (por exemplo, as partilhas de ficheiros) tem sido concedidos permissões.
 

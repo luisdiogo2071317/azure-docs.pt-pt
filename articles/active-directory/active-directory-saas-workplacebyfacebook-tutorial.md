@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory a área de trabalho por Facebook | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e à área de trabalho por Facebook."
+title: 'Tutorial: Integração do Azure Active Directory a área de trabalho por Facebook | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e à área de trabalho por Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 524319deea957809440436b3cac2b0256516923a
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: a1f4243eafc6a2d5c632220ec80b28b29f8ae985
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutorial: Integração do Azure Active Directory a área de trabalho por Facebook
 
@@ -45,6 +45,9 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+
+> [!NOTE]
+> Facebook tem dois produtos, à área de trabalho (gratuita) e à área de trabalho Premium (paga). Nenhum inquilino Premium à área de trabalho pode configurar a integração de SCIM e SSO com nenhum outras implicações custo ou licenças necessárias. SSO e SCIM não estão disponíveis em instâncias à área de trabalho padrão.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
@@ -111,9 +114,9 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
 
     ![Configurar o início de sessão único](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<instancename>.facebook.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<instancename>.facebook.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://www.facebook.com/company/<instanceID>`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE] 
     > Estes valores não estiverem a real. Atualize estes valores com o URL de início de sessão e o identificador real. Consulte a página de autenticação do Dashboard à área de trabalho da empresa para os valores corretos para a Comunidade de área de trabalho. 
@@ -159,10 +162,6 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
 15. **Redirecionamento de fim de sessão de SAML (opcional)** - 
 
     Pode optar por configurar opcionalmente um Url de fim de sessão SAML, que podem ser utilizadas para apontar para a página de fim de sessão do Azure AD. Quando esta definição está ativada e configurada, o utilizador já não será direcionado para a página de fim de sessão à área de trabalho. Em vez disso, o utilizador será redirecionado para o url que foi adicionado na definição de redirecionamento de fim de sessão SAML.
-
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="configuring-reauthentication-frequency"></a>Configurar a frequência de reautenticação rápida
 
@@ -271,4 +270,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_203.png
-

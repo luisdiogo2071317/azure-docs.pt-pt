@@ -1,11 +1,11 @@
 ---
-title: "Opções de dispositivo para a nuvem do IoT Hub do Azure | Microsoft Docs"
-description: "Guia para programadores - orientações sobre quando utilizar mensagens do dispositivo para nuvem, propriedades comunicadas ou carregamento do ficheiro para comunicações de nuvem para o dispositivo."
+title: Opções de dispositivo para a nuvem do IoT Hub do Azure | Microsoft Docs
+description: Guia para programadores - orientações sobre quando utilizar mensagens do dispositivo para nuvem, propriedades comunicadas ou carregamento do ficheiro para comunicações de nuvem para o dispositivo.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a870852d937732bb38f08420a07bfe696860e08b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Orientações de comunicações do dispositivo-nuvem
 Quando o envio de informações da aplicação de dispositivo para a solução de back-end, o IoT Hub expõe três opções:
@@ -26,6 +26,8 @@ Quando o envio de informações da aplicação de dispositivo para a solução d
 * [Mensagens do dispositivo para nuvem] [ lnk-d2c] de telemetria séries de tempo e alertas.
 * [Dispositivo duplo do comunicadas propriedades] [ lnk-twins] para as informações de estado do dispositivo como capacidades disponíveis, condições ou o estado de execução longa fluxos de trabalho de relatórios. Por exemplo, configuração e atualizações de software.
 * [Carregamentos de ficheiros] [ lnk-fileupload] suportes de dados de ficheiros e lotes de telemetria grande foi carregado por dispositivos ligados intermitentemente ligados ou comprimido para poupar largura de banda.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Eis uma comparação detalhada das várias opções de comunicação do dispositivo para a nuvem.
 

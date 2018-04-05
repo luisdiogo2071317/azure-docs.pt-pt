@@ -1,25 +1,25 @@
 ---
 title: Instalar um certificado de cliente P2S | Azure
-description: "Instale um certificado de cliente Mac ou o Windows para autenticação de certificados P2S."
+description: Instale um certificado de cliente Mac ou o Windows para autenticação de certificados P2S.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager, azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 04/02/2018
 ms.author: cherylmc
-ms.openlocfilehash: de98201b65f5531f334aded1056f622cecb6e190
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: bf2788fff64ab8b3a5ccf75b8a80f2bd5aba5151
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>Instalar um certificado de cliente para ligações de autenticação de certificado do Azure de ponto a Site
 
@@ -29,17 +29,13 @@ Todos os clientes que se ligam a uma rede virtual com a autenticação de certif
 
 Pode gerar um certificado de cliente a partir de um certificado de raiz que tenha sido criado através de uma solução de AC empresarial ou um certificado de raiz autoassinado. Consulte o [PowerShell](vpn-gateway-certificates-point-to-site.md) ou [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) instruções para obter os passos. Depois de gerar os certificados de cliente, exportá-las como ficheiros. pfx. Lembre-se de que incluem a cadeia de certificados inteira ao exportar.
 
-## <a name="installwin"></a>Instalar um certificado em clientes do Windows
+## <a name="installwin"></a>Instalar certificado - Windows
 
 [!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
-## <a name="installmac"></a>Instalar um certificado em clientes Mac
+## <a name="installmac"></a>Instalar certificado - Mac
 
 Os clientes Mac VPN são suportados para apenas o modelo de implementação do Resource Manager. Não são suportadas para o modelo de implementação clássica.
-
-> [!NOTE]
->  O IKEv2 encontra-se em Pré-visualização.
->
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 

@@ -1,12 +1,12 @@
 ---
-title: "Manter os endereços IP quando efetuar a ativação pós-falha de máquinas virtuais do Azure para outra região do Azure | Microsoft Docs"
-description: "Descreve como manter os endereços IP para cenários de ativação pós-falha do Azure para o Azure com o Azure Site Recovery"
+title: Manter os endereços IP quando efetuar a ativação pós-falha de máquinas virtuais do Azure para outra região do Azure | Microsoft Docs
+description: Descreve como manter os endereços IP para cenários de ativação pós-falha do Azure para o Azure com o Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Retenção do endereço IP de ativação pós-falha da máquina virtual do Azure
 
@@ -84,11 +84,7 @@ O acima ativação pós-falha isolado exemplo pode ser expandido para incluir ma
 
 ### <a name="further-considerations"></a>Considerações adicionais
 
-Gateways de VPN utilizar endereços IP públicos e saltos de gateway para estabelecer ligações. Se não pretender utilizar o IP público, e/ou pretende evitar saltos adicionais, pode agora, utilizar Global VNet Peering a ponto redes virtuais em regiões do Azure.
-
-Esta funcionalidade está atualmente em pré-visualização pública e está a ser expandida para suportar mais regiões — ativar ligação direta de VM para a VM sem qualquer envolvimento de internet pública ou de qualquer saltos adicionais.
-
-Para obter mais informações, consulte o [documentação peering](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) e [preços](https://azure.microsoft.com/pricing/details/virtual-network/).
+Gateways de VPN utilizar endereços IP públicos e saltos de gateway para estabelecer ligações. Se não pretender utilizar o IP público, e/ou pretende evitar saltos adicionais, pode utilizar o Azure [peering de rede Virtual](../virtual-network/virtual-network-peering-overview.md) a redes virtuais através de ponto [regiões do Azure suportadas](../virtual-network/virtual-network-manage-peering.md#cross-region).
 
 ## <a name="on-premises-to-azure-connectivity"></a>Conectividade no local-para o Azure
 
@@ -118,5 +114,5 @@ Ao contrário do cenário do Azure para o Azure descrito para **empresa um**, um
 
 Para alcançar a resiliência da aplicação, recomenda-se que cada aplicação está alojada na sua própria rede virtual do Azure dedicada. As aplicações podem, em seguida, a ativação pós-falha de forma isolada e o necessário no local para ligações à origem pode ser encaminhado para a região de destino, tal como descrito acima.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [planos de recuperação](site-recovery-create-recovery-plans.md).

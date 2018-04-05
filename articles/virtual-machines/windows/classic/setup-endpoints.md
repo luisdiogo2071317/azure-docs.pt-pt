@@ -1,11 +1,11 @@
 ---
-title: "Configurar pontos finais numa VM Windows clássico | Microsoft Docs"
-description: "Saiba como configurar pontos finais para uma VM do Windows clássico no portal do Azure para permitir a comunicação com a máquina virtual do Windows no Azure."
+title: Configurar pontos finais numa VM Windows clássico | Microsoft Docs
+description: Saiba como configurar pontos finais para uma VM do Windows clássico no portal do Azure para permitir a comunicação com a máquina virtual do Windows no Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 8afc21c2-d3fb-43a3-acce-aa06be448bb6
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 34bfad1e41037f38e950db085c0c13b7066b3e96
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d64feff341e389df4079c0603a414f0d40b754e7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Como configurar pontos finais na máquina virtual clássico do Windows no Azure
 Todas as janelas de máquinas virtuais que criar no Azure utilizando o modelo de implementação clássica automaticamente pode comunicam através de uma privada canal de rede com outras máquinas virtuais no mesmo serviço em nuvem ou de rede virtual. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos finais para direcionar o tráfego de rede de entrada para uma máquina virtual. Este artigo também está disponível para [máquinas virtuais do Linux](../../linux/classic/setup-endpoints.md).
@@ -37,4 +37,4 @@ Quando cria uma máquina virtual do Windows no portal do Azure, pontos finais co
 ## <a name="next-steps"></a>Passos seguintes
 * Para utilizar um cmdlet do Azure PowerShell para configurar um ponto final VM, consulte [adicionar AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
 * Para utilizar um cmdlet do PowerShell do Azure para gerir uma ACL num ponto final, consulte [gerir acesso listas de controlo (ACLs) para pontos finais utilizando o PowerShell](../../../virtual-network/virtual-networks-acl-powershell.md).
-* Se tiver criado uma máquina virtual no modelo de implementação Resource Manager, pode utilizar o Azure PowerShell para [criar grupos de segurança de rede](../../../virtual-network/virtual-networks-create-nsg-arm-ps.md) para controlar tráfego para a VM.
+* Se tiver criado uma máquina virtual no modelo de implementação Resource Manager, pode utilizar o Azure PowerShell para [criar grupos de segurança de rede](../../../virtual-network/tutorial-filter-network-traffic.md) para controlar tráfego para a VM.

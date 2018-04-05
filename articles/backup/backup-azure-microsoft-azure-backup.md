@@ -1,12 +1,12 @@
 ---
-title: "Utilizar o servidor de cópia de segurança do Azure para fazer cópias de segurança de cargas de trabalho do Azure | Microsoft Docs"
-description: "Utilize o servidor de cópia de segurança do Azure para proteger ou cópia de segurança de cargas de trabalho para o portal do Azure."
+title: Utilizar o servidor de cópia de segurança do Azure para fazer cópias de segurança de cargas de trabalho do Azure | Microsoft Docs
+description: Utilize o servidor de cópia de segurança do Azure para proteger ou cópia de segurança de cargas de trabalho para o portal do Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: PVRK
 manager: shivamg
-editor: 
-keywords: "servidor do backup do Azure; proteger cargas de trabalho; cópia de segurança de cargas de trabalho"
+editor: ''
+keywords: servidor do backup do Azure; proteger cargas de trabalho; cópia de segurança de cargas de trabalho
 ms.assetid: e7fb1907-9dc1-4ca1-8c61-50423d86540c
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: c33cea62dac1c06dd1cb4031897af8c822e61661
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 95c11de3a1aed680d37dd86c1783ac8bee7ffec3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparar a criação de cópias de segurança de cargas de trabalho com o Azure Backup Server
 > [!div class="op_single_selector"]
@@ -67,11 +67,11 @@ Pode eliminar a duplicados do armazenamento do DPM utiliza a eliminação de dup
 
 > [!NOTE]
 > Servidor de cópia de segurança do Azure foi concebido para ser executado num servidor dedicado e especializado. Não é possível instalar o servidor de cópia de segurança do Azure em:
-> - Um computador a executar como um controlador de domínio
-> - Um computador no qual a função de servidor de aplicações está instalada
-> - Um computador que seja um servidor de gestão do System Center Operations Manager
+> - Um computador em execução como um controlador de domínio
+> - Um computador no qual a função de Servidor de Aplicações está instalada
+> - Um computador que é um servidor de gestão do System Center Operations Manager
 > - Um computador no qual o Exchange Server está em execução
-> - Um computador que seja um nó de um cluster
+> - Um computador que é um nó de um cluster
 
 Sempre associe o servidor de cópia de segurança do Azure a um domínio. Se planear mover o servidor a um domínio diferente, é recomendado que associe o servidor para o novo domínio antes de instalar o servidor de cópia de segurança do Azure. Mover uma máquina do servidor de cópia de segurança do Azure existente para um novo domínio após a conclusão da implementação *não suportado*.
 
@@ -101,7 +101,7 @@ Para criar um cofre dos serviços de recuperação:
    Assim que o Cofre for criado, abre-se no portal.
 
 ### <a name="set-storage-replication"></a>Definir Replicação de Armazenamento
-A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e o armazenamento localmente redundante. Por predefinição, o seu cofre tem um armazenamento georredundante. Se este cofre é o seu Cofre primário, deixe a opção de armazenamento definida para o armazenamento georredundante. Escolha armazenamento localmente redundante se pretende uma opção mais barata que não é tão durável. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy.md#geo-redundant-storage) e [localmente redundante](../storage/common/storage-redundancy.md#locally-redundant-storage) na [descrição geral da replicação de Armazenamento do Azure](../storage/common/storage-redundancy.md).
+A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e o armazenamento localmente redundante. Por predefinição, o seu cofre tem um armazenamento georredundante. Se este cofre é o seu Cofre primário, deixe a opção de armazenamento definida para o armazenamento georredundante. Escolha armazenamento localmente redundante se pretende uma opção mais barata que não é tão durável. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy-grs.md) e [localmente redundante](../storage/common/storage-redundancy-lrs.md) na [descrição geral da replicação de Armazenamento do Azure](../storage/common/storage-redundancy.md).
 
 Para editar a definição de replicação de armazenamento:
 
@@ -268,7 +268,7 @@ Depois de conectividade para o Azure foi restaurada para a máquina do servidor 
 Se o servidor de cópia de segurança do Microsoft Azure falhar com erros durante a fase de configuração (ou cópia de segurança ou restauro), consulte este [documento de códigos de erro](https://support.microsoft.com/kb/3041338) para obter mais informações.
 Também pode consultar [perguntas mais frequentes relacionadas com a cópia de segurança do Azure](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Pode obter informações detalhadas [preparar o ambiente para o DPM](https://technet.microsoft.com/library/hh758176.aspx) no site Microsoft TechNet. Também contém informações sobre configurações suportadas em que servidor de cópia de segurança do Azure podem ser implementado e utilizado.
 
 Pode utilizar estes artigos para obter uma compreensão mais aprofundada da proteção de carga de trabalho utilizando o servidor de cópia de segurança do Microsoft Azure.

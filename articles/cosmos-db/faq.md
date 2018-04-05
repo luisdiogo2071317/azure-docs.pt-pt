@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 946d0f6456ce27931c91066d63c028388ecec84c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 7039b87c80aecb837059d80087c97e8691da2988
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Cosmos BD do Azure
@@ -122,7 +122,7 @@ Quando definir uma região, lembre-se de que o Azure Cosmos DB respeita nuvens s
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Como iniciar a programação com a API do SQL Server?
 Primeiro, deve inscrever-se uma subscrição do Azure. Depois de se inscrever para uma subscrição do Azure, pode adicionar um contentor de API do SQL Server para a sua subscrição do Azure. Para obter instruções sobre como adicionar uma conta de base de dados do Azure Cosmos, consulte [criar uma conta de base de dados de base de dados do Azure Cosmos](create-sql-api-dotnet.md#create-account). 
 
-[SDKs](sql-api-sdk-dotnet.md) estão disponíveis para .NET, Python, Node.js, JavaScript e Java. Os programadores também podem utilizar o [RESTful HTTP APIs](/rest/api/documentdb/) para interagir com recursos de BD do Cosmos Azure a partir de vários idiomas e plataformas.
+[SDKs](sql-api-sdk-dotnet.md) estão disponíveis para .NET, Python, Node.js, JavaScript e Java. Os programadores também podem utilizar o [RESTful HTTP APIs](/rest/api/cosmos-db/) para interagir com recursos de BD do Cosmos Azure a partir de vários idiomas e plataformas.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Pode aceder alguns exemplos pronta a utilizar para obter um início de cabeçalho?
 Exemplos para a API do SQL Server [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), e [Python](sql-api-python-samples.md) SDKs estão disponíveis no GitHub.
@@ -140,10 +140,10 @@ Uma coleção é um grupo de documentos e a respetiva lógica da aplicação ass
 As coleções também são as entidades de faturação para Azure Cosmos DB. Cada coleção é faturada numa base horária, com base no débito aprovisionado e utilizada de espaço de armazenamento. Para obter mais informações, consulte [preços de base de dados do Azure Cosmos](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Como crio uma base de dados?
-Pode criar bases de dados utilizando o [portal do Azure](https://portal.azure.com), conforme descrito nas [adicionar uma coleção](create-sql-api-dotnet.md#create-collection), um do [SDKs de BD do Azure Cosmos](sql-api-sdk-dotnet.md), ou o [REST APIs](/rest/api/documentdb/). 
+Pode criar bases de dados utilizando o [portal do Azure](https://portal.azure.com), conforme descrito nas [adicionar uma coleção](create-sql-api-dotnet.md#create-collection), um do [SDKs de BD do Azure Cosmos](sql-api-sdk-dotnet.md), ou o [REST APIs](/rest/api/cosmos-db/). 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Como posso configurar utilizadores e permissões?
-Pode criar utilizadores e permissões utilizando um do [SDKs de API do Cosmos DB](sql-api-sdk-dotnet.md) ou [REST APIs](/rest/api/documentdb/).  
+Pode criar utilizadores e permissões utilizando um do [SDKs de API do Cosmos DB](sql-api-sdk-dotnet.md) ou [REST APIs](/rest/api/cosmos-db/).  
 
 ### <a name="does-the-sql-api-support-sql"></a>A API do SQL Server suporta SQL?
 O idioma de consulta SQL suportado pelas contas de API do SQL Server é um subconjunto avançado da funcionalidade de consulta que é suportado pelo SQL Server. O idioma de consulta de base de dados SQL do Azure Cosmos fornece os operadores avançados hierárquicos e relacionais e extensibilidade através de funções baseado em JavaScript, definido pelo utilizador (UDFs). A gramática JSON permite-lhe modelar documentos JSON como árvores connosco com nome, que são utilizados pelas técnicas de indexação automáticas BD do Cosmos do Azure e o dialeto de consulta SQL da base de dados do Azure Cosmos. Para obter informações sobre como utilizar a gramática do SQL Server, consulte o [consulta SQL] [ query] artigo.

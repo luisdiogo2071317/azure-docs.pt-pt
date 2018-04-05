@@ -1,11 +1,11 @@
 ---
-title: "Agendar tarefas IoT hub do Azure (nó/.NET) | Microsoft Docs"
-description: "Como agendar um trabalho do IoT Hub do Azure para invocar um método direto em vários dispositivos. Utilizar o dispositivo IoT do Azure SDK para Node.js para implementar as aplicações do dispositivo simulado e o serviço de IoT do Azure SDK para .NET implementar uma aplicação de serviço para executar a tarefa."
+title: Agendar tarefas IoT hub do Azure (nó/.NET) | Microsoft Docs
+description: Como agendar um trabalho do IoT Hub do Azure para invocar um método direto em vários dispositivos. Utilizar o dispositivo IoT do Azure SDK para Node.js para implementar as aplicações do dispositivo simulado e o serviço de IoT do Azure SDK para .NET implementar uma aplicação de serviço para executar a tarefa.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
-ms.openlocfilehash: 3efe4612c6d628e070ba6e99808f79f61ead426e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 360daf918051ce901a81f96d1873dc90af238e19
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>Tarefas de agendamento e de difusão (.NET/Node.js)
 
@@ -36,6 +36,8 @@ Para obter mais informações sobre cada uma destas capacidades, consulte:
 
 * Dispositivo duplo e propriedades: [começar a utilizar dispositivos duplos] [ lnk-get-started-twin] e [Tutorial: como utilizar as propriedades do dispositivo duplo][lnk-twin-props]
 * Direcionar métodos: [guia para programadores do IoT Hub - métodos diretas] [ lnk-dev-methods] e [Tutorial: utilizar métodos diretos][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostrar-lhe como:
 

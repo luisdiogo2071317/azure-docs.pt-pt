@@ -1,11 +1,11 @@
 ---
 title: Dispositivos de IoT do Azure SDK para C - serializador | Microsoft Docs
-description: "Como utilizar a biblioteca de serializador do dispositivo IoT do Azure SDK para C para criar aplicações de dispositivos que comunicam com um IoT hub."
+description: Como utilizar a biblioteca de serializador do dispositivo IoT do Azure SDK para C para criar aplicações de dispositivos que comunicam com um IoT hub.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
 ms.service: iot-hub
 ms.devlang: cpp
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 04b5ebf6d8c568fbfd9b291bef95af973ec5d6d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Do Azure IoT device SDK para C – mais informações sobre o serializador
 O [primeiro artigo](iot-hub-device-sdk-c-intro.md) nesta série introduzida o **dispositivos de IoT do Azure SDK para C**. O seguinte artigo fornecida uma descrição mais detalhada do [ **IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Este artigo conclusão da cobertura do SDK ao fornecer uma descrição mais detalhada do componente restantes: o **serializador** biblioteca.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 O artigo introdutório descrito como utilizar o **serializador** biblioteca para enviar eventos para e receber mensagens a partir do IoT Hub. Neste artigo, iremos expandir este debate, fornecendo uma explicação mais completa de como modelar os seus dados com o **serializador** idioma macro. O artigo também inclui mais detalhes sobre como a biblioteca serializa mensagens (e em alguns casos, como pode controlar o comportamento de serialização). Também Vamos descrever algumas parâmetros que pode modificar, determinam o tamanho dos modelos de que criar.
 

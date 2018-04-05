@@ -1,11 +1,11 @@
 ---
-title: "Carregar ficheiros de dispositivos para o Azure IoT Hub com nó | Microsoft Docs"
-description: "Como carregar ficheiros a partir de um dispositivo para a nuvem com dispositivos IoT do Azure SDK para Node.js. Ficheiros carregados são armazenados num contentor do blob storage do Azure."
+title: Carregar ficheiros de dispositivos para o Azure IoT Hub com nó | Microsoft Docs
+description: Como carregar ficheiros a partir de um dispositivo para a nuvem com dispositivos IoT do Azure SDK para Node.js. Ficheiros carregados são armazenados num contentor do blob storage do Azure.
 services: iot-hub
 documentationcenter: nodejs
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
 ms.devlang: node
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: v-masebo
-ms.openlocfilehash: cff0f2fc664e0c09bfa1f8f0e0d488a049a6f448
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: dd6f25173806d6e420bfeebaae3f81e39f8fd97f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros do seu dispositivo para a nuvem com o IoT Hub
 
@@ -29,7 +29,7 @@ Este tutorial baseia-se sobre o código no [enviar mensagens da nuvem para o dis
 - Fornecer em segurança um dispositivo com um Azure blob URI para carregar um ficheiro.
 - Utilize as notificações de carregamento de ficheiros do IoT Hub para acionar a processar o ficheiro na sua aplicação de back-end.
 
-O [introdução ao IoT Hub](iot-hub-node-node-getstarted.md) e [enviar mensagens da nuvem para o dispositivo com o IoT Hub](iot-hub-node-node-c2d.md) os tutoriais mostram a dispositivo para nuvem e da nuvem para o dispositivo mensagens funcionalidades básicas do IoT Hub. No entanto, em alguns cenários não pode facilmente mapear os dados que os dispositivos as enviam para as mensagens dispositivo-nuvem relativamente pequenas, que aceita o IoT Hub. Por exemplo:
+O [introdução ao IoT Hub](iot-hub-node-node-getstarted.md) tutorial demonstra a funcionalidade de mensagens dispositivo-nuvem básica do IoT Hub. No entanto, em alguns cenários não pode facilmente mapear os dados que os dispositivos as enviam para as mensagens dispositivo-nuvem relativamente pequenas, que aceita o IoT Hub. Por exemplo:
 
 * Ficheiros grandes que contenham imagens
 * Vídeos
@@ -213,7 +213,7 @@ Pode utilizar o portal para ver o ficheiro carregado no contentor de armazenamen
 
 ![Ficheiro foi carregado](./media/iot-hub-node-node-file-upload/uploaded-file.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar as capacidades de carregamento de ficheiros do IoT Hub para simplificar os carregamentos de ficheiros a partir de dispositivos. Pode continuar a explorar as funcionalidades do IoT hub e cenários nos seguintes artigos:
 

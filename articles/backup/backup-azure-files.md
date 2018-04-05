@@ -1,23 +1,23 @@
 ---
-title: "Fazer Cópias de Segurança de Ficheiros do Azure para o Azure"
-description: "Este artigo dá detalhes sobre como fazer cópias de segurança e restaurar as partilhas de Ficheiros do Azure e explica as tarefas de gestão."
+title: Fazer Cópias de Segurança de Ficheiros do Azure para o Azure
+description: Este artigo dá detalhes sobre como fazer cópias de segurança e restaurar as partilhas de Ficheiros do Azure e explica as tarefas de gestão.
 services: backup
-keywords: "Não adicione nem edite as palavras-chave sem consultar o perito em SEO."
+keywords: Não adicione nem edite as palavras-chave sem consultar o perito em SEO.
 author: markgalioto
 ms.author: markgal
-ms.date: 2/21/2018
+ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: b9bf1582aa1c1b8878b8426f60a18282598eb2b9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ba457daca030d3219fe32177b0b5f8b5565ff544
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="back-up-azure-file-shares"></a>Fazer uma cópia de segurança das partilhas de Ficheiros do Azure
+# <a name="back-up-azure-file-shares-preview"></a>Cópia de segurança das Partilhas de ficheiros do Azure (Pré-visualização)
 
-Este artigo dá detalhes sobre como fazer cópias de segurança das [partilhas de Ficheiros do Azure](../storage/files/storage-files-introduction.md).
+Este artigo explica como utilizar o Portal do Azure para fazer a cópia de segurança e restauro das [Partilhas de ficheiros do Azure](../storage/files/storage-files-introduction.md) no Azure.
 
 Neste guia, ficará a saber como:
 > [!div class="checklist"]
@@ -30,6 +30,16 @@ Neste guia, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de fazer uma cópia de segurança de uma partilha de Ficheiros do Azure, garanta que está presente num dos [tipos de Conta de Armazenamento suportados](troubleshoot-azure-files.md#preview-boundaries). Depois de verificar esta situação, pode proteger as suas partilhas de ficheiros.
+
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações da cópia de segurança da Partilha de ficheiros do Azure durante a Pré-visualização
+A cópia de segurança de Ficheiros do Azure está em Pré-visualização. Esteja ciente das seguintes limitações durante a Pré-visualização:
+- Não pode proteger Partilhas de ficheiros em Contas de armazenamento com a replicação do [armazenamento com redundância de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) ou do [armazenamento georredundante com acesso de leitura](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
+- Não pode proteger Partilhas de ficheiros em Contas de armazenamento que têm Redes Virtuais ativadas.
+- Não existe PowerShell ou CLI disponível para proteger Ficheiros do Azure.
+- O número máximo de cópias de segurança agendadas por dia é de um.
+- O número máximo de cópias de segurança a pedido por dia é de quatro.
+- Utilize os [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) da Conta de armazenamento para impedir a eliminação acidental de cópias de segurança do seu cofre dos Serviços de Recuperação.
+- Não elimine os instantâneos criados pelo Azure Backup. A eliminação de instantâneos pode resultar na perda de pontos de recuperação e/ou falhas de restauro. 
 
 ## <a name="configuring-azure-file-shares-backup"></a>Configurar a cópia de segurança de partilhas de Ficheiros do Azure
 

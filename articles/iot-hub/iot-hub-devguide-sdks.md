@@ -1,11 +1,11 @@
 ---
 title: Compreender os SDKs IoT do Azure | Microsoft Docs
-description: "Guia para programadores - informações sobre e ligações para os vários Azure SDKs IoT do serviço e dispositivo que pode utilizar para criar aplicações de dispositivos e aplicações de back-end."
+description: Guia para programadores - informações sobre e ligações para os vários Azure SDKs IoT do serviço e dispositivo que pode utilizar para criar aplicações de dispositivos e aplicações de back-end.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c5c9a497-bb03-4301-be2d-00edfb7d308f
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/12/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c77812db85c3b6730fce9af3f634821b44508687
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: aec2126369f45a89050dbd8b2d3cae7e00ccb8ed
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>Compreender e utilizar os SDKs IoT do Azure
 
@@ -32,6 +32,8 @@ Existem três categorias de kits de desenvolvimento de software (SDKs) para trab
 * **Limite de IoT do Azure** permite-lhe criar gateways para dispositivos que não utilizem um dos protocolos suportados. Gateways também podem processar mensagens no limite.
 
 SDKs são fornecidos para suportar várias linguagens de programação.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="azure-iot-device-sdks"></a>SDKs do Azure do dispositivo IoT
 

@@ -1,9 +1,9 @@
 ---
-title: "Descrição geral do registo de atividade do Azure | Microsoft Docs"
-description: "Saiba o que é o registo de atividade do Azure e como pode utilizá-lo a compreender de eventos ocorridos na sua subscrição do Azure."
+title: Descrição geral do registo de atividade do Azure | Microsoft Docs
+description: Saiba o que é o registo de atividade do Azure e como pode utilizá-lo a compreender de eventos ocorridos na sua subscrição do Azure.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6e373740d6b5af4b3b7d3dca8877c952d79f8b20
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividade do Azure
 O **registo de atividade do Azure** é um registo de subscrição que fornece informações sobre os eventos de nível de subscrição ocorridos no Azure. Isto inclui uma série de dados, a partir dos dados operacionais do Azure Resource Manager para atualizações de eventos de estado de funcionamento do serviço. O registo de atividade era anteriormente conhecido como "Registos de auditoria" ou "Registos operacionais," dado que os eventos de controlo plane de relatórios de categoria administrativa para as suas subscrições. Utilizar o registo de atividade, poderá determinar o ' que, quem e quando ' para quaisquer operações (PUT, POST, DELETE) efetuadas nos recursos na sua subscrição de escrita. Também pode compreender o estado da operação e outras propriedades relevantes. O registo de atividade não incluir operações de leitura (GET) ou as operações para recursos que utilizam clássica / modelo "RDFE".
@@ -38,7 +38,7 @@ Pode obter eventos a partir do seu registo de atividade no portal do Azure, CLI,
 
 > [!NOTE]
 
->  [Alertas (pré-visualização)](monitoring-overview-unified-alerts.md) atualmente oferece uma experiência melhorada na criação e gestão de regras de alerta de registo de atividade.  [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
+>  [Os alertas mais recentes)](monitoring-overview-unified-alerts.md) oferece uma experiência melhorada quando criar e gerir atividade regras de alerta de registo.  [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
 
 
 Veja o vídeo seguinte introduzindo o registo de atividade.
@@ -126,7 +126,7 @@ Pode transmitir o registo de atividade para um Hub de eventos ou armazená-las n
   * o Service Bus espaço de nomes no qual gostaria de um Hub de eventos seja criado para estes eventos de transmissão em fluxo.
 
      ![Painel de registo de atividade de exportação](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Clique em **guardar** para guardar estas definições. As definições são imediatamente ser aplicadas à sua subscrição.
+4. Clique em **guardar** para guardar estas definições. As definições são imediatamente aplicadas à sua subscrição.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Configurar perfis de registo utilizando os Cmdlets do PowerShell do Azure
 #### <a name="get-existing-log-profile"></a>Obter o perfil de registo existente

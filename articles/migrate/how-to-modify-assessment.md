@@ -1,16 +1,16 @@
 ---
-title: "Personalizar as definições de avaliação do Azure migrar | Microsoft Docs"
-description: "Descreve como configurar e executar uma avaliação para migrar VMs de VMware para o Azure utilizando o planeador de migração do Azure"
+title: Personalizar as definições de avaliação do Azure migrar | Microsoft Docs
+description: Descreve como configurar e executar uma avaliação para migrar VMs de VMware para o Azure utilizando o planeador de migração do Azure
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: raynew
-ms.openlocfilehash: efb4ad59d25a0c1209e4f0f6cd406c2f0d48159c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 459a29012ec879d4d4989e51b5688b9042adc1a1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="customize-an-assessment"></a>Personalizar uma avaliação
 
@@ -24,8 +24,8 @@ ms.lasthandoff: 02/27/2018
 
     **Definição** | **Detalhes** | **Predefinição**
     --- | --- | ---
-    **Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/> Migrar do Azure suporta atualmente a 30 regiões, incluindo leste da Austrália, Sudeste da Austrália, sul do Brasil, Canadá Central, Canadá leste, Índia Central, EUA Central, leste da China, Norte da China, Ásia Oriental, EUA leste, Datacenters Central, Nordeste da Alemanha, EUA Leste 2, Japão Leste, oeste do Japão, Coreia Central, Coreia Sul, EUA Centro-Norte, Europa do Norte, EUA Centro-Sul, Sudeste asiático, Sul da Índia, sul do RU, RU oeste, EUA Centro Oeste, Europa Ocidental, Índia Ocidental, EUA oeste e US2 oeste. |  E.u. a oeste 2 é a localização predefinida.
-    **Redundância do armazenamento** | O tipo de redundância de armazenamento que irá utilizar as VMs do Azure após a migração. | [Armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) é o valor predefinido. Migrar do Azure só suporta geridos com base em discos avaliações e discos geridos só suportam LRS, por conseguinte, a propriedade atualmente apenas tem a opção de LRS. 
+    **Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/> Atualmente, o Azure Migrate suporta 30 regiões, incluindo Alemanha Central, Alemanha Nordeste, Ásia Oriental, Canadá Central, Coreia Central, Coreia do Sul, E.U.A Centro-Norte, E.U.A Leste, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Leste 2, E.U.A. Oeste, E.U.A. Oeste 2, EUA Centro-Oeste, Europa do Norte, Europa Ocidental, Índia Central, Índia Ocidental, Leste da Austrália, Leste da China, Leste do Canadá, Leste do Japão, Norte da China, Oeste do Japão, Oeste do Reino Unido, Sudeste Asiático, Sudeste da Austrália, Sul da Índia, Sul do Brasil e Sul do Reino Unido. |  E.u. a oeste 2 é a localização predefinida.
+    **Redundância do armazenamento** | O tipo de redundância de armazenamento que irá utilizar as VMs do Azure após a migração. | [Armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy-lrs.md) é o valor predefinido. Migrar do Azure só suporta geridos com base em discos avaliações e discos geridos só suportam LRS, por conseguinte, a propriedade atualmente apenas tem a opção de LRS. 
     **Critério de dimensionamento** | Os critérios a serem utilizados pelo Azure Migrate para encontrar VMs de tamanho adequado para o Azure. Pode fazê-lo ou efetue *com base no desempenho* dimensionamento ou redimensionar VMs *como no local*, sem considerar o histórico de desempenho. | Com base no desempenho dimensionamento é a opção predefinida.
     **Histórico de desempenho** | A duração a considerar para avaliar o desempenho das VMs. Esta propriedade só é aplicável quando o critério de dimensionamento é *com base no desempenho dimensionamento*. | Predefinição é um dia.
     **Utilização de percentil** | O valor de percentil da amostra desempenho definido para ser considerado de dimensionar. Esta propriedade só é aplicável quando o critério de dimensionamento é *com base no desempenho dimensionamento*.  | Predefinição é percentil 95th.

@@ -1,11 +1,11 @@
 ---
-title: "Transfira scripts de configuração de dispositivo VPN para ligações S2S VPN: Azure Resource Manager | Microsoft Docs"
-description: "Este artigo explica como transferir scripts de configuração de dispositivo VPN para ligações S2S VPN com Gateways de VPN do Azure com o Azure Resource Manager."
+title: 'Transfira scripts de configuração de dispositivo VPN para ligações S2S VPN: Azure Resource Manager | Microsoft Docs'
+description: Este artigo explica como transferir scripts de configuração de dispositivo VPN para ligações S2S VPN com Gateways de VPN do Azure com o Azure Resource Manager.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2018
+ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: 2ec428bc5d2cdfb376db3c27b9899014c7ffa2af
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 254f5012bfbf827aebc20d90405636dcb204193c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Transfira scripts de configuração de dispositivo VPN para ligações S2S VPN
 
 Este artigo explica como transferir scripts de configuração de dispositivo VPN para ligações S2S VPN com Gateways de VPN do Azure com o Azure Resource Manager. O diagrama seguinte mostra o fluxo de trabalho de alto nível.
 
 ![download-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
+
+Os seguintes dispositivos de ter scripts disponíveis:
+
+[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="about"></a>Sobre scripts de configuração de dispositivo VPN
 
@@ -81,14 +85,10 @@ Assim que o recurso de ligação for criado, siga as instruções abaixo para tr
 
 Também pode transferir o script de configuração com o Azure PowerShell, conforme mostrado no exemplo seguinte:
 
-```powershell
-$Sub         = "<YourSubscriptionName>"
+```azurepowershell-interactive
 $RG          = "TestRG1"
 $GWName      = "VNet1GW"
-$Connection  = "VNet1toSite5"
-
-Login-AzureRmAccount
-Set-AzureRmContext -Subscription $Sub
+$Connection  = "VNet1toSite1"
 
 # List the available VPN device models and versions
 Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
@@ -101,6 +101,6 @@ Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connectio
 
 Depois de ter transferido e validar o script de configuração, o passo seguinte consiste em aplicar o script para o seu dispositivo VPN. O procedimento real varia com base no seu dispositivo VPN faz com que e modelos. Para os dispositivos VPN, consulte as páginas da instrução ou como a operação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Continuar a configurar o [ligação Site a Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).

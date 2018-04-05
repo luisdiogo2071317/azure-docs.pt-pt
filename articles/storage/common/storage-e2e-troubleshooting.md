@@ -1,6 +1,6 @@
 ---
-title: "Resolução de problemas de armazenamento do Azure com o diagnóstico & Message Analyzer | Microsoft Docs"
-description: "Um tutorial que demonstra ponto-a-ponto de resolução de problemas com a análise de armazenamento do Azure, o AzCopy e o Microsoft Message Analyzer"
+title: Resolução de problemas de armazenamento do Azure com o diagnóstico & Message Analyzer | Microsoft Docs
+description: Um tutorial que demonstra ponto-a-ponto de resolução de problemas com a análise de armazenamento do Azure, o AzCopy e o Microsoft Message Analyzer
 services: storage
 documentationcenter: dotnet
 author: tamram
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 324370ae18627a1985e6a40aec11ee2fa871e93b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Resolução de problemas de ponto a ponto com as métricas do Storage do Azure e o registo, o AzCopy e o Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -35,9 +35,6 @@ Para resolver problemas de aplicações de cliente utilizando o armazenamento do
   
   * **As métricas do Storage** controla as métricas de transação e métricas de capacidade para a sua conta de armazenamento. Utilizar métricas, pode determinar como está a efetuar a sua aplicação, de acordo com uma variedade de medidas diferentes. Consulte [armazenamento esquema da tabela de métricas de análise](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) para obter mais informações sobre os tipos de métricas controladas pela análise de armazenamento.
   * **Registo de armazenamento** os registos de cada pedido para os serviços de armazenamento do Azure para um registo do lado do servidor. O registo controla dados detalhados para cada pedido, incluindo a operação efetuada, o estado da operação e informações de latência. Consulte [formato de registo de análise do armazenamento](/rest/api/storageservices/Storage-Analytics-Log-Format) para obter mais informações sobre os dados de pedido e resposta escrito nos registos de análise de armazenamento.
-
-> [!NOTE]
-> As contas de armazenamento com um tipo de replicação de armazenamento com redundância de zona (ZRS) suportam métricas e registo. Contas clássico ZRS não suportam as métricas ou de registo. Para obter mais informações sobre o ZRS, consulte [armazenamentocomredundânciadezona](storage-redundancy.md#zone-redundant-storage). 
 
 * **Portal do Azure**. Pode configurar as métricas e registo para a sua conta de armazenamento na [portal do Azure](https://portal.azure.com). Também pode ver gráficos e gráficos que mostram a forma como a aplicação está a efetuar ao longo do tempo e configurar alertas para notificá-lo se a aplicação executa de forma diferente do que o previsto para uma métrica especificada.
   
@@ -366,7 +363,7 @@ Agora que já está familiarizado com a utilização Message Analyzer para anali
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre os cenários de ponto a ponto de resolução de problemas no armazenamento do Azure, consulte estes recursos:
 
-* [Monitorizar, diagnosticar e resolver problemas de armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
+* [Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
 * [Análise de Armazenamento](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Monitorizar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
 * [Transferir dados com o Utilitário de Linha de Comandos AzCopy](storage-use-azcopy.md)

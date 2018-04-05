@@ -1,6 +1,6 @@
 ---
-title: "Elemento de IU de secção de aplicação gerida do Azure | Microsoft Docs"
-description: "Descreve o elemento de IU Microsoft.Common.Section para aplicações geridas do Azure"
+title: Elemento de IU secção do Azure | Microsoft Docs
+description: Descreve o elemento de IU Microsoft.Common.Section para o portal do Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a460fde88982c53a7ef3a1ec444d50c1c482fc4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 46ea2e3d404ac3ec9b7f909257451991dbb55f53
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Elemento de IU Microsoft.Common.Section
-Um controlo que agrupa um ou mais elementos sob um cabeçalho. Utilize este elemento quando [criar uma aplicação gerida do Azure](publish-service-catalog-app.md).
+Um controlo que agrupa um ou mais elementos sob um cabeçalho.
 
 ## <a name="ui-sample"></a>Exemplo de IU
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
@@ -48,7 +48,7 @@ Um controlo que agrupa um ou mais elementos sob um cabeçalho. Utilize este elem
 ```
 
 ## <a name="remarks"></a>Observações
-- `elements`tem de conter pelo menos um elemento e pode conter todos os tipos de elemento, exceto `Microsoft.Common.Section`.
+- `elements` tem de conter pelo menos um elemento e pode conter todos os tipos de elemento, exceto `Microsoft.Common.Section`.
 - Este elemento não suporta o `toolTip` propriedade.
 
 ## <a name="sample-output"></a>Resultado da amostra
@@ -60,7 +60,6 @@ basics('section1').element1
 
 Elementos do tipo `Microsoft.Common.Section` ter não existem valores de saída próprios.
 
-## <a name="next-steps"></a>Passos seguintes
-* Para uma introdução para aplicações geridas, consulte [descrição geral do Azure gerida aplicações](overview.md).
+## <a name="next-steps"></a>Passos Seguintes
 * Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição de propriedades comuns de elementos de IU, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).

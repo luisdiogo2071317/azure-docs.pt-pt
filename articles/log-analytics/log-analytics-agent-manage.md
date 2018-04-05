@@ -1,24 +1,24 @@
 ---
-title: "Gerir o agente de análise de registos do Azure | Microsoft Docs"
-description: "Este artigo descreve as tarefas de gestão diferentes que, normalmente, irá executar durante o ciclo de vida da monitorização do agente Microsoft (MMA) implementado numa máquina."
+title: Gerir o agente de análise de registos do Azure | Microsoft Docs
+description: Este artigo descreve as tarefas de gestão diferentes que, normalmente, irá executar durante o ciclo de vida da monitorização do agente Microsoft (MMA) implementado numa máquina.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
+ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5ff4f79a607143683b37726f1c02a6057dc6b9b0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerir e manter o agente de análise de registos para o Windows e Linux
 
@@ -69,6 +69,34 @@ $mma.ReloadConfiguration()
 >[!NOTE]
 >Se utilizou a linha de comandos ou script anteriormente para instalar ou configurar o agente, `EnableAzureOperationalInsights` foi substituído por `AddCloudWorkspace` e `RemoveCloudWorkspace`.
 >
+
+### <a name="linux-agent"></a>Agente Linux
+Os passos seguintes demonstram como reconfigurar o agente Linux se optar por registá-lo com uma área de trabalho diferente ou pretende remover uma área de trabalho da respetiva configuração.  
+
+1.  Para verificar que se encontra registada para uma área de trabalho, execute o seguinte comando.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    Esta aplicação deve devolver um Estado semelhante ao seguinte exemplo- 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+    É importante que o estado também é apresentado o agente está em execução, caso contrário, os seguintes passos para reconfigurar o agente não serão concluída com êxito.  
+
+2. Se já está registado com uma área de trabalho, remova a área de trabalho registada executando o seguinte comando.  Caso contrário, se não estiver registado, avance para o passo seguinte.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
+    
+3. Para registar uma área de trabalho diferente, execute o comando `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]` 
+4. Para verificar que as suas alterações demorou efeito, execute o comando.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    Esta aplicação deve devolver um Estado semelhante ao seguinte exemplo- 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+O serviço de agente não ser necessário reiniciar para que as alterações entrem em vigor.
 
 ## <a name="update-proxy-settings"></a>Atualizar as definições de proxy 
 Para configurar o agente para comunicar com o serviço através de um servidor proxy ou [OMS Gateway](log-analytics-oms-gateway.md) após a implementação, utilize um dos seguintes métodos para concluir esta tarefa.
@@ -148,7 +176,7 @@ O ficheiro transferido para o agente é um pacote de instalação autónomo cria
 3. Na linha de comandos, escreva `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Agente Linux
-Para remover o agente, execute o seguinte comando no computador Linux.  O *– remover* argumento remove completamente a respetiva configuração e o agente.
+Para remover o agente, execute o seguinte comando no computador Linux.  O argumento *--purge* remove por completo o agente e a respetiva configuração.
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 

@@ -1,11 +1,11 @@
 ---
 title: Compreender o idioma de consulta do IoT Hub do Azure | Microsoft Docs
-description: "Guia para programadores - descrição do idioma de consulta de SQL Server como o IoT Hub utilizado para obter informações sobre dispositivos duplos e tarefas do seu IoT hub."
+description: Guia para programadores - descrição do idioma de consulta de SQL Server como o IoT Hub utilizado para obter informações sobre dispositivos duplos e tarefas do seu IoT hub.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Idioma de consulta do IoT Hub para dispositivos duplos, tarefas e o encaminhamento de mensagens
 
@@ -26,6 +26,8 @@ IoT Hub fornece uma poderosa linguagem de como o SQL para obter informações so
 
 * Uma introdução às funcionalidades principais do idioma de consulta do IoT Hub, e
 * Descrição detalhada do idioma.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-twin-queries"></a>Consultas do dispositivo duplo
 [Dispositivos duplos] [ lnk-twins] pode conter objetos JSON arbitrários, como as etiquetas e propriedades. IoT Hub permite-lhe dispositivos duplos da consulta como um único documento JSON que contém todas as informações do dispositivo duplo.
@@ -583,7 +585,7 @@ Em condições de rotas, são suportadas as seguintes funções de cadeia:
 | ENDS_WITH (x, y) | Devolve um booleano que indica se a primeira expressão de cadeia termina com o segundo. |
 | CONTAINS(x,y) | Devolve um booleano que indica se a primeira cadeia de expressão contém o segundo. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba como executar consultas nas suas aplicações utilizando [SDKs IoT do Azure][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause

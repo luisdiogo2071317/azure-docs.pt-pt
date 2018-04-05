@@ -1,13 +1,13 @@
 ---
-title: "Acionador de grelha de eventos para as funções do Azure"
-description: "Compreenda como processar eventos de grelha de evento nas funções do Azure."
+title: Acionador de grelha de eventos para as funções do Azure
+description: Compreenda como processar eventos de grelha de evento nas funções do Azure.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador de grelha de eventos para as funções do Azure
 
 Este artigo explica como lidar com [eventos grelha](../event-grid/overview.md) eventos das funções do Azure.
 
-Grelha de eventos é um serviço Azure que envia pedidos HTTP para o notificar sobre eventos que ocorrem no *publicadores*. O serviço ou o recurso que origina o evento, é um publicador. Por exemplo, uma conta de armazenamento de Blobs do Azure é um publicador, não sendo um carregamento de blob ou eliminação de um evento. Alguns [serviços do Azure têm suporte incorporado para publicar eventos à grelha de evento](../event-grid/overview.md#event-publishers). 
+Grelha de eventos é um serviço Azure que envia pedidos HTTP para o notificar sobre eventos que ocorrem no *publicadores*. O serviço ou o recurso que origina o evento, é um publicador. Por exemplo, uma conta de armazenamento de Blobs do Azure é um publicador, não sendo um carregamento de blob ou eliminação de um evento. Alguns [serviços do Azure têm suporte incorporado para publicar eventos à grelha de evento](../event-grid/overview.md#event-sources). 
 
 Evento *processadores* receber e a processar eventos. As funções do Azure é um dos vários [serviços do Azure que têm suporte incorporado para processar eventos de evento grelha](../event-grid/overview.md#event-handlers). Neste artigo, irá aprender a utilizar um acionador de grelha de eventos para invocar uma função quando é recebido um evento de grelha de eventos.
 

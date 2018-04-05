@@ -2,25 +2,25 @@
 title: Aceder aos controlos de acesso condicional do Azure Active Directory | Microsoft Docs
 description: Saiba como controlos de acesso em projetos de acesso condicional do Azure Active Directory.
 services: active-directory
-keywords: "acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controlos de acesso no acesso condicional do Azure Active Directory 
 
@@ -75,11 +75,15 @@ Utilizar multi-factor authentication ajuda a proteger os recursos de que está a
 
 ### <a name="compliant-device"></a>Dispositivo conforme
 
-Pode configurar políticas de acesso condicional baseado no dispositivo. O objetivo de uma política de acesso condicional baseado no dispositivo é conceder acesso aos recursos configurados apenas a partir de dispositivos fidedignos. A necessidade de um dispositivo com conformidade é uma opção tem de definir que um dispositivo fidedigno. Para obter mais informações, consulte [configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+Pode configurar políticas de acesso condicional baseado no dispositivo. O objetivo de uma política de acesso condicional baseado no dispositivo é conceder acesso aos recursos configurados apenas a partir de dispositivos fidedignos. A necessidade de um dispositivo com conformidade é uma opção tem de definir que um dispositivo fidedigno. Se esta opção for selecionada, a política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão associados ao seu Azure Active Directory e estão marcados como compatíveis através da sua solução de MDM.
+
+Para obter mais informações, consulte [configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 ### <a name="domain-joined-device"></a>Dispositivos associados a um domínio
 
-Tem necessidade de que um dispositivo associado ao domínio é outra opção Configurar políticas de acesso condicional baseado no dispositivo. Este requisito refere-se a computadores de secretária, portáteis e tablets empresarial que estão associados a um Active Directory no local do Windows. Para obter mais informações, consulte [configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+Tem necessidade de que um dispositivo associado ao domínio é outra opção Configurar políticas de acesso condicional baseado no dispositivo. Este requisito refere-se a computadores de secretária, portáteis e tablets empresarial que estão associados a um Active Directory no local do Windows. Se esta opção for selecionada, a política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão associados ao Active Directory no local e o Azure Active Directory.  
+
+Para obter mais informações, consulte [configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 
 

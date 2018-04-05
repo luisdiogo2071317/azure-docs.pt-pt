@@ -1,68 +1,52 @@
 ---
-title: "Criar um instantâneo de um VHD no Azure | Microsoft Docs"
-description: "Saiba como criar uma cópia de um VHD no Azure como uma cópia de segurança ou de resolução de problemas."
-documentationcenter: 
+title: Criar um instantâneo de um VHD no Azure | Microsoft Docs
+description: Saiba como criar uma cópia de um VHD no Azure como uma cópia de segurança ou de resolução de problemas.
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 03/20/2018
 ms.author: cynthn
-ms.openlocfilehash: 152c5a1103d32af27f689086cfcc9cc1a7acc5d3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e5882b2ddc708544a7715da13c1f0d18384ce4e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo 
 
-Tire um instantâneo de um disco de SO ou dados problemas de VHD para cópia de segurança ou para resolver problemas de VM. Um instantâneo é uma cópia completa só de leitura de um VHD. 
+Tire um instantâneo de um disco de SO ou dados na cópia de segurança ou para resolver problemas VM. Um instantâneo é uma cópia completa só de leitura de um VHD. 
 
-## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Utilizar o Azure CLI 2.0 para criar um instantâneo
+## <a name="use-azure-cli"></a>Utilizar a CLI do Azure 
 
 O exemplo seguinte requer o 2.0 do CLI do Azure instalado e registado na sua conta do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-Os passos seguintes mostram como tirar um instantâneo, utilizando o `az snapshot create` comando com o `--source-disk` parâmetro. O exemplo seguinte parte do princípio de que não há uma VM chamada `myVM` criado com um disco de SO gerido no `myResourceGroup` grupo de recursos.
+Os passos seguintes mostram como tirar um instantâneo, utilizando o `az snapshot create` comando com o `--source-disk` parâmetro. O exemplo seguinte parte do princípio de que não há uma VM chamada `myVM` no `myResourceGroup` grupo de recursos.
 
+Obter o ID de disco.
 ```azure-cli
-# take the disk id with which to create a snapshot
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
-az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 ```
 
-O resultado deverá ter um aspeto semelhante ao seguinte:
+Tirar um instantâneo com o nome *cópia de segurança osDisk*.
 
-```json
-{
-  "accountType": "Standard_LRS",
-  "creationData": {
-    "createOption": "Copy",
-    "imageReference": null,
-    "sourceResourceId": null,
-    "sourceUri": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/osdisk_6NexYgkFQU",
-    "storageAccountId": null
-  },
-  "diskSizeGb": 30,
-  "encryptionSettings": null,
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/osDisk-backup",
-  "location": "westus",
-  "name": "osDisk-backup",
-  "osType": "Linux",
-  "ownerId": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "timeCreated": "2017-02-06T21:27:10.172980+00:00",
-  "type": "Microsoft.Compute/snapshots"
-}
+```azurecli-interactive
+az snapshot create \
+    -g myResourceGroup \
+    --source "$osDiskId" \
+    --name osDisk-backup
 ```
 
-## <a name="use-azure-portal-to-take-a-snapshot"></a>Utilize o portal do Azure para criar um instantâneo 
+> [!NOTE]
+> Se pretende armazenar o instantâneo no armazenamento resiliente para a zona, terá de criá-la numa região que suporte [zonas de disponibilidade](../../availability-zones/az-overview.md) e incluir o `--sku Standard_ZRS` parâmetro.
+
+## <a name="use-azure-portal"></a>Utilizar o portal do Azure 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. A partir do canto superior esquerdo, clique em **crie um recurso** e procure **instantâneo**.
@@ -74,10 +58,8 @@ O resultado deverá ter um aspeto semelhante ao seguinte:
 8. Selecione o **tipo de conta** utilizar para armazenar o instantâneo. Recomendamos **Standard_LRS** , a menos que o ficheiro necessário armazenados num disco elevado desempenho.
 9. Clique em **Criar**.
 
-Se planear utilizar o instantâneo para criar um disco gerido e ligá-lo uma VM que tem de ser a execução elevada, utilize o parâmetro `--sku Premium_LRS` com o `az snapshot create` comando. Esta ação cria o instantâneo, de modo a que seja armazenada como um disco de gerido para Premium. Os discos Premium geridos melhor efetuar porque são unidades de estado sólido (SSDs), mas custo mais do que os discos padrão (HDDs).
 
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
  Crie uma máquina virtual a partir de um instantâneo ao criar um disco gerido do instantâneo e, em seguida, anexar o disco novo gerido como disco do SO. Para obter mais informações, consulte o [criar uma VM a partir de um instantâneo](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) script.
 

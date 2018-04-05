@@ -1,6 +1,6 @@
 ---
-title: "Conceber aplicações altamente disponíveis através do Azure armazenamento Georredundante com acesso de leitura (RA-GRS) | Microsoft Docs"
-description: "Como utilizar o storage do Azure. o RA-GRS para architect uma aplicação altamente disponível flexível o suficiente para lidar com falhas."
+title: Conceber aplicações altamente disponíveis através do Azure armazenamento Georredundante com acesso de leitura (RA-GRS) | Microsoft Docs
+description: Como utilizar o storage do Azure. o RA-GRS para architect uma aplicação altamente disponível flexível o suficiente para lidar com falhas.
 services: storage
 documentationcenter: .net
 author: tamram
@@ -12,28 +12,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: tamram
-ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f7f3f2d99e5582a1bcb672cc176258dfff9c3217
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações altamente disponíveis utilizando RA-GRS
 
 Uma funcionalidade comum das infraestruturas baseado na nuvem, como o Storage do Azure é que fornecem uma plataforma de elevada disponibilidade para alojar aplicações. Os programadores de aplicações baseado na nuvem tem de considerar atentamente como tirar partido nesta plataforma para fornecer aplicações de elevada disponibilidade para os seus utilizadores. Este artigo foca-se na forma como os programadores podem utilizar armazenamento Georredundante com acesso de leitura (RA-GRS) para se certificar de que as aplicações de armazenamento do Azure são de elevada disponibilidade.
 
-Storage do Azure oferece quatro opções para a redundância de dados na sua conta de armazenamento:
-
-- LRS (armazenamento localmente redundante)
-- ZRS (zona de armazenamento redundantes) 
-- GRS (armazenamento Georredundante)
-- RA-GRS (armazenamento Georredundante com acesso de leitura). 
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 Este artigo incida no GRS e RA-GRS. Com a GRS, três cópias dos seus dados são mantidas na região primária que selecionou ao configurar a conta de armazenamento. Três cópias adicionais são mantidas no modo assíncrono numa região secundária especificada pelo Azure. RA-GRS é a mesma coisa como GRS, exceto que tem acesso de leitura para a cópia secundário. Para mais informações sobre as diferentes opções de redundância do armazenamento do Azure, consulte [replicação de armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-redundancy). O artigo de replicação também mostra emparelhamentos das regiões do principais e secundários.
 
 Existem fragmentos de código incluídos neste artigo e uma hiperligação para um exemplo completo no final que pode transferir e executar.
+
+> [!NOTE]
+> Storage do Azure suporta agora o armazenamento com redundância de zona (ZRS) para compilar aplicações altamente disponíveis. O ZRS oferece uma solução simples para as necessidades de redundância de muitas aplicações. O ZRS fornece proteção contra falhas de hardware ou catastrófica perante desastres que afetam um único centro de dados. Para obter mais informações, consulte [armazenamentocomredundânciadezona (ZRS): aplicações de armazenamento do Azure elevadas](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>Principais funcionalidades de RA-GRS
 
@@ -135,7 +133,7 @@ Nestes cenários, deve identificar que existe um problema com o ponto final prim
 
 O padrão de disjuntor também pode ser aplicado a pedidos de atualização. No entanto, pedidos de atualização não podem ser redirecionados para o armazenamento secundário, o que é só de leitura. Para esses pedidos, deve deixar o **LocationMode** propriedade definida como **PrimaryOnly** (predefinição). Para resolver estes erros, pode aplicar uma métrica para estes pedidos – por exemplo, 10 falhas numa linha – e quando o limiar for cumprida, a aplicação no modo só de leitura de comutador. Pode utilizar os mesmos métodos para devolver ao atualizar o modo como as descritas abaixo na secção seguinte sobre o padrão de disjuntor automático.
 
-## <a name="circuit-breaker-pattern"></a>Padrão de disjuntor automático
+## <a name="circuit-breaker-pattern"></a>Padrão de Disjuntor Automático
 
 Utilizar o padrão de disjuntor na sua aplicação pode impedir que uma operação que é provável que falhem repetidamente. Permite que a aplicação para continuar a ser executada em vez de demorar tempo enquanto a operação é repetida exponencialmente. Também Deteta quando o índice de falhas correção, em que momento a aplicação pode tentar novamente a operação.
 
@@ -200,11 +198,11 @@ Para o cenário de terceiro, quando o ponto final de armazenamento primário de 
 
 ## <a name="handling-eventually-consistent-data"></a>Processar os dados eventualmente consistentes
 
-RA-GRS funciona ao replicar as transações do primário para a região secundária. Este processo de replicação garante que os dados na região secundária estão *eventualmente consistente*. Isto significa que todas as transações na região primária, eventualmente, serão apresentados na região secundária, mas que pode existir um atraso antes de serem apresentados e que não há nenhuma garantia as transações chegam a região secundária pela mesma ordem que em que estes original de aplicação na região primária. Se as suas transações chegam na região secundária fora de ordem, *poderá* considerar os dados na região secundária para estar num estado inconsistente até que o serviço intercete cópias de segurança.
+O RA-GRS funciona ao replicar as transações da região primária para a secundária. Este processo de replicação garante que os dados na região secundária estão *eventualmente consistente*. Isto significa que todas as transações na região primária, eventualmente, serão apresentados na região secundária, mas que pode existir um atraso antes de serem apresentados e que não há nenhuma garantia as transações chegam a região secundária pela mesma ordem que em que estes original de aplicação na região primária. Se as suas transações chegam na região secundária fora de ordem, *poderá* considerar os dados na região secundária para estar num estado inconsistente até que o serviço intercete cópias de segurança.
 
 A tabela seguinte mostra um exemplo de que pode acontecer quando atualizar os detalhes de um funcionário para tornar durante um membro do *administradores* função. Com vista à, neste exemplo, é necessário atualizar o **empregado** entidade e a atualização de um **função de administrador** entidade com uma contagem do número total de administradores. Repare como as atualizações são aplicadas fora de ordem na região secundária.
 
-| **Tempo** | **Transação**                                            | **Replicação**                       | **Hora da última sincronização** | **Resultado** |
+| **Tempo** | **Transação**                                            | **Replicação**                       | **Hora da última sincronização** | **Result** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transação r: <br> Inserir o empregado <br> entidade no principal |                                   |                    | A Inserir primário, de transação<br> não foram replicadas ainda. |
 | T1       |                                                            | Transação A <br> replicado para o<br> secundária | T1 | Transação A replicado para o secundário. <br>Hora da última sincronização atualizado.    |

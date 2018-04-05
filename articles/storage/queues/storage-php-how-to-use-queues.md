@@ -1,10 +1,10 @@
 ---
 title: Como utilizar o armazenamento de filas do PHP | Microsoft Docs
-description: "Saiba como utilizar o serviço de armazenamento de filas do Azure para criar e eliminar filas, inserir, obter e eliminar as mensagens. Exemplos são escritos no PHP."
+description: Saiba como utilizar o serviço de armazenamento de filas do Azure para criar e eliminar filas, inserir, obter e eliminar as mensagens. Exemplos são escritos no PHP.
 documentationcenter: php
 services: storage
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 7582b208-4851-4489-a74a-bb952569f55b
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 01/11/2018
-ms.author: tamram
-ms.openlocfilehash: 02ffd817f34ae7d5fa1557db0a74e8ff06ab69fc
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.author: rogarana
+ms.openlocfilehash: ec0c6e22919e84bbaed284e16211ef52e526991d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Como utilizar o Armazenamento de filas do PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -48,7 +48,7 @@ Neste guia, utilize as funcionalidades de serviço de armazenamento de fila que 
       }
     }
     ```
-2. Transferir  **[composer.phar] [ composer-phar]**  na raiz do projeto.
+2. Transferir **[composer.phar] [ composer-phar]** na raiz do projeto.
 3. Abra uma linha de comandos e execute o seguinte comando na raiz do projeto
    
     ```
@@ -261,7 +261,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>Alterar os conteúdos de uma mensagem em fila
-Pode alterar os conteúdos de uma mensagem no local na fila ao chamar **QueueRestProxy -> updateMessage**. Se a mensagem representa uma tarefa de trabalho, pode utilizar esta funcionalidade para atualizar o estado da tarefa de trabalho. O seguinte código atualiza a mensagem de filas com novos conteúdos e define o tempo limite de visibilidade para expandir a 60 segundos. Isto guarda o estado do trabalho que está associada a mensagem e atribui ao cliente outro minuto para continuar a trabalhar na mensagem. Pode utilizar esta técnica para controlar fluxos de trabalho de vários passos em mensagens de filas, sem ser necessário recomeçar do início se falhar um passo de processamento devido a uma falha de hardware ou software. Normalmente, também manteria uma contagem de tentativas e, se a mensagem fosse repetida mais do que *n* vezes, eliminá-la-ia. Esta ação protege contra uma mensagem que aciona um erro da aplicação sempre que é processada.
+Pode alterar os conteúdos de uma mensagem no local na fila ao chamar **QueueRestProxy -> updateMessage**. Se a mensagem representa uma tarefa de trabalho, pode utilizar esta funcionalidade para atualizar o estado da tarefa de trabalho. O seguinte código atualiza a mensagem de filas com novos conteúdos e define o tempo limite de visibilidade para expandir a 60 segundos. Isto guarda o estado do trabalho que está associada a mensagem e atribui ao cliente outro minuto para continuar a trabalhar na mensagem. Pode utilizar esta técnica para controlar fluxos de trabalho de vários passos em mensagens de filas, sem ser necessário recomeçar do início se falhar um passo de processamento devido a uma falha de hardware ou software. Normalmente, também manteria uma contagem de tentativas e se a mensagem for repetida mais do que *n* vezes, deveria eliminá-la. Esta ação protege contra uma mensagem que aciona um erro da aplicação sempre que é processada.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -414,7 +414,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu as noções básicas do armazenamento de filas do Azure, siga estas ligações para saber mais sobre as tarefas de armazenamento mais complexas:
 
 * Visite o [referência da API para a biblioteca de clientes do Storage do Azure PHP](http://azure.github.io/azure-storage-php/)

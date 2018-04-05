@@ -1,25 +1,25 @@
 ---
-title: "Instalar pacotes de aplicações em nós de computação - Azure Batch | Microsoft Docs"
-description: "Utilize a funcionalidade de pacotes de aplicações do Azure Batch para gerir facilmente várias aplicações e versões para a instalação do batch nós de computação."
+title: Instalar pacotes de aplicações em nós de computação - Azure Batch | Microsoft Docs
+description: Utilize a funcionalidade de pacotes de aplicações do Azure Batch para gerir facilmente várias aplicações e versões para a instalação do batch nós de computação.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 07/20/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b5f10cbd79227ccc6acb2004e449f426a6cbd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 440f7eba99e5fa02a597ae62d5d14329f5e50af7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações em nós com pacotes de aplicações de Batch de computação
 
@@ -194,7 +194,7 @@ Ao clicar em **atualização**, a *pacote de atualização* é apresentado o pai
 
 Ao clicar em **eliminar**, é-lhe pedido para confirmar a eliminação da versão de pacote e Batch elimina o pacote do armazenamento do Azure. Se eliminar a versão predefinida de uma aplicação, o **versão predefinida** definição é removida da aplicação.
 
-![Eliminar a aplicação][12]
+![Eliminar a aplicação ][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>Instalar aplicações em nós de computação
 Agora que aprendeu como gerir pacotes de aplicações com o portal do Azure, pode discutimos como implementá-las em nós de computação e executá-los com tarefas do Batch.
@@ -269,7 +269,7 @@ Linux:
 AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
-`APPLICATIONID`e `version` são valores que correspondem à versão de aplicações e pacotes que especificou para a implementação. Por exemplo, se tiver especificado que 2.7 a versão da aplicação *blender* deve ser instalado em nós do Windows, as linhas de comandos de tarefas utilizará esta variável de ambiente para aceder aos respetivos ficheiros:
+`APPLICATIONID` e `version` são valores que correspondem à versão de aplicações e pacotes que especificou para a implementação. Por exemplo, se tiver especificado que 2.7 a versão da aplicação *blender* deve ser instalado em nós do Windows, as linhas de comandos de tarefas utilizará esta variável de ambiente para aceder aos respetivos ficheiros:
 
 ```
 Windows:
@@ -346,7 +346,7 @@ foreach (ApplicationSummary app in applications)
 ## <a name="wrap-up"></a>Moldar cópias de segurança
 Com os pacotes de aplicação, pode ajudar os seus clientes, selecione as aplicações para as respetivas tarefas e especifique a versão exata a utilizar durante o processamento de tarefas com o serviço Batch-ativado. Também pode fornecer a capacidade para os seus clientes carregar e controlar as suas próprias aplicações no seu serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * O [API REST do Batch] [ api_rest] também fornece suporte para trabalhar com pacotes de aplicações. Por exemplo, consulte o [applicationPackageReferences] [ rest_add_pool_with_packages] elemento [adicionar um conjunto para uma conta] [ rest_add_pool] para obter informações sobre como especificar pacotes para instalar utilizando a API REST. Consulte [aplicações] [ rest_applications] para obter detalhes sobre como obter informações sobre a aplicação utilizando a API de REST do Batch.
 * Saiba como programaticamente [gerir contas do Azure Batch e quotas com gestão de lotes .NET](batch-management-dotnet.md). O [gestão de lotes .NET][api_net_mgmt] biblioteca, pode ativar funcionalidades de criação e eliminação de conta para a aplicação do Batch ou serviço.
 

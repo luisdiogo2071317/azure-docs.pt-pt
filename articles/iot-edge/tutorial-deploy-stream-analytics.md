@@ -1,19 +1,19 @@
 ---
-title: "Implementação do Azure Stream Analytics com o limite de IoT do Azure | Microsoft Docs"
-description: "Implementar o Azure Stream Analytics como um módulo para um dispositivo de limite"
+title: Implementação do Azure Stream Analytics com o limite de IoT do Azure | Microsoft Docs
+description: Implementar o Azure Stream Analytics como um módulo para um dispositivo de limite
 services: iot-edge
-keywords: 
-author: msebolt
+keywords: ''
+author: kgremban
 manager: timlt
-ms.author: v-masebo
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implementar o Azure Stream Analytics como um módulo de limite de IoT – pré-visualização
 
@@ -132,7 +132,7 @@ Agora está pronto para implementar a tarefa de Stream Analytics do Azure no seu
 
 1. No portal do Azure, no seu IoT hub, aceda a **IoT Edge (pré-visualização)**e, em seguida, abra a página de detalhes para o seu dispositivo de limite de IoT.
 
-2. Selecione **definir módulos**.  
+2. Selecione **Definir módulos**.  
     Se tiver implementado anteriormente o módulo de tempSensor neste dispositivo, poderá autopopulate. Se não existir, adicione o módulo da seguinte forma:
 
    a. Selecione **Adicionar módulo IoT Edge**.
@@ -172,9 +172,9 @@ Agora está pronto para implementar a tarefa de Stream Analytics do Azure no seu
     }
     ```
 
-9. Selecione **seguinte**.
+9. Selecione **Seguinte**.
 
-10. No **rever modelo** passo, selecione **submeter**.
+10. No passo **Rever Modelo**, selecione **Submeter**.
 
 11. Regressar à página de detalhes do dispositivo e, em seguida, selecione **atualizar**.  
     Deverá ver o novo módulo do Stream Analytics em execução, juntamente com o módulo de agente de IoT Edge e o hub IoT Edge.

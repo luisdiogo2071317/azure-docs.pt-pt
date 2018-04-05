@@ -1,11 +1,11 @@
 ---
-title: "Atualização de firmware do dispositivo IoT hub do Azure (nó) | Microsoft Docs"
-description: "Como utilizar a gestão de dispositivos no IoT Hub do Azure para iniciar uma atualização de firmware do dispositivo. Utilize os SDKs IoT do Azure para Node.js para implementar uma aplicação de dispositivo simulada e uma aplicação de serviço que aciona a atualização de firmware."
+title: Atualização de firmware do dispositivo IoT hub do Azure (nó) | Microsoft Docs
+description: Como utilizar a gestão de dispositivos no IoT Hub do Azure para iniciar uma atualização de firmware do dispositivo. Utilize os SDKs IoT do Azure para Node.js para implementar uma aplicação de dispositivo simulada e uma aplicação de serviço que aciona a atualização de firmware.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2017
 ms.author: juanpere
-ms.openlocfilehash: e169367592b25ea45c3d1017937316a3b3b538b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8ef556793534c9eb8300ee262a4b134960f862a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Utilize a gestão de dispositivos para iniciar uma atualização de firmware do dispositivo (nó/nó)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 No [introdução à gestão de dispositivos] [ lnk-dm-getstarted] tutorial, vimos como utilizar o [dispositivo duplo] [ lnk-devtwin] e [direcionar métodos] [ lnk-c2dmethod] primitivos reiniciar remotamente um dispositivo. Este tutorial utiliza os mesmos primitivos do IoT Hub e fornece orientações e mostra como efetuar uma atualização de firmware simulada ponto-a-ponto.  Este padrão é utilizado na implementação de atualização de firmware para o exemplo de dispositivo Intel Edison.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostrar-lhe como:
 
@@ -34,7 +36,7 @@ No final deste tutorial, tem duas aplicações de consola do Node.js:
 
 **dmpatterns_fwupdate_service.js**, que chama um método direto na aplicação do dispositivo simulado, mostra a resposta e periodicamente (cada 500ms) apresenta a atualização comunicado propriedades.
 
-**dmpatterns_fwupdate_device.js**, que liga ao seu IoT hub com a identidade de dispositivo que criou anteriormente, recebe um método direto firmwareUpdate, é executada através de um processo com múltiplos estado para simular a atualização de firmware, incluindo: a aguardar que a transferência da imagem, transferir a nova imagem e, finalmente, aplicar a imagem.
+**dmpatterns_fwupdate_device.js**, que liga ao seu IoT hub com a identidade de dispositivo que criou anteriormente, recebe um método direto firmwareUpdate, é executada através de um processo com múltiplos estado para simular a atualização de firmware, incluindo: a aguardar que a imagem transferir, transferir a nova imagem e, finalmente, aplicar a imagem.
 
 Para concluir este tutorial, precisa do seguinte:
 

@@ -1,24 +1,24 @@
 ---
 title: Criar um IoT hub com a CLI do Azure (azure.js) | Microsoft Docs
-description: "Como criar um hub IoT do Azure utilizando a CLI do Azure de várias plataformas (azure.js)."
+description: Como criar um hub IoT do Azure utilizando a CLI do Azure de várias plataformas (azure.js).
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: boltean
-ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: kgremban
+ms.openlocfilehash: 7e761ba66f4b28dd7cc59dc8998c23810dd2b7d1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Criar um IoT hub com a CLI do Azure
 
@@ -90,8 +90,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **resource-group**. O nome do grupo de recursos. O formato é sensível a maiúsculas e minúsculas alfanumérica, caráter de sublinhado e hífenes, comprimento de 1-64.
 * **nome**. O nome do hub IoT a ser criado. O formato é sensível a maiúsculas e minúsculas alfanuméricos, hífenes, comprimento de 3 a 50.
 * **Localização**. A localização (região/datacenter do azure) para aprovisionar o IoT hub.
-* **sku-name**. O nome do sku, uma das: [F1 S1, S2, S3]. A lista completa mais recente, consulte a página de preços para o IoT Hub.
-* **unidades**. O número de unidades aprovisionados. Intervalo: F1 [1-1]: S1, S2 [1-200]: S3 [1 10]. Unidades do IoT Hub são baseadas na contagem total de mensagens e o número de dispositivos que pretende ligar.
+* **sku-name**. O nome do sku, uma das: [F1 S1, S2, S3]. Para obter detalhes sobre cada sku de mensagens em fila, consulte [preços do IoT Hub do Azure](https://azure.microsoft.com/pricing/details/iot-hub/). Atualmente, os escalões básicos só estão disponíveis através do portal. 
+* **unidades**. O número de unidades aprovisionados. Para obter mais informações sobre limites de unidade, consulte [preços do IoT Hub do Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

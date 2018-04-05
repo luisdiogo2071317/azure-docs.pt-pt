@@ -1,12 +1,12 @@
 ---
-title: "Resolver problemas de falhas de cópia de segurança do Azure: Estado do agente convidado indisponível | Microsoft Docs"
-description: "Sintomas, causas e soluções de falhas de cópia de segurança do Azure relacionados com o agente, a extensão e discos."
+title: 'Resolver problemas de falhas de cópia de segurança do Azure: Estado do agente convidado indisponível | Microsoft Docs'
+description: Sintomas, causas e soluções de falhas de cópia de segurança do Azure relacionados com o agente, a extensão e discos.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
-keywords: "Cópia de segurança do Azure; Agente da VM; Conectividade de rede"
+editor: ''
+keywords: Cópia de segurança do Azure; Agente da VM; Conectividade de rede
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -27,7 +27,7 @@ Este artigo fornece os passos de resolução de problemas que podem ajudar a res
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Agente VM não consegue comunicar com o Backup do Azure
+## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Agente VM não é possível comunicar com o Backup do Azure
 
 Mensagem de erro: "Agente da VM não é possível comunicar com o Backup do Azure"
 
@@ -78,21 +78,6 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 **Causa 4: [não é possível obter o estado de instantâneo ou não pode ser obtido um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 5: [a extensão de cópia de segurança não consegue atualizar ou carregar](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 6: [serviço de cópia de segurança não tem permissão para eliminar os pontos de restauro antigos devido a um bloqueio de grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
-
-## <a name="disk-configuration-is-not-supported"></a>Configuração de disco não é suportada
-
-Mensagem de erro: "não é suportada a configuração de disco especificada"
-
-> [!NOTE]
-> Temos uma versão de pré-visualização privada para suportar cópias de segurança para VMs com discos superiores a 1 TB. Para obter mais informações, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
->
->
-
-Atualmente, a cópia de segurança do Azure não suporta discos que estão [superiores 1,023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). Se tiver discos que são maiores do que 1 TB:  
-1. [Anexe discos novo](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) que são de tamanho inferior a 1 TB.  
-2. Copie os dados de discos que são maiores do que 1 TB para os discos recém-criado inferior a 1 TB.  
-3. Certifique-se de que todos os dados foram copiados. Em seguida, remova os discos que são maiores do que 1 TB.  
-4. Inicie a cópia de segurança.
 
 ## <a name="causes-and-solutions"></a>Causas e soluções
 

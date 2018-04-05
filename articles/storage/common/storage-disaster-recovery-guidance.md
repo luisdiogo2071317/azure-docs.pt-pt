@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>O que fazer se ocorrer uma falha do Armazenamento do Azure
 Na Microsoft, trabalhamos rígido para se certificar de que os nossos serviços estão sempre disponíveis. Por vezes, força se para além dos nosso impacto de controlo-nos de formas que provocar falhas de serviço não planeada num ou mais regiões. Para ajudar a lidar com estas ocorrências raras, podemos fornecer as seguintes orientações de alto nível para serviços de armazenamento do Azure.
@@ -42,10 +42,10 @@ Se um ou mais serviços de armazenamento estão temporariamente indisponíveis n
 Neste caso, não é necessária qualquer ação da sua parte. Estamos a trabalhar diligently para restaurar a disponibilidade do serviço do Azure. Pode monitorizar o estado do serviço no [Dashboard de estado de funcionamento do serviço de Azure](https://azure.microsoft.com/status/).
 
 ### <a name="option-2-copy-data-from-secondary"></a>Opção 2: Copiar dados a partir do secundário
-Se tiver escolhido [armazenamento georredundante com acesso de leitura (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (recomendado) para as contas do storage, terá acesso de leitura aos seus dados da região secundária. Pode utilizar ferramentas como [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)e o [biblioteca de movimento de dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar dados a partir da região secundária para outra conta de armazenamento numa região unimpacted e, em seguida, aponte as suas aplicações para essa conta de armazenamento para ambos de leitura e escrita a disponibilidade.
+Se tiver escolhido [armazenamento georredundante com acesso de leitura (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recomendado) para as contas do storage, terá acesso de leitura aos seus dados da região secundária. Pode utilizar ferramentas como [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)e o [biblioteca de movimento de dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar dados a partir da região secundária para outra conta de armazenamento numa região unimpacted e, em seguida, aponte as suas aplicações para essa conta de armazenamento para ambos de leitura e escrita a disponibilidade.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>O que pode esperar se ocorre uma ativação pós-falha de armazenamento
-Se tiver escolhido [armazenamento georredundante (GRS)](storage-redundancy.md#geo-redundant-storage) ou [armazenamento georredundante com acesso de leitura (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (recomendado), armazenamento do Azure irá manter os seus dados duráveis em duas regiões (principais e secundários). Em ambas as regiões, o Storage do Azure mantém constantemente várias réplicas dos seus dados.
+Se tiver escolhido [armazenamento georredundante (GRS)](storage-redundancy-grs.md) ou [armazenamento georredundante com acesso de leitura (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recomendado), armazenamento do Azure irá manter os seus dados duráveis em duas regiões (principais e secundários). Em ambas as regiões, o Storage do Azure mantém constantemente várias réplicas dos seus dados.
 
 Quando um desastre regional afeta a região primária, vamos primeiro tentar restaurar o serviço nessa região. Depende a natureza desastre e respetivos impactos, em ocasiões raras, não poderá restaurar a região primária. Nessa altura, iremos efetuar uma ativação pós-falha georreplicação. A replicação de dados por várias regiões é um processo assíncrono que pode envolver um atraso, pelo que é possível que as alterações que ainda não tem sido replicadas para a região secundária podem ser perdidas. Pode consultar o ["Hora da última sincronização" da conta de armazenamento](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) para obter detalhes sobre o estado de replicação.
 

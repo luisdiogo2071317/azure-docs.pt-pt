@@ -1,25 +1,25 @@
 ---
-title: "Dimensionar automaticamente de computação nós num conjunto do Azure Batch | Microsoft Docs"
-description: "Ative o dimensionamento automático num agrupamento de nuvem para ajustar dinamicamente o número de nós de computação no conjunto."
+title: Dimensionar automaticamente de computação nós num conjunto do Azure Batch | Microsoft Docs
+description: Ative o dimensionamento automático num agrupamento de nuvem para ajustar dinamicamente o número de nós de computação no conjunto.
 services: batch
-documentationcenter: 
-author: tamram
-manager: timlt
-editor: tysonn
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0e49cd8a64a48c53f5b6104703164a597c797f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1114ea90ae6976a3bc3580ebae5fd853de0274a1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automática para o dimensionamento de nós de computação de um conjunto do Batch
 
@@ -125,7 +125,7 @@ Estes tipos são suportados numa fórmula:
 * duplo
 * doubleVec
 * doubleVecList
-* Cadeia
+* string
 * Timestamp – timestamp é uma estrutura composta que contém os seguintes membros:
 
   * ano
@@ -162,8 +162,8 @@ Estas operações são permitidas em tipos que estão listados na secção anter
 | TimeInterval *operador* timestamp |+ |carimbo de data/hora |
 | Timestamp *operador* timeinterval |+ |carimbo de data/hora |
 | Timestamp *operador* timestamp |- |TimeInterval |
-| *operador*duplo |-, ! |duplo |
-| *operador*timeinterval |- |TimeInterval |
+| *operator*double |-, ! |duplo |
+| *operator*timeinterval |- |TimeInterval |
 | duplo *operador* duplo |<, <=, ==, >=, >, != |duplo |
 | cadeia *operador* cadeia |<, <=, ==, >=, >, != |duplo |
 | Timestamp *operador* timestamp |<, <=, ==, >=, >, != |duplo |
@@ -177,24 +177,24 @@ Estes predefinidas **funções** estão disponíveis para utilização na defini
 
 | Função | Tipo de retorno | Descrição |
 | --- | --- | --- |
-| AVG(doubleVecList) |duplo |Devolve o valor médio para todos os valores de doubleVecList. |
-| Len(doubleVecList) |duplo |Devolve o comprimento do vetor que é criado a partir de doubleVecList. |
+| avg(doubleVecList) |duplo |Devolve o valor médio para todos os valores de doubleVecList. |
+| len(doubleVecList) |duplo |Devolve o comprimento do vetor que é criado a partir de doubleVecList. |
 | LG(Double) |duplo |Devolve o registo de base 2 do valor de duplo. |
-| LG(doubleVecList) |doubleVec |Devolve o registo component-wise 2 base do doubleVecList. Um vec(double) tem de ser explicitamente transmitido para o parâmetro. Caso contrário, é assumida a versão de lg(double) duplo. |
+| lg(doubleVecList) |doubleVec |Devolve o registo component-wise 2 base do doubleVecList. Um vec(double) tem de ser explicitamente transmitido para o parâmetro. Caso contrário, é assumida a versão de lg(double) duplo. |
 | ln(Double) |duplo |Devolve o registo de natural do valor de duplo. |
 | ln(doubleVecList) |doubleVec |Devolve o registo component-wise 2 base do doubleVecList. Um vec(double) tem de ser explicitamente transmitido para o parâmetro. Caso contrário, é assumida a versão de lg(double) duplo. |
 | log(Double) |duplo |Devolve o registo de base 10 do valor de duplo. |
 | log(doubleVecList) |doubleVec |Devolve o registo component-wise base 10 do doubleVecList. Um vec(double) tem de ser explicitamente transmitido para o parâmetro duplo único. Caso contrário, é assumida a versão de log(double) duplo. |
-| Max(doubleVecList) |duplo |Devolve o valor máximo de doubleVecList. |
+| max(doubleVecList) |duplo |Devolve o valor máximo de doubleVecList. |
 | min(doubleVecList) |duplo |Devolve o valor mínimo de doubleVecList. |
-| NORM(doubleVecList) |duplo |Devolve o dois normal de vetor que é criado a partir de doubleVecList. |
+| norm(doubleVecList) |duplo |Devolve o dois normal de vetor que é criado a partir de doubleVecList. |
 | percentil (v doubleVec, duplo p) |duplo |Devolve o elemento de percentil do vetor de v. |
 | rand() |duplo |Devolve um valor aleatório entre 0,0 e 1,0. |
-| Range(doubleVecList) |duplo |Devolve a diferença entre os valores máximas e mínimo a doubleVecList. |
-| Std(doubleVecList) |duplo |Devolve o desvio-padrão de exemplo dos valores no doubleVecList. |
-| STOP() | |Interrompe a avaliação da expressão de dimensionamento automático. |
-| SUM(doubleVecList) |duplo |Devolve a soma de todos os componentes do doubleVecList. |
-| hora (dateTime da cadeia = "") |carimbo de data/hora |Devolve o carimbo de hora da hora atual se não existem parâmetros são transmitidos ou o carimbo de hora da cadeia de dateTime se ser transmitido. Formatos dateTime suportados são W3C DTF e 1123 de RFC. |
+| range(doubleVecList) |duplo |Devolve a diferença entre os valores máximas e mínimo a doubleVecList. |
+| std(doubleVecList) |duplo |Devolve o desvio-padrão de exemplo dos valores no doubleVecList. |
+| stop() | |Interrompe a avaliação da expressão de dimensionamento automático. |
+| sum(doubleVecList) |duplo |Devolve a soma de todos os componentes do doubleVecList. |
+| time(string dateTime="") |carimbo de data/hora |Devolve o carimbo de hora da hora atual se não existem parâmetros são transmitidos ou o carimbo de hora da cadeia de dateTime se ser transmitido. Formatos dateTime suportados são W3C DTF e 1123 de RFC. |
 | valor (v doubleVec, duplo i) |duplo |Devolve o valor do elemento que se encontra na localização i no vetor v, com um índice de início de zero. |
 
 Algumas das funções que são descritas na tabela anterior podem aceitar uma lista como um argumento. A lista de valores separados por vírgulas é qualquer combinação de *duplo* e *doubleVec*. Por exemplo:
@@ -212,9 +212,9 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Método | Descrição |
 | --- | --- |
-| GetSample() |O `GetSample()` método devolve um vetor de amostras de dados.<br/><br/>Um exemplo é 30 segundos, dos dados de métricas. Por outras palavras, exemplos são obtidos a cada 30 segundos. Mas conforme indicado abaixo, não existe um atraso entre quando uma amostra é recolhida e quando estiver disponível uma fórmula. Como tal, nem todas as amostras para um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras para obter exemplos mais recentes que foram recolhidos.<br/><br/>`GetSample(1)`Devolve a última amostra disponível. Para as métricas como `$CPUPercent`, no entanto, isto não deve ser utilizado porque não é possível saber *quando* amostra foi recolhida. Poderá ser recente ou devido a problemas de sistema, poderá ser muito mais antigo. É melhor nestes casos, para utilizar um intervalo de tempo, conforme mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um intervalo de tempo de recolha de dados de exemplo. Opcionalmente, também especifica a percentagem de amostras que devem estar disponíveis no intervalo de tempo de pedido.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)`devolvam 20 amostras se não estiverem presentes no histórico do CPUPercent todas as amostras de últimos 10 minutos. Se o último minuto do histórico não estava disponível, no entanto, apenas 18 amostras seriam devolvidas. Neste caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`irão falhar porque apenas 90 por cento dos exemplos de estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`seria concluída com êxito.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um intervalo de tempo de recolha de dados, com uma hora de início e de uma hora de fim.<br/><br/>Tal como mencionado acima, há um atraso entre quando uma amostra é recolhida e quando estiver disponível uma fórmula. Considere este atraso quando utiliza o `GetSample` método. Consulte `GetSamplePercent` abaixo. |
+| GetSample() |O `GetSample()` método devolve um vetor de amostras de dados.<br/><br/>Um exemplo é 30 segundos, dos dados de métricas. Por outras palavras, exemplos são obtidos a cada 30 segundos. Mas conforme indicado abaixo, não existe um atraso entre quando uma amostra é recolhida e quando estiver disponível uma fórmula. Como tal, nem todas as amostras para um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras para obter exemplos mais recentes que foram recolhidos.<br/><br/>`GetSample(1)` Devolve a última amostra disponível. Para as métricas como `$CPUPercent`, no entanto, isto não deve ser utilizado porque não é possível saber *quando* amostra foi recolhida. Poderá ser recente ou devido a problemas de sistema, poderá ser muito mais antigo. É melhor nestes casos, para utilizar um intervalo de tempo, conforme mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um intervalo de tempo de recolha de dados de exemplo. Opcionalmente, também especifica a percentagem de amostras que devem estar disponíveis no intervalo de tempo de pedido.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` devolvam 20 amostras se não estiverem presentes no histórico do CPUPercent todas as amostras de últimos 10 minutos. Se o último minuto do histórico não estava disponível, no entanto, apenas 18 amostras seriam devolvidas. Neste caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` irão falhar porque apenas 90 por cento dos exemplos de estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` seria concluída com êxito.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um intervalo de tempo de recolha de dados, com uma hora de início e de uma hora de fim.<br/><br/>Tal como mencionado acima, há um atraso entre quando uma amostra é recolhida e quando estiver disponível uma fórmula. Considere este atraso quando utiliza o `GetSample` método. Consulte `GetSamplePercent` abaixo. |
 | GetSamplePeriod() |Devolve o período de amostras que foram executadas num conjunto de dados históricos de exemplo. |
-| Existente |Devolve o número total de amostras no histórico de métrico. |
+| Count() |Devolve o número total de amostras no histórico de métrico. |
 | HistoryBeginTime() |Devolve o carimbo de hora da amostra de dados disponíveis mais antigo para a métrica. |
 | GetSamplePercent() |Devolve a percentagem de amostras que estão disponíveis para um determinado intervalo de tempo. Por exemplo:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Porque o `GetSample` método falhar se a percentagem de amostras devolvido é inferior ao `samplePercent` especificado, pode utilizar o `GetSamplePercent` método para verificar primeiro. Em seguida, pode efetuar uma ação alternativa se insuficientes exemplos não estiverem presentes, sem halting a avaliação de dimensionamento automática. |
 
@@ -385,7 +385,7 @@ Além de .NET do Batch, pode utilizar qualquer um dos outros [SDKs do Batch](bat
 ### <a name="automatic-scaling-interval"></a>Intervalo de dimensionamento automático
 Por predefinição, o serviço Batch ajusta o tamanho de um conjunto, de acordo com a fórmula de dimensionamento automático a cada 15 minutos. Este intervalo é configurável ao utilizar as seguintes propriedades do agrupamento:
 
-* [CloudPool.AutoScaleEvaluationInterval] [ net_cloudpool_autoscaleevalinterval] (.NET do Batch)
+* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
 * [autoScaleEvaluationInterval] [ rest_autoscaleinterval] (REST API)
 
 O intervalo mínimo é de cinco minutos e o máximo é 168 horas. Se não for especificado um intervalo fora deste intervalo, o serviço Batch devolve um erro de pedido incorreto (400).
@@ -399,7 +399,7 @@ O intervalo mínimo é de cinco minutos e o máximo é 168 horas. Se não for es
 
 Cada SDK do Batch é uma forma para ativar o dimensionamento automático. Por exemplo:
 
-* [BatchClient.PoolOperations.EnableAutoScaleAsync] [ net_enableautoscaleasync] (.NET do Batch)
+* [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [Ativar o dimensionamento automático num agrupamento] [ rest_enableautoscale] (REST API)
 
 Quando ativar o dimensionamento automático num conjunto existente, tenha em consideração os seguintes pontos:

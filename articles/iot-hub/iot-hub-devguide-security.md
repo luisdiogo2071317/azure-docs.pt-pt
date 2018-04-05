@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c410db9a7255a039ab9b41ae39f2fe1018719f8f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
 Este artigo descreve as opções para proteger o seu IoT hub. IoT Hub utiliza *permissões* para conceder acesso para cada ponto de final de hub IoT. Permissões de limitam o acesso a um IoT hub com base na funcionalidade.
 
-Este artigo descreve:
+Este artigo apresenta:
 
 * As permissões diferentes que pode conceder a uma aplicação de back-end ou de dispositivo para aceder ao seu IoT hub.
 * O processo de autenticação e os tokens que utiliza para verificar permissões.
 * Como as credenciais de âmbito para limitar o acesso a recursos específicos.
 * Suporte de IoT Hub para certificados x. 509.
 * Mecanismos de autenticação do dispositivo personalizada que utilizam os registos de identidade de dispositivo existente ou os esquemas de autenticação.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Tem de ter as permissões adequadas para aceder a qualquer um dos pontos finais do IoT Hub. Por exemplo, um dispositivo tem de incluir um token que contém as credenciais de segurança juntamente com cada mensagem a enviar ao IoT Hub.
 
@@ -442,7 +444,7 @@ Outros tópicos de referência no guia de programadores do IoT Hub incluem:
 * [A linguagem de consulta do IoT Hub] [ lnk-query] descreve o idioma de consulta pode utilizar para obter informações a partir do IoT Hub sobre os dispositivos duplos e tarefas.
 * [Suporte do IoT Hub MQTT] [ lnk-devguide-mqtt] fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu como controlar o acesso do IoT Hub, poderá estar interessado nos seguintes tópicos do guia de programadores do IoT Hub:
 

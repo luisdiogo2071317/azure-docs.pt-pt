@@ -1,25 +1,22 @@
 ---
-title: Monitorizar os registos de acesso, registos de desempenho, estado de funcionamento de back-end e métricas de Gateway de aplicação | Microsoft Docs
+title: Registos de acesso do monitor, registos de desempenho, estado de funcionamento de back-end e métricas de Gateway de aplicação
 description: Saiba como ativar e gerir registos de acesso e registos de desempenho para o Gateway de aplicação
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 4/2/2018
 ms.author: amitsriva
-ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento de back-end, os registos de diagnóstico e métricas de Gateway de aplicação
 
@@ -29,7 +26,7 @@ Ao utilizar o Gateway de aplicação do Azure, pode monitorizar os recursos das 
 
 * [Os registos](#diagnostic-logging): permitir que os registos de desempenho, acesso e outros dados a ser guardado ou consumido de um recurso para efeitos de monitorização.
 
-* [Métricas](#metrics): Gateway de aplicação não tem atualmente uma métrica. Esta métrica mede o débito do gateway de aplicação em bytes por segundo.
+* [Métricas](#metrics): Gateway de aplicação não tem atualmente sete métricas para ver os contadores de desempenho.
 
 ## <a name="back-end-health"></a>Estado de funcionamento de back-end
 
@@ -318,13 +315,22 @@ Também pode ligar à sua conta do storage e obter as entradas de registo JSON p
 
 As métricas são uma funcionalidade de certos recursos do Azure, onde pode ver os contadores de desempenho no portal. Gateway de aplicação, estão disponíveis as métricas seguintes:
 
-- Ligações atuais
-- Pedidos Falhados
-- Contagem de anfitrião bom estado de funcionamento
-- Estado de resposta
-- Débito
-- Total de Pedidos
-- Contagem de anfitrião mau estado de funcionamento
+- **Ligações atuais**
+- **Pedidos falhados**
+- **Contagem de anfitrião bom estado de funcionamento**
+
+   Pode filtrar por um por base de conjunto de back-end para mostrar anfitriões bom estado de funcionamento/mau estado de funcionamento de um conjunto de back-end específico.
+
+
+- **Estado de resposta**
+
+   A distribuição de código de estado de resposta pode ser classificada adicional para mostrar as respostas em 2xx, 3xx, 4xx e 5xx categorias.
+
+- **Débito**
+- **Total de pedidos**
+- **Contagem de anfitrião mau estado de funcionamento**
+
+   Pode filtrar por um por base de conjunto de back-end para mostrar anfitriões bom estado de funcionamento/mau estado de funcionamento de um conjunto de back-end específico.
 
 Navegue para um gateway de aplicação, em **monitorização** clique **métricas**. Para ver os valores disponíveis, selecione o **MÉTRICA** na lista pendente.
 

@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 894b2234074dcfb262de9033a7728cad3bef2248
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b3205603b91077ca2c3226dcb78589de37d15cf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Resolução de problemas e Perguntas e Respostas para o Application Insights para Java
 Questões ou problemas com [Azure Application Insights em Java][java]? Eis algumas sugestões.
@@ -48,7 +48,7 @@ Questões ou problemas com [Azure Application Insights em Java][java]? Eis algum
 * Está à procura no recurso de AI correto? . Corresponde a iKey da sua aplicação ao recurso onde está à espera telemetria. Deve ser o mesmo.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Não vejo todos os dados que estou a esperar
-* Abra as Quotas e preços painel e verifique se [amostragem](app-insights-sampling.md) estiver a ser utilizada. (transmissão de 100% significa que não se encontra na operação de amostragem.) O serviço do Application Insights pode ser definido para aceitar apenas uma fração de telemetria que são recebidos a partir da sua aplicação. Isto ajuda a manter dentro da sua quota mensal de telemetria. 
+* Abra a utilização e estimado página custo e verifique se [amostragem](app-insights-sampling.md) estiver a ser utilizada. (transmissão de 100% significa que não se encontra na operação de amostragem.) O serviço do Application Insights pode ser definido para aceitar apenas uma fração de telemetria que são recebidos a partir da sua aplicação. Isto ajuda a manter dentro da sua quota mensal de telemetria. 
 * Tem a amostragem SDK ativada? Se Sim, dados seriam amostragem da tarifa de fim especificado para todos os tipos de aplicáveis.
 * Está a executar uma versão mais antiga do SDK de Java? A partir da versão 2.0.1, ter introduzimos mecanismo de tolerância a falhas para processar intermitente da rede e falhas de back-end, bem como a persistência de dados em unidades locais.
 * A obter limitada devido a telemetria excessiva? Se ativar o registo de informações, verá um registo de mensagens "Está limitada a aplicação". A nossa limite atual é 32 telemetria de k itens por segundo.

@@ -1,8 +1,8 @@
 ---
-title: "Automatizar Insights da aplicação do Azure com o PowerShell | Microsoft Docs"
+title: Automatizar Insights da aplicação do Azure com o PowerShell | Microsoft Docs
 description: Automatizar criar testes de recursos, o alerta e disponibilidade no PowerShell, utilizando um modelo Azure Resource Manager.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: f4f9d1558d2ef9dc5e1b7b248ad5bc8753f59cf9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 46ba4ce992640e8a6d171ab839dd7cdb24e0b404
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Criar recursos do Application Insights com o PowerShell
 Este artigo mostra como automatizar a criação e a atualização de [Application Insights](app-insights-overview.md) recursos automaticamente utilizando a gestão de recursos do Azure. Fazê-lo pode, por exemplo, como parte de um processo de compilação. Juntamente com o recurso do Application Insights básico, pode criar [testes web de disponibilidade](app-insights-monitor-web-app-availability.md), configure [alertas](app-insights-alerts.md), defina o [preços esquema](app-insights-pricing.md)e criar outros recursos do Azure.
@@ -166,9 +166,9 @@ Criar um novo ficheiro. JSON - vamos chamá-lo `template1.json` neste exemplo. C
 
     ``` 
    
-   * `-ResourceGroupName`é o grupo de onde pretende criar novos recursos.
-   * `-TemplateFile`tem de ocorrer antes dos parâmetros personalizados.
-   * `-appName`O nome do recurso para criar.
+   * `-ResourceGroupName` é o grupo de onde pretende criar novos recursos.
+   * `-TemplateFile` tem de ocorrer antes dos parâmetros personalizados.
+   * `-appName` O nome do recurso para criar.
 
 Pode adicionar outros parâmetros - encontrará as suas descrições, na secção de parâmetros do modelo.
 
@@ -196,7 +196,7 @@ Para criar um recurso de aplicação com o plano de preços do Enterprise, utili
                -appName myNewApp
 ```
 
-|priceCode|Planear|
+|priceCode|plano|
 |---|---|
 |1|Básica|
 |2|Enterprise|
@@ -204,7 +204,7 @@ Para criar um recurso de aplicação com o plano de preços do Enterprise, utili
 * Se apenas pretender utilizar o plano de preços básico predefinido, pode omitir o recurso de CurrentBillingFeatures do modelo.
 * Se pretender alterar o plano de preços depois de criar o recurso de componente, pode utilizar um modelo que omite o recurso "microsoft.insights/components". Além disso, omita o `dependsOn` nós do recurso de faturação. 
 
-Para verificar o plano de preços atualizada, observe o "Funcionalidades + preços" painel no browser. **Atualize a vista de browser** para se certificar de que está a ver o estado mais recente.
+Para verificar o plano de preços atualizada, observe o **utilização e a página de custos estimados** painel no browser. **Atualize a vista de browser** para se certificar de que está a ver o estado mais recente.
 
 
 
@@ -426,7 +426,7 @@ Seguem-se exemplos de substituições que pretende efetuar. Existem várias ocor
 | `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
-| `"myappname"`(minúsculas) |`"[toLower(parameters('appName'))]"` |
+| `"myappname"` (minúsculas) |`"[toLower(parameters('appName'))]"` |
 | `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Eliminar Guid e o ID. |
 
 ### <a name="set-dependencies-between-the-resources"></a>Conjunto de dependências entre os recursos
@@ -441,7 +441,7 @@ Azure deve configurar os recursos na ordem rigorosa. Para se certificar antes da
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Outros artigos de automatização:
 
 * [Crie um recurso do Application Insights](app-insights-powershell-script-create-resource.md) -método rápido sem utilizar um modelo.

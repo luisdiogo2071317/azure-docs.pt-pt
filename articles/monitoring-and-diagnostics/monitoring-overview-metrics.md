@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 88020b27403f06ab8f1c0a1c45b798db02f517f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Descrição geral das métricas no Microsoft Azure
 Este artigo descreve quais são as métricas no Microsoft Azure, os seus benefícios e como começar a utilizá-los.  
@@ -116,7 +116,7 @@ Alertas de métricas: em seguida, pode notificá-lo por e-mail ou acionados um w
 
  ![Métricas e regras de alertas no Monitor do Azure](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Perto da alertas em tempo real (pré-visualização): estes têm a capacidade de monitorizar várias métricas e limiares, para um recurso e, em seguida, receber notificações através de um [ação grupo](/monitoring-action-groups.md). Saiba mais sobre [quase em tempo real métrica alertas aqui](https://aka.ms/azuremonitor/near-real-time-alerts).
+Alertas de métricas mais recentes têm a capacidade de monitorizar várias métricas e limiares, para um recurso e, em seguida, receber notificações através de um [ação grupo](/monitoring-action-groups.md). Saiba mais sobre [aqui alertas mais recentes](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>O dimensionamento automático o seu Azure recursos
@@ -127,7 +127,7 @@ Alguns recursos do Azure suportam o dimensionamento de saída ou de várias inst
 ## <a name="learn-about-supported-services-and-metrics"></a>Saiba mais sobre serviços suportados e métricas
 Pode ver uma lista detalhada de todos os serviços suportados e os respetivos métricas [métricas de Monitor do Azure – métricas suportadas por tipo de recurso](monitoring-supported-metrics.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte as ligações ao longo deste artigo. Além disso, saiba mais sobre:  
 
 * [Métricas de comuns de dimensionamento automático](insights-autoscale-common-metrics.md)

@@ -1,24 +1,24 @@
 ---
-title: "Manter resultados ou os registos de tarefas e as tarefas concluídas para um arquivo de dados - Azure Batch | Microsoft Docs"
-description: "Saiba mais sobre as diferentes opções para persistentes dados de saída de tarefas e tarefas do Batch. Pode manter os dados para armazenamento do Azure ou para outro arquivo de dados."
+title: Manter resultados ou os registos de tarefas e as tarefas concluídas para um arquivo de dados - Azure Batch | Microsoft Docs
+description: Saiba mais sobre as diferentes opções para persistentes dados de saída de tarefas e tarefas do Batch. Pode manter os dados para armazenamento do Azure ou para outro arquivo de dados.
 services: batch
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3ca93e823f02b1483ed290cf89de191937d1e2c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb8b1ca3514e27221e95cb2def823c8f89d151e5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="persist-job-and-task-output"></a>Manter saída de trabalhos e tarefas
 
@@ -79,7 +79,7 @@ Utilize a API do serviço de Batch para manter a tarefa quando de saída:
 - Pretende manter os dados para um contentor de armazenamento do Azure com o nome em conformidade com a [padrão de convenções de ficheiro Batch](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
-> A API do serviço Batch não suporta dados persistentes de tarefas em execução em conjuntos criados com a configuração do serviço de nuvem. Para obter informações sobre tarefas persistentes de saída em agrupamentos de executar a configuração de serviços em nuvem, consulte [manter os dados de tarefas e ao armazenamento do Azure com a biblioteca de convenções de ficheiro Batch para .NET manter](batch-task-output-file-conventions.md)
+> A API do serviço Batch não suporta dados persistentes de tarefas em execução em conjuntos criados com a configuração do serviço de nuvem. Para obter informações sobre tarefas persistentes de saída em agrupamentos de executar a configuração de serviços em nuvem, consulte [manter os dados de tarefas e ao armazenamento do Azure com a biblioteca de convenções de ficheiro Batch para .NET manter ](batch-task-output-file-conventions.md)
 > 
 > 
 
@@ -113,11 +113,11 @@ Poderá pretender implementar a norma de nomenclatura de convenções de ficheir
 
 Também pode implementar a sua própria solução de movimento de ficheiro completo. Utilize esta abordagem quando:
 
-- Pretende manter os dados de tarefas para um arquivo de dados diferente de armazenamento do Azure. Para carregar ficheiros para um arquivo de dados SQL do Azure ou DataLake do Azure, pode criar um script personalizado ou executável para carregar para essa localização. Em seguida, pode chamá-lo na linha de comandos depois de executar o executável principal. Por exemplo, num nó Windows, pode chamar estes dois comandos:`doMyWork.exe && uploadMyFilesToSql.exe`
+- Pretende manter os dados de tarefas para um arquivo de dados diferente de armazenamento do Azure. Para carregar ficheiros para um arquivo de dados SQL do Azure ou DataLake do Azure, pode criar um script personalizado ou executável para carregar para essa localização. Em seguida, pode chamá-lo na linha de comandos depois de executar o executável principal. Por exemplo, num nó Windows, pode chamar estes dois comandos: `doMyWork.exe && uploadMyFilesToSql.exe`
 - Pretende efetuar o carregamento antecipado ou apontar de verificação dos resultados iniciais.
 - Pretende manter o controlo granular sobre o processamento de erros. Por exemplo, poderá implementar a sua própria solução se pretender utilizar as ações de dependência de tarefas para efetuar determinadas ações de carregamento baseadas em códigos de saída de tarefas específica. Para obter mais informações sobre ações de dependência de tarefas, consulte [criar as dependências de tarefas para executar as tarefas que dependem de outras tarefas](batch-task-dependencies.md). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Explorar, utilizando as novas funcionalidades na API do serviço de Batch para manter os dados de tarefa na [API do serviço de dados de tarefa de persistência ao Storage do Azure com o Batch](batch-task-output-files.md).
 - Saiba como utilizar a biblioteca de convenções de ficheiro Batch para .NET no [manter os dados de tarefas e ao armazenamento do Azure com a biblioteca de convenções de ficheiro Batch para .NET manter ](batch-task-output-file-conventions.md).

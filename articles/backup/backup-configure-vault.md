@@ -1,12 +1,12 @@
 ---
-title: "Agente de cópia de segurança do Azure de utilização para fazer uma cópia de segurança de ficheiros e pastas | Microsoft Docs"
-description: "Utilize o Microsoft Azure Backup agent para fazer cópias de segurança de pastas e ficheiros do Windows Azure. Criar um cofre dos serviços de recuperação, instale o agente de cópia de segurança, definir a política de cópia de segurança e executar a cópia de segurança inicial em ficheiros e pastas."
+title: Agente de cópia de segurança do Azure de utilização para fazer uma cópia de segurança de ficheiros e pastas | Microsoft Docs
+description: Utilize o Microsoft Azure Backup agent para fazer cópias de segurança de pastas e ficheiros do Windows Azure. Criar um cofre dos serviços de recuperação, instale o agente de cópia de segurança, definir a política de cópia de segurança e executar a cópia de segurança inicial em ficheiros e pastas.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "cofre da cópia de segurança; cópia de segurança de um servidor do Windows; cópias de segurança;"
+editor: ''
+keywords: cofre da cópia de segurança; cópia de segurança de um servidor do Windows; cópias de segurança;
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 88a588322d88f817937cf06e25b5b25a147f03d0
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 38f98a29edc2a0bfb0141a0a6fabad2727175f29
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Fazer cópias de segurança de um servidor ou cliente Windows para o Azure com o modelo de implementação Resource Manager
 Este artigo explica como fazer cópias de segurança do Windows Server (ou cliente Windows) ficheiros e pastas para o Azure com cópia de segurança do Azure utilizando o modelo de implementação Resource Manager.
@@ -94,7 +94,7 @@ Quando cria pela primeira vez um cofre dos Serviços de Recuperação, determina
 
   ![opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-  Por predefinição, o seu cofre tem um armazenamento georredundante. Se utilizar o Azure como um ponto final de armazenamento de cópia de segurança primário, continue a utilizar o **Georredundante**. Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy.md#geo-redundant-storage) e [localmente redundante](../storage/common/storage-redundancy.md#locally-redundant-storage) nesta [Descrição geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
+  Por predefinição, o seu cofre tem um armazenamento georredundante. Se utilizar o Azure como um ponto final de armazenamento de cópia de segurança primário, continue a utilizar o **Georredundante**. Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy-grs.md) e [localmente redundante](../storage/common/storage-redundancy-lrs.md) nesta [Descrição geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
 
 Agora que criou um cofre, prepare a infraestrutura para fazer uma cópia de segurança de ficheiros e pastas a transferir e instalar o agente dos serviços de recuperação do Microsoft Azure, transferir as credenciais do cofre e, em seguida, utilizar essas credenciais ao registar o agente com o cofre.
 

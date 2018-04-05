@@ -1,6 +1,6 @@
 ---
-title: "Aplicação do Azure gerida criar funções de definição de IU | Microsoft Docs"
-description: "Descreve as funções a utilizar quando criar definições de IU para aplicações geridas do Azure"
+title: Azure criar o elemento de definição de IU | Microsoft Docs
+description: Descreve os elementos para utilizar quando criar definições de IU para o portal do Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 23e407bf93bc51116ca45339bffcb801d69290f0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d6f96d4aa66839518023b4d567caf1ff839a29fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="createuidefinition-elements"></a>Elementos de CreateUiDefinition
-Este artigo descreve as propriedades para todos os elementos suportados um CreateUiDefinition e o esquema. Utilize estes elementos quando [criar uma aplicação gerida do Azure](publish-service-catalog-app.md). O esquema para a maioria dos elementos é o seguinte:
+Este artigo descreve as propriedades para todos os elementos suportados um CreateUiDefinition e o esquema. O esquema para a maioria dos elementos é o seguinte:
 
 ```json
 {
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
   "label": "Some text box",
-  "defaultValue": "foobar",
-  "toolTip": "Keep calm and visit the [Azure Portal](portal.azure.com).",
+  "defaultValue": "my value",
+  "toolTip": "Provide a descriptive name.",
   "constraints": {},
   "options": {},
   "visible": true
@@ -40,10 +40,10 @@ Este artigo descreve as propriedades para todos os elementos suportados um Creat
 | nome | Sim | Um identificador interno para fazer referência a uma instância específica de um elemento. A utilização de mais comuns de nome de elemento está no `outputs`, onde os valores de saída dos elementos especificados estão mapeados para os parâmetros do modelo. Também pode utilizá-la para vincular o valor de saída de um elemento para a `defaultValue` de outro elemento. |
 | tipo | Sim | O controlo de IU para compor para o elemento. Para obter uma lista dos tipos suportados, consulte [elementos](#elements). |
 | Etiqueta | Sim | O texto a apresentar do elemento. Alguns tipos de elemento contém várias etiquetas, para que o valor pode ser um objeto que contém vários cadeias. |
-| DefaultValue | Não | O valor predefinido do elemento. Alguns tipos de elemento suportam valores predefinidos complexa, pelo que o valor pode ser um objeto. |
+| defaultValue | Não | O valor predefinido do elemento. Alguns tipos de elemento suportam valores predefinidos complexa, pelo que o valor pode ser um objeto. |
 | Descrição | Não | O texto a apresentar a descrição do elemento. Semelhante ao `label`, alguns elementos suportam vários cadeias de sugestão de ferramenta. Ligações de inline podem ser incorporadas utilizando a sintaxe de Markdown.
 | Restrições | Não | Uma ou mais propriedades que são utilizadas para personalizar o comportamento de validação do elemento. As propriedades suportadas restrições variam consoante o tipo de elemento. Alguns tipos de elemento não suporta a personalização do comportamento de validação e assim não ter nenhuma propriedade de restrições. |
-| Opções | Não | Propriedades adicionais personalizar o comportamento do elemento. Semelhante ao `constraints`, as propriedades suportadas variam consoante o tipo de elemento. |
+| opções | Não | Propriedades adicionais personalizar o comportamento do elemento. Semelhante ao `constraints`, as propriedades suportadas variam consoante o tipo de elemento. |
 | Visível | Não | Indica se o elemento é apresentado. Se `true`, o elemento e elementos subordinados aplicáveis são apresentados. O valor predefinido é `true`. Utilize [funções lógicas](create-uidefinition-functions.md#logical-functions) para controlar dinamicamente o valor desta propriedade.
 
 ## <a name="elements"></a>Elementos
@@ -64,6 +64,5 @@ A documentação de cada elemento contém um exemplo de IU, observações de esq
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 
-## <a name="next-steps"></a>Passos seguintes
-* Para uma introdução para aplicações geridas, consulte [descrição geral do Azure gerida aplicações](overview.md).
-* Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).
+## <a name="next-steps"></a>Passos Seguintes
+Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).

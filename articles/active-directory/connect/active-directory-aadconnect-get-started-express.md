@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: Começar a utilizar as definições rápidas | Microsoft Docs"
-description: "Saiba como transferir, instalar e executar o assistente de configuração do Azure AD Connect."
+title: 'Azure AD Connect: Começar a utilizar as definições rápidas | Microsoft Docs'
+description: Saiba como transferir, instalar e executar o assistente de configuração do Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2018
+ms.date: 03/21/2018
 ms.author: billmath
-ms.openlocfilehash: 15101e1edb483f49c7570a5d4eab66865bbceb87
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 46fc01bfd7fada529ff1416e8ad46d2ea34792bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introdução ao Azure AD Connect utilizando as definições rápidas
 Utilizam-se as **Definições Rápidas** do Azure AD Connect se tiver uma topologia de floresta única e a [sincronização de palavras-passe](active-directory-aadconnectsync-implement-password-synchronization.md) para autenticação. **Definições Rápidas** é a opção predefinida e é utilizada para o cenário de implementação mais comum. Estará a apenas alguns cliques da expansão do seu diretório no local para a nuvem.
@@ -45,6 +45,7 @@ Pode ver estes passos em ação na secção [vídeos](#videos).
    Se esta página for apresentada, reveja todos os domínios marcados como **Não Adicionado** e **Não Verificado**. Certifique-se de que os domínios que utiliza foram verificados no Azure AD. Quando tiver verificado os domínios, clique no símbolo de atualização.
 8. No ecrã Preparado para configurar, clique em **Instalar**.
    * Opcionalmente, na página Preparado para configurar, pode desmarcar a caixa de verificação **Inicie o processo de sincronização assim que a configuração for concluída**. Deve desmarcar esta caixa de verificação se pretender efetuar qualquer configuração adicional, como [filtragem](active-directory-aadconnectsync-configure-filtering.md). Se desmarcar esta opção, o assistente configura a sincronização, mas deixa o agendador desativado. Não é executado até que o ative manualmente, [voltando a executar o assistente de instalação](active-directory-aadconnectsync-installation-wizard.md).
+   * Deixar a caixa de verificação **Iniciar o processo de sincronização logo que a configuração termine** aciona imediatamente uma sincronização completa para o Azure AD de todos os utilizadores, grupos e contactos. 
    * Se tiver o Exchange no Active Directory no local, terá também uma opção para ativar a [**Implementação Híbrida do Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Ative esta opção se planear ter caixas de correio do Exchange simultaneamente na nuvem e no local.
      ![Pronto para configurar o Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 9. Quando concluir a instalação, clique em **Sair**.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d119cc4c4053a737e48739c17ae586abd51f3efa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 23f98d4e9f711496480d5e02b4d5b23cd8abab0c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o seu IoT hub, utilizando o protocolo MQTT
 
@@ -27,6 +27,8 @@ IoT Hub permite que os dispositivos a comunicar com os pontos finais de disposit
 
 * [MQTT v 3.1.1] [ lnk-mqtt-org] na porta 8883
 * MQTT v 3.1.1 através de WebSocket na porta 443.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Todas as comunicações de dispositivos com o IoT Hub devem ser protegida com TLS/SSL. Por conseguinte, o IoT Hub não suporta ligações não segura através da porta 1883.
 
@@ -279,7 +281,7 @@ Para obter mais informações, consulte [direcionar método guia para programado
 
 Como uma consideração final, se precisar de personalizar o comportamento de protocolo MQTT no lado de nuvem, deve rever o [gateway de protocolo do Azure IoT][lnk-azure-protocol-gateway]. Este software permite-lhe implementar um gateway de protocolo personalizado de elevado desempenho que interfaces diretamente com o IoT Hub. O gateway de protocolo do Azure IoT permite-lhe personalizar o protocolo de dispositivo para acomodar as implementações de MQTT brownfield ou outros protocolos personalizados. Esta abordagem requer, no entanto, que executa e operar um gateway de protocolo personalizado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o protocolo MQTT, consulte o [documentação MQTT][lnk-mqtt-docs].
 

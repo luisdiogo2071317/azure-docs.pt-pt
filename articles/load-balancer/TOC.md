@@ -20,13 +20,19 @@
 
 # Procedimento
 
+## [Criar um Balanceador de Carga público com redundância de zona](load-balancer-get-started-internet-az-portal.md)
+### [Criar um Standard Balanceador de Carga público com redundância de zona (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Criar um Balanceador de Carga Standard público com redundância de zona (CLI)](load-balancer-get-started-internet-az-cli.md)
+## [Criar um Balanceador de Carga Standard público zonal](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+### [Criar um Balanceador de Carga Standard público zonal (PowerShell)](load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+### [Criar um Balanceador de Carga Standard público redundante zonal (CLI)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+## [Balancear carga de VMs por zonas de disponibilidade](load-balancer-standard-public-availability-zones-portal.md)
+###  [Balancear carga de VMs por zonas de disponibilidade (CLI)](load-balancer-standard-public-zone-redundant-cli.md)
+##  [Balancear carga de VMs dentro de uma zona (CLI)](load-balancer-standard-public-zonal-cli.md)   
+## [Criar Balanceador de Carga Básico (Modelo)](load-balancer-get-started-internet-arm-template.md)
 ## [Criar Balanceador de Carga público com o IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Criar Balanceador de Carga público com o IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Criar Balanceador de Carga público com o IPv6 (Modelo)](load-balancer-ipv6-internet-template.md)
-## [Criar um Balanceador de Carga público com redundância de zona](load-balancer-get-started-internet-az-portal.md)
-### [Criar um Balanceador de Carga Standard público com redundância de zona (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [Criar um Balanceador de Carga Standard público com redundância de zona (CLI)](load-balancer-get-started-internet-az-cli.md)
-## [Criar Balanceador de Carga Básico (Modelo)](load-balancer-get-started-internet-arm-template.md)
 ## [Configurar o Balanceador de Carga interno](load-balancer-get-started-ilb-arm-portal.md)
 ### [Configurar o Balanceador de Carga interno (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [Configurar o Balanceador de Carga interno (CLI)](load-balancer-get-started-ilb-arm-cli.md)

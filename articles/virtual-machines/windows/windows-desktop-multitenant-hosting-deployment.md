@@ -1,12 +1,12 @@
 ---
 title: Como implementar o Windows 10 no Azure com direitos de alojamento de multi-inquilino
-description: "Saiba como maximizar as vantagens do Windows Software Assurance para colocar licenças no local do Azure"
+description: Saiba como maximizar as vantagens do Windows Software Assurance para colocar licenças no local do Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: xujing
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 6ad3b294e1d53d03f6ceb61048c8f657d8b471c0
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: c157fd8fded40f08c997c29ef6761f3c09dbd282
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implementar o Windows 10 no Azure com direitos de alojamento de multi-inquilino 
 Para clientes com Windows 10 Enterprise E3/E5 por utilizador ou de acesso de ambiente de trabalho virtuais do Windows por utilizador (licenças de subscrição de utilizador ou licenças de subscrição do suplemento do utilizador), o multi-inquilino de alojamento direitos para Windows 10 permite-lhe trazer as suas licenças do Windows 10 para a nuvem e executar máquinas virtuais do Windows 10 no Azure sem pagar outra licença. Para obter mais informações, consulte [de alojamento do multi-inquilino para o Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -107,7 +107,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Informações adicionais sobre a associação do Azure AD
 >[!NOTE]
->Azure Aprovisiona todas as VMs do Windows com a conta de administrador incorporada, que não pode ser utilizada para associar o AAD. Por exemplo, *definições > conta > acesso profissional ou escolar > + Connect* não funcionará. Tem de criar e iniciar sessão como uma segunda conta de administrador para efetuar a adesão mannually do Azure AD. Também pode configurar o Azure AD através de um pacote de aprovisionamento, utilize a ligação é o *passos* secção para saber mais.
+>Azure Aprovisiona todas as VMs do Windows com a conta de administrador incorporada, que não pode ser utilizada para associar o AAD. Por exemplo, *definições > conta > acesso profissional ou escolar > + Connect* não funcionará. Tem de criar e iniciar sessão como uma segunda conta de administrador para efetuar a adesão do Azure AD manualmente. Também pode configurar o Azure AD através de um pacote de aprovisionamento, utilize a ligação é o *passos* secção para saber mais.
 >
 >
 

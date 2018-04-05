@@ -1,25 +1,25 @@
 ---
-title: "Utilize as dependências de tarefas para executar tarefas com base na conclusão de outras tarefas - Azure Batch | Microsoft Docs"
-description: "Criar tarefas que dependem da conclusão de outras tarefas de processamento de estilo de MapReduce e macrodados semelhantes cargas de trabalho no Azure Batch."
+title: Utilize as dependências de tarefas para executar tarefas com base na conclusão de outras tarefas - Azure Batch | Microsoft Docs
+description: Criar tarefas que dependem da conclusão de outras tarefas de processamento de estilo de MapReduce e macrodados semelhantes cargas de trabalho no Azure Batch.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 465306d2de8d1dbe6ba1f0cd74be720b78a50de3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba85e075c39251b0b3d7c4b8bc3f8d53a1afadf7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Criar as dependências de tarefas para executar as tarefas que dependem de outras tarefas
 
@@ -76,8 +76,8 @@ Existem três cenários de dependência na tarefa básico que pode utilizar no A
 
 | Cenário&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Exemplo |  |
 |:---:| --- | --- |
-|  [Um para um](#one-to-one) |*Tarefab* depende *Tarefaa* <p/> *Tarefab* não será possível agendar para execução até *Tarefaa* foi concluída com êxito |![Diagrama: dependência de uma tarefa][1] |
-|  [Um-para-muitos](#one-to-many) |A *tarefaC* depende da *tarefaA* e da *tarefaB* <p/> *Tarefac* não será possível agendar para execução até que ambas *Tarefaa* e *Tarefab* foram concluídos com êxito |![Diagrama: dependências de tarefas de um-para-muitos][2] |
+|  [One-to-one](#one-to-one) |*Tarefab* depende *Tarefaa* <p/> *Tarefab* não será possível agendar para execução até *Tarefaa* foi concluída com êxito |![Diagrama: dependência de uma tarefa][1] |
+|  [One-to-many](#one-to-many) |A *tarefaC* depende da *tarefaA* e da *tarefaB* <p/> *Tarefac* não será possível agendar para execução até que ambas *Tarefaa* e *Tarefab* foram concluídos com êxito |![Diagrama: dependências de tarefas de um-para-muitos][2] |
 |  [Intervalo de ID de tarefa](#task-id-range) |*taskD* depende de um intervalo de tarefas <p/> *taskD* não será possível agendar para execução até as tarefas com IDs *1* através de *10* foram concluídos com êxito |![Diagrama: Dependência de intervalo de id de tarefa][3] |
 
 > [!TIP]
@@ -207,7 +207,7 @@ O [TaskDependencies] [ github_taskdependencies] projeto de exemplo é uma do [ex
 - Como criar tarefas que dependem de outras tarefas
 - Como realizar essas tarefas num conjunto de nós de computação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 ### <a name="application-deployment"></a>Implementação de aplicação
 O [pacotes de aplicações](batch-application-packages.md) funcionalidade do Batch fornece uma forma fácil para ambos implementar e a versão, as aplicações que as tarefas são executadas em nós de computação.
 

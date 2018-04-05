@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ea26a2d4214c41faa5d63b7c72667955a43d6a2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a28f2f3e397c33e8bd98fcee68c5a051432cb3db
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementar um cluster do Azure Container Service (AKS)
+# <a name="tutorial-deploy-an-azure-container-service-aks-cluster"></a>Tutorial: Implementar um cluster do Azure Container Service (AKS)
 
 O Kubernetes dispõe de uma plataforma distribuída para aplicações em contentores. Com o AKS, o aprovisionamento de um cluster do Kubernetes pronto para produção é simples e rápido. Neste tutorial, parte três de oito, é implementado um cluster do Kubernetes no AKS. Os passos concluídos incluem:
 
@@ -24,7 +24,7 @@ O Kubernetes dispõe de uma plataforma distribuída para aplicações em content
 > * Instalação da CLI do Kubernetes (kubectl)
 > * Configuração de kubectl
 
-Nos tutoriais subsequentes, a aplicação Azure Vote é implementada no cluster, dimensionada, atualizada e o Operations Management Suite é configurado para monitorizar o cluster de Kubernetes.
+Nos tutoriais subsequentes, a aplicação Azure Vote é implementada no cluster, dimensionada, atualizada e o Log Analytics é configurado para monitorizar o cluster de Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 

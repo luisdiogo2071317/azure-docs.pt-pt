@@ -1,25 +1,25 @@
 ---
-title: "Nós - Azure Batch de computação do Linux execução na máquina virtual | Microsoft Docs"
-description: "Saiba como processar cargas de trabalho de computação paralelas em conjuntos de computadores virtuais Linux no Azure Batch."
+title: Nós - Azure Batch de computação do Linux execução na máquina virtual | Microsoft Docs
+description: Saiba como processar cargas de trabalho de computação paralelas em conjuntos de computadores virtuais Linux no Azure Batch.
 services: batch
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: ''
 ms.workload: na
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b2257917e2368478beb75957677de23d4157865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9aa896bfc4c860c87757f9379fc44cc5ee8d18a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionar nós de computação do Linux em conjuntos do Batch
 
@@ -59,7 +59,7 @@ O agente de nó do Batch é um programa que é executada em cada nó no conjunto
 
 * batch.node.ubuntu 14.04
 * batch.node.centos 7
-* batch.node.Windows amd64
+* batch.node.windows amd64
 
 > [!IMPORTANT]
 > Nem todas as imagens da máquina virtual que estão disponíveis no mercado são compatíveis com os agentes de nó do Batch atualmente disponíveis. Utilize os SDKs do Batch para listar o agente de nó disponível SKUs e as imagens de máquina virtual com o qual são compatíveis. Consulte o [imagens da lista de Máquina Virtual](#list-of-virtual-machine-images) posteriormente neste artigo para obter mais informações e exemplos de como obter uma lista de imagens válidas no tempo de execução.
@@ -213,28 +213,28 @@ A tabela seguinte lista as imagens de máquina virtual do Marketplace que são c
 >
 >
 
-| **Fabricante** | **Oferta** | **Imagem de SKU** | **Versão** | **ID do SKU do agente de nó** |
+| **Publicador** | **Oferta** | **Imagem de SKU** | **Versão** | **ID do SKU do agente de nó** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
 | Canónico | UbuntuServer | 14.04.5-LTS | mais recente | batch.node.ubuntu 14.04 |
 | Canónico | UbuntuServer | 16.04.0-LTS | mais recente | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | mais recente | batch.node.debian 8 |
 | OpenLogic | CentOS | 7.0 | mais recente | batch.node.centos 7 |
 | OpenLogic | CentOS | 7.1 | mais recente | batch.node.centos 7 |
-| OpenLogic | CentOS HPC | 7.1 | mais recente | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | mais recente | batch.node.centos 7 |
 | OpenLogic | CentOS | 7.2 | mais recente | batch.node.centos 7 |
-| Oracle | Oracle Linux | 7.0 | mais recente | batch.node.centos 7 |
-| Oracle | Oracle Linux | 7.2 | mais recente | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.0 | mais recente | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.2 | mais recente | batch.node.centos 7 |
 | SUSE | openSUSE | 13.2 | mais recente | batch.node.OpenSuSE 13.2 |
 | SUSE | openSUSE bissexto | 42.1 | mais recente | batch.node.OpenSuSE 42.1 |
 | SUSE | SLES | 12-SP1 | mais recente | batch.node.OpenSuSE 42.1 |
 | SUSE | SLES HPC | 12-SP1 | mais recente | batch.node.OpenSuSE 42.1 |
-| anúncios da Microsoft | Linux-dados de ciência de vm | linuxdsvm | mais recente | batch.node.centos 7 |
-| anúncios da Microsoft | Standard-dados de ciência de vm | Standard-dados de ciência de vm | mais recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | mais recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | mais recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | mais recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | Centro de dados de 2016 | mais recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter com contentores | mais recente | batch.node.Windows amd64 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | mais recente | batch.node.centos 7 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | mais recente | batch.node.windows amd64 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Ligar a nós do Linux através do SSH
 Durante o desenvolvimento ou durante a resolução de problemas, pode considerar necessário para iniciar sessão para os nós do conjunto. Ao contrário de nós de computação do Windows, não é possível utilizar o protocolo RDP (Remote Desktop Protocol) para ligar a nós do Linux. Em vez disso, o serviço Batch permite o acesso SSH em cada nó de ligação remota.

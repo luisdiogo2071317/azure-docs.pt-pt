@@ -1,11 +1,11 @@
 ---
-title: "Opções de nuvem para o dispositivo IoT Hub do Azure | Microsoft Docs"
-description: "Guia para programadores - orientações sobre quando utilizar métodos diretos, dispositivo duplo propriedades pretendidas ou mensagens da nuvem para o dispositivo para comunicações de nuvem para o dispositivo."
+title: Opções de nuvem para o dispositivo IoT Hub do Azure | Microsoft Docs
+description: Guia para programadores - orientações sobre quando utilizar métodos diretos, dispositivo duplo propriedades pretendidas ou mensagens da nuvem para o dispositivo para comunicações de nuvem para o dispositivo.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: dc8256022aca37823245ecb9a9326240f1c449c2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Orientações de comunicações da nuvem para o dispositivo
 IoT Hub fornece três opções para aplicações de dispositivos para expor a funcionalidade para uma aplicação de back-end:
@@ -26,6 +26,8 @@ IoT Hub fornece três opções para aplicações de dispositivos para expor a fu
 * [Direcionar métodos] [ lnk-methods] para comunicações que necessitam de confirmação imediata do resultado. Métodos diretos são frequentemente utilizados para controlo interactivo dos dispositivos como ativar uma ventoinha.
 * [Duplo do pretendido propriedades] [ lnk-twins] para comandos de longa execução que se destina a colocar o dispositivo para uma determinada pretendido estado. Por exemplo, defina o intervalo de envio de telemetria e 30 minutos.
 * [Mensagens da nuvem para dispositivo] [ lnk-c2d] para unidirecionais notificações para a aplicação de dispositivo.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Eis uma comparação detalhada das várias opções de comunicação de nuvem para o dispositivo.
 

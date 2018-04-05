@@ -1,8 +1,8 @@
 ---
-title: "Gerir o volume de dados e preços para o Azure Application Insights | Microsoft Docs"
+title: Gerir o volume de dados e preços para o Azure Application Insights | Microsoft Docs
 description: Volumes de telemetria de gerir e monitorizar os custos no Application Insights.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
@@ -11,96 +11,65 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 42c54509cedf48e9ebabb5b50865ed56e54bee05
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gerir o volume de preços e os dados no Application Insights
 
+Preços para [Azure Application Insights] [ start] baseia-se no volume de dados por aplicação. Cada recurso do Application Insights é cobrado como um serviço separado e contribui para a fatura para a sua subscrição para o Azure.
 
-Preços para [Azure Application Insights] [ start] baseia-se no volume de dados por aplicação. Baixa utilização durante a programação ou para uma aplicação pequena é provável que seja livre, porque não há um allowance mensal de 1 GB de dados de telemetria.
+Existem dois planos de preços. O plano predefinido é denominado básico que inclui todas as funcionalidades como o plano de Enterprise, sem custos de adição e faturas principalmente no volume de dados ingeridos mesmas. Se estiver a utilizar o Operations Management Suite, deve escolher para o plano, de que tem um por nó cobram juntamente com diariamente allowances de dados e, em seguida, cobrará um encargo para ingeridos acima o allowance incluído os dados da empresa.
 
-Cada recurso do Application Insights é cobrado como um serviço separado e contribui para a fatura para a sua subscrição para o Azure.
-
-Existem dois planos de preços. O plano predefinido é denominado básico. Pode optar pelas para o plano de empresa, que tem cobrada uma taxa diária, mas permite que determinadas funcionalidades adicionais, tais como [a exportação contínua](app-insights-export-telemetry.md).
-
-Se tiver dúvidas sobre como preços funciona para o Application Insights, não hesite em publicar uma pergunta nos nossos [fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights). 
+Se tiver dúvidas sobre como preços funciona para o Application Insights, não hesite em publicar uma pergunta nos nossos [fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights).
 
 ## <a name="the-price-plans"></a>Os planos de preços
 
-Consulte o [página de preços do Application Insights] [ pricing] para os preços atuais na moeda.
+Consulte o [página de preços do Application Insights] [ pricing] para os preços atuais na sua região e moeda.
 
 ### <a name="basic-plan"></a>Plano básico
 
-O plano básico é o predefinido quando é criado um novo recurso do Application Insights e será suffice para a maioria dos clientes.
+O plano básico é o predefinido quando é criado um novo recurso do Application Insights e é o ideal para todos os clientes, exceto aqueles com uma subscrição do Operations Management Suite.
 
 * No plano básico, são-lhe cobrados pelo volume de dados: número de bytes de telemetria recebida pelo Application Insights. Volume de dados é medido como o tamanho do pacote de dados JSON descomprimido recebido pelo Application Insights da sua aplicação.
-Para [importados para análise de dados de tabela](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), o volume de dados é medido como o tamanho descomprimido de ficheiros enviados para o Application Insights.  
-* O primeiro 1 GB para cada aplicação é gratuito, pelo que se estiver a apenas conseguirmos uma ou desenvolver, pode não ter de pagar.
+Para [importados para análise de dados de tabela](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), o volume de dados é medido como o tamanho descomprimido de ficheiros enviados para o Application Insights.
 * [Transmissão de velocidade de métricas](app-insights-live-stream.md) dados não estão contabilizados para fins de preço.
-* [A exportação contínua](app-insights-export-telemetry.md) está disponível para um custo por GB adicional no plano básico.
+* [A exportação contínua](app-insights-export-telemetry.md) e [conector de análise de registos](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) no plano básico a partir de Abril de 2018 estão disponíveis sem qualquer custo adicional.
 
-### <a name="enterprise-plan"></a>Plano empresarial
+### <a name="enterprise-plan-and-operations-management-suite-subscription-entitlements"></a>Plano de empresa e a elegibilidade de subscrição do Operations Management Suite
 
-* O plano de empresa, a aplicação pode utilizar todas as funcionalidades do Application Insights. [A exportação contínua](app-insights-export-telemetry.md) e 
+Os clientes que comprar E1 do Microsoft Operations Management Suite e E2 conseguem obter o Application Insights empresarial como um componente sem custos adicionais como [anteriormente anunciada](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/). Especificamente, cada unidade de Operations Management Suite E1 e E2 inclui uma elegibilidade para 1 nó do plano empresarial do Application Insights. Conforme descrito abaixo, mais detalhadamente, cada nó do Application Insights inclui até 200 MB de dados ingeridos por dia (separado da ingestão de dados de análise de registos), com retenção de dados de 90 dias sem custos adicionais. Uma vez que isso apenas se aplica aos clientes com uma subscrição do Operations Management Suite, os clientes sem uma subscrição não irão ver uma opção para selecionar este plano.
 
-[Conector de análise de registo](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) estão disponíveis sem qualquer custo adicional no plano de empresa.
-* Paga por nó que está a enviar telemetria para todas as aplicações no plano de empresa. 
- * A *nó* é um computador do servidor físico ou virtual ou uma instância de função de plataforma-como-um-serviço, o que aloja a aplicação.
- * Máquinas de desenvolvimento, os browsers cliente e dispositivos móveis não são contabilizados como nós.
- * Se a aplicação tiver vários componentes que enviam telemetria, como um serviço web e de um trabalho de back-end, estes são contadas separadamente.
- * [Transmissão de velocidade de métricas](app-insights-live-stream.md) dados não estão contados para os preços purposes.* através de uma subscrição, os encargos são por nó, não por aplicação. Se tiver cinco nós que envia a telemetria para 12 aplicações, em seguida, os encargos destina-se a cinco nós.
-* Embora os encargos são quoted por mês, está a cobrados apenas para qualquer hora em que um nó envia telemetria a partir de uma aplicação. A taxa de hora a hora é a taxa mensal delimitado por aspas / 744 (o número de horas num mês de 31 dias).
-* Para cada nó detetado (com granularidade horária) recebe uma atribuição de volume de dados de 200 MB por dia. Alocação de dados não utilizados não é executada de um dia para o seguinte.
- * Se escolher a opção de preços do Enterprise, cada subscrição recebe um allowance diária de dados com base no número de nós que envia a telemetria para os recursos do Application Insights nessa subscrição. Por isso, se tiver 5 nós enviar dados de todos os dias, terá um allowance agrupado de 1 GB aplicada a todos os recursos do Application Insights nessa subscrição. É irrelevante se determinados nós estão a enviar mais dados dos outros nós porque os dados incluídos são partilhados entre todos os nós. Se, num determinado dia, os recursos do Application Insights recebem mais dados do que está incluído na atribuição de dados diárias para esta subscrição, aplicam-se os encargos de dados excedido por GB. 
- * O diário allowance de dados é calculada como o número de horas do dia (utilizando a UTC) que cada nó está a enviar telemetria dividida pelo 200 MB de 24 horas. Para que o se tiver de 4 nós que envia a telemetria durante 15 de 24 horas do dia, os dados incluídos para esse dia seria ((4 x 15) / 24) x 200 MB = 500 MB. O preço 2.30 EUR por GB para excesso de dados, a taxa seria EUR 1.15 se os nós de envio de 1 GB de dados nesse dia.
- * Tenha em atenção que allowance diária o plano de empresa não está partilhado com aplicações para o qual tiver escolhido a opção básica e allowance não utilizada não transportado através de rotina. 
-* Seguem-se alguns exemplos de determinar o número de nós distintas:
-| Cenário                               | Contagem total de nó diária |
-|:---------------------------------------|:----------------:|
-| 1 aplicação está a utilizar 3 instâncias do App Service do Azure e o servidor virtual 1 | 4 |
-| 3 aplicações em execução no 2 VMs e os recursos do Application Insights para estas aplicações estão na mesma subscrição e no plano de Enterprise | 2 | 
-| 4 aplicações cujos recursos de informações de aplicações estão na mesma subscrição. Cada aplicação é executada 2 instâncias 16 horas de ponta e 4 instâncias durante 8 horas de pico. | 13.33 | 
-| Serviços em nuvem com a função de trabalho 1 e 1 função da Web, cada 2 instâncias em execução | 4 | 
-| executar 50 microserviços, cada serviço de micro 3 instâncias em execução de Cluster do nó de 5 Service Fabric | 5|
+> [!NOTE]
+> Para garantir que recebem esta elegibilidade, tem de ter os recursos do Application Insights na empresa plano de preços. Esta elegibilidade aplica-se apenas como nós de, pelo que os recursos do Application Insights no plano básico não serão tenha em consideração qualquer benefício em. Tenha em atenção que esta elegibilidade não ficará visível nos custos estimados apresentados no *utilização e o custo estimado* página. Além disso, se mover uma subscrição para o Azure novo modelo de preços de 2018 de Abril de monitorização, o plano básico será o plano apenas disponível para que não é aconselhada se tiver uma subscrição do Operations Management Suite.
 
-* O nó preciso contando comportamento depende em que a aplicação do Application Insights SDK está a utilizar. 
-  * Em versões do SDK 2.2 e em diante, tanto o Application Insights [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) ou [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) será relatório cada anfitrião de aplicações como um nó, por exemplo, o nome do computador para o servidor físico e anfitriões de VM ou o nome da instância no caso de serviços em nuvem.  A única exceção é aplicações utilizando apenas [.NET Core](https://dotnet.github.io/) e o Application Insights Core SDK, na qual maiúsculas apenas um nó será reportado para todos os anfitriões porque o nome do anfitrião não está disponível. 
-  * Para versões anteriores do SDK, o [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) irão comportar-se tal como as versões mais recentes do SDK, no entanto, a [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) comunicará apenas um nó, independentemente do número de anfitriões de aplicação real. 
-  * Tenha em atenção que se a aplicação estiver a utilizar o SDK ao definir roleInstance para um valor personalizado, por predefinição esse mesmo valor será utilizado para determinar o número de nós. 
-  * Se estiver a utilizar uma nova versão do SDK com uma aplicação que é executada a partir de dispositivos móveis ou computadores cliente, é possível que a contagem de nós pode devolver um número que é muito grande (a partir de elevado número de dispositivos móveis ou computadores cliente). 
+Para obter mais detalhes sobre o plano de Enterprise visitam o [página de detalhes de preços Enterprise.](app-insights-pricing-enterprise-details.md)
 
 ### <a name="multi-step-web-tests"></a>Testes Web com vários passos
 
-Há um custo adicional para [testes web com vários passos](app-insights-monitor-web-app-availability.md#multi-step-web-tests). Isto refere-se para testes web que execute uma sequência de ações. 
+Há um custo adicional para [testes web com vários passos](app-insights-monitor-web-app-availability.md#multi-step-web-tests). Isto refere-se para testes web que execute uma sequência de ações.
 
 Não há sem qualquer encargo separado para 'os testes de ping' de uma única página. A telemetria de testes de ping e testes de vários passos é cobrada juntamente com outra telemetria da sua aplicação.
- 
-## <a name="operations-management-suite-subscription-entitlement"></a>Elegibilidade de subscrição do Operations Management Suite
 
-Como [anunciou recentemente](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/), os clientes que comprar E1 do Microsoft Operations Management Suite e E2 conseguem obter o Application Insights empresarial como um componente sem custos adicionais. Especificamente, cada unidade de Operations Management Suite E1 e E2 inclui uma elegibilidade para 1 nó do plano empresarial do Application Insights. Conforme indicado acima, cada nó do Application Insights inclui até 200 MB de dados ingeridos por dia (separado da ingestão de dados de análise de registos), com retenção de dados de 90 dias sem custos adicionais. 
-
-> [!NOTE]
-> Para garantir que recebem esta elegibilidade, tem de ter os recursos do Application Insights na empresa plano de preços. Esta elegibilidade aplica-se apenas como nós de, pelo que os recursos do Application Insights no plano básico não serão tenha em consideração qualquer benefício em. Tenha em atenção que esta elegibilidade não ficará visível nos custos estimados apresentados na funcionalidades + preços do painel. 
->
- 
 ## <a name="review-pricing-plans-and-estimate-costs"></a>Reveja os planos de preços e estimar os custos
 
-Application Insights torna mais fácil de compreender os planos de preços disponíveis e que os custos são provável que ser com base nos padrões de utilização recente. Comece por abrir o **funcionalidades + preços** painel no recurso do Application Insights no portal do Azure:
+Application Insights torna mais fácil de compreender os planos de preços disponíveis e que os custos são provável que ser com base nos padrões de utilização recente. Comece por abrir o **utilização e os custos estimados** página no recurso do Application Insights no portal do Azure:
 
-![Escolha o preço.](./media/app-insights-pricing/01-pricing.png)
+![Escolha o preço.](./media/app-insights-pricing/pricing-001.png)
 
 **a.** Reveja o volume de dados para o mês. Isto inclui todos os dados recebidos e mantidos (após qualquer [amostragem](app-insights-sampling.md) do seu servidor e as aplicações cliente e de testes de disponibilidade.
 
 **b.** É efetuada cobrada uma taxa separada [testes web com vários passos](app-insights-monitor-web-app-availability.md#multi-step-web-tests). (Isto não incluir testes de disponibilidade simples, que estão incluídos na taxa de volume de dados.)
 
-**c.** Ative o plano de empresa.
+**c.** Ver tendências de volume de dados para o último mês.
 
-**d.** Clicar para dados opções de gestão para ver o volume de dados para o último mês, definir um limite diário ou defina a amostragem da ingestão.
+**d.** Ativar a ingestão de dados [amostragem.](app-insights-sampling.md) 
+
+**e.** Configure a extremidade de volume de dados diária.
 
 Custos do Application Insights são adicionados à fatura do Azure. Pode ver os detalhes do seu Azure cobrar na secção de faturação do portal do Azure ou no [Azure Billing Portal](https://account.windowsazure.com/Subscriptions). 
 
@@ -110,9 +79,8 @@ Custos do Application Insights são adicionados à fatura do Azure. Pode ver os 
 Existem três formas em que o volume de enviar dados está limitado:
 
 * **A amostragem:** pode ser utilizado este mecanismo de reduzir a quantidade de telemetria enviada das suas aplicações de servidor e cliente, com distortion mínima de métricas. Esta é a principal ferramenta que terá de ajustar a quantidade de dados. Saiba mais sobre [amostragem funcionalidades](app-insights-sampling.md). 
-* **Cap diária:** quando criar um recurso do Application Insights do portal do Azure está definido para 100 GB diário. A predefinição quando criar um recurso do Application Insights do Visual Studio, é pequeno (apenas 32.3 MB/dia) destina-se apenas a testar faciliate. Neste caso, destina-se que o utilizador irá elevar o limite diário antes de implementar a aplicação em produção. O limite máximo é diário 1000 GB, a menos que pediu um máximo superior para uma aplicação de tráfego elevado. Utilizar cuidado ao definir a cap diária, como deve ser a sua intenção **nunca para atingiu o limite diário**, porque, em seguida, irá perder dados para o resto do dia e não conseguir monitorizar a sua aplicação. Para alterá-lo, utilize o painel de extremidade de volume diária, ligações a partir do painel de gestão de volumes de dados (ver abaixo). Tenha em atenção que alguns tipos de subscrição tem crédito que não pode ser utilizado para o Application Insights. Se a subscrição tem um limite de gastos, o painel de extremidade diária tem instruções como removê-lo e ativar a cap diária gerado para além do diário 32.3 MB.  
-* **Limitação:** Isto limita a taxa de dados para k 32 eventos por segundo, apresentou uma média superior a 1 minuto. 
-
+* **Cap diária:** quando criar um recurso do Application Insights do portal do Azure está definido para 100 GB diário. A predefinição quando criar um recurso do Application Insights do Visual Studio, é pequeno (apenas 32.3 MB/dia), que é dirigido apenas para o facilitar a testar. Neste caso, destina-se que o utilizador irá elevar o limite diário antes de implementar a aplicação em produção. O limite máximo é diário 1000 GB, a menos que pediu um máximo superior para uma aplicação de tráfego elevado. Utilizar cuidado ao definir a cap diária, como deve ser a sua intenção **nunca para atingiu o limite diário**, porque, em seguida, irá perder dados para o resto do dia e não conseguir monitorizar a sua aplicação. Para alterá-lo, utilize a opção de extremidade de volume diária, ligada da utilização e a página de custos estimados (ver abaixo). Removemos a restrição em alguns tipos de subscrição que tem crédito que não pode ser utilizado para o Application Insights. Anteriormente, se a subscrição tem um limite de gastos, a caixa de diálogo de extremidade diária tem instruções como removê-lo e ativar a cap diária gerado para além do diário 32.3 MB.
+* **Limitação:** Isto limita a taxa de dados para 32,000 eventos por segundo, média ao longo de 1 minuto.
 
 *O que acontece se a taxa de limitação de exceder a minha aplicação?*
 
@@ -120,7 +88,7 @@ Existem três formas em que o volume de enviar dados está limitado:
 
 *Como sei a minha aplicação está a enviar quantidade de dados?*
 
-* Abra o **gestão de volumes de dados** painel para ver o gráfico de volume de dados diária. 
+* Abra o **utilização e o custo estimado** página para ver o gráfico de volume de dados diária. 
 * Ou, no Explorador de métricas, adicione um novo gráfico e selecione **volume do ponto de dados** como a métrica. Comutador no agrupamento e agrupar por **tipo de dados**.
 
 ## <a name="to-reduce-your-data-rate"></a>Para reduzir a velocidade de dados
@@ -134,16 +102,16 @@ Eis algumas coisas que pode fazer para reduzir o volume de dados:
 
 ## <a name="managing-the-maximum-daily-data-volume"></a>Gerir o volume de dados diária máximo
 
-Pode utilizar a extremidade de volume diária para limitar os dados recolhidos, mas se a extremidade for cumprida, irá resultar em perda de toda a telemetria enviada a partir da sua aplicação para o resto do dia. É **não recomendado** ter a sua aplicação para atingiu o limite diário, uma vez que não é possível controlar o estado de funcionamento e desempenho da aplicação depois é atingido. 
+Pode utilizar a extremidade de volume diária para limitar os dados recolhidos, mas se a extremidade for cumprida, irá resultar em perda de toda a telemetria enviada a partir da sua aplicação para o resto do dia. É **não recomendado** ter a sua aplicação para atingiu o limite diário, uma vez que não é possível controlar o estado de funcionamento e desempenho da aplicação depois é atingido.
 
-Em alternativa, utilize [amostragem](app-insights-sampling.md) para otimizar o volume de dados para o nível de seria como e utilizar a cap diária apenas como um "último recurso", no caso da aplicação começa a enviar muito superiores dos volumes de telemetria inesperadamente. 
+Em alternativa, utilize [amostragem](app-insights-sampling.md) para otimizar o volume de dados para o nível de seria como e utilizar a cap diária apenas como um "último recurso", no caso da aplicação começa a enviar muito superiores dos volumes de telemetria inesperadamente.
 
-Para alterar a cap diária, na secção de configuração do recurso do Application Insights, clique em **gestão de volumes de dados** , em seguida, **extremidade diária**.
+Para alterar a cap diária, na secção de configuração do recurso do Application Insights, o **utilização e os custos estimados** página, clique em **extremidade diária**.
 
-![Ajustar a extremidade de volume de telemetria diária](./media/app-insights-pricing/daily-cap.png) 
+![Ajustar a extremidade de volume de telemetria diária](./media/app-insights-pricing/pricing-003.png)
 
 ## <a name="sampling"></a>Amostragem
-[Amostragem](app-insights-sampling.md) é um método de reduzir a velocidade a que a telemetria é enviada para a sua aplicação, mantendo a capacidade para encontrar eventos relacionados durante pesquisas de diagnóstico, e ainda manter evento correto contagens. 
+[Amostragem](app-insights-sampling.md) é um método de reduzir a velocidade a que a telemetria é enviada para a sua aplicação, mantendo a capacidade para encontrar eventos relacionados durante pesquisas de diagnóstico, e ainda manter evento correto contagens.
 
 A amostragem é uma forma eficaz para reduzir os custos e permanecer dentro da sua quota mensal. O algoritmo de amostragem mantém relacionadas com itens de telemetria, para que, por exemplo, quando utilizar a pesquisa, pode encontrar o pedido relacionadas com uma exceção específica. O algoritmo mantém também contagens corretas, para que pode ver os valores corretos no Explorador de métrica de taxas de pedidos, taxas de exceção e outras contagens.
 
@@ -152,38 +120,35 @@ Existem várias formas de amostragem.
 * [Amostragem adaptável](app-insights-sampling.md) é a predefinição para o SDK do ASP.NET, que se ajusta automaticamente para o volume de telemetria que envia a sua aplicação. Funciona automaticamente no SDK na sua aplicação web, para que o tráfego de telemetria na rede é reduzido. 
 * *A amostragem de ingestão* é uma alternativa que opera no ponto onde a telemetria da sua aplicação introduz o serviço do Application Insights. Não afeta o volume de telemetria enviado a partir da sua aplicação, mas reduz o volume mantido pelo serviço. Pode utilizá-lo a reduzir a quota gastar pela telemetria de outros SDKs e browsers.
 
-Para configurar a amostragem de ingestão, defina o controlo no painel de preços:
+Para configurar a amostragem de ingestão, defina o controlo na caixa de diálogo de preços:
 
-![A Quota e o painel preço, clique no mosaico de exemplos e selecione uma fração de amostragem.](./media/app-insights-pricing/04.png)
+![A partir de Quota e a caixa de diálogo preço, clique no mosaico de exemplos e selecione uma fração de amostragem.](./media/app-insights-pricing/pricing-004.png)
 
 > [!WARNING]
-> O painel de amostragem de dados controla apenas o valor da amostragem da ingestão. Esta não reflete a frequência de amostragem que está a ser aplicada pelo Application Insights SDK na sua aplicação. Se a telemetria de entrada já amostragem no SDK, amostragem de ingestão não está aplicada.
-> 
+> A caixa de diálogo de amostragem de dados controla apenas o valor da amostragem da ingestão. Esta não reflete a frequência de amostragem que está a ser aplicada pelo Application Insights SDK na sua aplicação. Se a telemetria de entrada já amostragem no SDK, amostragem de ingestão não está aplicada.
+>
 
 Para detetar a frequência de amostragem real, independentemente de onde foi aplicado, utilize um [consulta de análise](app-insights-analytics.md) como esta:
 
     requests | where timestamp > ago(1d)
-    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
-    | render areachart 
+    | summarize 100/avg(itemCount) by bin(timestamp, 1h)
+    | render areachart
 
 Em cada retidos registo, `itemCount` indica o número de registos originais que representa, igual a 1 + o número de registos rejeitados anteriores. 
-
 
 ## <a name="automation"></a>Automatização
 
 Pode escrever um script para definir o plano de preços, utilizando a gestão de recursos do Azure. [Saiba como](app-insights-powershell.md#price).
 
 ## <a name="limits-summary"></a>Resumo de limites
+
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Amostragem](app-insights-sampling.md)
 
-<!--Link references-->
-
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
-

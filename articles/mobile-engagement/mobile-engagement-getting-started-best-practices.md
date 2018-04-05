@@ -1,11 +1,11 @@
 ---
-title: "Guia de Introdução do Azure Mobile Engagement com Melhores Práticas"
-description: "Guia de Introdução para o Azure Mobile Engagement e Melhores práticas para a integração"
+title: Guia de Introdução do Azure Mobile Engagement com Melhores Práticas
+description: Guia de Introdução para o Azure Mobile Engagement e Melhores práticas para a integração
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dfce1183-6398-466e-aa7e-ed702fb52818
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf9dc5febeae27473d2adb8a024536b945bb9d13
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement – Guia de Introdução com Melhores Práticas
+> [!IMPORTANT]
+> O Azure Mobile Engagement será descontinuado a 31/03/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 ## <a name="overview"></a>Descrição geral
 **O ecrã de um dispositivo móvel é um espaço muito movimentado:** em 2013, um estudo concluiu que um dispositivo móvel tinha em média 27 aplicações instaladas. Em geral, os utilizadores gastaram 30 horas por mês nas suas aplicações. A maior parte deste período de tempo foi despendida nas redes sociais e em jogos (cerca de 20 horas). Em 2014, o mercado Android tinha cerca de 1,5 milhões de aplicações ao dispor dos utilizadores. A Apple Store continha aproximadamente 1,2 milhões de aplicações. A utilização de aplicações móveis continua a aumentar, à medida que os programadores competem neste mercado em crescimento. 
 

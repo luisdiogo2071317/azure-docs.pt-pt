@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5979c0d79a0abd9897fd3970ccea1d9ba07f9dfd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler as mensagens de IoT Hub
 
-Para suportar a interoperabilidade totalmente integrada nos protocolos, o IoT Hub define um formato de mensagem comum para todos os protocolos de orientado para o dispositivo. Este formato de mensagem que é utilizado para [dispositivo para nuvem] [ lnk-d2c] e [nuvem para o dispositivo] [ lnk-c2d] mensagens. Um [mensagem do IoT Hub] [ lnk-messaging] é composta por:
+Para suportar a interoperabilidade totalmente integrada nos protocolos, o IoT Hub define um formato de mensagem comum para todos os protocolos de orientado para o dispositivo. Este formato de mensagem que é utilizado para [dispositivo para nuvem] [ lnk-d2c] e [nuvem para o dispositivo] [ lnk-c2d] mensagens. 
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+Um [mensagem do IoT Hub] [ lnk-messaging] é composta por:
 
 * Um conjunto de *propriedades do sistema*. Propriedades que o IoT Hub interpreta ou define. Este conjunto é predeterminado.
 * Um conjunto de *propriedades da aplicação*. Um dicionário de propriedades de cadeia que pode definir a aplicação e o acesso, sem necessidade de anular a serialização do corpo da mensagem. IoT Hub nunca modifica estas propriedades.
@@ -62,7 +66,7 @@ IoT Hub mede o tamanho da mensagem de uma forma de protocolo agnóstico, conside
 
 Valores e nomes de propriedade são limitados aos carateres ASCII, pelo que o comprimento das cadeias é igual ao tamanho em bytes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre limites de tamanho da mensagem no IoT Hub, consulte [quotas do IoT Hub e a limitação][lnk-quotas].
 

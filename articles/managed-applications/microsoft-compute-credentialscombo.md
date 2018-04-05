@@ -1,6 +1,6 @@
 ---
-title: "Elemento de IU de CredentialsCombo de aplicação gerida do Azure | Microsoft Docs"
-description: "Descreve o elemento de IU Microsoft.Compute.CredentialsCombo para aplicações geridas do Azure"
+title: Elemento de IU CredentialsCombo do Azure | Microsoft Docs
+description: Descreve o elemento de IU Microsoft.Compute.CredentialsCombo para o portal do Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8faa36aca762bc8d787d5750fcf7efdbaf986ea
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: c17677a9e34de4c1afca8f04c8bd22c2155c3439
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento de IU Microsoft.Compute.CredentialsCombo
-Um grupo de controlos com validação incorporadas para palavras-passe do Windows e Linux e das chaves públicas SSH. Utilize este elemento quando [criar uma aplicação gerida do Azure](publish-service-catalog-app.md).
+Um grupo de controlos com validação incorporadas para palavras-passe do Windows e Linux e das chaves públicas SSH.
 
 ## <a name="ui-sample"></a>Exemplo de IU
 ![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
@@ -82,7 +82,7 @@ Se `osPlatform` é **Linux**, será utilizado o esquema seguinte:
 ```
 
 ## <a name="remarks"></a>Observações
-- `osPlatform`tem de ser especificado e pode ser **Windows** ou **Linux**.
+- `osPlatform` tem de ser especificado e pode ser **Windows** ou **Linux**.
 - Se `constraints.required` está definido como **verdadeiro**, em seguida, a palavra-passe ou as caixas de texto de chave pública SSH tem de conter valores para validar com êxito. O valor predefinido é **verdadeiro**.
 - Se `options.hideConfirmation` está definido como **verdadeiro**, em seguida, a segunda caixa de texto para confirmar a palavra-passe do utilizador está oculto. O valor predefinido é **falso**.
 - Se `options.hidePassword` está definido como **verdadeiro**, em seguida, a opção para utilizar a autenticação de palavra-passe está oculto. Pode ser utilizado apenas quando `osPlatform` é **Linux**. O valor predefinido é **falso**.
@@ -107,6 +107,5 @@ Se o utilizador forneceu uma chave pública SSH, em seguida, é esperado o segui
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para uma introdução para aplicações geridas, consulte [descrição geral do Azure gerida aplicações](overview.md).
 * Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição de propriedades comuns de elementos de IU, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).

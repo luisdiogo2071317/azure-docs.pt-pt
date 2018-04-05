@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 300b9b7786c17972c5c48df7e5b6d28491adc095
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -30,7 +30,7 @@ A amostragem reduz os custos de tráfego e os dados e ajuda a evitar a limitaç�
 ## <a name="in-brief"></a>Em breve:
 * A amostragem mantém 1 na *n* regista e elimina o resto. Por exemplo, este poderá manter 1 em 5 eventos, uma frequência de amostragem de 20%. 
 * A amostragem ocorre automaticamente se a aplicação envia uma grande quantidade de telemetria, nas aplicações de servidor web ASP.NET.
-* Também pode definir amostragem manualmente no portal da página de preços; ou no SDK do ASP.NET no ficheiro. config; ou o SDK de Java no ficheiro ApplicationInsights.xml, também reduzir o tráfego de rede.
+* Também pode definir amostragem manualmente, no portal na utilização da e estimado custos de página; ou no SDK do ASP.NET no ficheiro. config; ou o SDK de Java no ficheiro ApplicationInsights.xml, também reduzir o tráfego de rede.
 * Se o registo de eventos personalizados e pretender certificar-se de que um conjunto de eventos é mantido ou eliminado em conjunto, certifique-se de que têm o mesmo valor de OperationId.
 * O divisor amostragem *n* é considerado em cada registo na propriedade `itemCount`, que na pesquisa é apresentado sob o nome amigável "contagem de pedido" ou "contagem de eventos". Quando a amostragem não se encontra numa operação, `itemCount==1`.
 * Se escrever consultas de análises, deve [tomar conta da amostragem](app-insights-analytics-tour.md#counting-sampled-data). Em particular, em vez de registos de contagem simplesmente, deve utilizar `summarize sum(itemCount)`.
@@ -49,7 +49,7 @@ Esta forma de amostragem funciona no ponto onde a telemetria do seu servidor web
 
 Utilize este tipo de amostragem se a sua aplicação, muitas vezes, passa pela respetiva quota mensal e não tem a opção de utilizar um dos tipos de baseado no SDK de amostragem. 
 
-Defina a frequência de amostragem nas Quotas e preços painel:
+Defina a frequência de amostragem na página de custos estimados e utilização:
 
 ![No painel de descrição geral de aplicação, clique em definições, quotas, amostras, em seguida, selecione uma frequência de amostragem e clique em Atualizar.](./media/app-insights-sampling/04.png)
 

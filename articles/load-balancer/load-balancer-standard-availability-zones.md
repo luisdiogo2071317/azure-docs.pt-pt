@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 03/29/2018
 ms.author: kumud
-ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f5d46fda6bdb32c1a5000883c6aedb2da15e796a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de carga padrão e zonas de disponibilidade
 
 SKU Standard do Azure do Balanceador de carga suporta [disponibilidade zonas](../availability-zones/az-overview.md) cenários. Vários novos conceitos estão disponíveis com o Balanceador de carga padrão, que lhe permitem otimizar disponibilidade no seu cenário de ponto a ponto ao alinhar recursos com zonas, bem como distribuí-los através de zonas.  Reveja [disponibilidade zonas](../availability-zones/az-overview.md) para obter orientações sobre o que são zonas de disponibilidade, as regiões que suportam atualmente zonas de disponibilidade e de outras relacionadas com produtos e conceitos. Zonas de disponibilidade em combinação com o padrão de Balanceador de carga é um conjunto de funcionalidades amplo e flexível que pode criar vários cenários diferentes.  Reveja este documento não compreende-las [conceitos](#concepts) e cenário fundamental [conceber de orientações](#design).
 
 >[!NOTE]
->Reveja [pré-visualização de zonas de disponibilidade](https://aka.ms/availabilityzones) para outros relacionadas com tópicos. 
+>Reveja [disponibilidade zonas](https://aka.ms/availabilityzones) para outros relacionadas com tópicos. 
 
 ## <a name="concepts"></a> Conceitos de zonas de disponibilidade aplicados ao balanceador de carga
 
@@ -39,11 +39,11 @@ Público e interno Load Balancer suporta cenários com redundância de zona e zo
 
 Um recurso de Balanceador de carga em si é regional e nunca zonal.  E uma VNet e sub-rede estão sempre regional e nunca zonal.
 
-### <a name="frontend"></a>Front-end
+### <a name="frontend"></a>Frontend
 
 Um front-end de Balanceador de carga é uma configuração de IP de front-end que façam referência um recurso de endereço IP público ou um endereço IP privado dentro da sub-rede de um recurso de rede virtual.  Compõe o ponto final com balanceamento de carga em que o seu serviço é exposto.
 
-Um recurso de Balanceador de carga pode conter frontends zonal e com redundância de zona em simultâneo.
+Um recurso de Balanceador de carga pode conter frontends zonal e com redundância de zona em simultâneo. 
 
 Quando um recurso IP público tem sido garantido para uma zona, o zonality (ou a sua falta) não é mutável.  Se pretender alterar ou omita o zonality de front-end IP público, tem de recriar o IP público da zona apropriada.  
 
@@ -216,6 +216,8 @@ Não há nenhum orientações gerais que um é uma melhor opção que outros sem
 
 - Enquanto os dados plane é totalmente com redundância de zona (a menos que foi especificada a garantia zonal), controlo plane operações não são totalmente com redundância de zona.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [zonas de disponibilidade](../availability-zones/az-overview.md)
 - Saiba mais sobre [padrão Balanceador de carga](load-balancer-standard-overview.md)
+- Saiba como [balanceamento de carga de VMs dentro de uma zona com um balanceador de carga padrão zonal front-end](load-balancer-standard-public-zonal-cli.md)
+- Saiba como [balanceamento de carga de VMs em horários com um balanceador de carga padrão de front-end com redundância de zona](load-balancer-standard-public-zone-redundant-cli.md)

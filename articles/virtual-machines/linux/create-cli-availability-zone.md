@@ -4,29 +4,29 @@ description: Criar uma VM com Linux numa zona de disponibilidade com a CLI do Az
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/27/2018
 ms.author: danlep
-ms.custom: 
-ms.openlocfilehash: e31eb02fda7ade027225c428c5b15804ebc6f182
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: cfc3fbf5432108222ee7941d92d78e49d3eaed78
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Criar uma máquina virtual Linux uma zona de disponibilidade com a CLI do Azure
 
 Passos neste artigo, através de utilizar a CLI do Azure para criar uma VM com Linux numa zona de disponibilidade do Azure. Uma [zona de disponibilidade](../../availability-zones/az-overview.md) é uma zona separada fisicamente numa região do Azure. Utilize as zonas de disponibilidade para proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo.
 
-[!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
+Para utilizar uma zona de disponibilidade, crie a máquina virtual num [suportado região do Azure](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
 Certifique-se de que instalou a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e com sessão iniciada numa conta do Azure com [início de sessão az](/cli/azure/reference-index#az_login).
 
@@ -43,19 +43,19 @@ az vm list-skus --location eastus2 --output table
 O resultado será semelhante ao seguinte exemplo condensado, que mostra as Zonas de Disponibilidade em que cada tamanho de VM está disponível:
 
 ```azurecli
-ResourceType      Locations  Name               Tier       Size     Zones
-----------------  ---------  -----------------  ---------  -------  -------
-virtualMachines   eastus2    Standard_DS1_v2    Standard   DS1_v2   1,2,3
-virtualMachines   eastus2    Standard_DS2_v2    Standard   DS2_v2   1,2,3
+ResourceType      Locations  Name               [...]    Tier       Size     Zones
+----------------  ---------  -----------------           ---------  -------  -------
+virtualMachines   eastus2    Standard_DS1_v2             Standard   DS1_v2   1,2,3
+virtualMachines   eastus2    Standard_DS2_v2             Standard   DS2_v2   1,2,3
 [...]
-virtualMachines   eastus2    Standard_F1s       Standard   F1s      1,2,3
-virtualMachines   eastus2    Standard_F2s       Standard   F2s      1,2,3
+virtualMachines   eastus2    Standard_F1s                Standard   F1s      1,2,3
+virtualMachines   eastus2    Standard_F2s                Standard   F2s      1,2,3
 [...]
-virtualMachines   eastus2    Standard_D2s_v3    Standard   D2_v3    1,2,3
-virtualMachines   eastus2    Standard_D4s_v3    Standard   D4_v3    1,2,3
+virtualMachines   eastus2    Standard_D2s_v3             Standard   D2_v3    1,2,3
+virtualMachines   eastus2    Standard_D4s_v3             Standard   D4_v3    1,2,3
 [...]
-virtualMachines   eastus2    Standard_E2_v3     Standard   E2_v3    1,2,3
-virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
+virtualMachines   eastus2    Standard_E2_v3              Standard   E2_v3    1,2,3
+virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2,3
 ```
 
 
@@ -63,9 +63,9 @@ virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create).  
 
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de uma máquina virtual. Neste exemplo, um grupo de recursos denominado *myResourceGroupVM* é criado no *eastus2* região. East US 2 (E.U.A. Leste 2) é uma das regiões do Azure que suporta zonas de disponibilidade em modo de pré-visualização.
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de uma máquina virtual. Neste exemplo, um grupo de recursos denominado *myResourceGroupVM* é criado no *eastus2* região. E.u. a leste 2 é uma das regiões do Azure suporta zonas de disponibilidade.
 
-```azurecli-interactive 
+```azurecli 
 az group create --name myResourceGroupVM --location eastus2
 ```
 
@@ -75,7 +75,7 @@ O grupo de recursos é especificado ao criar ou modificar uma VM, que pode ser v
 
 Crie uma máquina virtual com o comando [az vm create](/cli/azure/vm#az_vm_create). 
 
-Ao criar uma máquina virtual, várias opções estão disponíveis, como a imagem do sistema operativo, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, é criada uma máquina virtual com o nome *myVM* a executar o Servidor Ubuntu. A VM é criada na zona de disponibilidade *1*. Por predefinição, a VM é criada no *Standard_DS1_v2* tamanho. Este tamanho é suportado a pré-visualização de zonas de disponibilidade.
+Ao criar uma máquina virtual, várias opções estão disponíveis, como a imagem do sistema operativo, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, é criada uma máquina virtual com o nome *myVM* a executar o Servidor Ubuntu. A VM é criada na zona de disponibilidade *1*. Por predefinição, a VM é criada no *Standard_DS1_v2* tamanho.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
@@ -83,10 +83,10 @@ az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --
 
 A criação da VM pode demorar alguns minutos. Quando a VM tiver sido criada, a CLI do Azure produz informações sobre a VM. Tome nota do `zones` valor que indica a zona de disponibilidade no qual a VM está em execução. 
 
-```azurecli-interactive 
+```azurecli 
 {
   "fqdns": "",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
   "location": "eastus2",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
@@ -97,34 +97,81 @@ A criação da VM pode demorar alguns minutos. Quando a VM tiver sido criada, a 
 }
 ```
 
-## <a name="zone-for-ip-address-and-managed-disk"></a>Zona para o endereço IP e o disco gerido
+## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>Confirme a zona de disco gerido e endereço IP
 
-Quando a VM está implementada uma zona de disponibilidade, o endereço IP e os recursos de disco gerido são implementados no mesmo horário de disponibilidade. Os exemplos seguintes obtém informações sobre estes recursos.
+Quando a VM está implementada uma zona de disponibilidade, é criado um disco gerido para a VM no mesmo horário de disponibilidade. Por predefinição, um endereço IP público também é criado nessa zona. Os exemplos seguintes obtém informações sobre estes recursos.
 
-Primeiro utilizar o [az lista-endereços ip vm-](/cli/azure/vm#az_vm_list_ip_addresses) comando para devolver o nome do recurso de endereço IP público na *myVM*. Neste exemplo, o nome é armazenado numa variável que é utilizada num passo posterior.
+Para verificar se o disco gerido a VM está na zona de disponibilidade, utilize o [mostrar de vm az](/cli/azure/vm#az_vm_show) comando para devolver o id de disco. Neste exemplo, o id de disco é armazenado numa variável que é utilizada num passo posterior. 
 
 ```azurecli-interactive
+osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
+```
+Agora pode obter informações sobre o disco gerido:
+
+```azurecli-interactive
+az disk show --resource-group myResourceGroupVM --name $osdiskname
+```
+
+O resultado mostra que o disco gerido está na mesma zona de disponibilidade que a VM:
+
+```azurecli
+{
+  "creationData": {
+    "createOption": "FromImage",
+    "imageReference": {
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westeurope/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/latest",
+      "lun": null
+    },
+    "sourceResourceId": null,
+    "sourceUri": null,
+    "storageAccountId": null
+  },
+  "diskSizeGb": 30,
+  "encryptionSettings": null,
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/disks/osdisk_761c570dab",
+  "location": "eastus2",
+  "managedBy": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
+  "name": "myVM_osdisk_761c570dab",
+  "osType": "Linux",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroupVM",
+  "sku": {
+    "name": "Premium_LRS",
+    "tier": "Premium"
+  },
+  "tags": {},
+  "timeCreated": "2018-03-05T22:16:06.892752+00:00",
+  "type": "Microsoft.Compute/disks",
+  "zones": [
+    "1"
+  ]
+}
+```
+
+Utilize o [az lista-endereços ip vm-](/cli/azure/vm#az_vm_list_ip_addresses) comando para devolver o nome do recurso de endereço IP público na *myVM*. Neste exemplo, o nome é armazenado numa variável que é utilizada num passo posterior.
+
+```azurecli
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)
 ```
 
 Agora pode obter informações sobre o endereço IP:
 
-```azurecli-interactive
+```azurecli
 az network public-ip show --resource-group myResourceGroupVM --name $ipaddressname
 ```
 
 O resultado mostra que o endereço IP está na mesma zona de disponibilidade da VM:
 
-```azurecli-interactive
+```azurecli
 {
   "dnsSettings": null,
   "etag": "W/\"b7ad25eb-3191-4c8f-9cec-c5e4a3a37d35\"",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Network/publicIPAddresses/myVMPublicIP",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Network/publicIPAddresses/myVMPublicIP",
   "idleTimeoutInMinutes": 4,
   "ipAddress": "52.174.34.95",
   "ipConfiguration": {
     "etag": null,
-    "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM",
+    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM",
     "name": null,
     "privateIpAddress": null,
     "privateIpAllocationMethod": null,
@@ -147,55 +194,6 @@ O resultado mostra que o endereço IP está na mesma zona de disponibilidade da 
   ]
 }
 ```
-
-Da mesma forma, certifique-se de que o disco gerido a VM está na zona de disponibilidade. Utilize o comando [az vm show](/cli/azure/vm#az_vm_show) para obter o id do disco. Neste exemplo, o id de disco é armazenado numa variável que é utilizada num passo posterior. 
-
-```azurecli-interactive
-osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
-```
-Agora pode obter informações sobre o disco gerido:
-
-```azurecli-interactive
-az disk show --resource-group myResourceGroupVM --name $osdiskname
-```
-
-O resultado mostra que o disco gerido está na mesma zona de disponibilidade que a VM:
-
-```azurecli-interactive
-{
-  "creationData": {
-    "createOption": "FromImage",
-    "imageReference": {
-      "id": "/Subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/Providers/Microsoft.Compute/Locations/westeurope/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/latest",
-      "lun": null
-    },
-    "sourceResourceId": null,
-    "sourceUri": null,
-    "storageAccountId": null
-  },
-  "diskSizeGb": 30,
-  "encryptionSettings": null,
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/disks/osdisk_761c570dab",
-  "location": "eastus2",
-  "managedBy": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "name": "osdisk_761c570dab",
-  "osType": "Linux",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroupVM",
-  "sku": {
-    "name": "Premium_LRS",
-    "tier": "Premium"
-  },
-  "tags": {},
-  "timeCreated": "2017-09-05T22:16:06.892752+00:00",
-  "type": "Microsoft.Compute/disks",
-  "zones": [
-    "1"
-  ]
-}
-```
- 
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

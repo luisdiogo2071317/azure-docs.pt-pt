@@ -1,25 +1,25 @@
 ---
 title: Localizar e eliminar desanexados discos geridos e do Azure | Microsoft Docs
-description: "Como localizar e eliminar desanexados discos do Azure geridos e não geridas (blobs de páginas/VHDs) por utilizar o Azure PowerShell."
+description: Como localizar e eliminar desanexados discos do Azure geridos e não geridas (blobs de páginas/VHDs) por utilizar o Azure PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: ramankumarlive
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 03/30/2018
 ms.author: ramankum
-ms.openlocfilehash: 15c2550472156d5c1f680af77df2fe771edf3444
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d908cdcd9e77f91a726f985d21bdc5bbc80ffd27
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Localizar e eliminar desanexados discos geridos e do Azure
 Quando elimina uma máquina virtual (VM) no Azure, por predefinição, não são eliminados todos os discos que estão ligados à VM. Esta funcionalidade ajuda a evitar perda de dados devido a eliminação não intencional de VMs. Depois de uma VM é eliminada, continuará a pagar para os discos não ligados. Este artigo mostra como encontrar e eliminar quaisquer discos desanexados e reduzir os custos desnecessários. 
@@ -127,7 +127,7 @@ foreach($storageAccount in $storageAccounts){
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Eliminar conta do storage](../../storage/common/storage-create-storage-account.md)
 

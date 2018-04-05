@@ -1,6 +1,6 @@
 ---
-title: "Perguntas mais frequentes sobre a migração de armazenamento do Azure | Microsoft Docs"
-description: "Respostas a questões recorrentes sobre migrar armazenamento do Azure"
+title: Perguntas mais frequentes sobre a migração de armazenamento do Azure | Microsoft Docs
+description: Respostas a questões recorrentes sobre migrar armazenamento do Azure
 services: storage
 documentationcenter: na
 author: genlin
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 89d1a4767c240c7e4fedb9d7ac47d6d4fb0aa737
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração de armazenamento do Azure
 
@@ -168,7 +168,7 @@ Utilize o AzCopy para transferir os dados. Para obter mais informações, consul
 
 **Como posso alterar a localização secundária para a região Europa para uma conta de armazenamento?**
 
-Quando cria uma conta de armazenamento, selecione a região primária para a conta. A seleção da região secundária é com base na região primária e não pode ser alterada. Para obter mais informações, consulte [replicação de armazenamento do Azure](storage-redundancy.md).
+Quando cria uma conta de armazenamento, selecione a região primária para a conta. A seleção da região secundária é com base na região primária e não pode ser alterada. Para obter mais informações, consulte [armazenamento georredundante (GRS): a replicação entre regionais para armazenamento do Azure](storage-redundancy.md).
 
 **Onde posso obter mais informações sobre a encriptação de serviço de armazenamento do Azure (SSE)?**  
   
@@ -284,7 +284,7 @@ Para conceder acesso a outras pessoas para os recursos de armazenamento:
 
     - **SAS token**: utilizar um token SAS para aceder a dados do ponto final. Para obter mais informações, consulte [utilizar assinaturas de acesso partilhado](storage-dotnet-shared-access-signature-part-1.md).
 
-**Como utilizar um domínio personalizado de HTTPS com a minha conta de armazenamento? Por exemplo, como torno "https://mystorageaccountname.blob.core.windows.net/images/image.gif" aparecem como "https://www.contoso.com/images/image.gif"?**
+**Como utilizar um domínio personalizado de HTTPS com a minha conta de armazenamento? Por exemplo, como torno "https://mystorageaccountname.blob.core.windows.net/images/image.gif"aparecem como"https://www.contoso.com/images/image.gif"?**
 
 SSL não é actualmente suportado nas contas de armazenamento com domínios personalizados.
 Mas pode utilizar domínios personalizados não-HTTPS. Para obter mais informações, consulte [configurar um nome de domínio personalizado para o ponto de final do Blob storage](../blobs/storage-custom-domain-name.md).

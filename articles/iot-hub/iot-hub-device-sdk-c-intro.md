@@ -1,11 +1,11 @@
 ---
 title: O dispositivo IoT do Azure SDK para C | Microsoft Docs
-description: "Introdução ao dispositivo IoT do Azure SDK para C e saiba como criar aplicações de dispositivos que comunicam com um IoT hub."
+description: Introdução ao dispositivo IoT do Azure SDK para C e saiba como criar aplicações de dispositivos que comunicam com um IoT hub.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e448b061-6bdd-470a-a527-15ec03cca7b9
 ms.service: iot-hub
 ms.devlang: cpp
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: cc559a19f6d7c31b3bc00a74851f4d42719832de
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6a85ae65a0f20892b3a20656abac05e90538a1bd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Dispositivos de IoT do Azure SDK para C
 
 O **dispositivos IoT do Azure SDK** é um conjunto de bibliotecas concebidos para simplificar o processo de envio de mensagens e receber mensagens do **IoT Hub do Azure** serviço. Existem diferentes variações do SDK, cada direcionada para uma plataforma específica, mas este artigo descreve o **dispositivos de IoT do Azure SDK para C**.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 O dispositivo IoT do Azure SDK para C é escrito em ANSI C (C99) para maximizar a portabilidade. Esta funcionalidade torna as bibliotecas adequada para operar em várias plataformas e dispositivos, especialmente quando minimiza o disco e requisitos de espaço de memória é uma prioridade.
 

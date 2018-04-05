@@ -1,33 +1,33 @@
 ---
-title: "Criação de partições e o dimensionamento horizontal do BD Azure Cosmos | Microsoft Docs"
-description: "Saiba mais sobre funciona como criação de partições de BD do Cosmos do Azure, como configurar a criação de partições e chaves de partição e como escolher a chave de partição adequado para a sua aplicação."
+title: Criação de partições e o dimensionamento horizontal do BD Azure Cosmos | Microsoft Docs
+description: Saiba mais sobre funciona como criação de partições de BD do Cosmos do Azure, como configurar a criação de partições e chaves de partição e como escolher a chave de partição adequado para a sua aplicação.
 services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 149d2ba5108fb49741203fbe5c50add6c0d523ae
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e o dimensionamento do BD Azure Cosmos
 
 [BD do Azure do Cosmos](https://azure.microsoft.com/services/cosmos-db/) é um serviço de base de dados globalmente distribuída, multimodel concebido para ajudar a alcançar um desempenho previsível e rápido. -Dimensiona de forma totalmente integrada, juntamente com a sua aplicação à medida que o que aumenta. Este artigo fornece uma descrição geral de como funciona para todos os dados de criação de partições modelos do BD Azure Cosmos. Também descreve como pode configurar a base de dados do Azure Cosmos contentores de forma eficaz dimensionar as suas aplicações.
 
-Divisão em partições e chaves de partição são apresentadas neste Azure sexta-feira vídeo com autoria de Scott Hanselman e o Azure Cosmos BD Principal de engenharia Manager, Shireesh Thota:
+Divisão em partições e chaves de partição são debatidas neste vídeo com o Azure Cosmos DB programa Manager, Andrew Liu:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>A criação de partições no Azure Cosmos DB
@@ -53,11 +53,11 @@ No brief, eis como criação de partições funciona do BD Azure Cosmos:
 * Nos bastidores, base de dados do Azure Cosmos Aprovisiona partições necessárias para servir **T** pedidos por segundo. Se **T** é superior ao débito máximo por partição **t**, em seguida, a base de dados do Azure Cosmos Aprovisiona **N = T/t** partições.
 * BD do Azure do Cosmos aloca uniformemente across hashes de chaves de espaço de chave de partição a **N** partições. Deste modo, anfitriões cada partição (partição física) **1/N** (partições lógicas) de valores de chave de partição.
 * Quando uma partição física **p** atingir o limite de armazenamento, base de dados do Azure Cosmos perfeitamente divide **p** em duas novas partições **p1** e **p2** . Distribui-lo valores que correspondem a meio aproximadamente as chaves para cada uma das partições. Dividir a operação é invisível à sua aplicação. Se uma partição física atinge o limite de armazenamento e todos os dados na partição física pertence a mesma chave de partição lógica, a operação de divisão não ocorrer. Isto acontece porque todos os dados para uma chave de partição lógica única tem de residir na mesma partição física e, por conseguinte, a partição física não pode ser dividida em p1 e p2. Neste caso, deve ser utilizada uma estratégia de chave de partição diferentes.
-* Quando aprovisionar o débito superior  **t*N**, base de dados do Azure Cosmos divide uma ou mais das suas partições para suportar um maior débito.
+* Quando aprovisionar o débito superior **t * N**, base de dados do Azure Cosmos divide uma ou mais das suas partições para suportar um maior débito.
 
 A semântica para as chaves de partição é ligeiramente diferente para corresponder a semântica de cada API, conforme mostrado na seguinte tabela:
 
-| API | Chave de partição | Chave de linha |
+| API | Chave de partição | Chave da fila |
 | --- | --- | --- |
 | Azure Cosmos DB | caminho da chave de partição personalizado | `id` corrigido | 
 | MongoDB | Chave partilhada personalizada  | `_id` corrigido | 
@@ -70,7 +70,7 @@ BD do Azure do Cosmos utiliza a criação de partições com base em hash. Quand
 > É uma melhor prática de ter uma chave de partição com vários valores distintos (centenas e os milhares, no mínimo).
 >
 
-Contentores do Cosmos BD do Azure podem ser criados como *fixo* ou *ilimitados* no portal do Azure. Os contentores de tamanho fixo têm um limite máximo de 10 GB e 10 000 de RU/s débito. Para criar um contentor como ilimitado, tem de especificar um débito mínimo de 1.000 RU/s e tem de especificar uma chave de partição.
+Contentores do Cosmos BD do Azure podem ser criados como *fixo* ou *ilimitados* no portal do Azure. Os contentores de tamanho fixo têm um limite máximo de 10 GB e débito de 10 000 de RU/s. Para criar um contentor como ilimitado, tem de especificar um débito mínimo de 1.000 RU/s e tem de especificar uma chave de partição.
 
 É uma boa ideia confirmar a forma como os seus dados são distribuídos em partições. Para verificar isto no portal, aceda à sua conta de base de dados do Azure Cosmos e clique em **métricas** no **monitorização** secção e, em seguida, no painel direito, clique em **armazenamento** separador para ver como os seus dados são partições na partição física diferente.
 
@@ -99,7 +99,7 @@ BD do Azure do Cosmos foi concebida para um desempenho previsível. Quando cria 
 ## <a name="work-with-the-azure-cosmos-db-apis"></a>Trabalhar com o Azure Cosmos APIs de base de dados
 Pode utilizar o portal do Azure ou a CLI do Azure para criar contentores e dimensioná-los em qualquer altura. Esta secção mostra como criar contentores e especifique a definição de chave de partição e débito em cada uma das APIs suportados.
 
-### <a name="azure-cosmos-db-api"></a>API do Azure Cosmos DB
+### <a name="azure-cosmos-db-api"></a>Azure Cosmos DB API
 O exemplo seguinte mostra como criar um contentor (coleção), utilizando a API de BD do Cosmos do Azure. 
 
 ```csharp

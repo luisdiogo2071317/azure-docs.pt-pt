@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: cdda3fbe2aff40e26c6086e87ef3e05670c3419f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2372b6bd91dfb1c33456b42e91aa2496532796ef
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aderir a um tempo de execução de integração do Azure-SSIS a uma rede virtual
 Associe o seu tempo de execução de integração do Azure-SSIS (IR) a uma rede virtual do Azure nos seguintes cenários: 
 
-- Estão a alojar o SQL Server Integration Services (SSIS) catálogo de dados no Azure instância SQL Server da base de dados geridos (pré-visualização privada) numa rede virtual.
+- Estão a alojar o SQL Server Integration Services (SSIS) catálogo de dados no Azure instância SQL Server da base de dados geridos (pré-visualização) numa rede virtual.
 - Pretende ligar a arquivos de dados no local a partir de pacotes de SSIS em execução no integration runtime do Azure-SSIS.
 
  O Azure Data Factory versão 2 (pré-visualização) permite-lhe associar o seu tempo de execução de integração do Azure SSIS para uma rede virtual criadas através do modelo de implementação clássica ou o modelo de implementação Azure Resource Manager. 
@@ -34,12 +34,12 @@ Se acedem a pacotes SSIS arquivos de dados de nuvem pública apenas, não precis
 
 Se o catálogo do SSIS é alojado numa instância de SQL Database do Azure que não está na rede virtual, terá de abrir as portas adequadas. 
 
-Se o catálogo SSIS estiver alojado numa instância de geridos de base de dados do SQL Server numa rede virtual, pode associar uma resposta a incidentes SSIS do Azure para:
+Se o catálogo SSIS está alojado na instância SQL Server da base de dados geridos (pré-visualização) numa rede virtual, pode associar uma resposta a incidentes SSIS do Azure para:
 
 - A mesma rede virtual.
-- Uma rede virtual diferente que tenha uma ligação de rede de rede com que a instância de gerido da base de dados do SQL Server. 
+- Uma rede virtual diferente que tenha uma ligação de rede de rede com um que tenha a instância SQL Server da base de dados geridos (pré-visualização). 
 
-A rede virtual pode ser implementada através do modelo de implementação clássico ou modelo de implementação Azure Resource Manager. Se estiver a planear para associar a resposta a incidentes SSIS do Azure *mesma rede virtual* com a instância de gerido da base de dados do SQL Server, certifique-se de que a resposta a incidentes SSIS do Azure está a ser um *outra sub-rede* daquele que tenha a base de dados SQL Instância gerida.   
+A rede virtual pode ser implementada através do modelo de implementação clássico ou modelo de implementação Azure Resource Manager. Se estiver a planear para associar a resposta a incidentes SSIS do Azure *mesma rede virtual* que tenha a instância SQL Server da base de dados geridos (pré-visualização), certifique-se de que a resposta a incidentes SSIS do Azure está a ser um *outra sub-rede* daquele que tenha o SQL Server Instância gerido da base de dados (pré-visualização).   
 
 As secções seguintes fornecem mais detalhes.
 
@@ -60,7 +60,7 @@ Se precisar de implementar um grupo de segurança de rede (NSG) numa rede virtua
 | ---- | --------- | ------------------ | ------- | ----------------------------------- |
 | 10100, 20100, 30100 (se a associação a IR para uma rede virtual clássica)<br/><br/>29876, 29877 (se a associação a IR para uma rede virtual do Azure Resource Manager) | Entrada | TCP | Serviços do Azure utilizam estas portas para comunicar com os nós do seu tempo de execução de integração do Azure-SSIS na rede virtual. | Internet | 
 | 443 | Saída | TCP | Os nós do seu tempo de execução de integração do Azure-SSIS na rede virtual utilizam esta porta para aceder aos serviços do Azure, como o Storage do Azure e Event Hubs do Azure. | Internet | 
-| 1433<br/>11000-11999<br/>14000-14999  | Saída | TCP | Os nós do seu tempo de execução de integração do Azure-SSIS na rede virtual utilizam estas portas para aceder a SSISDB alojada pelo seu servidor de SQL Database do Azure (este objetivo não é aplicável a SSISDB alojada por instância de geridos de base de dados do SQL Server.) | Internet | 
+| 1433<br/>11000-11999<br/>14000-14999  | Saída | TCP | Os nós do seu tempo de execução de integração do Azure-SSIS na rede virtual utilizam estas portas para aceder a SSISDB alojada pelo seu servidor de SQL Database do Azure (este objetivo não é aplicável a SSISDB alojada pela instância SQL Server da base de dados geridos (pré-visualização).) | Internet | 
 
 ## <a name="azure-portal-data-factory-ui"></a>Portal do Azure (IU da fábrica de dados)
 Esta secção mostra como associar um tempo de execução do Azure-SSIS existente a uma rede virtual (clássico ou do Azure Resource Manager) utilizando o portal do Azure e a IU da fábrica de dados. Em primeiro lugar, terá de configurar a rede virtual corretamente antes de a associar a sua resposta a incidentes SSIS do Azure ao mesmo. Passar por uma das duas secções seguintes consoante o tipo da sua rede virtual (clássico ou do Azure Resource Manager). Em seguida, prossiga com a secção terceira para associar a sua resposta a incidentes SSIS do Azure para a rede virtual. 
@@ -207,7 +207,7 @@ O script no [criar um tempo de execução de integração do Azure-SSIS](create-
 $ResourceGroupName = "<Azure resource group name>"
 $DataFactoryName = "<Data factory name>" 
 $AzureSSISName = "<Specify Azure-SSIS IR name>"
-## These two parameters apply if you are using a virtual network and Azure SQL Database Managed Instance (private preview) 
+## These two parameters apply if you are using a virtual network and Azure SQL Database Managed Instance (Preview) 
 # Specify information about your classic or Azure Resource Manager virtual network.
 $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
@@ -287,11 +287,11 @@ Se estiver preocupados com a perder a capacidade de inspecionar o tráfego de In
 
 Consulte [este script do PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) para obter um exemplo. Tem de executar o script semanalmente a par da lista de endereços IP de centro de dados do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o tempo de execução de SSIS do Azure, consulte os tópicos seguintes: 
 
 - [Tempo de execução do Azure-SSIS integração](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações concetuais sobre tempos de execução de integração em geral, incluindo o IR. SSIS do Azure 
 - [Tutorial: implementar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo fornece instruções passo a passo para criar um IR. SSIS do Azure Utiliza uma base de dados SQL do Azure para alojar o catálogo SSIS. 
-- [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Criar um runtime de integração Azure-SSIS). Este artigo expande o tutorial e fornece instruções sobre como utilizar o Azure instância SQL Server da base de dados geridos (pré-visualização privada) e associar a IR para uma rede virtual. 
+- [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Criar um runtime de integração Azure-SSIS). Este artigo expande o tutorial e fornece instruções sobre como utilizar o Azure instância SQL Server da base de dados geridos (pré-visualização) e associar a IR para uma rede virtual. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Monitorizar um IR Azure-SSIS) Este artigo mostra como obter informações sobre um IR Azure-SSIS e descrições dos estados nas informações devolvidas. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gerir um IR Azure-SSIS). Este artigo mostra-lhe como parar, iniciar ou remover um IR Azure-SSIS. Mostra também como aumentar horizontalmente a resposta a incidentes SSIS do Azure ao adicionar nós. 

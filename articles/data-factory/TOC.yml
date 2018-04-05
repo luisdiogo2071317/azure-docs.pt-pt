@@ -118,6 +118,8 @@
   items:
     - name: Criar fábricas de dados visualmente
       href: author-visually.md
+    - name: Integração e implementação contínua
+      href: continuous-integration-deployment.md
     - name: Copiar dados
       items:
         - name: Copiar dados através da Atividade de Cópia

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: fc7a4062af9e73383af46f0c36eb22710ce9b6e1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 68f5784f1724441ff6f18e2581c8e01d66c60c5e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com a monitorização do Azure
 Monitor do Azure fornece várias formas para interagir com métricas, incluindo charting-las no portal, aceder às mesmas através da API REST ou consultá-los utilizando o PowerShell ou a CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis no pipeline de métrico do Monitor do Azure.
@@ -85,7 +85,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |UnauthorizedRequests|Pedidos de Gateway não autorizado|Contagem|Total|Número de pedidos de gateway não autorizado|Location, Hostname|
 |FailedRequests|Pedidos de Gateway com falhas|Contagem|Total|Número de falhas nos pedidos de gateway|Location, Hostname|
 |OtherRequests|Outros pedidos de Gateway|Contagem|Total|Número de outros pedidos de gateway|Location, Hostname|
-|Duração|Duração global de pedidos de Gateway|Milissegundos|Média|Geral duração de pedidos Gateway em milissegundos|Location, Hostname|
+|Duração|Duração global de pedidos de Gateway|milissegundos|Média|Geral duração de pedidos Gateway em milissegundos|Location, Hostname|
 |Capacidade|Capacidade (pré-visualização)|Percentagem|Máximo|Métrica de utilização para o serviço de ApiManagement|Localização|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
@@ -127,7 +127,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|connectedclients|Clientes Ligados|Contagem|Máximo||Não foram dimensões|
+|connectedclients|Clientes ligados|Contagem|Máximo||Não foram dimensões|
 |totalcommandsprocessed|Total de Operações|Contagem|Total||Não foram dimensões|
 |cachehits|Acertos na Cache|Contagem|Total||Não foram dimensões|
 |cachemisses|Falhas na Cache|Contagem|Total||Não foram dimensões|
@@ -135,11 +135,11 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |setcommands|Conjuntos|Contagem|Total||Não foram dimensões|
 |operationsPerSecond|Operações por segundo|Contagem|Total||Não foram dimensões|
 |evictedkeys|Chaves Excluídas|Contagem|Total||Não foram dimensões|
-|totalkeys|Chaves Totais|Contagem|Máximo||Não foram dimensões|
+|totalkeys|Chaves totais|Contagem|Máximo||Não foram dimensões|
 |expiredkeys|Chaves Expiradas|Contagem|Total||Não foram dimensões|
 |usedmemory|Memória Utilizada|Bytes|Máximo||Não foram dimensões|
 |usedmemoryRss|Memória utilizada RSS|Bytes|Máximo||Não foram dimensões|
-|serverLoad|Carga do Servidor|Percentagem|Máximo||Não foram dimensões|
+|serverLoad|Carga de servidor|Percentagem|Máximo||Não foram dimensões|
 |cacheWrite|Escrita na Cache|BytesPerSecond|Máximo||Não foram dimensões|
 |cacheRead|Leitura da Cache|BytesPerSecond|Máximo||Não foram dimensões|
 |percentProcessorTime|CPU|Percentagem|Máximo||Não foram dimensões|
@@ -332,10 +332,10 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|TotalCalls|Total de Chamadas|Contagem|Total|Número total de chamadas.|Não foram dimensões|
+|TotalCalls|Totais de chamadas|Contagem|Total|Número total de chamadas.|Não foram dimensões|
 |SuccessfulCalls|Chamadas com êxito|Contagem|Total|Número de chamadas com êxito.|Não foram dimensões|
-|TotalErrors|Total de Erros|Contagem|Total|Número total de chamadas com resposta de erro (código de resposta HTTP 4xx ou 5xx).|Não foram dimensões|
-|BlockedCalls|Chamadas Bloqueadas|Contagem|Total|Número de chamadas que excederam o limite da tarifa ou quota.|Não foram dimensões|
+|TotalErrors|Total de erros|Contagem|Total|Número total de chamadas com a resposta de erro (4xx de código de resposta HTTP ou 5xx).|Não foram dimensões|
+|BlockedCalls|Chamadas bloqueadas|Contagem|Total|Número de chamadas que excederam o limite da tarifa ou quota.|Não foram dimensões|
 |ServerErrors|Erros no Servidor|Contagem|Total|Número de chamadas com erro interno do serviço (código de resposta HTTP 5xx).|Não foram dimensões|
 |ClientErrors|Erros do Cliente|Contagem|Total|Número de chamadas com erro do lado do cliente (código de resposta HTTP 4xx).|Não foram dimensões|
 |DataIn|Entrada de Dados|Bytes|Total|Tamanho dos dados recebidos em bytes.|Não foram dimensões|
@@ -811,11 +811,11 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |Débito|Débito|BytesPerSecond|Total|Número de bytes por segundo que foi servido o Gateway de aplicação|Não foram dimensões|
-|UnhealthyHostCount|Unhealthy Host Count|Contagem|Média|Número de anfitriões de back-end mau estado de funcionamento|BackendSettingsPool|
-|HealthyHostCount|Contagem de anfitrião bom estado de funcionamento|Contagem|Média|Número de anfitriões de back-end bom estado de funcionamento|BackendSettingsPool|
+|UnhealthyHostCount|Unhealthy Host Count|Contagem|Média|Número de anfitriões de back-end mau estado de funcionamento. Pode filtrar por um por base de conjunto de back-end para mostrar anfitriões bom estado de funcionamento/mau estado de funcionamento de um conjunto de back-end específico.|BackendSettingsPool|
+|HealthyHostCount|Contagem de anfitrião bom estado de funcionamento|Contagem|Média|Número de anfitriões de back-end em bom estado. Pode filtrar por um por base de conjunto de back-end para mostrar anfitriões bom estado de funcionamento/mau estado de funcionamento de um conjunto de back-end específico.|BackendSettingsPool. |
 |TotalRequests|Total de Pedidos|Contagem|Total|Contagem de pedidos com êxito que o Gateway de aplicação foi servido|BackendSettingsPool|
 |FailedRequests|Pedidos Falhados|Contagem|Total|Contagem de pedidos falhados que tem servidos Gateway de aplicação|BackendSettingsPool|
-|ResponseStatus|Estado de resposta|Contagem|Total|Estado de resposta HTTP devolvido pelo Gateway de aplicação|HttpStatusGroup|
+|ResponseStatus|Estado de resposta|Contagem|Total|Estado de resposta de HTTP devolvido pelo Gateway de aplicação. A distribuição de código de estado de resposta pode ser mais categoized para mostrar as respostas em 2xx, 3xx, 4xx e 5xx categorias.|HttpStatusGroup|
 |CurrentConnections|Ligações atuais|Contagem|Total|Contagem de ligações atuais estabelecidas com o Gateway de aplicação|Não foram dimensões|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways

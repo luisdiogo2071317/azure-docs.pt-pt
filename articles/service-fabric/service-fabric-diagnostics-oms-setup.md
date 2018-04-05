@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric - configurar a monitorização com o OMS Log Analytics | Microsoft Docs"
+title: Azure Service Fabric - configurar a monitorização com o OMS Log Analytics | Microsoft Docs
 description: Saiba como configurar o Operations Management Suite para visualizar e analisar eventos para monitorizar os clusters de Service Fabric do Azure.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: dekapur
-ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 3/30/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configurar a análise de registos do Operations Management Suite para um cluster
 
@@ -75,7 +75,7 @@ Adicionou a solução de análise de recursos de infraestrutura de serviço numa
 
 Quando implementar um cluster utilizando um modelo do Resource Manager, o modelo cria uma nova área de trabalho do OMS, adiciona a solução de Service Fabric para a área de trabalho e configura-o para ler os dados das tabelas de armazenamento adequado.
 
-Pode utilizar e modificar [este modelo de exemplo](https://azure.microsoft.com/resources/templates/service-fabric-oms/) para satisfazer os seus requisitos. Os modelos que dão-lhe diferentes opções para configurar uma área de trabalho do OMS pode ser encontrado em [modelos de Service Fabric e OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+Pode utilizar e modificar [este modelo de exemplo](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms) para satisfazer os seus requisitos.
 
 Efetue as seguintes alterações:
 1. Adicionar `omsWorkspaceName` e `omsRegion` para os parâmetros adicionando o seguinte fragmento a parâmetros definidos na sua *Template* ficheiro. Pode modificar os valores predefinidos, como julgar. Além disso, adicione os dois parâmetros novos na sua *Parameters. JSON* ficheiro para definir os respetivos valores para a implementação de recursos:
@@ -219,7 +219,7 @@ Quando tiver terminado, siga os passos na secção anterior para ligar a anális
 
 Também pode adicionar outras soluções ou efetue modificações adicionais à sua área de trabalho do OMS através do PowerShell. Para obter mais informações, consulte [Gerir análise de registos com o PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Implementar o agente do OMS](service-fabric-diagnostics-oms-agent.md) para os nós para recolher os contadores de desempenho e recolher estatísticas de docker registos e para os contentores
 * Obter familiarized com o [de registo de pesquisa e consultar](../log-analytics/log-analytics-log-searches.md) funcionalidades disponibilizadas como parte da análise de registos
 * [Utilize o estruturador de vistas para criar vistas personalizadas no Log Analytics](../log-analytics/log-analytics-view-designer.md)

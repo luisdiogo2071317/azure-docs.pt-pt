@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 92189eba7df49aa45adaee7ee3c93c8972b5594b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 018893a2124f1ab9c98e0728bc90ad0a69cf471f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Azure Active Directory com o Amazon Web Services (AWS)
 
@@ -146,7 +146,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 8. Numa janela do browser diferente, início de sessão no site da sua empresa Amazon Web Services (AWS) como administrador.
 
-9. Clique em **consola Home**.
+9. Clique em **AWS Home**.
    
     ![Configurar a home page do Single Sign-On][11]
 
@@ -174,65 +174,53 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     ![Configurar o início de sessão único verificar][15]
 
-14. Clique em **funções**e, em seguida, clique em **criar nova função**. 
+14. Clique em **funções**e, em seguida, clique em **criar função**. 
     
     ![Configurar funções de início de sessão único][16]
 
-15. No **definir o nome da função** caixa de diálogo, execute os seguintes passos: 
-    
-    ![Configurar o nome de início de sessão único][17] 
-
-    a. No **nome da função** caixa de texto, escreva um nome de função (por exemplo: *TestUser*). 
-
-    b. Clique em **passo seguinte**.
-
-16. No **selecionar tipo de função** caixa de diálogo, execute os seguintes passos: 
-    
-    ![Configurar o tipo de função de início de sessão único][18] 
-
-    a. Selecione **função para acesso do fornecedor de identidade**. 
-
-    b. No **acesso conceder Web Single Sign-On (WebSSO) para fornecedores de SAML** secção, clique em **selecione**.
-
-17. No **estabelecer confiança** caixa de diálogo, execute os seguintes passos:  
+15. No **criar função** página, execute os seguintes passos:  
     
     ![Configurar a confiança de início de sessão único][19] 
 
-    a. Como fornecedor SAML, selecione o fornecedor SAML que criou anteriormente (por exemplo: *WAAD*) 
+    a. Selecione **SAML 2.0 Federação** em **selecionar tipo de entidade fidedigna**.
+
+    b. Em **escolher uma secção de SAML 2.0 fornecedor**, selecione o **fornecedor SAML** que criou anteriormente (por exemplo: *WAAD*)
+
+    c. Selecione **programático permissões e de acesso à consola de gestão do AWS**.
   
-    b. Clique em **passo seguinte**.
+    d. Clique em **seguinte: permissões**.
 
-18. No **verificar função confiar** caixa de diálogo, clique em **passo seguinte**. 
-    
-    ![Configurar a confiança da função de início de sessão único][32]
-
-19. No **anexar política** caixa de diálogo, clique em **passo seguinte**.  
+16. No **ligar políticas de permissões** caixa de diálogo, clique em **seguinte: Reveja**.  
     
     ![Configurar a política de início de sessão único][33]
 
-20. No **revisão** caixa de diálogo, execute os seguintes passos:   
+17. No **revisão** caixa de diálogo, execute os seguintes passos:   
     
     ![Configurar a revisão de início de sessão único][34] 
+
+    a. No **nome da função** caixa de texto, introduza o nome de função.
+
+    b. No **descrição da função** caixa de texto, introduza a descrição.
 
     a. Clique em **criar função**.
 
     b. Criar funções tantos conforme necessário e mapeá-los para o fornecedor de identidade.
 
-21. Utilize credenciais de conta de serviço do AWS para obter as funções da conta AWS no aprovisionamento de utilizador do Azure AD. Para tal, abra a consola do AWS doméstica.
+18. Utilize credenciais de conta de serviço do AWS para obter as funções da conta AWS no aprovisionamento de utilizador do Azure AD. Para tal, abra a consola do AWS doméstica.
 
-22. Clique em **serviços** -> **segurança, de identidade e de conformidade** -> **IAM**.
+19. Clique em **serviços** -> **segurança, de identidade e de conformidade** -> **IAM**.
 
     ![obter as funções da conta AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
-23. Selecione o **políticas** separador na secção IAM.
+20. Selecione o **políticas** separador na secção IAM.
 
     ![obter as funções da conta AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole2.png)
 
-24. Crie uma nova política ao clicar no **criar política**.
+21. Crie uma nova política ao clicar no **criar política** para obter as funções da conta AWS no aprovisionamento de utilizador do Azure AD.
 
     ![Criar nova política](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
- 
-25. Crie a sua própria política para obter todas as funções de contas do AWS, efetuando os seguintes passos:
+
+22. Crie a sua própria política para obter todas as funções de contas do AWS, efetuando os seguintes passos:
 
     ![Criar nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
@@ -272,7 +260,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Definir a nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
 
-26. Definir o **nova política** efetuando os seguintes passos:
+23. Definir o **nova política** efetuando os seguintes passos:
 
     ![Definir a nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
@@ -281,8 +269,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     b. Pode fornecer **Descrição** para a política conforme **esta política irá permitir ao obter as funções do contas AWS**.
     
     c. Clique em **"Criar a política"** botão.
-        
-27. Crie uma nova conta de utilizador no serviço de IAM AWS, efetuando os seguintes passos:
+
+24. No **revisão** caixa de diálogo, execute os seguintes passos:   
+    
+    ![Configurar a revisão de início de sessão único][34] 
+
+    a. Clique em **criar função**.
+
+    b. Criar funções tantos conforme necessário e mapeá-los para o fornecedor de identidade.
+
+
+25. Crie uma nova conta de utilizador no serviço de IAM AWS, efetuando os seguintes passos:
 
     a. Clique em **utilizadores** navegação na consola do AWS IAM.
 
@@ -302,7 +299,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     * Clique em de **permissões seguinte** botão no canto inferior direito.
 
-28. Agora, crie uma nova política para este utilizador, efetuando os seguintes passos:
+26. Agora, crie uma nova política para este utilizador, efetuando os seguintes passos:
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
@@ -312,7 +309,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     c. Selecione o **política** e, em seguida, clique em de **seguinte: Reveja** botão.
 
-29. Rever a política para o utilizador ligado, efetuando os seguintes passos:
+27. Rever a política para o utilizador ligado, efetuando os seguintes passos:
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
     
@@ -320,7 +317,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     b. Clique em de **criar utilizador** botão no canto inferior direito para criar o utilizador.
 
-30. Transferir as credenciais de utilizador de um utilizador, efetuando os seguintes passos:
+28. Transferir as credenciais de utilizador de um utilizador, efetuando os seguintes passos:
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
     
@@ -330,11 +327,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     c. Clique em **fechar** na parte inferior.
 
-31. Navegue para **aprovisionamento de utilizadores** secção da aplicação do Amazon Web Services no Portal de gestão do Azure AD.
+29. Navegue para **aprovisionamento de utilizadores** secção da aplicação do Amazon Web Services no Portal de gestão do Azure AD.
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. Introduza o **chave de acesso** e **segredo** no **segredo do cliente** e **segredo Token** campo respetivamente.
+30. Introduza o **chave de acesso** e **segredo** no **segredo do cliente** e **segredo Token** campo respetivamente.
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -346,13 +343,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     d. Guardar a definição ao clicar no **guardar** botão na parte superior.
  
-33. Agora Certifique-se de que ativa o estado de aprovisionamento **no** na secção de definições, tornando o comutador em e, em seguida, clicando no **guardar** botão na parte superior.
+31. Agora Certifique-se de que ativa o estado de aprovisionamento **no** na secção de definições, tornando o comutador em e, em seguida, clicando no **guardar** botão na parte superior.
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

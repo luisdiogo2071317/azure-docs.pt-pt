@@ -1,12 +1,12 @@
 ---
-title: "Realize cópias de segurança de ficheiros e pastas do Windows para o Azure (Resource Manager) | Microsoft Docs"
-description: "Aprenda a realizar cópias de segurança de ficheiros do Windows e pastas para o Azure numa implementação do Gestor de Recursos."
+title: Realize cópias de segurança de ficheiros e pastas do Windows para o Azure (Resource Manager) | Microsoft Docs
+description: Aprenda a realizar cópias de segurança de ficheiros do Windows e pastas para o Azure numa implementação do Gestor de Recursos.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "como realizar uma cópia de segurança; como realizar uma cópia de segurança; cópia de segurança de ficheiros e pastas"
+editor: ''
+keywords: como realizar uma cópia de segurança; como realizar uma cópia de segurança; cópia de segurança de ficheiros e pastas
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: bb631eff77932b6bdcf858256c47c9d7381a58c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 55f83bda1a9de9274194ec220fa9a4a5c8b7f0fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Primeiras impressões: efetuar cópias de segurança de ficheiros e pastas na implementação do Resource Manager
 Este artigo explica como criar uma cópia de segurança dos ficheiros e pastas do Windows Server (ou computador Windows) para o Azure através de uma implementação do Resource Manager. É um tutorial que se destina a explicar as noções básicas. Se pretender começar a utilizar o Backup do Azure, está no sítio certo.
@@ -87,7 +87,7 @@ Ao criar um cofre dos Serviços de Recuperação, certifique-se de que a redund�
 
     ![opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Por predefinição, o seu cofre tem um armazenamento georredundante. Se utilizar o Azure como um ponto final de armazenamento de cópia de segurança primário, continue a utilizar o **Georredundante**. Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy.md#geo-redundant-storage) e [localmente redundante](../storage/common/storage-redundancy.md#locally-redundant-storage) nesta [Descrição geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
+    Por predefinição, o seu cofre tem um armazenamento georredundante. Se utilizar o Azure como um ponto final de armazenamento de cópia de segurança primário, continue a utilizar o **Georredundante**. Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy-grs.md) e [localmente redundante](../storage/common/storage-redundancy-lrs.md) nesta [Descrição geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
 
 Agora que criou um cofre, configure-o para cópia de segurança de ficheiros e pastas.
 
@@ -170,7 +170,7 @@ Se o computador/proxy tiver limitado o acesso à Internet, certifique-se de que 
     2. *.Microsoft.com
     3. *.WindowsAzure.com
     4. *.microsoftonline.com
-    5. *.windows.net
+    5. \*.windows.net
 
 ## <a name="back-up-your-files-and-folders"></a>Efetuar uma cópia de segurança de ficheiros e pastas
 A cópia de segurança inicial inclui duas tarefas principais:

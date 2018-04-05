@@ -1,12 +1,12 @@
 ---
-title: "Diagnóstico nas funções duráveis - Azure"
-description: "Saiba como diagnosticar problemas com a extensão de funções durável para as funções do Azure."
+title: Diagnóstico nas funções duráveis - Azure
+description: Saiba como diagnosticar problemas com a extensão de funções durável para as funções do Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ebab8660dfe21984e1a7f9a1cb925aea60de213
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnóstico nas funções duráveis (funções do Azure)
 
@@ -50,6 +50,7 @@ Cada evento do ciclo de vida de uma instância de orquestração faz com que um 
 * **motivo**: dados adicionais associados com o evento de controlo. Por exemplo, se uma instância está a aguardar uma notificação de evento externo, este campo indica o nome do evento que está a aguardar. Se uma função falhou, esta irá conter os detalhes do erro.
 * **isReplay**: valor booleano que indica se o evento de controlo é para reproduzido pela execução.
 * **extensionVersion**: A versão da extensão de tarefa durável. Isto é especialmente importantes dados ao reportar possíveis erros na extensão. Instâncias de execução longa podem reportar várias versões, se uma atualização ocorre enquanto estiver em execução. 
+* **sequenceNumber**: número de sequência de execução para um evento. Combinada com o ajuda de timestamp para ordenar os eventos por tempo de execução. *Tenha em atenção que este número será reposição como zero se o anfitrião ser reiniciado enquanto a instância está em execução, pelo que é importante sempre ordenar por timestamp pela primeira vez, em seguida, sequenceNumber.*
 
 Pode ser configurada verbosidade de controlar dados emitidos para o Application Insights no `logger` secção o `host.json` ficheiro.
 
@@ -72,11 +73,11 @@ Por predefinição, todos os eventos de rastreio são emitidos. O volume de dado
 
 ### <a name="single-instance-query"></a>Consulta de instância única
 
-A consulta seguinte mostra os dados de histórico de controlo para uma única instância de [Hello sequência](durable-functions-sequence.md) funcionar orchestration. Que é escrito utilizando o [idioma de consulta de informações de aplicação (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). -Filtra reprodução de execução para que apenas o *lógica* é apresentado o caminho de execução.
+A consulta seguinte mostra os dados de histórico de controlo para uma única instância de [Hello sequência](durable-functions-sequence.md) funcionar orchestration. Que é escrito utilizando o [idioma de consulta de informações de aplicação (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). -Filtra reprodução de execução para que apenas o *lógica* é apresentado o caminho de execução. Eventos podem ser ordenados por ordenar por `timestamp` e `sequenceNumber` conforme mostrado na consulta abaixo: 
 
 ```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
 traces
 | where timestamp > start and timestamp < start + 30m
 | where customDimensions.Category == "Host.Triggers.DurableTask"
@@ -84,16 +85,17 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay == false
 | where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
-O resultado é uma lista de eventos que mostram o caminho de execução da orquestração, incluindo quaisquer funções de atividade de controlo.
 
-![Consulta do Application Insights](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
+O resultado é uma lista de eventos de controlo que mostra o caminho de execução do orchestration, incluindo quaisquer funções de atividade ordenadas pelo tempo de execução por ordem ascendente.
 
-> [!NOTE]
-> Alguns destes eventos de controlo podem ser fora de ordem devido à falta de precisão no `timestamp` coluna. Isto está a ser controlado no GitHub como [emitir #71](https://github.com/Azure/azure-functions-durable-extension/issues/71).
+![Consulta do Application Insights](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### <a name="instance-summary-query"></a>Consulta de resumo de instância
 
@@ -180,7 +182,7 @@ Calling F3.
 Done!
 ```
 
-## <a name="debugging"></a>Depuração
+## <a name="debugging"></a>Depurar
 
 Funções do Azure suporta a depuração diretamente do código de função e que suportam as mesma reencaminhar acarreta durável funções, independentemente de em execução no Azure ou localmente. No entanto, existem alguns comportamentos a ter em consideração quando depuração:
 
@@ -202,7 +204,7 @@ Isto é útil para depuração porque, ver exatamente o estado de uma orquestra�
 > [!WARNING]
 > Embora seja conveniente ver o histórico de execução no table storage, evite colocar qualquer dependência nesta tabela. -Pode alterar como a extensão de funções durável medida que evolui.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como utilizar os temporizadores duráveis](durable-functions-timers.md)

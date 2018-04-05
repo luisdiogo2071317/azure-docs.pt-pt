@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 15bbd32d982bdefc5665421b828ce0c8234b7257
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Descrição geral do padrão de Balanceador de carga do Azure
 
@@ -76,9 +76,6 @@ O conjunto de back-end pode conter máquinas virtuais autónomas, conjuntos de d
 Ao considerar como estruturar o conjunto de back-end, pode conceber para o menor número de recursos de conjunto de back-end individuais para otimizar ainda mais a duração das operações de gestão.  Não há qualquer diferença no desempenho de plane de dados ou a escala.
 
 ## <a name="az"></a>Zonas de disponibilidade
-
->[!NOTE]
-> Para utilizar [pré-visualização de zonas de disponibilidade](https://aka.ms/availabilityzones) com padrão Balanceador de carga requer [inscrição para disponibilidade zonas](https://aka.ms/availabilityzones).
 
 Balanceador de carga Standard suporta capacidades adicionais em regiões onde zonas de disponibilidade estão disponíveis.  Estas funcionalidades são incrementais para todos os Balanceador de carga padrão fornece.  Configurações de zonas de disponibilidade estão disponíveis para o Balanceador de carga de padrão público e interno.
 
@@ -227,7 +224,7 @@ Padrão de Balanceador de carga é um produto cobrado com base no número de reg
 - [Alertas de monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) não são suportados neste momento.
 - [Move operações de subscrição](../azure-resource-manager/resource-group-move-resources.md) não são suportadas para recursos padrão LB de SKU e PIP.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como utilizar [padrão Balanceador de carga e zonas de disponibilidade](load-balancer-standard-availability-zones.md)
 - Saiba mais sobre [disponibilidade zonas](../availability-zones/az-overview.md).

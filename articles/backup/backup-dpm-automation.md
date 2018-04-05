@@ -1,11 +1,11 @@
 ---
-title: "Cópia de segurança do Azure - utilize o PowerShell para efetuar cópias de segurança de cargas de trabalho do DPM | Microsoft Docs"
-description: "Saiba como implementar e gerir a cópia de segurança do Azure para o Data Protection Manager (DPM) com o PowerShell"
+title: Cópia de segurança do Azure - utilize o PowerShell para efetuar cópias de segurança de cargas de trabalho do DPM | Microsoft Docs
+description: Saiba como implementar e gerir a cópia de segurança do Azure para o Data Protection Manager (DPM) com o PowerShell
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: NKolli1
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 9322037427c84f0b8a91cc76f5c0fed52167bc3c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 89dd965208cd473e47de9e0c9bdbfa3ab986c3d5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
 Este artigo mostra como utilizar o PowerShell para a configuração de cópia de segurança do Azure num servidor DPM e para gerir a cópia de segurança e recuperação.
@@ -77,7 +77,7 @@ Os seguintes passos encaminharem através da criação de um cofre dos serviços
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [localmente redundante armazenamento (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) ou [Georreplicação redundante armazenamento (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). O exemplo seguinte mostra que a opção - BackupStorageRedundancy para testVault está definida como GeoRedundant.
+4. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [localmente redundante armazenamento (LRS)](../storage/common/storage-redundancy-lrs.md) ou [Georreplicação redundante armazenamento (GRS)](../storage/common/storage-redundancy-grs.md). O exemplo seguinte mostra que a opção - BackupStorageRedundancy para testVault está definida como GeoRedundant.
 
    > [!TIP]
    > Cmdlets de cópia de segurança do Azure muitos requerem o objeto de cofre dos serviços de recuperação como entrada. Por este motivo, é conveniente armazenar o objeto de cofre dos serviços de recuperação de cópia de segurança numa variável.
@@ -133,15 +133,15 @@ As opções disponíveis incluem:
 | Opção | Detalhes | Predefinição |
 | --- | --- | --- |
 | /q |Instalação silenciosos |- |
-| /p: "localização" |Caminho para a pasta de instalação para o agente de cópia de segurança do Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s: "localização" |Caminho para a pasta de cache para o agente de cópia de segurança do Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /p:"location" |Caminho para a pasta de instalação para o agente de cópia de segurança do Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" |Caminho para a pasta de cache para o agente de cópia de segurança do Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
 | /m |Optar ativamente por participar no Microsoft Update |- |
-| /NU |Não procurar atualizações depois de concluída a instalação |- |
+| /nu |Não procurar atualizações depois de concluída a instalação |- |
 | /d |Desinstala o agente do Microsoft Azure Recovery Services |- |
 | / pH |Endereço do anfitrião proxy |- |
 | /po |Número de porta de anfitrião do proxy |- |
-| /Pu |O nome de utilizador do proxy anfitrião |- |
-| /PW |Palavra-passe do proxy |- |
+| /pu |Proxy Host UserName |- |
+| /pw |Palavra-passe do proxy |- |
 
 ## <a name="registering-dpm-to-a-recovery-services-vault"></a>Ao registar o DPM para uma recuperação cofre dos serviços
 Depois de criado o Cofre dos serviços de recuperação, transfira o agente mais recente e as credenciais do cofre e armazene-o numa localização conveniente como C:\Downloads.
@@ -309,10 +309,10 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 No exemplo acima, ```$onlineSch``` é uma matriz com quatro elementos que contém a agenda de proteção online existente para o grupo de proteção no esquema GFS:
 
-1. ```$onlineSch[0]```contém a agenda diária
-2. ```$onlineSch[1]```contém a semanal
-3. ```$onlineSch[2]```contém a agenda mensal
-4. ```$onlineSch[3]```contém a agenda anual
+1. ```$onlineSch[0]``` contém a agenda diária
+2. ```$onlineSch[1]``` contém a semanal
+3. ```$onlineSch[2]``` contém a agenda mensal
+4. ```$onlineSch[3]``` contém a agenda anual
 
 Por isso se necessitar de modificar a agenda semanal, terá de fazer referência ao ```$onlineSch[1]```.
 
@@ -334,8 +334,8 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ## <a name="view-the-backup-points"></a>Ver os pontos de cópia de segurança
 Pode utilizar o [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) cmdlet para obter uma lista de todos os pontos de recuperação para uma origem de dados. Neste exemplo, iremos:
 
-* obter todos os PGs no servidor do DPM e armazenado numa matriz```$PG```
-* obter as origens de dados correspondente para o```$PG[0]```
+* obter todos os PGs no servidor do DPM e armazenado numa matriz ```$PG```
+* obter as origens de dados correspondente para o ```$PG[0]```
 * obter todos os pontos de recuperação para uma origem de dados.
 
 ```
@@ -365,5 +365,5 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 
 Os comandos podem facilmente ser expandidos para qualquer tipo de origem de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para obter mais informações sobre o DPM para cópia de segurança do Azure, consulte [introdução à cópia de segurança do DPM](backup-azure-dpm-introduction.md)

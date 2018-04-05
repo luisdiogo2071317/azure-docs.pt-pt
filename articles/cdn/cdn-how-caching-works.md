@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: da43e122c3e7d5e852107d4e4cca237ce4824267
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-caching-works"></a>Como funciona a colocação em cache
 
@@ -64,7 +64,7 @@ Dois cabeçalhos podem ser utilizados para definir a actualização da cache: `C
 ## <a name="cache-directive-headers"></a>Cabeçalhos de directiva cache
 
 > [!IMPORTANT]
-> Por predefinição, um ponto final de CDN do Azure está otimizado para DSA ignora cabeçalhos cache-diretiva e ignora a colocação em cache. Para **CDN do Azure da Verizon padrão** e **CDN do Azure da Akamai padrão** perfis, pode ajustar a forma como um ponto final de CDN do Azure trata estes cabeçalhos utilizando [regras de cache de CDN](cdn-caching-rules.md)para ativar a colocação em cache. Para **CDN do Azure da Verizon** perfis, utilize o [motor de regras](cdn-rules-engine.md) para ativar a colocação em cache.
+> Por predefinição, um ponto final de CDN do Azure está otimizado para DSA ignora cabeçalhos cache-diretiva e ignora a colocação em cache. Para **CDN do Azure da Verizon padrão** e **CDN do Azure da Akamai padrão** perfis, pode ajustar a forma como um ponto final de CDN do Azure trata estes cabeçalhos utilizando [regras de cache de CDN](cdn-caching-rules.md)para ativar a colocação em cache. Para **CDN do Azure da Verizon Premium** perfis, utilize o [motor de regras](cdn-rules-engine.md) para ativar a colocação em cache.
 
 CDN do Azure suporta os seguintes cabeçalhos cache diretiva HTTP, definem a duração da cache e a partilha de cache.
 
@@ -123,7 +123,7 @@ A tabela seguinte descreve a predefinição comportamento para os produtos da CD
 |                    | Da Verizon: entrega de web gerais | Verizon: DSA | Akamai: entrega de web gerais | Akamai: DSA | Akamai: transferência de ficheiros grandes | Akamai: gerais ou VOD suporte de dados de transmissão em fluxo |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Origem de honor**   | Sim    | Não   | Sim | Não | Sim | Sim |
-| **Duração da cache CDN** | 7 dias | Nenhum | 7 dias | Nenhum | 1 dia | um ano |
+| **Duração da cache CDN** | 7 dias | Nenhuma | 7 dias | Nenhum | 1 dia | um ano |
 
 **Respeite origem**: Especifica se que respeite o [suportados cabeçalhos cache-diretiva](#http-cache-directive-headers) caso existam na resposta HTTP do servidor de origem.
 
