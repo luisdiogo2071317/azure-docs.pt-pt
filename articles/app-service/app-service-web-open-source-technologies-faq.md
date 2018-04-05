@@ -1,11 +1,11 @@
 ---
-title: "Aplicações web de tecnologias de open source perguntas mais frequentes do Azure | Microsoft Docs"
-description: "Obtenha respostas às perguntas mais frequentes sobre as tecnologias de open source na funcionalidade Web Apps do App Service do Azure."
+title: Aplicações web de tecnologias de open source perguntas mais frequentes do Azure | Microsoft Docs
+description: Obtenha respostas às perguntas mais frequentes sobre as tecnologias de open source na funcionalidade Web Apps do App Service do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tecnologias de open source perguntas mais frequentes para aplicações Web no Azure
 
@@ -49,10 +49,10 @@ Para ativar o registo do PHP:
 2. No menu superior, selecione **consola de depuração** > **CMD**.
 3. Selecione o **Site** pasta.
 4. Selecione o **wwwroot** pasta.
-5. Selecione o  **+**  ícone e, em seguida, selecione **novo ficheiro**.
+5. Selecione o **+** ícone e, em seguida, selecione **novo ficheiro**.
 6. Defina o nome de ficheiro para **. user.ini**.
 7. Selecione o ícone de lápis junto a **. user.ini**.
-8. No ficheiro, adicione este código:`log_errors=on`
+8. No ficheiro, adicione este código: `log_errors=on`
 9. Selecione **Guardar**.
 10. Selecione o ícone de lápis junto a **wp-config.php**.
 11. Altere o texto para o seguinte código:
@@ -71,7 +71,7 @@ Para capturar os erros da aplicação Python:
 1. No portal do Azure, na sua aplicação web, selecione **definições**.
 2. No **definições** separador, selecione **definições da aplicação**.
 3. Em **as definições de aplicação**, introduza o seguinte par chave/valor:
-    * Chave: WSGI_LOG
+    * Key : WSGI_LOG
     * Valor: D:\home\site\wwwroot\logs.txt (introduza a sua escolha de nome de ficheiro)
 
 Deverá ver erros no ficheiro logs.txt na pasta wwwroot.
@@ -100,7 +100,7 @@ Para alterar a versão da aplicação Node.js, pode utilizar uma das seguintes o
     O processo de implementação do controlo de origem do Azure envolve os seguintes passos:
     1. Move o conteúdo para a aplicação web do Azure.
     2. Cria um script de implementação de predefinição, se não existir um (deploy.cmd, ficheiros de .deployment) na pasta de raiz de aplicação web.
-    3. Executa um script de implementação em que cria um ficheiro iisnode.yml se mencionar a versão do Node.js no ficheiro Package. JSON > motor`"engines": {"node": "5.9.1","npm": "3.7.3"}`
+    3. Executa um script de implementação em que cria um ficheiro iisnode.yml se mencionar a versão do Node.js no ficheiro Package. JSON > motor `"engines": {"node": "5.9.1","npm": "3.7.3"}`
     4. O ficheiro iisnode.yml tem a seguinte linha de código:
         ```
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
@@ -137,22 +137,22 @@ Para o Azure Marketplace e implementações personalizadas:
 
 * Localização da pasta: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * Ficheiros de interesse:
-    * catalina. *aaaa-mm-dd*. log
-    * Gestor de anfitrião. *aaaa-mm-dd*. log
-    * localhost. *aaaa-mm-dd*. log
-    * Gestor. *aaaa-mm-dd*. log
-    * site_access_log. *aaaa-mm-dd*. log
+    * catalina.*yyyy-mm-dd*.log
+    * host-manager.*yyyy-mm-dd*.log
+    * localhost.*yyyy-mm-dd*.log
+    * manager.*yyyy-mm-dd*.log
+    * site_access_log.*yyyy-mm-dd*.log
 
 
 Para o portal **as definições de aplicação** implementações:
 
 * Localização da pasta: D:\home\LogFiles
 * Ficheiros de interesse:
-    * catalina. *aaaa-mm-dd*. log
-    * Gestor de anfitrião. *aaaa-mm-dd*. log
-    * localhost. *aaaa-mm-dd*. log
-    * Gestor. *aaaa-mm-dd*. log
-    * site_access_log. *aaaa-mm-dd*. log
+    * catalina.*yyyy-mm-dd*.log
+    * host-manager.*yyyy-mm-dd*.log
+    * localhost.*yyyy-mm-dd*.log
+    * manager.*yyyy-mm-dd*.log
+    * site_access_log.*yyyy-mm-dd*.log
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Como posso resolver erros de ligação do controlador JDBC?
 

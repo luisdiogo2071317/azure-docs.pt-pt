@@ -1,8 +1,8 @@
 ---
-title: "Utilize a ação de Script para instalar Solr num cluster de Hadoop - Azure | Microsoft Docs"
-description: "Saiba como personalizar o cluster do HDInsight com Solr através da ação de Script."
+title: Utilize a ação de Script para instalar Solr num cluster de Hadoop - Azure | Microsoft Docs
+description: Saiba como personalizar o cluster do HDInsight com Solr através da ação de Script.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.openlocfilehash: 6efb7ea26c3cdf7748fff4b02b5810c85cc41e1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Instalar e utilizar Solr nos clusters do HDInsight baseados em Windows
 
@@ -30,7 +30,7 @@ Saiba como personalizar o cluster do HDInsight baseados em Windows com Solr atra
 > Os passos neste documento apenas trabalham com clusters do HDInsight baseados em Windows. HDInsight só está disponível no Windows para as versões inferiores ao HDInsight 3.4. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows). Para obter informações sobre a utilização Solr com um cluster baseado em Linux, consulte [instalar e utilizar Solr nos clusters do HDinsight Hadoop (Linux)](hdinsight-hadoop-solr-install-linux.md).
 
 
-Pode instalar Solr em qualquer tipo de cluster (Hadoop, Storm, HBase, Spark) no Azure HDInsight utilizando *ação de Script*. Um script de exemplo para instalar Solr num cluster do HDInsight está disponível a partir de um blob de armazenamento do Azure só de leitura em [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Pode instalar Solr em qualquer tipo de cluster (Hadoop, Storm, HBase, Spark) no Azure HDInsight utilizando *ação de Script*. Um script de exemplo para instalar Solr num cluster do HDInsight está disponível a partir de um blob de armazenamento do Azure só de leitura em [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 O script de amostra funciona apenas com clusters do HDInsight versão 3.1. Para obter mais informações sobre as versões de cluster do HDInsight, consulte [as versões de cluster do HDInsight](hdinsight-component-versioning.md).
 
@@ -83,7 +83,7 @@ Tem de começar com indexação Solr com alguns ficheiros de dados. Em seguida, 
         Time spent: 0:00:01.624
 
     O utilitário de post.jar indexa Solr com dois documentos de exemplo, **solr.xml** e **monitor.xml**. O utilitário de post.jar e os documentos de exemplo estão disponíveis com a instalação de Solr.
-3. **Utilize o dashboard de Solr para procurar nos documentos indexados**. Na sessão do RDP para o cluster do HDInsight, abra o Internet Explorer e iniciar o dashboard Solr em **http://headnodehost:8983/solr / #/**. No painel esquerdo, do **Core Seletor** pendente, selecione **collection1**e em que, clique em **consulta**. Por exemplo, para selecionar e devolver todos os documentos na Solr, forneça os valores seguintes:
+3. **Utilize o dashboard de Solr para procurar nos documentos indexados**. Na sessão do RDP para o cluster do HDInsight, abra o Internet Explorer e iniciar o dashboard Solr em **http://headnodehost:8983/solr/#/**. No painel esquerdo, do **Core Seletor** pendente, selecione **collection1**e em que, clique em **consulta**. Por exemplo, para selecionar e devolver todos os documentos na Solr, forneça os valores seguintes:
 
    * No **q** texto, introduza  **\*:**\*. Esta ação irá devolver todos os documentos que são indexados no Solr. Se pretende procurar uma cadeia específica dentro os documentos, pode introduzir essa cadeia aqui.
    * No **wt** texto caixa, selecione o formato de saída. Predefinição é **json**. Clique em **executar a consulta**.
@@ -159,7 +159,7 @@ Tem de começar com indexação Solr com alguns ficheiros de dados. Em seguida, 
              </lst>
              <str name="status">OK</str>
            </response>
-   2. Na sessão remota, navegue para {SOLR_HOME}\{coleção} \data. Para o cluster criado através do script de exemplo, este deve ser **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. Nesta localização, deverá ver uma pasta de instantâneos criada com um nome semelhante ao  **instantâneo.* Timestamp** *.
+   2. Na sessão remota, navegue para {SOLR_HOME}\{coleção} \data. Para o cluster criado através do script de exemplo, este deve ser **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. Nesta localização, deverá ver uma pasta de instantâneos criada com um nome semelhante ao **instantâneo.* Timestamp ***.
    3. Zip a pasta de instantâneos e carregue-o no Blob storage do Azure. A linha de comandos do Hadoop, navegue para a localização da pasta de instantâneos de usando o seguinte comando:
 
              hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
@@ -167,12 +167,12 @@ Tem de começar com indexação Solr com alguns ficheiros de dados. Em seguida, 
        Este comando copia o instantâneo /example/data/no recipiente do dentro a predefinição de conta de armazenamento associada ao cluster.
 
 ## <a name="install-solr-using-aure-powershell"></a>Instalar Solr com o Azure PowerShell
-Consulte [clusters do HDInsight de personalizar através da ação de Script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  O exemplo demonstra como instalar o Spark com o Azure PowerShell. Tem de personalizar o script a utilizar [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Consulte [clusters do HDInsight de personalizar através da ação de Script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  O exemplo demonstra como instalar o Spark com o Azure PowerShell. Tem de personalizar o script a utilizar [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="install-solr-using-net-sdk"></a>Instalar Solr com o .NET SDK
-Consulte [clusters do HDInsight de personalizar através da ação de Script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). O exemplo demonstra como instalar o Spark utilizando o SDK .NET. Tem de personalizar o script a utilizar [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Consulte [clusters do HDInsight de personalizar através da ação de Script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). O exemplo demonstra como instalar o Spark utilizando o SDK .NET. Tem de personalizar o script a utilizar [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Instalar e utilizar Solr em clusters do HDinsight Hadoop (Linux)](hdinsight-hadoop-solr-install-linux.md)
 * [Criar clusters do Hadoop no HDInsight](hdinsight-provision-clusters.md): informações gerais sobre a criação de clusters do HDInsight.
 * [Personalizar clusters do HDInsight através da ação de Script][hdinsight-cluster-customize]: informações gerais sobre a personalização clusters do HDInsight através da ação de Script.

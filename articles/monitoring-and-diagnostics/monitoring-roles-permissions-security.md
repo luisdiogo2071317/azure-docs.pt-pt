@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução à segurança com a monitorização do Azure, funções e permissões
 Várias equipas necessário estritamente regular o acesso aos dados e definições de monitorização. Por exemplo, se tiver os membros da equipa que trabalham exclusivamente no monitorização (engenheiros de suporte, os engenheiros de devops) ou se utilizar um fornecedor de serviço geridas, poderá querer conceder-lhes acesso a dados de monitorização apenas ao restringir a capacidade de criar, modificar ou eliminar recursos. Este artigo mostra como rapidamente aplicam-se uma função RBAC monitorização incorporada a um utilizador no Azure ou criar a sua própria função personalizada para um utilizador que tem permissões de monitorização limitadas. Em seguida, explica como considerações de segurança para os recursos relacionados com o Monitor do Azure e como pode limitar o acesso a dados que contêm.

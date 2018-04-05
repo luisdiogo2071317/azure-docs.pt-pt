@@ -15,14 +15,14 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 2adf473c6acea0f128eb14e2616748ff29d5d762
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Como utilizar os critérios de filtragem para enviar as campanhas push para um subconjunto selecionado dos seus utilizadores
 > [!IMPORTANT]
-> O Azure Mobile Engagement ter extinguido em 3/31/2018. Esta página será eliminada pouco tempo depois.
+> O Azure Mobile Engagement será descontinuado a 31/03/2018. Esta página será eliminada pouco tempo depois.
 > 
 
 Segmentação do seu público-alvo por critérios específicos, com o botão "Novo critério" é um dos conceitos mais poderosos no Azure Mobile Engagement que ajuda a enviar relevantes notificações push que os clientes responderá em vez de spam todas as pessoas. Pode limitar o seu público-alvo com base nos critérios padrão e simular pushes para determinar quantas pessoas irão receber a notificação.

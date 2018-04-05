@@ -1,10 +1,10 @@
 ---
 title: Total de arquitetura de motor (Lucene) de pesquisa de texto na Azure Search | Microsoft Docs
-description: "Explicação de Lucene consulta processamento e o documento obtenção conceitos para pesquisa em texto completo, como relacionadas com a Azure Search."
+description: Explicação de Lucene consulta processamento e o documento obtenção conceitos para pesquisa em texto completo, como relacionadas com a Azure Search.
 services: search
 manager: jhubbard
 author: yahnoosh
-documentationcenter: 
+documentationcenter: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
 ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Como completa a pesquisa em texto funciona na Azure Search
 
@@ -261,7 +261,7 @@ Regressar ao nosso exemplo, para o **título** campo, o índice inverted tem est
 | átrios | 1, 3 |
 | Ocean | 4  |
 | playa | 3 |
-| recurso | 3 |
+| resort | 3 |
 | Retreat | 4 |
 
 No campo do título, apenas *átrios* aparece em dois documentos: 1, 3.
@@ -282,7 +282,7 @@ Para o **Descrição** campo, o índice é o seguinte:
 | Norte | 2
 | Ocean | 1, 2, 3
 | de | 2
-| no |2
+| ativado |2
 | silenciosos | 4
 | gabinetes  | 1, 3
 | secluded | 4
@@ -292,7 +292,7 @@ Para o **Descrição** campo, o índice é o seguinte:
 | para | 1
 | ver | 1, 2, 3
 | walking | 1
-| com o | 3
+| com | 3
 
 
 **Termos de consulta correspondente contra indexados termos**
@@ -363,7 +363,7 @@ Um exemplo ilustra a razão pela qual isto é importante. Pesquisas com caratere
 Existem duas formas de otimizar as pontuações de relevância na pesquisa do Azure:
 
 1. **Perfis de classificação** promover documentos na lista de classificados de resultados com base num conjunto de regras. No nosso exemplo, podemos considerar documentos correspondentes no campo do título mais relevante que documentos correspondentes no campo de descrição. Além disso, se o nosso índice tinha um campo de preço para cada átrios, iremos promover documentos com preço inferior. Saiba como mais [adicionar perfis de classificação de um índice de pesquisa.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **Termo aumento** (disponível apenas na consulta lucene completo) fornece um operador de aumento `^` que podem ser aplicadas a qualquer parte da árvore de consulta. No nosso exemplo, em vez de procurar no prefixo *air-condition*\*, um pode procurar um o termo exato *air-condition* ou de prefixo, mas o documentos que correspondem o termo exato estão ordenadas superior aplicando intensificação à consulta termo: *ondas condição ^ 2 | | Air-condition**. Saiba mais sobre [termo aumento](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+2. **Termo aumento** (disponível apenas na consulta lucene completo) fornece um operador de aumento `^` que podem ser aplicadas a qualquer parte da árvore de consulta. No nosso exemplo, em vez de procurar no prefixo *air-condition*\*, um pode procurar um o termo exato *air-condition* ou o prefixo, mas os documentos que correspondem o termo exato são classificar superior aplicando intensificação à consulta termo: * ondas condição ^ 2 | | Air-condition * *. Saiba mais sobre [termo aumento](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Classificação de um índice distribuído
@@ -382,7 +382,7 @@ A partir de um ponto de vista técnico, pesquisa em texto completo é altamente 
 
 Este artigo explorou a pesquisa em texto completo no contexto da Azure Search. Esperamos que dá-lhe suficiente em segundo plano para reconhecer possíveis causas e soluções para problemas comuns de consulta de endereçamento. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 + Crie o índice de exemplo, experimentar diferentes consultas e reveja os resultados. Para obter instruções, consulte [compilar e consultar um índice no portal do](search-get-started-portal.md#query-index).
 
@@ -396,7 +396,7 @@ Este artigo explorou a pesquisa em texto completo no contexto da Azure Search. E
 
 + [Comparar analisadores de padrão e inglês](http://alice.unearth.ai/)) lado a lado neste web site de demonstração. 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 [API de REST de documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

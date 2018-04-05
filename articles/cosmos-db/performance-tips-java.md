@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 3a6c7c51810375574895643cea2e0e24508fa382
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 7aeb76f59b9489f7c930ef754ccbe6d3712e52a7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 > [!div class="op_single_selector"]
+> * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
@@ -80,7 +81,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
    <a id="max-connection"></a>
 3. **Aumentar MaxPoolSize por anfitrião, ao utilizar o modo de Gateway**
 
-    BD do Azure do Cosmos pedidos são efetuados através de HTTPS/REST quando utilizar o modo de Gateway e estão sujeitos ao limite de ligação predefinido por nome de anfitrião ou endereço IP. Terá de definir o MaxPoolSize para um valor mais alto (200-1000) para que a biblioteca de clientes pode utilizar várias ligações simultâneas a BD do Cosmos do Azure. O SDK de Java, o valor predefinido para [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) é 100. Utilize [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) para alterar o valor.
+    BD do Azure do Cosmos pedidos são efetuados através de HTTPS/REST quando utilizar o modo de Gateway e estão sujeitos ao limite de ligação predefinido por nome de anfitrião ou endereço IP. Terá de definir o MaxPoolSize para um valor mais alto (200-1000) para que a biblioteca de clientes pode utilizar várias ligações simultâneas a BD do Cosmos do Azure. O SDK de Java, o valor predefinido para [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.getmaxpoolsize) é 100. Utilize [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) para alterar o valor.
 
 4. **Otimizar as consultas paralelas para coleções particionadas**
 
@@ -103,7 +104,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
 7. **Utilize o endereçamento de nome com base**
 
-    Utilizar baseada no nome de endereçamento, onde ligações têm o formato `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, em vez de SelfLinks ( Self), que tem o formato `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` para evitar a obter ResourceIds de todos os recursos utilizados para construir a ligação. Além disso, como estes recursos obterem recriados (possivelmente com o mesmo nome), a colocação em cache estas poderão ajuda.
+    Utilizar baseada no nome de endereçamento, onde ligações têm o formato `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, em vez de SelfLinks (\_Self-), que tem o formato `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` para evitar a obter ResourceIds de todos os recursos utilizados para construir a ligação. Além disso, como estes recursos obterem recriados (possivelmente com o mesmo nome), a colocação em cache estas poderão ajuda.
 
    <a id="tune-page-size"></a>
 8. **Ajustar o tamanho da página de feeds de consultas/leitura para um melhor desempenho**

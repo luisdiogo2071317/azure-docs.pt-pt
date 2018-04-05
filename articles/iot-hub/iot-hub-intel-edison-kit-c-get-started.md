@@ -2,10 +2,10 @@
 title: Intel Edison nuvem (C) - ligar o Intel Edison ao IoT Hub do Azure | Microsoft Docs
 description: Saiba como configurar e ligar Intel Edison ao Azure IoT Hub para Intel Edison enviar dados para a plataforma de nuvem do Azure, neste tutorial.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
+tags: ''
 keywords: iot do Azure intel edison, intel iothub edison, intel edison enviar dados para a nuvem, intel edison na nuvem
 ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
 ms.service: iot-hub
@@ -17,10 +17,10 @@ ms.date: 4/17/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: edbdbe0230f742cd7228f04a4a83c9bd567527e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Ligar Intel Edison IoT Hub (C) do Azure
 
@@ -115,7 +115,7 @@ Agora é assembled seu painel.
 
 O sensor está agora pronta.
 
-### <a name="power-up-edison"></a>Energia segurança Edison
+### <a name="power-up-edison"></a>Power up Edison
 
 1. Plug-in a fonte de alimentação.
 
@@ -235,7 +235,7 @@ Deverá ver o seguinte resultado que mostra os dados de sensor e as mensagens qu
 
 ![Saída - dados de sensor enviados do Intel Edison ao seu IoT hub](media/iot-hub-intel-edison-kit-c-get-started/15_message_sent.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Tiver de executar um exemplo de aplicação para recolher dados de sensores e enviá-lo ao seu IoT hub.
 

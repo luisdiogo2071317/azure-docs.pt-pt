@@ -1,13 +1,13 @@
 ---
-title: "Azure máquinas virtuais de planeamento e implementação de SAP NetWeaver | Microsoft Docs"
-description: "Azure máquinas virtuais de planeamento e implementação de SAP NetWeaver"
+title: Azure máquinas virtuais de planeamento e implementação de SAP NetWeaver | Microsoft Docs
+description: Azure máquinas virtuais de planeamento e implementação de SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure máquinas virtuais de planeamento e implementação de SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -798,8 +798,8 @@ O portal do Azure é um dos três interfaces para gerir implementações de VM d
 
 ![Portal do Microsoft Azure - descrição geral de Máquina Virtual][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * < https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
-[comment]: <> (MSSedusch * < https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Tarefas de administração e a configuração para a instância de Máquina Virtual são possíveis a partir do portal do Azure.
 
@@ -851,7 +851,7 @@ Este capítulo aprender as diferentes formas de implementar uma VM no Azure. Pro
 Microsoft Azure oferece várias formas de implementar as VMs e discos associados. Deste modo, é muito importante compreender as diferenças, uma vez que os preparativos das VMs poderão diferir consoante o método de implementação. Em geral, podemos observe os seguintes cenários:
 
 #### <a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>Mover uma VM no local para o Azure com um disco não generalizado
-Planear mover um sistema específico do SAP no local para o Azure. Isto pode ser feito através do carregamento o VHD, que contém o sistema operativo, os binários de SAP e binários DBMS plus os VHDs com os ficheiros de dados e de registo do DBMS para o Azure. Contrast para [cenário &#2; abaixo][planning-guide-5.1.2], mantenha o nome de anfitrião, o SID de SAP, e as contas de utilizador SAP na VM do Azure, que foram configuradas no ambiente no local. Por conseguinte, generalizar a imagem não é necessário. Consulte capítulos [preparação para mover uma VM no local para o Azure com um disco não generalizado] [ planning-guide-5.2.1] deste documento para obter passos de preparação no local e o carregamento de VMs não generalizado ou VHDs no Azure. Capítulo leitura [cenário 3: mover uma VM no local através de um VHD de Azure não generalizado com SAP] [ deployment-guide-3.4] no [guia de implementação] [ deployment-guide] para passos detalhados de implementar essa uma imagem no Azure.
+Planear mover um sistema específico do SAP no local para o Azure. Isto pode ser feito através do carregamento o VHD, que contém o sistema operativo, os binários de SAP e binários DBMS plus os VHDs com os ficheiros de dados e de registo do DBMS para o Azure. Contrast para [cenário 2 # abaixo][planning-guide-5.1.2], mantenha o nome de anfitrião, o SID de SAP, e as contas de utilizador SAP na VM do Azure, que foram configuradas no ambiente no local. Por conseguinte, generalizar a imagem não é necessário. Consulte capítulos [preparação para mover uma VM no local para o Azure com um disco não generalizado] [ planning-guide-5.2.1] deste documento para obter passos de preparação no local e o carregamento de VMs não generalizado ou VHDs no Azure. Capítulo leitura [cenário 3: mover uma VM no local através de um VHD de Azure não generalizado com SAP] [ deployment-guide-3.4] no [guia de implementação] [ deployment-guide] para passos detalhados de implementar essa uma imagem no Azure.
 
 #### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Implementar uma VM com uma imagem específica do cliente
 Devido às necessidades de correção específicos da sua versão do SO ou DBMS, as imagens fornecidas no Azure Marketplace podem não atender as suas necessidades. Por conseguinte, poderá ter de criar uma VM utilizando a sua própria imagem de VM de SO/DBMS privada, que pode ser implementada várias vezes posteriormente. Para preparar essa uma imagem de privada duplicação, os seguintes itens tem de ser considerados como estando:
@@ -979,7 +979,7 @@ Neste caso, pretendemos carregar um VHD, com ou sem sistema operativo no mesmo e
 * Inicie sessão na sua subscrição com *início de sessão az*
 * Selecione a sua subscrição com *az conta set - subscrição `<subscription name or id`>*
 * Carregar o VHD com *carregamento de blob de armazenamento az* -consulte [utilizando a CLI do Azure com o Storage do Azure][storage-azure-cli]
-* (Opcional) Criar um disco gerido a partir de VHD com *criar disco de az* -Consulte https://docs.microsoft.com/cli/azure/disk#az_disk_create
+* (Opcional) Criar um disco gerido a partir de VHD com *criar disco de az* -consulte o artigo https://docs.microsoft.com/cli/azure/disk#az_disk_create
 * Criar uma nova VM especificação carregado VHD ou disco geridos como disco de SO com *az vm criar* e o parâmetro *– anexar--disco do SO*
 * Adicionar um disco de dados para uma nova VM com *anexar o disco da vm az* e o parâmetro *– novo*
 
@@ -1008,7 +1008,7 @@ Para carregar uma VM existente ou VHD a partir da rede no local para utilizá-la
 * Inicie sessão na sua subscrição com *início de sessão az*
 * Selecione a sua subscrição com *az conta set - subscrição `<subscription name or id`>*
 * Carregar o VHD com *carregamento de blob de armazenamento az* -consulte [utilizando a CLI do Azure com o Storage do Azure][storage-azure-cli]
-* (Opcional) Criar uma imagem de disco gerida a partir de VHD com *criar imagem az* -Consulte https://docs.microsoft.com/cli/azure/image#az_image_create
+* (Opcional) Criar uma imagem de disco gerida a partir de VHD com *criar imagem az* -consulte o artigo https://docs.microsoft.com/cli/azure/image#az_image_create
 * Criar uma nova VM especificação VHD ou a imagem de disco gerido carregado como disco de SO com *az vm criar* e o parâmetro *– imagem*
 
 **Modelo**
@@ -1420,7 +1420,7 @@ $pip = New-AzureRmPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName
 $nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
-* Crie uma máquina virtual. Para o cenário de apenas na nuvem a cada VM terão o mesmo nome. O SID de SAP das instâncias do SAP NetWeaver dessas VMs será a mesma bem. Dentro do grupo de recursos do Azure, o nome da VM tem de ser exclusivo, mas em diferentes grupos de recursos do Azure pode executar as VMs com o mesmo nome. A conta de 'Administrador' predefinida do Windows ou raiz para Linux não são válidos. Por conseguinte, um novo nome de utilizador de administrador tem de ser definida, juntamente com uma palavra-passe. O tamanho da VM também tem de ser definido.
+* Cria uma máquina virtual. Para o cenário de apenas na nuvem a cada VM terão o mesmo nome. O SID de SAP das instâncias do SAP NetWeaver dessas VMs será a mesma bem. Dentro do grupo de recursos do Azure, o nome da VM tem de ser exclusivo, mas em diferentes grupos de recursos do Azure pode executar as VMs com o mesmo nome. A conta de 'Administrador' predefinida do Windows ou raiz para Linux não são válidos. Por conseguinte, um novo nome de utilizador de administrador tem de ser definida, juntamente com uma palavra-passe. O tamanho da VM também tem de ser definido.
 
 ```powershell
 #####
@@ -1534,7 +1534,7 @@ az network public-ip create --resource-group $rgName --name SAPERPDemoPIP --loca
 az network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-address SAPERPDemoPIP --subnet Subnet1 --vnet-name SAPERPDemoVNet
 ```
 
-* Crie uma máquina virtual. Para o cenário de apenas na nuvem a cada VM terão o mesmo nome. O SID de SAP das instâncias do SAP NetWeaver dessas VMs será a mesma bem. Dentro do grupo de recursos do Azure, o nome da VM tem de ser exclusivo, mas em diferentes grupos de recursos do Azure pode executar as VMs com o mesmo nome. A conta de 'Administrador' predefinida do Windows ou raiz para Linux não são válidos. Por conseguinte, um novo nome de utilizador de administrador tem de ser definida, juntamente com uma palavra-passe. O tamanho da VM também tem de ser definido.
+* Cria uma máquina virtual. Para o cenário de apenas na nuvem a cada VM terão o mesmo nome. O SID de SAP das instâncias do SAP NetWeaver dessas VMs será a mesma bem. Dentro do grupo de recursos do Azure, o nome da VM tem de ser exclusivo, mas em diferentes grupos de recursos do Azure pode executar as VMs com o mesmo nome. A conta de 'Administrador' predefinida do Windows ou raiz para Linux não são válidos. Por conseguinte, um novo nome de utilizador de administrador tem de ser definida, juntamente com uma palavra-passe. O tamanho da VM também tem de ser definido.
 
 ```
 #####

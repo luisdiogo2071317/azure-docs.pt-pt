@@ -1,12 +1,12 @@
 ---
-title: "Classificação de receitas - equipa o processo de ciência de dados - Azure Machine Learning | Microsoft Docs"
-description: "Como utilizar o modelo de processo de ciência de dados de agrupamento para criar um projeto no Azure Machine Learning que classifica incomes E.U.A."
+title: Classificação de receitas - equipa o processo de ciência de dados - Azure Machine Learning | Microsoft Docs
+description: Como utilizar o modelo de processo de ciência de dados de agrupamento para criar um projeto no Azure Machine Learning que classifica incomes E.U.A.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
 ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classificação de receitas com o projeto de equipa dados ciência processo (TDSP)
 
@@ -74,7 +74,7 @@ Se gostaria de guardar e versão do seu projeto e o respetivo conteúdo, tem de 
 
 Crie um novo projeto com este exemplo como um modelo:
 1.  Abra máquina do Azure Learning Workbench
-2.  No **projetos** página, clique em de  **+**  iniciar sessão e selecionar **novo projeto**
+2.  No **projetos** página, clique em de **+** iniciar sessão e selecionar **novo projeto**
 3.  No **criar novo projeto** painel, preencha as informações para o novo projeto
 4.  No **modelos de projeto de pesquisa** caixa de pesquisa, escreva "Incomes classificar E.U.A. - projeto TDSP" e selecione o modelo
 5.  Clique em **Criar**.
@@ -148,7 +148,7 @@ Funcionalidade importância (primeiros 20) do modelo de floresta aleatórias é 
 
 ![](./media/scenario-tdsp-classifying-us-incomes/featImportance.png)
 
-* [**Implementação**](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/tree/master/code/03_deployment)
+* [**Deployment**](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/tree/master/code/03_deployment)
 
 O modelo de floresta aleatório foi implementada como um serviço web num cluster no [serviço de contentor do Azure (ACS)](https://azure.microsoft.com/services/container-service/). O ambiente de operationalization Aprovisiona Docker e Kubernetes do cluster para gerir a implementação de serviço web. Pode encontrar mais informações sobre o processo de operationalization [aqui](model-management-service-deploy.md). 
 

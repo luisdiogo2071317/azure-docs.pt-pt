@@ -1,6 +1,6 @@
 ---
-title: "Instalar o serviço de mobilidade (VMware ou físico para o Azure) | Microsoft Docs"
-description: "Saiba como instalar o agente do serviço de mobilidade para proteger as VMs de VMware no local e servidores físicos com o Azure Site Recovery."
+title: Instalar o serviço de mobilidade (VMware ou físico para o Azure) | Microsoft Docs
+description: Saiba como instalar o agente do serviço de mobilidade para proteger as VMs de VMware no local e servidores físicos com o Azure Site Recovery.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
 ms.openlocfilehash: 445a5f10eac0959dab57e10680659c0792ad6fba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-the-mobility-service"></a>Instalar o serviço de Mobilidade 
 

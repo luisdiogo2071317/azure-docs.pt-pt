@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2c10dcf185c62f3672be80ad2e3d049eae82fe6b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e37b63580d8cea4b5772bc54f7b2f79980afc0bc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Pilha do Azure de política de manutenção
 Este artigo descreve a política de manutenção para sistemas de pilha do Azure integrada e que terá de efetuar para manter o seu sistema num estado suportado. 
@@ -47,19 +47,6 @@ Por exemplo, se a versão de atualização mais recentemente disponível é 1805
 
 Pacotes de atualização de software Microsoft são não cumulativa e necessitam que o pacote de atualização anteriores como pré-requisito. Se decidir diferir atualizações de um ou mais, considere o tempo de execução global, se pretender obter a versão mais recente. 
 
-A tabela seguinte mostra as versões de pacote de atualização de exemplo, os respetivos pré-requisitos e a versão mínima suportada que o sistema tem de ser, para manter o suporte. A tabela baseia-se na versão inicial do sistemas de pilha do Azure integrado (criar 1708), com a primeira atualização pacote versão (1709) em Setembro de 2017. 
-
-| Pacote de atualização mais recente (*exemplo*) | Pré-requisito | Versão mínima suportada |
-| -- | -- | -- |
-| 1710 | 1709 | N/A |
-| 1711 | 1710 | 1709 |
-| 1712 | 1711 | 1710 |
-| 1802 | 1712 | 1711 |
-| 1803 | 1802 | 1712 |
-| 1804 | 1803 | 1802 |
-| 1805 | 1804 | 1803 |
-| | | 
-Na tabela anterior, não há nenhuma versão de lançamento 1801.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

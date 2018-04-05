@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de corresponder ao motor de regras CDN do Azure 
 Este artigo apresenta uma lista de descrições detalhadas das condições disponíveis de correspondência de rede do Azure da entrega de conteúdos (CDN) [motor de regras](cdn-rules-engine.md).
@@ -726,7 +726,7 @@ Informações da chave:
 - Uma extremidade CNAME URL é rescrita para um URL de CDN antes de comparação de URL.
 
     Por exemplo, ambos os seguintes URLs de apontam para o mesmo elemento, pelo que tem o mesmo caminho de URL:
-     - URL de CDN: http://wpc.0001. &lt;domínio&gt;/800001/CustomerOrigin/path/asset.htm
+     - URL de CDN: http://wpc.0001.&lt; domínio&gt;/800001/CustomerOrigin/path/asset.htm
      - URL de CNAME Edge: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Informações adicionais:
@@ -871,7 +871,7 @@ Nome  | Valor |  Resultado
 ------|-------|--------
 Utilizador  | Joe   | Este padrão é correspondido quando a cadeia de consulta para um URL pedido é "? utilizador = joe."
 Utilizador  | *     | Este padrão é correspondido quando a cadeia de consulta para um URL de pedido contém um parâmetro de utilizador.
-E-mail | Joe\* | Este padrão é correspondido quando a cadeia de consulta para um URL de pedido contém um parâmetro de E-Mail que começa com "João".
+Email | Joe\* | Este padrão é correspondido quando a cadeia de consulta para um URL de pedido contém um parâmetro de E-Mail que começa com "João".
 
 [Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 

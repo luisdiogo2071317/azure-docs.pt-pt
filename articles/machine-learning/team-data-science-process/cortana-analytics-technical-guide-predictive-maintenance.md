@@ -1,8 +1,8 @@
 ---
-title: "Manutenção preditiva no aeroespacial com o Azure - guia técnico do Cortana Intelligence solução | Microsoft Docs"
-description: "Um guia técnico para o modelo de solução com o Microsoft Cortana Intelligence para manutenção preventiva aeroespacial, utilitários e transportes."
+title: Manutenção preditiva no aeroespacial com o Azure - guia técnico do Cortana Intelligence solução | Microsoft Docs
+description: Um guia técnico para o modelo de solução com o Microsoft Cortana Intelligence para manutenção preventiva aeroespacial, utilitários e transportes.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
 ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico para o modelo de solução do Cortana Intelligence para manutenção preventiva aeroespacial e outras empresas
 
@@ -134,7 +134,7 @@ Isto [pipeline](../../data-factory/v1/data-factory-create-pipelines.md) contém 
 
 As atividades incluídas são:
 
-* [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) atividade utilizando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um [ramo de registo](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para efetuar agregações e funcionalidade engenharia necessária para o [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentação.
+* [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) atividade utilizando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um [ramo de registo](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para efetuar agregações e funcionalidade engenharia necessária para o [máquina do Azure Learning](https://azure.microsoft.com/services/machine-learning/) experimentação.
   O [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para esta tarefa de criação de partições é ***PrepareMLInput.hql***.
 * [Cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move os resultados do [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) atividade para um único [Storage do Azure](https://azure.microsoft.com/services/storage/) blob acedido pelo [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) atividade.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) chamadas de atividade de [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentação, com resultados colocar numa única [Storage do Azure](https://azure.microsoft.com/services/storage/) blob.
@@ -191,7 +191,7 @@ Os seguintes passos guiá-lo sobre como ligar o ficheiro pbix na base de dados d
 3. (Opcional) Publicar o dashboard de caminho típico para [Power BI online](http://www.powerbi.com/). Tenha em atenção que este passo necessita de uma conta Power BI (ou conta do Office 365).
    
    * Clique em **"Publicar"** e uma janela de alguns segundos mais tarde é apresentada a apresentar "A publicação com êxito do Power BI!" com uma marca de verificação verde. Clique na ligação abaixo "Abrir PredictiveMaintenanceAerospace.pbix no Power BI". Para obter instruções detalhadas, consulte [publicar do Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * Para criar um novo dashboard: clique o  **+**  junto a assinar o **Dashboards** secção no painel esquerdo. Introduza o nome "Demonstração de manutenção preditiva" para este dashboard novo.
+   * Para criar um novo dashboard: clique o **+** junto a assinar o **Dashboards** secção no painel esquerdo. Introduza o nome "Demonstração de manutenção preditiva" para este dashboard novo.
    * Depois de abrir o relatório, clique em ![ícone de PINO](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-pin.png) para afixar ao dashboard todas as visualizações. Para obter instruções detalhadas, consulte [afixar um mosaico a um dashboard do Power BI a partir de um relatório](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Aceda à página do dashboard e ajustar o tamanho e localização do seu visualizações e editar os títulos. Para obter instruções detalhadas sobre como editar os seus mosaicos, consulte [editar um mosaico – redimensionamento, move, mudar o nome, pin, eliminar, adicione hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Eis um dashboard de exemplo com algumas visualizações de caminho típico afixado ao mesmo.  Consoante o período de tempo executar o gerador de dados, os seus números de visualizações poderão ser diferentes.
      <br/>

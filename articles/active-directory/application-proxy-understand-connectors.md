@@ -1,11 +1,11 @@
 ---
-title: "Compreender os conectores de Proxy de aplicações do Azure AD | Microsoft Docs"
-description: "Abrange as noções básicas sobre conectores de Proxy de aplicações do Azure AD."
+title: Compreender os conectores de Proxy de aplicações do Azure AD | Microsoft Docs
+description: Abrange as noções básicas sobre conectores de Proxy de aplicações do Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de Proxy de aplicações do Azure AD
 
@@ -78,7 +78,7 @@ Enquanto conectores serão automaticamente o balanceamento de carga dentro de um
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\*Esta máquina tinha um limite de ligação de 800. Para todas as outras máquinas utilizámos o limite de ligação 200 predefinido.
+\* Esta máquina tinha um limite de ligação de 800. Para todas as outras máquinas utilizámos o limite de ligação 200 predefinido.
  
 >[!NOTE]
 >Não é muito diferença nos TPS máximos entre 4, 8 e 16 núcleos máquinas. A principal diferença entre as está a ser a latência esperada.  
@@ -113,7 +113,7 @@ Outro fator que afeta o desempenho é a qualidade de rede entre os conectores, i
 
 Para obter mais informações sobre a otimização de rede, consulte [considerações sobre a topologia de rede ao utilizar o Proxy de aplicações do Azure Active Directory](application-proxy-network-topology-considerations.md).
 
-## <a name="domain-joining"></a>Associar domínio
+## <a name="domain-joining"></a>Associação a domínios
 
 Conectores podem ser executado num computador que não está associado ao domínio. No entanto, se quiser início de sessão único (SSO) para as aplicações que utilizam a autenticação integrada de Windows (IWA), precisa de um computador associado a um domínio. Neste caso, as máquinas do conector tem de estar associadas a um domínio que pode realizar [Kerberos](https://web.mit.edu/kerberos) a delegação restrita em nome de utilizadores para as aplicações publicadas.
 
@@ -159,7 +159,7 @@ Pode examinar o estado do serviço na janela de serviços. O conector é compost
 
  ![AzureAD serviços Local](./media/application-proxy-understand-connectors/aad-connector-services.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 
 * [Publicar aplicações em redes separadas e localizações utilizar grupos de conector](active-directory-application-proxy-connectors-azure-portal.md)

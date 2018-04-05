@@ -16,10 +16,10 @@ ms.date: 06/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1114ea90ae6976a3bc3580ebae5fd853de0274a1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automática para o dimensionamento de nós de computação de um conjunto do Batch
 
@@ -119,7 +119,7 @@ Pode obter o valor destas variáveis definidas pelo serviço efetuar ajustes bas
 >
 >
 
-## <a name="types"></a>Tipos de
+## <a name="types"></a>Tipos
 Estes tipos são suportados numa fórmula:
 
 * duplo
@@ -655,7 +655,7 @@ string formula = string.Format(@"
     ", now, 4);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Maximizar a utilização de recursos de computação do Azure Batch com tarefas de nó simultâneas](batch-parallel-node-tasks.md) contém detalhes sobre como pode executar várias tarefas em simultâneo em nós de computação do conjunto. Para além de dimensionamento automático, esta funcionalidade pode ajudar a reduzir a duração de tarefa para algumas cargas de trabalho, poupando dinheiro.
 * Para outro booster de eficiência, certifique-se de que a aplicação do Batch consulta o serviço Batch da forma ideal. Consulte [consultar o serviço Azure Batch de forma eficiente](batch-efficient-list-queries.md) para aprender a limitar a quantidade de dados que atravesse encriptado quando consultar o estado de potencialmente milhares de nós de computação ou tarefas.
 

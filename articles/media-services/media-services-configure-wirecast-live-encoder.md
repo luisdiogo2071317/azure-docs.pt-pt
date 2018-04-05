@@ -1,11 +1,11 @@
 ---
-title: "Configurar o codificador Telestream Wirecast para enviar uma transmissão em fluxo em direto | Microsoft Docs"
-description: "Este tópico mostra como configurar o codificador em direto Wirecast para enviar uma transmissão em fluxo para canais de AMS que estão ativados para live encoding. "
+title: Configurar o codificador Telestream Wirecast para enviar uma transmissão em fluxo em direto | Microsoft Docs
+description: 'Este tópico mostra como configurar o codificador em direto Wirecast para enviar uma transmissão em fluxo para canais de AMS que estão ativados para live encoding. '
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: 0e4fb0b7c915969da1760eaccc77aa399030752e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador Wirecast para enviar uma transmissão em fluxo em direto
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Elementar em direto](media-services-configure-elemental-live-encoder.md)
-> * [Transcodificadores](media-services-configure-tricaster-live-encoder.md)
+> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
 >
@@ -74,7 +74,7 @@ Neste tutorial, são utilizadas as seguintes definições de saída. As restante
 
 **Vídeo**:
 
-* Codec: 264
+* Codec: H.264
 * Perfil: Alta (nível 4.0)
 * Velocidade de transmissão: kbps 5000
 * Keyframe: 2 segundos (60 segundos)
@@ -109,7 +109,7 @@ Neste tutorial, são utilizadas as seguintes definições de saída. As restante
    * Perfil: principal
    * Fotograma chave cada: 60 frames
 
-    **Áudio**
+    **áudio**
 
    * Taxa de bits de destino: 192 kbits/seg
    * Frequência de amostragem: kHz 44.100

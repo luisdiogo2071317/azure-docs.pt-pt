@@ -1,8 +1,8 @@
 ---
-title: "Criar uma VM do Azure clássico com MySQL | Microsoft Docs"
-description: "Crie uma máquina virtual do Azure com o Windows Server 2012 R2 e a base de dados MySQL utilizando o modelo de implementação clássica."
+title: Criar uma VM do Azure clássico com MySQL | Microsoft Docs
+description: Crie uma máquina virtual do Azure com o Windows Server 2012 R2 e a base de dados MySQL utilizando o modelo de implementação clássica.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
 editor: tysonn
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
 ms.openlocfilehash: e4135f96027cc25e1e0a149857ace1672570fc4b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Instalar o MySQL numa máquina virtual criada com o modelo de implementação clássica com o Windows Server 2016
 [MySQL](https://www.mysql.com) é um código aberto popular, a base de dados SQL. Este tutorial mostra como instalar e executar o **versão de Comunidade do MySQL 5.7.18** como um servidor de MySQL numa máquina virtual em execução **Windows Server 2016**. A experiência poderão ser ligeiramente diferente para outras versões de MySQL ou Windows Server.
@@ -114,11 +114,11 @@ Para testar a ligação remota à VM do Azure com o serviço servidor MySQL, tem
    ![](media/mysql-2008r2/MySQL_DNSName.png)
 3. A partir de um computador local com o MySQL ou o cliente do MySQL, execute o seguinte comando para iniciar sessão como um utilizador MySQL.
 
-     MySQL -u <yourMysqlUsername> - p -h<yourDNSname>
+     mysql -u <yourMysqlUsername> -p -h <yourDNSname>
 
    Por exemplo, utilizando o nome de utilizador MySQL _dbadmin3_ e _testmysql.cloudapp.net_ nome de DNS para a máquina virtual, poderá começar MySQL utilizando o seguinte comando:
 
-     MySQL -u dbadmin3 -p -h testmysql.cloudapp.net
+     mysql -u dbadmin3 -p -h testmysql.cloudapp.net
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre como executar MySQL, consulte o [MySQL documentação](http://dev.mysql.com/doc/).

@@ -2,7 +2,7 @@
 title: Restringir o acesso com assinaturas de acesso partilhado - Azure HDInsight | Microsoft Docs
 description: Saiba como utilizar assinaturas de acesso partilhado para restringir o acesso do HDInsight para dados armazenados em blobs de armazenamento do Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
 ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilizar assinaturas de acesso partilhado do Azure armazenamento para restringir o acesso aos dados no HDInsight
 
@@ -44,7 +44,7 @@ HDInsight tem acesso total aos dados nas contas de armazenamento do Azure associ
     > [!IMPORTANT]
     > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
-* Ficheiros de exemplo da [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Este repositório inclui os seguintes itens:
+* Ficheiros de exemplo da [ https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature ](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Este repositório inclui os seguintes itens:
 
   * Um projeto do Visual Studio que pode criar um contentor de armazenamento, a política armazenadas e a SAS para utilização com o HDInsight
   * Um script de Python que pode criar um contentor de armazenamento, a política armazenadas e a SAS para utilização com o HDInsight

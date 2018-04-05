@@ -15,10 +15,10 @@ ms.date: 03/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 2ad995c4b48c2c298edd7c6b4da92ea8f3c4a060
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Authorize access to web applications using OAuth 2.0 and Azure Active Directory (Autorizar o acesso a aplicações Web com OAuth 2.0 e o Azure Active Directory)
 Azure Active Directory (Azure AD) utiliza OAuth 2.0 para que possa autorizar o acesso a aplicações web e APIs web no inquilino do Azure AD. Este guia é independente de idioma e descreve como enviar e receber mensagens HTTP sem utilizar qualquer uma das nossas bibliotecas de open source.
@@ -55,12 +55,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |recomendado |Redirect_uri da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação.  Este deve corresponder exatamente um dos redirect_uris registado no portal, exceto tem de ser codificados de url.  Para aplicações móveis & nativas, deve utilizar o valor predefinido de `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |recomendado |Especifica o método que deve ser utilizado para enviar a cópia de segurança de token resultante para a sua aplicação.  Pode ser `query` ou `form_post`. |
 | state |recomendado |Um valor incluído no pedido de que também é devolvido na resposta token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de pedidos entre sites](http://tools.ietf.org/html/rfc6749#section-10.12).  O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista estivessem nas suas. |
-| Recurso |Opcional |O URI de ID de aplicação da web API (recursos protegidos). Para obter o URI de ID de aplicação de API, web no Portal do Azure, clique em **do Active Directory**, clique no diretório, clique na aplicação e, em seguida, clique em **configurar**. |
-| linha de comandos |Opcional |Indica o tipo de interação do utilizador que é necessário.<p> Os valores válidos são: <p> *início de sessão*: O utilizador deve ser pedido para voltar. <p> *consentimento*: consentimento do utilizador foram concedido, mas tem de ser atualizado. Deve ser pedido ao utilizador consentimento. <p> *admin_consent*: um administrador deve ser-lhe pedido que consentimento em nome de todos os utilizadores da organização |
-| login_hint |Opcional |Pode ser utilizado para a pré-preencher o campo de endereço de e-mail/nome de utilizador da página de início de sessão do utilizador, se souber o nome de utilizador antecedência.  Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação rápida, já ter extraiu o nome de utilizador de uma anterior início de sessão utilizando o `preferred_username` de afirmação. |
-| domain_hint |Opcional |Fornece uma sugestão sobre o domínio que o utilizador deve utilizar para iniciar sessão ou inquilino. O valor da domain_hint é um domínio registado para o inquilino. Se o inquilino está federado para um diretório no local, AAD redireciona para o servidor de Federação do inquilino especificado. |
-| code_challenge_method | Opcional    | O método utilizado para codificar o `code_verifier` para o `code_challenge` parâmetro. Pode ser um dos `plain` ou `S256`.  Se excluído, `code_challenge` é prestada texto simples se `code_challenge` está incluído.  V 1.0 do AAD do Azure suporta `plain` e `S256`. Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| code_challenge        | Opcional    | Utilizado para proteger o código de autorização concede através de chave de prova de código Exchange (PKCE) de um cliente nativo. Se necessário `code_challenge_method` está incluído.  Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| Recurso |opcional |O URI de ID de aplicação da web API (recursos protegidos). Para obter o URI de ID de aplicação de API, web no Portal do Azure, clique em **do Active Directory**, clique no diretório, clique na aplicação e, em seguida, clique em **configurar**. |
+| linha de comandos |opcional |Indica o tipo de interação do utilizador que é necessário.<p> Os valores válidos são: <p> *início de sessão*: O utilizador deve ser pedido para voltar. <p> *consentimento*: consentimento do utilizador foram concedido, mas tem de ser atualizado. Deve ser pedido ao utilizador consentimento. <p> *admin_consent*: um administrador deve ser-lhe pedido que consentimento em nome de todos os utilizadores da organização |
+| login_hint |opcional |Pode ser utilizado para a pré-preencher o campo de endereço de e-mail/nome de utilizador da página de início de sessão do utilizador, se souber o nome de utilizador antecedência.  Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação rápida, já ter extraiu o nome de utilizador de uma anterior início de sessão utilizando o `preferred_username` de afirmação. |
+| domain_hint |opcional |Fornece uma sugestão sobre o domínio que o utilizador deve utilizar para iniciar sessão ou inquilino. O valor da domain_hint é um domínio registado para o inquilino. Se o inquilino está federado para um diretório no local, AAD redireciona para o servidor de Federação do inquilino especificado. |
+| code_challenge_method | opcional    | O método utilizado para codificar o `code_verifier` para o `code_challenge` parâmetro. Pode ser um dos `plain` ou `S256`.  Se excluído, `code_challenge` é prestada texto simples se `code_challenge` está incluído.  V 1.0 do AAD do Azure suporta `plain` e `S256`. Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | opcional    | Utilizado para proteger o código de autorização concede através de chave de prova de código Exchange (PKCE) de um cliente nativo. Se necessário `code_challenge_method` está incluído.  Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > Se o utilizador faz parte de uma organização, um administrador da organização pode consentimento ou recusar em nome do utilizador ou permitir que o utilizador consentimento. O utilizador é dada a opção de consentimento apenas quando o administrador permite-lo.
@@ -140,7 +140,7 @@ grant_type=authorization_code
 | redirect_uri |Necessário |O mesmo `redirect_uri` valor que utilizou para adquirir o `authorization_code`. |
 | client_secret |necessário para as web apps, não é permitidas para clientes públicos |O segredo de aplicação que criou no portal de registo de aplicação para a sua aplicação.  Não pode ser utilizado numa aplicação nativa (cliente público), porque client_secrets não pode ser fiável armazenado nos dispositivos.  É necessário para as aplicações web e web APIs (confidenciais todos os clientes), que têm a capacidade de armazenar o `client_secret` em segurança no lado do servidor. |
 | Recurso |necessário se especificado num pedido de código de autorização, caso contrário, opcional |O URI de ID de aplicação da web API (recursos protegidos). |
-| code_verifier | Opcional              | O mesmo code_verifier que foi utilizado para obter o authorization_code.  Necessário se PKCE foi utilizada no pedido de concessão do código de autorização.  Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
+| code_verifier | opcional              | O mesmo code_verifier que foi utilizado para obter o authorization_code.  Necessário se PKCE foi utilizada no pedido de concessão do código de autorização.  Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
 Para obter o URI de ID de aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório, clique na aplicação e, em seguida, clique em **configurar**.
 

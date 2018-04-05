@@ -54,9 +54,9 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Regras por configuração de IP | 299 |299 |
 | Configurações de IP de front-end, Basic | 10 | 200 |
 | Configurações de IP de front-end, Standard | 10 | 600 |
-| Conjunto de back-end, Basic | 100, único conjunto de disponibilidade | - |
-| Conjunto de back-end, Standard | 1000, único VNet | - |
-| HA portas, Standard | 1 por interno front-end | - |
+| Conjunto de back-end, Basic | 100, único conjunto de disponibilidade | 100, único conjunto de disponibilidade |
+| Conjunto de back-end, Standard | 1000, único VNet | 1000, único VNet |
+| HA portas, Standard | 1 por interno front-end | 1 por interno front-end |
 
 Caso seja necessário aumentar os limites para lá da predefinição, [contacte o suporte](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Máquinas virtuais disponibilizar aos utilizadores de pilha do Azure
 Como um administrador da nuvem de pilha do Azure, pode criar ofertas podem subscrever os seus utilizadores (algumas vezes referidos como inquilinos). Utilizar a subscrição, os utilizadores podem consumir, em seguida, serviços de pilha do Azure.
@@ -113,7 +113,7 @@ Agora que criou uma oferta, pode testá-lo. Inicie sessão como um utilizador e 
    Agora, pode iniciar sessão no portal como um utilizador para subscrever uma oferta.
 
    a. Inicie sessão no portal de utilizador como um utilizador e clique em **obter uma subscrição**.
-   - Para um sistema integrado, o URL varia com base na região e nome de domínio externo o operador e estarão disponíveis na https://portal formato. &lt; *região*&gt;.&lt; *FQDN*&gt;.
+   - Para um sistema integrado, o URL varia com base na região e nome de domínio externo o operador e vai estar no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
    - Se estiver a utilizar o Kit de desenvolvimento de pilha do Azure, o endereço de portal é https://portal.local.azurestack.external.
 
    ![Obter uma subscrição](media/azure-stack-subscribe-plan-provision-vm/image01.png)
@@ -131,7 +131,7 @@ Agora que criou uma oferta, pode testá-lo. Inicie sessão como um utilizador e 
    Agora, pode iniciar sessão no portal como um utilizador para Aprovisionar uma máquina virtual utilizando a subscrição. 
 
    a. Inicie sessão no portal de utilizador como um utilizador.
-      - Para um sistema integrado, o URL varia com base na região e nome de domínio externo o operador e estarão disponíveis na https://portal formato. &lt; *região*&gt;.&lt; *FQDN*&gt;.
+      - Para um sistema integrado, o URL varia com base na região e nome de domínio externo o operador e vai estar no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
    - Se estiver a utilizar o Kit de desenvolvimento de pilha do Azure, o endereço de portal é https://portal.local.azurestack.external.
 
    b.  No dashboard, clique em **novo** > **computação** > **Windows Server 2016 Datacenter Eval**e, em seguida, clique em **criar**.

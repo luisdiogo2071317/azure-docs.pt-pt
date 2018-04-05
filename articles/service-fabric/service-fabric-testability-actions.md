@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv;heeldin
 ms.openlocfilehash: c8ddc7732999ae555323bebaef60aa34c8f2ec17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="testability-actions"></a>Ações de teste
 Para simular uma pouco fiável infraestrutura, o Azure Service Fabric fornece-lhe, o programador, com formas para simular várias falhas do mundo real e transições de estado. Estes são expostos como ações de teste. As ações são as APIs de baixo nível que fazer com que uma inserção de falhas específicas, transição de estado ou validação. Ao combinar estas ações, pode escrever cenários de teste abrangente para os serviços.

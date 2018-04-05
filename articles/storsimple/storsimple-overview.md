@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral da solução de série 8000 do StorSimple | Microsoft Docs"
-description: "Descreve a criação de camadas do StorSimple, o dispositivo, dispositivo virtual, serviços e gestão de armazenamento e apresenta chaves termos utilizados no StorSimple."
+title: Descrição geral da solução de série 8000 do StorSimple | Microsoft Docs
+description: Descreve a criação de camadas do StorSimple, o dispositivo, dispositivo virtual, serviços e gestão de armazenamento e apresenta chaves termos utilizados no StorSimple.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série 8000 do StorSimple: uma solução de armazenamento de nuvem híbrida
 ## <a name="overview"></a>Descrição geral
@@ -58,7 +58,7 @@ A solução do Microsoft Azure StorSimple inclui os seguintes componentes:
 * **O Windows PowerShell para StorSimple** – uma interface de linha de comandos que pode utilizar para gerir o dispositivo StorSimple. O Windows PowerShell para StorSimple tem funcionalidades que lhe permitem registar o dispositivo StorSimple, configure a interface de rede no seu dispositivo, instalar determinados tipos de atualizações, resolver problemas relacionados com o seu dispositivo acedendo a sessão de suporte e alteram o estado do dispositivo. Pode aceder a do Windows PowerShell para StorSimple estabelecendo ligação à consola de série ou ao utilizar a comunicação remota do Windows PowerShell.
 * **Cmdlets do Azure PowerShell StorSimple** – uma coleção de cmdlets do Windows PowerShell que permitem-lhe automatizar tarefas de nível de serviço e a migração a partir da linha de comandos. Para obter mais informações sobre os cmdlets do Azure PowerShell para StorSimple, vá para o [referência de cmdlet](/powershell/module/azure/?view=azuresmps-3.7.0#azure).
 * **Snapshot Manager do StorSimple** – um snap-in da MMC, que utiliza grupos de volume e o serviço de cópia de sombra de Volume do Windows para gerar as cópias de segurança consistentes com aplicações. Além disso, pode utilizar o Snapshot Manager do StorSimple para criar as agendas de cópia de segurança e clone ou restauro de volumes.
-* **Placa StorSimple para SharePoint** – farms de uma ferramenta de forma transparente expande a proteção de dados e de armazenamento do Microsoft Azure StorSimple para SharePoint Server, ao tornar o armazenamento StorSimple podem ser visualizados e geridos a partir do portal de Administração Central do SharePoint.
+* **Placa StorSimple para SharePoint** – farms de uma ferramenta de forma transparente expande a proteção de dados e de armazenamento do Microsoft Azure StorSimple para SharePoint Server, ao tornar o armazenamento StorSimple podem ser visualizados e gerível do Central do SharePoint Portal de administração.
 
 O diagrama a seguir fornece uma vista detalhada da arquitetura do Microsoft Azure StorSimple e componentes.
 
@@ -95,7 +95,7 @@ A aplicação de nuvem do StorSimple está disponível em dois modelos: o dispos
 
 Para obter mais informações sobre a aplicação de nuvem do StorSimple, aceda a [implementar e gerir um dispositivo de nuvem do StorSimple no Azure](storsimple-8000-cloud-appliance-u2.md).
 
-## <a name="storsimple-device-manager-service"></a>Serviço do Gestor de dispositivos do StorSimple
+## <a name="storsimple-device-manager-service"></a>Serviço do Gestor de Dispositivos do StorSimple
 Microsoft Azure StorSimple fornece uma interface de utilizador baseadas na web (o serviço do Gestor de dispositivos do StorSimple) que lhe permite gerir centros de dados e armazenamento na nuvem de forma centralizada. Pode utilizar o serviço StorSimple Manager de dispositivos para realizar as seguintes tarefas:
 
 * Configure definições do sistema para dispositivos StorSimple.
@@ -204,7 +204,7 @@ A eliminação de duplicados reduz a quantidade global de dados armazenados atra
 ## <a name="storsimple-workload-summary"></a>Resumo da carga de trabalho do StorSimple
 Um resumo das cargas de trabalho suportadas do StorSimple é apresentado abaixo.
 
-| Cenário | Carga de trabalho | Suportado | Restrições | Versão |
+| Cenário | Carga de trabalho | Suportadas | Restrições | Versão |
 | --- | --- | --- | --- | --- |
 | Colaboração |Partilha de ficheiros |Sim | |Todas as versões |
 | Colaboração |Partilha de ficheiros distribuído |Sim | |Todas as versões |
@@ -216,7 +216,7 @@ Um resumo das cargas de trabalho suportadas do StorSimple é apresentado abaixo.
 | Cópia de segurança |Cópia de segurança do destino principal |Sim* |Suportada quando o dispositivo StorSimple dedicado apenas a esta carga de trabalho |Update 3 e posterior |
 | Cópia de segurança |Cópia de segurança de destino secundária |Sim* |Suportada quando o dispositivo StorSimple dedicado apenas a esta carga de trabalho |Update 3 e posterior |
 
-*Sim &#42; -Solução diretrizes e restrições devem ser aplicadas.*
+*Sim&#42; -solução diretrizes e restrições devem ser aplicadas.*
 
 As seguintes cargas de trabalho não são suportadas pelos dispositivos de série 8000 do StorSimple. Se tiver implementado num StorSimple, estas cargas de trabalho irão resultar numa configuração não suportada.
 
@@ -231,7 +231,7 @@ As seguintes cargas de trabalho não são suportadas pelos dispositivos de séri
 
 Segue-se uma lista dos componentes de infraestrutura do StorSimple suportado.
 
-| Cenário | Carga de trabalho | Suportado | Restrições | Versão |
+| Cenário | Carga de trabalho | Suportadas | Restrições | Versão |
 | --- | --- | --- | --- | --- |
 | Geral |ExpressRoute |Sim | |Todas as versões |
 | Geral |DataCore FC |Sim* |Suportado com DataCore SANsymphony |Todas as versões |
@@ -239,7 +239,7 @@ Segue-se uma lista dos componentes de infraestrutura do StorSimple suportado.
 | Geral |Indexação |Sim* |Volumes em camadas, a indexação de metadados só é suportada (sem dados).<br>Para volumes afixados localmente, a indexação completa é suportada. |Todas as versões |
 | Geral |Software antivírus |Sim* |A volumes em camadas, é suportada apenas análise na abertura e fecho.<br> Para volumes afixados localmente, análise completa é suportada. |Todas as versões |
 
-*Sim &#42; -Solução diretrizes e restrições devem ser aplicadas.*
+*Sim&#42; -solução diretrizes e restrições devem ser aplicadas.*
 
 Segue-se uma lista de outro software que são utilizadas com StorSimple para criar soluções.
 
@@ -257,7 +257,7 @@ Antes de implementar a sua solução do Microsoft Azure StorSimple, recomendamos
 | Duração (acrónimo ou abreviatura) | Descrição |
 | --- | --- |
 | registo de controlo de acesso (ACR) |Um registo associado um volume no dispositivo Microsoft Azure StorSimple que determina os anfitriões que podem ligar ao mesmo. A determinação é baseada em iSCSI nome qualificado (IQN) de anfitriões (contidos o ACR), que estão a ligar o dispositivo StorSimple. |
-| AES 256 |Um algoritmo de encriptação AES (Advanced Standard) 256 bits para encriptar os dados são transmitidos para e da nuvem. |
+| AES-256 |Um algoritmo de encriptação AES (Advanced Standard) 256 bits para encriptar os dados são transmitidos para e da nuvem. |
 | tamanho da unidade de alocação (AUS) |A mais pequena quantidade de espaço em disco que pode ser atribuída a conter um ficheiro no seu Windows sistemas de ficheiros. Se um tamanho de ficheiro não é um múltiplo par do tamanho do cluster, espaço adicional tem de ser utilizado para conter o ficheiro (até o seguinte múltiplo do tamanho do cluster) resultando em perda de espaço e a fragmentação do disco rígido. <br>O AUS recomendadas para volumes de Azure StorSimple é 64 KB porque funciona bem com os algoritmos de eliminação de duplicados. |
 | a criação de camadas de armazenamento automático |Mover automaticamente os dados menos ativos de SSDs em HDDs e, em seguida, para um escalão na nuvem e, em seguida, ativar a gestão de todo o armazenamento de uma interface de utilizador central. |
 | Catálogo de cópias de segurança |Uma coleção de cópias de segurança, normalmente, relacionados pelo tipo de aplicação que foi utilizado. Esta coleção é apresentada no painel do catálogo de cópia de segurança do serviço Gestor de dispositivos do StorSimple da IU. |
@@ -272,7 +272,7 @@ Antes de implementar a sua solução do Microsoft Azure StorSimple, recomendamos
 | Chave de encriptação de armazenamento na nuvem |Uma palavra-passe ou uma chave utilizados pelo seu dispositivo StorSimple para aceder aos dados encriptados enviados pelo seu dispositivo para a nuvem. |
 | atualização com suporte para cluster |Gerir atualizações de software em servidores num cluster de ativação pós-falha para que as atualizações tenham mínima ou sem qualquer efeito na disponibilidade do serviço. |
 | DataPath |Uma coleção de unidades funcionais que efetuar operações de processamento de dados entre ligado. |
-| Desativar |Uma ação permanente que interrompe a ligação entre o dispositivo StorSimple e o serviço de nuvem associada. Instantâneos de nuvem do dispositivo permanecem após este processo e podem ser clonados ou utilizados para recuperação após desastre. |
+| desativar |Uma ação permanente que interrompe a ligação entre o dispositivo StorSimple e o serviço de nuvem associada. Instantâneos de nuvem do dispositivo permanecem após este processo e podem ser clonados ou utilizados para recuperação após desastre. |
 | espelhamento do disco |Unidades de replicação de volumes de disco lógico no disco rígido separadas em tempo real para garantir a disponibilidade contínua. |
 | espelhamento de disco dinâmico |Replicação de volumes de disco lógico em discos dinâmicos. |
 | discos dinâmicos |Formato de volume de disco que utiliza o Gestor de discos lógicos (LDM) para armazenar e gerir os dados entre vários discos físicos. Os discos dinâmicos podem ser alargados para fornecer mais espaço livre. |
@@ -298,7 +298,7 @@ Antes de implementar a sua solução do Microsoft Azure StorSimple, recomendamos
 | unidade de estado sólido (SSD) |Um disco que não contém as peças; Por exemplo, uma unidade flash. |
 | conta de armazenamento |Um conjunto de credenciais de acesso ligado à sua conta de armazenamento para um fornecedor de serviços de nuvem especificada. |
 | Adaptador do StorSimple para o SharePoint |Um componente do Microsoft Azure StorSimple que transparente expande a proteção de dados e armazenamento StorSimple para farms de servidores do SharePoint. |
-| Serviço do Gestor de dispositivos do StorSimple |Extensão do portal do Azure permite-lhe gerir o Azure StorSimple no local e os dispositivos virtuais. |
+| Serviço do Gestor de Dispositivos do StorSimple |Extensão do portal do Azure permite-lhe gerir o Azure StorSimple no local e os dispositivos virtuais. |
 | Snapshot Manager do StorSimple |Snap-in uma consola de gestão da Microsoft (MMC) para gerir as operações de cópia de segurança e restauro no Microsoft Azure StorSimple. |
 | Efetuar cópia de segurança |Uma funcionalidade que permite ao utilizador efetuar uma cópia de segurança interativa de um volume. É uma maneira alternativa de fazer uma cópia de segurança manual de um volume, por oposição a fazer uma cópia de segurança automatizada através de uma política definida. |
 | Aprovisionamento dinâmico |Método de otimizar a eficiência com que o espaço de armazenamento disponível é utilizado em sistemas de armazenamento. No aprovisionamento dinâmico, o armazenamento é alocado entre vários utilizadores com base no espaço mínimo necessário para cada utilizador em qualquer momento. Consulte também *aprovisionamento fat*. |
@@ -309,6 +309,6 @@ Antes de implementar a sua solução do Microsoft Azure StorSimple, recomendamos
 | Serviço de cópia sombra de volumes (VSS) |Um serviço de sistema operativo Windows Server que facilita a consistência da aplicação ao comunicar com aplicações com suporte para VSS para coordenar a criação de instantâneos incrementais. VSS assegura que as aplicações estão temporariamente Inativas, quando são tirados instantâneos. |
 | Windows PowerShell para StorSimple |Uma interface de linha de comandos baseada no Windows PowerShell utilizada para operar e gerir o dispositivo StorSimple. Enquanto mantém algumas das funcionalidades básicas do Windows PowerShell, esta interface tem cmdlets dedicados adicionais que são adaptados para gerir um dispositivo StorSimple. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [segurança do StorSimple](storsimple-8000-security.md).
 

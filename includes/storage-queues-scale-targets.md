@@ -1,4 +1,4 @@
-| Recurso | Alvo |
+| Recurso | Destino |
 |----------|---------------|
 | Tamanho máx. de fila única | 500 TiB |
 | Tamanho máx. de uma mensagem numa fila | 64 KiB |

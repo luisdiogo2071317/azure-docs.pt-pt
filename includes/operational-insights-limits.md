@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: 29256b3bcfedb7fe5045ff4c6c3842eb25e00a28
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 Os seguintes limites aplicam-se aos recursos do Log Analytics por subscrição:
 

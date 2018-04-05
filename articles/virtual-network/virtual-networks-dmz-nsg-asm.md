@@ -1,11 +1,11 @@
 ---
-title: "Exemplo de rede de Perímetro do Azure – criar uma rede de Perímetro Simple com NSGs | Microsoft Docs"
-description: "Criar uma rede de Perímetro com grupos de segurança de rede (NSG)"
+title: Exemplo de rede de Perímetro do Azure – criar uma rede de Perímetro Simple com NSGs | Microsoft Docs
+description: Criar uma rede de Perímetro com grupos de segurança de rede (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: f8622b1d-c07d-4ea6-b41c-4ae98d998fff
 ms.service: virtual-network
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Exemplo 1 – criar uma rede de Perímetro simple utilizando NSGs com o PowerShell clássico
 [Regressar à página de segurança limites melhores práticas][HOME]
@@ -267,7 +267,7 @@ Modifique as variáveis definidas pelo utilizador, conforme necessário e execut
 Este script irá, com base nas variáveis definidas pelo utilizador;
 
 1. Ligar a uma subscrição do Azure
-2. Criar uma conta do Storage
+2. Create a storage account
 3. Criar uma VNet e duas sub-redes, tal como definido no ficheiro de configuração de rede
 4. Criar quatro windows VMs de servidor
 5. Configure o NSG, incluindo:

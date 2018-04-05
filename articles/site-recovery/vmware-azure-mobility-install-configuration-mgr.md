@@ -1,6 +1,6 @@
 ---
-title: "Automatizar a instalação do serviço de mobilidade para o Azure Site Recovery com o System Center Configuration Manager | Microsoft Docs"
-description: "Este artigo ajuda-o a automatizar a instalação do serviço de mobilidade utilizando o System Center Configuration Manager."
+title: Automatizar a instalação do serviço de mobilidade para o Azure Site Recovery com o System Center Configuration Manager | Microsoft Docs
+description: Este artigo ajuda-o a automatizar a instalação do serviço de mobilidade utilizando o System Center Configuration Manager.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
 ms.openlocfilehash: 8382fadc02a7e80b6f28bd777f423013aed9add3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatizar a instalação do serviço de mobilidade com o System Center Configuration Manager
 
@@ -192,7 +192,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 ### <a name="deploy-the-package"></a>Implementar o pacote
 1. Na consola do Configuration Manager, o pacote com o botão direito e selecione **distribuir conteúdo**.
   ![Consola de captura de ecrã do Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. Selecione o  **[pontos de distribuição](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  para que os pacotes devem ser copiados.
+2. Selecione o **[pontos de distribuição](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** para que os pacotes devem ser copiados.
 3. Conclua o assistente. O pacote, em seguida, começa a replicar para pontos de distribuição especificados.
 4. Depois de terminar a distribuição do pacote, o pacote com o botão direito e selecione **implementar**.
   ![Consola de captura de ecrã do Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
@@ -415,7 +415,7 @@ cd /tmp
 ### <a name="deploy-the-package"></a>Implementar o pacote
 1. Na consola do Configuration Manager, o pacote com o botão direito e selecione **distribuir conteúdo**.
   ![Consola de captura de ecrã do Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. Selecione o  **[pontos de distribuição](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  para que os pacotes devem ser copiados.
+2. Selecione o **[pontos de distribuição](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** para que os pacotes devem ser copiados.
 3. Conclua o assistente. O pacote, em seguida, começa a replicar para pontos de distribuição especificados.
 4. Depois de terminar a distribuição do pacote, o pacote com o botão direito e selecione **implementar**.
   ![Consola de captura de ecrã do Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)

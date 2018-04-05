@@ -5,7 +5,7 @@ services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Utilize o Snapshot Manager do StorSimple para criar e gerir grupos de volume
 ## <a name="overview"></a>Descrição geral
@@ -52,7 +52,7 @@ Se clicar no **Volume grupos** nó, o **resultados** painel apresenta as seguint
 | Nome |O **nome** coluna contém o nome do grupo de volume. |
 | Aplicação |O **aplicações** coluna mostra o número de escritores VSS atualmente instalados e em execução no anfitrião do Windows. |
 | Selecionado |O **selecionados** coluna mostra o número de volumes que estão contidos no grupo de volume. Um zero (0) não indica que nenhuma aplicação associada com os volumes no grupo de volume. |
-| Importados |O **importado** coluna mostra o número de volumes importados. Quando definido como **verdadeiro**, esta coluna indica que um grupo de volume foram importado a partir do portal do Azure e não foi criado no Snapshot Manager do StorSimple. |
+| Importado |O **importado** coluna mostra o número de volumes importados. Quando definido como **verdadeiro**, esta coluna indica que um grupo de volume foram importado a partir do portal do Azure e não foi criado no Snapshot Manager do StorSimple. |
 
 > [!NOTE]
 > Grupos de volume do Snapshot Manager do StorSimple também são apresentados no **políticas de cópia de segurança** separador no portal do Azure.
@@ -124,7 +124,7 @@ Utilize o procedimento seguinte para eliminar um grupo de volume.
    
     O grupo de volume eliminado vanishes na lista no **resultados** painel e todas as cópias de segurança que estão associadas esse grupo de volume são eliminadas do catálogo de cópias de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba como [utilizar Snapshot Manager do StorSimple para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [utilizar Snapshot Manager do StorSimple para criar e gerir políticas de cópia de segurança](storsimple-snapshot-manager-manage-backup-policies.md).
 

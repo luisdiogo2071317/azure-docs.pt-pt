@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f234c2529213dfa7f42d6ee11b840236488065d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0bdadadb1f4ee5f76cde9d05b11e8d57b99ac191
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Validar os certificados PKI de pilha do Azure
 
@@ -43,7 +43,7 @@ A ferramenta do Verificador de certificado (Certchecker) efetua as seguintes ver
 ## <a name="prerequisites"></a>Pré-requisitos
 O sistema deve cumprir os seguintes pré-requisitos antes de a validar os certificados PKI para a implementação de pilha do Azure:
 - CertChecker (no **PartnerToolKit** em **\utils\certchecker**)
-- Emissor de SSL exportado seguir o [instruções de preparação](prepare-pki-certs.md)
+- Emissor de SSL exportado seguir o [instruções de preparação](azure-stack-prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 ou Windows Server 2016
 

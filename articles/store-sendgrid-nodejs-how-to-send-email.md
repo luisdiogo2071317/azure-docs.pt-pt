@@ -1,11 +1,11 @@
 ---
-title: "Como utilizar o serviço de correio eletrónico do SendGrid (Node.js) | Microsoft Docs"
-description: "Saiba como enviar correio eletrónico com o serviço de correio eletrónico do SendGrid no Azure. Exemplos de código escrito utilizando a API do Node.js."
-services: 
+title: Como utilizar o serviço de correio eletrónico do SendGrid (Node.js) | Microsoft Docs
+description: Saiba como enviar correio eletrónico com o serviço de correio eletrónico do SendGrid no Azure. Exemplos de código escrito utilizando a API do Node.js.
+services: ''
 documentationcenter: nodejs
 author: erikre
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: cac444b4-26b0-45ea-9c3d-eca28d57dacb
 ms.service: multiple
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Como enviar E-mails utilizando a SendGrid do Node.js
 Este guia demonstra como efetuar tarefas de programação comuns com o serviço de correio eletrónico do SendGrid no Azure. Os exemplos são escritos utilizando a API do Node.js. Os cenários abrangidos incluem **construir e-mail**, **enviar correio eletrónico**, **adicionar anexos**, **utilizando filtros**e **atualizar propriedades**. Para obter mais informações sobre SendGrid e enviar correio eletrónico, consulte o [passos](#next-steps) secção.
@@ -33,7 +33,7 @@ SendGrid é um [serviço baseado na nuvem e-mail] que fornece fiável [entrega d
 * Pedidos de cliente de reencaminhamento
 * Notificações de correio eletrónico da sua aplicação
 
-Para obter mais informações, consulte [https://sendgrid.com](https://sendgrid.com).
+Para mais informações, consulte [https://sendgrid.com](https://sendgrid.com).
 
 ## <a name="create-a-sendgrid-account"></a>Criar uma conta do SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -161,7 +161,7 @@ Os exemplos seguintes demonstram rodapé e clique em filtros do registo:
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>Como: atualizar as propriedades de E-Mail
-Algumas propriedades de correio eletrónico podem ser substituídas utilizando  **definir*propriedade** * ou estar anexados utilizando  **adicionar*propriedade** *. Por exemplo, pode adicionar destinatários adicionais utilizando
+Algumas propriedades de correio eletrónico podem ser substituídas utilizando **definir * propriedade*** ou estar anexados a utilizar **adicionar*propriedade ***. Por exemplo, pode adicionar destinatários adicionais utilizando
 
     email.addTo('jeff@contoso.com');
 
@@ -175,7 +175,7 @@ Para obter mais informações, consulte [sendgrid nodejs][sendgrid-nodejs].
 ## <a name="how-to-use-additional-sendgrid-services"></a>Como: utilizar os serviços do SendGrid adicionais
 SendGrid oferece APIs baseadas na web que pode utilizar para tirar partido das funcionalidades adicionais do SendGrid da sua aplicação do Azure. Para mais informações, consulte o [documentação da API do SendGrid][SendGrid API documentation].
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Agora que aprendeu as noções básicas do serviço de E-Mail do SendGrid, siga estas ligações para saber mais.
 
 * Repositório de módulo do SendGrid Node.js: [sendgrid nodejs][sendgrid-nodejs]

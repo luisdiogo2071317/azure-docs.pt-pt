@@ -1,7 +1,7 @@
 ---
-title: "Como utilizar o serviço de correio eletrónico do SendGrid (Java) | Microsoft Docs"
-description: "Saiba como enviar correio eletrónico com o serviço de correio eletrónico do SendGrid no Azure. Exemplos de código escrito em Java."
-services: 
+title: Como utilizar o serviço de correio eletrónico do SendGrid (Java) | Microsoft Docs
+description: Saiba como enviar correio eletrónico com o serviço de correio eletrónico do SendGrid no Azure. Exemplos de código escrito em Java.
+services: ''
 documentationcenter: java
 author: thinkingserious
 manager: sendgrid
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Como enviar E-mails utilizando a SendGrid de Java
 Este guia demonstra como efetuar tarefas de programação comuns com o serviço de correio eletrónico do SendGrid no Azure. Os exemplos são escritos em Java. Os cenários abrangidos incluem **construir e-mail**, **enviar correio eletrónico**, **adicionar anexos**, **utilizando filtros**e **atualizar propriedades**. Para obter mais informações sobre SendGrid e enviar correio eletrónico, consulte o [passos](#next-steps) secção.
@@ -158,7 +158,7 @@ SendGrid fornece funcionalidades de e-mail adicionais através da utilização d
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>Como: propriedades de correio eletrónico de atualização
-Algumas propriedades de correio eletrónico podem ser substituídas utilizando  **definir*propriedade** * ou estar anexados utilizando  **adicionar*propriedade** *.
+Algumas propriedades de correio eletrónico podem ser substituídas utilizando **definir * propriedade*** ou estar anexados a utilizar **adicionar*propriedade ***.
 
 Por exemplo, para especificar **ReplyTo** endereços, utilize o seguinte:
 
@@ -176,11 +176,11 @@ Para adicionar um **Cc** destinatário, utilize o seguinte:
 ## <a name="how-to-use-additional-sendgrid-services"></a>Como: utilizar os serviços do SendGrid adicionais
 SendGrid oferece APIs baseadas na web que pode utilizar para tirar partido das funcionalidades adicionais do SendGrid da sua aplicação do Azure. Para mais informações, consulte o [documentação da API do SendGrid][SendGrid API documentation].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu as noções básicas do serviço de E-Mail do SendGrid, siga estas ligações para saber mais.
 
 * Amostra que demonstra utilizando SendGrid numa implementação do Azure: [como enviar e-mails utilizando SendGrid de Java numa implementação do Azure](store-sendgrid-java-how-to-send-email-example.md)
-* SDK de Java do SendGrid: <https://sendgrid.com/docs/Code_Examples/java.html>
+* SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
 * Documentação da API do SendGrid: <https://sendgrid.com/docs/API_Reference/index.html>
 * Oferta especial de SendGrid para clientes do Azure: <https://sendgrid.com/windowsazure.html>
 

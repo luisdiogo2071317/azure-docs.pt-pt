@@ -1,12 +1,12 @@
 ---
-title: "Metadados de OpenAPI nas funções do Azure | Microsoft Docs"
-description: "Descrição geral do suporte de OpenAPI nas funções do Azure"
+title: Metadados de OpenAPI nas funções do Azure | Microsoft Docs
+description: Descrição geral do suporte de OpenAPI nas funções do Azure
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Suporte de metadados de OpenAPI 2.0 nas funções do Azure (pré-visualização)
 OpenAPI 2.0 (anteriormente Swagger) suporte de metadados nas funções do Azure é uma funcionalidade de pré-visualização que pode utilizar para escrever uma definição de OpenAPI 2.0 no interior de uma aplicação de função. Em seguida, pode alojar esse ficheiro utilizando a aplicação de função.
@@ -50,13 +50,13 @@ Para obter instruções passo a passo, consulte o [tutorial de introdução](./f
 
 A tabela seguinte representa as definições do portal do Azure e dados correspondentes no function.json conforme está mapeada para a estrutura de Swagger gerada.
 
-|Swagger.JSON|IU do portal|Function.JSON|
+|Swagger.json|IU do portal|Function.json|
 |:----|:-----|:-----|
 |[Anfitrião](http://swagger.io/specification/#fixed-fields-15)|**As definições de aplicação de função** > **definições do serviço de aplicações** > **descrição geral** > **URL**|*Não está presente*
-|[Caminhos](http://swagger.io/specification/#paths-object-29)|**Integrar** > **métodos de HTTP selecionado**|Enlaces: rota
+|[Paths](http://swagger.io/specification/#paths-object-29)|**Integrar** > **métodos de HTTP selecionado**|Enlaces: rota
 |[Item do caminho](http://swagger.io/specification/#path-item-object-32)|**Integrar** > **modelo de rota**|Enlaces: métodos
 |[Segurança](http://swagger.io/specification/#security-scheme-object-112)|**Chaves**|*Não está presente*|
-|operationID *|**Rota + verbos permitidos**|Rota + verbos permitidos|
+|operationID*|**Rota + verbos permitidos**|Rota + verbos permitidos|
 
 \*O ID da operação é necessário apenas para integrar com PowerApps e fluxo.
 > [!NOTE]
@@ -77,7 +77,7 @@ A tabela seguinte representa as definições do portal do Azure e dados correspo
 
 Agora, as alterações à swagger.json no seu repositório estão alojadas pela sua aplicação de função na API do URL de definição e a chave que anotou no passo 1.c.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Tutorial de introdução](functions-api-definition-getting-started.md). Experimente o nosso explicação passo a passo para ver uma definição de OpenAPI em ação.
 * [Repositório do GitHub de funções do Azure](https://github.com/Azure/Azure-Functions/). Veja o repositório de funções para lhe dar-nos comentários sobre a pré-visualização de suporte de definição de API. Se um problema no GitHub para tudo o que pretende ver atualizado.
 * [Referência de programadores das funções do Azure](functions-reference.md). Saiba mais sobre as funções de codificação e definição de acionadores e enlaces.

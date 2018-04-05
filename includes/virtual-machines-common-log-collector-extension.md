@@ -2,7 +2,7 @@
 Diagnosticar problemas com um serviço em nuvem do Microsoft Azure necessita de recolher ficheiros de registo do serviço em máquinas virtuais, tal como os problemas. Pode utilizar a AzureLogCollector extensão a pedido para executar uma única coleção de registos de um ou mais VMs de serviço de nuvem (a partir de funções da web e funções de trabalho) e transferir os ficheiros recolhidos para uma conta de armazenamento do Azure – tudo sem remotamente iniciar sessão em qualquer das VMs.
 
 > [!NOTE]
-> Podem ser localizadas http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp descrições para a maioria das informações com sessão iniciada.
+> Descrições para a maioria das informações iniciadas podem ser encontradas em http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
 > 
 > 
 
@@ -124,7 +124,7 @@ Pode seguir um dos dois passos seguintes para adicionar o AzureLogCollector para
   $StorageAccountKey  = 'YourStorageAccountKey'
   ```
 
-5. Chamada SetAzureServiceLogCollector.ps1 (incluído no final do artigo) da seguinte forma para ativar a extensão de AzureLogCollector num serviço em nuvem. Depois da execução está concluída, pode encontrar o ficheiro carregado em`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+5. Chamada SetAzureServiceLogCollector.ps1 (incluído no final do artigo) da seguinte forma para ativar a extensão de AzureLogCollector num serviço em nuvem. Depois da execução está concluída, pode encontrar o ficheiro carregado em `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
   ```powershell
   .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
@@ -216,7 +216,7 @@ Siga as instruções para ligar o Azure PowerShell à sua subscrição.
   $StorageAccountKey  = 'YourStorageAccountKey'
   ```
 
-3. Chamada SetAzureVMLogCollector.ps1 (incluído no final do artigo) da seguinte forma para ativar a extensão de AzureLogCollector num serviço em nuvem. Depois da execução está concluída, pode encontrar o ficheiro carregado em`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+3. Chamada SetAzureVMLogCollector.ps1 (incluído no final do artigo) da seguinte forma para ativar a extensão de AzureLogCollector num serviço em nuvem. Depois da execução está concluída, pode encontrar o ficheiro carregado em `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
 Segue-se a definição de parâmetros transmitidos para o script. (Isto é copiado abaixo, bem como.)
 
