@@ -16,6 +16,7 @@ A tabela seguinte lista os limites que se aplicam aos recursos do Hub IoT:
 | --- | --- |
 | Máximo de hubs IoT pagos por subscrição do Azure |10 |
 | Máximo de hubs IoT gratuitos por subscrição do Azure |1 |
+| Número máximo de carateres de um Id de dispositivo | 128 |
 | Número máximo de identidades de dispositivos<br/> devolvidas numa única chamada |1000 |
 | Retenção máxima de mensagem do Hub IoT para mensagens do dispositivo para a cloud |7 dias |
 | Tamanho máximo da mensagem do dispositivo para a cloud |256 KB |

@@ -1,8 +1,8 @@
 ---
-title: "Como utilizar a API Management do Azure na rede Virtual com Gateway de aplicação | Microsoft Docs"
-description: "Saiba como instalar e configurar a API Management do Azure na rede Virtual interna com o aplicação Gateway (WAF) como front-end"
+title: Como utilizar a API Management do Azure na rede Virtual com Gateway de aplicação | Microsoft Docs
+description: Saiba como instalar e configurar a API Management do Azure na rede Virtual interna com o aplicação Gateway (WAF) como front-end
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: solankisamir
 manager: kjoshi
 editor: antonba
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
 ms.openlocfilehash: f9bc3ffda9f943a37fd5aadf440abf7d33a6d1de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrar a gestão de API numa VNET interna com Gateway de aplicação 
 
-##<a name="overview"></a> Descrição geral
+##<a name="overview"> </a> Descrição geral
  
 O serviço de API Management pode ser configurado numa rede Virtual no modo interno que torna acessível apenas a partir de dentro da rede Virtual. Gateway de aplicação do Azure é um serviço de PAAS que fornece um balanceador de carga de 7 camadas. É também age como um serviço de proxy inverso e fornece entre a oferta de uma Firewall de aplicação Web (WAF).
 
@@ -42,14 +42,14 @@ Para efetuar os passos descritos neste artigo, tem de ter:
 
 + Uma instância APIM. Para obter mais informações, consulte [criar uma instância de API Management do Azure](get-started-create-service-instance.md).
 
-##<a name="scenario"></a> Cenário
+##<a name="scenario"> </a> Cenário
 Este artigo abrange como utilizar um único serviço de API Management para consumidores internos e externos e torná-lo a atuar como um único front-end para ambos no local e APIs da nuvem. Também verá como expõem apenas um subconjunto das suas APIs (no exemplo que são realçados verde) para consumo externo utilizando a funcionalidade de PathBasedRouting disponível no Gateway de aplicação.
 
 No exemplo de configuração primeiro as suas APIs são geridos apenas a partir de dentro da sua rede Virtual. Consumidores internos (cor de laranja realçado em) podem aceder a todas as suas APIs internos e externos. Tráfego nunca vai para a Internet é entregue um elevado desempenho através de circuitos do Expressroute.
 
 ![rota de URL](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"></a> Antes de começar
+## <a name="before-you-begin"> </a> Antes de começar
 
 1. Instale a versão mais recente dos cmdlets Azure PowerShell com o Instalador de Plataforma Web. Pode transferir e instalar a versão mais recente a partir da secção **Windows PowerShell** da página [Transferências](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 2. Criar uma rede Virtual e crie sub-redes separadas para a API Management e o Gateway de aplicação. 
@@ -65,7 +65,7 @@ No exemplo de configuração primeiro as suas APIs são geridos apenas a partir 
 * **Sonda de estado de funcionamento personalizada:** Gateway de aplicação, por predefinição, utiliza as pesquisas de endereço baseada em IP para saber quais os servidores no BackendAddressPool estão ativos. A API Management service apenas responde a pedidos que tem o cabeçalho de anfitrião correto, por conseguinte, as pesquisas de predefinição falharem. Uma sonda do Estado de funcionamento personalizado tem de ser definido para ajudar a determinar se o serviço está ativo e deve reencaminhar pedidos de gateway de aplicação.
 * **Certificado de domínio personalizado:** para aceder à API Management a partir da internet tem de criar um mapeamento de CNAME do respetivo nome de anfitrião para o nome DNS de front-end do Gateway de aplicação. Isto garante que o cabeçalho de nome de anfitrião e o certificado enviado para o Gateway de aplicação que seja reencaminhado para a API Management é um APIM pode reconhecer como válido.
 
-## <a name="overview-steps"></a> Passos necessários para integrar o API Management e o Gateway de aplicação 
+## <a name="overview-steps"> </a> Passos necessários para integrar o API Management e o Gateway de aplicação 
 
 1. Crie um grupo de recursos para o Resource Manager.
 2. Crie uma rede Virtual, uma sub-rede e um IP público para o Gateway de aplicação. Crie outra sub-rede para a API Management.
@@ -298,7 +298,7 @@ O exemplo seguinte cria uma regra simples para o "eco /" caminho encaminhamento 
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-Se o caminho não coincidir com as regras de caminho queremos para ativar a partir da API Management, a configuração de mapa de caminho de regra configura também um conjunto predefinido de endereços de back-end com o nome **dummyBackendPool**. Por exemplo, http://api.contoso.net/calc/ * vai para **dummyBackendPool** conforme está definido como o agrupamento predefinido para o tráfego não correspondente.
+Se o caminho não coincidir com as regras de caminho queremos para ativar a partir da API Management, a configuração de mapa de caminho de regra configura também um conjunto predefinido de endereços de back-end com o nome **dummyBackendPool**. Por exemplo, http://api.contoso.net/calc/* entra em **dummyBackendPool** conforme está definido como o agrupamento predefinido para o tráfego não correspondente.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
@@ -347,10 +347,10 @@ Nome DNS do Gateway de aplicação deve ser utilizado para criar um registo CNAM
 Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
 ```
 
-##<a name="summary"></a> Resumo
+##<a name="summary"> </a> Resumo
 Gestão de API do Azure configurada numa VNET fornece uma interface de gateway único para todos os APIs configuradas, se estiverem alojado no local ou na nuvem. Integrar o Gateway de aplicação com a API Management fornece a flexibilidade de seletivamente ativar APIs determinadas para ser acessíveis na Internet, bem como fornecer uma Firewall de aplicação Web como um front-end à sua instância da API Management.
 
-##<a name="next-steps"></a> Próximos passos
+##<a name="next-steps"> </a> Passos seguintes
 * Saiba mais sobre o Gateway de aplicação do Azure
   * [Descrição geral do Gateway de aplicação](../application-gateway/application-gateway-introduction.md)
   * [Firewall de aplicação de Web de Gateway de aplicação](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

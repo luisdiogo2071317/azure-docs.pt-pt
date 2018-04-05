@@ -1,8 +1,8 @@
 ---
-title: "Utilize a ação de Script para instalar o Solr no HDInsight baseado em Linux - Azure | Microsoft Docs"
-description: "Saiba como instalar Solr nos clusters do Hadoop do HDInsight baseado em Linux utilizando as ações de Script."
+title: Utilize a ação de Script para instalar o Solr no HDInsight baseado em Linux - Azure | Microsoft Docs
+description: Saiba como instalar Solr nos clusters do Hadoop do HDInsight baseado em Linux utilizando as ações de Script.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Instalar e utilizar Solr em clusters do HDInsight Hadoop
 
@@ -39,7 +39,7 @@ Saiba como instalar Solr no Azure HDInsight ao utilizar a ação de Script. Solr
 > [!WARNING]
 > Componentes fornecidos com o cluster do HDInsight são totalmente suportados pela Microsoft.
 >
-> Componentes personalizados, tais como Solr, recebem suporte comercialmente razoável para ajudar a resolver o problema. Suporte da Microsoft pode não conseguir resolver problemas com componentes personalizados. Poderá ter de interagir com as Comunidades de código aberto para obter assistência. Por exemplo, existem vários sites de Comunidade que podem ser utilizadas, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Também projetos do Apache tem sites de projeto no [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
+> Componentes personalizados, tais como Solr, recebem suporte comercialmente razoável para ajudar a resolver o problema. Suporte da Microsoft pode não conseguir resolver problemas com componentes personalizados. Poderá ter de interagir com as Comunidades de código aberto para obter assistência. Por exemplo, existem vários sites de Comunidade que podem ser utilizadas, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Também projetos do Apache tem sites de projeto no [ http://apache.org ](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>O que faz o script
 
@@ -61,7 +61,7 @@ Para criar um cluster com Solr instalado, utilize os passos a [criar clusters do
 1. Do __resumo do Cluster__ secção, settings__ select__Advanced, em seguida, __ações de Script__. Utilize as seguintes informações para preencher o formulário:
 
    * **NOME**: introduza um nome amigável para a ação de script.
-   * **URI de SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **URI DE SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: esta opção de verificação
    * **TRABALHO**: esta opção de verificação
    * **ZOOKEEPER**: confirme esta opção para instalar no nó Zookeeper
@@ -116,7 +116,7 @@ Utilize os seguintes passos para adicionar dados de exemplo para Solr e, em segu
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    Este comando procura **collection1** para documentos correspondente  **\*:\***  (codificado como \*% 3A\* na cadeia de consulta). O documento JSON seguinte é um exemplo de resposta:
+    Este comando procura **collection1** para documentos correspondente **\*:\*** (codificado como \*% 3A\* na cadeia de consulta). O documento JSON seguinte é um exemplo de resposta:
 
             "response": {
                 "numFound": 2,
@@ -194,7 +194,7 @@ Depois de estabelecer um túnel SSH, utilize os seguintes passos para utilizar o
 
         Guarde o valor devolvido, porque é utilizado mais tarde.
 
-2. No seu browser, ligue ao **http://HOSTNAME:8983/solr / #/**, onde **HOSTNAME** é o nome determinado nos passos anteriores.
+2. No seu browser, ligue ao **http://HOSTNAME:8983/solr/#/**, onde **HOSTNAME** é o nome determinado nos passos anteriores.
 
     O pedido é encaminhado através do túnel SSH para a web Solr IU no seu cluster. A página apresentado de forma semelhante a imagem seguinte:
 
@@ -319,7 +319,7 @@ Utilize os seguintes passos para criar cópias de segurança Solr dados para o a
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Para obter mais informações sobre como trabalhar com Solr cópia de segurança e restauros, consulte [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
+Para obter mais informações sobre como trabalhar com Solr cópia de segurança e restauros, consulte [ https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups ](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,12 +1,12 @@
 ---
-title: "Extensão de diagnóstico do Azure 1.3 e esquema de configuração posterior | Microsoft Docs"
-description: "Versão do esquema de 1.3 e posterior diagnóstico do Azure vem incluído como parte do 2.4 de SDK do Microsoft Azure e mais tarde."
+title: Extensão de diagnóstico do Azure 1.3 e esquema de configuração posterior | Microsoft Docs
+description: Versão do esquema de 1.3 e posterior diagnóstico do Azure vem incluído como parte do 2.4 de SDK do Microsoft Azure e mais tarde.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>1.3 de diagnóstico do Azure e o esquema de configuração posterior
 > [!NOTE]
@@ -396,7 +396,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**WadCfg**|Necessário. Ver descrição noutro local nesta página.|  
 |**StorageAccount**|O nome da conta do Storage do Azure para armazenar os dados. Também pode ser especificado como um parâmetro ao executar o cmdlet Set-AzureServiceDiagnosticsExtension.|  
 |**StorageType**|Pode ser *tabela*, *Blob*, ou *TableAndBlob*. A tabela é predefinido. Quando é escolhido TableAndBlob, dados de diagnóstico são escritos duas vezes – uma vez para cada tipo.|  
-|**LocalResourceDirectory**|O diretório na máquina virtual em que o agente de monitorização armazena dados de eventos. Se não, definido, é utilizado o diretório predefinido:<br /><br /> Para uma função de trabalho/web:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos necessários são:<br /><br /> - **caminho** -o diretório no sistema para ser utilizado por diagnósticos do Azure.<br /><br /> - **expandEnvironment** -controla se as variáveis de ambiente são expandidas no nome do caminho.|  
+|**LocalResourceDirectory**|O diretório na máquina virtual em que o agente de monitorização armazena dados de eventos. Se não, definido, é utilizado o diretório predefinido:<br /><br /> Para uma função de trabalho/web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos necessários são:<br /><br /> - **caminho** -o diretório no sistema para ser utilizado por diagnósticos do Azure.<br /><br /> - **expandEnvironment** -controla se as variáveis de ambiente são expandidas no nome do caminho.|  
 
 ## <a name="wadcfg-element"></a>Elemento WadCFG  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
@@ -592,7 +592,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**Sink**|Ver descrição noutro local nesta página.|  
+|**sink**|Ver descrição noutro local nesta página.|  
 
 ## <a name="sink-element"></a>Sink do elemento
  *Árvore: - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink de raiz*
@@ -603,12 +603,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**name**|cadeia|Uma cadeia que identifica o sinkname.|  
+|**name**|string|Uma cadeia que identifica o sinkname.|  
 
 |Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
-|**Application Insights**|cadeia|Utilizado apenas quando enviar dados para o Application Insights. Contém a chave de instrumentação para uma conta ativa do Application Insights que tenha acesso.|  
-|**Channels**|cadeia|Um para cada adicionais de filtragem de fluxo que|  
+|**Application Insights**|string|Utilizado apenas quando enviar dados para o Application Insights. Contém a chave de instrumentação para uma conta ativa do Application Insights que tenha acesso.|  
+|**Channels**|string|Um para cada adicionais de filtragem de fluxo que|  
 
 ## <a name="channels-element"></a>Elemento de canais  
  *Árvore: Canais de SinksConfig - Sink - raiz - DiagnosticsConfiguration - PublicConfig - WadCFG -*
@@ -619,7 +619,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
-|**Channel**|cadeia|Ver descrição noutro local nesta página.|  
+|**Channel**|string|Ver descrição noutro local nesta página.|  
 
 ## <a name="channel-element"></a>Canal de elemento
  *Árvore: Canais de SinksConfig - Sink - raiz - DiagnosticsConfiguration - PublicConfig - WadCFG --canal*

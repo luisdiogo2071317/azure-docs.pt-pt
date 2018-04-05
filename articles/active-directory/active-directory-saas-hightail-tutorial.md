@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Hightail | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Hightail."
+title: 'Tutorial: Integração do Azure Active Directory com Hightail | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Hightail.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
 ms.openlocfilehash: 2333a56cd9369cb66c4944304472462d2f2f7511
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Tutorial: Integração do Azure Active Directory com Hightail
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_url.png)
 
-     No **URL de resposta** caixa de texto, escreva o URL como:`https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+     No **URL de resposta** caixa de texto, escreva o URL como: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
     > [!NOTE] 
     > O valor anterior não é o valor real. Atualizar o valor com o URL de resposta real, que é explicada mais tarde no tutorial.
@@ -121,7 +121,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     a. Clique em de **Mostrar avançadas definições de URL**.
 
-    b. No **URL de início de sessão** caixa de texto, escreva o URL como:`https://www.hightail.com/loginSSO`
+    b. No **URL de início de sessão** caixa de texto, escreva o URL como: `https://www.hightail.com/loginSSO`
 
 4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -135,10 +135,10 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |
-    | Nome próprio | User.givenName |
-    | Apelido | User.Surname |
-    | E-mail | User.Mail |    
-    | UserIdentity | User.Mail |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
+    | Email | user.mail |    
+    | UserIdentity | user.mail |
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -231,7 +231,7 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
 
 O objetivo desta secção consiste em criar um utilizador chamado Britta Simon Hightail. 
 
-Não há nenhum item de ação para si nesta secção. Hightail suporta o aprovisionamento de utilizador de just-in-time com base nas afirmações personalizadas. Se tiver configurado as afirmações personalizadas conforme mostrado na secção  **[configurar do Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  superior, um utilizador é criado automaticamente na aplicação que não existe ainda. 
+Não há nenhum item de ação para si nesta secção. Hightail suporta o aprovisionamento de utilizador de just-in-time com base nas afirmações personalizadas. Se tiver configurado as afirmações personalizadas conforme mostrado na secção **[configurar do Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** superior, um utilizador é criado automaticamente na aplicação que não existe ainda. 
 
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de Hightail](mailto:support@hightail.com). 

@@ -1,11 +1,11 @@
 ---
-title: "Ocorreu um erro inesperado ao efetuar o consentimento para uma aplicação | Microsoft Docs"
-description: "Explica como erros que podem ocorrer durante o processo de consenting para uma aplicação e o que pode fazer sobre os mesmos"
+title: Ocorreu um erro inesperado ao efetuar o consentimento para uma aplicação | Microsoft Docs
+description: Explica como erros que podem ocorrer durante o processo de consenting para uma aplicação e o que pode fazer sobre os mesmos
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Ocorreu um erro inesperado ao efetuar o consentimento para uma aplicação
 
@@ -50,7 +50,7 @@ Este erro indica que ocorreu um problema do lado do serviço intermitente. Podem
 Contacte o programador da aplicação.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>Recurso não está disponível no erro de inquilino
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; está a solicitar acesso a um recurso &lt;resourceAppDisplayName&gt; que não está disponível na sua organização &lt; tenantDisplayName&gt;. 
+* **AADSTS65005:** &lt;clientAppDisplayName&gt; está a solicitar acesso a um recurso &lt;resourceAppDisplayName&gt; que não está disponível na sua organização &lt;tenantDisplayName &gt;. 
 
 Certifique-se de que este recurso se encontra disponível ou contacte o administrador de &lt;tenantDisplayName&gt;.
 
@@ -71,7 +71,7 @@ Estes erros que todas ocorrerem quando a aplicação de que um utilizador está 
 
     -   Adicionar a aplicação na Galeria de aplicações do Azure AD
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 
 [As aplicações, permissões e consentimento no Azure Active Directory (v1 ponto final)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 

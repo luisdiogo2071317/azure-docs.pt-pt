@@ -1,12 +1,12 @@
 ---
-title: "Esquema de configuração de diagnóstico do Azure 1.2 | Microsoft Docs"
-description: "APENAS relevante se estiver a utilizar o Azure SDK 2.5 com Virtual Machines do Azure, conjuntos de dimensionamento de Máquina Virtual, Service Fabric ou serviços em nuvem."
+title: Esquema de configuração de diagnóstico do Azure 1.2 | Microsoft Docs
+description: APENAS relevante se estiver a utilizar o Azure SDK 2.5 com Virtual Machines do Azure, conjuntos de dimensionamento de Máquina Virtual, Service Fabric ou serviços em nuvem.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuração 1.2 de diagnóstico do Azure
 > [!NOTE]
@@ -104,7 +104,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**WadCfg**|Necessário. Definições de configuração para os dados de telemetria a ser recolhido.|  
 |**StorageAccount**|O nome da conta do Storage do Azure para armazenar os dados. Isto também pode ser especificado como um parâmetro ao executar o cmdlet Set-AzureServiceDiagnosticsExtension.|  
-|**LocalResourceDirectory**|O diretório na máquina virtual a ser utilizado pelo agente de monitorização para armazenar dados de eventos. Se não for definido, o diretório predefinido é utilizado:<br /><br /> Para uma função de trabalho/web:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos necessários são:<br /><br /> -                      **caminho** -o diretório no sistema para ser utilizado por diagnósticos do Azure.<br /><br /> -                      **expandEnvironment** -controla se as variáveis de ambiente são expandidas no nome do caminho.|  
+|**LocalResourceDirectory**|O diretório na máquina virtual a ser utilizado pelo agente de monitorização para armazenar dados de eventos. Se não for definido, o diretório predefinido é utilizado:<br /><br /> Para uma função de trabalho/web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos necessários são:<br /><br /> -                      **caminho** -o diretório no sistema para ser utilizado por diagnósticos do Azure.<br /><br /> -                      **expandEnvironment** -controla se as variáveis de ambiente são expandidas no nome do caminho.|  
 
 ## <a name="wadcfg-element"></a>Elemento WadCFG  
 Define as definições de configuração para os dados de telemetria a ser recolhido. A tabela seguinte descreve os elementos subordinados:  
@@ -196,11 +196,11 @@ Define as definições de configuração para os dados de telemetria a ser recol
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**anotação**|Atributo necessário:<br /><br /> **displayName** -o nome a apresentar para o contador<br /><br /> Atributo opcional:<br /><br /> **região** -a região a utilizar quando se apresenta o nome do contador|  
+|**annotation**|Atributo necessário:<br /><br /> **displayName** -o nome a apresentar para o contador<br /><br /> Atributo opcional:<br /><br /> **região** -a região a utilizar quando se apresenta o nome do contador|  
 
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog  
  A tabela seguinte descreve os elementos subordinados:  
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**Origem de dados**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recolher todos os eventos, especifique "*".|
+|**DataSource**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recolher todos os eventos, especifique "*".|

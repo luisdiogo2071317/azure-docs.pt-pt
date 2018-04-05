@@ -1,6 +1,6 @@
 ---
 title: Utilizar um PC do Windows com o Hadoop no HDInsight - Azure | Microsoft Docs
-description: "Trabalhar a partir de um PC do Windows no Hadoop no HDInsight. Gerir clusters e de consulta com ferramentas do PowerShell, o Visual Studio e Linux. Desenvolva soluções de macrodados com o .NET."
+description: Trabalhar a partir de um PC do Windows no Hadoop no HDInsight. Gerir clusters e de consulta com ferramentas do PowerShell, o Visual Studio e Linux. Desenvolva soluções de macrodados com o .NET.
 services: hdinsight
 keywords: hadoop no windows, o hadoop para o windows
 author: cjgronlund
@@ -11,10 +11,10 @@ ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.openlocfilehash: c9e4476334db95c66650f663dc3d8d13df2c5b52
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabalhar do ecossistema do Hadoop no HDInsight a partir de um PC com Windows
 
@@ -87,7 +87,7 @@ Se encontrar uma situação em que tem de utilizar uma ferramenta ou tecnologia 
 * **Docker para Windows** fornece acesso a várias ferramentas baseado em Linux e pode ser executada diretamente a partir do Windows. Por exemplo, pode utilizar o Docker para executar o cliente de Beeline para do Hive diretamente a partir do Windows. Pode também utilizar o Docker para executar um bloco de notas do Jupyter local e se ligam remotamente à Spark no HDInsight. [Introdução ao Docker para Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](http://mobaxterm.mobatek.net/)**  permite-lhe navegar graficamente o sistema de ficheiros do cluster através de uma ligação SSH.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se estiver a trabalhar em clusters baseados em Linux, consulte os artigos de seguir:
 * [Configurar Hadoop, Kafka, Spark ou outros clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Sugestões para clusters do HDInsight no Linux](hdinsight-hadoop-linux-information.md)

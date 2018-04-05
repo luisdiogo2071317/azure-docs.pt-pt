@@ -1,11 +1,11 @@
 ---
-title: "Diretrizes de utilitário carregar ficheiro de pedido de suporte de novo do Microsoft Azure | Microsoft Docs"
-description: "Descreve as diretrizes quando utilizar o Microsoft Azure novo pedido de suporte utilitário carregar ficheiros"
-services: 
-documentationcenter: 
+title: Diretrizes de utilitário carregar ficheiro de pedido de suporte de novo do Microsoft Azure | Microsoft Docs
+description: Descreve as diretrizes quando utilizar o Microsoft Azure novo pedido de suporte utilitário carregar ficheiros
+services: ''
+documentationcenter: ''
 author: genlin
 manager: mbaldwin
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: eb13bc8012e2d58e1a9b68bb1cf2da11d65e8159
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Diretrizes de utilitário carregar ficheiro de pedido de suporte de novo do Microsoft Azure
 Quando lhe [criar um pedido de suporte](https://portal.azure.com/#create/Microsoft.Support), o utilitário de carregar o ficheiro pode ajudá-lo facilmente ficheiros de diagnóstico de carregamento ou outros ficheiros que pensa que são relevantes para o incidente.  
@@ -37,33 +37,33 @@ Ao utilizar o utilitário de carregar ficheiros, siga estas diretrizes:
 * Ficheiros não podem ser superiores a 4 MB.
 
 ## <a name="table-of-the-allowed-file-name-extensions"></a>Tabela das extensões de nome de ficheiro permitidos
-| 0-9, A-C    | D G   | H M         | N-P   | R-T      | U-W        | X-Z     |
+| 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
-| .7Z         | .dat  | .hwl        | .odx  | .rar     | .TDB       | .xlam   |
-| .a          | .dB   | .ICS        | .oft  | . RDL     | .tdf       | .xlr    |
-| *.abc        | . DMP  | . ini        | .old  | .RDLC    | .Text      | xls    |
-| . adm        | .do_  | .Java       | .one  | .re_     | .thmx      | .xlsb   |
-| . aspx       | . doc  | . jpg        | . OSD  | . reg     | *.TIF       | . xlsm   |
-| . ATF        | .docm | . LDF        | . SAÍDA  | .Remove  | . TRC       | ou   |
-| .b          | . docx | .Letterhead | .P1   | .ren     | . TTD       | .xlt    |
-| .ba_        | .dotm | .lnk        | .pcap | .Rename  | .tx_       | .xltx   |
-| . bak        | .dotx | . lo _        | .pdb  | .RFT     | . txt       | . XML    |
-| . bat        | .dtsx | . log        | . pdf  | .rpt     | .uccapilog | .XMLA   |
-| blg        | .eds  | .lpk        | .piz  | .RTE     | .uccplog   | .XPS    |
-| .CA_        | *.emf  | .manifest   | .pmls | . rtf     | .udcx      | *.xsd    |
-| . FICHEIRO CAB        | .eml  | Master     | *.png  | .Run     | .vb_       | .xsn    |
-| .cap        | .emz  | .mdmp       | .potx | .saz     | .vbs_      | xxx    |
-| .catx       | .err  | . MOF        | .ppt  | . SQL     | .vcf       | .z_     |
-| . CFG        | . etl  | MP3;.        | .pptm | .sqlplan | .vsd       | .Z01    |
-| .Compressed | .evt  | .mpg        | .pptx | .stp     | .wdb       | .z02    |
-| . Configuração     | .evtx | .ms_        | .prn  | .svclog  | .wks       | .zi     |
-| .cpk        | . EX   | .msg        | .psf  |   -       | .wma       | .zi_    |
-| .cpp        | .ex_  | . msi        | .pst  |  -        | . wmv       | . zip    |
-| CS         | .ex0  | .Mso        | Pub  | -         | .wmz       | .zip_   |
-| . CSV        | . FRD  | . msu        | -      |-          | .wps       | .zipp   |
-| .CVR        | GIF  | .nfo        | -      |-          | .wpt       | .zipped |
-| -            | .GUID | -            | -      | -         | .WSDL      | .zippy  |
-| -            | .GZ   | -            | -      | -         | .wsp       | .zipx   |
-| -            | -      | -            | -      | -         | .WTL       | .Zit    |
-| -            | -      | -            | -      | -         |     -       | .Zix    |
+| .7z         | .dat  | .hwl        | .odx  | .rar     | .tdb       | .xlam   |
+| .a          | .db   | .ICS        | .oft  | .rdl     | .tdf       | .xlr    |
+| .abc        | .DMP  | .ini        | .old  | .rdlc    | .text      | .xls    |
+| .adm        | .do_  | .java       | .one  | .re_     | .thmx      | .xlsb   |
+| .aspx       | .doc  | .jpg        | .osd  | . reg     | *.TIF       | .xlsm   |
+| . ATF        | .docm | .LDF        | . SAÍDA  | .remove  | .trc       | .xlsx   |
+| .b          | .docx | .letterhead | .P1   | .ren     | .TTD       | .xlt    |
+| .ba_        | .dotm | .lnk        | .pcap | .rename  | .tx_       | .xltx   |
+| .bak        | .dotx | .lo_        | .pdb  | .rft     | .txt       | .xml    |
+| .bat        | .dtsx | .log        | .pdf  | .rpt     | .uccapilog | .xmla   |
+| .blg        | .eds  | .lpk        | .piz  | .rte     | .uccplog   | .xps    |
+| .CA_        | *.emf  | .manifest   | .pmls | .rtf     | .udcx      | .xsd    |
+| .CAB        | .eml  | .master     | .png  | .run     | .vb_       | .xsn    |
+| .cap        | .emz  | .mdmp       | .potx | .saz     | .vbs_      | .xxx    |
+| .catx       | .err  | .mof        | .ppt  | .sql     | .vcf       | .z_     |
+| .CFG        | .etl  | .mp3        | .pptm | .sqlplan | .vsd       | .z01    |
+| .compressed | .evt  | .mpg        | .pptx | .stp     | .wdb       | .z02    |
+| .Config     | .evtx | .ms_        | .prn  | .svclog  | .wks       | .zi     |
+| .cpk        | .EX   | .msg        | .psf  |   -       | .wma       | .zi_    |
+| .cpp        | .ex_  | .msi        | .pst  |  -        | .wmv       | .zip    |
+| CS         | .ex0  | .mso        | .pub  | -         | .wmz       | .zip_   |
+| .CSV        | .FRD  | .msu        | -      |-          | .wps       | .zipp   |
+| .cvr        | .gif  | .nfo        | -      |-          | .wpt       | .zipped |
+| -            | .guid | -            | -      | -         | .wsdl      | .zippy  |
+| -            | .gz   | -            | -      | -         | .wsp       | .zipx   |
+| -            | -      | -            | -      | -         | .wtl       | .zit    |
+| -            | -      | -            | -      | -         |     -       | .zix    |
 | -            | -      | -            | -      | -         |  -          | .zzz    |

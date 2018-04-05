@@ -1,44 +1,42 @@
 ---
-title: 'Azure Cosmos DB: Desenvolver com a API do SQL Server no .NET | Microsoft Docs'
-description: "Saiba como desenvolver com a API do SQL Server da BD do Cosmos do Azure através do .NET"
+title: 'Azure Cosmos DB: Desenvolver com a API de SQL em .NET | Microsoft Docs'
+description: Saiba como desenvolver com a API de SQL do Azure Cosmos DB mediante a utilização de .NET
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: e37a0993567b6cec7ed6a91e6dad1f2e2c097198
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 7fca9f184097ed50ace665cde0c5ef8fb180feda
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: Desenvolver com a API do SQL Server no .NET
+# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API de SQL em .NET
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
+Este tutorial demonstra como criar uma conta do Azure Cosmos DB com o Portal do Azure e, em seguida, criar uma base de dados de documentos e uma coleção com uma [chave de partição](sql-api-partition-data.md#partition-keys) mediante a utilização da [API .NET de SQL](sql-api-introduction.md). Ao definir uma chave de partição quando cria uma coleção, a sua aplicação estará preparada para se dimensionar facilmente à medida que os seus dados aumentam. 
 
-Este tutorial demonstra como criar uma conta de base de dados do Azure Cosmos no portal do Azure e, em seguida, criar uma base de dados de documento e a coleção com um [chave de partição](sql-api-partition-data.md#partition-keys) utilizando o [.NET API do SQL Server](sql-api-introduction.md). Definir uma chave de partição quando cria uma coleção, a aplicação está preparada para dimensionamento effortlessly à medida que aumenta os dados. 
-
-Este tutorial abrange as seguintes tarefas utilizando o [.NET API do SQL Server](sql-api-sdk-dotnet.md):
+Este tutorial abrange as seguintes tarefas mediante a utilização da [API .NET de SQL](sql-api-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * Criar uma conta do Azure Cosmos DB
-> * Criar uma base de dados e coleção com uma chave de partição
+> * Criar uma base de dados e uma coleção com uma chave de partição
 > * Criar documentos JSON
 > * Atualizar um documento
 > * Consultar as coleções particionadas
-> * Execução de procedimentos armazenados
+> * Executar procedimentos armazenados
 > * Eliminar um documento
 > * Eliminar uma base de dados
 
@@ -53,11 +51,11 @@ Certifique-se de que tem o seguinte:
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
-Vamos começar por criar uma conta de base de dados do Azure Cosmos no portal do Azure.
+Comecemos por criar uma conta do Azure Cosmos DB no portal do Azure.
 
 > [!TIP]
-> * Já tem uma conta de base de dados do Azure Cosmos? Se assim for, avançar diretamente para [configurar a sua solução Visual Studio](#SetupVS)
-> * Se estiver a utilizar o emulador de BD do Cosmos do Azure, siga os passos indicados em [emulador de BD do Azure Cosmos](local-emulator.md) para configurar o emulador e avançar diretamente para [configurar a sua solução do Visual Studio](#SetupVS). 
+> * Já tem uma conta do Azure Cosmos DB? Se sim, avance para [Configurar a solução do Visual Studio](#SetupVS).
+> * Se estiver a utilizar o Emulador do Azure Cosmos DB, siga os passos em [Azure Cosmos DB Emulator](local-emulator.md) (Emulador do Azure Cosmos DB) para configurar o emulador e avance para [Configurar a solução do Visual Studio](#SetupVS). 
 >
 >
 
@@ -66,22 +64,22 @@ Vamos começar por criar uma conta de base de dados do Azure Cosmos no portal do
 ## <a id="SetupVS"></a>Configurar a sua solução Visual Studio
 1. Abra o **Visual Studio** no seu computador.
 2. No menu **Ficheiro**, selecione **Novo**, e, em seguida, escolha **Projeto**.
-3. No **novo projeto** caixa de diálogo, selecione **modelos** / **Visual c#** / **aplicação de consola (.NET Framework)**, nomeie o projeto e, em seguida, clique em **OK**.
+3. Na caixa de diálogo **New Project** (Novo Projeto), selecione **Templates** (Modelos) / **Visual C#** / **Console App (.NET Framework)** (Aplicação de Consola [.NET Framework]), dê um nome ao projeto e clique em **OK**.
    ![Captura de ecrã da janela Novo Projeto](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-new-project-2.png)
 
 4. No **Explorador de Soluções**, clique com o botão direito do rato na sua nova aplicação de consola, que está sob a sua solução Visual Studio e, em seguida, clique em **Gerir Pacotes NuGet...**
     
     ![Captura de ecrã do Menu com Botão do Lado Direito para o Projeto](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-manage-nuget-pacakges.png)
-5. No **NuGet** separador, clique em **procurar**e escreva **documentdb** na caixa de pesquisa.
+5. No separador **NuGet**, clique em **Procurar** e escreva **documentdb** na caixa de pesquisa.
 <!---stopped here--->
 6. Nos resultados, localize **Microsoft.Azure.DocumentDB** e clique em **Instalar**.
-   O ID de pacote para a biblioteca de clientes de base de dados do Azure Cosmos é [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
-   ![Captura de ecrã do NuGet Menu para encontrar o cliente SDK do Azure Cosmos DB](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-manage-nuget-pacakges-2.png)
+   O ID do pacote da Biblioteca de Cliente do Azure Cosmos DB é [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
+   ![Captura de ecrã do Menu NuGet para encontrar o SDK de Cliente do Azure Cosmos DB](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Se obtiver uma mensagem sobre a revisão das alterações para a solução, clique em **OK**. Se obtiver uma mensagem sobre a aceitação de licença, clique em **Aceito**.
 
-## <a id="Connect"></a>Adicione referências ao seu projeto
-Os passos restantes neste tutorial fornecem os fragmentos de código da API do SQL Server necessários para criar e atualizar a base de dados do Azure Cosmos recursos no seu projeto.
+## <a id="Connect"></a>Adicionar referências ao seu projeto
+Os restantes passos deste tutorial disponibilizam os fragmentos de código da API de SQL necessários para criar e atualizar recursos do Azure Cosmos DB no seu projeto.
 
 Primeiro, adicione estas referências à sua aplicação.
 <!---These aren't added by default when you install the pkg?--->
@@ -95,7 +93,7 @@ using Newtonsoft.Json;
 
 ## <a id="add-references"></a>Ligar a aplicação
 
-Em seguida, adicione estas duas constantes e a sua *cliente* variável na sua aplicação.
+Em seguida, adicione estas duas constantes e a variável *client* na sua aplicação.
 
 ```csharp
 private const string EndpointUrl = "<your endpoint URL>";
@@ -103,45 +101,45 @@ private const string PrimaryKey = "<your primary key>";
 private DocumentClient client;
 ```
 
-Em seguida, head novamente para o [portal do Azure](https://portal.azure.com) para obter o URL de ponto final e a chave primária. O URL de ponto final e a chave primária são necessários para que a sua aplicação saiba onde ligar e para que o Azure Cosmos DB confie na ligação da sua aplicação.
+Depois, regresse ao [Portal do Azure](https://portal.azure.com) para obter o URL do ponto final e a chave primária. O URL de ponto final e a chave primária são necessários para que a sua aplicação saiba onde ligar e para que o Azure Cosmos DB confie na ligação da sua aplicação.
 
-No portal do Azure, navegue até à sua conta de base de dados do Azure Cosmos, clique em **chaves**e, em seguida, clique em **chaves de leitura e escrita**.
+No Portal do Azure, navegue para a sua conta do Azure Cosmos DB, clique em **Chaves** e clique em **Chaves de leitura/escrita**.
 
-Copie o URI do portal e cole-o ao longo do `<your endpoint URL>` no ficheiro program.cs. Em seguida, copie a chave primária do portal e cole-o ao longo do `<your primary key>`. Não se esqueça de remover o `<` e `>` partir dos seus valores.
+Copie o URI a partir do portal e cole-o em `<your endpoint URL>`, no ficheiro program.cs. Em seguida, copie a CHAVE PRIMÁRIA a partir do portal e cole-a em `<your primary key>`. Não se esqueça de remover `<` e `>` dos valores.
 
-![Captura de ecrã do portal do Azure utilizado pelo NoSQL tutorial para criar uma aplicação de consola c#. Mostra uma conta de base de dados do Azure Cosmos, com as chaves realçadas no painel de conta de base de dados do Azure Cosmos e os valores URI e a chave primária realçados no painel de chaves](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-keys.png)
+![Captura de ecrã do Portal do Azure utilizado pelo tutorial NoSQL para criar uma aplicação de consola C#. Mostra uma conta do Azure Cosmos DB, com as CHAVES realçadas no painel da conta do Azure Cosmos DB e os valores URI e CHAVE PRIMÁRIA realçados no painel Chaves](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-keys.png)
 
 ## <a id="instantiate"></a>Instanciar o DocumentClient
 
-Agora, crie uma nova instância do **DocumentClient**.
+Agora, crie uma instância nova do **DocumentClient**.
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 ```
 
-## <a id="create-database"></a>Criar uma base de dados
+## <a id="create-database"></a>Criar uma Base de Dados
 
-Em seguida, crie uma base de dados do Azure Cosmos [base de dados](sql-api-resources.md#databases) utilizando o [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) método ou [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) método o  **DocumentClient** classe do [SQL .NET SDK](sql-api-sdk-dotnet.md). Uma base de dados é o contentor lógico do armazenamento de documentos JSON particionado em coleções.
+Em seguida, crie uma [base de dados](sql-api-resources.md#databases) do Azure Cosmos DB com o métodos [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) ou [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) da classe **DocumentClient** do [SDK .NET de SQL](sql-api-sdk-dotnet.md). Uma base de dados é o contentor lógico do armazenamento de documentos JSON particionado em coleções.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
 ```
-## <a name="decide-on-a-partition-key"></a>Opte por utilizar uma chave de partição 
+## <a name="decide-on-a-partition-key"></a>Escolher uma chave de partição 
 
-As coleções são contentores para armazenar documentos. São recursos lógicos e pode [abranger uma ou mais partições físicas](partition-data.md). A [chave de partição](sql-api-partition-data.md) é uma propriedade (ou caminho) na sua documentos que é utilizado para distribuir os dados entre os servidores ou partições. Todos os documentos com a mesma chave de partição são armazenados na mesma partição. 
+As coleções são contentores para armazenar documentos. São recursos lógicos e podem [abranger uma ou mais partições físicas](partition-data.md). As [chaves de partições](sql-api-partition-data.md) são uma propriedade (ou caminho) dentro dos documentos utilizada para distribuir os seus dados entre os servidores ou partições. Todos os documentos com a mesma chave de partição são armazenadas na mesma partição. 
 
-A determinação de uma chave de partição é uma decisão importante antes de criar uma coleção. As chaves de partição são uma propriedade (ou caminho) na sua documentos que podem ser utilizados por base de dados do Azure Cosmos para distribuir os dados entre vários servidores ou partições. BD do cosmos codifica o valor da chave de partição e utiliza o resultado com hash para determinar a partição no qual pretende armazenar o documento. Todos os documentos com a mesma chave de partição são armazenados na mesma partição e chaves de partição não podem ser alteradas depois de uma coleção é criada. 
+É importante determinar uma chave de partição antes de criar uma coleção. As chaves de partições são uma propriedade (ou caminho) dentro dos documentos que o Azure Cosmos DB pode utilizar para distribuir os seus dados entre vários servidores ou partições. O Cosmos DB codifica o valor da chave de partição e utiliza o resultado codificado para determinar a partição na qual armazenar o documento. Todos os documentos com a mesma chave de partição são armazenados na mesma partição e as chaves de partição não podem ser alteradas após as coleções terem sido criadas. 
 
-Para este tutorial, vamos definir a chave de partição para `/deviceId` para que a todos os dados para um único dispositivo é armazenado numa única partição. Pretende escolher uma chave de partição tem um grande número de valores, cada um dos quais são utilizados em sobre a mesma frequência para garantir a que BD do Cosmos pode o balanceamento de carga como os dados que vai crescendo e alcançarem o débito total da coleção. 
+Neste tutorial, vamos definir a chave de partição como `/deviceId`, de modo a que todos os dados de um dispositivo individual sejam armazenados numa única partição O mais indicado é escolher uma chave de partição que tenha muitos valores, cada um desses utilizado com a mesma frequência para garantir que o Cosmos DB consegue balancear a carga à medida que os seus dados aumentam e obter todo o débito da coleção. 
 
-Para obter mais informações sobre a criação de partições, consulte [como partição e escala do BD Azure Cosmos?](partition-data.md) 
+Para obter mais informações sobre a criação de partições veja [How to partition and scale in Azure Cosmos DB?](partition-data.md) (Como criar partições e dimensionar no Azure Cosmos DB?) 
 
 ## <a id="CreateColl"></a>Criar uma coleção 
 
-Agora que Sabemos que o nosso chave de partição, `/deviceId`, permite criar um [coleção](sql-api-resources.md#collections) utilizando o [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) método ou [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) método o **DocumentClient** classe. Uma coleção é um contentor de documentos JSON e qualquer lógica da aplicação associada JavaScript. 
+Agora que já sabemos qual é a chave de partição, `/deviceId`, vamos criar uma [coleção](sql-api-resources.md#collections) com o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) ou o método [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) da classe **DocumentClient**. As coleções são contentores de documentos JSON e das lógicas das aplicações JavaScript associadas. 
 
 > [!WARNING]
-> Criar uma coleção tem implicações, de preços são reservar o débito da aplicação para comunicar com a base de dados do Azure Cosmos. Para obter mais detalhes, visite o nosso [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)
+> Criar uma coleção tem implicações ao nível dos preços, pois está a reservar débito para a aplicação comunicar com o Azure Cosmos DB. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 
@@ -160,10 +158,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 2500 });
 ```
 
-Este método permite uma API de REST a chamada para a base de dados do Azure Cosmos e aprovisiona o serviço um número de partições com base no débito pedido. Pode alterar o débito de uma coleção, o desempenho precisa de evoluir utilizando o SDK ou [portal do Azure](set-throughput.md).
+Este método faz uma chamada de API REST para o Azure Cosmos DB e o serviço aprovisiona um número de partições com base no débito pedido. Pode alterar o débito de uma coleção se tiver de aumentar o seu desempenho com o SDK ou o [Portal do Azure](set-throughput.md).
 
 ## <a id="CreateDoc"></a>Criar documentos JSON
-Vamos inserir alguns documentos JSON na base de dados do Azure Cosmos. Pode criar um [documento](sql-api-resources.md#documents) utilizando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdos JSON (arbitrários) definidos pelo utilizador. Esta classe de exemplo contém um dispositivo ao ler e chamar CreateDocumentAsync para inserir um novo dispositivo de leitura para uma coleção.
+Vamos inserir alguns documentos JSON no Azure Cosmos DB. Pode criar um [documento](sql-api-resources.md#documents) utilizando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdos JSON (arbitrários) definidos pelo utilizador. Esta classe de exemplo contém uma leitura de dispositivo e uma chamada para CreateDocumentAsync para inserir uma leitura de dispositivo nova numa coleção.
 
 ```csharp
 public class DeviceReading
@@ -204,7 +202,7 @@ await client.CreateDocumentAsync(
 ```
 ## <a name="read-data"></a>Ler dados
 
-Vamos ler o documento pela respetiva chave de partição e o Id utilizando o método ReadDocumentAsync. Tenha em atenção que as leituras incluem um valor de PartitionKey (correspondente para o `x-ms-documentdb-partitionkey` cabeçalho do pedido na REST API).
+Vamos ler o documento pela respetiva chave de partição e ID com o método ReadDocumentAsync. Tenha em atenção que as leituras incluem um valor de PartitionKey (correspondente ao cabeçalho do pedido `x-ms-documentdb-partitionkey` na API REST).
 
 ```csharp
 // Read document. Needs the partition key and the Id to be specified
@@ -217,7 +215,7 @@ DeviceReading reading = (DeviceReading)(dynamic)result;
 
 ## <a name="update-data"></a>Atualizar dados
 
-Agora vamos atualizar alguns dados utilizando o método ReplaceDocumentAsync.
+Agora, vamos atualizar alguns dados através do método ReplaceDocumentAsync.
 
 ```csharp
 // Update the document. Partition key is not required, again extracted from the document
@@ -231,7 +229,7 @@ await client.ReplaceDocumentAsync(
 
 ## <a name="delete-data"></a>Eliminar dados
 
-Agora permite eliminar um documento pela chave de partição e o id utilizando o método DeleteDocumentAsync.
+Agora, vamos eliminar um documento por chave de partição e ID através do método DeleteDocumentAsync.
 
 ```csharp
 // Delete a document. The partition key is required.
@@ -241,7 +239,7 @@ await client.DeleteDocumentAsync(
 ```
 ## <a name="query-partitioned-collections"></a>Consultar as coleções particionadas
 
-Quando consulta os dados em coleções particionadas, base de dados do Azure Cosmos encaminha automaticamente a consulta para as partições correspondente para os valores de chave de partição especificados no filtro (se existir alguma). Por exemplo, esta consulta é encaminhada para a partição que contém a chave de partição "XMS-0001 e".
+Quando consulta dados em coleções particionadas, o Azure Cosmos DB encaminha automaticamente a consulta para as partições que correspondem aos valores das chaves de partições especificados no filtro (se existirem). Por exemplo, esta consulta é encaminhada para a partição que contém a chave de partição "XMS-0001".
 
 ```csharp
 // Query using partition key
@@ -250,7 +248,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
     
-A seguinte consulta não tem um filtro a chave de partição (DeviceId) e fanned para todas as partições onde é executada relativamente o índice a particionar. Tenha em atenção que tem de especificar o EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` na REST API) com o SDK para executar uma consulta em partições.
+A seguinte consulta não tem um filtro para a chave de partição (DeviceId) e é distribuída para todas as partições onde é executada no índice da partição. Tenha em atenção que tem de especificar EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` na API REST) para que o SDK execute uma consulta nas várias partições.
 
 ```csharp
 // Query across partition keys
@@ -260,8 +258,8 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-## <a name="parallel-query-execution"></a>Execução paralela da consulta
-Os SDKs do Azure Cosmos BD SQL 1.9.0 e acima opções de execução paralela da consulta de suporte, que permitem-lhe executar consultas de latência baixa contra coleções particionadas, mesmo quando precisar de touch um grande número de partições. Por exemplo, a seguinte consulta está configurada para ser executado em paralelo em partições.
+## <a name="parallel-query-execution"></a>Execução paralela de consultas
+Os SDKs de SQL 1.9.0 e acima do Azure Cosmos BD suportam opções de execução paralela de consultas, que lhe permitem fazer consultas de latência baixo em coleções particionadas, mesmo quando têm de alcançar um grande número de partições. Por exemplo, a seguinte consulta está configurada para ser executada em paralelo em várias partições.
 
 ```csharp
 // Cross-partition Order By queries
@@ -272,15 +270,15 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .OrderBy(m => m.MetricValue);
 ```
     
-Pode gerir a execução paralela da consulta por otimização os seguintes parâmetros:
+Pode gerir a execução paralela da consulta ao otimizar os parâmetros abaixo:
 
-* Por definição `MaxDegreeOfParallelism`, pode controlar o grau de paralelismo ou seja, o número máximo de ligações de rede em simultâneo para partições da coleção. Se definir esta opção como -1, o grau de paralelismo é gerido pelo SDK. Se o `MaxDegreeOfParallelism` não está especificado ou foi definido para 0, o qual é o valor predefinido, existirá uma ligação de rede único para partições da coleção.
-* Por definição `MaxBufferedItemCount`, pode comprometido a utilização de memória de latência e do lado do cliente de consulta. Se omitir este parâmetro ou defina esta opção como -1, o número de itens em memória intermédia durante a execução paralela da consulta é gerido pelo SDK.
+* Ao definir `MaxDegreeOfParallelism`, pode controlar o nível de paralelismo, ou seja, o número máximo de ligações de rede simultâneas  às partições da coleção. Se definir esta opção como -1, o nível de paralelismo é gerido pelo SDK. Se `MaxDegreeOfParallelism` não for especificado ou for definido como 0, que é o valor predefinido, existirá uma única ligação de rede às partições da coleção.
+* Ao definir `MaxBufferedItemCount`, pode compensar a latência da consulta e a utilização da memória do lado do cliente. Se omitir este parâmetro ou o definir como -1, o número de itens colocados em memória intermédia durante a execução paralela da consulta é gerido pelo SDK.
 
-Tendo em conta o mesmo Estado da coleção, uma consulta paralela irá devolver resultados pela mesma ordem como em execução série. Quando executar uma consulta de partição cruzada que inclui a ordenação (ORDER BY e/ou superior), o SDK de SQL emite a consulta em paralelo em partições e intercala parcialmente ordenados resultados no lado do cliente para produzir resultados globalmente ordenados.
+Tendo em conta o mesmo estado da coleção, uma consulta paralela devolverá resultados pela mesma ordem do que numa execução em série. Quando realizar uma consulta em várias partições que inclua ordenação (ORDER BY e/ou TOP), o SDK de SQL emite a consulta em paralelo para as várias partições e combina os resultados ordenados parcialmente no lado do cliente, de modo a produzir resultados ordenados globalmente.
 
 ## <a name="execute-stored-procedures"></a>Executar procedimentos armazenados
-Por último, pode executar transações atómicas contra documentos com o mesmo ID de dispositivo, por exemplo, se estiver a manter os agregados ou o estado mais recente de um dispositivo de um único documento adicionando o seguinte código ao projeto.
+Por fim pode executar transações atómicas em documentos com o mesmo ID de dispositivo, por exemplo, se quiser manter agregados ou o último estado de um dispositivo num documento individual. Para tal, basta adicionar o código seguinte ao seu projeto.
 
 ```csharp
 await client.ExecuteStoredProcedureAsync<DeviceReading>(
@@ -289,13 +287,13 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     "XMS-001-FE24C");
 ```
 
-E já está! Trata-se os componentes principais de uma aplicação de base de dados do Azure Cosmos que utiliza uma chave de partição de forma eficiente dimensionamento distribuição de dados na partições.  
+E já está! São estes os principais componentes de uma aplicação do Azure Cosmos DB que utiliza uma chave de partição para dimensionar eficientemente a distribuição de dados em várias partições.  
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se não continuar a utilizar esta aplicação, elimine todos os recursos criados por este tutorial no portal do Azure com os seguintes passos:
+Se não pretender continuar a utilizar esta aplicação, elimine todos os recursos criados neste tutorial no Portal do Azure com os seguintes passos:
 
-1. No menu da esquerda no portal do Azure, clique em **grupos de recursos** e, em seguida, clique no nome exclusivo do recurso que criou. 
+1. No menu do lado esquerdo do Portal do Azure, clique em **Grupos de recursos** e, em seguida, clique no nome exclusivo do recurso que criou. 
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -303,16 +301,16 @@ Se não continuar a utilizar esta aplicação, elimine todos os recursos criados
 Neste tutorial, fez o seguinte: 
 
 > [!div class="checklist"]
-> * Criar uma conta de base de dados do Azure Cosmos
-> * Criar uma base de dados e coleção com uma chave de partição
-> * Criar documentos JSON
-> * Atualizar um documento
-> * Consultar as coleções particionadas
-> * Foi executado um procedimento armazenado
+> * Criou uma conta do Azure Cosmos DB
+> * Criou uma base de dados e uma coleção com uma chave de partição
+> * Criou documentos JSON
+> * Atualizou um documento
+> * Consultou coleções particionadas
+> * Executou um procedimento armazenado
 > * Eliminou um documento
-> * Eliminar uma base de dados
+> * Eliminou uma base de dados
 
-Agora pode avançar para o próximo tutorial e importar dados adicionais à sua conta de base de dados do Cosmos. 
+Agora, pode avançar para o próximo tutorial e importar dados adicionais para sua conta do Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).

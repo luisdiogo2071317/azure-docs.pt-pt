@@ -1,11 +1,11 @@
 ---
-title: "As perguntas e respostas uma correspondência com o Azure Machine Learning Workbench | Microsoft Docs"
-description: "Como utilizar vários métodos de aprendizagem eficaz para que corresponda ao abrir terminou consultas para pré-existente FAQ respostas à pergunta/pares."
+title: As perguntas e respostas uma correspondência com o Azure Machine Learning Workbench | Microsoft Docs
+description: Como utilizar vários métodos de aprendizagem eficaz para que corresponda ao abrir terminou consultas para pré-existente FAQ respostas à pergunta/pares.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: mezmicrosoft
 editor: mezmicrosoft
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
 ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>As perguntas e respostas uma correspondência com o workbench do Azure Machine Learning
 As respostas a questões terminadas abrir é difícil e requer frequentemente um esforço manual de especialistas (SMEs). Para ajudar a reduzir a necessidade de SMEs internos, as empresas criar frequentemente apresenta uma lista de perguntas mais frequentes (FAQ) como um meio de utilizadores a prestar assistência. Neste exemplo showcases vários métodos de aprendizagem máquina eficaz para que corresponda ao abrir consultas terminadas para pré-existente FAQ/respostas a perguntas pares. Este exemplo demonstra um processo de desenvolvimento simples para construir uma solução de utilizar o Workbench do Azure Machine Learning. 
@@ -51,7 +51,7 @@ As pré-requisitos para executar este exemplo são os seguintes:
 
 Crie um novo projeto com este exemplo como um modelo:
 1.  Abra máquina do Azure Learning Workbench
-2.  No **projetos** página, clique em de  **+**  iniciar sessão e selecionar **novo projeto**
+2.  No **projetos** página, clique em de **+** iniciar sessão e selecionar **novo projeto**
 3.  No **criar novo projeto** painel, preencha as informações para o novo projeto
 4.  No **modelos de projeto de pesquisa** caixa de pesquisa, escreva "Q e A correspondência de" e selecione o modelo
 5.  Clique em **Criar**.
@@ -82,7 +82,7 @@ O esquema de dados e ligações de transferência direta dos três conjuntos de 
 
 | Conjunto de dados | Campo | Tipo | Descrição
 | ----------|------------|------------|--------
-| [Perguntas](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | Cadeia | O ID exclusivo pergunta (chave primária)
+| [questions](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | Cadeia | O ID exclusivo pergunta (chave primária)
 |  | AnswerId | Cadeia | O ID exclusivo de resposta por pergunta
 |  | text0 | Cadeia | Os dados de texto não processados, incluindo o título e um corpo à pergunta
 |  | CreationDate | Carimbo de data/hora | O carimbo de quando a pergunta foi pedida
@@ -90,7 +90,7 @@ O esquema de dados e ligações de transferência direta dos três conjuntos de 
 |  | AnswerId | Cadeia | O ID de resposta associado a duplicação
 |  | text0 | Cadeia | Os dados de texto não processados, incluindo o título e um corpo de duplicação
 |  | CreationDate | Carimbo de data/hora | O carimbo de quando foi pedida de duplicação
-| [respostas](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Id | Cadeia | O ID exclusivo de resposta (chave primária)
+| [answers](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Id | Cadeia | O ID exclusivo de resposta (chave primária)
 |  | text0 | Cadeia | Os dados não processados do texto da resposta
 
 

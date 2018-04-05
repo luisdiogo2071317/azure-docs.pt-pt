@@ -1,6 +1,6 @@
 ---
-title: "Integrar um serviço em nuvem do Azure com o Azure CDN | Microsoft Docs"
-description: "Saiba como implementar um serviço em nuvem que serve o conteúdo a partir de um ponto de final de CDN do Azure integrado"
+title: Integrar um serviço em nuvem do Azure com o Azure CDN | Microsoft Docs
+description: Saiba como implementar um serviço em nuvem que serve o conteúdo a partir de um ponto de final de CDN do Azure integrado
 services: cdn, cloud-services
 documentationcenter: .net
 author: zhangmanling
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="intro"></a>Integrar um serviço em nuvem a CDN do Azure
+# <a name="intro"></a> Integrar um serviço em nuvem a CDN do Azure
 Um serviço em nuvem pode ser integrado com a CDN do Azure, que serve qualquer conteúdo da localização do serviço em nuvem. Esta abordagem proporciona as seguintes vantagens:
 
 * Fácil de implementar e atualizar imagens, scripts e tramas nos diretórios de projeto do seu serviço em nuvem
@@ -30,7 +30,7 @@ Um serviço em nuvem pode ser integrado com a CDN do Azure, que serve qualquer c
 * Integrar o agrupamento do ASP.NET e minification com CDN do Azure
 
 ## <a name="what-you-will-learn"></a>O que aprenderá
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 * [Integrar um ponto final de CDN do Azure com o serviço de nuvem e a servir conteúdo estático nas suas páginas Web da CDN do Azure](#deploy)
 * [Configurar definições da cache de conteúdo estático no seu serviço em nuvem](#caching)
@@ -63,7 +63,7 @@ Nesta secção, irá implementar a modelo de aplicação MVC do ASP.NET no Visua
 1. No Visual Studio 2015, criar um novo serviço em nuvem do Azure da barra de menus, acedendo a **ficheiro > novo > projeto > nuvem > serviço de nuvem do Azure**. Atribua um nome e clique em **OK**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG)
-2. Selecione **função da Web ASP.NET** e clique em de  **>**  botão. Clique em OK.
+2. Selecione **função da Web ASP.NET** e clique em de **>** botão. Clique em OK.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG)
 3. Selecione **MVC** e clique em **OK**.
@@ -138,7 +138,7 @@ Um perfil da CDN é uma coleção de pontos finais da CDN.  Cada perfil contém 
    > 
 
 ## <a name="test-the-cdn-endpoint"></a>Testar o ponto final da CDN
-Quando o estado da publicação é **concluído**, abra uma janela do browser e navegue para  **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. Na minha configuração, este URL é:
+Quando o estado da publicação é **concluído**, abra uma janela do browser e navegue para **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. Na minha configuração, este URL é:
 
     http://camservice.azureedge.net/Content/bootstrap.css
 
@@ -146,18 +146,18 @@ Que corresponde ao seguinte URL de origem no ponto final de CDN:
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-Quando navegar para  **http://*&lt;cdnName >*.azureedge.net/Content/bootstrap.css**, consoante o seu browser, ser-lhe-á solicitado para transferir ou abra bootstrap.css fornecido da sua aplicação Web publicada.
+Quando navegar para **http://*&lt;cdnName >*.azureedge.net/Content/bootstrap.css**, dependendo do seu browser, será solicitado para transferir ou abra bootstrap.css fornecido da sua aplicação Web publicada.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-Da mesma forma pode aceder a qualquer URL acessível publicamente em  **http://*&lt;serviceName >*.cloudapp.net/**, diretamente a partir do ponto final de CDN. Por exemplo:
+Da mesma forma pode aceder a qualquer URL acessível publicamente em **http://*&lt;serviceName >*.cloudapp.net/**, direitas do ponto final de CDN. Por exemplo:
 
 * Um ficheiro. js do caminho de /script.
 * Qualquer ficheiro de conteúdo a partir de /Content caminho
 * Qualquer controlador/ação
 * Se a cadeia de consulta está ativada no ponto final de CDN, qualquer URL com cadeias de consulta
 
-Na verdade, a configuração acima, pode alojar o serviço integralmente na nuvem  **http://*&lt;cdnName >*.azureedge.net/**. Se posso navegue para **http://camservice.azureedge.net/**, receber o resultado da ação de Home/Index.
+Na verdade, a configuração acima, pode alojar o serviço integralmente na nuvem **http://*&lt;cdnName >*.azureedge.net/**. Se posso navegue para **http://camservice.azureedge.net/**, receber o resultado da ação de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -325,7 +325,7 @@ Siga os passos acima para esta ação de controlador de configuração:
             <br />
             <input class="btn" type="submit" value="Generate meme" />
         </form>
-5. Publicar novamente o serviço em nuvem e navegue para  **http://*&lt;serviceName >*.cloudapp.net/MemeGenerator/Index** no seu browser.
+5. Publicar novamente o serviço em nuvem e navegue para **http://*&lt;serviceName >*.cloudapp.net/MemeGenerator/Index** no seu browser.
 
 Ao submeter os valores de forma a `/MemeGenerator/Index`, a `Index_Post` método da ação devolve uma hiperligação para o `Show` método da ação com o respetivo identificador de entrada. Ao clicar na ligação, alcançar o seguinte código:  
 
@@ -446,7 +446,7 @@ Siga os passos abaixo para integração ASP.NET agrupamento e minification com o
    * Uma vez que estiver a utilizar o construtor CDN, a tag de script da CDN para o pacote já não contém a cadeia de versão gerado automaticamente no URL composto. Tem de gerar manualmente uma cadeia de versão exclusivo sempre que o pacote de script é modificado para forçar uma falha de acerto na cache na sua CDN do Azure. Ao mesmo tempo, esta cadeia de versão exclusivo têm de permanecer constante através de vida da implementação para maximizar acertos na cache na sua CDN do Azure, depois do pacote é implementado.
    * A cadeia de consulta v = < W.X.Y.Z > obtém do *Properties\AssemblyInfo.cs* no seu projeto de função da Web. Pode ter um fluxo de trabalho de implementação que inclua incrementando a versão de assemblagem sempre publicar no Azure. Em alternativa, pode modificar apenas *Properties\AssemblyInfo.cs* no seu projeto para aumentar automaticamente a cadeia de versão sempre que criar, utilizar o caráter universal ' *'. Por exemplo:
      
-        [assemblagem: AssemblyVersion("1.0.0.*")]
+        [assembly: AssemblyVersion("1.0.0.*")]
      
      Quaisquer outra estratégia para simplificar a gerar uma cadeia exclusiva para a vigência de uma implementação irá funcionar aqui.
 2. Acesso a home page e voltar a publicar o serviço em nuvem.
@@ -527,10 +527,10 @@ O [pacote](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx
    
     Quando `CdnFallbackExpression` é não nula, script é injetado HTML para testar se o pacote é carregado com êxito e, se não, o acesso o pacote diretamente a partir do servidor de Web de origem. Esta propriedade tem de ser definido como uma expressão de JavaScript testa se o respetivo pacote CDN é carregado corretamente. A expressão necessária para cada pacote de teste difere de acordo com o conteúdo. Para os pacotes de predefinição acima:
    
-   * `window.jquery`está definido no jquery-{version}. js
-   * `$.validator`está definido no jquery.validate.js
-   * `window.Modernizr`está definido no modernizer-{version}. js
-   * `$.fn.modal`está definido no bootstrap.js
+   * `window.jquery` está definido no jquery-{version}. js
+   * `$.validator` está definido no jquery.validate.js
+   * `window.Modernizr` está definido no modernizer-{version}. js
+   * `$.fn.modal` está definido no bootstrap.js
      
      Poderá ter reparado posso não tenha definido CdnFallbackExpression para o `~/Cointent/css` pacote. Isto acontece porque atualmente não há um [erros nas System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) que injects um `<script>` etiqueta para o CSS contingência em vez do esperado `<link>` etiquetas.
      

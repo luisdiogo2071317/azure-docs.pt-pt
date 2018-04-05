@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
 ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e conformidade Blueprint - os dados de estado de funcionamento HIPAA/HITRUST e AI
 
@@ -65,9 +65,9 @@ Para uma descrição geral de como funciona esta solução, veja este [vídeo](h
 
 A arquitetura dos é composto pelos seguintes componentes:
 
--   **[Modelo de ameaça](https://aka.ms/healththreatmodel) ** um modelo de ameaça abrangente é fornecido no formato tm7 para utilização com o [ferramenta de modelação de ameaça do Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=49168), que mostra os componentes da solução, os dados fluem entre-los e a confiança limites. O modelo pode ajudar os clientes os pontos de risco potencial na infraestrutura do sistema quando desenvolver os componentes do machine learning ou modificações adicionais.
+-   **[Modelo de ameaça](https://aka.ms/healththreatmodel)**  um modelo de ameaça abrangente é fornecido no formato tm7 para utilização com o [ferramenta de modelação de ameaça do Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=49168), que mostra os componentes da solução, os dados fluem entre-los e a confiança limites. O modelo pode ajudar os clientes os pontos de risco potencial na infraestrutura do sistema quando desenvolver os componentes do machine learning ou modificações adicionais.
 
--   **[Matriz de implementação do cliente](https://aka.ms/healthcrmblueprint) ** livro do Microsoft Excel de uma lista os requisitos de HITRUST relevantes e explica como o cliente e da Microsoft são responsáveis por reunião, cada um deles.
+-   **[Matriz de implementação do cliente](https://aka.ms/healthcrmblueprint)**  livro do Microsoft Excel de uma lista os requisitos de HITRUST relevantes e explica como o cliente e da Microsoft são responsáveis por reunião, cada um deles.
 
 -   **[Revisão do Estado de funcionamento.](https://aka.ms/healthreviewpaper)** A solução foi revista por Coalfire sistemas, Inc. A conformidade de estado de funcionamento (HIPAA e PCI HITRUST) Reveja e orientações para a implementação fornece um auditor\'revisão s da solução e considerações para transformar blueprint para uma implementação de prontos para produção.
 
@@ -388,7 +388,7 @@ A solução suporta grelha de eventos do Azure, um único serviço para gerir o 
 
     -   [Análise do Azure WebApp](/azure/log-analytics/log-analytics-azure-web-apps-analytics) solução
 
-    -   Análise do Cofre de chaves
+    -   Análise do Key Vault
 
     -   Monitorização de Alterações
 

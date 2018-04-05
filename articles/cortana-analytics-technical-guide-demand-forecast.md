@@ -1,8 +1,8 @@
 ---
-title: "Exigir previsão no guia de energia Technical | Microsoft Docs"
-description: "Um guia técnico para o modelo de solução com o Microsoft Cortana Intelligence para a pedido previsão no energia."
+title: Exigir previsão no guia de energia Technical | Microsoft Docs
+description: Um guia técnico para o modelo de solução com o Microsoft Cortana Intelligence para a pedido previsão no energia.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yijichen
 manager: ilanr9
 editor: yijichen
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
 ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guia técnico para o modelo de solução do Cortana Intelligence para a pedido previsão de energia
 ## <a name="overview"></a>**Descrição geral**
@@ -117,7 +117,7 @@ O [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-w
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 Isto [pipeline](data-factory/concepts-pipelines-activities.md) contém duas atividades:
 
-* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) atividade utilizando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script de ramo de registo para agregar os dados de pedido de histórico horária no nível substation ao nível de região hora a hora e colocar no armazenamento do Azure durante a tarefa do Azure Stream Analytics
+* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) atividade utilizando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script de ramo de registo para agregar os dados de pedido de histórico horária no nível de substation ao nível de região hora a hora e colocar no armazenamento do Azure, durante o fluxo do Azure Tarefa de análise
 * [Cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move os dados agregados a partir do blob Storage do Azure para a base de dados de SQL do Azure que tenha sido aprovisionado como parte da instalação do modelo de solução.
 
 O [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para esta tarefa é ***AggregateDemandHistoryRegion.hql***.
@@ -136,7 +136,7 @@ Isto [pipeline](data-factory/concepts-pipelines-activities.md) contém numa úni
 #### <a name="copyaggdemandpipeline"></a>*CopyAggDemandPipeline*
 Isto [pipeline](data-factory/concepts-pipelines-activities.md) contém numa única atividade - um [cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move os dados agregados de pedido em curso do ***LoadHistoryDemandDataPipeline*** para o Azure SQL Base de dados que foi aprovisionado como parte da instalação do modelo de solução.
 
-#### <a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>*CopyTopologyDataPipeline CopyRegionDataPipeline, CopySubstationDataPipeline,*
+#### <a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>*CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
 Isto [pipeline](data-factory/concepts-pipelines-activities.md) contém numa única atividade - um [cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move os dados de referência de região/Substation/Topologygeo que são carregados para o blob Storage do Azure como parte do modelo de solução instalação da base de dados do SQL do Azure foi aprovisionado como parte da instalação do modelo de solução.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
@@ -182,7 +182,7 @@ Os seguintes passos guiá-lo como visualizar a saída de dados em tempo real de 
    * Clique em **guardar** na parte superior e nome do relatório como "EnergyStreamDataReport". O relatório com o nome "EnergyStreamDataReport" é apresentado na secção de relatórios no painel de navegador no lado esquerdo.
    * Clique em **"Pin Visual"** ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) ícone no canto superior direito do gráfico linha, uma janela de "Pin ao Dashboard" poderá aparecer para escolher um dashboard. Selecione "EnergyStreamDataReport", em seguida, clique em "Pin".
    * Paire o rato sobre este mosaico no dashboard, clique em "Editar" ícone no canto superior direito para alterar o título dele como "Pedido pelo Timestamp"
-4. Crie outros mosaicos do dashboard com base nos conjuntos de dados adequados. A vista de final dashboard:![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
+4. Crie outros mosaicos do dashboard com base nos conjuntos de dados adequados. A vista de final dashboard: ![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
 
 ### <a name="setup-cold-path-dashboard"></a>Dashboard de caminho típico de configuração
 No pipeline de dados de caminho típico, o objetivo essencial é obter a previsão de pedido de cada região. Power BI liga-se para uma base de dados SQL do Azure como origem de dados, onde estão armazenados os resultados de predição.
@@ -213,7 +213,7 @@ No pipeline de dados de caminho típico, o objetivo essencial é obter a previs�
 3. (Opcional) Publicar o dashboard de caminho típico para [Power BI online](http://www.powerbi.com/). Tenha em atenção que este passo necessita de uma conta Power BI (ou conta do Office 365).
 
    * Clique em **"Publicar"** e uma janela de alguns segundos mais tarde é apresentada a apresentar "A publicação com êxito do Power BI!" com uma marca de verificação verde. Clique na ligação seguinte "Demoprediction.pbix abrir no Power BI". Para obter instruções detalhadas, consulte [publicar do Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * Para criar um novo dashboard: clique o  **+**  junto a assinar o **Dashboards** secção no painel esquerdo. Introduza o nome "Demonstração de previsão a pedido" para este dashboard novo.
+   * Para criar um novo dashboard: clique o **+** junto a assinar o **Dashboards** secção no painel esquerdo. Introduza o nome "Demonstração de previsão a pedido" para este dashboard novo.
    * Depois de abrir o relatório, clique em ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) para afixar ao dashboard todas as visualizações. Para obter instruções detalhadas, consulte [afixar um mosaico a um dashboard do Power BI a partir de um relatório](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Aceda à página do dashboard e ajustar o tamanho e localização do seu visualizações e editar os títulos. Para obter instruções detalhadas sobre como editar os seus mosaicos, consulte [editar um mosaico – redimensionamento, move, mudar o nome, pin, eliminar, adicione hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Eis um dashboard de exemplo com algumas visualizações de caminho típico afixado ao mesmo.
 

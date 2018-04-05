@@ -1,4 +1,4 @@
-| Recurso | destino |
+| Recurso | Destino |
 |----------|---------------|
 | Tamanho máx. de uma partilha de ficheiros | 5 TiB |
 | Tamanho máximo dos ficheiros numa partilha de ficheiros | 1 TiB |

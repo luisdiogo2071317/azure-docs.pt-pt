@@ -1,4 +1,4 @@
-| Recurso | destino |
+| Recurso | Destino |
 |----------|---------------|
 | Tamanho máx. de única tabela | 500 TiB |
 | Tamanho máx. de uma entidade de tabela | 1 MiB |

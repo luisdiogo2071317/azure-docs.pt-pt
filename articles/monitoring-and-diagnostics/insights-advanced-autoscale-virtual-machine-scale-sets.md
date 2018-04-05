@@ -1,9 +1,9 @@
 ---
-title: "Avançada com máquinas virtuais do Azure de dimensionamento automático | Microsoft Docs"
-description: "Utiliza o Gestor de recursos e conjuntos de dimensionamento de VM com várias regras e perfis que enviem correio eletrónico e chamar URLs de webhook com ações de dimensionamento."
+title: Avançada com máquinas virtuais do Azure de dimensionamento automático | Microsoft Docs
+description: Utiliza o Gestor de recursos e conjuntos de dimensionamento de VM com várias regras e perfis que enviem correio eletrónico e chamar URLs de webhook com ações de dimensionamento.
 author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 7e3576e2-4a2b-4736-b5ae-98c4689cdd2b
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/22/2016
 ms.author: ancav
 ms.openlocfilehash: 80955535c8d863cd3d8d1b77e2ab8bc016b6d9f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração de dimensionamento automático avançadas utilizando modelos do Resource Manager para conjuntos de dimensionamento de VM
 Pode no dimensionamento horizontal e em conjuntos de dimensionamento de Máquina Virtual com base nos limiares de métrica de desempenho, por numa agenda periódica, ou por uma data específica. Também pode configurar as notificações de e-mail e webhook para ações de dimensionamento. Estas instruções mostram um exemplo de configuração os objetos com um modelo do Resource Manager no conjunto de dimensionamento da VM.
@@ -35,7 +35,7 @@ Esta explicação passo a passo, utilizamos [Explorador de recursos do Azure](ht
 1. Implemente um novo conjunto com uma definição de dimensionamento automático básico de dimensionamento. Este artigo utilizará a partir da Galeria de início rápido do Azure, que tem um Windows do conjunto de dimensionamento com um modelo de dimensionamento automático básico. Conjuntos de dimensionamento de Linux funcionam da mesma forma.
 2. Depois de criar o conjunto de dimensionamento, navegue para o recurso de conjunto de dimensionamento do Explorador de recursos do Azure. Consulte o seguinte no nó de insights.
 
-    ![Explorador do Azure](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+    ![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
 
     A execução do modelo foi criado uma definição de dimensionamento automático predefinida com o nome **'autoscalewad'**. No lado direito, pode ver a definição completa desta definição de dimensionamento automático. Neste caso, a definição de dimensionamento automático predefinida é fornecido com uma regra % baseado em CPU escalável e escala.  
 
@@ -239,7 +239,7 @@ Esta explicação passo a passo, utilizamos [Explorador de recursos do Azure](ht
 
 Atualizado com uma definição de dimensionamento automático um conjunto a incluir vários perfis de dimensionamento e dimensionar as notificações de dimensionamento de VM.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Utilize estas ligações para saber mais sobre o dimensionamento automático.
 
 [Resolver problemas de dimensionamento automático com conjuntos de dimensionamento de Máquina Virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)

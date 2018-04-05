@@ -5,7 +5,7 @@ services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: yushwang
 ms.openlocfilehash: d2f3da47f1d4eebe1b81964790ff6612dd78155d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre os requisitos de criptografia e gateways de VPN do Azure
 
@@ -38,7 +38,7 @@ Por exemplo, as políticas de modo principal IKEv2 para gateways de VPN do Azure
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Política personalizada do IPsec/IKE com gateways de VPN do Azure
 Gateways de VPN do Azure suportam agora por ligação, a política personalizada do IPsec/IKE. Para um Site para Site ou a ligação VNet a VNet, pode escolher uma combinação específica de algoritmos criptográficos para IPsec e IKE à força chave pretendida, conforme mostrado no exemplo seguinte:
 
-![política de ike IPSec](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
 
 Pode criar uma política de IPsec/IKE e aplicar a uma ligação nova ou existente. 
 
@@ -55,7 +55,7 @@ Pode criar uma política de IPsec/IKE e aplicar a uma ligação nova ou existent
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte [política IPsec/IKE configurar](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obter instruções passo a passo sobre como configurar a política personalizada do IPsec/IKE numa ligação.
 
 Consulte também [ligar vários dispositivos VPN baseado na política](vpn-gateway-connect-multiple-policybased-rm-ps.md) para saber mais sobre a opção de UsePolicyBasedTrafficSelectors.

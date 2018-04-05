@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
 ms.openlocfilehash: f8b97aeb4c37578b884c924bd1919a59fa0f1cf8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento apresenta uma lista algumas dos limites mais comuns de Microsoft Azure, que também por vezes, são chamados quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para cobrir mais da plataforma.
@@ -52,7 +52,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças n
 * [Application Insights](#application-insights-limits)
 * [Automatização](#automation-limits)
 * [BD do Cosmos para o Azure](#azure-cosmos-db-limits)
-* [Grelha de eventos do Azure](#azure-event-grid-limits)
+* [Azure Event Grid](#azure-event-grid-limits)
 * [Cache de Redis do Azure](#azure-redis-cache-limits)
 * [Cópia de segurança](#backup-limits)
 * [Batch](#batch-limits)

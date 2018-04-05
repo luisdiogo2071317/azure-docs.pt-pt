@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 8c8a2f6076c14dabe70f90538ca8c8b97fb93de0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3ea7d09338d4d89030138b8c4dc4085a6cd8ccc5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Base de dados do Azure para PostgreSQL escalões de preço
 
@@ -24,7 +24,7 @@ Pode criar uma base de dados do Azure para o servidor de PostgreSQL dos três di
 | Geração de computação | Gen 4, Gen 5 | Gen 4, Gen 5 | Geração 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memória por vCore | Linha de base | 2 x básico | 2x fins gerais |
-| Tamanho de armazenamento | 5 GB até 1 TB | 5 GB até 1 TB | 5 GB até 1 TB |
+| Tamanho de armazenamento | 5 GB até 1 TB | 5 GB até 2 TB | 5 GB até 2 TB |
 | Tipo de armazenamento | Armazenamento padrão do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Período de retenção de cópias de segurança de base de dados | 7 para 35 dias | 7 para 35 dias | 7 para 35 dias |
 
@@ -46,9 +46,9 @@ Computação recursos são fornecidos como vCores, que representam a CPU lógica
 |:---|:----------:|:--------------------:|
 | EUA Central |  | X |
 | EUA Leste | X | X |
-| EUA Leste 2 | X |  |
+| EUA Leste 2 | X | X |
 | EUA Centro-Norte | X |  |
-| EUA Centro-Sul | X |  |
+| EUA Centro-Sul | X | X |
 | EUA Oeste | X | X |
 | EUA Oeste 2 |  | X |
 | Canadá Central | X | X |
@@ -63,8 +63,8 @@ Computação recursos são fornecidos como vCores, que representam a CPU lógica
 | Leste da Austrália |  | X |
 | Índia Central | X |  |
 | Índia Ocidental | X |  |
-| Leste do Japão | X |  |
-| Oeste do Japão | X |  |
+| Leste do Japão | X | X |
+| Oeste do Japão | X | X |
 | Coreia do Sul |  | X |
 
 Consoante o escalão de preço, cada vCore é aprovisionada com uma quantidade específica de memória. Ao aumentar ou reduzir o número de vCores para o servidor, a memória aumenta ou diminui proporcionalmente. A camada de objetivo geral fornece duplo a quantidade de memória por vCore em comparação comparada a camada básica. A camada de otimização de memória fornece duplo a quantidade de memória em comparação comparada a camada de objetivo geral.
@@ -76,7 +76,7 @@ O armazenamento que Aprovisiona é a quantidade da capacidade de armazenamento d
 |    | **Básica** | **Fins gerais** | **Com otimização de memória** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento padrão do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
-| Tamanho de armazenamento | 5 GB até 1 TB | 5 GB até 1 TB | 5 GB até 1 TB |
+| Tamanho de armazenamento | 5 GB até 1 TB | 5 GB até 2 TB | 5 GB até 2 TB |
 | Tamanho de incremento de armazenamento | 1 GB | 1 GB | 1 GB |
 | IOPS | Variável |IOPS 3GB<br/>Min 100 IOPS | IOPS 3GB<br/>Min 100 IOPS |
 
@@ -100,7 +100,7 @@ Dimensionamento do armazenamento e alterar o período de retenção de cópias d
 
 Para informações mais atualizado sobre preços, consulte o serviço [página de preços](https://azure.microsoft.com/pricing/details/PostgreSQL/). Para ver o custo de configuração que pretende, o [portal do Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) mostra o custo mensal no **escalão de preço** separador com base nas opções que selecionar. Se não tiver uma subscrição do Azure, pode utilizar a Calculadora de preços do Azure para obter um preço estimado. No [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) Web site, selecione **adicionar itens**, expanda o **bases de dados** categoria e escolha **base de dados do Azure para PostgreSQL** para personalizar as opções.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [criar um servidor de PostgreSQL no portal do](tutorial-design-database-using-azure-portal.md).
 - Saiba como [monitorizar e dimensionar uma base de dados do Azure para o servidor de PostgreSQL utilizando a CLI do Azure](scripts/sample-scale-server-up-or-down.md).

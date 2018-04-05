@@ -1,11 +1,11 @@
 ---
-title: "Como utilizar o controlo de acesso baseado em funções na API Management do Azure | Microsoft Docs"
-description: "Saiba como utilizar as funções incorporadas e criar funções personalizadas na API Management do Azure"
+title: Como utilizar o controlo de acesso baseado em funções na API Management do Azure | Microsoft Docs
+description: Saiba como utilizar as funções incorporadas e criar funções personalizadas na API Management do Azure
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Como utilizar o controlo de acesso baseado em funções na API Management do Azure
 Gestão de API do Azure baseia-se no controlo de acesso de em funções do Azure (RBAC) para ativar a gestão de acesso detalhada para serviços de gestão de API e entidades (por exemplo, APIs e políticas). Este artigo fornece uma descrição geral das funções incorporadas e personalizadas na API Management. Para obter mais informações sobre a gestão de acesso no portal do Azure, consulte [introdução à gestão de acesso no portal do Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -40,7 +40,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Pode a
 
 <sup>[2] o acesso de escrita para serviços de gestão de API e entidades, exceto as seguintes operações: instância de criação, eliminação e dimensionamento; Configuração de VPN e a configuração do domínio personalizado.</sup>
 
-<sup>\*A função de Editor do serviço estará disponível depois de iremos migrar todos os admin da IU do portal do publicador existente ao portal do Azure. A função de Gestor de conteúdos estará disponível depois do portal do publicador é refatorizado para conter apenas as funcionalidades relacionadas com a gestão o portal do programador.</sup>  
+<sup>\* A função de Editor do serviço estará disponível depois de iremos migrar todos os admin da IU do portal do publicador existente ao portal do Azure. A função de Gestor de conteúdos estará disponível depois do portal do publicador é refatorizado para conter apenas as funcionalidades relacionadas com a gestão o portal do programador.</sup>  
 
 ## <a name="custom-roles"></a>Funções personalizadas
 Se nenhuma das funções incorporadas as suas necessidades específicas, funções personalizadas podem ser criadas para fornecer gestão de acesso mais granular para entidades de API Management. Por exemplo, pode criar uma função personalizada que tem acesso só de leitura para um serviço de API Management, mas só tem acesso de escrita para uma API específica. Para saber mais sobre as funções personalizadas, consulte [funções personalizadas no Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles). 
@@ -68,7 +68,7 @@ O [operações de fornecedor de recursos do Azure Resource Manager](../active-di
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre o controlo de acesso baseado em funções no Azure, consulte os artigos seguintes:
   * [Get started with access management in the Azure portal (Introdução à gestão do acesso no portal do Azure)](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/)

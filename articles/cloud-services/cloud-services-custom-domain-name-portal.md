@@ -1,11 +1,11 @@
 ---
-title: "Configurar um nome de domínio personalizado nos serviços em nuvem | Microsoft Docs"
-description: "Saiba como para expor a aplicação do Azure ou a dados para a internet num domínio personalizado ao configurar as definições de DNS.  Estes exemplos utilizam o portal do Azure."
+title: Configurar um nome de domínio personalizado nos serviços em nuvem | Microsoft Docs
+description: Saiba como para expor a aplicação do Azure ou a dados para a internet num domínio personalizado ao configurar as definições de DNS.  Estes exemplos utilizam o portal do Azure.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
 ms.service: cloud-services
 ms.workload: tbd
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
 ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurar um nome de domínio personalizado para um serviço em nuvem do Azure
-Quando cria um serviço em nuvem, Azure atribui-o para um subdomínio **cloudapp.net**. Por exemplo, se o seu serviço em nuvem com o nome "contoso", os utilizadores irão conseguir aceder à aplicação num URL como http://contoso.cloudapp.net. Azure também atribui um endereço IP virtual.
+Quando cria um serviço em nuvem, Azure atribui-o para um subdomínio **cloudapp.net**. Por exemplo, se o seu serviço em nuvem com o nome "contoso", os utilizadores serão capazes de aceder à aplicação num URL como http://contoso.cloudapp.net. Azure também atribui um endereço IP virtual.
 
 No entanto, pode também expor a aplicação no seu próprio nome de domínio, tal como **contoso.com**. Este artigo explica como reserva ou configurar um nome de domínio personalizado para funções da web de serviço em nuvem.
 
@@ -86,7 +86,7 @@ Por exemplo, o registo CNAME seguinte reencaminha todo o tráfego de **www.conto
 
 | Nome de alias/anfitrião/subdomínio | Domínio canónico |
 | --- | --- |
-| www |contoso.cloudapp.NET |
+| www |contoso.cloudapp.net |
 
 > [!NOTE]
 > Visitantes de **www.contoso.com** nunca irá ver o anfitrião for VERDADEIRO (contoso.cloudapp.net), pelo que o processo de reencaminhamento é invisível ao utilizador final.
@@ -132,7 +132,7 @@ Este exemplo mostra como criar um registo a para o domínio de raiz. Se pretende
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
 * [Como Mapear Conteúdo da CDN para um Domínio Personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuração geral do seu serviço de nuvem](cloud-services-how-to-configure-portal.md).

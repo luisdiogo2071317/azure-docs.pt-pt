@@ -1,8 +1,8 @@
 ---
-title: "Recolha de desempenho de aplicações do Linux na análise de registos do OMS | Microsoft Docs"
-description: "Este artigo fornece detalhes de configuração do agente do OMS para Linux recolher os contadores de desempenho para o MySQL e Apache HTTP Server."
+title: Recolha de desempenho de aplicações do Linux na análise de registos do OMS | Microsoft Docs
+description: Este artigo fornece detalhes de configuração do agente do OMS para Linux recolher os contadores de desempenho para o MySQL e Apache HTTP Server.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recolher contadores de desempenho de aplicações do Linux na análise de registos 
 Este artigo fornece detalhes para configurar o [agente do OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para recolher contadores de desempenho para aplicações específicas.  As aplicações incluídas neste artigo são:  
@@ -50,7 +50,7 @@ As entradas no ficheiro de autenticação são descritas na seguinte tabela.
 | Propriedade | Descrição |
 |:--|:--|
 | Porta | Representa a porta atual, que a instância de MySQL está a escutar. A porta 0 Especifica que as propriedades seguintes são utilizadas para a instância predefinida. |
-| Endereço de enlace| Endereço-atual MySQL enlace. |
+| Bind-Address| Endereço-atual MySQL enlace. |
 | o nome de utilizador| Utilizador MySQL utilizado para utilizar para monitorizar a instância de servidor MySQL. |
 | Palavra-passe de codificados Base64| Palavra-passe do utilizador de monitorização MySQL codificado em Base64. |
 | AutoUpdate| Especifica se pretende voltar a analisar as alterações no ficheiro my.cnf e substituir o ficheiro de MySQL OMI autenticação quando o fornecedor de OMI MySQL é atualizado. |
@@ -78,10 +78,10 @@ A tabela seguinte fornece detalhes sobre a sintaxe para utilizar mycimprovauth.
 
 | Operação | Exemplo | Descrição
 |:--|:--|:--|
-| AutoUpdate * false\|VERDADEIRO * | mycimprovauth autoupdate false | Define o ficheiro de autenticação ou não será atualizado automaticamente no reiniciar ou atualizar. |
+| AutoUpdate *falso\|verdadeiro* | mycimprovauth autoupdate false | Define o ficheiro de autenticação ou não será atualizado automaticamente no reiniciar ou atualizar. |
 | predefinição *palavra-passe de nome de utilizador de enlace de endereço* | mycimprovauth predefinido 127.0.0.1 raiz pwd | Define a instância predefinida o OMI MySQL ficheiro authentication.<br>Deve ser introduzido o campo de palavra-passe em texto simples – a palavra-passe no ficheiro de autenticação de MySQL OMI será Base 64 codificado. |
-| Eliminar * default\|port_num * | mycimprovauth 3308 | Elimina a instância especificada por uma predefinição ou por número de porta. |
-| Ajuda | mycimprov ajuda | Impressões fora de uma lista de comandos a utilizar. |
+| eliminar *predefinido\|port_num* | mycimprovauth 3308 | Elimina a instância especificada por uma predefinição ou por número de porta. |
+| ajuda | mycimprov ajuda | Impressões fora de uma lista de comandos a utilizar. |
 | Imprimir | mycimprov impressão | Impressões terminar uma fácil de ler MySQL OMI o ficheiro de autenticação. |
 | Atualizar port_num *palavra-passe de nome de utilizador de enlace de endereço* | mycimprov atualização 3307 127.0.0.1 raiz pwd | Atualiza a instância especificada ou adiciona a instância se não existir. |
 
@@ -99,8 +99,8 @@ O utilizador MySQL necessita de acesso para as seguintes consultas para recolher
 
 O utilizador MySQL também requer acesso SELECIONE as seguintes tabelas de predefinição.
 
-- INFORMATION_SCHEMA
-- MySQL. 
+- information_schema
+- mysql. 
 
 Podem ser concedidos esses privilégios executando os seguintes comandos de concessão.
 
@@ -115,26 +115,26 @@ Podem ser concedidos esses privilégios executando os seguintes comandos de conc
 
 Depois de configurar o agente do OMS para Linux enviar dados para análise de registos, tem de configurar os contadores de desempenho para recolher.  Utilize o procedimento no [Windows e Linux origens de dados de desempenho na análise de registos](log-analytics-data-sources-windows-events.md) com os contadores na seguinte tabela.
 
-| Nome do objeto | Nome do contador |
+| Nome do Objeto | Nome do contador |
 |:--|:--|
 | Base de Dados MySQL | Espaço em disco em Bytes |
 | Base de Dados MySQL | Tabelas |
-| Servidor de MySQL | Ligação abortada Pct |
-| Servidor de MySQL | Pct de utilização de ligação |
-| Servidor de MySQL | Utilização de espaço em disco em Bytes |
-| Servidor de MySQL | A tabela completa análise Pct |
-| Servidor de MySQL | Atingiu o conjunto de memória intermédia de InnoDB Pct |
-| Servidor de MySQL | Pct de utilização do conjunto de memória intermédia de InnoDB |
-| Servidor de MySQL | Pct de utilização do conjunto de memória intermédia de InnoDB |
-| Servidor de MySQL | Pct de acertos na Cache da chave |
-| Servidor de MySQL | Pct de utilização de chave de Cache |
-| Servidor de MySQL | Pct de escrita de Cache da chave |
-| Servidor de MySQL | Pct de acessos de Cache de consulta |
-| Servidor de MySQL | Consulta Cache Prunes Pct |
-| Servidor de MySQL | Pct de utilização de Cache de consulta |
-| Servidor de MySQL | Pct de acertos da Cache de tabela |
-| Servidor de MySQL | Pct de utilização de Cache de tabela |
-| Servidor de MySQL | Pct de contenção de bloqueio de tabela |
+| Servidor MySQL | Ligação abortada Pct |
+| Servidor MySQL | Pct de utilização de ligação |
+| Servidor MySQL | Utilização de espaço em disco em Bytes |
+| Servidor MySQL | A tabela completa análise Pct |
+| Servidor MySQL | Atingiu o conjunto de memória intermédia de InnoDB Pct |
+| Servidor MySQL | Pct de utilização do conjunto de memória intermédia de InnoDB |
+| Servidor MySQL | Pct de utilização do conjunto de memória intermédia de InnoDB |
+| Servidor MySQL | Pct de acertos na Cache da chave |
+| Servidor MySQL | Pct de utilização de chave de Cache |
+| Servidor MySQL | Pct de escrita de Cache da chave |
+| Servidor MySQL | Pct de acessos de Cache de consulta |
+| Servidor MySQL | Consulta Cache Prunes Pct |
+| Servidor MySQL | Pct de utilização de Cache de consulta |
+| Servidor MySQL | Pct de acertos da Cache de tabela |
+| Servidor MySQL | Pct de utilização de Cache de tabela |
+| Servidor MySQL | Pct de contenção de bloqueio de tabela |
 
 ## <a name="apache-http-server"></a>Apache HTTP Server 
 Apache HTTP Server seja detetada no computador quando o pacote de omsagent é instalado, o fornecedor do servidor de HTTP do Apache da monitorização de desempenho será instalado automaticamente. Este fornecedor depende de um módulo do Apache que têm de ser carregado no Apache HTTP Server para aceder aos dados de desempenho. É possível carregar o módulo com o seguinte comando:
@@ -151,7 +151,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Depois de configurar o agente do OMS para Linux enviar dados para análise de registos, tem de configurar os contadores de desempenho para recolher.  Utilize o procedimento no [Windows e Linux origens de dados de desempenho na análise de registos](log-analytics-data-sources-windows-events.md) com os contadores na seguinte tabela.
 
-| Nome do objeto | Nome do contador |
+| Nome do Objeto | Nome do contador |
 |:--|:--|
 | Apache HTTP Server | Trabalhadores ocupados |
 | Apache HTTP Server | Trabalhadores Inativos |
@@ -165,6 +165,6 @@ Depois de configurar o agente do OMS para Linux enviar dados para análise de re
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Recolher contadores de desempenho](log-analytics-data-sources-performance-counters.md) de agentes Linux.
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 

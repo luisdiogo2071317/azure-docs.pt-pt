@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
 ms.openlocfilehash: 4d9df6743d84310b7db70034d1e84dd3591b3c21
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas para controlo de acesso baseado em funções do Azure
 Inclui as seguintes funções incorporadas que podem ser atribuídas a utilizadores, grupos e serviços do Azure baseada em funções controlo de acesso (RBAC). Não é possível modificar as definições de funções incorporadas. No entanto, pode criar [funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md) para satisfazer as necessidades específicas da sua organização.
@@ -144,9 +144,9 @@ Pode gerir o serviço e as APIs
 | Microsoft.ApiManagement/service/* | Criar e gerir o serviço de API Management |
 | Microsoft.Authorization/*/read | Autorização de leitura |
 | Microsoft.Insights/alertRules/* | Criar e gerir regras de alertas |
-| Microsoft.ResourceHealth/availabilityStatuses/read | Obtém os Estados de disponibilidade de todos os recursos no âmbito especificado |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
 | Microsoft.Resources/deployments/* | Criar e gerir implementações do grupo de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista de grupos de recursos. |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
 ## <a name="api-management-service-operator-role"></a>Função de Operador de Serviço de Gestão de API
@@ -167,7 +167,7 @@ Pode gerir o serviço, mas não as APIs
 | Microsoft.Insights/alertRules/* | Criar e gerir regras de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
 | Microsoft.Resources/deployments/* | Criar e gerir implementações do grupo de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista de grupos de recursos. |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
 | **NotActions** |  |
@@ -185,7 +185,7 @@ Acesso só de leitura para o serviço e APIs
 | Microsoft.Insights/alertRules/* | Criar e gerir regras de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
 | Microsoft.Resources/deployments/* | Criar e gerir implementações do grupo de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista de grupos de recursos. |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
 | **NotActions** |  |
@@ -203,7 +203,7 @@ Permite gerir componentes do Application Insights
 | Microsoft.Insights/webtests/* | Criar e gerir os testes web |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
 | Microsoft.Resources/deployments/* | Criar e gerir implementações do grupo de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista de grupos de recursos. |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
 ## <a name="application-insights-snapshot-debugger"></a>Depurador de Instantâneo do Application Insights
@@ -215,7 +215,7 @@ Dá permissão ao utilizador para utilizar as funcionalidades do Depurador de In
 | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta Insights |
 | Microsoft.Insights/components/*/read |  |
 | Microsoft.Resources/deployments/* | Criar e gerir implementações do grupo de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista de grupos de recursos. |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
 ## <a name="automation-job-operator"></a>Operador de Tarefas de Automatização
@@ -233,7 +233,7 @@ Criar e Gerir Tarefas através de Runbooks de Automatização.
 | Microsoft.Automation/automationAccounts/jobs/write | Cria uma tarefa de automatização do Azure |
 | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta Insights |
 | Microsoft.Resources/deployments/* | Criar e gerir implementações do grupo de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista de grupos de recursos. |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
 ## <a name="automation-operator"></a>Operador de Automatização
@@ -259,7 +259,7 @@ Os Operadores de Automatização podem iniciar, parar, suspender e retomar taref
 | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
 | Microsoft.Resources/deployments/* | Criar e gerir implementações do grupo de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista de grupos de recursos. |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
 ## <a name="automation-runbook-operator"></a>Operador de Runbook de Automatização
@@ -271,7 +271,7 @@ Ler as propriedades do Runbook para que possa criar Tarefas do runbook.
 | Microsoft.Automation/automationAccounts/runbooks/read | Obtém um runbook de automatização do Azure |
 | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta Insights |
 | Microsoft.Resources/deployments/* | Criar e gerir implementações do grupo de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista de grupos de recursos. |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
 ## <a name="azure-stack-registration-owner"></a>Proprietário do Registo do Azure Stack
@@ -308,7 +308,7 @@ Permite-lhe gerir o serviço de cópia de segurança mas não pode criar cofres 
 | Microsoft.RecoveryServices/Vaults/usages/* | Criar e gerir a utilização do Cofre de serviços de recuperação |
 | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Devolve resumos de itens protegidos e os servidores protegidos dos serviços de recuperação. |
 | Microsoft.Resources/deployments/* | Criar e gerir implementações do grupo de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista de grupos de recursos. |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 | Microsoft.Storage/storageAccounts/read | Devolve a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada. |
 | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna utilizada pelo serviço |
 | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |

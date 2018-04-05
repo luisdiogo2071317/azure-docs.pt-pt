@@ -1,6 +1,6 @@
 ---
-title: "Recursos de várias origens (CORS) de partilha suporte | Microsoft Docs"
-description: "Saiba como ativar o suporte de CORS para os serviços de armazenamento do Microsoft Azure."
+title: Recursos de várias origens (CORS) de partilha suporte | Microsoft Docs
+description: Saiba como ativar o suporte de CORS para os serviços de armazenamento do Microsoft Azure.
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Recursos de várias origens (CORS) suporte para os serviços de armazenamento do Azure de partilha
 A partir da versão 2013-08-15, os serviços de armazenamento do Azure suportam a partilha de recursos de várias origens (CORS) para os serviços Blob, tabela, fila e ficheiro. CORS é uma funcionalidade HTTP que permite uma aplicação web em execução com um domínio aceder a recursos noutro domínio. Browsers da Web implementam uma restrição de segurança denominada [política da mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy) impede que uma página web a partir de APIs chamadas num domínio diferente; CORS fornece uma forma segura para permitir que um domínio (o domínio de origem) chamar as APIs noutro domínio. Consulte o [especificação de CORS](http://www.w3.org/TR/cors/) para obter detalhes sobre CORS.
@@ -71,7 +71,7 @@ Eis um exemplo de uma única regra CORS, especificado através de uma operação
 
 Cada elemento incluído na regra CORS é descrito abaixo:
 
-* **AllowedOrigins**: os domínios de origem que têm permissão para efetuar um pedido contra o serviço de armazenamento através de CORS. O domínio de origem é o domínio a partir do qual o pedido tem origem. Tenha em atenção que a origem tem de ser uma correspondência exata de maiúsculas e minúsculas com a origem que envia a idade do utilizador para o serviço. Também pode utilizar o caráter universal ' *' para permitir que todos os domínios de origem fazer pedidos através de CORS. No exemplo acima, os domínios [http://www.contoso.com](http://www.contoso.com) e [http://www.fabrikam.com](http://www.fabrikam.com) possa fazer pedidos contra o serviço utilizando a CORS.
+* **AllowedOrigins**: os domínios de origem que têm permissão para efetuar um pedido contra o serviço de armazenamento através de CORS. O domínio de origem é o domínio a partir do qual o pedido tem origem. Tenha em atenção que a origem tem de ser uma correspondência exata de maiúsculas e minúsculas com a origem que envia a idade do utilizador para o serviço. Também pode utilizar o caráter universal ' *' para permitir que todos os domínios de origem fazer pedidos através de CORS. No exemplo acima, os domínios [ http://www.contoso.com ](http://www.contoso.com) e [ http://www.fabrikam.com ](http://www.fabrikam.com) possa fazer pedidos contra o serviço utilizando a CORS.
 * **AllowedMethods**: os métodos (verbos de pedido HTTP) que pode utilizar o domínio de origem para um pedido CORS. No exemplo acima, são permitidos apenas pedidos PUT e GET.
 * **AllowedHeaders**: os cabeçalhos de pedido que pode especificar o domínio de origem do pedido de CORS. No exemplo acima, todos os cabeçalhos de metadados a partir x-ms-meta-data, x-ms-meta-destino e x-ms-meta-abc são permitidos. Tenha em atenção que o caráter universal ' *' indica que o início qualquer cabeçalho com o prefixo especificado é permitido.
 * **ExposedHeaders**: os cabeçalhos de resposta que podem ser enviados em resposta ao pedido de CORS e expostos pelo browser para o emissor de pedido. No exemplo acima, o browser é instruído para expor a partir qualquer cabeçalho x-ms-meta.
@@ -86,7 +86,7 @@ As seguintes limitações aplicam-se para as regras CORS:
 * O comprimento de um cabeçalho permitido, cabeçalho exposto ou origem permitida não deve exceder os 256 carateres.
 * Cabeçalhos permitidos e expostos cabeçalhos podem ser:
   * Cabeçalhos literais, onde o nome de cabeçalho exato for fornecido, tais como **x-ms-meta-processados**. Um máximo de 64 cabeçalhos literais pode ser especificado no pedido.
-  * Cabeçalhos, onde um prefixo do cabeçalho é fornecido, tais como o prefixo **x-ms-meta-data***. Especificar um prefixo desta forma permite ou expõe qualquer cabeçalho que começa com o prefixo especificado. Um máximo de dois cabeçalhos com prefixo pode ser especificado no pedido.
+  * O prefixo cabeçalhos, onde um prefixo do cabeçalho é fornecido, tal como * * x-ms-meta-data ***. Especificar um prefixo desta forma permite ou expõe qualquer cabeçalho que começa com o prefixo especificado. Um máximo de dois cabeçalhos com prefixo pode ser especificado no pedido.
 * Os métodos (ou verbos HTTP) especificado no **AllowedMethods** elemento tem de estar em conformidade com os métodos suportados pelo serviço de armazenamento do Azure APIs. Métodos suportados são DELETE, GET, HEAD, intercalação, POST, as opções e PUT.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>Compreender a lógica de avaliação da regra CORS
@@ -133,10 +133,10 @@ Em seguida, considere os seguintes pedidos CORS:
 
 | Pedir |  |  | Resposta |  |
 | --- | --- | --- | --- | --- |
-| **Método** |**Origem** |**Cabeçalhos de pedido** |**Correspondência de regra** |**Resultado** |
-| **COLOCAR** |http://www.contoso.com |x-ms-BLOBs-tipo de conteúdo |Primeira regra |Êxito |
-| **INTRODUÇÃO** |http://www.contoso.com |x-ms-BLOBs-tipo de conteúdo |Segunda regra |Êxito |
-| **INTRODUÇÃO** |http://www.contoso.com |x-ms-client-request-id |Segunda regra |Falha |
+| **Método** |**Origin** |**Cabeçalhos de pedido** |**Correspondência de regra** |**Result** |
+| **PUT** |http://www.contoso.com |x-ms-blob-content-type |Primeira regra |Êxito |
+| **GET** |http://www.contoso.com |x-ms-blob-content-type |Segunda regra |Êxito |
+| **GET** |http://www.contoso.com |x-ms-client-request-id |Segunda regra |Falha |
 
 O primeiro pedido corresponde da primeira regra – o domínio de origem corresponde as origens permitidas, o método corresponde os métodos permitidos e o cabeçalho corresponde os cabeçalhos permitidos – e, por isso, é concluída com êxito.
 
@@ -167,7 +167,7 @@ A tabela seguinte indica armazenamento como do Azure irá responder a pedidos GE
 
 | Pedir | Definição de conta e o resultado da avaliação da regra |  |  | Resposta |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Cabeçalho de origem presente no pedido** |**CORS regra (s) especificado para este serviço** |**Existe uma regra correspondente que permite que todas as origens (*)** |**Existe uma regra correspondente para a correspondência exata de origem** |**Resposta inclui o cabeçalho Vary definido como origem** |**Resposta inclui acesso controlo-permitido-origens: "*"** |**Resposta inclui acesso-controlo-expostos-cabeçalhos** |
+| **Cabeçalho de origem presente no pedido** |**CORS regra (s) especificado para este serviço** |**Existe uma regra correspondente que permite que todos os origins(*)** |**Existe uma regra correspondente para a correspondência exata de origem** |**Resposta inclui o cabeçalho Vary definido como origem** |**Resposta inclui acesso controlo-permitido-origens: "*"** |**Resposta inclui acesso-controlo-expostos-cabeçalhos** |
 | Não |Não |Não |Não |Não |Não |Não |
 | Não |Sim |Não |Não |Sim |Não |Não |
 | Não |Sim |Sim |Não |Não |Sim |Sim |
@@ -181,7 +181,7 @@ Os pedidos com êxito prévias são faturadas se tiver ativado o CORS para qualq
 
 Pedidos de verificação prévias sem não serão cobrados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Definir as propriedades de serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx)
 
 [Definir as propriedades do serviço fila](https://msdn.microsoft.com/library/hh452232.aspx)

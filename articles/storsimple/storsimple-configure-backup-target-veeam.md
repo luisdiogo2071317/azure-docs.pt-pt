@@ -1,12 +1,12 @@
 ---
-title: "Série 8000 do StorSimple como destino de cópia de segurança com Veeam | Microsoft Docs"
-description: "Descreve a configuração de destino de cópia de segurança do StorSimple com Veeam."
+title: Série 8000 do StorSimple como destino de cópia de segurança com Veeam | Microsoft Docs
+description: Descreve a configuração de destino de cópia de segurança do StorSimple com Veeam.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 ms.openlocfilehash: cc1c7a3f77af76c451bb6e97a081a01c119333b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como destino de cópia de segurança com Veeam
 
@@ -93,17 +93,17 @@ As tabelas seguintes mostram as orientações inicial do modelo a arquitetura de
 
 | Capacidade de armazenamento | 8100 | 8600 |
 |---|---|---|
-| Capacidade de armazenamento local | &lt;10 TiB\*  | &lt;20 TiB\*  |
-| Capacidade de armazenamento na nuvem | &gt;TiB de 200\* | &gt;500 TiB\* |
+| Capacidade de armazenamento local | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Capacidade de armazenamento na nuvem | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
-\*Tamanho de armazenamento parte do princípio de não eliminação de duplicados ou compressão.
+\* Tamanho de armazenamento parte do princípio de não eliminação de duplicados ou compressão.
 
 **Capacidades do StorSimple para cópias de segurança primários e secundários**
 
 | Cenário de cópia de segurança  | Capacidade de armazenamento local  | Capacidade de armazenamento na nuvem  |
 |---|---|---|
 | Cópia de segurança primária  | Cópias de segurança recentes armazenadas no armazenamento local para a recuperação rápida para satisfazer o objetivo de ponto de recuperação (RPO) | Histórico de cópia de segurança (RPO) se adequa a capacidade de nuvem |
-| Cópia de segurança secundária | Secundária cópia dos dados de cópia de segurança pode ser armazenada na capacidade de nuvem  | N/D  |
+| Cópia de segurança secundária | Secundária cópia dos dados de cópia de segurança pode ser armazenada na capacidade de nuvem  | N/A  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple como um destino de cópia de segurança primário
 
@@ -264,7 +264,7 @@ Com base em suposições de anteriores, cria um 26-TiB StorSimple camadas volume
 | Completa anual | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
 | Quota adicional  | 4  |   | 42 requisito GFS total  |
-\*O multiplicador GFS é o número de cópias que tem para proteger e manter para satisfazer os seus requisitos de política de cópia de segurança.
+\* O multiplicador GFS é o número de cópias que tem para proteger e manter para satisfazer os seus requisitos de política de cópia de segurança.
 
 ## <a name="set-up-veeam-storage"></a>Configurar o armazenamento de Veeam
 
@@ -274,11 +274,11 @@ Com base em suposições de anteriores, cria um 26-TiB StorSimple camadas volume
 
     ![Consola de gestão de Veeam, page repositório de cópia de segurança](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  No **novo repositório de cópia de segurança** caixa de diálogo, introduza um nome e descrição para o repositório. Selecione **seguinte**.
+2.  No **novo repositório de cópia de segurança** caixa de diálogo, introduza um nome e descrição para o repositório. Selecione **Seguinte**.
 
     ![Página de consola, o nome e descrição da gestão Veeam](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  Para o tipo, selecione **do Microsoft Windows server**. Selecione o servidor de Veeam. Selecione **seguinte**.
+3.  Para o tipo, selecione **do Microsoft Windows server**. Selecione o servidor de Veeam. Selecione **Seguinte**.
 
     ![Consola de gestão de Veeam, selecione de tipo do repositório de cópia de segurança](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -291,7 +291,7 @@ Com base em suposições de anteriores, cria um 26-TiB StorSimple camadas volume
 
     ![Consola de gestão de Veeam, as definições de compatibilidade do armazenamento](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  No **novo repositório de cópia de segurança** caixa de diálogo, selecione o **ativar vPower NFS serviço no servidor de montagem (recomendado)** caixa de verificação. Selecione **seguinte**.
+6.  No **novo repositório de cópia de segurança** caixa de diálogo, selecione o **ativar vPower NFS serviço no servidor de montagem (recomendado)** caixa de verificação. Selecione **Seguinte**.
 
     ![Consola de gestão de Veeam, page repositório de cópia de segurança](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
@@ -318,7 +318,7 @@ Eis um exemplo de uma agenda de rotação GFS para quatro semanas, mensais e anu
 |---|---|---|
 | Semanal (1-4 de semanas) | Sábado | Segunda-sexta |
 | Custo  | Sábado  |   |
-| Anual | Sábado  |   |   |
+| Anualmente | Sábado  |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Atribuir volumes do StorSimple para uma tarefa de cópia de segurança Veeam
@@ -383,21 +383,21 @@ A tabela seguinte mostra como configurar as cópias de segurança para executar 
 | Completa mensal |Disco do StorSimple (longo prazo) | 1 | 12 | 12 |
 | Completa anual |Disco do StorSimple (longo prazo) | 1 | 1 | 1 |
 |Requisito de tamanho de volumes GFS |  |  |  | 18*|
-\*Capacidade total inclui 17 TiB do StorSimple discos e 1 TiB de local RAID volume.
+\* Capacidade total inclui 17 TiB do StorSimple discos e 1 TiB de local RAID volume.
 
 
 ### <a name="gfs-example-schedule"></a>Agenda de exemplo GFS
 
 Rotação de GFS agenda semanal, mensal e anual
 
-| Semana | Completo | Dia incremental 1 | Dia incremental 2 | Dia incremental 3 | Dia incremental 4 | Dia incremental 5 |
+| Week (Semana) | Completo | Dia incremental 1 | Dia incremental 2 | Dia incremental 3 | Dia incremental 4 | Dia incremental 5 |
 |---|---|---|---|---|---|---|
 | Semana 1 | Local RAID volume  | Local RAID volume | Local RAID volume | Local RAID volume | Local RAID volume | Local RAID volume |
 | Semana 2 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 3 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Custo | Mensalmente StorSimple |   |   |   |   |   |
-| Anual | Anualmente StorSimple  |   |   |   |   |   |   |
+| Anualmente | Anualmente StorSimple  |   |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Atribuir volumes do StorSimple para uma tarefa de cópia Veeam
 
@@ -513,7 +513,7 @@ Os seguintes documentos foram referenciados para este artigo:
 - [Utilizar o GPT unidades](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias sombra para pastas partilhadas](http://technet.microsoft.com/library/cc771893.aspx)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre como [restauro a partir de um conjunto de cópia de segurança](storsimple-restore-from-backup-set-u2.md).
 - Saiba mais sobre como efetuar [dispositivo ativação pós-falha e recuperação após desastre](storsimple-device-failover-disaster-recovery.md).

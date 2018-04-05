@@ -1,6 +1,6 @@
 ---
-title: "Dados de Microsoft Azure encriptação-em-Rest | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral do Microsoft Azure dados encriptação em-rest, as capacidades gerais e as considerações gerais."
+title: Dados de Microsoft Azure encriptação-em-Rest | Microsoft Docs
+description: Este artigo fornece uma descrição geral do Microsoft Azure dados encriptação em-rest, as capacidades gerais e as considerações gerais.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
 ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="azure-data-encryption-at-rest"></a>Dados do Azure encriptação em Rest
+# <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption-at-Rest
 Existem várias ferramentas dentro do Microsoft Azure para salvaguardar os dados de acordo com as necessidades de segurança e conformidade da sua empresa. Este documento centra-se em:
 - Como os dados estão protegidos Inativos em todo o Microsoft Azure
 - Descreve os vários componentes a demorar de parte da implementação da proteção de dados,
@@ -252,7 +252,7 @@ Encriptação do lado do cliente de dados SQL Azure é suportada através de [se
 
 |                                  |                |                     | **Modelo de encriptação**             |                              |        |
 |----------------------------------|----------------|---------------------|------------------------------|------------------------------|--------|
-|                                  |                |                     |                              |                              | **Cliente** |
+|                                  |                |                     |                              |                              | **Client** |
 |                                  | **Gestão de chaves** | **O serviço gerido chave** | **Cliente gerido no Cofre de chaves** | **Cliente gerido no local** |        |
 | **Armazenamento e bases de dados**            |                |                     |                              |                              |        |
 | Disco (IaaS)                      |                | -                   | Sim                          | Sim*                         | -      |

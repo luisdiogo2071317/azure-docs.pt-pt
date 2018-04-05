@@ -1,12 +1,12 @@
 ---
-title: "Execução de local do U-SQL de escala e teste com o SDK do Azure Data Lake U-SQL | Microsoft Docs"
-description: "Saiba como utilizar o SDK do Azure Data Lake U-SQL para tarefas de escala U-SQL local são executadas e teste com linha de comandos e interfaces de programação na estação de trabalho local."
+title: Execução de local do U-SQL de escala e teste com o SDK do Azure Data Lake U-SQL | Microsoft Docs
+description: Saiba como utilizar o SDK do Azure Data Lake U-SQL para tarefas de escala U-SQL local são executadas e teste com linha de comandos e interfaces de programação na estação de trabalho local.
 services: data-lake-analytics
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Execução de local do U-SQL de escala e teste com o SDK do Azure Data Lake U-SQL
 
@@ -60,9 +60,9 @@ Pode utilizar um caminho relativo e um caminho absoluto local scripts U-SQL. O c
 
 |Caminho relativo|Caminho absoluto|
 |-------------|-------------|
-|/abc/def/Input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
-|abc/def/Input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
-|D:/abc/def/Input.csv |D:\abc\def\input.csv|
+|/abc/def/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
+|abc/def/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
+|D:/abc/def/input.csv |D:\abc\def\input.csv|
 
 ### <a name="working-directory"></a>Diretório de trabalho
 
@@ -73,11 +73,11 @@ Ao executar o script U-SQL localmente, um diretório de trabalho é criado duran
 |C6A101DDCB470506| | |Cadeia de hash de versão do tempo de execução|Cópia de sombra de volumes de ficheiros de tempo de execução necessário para a execução local|
 | |Script_66AE4909AA0ED06C| |Nome do script + cadeia do caminho do script de hash|Saídas de compilação e execução do passo de registo|
 | | |\_script\_.abr|Saída do compilador|Ficheiro algebra|
-| | |\_ScopeCodeGen\_. *|Saída do compilador|Gerar código gerido|
-| | |\_ScopeCodeGenEngine\_. *|Saída do compilador|Código nativo gerado|
+| | |\_ScopeCodeGen\_.*|Saída do compilador|Gerar código gerido|
+| | |\_ScopeCodeGenEngine\_.*|Saída do compilador|Código nativo gerado|
 | | |assemblagens referenciadas|Referência de assemblagem|Ficheiros de assemblagem referenciada|
 | | |deployed_resources|Implementação de recursos|Ficheiros de implementação de recursos|
-| | |XXXXXXXX.xxx[1..n]\_\*. *|Registo de execução|Registo de passos de execução|
+| | |xxxxxxxx.xxx[1..n]\_\*.*|Registo de execução|Registo de passos de execução|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Utilize o SDK na linha de comandos
@@ -153,13 +153,13 @@ Seguem-se os argumentos opcionais para **executar**:
 |-UdoRedirect|Falso|Gerar a configuração de redirecionamento de assemblagem Udo|
 |-UseDatabase|master|Base de dados a utilizar para code-behind do registo de assemblagem temporário|
 |-Verbose|Falso|Mostrar saídas de detalhado de tempo de execução|
-|-WorkDir|Diretório atual|Diretório para a utilização de compilador e saídas|
+|-WorkDir|Diretório Atual|Diretório para a utilização de compilador e saídas|
 |-RunScopeCEP|0|Modo de ScopeCEP para utilizar|
 |-ScopeCEPTempPath|Temp|Caminho temporário a utilizar para dados de transmissão em fluxo|
 |-OptFlags| |Lista separada por vírgulas de sinalizadores de otimizador|
 
 
-Eis um exemplo:
+Segue-se um exemplo:
 
     LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose
 
@@ -335,45 +335,45 @@ LocalRunHelper.exe fornece as interfaces de programação para compilar local do
 
 **Construtor**
 
-LocalRunHelper público ([System.IO messageOutput = null])
+public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 |Parâmetro|Tipo|Descrição|
 |---------|----|-----------|
-|messageOutput|System.IO|mensagens de saída, definido como nulo para utilizar a consola do|
+|messageOutput|System.IO.TextWriter|mensagens de saída, definido como nulo para utilizar a consola do|
 
 **Propriedades**
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
-|AlgebraPath|Cadeia|O caminho do ficheiro de algebra (ficheiro algebra é um dos resultados de compilação)|
-|CodeBehindReferences|Cadeia|Se o script tiver adicional code-behind referências, especifique os caminhos separados ';'|
-|CppSdkDir|Cadeia|Diretório de CppSDK|
-|CurrentDir|Cadeia|Diretório atual|
-|DataRoot|Cadeia|Caminho da raiz de dados|
-|DebuggerMailPath|Cadeia|O caminho para o depurador mailslot|
+|AlgebraPath|string|O caminho do ficheiro de algebra (ficheiro algebra é um dos resultados de compilação)|
+|CodeBehindReferences|string|Se o script tiver adicional code-behind referências, especifique os caminhos separados ';'|
+|CppSdkDir|string|Diretório de CppSDK|
+|CurrentDir|string|Diretório atual|
+|DataRoot|string|Caminho da raiz de dados|
+|DebuggerMailPath|string|O caminho para o depurador mailslot|
 |GenerateUdoRedirect|bool|Se de que pretende gerar assemblagem ao carregar a configuração de substituição de redirecionamento|
 |HasCodeBehind|bool|Se o script tiver code-behind|
-|InputDir|Cadeia|Diretório de dados de entrada|
-|MessagePath|Cadeia|Caminho do ficheiro de informação de mensagem|
-|OutputDir|Cadeia|Diretório de dados de saída|
+|InputDir|string|Diretório de dados de entrada|
+|MessagePath|string|Caminho do ficheiro de informação de mensagem|
+|OutputDir|string|Diretório de dados de saída|
 |Paralelismo|Int|Paralelismo para executar o algebra|
 |ParentPid|Int|PID de principal no qual o serviço monitoriza para sair, definida como 0 ou negativa para ignorar|
-|ResultPath|Cadeia|Caminho do ficheiro de informação de resultado|
-|RuntimeDir|Cadeia|Diretório de tempo de execução|
-|ScriptPath|Cadeia|Onde encontrar o script|
+|ResultPath|string|Caminho do ficheiro de informação de resultado|
+|RuntimeDir|string|Diretório de tempo de execução|
+|ScriptPath|string|Onde encontrar o script|
 |Shallow|bool|Shallow compilação ou não|
-|TempDir|Cadeia|Diretório temporário|
-|UseDataBase|Cadeia|Especifique a base de dados a utilizar para code-behind do registo de assemblagem temporário, principal, por predefinição|
-|WorkDir|Cadeia|Diretório de trabalho preferencial|
+|TempDir|string|Diretório temporário|
+|UseDataBase|string|Especifique a base de dados a utilizar para code-behind do registo de assemblagem temporário, principal, por predefinição|
+|WorkDir|string|Diretório de trabalho preferencial|
 
 
 **Método**
 
-|Método|Descrição|devolver|Parâmetro|
+|Método|Descrição|Voltar|Parâmetro|
 |------|-----------|------|---------|
 |bool pública DoCompile()|Compilar o script U-SQL|VERDADEIRO com êxito| |
-|bool pública DoExec()|Executar o resultado compilado|VERDADEIRO com êxito| |
-|bool pública DoRun()|Execute o script U-SQL (compilação + executar)|VERDADEIRO com êxito| |
+|public bool DoExec()|Executar o resultado compilado|VERDADEIRO com êxito| |
+|public bool DoRun()|Execute o script U-SQL (compilação + executar)|VERDADEIRO com êxito| |
 |bool pública IsValidRuntimeDir (caminho de cadeia)|Verifique se o caminho fornecido é o caminho de runtime válido|Aplica-se válido|O caminho do diretório de tempo de execução|
 
 
@@ -388,7 +388,7 @@ Verifique o seguinte:
 - Certifique-se de que copiou todos os ficheiros de dependência em NugetPackage\build\runtime\ para o projeto de diretório de trabalho.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre U-SQL, consulte [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 * Para registar informações de diagnóstico, consulte [aceder a registos de diagnóstico para o Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).

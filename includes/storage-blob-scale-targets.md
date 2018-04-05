@@ -1,4 +1,4 @@
-| Recurso | Alvo |
+| Recurso | Destino |
 |----------|---------------|
 | Tamanho máx. de contentor do blob único | 500 TiB |
 | Máximas número de blocos de um blob de blocos ou BLOBs de acréscimo | 50 000 blocos |

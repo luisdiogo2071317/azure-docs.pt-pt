@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0887c50ea7da00859e370f60626eabb03fcc1f4b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a2cb3d504abcd3f9c50df2427884d478ad2240c4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 Saiba mais sobre o desempenho e a utilização da sua aplicação ou página Web. Se adicionar o [Application Insights](app-insights-overview.md) ao seu script de página, obterá as temporizações de carregamentos de página e chamadas AJAX, contagens e detalhes de falhas de AJAX e exceções de browser, bem como contagens de utilizadores e sessões. Todas estas podem ser segmentadas por página, SO de cliente e versão do browser, geolocalização e outras dimensões. Pode definir alertas em contagens de falhas ou carregamento lento de página. E, ao inserir chamadas de rastreio no seu código JavaScript, pode controlar a utilização das diferentes funcionalidades da sua aplicação da página Web.
@@ -26,7 +26,7 @@ O Application Insights pode ser utilizado com quaisquer páginas Web - basta adi
 
 ![Em portal.azure.com, abra o recurso da sua aplicação e clique em Browser](./media/app-insights-javascript/03.png)
 
-Precisa de uma subscrição do [Microsoft Azure](https://azure.com). Se a sua equipa tiver uma subscrição organizacional, peça ao proprietário para adicionar a sua conta Microsoft à mesma. A utilização de desenvolvimento e em pequena escala não irão custar nada.
+Precisa de uma subscrição do [Microsoft Azure](https://azure.com). Se a sua equipa tiver uma subscrição organizacional, peça ao proprietário para adicionar a sua conta Microsoft à mesma.
 
 ## <a name="set-up-application-insights-for-your-web-page"></a>Configurar o Application Insights para a sua página Web
 Adicione o fragmento de código do carregador às suas páginas Web, da seguinte forma.

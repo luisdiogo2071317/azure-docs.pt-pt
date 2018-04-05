@@ -1,12 +1,12 @@
 ---
 title: Como trabalhar com o servidor de back-end .NET SDK para Mobile Apps | Microsoft Docs
 description: Saiba como trabalhar com o servidor de back-end .NET SDK de Mobile Apps do Azure App Service.
-keywords: "serviço de aplicações, serviço de aplicações do azure, aplicação móvel, serviço móvel, dimensionamento, dimensionável, implementação, azure aplicação implementação da aplicação"
+keywords: serviço de aplicações, serviço de aplicações do azure, aplicação móvel, serviço móvel, dimensionamento, dimensionável, implementação, azure aplicação implementação da aplicação
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhe com o SDK do servidor de back-end .NET para Aplicações Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -62,7 +62,7 @@ O SDK não está disponível na [NuGet.org]. Este pacote inclui a funcionalidade
 ### <a name="install-the-sdk"></a>Instalar o SDK
 Para instalar o SDK, clique com botão direito no projeto no Visual Studio, selecione servidor **gerir pacotes NuGet**, procure o [Microsoft.Azure.Mobile.Server] do pacote, em seguida, clique em **instalar**.
 
-### <a name="server-project-setup"></a>Inicializar o projeto de servidor
+### <a name="server-project-setup"></a> Inicializar o projeto de servidor
 Um projeto de servidor de back-end do .NET está inicializado semelhantes para outros projetos do ASP.NET, incluindo uma classe de startup da OWIN. Certifique-se de que tem de referenciar o pacote NuGet `Microsoft.Owin.Host.SystemWeb`. Para adicionar esta classe no Visual Studio, clique com o botão direito no seu projeto de servidor e selecione **adicionar** >
 **Novo Item**, em seguida, **Web** > **geral** > **classe de Startup da OWIN**.  Uma classe é gerada com o atributo seguinte:
 
@@ -105,12 +105,12 @@ O guia de introdução do servidor de chamadas de portais do Azure **UseDefaultC
 
 Os métodos de extensão utilizados são:
 
-* `AddMobileAppHomeController()`Fornece a predefinição Mobile Apps do Azure home page.
-* `MapApiControllers()`Fornece capacidades de API personalizadas para os controladores de end WebAPI decorado com o `[MobileAppController]` atributo.
-* `AddTables()`Fornece um mapeamento do `/tables` pontos finais para controladores de tabela.
-* `AddTablesWithEntityFramework()`é uma abreviada para mapeamento de `/tables` pontos finais utilizando o Entity Framework com base em controladores.
-* `AddPushNotifications()`Fornece um método simples de registo de dispositivos para os Notification Hubs.
-* `MapLegacyCrossDomainController()`Fornece os cabeçalhos de CORS padrão para o desenvolvimento local.
+* `AddMobileAppHomeController()` Fornece a predefinição Mobile Apps do Azure home page.
+* `MapApiControllers()` Fornece capacidades de API personalizadas para os controladores de end WebAPI decorado com o `[MobileAppController]` atributo.
+* `AddTables()` Fornece um mapeamento do `/tables` pontos finais para controladores de tabela.
+* `AddTablesWithEntityFramework()` é uma abreviada para mapeamento de `/tables` pontos finais utilizando o Entity Framework com base em controladores.
+* `AddPushNotifications()` Fornece um método simples de registo de dispositivos para os Notification Hubs.
+* `MapLegacyCrossDomainController()` Fornece os cabeçalhos de CORS padrão para o desenvolvimento local.
 
 ### <a name="sdk-extensions"></a>Extensões do SDK
 Os seguintes pacotes de extensão com base em NuGet fornecem várias funcionalidades móveis que podem ser utilizadas pela sua aplicação. Ativar extensões durante a inicialização utilizando o **MobileAppConfiguration** objeto.
@@ -144,7 +144,7 @@ Esta secção mostra como publicar o seu projeto de back-end do .NET a partir do
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## <a name="define-table-controller"></a>Como: definir um controlador de tabela
+## <a name="define-table-controller"></a> Como: definir um controlador de tabela
 Defina um controlador de tabela para expor uma tabela SQL para os clientes móveis.  Configurar um controlador de tabela requer três passos:
 
 1. Crie uma classe de objeto de transferência de dados (DTO).
