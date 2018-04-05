@@ -1,12 +1,12 @@
 ---
-title: "Gestão de dispositivos do IoT do Azure com o Explorador de iothub | Microsoft Docs"
-description: "Utilize a ferramenta CLI do iothub Explorador para gestão de dispositivos do IoT Hub do Azure, com os métodos diretos e as opções de gestão do duplo propriedades pretendido."
+title: Gestão de dispositivos do IoT do Azure com o Explorador de iothub | Microsoft Docs
+description: Utilize a ferramenta CLI do iothub Explorador para gestão de dispositivos do IoT Hub do Azure, com os métodos diretos e as opções de gestão do duplo propriedades pretendido.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
-keywords: "gestão de dispositivos do hub iot do azure, gestão de dispositivos iot do Azure, a gestão de dispositivos do iot hub e iot de gestão de dispositivos"
+tags: ''
+keywords: gestão de dispositivos do hub iot do azure, gestão de dispositivos iot do Azure, a gestão de dispositivos do iot hub e iot de gestão de dispositivos
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
 ms.devlang: arduino
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e22c321e896abe8d5eb659866256942099cac2d9
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Utilize o Explorador de iothub para gestão de dispositivos do IoT Hub do Azure
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 01/18/2018
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [Explorador de iothub](https://github.com/azure/iothub-explorer) é uma ferramenta CLI que executar no anfitrião de um computador para gerir identidades de dispositivo no seu registo de hub IoT. É fornecido com as opções de gestão que pode utilizar para efetuar várias tarefas.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 | Opção de gestão          | Tarefa                                                                                                                            |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------|
@@ -40,8 +42,7 @@ ms.lasthandoff: 01/18/2018
 
 Para obter mais explicação sobre as diferenças e as orientações sobre como utilizar estas opções, consulte [orientações de comunicação do dispositivo para nuvem](iot-hub-devguide-d2c-guidance.md) e [orientações de comunicação de nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md).
 
-> [!NOTE]
-> Os dispositivos duplos são documentos JSON que armazenam informações de estado dos dispositivos (metadados, configurações e condições). IoT Hub mantém um dispositivo duplo para cada dispositivo que se liga ao mesmo. Para obter mais informações sobre dispositivos duplos, consulte [começar a utilizar dispositivos duplos](iot-hub-node-node-twin-getstarted.md).
+Os dispositivos duplos são documentos JSON que armazenam informações de estado dos dispositivos (metadados, configurações e condições). IoT Hub mantém um dispositivo duplo para cada dispositivo que se liga ao mesmo. Para obter mais informações sobre dispositivos duplos, consulte [começar a utilizar dispositivos duplos](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>O que irá aprender
 
@@ -140,7 +141,7 @@ Consultar todos os dispositivos, exceto aqueles com uma etiqueta de função = '
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Aprendeu como utilizar o Explorador do iothub com várias opções de gestão.
 

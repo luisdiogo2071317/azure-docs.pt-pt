@@ -1,6 +1,6 @@
 ---
-title: "Table storage do Azure: criar uma aplicação web Node.js | Microsoft Docs"
-description: "Um tutorial que se baseia-se a aplicação Web com o tutorial rápida através da adição de serviços de armazenamento do Azure e o módulo do Azure."
+title: 'Table storage do Azure: criar uma aplicação web Node.js | Microsoft Docs'
+description: Um tutorial que se baseia-se a aplicação Web com o tutorial rápida através da adição de serviços de armazenamento do Azure e o módulo do Azure.
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 9acd197c26e6365e396fd8f6321d764bba7bbb6c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Table storage do Azure: aplicação Web Node.js
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="overview"></a>Descrição geral
 Neste tutorial, a aplicação que criou no [aplicação Web Node.js utilizando rápida] tutorial é expandido com as bibliotecas de cliente do Microsoft Azure para Node.js para trabalhar com os serviços de gestão de dados. Expandir a sua aplicação através da criação de uma aplicação de lista de tarefas baseada na web que pode implementar no Azure. A lista de tarefas permite que um utilizador obter tarefas, adicionar novas tarefas e marcar tarefas como concluído.
 
-Os itens de tarefas são armazenados no armazenamento do Azure. Storage do Azure fornece armazenamento de dados não estruturados com tolerância a falhas e altamente disponível. Armazenamento do Azure inclui várias estruturas de dados, onde pode armazenar e aceder a dados. Pode utilizar os serviços de armazenamento a partir de APIs incluído no SDK do Azure para Node.js ou através de REST APIs. Para obter mais informações, consulte [armazenamento e aceder a dados no Azure].
+Os itens de tarefa são armazenados no Storage do Azure ou a base de dados do Azure Cosmos. Armazenamento do Azure e a BD do Cosmos Azure fornecem armazenamento de dados não estruturados com tolerância a falhas e altamente disponível. Armazenamento do Azure e a BD do Cosmos Azure incluem várias estruturas de dados, onde pode armazenar e aceder a dados. Pode utilizar o armazenamento e serviços do Azure Cosmos BD a partir de APIs incluído no SDK do Azure para Node.js ou através de REST APIs. Para obter mais informações, consulte [armazenamento e aceder a dados no Azure].
 
 Este tutorial parte do princípio de que concluiu o [aplicação Web Node.js] e [Node.js rápidas][aplicação Web Node.js utilizando rápida] tutoriais.
 
@@ -40,7 +40,7 @@ A seguinte captura de ecrã mostra a aplicação concluída:
 ![A página web foi concluída no internet explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Definição de credenciais do armazenamento na Web. config
-Tem de passar armazenamento as credenciais para aceder ao armazenamento do Azure. Isto é feito utilizando as definições da aplicação Web. config.
+Tem de passar armazenamento as credenciais para aceder ao armazenamento do Azure ou a base de dados do Azure Cosmos. Isto é feito utilizando as definições da aplicação Web. config.
 As definições da Web. config são transmitidas como variáveis de ambiente para o nó, que, em seguida, são lidas pelo SDK do Azure.
 
 > [!NOTE]
@@ -144,7 +144,7 @@ Nesta secção, a aplicação básica criados pelo **rápida** comando é expand
     Task.prototype = {
       find: function(query, callback) {
         self = this;
-        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+        self.storageClient.queryEntities(this.tablename, query, null, null, function entitiesQueried(error, result) {
           if(error) {
             callback(error);
           } else {
@@ -181,7 +181,7 @@ Nesta secção, a aplicação básica criados pelo **rápida** comando é expand
             callback(error);
           }
           entity.completed._ = true;
-          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+          self.storageClient.replaceEntity(self.tableName, entity, function entityUpdated(error) {
             if(error) {
               callback(error);
             }
@@ -215,7 +215,7 @@ Nesta secção, a aplicação básica criados pelo **rápida** comando é expand
     TaskList.prototype = {
       showTasks: function(req, res) {
         self = this;
-        var query = azure.TableQuery()
+        var query = new azure.TableQuery()
           .where('completed eq ?', false);
         self.task.find(query, function itemsFound(error, items) {
           res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -224,7 +224,10 @@ Nesta secção, a aplicação básica criados pelo **rápida** comando é expand
 
       addTask: function(req,res) {
         var self = this
-        var item = req.body.item;
+        var item = {
+            name: req.body.name, 
+            category: req.body.category
+        };
         self.task.addItem(item, function itemAdded(error) {
           if(error) {
             throw error;
@@ -307,7 +310,7 @@ Nesta secção, a aplicação básica criados pelo **rápida** comando é expand
             td Category
             td Date
             td Complete
-          if tasks != []
+          if tasks == []
             tr
               td
           else
@@ -325,9 +328,9 @@ Nesta secção, a aplicação básica criados pelo **rápida** comando é expand
       hr
       form.well(action="/addtask", method="post")
         label Item Name:
-        input(name="item[name]", type="textbox")
+        input(name="name", type="textbox")
         label Item Category:
-        input(name="item[category]", type="textbox")
+        input(name="category", type="textbox")
         br
         button.btn(type="submit") Add item
     ```
@@ -414,7 +417,7 @@ Os passos seguintes mostram como parar e eliminar a sua aplicação.
    A eliminação do serviço pode demorar vários minutos. Depois do serviço é eliminado, receberá uma mensagem a indicar que o serviço foi eliminado.
 
 [aplicação Web Node.js utilizando rápida]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-[armazenamento e aceder a dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[armazenamento e aceder a dados no Azure]: https://docs.microsoft.com/azure/storage/
 [aplicação Web Node.js]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 

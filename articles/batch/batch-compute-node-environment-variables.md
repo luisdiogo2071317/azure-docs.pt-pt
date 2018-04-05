@@ -1,22 +1,22 @@
 ---
-title: "Variáveis de ambiente de nó de computação do Azure Batch | Microsoft Docs"
-description: "Referência de variável de ambiente de nó de computação para análise de lote do Azure."
+title: Variáveis de ambiente de nó de computação do Azure Batch | Microsoft Docs
+description: Referência de variável de ambiente de nó de computação para análise de lote do Azure.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 05/05/2017
-ms.author: tamram
-ms.openlocfilehash: 29f642754430957e77ef68946f721f8e15dba065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: ca8d6a6484cd1f145e7d807681bf2d012f2399e0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure variáveis de ambiente do nó de computação do Batch
 O [serviço Azure Batch](https://azure.microsoft.com/services/batch/) define as seguintes variáveis de ambiente de nós de computação. Pode fazer referência a estas variáveis de ambiente linhas de comandos de tarefas e os programas e scripts são executados por linhas de comandos.
@@ -40,11 +40,11 @@ As linhas de comando executadas pelas tarefas na computação não nós execute 
 | Nome da variável                     | Descrição                                                              | Disponibilidade | Exemplo |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | O nome da conta de Batch que a tarefa pertence.                  | Todas as tarefas.   | mybatchaccount |
-| AZ_BATCH_CERTIFICATES_DIR       | Um diretório dentro do [diretório de trabalho] [ files_dirs] nos certificados são armazenados de Linux nós de computação. Tenha em atenção que esta variável de ambiente não se aplica ao Windows nós de computação.                                                  | Todas as tarefas.   |  /Mnt/batch/Tasks/workitems/batchjob001/Job-1/task001/Certs |
+| AZ_BATCH_CERTIFICATES_DIR       | Um diretório dentro do [diretório de trabalho] [ files_dirs] nos certificados são armazenados de Linux nós de computação. Tenha em atenção que esta variável de ambiente não se aplica ao Windows nós de computação.                                                  | Todas as tarefas.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_JOB_ID                 | O ID do trabalho ao qual a tarefa pertence. | Todas as tarefas exceto iniciar a tarefa. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | O caminho completo da tarefa de preparação [diretório de tarefas] [ files_dirs] no nó. | Todas as tarefas, exceto a tarefa de início e a tarefa de preparação. Disponível apenas se a tarefa está configurada com uma tarefa de preparação. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | O caminho completo da tarefa de preparação [diretório de trabalho] [ files_dirs] no nó. | Todas as tarefas, exceto a tarefa de início e a tarefa de preparação. Disponível apenas se a tarefa está configurada com uma tarefa de preparação. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
-| AZ_BATCH_NODE_ID                | O ID do nó que a tarefa está atribuída. | Todas as tarefas. | TVM-1219235766_3-20160919t172711z |
+| AZ_BATCH_NODE_ID                | O ID do nó que a tarefa está atribuída. | Todas as tarefas. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_ROOT_DIR          | O caminho completo da raiz de todos os [Batch diretórios] [ files_dirs] no nó. | Todas as tarefas. | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | O caminho completo do [diretório partilhado] [ files_dirs] no nó. Todas as tarefas executadas num nó tem acesso de leitura/escrita a este diretório. Tarefas que são executadas nos outros nós não dispõe de acesso remoto para este diretório (não é um diretório de rede "partilhado"). | Todas as tarefas. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | O caminho completo do [iniciar o diretório de tarefas] [ files_dirs] no nó. | Todas as tarefas. | C:\user\tasks\startup |
@@ -52,7 +52,7 @@ As linhas de comando executadas pelas tarefas na computação não nós execute 
 | AZ_BATCH_TASK_DIR               | O caminho completo do [diretório de tarefas] [ files_dirs] no nó. Este diretório contém a `stdout.txt` e `stderr.txt` para a tarefa e o AZ_BATCH_TASK_WORKING_DIR. | Todas as tarefas. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | O ID da tarefa atual. | Todas as tarefas exceto iniciar a tarefa. | task001 |
 | AZ_BATCH_TASK_WORKING_DIR       | O caminho completo do [diretório de trabalho] [ files_dirs] no nó. A tarefa em execução tem acesso de leitura/escrita para este diretório. | Todas as tarefas. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
-| CCP_NODES                       | A lista de nós e o número de núcleos por nó que são atribuídos a um [tarefa de várias instâncias][multi_instance]. Nós e núcleos estão listados no formato`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, onde o número de nós é seguido de um ou mais endereços IP do nó e o número de núcleos para cada. |  Principais de várias instâncias e subtarefas. |`2 10.0.0.4 1 10.0.0.5 1` |
+| CCP_NODES                       | A lista de nós e o número de núcleos por nó que são atribuídos a um [tarefa de várias instâncias][multi_instance]. Nós e núcleos estão listados no formato `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, onde o número de nós é seguido de um ou mais endereços IP do nó e o número de núcleos para cada. |  Principais de várias instâncias e subtarefas. |`2 10.0.0.4 1 10.0.0.5 1` |
 | AZ_BATCH_NODE_LIST              | A lista de nós que são atribuídos a um [tarefa de várias instâncias] [ multi_instance] no formato `nodeIP;nodeIP`. | Principais de várias instâncias e subtarefas. | `10.0.0.4;10.0.0.5` |
 | AZ_BATCH_HOST_LIST              | A lista de nós que são atribuídos a um [tarefa de várias instâncias] [ multi_instance] no formato `nodeIP,nodeIP`. | Principais de várias instâncias e subtarefas. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_MASTER_NODE            | O endereço IP e porta do nó de computação em que a tarefa principal de um [tarefa de várias instâncias] [ multi_instance] é executado. | Principais de várias instâncias e subtarefas. | `10.0.0.4:6000`|

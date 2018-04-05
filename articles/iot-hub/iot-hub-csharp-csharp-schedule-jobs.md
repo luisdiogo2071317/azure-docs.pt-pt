@@ -1,11 +1,11 @@
 ---
 title: Agendar tarefas com o Azure IoT Hub (.NET/.NET) | Microsoft Docs
-description: "Como agendar um trabalho do IoT Hub do Azure para invocar um método direto em vários dispositivos. Utilizar o dispositivo IoT do Azure SDK para .NET para implementar as aplicações de dispositivo simulada e uma aplicação de serviço para executar a tarefa."
+description: Como agendar um trabalho do IoT Hub do Azure para invocar um método direto em vários dispositivos. Utilizar o dispositivo IoT do Azure SDK para .NET para implementar as aplicações de dispositivo simulada e uma aplicação de serviço para executar a tarefa.
 services: iot-hub
 documentationcenter: .net
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 012/16/2018
 ms.author: v-masebo
-ms.openlocfilehash: 0cdc23683489e103b061044856d68a8b014d3535
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 59d78c390e479acd16d47b70e8af5e164d746905
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Tarefas de agendamento e de difusão (.NET/.NET)
 
@@ -36,6 +36,8 @@ Para obter mais informações sobre cada uma destas capacidades, consulte:
 
 * Dispositivo duplo e propriedades: [começar a utilizar dispositivos duplos] [ lnk-get-started-twin] e [Tutorial: como utilizar as propriedades do dispositivo duplo][lnk-twin-props]
 * Direcionar métodos: [guia para programadores do IoT Hub - métodos diretas] [ lnk-dev-methods] e [Tutorial: utilizar métodos diretos][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostrar-lhe como:
 
@@ -276,7 +278,7 @@ Já está pronto para executar as aplicações.
     ![Executar as aplicações para agendar tarefas][img-schedulejobs]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, uma tarefa que utilizou para agendar um método direto para um dispositivo e a atualização das propriedades do dispositivo duplo.
 

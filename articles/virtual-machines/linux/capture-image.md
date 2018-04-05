@@ -1,11 +1,11 @@
 ---
 title: Capturar uma imagem de uma VM com Linux no Azure utilizando o CLI 2.0 | Microsoft Docs
-description: "Capture uma imagem de VM do Azure a utilizar para implementações em massa com o 2.0 CLI do Azure."
+description: Capture uma imagem de VM do Azure a utilizar para implementações em massa com o 2.0 CLI do Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e83319b8b4ace495a4301dd850cea27633115426
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou o VHD
 
@@ -89,6 +89,8 @@ Utilize o 2.0 CLI do Azure para marcar a VM como generalizado e capturar a image
    
    > [!NOTE]
    > A imagem é criada no mesmo grupo de recursos VM de origem. Pode criar VMs em qualquer grupo de recursos na sua subscrição a partir desta imagem. Numa perspetiva de gestão, pode pretender criar um grupo de recursos específicos para os recursos da VM e imagens.
+   >
+   > Se pretende armazenar a imagem no armazenamento resiliente para a zona, terá de criá-la numa região que suporte [zonas de disponibilidade](../../availability-zones/az-overview.md) e incluir o `--zone-resilient true` parâmetro.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Passo 3: Criar uma VM a partir da imagem capturada
 Criar uma VM utilizando a imagem que criou com [az vm criar](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM chamada *myVMDeployed* na imagem com o nome do *myImage*:

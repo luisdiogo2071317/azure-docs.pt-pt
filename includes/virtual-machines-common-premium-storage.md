@@ -35,11 +35,11 @@ Seguem-se algumas das funcionalidades do Premium Storage:
 
 * **Discos de armazenamento Premium**
 
-    Armazenamento Premium suporta discos VM que podem ser anexados a VMs de série de tamanho específicas. Armazenamento Premium suporta-série DS, série DSv2-série GS série, série Ls, série Fs e série Esv3 VMs. Tem uma opção de sete tamanhos de discos: P4 (32GB), P6 (64GB), P10 (128GB), P20 (GB de 512), P30 (1024GB), P40 (GB de 2048), P50 (4095GB). P4 e tamanhos de disco P6 ainda só são suportados para discos geridos. Cada tamanho do disco tem as suas próprias especificações de desempenho. Dependendo dos requisitos de aplicação, poderá anexar um ou mais discos para a VM. Vamos descrever as especificações com maior detalhe em [metas de desempenho e escalabilidade do armazenamento Premium](#scalability-and-performance-targets).
+    Armazenamento Premium suporta discos VM que podem ser anexados a VMs de série de tamanho específicas. Armazenamento Premium suporta-série DS, série DSv2-série GS série, série Ls, série Fs e série Esv3 VMs. Tem uma opção de sete tamanhos de discos: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (GB de 512), P30 (1024 GB), P40 (GB de 2048), P50 (4095 GB). P4 e tamanhos de disco P6 ainda só são suportados para discos geridos. Cada tamanho do disco tem as suas próprias especificações de desempenho. Dependendo dos requisitos de aplicação, poderá anexar um ou mais discos para a VM. Vamos descrever as especificações com maior detalhe em [metas de desempenho e escalabilidade do armazenamento Premium](#scalability-and-performance-targets).
 
 * **Blobs de páginas Premium**
 
-    Armazenamento Premium suporta blobs de páginas. Utilize blobs de páginas para armazenar discos persistentes, não geridos para as VMs do Premium Storage. Ao contrário do armazenamento do Azure standard, armazenamento Premium não suportam blobs de blocos, blobs, ficheiros, tabelas ou filas de acréscimo. Os blobs de páginas Premium suporta tamanhos de seis de P10 P50 e P60 (8191GiB). Blob de páginas P60 Premium não é suportado para ser anexados como discos VM. 
+    Armazenamento Premium suporta blobs de páginas. Utilize blobs de páginas para armazenar discos persistentes, não geridos para as VMs do Premium Storage. Ao contrário do armazenamento do Azure standard, armazenamento Premium não suportam blobs de blocos, blobs, ficheiros, tabelas ou filas de acréscimo. Os blobs de páginas Premium suportam tamanhos de seis de P10 P50 e P60 (8191GiB). Blob de páginas P60 Premium não é suportado para ser anexados como discos VM. 
 
     Qualquer objeto colocado numa conta de armazenamento premium será um blob de página. Ajusta o blob de página para um dos tamanhos de aprovisionamento suportados. É por isso uma conta de armazenamento premium não se destina a ser utilizado para armazenar blobs muito pequena.
 
@@ -103,7 +103,7 @@ Estas são algumas das funcionalidades da-série DS, série DSv2-série GS-séri
 
     Atualmente, a VM maior na série de DS é o Standard_DS15_v2. O Standard_DS15_v2 pode fornecer até 960 MB/s através de todos os discos. A VM maior na série de GS é o Standard_GS5. O Standard_GS5 pode fornecer até a 2.000 MB/s através de todos os discos.
 
-    Tenha em atenção que estes limites para o tráfego de disco apenas. Estes limites não incluem acertos na cache e o tráfego de rede. Uma largura de banda separada está disponível para o tráfego de rede VM. Largura de banda para tráfego de rede é diferente da largura de banda dedicada utilizada pelos discos de armazenamento premium.
+    Estes limites são apenas tráfego de disco. Estes limites não incluem acertos na cache e o tráfego de rede. Uma largura de banda separada está disponível para o tráfego de rede VM. Largura de banda para tráfego de rede é diferente da largura de banda dedicada utilizada pelos discos de armazenamento premium.
 
     Para obter as informações mais atualizadas sobre IOPS máximo e de débito (largura de banda) para as VMs de armazenamento Premium-suportados, consulte [tamanhos de Windows VM](../articles/virtual-machines/windows/sizes.md) ou [tamanhos de VM com Linux](../articles/virtual-machines/linux/sizes.md).
 
@@ -129,11 +129,11 @@ Se estiver a utilizar contas de armazenamento premium para os discos não gerido
 ### <a name="premium-storage-disk-limits"></a>Limites de disco de armazenamento Premium
 Quando aprovisionar um disco de armazenamento premium, o tamanho do disco determina o IOPS máximo e de débito (largura de banda). O Azure disponibiliza sete tipos de discos de armazenamento premium: P4 (geridos discos apenas), P6 (geridos discos apenas), P10, P20, P30, P40 e P50. Cada tipo de disco de armazenamento premium tem limites específicos para o IOPS e débito. Os limites para os tipos de disco são descritos na tabela seguinte:
 
-| Tipo de discos Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Tamanho do disco           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPs por disco       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Débito por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
+| Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Tamanho do disco           | 32 GB| 64 GB| 128 GB| 256 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPs por disco       | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 
+| Débito por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
 
 > [!NOTE]
 > Certifique-se a largura de banda suficiente não está disponível na VM para tráfego de disco da unidade, conforme descrito em [VMs de armazenamento Premium-suportado](#premium-storage-supported-vms). Caso contrário, o débito de disco e IOPS está restringida para reduzir os valores. Débito máximo e IOPS baseiam-se nos limites à VM, não os limites de disco descritos na tabela anterior.  
@@ -144,11 +144,11 @@ Eis alguns pontos importantes saber sobre metas de desempenho e escalabilidade d
 
 * **Capacidade de aprovisionamento e o desempenho**
 
-    Quando aprovisiona um disco de armazenamento premium, ao contrário do armazenamento padrão, são garantida a capacidade, o IOPS e o débito desse disco. Por exemplo, se criar um disco de P50, Azure Aprovisiona capacidade de armazenamento 4,095 GB, o 7.500 IOPS e 250 MB/s débito para esse disco. A aplicação pode utilizar a totalidade ou parte da capacidade e desempenho.
+    Quando aprovisiona um disco de armazenamento premium, ao contrário do armazenamento padrão, são garantida a capacidade, o IOPS e o débito desse disco. Por exemplo, se criar um disco de P50, Azure Aprovisiona capacidade de armazenamento 4,095 GB, 7.500 IOPS, débito de 250-MB/s para esse disco e. A aplicação pode utilizar a totalidade ou parte da capacidade e desempenho.
 
 * **Tamanho do disco**
 
-    Azure mapeia o tamanho do disco (arredondar por excesso) para a mais próximo premium disco opção de armazenamento, conforme especificado na tabela na secção anterior. Por exemplo, um tamanho de disco de 100 GB é classificado como uma opção de P10. Pode efetuar até 500 IOPS, com até 100 débito de MB/s. Da mesma forma, um disco de tamanho que 400 GB é classificado como um P20. Pode efetuar até 2,300 IOPS, com débito do 150 MB/s.
+    Azure mapeia o tamanho do disco (arredondar por excesso) para a mais próximo premium disco opção de armazenamento, conforme especificado na tabela na secção anterior. Por exemplo, um tamanho de disco de 100 GB é classificado como uma opção de P10. Pode efetuar até 500 IOPS, com até 100-MB/s débito. Da mesma forma, um disco de tamanho que 400 GB é classificado como um P20. Pode efetuar até 2,300 IOPS, com o débito de 150-MB/s.
     
     > [!NOTE]
     > Pode facilmente aumentar o tamanho dos discos existentes. Por exemplo, pode querer aumentar o tamanho de um disco de 30 GB, 128 GB ou até 1 TB. Em alternativa, pode querer sua P20 Converter disco num disco de P30 porque necessita de mais capacidade ou mais de IOPS e de débito. 
@@ -160,7 +160,7 @@ Eis alguns pontos importantes saber sobre metas de desempenho e escalabilidade d
 
 * **Débito**
 
-    O limite de débito inclui escritas para o disco e inclui as operações de leitura do disco que não são servidas da cache. Por exemplo, um disco de P10 tem 100 MB/s débito por disco. Alguns exemplos de débito válido para um disco de P10 são mostrados na tabela seguinte:
+    O limite de débito inclui escritas para o disco e inclui as operações de leitura do disco que não são servidas da cache. Por exemplo, um disco de P10 tem o débito de 100-MB/s por disco. Alguns exemplos de débito válido para um disco de P10 são mostrados na tabela seguinte:
 
     | Débito máximo por disco P10 | Leituras de não-cache do disco | Escritas de não-cache em disco |
     | --- | --- | --- |
@@ -170,7 +170,7 @@ Eis alguns pontos importantes saber sobre metas de desempenho e escalabilidade d
 
 * **Acertos na cache**
 
-    Acertos na cache não estão limitados pelo IOPS ou débito do disco alocado. Por exemplo, quando utilizar um disco de dados com um **ReadOnly** definição de cache numa VM que é suportada pelo armazenamento Premium, leituras são servidas da cache não está sujeitas ao IOPS e débito caps do disco. Se a carga de trabalho de um disco for predominantemente leituras, poderá obter débito muito elevado. A cache está sujeita a IOPS separada e limites de débito no VM nível, com base no tamanho VM. VMs de série DS tem aproximadamente 4000 IOPS e 33 MB/s débito por núcleo para a cache de e/s de SSD local. VMs de série GS têm um limite de 5000 IOPS e 50 MB/s débito por núcleo para a cache de e/s de SSD local. 
+    Acertos na cache não estão limitados pelo IOPS ou débito do disco alocado. Por exemplo, quando utilizar um disco de dados com um **ReadOnly** definição de cache numa VM que é suportada pelo armazenamento Premium, leituras são servidas da cache não está sujeitas ao IOPS e débito caps do disco. Se a carga de trabalho de um disco for predominantemente leituras, poderá obter débito muito elevado. A cache está sujeita a IOPS separada e limites de débito no VM nível, com base no tamanho VM. VMs de série DS tem aproximadamente 4000 IOPS e débito 33-MB/s por núcleo para a cache de e/s de SSD local. VMs de série GS têm um limite de 5000 IOPS e débito de 50-MB/s por núcleo para a cache de e/s de SSD local. 
 
 ## <a name="throttling"></a>Limitação
 Limitação poderão ocorrer, se a aplicação IOPS ou débito excede os limites atribuídos para um disco de armazenamento premium. Também limitação poderá ocorrer se o tráfego total do disco em todos os discos da VM excede o limite de largura de banda disco disponível para a VM. Para evitar a limitação, recomendamos que limite o número de pedidos de e/s de disco pendentes. Utilize um limite baseado em destinos de escalabilidade e desempenho para o disco que ter aprovisionado e a largura de banda de disco disponível para a VM.  
@@ -186,7 +186,7 @@ A aplicação processou 495 e/s unidades de tamanho de 16 KB num segundo num dis
 A aplicação tem de processar 400 e/s unidades de tamanho de 256 KB num disco P10. A largura de banda total consumido (400 &#215; 256) / 1.024 KB = 100 MB/s. Um disco de P10 tem um limite de débito de 100 MB/s. Se a aplicação tenta efetuar mais operações de e/s desse segundo, está limitada porque excede o limite atribuído.
 
 ### <a name="example-3"></a>Exemplo 3
-Tiver uma VM DS4 com dois P30 discos anexados. Cada disco P30 é capaz de débito do 200 MB/s. No entanto, uma VM DS4 tem uma capacidade de largura de banda total do disco de 256 MB/s. Não é possível unidade ambos os discos ligados para o débito máximo nesta DS4 VM ao mesmo tempo. Para resolver este problema, pode suportar o tráfego de 200 MB/s num disco e 56 MB/s no outro disco. Se a soma do tráfego disco ficar através de 256 MB/s, o tráfego do disco é limitado.
+Tiver uma VM DS4 com dois P30 discos anexados. Cada disco P30 é capaz de débito de 200-MB/s. No entanto, uma VM DS4 tem uma capacidade de largura de banda total do disco de 256 MB/s. Não é possível unidade ambos os discos ligados para o débito máximo nesta DS4 VM ao mesmo tempo. Para resolver este problema, pode suportar o tráfego de 200 MB/s num disco e 56 MB/s no outro disco. Se a soma do tráfego disco ficar através de 256 MB/s, o tráfego do disco é limitado.
 
 > [!NOTE]
 > Se o tráfego de disco consiste principalmente tamanhos de e/s pequenos, a aplicação provável será atingiu o limite IOPS antes do limite de débito. No entanto, se o tráfego de disco consiste principalmente tamanhos de e/s grande, a aplicação provável será atingiu o limite de débito em primeiro lugar, em vez do limite IOPS. Pode maximizar IOPS da sua aplicação e a capacidade de débito utilizando tamanhos ideal de e/s. Além disso, pode limitar o número de pedidos de e/s para um disco pendentes.
@@ -297,14 +297,3 @@ Para criar uma tarefa de cópia de segurança com cópias de segurança baseados
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre o Premium Storage, consulte os artigos seguintes.
-
-### <a name="design-and-implement-with-premium-storage"></a>Conceber e implementar com o Premium Storage
-* [Estruturar para desempenho com o Premium Storage](../articles/virtual-machines/windows/premium-storage-performance.md)
-* [Operações de armazenamento de Blobs com o Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-### <a name="operational-guidance"></a>Orientação operacional
-* [Migrar para o armazenamento do Azure Premium](../articles/storage/common/storage-migration-to-premium-storage.md)
-
-### <a name="blog-posts"></a>Publicações no blogue
-* [Armazenamento Premium do Azure geralmente disponível](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [Anunciar a série GS: suporte de adicionar o Premium Storage para as VMs maiores na nuvem pública](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)

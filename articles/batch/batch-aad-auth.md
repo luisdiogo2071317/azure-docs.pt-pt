@@ -1,25 +1,25 @@
 ---
-title: "Utilizar o Azure Active Directory para autenticação de soluções de serviços do Azure Batch | Microsoft Docs"
-description: "Batch suporta do Azure AD para a autenticação do serviço Batch."
+title: Utilizar o Azure Active Directory para autenticação de soluções de serviços do Azure Batch | Microsoft Docs
+description: Batch suporta do Azure AD para a autenticação do serviço Batch.
 services: batch
 documentationcenter: .net
 author: dlepow
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e2d97929ada820a1ce969c59fb69b3518fe2eb6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço Batch com o Active Directory
 
@@ -138,7 +138,7 @@ Para autenticar com um principal de serviço, terá de atribuir uma função RBA
 
 1. No portal do Azure, navegue para a conta de Batch utilizada pela sua aplicação.
 2. No **definições** painel para a conta de Batch, selecione **controlo de acesso (IAM)**.
-3. Clique em de **adicionar** botão. 
+3. Clique no botão **Adicionar**. 
 4. Do **função** pendente, escolha o o _contribuinte_ ou _leitor_ função para a sua aplicação. Para obter mais informações sobre estas funções, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../active-directory/role-based-access-control-what-is.md).  
 5. No **selecione** campo, introduza o nome da sua aplicação. Selecione a aplicação a partir da lista e clique em **guardar**.
 

@@ -1,11 +1,11 @@
 ---
 title: Abrir portas para uma VM com Linux com a CLI do Azure 1.0 | Microsoft Docs
-description: "Saiba como abrir uma porta / criar um ponto final para a VM com Linux utilizando o modelo de implementação do Gestor de recursos do Azure e a CLI do Azure 1.0"
+description: Saiba como abrir uma porta / criar um ponto final para a VM com Linux utilizando o modelo de implementação do Gestor de recursos do Azure e a CLI do Azure 1.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 847bc76c37ed929851712ba1c12463a01032e267
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13998e583c5b4e04d5930d7a117ac7e0a183a344
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-using-the-azure-cli-10"></a>Abrir portas e os pontos finais para uma VM com Linux no Azure utilizando a CLI do Azure 1.0
 Abrir uma porta ou criar um ponto final, para uma máquina virtual (VM) no Azure através da criação de um filtro de rede numa sub-rede ou interface de rede VM. Colocar estes filtros que controlam o tráfego de entrada e saído, num grupo de segurança de rede ligado para o recurso que recebe o tráfego. Vamos utilizar um exemplo comum de tráfego da web na porta 80. Este artigo mostra-lhe como abrir uma porta para uma VM com a CLI do Azure 1.0.
@@ -81,7 +81,7 @@ azure network vnet subnet set \
 ```
 
 ## <a name="more-information-on-network-security-groups"></a>Obter mais informações sobre grupos de segurança de rede
-Os comandos rápidos aqui permitem-lhe começar a trabalhar com tráfego que flui para a VM. Grupos de segurança de rede fornecem várias funcionalidades excelentes e granularidade para controlar o acesso aos seus recursos. Pode ler mais sobre [criar um grupo de segurança de rede e a ACL regras aqui](../../virtual-network/virtual-networks-create-nsg-arm-cli.md).
+Os comandos rápidos aqui permitem-lhe começar a trabalhar com tráfego que flui para a VM. Grupos de segurança de rede fornecem várias funcionalidades excelentes e granularidade para controlar o acesso aos seus recursos. Pode ler mais sobre [criar um grupo de segurança de rede e a ACL regras aqui](../../virtual-network/tutorial-filter-network-traffic-cli.md).
 
 Pode definir grupos de segurança de rede e as regras de ACL como parte dos modelos Azure Resource Manager. Leia mais sobre [criar grupos de segurança de rede com modelos](../../virtual-network/virtual-networks-create-nsg-arm-template.md).
 

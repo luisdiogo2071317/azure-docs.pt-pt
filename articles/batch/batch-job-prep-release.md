@@ -1,25 +1,25 @@
 ---
-title: "Criar tarefas para preparar as tarefas e tarefas de conclua em nós de computação - Azure Batch | Microsoft Docs"
-description: "Utilize tarefas de preparação de ao nível da tarefa para minimizar a transferência de dados em nós de computação do Azure Batch e as tarefas de limpeza de nó após conclusão da tarefa de versão."
+title: Criar tarefas para preparar as tarefas e tarefas de conclua em nós de computação - Azure Batch | Microsoft Docs
+description: Utilize tarefas de preparação de ao nível da tarefa para minimizar a transferência de dados em nós de computação do Azure Batch e as tarefas de limpeza de nó após conclusão da tarefa de versão.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aecce83b4d4444f2651f48475b596fa76cb5f44a
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 543c03c22b31389c3d6e048cc9f13c24add5aae7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefa de preparação e tarefas de lançamento do batch nós de computação
 
@@ -57,17 +57,17 @@ Pode querer manter uma cópia de ficheiros de registo que as suas tarefas geram 
 > 
 > 
 
-## <a name="job-preparation-task"></a>Tarefa de preparação
+## <a name="job-preparation-task"></a>Tarefa de preparação de Trabalho
 Antes da execução das tarefas de uma tarefa, o Batch executa a tarefa de preparação em cada nó de computação que esteja agendada para ser executada uma tarefa. Por predefinição, o serviço Batch aguarda que a tarefa de preparação da tarefa seja concluída antes de executar as tarefas agendadas para serem executadas no nó. No entanto, pode configurar o serviço não deve aguardar. Se o nó for reiniciado, a tarefa de preparação da tarefa é executada novamente, mas também pode desativar este comportamento.
 
 A tarefa de preparação é executada apenas em nós que estejam agendados para executar uma tarefa. Isto impede a execução de uma tarefa de preparação desnecessária no caso de um nó não está atribuído uma tarefa. Isto pode ocorrer quando o número de tarefas para uma tarefa é inferior ao número de nós num conjunto. Também se aplica quando [a execução da tarefa em simultâneo](batch-parallel-node-tasks.md) é ativado, que mantém algumas if Inativas de nós a contagem de tarefas é inferior ao totais tarefas simultâneas possíveis. Por não executar a tarefa de preparação da tarefa em nós inativos, pode demora menos dinheiro em custos de transferência de dados.
 
 > [!NOTE]
-> [JobPreparationTask] [ net_job_prep_cloudjob] difere [CloudPool.StartTask] [ pool_starttask] nessa JobPreparationTask executa no início de cada tarefa, enquanto que o StartTask executa apenas quando um nó de computação primeiro associa um conjunto ou de reiniciar.
+> [JobPreparationTask] [ net_job_prep_cloudjob] difere [CloudPool.StartTask] [ pool_starttask] nessa JobPreparationTask executa no início de cada tarefa, enquanto que StartTask executa apenas quando um nó de computação primeiro associa um conjunto ou de reiniciar.
 > 
 > 
 
-## <a name="job-release-task"></a>Tarefa de lançamento da tarefa
+## <a name="job-release-task"></a>Tarefa de lançamento de Trabalho
 Depois de uma tarefa é marcada como concluído, a tarefa de lançamento da tarefa é executada em cada nó no conjunto que executou, pelo menos, uma tarefa. Marcar uma tarefa como concluído ao emitir um pedido de terminar. O serviço Batch, em seguida, define o estado da tarefa para *terminar*, termina quaisquer tarefas de Active Directory ou em execução associadas a tarefa e execute a tarefa de libertação. A tarefa, em seguida, avança para o *concluída* estado.
 
 > [!NOTE]
@@ -183,7 +183,7 @@ A captura de ecrã abaixo mostra o **painel de tarefas de preparação** no port
 
 ![Propriedades de preparação da tarefa no portal do Azure][1]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 ### <a name="application-packages"></a>Pacotes de aplicações
 Para além da tarefa de preparação, também pode utilizar o [pacotes de aplicações](batch-application-packages.md) funcionalidade do Batch para preparar nós de computação para a execução da tarefa. Esta funcionalidade é especialmente útil para a implementação de aplicações que não necessitam de executar um programa de instalação, as aplicações que contêm muitos ficheiros de (100 +) ou aplicações que requerem controlo de versão rigorosa.
 

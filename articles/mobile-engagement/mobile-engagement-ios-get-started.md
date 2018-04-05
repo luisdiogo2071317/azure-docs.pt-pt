@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Azure Mobile Engagement para iOS no Objective C | Microsoft Docs"
-description: "Saiba como utilizar o Azure Mobile Engagement com notificações push e de análise para aplicações iOS."
+title: Introdução ao Azure Mobile Engagement para iOS no Objective C | Microsoft Docs
+description: Saiba como utilizar o Azure Mobile Engagement com notificações push e de análise para aplicações iOS.
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 117b5742-522b-41de-98c5-f432da2d98f8
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 913a60df4ce7c431b1c260135785972aac00c69d
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 7cf493e3a4878c64b0ea6a74b6e16329ce3d27b5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-objective-c"></a>Introdução ao Azure Mobile Engagement para aplicações iOS no Objective C
+> [!IMPORTANT]
+> O Azure Mobile Engagement será descontinuado a 31/03/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Este tópico mostra como utilizar o Azure Mobile Engagement para compreender a utilização da aplicação e o envio de notificações push para utilizadores segmentados para uma aplicação iOS.
@@ -34,7 +38,7 @@ Para este tutorial, necessita do seguinte:
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais do Mobile Engagement para aplicações iOS.
 
 > [!NOTE]
-> Para concluir este tutorial, tem de ter uma conta ativa do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-get-started).
+> Para concluir este tutorial, tem de ter uma conta ativa do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-get-started).
 >
 >
 
@@ -42,7 +46,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ## <a id="connecting-app"></a>Ligar a aplicação ao back-end do Mobile Engagement
-Este tutorial apresenta uma “integração básica”, o conjunto mínimo necessário para recolher dados e enviar uma notificação push. É possível encontrar toda a documentação da integração na página [Integração do SDK iOS do Mobile Engagement](mobile-engagement-ios-sdk-overview.md).
+Este tutorial apresenta uma "integração básica", o conjunto mínimo necessário para recolher dados e enviar uma notificação push. É possível encontrar toda a documentação da integração na página [Integração do SDK iOS do Mobile Engagement](mobile-engagement-ios-sdk-overview.md).
 
 Iremos criar uma aplicação básica com o XCode para demonstrar a integração.
 
@@ -56,7 +60,7 @@ Iremos criar uma aplicação básica com o XCode para demonstrar a integração.
 
     ![][1]
 
-4. Navegue para a pasta na qual extraiu o SDK, selecione a pasta `EngagementSDK`, clique em **Opções**, no canto inferior esquerdo**, confirme que a caixa de verificação** Copiar itens se necessário **e a caixa de verificação do destino estão assinaladas e prima** OK.
+4. Navegue para a pasta na qual extraiu o SDK, selecione a pasta `EngagementSDK`, clique em **Opções**, no canto inferior esquerdo**, confirme que a caixa de verificação** Copiar itens se necessário**e a caixa de verificação do destino estão assinaladas e prima**OK.
 
     ![][2]
 

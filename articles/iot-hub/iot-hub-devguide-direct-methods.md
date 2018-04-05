@@ -1,11 +1,11 @@
 ---
-title: "Compreender os métodos diretos do IoT Hub do Azure | Microsoft Docs"
-description: "Guia para programadores - utilize métodos direta invocar código nos seus dispositivos a partir de uma aplicação de serviço."
+title: Compreender os métodos diretos do IoT Hub do Azure | Microsoft Docs
+description: Guia para programadores - utilize métodos direta invocar código nos seus dispositivos a partir de uma aplicação de serviço.
 services: iot-hub
 documentationcenter: .net
 author: nberdy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,14 +15,17 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 003b3f6ef8a6fbc1c6fcdfc58f7d35bf6c42c9ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 47bf7437eda09a536aa2d960cf5ec474e23356a6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos do IoT Hub
-IoT Hub permite invocar métodos diretos nos dispositivos da nuvem. Métodos diretos representam uma interação de pedido-resposta com um dispositivo semelhante a uma chamada HTTP em que são ou não bem-sucedidos imediatamente (após um tempo limite especificado de um utilizador). Esta abordagem é útil para cenários em que o método de ação imediata é diferente consoante se o dispositivo foi capaz de responder. Por exemplo, enviar uma reativação SMS para um dispositivo, se estiver offline (que está a ser mais dispendioso do que uma chamada de método SMS).
+IoT Hub dá-lhe a capacidade de invocar métodos diretos nos dispositivos da nuvem. Métodos diretos representam uma interação de pedido-resposta com um dispositivo semelhante a uma chamada HTTP em que são ou não bem-sucedidos imediatamente (após um tempo limite especificado de um utilizador). Esta abordagem é útil para cenários em que o método de ação imediata é diferente consoante se o dispositivo foi capaz de responder. Por exemplo, enviar uma reativação SMS para um dispositivo, se estiver offline (que está a ser mais dispendioso do que uma chamada de método SMS).
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 Cada método de dispositivo está direcionada para um único dispositivo. [As tarefas] [ lnk-devguide-jobs] proporcionam uma forma de invocar métodos diretos em vários dispositivos e agendar a invocação de métodos para dispositivos desligados.
 
 Qualquer pessoa com **serviço ligar** permissões no IoT Hub podem invocar um método num dispositivo.
@@ -86,7 +89,7 @@ A aplicação de back-end recebe uma resposta que inclui:
 ## <a name="handle-a-direct-method-on-a-device"></a>Identificador de um método direto num dispositivo
 ### <a name="mqtt"></a>MQTT
 #### <a name="method-invocation"></a>Invocação de métodos
-Dispositivos recebem pedidos de método direto no tópico MQTT:`$iothub/methods/POST/{method name}/?$rid={request id}`
+Dispositivos recebem pedidos de método direto no tópico MQTT: `$iothub/methods/POST/{method name}/?$rid={request id}`
 
 O corpo que recebe o dispositivo é o seguinte formato:
 
@@ -109,7 +112,7 @@ O corpo é definido pelo dispositivo e pode ser qualquer Estado.
 
 ### <a name="amqp"></a>AMQP
 #### <a name="method-invocation"></a>Invocação de métodos
-O dispositivo recebe pedidos de método direto através da criação de uma ligação de recepção no endereço`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+O dispositivo recebe pedidos de método direto através da criação de uma ligação de recepção no endereço `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
 
 A mensagem AMQP chega na ligação receive que representa o pedido de método. Contém o seguinte:
 * A propriedade de ID de correlação, que contém um ID de pedido que deve ser transmitido novamente com a resposta de método correspondente
@@ -117,7 +120,7 @@ A mensagem AMQP chega na ligação receive que representa o pedido de método. C
 * O corpo da mensagem AMQP que contém o payload de método como JSON
 
 #### <a name="response"></a>Resposta
-O dispositivo cria uma ligação de envio para devolver a resposta de método no endereço`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+O dispositivo cria uma ligação de envio para devolver a resposta de método no endereço `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
 
 Resposta do método é devolvida na ligação de envio e está estruturada da seguinte forma:
 * A propriedade de ID de correlação, que contém o ID do pedido transmitido na mensagem de pedido do método

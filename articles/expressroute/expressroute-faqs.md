@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 03/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1893601f9fe9018cb51e6e31b6f9c397a0da38da
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 557c6a75140f399f74d77543de834af086871032
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -70,11 +70,12 @@ O ExpressRoute suporta [três domínios de encaminhamento](expressroute-circuit-
 
 * Power BI
 * Dynamics 365 para financeiros e operações (anteriormente conhecidas como Dynamics AX Online)
-* Maioria dos serviços do Azure, com o seguinte algumas exceções:
-  * CDN
-  * Visual Studio Team Services teste de carga
-  * Multi-Factor Authentication
-  * Gestor de Tráfego
+* A maioria dos serviços do Azure é suportada. Certifique-se diretamente com o serviço que pretende utilizar para verificar o suporte.<br>
+  NÃO são suportados os seguintes serviços:
+    * CDN
+    * Visual Studio Team Services teste de carga
+    * Multi-Factor Authentication
+    * Gestor de Tráfego
 
 ### <a name="microsoft-peering"></a>Peering da Microsoft
 
@@ -87,7 +88,8 @@ O ExpressRoute suporta [três domínios de encaminhamento](expressroute-circuit-
 * Utilizar [encaminhar filtros](#route-filters-for-microsoft-peering), obter acesso aos serviços mesmos público com o peering da Microsoft:
   * Power BI
   * Dynamics 365 para operações e financeiro
-  * Maioria dos serviços do Azure, com o seguinte algumas exceções:
+  * A maioria dos serviços do Azure é suportada. Certifique-se diretamente com o serviço que pretende utilizar para verificar o suporte.<br>
+  NÃO são suportados os seguintes serviços:
     * CDN
     * Visual Studio Team Services teste de carga
     * Multi-Factor Authentication

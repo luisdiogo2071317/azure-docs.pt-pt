@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de ativação pós-falha do SQL Server em Virtual Machines do Azure
 
@@ -375,27 +375,13 @@ Para criar o Balanceador de carga:
 
 1. Voltar para o grupo de recursos do Azure com as máquinas virtuais e localize o novo Balanceador de carga. Poderá ter de atualizar a vista de grupo de recursos. Clique em do Balanceador de carga.
 
-1. No painel de Balanceador de carga, clique em **conjuntos back-end**.
+1. Clique em **conjuntos back-end** e clique em **+ adicionar** para adicionar um conjunto de back-end.
 
-1. Clique em **+ adicionar** para adicionar um conjunto de back-end.
+1. Associe o conjunto de back-end com o conjunto de disponibilidade que contém as VMs.
 
-1. Escreva um nome para o conjunto de back-end.
+1. Em **configurações de IP de rede de destino**, verifique **máquina VIRTUAL** e escolha as máquinas virtuais que irá participar como nós de cluster. Não se esqueça de incluir todas as máquinas virtuais que irão alojar a FCI. 
 
-1. Clique em **adicionar uma máquina virtual**.
-
-1. No **escolher as máquinas virtuais** painel, clique em **escolher um conjunto de disponibilidade**.
-
-1. Escolha que o conjunto de disponibilidade que colocar as máquinas virtuais do SQL Server.
-
-1. No **escolher as máquinas virtuais** painel, clique em **escolher as máquinas virtuais**.
-
-   O portal do Azure deverá ser semelhante a imagem seguinte:
-
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. Clique em **selecione** no **escolher as máquinas virtuais** painel.
-
-1. Clique em **OK** duas vezes.
+1. Clique em **OK** para criar o conjunto de back-end.
 
 ### <a name="configure-a-load-balancer-health-probe"></a>Configurar uma sonda de estado de funcionamento do Balanceador de carga
 

@@ -14,21 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 74645f3fdece14790311592a0fdd4ce6570a5bae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 97b0e4c4dd8c67fdcd422fb04b7c32815b6c3fdb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gerir as identidades de dispositivo do IoT Hub em massa
 
 Cada IoT hub tem um registo de identidade, que pode utilizar para criar recursos por dispositivo no serviço. O registo de identidade também lhe permite controlar o acesso aos pontos finais do orientado para o dispositivo. Este artigo descreve como importar e exportar as identidades de dispositivo em massa e de um registo de identidade.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 As operações de importação e exportação ocorrer no contexto de *tarefas* que lhe permite executar as operações do serviço em massa em relação a um IoT hub.
 
 O **RegistryManager** classe inclui o **ExportDevicesAsync** e **ImportDevicesAsync** métodos que utilizam o **tarefa** framework. Estes métodos permitem-lhe exportar, importar e sincronizar a totalidade de um registo de identidade do IoT hub.
 
 Este tópico explica como utilizar o **RegistryManager** classe e **tarefa** sistema para executar em massa importa e exportações de dispositivos e de registo de identidade de um hub IoT. Também pode utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub para permitir zero-touch, just-in-time aprovisionamento para um ou mais os IoT hubs sem necessidade de intervenção humana. Para obter mais informações, consulte o [documentação do serviço de aprovisionamento][lnk-dps].
+
 
 ## <a name="what-are-jobs"></a>Quais são as tarefas?
 

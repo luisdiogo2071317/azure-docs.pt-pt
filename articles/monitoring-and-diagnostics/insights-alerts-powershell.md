@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Criar alertas métricas clássicas no Monitor do Azure para serviços do Azure - PowerShell
 > [!div class="op_single_selector"]
@@ -31,18 +31,18 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Descrição geral
 
 > [!NOTE]
-> Este artigo descreve como criar alertas métricas mais antigas. Azure suporta agora a monitorizar [mais recente, melhor alertas métricas](monitoring-near-real-time-metric-alerts.md). Estes alertas podem monitorizar várias métricas e permitir alertas nas métricas dimensional. Suporte do PowerShell para alertas métricas mais recentes está disponível em breve.
+> Este artigo descreve como criar alertas de métricas clássicas mais antigas. Azure suporta agora a monitorizar [mais recente, melhor alertas métricas](monitoring-near-real-time-metric-alerts.md). Estes alertas podem monitorizar várias métricas e permitir alertas nas métricas dimensional. Suporte do PowerShell para alertas métricas mais recentes está disponível em breve.
 >
 >
 
-Este artigo mostra como configurar alertas de métricas do Azure com o PowerShell.  
+Este artigo mostra como configurar alertas de métricas clássicas do Azure com o PowerShell.  
 
 Pode receber um alerta com base na monitorização métricas para ou eventos nos seus serviços do Azure.
 
 * **Valores métricos** -o alerta é acionado quando o valor de uma métrica especificado atravesse um limiar atribuir em qualquer direção. Ou seja, aciona ambas quando a condição for satisfeita primeiro e, em seguida, posteriormente quando condição que é já não está a ser cumprido.    
 * **Eventos de registo de atividade** -pode acionar um alerta num *cada* eventos ou apenas quando ocorre determinado evento. Para saber mais sobre alertas de registo de atividade [clique aqui](monitoring-activity-log-alerts.md)
 
-Pode configurar um alerta de métrico para fazer o seguinte quando aciona:
+Pode configurar um alerta de métrico clássico para fazer o seguinte quando aciona:
 
 * enviar notificações por e-mail para o administrador de serviços e coadministradores
 * envie correio eletrónico para e-mails adicionais que especificar.
@@ -135,8 +135,8 @@ Para obter informações adicionais, pode sempre escrever ```Get-Help``` e, em s
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Obter uma descrição geral da monitorização do Azure](monitoring-overview.md) , incluindo os tipos de informações que pode recolher e monitorizar.
-* Saiba mais sobre [configurar webhooks alertas](insights-webhooks-alerts.md).
-* Saiba mais sobre [configurar alertas de eventos de registo de atividade](monitoring-activity-log-alerts.md).
+* Saiba como [configurar webhooks alertas](insights-webhooks-alerts.md).
+* Saiba como [configurar alertas de eventos de registo de atividade](monitoring-activity-log-alerts.md).
 * Saiba mais sobre [Runbooks de automatização do Azure](../automation/automation-starting-a-runbook.md).
 * Obter um [descrição geral de recolha de registos de diagnóstico](monitoring-overview-of-diagnostic-logs.md) para recolher métricas de alta frequência detalhadas do seu serviço.
 * Obter um [descrição geral da coleção de métricas](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e reativa.

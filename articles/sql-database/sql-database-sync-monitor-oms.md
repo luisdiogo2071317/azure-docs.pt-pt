@@ -1,6 +1,6 @@
 ---
-title: "Monitorizar a sincronização de dados SQL do Azure com a análise de registos do OMS | Microsoft Docs"
-description: "Saiba como monitorizar a sincronização de dados SQL do Azure através da utilização de análise de registos do OMS"
+title: Monitorizar a sincronização de dados SQL do Azure (pré-visualização) com a análise de registos do OMS | Microsoft Docs
+description: Saiba como monitorizar a sincronização de dados de SQL do Azure (pré-visualização) através da utilização de análise de registos do OMS
 services: sql-database
 ms.date: 11/07/2017
 ms.topic: article
@@ -9,17 +9,17 @@ author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 423614227b16ad6cfa6dadfab1c5f2b93c5bbe62
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c106d5bbea118c9b78cbccee187b8eb5c347f232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Monitor SQL de sincronização de dados (pré-visualização) com a análise de registos do OMS 
 
 Verifique o registo de atividade de sincronização de dados do SQL Server e detetar erros e avisos, que tinha anteriormente verificar a sincronização de dados SQL manualmente no portal do Azure ou utilizar o PowerShell ou a API REST. Siga os passos neste artigo para configurar uma solução personalizada que melhora a experiência de monitorização de sincronização de dados. Pode personalizar esta solução para que se adeque ao seu cenário.
 
-Para obter uma descrição geral da sincronização de dados do SQL Server, consulte [sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados de SQL do Azure (pré-visualização)](sql-database-sync-data.md).
+Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure (Pré-visualização)](sql-database-sync-data.md).
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard de monitorização para todos os grupos de sincronização 
 
@@ -189,21 +189,21 @@ Transfira os exemplos de código descritos neste artigo das seguintes localizaç
 
 -   [Vista OMS de registo de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre a sincronização de dados do SQL Server, consulte:
+## <a name="next-steps"></a>Passos seguintes
+Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 
--   [Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados SQL do Azure](sql-database-sync-data.md)
--   [Configurar a sincronização de dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
--   [Melhores práticas para a sincronização de dados SQL do Azure](sql-database-best-practices-data-sync.md)
--   [Resolver problemas com a sincronização de dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
+-   [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)
+-   [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
+-   [Melhores práticas da Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
+-   [Resolver problemas da Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 
--   Conclua os exemplos do PowerShell que mostram como configurar a sincronização de dados do SQL Server:
+-   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:
     -   [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [Utilizar o PowerShell para sincronizar entre uma base de dados do SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)
+    -   [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)
 
--   [Transferir a documentação da API de REST de sincronização de dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Transferir a documentação da API REST da Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-Para obter mais informações sobre a base de dados SQL, consulte:
+Para obter mais informações sobre a Base de Dados SQL, veja:
 
--   [Descrição geral da base de dados do SQL Server](sql-database-technical-overview.md)
--   [Gestão de ciclo de vida de base de dados](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Descrição Geral da Base de Dados SQL](sql-database-technical-overview.md)
+-   [Gestão do Ciclo de Vida da Base de Dados](https://msdn.microsoft.com/library/jj907294.aspx)

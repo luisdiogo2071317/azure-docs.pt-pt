@@ -1,5 +1,5 @@
 -Título: ' Tutorial: criar uma base de dados do Azure para PostgreSQL utilizando a CLI do Azure' Descrição: Este tutorial mostra como criar, configurar e consultar a sua primeira base de dados do Azure para o servidor de PostgreSQL utilizando a CLI do Azure.
-services: postgresql author: rachel-msft ms.author: raagyema manager: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure-cli ms.topic: tutorial ms.date: 03/20/2018
+services: postgresql author: rachel-msft ms.author: raagyema manager: kfile editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure-cli ms.topic: tutorial ms.date: 04/01/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Tutorial: Conceber uma Base de Dados do Azure para PostgreSQL com a CLI do Azure 
 Neste tutorial, utiliza a CLI do Azure (interface de linha de comandos) e outros utilitários para saber como:
@@ -45,11 +45,11 @@ O JSON de retorno deve incluir o seguinte:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.4"
+    "version": "0.0.5"
 }
 ```
 
-Se não for devolvido versão 0.0.4, execute o seguinte ao atualizar a extensão: 
+Se não for devolvido versão 0.0.5, execute o seguinte ao atualizar a extensão: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -209,7 +209,7 @@ Restaurar um servidor para um ponto anterior no tempo cria um novo servidor, cop
 O comando é síncrono e irá regressar depois de o servidor ser restaurado. Depois de o restauro ser concluído, localize o novo servidor que foi criado. Certifique-se de que os dados foram restaurados conforme esperado.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a utilizar a CLI (interface de linha de comandos) do Azure e outros utilitários para:
 > [!div class="checklist"]
 > * Criar uma Base de Dados do Azure para o servidor PostgreSQL

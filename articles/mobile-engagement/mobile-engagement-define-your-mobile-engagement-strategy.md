@@ -1,11 +1,11 @@
 ---
-title: "Definir a sua estratégia de Mobile Engagement | Microsoft Docs"
-description: "Saiba como integrar e otimizar o seu Mobile Engagement com notificações push e de análise."
+title: Definir a sua estratégia de Mobile Engagement | Microsoft Docs
+description: Saiba como integrar e otimizar o seu Mobile Engagement com notificações push e de análise.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: db68bd3ebf7efde1d23820445f07c83c8c27dc20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 494dd27acfd59eb79da13dae9bbbe0f80ee41370
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="define-your-mobile-engagement-strategy"></a>Definir a sua estratégia de Mobile Engagement
+> [!IMPORTANT]
+> O Azure Mobile Engagement será descontinuado a 31/03/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 *Escreveu a aplicação por um motivo: para que os seus utilizadores a utilizem!*
 
 Acreditamos que certamente dedicou um elevado grau de esforço para torná-la uma aplicação excelente que os utilizadores vão adorar. Provavelmente também investiu uma parte significativa do orçamento em marketing para obter utilizadores. Mas após o pico inicial entusiasmante de utilizadores, é possível que lentamente deixem de utilizar a aplicação. *A essência do Azure Mobile Engagement reside precisamente aqui!*: fazer com que os utilizadores continuem ativos e permitir que melhore gradualmente a aplicação através de testes e processos de aprendizagem.

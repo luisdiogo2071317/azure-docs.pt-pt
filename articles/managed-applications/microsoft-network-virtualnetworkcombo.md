@@ -1,6 +1,6 @@
 ---
-title: "Elemento de IU de VirtualNetworkCombo de aplicação gerida do Azure | Microsoft Docs"
-description: "Descreve o elemento de IU Microsoft.Network.VirtualNetworkCombo para aplicações geridas do Azure"
+title: Elemento de IU VirtualNetworkCombo do Azure | Microsoft Docs
+description: Descreve o elemento de IU Microsoft.Network.VirtualNetworkCombo para o portal do Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: c17ef740dcc709b5b344c4e60ef997a948b2e5de
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 38202b3b669a162f1cdbe88663d050d8d791c964
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento de IU Microsoft.Network.VirtualNetworkCombo
-Um grupo de controlos para selecionar uma rede virtual nova ou existente. Utilize este elemento quando [criar uma aplicação gerida do Azure](publish-service-catalog-app.md).
+Um grupo de controlos para selecionar uma rede virtual nova ou existente.
 
 ## <a name="ui-sample"></a>Exemplo de IU
 ![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
@@ -84,8 +84,8 @@ Um grupo de controlos para selecionar uma rede virtual nova ou existente. Utiliz
 ## <a name="remarks"></a>Observações
 - Se for especificado, o primeiro sem sobreposição de endereços prefixo do tamanho `defaultValue.addressPrefixSize` é determinado automaticamente com base nas redes virtuais existentes na subscrição do utilizador.
 - O valor predefinido para `defaultValue.name` e `defaultValue.addressPrefixSize` é **nulo**.
-- `constraints.minAddressPrefixSize`tem de ser especificado. Redes virtuais existentes com um espaço de endereços inferior ao valor especificado não se encontram disponíveis para seleção.
-- `subnets`tem de ser especificado, e `constraints.minAddressPrefixSize` tem de ser especificado para cada sub-rede.
+- `constraints.minAddressPrefixSize` tem de ser especificado. Redes virtuais existentes com um espaço de endereços inferior ao valor especificado não se encontram disponíveis para seleção.
+- `subnets` tem de ser especificado, e `constraints.minAddressPrefixSize` tem de ser especificado para cada sub-rede.
 - Ao criar uma nova rede virtual, o prefixo de endereço de cada sub-rede é calculado automaticamente com base no prefixo do endereço de rede virtual e o respetivo `addressPrefixSize`.
 - Quando utilizar um existente virtual de rede, quaisquer sub-redes menores do que o respetivo `constraints.minAddressPrefixSize` não estão disponíveis para seleção. Além disso, se for especificado, as sub-redes que contenha, pelo menos, `minAddressCount` endereços disponíveis estão indisponíveis para seleção.
 O valor predefinido é **0**. Para se certificar de que os endereços disponíveis contíguos, especifique **verdadeiro** para `requireContiguousAddresses`. O valor predefinido é **verdadeiro**.
@@ -115,6 +115,5 @@ O valor predefinido é **0**. Para se certificar de que os endereços disponíve
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para uma introdução para aplicações geridas, consulte [descrição geral do Azure gerida aplicações](overview.md).
 * Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição de propriedades comuns de elementos de IU, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).

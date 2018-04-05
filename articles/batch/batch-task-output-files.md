@@ -2,21 +2,21 @@
 title: Manter a saída de tarefas e ao armazenamento do Azure com a API do serviço Azure Batch | Microsoft Docs
 description: Saiba como utilizar a API do serviço de Batch para manter a saída de tarefa e tarefas de lote ao Storage do Azure.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
-ms.author: tamram
-ms.openlocfilehash: fa124109bfc9d333469c255c50df0af96a26bebf
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: danlep
+ms.openlocfilehash: ee8622525adcc698bf920b0c3379cc3065798a19
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados da tarefa ao Storage do Azure com a API do serviço Batch
 
@@ -187,7 +187,7 @@ O [PersistOutputs] [ github_persistoutputs] projeto de exemplo é uma do [exempl
 6. Quando lhe for pedido para escolher a tecnologia de persistência a utilizar para executar o exemplo, introduza **2** para executar o exemplo utilizando a API do serviço de Batch para manter o resultado da tarefa.
 7. Se assim o desejar, execute o exemplo, introduzir **3** para manter o resultado com a API do serviço Batch bem como para o caminho de blob e contentor de destino, de acordo com o padrão de ficheiro convenções de nomes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre o resultado da tarefa persistentes com a biblioteca de convenções de ficheiro para o .NET, consulte [manter os dados de tarefas e ao armazenamento do Azure com a biblioteca de convenções de ficheiro Batch para .NET manter ](batch-task-output-file-conventions.md).
 - Para obter informações sobre outras abordagens para dados de saída persistentes no Azure Batch, consulte [manter tarefas e saída ao Storage do Azure](batch-task-output.md).

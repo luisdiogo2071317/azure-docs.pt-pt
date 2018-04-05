@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 92efd0970bcf516c4210f831a0c2f23b3ee7b5d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b288595ca06c3a3cccb72082658f1927f2ae558a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Ligar MXChip IoT DevKit para o Azure IoT Suite para monitorização remota
 
@@ -35,7 +35,7 @@ Concluir o [guia de introdução](https://docs.microsoft.com/azure/iot-hub/iot-h
 
 Uma subscrição ativa do Azure. Se não tiver uma, pode registar através de um destes dois métodos:
 
-* Ativar um [conta de Microsoft Azure avaliação de 30 dias gratuita](https://azureinfo.microsoft.com/us-freetrial.html)
+* Ativar um [conta de Microsoft Azure avaliação de 30 dias gratuita](https://azure.microsoft.com/en-us/free/)
 * Afirmação sua [crédito do Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se forem subscritor MSDN ou o Visual Studio
 
 ## <a name="create-an-azure-iot-suite"></a>Criar um Azure IoT Suite

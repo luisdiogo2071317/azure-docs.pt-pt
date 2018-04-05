@@ -238,6 +238,9 @@
       items:
         - name: Gerir preços e volumes de dados
           href: app-insights-pricing.md
+          items:
+            - name: Detalhes do plano de Enterprise
+              href: app-insights-pricing-enterprise-details.md
         - name: Monitorização de Desempenho de Aplicações com o Application Insights para SCOM
           href: app-insights-scom.md
     - name: Exportar

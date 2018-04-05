@@ -1,8 +1,8 @@
 ---
-title: "Transmissão de velocidade de métricas com métricas personalizadas e diagnósticos no Azure Application Insights | Microsoft Docs"
-description: "Monitorizar a aplicação web em tempo real com métricas personalizadas e diagnosticar problemas com um feed de falhas, rastreios e eventos em direto."
+title: Transmissão de velocidade de métricas com métricas personalizadas e diagnósticos no Azure Application Insights | Microsoft Docs
+description: Monitorizar a aplicação web em tempo real com métricas personalizadas e diagnosticar problemas com um feed de falhas, rastreios e eventos em direto.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 866fc729b3167863c2d423d0e6ac0d7640e3425e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f0338642ab99af2fd5ec4f6432bbb8d626daea29
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Métricas em fluxo em direto: Monitor de & Diagnostique com uma latência de 1 segundo 
 
@@ -115,12 +115,15 @@ Os critérios de filtros personalizados que especificar são enviados para o com
 ![Criar chave de api](./media/app-insights-live-stream/live-metrics-apikeycreate.png)
 
 ### <a name="add-api-key-to-configuration"></a>Adicionar chave de API à configuração
+
+# <a name="net-standardtabnet-standard"></a>[.NET Standard](#tab/.net-standard)
+
 No ficheiro applicationinsights, adicione o AuthenticationApiKey para o QuickPulseTelemetryModule:
 ``` XML
 
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
-</Add> 
+</Add>
 
 ```
 Ou no código, defina-o QuickPulseTelemetryModule:
@@ -130,6 +133,34 @@ Ou no código, defina-o QuickPulseTelemetryModule:
     module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
 
 ```
+# <a name="net-core-tabnet-core"></a>[.NET core] (# separador/.net-núcleos)
+
+Modifique o ficheiro de startup.cs da seguinte forma:
+
+Adicionar primeiro
+
+``` C#
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using Microsoft.ApplicationInsights.Extensibility;
+```
+
+Em seguida, sob o método de configurar adicione:
+
+``` C#
+  QuickPulseTelemetryModule dep;
+            var modules = app.ApplicationServices.GetServices<ITelemetryModule>();
+            foreach (var module in modules)
+            {
+                if (module is QuickPulseTelemetryModule)
+                {
+                    dep = module as QuickPulseTelemetryModule;
+                    dep.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+                    dep.Initialize(TelemetryConfiguration.Active);
+                }
+            }
+```
+
+---
 
 No entanto, se reconhecer e confiar todos os servidores ligados, pode tentar os filtros personalizados sem o canal autenticado. Esta opção está disponível durante seis meses. Esta substituição não é necessária uma vez cada nova sessão ou quando um novo servidor fica online.
 
@@ -154,7 +185,7 @@ Não existem dados? Se a aplicação estiver numa rede protegida: transmissão d
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Utilização de monitorização com o Application Insights](app-insights-web-track-usage.md)
 * [Utilizando a pesquisa de diagnóstico](app-insights-diagnostic-search.md)
 * [Gerador de perfis](app-insights-profiler.md)

@@ -7,6 +7,8 @@
 
 Os dispositivos duplos são documentos JSON que armazenam informações de estado dos dispositivos (metadados, configurações e condições). IoT Hub mantém um dispositivo duplo para cada dispositivo que se liga ao mesmo.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Utilize dispositivos duplos para:
 
 * Armazenar metadados do dispositivo da sua solução de back-end.
@@ -14,8 +16,7 @@ Utilize dispositivos duplos para:
 * Sincronize o estado de execução longa os fluxos de trabalho (tais como atualizações de firmware e de configuração) entre uma aplicação de dispositivo e uma aplicação de back-end.
 * Consulta os metadados do dispositivo, a configuração ou o estado.
 
-> [!NOTE]
-> Dispositivos duplos foram concebidos para a sincronização de e para consultar as configurações de dispositivo e condições. Podem encontrar mais informações sobre quando utilizar dispositivos duplos no [compreender dispositivos duplos][lnk-twins].
+Dispositivos duplos foram concebidos para a sincronização de e para consultar as configurações de dispositivo e condições. Podem encontrar mais informações sobre quando utilizar dispositivos duplos no [compreender dispositivos duplos][lnk-twins].
 
 Dispositivos duplos são armazenados num IoT hub e contenham:
 

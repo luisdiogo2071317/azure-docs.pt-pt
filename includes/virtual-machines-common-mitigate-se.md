@@ -5,23 +5,25 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: cynthn
+ms.date: 04/02/2018
+ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: bf4adf075842effeb26aa5a600c09f7bd1866264
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6ad9c365894feed61fa4f55d442194d1cf996889
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
-**Documente última atualização**: 6 de Março, 10:00 AM PST.
+**Documente última atualização**: 2 de Abril de 10:00 AM PST.
 
 A divulgação recente de um [nova classe de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) conhecido como ataques de canal de lado de execução speculative resultou no questões a partir de clientes de pesquisa mais efeitos de clareza.  
 
-A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente umas das outras está protegida.  Isto significa que outros clientes em execução no Azure não é possível ataques a sua aplicação utilizar estas vulnerabilidades.
+Microsoft implementou mitigações em todos os nossos serviços de nuvem. A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente umas das outras está protegida.  Isto significa que outros clientes em execução no Azure não é possível ataques a sua aplicação utilizar estas vulnerabilidades.
+
+Além disso, está a expandir a utilização do Azure [memória preservam manutenção](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) sempre que possível, colocar em pausa a VM para até 30 segundos enquanto o anfitrião é atualizado ou a VM é movido para um anfitrião já atualizado.  Memória preservam manutenção mais minimiza o impacto de cliente e elimina a necessidade de reinícios.  Azure irá utilizar estes métodos quando efetuar atualizações em todo o sistema para o anfitrião.
 
 > [!NOTE] 
-> No enlace tardio de Fevereiro de 2018 Intel Corporation publicados atualizado [orientações de revisão Microcode](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) no estado dos respetivos versões microcode, que melhorar estabilidade e mitigar contra as vulnerabilidades recentes das divulgados por [Projeto Google Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). As mitigações colocar no local pelo Azure em [3 de Janeiro de 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) não são afetados pela atualização de microcode da Intel. Microsoft já colocar mitigações seguras no local para proteger os clientes do Azure a partir de outros inquilinos do Azure.  
+> No enlace tardio de Fevereiro de 2018 Intel Corporation publicados atualizado [orientações de revisão Microcode](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) no estado dos respetivos versões microcode, que melhorar estabilidade e mitigar contra as vulnerabilidades recentes das divulgados por [Projeto Google Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). As mitigações colocar no local pelo Azure em [3 de Janeiro de 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) não são afetados pela atualização de microcode da Intel. Microsoft colocar já mitigações seguras no local para proteger os clientes do Azure a partir de outras máquinas virtuais do Azure.  
 >
 > Microcode da Intel endereços variante 2 Spectre ([Exposures-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715)) para proteger contra ataques que apenas seriam aplicável onde executar cargas de trabalho partilhadas ou não fidedignas dentro as suas VMs no Azure. A nossa engenheiros estiver a testar a estabilidade para minimizar os impactos no desempenho de microcode, antes de efetuar disponível para clientes do Azure.  Como os clientes muito poucos executam cargas de trabalho não fidedignas nas respetivas VMs, maioria dos clientes não terá de ativar esta capacidade, uma vez lançada. 
 >
@@ -34,7 +36,7 @@ A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente um
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Manter os sistemas de operativos atualizado
 
-Enquanto uma atualização de SO não é necessário para isolar as suas aplicações em execução no Azure a partir de outros clientes em execução no Azure, é sempre melhor prática para manter as versões de SO atualizados. 
+Enquanto uma atualização de SO não é necessário para isolar as suas aplicações em execução no Azure a partir de outros clientes em execução no Azure, é sempre melhor prática para manter as versões de SO atualizados. Janeiro 2018 e posterior [segurança Rollups para o Windows](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) conter mitigações para estas vulnerabilidades.
 
 Nas ofertas de seguintes, eis nosso ações recomendadas para atualizar o sistema operativo: 
 
@@ -62,7 +64,7 @@ Nas ofertas de seguintes, eis nosso ações recomendadas para atualizar o sistem
 
 
 ### <a name="windows"></a>Windows 
-Se estiver a utilizar o Windows e a alojar o código não fidedigno, deve ativar também chamada Shadowing de endereço Virtual Kernel (KVA) que fornece proteção adicional contra vulnerabilidades de canal de lado de execução speculative uma funcionalidade do Windows. Esta funcionalidade está desativada por predefinição e pode afetar o desempenho se estiver ativada. Siga [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instruções para ativar a proteção no servidor. Se estiver a executar o serviços de nuvem do Azure, certifique-se de que está a executar WA-convidado-so-5.15_201801-01 ou WA-convidado-SO-4.50_201801-01 (disponível a partir em 10 de Janeiro de 2018) e ativar o registo da chave através de uma tarefa de arranque.
+Se estiver a utilizar o Windows e que aloja o código não fidedigno, deve ativar também uma funcionalidade do Windows chamada Shadowing de endereço Virtual Kernel (KVA) que fornece proteção adicional contra speculative execução (especificamente variantes de vulnerabilidades do lado do canal 3 meltdown, [Exposures-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754)). Esta funcionalidade está desativada por predefinição e pode afetar o desempenho se estiver ativada. Siga [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instruções para ativar a proteção no servidor. Se estiver a executar o serviços de nuvem do Azure, certifique-se de que está a executar WA-convidado-so-5.15_201801-01 ou WA-convidado-SO-4.50_201801-01 (disponível a partir em 10 de Janeiro de 2018) e ativar o registo da chave através de uma tarefa de arranque.
 
 
 ### <a name="linux"></a>Linux
@@ -70,6 +72,6 @@ Se estiver a utilizar o Linux e alojar código não fidedigno, também deve atua
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, consulte [clientes proteger Azure da vulnerabilidade de CPU](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).

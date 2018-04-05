@@ -1,6 +1,6 @@
 ---
-title: "Configurar a sincronização de dados de SQL do Azure (pré-visualização) | Microsoft Docs"
-description: "Este tutorial mostra como configurar a sincronização de dados de SQL do Azure (pré-visualização)"
+title: Configurar a sincronização de dados de SQL do Azure (pré-visualização) | Microsoft Docs
+description: Este tutorial mostra como configurar a sincronização de dados de SQL do Azure (pré-visualização)
 services: sql-database
 author: douglaslms
 manager: craigg
@@ -10,22 +10,22 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f9318b5baa46ab991b5e72e12a89a25e4f635db3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Configurar a sincronização de dados do SQL Server (pré-visualização)
 Neste tutorial, irá aprender a configurar a sincronização de dados SQL do Azure através da criação de um grupo de sincronização de híbridos que contenha as instâncias de SQL Database do Azure e SQL Server. O novo grupo de sincronização está completamente configurado e sincroniza na agenda que definir.
 
 Este tutorial parte do princípio de que tem, pelo menos, de alguma experiência anterior com a base de dados SQL e com o SQL Server. 
 
-Para obter uma descrição geral da sincronização de dados do SQL Server, consulte [sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados de SQL do Azure (pré-visualização)](sql-database-sync-data.md).
+Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure (Pré-visualização)](sql-database-sync-data.md).
 
 Para concluir exemplos do PowerShell que mostram como configurar a sincronização de dados do SQL Server, consulte os artigos seguintes:
 -   [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
--   [Utilizar o PowerShell para sincronizar entre uma base de dados do SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 ## <a name="step-1---create-sync-group"></a>Passo 1 – criar grupo de sincronização
 
@@ -38,6 +38,8 @@ Para concluir exemplos do PowerShell que mostram como configurar a sincronizaç�
     ![Lista de bases de dados SQL do Azure](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
 3.  No **bases de dados SQL** página, selecione a base de dados existente do SQL Server que pretende utilizar como a base de dados do hub para sincronização de dados. Abre a página de base de dados do SQL Server.
+
+    A base de dados do hub é o ponto final central da topologia de sincronização, no qual um grupo de sincronização tem vários pontos finais de base de dados. Todos os outros da base de dados pontos finais a sincronização de grupo - ou seja, todos os membros bases de dados - sincronização mesmo com a base de dados do hub.
 
 4.  Na página de base de dados do SQL Server para a base de dados selecionada, selecione **sincronização para outras bases de dados**. Abre a página de sincronização de dados.
 
@@ -67,6 +69,8 @@ Para concluir exemplos do PowerShell que mostram como configurar a sincronizaç�
         ![Especifique a frequência de sincronização](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
     4.  No **resolução de conflitos** secção, selecione "Hub wins" ou "Wins de membro".
+
+        "Hub wins" significa que, se ocorre um conflito, os dados na base de dados do hub substitui os dados em conflito na base de dados do membro. "Wins de membro" significa que, se ocorre um conflito, os dados na base de dados membro substitui os dados em conflito na base de dados do hub. 
 
         ![Especifique a forma como são resolvidos os conflitos](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 
@@ -179,11 +183,11 @@ Depois dos novos membros do grupo de sincronização são criados e implementado
 
 2.  Na lista de tabelas disponíveis, selecione as tabelas que pretende sincronizar.
 
-    ![Selecionar tabelas a sincronizar](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
+    ![Selecione as tabelas para sincronizar](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
 
 3.  Por predefinição, estão selecionadas todas as colunas na tabela. Se não quiser sincronizar todas as colunas, desative a caixa de verificação para as colunas que não pretende sincronizar. Lembre-se de que deixe a coluna de chave primária selecionada.
 
-    ![Selecionar campos a sincronizar](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
+    ![Selecionar campos para sincronizar](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
 4.  Por fim, selecione **guardar**.
 
@@ -264,23 +268,23 @@ Se pretender executar o agente local partir de outro computador que está atualm
 
 5. Forneça credenciais da base de dados para todas as bases de dados que são apresentadas como inacessível. Estas bases de dados tem de ser acessíveis a partir do novo computador no qual o agente está instalado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Parabéns! Criou um grupo de sincronização que inclui uma instância de base de dados SQL e uma base de dados do SQL Server.
 
-Para obter mais informações sobre a sincronização de dados do SQL Server, consulte:
+Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 
--   [Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados SQL do Azure](sql-database-sync-data.md)
--   [Melhores práticas para a sincronização de dados SQL do Azure](sql-database-best-practices-data-sync.md)
--   [Monitor sincronização de dados SQL do Azure com a análise de registos do OMS](sql-database-sync-monitor-oms.md)
--   [Resolver problemas com a sincronização de dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
+-   [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)
+-   [Melhores práticas da Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
+-   [Monitorizar a Sincronização de Dados SQL do Azure com o OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Resolver problemas da Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 
--   Conclua os exemplos do PowerShell que mostram como configurar a sincronização de dados do SQL Server:
+-   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:
     -   [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [Utilizar o PowerShell para sincronizar entre uma base de dados do SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)
+    -   [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)
 
--   [Transferir a documentação da API de REST de sincronização de dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Transferir a documentação da API REST da Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-Para obter mais informações sobre a base de dados SQL, consulte:
+Para obter mais informações sobre a Base de Dados SQL, veja:
 
--   [Descrição geral da base de dados do SQL Server](sql-database-technical-overview.md)
--   [Gestão de ciclo de vida de base de dados](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Descrição Geral da Base de Dados SQL](sql-database-technical-overview.md)
+-   [Gestão do Ciclo de Vida da Base de Dados](https://msdn.microsoft.com/library/jj907294.aspx)

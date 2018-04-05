@@ -2,7 +2,7 @@
 title: Como monitorizar uma conta de armazenamento do Azure | Microsoft Docs
 description: Saiba como monitorizar uma conta de armazenamento no Azure utilizando o portal do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorizar uma conta de armazenamento no portal do Azure
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 01/24/2018
 > Não existem custos associados a examinar os dados de monitorização no portal do Azure. Para obter mais informações, consulte [faturação e de análise de armazenamento](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Ficheiros do Azure suporta métricas da análise de armazenamento atualmente, mas ainda não suporta o registo.
->
-> As contas de armazenamento com um tipo de replicação de armazenamento com redundância de zona (ZRS) suportam métricas e registo. As contas ZRS anteriores que tem sido mudado ZRS clássico, efetue não as métricas de suporte ou de registo. Para obter mais informações sobre o ZRS, consulte [armazenamentocomredundânciadezona](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Para obter um guia aprofundado sobre a utilização de análise de armazenamento e outras ferramentas para identificar, diagnosticar e resolver problemas relacionados com o Storage do Azure, consulte [monitorizar, diagnosticar e resolver problemas de armazenamento do Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -47,7 +45,7 @@ ms.lasthandoff: 01/24/2018
 
    Existem dois tipos de métricas, pode ativar para cada serviço, que estão ativadas por predefinição para novas contas de armazenamento:
 
-   * **Agregação**: recolhe métricas como percentagens de entrada/saída, disponibilidade, latência e êxito. Estas métricas são agregadas para o blob, fila, tabela e serviços de ficheiros.
+   * **Agregação**: recolhe métricas como percentagens de entrada/saída, disponibilidade, latência e êxito. Estas métricas são agregadas para o blob, a fila, a tabela e os serviços de ficheiros.
    * **Por API**: para além das métricas de agregação, recolhe o mesmo conjunto de métricas para cada operação de armazenamento na API do serviço de armazenamento do Azure.
 
    Para definir a política de retenção de dados, mover o **retenção (dias)** controlo de deslize ou introduza o número de dias de dados para a retenção de 1 a 365. A predefinição para novas contas de armazenamento é sete dias. Se não pretender definir uma política de retenção, introduza zero. Se não houver nenhuma política de retenção, é até eliminar os dados de monitorização.
@@ -154,7 +152,7 @@ Os registos de diagnóstico são guardados no contentor do blob denominado $logs
 
 Para obter informações sobre como aceder ao contentor $logs, consulte [aceder aos dados de registo e ativar o registo de armazenamento](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Obter mais informações sobre [métricas, registo e faturação](../storage-analytics.md) para análise de armazenamento.
 * [Ativar dados de métricas de métricas e vista de armazenamento do Azure](../storage-enable-and-view-metrics.md) utilizando o PowerShell e através de programação com c#.

@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 57296d828156184aa36532cd649fbec0c81b5e27
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0e7ab68075fbce729d3905375acce0dace22c483
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simular uma falha ao aceder ao armazenamento redundante com acesso de leitura
 
-Este tutorial é a segunda parte de uma série.  Neste tutorial, pode utilizar o [Fiddler](#simulate-a-failure-with-fiddler) ou o [Encaminhamento Estático](#simulate-a-failure-with-an-invalid-static-route) para simular a falha de pedidos para o ponto final primário da sua conta de armazenamento [ georredundante com acesso de leitura](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) e fazer com que a aplicação leia do ponto final secundário.
+Este tutorial é a segunda parte de uma série.  Neste tutorial, pode utilizar o [Fiddler](#simulate-a-failure-with-fiddler) ou o [Encaminhamento Estático](#simulate-a-failure-with-an-invalid-static-route) para simular a falha de pedidos para o ponto final primário da sua conta de armazenamento [ georredundante com acesso de leitura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) e fazer com que a aplicação leia do ponto final secundário.
 
 ![Aplicação de cenário](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
@@ -117,7 +117,7 @@ Quando estiver concluído, prima **qualquer tecla** para retomar a aplicação. 
 
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Simular uma falha com uma rota estática inválida 
-Pode criar uma rota estática inválida para todos os pedidos para o ponto final primário da sua conta de armazenamento [georredundante com acesso de leitura](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS). Neste tutorial, o anfitrião local é utilizado como o gateway de encaminhamento de pedidos para a conta de armazenamento. A utilização do anfitrião local como o gateway faz com que todos os pedidos para o ponto final primário da conta de armazenamento sejam redirecionados para dentro do anfitrião, o que, posteriormente, origina falhas. Siga os passos seguintes para simular uma falha e o restauro do ponto final primário com uma rota estática inválida. 
+Pode criar uma rota estática inválida para todos os pedidos para o ponto final primário da sua conta de armazenamento [georredundante com acesso de leitura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS). Neste tutorial, o anfitrião local é utilizado como o gateway de encaminhamento de pedidos para a conta de armazenamento. A utilização do anfitrião local como o gateway faz com que todos os pedidos para o ponto final primário da conta de armazenamento sejam redirecionados para dentro do anfitrião, o que, posteriormente, origina falhas. Siga os passos seguintes para simular uma falha e o restauro do ponto final primário com uma rota estática inválida. 
 
 ### <a name="start-and-pause-the-application"></a>Iniciar e colocar em pausa a aplicação
 

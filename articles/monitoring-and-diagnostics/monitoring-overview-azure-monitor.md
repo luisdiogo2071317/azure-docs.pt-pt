@@ -1,25 +1,25 @@
 ---
-title: "Descrição geral do Monitor do Azure | Microsoft Docs"
-description: "Monitor do Azure recolhe estatísticas para utilização em alertas, webhooks, dimensionamento automático e automatização. Artigo listam também outras opções de monitorização da Microsoft."
+title: Descrição geral do Monitor do Azure | Microsoft Docs
+description: Monitor do Azure recolhe estatísticas para utilização em alertas, webhooks, dimensionamento automático e automatização. Artigo listam também outras opções de monitorização da Microsoft.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 448711b7b2e102662bc157485561c33bf7f5fba1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Descrição geral do Monitor do Azure
 Este artigo fornece uma descrição geral do serviço Azure Monitor no Microsoft Azure. -Descreve o Monitor do Azure e fornece indicações para informações adicionais sobre como utilizar o Monitor do Azure.  Se preferir um vídeo de introdução, consulte seguintes passos ligações na parte inferior deste artigo. 
@@ -35,15 +35,13 @@ Monitor do Azure tem uma página de destino que ajuda os utilizadores:
 - Compreenda as capacidades de monitorização oferecidas pelo Azure.
 - Detetar, configurar e uma Azure plataforma e premium capacidades de monitorização.
 
-Enquanto o serviço de monitorização do Azure é lançado, a página de descrição geral de destino está em pré-visualização. 
-
 A página é um ponto de partida para navegação, incluindo Dependency. Demonstra organizados problemas relevantes dos serviços de diferentes e permite ao utilizador navegar para-os no contexto.
  
 ![Modelo de monitorização e diagnóstico para recursos de computação não](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
 
 Quando abrir a página, pode selecionar entre as subscrições que tem acesso de leitura. Para uma subscrição selecionada, consulte:
 
-- **Acionado alertas e origens de alerta** - esta tabela mostra as contagens de resumidas, origens de alerta, e quantas vezes alertas desencadeadas para a duração de tempo selecionado. Aplica-se a métrica e atividade alertas de registo. *< editar: alertas (pré-visualização) com experiência unificada também é apresentada para todos os alertas - registos, métricas e eventos >*
+- **Acionado alertas e origens de alerta** - esta tabela mostra as contagens de resumidas, origens de alerta, e quantas vezes alertas desencadeadas para a duração de tempo selecionado. Aplica-se aos alertas mais antigas e mais recentes. Leia mais sobre o [mais recente do Azure alertas](monitoring-overview-unified-alerts.md). 
 - **Erros de registo de atividade** -se qualquer um dos seus recursos do Azure registar eventos com uma gravidade de nível de erro, pode ver uma contagem de alto nível e clicar sucessivamente para a página de registo de atividade para investigar cada evento.
 - **Estado de funcionamento de serviço do Azure** -pode ver uma contagem de problemas do serviço de estado de funcionamento do serviço, eventos de manutenção planeada e advisories de estado de funcionamento. Estado de funcionamento de serviço do Azure fornece informação personalizada quando problemas na infraestrutura do Azure afetam os serviços.  Consulte [estado de funcionamento de serviço de Azure](../service-health/service-health-overview.md) para obter mais informações.  
 - **Application Insights** -Consulte KPIs para cada recurso AppInsights na subscrição atual. Os KPIs estão otimizados para monitorização, entre as aplicações web do ASP.NET, Java, nó e geral, tipos de aplicações da aplicação do lado do servidor. Os KPIs incluem as métricas de taxa de pedidos, duração de resposta, taxa de falhas e % de disponibilidade. 
@@ -143,12 +141,12 @@ Alguns métodos de visualização incluem:
 
 ### <a name="automate"></a>Automatizar
 > [!NOTE]
-> Como parte da evolução em curso de alertas no Microsoft Azure, agora uma experiência unificada para alertar está a ser pré-visualizado. Obter mais detalhes sobre [alertas do Azure (pré-visualização)](monitoring-overview-unified-alerts.md)
+> Como parte da evolução em curso de alertas no Microsoft Azure, uma experiência unificada para alertar está agora disponível. Obter mais detalhes sobre [novos alertas do Azure](monitoring-overview-unified-alerts.md)
 
-Os alertas do Azure standard, pode utilizar dados de monitorização para os alertas de Acionador ou processos mesmo todo. Os exemplos incluem:
+Os alertas do Azure, pode utilizar dados de monitorização para os alertas de Acionador ou processos mesmo todo. Os exemplos incluem:
 
 * Utilize dados para instâncias de computação de dimensionamento automático ou reduzir verticalmente com base na carga de aplicação.
-* Envie mensagens de correio eletrónico quando uma métrica atravesse um limiar predeterminado.
+* Envie e-mails com base nas condições métrica ou de registo. 
 * Chamar um URL de web (webhook) para executar uma ação num sistema fora do Azure
 * Iniciar um runbook na automatização do Azure para efetuar quaisquer variedade de tarefas
 
@@ -161,7 +159,7 @@ Em geral, pode manipular os dados, encaminhamento e o controlo de obtenção atr
 * [API REST](https://docs.microsoft.com/rest/api/monitor/)
 * [SDK do .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre
 - Um vídeo com instruções de Monitor de Azure apenas está disponível em  
 [Introdução ao Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). 

@@ -1,12 +1,12 @@
 ---
-title: "Obter uma mensagem do Twitter com as funções do Azure | Microsoft Docs"
-description: "Utilize o sensor de movimento para detetar abanar e utilizar as funções do Azure para localizar um tweet aleatório com um hashtag que especificar."
+title: Obter uma mensagem do Twitter com as funções do Azure | Microsoft Docs
+description: Utilize o sensor de movimento para detetar abanar e utilizar as funções do Azure para localizar um tweet aleatório com um hashtag que especificar.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: liydu
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: d9d03d35aa5d78d83e0f195c804cfe09fece3c07
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a84393c5c53b8f8e4a8b688a462f433b2d611b0e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Abanar, abanar para um Tweet – obter uma mensagem do Twitter com as funções do Azure!
 
@@ -33,7 +33,7 @@ Concluir o [guia de introdução](https://docs.microsoft.com/azure/iot-hub/iot-h
 
 Uma subscrição ativa do Azure. Se não tiver uma, pode registar através de um dos seguintes métodos:
 
-* Ativar um [conta de Microsoft Azure avaliação de 30 dias gratuita](https://azureinfo.microsoft.com/us-freetrial.html)
+* Ativar um [conta de Microsoft Azure avaliação de 30 dias gratuita](https://azure.microsoft.com/en-us/free/)
 * Afirmação sua [crédito do Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se forem subscritor MSDN ou o Visual Studio
 
 ## <a name="open-the-project-folder"></a>Abra a pasta do projeto

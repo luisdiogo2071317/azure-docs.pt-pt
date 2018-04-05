@@ -1,11 +1,11 @@
 ---
 title: Compreender os dispositivos duplos do IoT Hub do Azure | Microsoft Docs
-description: "Guia para programadores - utilize dispositivos duplos para sincronizar dados de estado e a configuração entre o IoT Hub e dos dispositivos"
+description: Guia para programadores - utilize dispositivos duplos para sincronizar dados de estado e a configuração entre o IoT Hub e dos dispositivos
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,16 +15,19 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e utilizar dispositivos duplos no IoT Hub
 
-*Dispositivos duplos* são documentos JSON que armazenam informações de estado do dispositivo, incluindo metadados, configurações e condições. IoT Hub do Azure mantém um dispositivo duplo para cada dispositivo que se liga ao IoT Hub. Este artigo descreve:
+*Dispositivos duplos* são documentos JSON que armazenam informações de estado do dispositivo, incluindo metadados, configurações e condições. IoT Hub do Azure mantém um dispositivo duplo para cada dispositivo que se liga ao IoT Hub. 
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+Este artigo descreve:
 
 * A estrutura do dispositivo duplo: *etiquetas*, *pretendido* e *comunicadas propriedades*.
 * As operações que podem efetuar a aplicações de dispositivos e o back-ends nos dispositivos duplos.

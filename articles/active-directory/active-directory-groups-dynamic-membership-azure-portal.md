@@ -12,31 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 03/30/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 2b42840bc1053e9574e7c8ab1c68611c3b2bc7df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a4ed9ddabe19406fa694992f29cf529b491438c0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributos para filiação dinâmica em grupos no Azure Active Directory
-No Azure Active Directory (Azure AD), pode criar regras avançadas para ativar complexas baseadas em atributos filiação dinâmica para grupos. Este artigo fornece detalhes sobre os atributos e a sintaxe para criar regras de associação dinâmica para utilizadores ou dispositivos.
+No Azure Active Directory (Azure AD), pode criar regras avançadas para ativar complexas baseadas em atributos filiação dinâmica para grupos. Este artigo fornece detalhes sobre os atributos e a sintaxe para criar regras de associação dinâmica para utilizadores ou dispositivos. Pode configurar uma regra de filiação dinâmica em grupos de segurança ou grupos do Office 365.
 
 Quando forem efetuadas alterações de atributos de um utilizador ou dispositivo, o sistema avalia todas as regras de grupo dinâmico num diretório para ver se acionaria a alteração de qualquer grupo adiciona ou remove. Se um utilizador ou dispositivo satisfaz uma regra num grupo, eles são adicionados como um membro desse grupo. Se estes já não satisfazem a regra, estes serão removidos.
 
 > [!NOTE]
-> Pode configurar uma regra de filiação dinâmica em grupos de segurança ou grupos do Office 365.
->
 > Esta funcionalidade necessita de uma licença do Azure AD Premium P1 para cada membro do utilizador adicionado a pelo menos um grupo dinâmico. Não é obrigatório para, efetivamente, atribuir licenças aos utilizadores para os mesmos para serem membros de grupos dinâmicos, mas tem de ter o número mínimo de licenças no inquilino para cobrir todos os utilizadores deste tipo. Por exemplo: Se tiver um total de 1000 utilizadores exclusivos em todos os grupos dinâmicos no seu inquilino, tem de ter, pelo menos, 1000 licenças para o Azure AD Premium P1 ou acima, para cumprir o requisito de licença.
 >
 > Pode criar um grupo dinâmico para utilizadores ou dispositivos, mas não é possível criar uma regra que contém objetos de dispositivo e utilizador.
 > 
 > De momento, não é possível criar um grupo de dispositivos com base nos atributos do utilizador proprietário. Regras de associação do dispositivo só podem referenciar imediatos atributos de objetos de dispositivo no diretório.
-> 
-> Microsoft Teams ainda não suporta a filiação dinâmica do grupo. Pode validar o erro nos registos associados "Não é possível migrar o grupo de associação dinâmica"
 
 ## <a name="to-create-an-advanced-rule"></a>Para criar uma regra avançada
 1. Iniciar sessão para o [Centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador de conta de utilizador.
@@ -74,7 +70,7 @@ Para obter a lista completa de parâmetros suportados e operadores de regra de e
 O comprimento total do corpo da sua regra avançada não pode exceder 2048 carateres.
 
 > [!NOTE]
-> As operações de cadeia e regex não são sensíveis a maiúsculas e minúsculas. Também pode executar verificações de valores nulos, utilizando *nulo* como uma constante, por exemplo, user.department - eq *$null*.
+> As operações de cadeia e regex não são sensíveis a maiúsculas e minúsculas. Também pode executar verificações de Null, utilizando *nulo* como uma constante, por exemplo, user.department - eq *nulo*.
 > As cadeias que contenham aspas "escape utilizando ' caráter, por exemplo, user.department - eq \`"Vendas".
 
 ## <a name="supported-expression-rule-operators"></a>Operadores de regra de expressão suportados
@@ -106,11 +102,11 @@ Todos os operadores estão listados abaixo por precedência inferior de para sup
 Todos os operadores podem ser utilizados com ou sem o prefixo de hífen. Parênteses são necessárias apenas quando a precedência não cumpre os requisitos.
 Por exemplo:
 ```
-   user.department -eq "Marketing" -and user.country -eq "US"
+   user.department –eq "Marketing" –and user.country –eq "US"
 ```
 é equivalente ao:
 ```
-   (user.department -eq "Marketing") -and (user.country -eq "US")
+   (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
 ## <a name="using-the--in-and--notin-operators"></a>Utilizar-na - notIn operadores e
 
@@ -160,32 +156,32 @@ Operadores permitidos
 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
-| city |Qualquer valor de cadeia ou *$null* |(user.city -eq "value") |
-| País |Qualquer valor de cadeia ou *$null* |(user.country -eq "value") |
-| companyName | Qualquer valor de cadeia ou *$null* | (user.companyName -eq "value") |
-| Departamento |Qualquer valor de cadeia ou *$null* |(user.department - eq "value") |
+| city |Qualquer valor de cadeia ou *nulo* |(user.city -eq "value") |
+| País |Qualquer valor de cadeia ou *nulo* |(user.country -eq "value") |
+| companyName | Qualquer valor de cadeia ou *nulo* | (user.companyName -eq "value") |
+| Departamento |Qualquer valor de cadeia ou *nulo* |(user.department - eq "value") |
 | displayName |Qualquer valor de cadeia |(user.displayName -eq "value") |
-| campo IDdeEmpregado |Qualquer valor de cadeia |(user.employeeId -eq "value")<br>(user.employeeId - ne *$null*) |
-| facsimileTelephoneNumber |Qualquer valor de cadeia ou *$null* |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |Qualquer valor de cadeia ou *$null* |(user.givenName -eq "value") |
-| jobTitle |Qualquer valor de cadeia ou *$null* |(user.jobTitle -eq "value") |
-| capacidade de correio |Qualquer valor de cadeia ou *$null* (endereço SMTP do utilizador) |(user.mail -eq "value") |
+| campo IDdeEmpregado |Qualquer valor de cadeia |(user.employeeId -eq "value")<br>(user.employeeId - ne *nulo*) |
+| facsimileTelephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |Qualquer valor de cadeia ou *nulo* |(user.givenName -eq "value") |
+| jobTitle |Qualquer valor de cadeia ou *nulo* |(user.jobTitle -eq "value") |
+| capacidade de correio |Qualquer valor de cadeia ou *nulo* (endereço SMTP do utilizador) |(user.mail -eq "value") |
 | mailNickName |Qualquer valor de cadeia (alias de correio do utilizador) |(user.mailNickName -eq "value") |
-| Mobile |Qualquer valor de cadeia ou *$null* |(user.mobile -eq "value") |
+| Mobile |Qualquer valor de cadeia ou *nulo* |(user.mobile -eq "value") |
 | objectId |GUID de objeto de utilizador |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | No local o identificador de segurança (SID) para os utilizadores que foram sincronizadas no local para a nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Qualquer valor de cadeia ou *$null* |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |Qualquer valor de cadeia ou *$null* |(user.postalCode -eq "value") |
+| physicalDeliveryOfficeName |Qualquer valor de cadeia ou *nulo* |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |Qualquer valor de cadeia ou *nulo* |(user.postalCode -eq "value") |
 | preferredLanguage |Código do ISO 639-1 |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Qualquer valor de cadeia ou *$null* |(user.sipProxyAddress -eq "value") |
-| state |Qualquer valor de cadeia ou *$null* |(user.state -eq "value") |
-| streetAddress |Qualquer valor de cadeia ou *$null* |(user.streetAddress -eq "value") |
-| Apelido |Qualquer valor de cadeia ou *$null* |(user.surname - eq "value") |
-| telephoneNumber |Qualquer valor de cadeia ou *$null* |(user.telephoneNumber -eq "value") |
+| sipProxyAddress |Qualquer valor de cadeia ou *nulo* |(user.sipProxyAddress -eq "value") |
+| state |Qualquer valor de cadeia ou *nulo* |(user.state -eq "value") |
+| streetAddress |Qualquer valor de cadeia ou *nulo* |(user.streetAddress -eq "value") |
+| Apelido |Qualquer valor de cadeia ou *nulo* |(user.surname - eq "value") |
+| telephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.telephoneNumber -eq "value") |
 | usageLocation |Indicativo de país lettered dois |(user.usageLocation -eq "US") |
 | userPrincipalName |Qualquer valor de cadeia |(user.userPrincipalName -eq "alias@domain") |
-| userType |o convidado de membro *$null* |(user.userType -eq "Member") |
+| userType |o convidado de membro *nulo* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades de coleção de cadeia de tipo
 Operadores permitidos
@@ -228,7 +224,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## <a name="use-of-null-values"></a>Utilização de valores nulos
 
-Para especificar um valor nulo numa regra, pode utilizar o *nulo* valor. Tenha cuidado para não utilizar as aspas à volta o word *nulo* -se o fizer, será interpretado como um valor de cadeia literal. A forma correta para fazer referência um valor nulo é o seguinte:
+Para especificar um valor nulo numa regra, pode utilizar o *nulo* valor. Tenha cuidado para não utilizar as aspas à volta o word *nulo* -se o fizer, será interpretado como um valor de cadeia literal. -Não operador não pode ser utilizado como um operador comparative nulo. Se a utilizá-la, obtiver um erro se utilizar nulo ou $null. Em alternativa, utilize - eq ou - ne. A forma correta para fazer referência um valor nulo é o seguinte:
 ```
    user.mail –ne $null
 ```
@@ -253,14 +249,15 @@ Pode criar um grupo que contém todos os relatórios de direta de um gestor. Qua
 
 > [!NOTE]
 > 1. Para a regra funcionar, certifique-se de que o **Manager ID** propriedade está definida corretamente os utilizadores no seu inquilino. Pode verificar o valor atual para um utilizador no respetivo **separador perfil**.
-> 2. Esta regra só suporta **direta** relatórios. Atualmente não é possível criar um grupo para uma hierarquia aninhada, por exemplo, um grupo que inclua os seus relatórios e relatórios diretos.
+> 2. Esta regra só suporta **direta** relatórios. Atualmente não é possível criar um grupo para uma hierarquia aninhada; Por exemplo, um grupo que inclui relatórios diretos e os relatórios.
+> 3. Esta regra não pode ser combinada com quaisquer outras regras avançadas.
 
 **Para configurar o grupo**
 
 1. Siga os passos 1 a 5 da secção [para criar a regra avançada](#to-create-the-advanced-rule)e selecione um **tipo de associação** de **utilizador dinâmica**.
 2. No **regras de associação dinâmica** painel, introduza a regra com a seguinte sintaxe:
 
-    *Relatórios diretos para "{obectID_of_manager}"*
+    *Relatórios diretos para "{objectID_of_manager}"*
 
     Um exemplo de uma regra válida:
 ```
@@ -295,19 +292,43 @@ Também pode criar uma regra que seleciona objetos de dispositivo para a associa
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>A alteração de associação dinâmica para estático e vice versa
 É possível alterar como é gerida a associação num grupo. Isto é útil quando pretender manter o mesmo nome de grupo e ID no sistema, todas as referências existentes para o grupo ainda são válidas; criar um novo grupo seria necessários atualizar essas referências.
 
-Estamos no processo de atualização do portal do Azure para suportar esta funcionalidade. Entretanto, pode utilizar os cmdlets do PowerShell, conforme mostrado abaixo.
+Atualizámos o Centro de administração do Azure AD para adicionar suporte esta funcionalidade. Agora, os clientes podem converter grupos existentes de associação dinâmica associação atribuída e vice-versa ou através do Centro de administração do Azure AD ou os cmdlets do PowerShell, conforme mostrado abaixo.
 
 > [!WARNING]
 > Quando alterar um grupo estático existente para um grupo dinâmico, todos os membros existentes serão removidos do grupo e, em seguida, será processada a regra de associação para adicionar novos membros. Se o grupo é utilizado para controlar o acesso a aplicações ou recursos, os membros originais podem perder o acesso até que a regra de associação é totalmente processada.
 >
-> É uma prática recomendada para testar a nova regra de associação previamente para se certificar de que a nova associação no grupo é o esperado.
+> Recomendamos que teste a nova regra de associação previamente para se certificar de que a nova associação no grupo é o esperado.
 
-**Utilizar o PowerShell para gestão de associação num grupo de alterações**
+### <a name="using-azure-ad-admin-center-to-change-membership-management-on-a-group"></a>Utilizar o Centro de administração do Azure AD para alterar a gestão de associação num grupo 
+
+1. Iniciar sessão para o [Centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador de conta de utilizador no seu inquilino.
+2. Selecione **grupos**.
+3. Do **todos os grupos** lista, abra o grupo que pretende alterar.
+4. Selecione **propriedades**.
+5. No **propriedades** página para o grupo, selecione um **tipo de associação** de atribuído (estático), dinâmico de utilizador ou dispositivo dinâmico, consoante o tipo de associação pretendido. Para filiação dinâmica, pode utilizar o construtor de regra para selecionar as opções para uma regra simples ou escrever uma regra de avançadas por si. 
+
+Os seguintes passos são um exemplo de alterar um grupo de estático para filiação dinâmica num grupo de utilizadores. 
+
+1. No **propriedades** página para o grupo selecionado, selecione um **tipo de associação** de **utilizador dinâmica**, em seguida, selecione Sim na caixa de diálogo explicar as alterações ao grupo associação para continuar. 
+  
+   ![Selecione o tipo de associação do utilizador dinâmica](./media/active-directory-groups-dynamic-membership-azure-portal/select-group-to-convert.png)
+  
+2. Selecione **consulta dinâmica adicionar**e, em seguida, forneça a regra.
+  
+   ![Introduza a regra](./media/active-directory-groups-dynamic-membership-azure-portal/enter-rule.png)
+  
+3. Depois de criar a regra, selecione **adicionar consulta** na parte inferior da página.
+4. Selecione **guardar** no **propriedades** página para o grupo guardar as alterações. O **tipo de associação** do grupo será imediatamente atualizado na lista de grupos.
+
+> [!TIP]
+> Grupo conversão poderá falhar se a regra avançada introduzida estava incorreta. É apresentada uma notificação no canto superior direito do portal que contém uma explicação sobre o motivo pelo qual a regra não é possível aceitar pelo sistema. Leia cuidadosamente para compreender como pode ajustar a regra para torná-lo válido.
+
+### <a name="using-powershell-to-change-membership-management-on-a-group"></a>Utilizar o PowerShell para gestão de associação num grupo de alterações
 
 > [!NOTE]
-> Para alterar as propriedades de grupo dinâmico, terá de utilizar os cmdlets da **a versão de pré-visualização do** [versão 2 do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Pode instalar a pré-visualização do [aqui](https://www.powershellgallery.com/packages/AzureADPreview).
+> Para alterar as propriedades de grupo dinâmico, terá de utilizar os cmdlets da **a versão de pré-visualização do** [versão 2 do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Pode instalar a pré-visualização do [galeria do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
 
-Eis um exemplo de funções que mudam de gestão de associação de um grupo existente. Tenha em atenção que o máximo cuidado corretamente manipular a propriedade GroupTypes e preservar os valores que podem existir existe, não relacionado com a filiação dinâmica.
+Eis um exemplo de funções que mudam de gestão de associação de um grupo existente. Neste exemplo, o máximo cuidado corretamente manipular a propriedade GroupTypes e preservar os valores que são relacionado com a filiação dinâmica.
 
 ```
 #The moniker for dynamic groups as used in the GroupTypes property of a group object
@@ -359,7 +380,7 @@ Para tornar um grupo dinâmico:
 ```
 ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Estes artigos fornecem informações adicionais sobre os grupos no Azure Active Directory.
 
 * [Consulte os grupos existentes](active-directory-groups-view-azure-portal.md)

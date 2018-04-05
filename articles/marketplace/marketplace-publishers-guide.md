@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 94bf1a8fd9ac37087862823317bde5f3d130a3d6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e9343b4a0049b2eea30f903159fdeff0ae7ff851
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia de publicador do Azure Marketplace e AppSource
 
@@ -335,7 +335,7 @@ Antes de começar o processo de publicação, é útil compreender os componente
 |Terá de artefacto esta publicação  |Para este tipo de oferta  |
 |---------|---------|
 |**Oferecer nome (200 carateres) e uma descrição (2.000 carateres)**    |  Todos        |
-|**Competência MPN ID e competências**   |  Serviços de consultoria       |
+|**ID de parceiro da Microsoft de rede (MPN)**   |  Todos       |
 |**Disponibilidade do país/região**   | Todos        |
 |**Duração do engagement**     |   Serviços de consultoria      |
 |**Indústrias aplicáveis, categorias e as palavras a procurar**     |  Todos       |
@@ -412,6 +412,7 @@ Nesta secção, vamos explicar os passos para:
 
 |Passo de registo do Marketplace  |Hora  |Descrição  |
 |---------|---------|---------|
+| Registar-se numa rede de parceiros de Microoft | 15 min | Os publicadores tem de estar registado na rede de parceiros de Microsoft (MPN) para poder ter primeiro nível da validação de conta e receber outras vantagens e suporte para a ser um publicador do Azure Marketplace |
 |Criar uma ID da Microsoft     |   15 minutos      |   Os parceiros têm de ter um ID. Microsoft Este ID de Microsoft será utilizado para aceder ao Portal de parceiros de nuvem.       |
 |Submeter o formulário de nomination do marketplace     |  1 a 3 dias       |  Os parceiros têm submeter o formulário nomination para iniciar o processo de aprovação para o mercado. Depois do formulário é submetido, a equipa de integração do marketplace irá rever a aplicação e validar o pedido.       |
 |Registar no Centro de programadores     |    5-10 dias     | O registo com o Microsoft Developer Center é necessário para a Microsoft validar se o parceiro é uma entidade legal válida com um ID de dedução dos impostos válido para o país/região na qual está registado. O Centro de programadores irá ativar o parceiro para ser um programador da Microsoft registado e fornecem acesso para o programa de programador do Azure. <br><br>Tenha em atenção que se ainda não concluído o formulário de nomination marketplace, irá ser-lhe pedido para pagar uma taxa de registo $99. Para que esta taxa não cobrada, preencha o formulário de nomination marketplace e irá receber um código promocional via e-mail.  |
@@ -425,6 +426,9 @@ Deve ter apenas uma conta de ID da Microsoft para os Azure Marketplace e AppSour
 
 O endereço de e-mail selecionado, de preferência, deve estar no seu domínio empresarial e controladas pela sua equipa de TI. Para diretrizes antes de criar um ID, consulte as secções [diretrizes e how-tos](#guidelines-and-how-tos). 
 
+#### <a name="register-in-microsoft-partner-network"></a>Registar-se numa rede de parceiro da Microsoft 
+Se tornar um Azure Marketplace ou AppSource fabricante da sua empresa irá partnering com a Microsoft. Ao participar na rede de parceiros da Microsoft (MPN) irá obter acesso ao definir dos benefícios de núcleos para ajudar a sua empresa para desenvolver as soluções técnicas e aumentar a sua empresa (ex: inclui o suporte técnico). Ao participar no Marketplace como publicador será acumular para os benefícios de Microsoft Partner Network. Para registar no MPN, visite [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/). Deve validar se a sua empresa já está registada no MPN. Depois de registado, vamos pedir para o seu id MPN validar a sua conta para validar o seu perfil de fabricante no [Portal de parceiros de nuvem](https://cloudpartner.azure.com/). 
+
 #### <a name="submit-the-marketplace-nomination-form"></a>Submeter o formulário de nomination do marketplace
 Como parte do processo de integração de marketplace, tem de submeter um formulário de nomination. O formulário inclui informações sobre a aplicação ou a oferta de serviço, as informações da sua empresa e o nível de suporte que irá fornecer. 
 
@@ -435,7 +439,7 @@ Depois de submeter o formulário, a equipa de Marketplace irá rever a aplicaç�
 
 #### <a name="register-in-the-developer-center"></a>Registar no Centro de programadores
 
-O [Microsoft Developer Center](https://developer.microsoft.com/) é utilizada para registar informações da sua empresa. O registrant tem de ser um representante válido da empresa e tem de fornecer as suas informações pessoais para validar a sua identidade. O registrant tem de utilizar um ID da Microsoft que é partilhado para a empresa e a mesma conta tem de ser utilizada no [Portal de parceiros de nuvem](https://cloudpartner.azure.com/). 
+O [Microsoft Developer Center](https://developer.microsoft.com/) é necessário para a publicação de aplicações que terão transact capacidades, tal como máquinas virtuais, modelos de solução e aplicações geridas por do Azure. Este requisito permitirá que a Microsoft para validar a informações legais empresa informações da sua empresa, dedução dos impostos e entidades de bancos. O registrant tem de ser um representante válido da empresa e tem de fornecer as suas informações pessoais para validar a sua identidade. A pessoa que está a registar tem de utilizar um ID da Microsoft que é partilhado para a empresa e a mesma conta tem de ser utilizada no [Portal de parceiros de nuvem](https://cloudpartner.azure.com/). 
 
 >[!IMPORTANT]
 >Antes de tentar criar uma conta Microsoft Developer Center, certifique-se a que sua empresa ainda não tiver um.
@@ -453,9 +457,9 @@ Para obter uma explicação passo a passo deste processo, consulte [instruções
 
 #### <a name="sign-in-to-the-cloud-partner-portal"></a>Inicie sessão no Portal de parceiros de nuvem
 
-Depois de receber a aprovação da equipa do Marketplace, que o nomination tiver sido aprovado e que registou no [Microsoft Developer Center](https://dev.windows.com), é criada uma conta para que possa aceder a [Portal de parceiros de nuvem ](https://cloudpartner.azure.com). Credenciais de início de sessão de hora da primeira estão incluídas no e-mail de aprovação de nomination. 
+Quando receber a aprovação da equipa do Marketplace, que o Nomination tiver sido aprovado e que registou no [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/) e na [Microsoft Developer Center](https://dev.windows.com) (se necessário), uma conta será criada para que possa aceder a [Portal de parceiros de nuvem](https://cloudpartner.azure.com). Credenciais de início de sessão primeira hora serão incluídas no e-mail de aprovação de Nomination. 
 
-Utilize a sua conta do Marketplace (ID da Microsoft) para aceder ao seu perfil do publicador. Quando estiver no Portal de parceiros de nuvem, é o último passo associar a conta de centro de programadores com o respetivo perfil de publicador Marketplace para publicar. Pode efetuar esta associação no Portal de parceiros de nuvem, no seu perfil do publicador, através do botão na parte inferior do ecrã.
+Utilize a sua conta do Marketplace (ID da Microsoft) para aceder ao seu perfil do publicador. Uma vez no Portal de parceiros de nuvem, o último passo consiste em associar a conta Microsoft Partner Network e o Centro de programadores (se necessário) com o respetivo perfil de publicador Marketplace para publicar. Pode fazê-lo no Portal de parceiros de nuvem no seu perfil de publicador através na parte inferior do ecrã.
 
 Para obter informações detalhadas sobre como utilizar o Portal de parceiros de nuvem, vá para o [Saiba](https://cloudpartner.azure.com/#Learn) menu no portal e rever o **documentação** secção. 
 
@@ -621,6 +625,5 @@ Se tiver problemas com o registo do Centro de programadores, inicie um pedido de
    ![Botão "Submeter um incidente"](./media/marketplace-publishers-guide/devcentersubmitincident.png)
 
 3. Selecione **ajudar com Dev Center** como **tipo de problema**e selecione **publicar e gerir aplicações** como **categoria**. Depois disso, selecione o **iniciar e-mail** botão.   
-
 4. Na página de início de sessão, utilize uma conta Microsoft para iniciar sessão. Se não tiver uma conta Microsoft, crie uma utilizando a hiperligação. 
 5. Preencha os detalhes do problema e submeter o pedido de suporte, selecionando o **submeter** botão.

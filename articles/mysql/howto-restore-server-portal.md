@@ -8,14 +8,14 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 5bef3f11d0b546fbd6b1161b20d7dfb81e975f99
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 04/01/2018
+ms.openlocfilehash: 5d6118a47e10763373c9376ca08d328cf22ab3c8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para o MySQL no portal do Azure
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para o MySQL no portal do Azure
 
 ## <a name="backup-happens-automatically"></a>Cópia de segurança ocorre automaticamente
 Base de dados do Azure para servidores MySQL são cópias de segurança periodicamente para ativar funcionalidades de restauro. Utilizar esta funcionalidade pode restaurar o servidor e todas as suas bases de dados para um anterior ponto no tempo, num servidor novo.
@@ -49,7 +49,7 @@ Na captura de ecrã abaixo, foi aumentado para 34 dias.
 
 O período de retenção de cópias de segurança é regida pelas até que ponto anterior no tempo que pode ser obtido um restauro de ponto no tempo, uma vez que o se basear em cópias de segurança disponíveis. Restauro de ponto no tempo é ainda mais descrito na secção seguinte. 
 
-## <a name="point-in-time-restore-in-the-azure-portal"></a>Restauro de ponto no tempo no portal do Azure
+## <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 Base de dados do Azure para MySQL permite-lhe restaurar o servidor novamente para um ponto no tempo e em para uma nova cópia do servidor. Pode utilizar este servidor novo para recuperar os dados, ou ter as suas aplicações de cliente para este novo servidor do ponto.
 
 Por exemplo, se uma tabela estava acidentalmente removido hoje em dia, ao meio-dia foi possível restaurar para a hora imediatamente antes ao meio-dia e obter a tabela em falta e os dados a partir dessa nova cópia do servidor. Restauro de ponto no tempo no servidor ao nível, não é a nível da base de dados.
@@ -76,6 +76,22 @@ Os seguintes passos restaurar o servidor de exemplo para um ponto no tempo:
 >[!Note]
 >Tenha em atenção que o novo servidor criado pelo restauro de ponto no tempo tem o mesmo nome de início de sessão do administrador do servidor e palavra-passe que foi válido para o servidor existente ao ponto no tempo escolhido. Pode alterar a palavra-passe a partir do novo servidor **descrição geral** página.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="geo-restore"></a>Georreplicação restauro
+Se tiver configurado o servidor para cópias de segurança georredundante, um novo servidor pode ser criado da cópia de segurança de que o servidor existente. Este novo servidor pode ser criado em qualquer região que a base de dados do Azure para MySQL está disponível.  
+
+1. Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal. Selecione **Bases de Dados** > **Base de Dados do Azure para MySQL**.
+
+   ![A opção "Azure base de dados para MySQL"](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
+
+2. O formato **selecionar origem** lista pendente, escolha **cópia de segurança**. Esta ação carrega uma lista de servidores que têm cópias redundantes georreplicação ativadas. Selecione um destas cópias de segurança para ser a origem do novo servidor.
+   ![Selecionar origem: Cópia de segurança e a lista de cópias de segurança redundante georreplicação](./media/howto-restore-server-portal/2-georestore.png)
+
+3. Preencha o resto do formulário com as suas preferências. Pode selecionar qualquer **localização**. Depois de selecionar a localização, pode selecionar **escalão de preço**. Por predefinição, são apresentados os parâmetros para o servidor existente que está a restaurar. Pode clicar em **OK** sem efetuar alterações para herdar essas definições. Ou pode alterar **computação geração** (se disponível na região que escolheu), número de **vCores**, **período de retenção de cópia de segurança**, e **cópia de segurança Opção de redundância**. A alteração **escalão de preço** (básica, fins gerais ou com otimização de memória) ou **armazenamento** tamanho durante o restauro não é suportado.
+
+>[!Note]
+>O novo servidor criado pelo Restauro georreplicação tem o mesmo nome de início de sessão de administrador de servidor e palavra-passe que foi válido para o servidor existente no momento que do restauro foi iniciado. A palavra-passe pode ser alterada a partir do novo servidor **descrição geral** página.
+
+
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre o serviço [cópias de segurança](concepts-backup.md).
 - Saiba mais sobre [continuidade do negócio](concepts-business-continuity.md) opções.

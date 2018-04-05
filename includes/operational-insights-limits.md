@@ -1,27 +1,40 @@
-
->[!NOTE]
->O Log Analytics era anteriormente conhecido como Operational Insights.
->
->
-
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: log-analytics
+author: MGoedtel
+ms.service: log-analytics
+ms.topic: include
+ms.date: 03/29/2018
+ms.author: magoedte
+ms.custom: include file
+ms.openlocfilehash: 29256b3bcfedb7fe5045ff4c6c3842eb25e00a28
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/03/2018
+---
 Os seguintes limites aplicam-se aos recursos do Log Analytics por subscrição:
 
 | Recurso | Limite Predefinido | Comentários
 | --- | --- | --- |
 | Número de áreas de trabalho gratuitas por subscrição | 10 | Não pode aumentar este limite. |
-| Número de áreas de trabalho pagas por subscrição | N/D | Está limitado pelo número de recursos dentro de um grupo de recursos e pelo número de grupos de recursos por subscrição | 
+| Número de áreas de trabalho pagas por subscrição | N/A | Está limitado pelo número de recursos dentro de um grupo de recursos e pelo número de grupos de recursos por subscrição | 
 
+>[!NOTE]
+>A partir de 2 de Abril de 2018, áreas de trabalho nova numa nova subscrição irão utilizar automaticamente o *por GB* plano de preços.  Para as subscrições existentes criadas antes 2 de Abril, ou uma subscrição que foi ligada a uma inscrição EA existente, pode continuar a escolher entre os três escalões de preços para áreas de trabalho de novo. 
+>
 
 Os limites seguintes aplicam-se a cada área de trabalho do Log Analytics:
 
-|  | Gratuito | Standard | Premium | Autónomo | OMS |
-| --- | --- | --- | --- | --- | --- |
-| Volume de dados recolhido por dia |500 MB<sup>1</sup> |Nenhuma |Nenhuma | Nenhuma | Nenhuma
-| Período de retenção de dados |7 dias |1 mês |12 meses | 1 mês<sup>2</sup> | 1 mês <sup>2</sup>|
+|  | Gratuito | Standard | Premium | Autónomo | OMS | Por GB |
+| --- | --- | --- | --- | --- | --- |--- |
+| Volume de dados recolhido por dia |500 MB<sup>1</sup> |Nenhuma |Nenhuma | Nenhuma | Nenhuma | Nenhum
+| Período de retenção de dados |7 dias |1 mês |12 meses | 1 mês<sup>2</sup> | 1 mês <sup>2</sup>| 1 mês <sup>2</sup>|
 
 <sup>1</sup> Quando os clientes atingem o limite diário de transferência de dados de 500 MB, a análise de dados é parada e retomada no início do dia seguinte. Os dias são baseados no fuso horário UTC.
 
-<sup>2</sup> O período de retenção de dados dos planos de preços Autónomo e OMS pode ser aumentado para 730 dias.
+<sup>2</sup> o período de retenção de dados para o autónomo, OMS e por GB planos de preços pode ser aumentado para 730 dias.
 
 | Categoria | Limites | Comentários
 | --- | --- | --- |

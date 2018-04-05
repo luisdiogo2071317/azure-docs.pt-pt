@@ -1,19 +1,20 @@
 ---
-title: "Módulo de SQL de limite de IoT do Azure | Microsoft Docs"
-description: "Armazenar dados no limite com módulos do Microsoft SQL, com as funções do Azure para formatar os dados."
+title: Módulo de SQL de limite de IoT do Azure | Microsoft Docs
+description: Armazenar dados no limite com módulos do Microsoft SQL, com as funções do Azure para formatar os dados.
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
-ms.author: kgremban, ebertrams
+ms.author: kgremban
+ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 792e754b84f1dc03a32780ed94d274c833be68f5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c755d171b34d59d2746a965ab3511a0df00c98db
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Armazenar dados no limite com bases de dados do SQL Server
 
@@ -336,7 +337,7 @@ Ver os seus dados:
    GO
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [configurar imagens do SQL Server 2017 contentor no Docker](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker).
 

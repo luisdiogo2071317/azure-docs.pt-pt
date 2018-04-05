@@ -1,18 +1,18 @@
 ---
 title: Monitorizar o progresso da tarefa por contagem de tarefas por Estado - Azure Batch | Microsoft Docs
-description: "Monitorize o progresso de uma tarefa chamando a operação de contagens de tarefa de obter a contagem de tarefas para uma tarefa. Pode obter uma contagem de tarefas do Active Directory, em execução e foi concluídas e, por tarefas que foi concluída com êxito ou falha."
+description: Monitorize o progresso de uma tarefa chamando a operação de contagens de tarefa de obter a contagem de tarefas para uma tarefa. Pode obter uma contagem de tarefas do Active Directory, em execução e foi concluídas e, por tarefas que foi concluída com êxito ou falha.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: tamram
-ms.openlocfilehash: ceff59d7063b60a1344a47489d3d73e0e8ee07df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bc112ed5b481560362962d6b550d336de6b3d9b4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>Contagem de tarefas por Estado para monitorizar o progresso da tarefa (pré-visualização)
 
@@ -31,7 +31,7 @@ A operação de contagens de tarefa obter contagens tarefas por Estado, da segui
 - Uma tarefa é contabilizada como **executar** quando este foi atribuído a um nó de computação, mas ainda não foi concluído. Uma tarefa é contabilizada como **executar** quando o estado é `preparing` ou `running`, conforme indicado pelo [obter informações sobre uma tarefa] [ rest_get_task] operação.
 - Uma tarefa é contabilizada como **concluída** quando já não é elegível para ser executada. Uma tarefa contabilizado como **concluída** tem normalmente concluída com êxito, ou foi concluída sem êxito e também esgotou o respetivo limite de repetição. 
 
-A operação de contagens de tarefa obter relatórios também como muitas tarefas tem êxito ou falhou. Batch determina se uma tarefa teve êxito ou falha ao verificar o **resultado** propriedade da propriedade [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo]:
+A operação de contagens de tarefa obter relatórios também como muitas tarefas tem êxito ou falhou. Batch determina se uma tarefa teve êxito ou falha ao verificar o **resultado** propriedade [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] propriedade:
 
     - Uma tarefa é contabilizada como **foi concluída com êxito** se o resultado da execução da tarefa é `success`.
     - Uma tarefa é contabilizada como **falha** se o resultado da execução da tarefa é `failure`.
@@ -70,7 +70,7 @@ Chamar a operação de obter a contagem de tarefas é a forma mais eficiente par
 
 A operação de obter a contagem de tarefas anteriormente 2017-06-01.5.1 não está disponível nas versões do serviço de Batch. Se estiver a utilizar uma versão mais antiga do serviço, em seguida, utilize uma consulta de lista para em vez disso, a contagem de tarefas numa tarefa. Para obter mais informações, consulte [consultas de criar a lista de forma eficiente recursos do Batch](batch-efficient-list-queries.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Consulte a [Batch feature overview (Descrição geral da funcionalidade do Batch)](batch-api-basics.md) para saber mais sobre conceitos e funcionalidades de serviço do Batch. O artigo aborda os recursos do Batch principais como conjuntos, nós de computação, trabalhos e tarefas e fornece uma descrição geral das funcionalidades do serviço.
 * Aprenda os conceitos básicos de programação de uma aplicação compatível com o Batch ao utilizar a [biblioteca de cliente .NET do Batch](batch-dotnet-get-started.md) ou [Python](batch-python-tutorial.md). Estes artigos introdutórias ajudá-lo através de uma aplicação de trabalho que utiliza o serviço Batch para executar uma carga de trabalho em vário nós de computação.

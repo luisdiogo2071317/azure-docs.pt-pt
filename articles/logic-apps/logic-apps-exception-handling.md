@@ -1,24 +1,24 @@
 ---
-title: "Erro e excepção a processar para Logic Apps no Azure | Microsoft Docs"
-description: "Padrões de erro e excepção a processar a Logic Apps."
+title: Erro e excepção a processar para Logic Apps no Azure | Microsoft Docs
+description: Padrões de erro e excepção a processar a Logic Apps.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: dereklee
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 2ae4f0ae9782ada23089d364e8a1700144ef5ff7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Processar os erros e exceções em aplicações lógicas
 
@@ -55,16 +55,16 @@ Quando não definir uma política de repetição no **retryPolicy** secção, a 
         "retryPolicy" : {
             "type": "exponential",
             "count": 4,
-            "interval": "PT7.5S",
+            "interval": "PT7S",
             "minimumInterval": "PT5S",
-            "maximumInterval": "PT45S"
+            "maximumInterval": "PT1H"
         }
     },
     "runAfter": {}
 }
 ```
 
-### <a name="none"></a>Nenhum
+### <a name="none"></a>Nenhuma
 
 Se definir **retryPolicy** para **nenhum**, esta política não repete a ação pedidos falhados.
 
@@ -177,7 +177,7 @@ Embora a deteção de falhas de um âmbito é útil, pode também querer context
 
 O  **@result()** função aceita um parâmetro único (nome do âmbito) e devolve uma matriz de todos os ação resultados de dentro desse âmbito. Estes objetos de ação incluem os mesmos atributos como a  **@actions()** objeto, tal como a ação a hora de início, hora de fim, o estado, entradas, IDs de correlação e saídas. Para enviar o contexto para todas as ações que falha dentro de um âmbito, emparelhar facilmente um  **@result()** funcionar com uma **runAfter** propriedade.
 
-Para executar uma ação *para cada* ação num âmbito que tenha um **falha** resultado, e para filtrar a matriz de resultados para as ações de falha, pode ser emparelhado  **@result()** com um  **[filtro matriz](../connectors/connectors-native-query.md)**  ação e um  **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)**  ciclo. Pode colocar a matriz de resultado filtrados e efetuar uma ação para cada falha utilizando o **ForEach** ciclo. 
+Para executar uma ação *para cada* ação num âmbito que tenha um **falha** resultado, e para filtrar a matriz de resultados para as ações de falha, pode ser emparelhado  **@result()** com um **[filtro matriz](../connectors/connectors-native-query.md)** ação e um **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)** ciclo. Pode colocar a matriz de resultado filtrados e efetuar uma ação para cada falha utilizando o **ForEach** ciclo. 
 
 Eis um exemplo, seguido por uma explicação detalhada, que envia um pedido POST de HTTP com o corpo da resposta de todas as ações que falhou no âmbito "My_Scope":
 

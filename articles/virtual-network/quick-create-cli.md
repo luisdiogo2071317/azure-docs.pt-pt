@@ -1,26 +1,26 @@
 ---
 title: Criar uma Azure Virtual Network - CLI do Azure | Microsoft Docs
-description: "Saiba mais rapidamente criar uma rede virtual com a CLI do Azure. Uma rede virtual permite que os recursos do Azure, tais como as máquinas virtuais, em privado comunicar entre si e com a internet."
+description: Saiba mais rapidamente criar uma rede virtual com a CLI do Azure. Uma rede virtual permite que os recursos do Azure, tais como as máquinas virtuais, em privado comunicar entre si e com a internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 46fec48720c817072ce838dd2e4c07725be5a7fe
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: ''
+ms.openlocfilehash: d07f06a1a70c859544c3b1ceb6146dc11e4d10aa
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Criar uma rede virtual com a CLI do Azure
 
@@ -129,4 +129,4 @@ Neste artigo, criou uma rede virtual predefinido e duas VMs. Ligado a uma VM a p
 Por predefinição, o Azure permite a comunicação privada sem restrições entre máquinas virtuais, mas só permite a entrada de SSH de sessões para VMs com Linux através da Internet. Para saber como permitir ou restringir a diferentes tipos de comunicação de rede de e para as VMs, avançar para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Filtrar o tráfego de rede](virtual-networks-create-nsg-arm-cli.md)
+> [Filtrar o tráfego de rede](tutorial-filter-network-traffic-cli.md)

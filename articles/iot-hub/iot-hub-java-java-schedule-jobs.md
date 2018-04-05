@@ -1,11 +1,11 @@
 ---
 title: Agendar tarefas IoT hub do Azure (Java) | Microsoft Docs
-description: "Como agendar um trabalho do IoT Hub do Azure para invocar um método direto e definir uma propriedade pretendida em vários dispositivos. Utilizar o dispositivo IoT do Azure SDK para Java para implementar as aplicações do dispositivo simulado e o serviço de IoT do Azure SDK para Java para implementar uma aplicação de serviço para executar a tarefa."
+description: Como agendar um trabalho do IoT Hub do Azure para invocar um método direto e definir uma propriedade pretendida em vários dispositivos. Utilizar o dispositivo IoT do Azure SDK para Java para implementar as aplicações do dispositivo simulado e o serviço de IoT do Azure SDK para Java para implementar uma aplicação de serviço para executar a tarefa.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 54f446f8735bc46b87fe19aaf7845c5fbfce2744
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: af853a378a36c97edd74ea99fc5dcce92a073fea
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Tarefas de agendamento e de difusão (Java)
 
@@ -35,6 +35,8 @@ Para obter mais informações sobre cada uma destas capacidades, consulte:
 
 * Dispositivo duplo e propriedades: [começar a utilizar dispositivos duplos](iot-hub-java-java-twin-getstarted.md)
 * Direcionar métodos: [guia para programadores do IoT Hub - métodos diretas](iot-hub-devguide-direct-methods.md) e [Tutorial: utilizar métodos diretos](iot-hub-java-java-direct-methods.md)
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostrar-lhe como:
 
@@ -477,7 +479,7 @@ Agora está pronto para executar as aplicações de consola.
 
     ![O cliente do dispositivo responde às alterações](media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Criar uma aplicação de back-end para executar tarefas de dois. A primeira tarefa definir valores de propriedade pretendida e a segunda tarefa chamou um método direto.
 

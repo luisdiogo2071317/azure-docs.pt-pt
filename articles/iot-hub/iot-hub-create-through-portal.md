@@ -1,24 +1,24 @@
 ---
 title: Utilizar o portal do Azure para criar um IoT Hub | Microsoft Docs
-description: "Como criar, gerir e eliminar os hubs IoT do Azure através do portal do Azure. Inclui informações sobre os escalões de preço, dimensionamento, segurança e configuração de mensagens."
+description: Como criar, gerir e eliminar os hubs IoT do Azure através do portal do Azure. Inclui informações sobre os escalões de preço, dimensionamento, segurança e configuração de mensagens.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ac1a52355ffa5354bebe3b98fdb75783bcd57697
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6ffde076caff6217bf6255c9294eca63d3e39b85
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Criar um IoT hub no portal do Azure
 
@@ -53,18 +53,9 @@ Para criar um hub IoT, tem de nome do hub IoT. Este nome tem de ser exclusivo em
 
 ### <a name="choose-the-pricing-tier"></a>Escolha o escalão de preço
 
-Pode escolher entre quatro camadas: **livres**, **1 padrão** e **2 padrão**, e **Standard S3**. O escalão gratuito permite apenas 500 dispositivos para estar ligado ao IoT hub e até 8.000 mensagens por dia.
+Pode escolher entre vários escalões, dependendo de quantos as funcionalidades que pretende e o número de mensagens enviar através da sua solução por dia. O escalão gratuito destina-se de avaliação e teste. Permite 500 dispositivos para estar ligado ao IoT hub e até 8.000 mensagens por dia. Cada subscrição do Azure pode criar um IoT Hub no escalão gratuito. 
 
-**No padrão S1**: utilizar a edição de S1 para soluções de IoT com um grande número de dispositivos que cada gerar pequenas quantidades de dados. Cada unidade da edição S1 permite até 400 000 mensagens por dia em todos os dispositivos ligados.
-
-**No padrão S2**: utilizar a edição de S2 para soluções de IoT no qual os dispositivos gerar grandes quantidades de dados. Cada unidade da edição S2 permite até 6 milhões de mensagens por dia entre todos os dispositivos ligados.
-
-**Standard S3**: utilizar a edição de S3 para soluções de IoT que geram grandes quantidades de dados. Cada unidade da edição S3 permite 300 milhões de mensagens por dia entre todos os dispositivos ligados.
-
-![][4]
-
-> [!NOTE]
-> IoT Hub apenas permite um hub gratuito por subscrição do Azure.
+Para obter detalhes sobre as outras opções de camada, consulte [escolher o escalão de IoT Hub direita](iot-hub-scaling.md).
 
 ### <a name="iot-hub-units"></a>Unidades de hub IoT
 
@@ -154,22 +145,11 @@ Pode adicionar rotas ao seu IoT hub clicando **adicionar** na parte superior a *
 
 ![][15]
 
-## <a name="pricing-and-scale"></a>Preço e escala
-
-O preço de um IoT hub pode ser alterado através de **preços** definições, com as seguintes exceções:
-
-* Na implementação atual, um IoT hub com um SKU livre não é possível alterar camadas para um dos SKUs pagos, ou vice versa.
-* Só pode existir um IoT hub do escalão gratuito na subscrição do Azure.
-
-![][12]
-
-Pode mover de um mais elevado à camada inferior apenas quando o número de mensagens enviadas nesse dia exceder a quota para a camada inferior. Por exemplo, se o número de mensagens em fila por dia exceder 400,000, em seguida, a camada para o IoT hub pode ser alterada. No entanto, se alterar para o escalão S1 o hub IoT é limitado para esse dia.
-
 ## <a name="delete-the-iot-hub"></a>Eliminar o hub IoT
 
 Pode navegar para o IoT hub que pretende eliminar clicando **procurar**e, em seguida, escolha o hub adequado para eliminar. Para eliminar o hub IoT, clique em de **eliminar** no botão abaixo o nome do hub IoT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Siga estas ligações para saber mais sobre a gestão do Azure IoT Hub:
 
@@ -180,7 +160,7 @@ Siga estas ligações para saber mais sobre a gestão do Azure IoT Hub:
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 * [Guia para programadores do IoT Hub][lnk-devguide]
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 * [Proteger a sua solução de IoT a partir do zero cópias de segurança][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png

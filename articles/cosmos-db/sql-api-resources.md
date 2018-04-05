@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f64d79cd3929a279c7e279e74b0b21d163c0fa45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 948fc84db2fd2d6f2059f9807b84194ebac59472
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Conceitos-chave e modelo de recursos hierárquicos do Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Recursos, tais como contas de base de dados, bases de dados, coleções, os util
             <td valign="top"><p>Última timestamp atualizado do recurso</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>_self</p></td>
+            <td valign="top"><p>Self</p></td>
             <td valign="top"><p>Gerada pelo sistema</p></td>
             <td valign="top"><p>URI endereçável exclusivo do recurso</p></td>
         </tr>
@@ -158,7 +158,7 @@ Como parte do aprovisionamento e gestão de uma conta de base de dados que pode 
     </tbody>
 </table>
 
-Para além de aprovisionamento, configurar e gerir a sua conta de base de dados do portal do Azure, pode também programaticamente criar e gerir contas de base de dados de base de dados do Cosmos utilizando o [APIs REST do Azure Cosmos DB](/rest/api/documentdb/) , bem como [SDKs de cliente](sql-api-sdk-dotnet.md).  
+Para além de aprovisionamento, configurar e gerir a sua conta de base de dados do portal do Azure, pode também programaticamente criar e gerir contas de base de dados de base de dados do Cosmos utilizando o [APIs REST do Azure Cosmos DB](/rest/api/cosmos-db/) , bem como [SDKs de cliente](sql-api-sdk-dotnet.md).  
 
 ## <a name="databases"></a>Bases de Dados
 Uma base de dados do Cosmos DB é um contentor lógico de uma ou mais coleções e os utilizadores, conforme mostrado no diagrama seguinte. Pode criar qualquer número de bases de dados com uma conta de base de dados de BD do Cosmos sujeitas a limites de oferta.  
@@ -177,7 +177,7 @@ Pode criar qualquer número de coleções dentro de uma base de dados sujeita a 
 
 Uma base de dados de base de dados do Azure Cosmos também é um contentor de utilizadores. Um utilizador, por sua vez, é um espaço de nomes de lógico de um conjunto de permissões que fornece acesso em coleções, documentos e anexos e autorização detalhada.  
 
-Como com outros recursos no modelo de recursos do Azure Cosmos DB, bases de dados podem ser criados, substituídas, eliminar, ler ou enumerado facilmente utilizando o [REST APIs](/rest/api/documentdb/) ou qualquer uma do [SDKs de cliente](sql-api-sdk-dotnet.md). BD do Azure do Cosmos garante a consistência forte para ler ou consultar os metadados de um recurso de base de dados. Eliminar uma base de dados automaticamente assegura que não é possível aceder a qualquer um dos utilizadores contidos ou coleções.   
+Como com outros recursos no modelo de recursos do Azure Cosmos DB, bases de dados podem ser criados, substituídas, eliminar, ler ou enumerado facilmente utilizando o [REST APIs](/rest/api/cosmos-db/) ou qualquer uma do [SDKs de cliente](sql-api-sdk-dotnet.md). BD do Azure do Cosmos garante a consistência forte para ler ou consultar os metadados de um recurso de base de dados. Eliminar uma base de dados automaticamente assegura que não é possível aceder a qualquer um dos utilizadores contidos ou coleções.   
 
 ## <a name="collections"></a>Coleções
 Uma coleção de BD do Cosmos é um contentor para os documentos JSON. 
@@ -195,7 +195,7 @@ A política de indexação de cada coleção permite-lhe efetuar o desempenho e 
 * Escolha se pretende incluir ou excluir caminhos específicos ou padrões nos seus documentos do índice. Pode conseguir isto por definição includedPaths e excludedPaths no indexingPolicy de uma coleção, respetivamente. Também pode configurar os armazenamento e desempenho compromissos para consultas de intervalo e hash de padrões de caminho específico. 
 * Escolha entre síncrona (consistente) e atualizações de índice (lento) assíncrona. Por predefinição, o índice é atualizado em sincronia cada inserir, substituir ou eliminar um documento para a coleção. Isto permite que as consultas que respeite o mesmo nível de consistência que lê o documento. Enquanto a base de dados do Azure Cosmos é escrita otimizada e suporta volumes constante de escritas documento juntamente com a manutenção de índice síncrona e que serve consultas consistentes, pode configurar determinadas coleções para atualizar o respetivo índice lenta. A indexação lento boosts ainda mais o desempenho de escrita e é ideal para cenários de ingestão em massa para principalmente leitura pesado coleções.
 
-A política de indexação pode ser alterada, executando um PUT na coleção. Isto pode ser conseguido quer através do [cliente SDK](sql-api-sdk-dotnet.md), a [portal do Azure](https://portal.azure.com) ou [REST APIs](/rest/api/documentdb/).
+A política de indexação pode ser alterada, executando um PUT na coleção. Isto pode ser conseguido quer através do [cliente SDK](sql-api-sdk-dotnet.md), a [portal do Azure](https://portal.azure.com) ou [REST APIs](/rest/api/cosmos-db/).
 
 ### <a name="querying-a-collection"></a>Consulta de uma coleção
 Os documentos numa coleção podem ter esquemas arbitrários e podem consultar documentos numa coleção sem fornecer nenhum esquema ou compromisso índices secundários. Pode consultar a coleção a utilizar o [referência de sintaxe da BD SQL do Azure Cosmos](https://msdn.microsoft.com/library/azure/dn782250.aspx), que fornece operadores avançados de geográficos, hierárquicos e relacionais e extensibilidade através de UDFs com base em JavaScript. A gramática JSON permite-lhe modelar documentos JSON como árvores com etiquetas como nós de árvore. Isto é forem explorado tanto por técnicas de indexação automática da API do SQL Server, bem como dialeto SQL do Azure Cosmos DB. O idioma de consulta SQL é composto por três aspetos principais:   
@@ -204,7 +204,7 @@ Os documentos numa coleção podem ter esquemas arbitrários e podem consultar d
 2. Um subconjunto de operações relacionais incluindo composição, filtro, projeções, agrega e associações automática. 
 3. Com base em JavaScript pura UDFs que funcionam com (1) e (2).  
 
-O modelo de consulta de base de dados do Azure Cosmos tenta trazem um equilíbrio entre funcionalidade, eficiência e na simplicidade. O motor de base de dados de base de dados do Azure Cosmos nativamente compila e executa as instruções de consulta SQL. Pode consultar uma coleção a utilizar o [REST APIs](/rest/api/documentdb/) ou qualquer uma do [SDKs de cliente](sql-api-sdk-dotnet.md). O SDK .NET é fornecido com um fornecedor LINQ.
+O modelo de consulta de base de dados do Azure Cosmos tenta trazem um equilíbrio entre funcionalidade, eficiência e na simplicidade. O motor de base de dados de base de dados do Azure Cosmos nativamente compila e executa as instruções de consulta SQL. Pode consultar uma coleção a utilizar o [REST APIs](/rest/api/cosmos-db/) ou qualquer uma do [SDKs de cliente](sql-api-sdk-dotnet.md). O SDK .NET é fornecido com um fornecedor LINQ.
 
 > [!TIP]
 > Pode experimentar a API do SQL Server e executar consultas SQL no nosso conjunto de dados a [Query Playground](https://www.documentdb.com/sql/demo).
@@ -226,7 +226,7 @@ A lógica do JavaScript registada um nível de coleção, em seguida, pode emiti
 
 Permite que a capacidade de executar o JavaScript diretamente dentro do motor da base de dados no mesmo espaço de endereços do conjunto de memória intermédia performant e a execução transacional de operações de base de dados contra os documentos de uma coleção. Além disso, um compromisso avançado para o JSON faz com que o motor de base de dados de base de dados do Cosmos e JavaScript elimina quaisquer impedance incompatibilidade entre os sistemas de tipo de aplicação e a base de dados.   
 
-Depois de criar uma coleção, pode registar e procedimentos armazenados, acionadores, UDFs com uma coleção a utilizar o [REST APIs](/rest/api/documentdb/) ou qualquer uma do [SDKs de cliente](sql-api-sdk-dotnet.md). Após o registo, pode referenciar e execute-los. Considere o seguinte procedimento armazenado escrito inteiramente no JavaScript, o código abaixo aceita dois argumentos (nome do livro e nome do autor) e cria um novo documento, consulta para um documento e, em seguida, atualiza-lo-tudo numa transação ACID implícita. Em qualquer momento durante a execução, se é emitida uma exceção de JavaScript, toda a transação interrompe.
+Depois de criar uma coleção, pode registar e procedimentos armazenados, acionadores, UDFs com uma coleção a utilizar o [REST APIs](/rest/api/cosmos-db/) ou qualquer uma do [SDKs de cliente](sql-api-sdk-dotnet.md). Após o registo, pode referenciar e execute-los. Considere o seguinte procedimento armazenado escrito inteiramente no JavaScript, o código abaixo aceita dois argumentos (nome do livro e nome do autor) e cria um novo documento, consulta para um documento e, em seguida, atualiza-lo-tudo numa transação ACID implícita. Em qualquer momento durante a execução, se é emitida uma exceção de JavaScript, toda a transação interrompe.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -279,10 +279,10 @@ Tenha em atenção que porque a base de dados compreende nativamente JSON e Java
 
 Acionadores e procedimentos armazenados interagem com uma coleção e os documentos numa coleção através de um modelo de objeto definida especificamente, o que expõe o contexto de coleção atual.  
 
-Podem ser criadas coleções na API do SQL Server, eliminado, leitura ou enumerado facilmente utilizando o [REST APIs](/rest/api/documentdb/) ou qualquer uma do [SDKs de cliente](sql-api-sdk-dotnet.md). A API do SQL Server fornece sempre consistência forte para ler ou consultar os metadados de uma coleção. Eliminar automaticamente uma coleção, assegura que não pode aceder a qualquer um dos documentos, os anexos, procedimentos armazenados, acionadores, UDFs contidos.   
+Podem ser criadas coleções na API do SQL Server, eliminado, leitura ou enumerado facilmente utilizando o [REST APIs](/rest/api/cosmos-db/) ou qualquer uma do [SDKs de cliente](sql-api-sdk-dotnet.md). A API do SQL Server fornece sempre consistência forte para ler ou consultar os metadados de uma coleção. Eliminar automaticamente uma coleção, assegura que não pode aceder a qualquer um dos documentos, os anexos, procedimentos armazenados, acionadores, UDFs contidos.   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>Os procedimentos armazenados, acionadores e funções definidas pelo utilizador (UDF)
-Tal como descrito na secção anterior, pode escrever a lógica da aplicação para ser executado diretamente dentro de uma transação dentro do motor de base de dados. Lógica da aplicação pode ser escrita inteiramente no JavaScript e pode ser modelada como um UDF, acionador ou um procedimento armazenado. O código JavaScript dentro de um procedimento armazenado ou um acionador pode inserir, substituir, eliminar, ler ou consultar documentos numa coleção. Por outro lado, o JavaScript dentro de um UDF não é possível inserir, substituir ou eliminar documentos. UDFs enumerar os documentos do conjunto de resultados de uma consulta e produzem outro conjunto de resultados. Para vários inquilinos, a base de dados do Azure Cosmos impõe uma governação de recursos baseadas na reserva strict. Cada armazenado um UDF, acionador ou procedimento obtém um quantum fixo de recursos do sistema operativo para realizar o seu trabalho. Além disso, procedimentos armazenados, acionadores ou UDFs não é possível associar contra externas bibliotecas de JavaScript e são blacklisted excederem os orçamentos de recurso atribuídos aos mesmos. Pode registar, anular o registo de procedimentos armazenados, acionadores ou UDFs com uma coleção com as APIs REST.  Após o registo de um UDF, acionador ou um procedimento armazenado é pré-compilado e armazenado como código de byte, que obtém executado mais tarde. A seguinte illustrateshow ssection pode utilizar o Azure Cosmos DB JavaScript SDK para registar, executar e anular o registo de um procedimento armazenado, acionador e um UDF. O SDK de JavaScript é um wrapper simple através do [REST APIs](/rest/api/documentdb/). 
+Tal como descrito na secção anterior, pode escrever a lógica da aplicação para ser executado diretamente dentro de uma transação dentro do motor de base de dados. Lógica da aplicação pode ser escrita inteiramente no JavaScript e pode ser modelada como um UDF, acionador ou um procedimento armazenado. O código JavaScript dentro de um procedimento armazenado ou um acionador pode inserir, substituir, eliminar, ler ou consultar documentos numa coleção. Por outro lado, o JavaScript dentro de um UDF não é possível inserir, substituir ou eliminar documentos. UDFs enumerar os documentos do conjunto de resultados de uma consulta e produzem outro conjunto de resultados. Para vários inquilinos, a base de dados do Azure Cosmos impõe uma governação de recursos baseadas na reserva strict. Cada armazenado um UDF, acionador ou procedimento obtém um quantum fixo de recursos do sistema operativo para realizar o seu trabalho. Além disso, procedimentos armazenados, acionadores ou UDFs não é possível associar contra externas bibliotecas de JavaScript e são blacklisted excederem os orçamentos de recurso atribuídos aos mesmos. Pode registar, anular o registo de procedimentos armazenados, acionadores ou UDFs com uma coleção com as APIs REST.  Após o registo de um UDF, acionador ou um procedimento armazenado é pré-compilado e armazenado como código de byte, que obtém executado mais tarde. A seguinte illustrateshow ssection pode utilizar o Azure Cosmos DB JavaScript SDK para registar, executar e anular o registo de um procedimento armazenado, acionador e um UDF. O SDK de JavaScript é um wrapper simple através do [REST APIs](/rest/api/cosmos-db/). 
 
 ### <a name="registering-a-stored-procedure"></a>Registar um procedimento armazenado
 Registo de um procedimento armazenado cria um novo recurso do procedimento armazenado numa coleção através de HTTP POST.  
@@ -410,7 +410,7 @@ A anulação do registo um UDF simplesmente é feita ao emitir um eliminar HTTP 
             console.log("Error");
         });
 
-Embora os fragmentos acima mostrou o registo (POST), a anulação do registo (PUT), a leitura/lista (GET) e a execução (POST) através de [JavaScript SDK](https://github.com/Azure/azure-documentdb-js), também pode utilizar o [REST APIs](/rest/api/documentdb/) ou outros [SDKs de cliente](sql-api-sdk-dotnet.md). 
+Embora os fragmentos acima mostrou o registo (POST), a anulação do registo (PUT), a leitura/lista (GET) e a execução (POST) através de [JavaScript SDK](https://github.com/Azure/azure-documentdb-js), também pode utilizar o [REST APIs](/rest/api/cosmos-db/) ou outros [SDKs de cliente](sql-api-sdk-dotnet.md). 
 
 ## <a name="documents"></a>Documentos
 Pode inserir, substituir, eliminar, ler, enumerar e consultar documentos JSON arbitrários numa coleção. BD do Azure do Cosmos não mandatar nenhum esquema e não necessita de índices secundários para suportar a consulta através de documentos numa coleção. O tamanho máximo para um documento é 2 MB.   
@@ -461,7 +461,7 @@ A única forma de obter uma chave de recurso é através da criação de um recu
 
 Como todos os outros recursos, permissões na base de dados do Azure Cosmos podem ser criadas, substituído, eliminar, ler ou enumerado facilmente através de REST APIs ou de qualquer um dos SDKs de cliente. BD do Azure do Cosmos fornece sempre consistência forte para ler ou consultar os metadados de uma permissão. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como trabalhar com recursos utilizando comandos HTTP no [RESTful interações com os recursos de base de dados do Azure Cosmos](https://msdn.microsoft.com/library/azure/mt622086.aspx).
 
 [1]: media/sql-api-resources/resources1.png

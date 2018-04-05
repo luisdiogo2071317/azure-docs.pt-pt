@@ -1,11 +1,11 @@
 ---
 title: Compreender as tarefas do IoT Hub do Azure | Microsoft Docs
-description: "Guia para programadores - agendamento de trabalhos para executar em vários dispositivos ligados ao seu IoT hub. As tarefas podem atualizar as etiquetas e propriedades pretendidas e invocar métodos diretos em vários dispositivos."
+description: Guia para programadores - agendamento de trabalhos para executar em vários dispositivos ligados ao seu IoT hub. As tarefas podem atualizar as etiquetas e propriedades pretendidas e invocar métodos diretos em vários dispositivos.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 7e0af40b2fd5bbb12d5565765aae4026922aec5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 367eb703465b2fbc6f1e06a383bc9df709cabe78
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
 
 IoT Hub do Azure permite que um número de blocos modulares, como [etiquetas e propriedades do dispositivo duplo] [ lnk-twin-devguide] e [direcionar métodos][lnk-dev-methods].  Normalmente, as aplicações de back-end ativam operadores e administradores de dispositivos atualizar e interagir com dispositivos de IoT em massa e a uma hora agendada.  As tarefas executar atualizações ao dispositivo duplo e métodos diretos face a um conjunto de dispositivos a uma hora agendada.  Por exemplo, um operador teria de utilizar uma aplicação de back-end que inicia e regista uma tarefa para reiniciar um conjunto de dispositivos na compilação 43 e piso 3 cada vez que não pretende ser incómoda para as operações de criar.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Considere a utilização de tarefas quando necessitar de agendar e controlar o progresso qualquer uma das seguintes atividades num conjunto de dispositivos:
 
@@ -133,7 +135,7 @@ Outros tópicos de referência no guia de programadores do IoT Hub incluem:
 * [Idioma de consulta do IoT Hub para dispositivos duplos, tarefas e o encaminhamento de mensagens] [ lnk-query] descreve o idioma de consulta do IoT Hub. Utilize a linguagem de consulta para obter informações a partir do IoT Hub sobre os dispositivos duplos e tarefas.
 * [Suporte do IoT Hub MQTT] [ lnk-devguide-mqtt] fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutorial do IoT Hub seguinte:
 
 * [Tarefas de agenda e difusão][lnk-jobs-tutorial]

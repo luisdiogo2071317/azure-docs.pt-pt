@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar os recursos com grupos de gestão do Azure 
 
@@ -42,11 +42,15 @@ Ao criar uma hierarquia que é agrupada por departamentos, que é possível atri
 - Cada grupo de gestão pode ter vários elementos subordinados. 
 
 ### <a name="preview-subscription-visibility-limitation"></a>Limitação de visibilidade de subscrição de pré-visualização 
-Não existe atualmente uma limitação dentro a pré-visualização, encontra-não se conseguir ver as subscrições têm herdadas acesso a. O acesso é herdado à subscrição, mas não é possível que respeite o acesso de herança ainda o Azure Resource Manager.  
+Atualmente é uma limitação dentro de pré-visualização onde não conseguir ver as subscrições têm herdadas acesso a. O acesso é herdado à subscrição, mas o Azure Resource Manager não é possível que respeite o acesso de herança ainda.  
 
-Utilizando a API REST para obter informações sobre a subscrição devolve detalhes como a ter acesso, mas dentro do portal do Azure e Azure Powershell não mostrar as subscrições. 
+Utilizando a API REST para obter informações sobre a subscrição devolve detalhes como a ter acesso, mas dentro do portal do Azure e Azure Powershell não mostram as subscrições. 
 
-Este item está a ser trabalhado e será resolvido antes de grupos de gestão que está a ser anunciados como "Disponibilidade geral."  
+Este item está a ser trabalhado e será resolvido antes de grupos de gestão são comunicados como "Disponibilidade geral."  
+
+### <a name="cloud-solution-providercsp-limitation-during-preview"></a>Limitação de solução Provider(CSP) durante a pré-visualização da nuvem 
+Há uma limitação atual para parceiros de Provider(CSP) de solução em nuvem em que não estão capazes de criar ou gerir grupos de gestão do seu cliente dentro do diretório do seu cliente.  
+Este item está a ser trabalhado e será resolvido antes de grupos de gestão são comunicados como "Disponibilidade geral."
 
 
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gestão de raiz para cada diretório

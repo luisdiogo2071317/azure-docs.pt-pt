@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights para aplicações de consola | Microsoft Docs"
-description: "Monitorizar aplicações web de disponibilidade, desempenho e utilização."
+title: Azure Application Insights para aplicações de consola | Microsoft Docs
+description: Monitorizar aplicações web de disponibilidade, desempenho e utilização.
 services: application-insights
 documentationcenter: .net
 author: lmolkova
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: lmolkova
-ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: lmolkova; mbullwin
+ms.openlocfilehash: f9d734abeb644fc865d5dc86afc8ad0e586bfc0a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>Aplicações de consola do Application Insights para .NET
 [Application Insights](app-insights-overview.md) permite-lhe monitorizar a sua aplicação web de disponibilidade, desempenho e utilização.
@@ -26,8 +26,8 @@ Necessita de uma subscrição com [Microsoft Azure](http://azure.com). Inicie se
 
 ## <a name="getting-started"></a>Introdução
 
-* No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](app-insights-create-new-resource.md). Para o tipo de aplicação, escolha a aplicação ASP.NET.
-* Faça uma cópia da Chave de Instrumentação. Localize a chave no pendente Essentials do novo recurso que criou. 
+* No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](app-insights-create-new-resource.md). Para o tipo de aplicação, escolha **geral**.
+* Faça uma cópia da Chave de Instrumentação. Localizar a chave no **Essentials** pendente do novo recurso que criou. 
 * Instalar a versão mais recente [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) pacote.
 * Defina a chave de instrumentação no seu código antes de qualquer telemetria de controlo (ou variável de ambiente APPINSIGHTS_INSTRUMENTATIONKEY conjunto). Depois disso, deve ser capaz de manualmente controlar telemetria e vê-lo no portal do Azure
 
@@ -39,7 +39,10 @@ telemetryClient.TrackTrace("Hello World!");
 
 * Instalar a versão mais recente do [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) pacote - controla automaticamente HTTP, SQL Server ou outras chamadas de dependências externas.
 
-Pode iniciar e configurar o Application Insights do código ou utilização `ApplicationInsights.config` ficheiro. Certifique-se a inicialização acontece antecipadamente quanto possível.
+Pode iniciar e configurar o Application Insights do código ou utilização `ApplicationInsights.config` ficheiro. Certifique-se a inicialização acontece antecipadamente quanto possível. 
+
+> [!NOTE]
+> As instruções que faça referência a **Applicationinsights** só são aplicáveis às aplicações que estão a filtrar .NET padrão e não se aplicam a aplicações de .NET Core. 
 
 ### <a name="using-config-file"></a>Utilizar o ficheiro de configuração
 

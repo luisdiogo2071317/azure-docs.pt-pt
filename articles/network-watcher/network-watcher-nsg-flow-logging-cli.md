@@ -1,11 +1,11 @@
 ---
-title: "Gerir registos de fluxo de grupo de segurança de rede com o observador de rede do Azure - CLI do Azure | Microsoft Docs"
-description: "Esta página explica como gerir os registos de fluxo de grupo de segurança de rede no observador de rede do Azure com a CLI do Azure"
+title: Gerir registos de fluxo de grupo de segurança de rede com o observador de rede do Azure - CLI do Azure | Microsoft Docs
+description: Esta página explica como gerir os registos de fluxo de grupo de segurança de rede no observador de rede do Azure com a CLI do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 51683e937b7985bb61671645f3e2e1be6d786201
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b8c2ff527328fe5f486362db416a99a1c711c9c2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurar os registos de fluxo de grupo de segurança de rede com a CLI do Azure
 
@@ -51,6 +51,8 @@ O comando para ativar registos de fluxo é mostrado no exemplo seguinte:
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
+A conta de armazenamento que especificou não pode ter regras de rede configuradas para ele que restringem o acesso à rede apenas para serviços da Microsoft ou as redes virtuais específicas.
+
 ## <a name="disable-network-security-group-flow-logs"></a>Registos de fluxo de desativar o grupo de segurança de rede
 
 Utilize o exemplo seguinte para desativar os registos de fluxo:
@@ -61,7 +63,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 ## <a name="download-a-flow-log"></a>Transferir um registo de fluxo
 
-A localização de armazenamento de um registo de fluxo é definida na criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados para uma conta de armazenamento é Explorador de armazenamento do Microsoft Azure, que pode ser transferida aqui: http://storageexplorer.com/
+A localização de armazenamento de um registo de fluxo é definida na criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados para uma conta de armazenamento é Explorador de armazenamento do Microsoft Azure, que pode ser transferida aqui:  http://storageexplorer.com/
 
 Se for especificada uma conta de armazenamento, ficheiros de captura de pacotes são guardados para uma conta de armazenamento disponíveis na seguinte localização:
 

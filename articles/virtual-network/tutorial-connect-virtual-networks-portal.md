@@ -1,26 +1,27 @@
 ---
 title: Ligar redes virtuais com o peering de rede virtual - portal do Azure | Microsoft Docs
-description: Saiba como ligar redes virtuais com o peering de rede virtual.
+description: Neste artigo, irá aprender a ligar redes virtuais com a rede virtual peering, utilizando o portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: 
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 0962a917186277a34abbda17b8fea87bcf4ad1e9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: b864c71a62289b3abef13a98b52683f7d928b8e1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Ligar redes virtuais com o peering de rede virtual com o portal do Azure
 
@@ -31,6 +32,8 @@ Pode ligar redes virtuais entre si ao peering de rede virtual. Depois de redes v
 > * Ligar duas redes virtuais com um peering de rede virtual
 > * Implementar uma máquina virtual (VM) em cada rede virtual
 > * Comunicar entre VMs
+
+Se preferir, pode concluir este artigo utilizando o [CLI do Azure](tutorial-connect-virtual-networks-cli.md) ou [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -51,7 +54,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **criar nova** e introduza *myResourceGroup*.|
     |Localização| Selecione **EUA Leste**.|
-    |Nome da Sub-rede|Subnet1|
+    |Nome da sub-rede|Subnet1|
     |Intervalo de endereços de sub-rede|10.0.0.0/24|
 
       ![Criar uma rede virtual](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
@@ -147,7 +150,7 @@ As VMs demorar alguns minutos a criar. Não continue com os restantes passos at�
 3. Para ligar à VM, abra o ficheiro RDP transferido. Se lhe for pedido, selecione **Connect**.
 4. Introduza o nome de utilizador e palavra-passe que especificou ao criar a VM (poderá ter de selecionar **mais opções**, em seguida, **utilizar uma conta diferente**, para especificar as credenciais que introduziu quando criou a VM), em seguida, selecione **OK**.
 5. Poderá receber um aviso de certificado durante o processo de início de sessão. Selecione **Sim** para continuar com a ligação.
-6. Num passo posterior, ping é utilizado para comunicar com o *myVm2* VM a partir de *myVm1* VM. Ping utiliza o controlo de mensagem de ICMP (Internet Protocol), que é negado através da Firewall do Windows, por predefinição. No *myVm1* VM, ativar o controlo de mensagem de protocolo ICMP (Internet) através do Windows firewall para consegue enviar pings para esta VM *myVm2* num passo posterior, com o PowerShell:
+6. Num passo posterior, ping é utilizado para comunicar com o *myVm2* VM a partir de *myVm1* VM. Ping utiliza o controlo de mensagem de ICMP (Internet Protocol), que é negado através da Firewall do Windows, por predefinição. No *myVm1* VM, ativar o ICMP através da firewall do Windows, para que consegue enviar pings para esta VM *myVm2* num passo posterior, com o PowerShell:
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
@@ -177,15 +180,8 @@ Quando já não é necessário, elimine o grupo de recursos e todos os recursos 
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* para **tipo o nome de grupo de recursos:** e selecione **eliminar**.
 
-**<a name="register"></a>Registar-se para a pré-visualização de peering de rede virtual global**
+## <a name="next-steps"></a>Passos seguintes
 
-O peering de redes virtuais na mesma região encontra-se em disponibilidade geral. Peering redes virtuais em diferentes regiões está atualmente em pré-visualização. Consulte [atualizações da rede Virtual](https://azure.microsoft.com/updates/?product=virtual-network) de regiões disponíveis. A ponto redes virtuais em regiões, primeiro tem de registar para a pré-visualização. Não é possível registar a utilizar o portal, mas pode registar utilizando [PowerShell](tutorial-connect-virtual-networks-powershell.md#register) ou [CLI do Azure](tutorial-connect-virtual-networks-cli.md#register). Se tentar elemento redes virtuais em diferentes regiões antes de registar para a capacidade de peering falhar.
+Neste artigo, aprendeu a ligar duas redes na mesma região do Azure, com o peering de rede virtual. Também pode elemento redes virtuais em diferentes [regiões suportadas](virtual-network-manage-peering.md#cross-region) e na [diferentes subscrições do Azure](create-peering-different-subscriptions.md#portal), bem como criar [hub- and -spoke designs de rede](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com peering. Para obter mais informações sobre peering de rede virtual, consulte o artigo [descrição geral de peering da rede Virtual](virtual-network-peering-overview.md) e [gerir peerings de rede virtual](virtual-network-manage-peering.md).
 
-## <a name="next-steps"></a>Passos Seguintes
-
-Neste artigo, aprendeu a ligar duas redes, na mesma localização do Azure, com o peering de rede virtual. Também pode elemento redes virtuais no [regiões diferentes](#register), na [diferentes subscrições do Azure](create-peering-different-subscriptions.md#portal) e pode criar [hub- and -spoke designs de rede](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com peering. Antes de peering redes virtuais de produção, recomenda-se que exaustivamente familiarizar-se com o [descrição geral do peering](virtual-network-peering-overview.md), [gerir peering](virtual-network-manage-peering.md), e [oslimitesderedevirtual](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
-
-Continue para ligar o seu próprio computador a uma rede virtual através de uma VPN e interagir com recursos numa rede virtual, ou em redes virtuais em modo de peering.
-
-> [!div class="nextstepaction"]
-> [Ligar o computador a uma rede virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Para ligar o seu próprio computador a uma rede virtual através de uma VPN e interagir com recursos numa rede virtual, ou em redes virtuais em modo de peering, consulte [ligar o computador a uma rede virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

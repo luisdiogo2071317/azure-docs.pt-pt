@@ -1,11 +1,11 @@
 ---
-title: "Gerir registos da fluxo de grupo de segurança de rede com o observador de rede do Azure | Microsoft Docs"
-description: "Esta página explica como gerir os registos de fluxo do grupo de segurança de rede no observador de rede do Azure"
+title: Gerir registos da fluxo de grupo de segurança de rede com o observador de rede do Azure | Microsoft Docs
+description: Esta página explica como gerir os registos de fluxo do grupo de segurança de rede no observador de rede do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Gerir a rede registos de fluxo do grupo de segurança no portal do Azure
 
@@ -38,7 +38,10 @@ Registos de fluxo de grupo de segurança de rede são uma funcionalidade do obse
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que já tiver seguido os passos em [criar uma instância de observador de rede](network-watcher-create.md). O cenário também parte do princípio de que uma tem um grupo de recursos com uma máquina virtual válida.
+Para concluir os passos neste artigo, já tem de ter os seguintes recursos:
+
+- Um observador de rede existente. Para criar um observador de rede, consulte [criar uma instância de observador de rede](network-watcher-create.md).
+- Um grupo de recursos existente com uma máquina virtual válida. Se não tiver uma máquina virtual, consulte Criar uma [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) máquina virtual.
 
 ## <a name="register-insights-provider"></a>Fornecedor de informações de registo
 
@@ -68,7 +71,7 @@ Selecione um grupo de segurança de rede a partir da lista.
 
 ### <a name="step-3"></a>Passo 3 
 
-No **as definições de registos de fluxo** painel, defina o estado como **no**e, em seguida, configurar uma conta de armazenamento.  Quando estiver pronto, selecione **OK**. Em seguida, selecione **guardar**.
+No **as definições de registos de fluxo** painel, defina o estado como **no**e, em seguida, configurar uma conta de armazenamento. Selecionar uma conta de armazenamento existente que tenha **todas as redes** (predefinição) selecionado em **Firewalls e redes virtuais**, sob o **definições** para a conta de armazenamento. Depois de selecionar uma conta de armazenamento, selecione **OK**e, em seguida, selecione **guardar**.
 
 ![Descrição geral de registos de fluxo][3]
 
@@ -96,7 +99,7 @@ Vá para a localização do registo de fluxo, selecione-o e, em seguida, selecio
 
 Para obter informações sobre a estrutura do registo, visite [rede grupo fluxo registo descrição geral de segurança](network-watcher-nsg-flow-logging-overview.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [visualizar os registos de fluxo NSG com o PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 

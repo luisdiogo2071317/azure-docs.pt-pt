@@ -1,18 +1,18 @@
 ---
-title: "Descrição geral de grelha de eventos do Azure"
+title: Descrição geral de grelha de eventos do Azure
 description: Descreve os conceitos e grelha de eventos do Azure.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à grelha de eventos do Azure
 
@@ -33,25 +33,26 @@ Atualmente, o evento grelha suporta as seguintes regiões:
 *   EUA Oeste
 *   EUA Oeste 2
 
-Este artigo fornece uma descrição geral da grelha de eventos do Azure. Se pretender começar a grelha de eventos, consulte [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md). A imagem seguinte mostra como grelha de evento se liga editores e processadores, mas não fornece uma lista completa das opções suportadas.
+Este artigo fornece uma descrição geral da grelha de eventos do Azure. Se pretender começar a grelha de eventos, consulte [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md). A imagem seguinte mostra como eventos grelha liga-se origens e processadores, mas não fornece uma lista completa das opções suportadas.
 
 ![Modelo de funcional de grelha de eventos](./media/overview/functional-model.png)
 
-## <a name="event-publishers"></a>Publicadores de eventos
+## <a name="event-sources"></a>Origens de eventos
 
-Atualmente, os seguintes serviços do Azure têm suporte do Editor incorporados para a grelha de evento:
+Atualmente, os seguintes serviços do Azure suportam enviar eventos à grelha de evento:
 
 * Subscrições do Azure (operações de gestão)
 * Tópicos personalizados
 * Event Hubs
 * IoT Hub
 * Grupos de recursos (operações de gestão)
+* Service Bus
 * Blob de armazenamento
 * V2 para fins gerais de armazenamento (GPv2)
 
 ## <a name="event-handlers"></a>Processadores de eventos
 
-Atualmente, os seguintes serviços do Azure tem suporte de processador incorporados para a grelha de evento: 
+Atualmente, os seguintes serviços do Azure suportam eventos de processamento da grelha de evento: 
 
 * Automatização do Azure
 * Funções do Azure
@@ -60,7 +61,7 @@ Atualmente, os seguintes serviços do Azure tem suporte de processador incorpora
 * Microsoft Flow
 * WebHooks
 
-Ao utilizar as funções do Azure como o processador, utilize o acionador de grelha de evento genéricos HTTP acionadores instead. Grelha de evento valida automaticamente acionadores de função da grelha de eventos. Com os acionadores HTTP genéricos, tem de implementar o [resposta de validação](security-authentication.md#webhook-event-delivery).
+Ao utilizar as funções do Azure como o processador, utilize o acionador de grelha de evento genéricos HTTP acionadores instead. O Event Grid valida automaticamente os acionadores de função do Event Grid. Com os acionadores HTTP genéricos, tem de implementar a [resposta de validação](security-authentication.md#webhook-event-delivery).
 
 ## <a name="concepts"></a>Conceitos
 

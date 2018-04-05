@@ -1,12 +1,12 @@
 ---
-title: "Atualização de firmware do dispositivo com o Azure IoT Hub (.NET/.NET) | Microsoft Docs"
-description: "Como utilizar a gestão de dispositivos no IoT Hub do Azure para iniciar uma atualização de firmware do dispositivo. Utilizar o dispositivo IoT do Azure SDK para .NET para implementar uma aplicação de dispositivo simulado e o serviço de IoT do Azure SDK para .NET implementar uma aplicação de serviço que aciona a atualização de firmware."
+title: Atualização de firmware do dispositivo com o Azure IoT Hub (.NET/.NET) | Microsoft Docs
+description: Como utilizar a gestão de dispositivos no IoT Hub do Azure para iniciar uma atualização de firmware do dispositivo. Utilizar o dispositivo IoT do Azure SDK para .NET para implementar uma aplicação de dispositivo simulado e o serviço de IoT do Azure SDK para .NET implementar uma aplicação de serviço que aciona a atualização de firmware.
 services: iot-hub
 documentationcenter: .net
 author: JimacoMS2
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: v-jamebr
-ms.openlocfilehash: bd0a227861d75dc66af8fb4865a17a3b6d0f70ba
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 984fd7516b5c05973c45891f4eda31c41a5a2be5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Utilize a gestão de dispositivos para iniciar uma atualização de firmware do dispositivo (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Introdução
 No [introdução à gestão de dispositivos] [ lnk-dm-getstarted] tutorial, vimos como utilizar o [dispositivo duplo] [ lnk-devtwin] e [direcionar métodos] [ lnk-c2dmethod] primitivos reiniciar remotamente um dispositivo. Este tutorial utiliza os mesmos primitivos do IoT Hub e mostra como efetuar uma atualização de firmware simulada ponto-a-ponto.  Este padrão é utilizado na implementação de atualização de firmware para o [exemplo de implementação do dispositivo Raspberry Pi][lnk-rpi-implementation].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostrar-lhe como:
 
@@ -75,7 +77,7 @@ Nesta secção, criar uma aplicação de consola do .NET (utilizando c#) inicia 
     static string targetDevice = "{deviceIdForTargetDevice}";
     ```
         
-6. Adicione o seguinte método para o **programa** classe. Este método consulta o dispositivo duplo para o estado atualizado a cada 500 milissegundos. Escreve na consola apenas quando o estado, na verdade, foi alterada. Para este exemplo, para impedir a consumir mensagens de IoT Hub adicionais na sua subscrição, consulta interrompe quando o dispositivo comunica um Estado de **applyComplete** ou um erro.  
+6. Adicione o seguinte método à classe **Programa**. Este método consulta o dispositivo duplo para o estado atualizado a cada 500 milissegundos. Escreve na consola apenas quando o estado, na verdade, foi alterada. Para este exemplo, para impedir a consumir mensagens de IoT Hub adicionais na sua subscrição, consulta interrompe quando o dispositivo comunica um Estado de **applyComplete** ou um erro.  
    
     ```csharp   
     public static async Task QueryTwinFWUpdateReported(DateTime startTime)

@@ -1,41 +1,41 @@
 ---
-title: "Descrição geral do Azure Container Instances"
+title: Descrição geral do Azure Container Instances
 description: Compreender o Azure Container Instances
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 01/02/2018
+ms.date: 03/23/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 01e539856adbdcf02dc4e49087a3ab71b328db5a
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d6e0637974d8076fc610d7154ad507f4e7af0cfa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
-Os contentores estão a tornar-se rapidamente na forma preferida de empacotar, implementar e gerir aplicações na cloud. O Azure Container Instances é a forma mais rápida e simples de executar um contentor no Azure, sem que tenha de aprovisionar máquinas virtuais ou de adotar um serviço de nível mais elevado.
+Os contentores estão a tornar-se na forma preferida de empacotar, implementar e gerir aplicações na cloud. O Azure Container Instances é a forma mais rápida e simples de executar um contentor no Azure, sem que tenha de gerir máquinas virtuais e sem que tenha de adotar um serviço de nível superior.
 
 O Azure Container Instances é uma ótima solução para qualquer cenário que possa funcionar em contentores isolados, incluindo aplicações simples, automatização de tarefas e tarefas de compilação. Em cenários nos quais precisa de orquestração de contentores completa, incluindo deteção de serviços em vários contentores, dimensionamento automático e atualizações coordenadas de aplicações, recomendamos o [Azure Container Service (AKS)](../aks/index.yml).
 
 ## <a name="fast-startup-times"></a>Tempos de arranque rápidos
 
-Os contentores oferecem benefícios de arranque significativos em relação às máquinas virtuais. Com o Azure Container Instances, pode iniciar um contentor no Azure em segundos sem ter de aprovisionar e gerir VMs.
+Os contentores oferecem benefícios de arranque significativos em relação às máquinas virtuais. Com o Azure Container Instances, pode iniciar contentores no Azure em segundos, sem ter de aprovisionar e gerir VMs.
 
 ## <a name="hypervisor-level-security"></a>Segurança ao nível do hipervisor
 
-Historicamente, os contentores têm vindo a oferecer isolamento de dependências de aplicações e governação de recursos, mas não têm sido considerados suficientemente fortalecidos para utilização multi-inquilinos hostil. Com o Azure Container Instances, a sua aplicação está tão isolada num contentor como estaria numa VM.
+Historicamente, os contentores têm vindo a oferecer isolamento de dependências de aplicações e governação de recursos, mas não têm sido considerados suficientemente fortalecidos para utilização multi-inquilinos hostil. O Azure Container Instances garante que a sua aplicação está tão isolada num contentor como estaria numa VM.
 
 ## <a name="custom-sizes"></a>Tamanhos personalizados
 
-Normalmente, os contentores são otimizados para executarem apenas uma única aplicação, mas as necessidades exatas de cada uma dessas aplicações podem ser bastante diferentes. Com o Azure Container Instances, pode pedir exatamente aquilo de que precisa em termos de núcleos de CPU e memória. A faturação é ao segundo e consoante o que pedir, para que possa otimizar eficientemente os gastos com base nas suas necessidades.
+Normalmente, os contentores são otimizados para executarem apenas uma única aplicação, mas as necessidades exatas de cada uma dessas aplicações podem ser bastante diferentes. O Azure Container Instances proporciona uma utilização ideal ao permitir especificações exatas de núcleos de CPU e memória. A faturação é ao segundo e consoante o que precisar, para que possa ajustar os gastos com base nas suas necessidades reais.
 
 ## <a name="public-ip-connectivity"></a>Conectividade de IP público
 
-Com o Azure Container Instances, pode expor os seus contentores diretamente na Internet com um endereço IP público. No futuro, vamos expandir as nossas capacidades de rede, de modo a que incluam a integração com redes virtuais, balanceadores de carga e outras partes centrais da infraestrutura de rede do Azure.
+O Azure Container Instances permite expor os seus contentores diretamente na Internet com um endereço IP público e uma etiqueta de nome DNS. No futuro, vamos expandir as nossas capacidades de rede, de modo a que incluam a integração com redes virtuais, balanceadores de carga e outras partes centrais da infraestrutura de rede do Azure.
 
 ## <a name="persistent-storage"></a>Armazenamento persistente
 
@@ -43,13 +43,13 @@ Para obter e persistir o estado com o Azure Container Instances, ofereceremos a 
 
 ## <a name="linux-and-windows-containers"></a>Contentores de Linux e Windows
 
-O Azure Container Instances permite-lhe agendar contentores do Windows e do Linux com a mesma API. Basta especificar o tipo de SO quando cria os [grupos de contentor](container-instances-container-groups.md).
+O Azure Container Instances permite agendar contentores do Windows e do Linux com a mesma API. Basta especificar o tipo de SO quando cria os [grupos de contentor](container-instances-container-groups.md).
 
-Algumas funcionalidades estão atualmente restritas para contentores Linux. Enquanto estamos a trabalhar para colocar todas as funcionalidades de contentores do Windows, pode encontrar as diferenças da plataforma atual em [Quotas e disponibilidade das regiões do Azure Container Instances](container-instances-quotas.md).
+Algumas funcionalidades estão atualmente restritas para contentores Linux. Enquanto trabalhamos para trazer paridade de funcionalidades para os contentores do Windows, pode encontrar as diferenças da plataforma atual em [Quotas e disponibilidade das regiões do Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="co-scheduled-groups"></a>Grupos agendados conjuntamente
 
-O Azure Container Instances suporta o agendamento de [grupos de vários contentores](container-instances-container-groups.md) que partilhem um computador anfitrião, a rede local, o armazenamento e o ciclo de vida. Desta forma, pode combinar a sua aplicação principal com outras que desempenhem um papel de apoio, como, por exemplo, um papel de registo.
+O Azure Container Instances suporta o agendamento de [grupos de vários contentores](container-instances-container-groups.md) que partilhem um computador anfitrião, a rede local, o armazenamento e o ciclo de vida. Desta forma, pode combinar o contentor da aplicação principal com outros contentores que têm um papel secundário, tais como sidecars de registo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

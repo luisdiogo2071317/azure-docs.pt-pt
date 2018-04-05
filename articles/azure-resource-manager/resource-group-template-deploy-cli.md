@@ -1,6 +1,6 @@
 ---
 title: Implementar recursos com a CLI do Azure e o modelo | Microsoft Docs
-description: "Utilize o Azure Resource Manager e a CLI do Azure para implementar um recursos no Azure. Os recursos são definidos num modelo do Resource Manager."
+description: Utilize o Azure Resource Manager e a CLI do Azure para implementar um recursos no Azure. Os recursos são definidos num modelo do Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9c8b352194e3a624097a48b5d312356a0ead4276
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f920165448f4197778faec07c9d49e0bddf1b555
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementar recursos com modelos do Resource Manager e do CLI do Azure
 
@@ -34,7 +34,7 @@ Se não tiver a CLI do Azure instalado, pode utilizar o [nuvem Shell](#deploy-te
 
 Quando implementar recursos para o Azure, pode:
 
-1. Inicie sessão na sua conta do Azure
+1. Iniciar sessão na sua conta do Azure
 2. Crie um grupo de recursos que funciona como o contentor para os recursos implementados. O nome do grupo de recursos só pode incluir carateres alfanuméricos, pontos, carateres de sublinhado, hífenes e parênteses. Pode ser até 90 carateres. Não pode terminar num período.
 3. Implementar o modelo que define os recursos para criar o grupo de recursos
 
@@ -82,10 +82,12 @@ O exemplo anterior requer um URI acessível publicamente para o modelo, que func
 
 Na Shell de nuvem, utilize os seguintes comandos:
 
-   ```azurecli-interactive
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
-   ```
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup \
+  --template-uri <copied URL> \
+  --parameters storageAccountType=Standard_GRS
+```
 
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Implementar a mais do que um grupo de recursos ou subscrição
 

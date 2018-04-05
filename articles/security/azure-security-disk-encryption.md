@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 73212a231d11136854115922df423a7cb5b08f05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5219ebc22e56ad4b5cdfc125f7fa5882c61adb9f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Encriptação de disco do Azure para o Windows e as VMs de Linux IaaS
 Microsoft Azure é vivamente consolidada para assegurar a privacidade dos dados, soberania de dados e permite avançadas, para controlar o Azure alojadas dados através de uma variedade de tecnologias para encriptar, controlar e gerir chaves de encriptação, controlo & auditar o acesso aos dados. Isto proporciona aos clientes do Azure a flexibilidade para escolher a solução que melhor se adeque às suas necessidades de negócio. Neste documento, vamos apresenta-lhe uma nova solução de tecnologia "Do Azure Disk Encryption para o Windows e de Linux IaaS VM" para ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacional. O documento fornece orientações detalhadas sobre como utilizar as funcionalidades de encriptação de disco do Azure, incluindo os cenários suportados e o utilizador experiências.
@@ -780,14 +780,10 @@ Utilize o [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx) 
 > Prepare a VM com um separado/recurso de dados VHD para obter a chave externa utilizando o BitLocker.
 
 #### <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Encriptar uma unidade de SO numa VM com Linux em execução
-Encriptação de uma unidade de SO numa VM com Linux em execução é suportada nas distribuições seguintes:
-
-* RHEL 7.2
-* CentOS 7.2
-* Ubuntu 16.04
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>Pré-requisitos para encriptação de disco do SO
 
+* A VM tem de utilizar uma distribuição compatível com a encriptação de disco de SO conforme indicado no [FAQ de encriptação de disco do Azure](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * A VM tem de ser criada a imagem do Marketplace no Gestor de recursos do Azure.
 * VM do Azure com, pelo menos, 4 GB de RAM (recomendado é de tamanho 7 GB).
 * (Para RHEL e CentOS) Desative SELinux. Para desativar SELinux, consulte "4.4.2 criação. Desativar o SELinux"o [Guia do administrador e utilizador SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) na VM.

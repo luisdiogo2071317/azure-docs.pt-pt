@@ -1,11 +1,11 @@
 ---
-title: "Criar uma aplicação do Azure Mobile Engagement | Microsoft Docs"
-description: "Descreve como criar uma nova Coleção de Aplicações de Mobile Engagement no Azure e começar a gerir as suas aplicações com o portal de Mobile Engagement."
+title: Criar uma aplicação do Azure Mobile Engagement | Microsoft Docs
+description: Descreve como criar uma nova Coleção de Aplicações de Mobile Engagement no Azure e começar a gerir as suas aplicações com o portal de Mobile Engagement.
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b8aa1798-28c6-424c-a5b5-8a264d5a0ff0
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f47133a466f00de43ebfb2652eaf9058899f140
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Criar uma aplicação do Azure Mobile Engagement
+> [!IMPORTANT]
+> O Azure Mobile Engagement será descontinuado a 31/03/2018. Esta página será eliminada pouco tempo depois.
+> 
+
 Este artigo mostra como utilizar o método **Criação rápida** para criar uma nova aplicação **Azure Mobile Engagement**. O artigo mostra também como navegar para o seu portal **Mobile Engagement** para começar a monitorizar e gerir as suas aplicações. 
 
 Tenha em atenção que tem de adicionar um conjunto mínimo de “integração básica” para que seja possível recolher dados para a sua aplicação e enviar notificações push. Encontrará toda a documentação sobre a integração na página [Integração do Mobile Engagement](mobile-engagement-windows-store-integrate-engagement.md).
@@ -43,7 +47,7 @@ Assim que estiver no portal do Mobile Engagement, pode analisar, criar e gerir s
 * [Criar e gerir segmentos de utilizadores para identificar padrões de utilização](mobile-engagement-user-interface-segments.md)
 * [Entrar em contacto com os utilizadores da sua aplicação com notificações push](mobile-engagement-user-interface-reach.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consultar Também
 [Definir a sua estratégia de Mobile Engagement](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [Introdução ao Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (pode selecionar outras plataformas móveis na parte superior da página).

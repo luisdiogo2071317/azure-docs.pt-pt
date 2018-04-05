@@ -1,26 +1,26 @@
 ---
 title: Gerir recursos de conta do Batch com a biblioteca de cliente para .NET - Azure | Microsoft Docs
-description: "Criar, eliminar e modificar recursos da conta do Azure Batch com a biblioteca de gestão de lotes .NET."
+description: Criar, eliminar e modificar recursos da conta do Azure Batch com a biblioteca de gestão de lotes .NET.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/24/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eafde9258222a2ab09ade2e366f9cc595a303dec
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 7f2d0b261a991dc02b670488c14392697ea984ec
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerir contas do Batch e quotas com a biblioteca de cliente de gestão do Batch para .NET
 
@@ -35,7 +35,7 @@ Pode reduzir manutenção sobrecarga nas suas aplicações do Azure Batch, utili
 * **Criar e eliminar contas do Batch** qualquer região. Se, como um fabricante independente de software (ISV) por exemplo, fornecer um serviço para os clientes que cada um é atribuída a uma conta separada do Batch para fins de faturação, pode adicionar capacidades de criação e eliminação de conta para o portal de cliente.
 * **Obter e voltar a gerar chaves de conta** através de programação para qualquer uma das suas contas do Batch. Isto pode ajudá-lo está em conformidade com as políticas de segurança que impõem rollover periódico ou expiração de chaves de conta. Quando tiver várias contas do Batch em várias regiões do Azure, o automatização deste processo de rollover aumenta a eficiência da sua solução.
 * **Verifique as quotas de conta** e tomar guesswork a versão de avaliação de erro e fora de determinar que contas do Batch têm os limites. Ao verificar a sua quotas de conta antes de iniciar trabalhos, criar agrupamentos, ou adicionar nós de computação, pode ajustar proativamente onde ou quando estes computação recursos são criados. Pode determinar quais as contas que necessitam de quota aumenta antes da recursos adicionais nessas contas.
-* **Combinar as funcionalidades de outros serviços do Azure** para uma experiência de gestão completo – utilizando a gestão de lotes .NET, [do Azure Active Directory][aad_about]e o [do Azure Resource Manager] [ resman_overview] em conjunto na mesma aplicação. Ao utilizar estas funcionalidades e das respetivas APIs, pode fornecer uma experiência de autenticação sem incómodos, a capacidade de criar e eliminar grupos de recursos e as capacidades que são descritas acima para uma solução de gestão de ponto a ponto.
+* **Combinar as funcionalidades de outros serviços do Azure** para uma experiência de gestão completo – utilizando a gestão de lotes .NET, [do Azure Active Directory][aad_about]e o [Azure Gestor de recursos] [ resman_overview] em conjunto na mesma aplicação. Ao utilizar estas funcionalidades e das respetivas APIs, pode fornecer uma experiência de autenticação sem incómodos, a capacidade de criar e eliminar grupos de recursos e as capacidades que são descritas acima para uma solução de gestão de ponto a ponto.
 
 > [!NOTE]
 > Embora este artigo incida na gestão programática de contas, chaves e quotas do Batch, pode efetuar muitas destas atividades utilizando o [portal do Azure][azure_portal]. Para obter mais informações, consulte [criar uma conta do Azure Batch no portal do Azure](batch-account-create-portal.md) e [Quotas e limites para o serviço Azure Batch](batch-quota-limit.md).

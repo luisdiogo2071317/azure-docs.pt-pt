@@ -4,7 +4,7 @@ description: Saiba como criar uma rede virtual peering entre redes virtuais cria
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 4c76083c7b1478ba865f047584ba313d029a1e35
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7a0104e68b07dbdff5483b771429fb9bc19a523f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um peering de rede virtual - diferentes modelos de implementação e as subscrições
 
@@ -33,7 +33,7 @@ Os passos para criar um peering de rede virtual são diferentes, dependendo se a
 |[O Gestor de recursos](create-peering-different-subscriptions.md) |Diferente|
 |[Um Gestor de recursos, um clássico](create-peering-different-deployment-models.md) |mesmo|
 
-Não é possível criar uma rede virtual peering entre duas redes virtuais implementadas através do modelo de implementação clássica. Este tutorial utiliza redes virtuais que existem na mesma região. A capacidade de elemento redes virtuais em diferentes regiões está em pré-visualização. Para utilizar essa capacidade, tem de [registar](#register). 
+Não é possível criar uma rede virtual peering entre duas redes virtuais implementadas através do modelo de implementação clássica. Este tutorial utiliza redes virtuais que existem na mesma região. Este tutorial elementos redes virtuais na mesma região. Também pode elemento redes virtuais em diferentes [regiões suportadas](virtual-network-manage-peering.md#cross-region).  
 
 Ao criar uma rede virtual peering entre redes virtuais que existam em diferentes subscrições, as subscrições têm de ter ambos associadas ao mesmo inquilino do Azure Active Directory. Se ainda não tiver um inquilino do Azure Active Directory, pode rapidamente [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Pode ligar redes virtuais em diferentes subscrições e diferente do Azure Active Directory inquilinos com um Azure [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -43,7 +43,7 @@ Pode utilizar o [portal do Azure](#portal), o Azure [interface de linha de coman
 
 Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a utilizar uma conta que tenha permissões para ambas as subscrições, pode utilizar a mesma conta para todos os passos, ignore os passos para registo fora do portal e ignore os passos para atribuir permissões de outro utilizador para as redes virtuais.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) como UserA. A conta que iniciar sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Consulte o [permissões](#permissions) secção deste artigo para obter mais detalhes.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) como UserA. A conta que iniciar sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Para obter uma lista de permissões, consulte [peering permissões de rede Virtual](virtual-network-manage-peering.md#permissions).
 2. Clique em **+ novo**, clique em **redes**, em seguida, clique em **rede Virtual**.
 3. No **criar rede virtual** painel, introduza, ou selecione os valores para as seguintes definições, em seguida, clique em **criar**:
     - **Name**: *myVnetA*
@@ -99,7 +99,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a utilizar uma conta que tenha permissões para ambas as subscrições, pode utilizar a mesma conta para todos os passos, ignore os passos para registo no Azure e remover as linhas de script que criar atribuições de funções de utilizador. Substitua UserA@azure.com e UserB@azure.com em todas os scripts seguintes com os nomes de utilizador que está a utilizar para UserA e UserB. 
 
 1. [Instalar](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 1.0 de CLI do Azure para criar a rede virtual (clássica).
-2. Abra uma sessão CLI e inicie sessão no Azure como UserB utilizando o `azure login` comando.
+2. Abra uma sessão CLI e inicie sessão no Azure como UserB utilizando o `azure login` comando. A conta que iniciar sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Para obter uma lista de permissões, consulte [peering permissões de rede Virtual](virtual-network-manage-peering.md#permissions).
 3. Execute o CLI no modo de gestão do serviço introduzindo o `azure config mode asm` comando.
 4. Introduza o seguinte comando para criar a rede virtual (clássica):
  
@@ -185,7 +185,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 
 1. Instale a versão mais recente do PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) e [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) módulos. Se não estiver familiarizado com o Azure PowerShell, consulte a [Descrição geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie uma sessão do PowerShell.
-3. No PowerShell, inicie sessão na subscrição do User-b como UserB, introduzindo o `Add-AzureAccount` comando.
+3. No PowerShell, inicie sessão na subscrição do User-b como UserB, introduzindo o `Add-AzureAccount` comando. A conta que iniciar sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Para obter uma lista de permissões, consulte [peering permissões de rede Virtual](virtual-network-manage-peering.md#permissions).
 4. Para criar uma rede virtual (clássica) com o PowerShell, tem de criar um novo ou modificar um ficheiro de configuração de rede existente. Saiba como [exportar, atualizar e importar ficheiros de configuração de rede](virtual-networks-using-network-configuration-file.md). O ficheiro deve incluir o seguinte **VirtualNetworkSite** elemento da rede virtual que utilizou neste tutorial:
 
     ```xml
@@ -214,7 +214,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. Termine sessão no Azure como UserB e inicie sessão na subscrição do User-como UserA, introduzindo o `login-azurermaccount` comando. A conta que iniciar sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Consulte o [permissões](#permissions) secção deste artigo para obter mais detalhes.
+7. Termine sessão no Azure como UserB e inicie sessão na subscrição do User-como UserA, introduzindo o `login-azurermaccount` comando. A conta que iniciar sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Para obter uma lista de permissões, consulte [peering permissões de rede Virtual](virtual-network-manage-peering.md#permissions).
 8. Criar a rede virtual (Resource Manager) ao copiar o script seguinte, colando-para o PowerShell e, em seguida, premindo `Enter`:
 
     ```powershell
@@ -268,19 +268,6 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 
 12. **Opcional**: Apesar de criação de máquinas virtuais não é abrangido neste tutorial, pode criar uma máquina virtual em cada rede virtual e ligar a partir de uma máquina virtual para outro, para validar a conetividade.
 13. **Opcional**: para eliminar os recursos que criou neste tutorial, concluir os passos [eliminar recursos](#delete-powershell) neste artigo.
-
-## <a name="permissions"></a>Permissões
-
-As contas que utilizar para criar um peering de rede virtual tem de ter a função necessária ou permissões. Por exemplo, se foram peering duas redes virtuais com o nome myVnetA e myVnetB, deve ser atribuída à conta a seguinte função mínima ou as permissões para cada rede virtual:
-    
-|Rede virtual|Modelo de implementação|Função|Permissões|
-|---|---|---|---|
-|myVnetA|Resource Manager|[Contribuidor de Rede](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Clássica|[Contribuidor de Rede Clássica](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
-|myVnetB|Resource Manager|[Contribuidor de Rede](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Clássica|[Contribuidor de Rede Clássica](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
-
-Saiba mais sobre [funções incorporadas](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e atribuir permissões específicas para [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (apenas para o Resource Manager).
 
 ## <a name="delete"></a>Eliminar recursos
 Quando tiver terminado neste tutorial, pode querer eliminar os recursos que criou no tutorial, pelo que não implicar custos de utilização. Também eliminar um grupo de recursos elimina todos os recursos que estão no grupo de recursos.
@@ -336,7 +323,7 @@ Quando tiver terminado neste tutorial, pode querer eliminar os recursos que crio
     > [!WARNING]
     > Importar um ficheiro de configuração foi alterada de rede pode fazer com que as alterações às redes virtuais existentes (clássica) na sua subscrição. Certifique-se apenas a remover a rede virtual anterior e que não alterar ou remover quaisquer outras redes virtuais existentes da sua subscrição. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Exaustivamente familiarizar-se com importante [restrições de peering de rede virtual e comportamentos](virtual-network-manage-peering.md#requirements-and-constraints) antes de criar uma rede virtual para a produção de peering utilize.
 - Saiba mais sobre todos os [definições de rede virtual peering](virtual-network-manage-peering.md#create-a-peering).

@@ -1,26 +1,26 @@
 ---
-title: "Criar uma função no Azure acionada por mensagens de fila | Microsoft Docs"
-description: "Utilize as Funções do Azure para criar uma função sem servidores que é invocada por mensagens que são submetidas para filas do Armazenamento do Azure."
+title: Criar uma função no Azure acionada por mensagens de fila | Microsoft Docs
+description: Utilize as Funções do Azure para criar uma função sem servidores que é invocada por mensagens que são submetidas para filas do Armazenamento do Azure.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: 77c8c8dbe6228d80062f34f4bb7fc93a1871e8c4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: d9ab8115ad273101a0a25a094436bc0a24a45e68
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Criar uma função acionada pelo Armazenamento de filas do Azure
 
@@ -33,8 +33,6 @@ Saiba como criar funções que são acionadas quando são submetidas mensagens p
 - Transferir e instalar o [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 - Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-an-azure-function-app"></a>Criar uma aplicação de Funções do Azure
 
@@ -50,7 +48,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 1. Expanda a aplicação de funções e clique no botão **+**, junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **Função personalizada**. É apresentado o conjunto completo de modelos de função.
 
-    ![Início rápido das funções no portal do Azure](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
+    ![Página de início rápido das funções no portal do Azure](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
 2. No campo de pesquisa, escreva `queue` e, em seguida, escolha o idioma pretendido para o modelo de acionador do armazenamento de Filas.
 

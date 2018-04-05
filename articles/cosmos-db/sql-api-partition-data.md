@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a48c1bb246e3e8659aada614d39fdc608e5bc8d8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fe78289938e752731ff2e830fb62ad210e12111e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>A criação de partições na base de dados do Cosmos do Azure utilizando a API do SQL Server
 
@@ -78,7 +78,7 @@ Na API do SQL Server, especifique a definição de chave de partição sob a for
 Vamos ver como a escolha de chave de partição tem impacto no desempenho da aplicação.
 
 ## <a name="working-with-the-azure-cosmos-db-sdks"></a>Trabalhar com os SDKs do Azure Cosmos DB
-BD do Azure do Cosmos suporte adicionado para criação de partições automático com [API de REST versão 2015-12-16](/rest/api/documentdb/). Para criar contentores particionadas, tem de transferir versões do SDK 1.6.0 ou mais recente de uma das seguintes as plataformas suportadas do SDK (.NET, Node.js, Java, Python, MongoDB). 
+BD do Azure do Cosmos suporte adicionado para criação de partições automático com [API de REST versão 2015-12-16](/rest/api/cosmos-db/). Para criar contentores particionadas, tem de transferir versões do SDK 1.6.0 ou mais recente de uma das seguintes as plataformas suportadas do SDK (.NET, Node.js, Java, Python, MongoDB). 
 
 ### <a name="creating-containers"></a>Criar contentores
 O exemplo seguinte mostra um fragmento de .NET para criar um contentor para armazenar dados de telemetria do dispositivo 20.000 de unidades de pedido por segundo de débito. O SDK define o valor de OfferThroughput (que por sua vez, define o `x-ms-offer-throughput` cabeçalho do pedido na REST API). Aqui iremos definir o `/deviceId` como a chave de partição. A escolha de chave de partição é guardada juntamente com o resto dos metadados do contentor como o nome e a política de indexação.
@@ -221,10 +221,10 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
    
 Na secção seguinte, vamos ver como pode mover a contentores particionadas de contentores de partição única.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, fornecemos-lhe uma descrição geral de como trabalhar com a criação de partições de contentores de BD do Cosmos do Azure com a API do SQL Server. Consulte também [criação de partições e dimensionamento horizontal](../cosmos-db/partition-data.md) para uma descrição geral dos conceitos e procedimentos recomendados para a criação de partições com qualquer API de BD do Cosmos do Azure. 
 
 * Efetue o dimensionamento e desempenho de teste com base de dados do Azure Cosmos. Consulte [desempenho e dimensionamento de teste com base de dados do Azure Cosmos](performance-testing.md) para um exemplo.
-* Introdução à programação com o [SDKs](sql-api-sdk-dotnet.md) ou [REST API](/rest/api/documentdb/)
+* Introdução à programação com o [SDKs](sql-api-sdk-dotnet.md) ou [REST API](/rest/api/cosmos-db/)
 * Saiba mais sobre [débito aprovisionado do BD Azure Cosmos](request-units.md)
 

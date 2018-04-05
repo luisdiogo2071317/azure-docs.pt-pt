@@ -1,19 +1,19 @@
 ---
 title: Criar e gerir a base de dados do Azure para o servidor de MySQL utilizando o portal do Azure
-description: "Este artigo descreve como pode rapidamente criar uma nova base de dados do Azure para o servidor de MySQL e gerir o servidor através do Portal do Azure."
+description: Este artigo descreve como pode rapidamente criar uma nova base de dados do Azure para o servidor de MySQL e gerir o servidor através do Portal do Azure.
 services: mysql
 author: ajlam
-ms.author: nolanwu
+ms.author: andrela
 editor: jasonwhowell
 manager: kfile
 ms.service: mysql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0e274c0ada3de5e9000ae41516e5b9b67ef1490b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4b52cb9e42e582d42424c2814e2e30f764a8679b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Criar e gerir a base de dados do Azure para o servidor de MySQL utilizando o portal do Azure
 Este tópico descreve como pode criar rapidamente uma nova base de dados do Azure para o servidor de MySQL. Também inclui informações sobre como gerir o servidor utilizando o portal do Azure. Gestão de servidor inclui ver detalhes do servidor e bases de dados, a repor a palavra-passe, dimensionar recursos e a eliminação do servidor.
@@ -46,7 +46,7 @@ Siga estes passos para criar uma base de dados do Azure para o servidor de MySQL
     | *Localização* | Sudeste Asiático (selecione entre Europa do Norte e EUA oeste) |
     | *Versão* | 5.7 (escolher a base de dados do Azure para a versão do servidor MySQL) |
 
-4. Clique em **escalão de preço** para especificar o nível de desempenho e o escalão de serviço para o novo servidor. Selecione o **fins gerais** separador. *Gen 4*, *2 vCores*, *5 GB*, e *7 dias* são os valores predefinidos para **computação geração**, **vCore** , **Armazenamento**, e **período de retenção de cópia de segurança**. Pode deixar os controlos de deslize como está. Para ativar as cópias de segurança do servidor no armazenamento georredundante selecione **Georredundante** do **opções de redundância de cópia de segurança**.
+4. Clique em **escalão de preço** para especificar o nível de desempenho e o escalão de serviço para o novo servidor. Selecione o **fins gerais** separador. *Geração 4*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 
@@ -110,6 +110,6 @@ Clique em **propriedades**, localizado em **definições** para ver informaçõe
 
 ![propriedades](./media/howto-create-manage-server-portal/properties.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Início rápido: Criar a base de dados do Azure para o servidor de MySQL utilizando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)

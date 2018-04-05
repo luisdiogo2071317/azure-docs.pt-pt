@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: 7f69b5268adc857c6e45f8fa11fbcca42f64b71f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b3d9d45da0fb62445867d13c9dff7502af77e8a8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca dos dispositivos de VPN e dos parâmetros IPsec/IKE para ligações do Gateway da Rede de VPNs
 
@@ -81,9 +81,13 @@ Para obter ajuda na configuração do seu dispositivo VPN, veja as ligações qu
 >
 > (\*\*) Os routers da Série ISR 7200 só suportam VPNs PolicyBased.
 
-## <a name="Download VPN device configuration scripts from Azure"></a>Transfira scripts de configuração de dispositivo VPN do Azure
+## <a name="configscripts"></a>Transfira scripts de configuração de dispositivo VPN do Azure
 
 Determinados dispositivos, pode transferir os scripts de configuração diretamente a partir do Azure. Para obter mais informações e transferências instruções, consulte [scripts de configuração do dispositivo VPN transferir](vpn-gateway-download-vpndevicescript.md).
+
+### <a name="devices-with-available-configuration-scripts"></a>Dispositivos com scripts de configuração disponíveis
+
+[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="additionaldevices"></a>Dispositivos VPN não validados
 
@@ -159,7 +163,7 @@ A tabela seguinte apresenta as Ofertas de SA IPsec (Modo Rápido de IKE). As ofe
 | 1 |GCM AES256    |GCM (AES256)      |Nenhuma         |
 | 2 |AES256        |SHA1              |Nenhuma         |
 | 3 |3DES          |SHA1              |Nenhuma         |
-| 4 |AES256        |SHA256            |Nenhuma         |
+| 4 |AES256        |SHA256            |Nenhum         |
 | 5 |AES128        |SHA1              |Nenhuma         |
 | 6 |3DES          |SHA256            |Nenhuma         |
 
@@ -169,10 +173,10 @@ A tabela seguinte apresenta as Ofertas de SA IPsec (Modo Rápido de IKE). As ofe
 |---| ---          | ---              |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Nenhuma         |
 | 2 |AES256        |SHA1              |Nenhuma         |
-| 3 |3DES          |SHA1              |Nenhuma         |
+| 3 |3DES          |SHA1              |Nenhum         |
 | 4 |AES256        |SHA256            |Nenhuma         |
 | 5 |AES128        |SHA1              |Nenhuma         |
-| 6 |3DES          |SHA256            |Nenhum         |
+| 6 |3DES          |SHA256            |Nenhuma         |
 | 7 |DES           |SHA1              |Nenhuma         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |

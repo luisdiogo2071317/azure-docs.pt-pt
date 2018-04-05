@@ -1,11 +1,11 @@
 ---
-title: "Azure circuitos ExpressRoute e domínios de encaminhamento | Microsoft Docs"
-description: "Esta página fornece uma descrição geral dos circuitos ExpressRoute e domínios de encaminhamento."
+title: Azure circuitos ExpressRoute e domínios de encaminhamento | Microsoft Docs
+description: Esta página fornece uma descrição geral dos circuitos ExpressRoute e domínios de encaminhamento.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos ExpressRoute e domínios de encaminhamento
  Deve ordenar um *circuito ExpressRoute* para ligar a sua infraestrutura no local para a Microsoft através de um fornecedor de conectividade. A figura seguinte mostra uma representação lógica da conetividade entre a sua WAN e a Microsoft.
@@ -72,7 +72,7 @@ Consulte o [página de FAQ](expressroute-faqs.md) para obter mais informações 
 ## <a name="routing-domain-comparison"></a>Comparação de domínio de encaminhamento
 A tabela seguinte compara os três domínios de encaminhamento:
 
-|  | **Peering privado** | **Peering público** | **Peering da Microsoft*** |
+|  | **Peering privado** | **Peering público** (preterido para criações novo) | **Peering da Microsoft** |
 | --- | --- | --- | --- |
 | **Máx. prefixos de # suportados por peering** |4000 por predefinição, 10 000 com o ExpressRoute Premium |200 |200 |
 | **Intervalos de endereços IP suportados** |Qualquer endereço IP válido do sua WAN. |Endereços IP públicos pertencentes ao utilizador ou o fornecedor de conectividade. |Endereços IP públicos pertencentes ao utilizador ou o fornecedor de conectividade. |
@@ -81,7 +81,7 @@ A tabela seguinte compara os três domínios de encaminhamento:
 | **Encaminhamento endereços de IP da Interface** |Endereços IP público e de RFC1918 |Endereços IP públicos registados para si nos registos do encaminhamento. |Endereços IP públicos registados para si nos registos do encaminhamento. |
 | **Suporte de MD5 Hash** |Sim |Sim |Sim |
 
-(*) Requer o escalão SKU de suplemento Premium
+
 
 Pode optar por ativar uma ou mais domínios de encaminhamento como parte do seu circuito do ExpressRoute. Pode optar por todos os domínios de encaminhamento colocados o mesmo VPN se pretender combiná-las num único domínio de encaminhamento. Também pode colocá-los com domínios de encaminhamento diferentes, semelhantes ao diagrama. A configuração recomendada é que o peering privado está ligado diretamente à rede principal e o público e ligações de peering da Microsoft estão ligadas à sua rede de Perímetro.
 

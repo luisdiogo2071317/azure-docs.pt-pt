@@ -1,6 +1,6 @@
 ## <a name="deploy-template-from-cloud-shell"></a>Implementar o modelo a partir do Cloud Shell
 
-Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implementar o modelo. No entanto, primeiro tem de carregar o modelo na partilha de ficheiros do Cloud Shell. Se não utilizou o Cloud Shell, consulte a [Descrição Geral do Azure Cloud Shell](../articles/cloud-shell/overview.md) para obter informações sobre como o configurar.
+Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implementar o modelo. No entanto, deve primeiro carregar o modelo para a conta de armazenamento para a Shell de nuvem. Se não utilizou o Cloud Shell, consulte a [Descrição Geral do Azure Cloud Shell](../articles/cloud-shell/overview.md) para obter informações sobre como o configurar.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
@@ -12,33 +12,37 @@ Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implemen
 
    ![Selecionar a conta de armazenamento](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
-1. Selecione **Ficheiros**.
+1. Selecione **Blobs**.
 
-   ![Selecionar ficheiros](./media/resource-manager-cloud-shell-deploy/select-files.png)
+   ![Selecione os blobs](./media/resource-manager-cloud-shell-deploy/select-blobs.png)
 
-1. Selecione a partilha de ficheiros para o Cloud Shell. O padrão de nome é `cs-<user>-<domain>-com-<uniqueGuid>`.
+1. Selecione **+ contentor**.
 
-   ![Selecionar a partilha de ficheiros](./media/resource-manager-cloud-shell-deploy/select-file-share.png)
+   ![Adicionar contentor](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. Selecione **Adicionar diretório**.
+1. Atribua o contentor de um nome e um nível de acesso. O modelo de exemplo neste artigo contém não existem informações confidenciais, por isso, permitem acesso de leitura anónimo. Selecione **OK**.
 
-   ![Adicionar diretório](./media/resource-manager-cloud-shell-deploy/select-add-directory.png)
+   ![Indique os valores de contentor](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
-1. Atribua-lhe o nome **templates** e selecione **OK**.
+1. Selecione o contentor que criou.
 
-   ![Atribuir um nome ao diretório](./media/resource-manager-cloud-shell-deploy/name-templates.png)
-
-1. Selecione o novo diretório.
-
-   ![Selecionar o diretório](./media/resource-manager-cloud-shell-deploy/select-templates.png)
+   ![Selecione o novo contentor](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
 1. Selecione **Upload**.
 
-   ![Selecionar a operação carregar](./media/resource-manager-cloud-shell-deploy/select-upload.png)
+   ![Carregar blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 
 1. Localize e carregue o modelo.
 
-   ![Carregar o ficheiro](./media/resource-manager-cloud-shell-deploy/upload-files.png)
+   ![Carregar o ficheiro](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+
+1. Depois de terem carregados, selecione o modelo.
+
+   ![Selecione o novo modelo](./media/resource-manager-cloud-shell-deploy/select-new-template.png)
+
+1. Copie o URL.
+
+   ![Copie o URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. Abra o prompt.
 

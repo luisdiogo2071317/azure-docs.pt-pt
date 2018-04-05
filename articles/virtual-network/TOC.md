@@ -29,11 +29,11 @@
 ## Implementação
 
 ### Grupos de segurança de rede
-#### [Portal do Azure](virtual-networks-create-nsg-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [CLI do Azure](virtual-networks-create-nsg-arm-cli.md)
-#### [Modelo](virtual-networks-create-nsg-arm-template.md)
-#### [Grupos de segurança de aplicações](create-network-security-group-preview.md)
+#### [Azure PowerShell](tutorial-filter-network-traffic.md)
+#### [CLI do Azure](tutorial-filter-network-traffic-cli.md)
+#### Sem grupos de segurança de aplicações
+##### [Portal do Azure](virtual-networks-create-nsg-arm-pportal.md)
+##### [Modelo](virtual-networks-create-nsg-arm-template.md)
 #### Clássica
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [CLI do Azure 1.0](virtual-networks-create-nsg-classic-cli.md)

@@ -1,36 +1,34 @@
 ---
-title: "Unidades de pedido & calcular o débito - base de dados do Azure Cosmos | Microsoft Docs"
+title: Unidades de pedido & calcular o débito - base de dados do Azure Cosmos | Microsoft Docs
 description: Saiba mais sobre como compreender, especifique e estimar os requisitos da unidade de pedido na base de dados do Azure Cosmos.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/30/2018
 ms.author: mimig
-ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5f733e9cbd90829eded80b1401093e2331a1eb16
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no Azure Cosmos DB de pedido
-Agora disponível: BD do Azure do Cosmos [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner). Saiba mais em [estimar o débito tem](request-units.md#estimating-throughput-needs).
 
-![Calculadora de débito][5]
-
-## <a name="introduction"></a>Introdução
 [BD do Azure do Cosmos](https://azure.microsoft.com/services/cosmos-db/) é globalmente múltiplos modelo base de dados distribuída da Microsoft. Com base de dados do Azure Cosmos, não terá alugar máquinas virtuais, implementar software ou monitorizar bases de dados. BD do Azure do Cosmos é operada e monitorizado continuamente por engenheiros superiores da Microsoft para fornecer proteção de dados, desempenho e disponibilidade de classe do mundo. Pode aceder a dados utilizando APIs à sua escolha, tal como o [API do SQL Server](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [API de tabela](table-introduction.md)e Gremlin através de [Graph API](graph-introduction.md) - são suportados nativamente todos. A moeda de base de dados do Azure Cosmos é o pedido unidade (RU). Com RUs, não terá as capacidades de leitura/escrita ou o aprovisionar da CPU, memória e IOPS de reserva.
 
 BD do Azure do Cosmos suporta um número de APIs com operações diferentes de leituras simples e escreve consultas complexas de gráfico. Uma vez que nem todos os pedidos são iguais, são atribuídas uma quantidade normalizada de **unidades de pedido** com base na quantidade de computação necessária para servir o pedido. O número de unidades de pedido de uma operação é determinista e pode controlar o número de unidades de pedido utilizada por todas as operações do BD Azure Cosmos através de um cabeçalho de resposta. 
 
-Para fornecer um desempenho previsível, terá de reservar débito em unidades de 100 RU por segundo. 
+Para fornecer um desempenho previsível, terá de reservar débito em unidades de 100 RU por segundo. Pode [estimar o débito tem](request-units.md#estimating-throughput-needs) utilizando a BD do Cosmos Azure [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner).
+
+![Calculadora de débito][5]
 
 Depois de ler este artigo, poderá responder às seguintes questões:  
 
@@ -46,9 +44,9 @@ BD do Azure do Cosmos oferece um desempenho previsível, rápido por *reservar* 
 
 Com base de dados do Azure Cosmos, débito reservado é especificado em termos de unidades de pedido de processamento por segundo. Pode considerar unidades de pedido como moeda de débito, em *reservar* uma quantidade garantida de unidades de pedido disponíveis para a aplicação numa base por segundo.  Cada operação na base de dados do Azure Cosmos - escrita de um documento, executar uma consulta, atualizar um documento - consome CPU, memória e IOPS.  Ou seja, cada operação implica um *pedido encargos*, que é expresso em *unidades de pedido*.  Compreender os fatores que afetam os encargos de unidade de pedido, juntamente com os requisitos de débito da sua aplicação, permite-lhe executar a aplicação como custo eficientemente possível. O Explorador de dados no portal do Azure também é uma ferramenta wonderful para testar as principais de uma consulta.
 
-Recomendamos que comece por ver o vídeo seguinte, onde Aravind Ramachandran explica unidades de pedido e o desempenho previsível, com base de dados do Azure Cosmos.
+Recomendamos que comece por ver o vídeo seguinte, onde o Azure Gestor de programa do Cosmos DB Andrew Liu aborda unidades de pedido.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
 
@@ -350,7 +348,7 @@ Se tiver mais do que um cliente cumulativamente e operativo acima a taxa de pedi
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de débito reservado na MongoDB API
 As aplicações que excedem as unidades de pedido aprovisionado para um contentor serão limitadas até que a taxa de ignora abaixo do nível reservado. Quando ocorre uma limitação, o back-end preventivamente vai terminar o pedido com um *16500* código de erro - *demasiados pedidos*. Por predefinição, a API do MongoDB tenta automaticamente Repetir até 10 vezes antes de o devolver um *demasiados pedidos* código de erro. Se está a receber muitas *demasiados pedidos* códigos de erro, poderá considerar o comportamento de repetição adicionar no rotinas de processamento de erros da aplicação ou [aumentar o débito reservado para o contentor](set-throughput.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre débito reservado com bases de dados do Azure Cosmos DB, explore estes recursos:
 
 * [Preços de base de dados do Cosmos do Azure](https://azure.microsoft.com/pricing/details/cosmos-db/)

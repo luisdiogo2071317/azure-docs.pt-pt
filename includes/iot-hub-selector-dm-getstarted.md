@@ -7,6 +7,8 @@
 
 Aplicações de back-end pode utilizar primitivos do IoT Hub do Azure, tal como [dispositivo duplo] [ lnk-devtwin] e [direcionar métodos][lnk-c2dmethod], para iniciar e monitorizar dispositivos remotamente ações de gestão nos dispositivos. Este tutorial mostra como uma aplicação de back-end e uma aplicação de dispositivo podem trabalhar em conjunto para iniciar e monitorizar um reinício do dispositivo remoto utilizar o IoT Hub.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Utilize um método direto para iniciar as ações de gestão de dispositivos (por exemplo, o reinício, reposição de fábrica e atualização de firmware) a partir de uma aplicação de back-end na nuvem. O dispositivo é responsável por:
 
 * A processar o pedido de método enviado a partir do IoT Hub.
