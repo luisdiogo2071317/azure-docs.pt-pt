@@ -2,10 +2,10 @@
 title: 'O Azure AD Connect: Resolver problemas de conectividade | Microsoft Docs'
 description: Explica como resolver problemas de conectividade com o Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Resolver problemas de conectividade com o Azure AD Connect
 Este artigo explica como funciona a conectividade entre o Azure AD Connect e o Azure AD e como resolver problemas de conectividade. Estes problemas são mais prováveis ser vistos num ambiente com um servidor proxy.
@@ -40,7 +40,7 @@ O servidor proxy tem de ter também os URLs necessários abertos. A lista oficia
 
 URLs, a tabela seguinte é o mínimo de bare absoluto para conseguir ligar ao Azure AD de todo. Esta lista não inclui quaisquer funcionalidades opcionais, tais como a repetição de escrita de palavras-passe ou o Azure AD Connect Health. São documentado aqui para ajudar na resolução de problemas para a configuração inicial.
 
-| URL | Porta | Descrição |
+| do IdP | Porta | Descrição |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Utilizado para transferir o CRL listas. |
 | \*.verisign.com |HTTP/80 |Utilizado para transferir o CRL listas. |
@@ -75,10 +75,10 @@ Este erro ocorre se o ponto final **https://secure.aadcdn.microsoftonline-p.com*
 Se o Assistente de instalação for concluída com êxito na ligação para o Azure AD, mas a palavra-passe propriamente dito não é possível verificar a que ver este erro:  
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-* É a palavra-passe uma palavra-passe temporária e tem de ser alterada? É, na verdade, a palavra-passe correta? Tente iniciar sessão em https://login.microsoftonline.com (no outro computador do servidor do Azure AD Connect) e certifique-se de que a conta é utilizável.
+* É a palavra-passe uma palavra-passe temporária e tem de ser alterada? É, na verdade, a palavra-passe correta? Tentar iniciar sessão no https://login.microsoftonline.com (no outro computador do servidor do Azure AD Connect) e certifique-se de que a conta é utilizável.
 
 ### <a name="verify-proxy-connectivity"></a>Verifique a conectividade do proxy
-Para verificar se o servidor do Azure AD Connect tem conectividade real com o Proxy e a Internet, utilize o PowerShell para ver se o proxy está a permitir o pedidos web, ou não. Na linha de comandos do PowerShell, execute `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (É tecnicamente a primeira chamada para https://login.microsoftonline.com e este URI funciona bem, mas outro URI é mais rápido responder).
+Para verificar se o servidor do Azure AD Connect tem conectividade real com o Proxy e a Internet, utilize o PowerShell para ver se o proxy está a permitir o pedidos web, ou não. Na linha de comandos do PowerShell, execute `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (É tecnicamente a primeira chamada https://login.microsoftonline.com e este URI funciona bem, mas outro URI é mais rápido responder.)
 
 PowerShell utiliza a configuração em Machine. config para contactar o proxy. As definições no winhttp/netsh não devem afetar estes cmdlets.
 
@@ -110,7 +110,7 @@ Eis uma captura de um registo de proxy real e a página do Assistente de instala
 
 **Ligar ao Azure AD**
 
-| Hora | URL |
+| Hora | do IdP |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -121,7 +121,7 @@ Eis uma captura de um registo de proxy real e a página do Assistente de instala
 
 **Configurar**
 
-| Hora | URL |
+| Hora | do IdP |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
@@ -137,7 +137,7 @@ Eis uma captura de um registo de proxy real e a página do Assistente de instala
 
 **Sincronização inicial**
 
-| Hora | URL |
+| Hora | do IdP |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |

@@ -1,11 +1,11 @@
 ---
 title: Ver e gerir tarefas de matriz Virtual StorSimple | Microsoft Docs
-description: "Descreve a página de tarefas de serviço do Gestor de dispositivos do StorSimple e como utilizá-la para controlar as tarefas de recentes e atuais para a matriz de Virtual StorSimple."
+description: Descreve a página de tarefas de serviço do Gestor de dispositivos do StorSimple e como utilizá-la para controlar as tarefas de recentes e atuais para a matriz de Virtual StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 31879821-b599-4609-a7f4-d4b0f658a933
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: 3fd1c262a8ce94d8e98f2b066a8028d974b15b1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Utilizar o serviço do Gestor de dispositivos do StorSimple para ver tarefas para a matriz de Virtual StorSimple
 ## <a name="overview"></a>Descrição geral
@@ -31,7 +31,7 @@ Pode encontrar rapidamente as tarefas que estão interessadas nas filtrando camp
 * **Intervalo de tempo** – tarefas podem ser filtradas com base no intervalo de data e hora.
 * **Dispositivos** – tarefas são iniciadas num dispositivo específico ligado ao seu serviço. As tarefas, em seguida, são apresentadas com base nos seguintes atributos:
   
-  * **Nome** – o nome da tarefa pode ser **todos os**, **cópia de segurança**, **Clone**, **falhar**, **transferir as atualizações**, ou **instalar atualizações**.
+  * **Nome** – o nome da tarefa pode ser **todos os**, **cópia de segurança**, **Clone**, **falhar**, **transferir atualizações**, ou **instalar atualizações**.
   * **Estado** – tarefas podem ser **todos os**, **em curso**, **com êxito**, ou **falha**, ou **cancelado**.
   * **Entidade** – as tarefas podem ser associadas um volume, partilha ou dispositivo.
   * **Dispositivo** – o nome do dispositivo no qual a tarefa foi iniciada.
@@ -62,6 +62,6 @@ Verá o seguinte erro: "o tempo de dispositivo está dessincronizado com a hora 
 
 Estas falhas aplicam-se às tarefas de cópia de segurança, restauro, atualização e ativação pós-falha. Se a máquina virtual é aprovisionada no Hyper-V, a máquina, eventualmente, sincroniza-se tempo com o hipervisor. Quando isto acontecer, pode reiniciar a tarefa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba como utilizar a IU da web local para administrar a matriz de Virtual StorSimple](storsimple-ova-web-ui-admin.md).
 

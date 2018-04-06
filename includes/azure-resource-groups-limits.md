@@ -16,7 +16,7 @@
 | Parâmetros |256 |256 |
 | Variáveis |256 |256 |
 | Recursos (incluindo contagem de cópia) |800 |800 |
-| saídas |64 |64 |
+| Saídas |64 |64 |
 | Expressão de modelo |24,576 carateres |24,576 carateres |
 | Recursos nos modelos exportados |200 |200 | 
 | Tamanho do modelo |1 MB |1 MB |

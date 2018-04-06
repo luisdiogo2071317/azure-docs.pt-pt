@@ -25,5 +25,5 @@
 | Débito de leitura/escrita do máximo de clientes (quando servido a partir da camada HDD) * |120/250 MB/s | |
 | Débito de leitura/escrita do máximo de clientes (quando servido a partir da camada de nuvem) * |11/41 MB/s |Débito de leitura depende clientes gerar e manter a profundidade de fila de e/s suficiente. |
 
-&#42; Débito máximo por tipo de e/s foi medido com cenários de 100 por cento escrita e leitura de 100 por cento. Débito real pode ser mais baixo e depende de e/s misturar e condições de rede.
+&#42;Débito máximo por tipo de e/s foi medido com cenários de 100 por cento escrita e leitura de 100 por cento. Débito real pode ser mais baixo e depende de e/s misturar e condições de rede.
 
