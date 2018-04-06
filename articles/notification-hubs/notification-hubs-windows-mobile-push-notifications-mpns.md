@@ -1,12 +1,12 @@
 ---
-title: "Introdução aos Hubs de Notificação do Azure para Aplicações Windows Phone | Microsoft Docs"
-description: "Neste tutorial, irá aprender a utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação Windows Phone 8 ou Windows Phone 8.1 Silverlight."
+title: Introdução aos Hubs de Notificação do Azure para Aplicações Windows Phone | Microsoft Docs
+description: Neste tutorial, irá aprender a utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação Windows Phone 8 ou Windows Phone 8.1 Silverlight.
 services: notification-hubs
 documentationcenter: windows
-keywords: "notificação push, notificação push, push window phone"
+keywords: notificação push, notificação push, push window phone
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -34,7 +34,7 @@ Este tutorial mostra-lhe como utilizar os Notification Hubs do Azure para enviar
 Neste tutorial, vai criar uma aplicação Windows Phone 8 em branco que recebe notificações push utilizando o Serviço de Notificações Push da Microsoft (MPNS). Quando tiver terminado, poderá utilizar o Notification Hub para difundir notificações push para todos os dispositivos a executar a sua aplicação.
 
 > [!NOTE]
-> O SDK dos Notification Hubs do Windows Phone não suporta a utilização do Serviço de Notificações Push do Windows (WNS) com aplicações do Windows Phone 8.1 Silverlight. Para utilizar o WNS (em vez do MPNS) com aplicações do Windows Phone 8.1 Silverlight, siga o [Tutorial Notification Hubs – Windows Phone Silverlight ], que utiliza a APIs REST.
+> O SDK dos Notification Hubs do Windows Phone não suporta a utilização do Serviço de Notificações Push do Windows (WNS) com aplicações do Windows Phone 8.1 Silverlight. Para utilizar o WNS (em vez do MPNS) com aplicações do Windows Phone 8.1 Silverlight, siga o [Tutorial Notification Hubs – Windows Phone Silverlight], que utiliza a APIs REST.
 > 
 > 
 
@@ -167,5 +167,5 @@ Saiba mais sobre como utilizar os Notification Hubs em [Documentação de Orient
 [Utilizar Notification Hubs para enviar notícias de última hora]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [toast catalog]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [tile catalog]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
-[Tutorial Notification Hubs – Windows Phone Silverlight ]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
+[Tutorial Notification Hubs – Windows Phone Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 

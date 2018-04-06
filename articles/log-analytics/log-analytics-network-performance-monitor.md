@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9b3c4efc712ebe9c0fe209d2ca0478367872d3b7
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9d5e189720a92ca17289d0c9717e9e10bf8691d1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -250,7 +250,9 @@ Quando seleciona um nó ou paire sobre os mesmos no mapa de topologia, pode ver 
 
 Todos os dados que é páginas graficamente expostas através do dashboard de monitorização de desempenho de rede e desagregar também está disponível nativamente no [análise de registos de pesquisa](log-analytics-log-search-new.md). Pode efetuar análises interativas dos dados no repositório e correlacionar dados de diferentes origens. Também pode criar alertas personalizados e vistas e exportar os dados para Excel, Power BI ou uma ligação partilhável. O **consultas comuns** área no dashboard tem algumas consultas útil que pode utilizar como ponto de partida para criar as suas próprias consultas e relatórios. 
 
- 
+##<a name="pricing"></a>Preços
+
+Estão disponíveis informações sobre os preços [online](log-analytics-network-performance-monitor-pricing-faq.md).
 
 ## <a name="provide-feedback"></a>Enviar comentários 
 

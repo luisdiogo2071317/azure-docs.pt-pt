@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/03/2018
 ms.author: bonova
-ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância geridos (pré-visualização)?
 
@@ -69,6 +69,23 @@ A tabela seguinte mostra várias propriedades, acessíveis através do Transact 
 
 ![O início de sessão único](./media/sql-database-managed-instance/sso.png) 
 
+## <a name="vcore-based-purchasing-model"></a>com base em vCore modelo de compra
+
+O modelo de compra baseado em vCore proporciona a flexibilidade, o controlo, a transparência e uma forma simples de traduzir requisitos no local carga de trabalho para a nuvem. Este modelo permite-lhe dimensionar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para cópia de segurança para as poupanças de 30 por cento com o [benefício de utilização de híbrida do Azure para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+Um núcleo virtual representa a CPU lógica oferecida com a opção de escolha entre gerações de hardware.
+- Gen 4 CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) 2.4 GHz processadores.
+- Gen 5 CPUs lógicas baseiam-se no Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores.
+
+A tabela seguinte ajuda-o a compreender como selecionar a configuração ideal do computação, memória, armazenamento e recursos de e/s.
+
+||Geração 4|Geração 5|
+|----|------|-----|
+|Hardware|Intel E5-2673 v3 (Haswell) processadores 2.4 GHz, ligado SSD vCore = 1 PP (núcleos físicos)|Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápido eNVM SSD, vCore = 1 LP (hyper thread)|
+|Níveis de desempenho|8, 16, 24 vCores|8, 16, 24, 32, 40 vCores|
+|Memória|7GB por vCore|5.5GB por vCore|
+||||
+
 ## <a name="managed-instance-service-tier"></a>Geridos de camada de serviços de instância
 
 Instância gerida está inicialmente disponível numa camada de serviço única - fins gerais - que foi concebida para aplicações com disponibilidade típica e requisitos de latência de e/s comuns.
@@ -89,11 +106,11 @@ A seguir descreve as funcionalidades principais da camada de serviços de objeti
 
 |Funcionalidade | Descrição|
 |---|---|
-| Número de vCores * | 8, 16, 24|
+| Número de vCores * | 8, 16, 24 (gen 4)<br>8, 16, 24, 32, 40 (Gen5)|
 | Versão do SQL Server / compilar | SQL Server mais recente (disponível) |
 | Tamanho de armazenamento mín. | 32 GB |
 | Tamanho máximo de armazenamento | 8 TB |
-| Armazenamento máximo por base de dados | 4 TB |
+| Armazenamento máximo por base de dados | 8 TB |
 | Armazenamento esperado IOPS | 500-7500 IOPS por ficheiro de dados (depende o ficheiro de dados). Consulte [armazenamento Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Número de ficheiros de dados (linhas) pela base de dados | Vários | 
 | Número de ficheiros de registo (registo) por base de dados | 1 | 
@@ -106,7 +123,7 @@ A seguir descreve as funcionalidades principais da camada de serviços de objeti
 | Suporte de portal | Sim|
 |||
 
-\* Um núcleo virtual representa a CPU lógica oferecida com a opção de escolha entre gerações de hardware. Gen 4 CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) processadores 2.4 GHz e Gen 5 lógica CPUs baseiam-se no Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores.  
+\* Um núcleo virtual representa a CPU lógica oferecida com a opção de escolha entre gerações de hardware. Gen 4 CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) processadores 2.4 GHz e Gen 5 lógica CPUs baseiam-se no Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores. 
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas 
 
@@ -152,7 +169,7 @@ A Base de Dados SQL permite-lhe gerir centralmente identidades de utilizadores d
 Autenticação do SQL Server da base de dados refere-se à forma como os utilizadores provar a sua identidade ao ligar à base de dados. A Base de Dados SQL suporta dois tipos de autenticação:  
 
 - Autenticação do SQL Server, que utiliza um nome de utilizador e palavra-passe.
-- Authentication do Azure Active Directory, que utiliza identidades geridas pelo Azure Active Directory e é suportada nos domínios geridos e integrados.  
+- Authentication do Azure Active Directory, que utiliza identidades geridas pelo Azure Active Directory e é suportada nos domínios geridos e integrados. 
 
 ### <a name="authorization"></a>Autorização
 
@@ -160,11 +177,11 @@ Autorização refere-se de que um utilizador pode fazê-lo dentro de uma base de
 
 ## <a name="database-migration"></a>Migração de bases de dados 
 
-Gerido cenários de utilizador de destinos de instância com a migração de base de dados em massa no local ou implementações de base de dados de IaaS.  Gerido suporta instância várias opções de migração de base de dados: 
+Gerido cenários de utilizador de destinos de instância com a migração de base de dados em massa no local ou implementações de base de dados de IaaS. Gerido suporta instância várias opções de migração de base de dados: 
 
 ### <a name="data-migration-service"></a>Serviço de migração de dados
 
-O serviço de migração de base de dados do Azure é um serviço completamente gerido concebido para permitir migrações totalmente integradas de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo.   Este serviço simplifica as tarefas necessárias para mover terceiros existente e bases de dados do SQL Server para o Azure. Opções de implementação incluem SQL Database do Azure, geridos instância e do SQL Server numa VM do Azure em pré-visualização pública. Consulte [como migrar a base de dados no local para a instância geridos utilizando o DMS](https://aka.ms/migratetoMIusingDMS).  
+O serviço de migração de base de dados do Azure é um serviço completamente gerido concebido para permitir migrações totalmente integradas de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo. Este serviço simplifica as tarefas necessárias para mover terceiros existente e bases de dados do SQL Server para o Azure. Opções de implementação incluem SQL Database do Azure, geridos instância e do SQL Server numa VM do Azure em pré-visualização pública. Consulte [como migrar a base de dados no local para a instância geridos utilizando o DMS](https://aka.ms/migratetoMIusingDMS). 
 
 ### <a name="backup-and-restore"></a>Cópia de segurança e restauro  
 
@@ -174,7 +191,7 @@ A abordagem de migração tira partido das cópias de segurança do SQL Server p
 
 Gerido objetivos de instância para fornecer próximo de compatibilidade de área de superfície de 100%, com futuras nas fases até que a disponibilidade geral do serviço de SQL Server no local. Para funcionalidades e a lista de comparação, consulte [funcionalidades comuns do SQL Server](sql-database-features.md).
  
-Gerido instância suporta retrocompatibilidade para bases de dados do SQL Server 2008.  É suportada a migração direta de servidores de base de dados do SQL Server 2005, nível de compatibilidade para bases de dados de SQL Server 2005 migrados são atualizados para o SQL Server 2008. 
+Gerido instância suporta retrocompatibilidade para bases de dados do SQL Server 2008. É suportada a migração direta de servidores de base de dados do SQL Server 2005, nível de compatibilidade para bases de dados de SQL Server 2005 migrados são atualizados para o SQL Server 2008. 
  
 O diagrama a seguir descreve a compatibilidade da área de superfície na instância geridos:  
 
@@ -182,7 +199,7 @@ O diagrama a seguir descreve a compatibilidade da área de superfície na instâ
 
 ### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>Principais diferenças entre o SQL Server no local e instância geridos 
 
-Gerido vantagens de instância de ser sempre-cópia de segurança-para-data na nuvem, o que significa que algumas funcionalidades do SQL Server no local poderão ser obsoleto, extinto ou ter alternativas.  Existem casos específicos quando precisam de ferramentas reconhecer que um determinado recurso funciona de forma ligeiramente diferente ou que o serviço não está em execução num ambiente que não controlar totalmente: 
+Gerido vantagens de instância de ser sempre-cópia de segurança-para-data na nuvem, o que significa que algumas funcionalidades do SQL Server no local poderão ser obsoleto, extinto ou ter alternativas. Existem casos específicos quando precisam de ferramentas reconhecer que um determinado recurso funciona de forma ligeiramente diferente ou que o serviço não está em execução num ambiente que não controlar totalmente: 
 
 - Elevada disponibilidade é incorporada e pré-configurados. Funcionalidades de elevada disponibilidade Always On não são expostas de forma mesma porque esta está no implementações IaaS de SQL 
 - As cópias de segurança automatizadas e ponto de restauro de tempo. Pode iniciar o cliente `copy-only` cópias de segurança que não interferem com a cadeia de cópia de segurança automática. 
@@ -192,7 +209,7 @@ Gerido vantagens de instância de ser sempre-cópia de segurança-para-data na n
  
 ### <a name="managed-instance-administration-features"></a>Funcionalidades de administração de instância geridas  
 
-Gerido instância ativar administrador de sistema focar-se naquilo que realmente interessa mais para empresas. Muitas atividades de administrador/DBA de sistema não são necessárias, ou estão simples. Por exemplo, SO / RDBMS instalação e a aplicação de patches, dinâmica instância redimensionamento e configuração, as cópias de segurança, replicação de base de dados (incluindo bases de dados do sistema), configuração de elevada disponibilidade e configuração de estado de funcionamento e dados de monitorização de desempenho fluxos.  
+Gerido instância ativar administrador de sistema focar-se naquilo que realmente interessa mais para empresas. Muitas atividades de administrador/DBA de sistema não são necessárias, ou estão simples. Por exemplo, SO / RDBMS instalação e a aplicação de patches, dinâmica instância redimensionamento e configuração, as cópias de segurança, replicação de base de dados (incluindo bases de dados do sistema), configuração de elevada disponibilidade e configuração de estado de funcionamento e dados de monitorização de desempenho fluxos. 
 
 > [!IMPORTANT]
 > Para obter uma lista das funcionalidades suportadas, parcialmente suportadas e não suportadas, consulte [funcionalidades da base de dados SQL](sql-database-features.md). Para obter uma lista das diferenças de T-SQL em instâncias geridas em comparação com o SQL Server, consulte [geridos diferenças de T-SQL de instância do SQL Server](sql-database-managed-instance-transact-sql-information.md)
