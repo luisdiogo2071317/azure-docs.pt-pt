@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: f8c01c4e3f060c6a5ad52f1ed16103ea42d8cd2b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e3fb06309dabd7f66d5873e4c5faa48b468854f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Elevada disponibilidade de SAP HANA em máquinas de virtuais (VMs) do Azure
 
@@ -34,6 +34,7 @@ ms.lasthandoff: 03/29/2018
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2388694]:https://launchpad.support.sap.com/#/notes/2388694
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -155,15 +156,36 @@ Pode utilizar um dos modelos de início rápido no github para implementar todos
         1. Introduza o nome da sonda de estado de funcionamento novo (por exemplo hana-hp)
         1. Selecione TCP como protocolo, porta 625**03**, mantenha o intervalo de 5 e limiar de mau estado de funcionamento 2
         1. Clique em OK
-    1. Criar regras de balanceamento de carga
+    1. SAP HANA 1.0: Criar regras de balanceamento de carga
         1. Abra o Balanceador de carga, selecione as regras de balanceamento de carga e clique em Adicionar
         1. Introduza o nome da nova regra de Balanceador de carga (por exemplo hana-lb-3**03**15)
+        1. Selecione o endereço IP de front-end, o conjunto back-end e a sonda do Estado de funcionamento que criou anteriormente (por exemplo hana-front-end)
+        1. Manter o protocolo TCP, introduza a porta 3**03**15
+        1. Aumentar o tempo limite de inatividade e 30 minutos
+        1. **Certifique-se de ativar o IP flutuante**
+        1. Clique em OK
+        1. Repita os passos acima para a porta 3**03**17
+    1. SAP HANA 2.0: Criar regras para a base de dados do sistema de balanceamento de carga
+        1. Abra o Balanceador de carga, selecione as regras de balanceamento de carga e clique em Adicionar
+        1. Introduza o nome da nova regra de Balanceador de carga (por exemplo hana-lb-3**03**13)
         1. Selecione o endereço IP de front-end, o conjunto back-end e a sonda do Estado de funcionamento que criou anteriormente (por exemplo hana-front-end)
         1. Manter o protocolo TCP, introduza a porta 3**03**13
         1. Aumentar o tempo limite de inatividade e 30 minutos
         1. **Certifique-se de ativar o IP flutuante**
         1. Clique em OK
-        1. Repita os passos acima para a porta 3**03**15 e 3**03**17
+        1. Repita os passos acima para a porta 3**03**14
+    1. SAP HANA 2.0: Criar regras para primeiro de balanceamento de carga a base de dados do inquilino
+        1. Abra o Balanceador de carga, selecione as regras de balanceamento de carga e clique em Adicionar
+        1. Introduza o nome da nova regra de Balanceador de carga (por exemplo hana-lb-3**03**40)
+        1. Selecione o endereço IP de front-end, o conjunto back-end e a sonda do Estado de funcionamento que criou anteriormente (por exemplo hana-front-end)
+        1. Manter o protocolo TCP, introduza a porta 3**03**40
+        1. Aumentar o tempo limite de inatividade e 30 minutos
+        1. **Certifique-se de ativar o IP flutuante**
+        1. Clique em OK
+        1. Repita os passos acima para a porta 3**03**41 e 3**03**42
+
+Para mais informações sobre as portas necessárias para SAP HANA, leia o capítulo [ligações às bases de dados do inquilino](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) do [bases de dados do SAP HANA inquilino](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guia ou [2388694 de nota SAP] [2388694].
+
 
 ## <a name="create-pacemaker-cluster"></a>Criar Pacemaker cluster
 
