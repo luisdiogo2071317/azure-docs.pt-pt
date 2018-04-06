@@ -1,23 +1,23 @@
 ---
-title: "Referência do Azure IoT EdgeAgent e EdgeHub | Microsoft Docs"
-description: "Reveja as propriedades específicas e os respetivos valores duplos de módulo edgeAgent e edgeHub"
+title: Referência do Azure IoT EdgeAgent e EdgeHub | Microsoft Docs
+description: Reveja as propriedades específicas e os respetivos valores duplos de módulo edgeAgent e edgeHub
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17c97c6f233c9861ac42abc0a1f11089bb938e7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0971d5bba59ce3c7b1a6409ef3248f33a41e37c9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Propriedades do agente de limite e duplos de módulo de hub de limite
 
-O agente de limite e o hub de limite são dois módulos que constituem o tempo de execução do limite de IoT. Para obter mais informações sobre os deveres cada módulo realiza, consulte [compreender o tempo de execução do limite de IoT do Azure e o respetivo architecture]](iot-edge-runtime.md). 
+O agente de limite e o hub de limite são dois módulos que constituem o tempo de execução do limite de IoT. Para obter mais informações sobre os deveres cada módulo realiza, consulte [compreender o tempo de execução do limite do Azure IoT e respetiva arquitetura](iot-edge-runtime.md). 
 
 Este artigo fornece as propriedades pretendidas e reportadas propriedades dos duplos do módulo de tempo de execução. Consulte [implementação e monitorização] [ lnk-deploy] para obter mais informações sobre como implementar módulos em dispositivos de limite de IoT.
 
@@ -110,7 +110,7 @@ O duplo de módulo para o hub de limite é chamado `$edgeHub` e coordena as comu
 | clientes. .lastConnectTime {identidade de dispositivo ou módulo} | Última hora no dispositivo ou módulo ligado |
 | clientes. .lastDisconnectTime {identidade de dispositivo ou módulo} | Última vez que o dispositivo ou módulo desligado |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber como utilizar estas propriedades para criar os manifestos de implementação, consulte [compreender como os módulos de IoT limite podem ser utilizados, configurados e reutilizados](module-composition.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "OLTP na memória melhora o desempenho do SQL Server txn | Microsoft Docs"
-description: "Adopt OLTP de dentro da memória para melhorar o desempenho transacional na base de dados existente do SQL Server."
+title: OLTP na memória melhora o desempenho do SQL Server txn | Microsoft Docs
+description: Adopt OLTP de dentro da memória para melhorar o desempenho transacional na base de dados existente do SQL Server.
 services: sql-database
 author: jodebrui
 manager: craigg
@@ -10,14 +10,14 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-ms.openlocfilehash: 77e73ec1004babb5fce1e293acfade9264cd6945
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 00823ca44ec7135a9937bb37dd4ed58ec996c89d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Utilização de memória OLTP para melhorar o desempenho da aplicação na base de dados do SQL Server
-[OLTP na memória](sql-database-in-memory.md) podem ser utilizadas para melhorar o desempenho do processamento de transações, a ingestão de dados e cenários de dados transitório, no [Premium](sql-database-service-tiers.md) bases de dados do Azure SQL sem aumentar o escalão de preço. 
+[OLTP na memória](sql-database-in-memory.md) podem ser utilizadas para melhorar o desempenho do processamento de transações, a ingestão de dados e cenários de dados transitório, no [escalão Premium e críticos de negócio](sql-database-service-tiers.md) bases de dados sem aumentar o escalão de preço. 
 
 > [!NOTE] 
 > Saiba como [quórum duplica carga de trabalho de chave da base de dados ao reduzirem DTU por 70% com base de dados SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
@@ -25,8 +25,8 @@ ms.lasthandoff: 03/16/2018
 
 Siga estes passos para adotar OLTP dentro da memória na base de dados existente.
 
-## <a name="step-1-ensure-you-are-using-a-premium-database"></a>Passo 1: Certifique-se de que está a utilizar uma base de dados Premium
-OLTP dentro da memória só é suportado em bases de dados Premium. Dentro da memória é suportada se o resultado devolvido é 1 (não 0):
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Passo 1: Certifique-se de que está a utilizar uma base de dados de escalão Premium e crítico de negócio
+OLTP dentro da memória só é suportado em bases de dados de camada do negócio críticos e Premium. Dentro da memória é suportada se o resultado devolvido é 1 (não 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');

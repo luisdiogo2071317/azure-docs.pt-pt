@@ -2,11 +2,11 @@
 title: Monitorizar o estado de funcionamento do seu IoT Hub do Azure | Microsoft Docs
 description: Utilize o Monitor do Azure e o estado de funcionamento de recursos de Azure para monitorizar o seu IoT Hub e diagnosticar problemas rapidamente
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: 3051af03d0c1433db98bcc674a072188e7ce80e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28903c4cc530937b4b39a5239d2a6d1ea6896924
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do Azure IoT Hub e diagnosticar problemas rapidamente
 
 As empresas que implementam o IoT Hub do Azure esperam um desempenho fiável a partir dos respetivos recursos. Para ajudar a manter uma veja fechar nas suas operações, o IoT Hub está totalmente integrado [Azure Monitor] [ lnk-AM] e [estado de funcionamento de recursos de Azure] [ lnk-ARH]. Estes dois serviços funcionam em conjunto para lhe fornecer os dados que precisa para manter as suas soluções de IoT cópias de segurança e em execução em bom estado. 
 
-Monitor do Azure é uma única origem de monitorização e o registo para todos os seus serviços do Azure. Pode enviar os registos do Azure Monitor gera a análise de registos do OMS, os Event Hubs ou armazenamento do Azure para o processamento personalizado. Definições de métricas e diagnóstico do Azure Monitor dão-lhe visibilidade em tempo real sobre o desempenho dos seus recursos. Continuar a ler este artigo para saber como [utilização do Azure Monitor](#use-azure-monitor) com o seu IoT hub. 
+Monitor do Azure é uma única origem de monitorização e o registo para todos os seus serviços do Azure. Pode enviar os registos do Azure Monitor gera a análise de registos, os Event Hubs ou armazenamento do Azure para o processamento personalizado. Definições de métricas e diagnóstico do Azure Monitor dão-lhe visibilidade em tempo real sobre o desempenho dos seus recursos. Continuar a ler este artigo para saber como [utilização do Azure Monitor](#use-azure-monitor) com o seu IoT hub. 
 
 Estado de funcionamento de recursos do Azure ajuda-o a diagnosticar e obter suporte, quando um problemas do Azure tem impacto sobre os recursos. Um dashboard personalizado fornece o estado de funcionamento atuais e anteriores, para os Hubs IoT. Continuar a ler este artigo para saber como [utilizar o Azure Resource Health](#use-azure-resource-health) com o seu IoT hub. 
 
@@ -316,13 +316,13 @@ IoT Hub do Azure indica o estado de funcionamento com um nível regional. Se exi
 
 Para verificar o estado de funcionamento dos seus hubs IoT, siga estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue para **estado de funcionamento do serviço** > **estado de funcionamento do recurso**.
 1. Das caixas de lista pendente, selecione a sua subscrição e **IoT Hub**.
 
 Para obter mais informações sobre como interpretar os dados de estado de funcionamento, consulte [descrição geral do Estado de funcionamento de recursos do Azure][lnk-ARH]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Compreender as métricas do IoT Hub][lnk-metrics]
 - [Monitorização remota do IoT e notificações com Azure Logic Apps ligar o seu IoT hub e a caixa de correio][lnk-monitoring-notifications]

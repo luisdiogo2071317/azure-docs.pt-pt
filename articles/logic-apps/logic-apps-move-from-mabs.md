@@ -1,12 +1,12 @@
 ---
-title: "Mover as aplicações dos BizTalk Services para aplicações lógicas do Azure | Microsoft Docs"
-description: "Mover ou migrar os serviços de BizTalk do Azure (MABS) para o Azure Logic Apps"
+title: Mover as aplicações dos BizTalk Services para aplicações lógicas do Azure | Microsoft Docs
+description: Mover ou migrar os serviços de BizTalk do Azure (MABS) para o Azure Logic Apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jonfancey
 manager: anneta
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: jonfan; LADocs
-ms.openlocfilehash: 6e00e62e60c059a16731a77e529b4b93f50802e9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f5ad003189d70216198f2d5c7719a971c16d5479
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="move-from-biztalk-services-to-azure-logic-apps"></a>Mover dos BizTalk Services para aplicações lógicas do Azure
 
@@ -130,7 +130,7 @@ Ao contrário dos BizTalk Services, estas ações são dissociadas dos protocolo
 
 ## <a name="manage-and-monitor"></a>Gerir e monitorizar
 
-Nos BizTalk Services, um portal dedicado fornecidas capacidades de controlo para monitorizar e resolver problemas. As Logic Apps fornece capacidades através de monitorização e controlo mais rico de [portal do Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md)e com o [Operations Management Suite B2B solução](../logic-apps/logic-apps-monitor-b2b-message.md), inclui uma aplicação móvel para manter a par no coisas Quando estiver em viagem.
+Nos BizTalk Services, um portal dedicado fornecidas capacidades de controlo para monitorizar e resolver problemas. As Logic Apps fornece capacidades através de monitorização e controlo mais rico de [portal do Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md)e inclui uma aplicação móvel para manter a par no coisas quando estiver em viagem.
 
 ## <a name="high-availability"></a>Elevada disponibilidade
 

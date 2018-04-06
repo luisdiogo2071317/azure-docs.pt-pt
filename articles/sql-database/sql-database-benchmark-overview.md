@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral de referência de base de dados SQL do Azure"
-description: "Este tópico descreve o Benchmark de base de dados SQL do Azure utilizado para medir o desempenho da SQL Database do Azure."
+title: Descrição geral de referência de DTU de base de dados SQL do Azure
+description: Este tópico descreve o Benchmark de base de dados SQL do Azure utilizado para medir o desempenho da SQL Database do Azure.
 services: sql-database
 author: jan-eng
 manager: jhubbard
@@ -9,15 +9,18 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 06/21/2016
 ms.author: janeng
-ms.openlocfilehash: 25685f663d976674ad877bcfa1409ef016dd02ae
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 684ae62400adbde6f0624b802b79a926c06961c8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="azure-sql-database-benchmark-overview"></a>Descrição geral de referência de base de dados SQL do Azure
+# <a name="azure-sql-database-dtu-benchmark-overview"></a>Descrição geral de referência de DTU de base de dados SQL do Azure
 ## <a name="overview"></a>Descrição geral
-Base de dados de SQL do Microsoft Azure oferece três [escalões de serviço](sql-database-service-tiers.md) com vários níveis de desempenho. Cada nível de desempenho fornece um conjunto crescente de recursos ou "power", foi concebida para fornecer o débito velocidades cada vez.
+No modelo de compra baseado em DTU, base de dados de SQL do Microsoft Azure oferece três [escalões de serviço](sql-database-service-tiers.md) com vários níveis de desempenho. Cada nível de desempenho fornece um conjunto crescente de recursos ou "power", foi concebida para fornecer o débito velocidades cada vez.
+
+> [!IMPORTANT]
+> Base de dados SQL do Azure agora também suporta um modelo de compra baseado em vCore (pré-visualização). Para informações, consulte [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 É importante ser capaz de quantificar como potência crescente de cada nível de desempenho traduz para desempenho de base de dados maior. Para fazer este Microsoft desenvolveu o Benchmark de base de dados de SQL do Azure (ASDB). O benchmark exercises uma mistura de operações básicas encontrado em todas as cargas de trabalho OLTP. Iremos medir o débito obtido para bases de dados em execução em cada nível de desempenho.
 

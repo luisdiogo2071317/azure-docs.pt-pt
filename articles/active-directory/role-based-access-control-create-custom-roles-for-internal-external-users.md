@@ -1,26 +1,26 @@
 ---
-title: "Criar funções de controlo de acesso baseado em funções personalizados e atribuir a utilizadores internos e externos no Azure | Microsoft Docs"
-description: "Atribuir funções RBAC personalizadas criadas com o PowerShell e da CLI para utilizadores internos e externos"
+title: Criar funções de controlo de acesso baseado em funções personalizados e atribuir a utilizadores internos e externos no Azure | Microsoft Docs
+description: Atribuir funções RBAC personalizadas criadas com o PowerShell e da CLI para utilizadores internos e externos
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: kgremban
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/06/2017
+ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b60b30e3a5a4f5adec4fbef8c4e981ad034a7f6c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Introdução no controlo de acesso baseado em funções
 
@@ -53,10 +53,10 @@ Existem dois exemplos comuns quando RBAC é utilizada (mas não se limitando a):
 * Trabalhar com os utilizadores dentro da organização (que fazem parte do inquilino do Azure Active Directory do utilizador) mas faz parte equipas diferentes ou grupos que precisam de acesso granular para a subscrição completa ou para determinados grupos de recursos ou âmbitos de recurso no ambiente
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Conceder acesso a um nível de subscrição de um utilizador fora do Azure Active Directory
-Funções do RBAC podem ser concedidas apenas pelo **proprietários** da subscrição, por conseguinte, o utilizador de admin deve ter sessão iniciado com um nome de utilizador que tem a esta função previamente atribuída ou tiver criado a subscrição do Azure.
+Funções do RBAC podem ser concedidas apenas pelo **proprietários** da subscrição. Por conseguinte, o administrador tem de ter sessão iniciado como um utilizador que tenha esta função previamente atribuído ou tiver criado a subscrição do Azure.
 
-No portal do Azure, depois de a iniciar sessão como administrador, selecione "Subscrições" e escolha um pretendido.
-![Painel de subscrição no portal do Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) por predefinição, se o utilizador de administrador tiver comprado a subscrição do Azure, o utilizador irá aparecer como **administrador da conta**, isto ser a função de subscrição. Para obter mais detalhes sobre as funções da subscrição do Azure, consulte [adicionar ou alterar funções de administrador do Azure que gerem a subscrição ou serviços](/billing/billing-add-change-azure-subscription-administrator.md).
+No portal do Azure, depois de iniciar sessão como administrador, selecione "Subscrições" e escolha um pretendido.
+![Painel de subscrição no portal do Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) por predefinição, se o utilizador de administrador tiver comprado a subscrição do Azure, o utilizador irá aparecer como **administrador da conta**, isto ser a função de subscrição. Para obter mais informações sobre as funções da subscrição do Azure, consulte [adicionar ou alterar funções de administrador do Azure que gerem a subscrição ou serviços](/billing/billing-add-change-azure-subscription-administrator.md).
 
 Neste exemplo, o utilizador "alflanigan@outlook.com" é o **proprietário** de "Avaliação gratuita" subscrição do AAD inquilino "Predefinido inquilino do Azure". Uma vez que este utilizador é o criador da subscrição do Azure com a Account Microsoft inicial "Outlook" (Microsoft Account = Outlook, etc. Live) o nome de domínio predefinido para todos os outros utilizadores adicionado neste inquilino será **"@alflaniganuoutlook.onmicrosoft.com"**. Por predefinição, a sintaxe do novo domínio está formada por colocando, em conjunto, o nome de domínio e nome de utilizador do utilizador que criou o inquilino e adicionar a extensão **". c o m"**.
 Além disso, os utilizadores podem iniciar sessão com um nome de domínio personalizado no inquilino depois de adicionar e verificá-lo para o novo inquilino. Para obter mais informações sobre a forma de verificar um nome de domínio personalizado num inquilino do Azure Active Directory, consulte [adicionar um nome de domínio personalizado ao seu diretório](/active-directory/active-directory-add-domain).
@@ -185,154 +185,154 @@ Para organizações de maior, as funções do RBAC podem ser aplicadas da mesma 
 Estes grupos são grupos de segurança, que são aprovisionados e geridos apenas dentro do Azure Active Directory.
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>Criar uma função RBAC personalizada para abrir os pedidos de suporte utilizando o PowerShell
-As funções incorporadas do RBAC que estão disponíveis no Azure Certifique-se determinados níveis de permissão com base nos recursos disponíveis no ambiente. No entanto, se nenhuma destas funções conforme as necessidades do utilizador de admin, há a opção para limitar o acesso ainda mais através da criação de funções RBAC personalizadas.
+As funções incorporadas que estão disponíveis no Azure Certifique-se determinados níveis de permissão com base nos recursos disponíveis no ambiente. No entanto, se as funções incorporadas não satisfazer as suas necessidades, pode criar funções personalizadas.
 
-A criação de funções do RBAC personalizadas requer para colocar uma função incorporada, editá-lo e, em seguida, importá-lo novamente no ambiente. A transferência e o carregamento da função são geridos através do PowerShell ou a CLI.
+Para criar uma função personalizada, pode começar com uma função incorporada, editá-lo e, em seguida, crie uma nova função. Neste exemplo, incorporada **leitor** função tiver sido personalizada para permitir ao utilizador a opção de abrir os pedidos de suporte.
 
-É importante compreender os pré-requisitos de criação de uma função personalizada que podem conceder acesso granular ao nível da subscrição e também permitir que o utilizador convidado a flexibilidade de abertura de pedidos de suporte.
+No PowerShell, utilize o [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) comando para exportar o **leitor** função no formato JSON.
 
-Neste exemplo, a função incorporada **leitor**, que permite aos utilizadores acesso para ver todos os âmbitos de recursos, mas não para editá-los ou criar novos, tiver sido personalizado para permitir ao utilizador a opção de abrir os pedidos de suporte.
-
-A primeira ação de exportar o **leitor** função tem de ser concluídas por PowerShell foi executada com permissões elevadas como administrador.
-
-```
-Login-AzureRMAccount
-
-Get-AzureRMRoleDefinition -Name "Reader"
-
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
-
+```powershell
+Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
 ```
 
+O seguinte mostra a saída JSON para a função de leitor.
 
+```json
+{
+    "Name":  "Reader",
+    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "IsCustom":  false,
+    "Description":  "Lets you view everything, but not make any changes.",
+    "Actions":  [
+                    "*/read"
+                ],
+    "NotActions":  [
 
-
-
-![Captura de ecrã do PowerShell para a função de leitor RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/15.png)
-
-Em seguida, terá de extrair o modelo JSON da função.
-
-
-
-
-
-![Modelo JSON para a função de leitor RBAC personalizada](./media/role-based-access-control-create-custom-roles-for-internal-external-users/16.png)
-
-Uma função RBAC típica é composto pelos fora três secções principais, **ações**, **NotActions** e **AssignableScopes**.
-
-No **ação** secção são apresentadas todas as operações permitidas para esta função. É importante compreender que cada ação é atribuída de um fornecedor de recursos. Neste caso, para criar pedidos de suporte a **Microsoft. support** fornecedor de recursos tem de estar listado.
-
-Para conseguir ver todos os recursos fornecedores disponíveis e registados na sua subscrição, pode utilizar o PowerShell.
-```
-Get-AzureRMResourceProvider
-
-```
-Além disso, pode verificar a existência de todos os os disponíveis cmdlets do PowerShell gerir os fornecedores de recursos.
-    ![Captura de ecrã do PowerShell para gestão do fornecedor de recursos](./media/role-based-access-control-create-custom-roles-for-internal-external-users/17.png)
-
-Para restringir a todas as ações para a função RBAC específica, os fornecedores de recursos estão listados na secção de **NotActions**.
-Pela última vez, é obrigatório que a função RBAC contém a subscrição explícita IDs em que é utilizado. Os IDs de subscrição estão listados no **AssignableScopes**, caso contrário, não serão permitidas para importar a função na sua subscrição.
-
-Depois de criar e personalizar a função RBAC, tem de ser importado fazer uma cópia do ambiente.
-
-```
-New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
-
+                   ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
+}
 ```
 
-Neste exemplo, o nome personalizado para esta função RBAC é "Leitor suporte bilhetes nível de acesso" permitir que o utilizador para ver tudo na subscrição e também para abrir a pedidos de suporte.
+Em seguida, edite o JSON de saída para criar a sua função personalizada.
+
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
+
+                   ],
+    "AssignableScopes":  [
+                             "/subscriptions/11111111-1111-1111-1111-111111111111"
+                         ]
+}
+```
+
+Uma função de típica é composta por três secções principais, **ações**, **NotActions**, e **AssignableScopes**.
+
+O **ação** secção apresenta uma lista de todas as operações permitidas para a função. Neste caso criar o suporte de permissões, o **Microsoft.Support/&ast;**  operação tem de ser adicionada. É importante compreender que cada operação é tornada disponível a partir de um fornecedor de recursos. Para obter uma lista de operações para um fornecedor de recursos, pode utilizar o [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) comando ou consulte [operações de fornecedor de recursos do Azure Resource Manager](role-based-access-control-resource-provider-operations.md).
+
+Para restringir a todas as ações para uma função específica, os fornecedores de recursos estão listados no **NotActions** secção.
+É obrigatório que a função contém a subscrição explícita IDs em que é utilizado. Os IDs de subscrição estão listados na **AssignableScopes**, caso contrário, não serão permitidas para importar a função para a sua subscrição.
+
+Para criar a função personalizada, utilize o [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) de comandos e disponibilize o ficheiro de definição de função JSON atualizado.
+
+```powershell
+New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
+```
+
+Neste exemplo, o nome para esta função personalizada é "nível de acesso de pedidos de suporte de leitor". Permite ao utilizador para ver tudo na subscrição e também pedidos de suporte aberta.
 
 > [!NOTE]
-> As funções RBAC de incorporada apenas dois, permitindo que a ação de abertura dos pedidos de suporte são **proprietário** e **contribuinte**. Para um utilizador poderá abrir os pedidos de suporte, ele tem de ser atribuído uma função RBAC apenas no âmbito de subscrição, porque todos os pedidos de suporte são criados com base numa subscrição do Azure.
+> As funções incorporadas apenas dois que permitir que um utilizador abrir a pedidos de suporte são **proprietário** e **contribuinte**. Para um utilizador poderá abrir os pedidos de suporte, ele tem de ser atribuído uma função no âmbito de subscrição, porque todos os pedidos de suporte são criados com base numa subscrição do Azure.
 
-Esta nova função personalizada foi atribuída a um utilizador do mesmo diretório.
+A nova função personalizada está agora disponível no portal do Azure e pode ser atribuída a utilizadores.
 
+![captura de ecrã da função personalizada importada no portal do Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
 
+![captura de ecrã de atribuição de função importada personalizada ao utilizador no mesmo diretório](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
 
+![captura de ecrã de permissões de função importada personalizada](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
 
+Os utilizadores com esta função personalizada, agora podem criar novos pedidos de suporte.
 
-![captura de ecrã da função RBAC personalizada importada no portal do Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+![captura de ecrã da função personalizada criar pedidos de suporte](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
 
+Os utilizadores com esta função personalizada não é possível efetuar outras ações, tais como criar VMs ou criar grupos de recursos.
 
+![captura de ecrã da função personalizada não é possível criar VMs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
 
-
-
-![captura de ecrã de atribuição de função RBAC importada personalizada ao utilizador no mesmo diretório](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
-
-
-
-
-
-![captura de ecrã de permissões para a função RBAC importada personalizada](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
-
-O exemplo tem sido mais detalhado para destacar os limites desta função RBAC personalizada da seguinte forma:
-* Pode criar novos pedidos de suporte
-* Não é possível criar novos âmbitos de recursos (por exemplo: máquina virtual)
-* Não é possível criar novos grupos de recursos
-
-
-
-
-
-![captura de ecrã da função RBAC personalizada criar pedidos de suporte](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
-
-
-
-
-
-![captura de ecrã da função RBAC personalizada não é possível criar VMs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
-
-
-
-
-
-![captura de ecrã da função RBAC personalizada não é possível criar o novo RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
+![captura de ecrã da função personalizada não é possível criar o novo RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-azure-cli"></a>Criar uma função RBAC personalizada para abrir os pedidos de suporte utilizando a CLI do Azure
-Em execução num Mac e sem ter acesso para o PowerShell, a CLI do Azure é a forma de aceder.
 
-Os passos para criar uma função personalizada são os mesmos, com a exceção única que utilizar a CLI a função não pode ser transferido num modelo JSON, mas podem ser visualizado na CLI.
+Os passos para criar uma função personalizada utilizando a CLI do Azure são semelhantes ao utilizar o PowerShell, exceto que a saída JSON é diferente.
 
-Neste exemplo, posso escolheu a função incorporada de **leitor de cópia de segurança**.
+Neste exemplo, pode iniciar com incorporada **leitor** função. Para listar as ações da função de leitor, utilize o [lista de definição de função az](/cli/azure/role/definition#az_role_definition_list) comando.
 
+```azurecli
+az role definition list --name "Reader" --output json
 ```
 
-azure role show "backup reader" --json
-
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Lets you view everything, but not make any changes.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "additionalProperties": {},
+        "notActions": []
+      }
+    ],
+    "roleName": "Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
 ```
 
+Crie um ficheiro JSON com o seguinte formato. O **Microsoft.Support/&ast;**  operação tenha sido adicionada no **ações** secções para que este utilizador pode abrir pedidos de suporte ao continuar a ser um leitor. Tem de adicionar o ID de subscrição em que esta função será utilizada o **AssignableScopes** secção.
 
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-
-
-![Mostrar CLI captura de ecrã da função de leitor de cópia de segurança](./media/role-based-access-control-create-custom-roles-for-internal-external-users/24.png)
-
-Editar a função no Visual Studio depois de copiar os proprieties num modelo JSON, o **Microsoft. support** foi adicionado no fornecedor de recursos a **ações** secções para que este utilizador pode abrir pedidos de suporte ao continuar a ser um leitor para os cofres de cópia de segurança. Novamente é necessário adicionar o ID de subscrição em que esta função será utilizada o **AssignableScopes** secção.
-
+                   ],
+    "AssignableScopes": [
+                            "/subscriptions/11111111-1111-1111-1111-111111111111"
+                        ]
+}
 ```
 
-azure role create --inputfile <path>
+Para criar a função personalizada, utilize o [Criar definição de função az](/cli/azure/role/definition#az_role_definition_create) comando.
 
+```azurecli
+az role definition create --role-definition ~/roles/rbacrole1.json
 ```
 
+A nova função personalizada está agora disponível no portal do Azure e o processo para utilizar esta função é o mesmo que a secção anterior do PowerShell.
 
-
-
-
-![CLI captura de ecrã da importação de função personalizada do RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/25.png)
-
-A nova função está agora disponível no portal do Azure e o processo de assignation é o mesmo, tal como nos exemplos anteriores.
-
-
-
-
-
-![Captura de ecrã portal do Azure de função RBAC personalizada criada utilizando a CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
-
-A partir de 2017 de compilação mais recente, a Shell de nuvem do Azure estiver geralmente disponível. Shell de nuvem do Azure é um complemento IDE e o portal do Azure. Com este serviço, obtenha uma shell baseada no browser, que é autenticada e está lojada no Azure e pode utilizá-lo em vez de CLI instalado no seu computador.
-
-
-
-
-
-![Azure Cloud Shell](./media/role-based-access-control-create-custom-roles-for-internal-external-users/27.png)
+![Captura de ecrã portal do Azure de função personalizada que criou com a CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)

@@ -1,7 +1,7 @@
 ---
 title: Monitorizar o desempenho de base de dados na Base de Dados SQL do Azure | Microsoft Docs
-description: "Saiba mais sobre as opções para monitorizar a base de dados com ferramentas do Azure e vistas de gestão dinâmica."
-keywords: "monitorização de base de dados, desempenho de base de dados em nuvem"
+description: Saiba mais sobre as opções para monitorizar a base de dados com ferramentas do Azure e vistas de gestão dinâmica.
+keywords: monitorização de base de dados, desempenho de base de dados em nuvem
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: ba2239b1a4cd14f7723e88ee83f7ad93da717e0a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4bc2c8578157bd29894bfee221174501c5003a42
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitorizar o desempenho de base de dados na Base de Dados SQL do Azure
 A monitorização do desempenho de uma base de dados SQL do Azure é iniciada com a monitorização da utilização de recursos em relação ao nível de desempenho de base de dados que escolher. A monitorização ajuda-o a determinar se a base de dados tem excesso de capacidade ou está a ter problemas porque os recursos estão a ser excessivamente utilizados e a decidir se está na altura de ajustar o nível de desempenho e a [camada de serviços](sql-database-service-tiers.md) da base de dados. Pode monitorizar a base de dados com as ferramentas gráficas no [portal do Azure](https://portal.azure.com) ou através de [vistas de gestão dinâmica](https://msdn.microsoft.com/library/ms188754.aspx) do SQL.
@@ -66,8 +66,8 @@ Uma vez que esta vista fornece mais granular Ver utilização de recursos, utili
     SELECT  
         AVG(avg_cpu_percent) AS 'Average CPU use in percent',
         MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
-        AVG(avg_data_io_percent) AS 'Average data I/O in percent',
-        MAX(avg_data_io_percent) AS 'Maximum data I/O in percent',
+        AVG(avg_data_io_percent) AS 'Average data IO in percent',
+        MAX(avg_data_io_percent) AS 'Maximum data IO in percent',
         AVG(avg_log_write_percent) AS 'Average log write use in percent',
         MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
         AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
@@ -117,8 +117,8 @@ O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_s
         SELECT
             avg(avg_cpu_percent) AS 'Average CPU use in percent',
             max(avg_cpu_percent) AS 'Maximum CPU use in percent',
-            avg(avg_data_io_percent) AS 'Average physical data I/O use in percent',
-            max(avg_data_io_percent) AS 'Maximum physical data I/O use in percent',
+            avg(avg_data_io_percent) AS 'Average physical data IO use in percent',
+            max(avg_data_io_percent) AS 'Maximum physical data IO use in percent',
             avg(avg_log_write_percent) AS 'Average log write use in percent',
             max(avg_log_write_percent) AS 'Maximum log write use in percent',
             avg(max_session_percent) AS 'Average % of sessions',
@@ -127,7 +127,7 @@ O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_s
             max(max_worker_percent) AS 'Maximum % of workers'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-3. Com estas informações sobre os valores médios e máximos de cada métrica de recursos, pode avaliar a carga de trabalho quão bem para o nível de desempenho que escolheu. Normalmente, tempo médio de valores de **resource_stats** dão-lhe uma linha de base boa utilizar contra o tamanho de destino. Deve ser a pen medida primário. Por exemplo, pode estar a utilizar a camada de serviço Standard com nível de desempenho de S2. A média utilizar percentagens de leituras de CPU e e/s e escreve são abaixo 40 por cento, o número médio de trabalhadores é inferior a 50 e o número médio de sessões é inferior a 200. A carga de trabalho pode ajustar o nível de desempenho S1. É fácil ver se a base de dados se encaixa nos limites de trabalho e a sessão. Para ver se uma base de dados se ajusta a um nível de desempenho inferior relativamente a CPU, leituras e escritas, dividir o número DTU de nível de desempenho inferior pelo número DTU do seu nível de desempenho atual e, em seguida, multiplique o resultado por 100:
+3. Com estas informações sobre os valores médios e máximos de cada métrica de recursos, pode avaliar a carga de trabalho quão bem para o nível de desempenho que escolheu. Normalmente, tempo médio de valores de **resource_stats** dão-lhe uma linha de base boa utilizar contra o tamanho de destino. Deve ser a pen medida primário. Por exemplo, pode estar a utilizar a camada de serviço Standard com nível de desempenho de S2. A média utilizar percentagens de leituras de CPU e/s e escreve são abaixo 40 por cento, o número médio de trabalhadores é inferior a 50 e o número médio de sessões é inferior a 200. A carga de trabalho pode ajustar o nível de desempenho S1. É fácil ver se a base de dados se encaixa nos limites de trabalho e a sessão. Para ver se uma base de dados se ajusta a um nível de desempenho inferior relativamente a CPU, leituras e escritas, dividir o número DTU de nível de desempenho inferior pelo número DTU do seu nível de desempenho atual e, em seguida, multiplique o resultado por 100:
    
     **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
    
@@ -153,7 +153,7 @@ O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_s
         SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data IO fit percent'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
    

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configurar à área de trabalho ao Facebook para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e à área de trabalho por Facebook."
+title: 'Tutorial: Configurar à área de trabalho ao Facebook para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e à área de trabalho por Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d42a6b63833bffc3cce1830a728ec21083b25dc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configurar à área de trabalho ao Facebook para aprovisionamento de utilizadores automática
 
@@ -57,7 +57,7 @@ Antes de configurar e ativar o serviço de aprovisionamento, tem de decidir quai
 Esta secção orienta-o de ligar o seu Azure AD à área de trabalho através da API de aprovisionamento da conta de utilizador do Facebook e configurar o serviço de aprovisionamento para criar, atualizar e desativar as contas de utilizador atribuído na área de trabalho por Facebook com base no utilizador e grupo atribuição no Azure AD.
 
 >[!Tip]
->Também pode optar por ativada baseados em SAML Single Sign-On para a área de trabalho, Facebook, seguindo as instruções fornecidas no [portal do Azure](https://portal.azure.com). O início de sessão único a pode ser configurado independentemente aprovisionamento automático, apesar destas duas funcionalidades complementar dos entre si.
+>Também pode optar por ativar baseados em SAML Single Sign-On para a área de trabalho, Facebook, seguindo as instruções fornecidas no [portal do Azure](https://portal.azure.com). O início de sessão único a pode ser configurado independentemente aprovisionamento automático, apesar destas duas funcionalidades complementar dos entre si.
 
 ### <a name="to-configure-user-account-provisioning-to-workplace-by-facebook-in-azure-ad"></a>Para configurar a conta aprovisionamento de utilizadores à área de trabalho por Facebook no Azure AD:
 
@@ -75,7 +75,7 @@ AD do Azure suporta a capacidade para sincronizar automaticamente os detalhes da
 
     ![a aprovisionar](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Sob o **credenciais de administrador** secção, introduza o Token do segredo da sua área de trabalho pelo administrador do Facebook e defina o valor do URL de inquilino para `https://www.facebook.com/scim/v1/` .
+5. Sob o **credenciais de administrador** secção, introduza o Token de acesso da sua área de trabalho pelo administrador do Facebook e defina o valor do URL de inquilino para `https://www.facebook.com/scim/v1/` . Consulte estes [instruções](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) sobre a criação de um Token de acesso para a área de trabalho. 
 
 6. No portal do Azure, clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua área de trabalho através da aplicação do Facebook. Se a ligação falhar, certifique-se à sua área de trabalho pela conta do Facebook permissões de administração de equipa.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c61fe7c62f0718d390509d3b0ff3327bd193f43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
@@ -26,7 +26,7 @@ Com os registos de diagnóstico do Azure, pode ver a análise de núcleo e guard
 
  - Conta de armazenamento do Azure
  - Azure Event Hubs
- - [Repositório de análise de registos do OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ - [Área de trabalho de análise de registo](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Esta funcionalidade está disponível para todos os pontos finais da CDN que pertencem da Verizon (Standard e Premium) e perfis da CDN Akamai (Standard). 
 
@@ -34,7 +34,7 @@ Registos de diagnóstico do Azure permitem-lhe exportar métricas de utilizaçã
 
 - Exporte dados para armazenamento de BLOBs, exportar para CSV e gerar gráficos no Excel.
 - Exportar dados para Event Hubs e estar relacionados com a dados a partir de outros serviços do Azure.
-- Exportar dados para análise de registo e ver os dados no seu próprio espaço de trabalho do OMS
+- Exportar dados para análise de registo e ver os dados no seu próprio espaço de trabalho de análise de registos
 
 A figura seguinte mostra uma vista de análise de núcleo CDN típica de dados.
 
@@ -68,9 +68,9 @@ Inicie sessão no [portal do Azure](http://portal.azure.com). Se ainda não tive
 
 *Figura 2 - registo com o Storage do Azure*
 
-### <a name="logging-with-oms-log-analytics"></a>Registo de análise de registos do OMS
+### <a name="logging-with-log-analytics"></a>Registo de análise do registo
 
-Para utilizar a análise de registos do OMS para armazenar os registos, siga estes passos:
+Para utilizar a análise de registos para armazenar os registos, siga estes passos:
 
 1. Do **registos de diagnóstico** painel, selecione **enviar ao Log Analytics**. 
 
@@ -84,7 +84,7 @@ Para utilizar a análise de registos do OMS para armazenar os registos, siga est
 
     ![Portal – registos de diagnóstico](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Introduza um novo nome de área de trabalho do OMS. Um nome de área de trabalho do OMS tem de ser exclusivos e conter apenas letras, números e hífenes; não são permitidos espaços e carateres de sublinhado. 
+4. Introduza um novo nome de área de trabalho de análise de registos. Um nome de área de trabalho de análise de registos tem de ser exclusivos e conter apenas letras, números e hífenes; não são permitidos espaços e carateres de sublinhado. 
 5. Em seguida, selecione uma subscrição existente, o grupo de recursos (novo ou existente), a localização e o escalão de preço. Também tem a opção de afixação esta configuração ao dashboard. Clique em **OK** para concluir a configuração.
 
     ![Portal – registos de diagnóstico](./media/cdn-diagnostics-log/08_Workspace-resource.png)
@@ -97,11 +97,11 @@ Para utilizar a análise de registos do OMS para armazenar os registos, siga est
 
 6. Clique em **Guardar**.
 
-7. Para ver a nova área de trabalho do OMS, aceda ao seu dashboard do portal do Azure e clique no nome da sua área de trabalho de análise do registo. Clique no mosaico do Portal do OMS para ver a sua área de trabalho no repositório de OMS. 
+7. Para ver a nova área de trabalho de análise de registos, aceda ao seu dashboard do portal do Azure e clique no nome da sua área de trabalho de análise do registo. Clique no mosaico do Portal do OMS para ver a sua área de trabalho de análise de registos. 
 
     ![Portal – registos de diagnóstico](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
 
-    O repositório do OMS está agora pronto para iniciar a sessão de dados. Para consumir dados, tem de utilizar um [OMS solução](#consuming-oms-log-analytics-data), abrangidas neste artigo.
+    A área de trabalho de análise de registos está agora pronta para iniciar a sessão de dados. Para consumir dados, tem de utilizar um [solução de análise do registo](#consuming-diagnostics-logs-from-a-log-analytics-workspace), abrangidas neste artigo.
 
 Para obter mais informações sobre os atrasos de dados de registo, consulte [atrasos de dados de registo](#log-data-delays).
 
@@ -123,7 +123,7 @@ Para ativar os registos de diagnóstico numa conta do Storage, utilize este coma
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
-Para ativar registos de diagnóstico numa área de trabalho do OMS, utilize este comando:
+Para ativar registos de diagnóstico numa área de trabalho de análise de registos, utilize este comando:
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -179,16 +179,16 @@ Eis como pode utilizar a ferramenta:
 4.  Execute a ferramenta.
 5.  O ficheiro CSV resultante mostra os dados de análise numa hierarquia simples simple.
 
-## <a name="consuming-diagnostics-logs-from-an-oms-log-analytics-repository"></a>Consumir os registos de diagnóstico de um repositório de análise de registos do OMS
-Análise de registos é um serviço no Operations Management Suite (OMS) que monitoriza a sua nuvem e no local ambientes para manter a respetiva disponibilidade e desempenho. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens. 
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Consumir os registos de diagnóstico de uma área de trabalho de análise de registos
+O Log Analytics é um serviço no Azure que monitoriza os seus ambientes na cloud e no local, para manter a disponibilidade e o desempenho dos mesmos. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens. 
 
-Para utilizar a análise de registos, terá [ativar o registo](#enable-logging-with-azure-storage) para o repositório de análise de registos do Azure OMS, que é abordado anteriormente neste artigo.
+Para utilizar a análise de registos, terá [ativar o registo](#enable-logging-with-azure-storage) à área de trabalho do Log Analytics do Azure, que é abordado anteriormente neste artigo.
 
-### <a name="using-the-oms-repository"></a>Utilizar o repositório do OMS
+### <a name="using-the-log-analytics-workspace"></a>Utilizar a área de trabalho de análise de registos
 
  O diagrama seguinte mostra a arquitetura de entradas e saídas do repositório:
 
-![Repositório de análise de registo do OMS](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Área de trabalho do Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Figura 3 - repositório de análise do registo*
 
@@ -196,7 +196,7 @@ Pode visualizar os dados de diversas formas utilizando soluções de gestão. Po
 
 Pode instalar as soluções de gestão do Azure marketplace clicando a **obtê-lo agora** ligação na parte inferior de cada solução.
 
-### <a name="adding-an-oms-cdn-management-solution"></a>Adicionar uma solução de gestão da CDN do OMS
+### <a name="adding-a-log-analytics-cdn-management-solution"></a>Adicionar uma solução de gestão de CDN de análise do registo
 
 Siga estes passos para adicionar uma solução de gestão:
 
@@ -219,7 +219,7 @@ Siga estes passos para adicionar uma solução de gestão:
 
     ![Ver tudo](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6.  Depois de clicar em **criar**, será pedido para criar uma área de trabalho do OMS nova ou utilize uma já existente. 
+6.  Depois de clicar em **criar**, será pedido para criar uma área de trabalho de análise de registos nova ou utilize uma já existente. 
 
     ![Ver tudo](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
@@ -241,11 +241,11 @@ Siga estes passos para adicionar uma solução de gestão:
 
     Clique em da área de trabalho de análise de registos que criou para aceder à sua área de trabalho. 
 
-11. Clique em de **Portal do OMS** mosaico para obter a sua solução de novo no portal do OMS.
+11. Clique em de **Portal do OMS** mosaico para obter a sua solução de novo.
 
     ![Ver tudo](./media/cdn-diagnostics-log/23_workspace.png)
 
-12. O portal do OMS deverá agora parecer-semelhante do ecrã seguinte:
+12. O portal deverá agora parecer-semelhante do ecrã seguinte:
 
     ![Ver tudo](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
@@ -261,11 +261,11 @@ Siga estes passos para adicionar uma solução de gestão:
 
 ### <a name="offers-and-pricing-tiers"></a>Ofertas e escalões de preços
 
-Pode ver ofertas e escalões de preços para soluções de gestão do OMS [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Pode ver ofertas e escalões de preços para soluções de gestão [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Personalizar vistas
 
-Pode personalizar a vista sobre os seus dados através da utilização de **estruturador de vistas**. Para começar a estruturar, aceda à sua área de trabalho do OMS e clique em de **estruturador de vistas** mosaico.
+Pode personalizar a vista sobre os seus dados através da utilização de **estruturador de vistas**. Para começar a estruturar, aceda à sua área de trabalho de análise de registos e clique em de **estruturador de vistas** mosaico.
 
 ![Estruturador de Vista](./media/cdn-diagnostics-log/27_Designer.png)
 
@@ -410,7 +410,7 @@ Propriedades de exemplo:
 
 * [Registos de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Análise de núcleo através do portal suplementar CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Análise de registos do OMS do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Log Analytics do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Análise de registos do Azure REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

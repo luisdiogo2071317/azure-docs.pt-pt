@@ -1,11 +1,11 @@
 ---
 title: Comandos da CLI do Azure no modo Resource Manager | Microsoft Docs
-description: "Comandos de interface de linha de comandos (CLI) do Azure para gerir recursos no modelo de implementação Resource Manager"
+description: Comandos de interface de linha de comandos (CLI) do Azure para gerir recursos no modelo de implementação Resource Manager
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
 ms.service: multiple
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 8a2bae12fae6a1bf8f5ecbdb2ae01dea5260f3cb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandos da CLI do Azure no modo Resource Manager
 Este artigo fornece sintaxe e as opções para comandos de interface de linha de comandos do Azure (CLI) que normalmente utilizaria para criar e gerir recursos do Azure no modelo de implementação Azure Resource Manager. Aceder a estes comandos, executando o CLI no modo Resource Manager (arm). Não se trata de uma referência completa e a versão da CLI pode mostrar parâmetros ou comandos ligeiramente diferentes. Para obter uma descrição geral de recursos do Azure e os grupos de recursos, consulte [descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -131,7 +131,7 @@ Informações da sua subscrição do Azure são utilizadas pela ferramenta para 
 
     config set <name> <value>
 
-**Define o modo de trabalho da CLI do Azure para qualquer `arm` ou`asm`**
+**Define o modo de trabalho da CLI do Azure para qualquer `arm` ou `asm`**
 
     config mode [options] <modename>
 
@@ -968,7 +968,7 @@ Opções de parâmetro:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    eliminar o conjunto de endereços do lb rede [opções] < resource-group >< lb-name ><name>
+    eliminar o conjunto de endereços do lb rede [opções] < resource-group >< lb-name > <name>
 
 Remove o recurso de intervalo do conjunto IP back-end do Balanceador de carga.
 
@@ -1353,7 +1353,7 @@ Opções de parâmetro:
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
 <BR>
-    público-ip da rede Mostrar [opções] < resource-group ><name>
+    público-ip da rede Mostrar [opções] < resource-group > <name>
 
 Apresenta as propriedades de ip público para um recurso de ip público dentro de um grupo de recursos.
 

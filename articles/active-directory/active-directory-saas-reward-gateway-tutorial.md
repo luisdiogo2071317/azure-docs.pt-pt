@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Reward Gateway | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Reward Gateway."
+title: 'Tutorial: Integração do Azure Active Directory com Reward Gateway | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Reward Gateway.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6e46668804da237e789cea73d25982953a31edef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 76e34b2d170ad1a47dca180fe7caf8c015d17634
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integração do Azure Active Directory com Reward Gateway
 
@@ -127,7 +127,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [equipa de suporte de Reward Gateway](mailto:clientsupport@rewardgateway.com) para obter estes valores.
+    > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Para obter estes valores começar a configurar uma integração no Portal do Gestor de Reward. Podem ser encontrados detalhes no http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
  
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -137,7 +137,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_400.png)
 
-6. Para configurar o início de sessão único em **Reward Gateway** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de Reward Gateway](mailto:clientsupport@rewardgateway.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+6. Para configurar o início de sessão único em **Reward Gateway** lado, a começar a configurar uma integração no Portal do Gestor de Reward. Utilize os metadados transferido para obter o certificado de assinatura e carregar que durante a configuração. Podem ser encontrados detalhes no http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)

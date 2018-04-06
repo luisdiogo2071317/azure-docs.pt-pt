@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/20/2018
+ms.date: 04/03/2018
 ms.author: dekapur
-ms.openlocfilehash: 4b0845cbb25d160b53b483641e242422c98029ee
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dbafe0da58f5026400381a3cc96cf99ade0795de
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>Adicionar o agente do OMS a um cluster
 
@@ -77,7 +77,7 @@ Modelos de Gestor de recursos de exemplo que implementar uma área de trabalho d
 
 Pode transferir e modificar este modelo para implementar um cluster que melhor se adapta às suas necessidades.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * Recolher relevante [contadores de desempenho](service-fabric-diagnostics-event-generation-perf.md). Para configurar o agente do OMS para recolher contadores de desempenho específicos, consulte [configurar origens de dados](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
 * Configurar a análise de registos para configurar [automatizada alertas](../log-analytics/log-analytics-alerts.md) para ajudar a detetar e diagnóstico

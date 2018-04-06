@@ -1,11 +1,11 @@
 ---
-title: "Monitorização de estado de funcionamento no Service Fabric | Microsoft Docs"
-description: "Uma introdução para o estado de funcionamento do Azure Service Fabric monitorização modelo, que fornece a monitorização do cluster e respetivas aplicações e serviços."
+title: Monitorização de estado de funcionamento no Service Fabric | Microsoft Docs
+description: Uma introdução para o estado de funcionamento do Azure Service Fabric monitorização modelo, que fornece a monitorização do cluster e respetivas aplicações e serviços.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c5ce0a765451171f7cbd6d875d4302d1e406b4f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 Azure Service Fabric introduz um modelo de estado de funcionamento que fornece a avaliação de estado de funcionamento extensíveis, avançado e flexível e de relatórios. O modelo permite quase em tempo real de monitorização do Estado do cluster e os serviços em execução no mesmo. Além disso, pode facilmente obter informações de estado de funcionamento e corrigir problemas de potencial antes de serem cascade e causam falhas em grande escala. No modelo de típico, os serviços de enviar relatórios com base na respetiva vistas locais e que informações são agregadas para fornecer um geral do cluster ao nível do Vista.

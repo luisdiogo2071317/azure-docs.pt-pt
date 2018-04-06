@@ -1,12 +1,12 @@
 ---
-title: "Grupos de expiração para o Office 365 no Azure Active Directory | Microsoft Docs"
-description: "Como configurar a expiração de grupos do Office 365 no Azure Active Directory"
+title: Grupos de expiração para o Office 365 no Azure Active Directory | Microsoft Docs
+description: Como configurar a expiração de grupos do Office 365 no Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 95593eaacd73316ab527ffda8f977fbf0eb15558
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: aa8551db8c3982fa61b3d4731a8aac3e2832f1b1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configure a política de expiração para grupos do Office 365
 
@@ -36,7 +36,7 @@ Depois de definir um grupo a expirar:
 
 Para obter informações sobre como transferir e instalar os cmdlets do Azure AD PowerShell, consulte [Azure Active Directory PowerShell para gráfico 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
-## <a name="roles-and-permissions"></a>As funções e permissões
+## <a name="roles-and-permissions"></a>Funções e permissões
 Seguem-se as funções que podem configurar e utilizar a expiração de grupos do Office 365 no Azure AD.
 
 Função | Permissões
@@ -66,7 +66,7 @@ Notificações de e-mail, tal como esta são enviadas para os proprietários de 
 
 ![Notificação de correio eletrónico de expiração](./media/active-directory-groups-lifecycle-azure-portal/expiration-notification.png)
 
-Do **renovar grupo** e-mail de notificação, os proprietários do grupo podem diretamente o acesso t hegroup detalhes página no painel de acesso. Não existe, os utilizadores podem obter mais informações sobre o grupo, como a descrição, quando este foi pela última vez renovada, quando irá expirar e a capacidade de renovar o grupo. A página de detalhes de grupo também a inclui agora ligações para recursos de grupo do Office 365, para que o proprietário do grupo comodamente pode ver o conteúdo e a atividade no seu grupo.
+Do **renovar grupo** e-mail de notificação, diretamente o grupo os proprietários podem aceder a página de detalhes do grupo no painel de acesso. Não existe, os utilizadores podem obter mais informações sobre o grupo, como a descrição, quando este foi pela última vez renovada, quando irá expirar e a capacidade de renovar o grupo. A página de detalhes de grupo também a inclui agora ligações para recursos de grupo do Office 365, para que o proprietário do grupo comodamente pode ver o conteúdo e a atividade no seu grupo.
 
 Quando expira um grupo, um dia após a data de expiração é eliminar o grupo. Uma notificação por e-mail, tal como esta é enviada para os proprietários de grupo do Office 365, informar sobre a expiração e eliminação subsequente do respetivo grupo do Office 365.
 

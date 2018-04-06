@@ -1,13 +1,13 @@
 ---
-title: "Acelerador de escrita de mensagens em fila do Azure para implementações de SAP | Microsoft Docs"
-description: "Manual de operações para sistemas de SAP HANA que são implementados em máquinas virtuais do Azure."
+title: Acelerador de escrita de mensagens em fila do Azure para implementações de SAP | Microsoft Docs
+description: Manual de operações para sistemas de SAP HANA que são implementados em máquinas virtuais do Azure.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d1ca15028590824cef95e3e9c2d957f9883a0e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 177bc05eea3aa05231c71a42950fa622b68afc53
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Acelerador de escrita de mensagens em fila do Azure para implementações de SAP
 Acelerador de escrita do Azure é uma funcionalidade que está a obter implementada para VMs de série M exclusivamente. O acelerador de escrita do Azure não está disponível com quaisquer outro-série da VM no Azure, exceto a série M. Como o nome de Estados, o objetivo da funcionalidade é melhorar a latência de e/s de escritas contra o Premium Storage do Azure. 
@@ -28,10 +28,11 @@ Acelerador de escrita do Azure é uma funcionalidade que está a obter implement
 >[!NOTE]
 > Neste momento, o acelerador de escrita do Azure está em pré-visualização pública e necessita de listagem de branco do seu ID de subscrição do Azure
 
-A funcionalidade de acelerador de escrita do Azure está disponível como pré-visualização pública em:
+A funcionalidade de acelerador de escrita do Azure está disponível para implementação de série M como pré-visualização pública em:
 
 - US2 oeste
 - Europa ocidental
+- Sudeste Asiático
 
 ## <a name="planning-for-using-azure-write-accelerator"></a>Planeamento de utilização do Azure escrever acelerador
 Acelerador do Azure escrever deve ser utilizada para os volumes que contêm o registo de transações ou Refazer registos de um DBMS. Não se recomenda utilizar Azure escrever acelerador para os volumes de dados de um DBMS. Motivo para esta restrição é que o Azure escrever acelerador requer do Azure Premium Storage VHDs seja montado sem a adicionais leitura colocação em cache que está disponível para armazenamento Premium. Vantagens maiores com este tipo de colocação em cache podem ser respeitadas com bases de dados tradicionais. Uma vez que escrever acelerador só está a afetar as atividades de escrita e não acelerar leituras, a estrutura suportada para SAP é utilizar acelerador escrita contra o registo de transações ou Refazer unidades de registo de bases de dados SAP suportado. 

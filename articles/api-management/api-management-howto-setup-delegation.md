@@ -1,11 +1,11 @@
 ---
-title: "Como delegar a subscrição de produto e registo de utilizador"
-description: "Saiba como delegar a subscrição de produto e registo de utilizador a terceiros na API Management do Azure."
+title: Como delegar a subscrição de produto e registo de utilizador
+description: Saiba como delegar a subscrição de produto e registo de utilizador a terceiros na API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8c19111ed966ff89a2934dd5232625aab1f8b28b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar a subscrição de produto e registo de utilizador
 Delegação permite-lhe utilizar o seu Web site existente para processar programador sessão-na/sessão-up e subscrição produtos, por oposição a utilizar a funcionalidade incorporada no portal do programador. Isto permite que o seu Web site para proprietários de dados de utilizador e efetuar a validação destes passos de uma forma personalizada.
@@ -173,7 +173,7 @@ Para obter mais informações sobre delegação, veja o vídeo seguinte:
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [pedir um token de sessão único (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[Criar um utilizador]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
+[Criar um utilizador]: https://docs.microsoft.com/en-us/rest/api/apimanagement/user/createorupdate
 [chamada da API REST para a subscrição de produto]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
 [código de exemplo fornecido abaixo]: #delegate-example-code

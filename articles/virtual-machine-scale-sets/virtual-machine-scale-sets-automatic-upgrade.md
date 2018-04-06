@@ -1,13 +1,13 @@
 ---
-title: "Conjuntos de dimensionamento de atualizações automáticas de SO com a máquina virtual do Azure | Microsoft Docs"
-description: "Saiba como atualizar automaticamente o SO em instâncias VM um conjunto de dimensionamento"
+title: Conjuntos de dimensionamento de atualizações automáticas de SO com a máquina virtual do Azure | Microsoft Docs
+description: Saiba como atualizar automaticamente o SO em instâncias VM um conjunto de dimensionamento
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 28a9b3d68037aac0c1198da4232c045487b01174
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>As atualizações automáticas de SO de conjunto de dimensionamento de máquina virtual do Azure
 
@@ -93,9 +93,9 @@ Os SKUs seguintes são atualmente suportados (mais serão adicionado):
 > [!NOTE]
 > Esta secção aplica-se apenas para conjuntos de dimensionamento sem o Service Fabric. Recursos de infraestrutura de serviço tem a suas próprias noção do Estado de funcionamento da aplicação. Ao utilizar as atualizações automáticas de SO com o Service Fabric, a nova imagem do SO é implementada o domínio de atualização por domínio de atualização para manter a elevada disponibilidade dos serviços em execução no Service Fabric. Para obter mais informações sobre as características de durabilidade dos clusters de Service Fabric, consulte [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
-Durante uma atualização do SO, instâncias de VM num conjunto de dimensionamento sejam atualizadas um batch de cada vez. A atualização deve continuar apenas se a aplicação de cliente está em bom estada de instâncias de VM atualizado. Recomendamos que a aplicação fornece sinais de estado de funcionamento para o motor de atualização de SO de conjunto de dimensionamento. Por predefinição, durante as atualizações do SO a plataforma considera o estado de energia VM e a extensão de estado para determinar se uma instância VM está em bom estada após uma atualização de aprovisionamento. Durante a atualização de SO de uma instância VM, o disco de SO numa instância de VM é substituído por um novo disco com base na versão mais recente de imagem. Uma vez concluída a atualização do SO, as extensões configuradas são executadas nestas VMS. Apenas quando todas as extensões numa VM são aprovisionadas com êxito, é a aplicação considerada em bom estado. 
+Durante uma atualização do SO, instâncias de VM num conjunto de dimensionamento sejam atualizadas um batch de cada vez. A atualização deve continuar apenas se a aplicação de cliente está em bom estada de instâncias de VM atualizado. Por este motivo, é necessário que a aplicação fornece sinais de estado de funcionamento para o motor de atualização de SO de conjunto de dimensionamento. Durante as atualizações do SO, plataforma considera o estado de energia VM e a extensão de estado para determinar se uma instância VM está em bom estada após uma atualização de aprovisionamento. Durante a atualização de SO de uma instância VM, o disco de SO numa instância de VM é substituído por um novo disco com base na versão mais recente de imagem. Uma vez concluída a atualização do SO, as extensões configuradas são executadas nestas VMS. Apenas quando todas as extensões numa VM são aprovisionadas com êxito, é a aplicação considerada em bom estado. 
 
-Opcionalmente, pode ser configurado um conjunto de dimensionamento com sondas de estado de funcionamento da aplicação para fornecer a plataforma de informações exatas relacionadas no estado da aplicação. Sondas de estado de funcionamento de aplicação são personalizada carga Balanceador de sondas que são utilizadas como um sinal de estado de funcionamento. A aplicação em execução numa instância VM de conjunto de dimensionamento pode responder a pedidos HTTP ou TCP externos que indica se é bom estado de funcionamento. Para obter mais informações sobre como funcionam os pesquisas do Balanceador de carga personalizada, consulte o artigo [sondas de Balanceador de carga de compreender](../load-balancer/load-balancer-custom-probe-overview.md). Uma pesquisa de estado de funcionamento de aplicação não é necessária para as atualizações automáticas do SO, mas é vivamente recomendável.
+Além disso, o conjunto de dimensionamento *tem* ser configurado com sondas de estado de funcionamento da aplicação para fornecer a plataforma de informações exatas relacionadas no estado da aplicação. Sondas de estado de funcionamento de aplicação são personalizada carga Balanceador de sondas que são utilizadas como um sinal de estado de funcionamento. A aplicação em execução numa instância VM de conjunto de dimensionamento pode responder a pedidos HTTP ou TCP externos que indica se é bom estado de funcionamento. Para obter mais informações sobre como funcionam os pesquisas do Balanceador de carga personalizada, consulte o artigo [sondas de Balanceador de carga de compreender](../load-balancer/load-balancer-custom-probe-overview.md).
 
 Se o conjunto de dimensionamento é configurado para utilizar vários grupos de colocação, as sondas utilizando um [padrão Balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) têm de ser utilizados.
 
@@ -110,7 +110,7 @@ Os passos recomendados para recuperar as VMs e volte a ativar a atualização au
 * Implemente o conjunto de dimensionamento atualizado, o que irá atualizar todas as instâncias VM, incluindo aqueles com falhas. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>A configurar uma sonda de Balanceador de carga do personalizada como a pesquisa de estado de funcionamento da aplicação numa escala definido
-Como melhor prática, crie uma sonda do Balanceador de carga explicitamente para o estado de funcionamento do conjunto de dimensionamento. Pode ser utilizado o mesmo ponto final de uma pesquisa HTTP existente ou uma sonda TCP, mas uma sonda do Estado de funcionamento pode necessitar de um comportamento diferente de uma sonda do Balanceador de carga tradicional. Por exemplo, uma sonda do Balanceador de carga tradicional pode devolver danificada se a carga sobre a instância for demasiado elevada, enquanto que não pode ser apropriada para determinar o estado de funcionamento de instância durante uma atualização automática do SO. Configure a sonda para ter uma elevada taxa de pesquisa de menos de dois minutos.
+*Tem* criar explicitamente uma sonda do Balanceador de carga para o estado de funcionamento do conjunto de dimensionamento. Pode ser utilizado o mesmo ponto final de uma pesquisa HTTP existente ou uma sonda TCP, mas uma sonda do Estado de funcionamento pode necessitar de um comportamento diferente de uma sonda do Balanceador de carga tradicional. Por exemplo, uma sonda do Balanceador de carga tradicional pode devolver danificada se a carga sobre a instância for demasiado elevada, enquanto que não pode ser apropriada para determinar o estado de funcionamento de instância durante uma atualização automática do SO. Configure a sonda para ter uma elevada taxa de pesquisa de menos de dois minutos.
 
 A sonda do Balanceador de carga é possível referenciar o *networkProfile* da escala definida e pode ser associado a um interno ou público destinado ao balanceador de carga da seguinte forma:
 
@@ -227,7 +227,7 @@ Para expandir-se na utilização de sondas de estado de funcionamento de aplica�
 2. Identifique o lote seguinte de instâncias de VM para atualizar, com um ter máximo 20% do total de instâncias de batch.
 3. Atualize o sistema operativo do lote seguinte de instâncias VM.
 4. Se mais de 20% de instâncias atualizadas mau estado de funcionamento, parar a atualização; caso contrário, a prosseguir.
-5. Se o cliente tiver configurado sondas de estado de funcionamento de aplicações, a atualização deve aguardar até 5 minutos para as pesquisas para se tornarem bom estado de funcionamento, em seguida, continua imediatamente no lote seguinte; caso contrário,-aguarda 30 minutos antes de passar para o lote seguinte.
+5. Conjuntos de dimensionamento que não fazem parte de um cluster do Service Fabric, a atualização deve aguardar até 5 minutos para as pesquisas para se tornarem bom estado de funcionamento, em seguida, continua imediatamente para o lote seguinte. Para conjuntos de dimensionamento que fazem parte de um cluster do Service Fabric, o conjunto de dimensionamento aguarda 30 minutos antes de passar para o lote seguinte.
 6. Se é restantes que são instâncias para atualizar, goto passo 1) do lote seguinte; caso contrário, a atualização estiver concluída.
 
 A escala definir verificações de motor de atualização de SO para o estado de funcionamento de instância VM geral antes de atualizar todos os lotes. Durante a atualização de um lote, poderão existir outros planeada em simultâneo ou a manutenção não planeada acontecer nos centros de dados do Azure que possam afetar a disponibilidade das suas VMs. Por conseguinte, é possível que temporariamente mais de 20% instâncias podem estar inativo. Nestes casos, no fim do lote atual, o conjunto de dimensionamento deixa de atualização.
@@ -237,7 +237,8 @@ A escala definir verificações de motor de atualização de SO para o estado de
 
 Pode utilizar o modelo seguinte para implementar um conjunto de dimensionamento que utiliza as atualizações automáticas <a href='https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json'>sucessiva automática atualiza - Ubuntu 16.04-LTS</a>
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 

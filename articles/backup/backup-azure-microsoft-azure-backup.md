@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: 95c11de3a1aed680d37dd86c1783ac8bee7ffec3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3b37afc9d768313f6cc202eeecca22528cc57b07
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparar a criação de cópias de segurança de cargas de trabalho com o Azure Backup Server
 > [!div class="op_single_selector"]
@@ -183,7 +183,7 @@ Depois do processo de extração completo, selecione a caixa para iniciar a raiz
 2. No ecrã de boas-vindas, clique o **seguinte** botão. Isto leva-o para o *verificações de pré-requisitos* secção. Neste ecrã, clique em **verifique** para determinar se tiverem sido cumpridos os pré-requisitos de hardware e software para o servidor de cópia de segurança do Azure. Se todos os pré-requisitos são cumpridos com êxito, verá uma mensagem a indicar que o computador cumpre os requisitos. Clique em de **seguinte** botão.
 
     ![Verificação do servidor de cópia de segurança do Azure - boas-vindas e pré-requisitos](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Servidor de cópia de segurança do Microsoft Azure requer o SQL Server Standard e o pacote de instalação do servidor de cópia de segurança do Azure integra integrados nos binários do SQL Server adequados necessários. Ao iniciar com uma nova instalação do servidor de cópia de segurança do Azure, deve escolher a opção **instalar um novo instância do SQL Server com esta configuração** e clique em de **verificar e instalar** botão. Depois dos pré-requisitos estão instalados com êxito, clique em **seguinte**.
+3. Servidor de cópia de segurança do Microsoft Azure requer o SQL Server Standard. Além disso, o pacote de instalação do servidor de cópia de segurança do Azure integra integrados nos binários do SQL Server adequados necessários se não pretender utilizar o seu próprio SQL. Ao iniciar com uma nova instalação do servidor de cópia de segurança do Azure, deve escolher a opção **instalar um novo instância do SQL Server com esta configuração** e clique em de **verificar e instalar** botão. Depois dos pré-requisitos estão instalados com êxito, clique em **seguinte**.
 
     ![Servidor de cópia de segurança do Azure - verificação do SQL Server](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
@@ -268,7 +268,7 @@ Depois de conectividade para o Azure foi restaurada para a máquina do servidor 
 Se o servidor de cópia de segurança do Microsoft Azure falhar com erros durante a fase de configuração (ou cópia de segurança ou restauro), consulte este [documento de códigos de erro](https://support.microsoft.com/kb/3041338) para obter mais informações.
 Também pode consultar [perguntas mais frequentes relacionadas com a cópia de segurança do Azure](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode obter informações detalhadas [preparar o ambiente para o DPM](https://technet.microsoft.com/library/hh758176.aspx) no site Microsoft TechNet. Também contém informações sobre configurações suportadas em que servidor de cópia de segurança do Azure podem ser implementado e utilizado.
 
 Pode utilizar estes artigos para obter uma compreensão mais aprofundada da proteção de carga de trabalho utilizando o servidor de cópia de segurança do Microsoft Azure.

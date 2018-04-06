@@ -1,6 +1,6 @@
 ---
 title: Gerir o custo de dados do Log Analytics do Azure | Microsoft Docs
-description: Saiba como alterar o plano de preços e gestão da política de volume e a retenção de dados para a sua área de trabalho de análise de registos no portal do Azure.
+description: Saiba como alterar o plano de preços e gestão da política de volume e a retenção de dados para a sua área de trabalho de análise de registos no Azure.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 629031310eba21bc3308754706bd7ba227009ac6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8fb20fc9e6249a2d19d62df1ce331ce873d5fd3d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="manage-cost-by-controlling-data-volume-and-retention-with-your-log-analytics-workspace"></a>Gerir os custos ao controlar o volume de dados e de retenção com a sua área de trabalho de análise de registos
+# <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerir os custos ao controlar o volume de dados e a retenção na análise de registos
 Análise de registos está concebido para escala e a recolha de suporte, a indexação e armazenar as quantidades enormes de dados por dia de uma origem na sua empresa ou implementado no Azure.  Apesar de este número pode ser um controlador primário para a sua organização, eficiência de custos é basicamente o controlador subjacente. Para esse fim importante compreender que o custo de uma área de trabalho do registo Analytisc não se encontra apenas com base no volume dos dados recolhidos, também está dependente do plano selecionado e o período de tempo que escolheu armazenar dados gerados a partir de origens de ligado.  
 
 Neste artigo, vamos rever como pode proativamente monitorizar crescimento de volume e o armazenamento de dados e definir limites para controlar os custos associados. 

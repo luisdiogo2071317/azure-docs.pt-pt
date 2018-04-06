@@ -1,8 +1,8 @@
 ---
-title: "Melhores práticas para utilizar o Azure Data Lake Store | Microsoft Docs"
-description: "Saiba mais sobre a ingestão de dados, a segurança de data e o desempenho relacionadas com a utilização do Azure Data Lake Store, as melhores práticas"
+title: Melhores práticas para utilizar o Azure Data Lake Store | Microsoft Docs
+description: Saiba mais sobre a ingestão de dados, a segurança de data e o desempenho relacionadas com a utilização do Azure Data Lake Store, as melhores práticas
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Melhores práticas para utilizar o Azure Data Lake Store
 Neste artigo, pode saber mais sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Store. Este artigo fornece informações em torno da segurança, desempenho, resiliência e monitorização para o Data Lake Store. Antes de Data Lake Store, como trabalhar com macrodados verdadeiramente nos serviços como o Azure HDInsight era demasiado complexo. Era necessário dividir os dados em várias contas do Blob storage para que podem ser alcançados petabyte armazenamento e um desempenho ideal que escala. Com o Data Lake Store, a maioria dos limites de tamanho e o desempenho do disco rígidos é removida. No entanto, ainda existem algumas considerações que este artigo abrange, de modo a que possa obter o melhor desempenho com o Data Lake Store. 
@@ -129,7 +129,7 @@ Data Lake Store fornece registos de diagnóstico detalhados e auditoria. Data La
 
 ### <a name="export-data-lake-store-diagnostics"></a>Diagnóstico de exportação de Data Lake Store 
 
-Uma das formas mais rápidas e aceder aos registos pesquisáveis do Data Lake Store é permitir o envio de registos para **Operations Management Suite (OMS)** sob o **diagnóstico** painel para a conta de Data Lake Store. Isto fornece acesso imediato para os registos de entrada com o tempo e os filtros de conteúdo, juntamente com as opções (e-mail/webhook) de alerta acionado dentro de intervalos de 15 minutos. Para obter instruções, consulte [aceder a registos de diagnóstico para o Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
+Uma das formas mais rápidas e aceder aos registos pesquisáveis do Data Lake Store é permitir o envio de registos para **Log Analytics** sob o **diagnóstico** painel para a conta de Data Lake Store. Isto fornece acesso imediato para os registos de entrada com o tempo e os filtros de conteúdo, juntamente com as opções (e-mail/webhook) de alerta acionado dentro de intervalos de 15 minutos. Para obter instruções, consulte [aceder a registos de diagnóstico para o Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
 
 Para mais de alertas em tempo real e mais controlo sobre onde encaminhado para os registos, considere a exportar os registos para EventHub do Azure onde conteúdo pode ser analisado individualmente ou através de uma janela de tempo para envio de notificações em tempo real a uma fila. Uma aplicação separada, como um [aplicação lógica](../connectors/connectors-create-api-azure-event-hubs.md) pode, em seguida, consumir e comunicar os alertas para o canal adequado, bem como submeter as métricas de ferramentas, como da NewRelic, Datadog ou AppDynamics de monitorização. Em alternativa, se estiver a utilizar uma ferramenta de terceiros, tais como ElasticSearch, pode exportar os registos para o Blob Storage e utilizar o [Plug-in do Azure Logstash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) para consumir dados para a pilha Elasticsearch, Kibana e Logstash (ELK).
 
@@ -139,7 +139,7 @@ Se Data Lake Store o envio de registo não está ativado, Azure HDInsight també
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Assim que a propriedade está definida e os nós são reiniciados, diagnóstico de Data Lake Store é escrito para os registos YARN em nós (/tmp/<user>/yarn.log) e detalhes importantes, como erros ou de limitação (código de erro HTTP 429) pode ser monitorizado. Esta mesma informação também pode ser monitorizada no OMS ou onde quer que os registos são fornecidos no [diagnóstico](data-lake-store-diagnostic-logs.md) painel da conta do Data Lake Store. Recomenda-se para, pelo menos, tem de ativar o registo do lado do cliente ou utilizar o opção de Data Lake Store para operacional visibilidade e mais fácil a depuração do envio do registo.
+Assim que a propriedade está definida e os nós são reiniciados, diagnóstico de Data Lake Store é escrito para os registos YARN em nós (/tmp/<user>/yarn.log) e detalhes importantes, como erros ou de limitação (código de erro HTTP 429) pode ser monitorizado. Esta mesma informação também pode ser monitorizada na análise de registos ou onde quer que os registos são fornecidos no [diagnóstico](data-lake-store-diagnostic-logs.md) painel da conta do Data Lake Store. Recomenda-se para, pelo menos, tem de ativar o registo do lado do cliente ou utilizar o opção de Data Lake Store para operacional visibilidade e mais fácil a depuração do envio do registo.
 
 ### <a name="run-synthetic-transactions"></a>Executar transações sintéticas 
 

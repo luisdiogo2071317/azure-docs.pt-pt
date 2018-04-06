@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 35b31c46b350474caa1472829d705b4d068d9642
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c733f919189dadcf1181ddbe2a1057b2bcf66fc4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Do Azure Active Directory B2C: Políticas incorporadas
 
@@ -62,7 +62,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Criar uma política de inscrição ou início de sessão
 
-Esta política processa ambas as experiências de inscrição & início de sessão do consumidor com uma configuração única. Os consumidores são guiados para baixo a solução certa (inscrição ou início de sessão) dependendo no contexto. Também descreve os conteúdos de tokens que a aplicação receberá após ups de início de sessão com êxito ou inícios de sessão.  Um exemplo de código para a política de inscrição ou início de sessão é [aqui disponível](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  É recomendados que utiliza esta política através de uma política de inscrição e a política de início de sessão.  
+Esta política processa ambas as experiências de inscrição & início de sessão do consumidor com uma configuração única. Os consumidores são guiados para baixo a solução certa (inscrição ou início de sessão) dependendo no contexto. Também descreve os conteúdos de tokens que a aplicação receberá após ups de início de sessão com êxito ou inícios de sessão.  Um exemplo de código para a política de inscrição ou início de sessão é [aqui disponível](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  É recomendado que utilize esta política através de uma política de inscrição e a política de início de sessão.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 

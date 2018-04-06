@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7af0dd37b5c16e48ce4e504211e68a29cf8bce77
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-and-service-level-logging"></a>Aplicação e o registo de nível de serviço
 
@@ -36,10 +36,11 @@ Quando cria uma solução de Service Fabric a partir de um modelo no Visual Stud
 
 É importante planear cuidadosamente como irá instrumentar o seu código. O plano de instrumentação direita pode ajudar a evitar potencialmente destabilizing a base de código e, em seguida, necessitar de reinstrument o código. Para reduzir o risco, pode escolher uma biblioteca de instrumentação como [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), que faz parte do Microsoft ASP.NET Core. ASP.NET Core tem um [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) interface que pode utilizar com o fornecedor da sua escolha, para minimizar o efeito no código existente. Pode utilizar o código ASP.NET Core no Windows e Linux e, no .NET Framework completa, por isso, o código de instrumentação está padronizado.
 
-## <a name="choosing-a-logging-provider"></a>Escolher um fornecedor de registo
+## <a name="application-insights-sdk"></a>Application Insights SDK
 
-Se a aplicação depende de elevado desempenho, **EventSource** é normalmente uma boa abordagem. **EventSource** *geralmente* utiliza menos recursos e efetua melhor do que o registo do ASP.NET Core ou qualquer uma das soluções de terceiros disponíveis.  Esta operação não é um problema para vários serviços, mas se o seu serviço é desempenho orientados, utilizando **EventSource** poderá ser uma melhor opção. No entanto obter estas vantagens do estruturados registo, **EventSource** requer um investimento superior da sua equipa de engenharia. Se for possível, não um protótipo rápido de algumas opções de registo e, em seguida, escolha a que melhor se adeque às suas necessidades.
+O Application Insights tem uma integração com o Service Fabric avançada a box. Os utilizadores podem adicionar os pacotes de nuget AI Service Fabric e receber dados e registos criados e recolhidos podem ser visualizados no portal do Azure. Além disso, os utilizadores são encouraged para adicionar a sua própria telemetria para diagnosticar e depurar as respetivas aplicações e controlar em que partes da sua aplicação e serviços são utilizados mais. O [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) classe no SDK fornece várias formas de controlar telemetria nas suas aplicações. Veja um exemplo de como instrumentar e adicionar o application insights à sua aplicação no nosso tutorial para [monitorizar e diagnosticar uma aplicação .NET](service-fabric-tutorial-monitoring-aspnet.md)
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de escolher o fornecedor de registo instrumentem os seus serviços e aplicações, os registos e eventos precisam para serem agregados antes que podem ser enviadas para qualquer plataforma de análise. Leia sobre [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e [WAD](service-fabric-diagnostics-event-aggregation-wad.md) para melhor compreender algumas das opções recomendadas.
+Depois de escolher o fornecedor de registo instrumentem os seus serviços e aplicações, os registos e eventos precisam para serem agregados antes que podem ser enviadas para qualquer plataforma de análise. Leia sobre [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md), [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md), e [WAD](service-fabric-diagnostics-event-aggregation-wad.md) para melhor compreender algumas das opções recomendadas.

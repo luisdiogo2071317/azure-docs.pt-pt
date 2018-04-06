@@ -1,46 +1,46 @@
 ---
-title: "Gerir várias bases de dados do SQL Server com o Azure de conjuntos elástico | Microsoft Docs"
-description: "Gerir e dimensionar várias bases de dados SQL - centenas e milhares - utilizam conjuntos elásticos. Um preço para recursos que pode distribuir sempre que necessário."
-keywords: "várias bases de dados, os recursos de base de dados e de desempenho de base de dados"
+title: Gerir várias bases de dados do SQL Server com o Azure de conjuntos elástico | Microsoft Docs
+description: Gerir e dimensionar várias bases de dados SQL - centenas e milhares - utilizam conjuntos elásticos. Um preço para recursos que pode distribuir sempre que necessário.
+keywords: várias bases de dados, os recursos de base de dados e de desempenho de base de dados
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 03/02/2018
-ms.author: carlrab
+ms.date: 04/04/2018
+ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 7e819e50db4c57b47f9aa7a2cff7a2d62be37f08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c2e4e7f99aeec3028e8df520dc6896234b5c969
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Ajudar a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos
 
-Conjuntos de base de dados SQL elásticas são uma solução simple e rentável para gerir e dimensionamento várias bases de dados que tenham diferentes e imprevisíveis exigências de utilização. As bases de dados num agrupamento elástico estão num único servidor SQL Database do Azure e partilhar um número de conjunto de recursos ([unidades de transação de base de dados elásticas](sql-database-what-is-a-dtu.md) (eDTUs)) um preço do conjunto. Com os conjuntos elásticos na Base de Dados SQL do Azure, os programadores de SaaS podem otimizar o desempenho do preço num grupo de bases de dados dentro de um orçamento prescrito e, ao mesmo tempo, oferecer elasticidade de desempenho para cada base de dados. 
+Conjuntos de base de dados SQL elásticas são uma solução simple e rentável para gerir e dimensionamento várias bases de dados que tenham diferentes e imprevisíveis exigências de utilização. As bases de dados num agrupamento elástico estão num único servidor SQL Database do Azure e partilham um número de conjunto de recursos um preço do conjunto. Com os conjuntos elásticos na Base de Dados SQL do Azure, os programadores de SaaS podem otimizar o desempenho do preço num grupo de bases de dados dentro de um orçamento prescrito e, ao mesmo tempo, oferecer elasticidade de desempenho para cada base de dados.
 
-## <a name="what-are-sql-elastic-pools"></a>Quais são os conjuntos elásticos SQL? 
+## <a name="what-are-sql-elastic-pools"></a>Quais são os conjuntos elásticos SQL?
 
-Os programadores de SaaS criam as aplicações sobre camadas de dados de grande escala, que consistem em várias bases de dados. Um padrão de aplicação comum é aprovisionar uma base de dados individual para cada cliente. Contudo, muitas vezes, os padrões de cada cliente são distintos e imprevisíveis, sendo difícil prever os requisitos de recursos de cada utilizador de bases de dados individual. Tradicionalmente, tiver duas opções: 
+Os programadores de SaaS criam as aplicações sobre camadas de dados de grande escala, que consistem em várias bases de dados. Um padrão de aplicação comum é aprovisionar uma base de dados individual para cada cliente. Contudo, muitas vezes, os padrões de cada cliente são distintos e imprevisíveis, sendo difícil prever os requisitos de recursos de cada utilizador de bases de dados individual. Tradicionalmente, tiver duas opções:
 
 - Aprovisionar excessiva recursos com base na utilização máxima e através de pagamento, ou
-- Under-aprovisionar custo, em detrimento de desempenho e cliente satisfação durante picos de guardar. 
+- Under-aprovisionar custo, em detrimento de desempenho e cliente satisfação durante picos de guardar.
 
 Conjuntos elásticos resolverem este problema, garantindo que as bases de dados obter os recursos de desempenho que precisam e quando precisam-lo. Fornecem um mecanismo de alocação de recursos simples dentro de um orçamento previsível. Para saber mais sobre os padrões de estrutura de aplicações SaaS que utilizam conjuntos elásticos, consulte o artigo [Padrões de Estrutura de Aplicações SaaS Multi-inquilino com a Base de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Conjuntos elásticos ativar o programador comprar [unidades de transação de base de dados elásticas](sql-database-what-is-a-dtu.md) (eDTUs) para um agrupamento partilhado por várias bases de dados para acomodar imprevisíveis períodos de utilização por bases de dados individuais. O requisito de eDTUS dos conjuntos é determinado pela utilização agregada das bases de dados dos mesmos. O número de eDTUs disponíveis para os conjuntos é controlada pelo orçamento do programador. Os programadores só têm de adicionar bases de dados ao conjunto, definir as eDTUs mínimas e máximas das bases de dados e, depois, definir a eDTU do conjunto com base no orçamento. Os programadores podem utilizar os conjuntos para fazer crescer de forma contínua o serviço, de uma “lean startup” para uma empresa madura e em constante crescimento.
+Conjuntos elásticos ativar o programador comprar recursos para um agrupamento partilhado por várias bases de dados para acomodar imprevisíveis períodos de utilização por bases de dados individuais. Pode configurar recursos para o conjunto baseada em qualquer no [DTU com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#dtu-based-purchasing-model) ou [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). O requisito de recursos para um conjunto é determinado pela agregação de utilização das suas bases de dados. A quantidade de recursos disponíveis para o conjunto é controlada pela atribuição de programador. O programador simplesmente adiciona as bases de dados para o conjunto, define os recursos mínimos e máximo para as bases de dados (DTUs minumumn e máximo ou mínimo ou máximo vCores consoante à sua escolha do modelo de resourceing) e, em seguida, define os recursos do conjunto com base no seu orçamento. Os programadores podem utilizar os conjuntos para fazer crescer de forma contínua o serviço, de uma “lean startup” para uma empresa madura e em constante crescimento.
 
-Dentro do conjunto, é dada às bases de dados individuais a flexibilidade para se dimensionarem automaticamente dentro de parâmetros definidos. Uma base de dados sobrecarregada pode consumir mais eDTUs para responder às necessidades. As bases de dados sujeitas a cargas mais leves consomem menos e as bases de dados que não estão sujeitas a qualquer carga não consomem eDTUs. O aprovisionamento de recursos para o conjunto completo e não para bases de dados individuais simplifica as tarefas de gestão. Além disso, tem um orçamento previsível para o conjunto. Podem ser adicionais mais eDTUs a um conjunto existente sem qualquer período de indisponibilidade da base de dados, à exceção de que as bases de dados podem ter de ser movidas para fornecer os recursos de computação adicionais para a nova reserva de eDTU. Do mesmo modo, se as eDTUs adicionais já não forem necessárias, podem ser removidas de um conjunto existente em qualquer momento. Além disso, pode adicionar ou subtrair bases de dados ao conjunto. Se uma base de dados estiver a subutilizar recursos de forma previsível, remova-a.
+Dentro do conjunto, é dada às bases de dados individuais a flexibilidade para se dimensionarem automaticamente dentro de parâmetros definidos. Com muita carga, uma base de dados pode consumir mais recursos para satisfazer o pedido. Bases de dados carrega leve consumam inferior e bases de dados não carga consumam não existem recursos. O aprovisionamento de recursos para o conjunto completo e não para bases de dados individuais simplifica as tarefas de gestão. Além disso, tem um orçamento previsível para o conjunto. Recursos adicionais podem ser adicionados a um conjunto existente sem período de indisponibilidade de base de dados, exceto que as bases de dados poderão ter de ser movidos para fornecer os recursos de computação adicionais para a nova reserva de eDTU. Da mesma forma, se recursos adicionais já não são necessárias estes podem ser removidos de um conjunto existente em qualquer ponto no tempo. Além disso, pode adicionar ou subtrair bases de dados ao conjunto. Se uma base de dados estiver a subutilizar recursos de forma previsível, remova-a.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando considerar um conjunto elástico da base de dados SQL?
 
 Os conjuntos são bastante adequados para um grande número de bases de dados com padrões de utilização específicos. Para uma determinada base de dados, este padrão caracteriza-se por uma utilização média baixa com picos de utilização relativamente raros.
 
-Quantas mais bases de dados adicionar a um conjunto, maior será a poupança. Dependendo do padrão de utilização de aplicações, é possível ver poupanças com um mínimo de duas bases de dados S3. 
+Quantas mais bases de dados adicionar a um conjunto, maior será a poupança. Dependendo do padrão de utilização de aplicações, é possível ver poupanças com um mínimo de duas bases de dados S3.
 
 As secções seguintes ajudam-no a avaliar se a sua coleção de bases de dados específica pode beneficiar de estar num conjunto. Os exemplos utilizam conjuntos Standard, mas os mesmos princípios também se aplicam aos conjuntos Básicos e Premium.
 
@@ -54,7 +54,7 @@ Para o período de cinco minutos ilustrado, DB1 tem um pico até 90 DTUs, mas a 
 
 Um conjunto permite que estas DTUs não utilizadas sejam partilhadas entre várias bases de dados, pelo que reduz as DTUs necessárias e os custos gerais.
 
-Com base no exemplo anterior, imagine que existem bases de dados adicionais com padrões de utilização semelhantes a DB1. Nas duas figuras abaixo, é incluída no mesmo gráfico a utilização de quatro bases de dados e de 20 bases de dados, para ilustrar a natureza não sobreposta da respetiva utilização ao longo do tempo:
+Com base no exemplo anterior, imagine que existem bases de dados adicionais com padrões de utilização semelhantes a DB1. No seguinte duas figuras abaixo, a utilização de quatro e bases de dados 20 são em camadas para o mesmo gráfico para ilustrar a natureza sem sobreposição da respetiva utilização ao longo do tempo utilizando o modelo de compra de DTU com base em:
 
    ![quatro bases de dados com um padrão de utilização adequado para um conjunto](./media/sql-database-elastic-pool/four-databases.png)
 
@@ -64,56 +64,60 @@ A utilização agregada de DTUs nas 20 bases de dados é ilustrada pela linha pr
 
 Este exemplo é ideal pelos motivos seguintes:
 
-* Existem grandes diferenças entre a utilização de pico e utilização média por base de dados. 
+* Existem grandes diferenças entre a utilização de pico e utilização média por base de dados.
 * A utilização de pico de cada base de dados ocorre em diferentes alturas no tempo.
 * Os eDTUs são partilhados entre muitas bases de dados.
 
-O preço de um conjunto é uma função das eDTUs do conjunto. Embora o preço unitário de eDTU de um conjunto seja 1,5 vezes superior ao preço unitário de DTU para bases de dados individuais, **as eDTUs de conjuntos podem ser partilhadas por muitas bases de dados e são necessárias menos eDTUs totais**. Estas distinções nos preços e na partilha das eDTUs são as bases do potencial de poupança nos custos que os conjuntos podem proporcionar. 
+O preço de um conjunto é uma função das eDTUs do conjunto. Embora o preço unitário de eDTU de um conjunto seja 1,5 vezes superior ao preço unitário de DTU para bases de dados individuais, **as eDTUs de conjuntos podem ser partilhadas por muitas bases de dados e são necessárias menos eDTUs totais**. Estas distinções nos preços e na partilha das eDTUs são as bases do potencial de poupança nos custos que os conjuntos podem proporcionar.
 
 As regras básicas seguintes relacionadas com a contagem e a utilização de bases de dados ajudam a garantir que os conjuntos oferecem custos reduzidos quando comparados com a utilização de níveis de desempenho para bases de dados individuais.
 
 ### <a name="minimum-number-of-databases"></a>Número mínimo de bases de dados
 
-Se a soma das DTUs dos níveis de desempenho para bases de dados individuais for superior a 1,5 vezes as eDTUs necessárias para o conjunto, a utilização de um conjunto elástico apresenta a melhor relação de custo-eficiência. Para obter os tamanhos disponíveis, veja [eDTU and storage limits for elastic pools and elastic databases (eDTUs e limites de armazenamento dos conjuntos elásticos e das bases de dados elásticas)](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+Se a quantidade de recursos das bases de dados é mais de 1,5 x os recursos necessários para o agrupamento, um conjunto elástico é mais económico.
 
-***Exemplo***<br>
+***Com base em DTU compra exemplo de modelo***<br>
 Para que a relação de custo-eficácia de um conjunto de 100 eDTUs seja superior à utilização de níveis de desempenho para bases de dados individuais, são necessárias, pelo menos, duas bases de dados S3 ou 15 bases de dados S0.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Número máximo de bases de dados com picos simultâneos
 
-Ao partilhar eDTUs, nem todas as bases de dados de um conjunto podem utilizá-las ao mesmo tempo até ao limite disponível de quando são utilizados níveis de desempenho para bases de dados individuais. Quanta menos bases de dados tiverem picos em simultâneo, menor será a definição de eDTUs do conjunto e maior será a relação de custo-eficiência do mesmo. Em geral, não mais do que 2/3 (ou 67%) das bases de dados do conjunto devem atingir o limite de eDTUs em simultâneo.
+Ao partilhar resourcess, nem todas as bases de dados num agrupamento podem utilizar em simultâneo resourcess até ao limite disponível das bases de dados. As bases de dados menos pico ou em simultâneo, o menor podem ser definidos os recursos de agrupamento e fica do conjunto mais económica. Em geral, não mais do que 2/3 (ou 67%) das bases de dados no conjunto devem peak em simultâneo para o respetivo limite de recursos.
 
-***Exemplo***<br>
+***Com base em DTU compra exemplo de modelo***<br>
 Para reduzir os custos de três bases de dados S3 num conjunto de 200 eDTU, duas bases de dados, no máximo, podem ter o pico de utilização ao mesmo tempo. Caso contrário, se mais de duas destas quatro bases de dados S3 tiverem o pico em simultâneo, o conjunto terá de ser dimensionado para mais de 200 eDTUs. Se o conjunto for redimensionado para mais de 200 eDTUs, será necessário adicionar mais bases de dados S3 ao conjunto, de modo a manter os custos inferiores aos dos níveis de desempenho para bases de dados individuais.
 
 Tenha em conta que este exemplo não considera a utilização de outras bases de dados do conjunto. Se todas as bases de dados tiverem alguma utilização num determinado momento, menos de 2/3 (67%) das bases de dados podem ter o pico em simultâneo.
 
-### <a name="dtu-utilization-per-database"></a>Utilização de DTU por base de dados
+### <a name="resource-utilization-per-database"></a>Utilização de recursos por base de dados
 Uma grande diferença entre o pico e a utilização média das bases de dados indica períodos longos de pouca utilização e curtos períodos de elevada utilização. Este padrão de utilização é ideal para partilhar recursos entre bases de dados. A inclusão de bases de dados num conjunto deve ser considerada quando o pico de utilização for cerca de 1,5 vezes superior à utilização média.
 
-***Exemplo***<br>
+***Com base em DTU compra exemplo de modelo***<br>
 Uma base de dados S3 que tenha como pico 100 DTUs e utilize, em média, 67 DTUs ou menos, é uma boa candidata para partilhar eDTUs num conjunto. Em alternativa, uma base de dados S1 que tenha como pico 20 DTUs e utilize, em média, 13 DTUs ou menos, é uma boa candidata para um conjunto.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Como devo escolher o tamanho do conjunto correto?
 
-O melhor tamanho para um conjunto depende das eDTUs agregadas e dos recursos de armazenamento necessários para todas as bases de dados nesse conjunto. A escolha do tamanho envolve determinar o maior de:
+O tamanho de um agrupamento de melhor depende os agregado dos recursos necessários para todas as bases de dados no agrupamento de. Isto envolve a determinar o seguinte:
 
-* DTUs máximas utilizadas por todas as bases de dados do conjunto.
+* Máximos recursos utilizados por todas as bases de dados no conjunto (máximas DTUs ou vCores máximo consoante à sua escolha do modelo de resourceing).
 * Bytes de armazenamento máximos utilizados por todas as bases de dados do conjunto.
 
-Para obter os tamanhos disponíveis, veja [eDTU and storage limits for elastic pools and elastic databases (eDTUs e limites de armazenamento dos conjuntos elásticos e das bases de dados elásticas)](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+Para os escalões de serviço disponíveis para cada modelo de recursos, consulte o [DTU com base no modelo de compra](sql-database-service-tiers.md#dtu-based-purchasing-model) ou [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 A Base de Dados SQL avalia automaticamente o histórico de utilização de recursos de bases de dados num servidor de Base de Dados SQL existente e recomenda a configuração de conjunto adequada no portal do Azure. Para além das recomendações, uma experiência incorporada prevê a utilização de eDTUs para um grupo personalizado de bases de dados no servidor. Desta forma, pode fazer uma análise de hipóteses ao adicionar, interativamente, bases de dados ao conjunto e removê-las para ver uma análise da utilização de recursos e obter conselhos de dimensionamento antes de consolidar as alterações. Para obter as instruções, veja [Monitor, manage, and size an elastic pool (Monitorizar, gerir e dimensionar conjuntos elásticos)](sql-database-elastic-pool-manage-portal.md).
 
 Nos casos em que não pode utilizar as ferramentas, as instruções passo a passo seguintes podem ajudá-lo a prever se um conjunto tem uma relação de custo-eficácia melhor do que as bases de dados individuais.
 
-1. Estime as eDTUs necessárias para o conjunto da seguinte forma:
+1. Estimar o eDTUs ou vCores necessário para o conjunto da seguinte forma:
 
-   Máx. (<*Número Total de DBs* X *utilização média de DTUs por DB*>,<br>
+   Para o modelo de compra baseado em DTU: máx. (<*número Total de bds* X *médio de utilização da DTU por BD*>,<br>
    <*Número de DBs com pico em simultâneo* X *utilização de pico de DTUs por DB*)
-2. Calcule o espaço de armazenamento necessário para o conjunto ao adicionar o número de bytes de que todas as bases de dados do conjunto precisam. Em seguida, determine o tamanho do conjunto de eDTUs que disponibiliza esta quantidade de armazenamento. Para obter os limites de armazenamento dos conjuntos com base no tamanho do conjunto de eDTUs, veja [eDTU and storage limits for elastic pools and elastic databases (eDTUs e limites de armazenamento dos conjuntos elásticos e das bases de dados elásticas)](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
-3. Escolha a estimativa de eDTUs maior de entre os passos 1 e 2.
-4. Veja a [página de preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) e encontre o tamanho de conjunto de eDTU mais pequeno e que seja superior à estimativa do Passo 3.
+
+   Para o modelo de compra baseado em vCore: máx. (<*número Total de bds* X *médio vCore utilização por BD*>,<br>
+   <*Número de em simultâneo peaking DBs* X *picos de utilização vCore por BD*)
+
+2. Calcule o espaço de armazenamento necessário para o conjunto ao adicionar o número de bytes de que todas as bases de dados do conjunto precisam. Em seguida, determine o tamanho do conjunto de eDTUs que disponibiliza esta quantidade de armazenamento.
+3. O DTU com base no modelo de compra, têm maior as estimativas de eDTU do passo 1 e o passo 2. Modelo de compra baseado em vCore, têm a estimativa vCore do passo 1.
+4. Consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/) e localizar o conjunto de menor tamanho que é maior do que a estimativa do passo 3.
 5. Compare o preço do conjunto do Passo 5 com o preço de utilizar os níveis de desempenho adequado para bases de dados individuais.
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Utilizar outras funcionalidades de base de dados do SQL Server com conjuntos elásticos
@@ -137,154 +141,68 @@ As bases de dados agrupadas suportam geralmente as mesmas [funcionalidades de co
 
 ### <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Criar um novo conjunto elástico de SQL Database no portal do Azure
 
-Existem duas formas de criar um conjunto elástico no portal do Azure. Pode fazê-lo a partir do zero se souber qual é a configuração de conjunto que pretende ou começar com uma recomendação do serviço. Base de dados SQL tem intelligence incorporado que recomenda uma configuração de conjunto elástico se é mais económico para si com base na telemetria de utilização passado para as bases de dados. 
-
-Criar um agrupamento elástico de uma página de servidor existente no portal é a forma mais fácil de mover bases de dados existentes para um conjunto elástico. Também pode criar um conjunto elástico pesquisando **agrupamento elástico de SQL** no **Marketplace** ou clicar **+ adicionar** na página de conjuntos elásticos SQL. É possível especificar um servidor novo ou existente através deste agrupamento de aprovisionamento de fluxo de trabalho.
+Existem duas formas de criar um conjunto elástico no portal do Azure.
+1. Pode criar um conjunto elástico pesquisando **agrupamento elástico de SQL** no **Marketplace** ou clicar **+ adicionar** nos conjuntos elásticos SQL procurar painel. É possível especificar um servidor novo ou existente através deste agrupamento de aprovisionamento de fluxo de trabalho.
+2. Ou pode criar um conjunto elástico, navegando para um servidor existente do SQL Server e clicando em **criar conjunto** para criar um conjunto diretamente no servidor. A única diferença aqui é que ignorar o passo em que especifique o servidor durante o aprovisionamento de fluxo de trabalho de agrupamento.
 
 > [!NOTE]
 > Pode criar vários conjuntos num servidor, mas não é possível adicionar bases de dados de diferentes servidores ao mesmo conjunto.
-> 
 
-Escalão de preço do conjunto determina as funcionalidades disponíveis para os elastics no agrupamento e o número máximo de eDTUs (eDTU máxima) e armazenamento (GBs) disponível para cada base de dados. Para obter mais informações, consulte [limites de recursos para conjuntos elásticos](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+Camada de serviço do conjunto determina as funcionalidades disponíveis para os elastics no agrupamento e a quantidade máxima de recursos disponíveis para cada base de dados. Para obter detalhes, consulte os limites de recursos para conjuntos elásticos no [modelo DTU](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels) e [vCore modelo](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
-Para alterar o escalão de preço do conjunto, clique em **Escalão de preço**, clique no escalão de preço pretendido e, em seguida, clique em **Selecionar**.
+Para configurar os recursos e de preço do conjunto, clique em **configurar conjunto**. Em seguida, selecione uma camada de serviço, adicione bases de dados para o conjunto e configurar os limites de recursos para o conjunto e respetivas bases de dados.
 
-> [!IMPORTANT]
-> Depois de escolher o escalão de preço e consolidar as alterações ao clicar em **OK** no último passo, não poderá alterar o escalão de preço do conjunto. Para alterar o escalão de preço de um conjunto elástico existente, crie um conjunto elástico no escalão de preço pretendido e migre as bases de dados para este novo conjunto.
->
+Quando tiver terminado de configurar o conjunto, pode clique em "Apply", nome do conjunto e clique em 'OK' para criar o conjunto.
 
-Se as bases de dados com que está a trabalhar tiverem telemetria de histórico de utilização suficiente, o gráfico **Utilização de GB e eDTU estimada** e o gráfico de barras **Utilização de eDTU real** são atualizados para o ajudar a tomar decisões de configuração. Além disso, o serviço poderá apresentar uma mensagem de recomendação para o ajudar a dimensionar corretamente o conjunto.
-
-O serviço Base de Dados SQL avalia o histórico de utilização e recomenda um ou mais conjuntos quando é mais rentável do que utilizar bases de dados individuais. Cada recomendação está configurada com um subconjunto exclusivo das bases de dados do servidor que melhor se adequam ao conjunto.
-
-![conjunto recomendado](./media/sql-database-elastic-pool-create-portal/recommended-pool.png) 
-
-A recomendação de conjunto é composta por:
-
-- Um escalão de preço para o conjunto (Básico, Standard ou Premium)
-- O número adequado de **eDTUs POR CONJUNTO** (também denominado Número máximo de eDTUs por conjunto)
-- O **número máximo de eDTUs** e o **número mínimo de eDTUs** por base de dados
-- A lista de bases de dados recomendadas para o conjunto
-
-> [!IMPORTANT]
-> O serviço tem em conta os últimos 30 dias de telemetria quando recomenda conjuntos. Para uma base de dados ser considerada candidata para um conjunto elástico, deve existir, pelo menos, 7 dias. As bases de dados que já estão num conjunto elástico não são consideradas candidatas para recomendações de conjunto elástico.
->
-
-O serviço avalia as necessidades de recursos e a relação custo-eficácia da movimentação das bases de dados individuais em cada escalão de serviço para conjuntos do mesmo escalão. Por exemplo, todas as bases de dados Standard num servidor são avaliadas para determinar a respetiva adequação a um Conjunto Elástico Standard. Isto significa que o serviço não faz recomendações entre escalões, tal como mover uma base de dados Standard para um conjunto Premium.
-
-Depois de adicionar as bases de dados para o conjunto, as recomendações são geradas dinamicamente com base no histórico de utilização das bases de dados que selecionou. Estas recomendações são apresentadas no gráfico de utilização de GB e eDTU e na faixa de recomendação no topo do **configurar conjunto** página. Estas recomendações destinam-se para ajudá-lo na criação de um conjunto elástico otimizado para as bases de dados específicas.
-
-![recomendações dinâmicas](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
-
-### <a name="manage-and-monitor-an-elastic-pool"></a>Gerir e monitorizar um conjunto elástico
+### <a name="monitor-an-elastic-pool-and-its-databases"></a>Monitorizar um conjunto elástico e respetivas bases de dados
 
 No portal do Azure, pode monitorizar a utilização de um conjunto elástico e as bases de dados nesse agrupamento. Também pode efetuar um conjunto de alterações para o conjunto elástico e submeter todas as alterações ao mesmo tempo. Estas alterações incluem a adição ou remoção de bases de dados, alterar as definições do conjunto elástico ou alterar as definições de base de dados.
 
-O gráfico seguinte mostra um agrupamento elástico de exemplo. A vista inclui:
+Para iniciar a monitorização do conjunto elástico, localize e abra um conjunto elástico no portal. Primeiro, verá um ecrã que dá-lhe uma descrição geral do Estado do seu agrupamento elástico. Isto inclui:
 
-* Gráficos para monitorizar a utilização de recursos do conjunto elástico e as bases de dados contidos no conjunto.
-* O **configurar** botão de agrupamento para efetuar alterações ao conjunto elástico.
-* O **criar base de dados** botão que cria uma base de dados e adiciona-o para o conjunto elástico atual.
-* As tarefas elásticas que o ajudam a gerem um grande número de bases de dados através da execução de scripts de Transact SQL em todas as bases de dados numa lista.
+* Monitorização de gráficos que mostra a utilização de recursos do conjunto elástico
+* Os alertas recentes e as recomendações, se estiver disponível, para o conjunto elástico
+
+O gráfico seguinte mostra um agrupamento elástico de exemplo:
 
 ![Vista de conjunto](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
-Pode aceder a um conjunto específico para ver a utilização de recursos. Por predefinição, o agrupamento está configurado para ver a utilização de armazenamento e de eDTU de última hora. O gráfico pode ser configurado para mostrar as métricas de diferentes ao longo de vários intervalos de tempo. Clique em de **utilização de recursos** gráfico em **monitorização do conjunto elástico** para mostrar uma vista detalhada das métricas especificadas durante a janela de tempo especificado.
+Se pretender obter mais informações sobre o agrupamento, pode clicar em qualquer uma das informações disponíveis nesta descrição geral. Clicar no **utilização de recursos** gráfico leva-o para a vista de monitorização do Azure onde pode personalizar a janela de métricas e a hora apresentada no gráfico. Clicar em qualquer notificações disponíveis leva-o para um painel que mostra todos os detalhes desse alerta ou uma recomendação.
 
-![Monitorização do agrupamento elástico](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
-
-![Página métrica](./media/sql-database-elastic-pool-manage-portal/metric.png)
-
-### <a name="to-customize-the-chart-display"></a>Para personalizar a apresentação de gráfico
-
-Pode editar o gráfico e a página de métrica para apresentar outras métricas, tais como a percentagem de CPU, percentagem de es de dados e a percentagem de es de registo utilizados.
-
-![Clique em Editar](./media/sql-database-elastic-pool-manage-portal/edit-metric.png)
-
-No **editar gráfico** formulário, pode selecionar um intervalo de tempo (decorridos desde a hora, hoje em dia, ou últimos semana), ou clique em **personalizado** para selecionar qualquer intervalo de datas nas últimas duas semanas. Pode escolher entre uma barra ou um gráfico de linhas e, em seguida, selecione os recursos para monitorizar.
-
-> [!Note]
-> Apenas as métricas com a mesma unidade de medida podem ser apresentadas no gráfico ao mesmo tempo. Por exemplo, se selecionar "percentagem de eDTU", em seguida, pode apenas selecionar outras métricas percentagem como a unidade de medida.
->
-
-![Clique em Editar](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
-
-### <a name="manage-and-monitor-databases-in-an-elastic-pool"></a>Gerir e monitorizar bases de dados num agrupamento elástico
-
-Bases de dados individuais também podem ser monitorizadas para potenciais problemas. Em **monitorização de base de dados elásticas**, há um gráfico que mostra as métricas das cinco bases de dados. Por predefinição, o gráfico mostra as bases de 5 dados superiores no agrupamento de pela utilização de eDTU médio na última hora. 
-
-![Monitorização do agrupamento elástico](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
-
-Clique em de **utilização de eDTU para bases de dados para a hora passada** em **monitorização de base de dados elástica**. Esta ação abre **utilização de recursos de base de dados** e fornece uma vista detalhada da utilização de base de dados no conjunto. Utilizar a grelha na parte inferior da página, pode selecionar quaisquer bases de dados no agrupamento para apresentar a utilização do gráfico (até 5 as bases de dados). Também pode personalizar a janela de métricas e a hora apresentada no gráfico clicando **editar gráfico**.
+Se gostaria de monitorizar as bases de dados dentro do conjunto, pode clicar em **base de dados de utilização de recursos** no **monitorização** secção do menu do recurso à esquerda.
 
 ![Página de utilização de recursos de base de dados](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
-### <a name="to-customize-the-view"></a>Para personalizar a vista
+#### <a name="to-customize-the-chart-display"></a>Para personalizar a apresentação de gráfico
 
-Pode editar o gráfico para selecionar um intervalo de tempo (decorridos desde hora ou últimos 24 horas), ou clique em **personalizado** para selecionar um dia diferentes nas últimas 2 semanas para apresentar.
+Pode editar o gráfico e a página de métrica para apresentar outras métricas, tais como a percentagem de CPU, percentagem de es de dados e a percentagem de es de registo utilizados.
 
-![Clique em Editar gráfico](./media/sql-database-elastic-pool-manage-portal/db-utilization-blade.png)
+No **editar gráfico** formulário, pode selecionar uma hora fixa intervalo ou clique em **personalizado** para selecionar qualquer período de 24 horas nas últimas duas semanas e, em seguida, selecione os recursos para monitorizar.
 
-![Clique em personalizada](./media/sql-database-elastic-pool-manage-portal/editchart-date-time.png)
+#### <a name="to-select-databases-to-monitor"></a>Para selecionar as bases de dados para monitorizar
 
-Também pode clicar o **comparar bases de dados ao** pendente para selecionar uma métrica diferente a utilizar quando a comparação com as bases de dados.
+Por predefinição, o gráfico no **utilização de recursos de base de dados** painel irá mostrar as bases de dados primeiros 5 pela DTU ou CPU (consoante o escalão de serviço). Pode mudar as bases de dados neste gráfico selecionando e unselecting bases de dados da lista abaixo do gráfico através das caixas de verificação à esquerda.
 
-![Edite o gráfico](./media/sql-database-elastic-pool-manage-portal/edit-comparison-metric.png)
-
-### <a name="to-select-databases-to-monitor"></a>Para selecionar as bases de dados para monitorizar
-
-Na lista de base de dados no **utilização de recursos de base de dados** página, pode encontrar bases de dados específicos ao procurar através das páginas na lista ou escrevendo o nome de uma base de dados. Utilize a caixa de verificação para selecionar a base de dados.
-
-![Pesquisa para bases de dados monitorizar](./media/sql-database-elastic-pool-manage-portal/select-dbs.png)
-
-
-### <a name="add-an-alert-to-an-elastic-pool-resource"></a>Adicionar um alerta para um recurso do conjunto elástico
-
-Pode adicionar regras a um conjunto elástico que enviar e-mail para pessoas ou alerta cadeias para pontos finais de URL, quando o conjunto elástico chega a um limiar de utilização que configurou.
-
-**Para adicionar um alerta a qualquer recurso:**
-
-1. Clique no **utilização de recursos** gráfico para abrir o **métrica** página, clique em **Adicionar alerta**e, em seguida, preencha as informações de **adicionar uma regra de alerta** página (**recursos** é automaticamente definido até ser o conjunto que está a trabalhar com).
-2. Escreva um **nome** e **Descrição** que identifica o alerta e os destinatários.
-3. Escolha um **métrica** que pretenda a partir da lista de alertas.
-
-   O gráfico mostra dinamicamente a utilização de recursos para esse métrica ajudar a escolher um limiar.
-
-4. Escolha um **condição** (superior, inferior, etc.) e um **limiar**.
-5. Escolha um **período** de tempo que a regra de métrica deve ser satisfeita antes dos acionadores de alerta.
-6. Clique em **OK**.
+Também pode selecionar métricas mais para a vista de lado a lado nesta tabela de base de dados para obter uma vista mais completa do desempenho das bases de dados.
 
 Para obter mais informações, consulte [criam alertas de base de dados SQL no portal do Azure](sql-database-insights-alerts-portal.md).
 
-### <a name="move-a-database-into-an-elastic-pool"></a>Mover uma base de dados para um conjunto elástico
+### <a name="manage-an-elastic-pool-and-its-databases"></a>Gerir um conjunto elástico e respetivas bases de dados
 
-Pode adicionar ou remover bases de dados a partir de um conjunto existente. As bases de dados podem ser noutros conjuntos. No entanto, só pode adicionar bases de dados que estão no mesmo servidor lógico.
+Todas as definições de agrupamento podem ser encontradas no mesmo local: o **configurar conjunto** painel. Para obter aqui, localizar um conjunto elástico no portal e clique **configurar conjunto** da parte superior do painel ou no menu de recursos, à esquerda.
 
- ![Clique em Configurar conjunto](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
+Aqui pode efetuar qualquer combinação das seguintes alterações e guarde-los todos num batch:
+1. Alterar o escalão de serviço do conjunto
+2. Aumentar o desempenho (DTU ou vCores) e armazenamento ou para baixo
+3. Adicionar ou remover bases de dados do agrupamento
+4. Definir um mínimo (garantido) e máximo de limite de desempenho para os conjuntos de bases de dados
+5. Reveja o resumo de custos para ver as alterações a fatura como resultado as suas seleções novo
 
-![Clique em Adicionar ao agrupamento](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
-
-![Selecionar bases de dados a adicionar](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
-
-![Adições de agrupamento pendente](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
-
-![Clicar em Guardar](./media/sql-database-elastic-pool-manage-portal/click-save.png)
-
-### <a name="move-a-database-out-of-an-elastic-pool"></a>Mover uma base de dados fora de um conjunto elástico
-
-![lista de bases de dados](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
-
-### <a name="change-performance-settings-of-an-elastic-pool"></a>Alterar as definições de desempenho de um conjunto elástico
-
-Como monitorizar a utilização de recursos de um conjunto elástico, poderá descobrir que são necessários alguns ajustes. Talvez o conjunto tem uma alteração nos limites de desempenho ou o armazenamento. Possivelmente que pretende alterar as definições de base de dados no conjunto. Pode alterar a configuração do conjunto em qualquer altura para obter o melhor equilíbrio de desempenho e o custo. Consulte [quando um conjunto elástico a utilizar?](sql-database-elastic-pool.md) para obter mais informações.
-
-Para alterar os limites de armazenamento ou de eDTUs por conjunto e eDTUs por base de dados:
-
-![Utilização de recursos de agrupamento elástico](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
+![Painel de configuração do conjunto elástico](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
 ## <a name="manage-elastic-pools-and-databases-using-powershell"></a>Gerir conjuntos elásticos e bases de dados com o PowerShell
 
-Para criar e gerir conjuntos elásticos da base de dados SQL com o Azure PowerShell, utilize os seguintes cmdlets PowerShell. Se precisar de instalar ou atualizar o PowerShell, consulte [módulo Azure PowerShell instalar](/powershell/azure/install-azurerm-ps). Para criar e gerir bases de dados, servidores e as regras de firewall, consulte [criar e gerir servidores SQL Database do Azure e as bases de dados com o PowerShell](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell). 
+Para criar e gerir conjuntos elásticos da base de dados SQL com o Azure PowerShell, utilize os seguintes cmdlets PowerShell. Se precisar de instalar ou atualizar o PowerShell, consulte [módulo Azure PowerShell instalar](/powershell/azure/install-azurerm-ps). Para criar e gerir bases de dados, servidores e as regras de firewall, consulte [criar e gerir servidores SQL Database do Azure e as bases de dados com o PowerShell](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell).
 
 > [!TIP]
 > Para scripts de exemplo do PowerShell, consulte [criar conjuntos elásticos e mover bases de dados entre conjuntos e fora de um conjunto com o PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) e [utilize o PowerShell para monitorizar e dimensionar um agrupamento elástico de SQL na base de dados do Azure SQL](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -309,7 +227,7 @@ Para criar e gerir conjuntos elásticos da base de dados SQL com o Azure PowerSh
 
 ## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Gerir conjuntos elásticos e bases de dados utilizando a CLI do Azure
 
-Para criar e gerir conjuntos elásticos da base de dados SQL com o [CLI do Azure](/cli/azure), utilize o seguinte [SQL Database do Azure CLI](/cli/azure/sql/db) comandos. Utilize o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu browser ou [instale-a](/cli/azure/install-azure-cli) no macOS, Linux ou Windows. 
+Para criar e gerir conjuntos elásticos da base de dados SQL com o [CLI do Azure](/cli/azure), utilize o seguinte [SQL Database do Azure CLI](/cli/azure/sql/db) comandos. Utilize o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu browser ou [instale-a](/cli/azure/install-azure-cli) no macOS, Linux ou Windows.
 
 > [!TIP]
 > Para scripts de exemplo da CLI do Azure, consulte [CLI de utilização para mover uma base de dados SQL do Azure num agrupamento elástico de SQL](scripts/sql-database-move-database-between-pools-cli.md) e [CLI do Azure de utilização para dimensionar um agrupamento elástico de SQL na base de dados do Azure SQL](scripts/sql-database-scale-pool-cli.md).

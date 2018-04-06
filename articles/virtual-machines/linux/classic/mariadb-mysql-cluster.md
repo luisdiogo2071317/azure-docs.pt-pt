@@ -1,11 +1,11 @@
 ---
 title: Executar um cluster de MariaDB (MySQL) no Azure | Microsoft Docs
-description: "Criar um MariaDB + Galera MySQL cluster em máquinas virtuais do Azure"
+description: Criar um MariaDB + Galera MySQL cluster em máquinas virtuais do Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: sabbour
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: d0d21937-7aac-4222-8255-2fdc4f2ea65b
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-ms.openlocfilehash: 53e9bf18b26338212411ea7c4f260eb308486738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5438bfb75abaac2bed55a76b38f69790f7fc87fa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>Cluster MariaDB (MySQL): tutorial do Azure
 > [!IMPORTANT]
@@ -146,7 +146,7 @@ Este artigo descreve como concluir os seguintes passos:
             then editing `/etc/selinux/config` to set `SELINUX=permissive`
 6. Valide executa MySQL.
 
-   a. Inicie o MySQL.
+   a. Start MySQL.
 
            service mysql start
    b. Proteger a instalação do MySQL, defina a palavra-passe de raiz, remover utilizadores anónimos para desativar o início de sessão remoto raiz e remover a base de dados de teste.
@@ -163,10 +163,10 @@ Este artigo descreve como concluir os seguintes passos:
             service mysql stop
 7. Crie um marcador de posição de configuração.
 
-   a. Edite a configuração de MySQL para criar um marcador de posição para as definições do cluster. Não substituir o  **`<Variables>`**  ou anule o comentário agora. Que irá ocorrer depois de criar uma VM a partir deste modelo.
+   a. Edite a configuração de MySQL para criar um marcador de posição para as definições do cluster. Não substituir o **`<Variables>`** ou anule o comentário agora. Que irá ocorrer depois de criar uma VM a partir deste modelo.
 
             vi /etc/my.cnf.d/server.cnf
-   b. Editar o  **[galera]**  secção e desmarcá-la a.
+   b. Editar o **[galera]** secção e desmarcá-la a.
 
    c. Editar o **[mariadb]** secção.
 
@@ -184,11 +184,11 @@ Este artigo descreve como concluir os seguintes passos:
            #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
 8. Abra as portas necessárias na firewall utilizando FirewallD em CentOS 7.
 
-   * MySQL:`firewall-cmd --zone=public --add-port=3306/tcp --permanent`
-   * GALERA:`firewall-cmd --zone=public --add-port=4567/tcp --permanent`
-   * GALERA IST:`firewall-cmd --zone=public --add-port=4568/tcp --permanent`
-   * RSYNC:`firewall-cmd --zone=public --add-port=4444/tcp --permanent`
-   * Recarregar a firewall:`firewall-cmd --reload`
+   * MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+   * GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
+   * GALERA IST: `firewall-cmd --zone=public --add-port=4568/tcp --permanent`
+   * RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
+   * Recarregar a firewall: `firewall-cmd --reload`
 
 9. Otimize o sistema para o desempenho. Para obter mais informações, consulte [estratégia de otimização do desempenho](optimize-mysql.md).
 
@@ -281,8 +281,8 @@ Crie três VMs com o modelo criado e, em seguida, configurar e iniciar o cluster
 
         sudo vi /etc/my.cnf.d/server.cnf
 
-    Anule o comentário  **`wsrep_cluster_name`**  e  **`wsrep_cluster_address`**  removendo a  **#**  no início da linha.
-    Além disso, substitua  **`<ServerIP>`**  no  **`wsrep_node_address`**  e  **`<NodeName>`**  no  **`wsrep_node_name`**  com endereço IP da VM e name, respetivamente, e anule os comentários, bem como estas linhas.
+    Anule o comentário **`wsrep_cluster_name`** e **`wsrep_cluster_address`** removendo a **#** no início da linha.
+    Além disso, substitua **`<ServerIP>`** no **`wsrep_node_address`** e **`<NodeName>`** no **`wsrep_node_name`** com endereço IP da VM e name, respetivamente, e anule os comentários, bem como estas linhas.
 5. Início do cluster no MariaDB1 e permitir que o mesmo são executados no arranque.
 
         sudo service mysql bootstrap
@@ -299,7 +299,7 @@ Agora utilize o Balanceador de carga do Azure para balancear pedidos entre os tr
 
 Execute os seguintes comandos no seu computador, utilizando a CLI do Azure.
 
-A estrutura de parâmetros de comando é:`azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
+A estrutura de parâmetros de comando é: `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
     azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
@@ -344,7 +344,7 @@ A base de dados que criou devolve a tabela seguinte:
     2 rows in set (0.00 sec)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, criou um nó de três MariaDB + Galera cluster altamente disponível no Azure virtual máquinas em execução CentOS 7. As VMs têm balanceada com o Azure Load Balancer de carga.
 
 Pode querer ver [outra forma de cluster MySQL no Linux](mysql-cluster.md) e formas de [otimizar e testar o desempenho de MySQL em VMs do Linux do Azure](optimize-mysql.md).

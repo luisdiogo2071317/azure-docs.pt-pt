@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Criar e gerir servidores SQL Database do Azure e as bases de dados
 
@@ -26,7 +26,7 @@ Base de dados do SQL Server oferece três tipos de bases de dados:
 Base de dados do Microsoft Azure SQL Server suporta a versão de cliente de protocolo do tabular data stream (recebido) 7.3 ou posterior e permite que apenas as ligações de TCP/IP encriptadas.
 
 > [!IMPORTANT]
-> Instância de geridos de base de dados de SQL, atualmente em pré-visualização pública, oferece uma camada de serviços de objetivo geral único. Para obter mais informações, consulte [a instância de gerido da base de dados do SQL Server](sql-database-managed-instance.md). O resto deste artigo não é aplicável a instância geridos.
+> Instância de geridos de base de dados de SQL, atualmente em pré-visualização pública, oferece uma camada de serviços de objetivo geral único. Para obter mais informações, veja [Instância Gerida da Base de Dados SQL](sql-database-managed-instance.md). O resto deste artigo não é aplicável a instância geridos.
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>O que é um servidor lógico SQL do Azure?
 
@@ -53,7 +53,7 @@ Um servidor lógico da Base de Dados do Azure:
 - Fornece acesso a metadados relativamente aos recursos contidos através de DMVs, estabelecendo ligação a uma base de dados mestra 
 - Fornece o âmbito de políticas de gestão que aplicar a suas bases de dados - inícios de sessão, firewall, auditorias, ameaça deteção, etc. 
 - É restringido por uma quota dentro da subscrição principal (seis servidores por subscrição por predefinição - [Consulte subscrição limita aqui](../azure-subscription-service-limits.md))
-- Fornece o âmbito de quota da base de dados e da quota de DTU para os recursos que nele contidos (por exemplo, a 45,000 DTU)
+- Fornece o âmbito de quota da base de dados e da quota DTU ou vCore para os recursos que nele contidos (por exemplo, a 45,000 DTU)
 - É o âmbito do controlo de versões de capacidades ativadas nos recursos nele contidos 
 - Os inícios de sessão principais ao nível do servidor podem gerir todas as bases de dados num servidor
 - Pode conter inícios de sessão semelhantes àqueles nas instâncias do SQL Server no local, aos quais é concedido acesso a uma ou mais bases de dados no servidor e aos quais podem ser concedidos direitos administrativos limitados. Para obter mais informações, veja [Inícios de sessão](sql-database-manage-logins.md).

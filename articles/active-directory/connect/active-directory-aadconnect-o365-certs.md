@@ -1,8 +1,8 @@
 ---
-title: "Certificado de renovação para utilizadores do Office 365 e o Azure AD | Microsoft Docs"
-description: "Este artigo explica como resolver problemas relacionados com e-mails que notificação-los sobre como renovar um certificado para utilizadores do Office 365."
+title: Certificado de renovação para utilizadores do Office 365 e o Azure AD | Microsoft Docs
+description: Este artigo explica como resolver problemas relacionados com e-mails que notificação-los sobre como renovar um certificado para utilizadores do Office 365.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: a0e3b65c108f8d839b8107e98a5cd59df78e1ab0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0435f1c5aae9381c76441b1233a47799af94768
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovar os certificados de Federação para o Office 365 e o Azure Active Directory
 ## <a name="overview"></a>Descrição geral
@@ -55,7 +55,7 @@ Tenta do Azure AD monitorizar os metadados de Federação e atualizar o token de
 >
 >
 
-## Verifique se os certificados precisam de ser atualizados<a name="managecerts"></a>
+## Verifique se os certificados precisam de ser atualizados <a name="managecerts"></a>
 ### <a name="step-1-check-the-autocertificaterollover-state"></a>Passo 1: Verificar o estado de AutoCertificateRollover
 No servidor do AD FS, abra o PowerShell. Verifique se o valor de AutoCertificateRollover está definido como True.
 
@@ -95,7 +95,7 @@ Na saída de Get-MsolFederationProperty ou Get-AdfsCertificate, verifique a data
 
 \[Não importa -]
 
-## Renovar o token de certificado de assinatura automaticamente (recomendado)<a name="autorenew"></a>
+## Renovar o token de certificado de assinatura automaticamente (recomendado) <a name="autorenew"></a>
 Não precisa de efetuar quaisquer passos manuais se ambos os procedimentos seguintes se verificarem:
 
 * Implementou o Proxy de aplicações Web, que pode ativar o acesso aos metadados de Federação da extranet.
@@ -107,13 +107,12 @@ Verifique o seguinte para confirmar que o certificado pode ser atualizado automa
 
 **2. Os metadados de Federação do AD FS são acessível publicamente.** Certifique-se de que os metadados de Federação estão acessível publicamente, ao navegar para o seguinte URL de um computador com a internet pública (retire da rede empresarial):
 
-/federationmetadata/2007-06/federationmetadata.xml https:// (your_FS_name)
+https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 onde `(your_FS_name) `é substituído com o nome de anfitrião do serviço de Federação utiliza a sua organização, por exemplo, fs.contoso.com.  Se for possível verificar ambos destas definições com êxito, não precisa de fazer mais nada.  
 
 Exemplo: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
-
-## Renovar o token manualmente o certificado de assinatura<a name="manualrenew"></a>
+## Renovar o token manualmente o certificado de assinatura <a name="manualrenew"></a>
 Pode optar por renovar o token manualmente os certificados de assinatura. Por exemplo, poderão funcionar melhor para a renovação manual os seguintes cenários:
 
 * Tokens de assinatura de certificados são os certificados autoassinados não. A razão mais comum para esta situação é que a sua organização gere certificados do AD FS inscritos a partir de uma autoridade de certificação organizacional.
@@ -150,17 +149,17 @@ Dois certificados deverá estar listados agora, um deles tem uma **NotAfter** da
 Atualize o Office 365 com o novo token certificados de assinatura para ser utilizada para a fidedignidade, da seguinte forma.
 
 1. Abra o módulo do Microsoft Azure Active Directory para o Windows PowerShell.
-2. Executar $cred = Get-Credential. Quando este cmdlet irá pedir-lhe credenciais, escreva as credenciais de conta de administrador de serviço de nuvem.
+2. Run $cred=Get-Credential. Quando este cmdlet irá pedir-lhe credenciais, escreva as credenciais de conta de administrador de serviço de nuvem.
 3. Executar Connect MsolService – $cred de credenciais. Este cmdlet liga ao serviço em nuvem. Criar um contexto que liga ao serviço em nuvem é necessário antes de executar qualquer um dos cmdlets adicionais instalados pela ferramenta.
-4. Se estiver a executar estes comandos num computador que não seja o servidor de Federação principal do AD FS, execute Set-MSOLAdfscontext-computador <AD FS primary server>, onde <AD FS primary server> é o nome FQDN interno do servidor do AD FS principal. Este cmdlet cria um contexto que liga-o para o AD FS.
-5. Executar atualização MSOLFederatedDomain – DomainName <domain>. Este cmdlet atualiza as definições do AD FS para o serviço de nuvem e configura a relação de confiança entre os dois.
+4. Se estiver a executar estes comandos num computador que não seja o servidor de Federação principal do AD FS, execute Set-MSOLAdfscontext-computador &lt;servidor primário do AD FS&gt;, onde &lt;servidor primário do AD FS&gt; é o FQDN interno nome do servidor do AD FS primário. Este cmdlet cria um contexto que liga-o para o AD FS.
+5. Run Update-MSOLFederatedDomain –DomainName &lt;domain&gt;. Este cmdlet atualiza as definições do AD FS para o serviço de nuvem e configura a relação de confiança entre os dois.
 
 > [!NOTE]
 > Se tiver de suportar vários domínios de nível superior, por exemplo, contoso.com e fabrikam.com, tem de utilizar o **SupportMultipleDomain** mudar com quaisquer cmdlets. Para obter mais informações, consulte [suporte para múltiplos domínios de nível de topo](active-directory-aadconnect-multiple-domains.md).
 >
 
 
-## Reparar a confiança do Azure AD através do Azure AD Connect<a name="connectrenew"></a>
+## Reparar a confiança do Azure AD através do Azure AD Connect <a name="connectrenew"></a>
 Se tiver configurado o farm do AD FS e a confiança do Azure AD através do Azure AD Connect, pode utilizar o Azure AD Connect para detetar se é necessário efetuar qualquer ação para os certificados de assinatura de tokens. Se precisar de renovar os certificados, pode utilizar o Azure AD Connect para fazê-lo.
 
 Para obter mais informações, consulte [reparar a confiança](active-directory-aadconnect-federation-management.md).

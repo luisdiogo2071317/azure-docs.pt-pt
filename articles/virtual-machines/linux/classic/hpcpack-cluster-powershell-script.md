@@ -1,11 +1,11 @@
 ---
 title: Script do PowerShell para implementar o cluster HPC do Linux | Microsoft Docs
-description: "Executar um script do PowerShell para implementar um cluster de Linux HPC Pack 2012 R2 em máquinas virtuais do Azure"
+description: Executar um script do PowerShell para implementar um cluster de Linux HPC Pack 2012 R2 em máquinas virtuais do Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 73041960-58d3-4ecf-9540-d7e1a612c467
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 477859db8c884714d9b5140483d300ebfe6c116a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 66affb47190ba0c6fccaae8e8267b310682aee46
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Criar um cluster de computação de alto desempenho (HPC) de Linux com o script de implementação do IaaS do HPC Pack
 Execute a script do PowerShell para implementar um cluster HPC Pack 2012 R2 completado para cargas de trabalho do Linux em máquinas virtuais do Azure de implementação do HPC Pack IaaS. O cluster é constituído por um nó principal associados ao Active Directory com o Windows Server e o Microsoft HPC Pack e nós de computação que execute um das distribuições de Linux suportadas pelo pacote HPC. Se pretender implementar um cluster HPC Pack em cargas de trabalho do Azure para Windows, consulte [criar um cluster Windows HPC com o script de implementação do HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

@@ -1,38 +1,38 @@
 ---
 title: Restringir o acesso de rede para recursos de PaaS - Azure PowerShell | Microsoft Docs
-description: Saiba como limitar e restringir o acesso de rede para recursos do Azure, tais como o Storage do Azure e SQL Database do Azure, com pontos finais de serviço de rede virtual com o PowerShell.
+description: Neste artigo, irá aprender a limitar e restringir o acesso de rede para recursos do Azure, tais como o Storage do Azure e SQL Database do Azure, com pontos finais de serviço de rede virtual com o Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 7e402af74babda2ce32d4a1597c61d71aba89b9e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 28c95e1333b4641e50284a869135a9608dd3242f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Restringir o acesso de rede para recursos de PaaS com pontos finais de serviço de rede virtual com o PowerShell
 
 Pontos finais do serviço de rede virtual permitem-lhe limitar o acesso de rede a alguns recursos do serviço do Azure para uma sub-rede de rede virtual. Também pode remover o acesso à internet para os recursos. Pontos finais de serviço fornecem ligação direta a partir da sua rede virtual para os serviços do Azure suportadas, permitindo-lhe utilizar o espaço de endereços privados da sua rede virtual para aceder aos serviços do Azure. O tráfego destinado aos recursos do Azure através de pontos finais de serviço sempre permanece da rede principal do Microsoft Azure. Neste artigo, saiba como:
 
-> [!div class="checklist"]
-> * Criar uma rede virtual com uma sub-rede
-> * Adicionar uma sub-rede e ativar um ponto final de serviço
-> * Criar um recurso do Azure e permitir o acesso de rede ao mesmo de apenas uma sub-rede
-> * Implementar uma máquina virtual (VM) em cada sub-rede
-> * Confirmar o acesso a um recurso de sub-rede
-> * Confirmar o acesso é negado a um recurso de uma sub-rede e a internet
+* Criar uma rede virtual com uma sub-rede
+* Adicionar uma sub-rede e ativar um ponto final de serviço
+* Criar um recurso do Azure e permitir o acesso de rede ao mesmo de apenas uma sub-rede
+* Implementar uma máquina virtual (VM) em cada sub-rede
+* Confirmar o acesso a um recurso de sub-rede
+* Confirmar o acesso é negado a um recurso de uma sub-rede e a internet
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -93,7 +93,7 @@ $subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="restrict-network-access-to-and-from-a-subnet"></a>Restringir o acesso de rede de e para uma sub-rede
+## <a name="restrict-network-access-for-a-subnet"></a>Restringir o acesso de rede para uma sub-rede
 
 Criar regras de segurança de grupo com a segurança de rede [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). A seguinte regra permite o acesso de saída para os endereços IP públicos atribuída para este serviço de armazenamento do Azure: 
 
@@ -114,7 +114,7 @@ A seguinte regra nega o acesso a todos os endereços IP públicos. A regra anter
 
 ```azurepowershell-interactive
 $rule2 = New-AzureRmNetworkSecurityRuleConfig `
-  -Name Deny-internet-All `
+  -Name Deny-Internet-All `
   -Access Deny `
   -DestinationAddressPrefix Internet `
   -DestinationPortRange * `
@@ -167,7 +167,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 Os passos necessários para restringir o acesso de rede para recursos criados através de serviços do Azure ativados para pontos finais de serviço varia em serviços. Consulte a documentação para serviços individuais para obter passos específicos para cada serviço. O resto deste artigo inclui os passos para restringir o acesso de rede para uma conta de armazenamento do Azure, como um exemplo.
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Create a storage account
 
 Criar uma conta de armazenamento do Azure com [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). Substitua `<replace-with-your-unique-storage-account-name>` com um nome que é exclusivo em todas as localizações do Azure, entre 3 e 24 carateres de comprimento, a utilizar apenas números e letras minúsculas.
 
@@ -372,9 +372,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, ativar um ponto final de serviço para uma sub-rede de rede virtual. Aprendeu a que os pontos finais de serviço podem ser ativados para recursos implementados com vários serviços do Azure. Criou uma conta de armazenamento do Azure e o acesso limitado à rede para a conta de armazenamento para apenas os recursos dentro de uma sub-rede de rede virtual. Antes de criar pontos finais de serviço na produção redes virtuais, é recomendado que lhe exaustivamente familiarizar-se com [pontos finais de serviço](virtual-network-service-endpoints-overview.md).
+Neste artigo, ativar um ponto final de serviço para uma sub-rede de rede virtual. Aprendeu a que os pontos finais de serviço podem ser ativados para recursos implementados com vários serviços do Azure. Criou uma conta de armazenamento do Azure e o acesso limitado à rede para a conta de armazenamento para apenas os recursos dentro de uma sub-rede de rede virtual. Para obter mais informações sobre pontos finais de serviço, consulte o artigo [descrição geral de pontos finais de serviço](virtual-network-service-endpoints-overview.md) e [gerir sub-redes](virtual-network-manage-subnet.md).
 
-Se tiver várias redes virtuais na sua conta, poderá pretender ligar duas redes virtuais em conjunto para que recursos dentro de cada rede virtual podem comunicar entre si. Avançar para o próximo tutorial para saber como ligar redes virtuais.
-
-> [!div class="nextstepaction"]
-> [Ligar redes virtuais](./tutorial-connect-virtual-networks-powershell.md)
+Se tiver várias redes virtuais na sua conta, poderá pretender ligar duas redes virtuais em conjunto para que recursos dentro de cada rede virtual podem comunicar entre si. Para saber como, consulte [ligar redes virtuais](tutorial-connect-virtual-networks-powershell.md).

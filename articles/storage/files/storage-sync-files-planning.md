@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -173,6 +173,7 @@ Sincronização de ficheiros do Azure está disponível apenas nas regiões segu
 |--------|---------------------|
 | Leste da Austrália | Nova Gales do Sul |
 | Canadá Central | Toronto |
+| Leste do Canadá | Cidade do Quebeque |
 | EUA Central | Iowa |
 | Ásia Oriental | RAE de Hong Kong |
 | EUA Leste | Virgínia |
@@ -180,7 +181,6 @@ Sincronização de ficheiros do Azure está disponível apenas nas regiões segu
 | Europa do Norte | Irlanda |
 | Sudeste Asiático | Singapura |
 | Reino Unido Sul | Londres |
-| Oeste Cental E.U.A. |
 | Europa Ocidental | Países Baixos |
 | EUA Oeste | Califórnia |
 
@@ -191,6 +191,6 @@ Pré-visualização, suportamos a sincronizar apenas com uma partilha de ficheir
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Considere as definições de proxy e firewall](storage-sync-files-firewall-and-proxy.md)
-* [Planear uma implementação de ficheiros do Azure](storage-files-planning.md)
+* [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
 * [Implementar ficheiros do Azure](storage-files-deployment-guide.md)
 * [Implementar a sincronização de ficheiros do Azure](storage-sync-files-deployment-guide.md)

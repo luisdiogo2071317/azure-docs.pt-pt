@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: e9343b4a0049b2eea30f903159fdeff0ae7ff851
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia de publicador do Azure Marketplace e AppSource
 
@@ -121,7 +121,8 @@ Cada storefront suporta vários tipos de opções e oferta publicação. Selecio
 Utilize contactar-Me quando a participação de nível de versão de avaliação ou ao nível da transação não é exequível. A vantagem desta abordagem é que permite a publicadores com uma solução no mercado iniciar imediatamente a receção de clientes potenciais clientes potenciais que podem ser nurtured para as fundamentais sobre oportunidades para iniciar o flywheel de negócio. No entanto, a desvantagem é que o engagement de cliente é limitada, as compared with outros tipos de oferta.
 
 >[!IMPORTANT]
->Não recomendamos a contactar-Me a listagem de tipo. Deve utilizá-lo apenas em situações onde não é possível estabelecer uma experiência de avaliação. O engagement de cliente é melhor com ofertas de versão de avaliação e transação. Se tiver qualquer tipo de experiência de avaliação gratuita, o nosso processo de integração irá ajudá-lo a um dessas opções, dependendo do seu cenário.
+<<<<<<< O engagement de cliente HEAD é melhor com a versão de avaliação e Transact oferece. O valor de contactar-Me é antecedência que recebe, por isso, se escolher este tipo de listagem, certifique-se de que o destino de oportunidades potenciais está configurado e pronto maximizar as oportunidades potenciais. === Não recomendamos a contactar-Me a listagem de tipo. Deve utilizá-lo apenas em situações onde não é possível estabelecer uma experiência de avaliação. O engagement de cliente é melhor com ofertas de versão de avaliação e transação. Se tiver qualquer tipo de experiência de avaliação gratuita, o nosso processo de integração irá ajudá-lo a um dessas opções, dependendo do seu cenário.
+>>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
 
 Quando a oferta consiste principalmente serviços profissionais (por exemplo, as avaliações de implementações, workshops), utilize os serviços de consultoria da oferta de tipo. Âmbito de oferta, a duração e o preço têm de ser corrigidos, tem de ser para um único cliente e tem de ser efetuadas no site.
 

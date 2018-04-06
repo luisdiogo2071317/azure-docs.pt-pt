@@ -1,8 +1,8 @@
 ---
-title: "Consulta de análise de registos do Azure para monitorizar clusters do HDInsight do Azure | Microsoft Docs"
-description: "Saiba como executar consultas na análise de registos do Azure para monitorizar tarefas em execução num HDInsight cluster."
+title: Consulta de análise de registos do Azure para monitorizar clusters do HDInsight do Azure | Microsoft Docs
+description: Saiba como executar consultas na análise de registos do Azure para monitorizar tarefas em execução num HDInsight cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: f9e023ae8d6c50049b588cf056629cd8d46ee603
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1b2f5fc9bd4f8fc8cd70437e38831595d0a8a819
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Análise de registos do Azure de consulta para monitorizar clusters do HDInsight
 
@@ -33,7 +33,7 @@ Aprender alguns cenários básicos sobre como utilizar Log Analytics do Azure pa
 
 * Tem de ter configurado um cluster do HDInsight ao utilizar a análise de registos do Azure. Para obter instruções, consulte [Log Analytics do Azure utilizada com clusters do HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-* Tem de ter adicionado as soluções de gestão de específicas do cluster do HDInsight para o [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) área de trabalho, tal como descrito no [soluções de gestão de cluster do HDInsight adicionar ao Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+* Tem de ter adicionado as soluções de gestão de específicas do cluster do HDInsight para o [Log Analytics](../operations-management-suite/operations-management-suite-overview.md) área de trabalho, tal como descrito no [soluções de gestão de cluster do HDInsight adicionar ao Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>Analisar as métricas de cluster do HDInsight
 
@@ -86,7 +86,7 @@ Saiba como consultar mensagens de erro durante uma janela de tempo específico. 
 
     ![Dashboard OMS abra](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "dashboard abrir OMS")
 
-2. No dashboard do OMS, a partir do ecrã principal, clique em **pesquisa registo**.
+2. No portal do OMS, a partir do ecrã principal, clique em **pesquisa registo**.
 
     ![Abra pesquisa de registo](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "abra pesquisa de registo")
 
@@ -126,7 +126,7 @@ Pode utilizar qualquer consulta que pretende criar um alerta.
 
     ![Dashboard OMS abra](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "dashboard abrir OMS")
 
-2. No dashboard do OMS, a partir do ecrã principal, clique em **pesquisa registo**.
+2. No portal do OMS, a partir do ecrã principal, clique em **pesquisa registo**.
 
     ![Abra pesquisa de registo](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "abra pesquisa de registo")
 
@@ -152,5 +152,5 @@ Pode utilizar qualquer consulta que pretende criar um alerta.
 
 ## <a name="see-also"></a>Consulte também
 
-* [Trabalhar com a análise de registos do Operations Management Suite](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Trabalhar com a análise de registos](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Criar regras de alertas na análise de registos](../log-analytics/log-analytics-alerts-creating.md)

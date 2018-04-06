@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Compreender as políticas personalizadas do pacote de arranque de política personalizada do Azure AD B2C
 
@@ -39,7 +39,7 @@ Isto afirmações esquemas está dividida nas três secções:
 3.  E, eventualmente, uma secção terceira apresenta uma lista de quaisquer afirmações adicionais, opcionais que podem ser recolhidas do utilizador, armazenado no diretório e enviados em tokens durante o início de sessão. É possível adicionar o novo tipo de afirmações recolhidos a partir de utilizador e/ou enviados no token nesta secção.
 
 > [!IMPORTANT]
-> O esquema de afirmações contém restrições para determinadas afirmações, tais como palavras-passe e nomes de utilizador. A política de confiança Framework (TF) trata do Azure AD como qualquer outro fornecedor de afirmações e todas as respetivas restrições são modelled na política de premium. Foi possível modificar uma política para adicionar mais restrições ou utilize outro fornecedor de afirmações para armazenamento de credenciais que têm a sua própria restrições.
+> O esquema de afirmações contém restrições para determinadas afirmações, tais como palavras-passe e nomes de utilizador. A política de confiança Framework (TF) trata do Azure AD como qualquer outro fornecedor de afirmações e todas as respetivas restrições são modelled na política personalizada. Foi possível modificar uma política para adicionar mais restrições ou utilize outro fornecedor de afirmações para armazenamento de credenciais que têm a sua própria restrições.
 
 Os tipos de afirmação disponíveis são listados abaixo.
 
@@ -51,12 +51,12 @@ As seguintes afirmações são necessárias para percursos de utilizador funcion
 |-------------|-------------|
 | *UserId* | Nome de utilizador |
 | *signInName* | Inicie sessão no nome |
-| *tenantId* | Identificador de inquilino (ID) do objeto de utilizador no Azure AD B2C Premium |
-| *objectId* | Identificador de objeto (ID) do objeto de utilizador no Azure AD B2C Premium |
+| *tenantId* | Identificador de inquilino (ID) do objeto de utilizador no Azure AD B2C |
+| *objectId* | Identificador de objeto (ID) do objeto de utilizador no Azure AD B2C |
 | *password* | Palavra-passe |
 | *newPassword* | |
 | *reenterPassword* | |
-| *passwordPolicies* | Políticas de palavra-passe utilizadas pelo Premium do Azure AD B2C para determinar a força da palavra-passe, expiração, etc. |
+| *passwordPolicies* | Políticas de palavra-passe utilizadas pelo Azure AD B2C para determinar a força da palavra-passe, expiração, etc. |
 | *sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
@@ -66,9 +66,9 @@ As seguintes afirmações são necessárias para percursos de utilizador funcion
 | *email* | Endereço de correio eletrónico que pode ser utilizado para contactar o utilizador |
 | *signInNamesInfo.emailAddress* | Endereço de e-mail que o utilizador pode utilizar para iniciar sessão |
 | *otherMails* | Endereços de e-mail que podem ser utilizados para contactar o utilizador |
-| *userPrincipalName* | Nome de utilizador conforme armazenado no Premium do Azure AD B2C |
+| *userPrincipalName* | Nome de utilizador conforme armazenado no Azure AD B2C |
 | *upnUserName* | Nome de utilizador para a criação de nome principal de utilizador |
-| *mailNickName* | Nome de nick de correio do utilizador conforme armazenado no Premium do Azure AD B2C |
+| *mailNickName* | Nome de nick de correio do utilizador conforme armazenado no Azure AD B2C |
 | *newUser* | |
 | *executed-SelfAsserted-Input* | Afirmação que especifica se os atributos foram recolhidos do utilizador |
 | *executed-PhoneFactor-Input* | Afirmação que especifica se um novo número de telefone foi recolhido do utilizador |

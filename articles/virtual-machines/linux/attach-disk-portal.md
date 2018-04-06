@@ -2,10 +2,10 @@
 title: Anexar um disco de dados para uma VM com Linux | Microsoft Docs
 description: Utilize o portal para expor o disco de dados nova ou existente para uma VM com Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 5e1c6212-976c-4962-a297-177942f90907
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: cynthn
-ms.openlocfilehash: 1a7c98207a5f19d514a0cd05b66898e7fb725944
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 4acfe53d68db3192c1f6c3c9e5f91b55bd5df7b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilizar o portal para anexar um disco de dados para uma VM com Linux 
 Este artigo mostra como anexar discos novos e existentes para uma máquina virtual do Linux através do portal do Azure. Também pode [anexar um disco de dados para uma VM do Windows no portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -32,7 +32,7 @@ Antes de anexar discos à sua VM, reveja estas sugestões:
 
 
 ## <a name="find-the-virtual-machine"></a>Localizar a máquina virtual
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu da esquerda, clique em **máquinas virtuais**.
 3. Selecione a máquina virtual na lista.
 4. Para o Virtual máquinas página, no **Essentials**, clique em **discos**.
@@ -73,5 +73,5 @@ Antes de anexar discos à sua VM, reveja estas sugestões:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Também pode [anexar um disco de dados](add-disk.md) utilizando a CLI do Azure.

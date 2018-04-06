@@ -1,11 +1,11 @@
 ---
-title: "O que é o acesso a aplicações e início de sessão no Azure Active Directory? | Microsoft Docs"
-description: "Utilize o Azure Active Directory para ativar o início de sessão para todas as aplicações web e de SaaS que precisa para empresas."
+title: O que é o acesso a aplicações e início de sessão no Azure Active Directory? | Microsoft Docs
+description: Utilize o Azure Active Directory para ativar o início de sessão para todas as aplicações web e de SaaS que precisa para empresas.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 42a24654eb059894a855474c922a4dd2da185149
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicações e início de sessão no Azure Active Directory?
 O início de sessão único significa que está a ser capazes de aceder a todas as aplicações e recursos que precisa para fins comerciais, ao iniciar sessão apenas depois de utilizar uma conta de utilizador único. Depois de iniciar sessão, pode aceder a todas as aplicações que precisar, sem ser necessário para autenticação (por exemplo, escreva uma palavra-passe) uma segunda vez.
@@ -68,7 +68,7 @@ Configuração baseada em palavra-passe de início de sessão permite que os uti
 Azure AD pode suportar baseada em palavra-passe de início de sessão para qualquer aplicação baseada na nuvem que tem uma baseado em HTML-página sessão. Ao utilizar um plug-in de browser personalizados, AAD automatiza iniciar sessão no processo o utilizador de através de forma segura a obter as credenciais de aplicação, tais como o nome de utilizador e a palavra-passe do diretório e introduz estas credenciais de início de sessão na página da aplicação em nome do utilizador. Existem dois casos de utilização:
 
 1. **Administrador gere credenciais** – os administradores podem criar e gerir credenciais de aplicação e atribuir essas credenciais aos utilizadores ou grupos que necessitam de aceder à aplicação. Nestes casos, o utilizador final não precisa de saber as credenciais, mas ainda obtiver acesso de início de sessão único para a aplicação simplesmente clicando na mesma no respetivo painel de acesso ou através de uma ligação fornecida. Isto permite que ambos, gestão de ciclo de vida das credenciais pelo administrador, bem como conveniência para os utilizadores finais na qual não é necessário para memorizar ou faça a gestão de palavras-passe de aplicação específicos. As credenciais são ocultadas do utilizador final durante o início de sessão no processo automatizado; No entanto são tecnicamente Detetáveis pelo utilizador utilizando ferramentas de depuração do web e os utilizadores e os administradores devem seguir as mesmas políticas de segurança como se as credenciais foram apresentadas diretamente pelo utilizador. As credenciais de administrador fornecidos pelo são úteis quando fornecer acesso de conta que é partilhado entre vários utilizadores, tais como de redes sociais ou documento partilha de aplicações.
-2. **Utilizador gere credenciais** – os administradores podem atribuir aplicações para os utilizadores finais e grupos e permitir que os utilizadores finais introduzir as suas próprias credenciais diretamente após o acesso à aplicação pela primeira vez no respetivo painel de acesso. Esta ação cria uma conveniência para os utilizadores finais na qual não é necessário introduzir continuamente as palavras-passe de específico da aplicação sempre que acederem a aplicação. Neste caso, utilize também pode ser utilizado como um stone stepping para modelos administrativos \ Gestão de credenciais, na qual o administrador pode definir novas credenciais para a aplicação numa data futura sem alterar a experiência de acesso de aplicações do utilizador final.
+2. **Utilizador gere credenciais** – os administradores podem atribuir aplicações para os utilizadores finais e grupos e permitir que os utilizadores finais introduzir as suas próprias credenciais diretamente após o acesso à aplicação pela primeira vez no respetivo painel de acesso. Esta ação cria uma conveniência para os utilizadores finais na qual não é necessário introduzir continuamente as palavras-passe de específico da aplicação sempre que acederem a aplicação. Os utilizadores podem continuar a gerir as respetivas palavras-passe por atualizar ou eliminando-os conforme necessário. Neste caso, utilize também pode ser utilizado como um stone stepping para modelos administrativos \ Gestão de credenciais, na qual o administrador pode definir novas credenciais para a aplicação numa data futura sem alterar a experiência de acesso de aplicações do utilizador final.
 
 Em ambos os casos, as credenciais são armazenadas num estado encriptado no diretório, só são transmitidas através de HTTPS durante o processo de início de sessão automatizado. Utilizar baseada em palavra-passe-início de sessão único, do Azure AD oferece uma solução de gestão de acesso de identidade conveniente para aplicações que não são capazes de suportar protocolos de Federação.
 
@@ -151,7 +151,7 @@ O Azure AD fornece várias formas personalizáveis para implementar aplicações
 O método que escolher para implementação na sua organização é o seu critério.
 
 ### <a name="azure-ad-access-panel"></a>Painel de acesso do Azure AD
-Painel de acesso em https://myapps.microsoft.com é um portal baseado na web que permite que um utilizador final com uma conta organizacional no Azure Active Directory para ver e iniciar baseado na nuvem aplicações a que que tenham sido concedidos acesso pelo administrador do Azure AD . Se for um utilizador final com [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), também pode utilizar as capacidades de gestão de grupos self-service através do painel de acesso.
+Painel de acesso em https://myapps.microsoft.com é um portal baseado na web que permite que um utilizador final com uma conta organizacional no Azure Active Directory para ver e iniciar baseado na nuvem aplicações aos quais tiverem sido tiveram acesso pelo administrador do Azure AD. Se for um utilizador final com [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), também pode utilizar as capacidades de gestão de grupos self-service através do painel de acesso.
 
 ![Painel de acesso do Azure AD](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
 
@@ -160,7 +160,7 @@ O painel de acesso separado do portal do Azure e não exige que os utilizadores 
 Para obter mais informações sobre o painel de acesso do Azure AD, consulte o [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 ### <a name="office-365-application-launcher"></a>Iniciador da aplicação do Office 365
-Nas organizações que implementaram do Office 365, as aplicações foram atribuídas aos utilizadores através do Azure AD também serão apresentadas no portal do Office 365 em https://portal.office.com/myapps. Isto torna mais fácil e conveniente para os utilizadores numa organização para iniciar as suas aplicações sem ter de utilizar um portal segundo e é a solução iniciar aplicação recomendada para organizações com o Office 365.
+Nas organizações que implementaram do Office 365, as aplicações que foram atribuídas aos utilizadores através do Azure AD também serão apresentadas no portal do Office 365 em https://portal.office.com/myapps. Isto torna mais fácil e conveniente para os utilizadores numa organização para iniciar as suas aplicações sem ter de utilizar um portal segundo e é a solução iniciar aplicação recomendada para organizações com o Office 365.
 
 ![][4]
 

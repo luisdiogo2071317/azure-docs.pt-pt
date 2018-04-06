@@ -1,11 +1,11 @@
 ---
 title: Como configurar MSI numa VM do Azure com o PowerShell
-description: "Passo pelo passo as instruções para configurar uma identidade de serviço geridas (MSI) na VM do Azure, utilizando o PowerShell."
+description: Passo pelo passo as instruções para configurar uma identidade de serviço geridas (MSI) na VM do Azure, utilizando o PowerShell.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 42c361ac69122d00df290f4c3c2eb2cfeeb9eb47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 76ea24a658c728aebd15be55cc0c8dfca27f01ec
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configurar uma VM geridos serviço de identidade (MSI) com o PowerShell
 
@@ -40,9 +40,9 @@ Para criar uma VM ativada de MSI:
 1. Consulte um do seguinte VM inícios rápidos do Azure, concluir apenas as secções necessárias ("Iniciar sessão no Azure", "Criar grupo de recursos", "Criar grupo de rede", "Criar a VM"). 
 
    > [!IMPORTANT] 
-   > Quando chegar à secção "Criar a VM", efetuar uma pequena modificação para a [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) sintaxe de cmdlet. Certifique-se de adicionar um `-IdentityType "SystemAssigned"` parâmetro para aprovisionar a VM com um MSI, por exemplo:
+   > Quando chegar à secção "Criar a VM", efetuar uma pequena modificação para a [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) sintaxe de cmdlet. Certifique-se de adicionar um `-AssignIdentity "SystemAssigned"` parâmetro para aprovisionar a VM com um MSI, por exemplo:
    >  
-   > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
+   > `$vmConfig = New-AzureRmVMConfig -VMName myVM -AssignIdentity "SystemAssigned" ...`
 
    - [Criar uma máquina virtual do Windows com o PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
    - [Criar uma máquina virtual de Linux através do PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
@@ -66,11 +66,11 @@ Se precisar de ativar MSI numa máquina Virtual existente:
    Login-AzureRmAccount
    ```
 
-2. Obtenha primeiro as propriedades da VM utilizando o `Get-AzureRmVM` cmdlet. Em seguida, para ativar o MSI, utilize o `-IdentityType` comutador no [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
+2. Obtenha primeiro as propriedades da VM utilizando o `Get-AzureRmVM` cmdlet. Em seguida, para ativar o MSI, utilize o `-AssignIdentity` comutador no [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType "SystemAssigned"
+   Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity "SystemAssigned"
    ```
 
 3. Adicionar a extensão de VM de MSI com o `-Type` parâmetro no [conjunto AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de VM e nome-la utilizando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto final token OAuth para aquisição do token. É necessário especificar o correto `-Location` parâmetro correspondente a localização da VM existente:

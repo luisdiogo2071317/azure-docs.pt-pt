@@ -1,20 +1,20 @@
 ---
-title: "Recuperação após desastre de base de dados SQL | Microsoft Docs"
-description: "Saiba como recuperar uma base de dados a partir de uma falha de centro de dados regionais ou falha com a SQL Database do Azure Active Directory georreplicação e capacidades de restauro de georreplicação."
+title: Recuperação após desastre de base de dados SQL | Microsoft Docs
+description: Saiba como recuperar uma base de dados a partir de uma falha de centro de dados regionais ou falha com a SQL Database do Azure Active Directory georreplicação e capacidades de restauro de georreplicação.
 services: sql-database
 author: anosov1960
 manager: jhubbard
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e9ec0a0a602965561b77619123588db57c59993c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dc97c0703150df9773427b13fc07371c3593ce9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um SQL Database do Azure ou a ativação pós-falha para uma secundária
 Base de dados SQL do Azure oferece as seguintes capacidades para recuperar a partir de uma falha:
@@ -26,7 +26,7 @@ Base de dados SQL do Azure oferece as seguintes capacidades para recuperar a par
 Para saber mais sobre cenários de continuidade do negócio e as funcionalidades destes cenários de suporte, consulte [continuidade do negócio](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Se estiver a utilizar ou agrupamentos de bases de dados Premium com redundância de zona, o processo de recuperação é um processo automatizado o resto deste material, não sendo aplicável. 
+> Se estiver a utilizar com redundância de zona bases de dados Premium ou crítico de negócio ou agrupamentos (pré-visualização), o processo de recuperação é um processo automatizado o resto deste material, não sendo aplicável. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Preparar para o evento de indisponibilidade
 Para o êxito da recuperação noutra região de dados através de grupos de ativação pós-falha ou as cópias de segurança georredundante, terá de preparar um servidor no Centro de dados noutro interrupção para se tornar o novo servidor primário deve a necessidade de surgir, bem como tem bem definidos passos documentados e testar para garantir uma recuperação sem problemas. Estes passos de preparação incluem:

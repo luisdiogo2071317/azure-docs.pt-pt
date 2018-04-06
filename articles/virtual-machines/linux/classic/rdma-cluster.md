@@ -1,11 +1,11 @@
 ---
-title: "Configurar um cluster de Linux RDMA para executar aplicações MPI | Microsoft Docs"
-description: "Criar um cluster do Linux do tamanho H16r, H16mr, A8, A9 VMs para utilizar a rede de Azure RDMA para executar aplicações MPI"
+title: Configurar um cluster de Linux RDMA para executar aplicações MPI | Microsoft Docs
+description: Criar um cluster do Linux do tamanho H16r, H16mr, A8, A9 VMs para utilizar a rede de Azure RDMA para executar aplicações MPI
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 01834bad-c8e6-48a3-b066-7f1719047dd2
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 428dc1e8ba03ba17e348a33a33b5cf5e6118a43c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configurar um cluster RDMA do Linux para executar aplicações MPI
 Saiba como configurar um cluster de Linux RDMA no Azure com [tamanhos de VM de computação de elevado desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para executar aplicações de Interface de passagem de mensagens (MPI) paralelas. Este artigo fornece os passos para preparar uma imagem de Linux HPC para executar Intel MPI num cluster. Depois de preparação, implementar um cluster de VMs com esta imagem e dos tamanhos de VM do Azure com capacidade RDMA (atualmente H16r, H16mr, A8, A9 ou utilizador). Utilize o cluster para executar aplicações de MPI comunicam de forma eficiente através de uma rede de latência baixa e débito elevado com base na tecnologia de (RDMA) de acesso remoto direto à memória.

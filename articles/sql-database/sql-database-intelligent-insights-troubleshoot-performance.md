@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 0f23a76506a6692dd907a0b9fc7cfadfe7cd8f40
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7830a8a4bfc43e158069cc7cdc186e289e166751
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolver problemas de desempenho de SQL Database do Azure com o Insights inteligente
 
@@ -58,7 +58,7 @@ A secção seguinte descreve os padrões de desempenho detetável listadas anter
 
 Neste padrão de desempenho detetável combina os problemas de desempenho relacionados com a atingir os limites de recursos disponíveis, os limites de trabalho e limites de sessão. Depois do problema de desempenho é detetado, um campo de descrição do registo de diagnóstico indica se o problema de desempenho está relacionado com recursos, o trabalho ou limites de sessão.
 
-Recursos na base de dados do SQL Server são normalmente denominados [recursos DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Estes consistem de uma medida combinada de CPU e e/s recursos (dados transação registo e e/s). O padrão de atingir os limites de recursos é reconhecido quando detetado degradação do desempenho de consulta é causada por atingir qualquer os limites de recursos de medida.
+Recursos na base de dados do SQL Server são normalmente denominados [recursos DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Estes consistem de uma medida combinada de CPU e/s recursos (dados transação registo de e/s). O padrão de atingir os limites de recursos é reconhecido quando detetado degradação do desempenho de consulta é causada por atingir qualquer os limites de recursos de medida.
 
 O recurso de limites de sessão indica o número de inícios de sessão em simultâneo disponíveis para a base de dados do SQL Server. Neste padrão de desempenho é reconhecido quando as aplicações que estão ligadas a bases de dados do SQL Server atingiu o número de inícios de sessão em simultâneo disponíveis para a base de dados. Se as aplicações tentam utilizar mais sessões que estão disponíveis numa base de dados, o desempenho das consultas é afetado.
 
@@ -234,7 +234,7 @@ Para obter mais informações, consulte [introdução às tabelas com otimizaç�
 
 Neste padrão de desempenho detetável indica uma degradação do desempenho de cargas de trabalho de base de dados atual em comparação comparada a linha de base de sete dias anterior. É devido a falta de DTUs disponíveis no agrupamento elástico da sua subscrição. 
 
-Recursos na base de dados do SQL Server são normalmente denominados [recursos DTU](sql-database-what-is-a-dtu.md), que consistem de uma medida combinada de CPU e e/s recursos (dados transação registo e e/s). [Recursos do Azure conjunto elástico](sql-database-elastic-pool.md) são utilizadas como agrupamento de recursos eDTU disponíveis partilhado entre várias bases de dados para fins de dimensionamento. Quando os recursos eDTU disponíveis do conjunto elástico não são suficientemente grandes para suportar todas as bases de dados no conjunto, foi detetado um problema de desempenho de falta DTU do conjunto elástico pelo sistema.
+Recursos na base de dados do SQL Server são normalmente denominados [recursos DTU](sql-database-what-is-a-dtu.md), que consistem de uma medida combinada de CPU e/s recursos (dados transação registo de e/s). [Recursos do Azure conjunto elástico](sql-database-elastic-pool.md) são utilizadas como agrupamento de recursos eDTU disponíveis partilhado entre várias bases de dados para fins de dimensionamento. Quando os recursos eDTU disponíveis do conjunto elástico não são suficientemente grandes para suportar todas as bases de dados no conjunto, foi detetado um problema de desempenho de falta DTU do conjunto elástico pelo sistema.
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 

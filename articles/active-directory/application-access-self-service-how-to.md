@@ -1,23 +1,23 @@
 ---
-title: "Como configurar a atribuição de aplicação personalizada | Microsoft Docs"
-description: "Ativar o acesso de aplicação self-service permitir aos utilizadores localizar as suas próprias aplicações"
+title: Como configurar a atribuição de aplicação personalizada | Microsoft Docs
+description: Ativar o acesso de aplicação self-service permitir aos utilizadores localizar as suas próprias aplicações
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 04/02/2018
 ms.author: asteen
-ms.openlocfilehash: 8aeda498847759debab18ddf4b44a75cd739a56c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cf70da4933f5513b75f84aef01dec1ef902eab85
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicação personalizada
 
@@ -64,7 +64,10 @@ Para ativar o acesso de aplicação personalizada para uma aplicação, siga os 
 8.  Para ativar o acesso de aplicação self-service para esta aplicação, ative o **permitir que os utilizadores pedir acesso a esta aplicação?** alternar para **Sim.**
 
 9.  Em seguida, para selecionar o grupo a que os utilizadores que pedem acesso a esta aplicação deve ser adicionado, clique em Seletor junto a etiqueta **ao qual o grupo devem atribuídos possível adicionar utilizadores?** e selecione um grupo.
-
+  
+  > [!NOTE]
+  > Não são suportados grupos sincronizados a partir do local para ser utilizado para o grupo ao qual devem ser adicionados a utilizadores que pedem acesso a esta aplicação.
+  
 10. **Opcional:** se pretender necessitam de uma aprovação de negócio antes dos utilizadores estão autorizados acesso, defina o **exigir a aprovação antes de conceder acesso a esta aplicação?** alternar para **Sim**.
 
 11. **Opcional: para aplicações utilizando a palavra-passe início de sessão único em apenas,** se pretender permitir que esses aprovadores de negócio especificar as palavras-passe que são enviadas para esta aplicação para os utilizadores aprovados, defina o **permitir aprovadores definir do utilizador palavras-passe para esta aplicação?**  alternar para **Sim**.

@@ -1,28 +1,28 @@
 ---
-title: "Design serviço altamente disponível a utilizar a SQL Database do Azure | Microsoft Docs"
-description: "Saiba mais sobre a estrutura de aplicação para os serviços de elevada disponibilidade utilizando a SQL Database do Azure."
-keywords: "nuvem de recuperação após desastre, as soluções de recuperação após desastre, cópia de segurança de dados de aplicação, replicação geográfica, planeamento de continuidade de negócio"
+title: Design serviço altamente disponível a utilizar a SQL Database do Azure | Microsoft Docs
+description: Saiba mais sobre a estrutura de aplicação para os serviços de elevada disponibilidade utilizando a SQL Database do Azure.
+keywords: nuvem de recuperação após desastre, as soluções de recuperação após desastre, cópia de segurança de dados de aplicação, replicação geográfica, planeamento de continuidade de negócio
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c596006e33c2c4f0228c14a65f58e82bcf300727
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d19087743740799ec9972bed7a602073afea9f26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Conceber serviços de elevada disponibilidade utilizando a SQL Database do Azure
 
 Ao criar e implementar os serviços de elevada disponibilidade no SQL Database do Azure, utilize [ativação pós-falha de grupos e a georreplicação ativa](sql-database-geo-replication-overview.md) para fornecer maior resiliência às falhas regionais e de falhas catastrófica. Também permite uma recuperação rápida para as bases de dados secundárias. Este artigo foca-se nos padrões comuns da aplicação e descreve as vantagens e os compromissos de cada opção. Para obter informações sobre a georreplicação ativa com conjuntos elásticos, consulte [estratégias de recuperação de desastre do conjunto elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 > [!NOTE]
-> Se estiver a utilizar agrupamentos e bases de dados Premium, pode efetuá-los resilientes às falhas regionais, convertendo-las à configuração de implementação redundante de zona (atualmente em pré-visualização). Consulte [basesdedadoszona redundante](sql-database-high-availability.md).  
+> Se estiver a utilizar o Premium ou bases de dados críticos de negócio (pré-visualização) e conjuntos elásticos, pode torná-los falhas sejam resilientes a regionais, convertendo-las à configuração de implementação redundante de zona (atualmente em pré-visualização). Consulte [basesdedadoszona redundante](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: Utilizar duas regiões do Azure para a continuidade do negócio com o período de indisponibilidade mínimo
 Neste cenário, as aplicações têm as seguintes características: 

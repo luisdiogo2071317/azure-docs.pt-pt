@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 961b783b44b95a871c98f96d3783f3429636f295
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2fcbbc2532e5cb9963922b4987ba0c7080fdb170
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-azure-automation"></a>Introdução à Automatização do Azure
 
@@ -33,11 +33,11 @@ Para automatizar a implementação e gestão de recursos no seu centro de dados 
 
 Pode implementar vários Runbook Workers híbridos. Utilize os Runbook Workers híbridos para fornecer elevada disponibilidade para os runbooks e balanceamento de carga de tarefas de runbook. Em alguns casos, pode dedicar tarefas de runbook para cargas de trabalho específicas ou ambientes. Microsoft Monitoring Agent no Runbook Worker híbrido inicia a comunicação com o serviço de automatização através da porta TCP 443. Os Runbook Workers híbridos ter não existem requisitos de firewall de entrada.  
 
-Poderá pretender que um runbook que está a executar um Runbook Worker híbrido para efetuar tarefas de gestão contra outras máquinas ou serviços no seu ambiente. Nesse cenário, o runbook pode também devem ter acesso outras portas. Se as políticas de segurança de TI não permitir que os computadores na sua rede para ligar à internet, reveja [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md). O Gateway do Operations Management Suite (OMS) atua como um proxy para o Runbook Worker híbrido. Recolhe o estado da tarefa e recebe informações de configuração da sua conta de automatização.
+Poderá pretender que um runbook que está a executar um Runbook Worker híbrido para efetuar tarefas de gestão contra outras máquinas ou serviços no seu ambiente. Nesse cenário, o runbook pode também devem ter acesso outras portas. Se as políticas de segurança de TI não permitir que os computadores na sua rede para ligar à internet, reveja [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md). O Gateway do OMS age como um proxy para o Runbook Worker híbrido. Recolhe o estado da tarefa e recebe informações de configuração da sua conta de automatização.
 
 Os Runbooks que executar um Runbook Worker híbrido executados no contexto da conta do sistema local no computador. Recomendamos um contexto de segurança quando efetuar ações administrativas no computador local do Windows. Se pretender que o runbook para executar tarefas relativamente aos recursos que estão fora do computador local, poderá ter de definir ativos de credenciais seguras na conta de automatização. Pode aceder a recursos de credenciais seguras do runbook e utilizá-los para autenticar com o recurso externo. Pode utilizar [credencial](automation-credentials.md), [certificado](automation-certificates.md), e [ligação](automation-connections.md) ativos no runbook. Utilize os recursos com os cmdlets que pode utilizar para especificar as credenciais para autenticá-los.
 
-Pode aplicar configurações de DSC são armazenadas na automatização do Azure para máquinas virtuais. Outras máquinas virtuais e físicas pode solicitar as configurações do servidor de solicitação do Automation DSC. Não precisa de implementar qualquer infra-estrutura para suportar o servidor de solicitação do Automation DSC para gerir as configurações do seu local físicos ou virtuais sistemas Windows e Linux. Só precisa de acesso de internet de saída de cada sistema que irá gerir utilizando o DSC de automatização. Ocorrerá a comunicação através da porta TCP 443 para o serviço do OMS.   
+Pode aplicar configurações de DSC são armazenadas na automatização do Azure para máquinas virtuais. Outras máquinas virtuais e físicas pode solicitar as configurações do servidor de solicitação do Automation DSC. Não precisa de implementar qualquer infra-estrutura para suportar o servidor de solicitação do Automation DSC para gerir as configurações do seu local físicos ou virtuais sistemas Windows e Linux. Só precisa de acesso de internet de saída de cada sistema que irá gerir utilizando o DSC de automatização. Ocorrerá a comunicação através da porta TCP 443 para o serviço de análise de registos.   
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -125,9 +125,9 @@ Os artigos seguintes fornecem passos de descrição geral e implementação para
 Para as contas Run As do Azure e Run As clássica, [atualizar automatização conta Run As](automation-create-runas-account.md) descreve como atualizar a sua conta de automatização existente com as contas Run As do portal. Também descreve como utilizar o PowerShell se a conta de automatização não foi originalmente configurada com uma conta Run As ou Run As clássica. Pode criar uma conta Run As e uma conta Run As clássica através da utilização de um certificado emitido por sua autoridade de certificação empresarial (AC). Reveja [atualização automatização conta Run As](automation-create-runas-account.md) para aprender a criar as contas utilizando esta configuração.     
  
 ## <a name="network-planning"></a>Planear a sua rede
-Para o Runbook Worker híbrido ligar a e registar com o OMS, tem de ter acesso para o número de porta e os URLs descritos nesta secção. Isto é, para além de [portas e URLs necessários para o Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) para ligar ao OMS. 
+Para o Runbook Worker híbrido ligar a e registar a análise de registos, tem de ter acesso para o número de porta e os URLs descritos nesta secção. Isto é, para além de [portas e URLs necessários para o Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) para ligar ao Log Analytics. 
 
-Se utilizar um servidor proxy para comunicação entre o agente e o serviço do OMS, certifique-se de que os recursos adequados estão acessíveis. Se utilizar uma firewall para restringir o acesso à internet, tem de configurar a firewall para permitir o acesso.
+Se utilizar um servidor proxy para comunicação entre o agente e o serviço de análise de registos, certifique-se de que os recursos adequados estão acessíveis. Se utilizar uma firewall para restringir o acesso à internet, tem de configurar a firewall para permitir o acesso.
 
 A porta e URLs seguintes são necessários para a função Runbook Worker híbrido comunicar com a automatização:
 
@@ -167,36 +167,36 @@ A tabela seguinte apresenta os métodos para criar uma conta de automatização 
 
 |Método | Descrição |
 |-------|-------------|
-| Selecione **automatização e controlo** no Azure Marketplace | Uma oferta Azure Marketplace cria uma conta de automatização e a área de trabalho OMS que estão ligadas e no mesmo grupo de recursos e região. Integração com o OMS também inclui a vantagem de utilizar a análise de registos para monitorizar e analisar fluxos de trabalho e o estado de tarefa de runbook ao longo do tempo. Também pode utilizar as funcionalidades avançadas na análise de registos para escalar ou investigar problemas. A oferta implementa o **alterações** e **gestão de atualizações** soluções, que estão ativadas por predefinição. |
-| Selecione **automatização** no Marketplace | Este método cria uma conta de automatização num grupo de recursos novo ou existente que não está ligado a uma área de trabalho do OMS. Não inclui qualquer soluções disponíveis do **automatização e controlo** oferta. Este método é uma configuração básica que apresente automatização. Pode ajudar a aprender a escrever runbooks e configurações de DSC e saiba como utilizar as capacidades do serviço. |
-| Selecione **gestão** soluções | Se selecionar um **gestão** solução, incluindo [gestão de atualizações](../operations-management-suite/oms-solution-update-management.md), [VMs de início/paragem durante as horas de inatividade](automation-solution-vm-management.md), ou [alterações](../log-analytics/log-analytics-change-tracking.md), a solução pede-lhe para selecionar uma conta de automatização existente e a área de trabalho do OMS. A solução oferece a opção de criar uma conta de automatização e a área de trabalho do OMS conforme necessário para a solução ser implementada na sua subscrição. |
+| Selecione **automatização e controlo** no Azure Marketplace | Uma oferta Azure Marketplace cria uma conta de automatização e a área de trabalho de análise de registos que estão ligadas e no mesmo grupo de recursos e região. Integração com a análise de registos também inclui a vantagem de utilizar para monitorizar e analisar fluxos de trabalho e o estado de tarefa de runbook ao longo do tempo. Também pode utilizar as funcionalidades avançadas na análise de registos para escalar ou investigar problemas. A oferta implementa o **alterações** e **gestão de atualizações** soluções, que estão ativadas por predefinição. |
+| Selecione **automatização** no Marketplace | Este método cria uma conta de automatização num grupo de recursos novo ou existente que não está ligado a uma área de trabalho de análise de registos. Não inclui qualquer soluções disponíveis do **automatização e controlo** oferta. Este método é uma configuração básica que apresente automatização. Pode ajudar a aprender a escrever runbooks e configurações de DSC e saiba como utilizar as capacidades do serviço. |
+| Selecione **gestão** soluções | Se selecionar um **gestão** solução, incluindo [gestão de atualizações](../operations-management-suite/oms-solution-update-management.md), [VMs de início/paragem durante as horas de inatividade](automation-solution-vm-management.md), ou [alterações](../log-analytics/log-analytics-change-tracking.md), a solução pede-lhe para selecionar uma conta de automatização existente e a área de trabalho de análise de registos. A solução oferece a opção de criar uma conta de automatização e a área de trabalho de análise de registos conforme necessário para a solução ser implementada na sua subscrição. |
 
-### <a name="create-an-automation-account-thats-integrated-with-oms"></a>Criar uma conta de automatização que esteja integrada com o OMS
-Para carregar automatização, recomendamos que selecione o **automatização e controlo** oferta no Marketplace. Ao utilizar este método cria uma conta de automatização e estabelece a integração com uma área de trabalho do OMS. Quando utiliza este método, tem também a opção para instalar as soluções de gestão que estão disponíveis com a oferta.  
+### <a name="create-an-automation-account-thats-integrated-with-log-analytics"></a>Criar uma conta de automatização que esteja integrada com a análise de registos
+Para carregar automatização, recomendamos que selecione o **automatização e controlo** oferta no Marketplace. Ao utilizar este método cria uma conta de automatização e estabelece a integração com uma área de trabalho de análise de registos. Quando utiliza este método, tem também a opção para instalar as soluções de gestão que estão disponíveis com a oferta.  
 
-[Criar uma conta de automatização de autónoma](automation-create-standalone-account.md) explica o processo de criação de uma conta de automatização e a área de trabalho OMS através da integração do **automatização e controlo** oferta. Pode saber como criar um conta de automatização para fins de teste de autónomo ou o serviço de pré-visualização.  
+[Criar uma conta de automatização de autónoma](automation-create-standalone-account.md) explica o processo de criação de uma conta de automatização e a área de trabalho de análise de registos por integração o **automatização e controlo** oferta. Pode saber como criar um conta de automatização para fins de teste de autónomo ou o serviço de pré-visualização.  
 
-Para criar uma conta de automatização e a área de trabalho do OMS, utilizando o **automatização e controlo** oferta do Marketplace:
+Para criar uma conta de automatização e a área de trabalho de análise de registos, utilizando o **automatização e controlo** oferta do Marketplace:
 
 1. Inicie sessão no portal do Azure com uma conta que seja um membro da função de administradores da subscrição e um coadministrador da subscrição.
 2. Selecione **novo**.<br><br> ![Selecionar novo no portal do Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Procurar **automatização**. Nos resultados da pesquisa, selecione **automatização e controlo**.<br><br> ![Procure e selecione a automatização e controlo no Azure Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 4. Reveja a descrição para a oferta e, em seguida, selecione **criar**.  
-5. Em **automatização e controlo**, selecione **área de trabalho OMS**. Em **áreas de trabalho do OMS**, selecione uma área de trabalho do OMS que está ligada à subscrição do Azure que está a ser a conta de automatização. Se não tiver uma área de trabalho do OMS, selecione **criar nova área de trabalho**. Em **área de trabalho OMS**: 
+5. Em **automatização e controlo**, selecione **área de trabalho OMS**. Em **áreas de trabalho do OMS**, selecione uma área de trabalho de análise de registos que está ligada à subscrição do Azure que está a ser a conta de automatização. Se não tiver uma área de trabalho de análise de registos, selecione **criar nova área de trabalho**. Em **área de trabalho OMS**: 
   1. Para **área de trabalho OMS**, introduza um nome para a nova área de trabalho.
   2. Para **subscrição**, selecione uma subscrição para ligar a. Se a seleção predefinida não estiver a subscrição que pretende utilizar, selecione a subscrição da lista pendente.
   3. Para **grupo de recursos**, pode criar um grupo de recursos ou selecione um grupo de recursos existente.  
   4. Para **localização**, selecione uma região. Para obter mais informações, consulte [em que regiões da automatização do Azure está disponível no](https://azure.microsoft.com/regions/services/). Soluções são disponibilizadas em duas camadas: camada livre e por nó (OMS). O escalão gratuito tem um limite, a quantidade de dados que recolheu diariamente, o período de retenção e minutos de tempo de execução de tarefa de runbook. O por nó (OMS) camada não tem um limite na quantidade de dados recolhidos diariamente.  
-  5. Selecione **Conta de Automatização**.  Se criar uma nova área de trabalho do OMS, também tem de criar uma conta de automatização que está associada a nova área de trabalho do OMS. Incluem a sua subscrição do Azure, o grupo de recursos e a região. 
+  5. Selecione **Conta de Automatização**.  Se criar uma nova área de trabalho de análise de registos, também tem de criar uma conta de automatização associado à área de trabalho de análise de registos nova. Incluem a sua subscrição do Azure, o grupo de recursos e a região. 
     1. Selecione **criar uma conta de automatização**.
     2. Em **conta de automatização**, além de **nome** campo, introduza o nome da conta de automatização.
-    Todas as outras opções automaticamente são povoadas com base na área de trabalho OMS selecionada. Não é possível modificar estas opções. 
+    Todas as outras opções automaticamente são povoadas com base na área de trabalho de análise de registos selecionada. Não é possível modificar estas opções. 
     3. O método de autenticação predefinido para a oferta é a conta Run As do Azure. Depois de selecionar **OK**, as opções de configuração são validadas e a conta de automatização é criada. Para controlar o progresso da mesma, no menu, selecione **notificações**. 
-    4. Caso contrário, selecione uma conta Run As de Automatização existente. A conta que selecionou já não pode ser ligada a outra área de trabalho do OMS. Se estiver, é apresentada uma mensagem de notificação. Se a conta já está associada a uma área de trabalho do OMS, selecione uma conta Run As de automatização diferente ou crie uma.
+    4. Caso contrário, selecione uma conta Run As de Automatização existente. A conta que selecionou já não pode ser ligada a outra área de trabalho de análise de registos. Se estiver, é apresentada uma mensagem de notificação. Se a conta já está associada a uma área de trabalho de análise de registos, selecione uma conta Run As de automatização diferente ou crie uma.
     5. Depois de introduzir ou selecionar as informações necessárias, selecione **criar**. Verificar as informações e as contas Run As e conta de automatização são criadas. É automaticamente reencaminhado para o **área de trabalho OMS** painel.  
 6. Depois de introduzir ou selecionar as informações necessárias no **área de trabalho OMS** painel, selecione **criar**.  Verificar as informações e a área de trabalho é criada. Para controlar o progresso da mesma, no menu, selecione **notificações**. É encaminhado para o **Adicionar solução** painel.  
 7. Em **automatização e controlo** definições, confirme que pretende instalar as soluções pré-selecionadas recomendadas. Se alterar qualquer uma das opções predefinidas, pode instalar as soluções individualmente mais tarde.  
-8. Para continuar com a integração da automatização e uma área de trabalho do OMS, selecione **criar**. Todas as definições são validadas e, em seguida, tenta implementar a oferta na sua subscrição do Azure. Este processo poderá demorar vários segundos. Para controlar o progresso da mesma, no menu, selecione **notificações**. 
+8. Para continuar com a integração da automatização e uma área de trabalho de análise de registos, selecione **criar**. Todas as definições são validadas e, em seguida, tenta implementar a oferta na sua subscrição do Azure. Este processo poderá demorar vários segundos. Para controlar o progresso da mesma, no menu, selecione **notificações**. 
 
 Depois da oferta é integrado, pode efetuar as seguintes tarefas:
 * Iniciar criação de runbooks.

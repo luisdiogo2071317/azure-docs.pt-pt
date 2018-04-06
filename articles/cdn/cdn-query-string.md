@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 87f00575e0c2c4cd7a8525df96b2f5b13d470643
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed6f0b2c021fc4b31b85986c07df0502dba826f2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Controlo do Azure CDN comportamento com cadeias de consulta - escalão standard a colocação em cache
 > [!div class="op_single_selector"]
@@ -36,8 +36,13 @@ Com a cache de cadeia de consulta, o Azure rede de entrega de conteúdos (CDN) c
 Estão disponíveis três modos de cadeia de consulta:
 
 - **Ignorar as cadeias de consulta**: modo predefinido. Neste modo, o nó do CDN ponto de presença (POP) transfere as cadeias de consulta do requerente para o servidor de origem no primeiro pedido e coloca em cache o elemento. Todos os pedidos subsequentes para o elemento que são servidos do POP ignorar as cadeias de consulta até que o elemento em cache expira.
+
 - **Ignorar a colocação em cache para cadeias de consulta**: neste modo, os pedidos com cadeias de consulta não estão em cache no nó POP do CDN. O nó POP obtém o elemento diretamente a partir do servidor de origem e passa-a para o requerente com cada pedido.
-- **Colocar em cache todos os URLs únicos**: neste modo, a cada pedido com um URL único, incluindo a cadeia de consulta é tratado como um recurso com a sua própria cache exclusivo. Por exemplo, a resposta do servidor de origem para um pedido para `example.ashx?q=test1` é colocado em cache no nó POP e devolvido para caches subsequentes com a mesma cadeia de consulta. Um pedido para `example.ashx?q=test2` é colocado em cache como um recurso separado com a sua própria definição time-to-live.
+
+- **Colocar em cache todos os URLs únicos**: neste modo, a cada pedido com um URL único, incluindo a cadeia de consulta é tratado como um recurso com a sua própria cache exclusivo. Por exemplo, a resposta do servidor de origem para um pedido para example.ashx?q=test1 é colocado em cache no nó de POP e devolvida para caches subsequentes com a mesma cadeia de consulta. Um pedido para example.ashx?q=test2 é colocado em cache como um recurso com a sua própria definição time-to-live separado.
+   
+    >[!IMPORTANT] 
+    > Não utilize este modo quando a cadeia de consulta contém parâmetros mudará com cada pedido, tal como um ID de sessão ou um nome de utilizador, porque irá resultar num rácio acertos na cache de baixo.
 
 ## <a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Alterar as definições de perfis da CDN padrão a colocação em cache de cadeia de consulta
 1. Abrir um perfil CDN, em seguida, selecione o ponto final da CDN que pretende gerir.

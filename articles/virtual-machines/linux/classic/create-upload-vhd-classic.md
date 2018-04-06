@@ -1,10 +1,10 @@
 ---
 title: Criar e carregar um VHD do Linux no Azure | Microsoft Docs
-description: "Criar e carregar um Azure disco rígido virtual (VHD) que contém o sistema de operativo Linux utilizando o modelo de implementação clássica"
+description: Criar e carregar um Azure disco rígido virtual (VHD) que contém o sistema de operativo Linux utilizando o modelo de implementação clássica
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-ms.openlocfilehash: 49cf4f1718e4dce1e86aa3c8921eaa8af5f16192
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 1ba568eeaf3bbc3d786cc48e54404aa65a00fecc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Criar e Carregar um Disco Rígido Virtual que Contenha o Sistema Operativo Linux
 > [!IMPORTANT] 
@@ -32,7 +32,7 @@ Este artigo mostra como criar e carregar um disco rígido virtual (VHD), pelo qu
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que tem os seguintes itens:
 
-* **Sistema de operativo Linux instalado num ficheiro. vhd** -tiver instalado um [distribuição Linux aprovadas pelo Azure](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou consulte [informações para distribuições não aprovadas](../create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) para um disco virtual no o formato VHD. Existem várias ferramentas para criar uma VM e os VHD:
+* **Sistema de operativo Linux instalado num ficheiro. vhd** -tiver instalado um [distribuição Linux aprovadas pelo Azure](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou consulte [informações para distribuições não aprovadas](../create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) para um disco virtual no Formato VHD. Existem várias ferramentas para criar uma VM e os VHD:
   * Instalar e configurar [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou [KVM](http://www.linux-kvm.org/page/RunningKVM), tendo cuidado para utilizar o VHD como o formato de imagem. Se necessário, pode [converter uma imagem](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) utilizando `qemu-img convert`.
   * Também pode utilizar o Hyper-V [no Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) ou [no Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -59,7 +59,7 @@ Azure suporta várias distribuições em Linux (consulte [distribuições aprova
 > 
 > 
 
-Consulte também o  **[Linux instalação notas](../create-upload-generic.md#general-linux-installation-notes)**  para dicas mais gerais sobre preparar imagens de Linux para o Azure.
+Consulte também o **[Linux instalação notas](../create-upload-generic.md#general-linux-installation-notes)** para dicas mais gerais sobre preparar imagens de Linux para o Azure.
 
 <a id="connect"> </a>
 

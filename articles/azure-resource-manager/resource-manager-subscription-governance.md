@@ -1,6 +1,6 @@
 ---
-title: "Melhores práticas para as empresas mover para o Azure | Microsoft Docs"
-description: "Descreve um andaime que as empresas podem utilizar para garantir um ambiente seguro e fácil de gerir."
+title: Melhores práticas para as empresas mover para o Azure | Microsoft Docs
+description: Descreve um andaime que as empresas podem utilizar para garantir um ambiente seguro e fácil de gerir.
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02553bb59cb37bab21d53adafc42fddcf08795a7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Andaime enterprise do Azure - governação prescritiva subscrição
 As empresas adotem cada nuvem pública para a agilidade e a flexibilidade. Estes são utilizar força da codificação da nuvem para gerar receitas ou otimizar os recursos para as empresas. O Microsoft Azure oferece um em diversos serviços de que as empresas podem assemblar como blocos modulares para resolver um grande número de aplicações e cargas de trabalho. 
@@ -135,7 +135,7 @@ Ambiente "Seja ágil" para uma unidade de negócio a criação de aplicações e
 > 
 
 ### <a name="audit---what-happened"></a>Auditoria - o que aconteceu?
-Para ver como o ambiente está a funcionar, tem de efetuar a auditoria da atividade do utilizador. A maioria dos tipos de recursos no Azure criar registos de diagnóstico que pode analisar através de uma ferramenta de registo ou no Azure Operations Management Suite. Pode recolher registos de atividade entre várias subscrições para fornecer um departamentais ou vista enterprise. Os registos de auditoria são uma ferramenta de diagnóstico importante e um mecanismo fundamental para acionar eventos no ambiente do Azure.
+Para ver como o ambiente está a funcionar, tem de efetuar a auditoria da atividade do utilizador. A maioria dos tipos de recursos no Azure criar registos de diagnóstico que pode analisar através de uma ferramenta de registo ou no Log Analytics do Azure. Pode recolher registos de atividade entre várias subscrições para fornecer um departamentais ou vista enterprise. Os registos de auditoria são uma ferramenta de diagnóstico importante e um mecanismo fundamental para acionar eventos no ambiente do Azure.
 
 Os registos de atividade de implementações do Resource Manager permitem-lhe determinar o **operações** que demorou local e de quem efetuou-los. Registos de atividade podem ser recolhidos e agregadas ferramentas como a análise de registos.
 
@@ -209,7 +209,7 @@ Das funções incorporadas, apenas o proprietário e o administrador de acesso d
 > 
 > * Rede virtual: CanNotDelete
 > * Grupo de segurança de rede: CanNotDelete
-> * Políticas: CanNotDelete
+> * Policies: CanNotDelete
 > 
 > As políticas também são fundamentais para a manutenção dos controlos adequados. Recomendamos que aplique uma **CanNotDelete** bloqueio para as políticas que estão em utilização.
 
@@ -252,6 +252,6 @@ O [Centro de segurança do Azure](../security-center/security-center-intro.md) f
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Agora que aprendeu sobre governação de subscrição, está na altura para ver estas recomendações na prática. Consulte [exemplos para implementar a governação de subscrição do Azure](resource-manager-subscription-examples.md).
 

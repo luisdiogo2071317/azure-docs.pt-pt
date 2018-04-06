@@ -1,8 +1,7 @@
 ---
-title: 'Do Azure Active Directory B2C: Referência: personalizar a IU da journey utilizador com as políticas personalizadas | Microsoft Docs'
-description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
+title: Personalize a IU da journey utilizador com as políticas personalizadas | Microsoft Docs
+description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
 editor: ''
@@ -11,25 +10,25 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: b0f68f76bfb746b91cb82b2b7e9e750f15f14253
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalize a IU da journey utilizador com as políticas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 > [!NOTE]
-> Este artigo é uma descrição de como ativar o com as políticas de B2C personalizada, utilizando a estrutura de experiência de identidade e de como funciona a personalização de IU Avançada
+> Este artigo é uma descrição de como ativar com políticas personalizadas do Azure AD B2C, utilizando a estrutura de experiência de identidade e de como funciona a personalização de IU Avançada.
 
 
 Uma experiência de utilizador totalmente integrada é a chave para qualquer solução de empresa-consumidor. Uma experiência de utilizador totalmente integrada é uma experiência, no dispositivo ou browser, onde é indistinguishable do que o serviço de cliente que estão a utilizar journey de um utilizador através do serviço.
 
 ## <a name="understand-the-cors-way-for-ui-customization"></a>Compreender a forma CORS de personalização de IU
 
-O Azure AD B2C permite-lhe personalizar o aspeto e funcionalidade de experiência de utilizador (UX) nas várias páginas que são servidos e apresentados pelo Azure AD B2C através do seu políticas personalizadas.
+O Azure AD B2C permite-lhe personalizar o aspeto e funcionalidade de experiência de utilizador (UX) nas várias páginas que são servidos e apresentados pelo Azure AD B2C utilizando as políticas personalizadas.
 
 Para essa finalidade, o Azure AD B2C executa o código no browser do cliente e utiliza a abordagem moderna e standard [de partilha de recursos de várias origens (CORS)](http://www.w3.org/TR/cors/) carregar conteúdo personalizado a partir de um URL específico que especificar numa política personalizada para que apontem para os modelos de HTML5/CSS. CORS é um mecanismo que permite recursos restritos, como tipos de letra, numa página web para pedidos a partir de outro domínio fora do domínio a partir do qual o recurso foi originado.
 
@@ -57,7 +56,7 @@ Cada um dos seus modelos HTML5/CSS, deve fornecer um *âncora* elemento, que cor
 </html>
 ```
 
-Conteúdo relacionado com AD B2C do Azure para a página é injetado este div, enquanto o resto da página é mesmo seu controlo. No código JavaScript do Azure AD B2C solicita o conteúdo e injects HTML para este elemento div específico. O Azure AD B2C injects os seguintes controlos conforme adequado: controlo de selecionador de conta, inicie sessão em controlos, controlos (atualmente baseado em telefone) do multi-factor e controlos de recolha de atributo. O Azure AD B2C garante que todos os controlos são HTML5 acessível e não compatíveis, os controlos podem ser totalmente escovados e de que uma versão de controlo não regress.
+Conteúdo relacionado com AD B2C do Azure para a página é injetado este div, enquanto o resto da página é mesmo seu controlo. O código JavaScript do Azure AD B2C solicita o conteúdo e injects HTML para este elemento div específico. O Azure AD B2C injects os seguintes controlos conforme adequado: controlo de selecionador de conta, inicie sessão em controlos, controlos (atualmente baseado em telefone) do multi-factor e controlos de recolha de atributo. O Azure AD B2C garante que todos os controlos são HTML5 acessível e não compatíveis, os controlos podem ser totalmente escovados e de que uma versão de controlo não regress.
 
 O conteúdo intercalado, eventualmente, é apresentado como o documento dinâmico para o consumidor.
 
@@ -66,7 +65,7 @@ Para se certificar de que tudo funciona conforme esperado, tem de:
 - Certifique-se de que o conteúdo é HTML5 acessível e não compatíveis
 - Certifique-se de que o servidor de conteúdo está ativado para CORS.
 - Servir conteúdo através de HTTPS.
-- Utilize URLS absolutos como https://yourdomain/content para todas as ligações e conteúdo do CSS.
+- Utilizar URLS absolutos como https://yourdomain/content para todas as ligações e conteúdo do CSS.
 
 > [!TIP]
 > Para verificar se o site que está a alojar o conteúdo tem CORS ativada e testar pedidos CORS, pode utilizar o site http://test-cors.org/. Graças deste site, pode enviar o pedido CORS para um servidor remoto (para testar se for suportada CORS), ou enviar o pedido CORS para um servidor de teste (para explorar determinadas funcionalidades de CORS).
@@ -76,7 +75,7 @@ Para se certificar de que tudo funciona conforme esperado, tem de:
 
 Graças a esta abordagem baseada em CORS, os utilizadores finais têm experiências consistentes entre a sua aplicação e as páginas servidas pelo Azure AD B2C.
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Como pré-requisito, tem de criar uma conta de armazenamento. Necessita de uma subscrição do Azure para criar uma conta do Blob Storage do Azure. Pode inscrever numa avaliação gratuita no [Web site Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -115,7 +114,7 @@ Se seguiu os passos anteriores, os ficheiros de HTML5 e CSS do *pacote de person
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Certifique-se de que a conta de armazenamento tem CORS ativada
 
-CORS (transversal à partilha de recursos) tem de estar ativado no seu ponto final para Premium do Azure AD B2C carregar o conteúdo porque o conteúdo estiver alojado num domínio diferente do domínio que do Azure AD B2C Premium está a servir a página do.
+CORS (transversal à partilha de recursos) tem de estar ativado no seu ponto final para o Azure AD B2C ao carregar o conteúdo. Isto acontece porque o conteúdo estiver alojado num domínio diferente do domínio do Azure AD B2C será que serve a página do.
 
 Para verificar que o armazenamento que está a alojar o conteúdo tem CORS ativada, pode continue com os seguintes passos:
 
@@ -161,11 +160,11 @@ A tabela seguinte descreve o conjunto de conteúdo reconhecidos pela identidade 
 | *api.idpselections.signup* | **Seleção de fornecedor de identidade para inscrição**. Esta página contém uma lista de fornecedores de identidade que o utilizador pode escolher durante a inscrição. Estes fornecedores são o fornecedores de identidade empresarial, os fornecedores de identidade de redes sociais como o Facebook e Google + ou contas locais (com base no nome de utilizador ou endereço de e-mail). |
 | *api.localaccountpasswordreset* | **Se esqueceu a página de palavra-passe**. Esta página contém um formulário que o utilizador tem de preencher para iniciar a respetiva reposição de palavra-passe.  |
 | *api.localaccountsignin* | **Página de início de sessão da conta local**. Esta página contém um formulário de início de sessão que o utilizador tem de preencher quando iniciar sessão com uma conta local, com base no endereço de e-mail ou um nome de utilizador. O formulário pode conter uma caixa de entrada de texto e a caixa de entrada de palavra-passe. |
-| *api.localaccountsignup* | **Página de inscrição de conta local**. Esta página contém uma forma que o utilizador tem de preencher quando inscrever-se de uma conta local é baseada num endereço de e-mail ou um nome de utilizador de inscrição. O formulário pode conter controlos de entrada diferentes, tais como a caixa de entrada de texto, caixa de entrada de palavra-passe, botão de opção, as caixas de lista pendente de selecção única e selecionar vários caixas de verificação. |
-| *api.phonefactor* | **Página de autenticação multifator**. Nesta página, os utilizadores podem verificar os respetivos números de telefone (utilizando o Editor de texto ou de voz) durante o início de sessão ou de iniciar sessão. |
-| *api.selfasserted* | **Página de inscrição de redes sociais conta**. Esta página contém uma forma que o utilizador tem de preencher quando inscrever-se com uma conta existente de um fornecedor de identidade de redes sociais, como o Facebook ou Google + de inscrição. Esta página é semelhante à anterior conta sociais página inscrição com a exceção os campos de entrada de palavra-passe. |
-| *api.selfasserted.profileupdate* | **Página de atualização de perfil**. Esta página contém um formulário que o utilizador pode utilizar para atualizar o respetivo perfil. Esta página é semelhante à anterior conta sociais página inscrição com a exceção os campos de entrada de palavra-passe. |
-| *api.signuporsignin* | **Página de inscrição ou início de sessão unificada**.  Esta página processa tanto sessão cópias de segurança e inícios de sessão de utilizadores, que podem utilizar fornecedores de identidade empresarial, fornecedores de identidade de redes sociais, como o Facebook Google + ou para contas locais.
+| *api.localaccountsignup* | **Página de inscrição de conta local**. Esta página contém um formulário de inscrição que o utilizador tem de preencher quando inscrever-se de uma conta local é baseada num endereço de e-mail ou um nome de utilizador. O formulário pode conter controlos de entrada diferentes, tais como a caixa de entrada de texto, caixa de entrada de palavra-passe, botão de opção, as caixas de lista pendente de selecção única e selecionar vários caixas de verificação. |
+| *api.phonefactor* | **Página de autenticação multifator**. Nesta página, os utilizadores podem verificar os respetivos números de telefone (utilizando o Editor de texto ou de voz) durante a inscrição ou início de sessão. |
+| *api.selfasserted* | **Página de inscrição de redes sociais conta**. Esta página contém um formulário de inscrição que o utilizador tem de preencher quando inscrever-se com uma conta existente de um fornecedor de identidade de redes sociais, como o Facebook ou Google +. Esta página é semelhante à anterior conta sociais página de inscrição com a exceção os campos de entrada de palavra-passe. |
+| *api.selfasserted.profileupdate* | **Página de atualização de perfil**. Esta página contém um formulário que o utilizador pode utilizar para atualizar o respetivo perfil. Esta página é semelhante à anterior conta sociais página de inscrição com a exceção os campos de entrada de palavra-passe. |
+| *api.signuporsignin* | **Página de inscrição ou início de sessão unificada**.  Esta página processa tanto a inscrição e inícios de sessão de utilizadores, que podem utilizar fornecedores de identidade empresarial, fornecedores de identidade de redes sociais, como o Facebook Google + ou para contas locais.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Referência: Compreender as políticas personalizadas como trabalhar com a arquitetura de experiência de identidade no B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

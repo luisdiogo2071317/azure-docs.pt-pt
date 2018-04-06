@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/11/2017
 ms.author: sngun
-ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 405fcf190ab03b84ec463da8a1942adb8e326498
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Ligação de dados: saber mais sobre os dados de entradas de fluxo de eventos para o Stream Analytics
 A ligação de dados para uma tarefa de Stream Analytics é um fluxo de eventos a partir de uma origem de dados, que é conhecida como a tarefa *entrada*. Do Stream Analytics tem integração de primeira classe com origens de fluxo de dados do Azure, incluindo [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/), [IoT Hub do Azure](https://azure.microsoft.com/services/iot-hub/), e [Blob storage do Azure](https://azure.microsoft.com/services/storage/blobs/). Estas origens de entrada podem ser da mesma subscrição do Azure como a tarefa de análise, ou a partir de uma subscrição diferente.
@@ -176,7 +176,7 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Aprendeu sobre as opções de ligação de dados no Azure para as tarefas do Stream Analytics. Para saber mais sobre o Stream Analytics, consulte:

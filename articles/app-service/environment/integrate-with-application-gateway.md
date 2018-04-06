@@ -1,6 +1,6 @@
 ---
-title: Integrar o seu ambiente de serviço de aplicações do ILB com um gateway de aplicação
-description: Obter instruções sobre como integrar uma aplicação no seu ambiente de serviço de aplicações do ILB com um gateway de aplicação
+title: Integrar o seu ambiente de serviço de aplicações do ILB com o Gateway de aplicação do Azure
+description: Obter instruções sobre como integrar uma aplicação no seu ambiente de serviço de aplicações do ILB com um Gateway de aplicação
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>Integrar o seu ambiente de serviço de aplicações do ILB com um gateway de aplicação #
+# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrar o seu ambiente de serviço de aplicações do ILB com o Gateway de aplicação do Azure #
 
 O [ambiente de serviço de aplicações](./intro.md) é uma implementação do App Service do Azure na sub-rede da rede virtual do Azure de um cliente. Pode ser implementado com um ponto de final público ou privado para acesso à aplicação. A implementação do ambiente de serviço de aplicações com um ponto de final privado (ou seja, um balanceador de carga interno) é chamada um ambiente de serviço de aplicações do ILB.  
 
-Gateway de aplicação do Azure é uma aplicação virtual que fornece balanceamento de carga de camada 7, a descarga de SSL e a proteção de firewall (WAF) de aplicação web. Pode escutar um IP endereços e encaminhar tráfego público para o ponto final da aplicação. 
+Aplicação Web firewalls ajuda a proteger as aplicações web através da inspeção de tráfego de entrada web para bloquear o SQL Server injections, processamento de scripts entre sites, software maligno carregamentos & aplicação DDoS e outros ataques. É também inspeciona as respostas de servidores web de back-end para prevenção de perda de dados (DLP). Pode obter um dispositivo WAF no Azure Marketplace ou pode utilizar o [Gateway de aplicação do Azure][appgw].
 
-As informações seguintes descrevem como integrar um gateway de aplicação WAF configurado com uma aplicação num ambiente de serviço de aplicações de ILB.  
+O Gateway de aplicação do Azure é uma aplicação virtual que fornece balanceamento de carga de camada 7, a descarga de SSL e a proteção de firewall (WAF) de aplicação web. Pode escutar um IP endereços e encaminhar tráfego público para o ponto final da aplicação. As informações seguintes descrevem como integrar um gateway de aplicação WAF configurado com uma aplicação num ambiente de serviço de aplicações de ILB.  
 
 A integração do gateway de aplicação com o ambiente de serviço de aplicações do ILB é um nível de aplicação. Quando configurar o gateway de aplicação com o ambiente de serviço de aplicações do ILB, que está a fazê-lo para aplicações específicas no seu ambiente de serviço de aplicações do ILB. Esta técnica permite alojar aplicações multi-inquilino seguras num ambiente de serviço de aplicação único do ILB.  
 
@@ -33,14 +33,14 @@ A integração do gateway de aplicação com o ambiente de serviço de aplicaç�
 
 Nestas instruções, irá:
 
-* Crie um gateway de aplicação.
-* Configure o gateway de aplicação para apontar para uma aplicação no seu ambiente de serviço de aplicações do ILB.
+* Crie um Gateway de aplicação do Azure.
+* Configure o Gateway de aplicação para apontar para uma aplicação no seu ambiente de serviço de aplicações do ILB.
 * Configure a sua aplicação que respeite o nome de domínio personalizado.
 * Edite o nome de anfitrião DNS público que aponta para o gateway de aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para integrar o gateway de aplicação no seu ambiente de serviço de aplicações do ILB, tem de:
+Para integrar o Gateway de aplicação no seu ambiente de serviço de aplicações do ILB, tem de:
 
 * Um ambiente de serviço de aplicações do ILB.
 * Uma aplicação em execução no ambiente de serviço de aplicações do ILB.
@@ -49,13 +49,13 @@ Para integrar o gateway de aplicação no seu ambiente de serviço de aplicaçõ
 
     ![Lista de exemplo de endereços IP utilizados pelo ambiente de serviço de aplicações do ILB][9]
     
-* Um nome DNS público que é utilizado mais tarde para apontar para o gateway de aplicação. 
+* Um nome DNS público que é utilizado mais tarde para apontar para o Gateway de aplicação. 
 
 Para obter mais informações sobre como criar um ambiente de serviço de aplicações do ILB, consulte [criar e utilizar um ambiente de serviço de aplicações do ILB][ilbase].
 
-Este artigo parte do princípio de que pretende que um gateway de aplicação na mesma rede virtual do Azure em que o ambiente de serviço de aplicação é implementado. Antes de começar a criar o gateway de aplicação, escolha ou crie uma sub-rede que irá utilizar para alojar o gateway. 
+Este artigo parte do princípio de que pretende que um Gateway de aplicação na mesma rede virtual do Azure em que o ambiente de serviço de aplicação é implementado. Antes de começar a criar o Gateway de aplicação, escolha ou crie uma sub-rede que irá utilizar para alojar o gateway. 
 
-Deve utilizar a sub-rede não um com o nome GatewaySubnet. Se o put o gateway de aplicação no GatewaySubnet, irá ser não é possível criar um gateway de rede virtual mais tarde. 
+Deve utilizar a sub-rede não um com o nome GatewaySubnet. Se o put o Gateway de aplicação no GatewaySubnet, irá ser não é possível criar um gateway de rede virtual mais tarde. 
 
 Não é possível colocar o gateway na sub-rede que utiliza o seu ambiente de serviço de aplicações do ILB. O ambiente de serviço de aplicações é a única coisa que pode ser nesta sub-rede.
 
@@ -65,7 +65,7 @@ Não é possível colocar o gateway na sub-rede que utiliza o seu ambiente de se
 
 2. No **Noções básicas** área:
 
-   a. Para **nome**, introduza o nome do gateway de aplicação.
+   a. Para **nome**, introduza o nome do Gateway de aplicação.
 
    b. Para **camada**, selecione **WAF**.
 
@@ -75,13 +75,13 @@ Não é possível colocar o gateway na sub-rede que utiliza o seu ambiente de se
 
    e. Para **localização**, selecione a localização da rede virtual do ambiente de serviço de aplicações.
 
-   ![Novo Noções básicas do criação de gateway aplicação][2]
+   ![Noções básicas de criação do novo Gateway de aplicação][2]
 
 3. No **definições** área:
 
    a. Para **rede Virtual**, selecione a rede virtual do ambiente de serviço de aplicações.
 
-   b. Para **sub-rede**, selecione a sub-rede onde o gateway de aplicação tem de ser implementado. Não utilize GatewaySubnet, pois impedirá a criação de gateways de VPN.
+   b. Para **sub-rede**, selecione a sub-rede onde o Gateway de aplicação tem de ser implementado. Não utilize GatewaySubnet, pois impedirá a criação de gateways de VPN.
 
    c. Para **tipo de endereço IP**, selecione **pública**.
 
@@ -91,11 +91,11 @@ Não é possível colocar o gateway na sub-rede que utiliza o seu ambiente de se
 
    f. Para **firewall de aplicações Web**, pode ativar a firewall e também defini-lo para um **deteção** ou **prevenção** como julgar.
 
-   ![Novas definições de criação do gateway de aplicação][3]
+   ![Novas definições de criação do Gateway de aplicação][3]
     
-4. No **resumo** secção, reveja as definições e selecione **OK**. O gateway de aplicação pode demorar um pouco mais de 30 minutos para concluir a configuração.  
+4. No **resumo** secção, reveja as definições e selecione **OK**. O Gateway de aplicação pode demorar um pouco mais de 30 minutos para concluir a configuração.  
 
-5. Após a conclusão da configuração do gateway de aplicação, aceda ao seu portal de gateway de aplicação. Selecione **conjunto back-end**. Adicione o endereço do ILB para o ambiente de serviço de aplicações do ILB.
+5. Após a conclusão da configuração do Gateway de aplicação, aceda ao seu portal de Gateway de aplicação. Selecione **conjunto back-end**. Adicione o endereço do ILB para o ambiente de serviço de aplicações do ILB.
 
    ![Configurar o conjunto de back-end][4]
 
@@ -107,9 +107,9 @@ Não é possível colocar o gateway na sub-rede que utiliza o seu ambiente de se
 
    ![Configurar definições de HTTP][6]
     
-8. Vá para o gateway de aplicação **descrição geral** secção e copie o endereço IP público que utiliza o gateway de aplicação. Definir esse endereço IP como um registo a para o seu nome de domínio de aplicação ou utilize o nome DNS para esse endereço de um registo CNAME. É mais fácil selecionar o endereço IP público e copiá-lo a partir da IU o endereço IP público em vez de copiá-lo a partir da ligação no gateway de aplicação **descrição geral** secção. 
+8. Vá para o Gateway de aplicação **descrição geral** secção e copie o endereço IP público que utiliza o Gateway de aplicação. Definir esse endereço IP como um registo a para o seu nome de domínio de aplicação ou utilize o nome DNS para esse endereço de um registo CNAME. É mais fácil selecionar o endereço IP público e copiá-lo a partir da IU o endereço IP público em vez de copiá-lo a partir da ligação no Gateway de aplicação **descrição geral** secção. 
 
-   ![Portal de gateway de aplicação][7]
+   ![Portal de Gateway de aplicação][7]
 
 9. Defina o nome de domínio personalizado para a sua aplicação no seu ambiente de serviço de aplicações do ILB. Aceda à sua aplicação no portal e, em **definições**, selecione **domínios personalizados**.
 

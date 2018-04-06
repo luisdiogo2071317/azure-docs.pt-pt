@@ -1,13 +1,13 @@
 ---
-title: "Acionadores e enlaces de funções do Azure"
-description: "Saiba como utilizar acionadores e enlaces das funções do Azure para ligar a execução do código para serviços baseados na nuvem e eventos online."
+title: Acionadores e enlaces de funções do Azure
+description: Saiba como utilizar acionadores e enlaces das funções do Azure para ligar a execução do código para serviços baseados na nuvem e eventos online.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d008e94186dd3c5a18c92617ebddfffa966358d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de enlaces e acionadores de funções do Azure
 
@@ -49,7 +49,7 @@ Versão 2 do tempo de execução das funções do Azure, tem explicitamente de r
 
 As extensões são fornecidas como pacotes NuGet, onde o nome do pacote normalmente começa com [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  A forma como instalar e registar as extensões de enlace depende de como desenvolver as suas funções: 
 
-+ [Localmente em c# utilizando o Visual Studio ou o VS Code](#precompiled-functions-c)
++ [Localmente em c# utilizando o Visual Studio ou o VS Code](#local-c-development-using-visual-studio-or-vs-code)
 + [Localmente utilizando ferramentas de núcleos de funções do Azure](#local-development-azure-functions-core-tools)
 + [No portal do Azure](#azure-portal-development) 
 
@@ -635,7 +635,7 @@ Em c# e outras linguagens .NET, pode utilizar um padrão de enlace imperativo, p
 
 ## <a name="functionjson-file-schema"></a>esquema do ficheiro Function.JSON
 
-O *function.json* esquema do ficheiro está disponível em [http://json.schemastore.org/function](http://json.schemastore.org/function).
+O *function.json* esquema do ficheiro está disponível em [ http://json.schemastore.org/function ](http://json.schemastore.org/function).
 
 ## <a name="handling-binding-errors"></a>Processamento de erros de enlace
 

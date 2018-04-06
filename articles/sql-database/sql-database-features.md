@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: d8adf097d6bee404cff8e7b15782c6c59531a897
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bca2629ea4a0c859e92d829b49072fbdf3f9ffe2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de funcionalidades: base de dados de SQL do Azure versus do SQL Server 
 
@@ -45,7 +45,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | [Captura de dados de alteração](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Não | Sim |
 | [Registo de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Sim |Sim |
 | [Instruções de agrupamento](https://docs.microsoft.com/sql/t-sql/statements/collations) | Sim | Sim |
-| [Índices Columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sim - [escalão Premium e escalão Standard - S3 e posterior](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sim |
+| [Índices Columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sim - [escalão Premium, o escalão Standard - S3 e superior, a camada de objetivo geral e camadas críticos de negócio](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sim |
 | [Common language runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Não | Sim - consulte [diferenças CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Bases de dados contidas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sim | Sim |
 | [Utilizadores contidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Sim | Sim |
@@ -82,7 +82,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Sim | Não – COPY_ONLY pode restaurar cópias de segurança completas que tomar periodicamente - consulte [diferenças de cópia de segurança](sql-database-managed-instance-transact-sql-information.md#backup) e [restaurar diferenças](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Georreplicação](sql-database-geo-replication-overview.md) | Sim | Não |
 | [Processamento de gráfico](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Sim | Sim |
-| [Otimização dentro da memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sim - [apenas a edição Premium](sql-database-in-memory.md) | Não |
+| [Otimização dentro da memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sim - [camadas Premium e Critial de negócio](sql-database-in-memory.md) | Não |
 | [Suporte de dados JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Sim | Sim |
 | [Elementos de linguagem](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Consulte mais - elementos individuais |  Sim - consulte [diferenças de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Servidores ligados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não - consulte [consulta elástica](sql-database-elastic-query-horizontal-partitioning.md) | Apenas para o SQL Server |
@@ -115,7 +115,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | Sim | Sim |
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Sim | Sim |
 | [Sincronização de dados do SQL Server](sql-database-get-started-sql-data-sync.md) | Sim | Não |
-| [Studio de operações do SQL Server](https://docs.microsoft.com/sql/sql-operations-studio/what-is) | Sim | Sim |
+| [SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/what-is) | Sim | Sim |
 | [Agente do SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Não - consulte [as tarefas elásticas](sql-database-elastic-jobs-getting-started.md) | Sim - consulte [diferenças de agente do SQL Server](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Não - consulte [do Analysis Services do Azure](https://azure.microsoft.com/services/analysis-services/) | Não - consulte [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [Auditoria do SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Não - consulte [auditoria de base de dados SQL](sql-database-auditing.md) | Sim - consulte [diferenças de auditoria](sql-database-managed-instance-transact-sql-information.md#auditing) |
@@ -141,7 +141,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | [Windows Server Clustering de ativação pós-falha](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [Elevada disponibilidade](sql-database-high-availability.md) está incluído com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a SQL Database do Azure](sql-database-business-continuity.md) | [Elevada disponibilidade](sql-database-high-availability.md) está incluído com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a SQL Database do Azure](sql-database-business-continuity.md) |
 | [Índices XML](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Sim | Sim |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre o serviço Base de Dados SQL do Azure, veja [O que é a Base de Dados SQL?](sql-database-technical-overview.md)
 - Para obter informações sobre uma instância geridos, consulte [o que é uma instância gerido?](sql-database-managed-instance.md).

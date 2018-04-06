@@ -1,24 +1,24 @@
 ---
-title: "Gerir o acesso a aplicações em nuvem, restringindo os inquilinos - Azure | Microsoft Docs"
-description: "Como utilizar as restrições de inquilino para gerir os utilizadores que pode aceder a aplicações com base no seu inquilino do Azure AD."
+title: Gerir o acesso a aplicações em nuvem, restringindo os inquilinos - Azure | Microsoft Docs
+description: Como utilizar as restrições de inquilino para gerir os utilizadores que pode aceder a aplicações com base no seu inquilino do Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
 editor: yossib
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: 63e0fa54433a60fe7384d21cf7d215cc8283afca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>As aplicações em nuvem restrições de inquilino de utilização para gerir o acesso ao SaaS
 
@@ -71,8 +71,8 @@ A configuração seguinte é obrigatório para ativar restrições de inquilino 
 Para cada pedido recebido login.microsoftonline.com, login.microsoft.com e login.windows.net, insira dois cabeçalhos HTTP: *restringir acesso para inquilinos* e *contexto de restringir acesso*.
 
 Os cabeçalhos devem incluir os seguintes elementos: 
-- Para *restringir acesso para inquilinos*, um valor de \<permitido lista inquilino\>, que é uma lista separada por vírgulas de inquilinos para permitir que os utilizadores acedam a. Qualquer domínio que está registado com um inquilino pode ser utilizado para identificar o inquilino nesta lista. Por exemplo, para permitir o acesso aos inquilinos Contoso e Fabrikam, o par nome/valor aspeto:`Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
-- Para *contexto de restringir acesso*, um valor de um ID de diretório única, declarar que inquilino é definir as restrições de inquilino. Por exemplo, para declarar Contoso do inquilino que defina a política de restrições de inquilino, o par nome/valor aspeto:`Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+- Para *restringir acesso para inquilinos*, um valor de \<permitido lista inquilino\>, que é uma lista separada por vírgulas de inquilinos para permitir que os utilizadores acedam a. Qualquer domínio que está registado com um inquilino pode ser utilizado para identificar o inquilino nesta lista. Por exemplo, para permitir o acesso aos inquilinos Contoso e Fabrikam, o par nome/valor aspeto:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
+- Para *contexto de restringir acesso*, um valor de um ID de diretório única, declarar que inquilino é definir as restrições de inquilino. Por exemplo, para declarar Contoso do inquilino que defina a política de restrições de inquilino, o par nome/valor aspeto: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
 > Pode encontrar o ID de diretório no [portal do Azure](https://portal.azure.com). Inicie sessão como administrador, selecione **do Azure Active Directory**, em seguida, selecione **propriedades**.
@@ -112,7 +112,9 @@ Consulte [autenticação moderna do Office 365 atualizado](https://blogs.office.
 
 Restrições de inquilino é atualmente suportado por aplicações baseadas no browser do Office 365 (do SharePoint do Portal do Office, Yammer, sites, Outlook no Web, etc.). Para clientes Espesso (Outlook, Skype para empresas, Word, Excel, PowerPoint, etc.) Restrições de inquilino podem ser impostas apenas quando é utilizada a autenticação moderna.  
 
-Outlook e o Skype para clientes de negócio que suportam a autenticação moderna são ainda podem utilizar protocolos legados contra inquilinos em que a autenticação moderna não está ativada, ignorando eficazmente as restrições de inquilino. Para o Outlook no Windows, os clientes podem optar por implementar restrições de impedir que os utilizadores finais adicionar contas de correio não aprovado para os seus perfis. Por exemplo, consulte o [impedir adicionar contas de Exchange não predefinidas](http://gpsearch.azurewebsites.net/default.aspx?ref=1) definição de política de grupo. Para o Outlook em plataformas não sejam Windows e para o Skype para empresas em todas as plataformas, suporte completo de restrições de inquilino não está atualmente disponível.
+Outlook e o Skype para clientes de negócio que suportam a autenticação moderna, pode ainda podem utilizar protocolos legados contra inquilinos em que a autenticação moderna não está ativada, ignorando eficazmente as restrições de inquilino. As aplicações que utilizam os protocolos legados poderão ser bloqueadas por restrições de inquilino se possam contactar login.microsoftonline.com, login.microsoft.com ou login.windows.net durante a autenticação.
+
+Para o Outlook no Windows, os clientes podem optar por implementar restrições de impedir que os utilizadores finais adicionar contas de correio não aprovado para os seus perfis. Por exemplo, consulte o [impedir adicionar contas de Exchange não predefinidas](http://gpsearch.azurewebsites.net/default.aspx?ref=1) definição de política de grupo. Para o Outlook em plataformas não sejam Windows e para o Skype para empresas em todas as plataformas, suporte completo de restrições de inquilino não está atualmente disponível.
 
 ## <a name="testing"></a>Testes
 
@@ -151,7 +153,7 @@ Consoante as capacidades da sua infraestrutura de proxy, poderá testar a implem
 
 Consulte a documentação do servidor proxy para obter detalhes específicos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Leia sobre [autenticação moderna do Office 365 atualizado](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
 

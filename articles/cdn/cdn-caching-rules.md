@@ -4,7 +4,7 @@ description: Pode utilizar a CDN regras a colocação em cache para definir ou m
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 60693b919fad6808bfe60b504d2a70caf80fbe48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controlo do Azure CDN colocação em cache comportamento com colocação em cache as regras
 
 > [!NOTE] 
-> Regras de colocação em cache só estão disponíveis para **CDN do Azure da Verizon padrão** e **CDN do Azure da Akamai padrão**. Para **CDN do Azure da Verizon Premium**, pode utilizar o [motor de regras da CDN do Azure](cdn-rules-engine.md) no **gerir** portal para uma funcionalidade semelhante.
+> Regras de colocação em cache só estão disponíveis para **CDN do Azure Standard da Verizon** e **CDN do Azure Standard da Akamai**. Para **CDN do Azure Premium da Verizon**, pode utilizar o [motor de regras da CDN do Azure](cdn-rules-engine.md) no **gerir** portal para uma funcionalidade semelhante.
  
 Azure entrega rede conteúdos (CDN) oferece duas formas de controlar a forma como os ficheiros são colocadas em cache: 
 
@@ -113,5 +113,5 @@ As regras de colocação em cache de global e personalizadas são processadas pe
    - Comportamento de colocação em cache: **definir se estiverem em falta**
    - Duração de expiração da cache: 3 dias
 
-Quando estas regras estiverem definidas, um pedido para `<endpoint>.azureedge.net/home/index.html` acionadores de colocação em cache personalizada da regra &#2;, a qual está definido como: **definir se estiverem em falta** e 3 dias. Por conseguinte, se o `index.html` ficheiro tem `Cache-Control` ou `Expires` cabeçalhos HTTP, são honrados; caso contrário, se estes cabeçalhos não estiver definidos, o ficheiro é colocado em cache para 3 dias.
+Quando estas regras estiverem definidas, um pedido para `<endpoint>.azureedge.net/home/index.html` acionadores de colocação em cache personalizada da regra 2 #, a qual está definido como: **definir se estiverem em falta** e 3 dias. Por conseguinte, se o `index.html` ficheiro tem `Cache-Control` ou `Expires` cabeçalhos HTTP, são honrados; caso contrário, se estes cabeçalhos não estiver definidos, o ficheiro é colocado em cache para 3 dias.
 

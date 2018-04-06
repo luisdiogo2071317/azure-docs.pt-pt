@@ -1,7 +1,7 @@
 ---
-title: "Base de Dados SQL: O que é uma DTU? | Microsoft Docs"
-description: "Compreender o que é uma unidade de transação da Base de Dados SQL."
-keywords: "opções da base de dados, desempenho da base de dados"
+title: 'Base de Dados SQL: O que é uma DTU? | Microsoft Docs'
+description: Compreender o que é uma unidade de transação da Base de Dados SQL.
+keywords: opções da base de dados, desempenho da base de dados
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -10,17 +10,17 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 9d13541444f487ad6afb9f59c6c6ac646091d42c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b5d6ffc9aa13e6aaf948028fabe3087f8dea2a1d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Base de dados (DTUs) de unidades de transação e unidades de transação de base de dados elásticas (eDTUs)
 Este artigo explica as Unidades de Transação da Base de Dados (DTUs) e as Unidades de Transação da Base de Dados Elástica (eDTUs) e o que acontece quando atinge o limite máximo de DTUs ou eDTUs.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Quais são as unidades de transação de base de dados (DTUs)?
-Para uma única base de dados do SQL do Azure a um nível de desempenho específicos dentro de um [camada de serviço](sql-database-single-database-resources.md), Microsoft garante a um determinado nível de recursos para a base de dados (independentemente de qualquer outra base de dados na nuvem do Azure) e fornecer um nível de desempenho previsível. Esta quantidade de recursos é calculada como um número de unidades de transação de base de dados ou DTUs e é uma medida combinada de CPU, memória, e/s (transação e dados de registo de e/s). O rácio entre estes recursos foi originalmente determinado por uma [carga de trabalho OLTP benchmark](sql-database-benchmark-overview.md) concebido para ser típico de cargas de trabalho do mundo real OLTP. Quando a carga de trabalho excede a quantidade de qualquer um destes recursos, o débito é otimizadas - resultante de desempenho mais lento e de tempos limite. Os recursos utilizados pela sua carga de trabalho não afetam os recursos disponíveis para outras bases de dados do SQL Server na nuvem do Azure e o recurso utilizado por outras cargas de trabalho não afetar os recursos disponíveis para a base de dados do SQL Server.
+Para uma única base de dados do SQL do Azure a um nível de desempenho específicos dentro de um [camada de serviço](sql-database-single-database-resources.md), Microsoft garante a um determinado nível de recursos para a base de dados (independentemente de qualquer outra base de dados na nuvem do Azure) e fornecer um nível de desempenho previsível. Esta quantidade de recursos é calculada como um número de unidades de transação de base de dados ou DTUs e é uma medida agrupada de computação, armazenamento e recursos de e/s. O rácio entre estes recursos foi originalmente determinado por uma [carga de trabalho OLTP benchmark](sql-database-benchmark-overview.md) concebido para ser típico de cargas de trabalho do mundo real OLTP. Quando a carga de trabalho excede a quantidade de qualquer um destes recursos, o débito é otimizadas - resultante de desempenho mais lento e de tempos limite. Os recursos utilizados pela sua carga de trabalho não afetam os recursos disponíveis para outras bases de dados do SQL Server na nuvem do Azure e o recurso utilizado por outras cargas de trabalho não afetar os recursos disponíveis para a base de dados do SQL Server.
 
 ![caixa delimitadora](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
@@ -52,9 +52,9 @@ Se pretender migrar a carga de trabalho de uma máquina virtual do SQL Server ou
 Os conjuntos são adequados para um grande número de bases de dados com padrões de utilização específicos. Para uma determinada base de dados, este padrão caracteriza-se por uma utilização média baixa com picos de utilização relativamente raros. A Base de Dados SQL avalia automaticamente o histórico de utilização de recursos de bases de dados num servidor de Base de Dados SQL existente e recomenda a configuração de conjunto adequada no portal do Azure. Para obter mais informações, consulte [When should an elastic pool be used? (Quando deve ser utilizado um conjunto elástico?)](sql-database-elastic-pool.md)
 
 ## <a name="what-happens-when-i-hit-my-maximum-dtus"></a>O que acontece quando atinjo o meu DTUs máximas?
-Os níveis de desempenho são calibrados e geridos para fornecerem os recursos necessários para executar a carga de trabalho da base de dados até aos limites máximos permitidos para a camada de serviço/nível de desempenho selecionado. Se a carga de trabalho estiver a chegar aos limites num dos limites de CPU, E/S de Dados ou E/S de Registo, continua a receber os recursos no nível máximo permitido, mas é provável que sinta um aumento da latência nas suas consultas. Estes limites não resultam em erros, mas num abrandamento da carga de trabalho, a menos que o abrandamento se torne tão acentuado que as consultas comecem a exceder o tempo limite. Se estiver a atingir os limites de número de sessões/pedidos (threads de trabalho) de utilizadores em simultâneo máximo permitido, serão apresentados erros específicos. Veja [Limites de recursos da Base de Dados SQL do Azure]( sql-database-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) para obter informações sobre o limite dos recursos além da CPU, memória, E/S de dados e E/S de registos de transações.
+Os níveis de desempenho são calibrados e geridos para fornecerem os recursos necessários para executar a carga de trabalho da base de dados até aos limites máximos permitidos para a camada de serviço/nível de desempenho selecionado. Se a carga de trabalho estiver a chegar aos limites num dos limites de CPU, E/S de Dados ou E/S de Registo, continua a receber os recursos no nível máximo permitido, mas é provável que sinta um aumento da latência nas suas consultas. Estes limites não resultam em erros, mas num abrandamento da carga de trabalho, a menos que o abrandamento se torne tão acentuado que as consultas comecem a exceder o tempo limite. Se estiver a atingir os limites de número de sessões/pedidos (threads de trabalho) de utilizadores em simultâneo máximo permitido, serão apresentados erros específicos. Consulte [dos limites de recursos de base de dados do Azure SQL]( sql-database-dtu-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) para informações sobre o limite de recursos diferente da CPU, memória, dados e/s e transações no registo de e/s.
 
-## <a name="next-steps"></a>Passos seguintes
-* Consulte [camada de serviço](sql-database-service-tiers.md) para obter informações sobre as DTUs e eDTUs disponíveis para bases de dados individuais e conjuntos elásticos, bem como os limites de recursos diferente da CPU, memória, e/s de dados e transações no registo de e/s.
+## <a name="next-steps"></a>Passos Seguintes
+* Consulte [camada de serviço](sql-database-service-tiers.md) para obter informações sobre as DTUs e eDTUs disponíveis para bases de dados individuais e conjuntos elásticos, bem como os limites de recursos diferente da CPU, memória, dados e/s e transações no registo de e/s.
 * Veja [SQL Database Query Performance Insight (Informações de Desempenho de Consultas de Base de Dados SQL)](sql-database-query-performance.md) para compreender o seu consumo (de DTUs).
 * Veja [Descrição geral de referência da Base de Dados SQL](sql-database-benchmark-overview.md) para compreender a metodologia por detrás da carga de trabalho de referência do OLTP utilizada para determinar a combinação de DTU.

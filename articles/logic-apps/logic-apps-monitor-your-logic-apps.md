@@ -1,11 +1,11 @@
 ---
 title: Verificar o estado, configurar o registo e obtenha alertas - Azure Logic Apps | Microsoft Docs
-description: "Monitorizar o estado e desempenho para as logic apps, registar dados de diagnóstico e configurar alertas"
+description: Monitorizar o estado e desempenho para as logic apps, registar dados de diagnóstico e configurar alertas
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorizar o estado, configurar o registo de diagnóstico e ativar alertas para o Azure Logic Apps
 
@@ -76,9 +76,9 @@ Para obter notificações sobre falhas ou outros informações sobre problemas p
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Ative os diagnósticos de registo para a sua aplicação lógica
 
-Para mais rico de depuração com detalhes de tempo de execução e de eventos, pode configurar com o registo de diagnóstico [Log Analytics do Azure](../log-analytics/log-analytics-overview.md). Análise de registos é um serviço no [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) que monitoriza a sua nuvem e no local ambientes para o ajudar a manter a respetiva disponibilidade e desempenho. 
+Para mais rico de depuração com detalhes de tempo de execução e de eventos, pode configurar com o registo de diagnóstico [Log Analytics do Azure](../log-analytics/log-analytics-overview.md). Análise de registos é um serviço no Azure que monitoriza a sua nuvem e no local ambientes para o ajudar a manter a respetiva disponibilidade e desempenho. 
 
-Antes de começar, tem de ter uma área de trabalho do OMS. Saiba [como criar uma área de trabalho do OMS](../log-analytics/log-analytics-get-started.md).
+Antes de começar, tem de ter uma área de trabalho de análise de registos. Saiba [como criar uma área de trabalho de análise de registos](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. No [portal do Azure](https://portal.azure.com), localize e selecione a sua aplicação lógica. 
 
@@ -90,16 +90,16 @@ Antes de começar, tem de ter uma área de trabalho do OMS. Saiba [como criar um
 
    ![Ativar registos de diagnóstico](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Agora selecione a categoria de área de trabalho e de eventos do OMS para o registo conforme mostrado:
+4. Agora selecione a categoria de área de trabalho e eventos de análise de registos para o registo, conforme mostrado:
 
    1. Selecione **enviar ao Log Analytics**. 
    2. Em **Log Analytics**, escolha **configurar**. 
-   3. Em **áreas de trabalho do OMS**, selecione a área de trabalho do OMS a utilizar para o registo.
+   3. Em **áreas de trabalho do OMS**, selecione a área de trabalho de análise de registos a utilizar para o registo.
    4. Em **registo**, selecione o **WorkflowRuntime** categoria.
    5. Escolha o intervalo de métrico.
    6. Quando tiver terminado, escolha **Save** (Guardar).
 
-   ![Selecione a área de trabalho OMS e dados de registo](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Selecione a área de trabalho de análise de registos e os dados de registo](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 Agora, pode encontrar eventos e outros dados de eventos de Acionador, execute os eventos e os eventos de ação.
 
@@ -113,23 +113,23 @@ Para localizar e visualizar eventos na sua aplicação lógica, incluindo a acio
 
    ![Escolha "Análise de registos"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. Em **Log Analytics**, localize e selecione a sua área de trabalho do OMS. 
+2. Em **Log Analytics**, localize e selecione a sua área de trabalho de análise de registos. 
 
-   ![Selecione a sua área de trabalho do OMS](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Selecione a sua área de trabalho de análise de registos](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. Em **gestão**, escolha **Portal do OMS**.
 
    ![Escolha "Portal do OMS"](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
 
-4. Na sua home page do OMS, escolha **pesquisa registo**.
+4. Na sua home page, escolha **pesquisa registo**.
 
-   ![Na sua home page do OMS, escolha "Registo de pesquisa"](media/logic-apps-monitor-your-logic-apps/logsearch.png)
+   ![Na sua home page, escolha "Registo de pesquisa"](media/logic-apps-monitor-your-logic-apps/logsearch.png)
 
    -ou-
 
-   ![No menu do OMS, escolha "Registo de pesquisa"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
+   ![No menu, escolha "Registo de pesquisa"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. Na caixa de pesquisa, especifique um campo que pretende localizar e prima **Enter**. Quando começar a escrever, OMS mostra-lhe correspondências possíveis e as operações que pode utilizar. 
+5. Na caixa de pesquisa, especifique um campo que pretende localizar e prima **Enter**. Comece a escrever, verá correspondências possíveis e as operações que pode utilizar. 
 
    Por exemplo, para localizar os eventos de 10 principais que tenham acontecido, introduza e selecionar esta consulta de pesquisa: **procurar categoria = = "WorkflowRuntime" | limitar 10**
 

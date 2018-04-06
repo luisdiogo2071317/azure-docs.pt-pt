@@ -1,23 +1,22 @@
 ---
-title: "Continuidade empresarial na nuvem - recuperação de base de dados - Base de Dados SQL | Microsoft Docs"
-description: "Saiba como a Base de Dados SQL do Azure suporta a continuidade empresarial na nuvem e a recuperação de base de dados, e ajuda a manter as aplicações fundamentais na nuvem em execução."
-keywords: "continuidade empresarial, continuidade empresarial na nuvem, recuperação de base de dados após desastre, recuperação de base de dados"
+title: Continuidade empresarial na nuvem - recuperação de base de dados - Base de Dados SQL | Microsoft Docs
+description: Saiba como a Base de Dados SQL do Azure suporta a continuidade empresarial na nuvem e a recuperação de base de dados, e ajuda a manter as aplicações fundamentais na nuvem em execução.
+keywords: continuidade empresarial, continuidade empresarial na nuvem, recuperação de base de dados após desastre, recuperação de base de dados
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 08/25/2017
+ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 160e65130efc78bc1a98a0feceb1c824cf226156
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: carlrab
+ms.openlocfilehash: 1f125596a6cc874f285611290d5c42700009afbe
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -27,20 +26,20 @@ Esta descrição geral descreve as capacidades que a Base de Dados SQL do Azure 
 
 A Base de Dados SQL fornece várias funcionalidades de continuidade empresarial, incluindo cópias de segurança automáticas e a replicação opcional da base de dados. Cada uma possui características diferentes para o tempo de recuperação estimado (ERT) e a potencial perda de dados de transações recentes. Assim que compreender estas opções, pode escolher entre elas - e, na maioria dos cenários, utilizá-las em conjunto para cenários diferentes. À medida que elabora o seu plano de continuidade empresarial, tem de saber qual o tempo máximo aceitável antes de a aplicação recuperar totalmente após o evento problemático – este é o objetivo de tempo de recuperação (RTO). Também precisa de compreender a quantidade máxima de dados recentes atualizações (intervalo de tempo) da aplicação pode tolerar o perder ao recuperar após o evento problemático – este é o objetivo de ponto de recuperação (RPO).
 
-A tabela seguinte compara o ERT e o RPO para os três cenários mais comuns.
+A tabela seguinte compara as ERT e o RPO para cada camada de serviço para os três cenários mais comuns.
 
-| Capacidade | Escalão Basic | Escalão Standard | Escalão Premium |
-| --- | --- | --- | --- |
-| Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança |Qualquer ponto de restauro num período de 7 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro num período de 35 dias |
-| Georrestauro de cópias de segurança georreplicação |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |
-| Restaurar a partir do Azure Backup Vault |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem |
-| Replicação geográfica activa |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |
+| Capacidade | Básica | Standard | Premium  | Fins Gerais | Crítico para Empresas
+| --- | --- | --- | --- |--- |--- |
+| Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança |Qualquer ponto de restauro num período de 7 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro dentro do período configurado (até 35 dias)|Qualquer ponto de restauro dentro do período configurado (até 35 dias)|
+| Georrestauro de cópias de segurança georreplicação |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h|ERT < 12h, RPO < 1h|
+| Restaurar a partir do Azure Backup Vault |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem|ERT < 12h, RPO < 1 sem|
+| Replicação geográfica activa |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s|ERT < 30s, RPO < 5s|
 
-### <a name="use-database-backups-to-recover-a-database"></a>Utilizar cópias de segurança da base de dados para recuperar uma base de dados
+### <a name="use-point-in-time-restore-to-recover-a-database"></a>Utilizar o restauro de ponto no tempo para recuperar uma base de dados
 
-Base de dados do SQL Server efetua automaticamente uma combinação de cópias de segurança da base de dados completa semanal, numa base horária cópias de segurança de base de dados diferencial e transações no registo de cópias de segurança de todos os cinco - dez minutos para proteger a sua empresa contra perda de dados. Estas cópias de segurança são armazenadas no armazenamento georredundante 35 dias para bases de dados nos escalões de serviço Standard e Premium e para as bases de dados na camada de serviço básico de 7 dias. Para obter mais informações, consulte [escalões de serviço](sql-database-service-tiers.md). Se o período de retenção da camada de serviços não for de encontro aos seus requisitos empresariais, pode aumentar o período de retenção ao [alterar a camada de serviços](sql-database-service-tiers.md). As cópias de segurança completas e diferenciais da base de dados também são replicadas para um [centro de dados emparelhado](../best-practices-availability-paired-regions.md), para proteção contra indisponibilidade do centro de dados. Para obter mais informações, consulte [cópias de segurança da base de dados automática](sql-database-automated-backups.md).
+Base de dados do SQL Server efetua automaticamente uma combinação de cópias de segurança da base de dados completa semanal, numa base horária cópias de segurança de base de dados diferencial e transações no registo de cópias de segurança de todos os cinco - dez minutos para proteger a sua empresa contra perda de dados. Estas cópias de segurança são armazenadas no armazenamento RA-GRS para 35 dias para bases de dados nos escalões de serviço Standard e Premium e para as bases de dados na camada de serviço básico de 7 dias. O objetivo geral e camadas de serviços críticos de negócio (pré-visualização), a retenção de cópias de segurança é configurável cópias de segurança para 35 dias. Para obter mais informações, consulte [escalões de serviço](sql-database-service-tiers.md). Se o período de retenção da camada de serviços não for de encontro aos seus requisitos empresariais, pode aumentar o período de retenção ao [alterar a camada de serviços](sql-database-service-tiers.md). As cópias de segurança completas e diferenciais da base de dados também são replicadas para um [centro de dados emparelhado](../best-practices-availability-paired-regions.md), para proteção contra indisponibilidade do centro de dados. Para obter mais informações, consulte [cópias de segurança da base de dados automática](sql-database-automated-backups.md).
 
-Se o período de retenção incorporado não é suficiente para a sua aplicação, pode expandi-lo ao configurar uma política de retenção de longo prazo de base de dados. Para obter mais informações, consulte [retenção de longo prazo](sql-database-long-term-retention.md).
+Se o período de retenção PITR suportado máximo não é suficiente para a sua aplicação, pode expandi-lo ao configurar uma política de retenção (imediatamente disponíveis) longo prazo para as bases de dados. Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
 
 Pode utilizar estas cópias de segurança automáticas da base de dados para recuperar uma base de dados após vários eventos problemáticos, tanto no seu centro de dados como para outro centro de dados. Ao utilizar cópias de segurança automáticas de bases de dados, o tempo estimado de recuperação depende de vários fatores, incluindo o número total de bases de dados a recuperar na mesma região ao mesmo tempo, o tamanho da base de dados, o tamanho do registo de transações e a largura de banda de rede. O tempo de recuperação é, normalmente, menos de 12 horas. Ao recuperar para outra região de dados, a potencial perda de dados está limitada a 1 hora pelo armazenamento georredundante de cópias de segurança de bases de dados diferenciais de hora a hora.
 
@@ -55,7 +54,7 @@ Utilize cópias de segurança automáticas como o mecanismo de continuidade empr
 * Tiver uma taxa reduzida de alteração de dados (poucas transações por hora) e perder até uma hora de alterações é uma perda de dados aceitável.
 * For sensível aos custos.
 
-Se precisar de recuperação mais rápida, utilize [georreplicação ativa](sql-database-geo-replication-overview.md) (abordados seguinte). Se tiver de ser capazes de recuperar dados de um período anterior 35 dias, utilize [retenção de cópias de segurança de longa duração](sql-database-long-term-retention.md). 
+Se precisar de recuperação mais rápida, utilize [georreplicação ativa](sql-database-geo-replication-overview.md) (abordados seguinte). Se tiver de ser capazes de recuperar dados de um período anterior 35 dias, utilize [retenção de longo prazo](sql-database-long-term-retention.md). 
 
 ### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Utilizar a georreplicação e ativação de pós-falha automaticamente grupos de Active Directory (em pré-visualização) para reduzir o tempo de recuperação e limitar a perda de dados associada a uma recuperação
 
@@ -77,12 +76,12 @@ Utilize grupos de replicação geográfica e ativação de pós-falha automátic
 * Tem uma taxa elevada de alteração de dados e perder uma hora não é aceitável.
 * O custo adicional da georreplicação ativa é inferior aos potenciais encargos financeiros e perda empresarial associada.
 
->
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Recuperar uma base de dados após um erro de utilizador ou aplicação
-* Ninguém é perfeito! Um utilizador poderá acidentalmente eliminar alguns dados, inadvertidamente remover uma tabela importante ou até mesmo remover uma base de dados completa. Ou uma aplicação poderá substituir acidentalmente dados corretos por dados incorretos devido a um defeito da aplicação.
+
+Nenhum é perfeito! Um utilizador poderá acidentalmente eliminar alguns dados, inadvertidamente remover uma tabela importante ou até mesmo remover uma base de dados completa. Ou uma aplicação poderá substituir acidentalmente dados corretos por dados incorretos devido a um defeito da aplicação.
 
 Neste cenário, estas são as opções de recuperação.
 
@@ -101,8 +100,9 @@ Para obter mais informações e passos detalhados para restaurar uma base de dad
 >
 >
 
-### <a name="restore-from-azure-backup-vault"></a>Restaurar a partir do Azure Backup Vault
-Se ocorreu a perda de dados fora do período de retenção atual para cópias de segurança automatizadas e a base de dados está configurada para a retenção de longo prazo, pode restaurar a partir de uma cópia de segurança semanal no Cofre de cópia de segurança do Azure para uma nova base de dados. Nesse momento, pode substituir a base de dados original pela base de dados restaurada ou copiar os dados necessários da base de dados restaurada para a base de dados original. Se precisar de obter uma versão antiga da base de dados antes de uma atualização da aplicação principal, satisfazer um pedido de auditores ou uma ordem legal, que pode criar uma base de dados utilizando uma cópia de segurança completa guardada no Cofre de cópia de segurança do Azure.  Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
+### <a name="restore-backups-from-long-term-retention"></a>Restaurar cópias de segurança de retenção de longo prazo
+
+Se ocorreu a perda de dados fora do período de retenção atual para cópias de segurança automatizadas e a base de dados está configurada para a retenção de longo prazo, pode restaurar a partir de uma cópia de segurança completa no armazenamento imediatamente disponíveis para uma nova base de dados. Nesse momento, pode substituir a base de dados original pela base de dados restaurada ou copiar os dados necessários da base de dados restaurada para a base de dados original. Se precisar de obter uma versão antiga da base de dados antes de uma atualização da aplicação principal, satisfazer um pedido de auditores ou uma ordem legal, que pode criar uma base de dados utilizando uma cópia de segurança completa guardada no Cofre de cópia de segurança do Azure.  Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Recuperar uma base de dados para outra região a partir de uma indisponibilidade do centro de dados regional do Azure
 <!-- Explain this scenario -->

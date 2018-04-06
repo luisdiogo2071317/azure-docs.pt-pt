@@ -1,11 +1,11 @@
 ---
-title: "Introdução à gestão de dispositivos do IoT Hub do Azure (Python) | Microsoft Docs"
-description: "Como utilizar a gestão de dispositivos do IoT Hub para iniciar um reinício do dispositivo remoto. Utilizar o Azure IoT SDK para Python para implementar uma aplicação de dispositivo simulado que inclui um método direto e uma aplicação de serviço que invoca o método direto."
+title: Introdução à gestão de dispositivos do IoT Hub do Azure (Python) | Microsoft Docs
+description: Como utilizar a gestão de dispositivos do IoT Hub para iniciar um reinício do dispositivo remoto. Utilizar o Azure IoT SDK para Python para implementar uma aplicação de dispositivo simulado que inclui um método direto e uma aplicação de serviço que invoca o método direto.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
-ms.author: v-masebo
-ms.openlocfilehash: b9dfbd775de3bb54e405e4054bca4e2b878305a3
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: 001a5d180e2b97894174ba7c63ec3947c9968364
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-management-python"></a>Introdução à gestão de dispositivos (Python)
 
@@ -39,8 +39,8 @@ No final deste tutorial, tem duas aplicações de consola do Python:
 Para concluir este tutorial, precisa do seguinte:
 
 * [Python 2.x ou 3.x][lnk-python-download]. Certifique-se de que utiliza a instalação de 32 ou 64 bits, conforme exigido pela sua configuração. Quando lhe for pedido durante a instalação, confirme que adiciona Python à variável de ambiente específica da sua plataforma. Se estiver a utilizar Python 2.x, poderá ter de [instalar ou atualizar o *pip*, o sistema de gestão de pacotes de Python][lnk-install-pip].
-    * Instalar o [azure iothub-dispositivo-cliente](https://pypi.org/project/azure-iothub-device-client/) do pacote, utilizando o comando`pip install azure-iothub-device-client`
-    * Instalar o [azure iothub-service-cliente](https://pypi.org/project/azure-iothub-service-client/) do pacote, utilizando o comando`pip install azure-iothub-service-client`
+    * Instalar o [azure iothub-dispositivo-cliente](https://pypi.org/project/azure-iothub-device-client/) do pacote, utilizando o comando   `pip install azure-iothub-device-client`
+    * Instalar o [azure iothub-service-cliente](https://pypi.org/project/azure-iothub-service-client/) do pacote, utilizando o comando   `pip install azure-iothub-service-client`
 * Se estiver a utilizar o SO Windows, o [pacote redistribuível Visual C++][lnk-visual-c-redist], para permitir a utilização de DLLs nativas de Python.
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
