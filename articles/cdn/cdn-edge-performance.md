@@ -1,11 +1,11 @@
 ---
-title: "Analisar o desempenho do nó de extremidade na CDN do Azure | Microsoft Docs"
-description: "Analise o desempenho do nó de extremidade na CDN do Microsoft Azure. Análise de desempenho de limite fornece informações granulares de tráfego e largura de banda de utilização para a CDN."
+title: Analisar o desempenho do nó de extremidade na CDN do Azure | Microsoft Docs
+description: Analise o desempenho do nó de extremidade na CDN do Microsoft Azure. Análise de desempenho de limite fornece informações granulares de tráfego e largura de banda de utilização para a CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de extremidade na CDN do Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -107,7 +107,7 @@ O objetivo estas métricas é obter informações sobre as seguintes medidas de 
 | Taxa de bytes de configuração não Cache |Indica a percentagem do tráfego da CDN (servidores edge) para o autor do pedido (por exemplo, browser web) que será não ser colocadas em cache devido a funcionalidade de ignorar a Cache. |
 | Taxa de bytes comprimida |Indica a percentagem de tráfego enviado da CDN (servidores edge) para autores de pedido (por exemplo, browser web) num formato comprimido. |
 | Bytes enviados |Indica a quantidade de dados, em bytes, que foram fornecidas da CDN (servidores edge) para o autor do pedido (por exemplo, browser web). |
-| Bytes na |Indica a quantidade de dados, em bytes, enviadas pelo autores de pedido (por exemplo, browser web) para a CDN (servidores edge). |
+| Bytes In |Indica a quantidade de dados, em bytes, enviadas pelo autores de pedido (por exemplo, browser web) para a CDN (servidores edge). |
 | Bytes remoto |Indica a quantidade de dados, em bytes, enviados a partir de servidores de origem da CDN e cliente para a CDN (servidores edge). |
 
 #### <a name="performance-metrics"></a>Métricas de desempenho
@@ -120,7 +120,7 @@ O objetivo estas métricas consiste em monitorizar o desempenho global da CDN pa
 | Taxa de pedidos comprimida |Indica a percentagem de pedidos que foram fornecidas da CDN (servidores edge) para o autor do pedido (por exemplo, browser web) num formato comprimido. |
 | Taxa de erros de 4xx |Indica a percentagem de pedidos que gerou um código de estado 4xx. |
 | Taxa de erros de 5XX |Indica a percentagem de pedidos que gerou um código de estado 5xx. |
-| Pedidos com êxito |Indica o número de pedidos para o conteúdo do CDN. |
+| Acertos |Indica o número de pedidos para o conteúdo do CDN. |
 
 #### <a name="secure-traffic-metrics"></a>Métrica do tráfego seguro
 O objetivo estas métricas consiste em monitorizar o desempenho da CDN para tráfego HTTPS.
@@ -167,7 +167,7 @@ Cada relatório neste módulo contém um gráfico e estatísticas de utilizaçã
 | Detalhes TCP_EXPIRED_MISS |Contém um gráfico que mostra os URLs de 10 principais para ativos obsoletos para o qual uma nova versão que tiveram de ser obtidos a partir do servidor de origem. Estatísticas para os URLs de 100 superiores para estes tipos de recursos são apresentadas diretamente abaixo este gráfico. |
 | Detalhes TCP_CLIENT_REFRESH_MISS |Contém um gráfico de barras que mostra os URLs de 10 principais para recursos foram obtidos a partir de um servidor de origem devido a um pedido de não-cache do cliente. Estatísticas para os URLs de 100 superiores para estes tipos de pedidos são apresentadas diretamente abaixo este gráfico. |
 | Tipos de pedido de cliente |Indica o tipo de pedidos que foram efetuadas por clientes HTTP (por exemplo, browsers). Este relatório inclui um gráfico de anel que fornece um sentido relativamente a forma como os pedidos estão a ser processados. Informações de tráfego e da largura de banda para cada tipo de pedido são apresentadas abaixo do gráfico. |
-| Agente de utilizador |Contém um gráfico de barras apresenta os agentes de 10 utilizador principais para solicitar o conteúdo através do nosso CDN. Normalmente, um agente de utilizador é um web browser, leitor de multimédia ou um browser de telemóvel. Estatísticas para os agentes de 100 utilizador principais são apresentadas diretamente abaixo este gráfico. |
+| Agente do Utilizador |Contém um gráfico de barras apresenta os agentes de 10 utilizador principais para solicitar o conteúdo através do nosso CDN. Normalmente, um agente de utilizador é um web browser, leitor de multimédia ou um browser de telemóvel. Estatísticas para os agentes de 100 utilizador principais são apresentadas diretamente abaixo este gráfico. |
 | Referrers |Contém um gráfico de barras apresentar os 10 referrers superiores ao conteúdo acedido através do nosso CDN. Normalmente, uma referência é o URL da página web ou recurso que liga ao seu conteúdo. São fornecidas informações detalhadas abaixo o gráfico para referrers os primeiros 100. |
 | Tipos de compressão |Contém um gráfico de anel divide ativos pedidos pelo se foram comprimidos pelos nossos servidores edge. A percentagem de recursos comprimidos é reduzida por tipo de compressão utilizado. São fornecidas informações detalhadas abaixo o gráfico para cada tipo de compressão e o estado. |
 | Tipos de ficheiro |Contém um gráfico de barras que mostra os principais tipos de 10 ficheiro que pediu através do nosso CDN para a sua conta. Para efeitos deste relatório, um tipo de ficheiro é definido pela extensão de nome de ficheiro do recurso e tipo de suporte de Internet (por exemplo,. HTML \[texto/html\], *.htm \[texto/html\],. aspx \[texto/html\], etc.). São fornecidas informações detalhadas abaixo o gráfico para os principais tipos de 100 ficheiros. |
@@ -182,7 +182,7 @@ Cada relatório neste módulo contém um gráfico e estatísticas de utilizaçã
 | 502 erros |Contém um gráfico de barras que lhe permite ver os pedidos de 10 principais que resultaram num código de resposta Gateway incorreto 502. Um código de resposta de Gateway incorreto 502 ocorre quando ocorre uma falha de protocolo HTTP entre um servidor e um proxy HTTP. No caso do nosso CDN, um código de resposta de Gateway incorreto 502 ocorre normalmente quando um servidor de origem do cliente devolve uma resposta inválida para um servidor edge. Uma resposta é inválida, se este não é possível analisar ou se está incompleto. |
 | Erros de 5XX |Contém um gráfico de barras que lhe permite ver os pedidos de 10 principais que resultaram num código de resposta no intervalo 500.  Excluídos deste relatório são 502 Gateway incorreta e 504 códigos de resposta de tempo limite do Gateway. |
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Descrição geral da CDN do Azure](cdn-overview.md)
 * [Estatísticas em tempo real na CDN do Microsoft Azure](cdn-real-time-stats.md)
 * [Substituir o comportamento HTTP predefinido utilizando o motor de regras](cdn-rules-engine.md)

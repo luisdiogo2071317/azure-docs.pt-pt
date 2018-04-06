@@ -1,8 +1,8 @@
 ---
-title: "O Azure AD Connect: Resolução de problemas de erros durante a sincronização | Microsoft Docs"
-description: "Explica como resolver erros encontrados durante a sincronização com o Azure AD Connect."
+title: 'O Azure AD Connect: Resolução de problemas de erros durante a sincronização | Microsoft Docs'
+description: Explica como resolver erros encontrados durante a sincronização com o Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
 ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Resolução de problemas de erros durante a sincronização
 Poderão ocorrer erros quando os dados de identidade são sincronizados a partir do Windows Server Active Directory (AD DS) para o Azure Active Directory (Azure AD). Este artigo fornece uma descrição geral das diferentes tipos de erros de sincronização, alguns dos possíveis cenários que fazer com que os erros e formas possíveis para corrigir os erros. Este artigo inclui os tipos de erro comuns e não pode abranger todos os erros possíveis.
@@ -42,7 +42,7 @@ Erros durante a exportação para o Azure AD indicam que a operação \(adiciona
 #### <a name="description"></a>Descrição
 * Quando do Azure AD Connect \(motor de sincronização\) dá instruções ao Azure Active Directory para adicionar ou atualizar objetos, do Azure AD corresponde ao objeto de entrada, utilizando o **sourceAnchor** atributo para o **immutableId**  atributo dos objetos no Azure AD. Esta correspondência é chamada um **corresponde ao disco rígido**.
 * Quando do Azure AD **não encontre** qualquer objeto que corresponda a **immutableId** atributo com o **sourceAnchor** atributo do objeto recebido, antes do aprovisionamento de um novo o objeto, retrocede para utilizar os atributos ProxyAddresses e UserPrincipalName para encontrar uma correspondência. Esta correspondência é chamada um **corresponder recuperável**. Corresponder recuperável foi concebido para corresponder aos objetos já está presentes no Azure AD (que são obtidas as no Azure AD) com os novos objetos a adicionar/atualizar durante a sincronização que representam a mesma entidade (utilizadores, grupos) no local.
-* **InvalidSoftMatch** erro ocorre quando a correspondência de disco rígida não encontrar quaisquer objetos correspondentes **e** correspondência de forma recuperável localiza um objeto correspondente, mas esse objeto tem um valor diferente de *immutableId* que o objeto de entrada *SourceAnchor*, sugerindo que o objeto correspondente foi sincronizado com outro objeto no local do Active Directory.
+* **InvalidSoftMatch** erro ocorre quando a correspondência de disco rígida não encontrar quaisquer objetos correspondentes **e** correspondência de forma recuperável localiza um objeto correspondente, mas esse objeto tem um valor diferente de *immutableId* que o entrada objeto *SourceAnchor*, sugerindo que o objeto correspondente foi sincronizado com outro objeto no local do Active Directory.
 
 Por outras palavras, por ordem para a correspondência de forma recuperável funcionar, o objeto ser correspondido de forma recuperável com não deve ter qualquer valor para o *immutableId*. Se qualquer um objeto com *immutableId* conjunto com um valor está a falhar a disco rígido correspondência, mas que satisfaçam os critérios de correspondência de forma recuperável, a operação iria resultar num erro InvalidSoftMatch sincronização.
 
@@ -70,14 +70,14 @@ Esquema do Active Directory do Azure não permite duas ou mais objetos têm o me
 
 #### <a name="example-case"></a>Cenário de exemplo:
 1. **Bernardo Santos** é um utilizador sincronizado no Azure Active Directory de no local do Active Directory de *contoso.com*
-2. Do Bernardo Santos **UserPrincipalName** está definido como  **bobs@contoso.com** .
+2. Do Bernardo Santos **UserPrincipalName** está definido como **bobs@contoso.com**.
 3. **"abcdefghijklmnopqrstuv = ="** é o **SourceAnchor** calculado pelo Azure AD Connect através do Bernardo Santos **objectGUID** no local do Active Directory, que é o  **immutableId** para Bernardo Santos no Azure Active Directory.
 4. João também tem os seguintes valores para o **proxyAddresses** atributo:
    * smtp:bobs@contoso.com
    * smtp:bob.smith@contoso.com
    * **smtp:bob@contoso.com**
 5. Um novo utilizador **Bernardo Taylor**, é adicionado no local do Active Directory.
-6. De Bernardo Taylor **UserPrincipalName** está definido como  **bobt@contoso.com** .
+6. De Bernardo Taylor **UserPrincipalName** está definido como **bobt@contoso.com**.
 7. **"abcdefghijkl0123456789 = =" "** é o **sourceAnchor** calculado pelo Azure AD Connect através de Bernardo Taylor **objectGUID** no local do Active Directory. Objeto do de Bob Taylor não tiver sincronizado ainda ao Azure Active Directory.
 8. Bernardo Taylor com os seguintes valores para o atributo proxyAddresses
    * smtp:bobt@contoso.com
@@ -85,7 +85,7 @@ Esquema do Active Directory do Azure não permite duas ou mais objetos têm o me
    * **smtp:bob@contoso.com**
 9. Durante a sincronização, o Azure AD Connect irá reconhecer a adição de Bernardo Taylor no local do Active Directory e solicite ao Azure AD para que a alteração do mesma.
 10. Azure AD pela primeira vez irá efetuar a correspondência de disco rígida. Ou seja, pesquisará se existir qualquer objeto com o immutableId igual a "abcdefghijkl0123456789 = =". Correspondência de disco rígida irá falhar, nenhum outro objeto no Azure AD terão que immutableId.
-11. Azure AD, em seguida, irá tentar Bernardo Taylor de correspondência de forma recuperável. Ou seja, pesquisará se existir qualquer objeto com proxyAddresses igual a três valores, incluindosmtp:bob@contoso.com
+11. Azure AD, em seguida, irá tentar Bernardo Taylor de correspondência de forma recuperável. Ou seja, pesquisará se existir qualquer objeto com proxyAddresses igual a três valores, incluindo smtp:bob@contoso.com
 12. Do Azure AD irá encontrar objeto do Bernardo Santos para fazer corresponder os critérios de correspondência de forma recuperável. Mas este objeto tem o valor de immutableId = "abcdefghijklmnopqrstuv = =". indica que este objeto foi sincronizado a partir de outro objeto no local do Active Directory. Assim, do Azure AD não é possível configuração soft-match estes objetos e os resultados num **InvalidSoftMatch** erro de sincronização.
 
 #### <a name="how-to-fix-invalidsoftmatch-error"></a>Saber como corrigir InvalidSoftMatch erro
@@ -114,8 +114,8 @@ Quando tenta corresponder soft dois objetos do Azure AD, é possível que dois o
 * É criado um grupo de segurança de correio ativado no Office 365. Administrador adiciona um novo utilizador ou o contacto no local AD (que não está sincronizado com o Azure AD ainda) com o mesmo valor para o atributo ProxyAddresses que o grupo do Office 365.
 
 #### <a name="example-case"></a>Cenário de exemplo
-1. O administrador cria um novo grupo de segurança de correio ativado no Office 365 para o departamento de dedução dos impostos e fornece um endereço de e-mail como tax@contoso.com. Esta ação atribui o atributo de ProxyAddresses para este grupo com o valor do**smtp:tax@contoso.com**
-2. Um novo utilizador associa Contoso.com e é criada uma conta para o utilizador no local com o /proxyaddress como**smtp:tax@contoso.com**
+1. O administrador cria um novo grupo de segurança de correio ativado no Office 365 para o departamento de dedução dos impostos e fornece um endereço de e-mail como tax@contoso.com. Esta ação atribui o atributo de ProxyAddresses para este grupo com o valor do **smtp:tax@contoso.com**
+2. Um novo utilizador associa Contoso.com e é criada uma conta para o utilizador no local com o /proxyaddress como **smtp:tax@contoso.com**
 3. Quando o Azure AD Connect irá sincronizar a nova conta de utilizador, obterá o erro "ObjectTypeMismatch".
 
 #### <a name="how-to-fix-objecttypemismatch-error"></a>Saber como corrigir ObjectTypeMismatch erro
@@ -141,14 +141,14 @@ Se o Azure AD Connect tenta adicionar um novo objeto ou atualizar um objeto exis
 
 #### <a name="example-case"></a>Cenário de exemplo:
 1. **Bernardo Santos** é um utilizador sincronizado no Azure Active Directory de no local do Active Directory de contoso.com
-2. Do Bernardo Santos **UserPrincipalName** no local está definido como  **bobs@contoso.com** .
+2. Do Bernardo Santos **UserPrincipalName** no local está definido como **bobs@contoso.com**.
 3. João também tem os seguintes valores para o **proxyAddresses** atributo:
    * smtp:bobs@contoso.com
    * smtp:bob.smith@contoso.com
    * **smtp:bob@contoso.com**
 4. Um novo utilizador **Bernardo Taylor**, é adicionado no local do Active Directory.
-5. De Bernardo Taylor **UserPrincipalName** está definido como  **bobt@contoso.com** .
-6. **Bernardo Taylor** com os seguintes valores para o **ProxyAddresses** atributo i. smtp:bobt@contoso.comII. smtp:bob.taylor@contoso.com
+5. De Bernardo Taylor **UserPrincipalName** está definido como **bobt@contoso.com**.
+6. **Bernardo Taylor** com os seguintes valores para o **ProxyAddresses** atributo i. smtp:bobt@contoso.com II. smtp:bob.taylor@contoso.com
 7. Objeto do de Bob Taylor está sincronizado com o Azure AD com êxito.
 8. Decidiu Admin atualizar de Bernardo Taylor **ProxyAddresses** atributo com o seguinte valor: Posso. **smtp:bob@contoso.com**
 9. Azure AD irá tentar atualizar o objeto do de Bob Taylor no Azure AD com o valor acima, mas que a operação falhará como que ProxyAddresses valor já foi atribuído à Bernardo Santos, resultando no erro de "AttributeValueMustBeUnique".
@@ -187,15 +187,15 @@ Este é um cenário específico que resulte num **"FederatedDomainChangeError"**
 Para um utilizador sincronizado, o sufixo de UserPrincipalName foi alterado de um domínio federado para outro domínio federado no local. Por exemplo, *UserPrincipalName = bob@contoso.com*  foi alterado para *UserPrincipalName = bob@fabrikam.com* .
 
 #### <a name="example"></a>Exemplo
-1. Bernardo Santos, uma conta para Contoso.com, obtém adicionado como um novo utilizador no Active Directory com o UserPrincipalNamebob@contoso.com
-2. Bernardo é movido para uma divisão de Contoso.com denominada Fabrikam.com diferente e o UserPrincipalName é alterado parabob@fabrikam.com
+1. Bernardo Santos, uma conta para Contoso.com, obtém adicionado como um novo utilizador no Active Directory com o UserPrincipalName bob@contoso.com
+2. Bernardo é movido para uma divisão de Contoso.com denominada Fabrikam.com diferente e o UserPrincipalName é alterado para bob@fabrikam.com
 3. Domínios contoso.com e fabrikam.com são domínios federados com o Azure Active Directory.
 4. UserPrincipalName do de Bob não for atualizado e resulta num erro de sincronização "FederatedDomainChangeError".
 
 #### <a name="how-to-fix"></a>Saber como corrigir
 Se o sufixo de UserPrincipalName de um utilizador foi atualizado do Bernardo @**contoso.com** para bob @**fabrikam.com**, em que ambos **contoso.com** e **fabrikam.com** são **federado domínios**, em seguida, siga estes passos para corrigir o erro de sincronização
 
-1. Atualizar o UserPrincipalName do utilizador no Azure AD de bob@contoso.com para bob@contoso.onmicrosoft.com. Pode utilizar o seguinte comando do PowerShell com o módulo Azure AD PowerShell:`Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
+1. Atualizar o UserPrincipalName do utilizador no Azure AD de bob@contoso.com para bob@contoso.onmicrosoft.com. Pode utilizar o seguinte comando do PowerShell com o módulo Azure AD PowerShell: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Permitir que o próximo ciclo de sincronização para a tentativa de sincronização. Esta sincronização de hora será bem sucedida e irá atualizar o UserPrincipalName da Bernardo para bob@fabrikam.com conforme esperado.
 
 #### <a name="related-articles"></a>Artigos Relacionados

@@ -1,11 +1,11 @@
 ---
-title: "Estabelecer a ligação do Operations Manager ao Log Analytics | Microsoft Docs"
-description: "Para manter o investimento existente no System Center Operations Manager e utilizar as capacidades de expandida com a análise de registos, pode integrar o Operations Manager com a sua área de trabalho do OMS."
+title: Estabelecer a ligação do Operations Manager ao Log Analytics | Microsoft Docs
+description: Para manter o investimento existente no System Center Operations Manager e utilizar as capacidades de expandida com a análise de registos, pode integrar o Operations Manager com a sua área de trabalho do OMS.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: magoedte
 ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Estabelecer a ligação do Operations Manager ao Log Analytics
 Para manter o investimento existente no System Center Operations Manager e utilizar as capacidades de expandida com a análise de registos, pode integrar o Operations Manager com a sua área de trabalho do OMS.  Isto permite que tirar partido as oportunidades de OMS ao continuar a utilizar o Operations Manager para:
@@ -33,7 +33,7 @@ Os agentes de relatórios para o grupo de gestão do Operations Manager recolhe 
 
 O diagrama seguinte ilustra a ligação entre servidores de gestão e os agentes num grupo de gestão do System Center Operations Manager e o OMS, incluindo as portas e direção.   
 
-![OMS-operations-manager-integração-diagrama](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
+![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
 Se as políticas de segurança de TI não permitir que os computadores na sua rede para ligar à Internet, os servidores de gestão podem ser configurados para ligar ao Gateway para receber as informações de configuração e enviar os dados recolhidos consoante a solução que tiver ativado o OMS.  Para obter mais informações e os passos sobre como configurar o grupo de gestão do Operations Manager para comunicar através de um Gateway do OMS para o serviço do OMS, consulte [ligar computadores ao OMS utilizando o Gateway do OMS](log-analytics-oms-gateway.md).  
 
@@ -49,7 +49,7 @@ As informações abaixo lista as informações de configuração de proxy e de f
 
 |Recurso | Número de porta| Ignorar a inspeção de HTTP|  
 |---------|------|-----------------------|  
-|**Agente**|||  
+|**Agent**|||  
 |\*.ods.opinsights.azure.com| 443 |Sim|  
 |\*.oms.opinsights.azure.com| 443|Sim|  
 |\*.blob.core.windows.net| 443|Sim|  
@@ -101,7 +101,7 @@ Se for um servidor proxy interno entre o grupo de gestão e o serviço web do OM
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
 2. Expanda o Operations Management Suite e, em seguida, clique em **ligações**.
 3. Na vista Ligação OMS, clique em **Configurar Servidor Proxy**.
-4. No **assistente Operations Management Suite: servidor Proxy** página, selecione **utilizar um servidor proxy para aceder ao Operations Management Suite**, e, em seguida, escreva o URL com o número de porta, por exemplo, http:// corpproxy:80 e, em seguida, clique em **concluir**.
+4. No **assistente Operations Management Suite: servidor Proxy** página, selecione **utilizar um servidor proxy para aceder ao Operations Management Suite**, e, em seguida, escreva o URL com o número de porta, por exemplo, http://corpproxy:80 e, em seguida, clique em **concluir**.
 
 Se o servidor proxy requer autenticação, execute os seguintes passos para configurar as definições que têm de ser propagados para computadores geridos que comunica OMS no grupo de gestão e as credenciais.
 
@@ -150,7 +150,7 @@ Existem algumas formas diferentes pode verificar que o OMS para integração do 
 2. Selecione **ligado origens**.
 3. Na tabela na secção System Center Operations Manager, deverá ver o nome do grupo de gestão listado com o número de agentes e o estado quando os dados foram recebidos pela última vez.
    
-   ![definições de OMS-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
+   ![oms-settings-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
 4. Tenha em atenção o **ID da área de trabalho** valor sob o lado esquerdo da página de definições.  Validá-lo contra o grupo de gestão do Operations Manager, abaixo.  
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Para confirmar a integração da consola de operações
@@ -159,7 +159,7 @@ Existem algumas formas diferentes pode verificar que o OMS para integração do 
 3. Consoante as soluções que tiver ativado, pode ver um pacote de gestão correspondentes, listado nos resultados da pesquisa.  Por exemplo, se tiver ativado a solução de gestão de alertas, o pacote de gestão Gestão alertas do Microsoft System Center Advisor está na lista.
 4. Do **monitorização** ver, navegue para o **operações de gestão Suite\Health estado** vista.  Selecione um servidor de gestão no **estado do servidor de gestão** painel e, no **vista de detalhes** painel confirmar o valor da propriedade **URI do serviço de autenticação** corresponde o ID da área de trabalho OMS.
    
-   ![OMS-opsmgr-mg-authsvcuri-Property-MS](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
+   ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-oms"></a>Remova a integração com o OMS
 Quando já não necessitar de integração entre o grupo de gestão do Operations Manager e a área de trabalho do OMS, existem vários passos necessários para remover corretamente a ligação e a configuração do grupo de gestão. O procedimento seguinte tiver que atualizar a sua área de trabalho do OMS, eliminando a referência do seu grupo de gestão, elimine os conectores do OMS e, em seguida, elimine os pacotes de gestão que suportam OMS.   
@@ -172,8 +172,8 @@ Pacotes de gestão para as soluções tiver ativado a que se integram com o Oper
     > Certifique-se de não tem quaisquer pacotes de gestão personalizados com o word Advisor ou IntelligencePack no nome do antes de continuar, caso contrário, os seguintes passos eliminá-los a partir do grupo de gestão.
     > 
 
-2. A partir do shell de comandos, escreva`Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-3. Tipo de próximo`Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+2. A partir do shell de comandos, escreva `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+3. Tipo de próximo `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 4. Para remover quaisquer pacotes de gestão restantes que tenham uma dependência de outros pacotes de gestão do System Center Advisor, utilize o script *RecursiveRemove.ps1* transferiu a partir do Centro de scripts da TechNet anteriormente.  
  
     > [!NOTE]
@@ -295,7 +295,7 @@ Para eliminar os dois conectores - Microsoft.SystemCenter.Advisor.DataConnector 
 
 No futuro se planear no seu grupo de gestão para uma área de trabalho do OMS restabelecer a ligação, terá de voltar a importar o `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` ficheiro de pacote de gestão do update rollup mais recente aplicado ao seu grupo de gestão.  Pode encontrar este ficheiro no `%ProgramFiles%\Microsoft System Center 2012` ou `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` pasta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para adicionar a funcionalidade e recolher dados, consulte [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).
 
 

@@ -1,11 +1,11 @@
 ---
-title: "Os limites de sistema de série 8000 do StorSimple | Microsoft Docs"
-description: "Descreve os limites de sistema e os tamanhos recomendados para os componentes de série 8000 do StorSimple e ligações."
+title: Os limites de sistema de série 8000 do StorSimple | Microsoft Docs
+description: Descreve os limites de sistema e os tamanhos recomendados para os componentes de série 8000 do StorSimple e ligações.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
 ms.service: storsimple
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc3c0ad193af7625c8c4c1c2e82b6bdc8be33310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Quais são os limites de sistema de série 8000 do StorSimple?
 
@@ -53,10 +53,10 @@ StorSimple fornece armazenamento dimensionável e flexível para o seu centro de
 | Débito de leitura/escrita do máximo de clientes (quando servido a partir da camada HDD) * |120/250 MB/s | |
 | Débito de leitura/escrita do máximo de clientes (quando servido a partir da camada de nuvem) * para Update 3 e posterior * * |40/60 MB/s para volumes em camadas<br><br>60/80 MB/s para volumes em camadas com arquivo opção selecionada durante a criação do volume |Débito de leitura depende clientes gerar e manter a profundidade de fila de e/s suficiente. <br><br>Velocidade conseguida depende da velocidade da conta de armazenamento subjacente utilizada. |
 
-&#42; Débito máximo por tipo de e/s foi medido com cenários de 100 por cento escrita e leitura de 100 por cento. Débito real pode ser mais baixo e depende de e/s misturar e condições de rede.
+&#42;Débito máximo por tipo de e/s foi medido com cenários de 100 por cento escrita e leitura de 100 por cento. Débito real pode ser mais baixo e depende de e/s misturar e condições de rede.
 
-&#42; &#42; Números de desempenho antes da atualização 3 podem ser mais baixas.
+&#42;&#42;Números de desempenho antes da atualização 3 podem ser mais baixas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Reveja o [requisitos de sistema do StorSimple](storsimple-8000-system-requirements.md).
 

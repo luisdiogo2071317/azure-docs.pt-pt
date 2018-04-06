@@ -1,8 +1,8 @@
 ---
 title: Gerir a Simultaneidade no Armazenamento do Microsoft Azure
-description: "Como gerir simultaneidade para os serviços Blob, fila, tabela e ficheiro"
+description: Como gerir simultaneidade para os serviços Blob, fila, tabela e ficheiro
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: jasontang501
 manager: tadb
 editor: tysonn
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.openlocfilehash: 937cca66a0af0674b868e6a87681adbea330e91c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gerir a Simultaneidade no Armazenamento do Microsoft Azure
 ## <a name="overview"></a>Descrição geral
@@ -197,7 +197,7 @@ Para obter mais informações, consulte:
 
 * [Especificar condicionais cabeçalhos para operações de serviço Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Contentor de concessão](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Blob de concessão](http://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Blob de concessão ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>Gerir a simultaneidade no serviço tabela
 O serviço de tabela utiliza otimista simultaneidade verifica como comportamento predefinido quando estiver a trabalhar com as entidades, ao contrário do serviço blob onde explicitamente tem optar por executar verificações de simultaneidade otimista. A outra diferença entre os serviços tabela e blob é que só pode gerir o comportamento de simultaneidade de entidades enquanto com o serviço blob pode gerir a simultaneidade de contentores e blobs.  
@@ -286,7 +286,7 @@ Para a aplicação de exemplo completo referenciada neste blogue:
 Para obter mais informações, consulte Storage do Azure:  
 
 * [Página inicial de armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/)
-* [Introdução ao Storage do Azure](storage-introduction.md)
+* [Introdução ao Armazenamento do Azure](storage-introduction.md)
 * Armazenamento de introdução para [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [tabela](../../cosmos-db/table-storage-how-to-use-dotnet.md), [filas](../storage-dotnet-how-to-use-queues.md), e [ficheiros](../storage-dotnet-how-to-use-files.md)
 * Arquitetura de armazenamento – [Storage do Azure: um serviço de armazenamento de nuvem de elevada disponibilidade com consistência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

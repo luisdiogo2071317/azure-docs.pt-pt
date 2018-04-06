@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Expressões de aprovisionamento declarativas | Microsoft Docs"
-description: "Explica as expressões de aprovisionamento declarativas."
+title: 'Azure AD Connect: Expressões de aprovisionamento declarativas | Microsoft Docs'
+description: Explica as expressões de aprovisionamento declarativas.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 797c0949aceea415652a72df5ee23ef9888ab975
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: Noções sobre expressões de aprovisionamento declarativo
 Sincronização do Azure AD Connect baseia-se aprovisionamento declarativo introduzida pela primeira vez no Forefront Identity Manager 2010. Permite-lhe implementar a lógica de negócio de integração de identidade concluída sem a necessidade de escrever código compilado.
@@ -80,11 +80,11 @@ Os operadores são avaliados à esquerda para a direita e tem a mesma prioridade
 As funções podem operar em atributos de valor único e com múltiplos valores. Para atributos com múltiplos valores, a função funciona através de cada valor e aplica-se a mesma função a cada valor.
 
 Por exemplo:  
-`Trim([proxyAddresses])`Fazer uma limitação de cada valor de atributo /proxyaddress.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"`Para cada valor com um @-sign, substitua o domínio com @contoso.com.  
-`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])`Procure o endereço SIP e removê-lo de entre os valores.
+`Trim([proxyAddresses])` Fazer uma limitação de cada valor de atributo /proxyaddress.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"` Para cada valor com um @-sign, substitua o domínio com @contoso.com.  
+`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Procure o endereço SIP e removê-lo de entre os valores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre o modelo de configuração [compreender de aprovisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Consulte como declarativa de aprovisionamento é utilizado out-of-box no [entender a configuração predefinida](active-directory-aadconnectsync-understanding-default-configuration.md).
 * Ver como efetuar uma alteração prática utilizando o aprovisionamento declarativo no [como efetuar uma alteração para a configuração predefinida](active-directory-aadconnectsync-change-the-configuration.md).

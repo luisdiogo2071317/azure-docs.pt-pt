@@ -1,12 +1,12 @@
 ---
-title: "Desempenho de recursos de infraestrutura de serviço do Azure monitorização | Microsoft Docs"
-description: "Saiba mais sobre os contadores de desempenho de monitorização e diagnóstico de clusters de Service Fabric do Azure."
+title: Desempenho de recursos de infraestrutura de serviço do Azure monitorização | Microsoft Docs
+description: Saiba mais sobre os contadores de desempenho de monitorização e diagnóstico de clusters de Service Fabric do Azure.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 
@@ -35,16 +35,16 @@ Para as máquinas do cluster, considere os seguintes contadores de desempenho pa
 | PhysicalDisk (por disco) | Média Disco seg/leitura |
 | PhysicalDisk (por disco) | Média Disco seg/escrita |
 | PhysicalDisk (por disco) | Leituras de disco/seg |
-| PhysicalDisk (por disco) | Bytes lidos/seg de disco |
+| PhysicalDisk (por disco) | Bytes Lidos de Disco/seg |
 | PhysicalDisk (por disco) | Escritas de disco/seg |
-| PhysicalDisk (por disco) | Bytes de escrita de disco/seg |
+| PhysicalDisk (por disco) | Bytes Escritos em Disco/seg |
 | Memória | MBytes disponíveis |
 | PagingFile | % Utilização |
 | Processor(total) | % Tempo do processador |
 | Processo (para serviço) | % Tempo do processador |
 | Processo (para serviço) | ID de processo |
 | Processo (para serviço) | Bytes privados |
-| Processo (para serviço) | Contagem de threads |
+| Processo (para serviço) | Número de Threads |
 | Processo (para serviço) | Bytes virtuais |
 | Processo (para serviço) | Conjunto de trabalho |
 | Processo (para serviço) | Conjunto de trabalho - privado |
@@ -60,7 +60,7 @@ Recolha os seguintes contadores se estiver a implementar os serviços de .NET pa
 
 | Categoria do contador | Nome do contador |
 | --- | --- |
-| Memória de CLR de .NET (por serviço) | ID do processo |
+| Memória de CLR de .NET (por serviço) | ID de Processo |
 | Memória de CLR de .NET (por serviço) | N. º total dos Bytes consolidados |
 | Memória de CLR de .NET (por serviço) | N. º total reservado Bytes |
 | Memória de CLR de .NET (por serviço) | N. º de bytes em todas as pilhas |
@@ -80,7 +80,7 @@ Se utilizar Reliable Services, temos de forma semelhante `Service Fabric Service
 Se utilizar coleções fiável, recomendamos adicionar o `Avg. Transaction ms/Commit` do `Service Fabric Transactional Replicator` para recolher a latência média de consolidação por métrica de transação.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre [geração de eventos ao nível da plataforma](service-fabric-diagnostics-event-generation-infra.md) no Service Fabric
 * Recolher a métrica do desempenho através de [diagnósticos do Azure](service-fabric-diagnostics-event-aggregation-wad.md)

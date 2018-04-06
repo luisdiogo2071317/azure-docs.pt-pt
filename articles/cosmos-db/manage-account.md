@@ -1,9 +1,9 @@
 ---
-title: "Gerir uma conta de base de dados do Azure Cosmos através do Portal do Azure | Microsoft Docs"
-description: "Saiba como gerir a sua conta de base de dados do Azure Cosmos através do Portal do Azure. Localize um guia sobre como utilizar o Portal do Azure para ver, copiar, eliminar e contas de acesso."
+title: Gerir uma conta de base de dados do Azure Cosmos através do Portal do Azure | Microsoft Docs
+description: Saiba como gerir a sua conta de base de dados do Azure Cosmos através do Portal do Azure. Localize um guia sobre como utilizar o Portal do Azure para ver, copiar, eliminar e contas de acesso.
 keywords: Azure Portal do azure, do Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: kirillg
 manager: jhubbard
 editor: cgronlun
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
 ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Como gerir uma conta de base de dados do Azure Cosmos
 Saiba como definir consistência global, trabalhar com as chaves e eliminar uma conta de base de dados do Azure Cosmos no portal do Azure.
@@ -50,7 +50,7 @@ As chaves de só de leitura também estão disponíveis nesta página. Operaçõ
 ### <a name="copy-an-access-key-or-password-in-the-azure-portal"></a>Copiar uma chave de acesso ou palavra-passe no portal do Azure
 No **chaves** página (ou **cadeia de ligação** página para contas de API do MongoDB), clique em de **cópia** botão à direita da chave ou palavra-passe que pretende copiar.
 
-![Ver e copiar uma chave de acesso na página do portal, as chaves do Azure](./media/manage-account/copykeys.png)
+![Ver e copiar uma chave de acesso no portal do Azure, página Chaves](./media/manage-account/copykeys.png)
 
 ### <a name="regenerate-access-keys-and-passwords"></a>Regenerar chaves de acesso e palavras-passe
 Só deve ser alterado as chaves de acesso (e as palavras-passe para contas de API do MongoDB) à sua conta de base de dados do Azure Cosmos periodicamente para ajudar a manter as suas ligações mais segura. São atribuídas duas acesso chaves/palavras-passe para permitir a manter as ligações para a conta de base de dados do Azure Cosmos utilizando uma chave de acesso enquanto volta a gerar a chave de acesso.
@@ -86,7 +86,7 @@ Para obter a cadeia de ligação, efetue o seguinte:
 
 Se estiver a utilizar a cadeia de ligação no [ferramenta de migração de bases de dados do Azure Cosmos DB](import-data.md), acrescentar o nome de base de dados ao fim da cadeia de ligação. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
-## <a id="delete"></a>Eliminar uma conta de base de dados do Azure Cosmos
+## <a id="delete"></a> Eliminar uma conta de base de dados do Azure Cosmos
 Para remover uma conta de base de dados do Azure Cosmos do portal do Azure que já não está a utilizar, faça duplo clique o nome da conta e clique em **eliminar conta**.
 
 ![Como eliminar uma conta de base de dados do Azure Cosmos no portal do Azure](./media/manage-account/deleteaccount.png)

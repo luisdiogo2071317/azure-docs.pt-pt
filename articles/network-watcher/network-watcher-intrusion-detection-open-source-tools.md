@@ -1,11 +1,11 @@
 ---
-title: "Executar a deteção de intrusão de rede com o observador de rede do Azure e ferramentas open source | Microsoft Docs"
-description: "Este artigo descreve como utilizar o observador de rede do Azure e abrir ferramentas de origem para efetuar a deteção de intrusão de rede"
+title: Executar a deteção de intrusão de rede com o observador de rede do Azure e ferramentas open source | Microsoft Docs
+description: Este artigo descreve como utilizar o observador de rede do Azure e abrir ferramentas de origem para efetuar a deteção de intrusão de rede
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Executar a deteção de intrusão de rede com o observador de rede e ferramentas open source
 
@@ -232,7 +232,7 @@ Para obter mais instruções sobre como instalar Logstash, consulte o [documenta
     ./bin/kibana
     ```
 
-1. Para ver a sua interface de web Kibana, navegue para`http://localhost:5601`
+1. Para ver a sua interface de web Kibana, navegue para `http://localhost:5601`
 1. Para este cenário, o padrão de índice utilizado para os registos de Suricata é "logstash-*"
 
 1. Se pretender ver o dashboard de Kibana remotamente, criar uma regra de NSG entrada permitir o acesso à **porta 5601**.
@@ -279,7 +279,7 @@ Para obter mais documentação sobre a criação de visualizações personalizad
 
 Ao combinar o pacote captura fornecida pelo observador de rede e ferramentas de IDS de open source como Suricata, pode efetuar a deteção de intrusão de rede para uma vasta gama de ameaças. Estes dashboards permitem-lhe detetar rapidamente as tendências e anomalias dentro da sua rede, como dig bem para os dados para detetar a causa raiz de alertas, como agentes de utilizador mal intencionado ou portas vulneráveis. Com estes dados extraídos, possa tomar decisões informadas sobre a reagir a proteger a sua rede de quaisquer tentativas de intrusões prejudicial e criar regras para impedir futuras intrusions à sua rede.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como acionar capturas de pacotes com base em alertas, visitando [utilizar a captura de pacotes para fazer a monitorização de rede proativa com as funções do Azure](network-watcher-alert-triggered-packet-capture.md)
 

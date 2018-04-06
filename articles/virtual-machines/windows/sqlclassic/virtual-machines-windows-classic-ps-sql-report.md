@@ -1,6 +1,6 @@
 ---
-title: "Utilizar o PowerShell para criar uma VM com um servidor de relatórios de modo nativo | Microsoft Docs"
-description: "Este tópico descreve e orienta-o através da implementação e configuração de um servidor de relatórios de modo nativo do SQL Server Reporting Services uma Máquina Virtual no Azure. "
+title: Utilizar o PowerShell para criar uma VM com um servidor de relatórios de modo nativo | Microsoft Docs
+description: 'Este tópico descreve e orienta-o através da implementação e configuração de um servidor de relatórios de modo nativo do SQL Server Reporting Services uma Máquina Virtual no Azure. '
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utilizar o PowerShell para Criar uma VM do Azure com um Servidor de Relatórios no Modo Nativo
 > [!IMPORTANT] 
@@ -66,7 +66,7 @@ Este tópico descreve e orienta-o através da implementação e configuração d
    * **Tamanho: A3** é o tamanho da VM recomendado para cargas de trabalho do SQL Server. Se uma VM é utilizada apenas como um servidor de relatórios, um tamanho VM de A2 é suficiente, a menos que o servidor de relatórios ocorre com uma grande carga de trabalho. Para obter informações sobre preços de VM, consulte [preços das Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Novo nome de utilizador**: o nome terá de fornecer é criado como um administrador na VM.
    * **Nova palavra-passe** e **confirmar**. Esta palavra-passe é utilizado para a nova conta de administrador e é recomendado que utilize uma palavra-passe segura.
-   * Clique em **Seguinte**. ![seguinte](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * Clique em **Seguinte**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. Na página seguinte, edite os campos seguintes:
    
    * **O serviço em nuvem**: selecione **criar um novo serviço de nuvem**.
@@ -80,7 +80,7 @@ Este tópico descreve e orienta-o através da implementação e configuração d
      * **HTTPS**: portas públicas e privadas predefinidas são **443**. É melhor prática de segurança alterar a porta privada e configurar a firewall e o servidor de relatórios para utilizar a porta privada. Para obter mais informações sobre os pontos finais, consulte [como cópia de segurança comunicação com uma Máquina Virtual](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenha em atenção que se utilizar uma porta diferente da 443, alterar o parâmetro **$HTTPsport = 443** no script de HTTPS.
    * Clique em seguinte. ![seguinte](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. Na última página do assistente, mantenha a predefinição **instale o agente VM** selecionado. Os passos neste tópico não utilizar o agente da VM, mas se pretender manter esta VM, o agente da VM e as extensões permite-lhe melhorá-lo CM.  Para obter mais informações sobre o agente da VM, consulte [extensões – parte 1 e o agente da VM](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Um dos ad extensões instaladas predefinido em execução é a extensão "BGINFO" que é apresentada no ambiente de trabalho VM, as informações do sistema, tais como IP internos e espaço no disco livre.
-9. Clique em Concluir. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+9. Clique em Concluir. ![OK](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. O **estado** da VM, apresenta como **inicial (aprovisionamento)** durante o processo de aprovisionamento e, em seguida, é apresentado como **executar** quando a VM está aprovisionado e pronta a utilizar.
 
 ## <a name="step-2-create-a-server-certificate"></a>Passo 2: Criar um certificado de servidor
@@ -546,7 +546,7 @@ Para verificar que a porta é aberta, abra uma janela do Windows PowerShell e ex
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a>Verifique a configuração
+## <a name="verify-the-configuration"></a>Verificar a configuração
 Para verificar se a funcionalidade de servidor de relatório básico agora está a funcionar, abra o browser com privilégios administrativos e, em seguida, navegue até à seguinte relatório Gestor de servidor ad relatório URLS:
 
 * Na VM, navegue para o URL do servidor de relatório:

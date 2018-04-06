@@ -1,8 +1,8 @@
 ---
 title: Trabalhar com dados geoespacial do BD Azure Cosmos | Microsoft Docs
-description: "Compreenda como criar, índice e consultar geográficos objetos com base de dados do Azure Cosmos e a API do SQL Server."
+description: Compreenda como criar, índice e consultar geográficos objetos com base de dados do Azure Cosmos e a API do SQL Server.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: monicar
@@ -16,10 +16,10 @@ ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3e778f4a9b7ec4935d53eb335462f3c414ff99cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Trabalhar com dados de localização de GeoJSON do BD Azure Cosmos e geoespacial
 Este artigo é uma introdução para a funcionalidade de geoespacial no [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Depois de ler este artigo, poderá responder às seguintes questões:
@@ -159,7 +159,7 @@ BD do Azure do Cosmos suporta as seguintes funções incorporadas abra Geoespaci
 
 <table>
 <tr>
-  <td><strong>Utilização</strong></td>
+  <td><strong>Usage</strong></td>
   <td><strong>Descrição</strong></td>
 </tr>
 <tr>
@@ -391,7 +391,7 @@ E Eis como pode modificar uma coleção existente para tirar partido de indexaç
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Nolearned que tiver learnt sobre como começar com suporte de geoespacial do BD Azure Cosmos, pode:
 
 * Iniciar a codificação com a [exemplos de código Geoespacial .NET no GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)

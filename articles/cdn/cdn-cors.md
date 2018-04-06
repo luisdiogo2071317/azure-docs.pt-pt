@@ -1,11 +1,11 @@
 ---
 title: Utilizar a CDN do Azure com a CORS | Microsoft Docs
-description: "Saiba como utilizar o Azure entrega rede conteúdos (CDN) para com-transversal Resource Sharing (CORS)."
+description: Saiba como utilizar o Azure entrega rede conteúdos (CDN) para com-transversal Resource Sharing (CORS).
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="using-azure-cdn-with-cors"></a>Utilizar a CDN do Azure com a CORS
 ## <a name="what-is-cors"></a>O que é CORS?
@@ -29,7 +29,7 @@ Existem dois tipos de pedidos CORS, *pedidos simples* e *pedidos complexos.*
 
 ### <a name="for-simple-requests"></a>Para pedidos simples:
 
-1. O browser envia o pedido CORS com mais **origem** cabeçalho de pedido HTTP. O valor do cabeçalho é a origem servido a página principal, que é definida como a combinação de *protocolo,* *domínio,* e *porta.*  Quando uma página de https://www.contoso.com tenta aceder a dados de um utilizador na origem fabrikam.com, o seguinte cabeçalho de pedido seria enviado para fabrikam.com:
+1. O browser envia o pedido CORS com mais **origem** cabeçalho de pedido HTTP. O valor do cabeçalho é a origem servido a página principal, que é definida como a combinação de *protocolo,* *domínio,* e *porta.*  Quando uma página de https://www.contoso.com tenta aceder a dados de um utilizador na origem fabrikam.com, o seguinte cabeçalho de pedido seria enviada para fabrikam.com:
 
    `Origin: https://www.contoso.com`
 

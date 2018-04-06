@@ -1,9 +1,9 @@
 ---
-title: "O que é Apache Hive e o HiveQL - Azure HDInsight | Microsoft Docs"
-description: "Apache Hive é um sistema de armazém de dados para o Hadoop. Pode consultar os dados armazenados no ramo de registo utilizando o HiveQL, que semelhante para Transact-SQL. Neste documento, saiba como utilizar o Hive e o HiveQL com o Azure HDInsight."
-keywords: "hiveql, o que é o hive, hiveql do hadoop, como utilizar o hive, saiba ramo de registo, o que é o ramo de registo"
+title: O que é Apache Hive e o HiveQL - Azure HDInsight | Microsoft Docs
+description: Apache Hive é um sistema de armazém de dados para o Hadoop. Pode consultar os dados armazenados no ramo de registo utilizando o HiveQL, que semelhante para Transact-SQL. Neste documento, saiba como utilizar o Hive e o HiveQL com o Azure HDInsight.
+keywords: hiveql, o que é o hive, hiveql do hadoop, como utilizar o hive, saiba ramo de registo, o que é o ramo de registo
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 01/26/2018
 ms.author: larryfr
 ms.openlocfilehash: afd2bc95beb2458ec149824723ec62381b31b2da
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é Apache Hive e o HiveQL no Azure HDInsight?
 
@@ -78,7 +78,7 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Ramo de registo também suporta personalizada **serializador/deserializers (SerDe)** para dados complexos ou irregularly structured. Para obter mais informações, consulte o [como utilizar um SerDe JSON personalizado com o HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) documento.
 
-Para obter mais informações sobre os formatos de ficheiro suportados pelo ramo de registo, consulte o [manual de idioma (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+Para obter mais informações sobre os formatos de ficheiro suportados pelo ramo de registo, consulte o [(manual de idiomahttps://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
 ### <a name="hive-internal-tables-vs-external-tables"></a>Tabelas externas do vs tabelas interno de ramo de registo
 

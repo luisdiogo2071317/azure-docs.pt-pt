@@ -1,11 +1,11 @@
 ---
-title: "Transações no SQL Data Warehouse | Microsoft Docs"
-description: "Sugestões para implementar as transações no Azure SQL Data Warehouse para desenvolver soluções."
+title: Transações no SQL Data Warehouse | Microsoft Docs
+description: Sugestões para implementar as transações no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ae621788-e575-41f5-8bfe-fa04dc4b0b53
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>Transações no SQL Data Warehouse
 Como seria de esperar, o armazém de dados SQL suporta transações como parte da carga de trabalho de armazém de dados. No entanto, para garantir que o desempenho do armazém de dados do SQL Server é mantido na escala algumas funcionalidades estão limitadas quando comparado com o SQL Server. Este artigo realça as diferenças e apresenta uma lista de outros. 
@@ -175,7 +175,7 @@ Estas são as seguintes:
 * Não existem transações marcadas
 * Sem suporte de DDL como `CREATE TABLE` dentro de um utilizador definido transação
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre a otimização de transações, consulte [transações melhores práticas][Transactions best practices].  Para mais informações sobre outros procedimentos recomendados de armazém de dados do SQL Server, consulte o artigo [melhores práticas do SQL Data Warehouse][SQL Data Warehouse best practices].
 
 <!--Image references-->
