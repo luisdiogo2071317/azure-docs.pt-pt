@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: kumud
-ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Descrição geral do padrão de Balanceador de carga do Azure
 
@@ -43,7 +43,7 @@ Recursos de Balanceador de carga são objetos dentro do qual pode express como o
 
 ## <a name="why-use-standard-load-balancer"></a>Porquê utilizar o padrão de Balanceador de carga?
 
-Pode utilizar o padrão de Balanceador de carga para o intervalo completo de centros de dados virtual, de implementações de pequena escala para arquiteturas de zona multi grande e complexas.
+Balanceador de carga padrão permite-lhe dimensionar as suas aplicações e criar elevada disponibilidade para implementações de pequena escala em arquiteturas de zona multi grande e complexas.
 
 Reveja a tabela abaixo para obter uma descrição geral das diferenças entre padrão Balanceador de carga e básico Balanceador de carga:
 
@@ -224,7 +224,7 @@ Padrão de Balanceador de carga é um produto cobrado com base no número de reg
 - [Alertas de monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) não são suportados neste momento.
 - [Move operações de subscrição](../azure-resource-manager/resource-group-move-resources.md) não são suportadas para recursos padrão LB de SKU e PIP.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como utilizar [padrão Balanceador de carga e zonas de disponibilidade](load-balancer-standard-availability-zones.md)
 - Saiba mais sobre [disponibilidade zonas](../availability-zones/az-overview.md).

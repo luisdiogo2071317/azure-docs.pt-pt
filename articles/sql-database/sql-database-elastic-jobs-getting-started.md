@@ -1,6 +1,6 @@
 ---
-title: "Introdução às tarefas de bases de dados elásticas | Microsoft Docs"
-description: "Utilize tarefas de bases de dados elásticas para executar scripts T-SQL que abrangem várias bases de dados."
+title: Introdução às tarefas de bases de dados elásticas | Microsoft Docs
+description: Utilize tarefas de bases de dados elásticas para executar scripts T-SQL que abrangem várias bases de dados.
 services: sql-database
 manager: craigg
 author: stevestein
@@ -9,11 +9,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: sstein
-ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 85fd04966822f8dd6a0c3086002e4388411d1051
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introdução às tarefas de base de dados elástica
 As tarefas de base de dados elásticas (pré-visualização) para a SQL Database do Azure permite-lhe fiável executar scripts T-SQL que abrangem várias bases de dados ao repetir e fornecer garantias de conclusão de uma eventual automaticamente. Para obter mais informações sobre a funcionalidade de tarefa de bases de dados elásticas, consulte [as tarefas elásticas](sql-database-elastic-jobs-overview.md).
@@ -460,7 +460,7 @@ Todas as linhas da **clientes** tabela, armazenada em diferentes shards preenche
 Agora, pode utilizar as funções do dados do Excel. Utilize a cadeia de ligação com o nome do servidor, nome de base de dados e as credenciais para ligar as ferramentas de integração do BI e os dados na base de dados elásticas consulta. Certifique-se de que o SQL Server é suportada como uma origem de dados para a ferramenta. Consulte a base de dados elásticas consultas e tabelas externas, tal como qualquer outra base de dados do SQL Server e tabelas de SQL Server que seria se ligam a com a ferramenta.
 
 ### <a name="cost"></a>Custo
-Não há sem encargos adicionais para utilizar a funcionalidade de consulta de base de dados elásticas. No entanto, neste momento, esta funcionalidade só está disponível no bases de dados premium como um ponto final, mas os shards podem ser de qualquer camada de serviço.
+Não há sem encargos adicionais para utilizar a funcionalidade de consulta de base de dados elásticas. No entanto, neste momento, esta funcionalidade só está disponível no negócio crítico (pré-visualização) e Premium bases de dados e conjuntos elásticos como um ponto final, mas os shards podem ser de qualquer camada de serviço.
 
 Para obter informações sobre preços, consulte [detalhes de preços de base de dados do SQL Server](https://azure.microsoft.com/pricing/details/sql-database/).
 

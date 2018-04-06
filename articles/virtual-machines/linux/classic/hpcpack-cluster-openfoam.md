@@ -1,11 +1,11 @@
 ---
 title: Executar OpenFOAM com o HPC Pack em VMs do Linux | Microsoft Docs
-description: "Implementar um cluster do Microsoft HPC Pack no Azure e executar uma tarefa de OpenFOAM em vários nós de computação do Linux através de uma rede RDMA."
+description: Implementar um cluster do Microsoft HPC Pack no Azure e executar uma tarefa de OpenFOAM em vários nós de computação do Linux através de uma rede RDMA.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: c0bb1637-bb19-48f1-adaa-491808d3441f
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f43790d3495e1c09730e90b5077ec840731a7d83
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Executar o OpenFoam com o Microsoft HPC Pack num cluster RDMA do Linux no Azure
 Este artigo mostra-lhe uma forma de executar OpenFoam em máquinas virtuais do Azure. Aqui, implementar um cluster do Microsoft HPC Pack connosco de computação do Linux no Azure e execute um [OpenFoam](http://openfoam.com/) tarefa com Intel MPI. Pode utilizar o rdma e as VMs do Azure para os nós de computação, para que os nós de computação comunicam através da rede de Azure RDMA. Outras opções para executar OpenFoam no Azure incluem totalmente configuradas comerciais as imagens disponíveis no mercado, tais como do UberCloud [OpenFoam 2.3 6 do CentOS](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/)e em execução no [do Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -267,9 +267,9 @@ Neste passo, cria um ficheiro do anfitrião (uma lista de nós de computação) 
    
    1. Configura as variáveis de ambiente para **mpirun**e alguns parâmetros de comando de adição para executar a tarefa MPI através da rede RDMA. Neste caso, define as seguintes variáveis:
       
-      * I_MPI_FABRICS = shm:dapl
-      * I_MPI_DAPL_PROVIDER = ofa-v2-ib0
-      * I_MPI_DYNAMIC_CONNECTION = 0
+      * I_MPI_FABRICS=shm:dapl
+      * I_MPI_DAPL_PROVIDER=ofa-v2-ib0
+      * I_MPI_DYNAMIC_CONNECTION=0
    2. Cria um ficheiro de anfitriões, de acordo com o ambiente de variável $CCP_NODES_CORES, que é definida por nó principal do HPC quando a tarefa está ativada.
       
       O formato do $CCP_NODES_CORES segue este padrão:
@@ -280,9 +280,9 @@ Neste passo, cria um ficheiro do anfitrião (uma lista de nós de computação) 
       
       onde
       
-      * `<Number of nodes>`-o número de nós atribuídos a esta tarefa.  
-      * `<Name of node_n_...>`-o nome de cada nó atribuído a esta tarefa.
-      * `<Cores of node_n_...>`-o número de núcleos no nó atribuído a esta tarefa.
+      * `<Number of nodes>` -o número de nós atribuídos a esta tarefa.  
+      * `<Name of node_n_...>` -o nome de cada nó atribuído a esta tarefa.
+      * `<Cores of node_n_...>` -o número de núcleos no nó atribuído a esta tarefa.
       
       Por exemplo, se a tarefa tem dois nós para executar, $CCP_NODES_CORES é semelhante a
       
@@ -291,8 +291,8 @@ Neste passo, cria um ficheiro do anfitrião (uma lista de nós de computação) 
       ```
    3. As chamadas a **mpirun** de comandos e acrescenta dois parâmetros para a linha de comandos.
       
-      * `--hostfile <hostfilepath>: <hostfilepath>`-o caminho do ficheiro anfitrião cria o script
-      * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}`-uma variável de ambiente definida pelo pacote HPC nó principal do, que armazena o número de núcleos totais atribuído a esta tarefa. Neste caso, especifica o número de processos para **mpirun**.
+      * `--hostfile <hostfilepath>: <hostfilepath>` -o caminho do ficheiro anfitrião cria o script
+      * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` -uma variável de ambiente definida pelo pacote HPC nó principal do, que armazena o número de núcleos totais atribuído a esta tarefa. Neste caso, especifica o número de processos para **mpirun**.
 
 ## <a name="submit-an-openfoam-job"></a>Submeter uma tarefa de OpenFOAM
 Agora pode submeter uma tarefa no Gestor de clusters HPC. Tem de passar o script hpcimpirun.sh as linhas de comando para algumas das tarefas de tarefa.
@@ -305,7 +305,7 @@ Agora pode submeter uma tarefa no Gestor de clusters HPC. Tem de passar o script
    ![Detalhes da tarefa][job_details]
 5. No **recursos da tarefa**, escolha o tipo de recurso como "Nó" e defina o mínimo para 2. Esta configuração é executada a tarefa em dois nós do Linux, cada um dos quais tiver oito núcleos neste exemplo.
    
-   ![Recursos de tarefa][job_resources]
+   ![Recursos da tarefa][job_resources]
 6. Clique em **editar tarefas** na navegação à esquerda e, em seguida, clique em **adicionar** para adicionar uma tarefa para a tarefa. Adicione quatro tarefas para a tarefa com as seguintes definições e as linhas de comandos.
    
    > [!NOTE]
@@ -344,7 +344,7 @@ Agora pode submeter uma tarefa no Gestor de clusters HPC. Tem de passar o script
    
    Por predefinição, o HPC Pack submete a tarefa como a sua conta de utilizador com sessão iniciada atual. Depois de clicar em **submeter**, poderá ver uma caixa de diálogo que lhe pede para introduzir o nome de utilizador e palavra-passe.
    
-   ![Credenciais de tarefa][creds]
+   ![Credenciais da tarefa][creds]
    
    Em algumas condições, o HPC Pack memorizou as informações do utilizador antes de entrada e não mostrar esta caixa de diálogo. Para tornar o HPC Pack voltar a mostrar, introduza o seguinte comando numa linha de comandos e, em seguida, submeter a tarefa.
    
@@ -364,7 +364,7 @@ Agora pode submeter uma tarefa no Gestor de clusters HPC. Tem de passar o script
 Opcionalmente, utilize [EnSight](https://www.ceisoftware.com/) para visualizar e analisar os resultados da tarefa OpenFOAM. Para obter mais informações sobre a visualização e animação no EnSight, consulte este [guia vídeo](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
 
 1. Depois de instalar EnSight no nó principal, inicie-o.
-2. Abra C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.
+2. Open C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.
    
    Verá um tank no Visualizador.
    

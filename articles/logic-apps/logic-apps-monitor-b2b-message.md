@@ -1,11 +1,11 @@
 ---
-title: "Monitorizar B2B transações e configurar o registo - Azure Logic Apps | Microsoft Docs"
-description: "Monitor AS2, X12 e mensagens EDIFACT, iniciar o registo de diagnóstico para a sua conta de integração"
+title: Monitorizar B2B transações e configurar o registo - Azure Logic Apps | Microsoft Docs
+description: Monitor AS2, X12 e mensagens EDIFACT, iniciar o registo de diagnóstico para a sua conta de integração
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -15,22 +15,22 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f717dae9a70a96944b623f22b90cf8c5a943f382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6afab12b9e2d6e8686ecbc95be9743afbe70d98c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>Monitorizar e configurar o registo de diagnóstico para a comunicação de B2B em contas de automatização
 
-Após configurar a comunicação de B2B entre duas a executar os processos de negócios ou aplicações através da sua conta de integração, estas entidades podem trocar mensagens entre si. Para confirmar esta comunicação funciona conforme esperado, pode configurar a monitorização para AS2, X12, e EDIFACT mensagens, juntamente com o registo de diagnóstico para a sua conta de integração através de [Log Analytics do Azure](../log-analytics/log-analytics-overview.md) serviço. Este serviço em [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) monitoriza a sua nuvem e no local ambientes, ajudando-o a manter a respetiva disponibilidade e desempenho e também recolhe eventos de depuração mais rico e detalhes do tempo de execução. Também pode [utilizar os dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o Storage do Azure e Event Hubs do Azure.
+Após configurar a comunicação de B2B entre duas a executar os processos de negócios ou aplicações através da sua conta de integração, estas entidades podem trocar mensagens entre si. Para confirmar esta comunicação funciona conforme esperado, pode configurar a monitorização para AS2, X12, e EDIFACT mensagens, juntamente com o registo de diagnóstico para a sua conta de integração através de [Log Analytics do Azure](../log-analytics/log-analytics-overview.md) serviço. Este serviço monitoriza a sua nuvem e no local ambientes, ajudando-o a manter a respetiva disponibilidade e desempenho e também recolhe eventos de depuração mais rico e detalhes do tempo de execução. Também pode [utilizar os dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o Storage do Azure e Event Hubs do Azure.
 
 ## <a name="requirements"></a>Requisitos
 
 * Uma aplicação lógica que esteja configurada com o registo de diagnóstico. Saiba [como configurar o registo para essa aplicação lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
   > [!NOTE]
-  > Após cumprir este requisito, deve ter uma área de trabalho a [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Deve utilizar a área de trabalho do OMS mesma quando configurou o registo para a sua conta de integração. Se não tiver uma área de trabalho do OMS, saiba [como criar uma área de trabalho do OMS](../log-analytics/log-analytics-get-started.md).
+  > Após cumprir este requisito, deve ter uma área de trabalho na análise de registos. Deve utilizar o mesmo espaço de trabalho de análise de registos quando configurou o registo para a sua conta de integração. Se não tiver uma área de trabalho de análise de registos, saiba [como criar uma área de trabalho de análise de registos](../log-analytics/log-analytics-quick-create-workspace.md).
 
 * Uma conta de integração que está ligada à sua aplicação lógica. Saiba [como criar uma conta de integração com uma ligação à sua aplicação lógica](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -58,17 +58,17 @@ Pode ativar o registo a diretamente a partir da sua conta de integração ou [at
 
    ![Ativar o diagnóstico do Azure](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Agora pode selecione a área de trabalho OMS e os dados a utilizar para o registo, conforme mostrado:
+4. Agora pode selecione a área de trabalho de análise de registos e os dados a utilizar para o registo, conforme mostrado:
 
    1. Selecione **enviar ao Log Analytics**. 
    2. Em **Log Analytics**, escolha **configurar**. 
-   3. Em **áreas de trabalho do OMS**, selecione a área de trabalho do OMS a utilizar para o registo.
+   3. Em **áreas de trabalho do OMS**, selecione a área de trabalho de análise de registos a utilizar para o registo.
    4. Em **registo**, selecione o **IntegrationAccountTrackingEvents** categoria.
    5. Escolha **Guardar**.
 
    ![Configurar a análise de registos para que pode enviar dados de diagnóstico para um registo](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Agora [configurar o controlo para as mensagens B2B no OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+5. Agora [configurar o controlo para as mensagens B2B na análise de registos](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 <a name="azure-monitor-service"></a>
 
@@ -92,17 +92,17 @@ Pode ativar o registo a diretamente a partir da sua conta de integração ou [at
 
    ![Ativar o diagnóstico do Azure](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Agora selecione a categoria de área de trabalho e de eventos do OMS para o registo conforme mostrado:
+4. Agora selecione a categoria de área de trabalho e eventos de análise de registos para o registo, conforme mostrado:
 
    1. Selecione **enviar ao Log Analytics**. 
    2. Em **Log Analytics**, escolha **configurar**. 
-   3. Em **áreas de trabalho do OMS**, selecione a área de trabalho do OMS a utilizar para o registo.
+   3. Em **áreas de trabalho do OMS**, selecione a área de trabalho de análise de registos a utilizar para o registo.
    4. Em **registo**, selecione o **IntegrationAccountTrackingEvents** categoria.
-   5. Quando tiver terminado, escolha **guardar**.
+   5. Quando tiver terminado, escolha **Save** (Guardar).
 
    ![Configurar a análise de registos para que pode enviar dados de diagnóstico para um registo](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Agora [configurar o controlo para as mensagens B2B no OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+5. Agora [configurar o controlo para as mensagens B2B na análise de registos](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Expandir como e onde utiliza dados de diagnóstico com outros serviços
 
@@ -131,8 +131,8 @@ Azure suporta estes tipos de esquema, que corrigir esquemas, exceto o tipo perso
 * [Esquemas de controlo de X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Personalizar esquema de controlo](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Controlar as mensagens B2B no OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "mensagens B2B controlar no OMS")
+* [Controlar as mensagens B2B na análise de registos](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "mensagens B2B controlar no OMS")
 * [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o pacote de integração do Enterprise")
 

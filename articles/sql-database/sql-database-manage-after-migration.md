@@ -1,6 +1,6 @@
 ---
-title: "Gerir após a migração - SQL Database do Azure | Microsoft Docs"
-description: "Saiba como gerir a sua base de dados após a migração para a SQL Database do Azure."
+title: Gerir após a migração - SQL Database do Azure | Microsoft Docs
+description: Saiba como gerir a sua base de dados após a migração para a SQL Database do Azure.
 services: sql-database
 author: joesackmsft
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 4e50a1be3437ab1b027c1ca0f160402239e13e92
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na nuvem – gerir a sua base de dados SQL Database do Azure
 
-Mover o tradicionais de automática gerido, ambiente controlado personalizada para um ambiente de PaaS pode parecer um pouco complicado em primeiro lugar. Como um programador de aplicações ou DBA, iria querer saber as capacidades centrais da plataforma que iria ajudar a manter a sua aplicação disponível, performant, segura e que sejam resiliente - sempre. Este artigo visa fazê-lo exatamente. O artigo succinctly organiza recursos e dá-lhe algumas orientações sobre a melhor utilização principais funcionalidades da base de dados do SQL Server para gerir e manter a sua aplicação em execução de forma eficiente e obter os melhores resultados na nuvem. Típico público-alvo para este artigo seria aqueles que:-
+Mover o tradicionais de automática gerido, ambiente controlado personalizada para um ambiente de PaaS pode parecer um pouco complicado em primeiro lugar. Como um programador de aplicações ou DBA, iria querer saber as capacidades centrais da plataforma que iria ajudar a manter a sua aplicação disponível, performant, segura e que sejam resiliente - sempre. Este artigo visa fazê-lo exatamente. O artigo succinctly organiza recursos e dá-lhe algumas orientações sobre a melhor utilização principais funcionalidades da base de dados do SQL Server para gerir e manter a sua aplicação em execução de forma eficiente e obter os melhores resultados na nuvem. Típico público-alvo para este artigo seria aqueles que: 
 - Estiver a avaliar a migração da sua aplicação (ões) para a BD SQL do Azure – Modernizing a sua aplicação (ões).
 - São no processo de migrar as respetivas aplicações – o cenário de migração em curso.
 - Recentemente concluiu a migração para a BD SQL do Azure – DBA novos na nuvem.

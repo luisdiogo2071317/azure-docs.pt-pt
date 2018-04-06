@@ -1,8 +1,8 @@
 ---
-title: "Utilizar a análise de registos para monitorizar clusters do HDInsight do Azure | Microsoft Docs"
-description: "Saiba como utilizar Log Analytics do Azure para monitorizar tarefas em execução num HDInsight cluster."
+title: Utilizar a análise de registos para monitorizar clusters do HDInsight do Azure | Microsoft Docs
+description: Saiba como utilizar Log Analytics do Azure para monitorizar tarefas em execução num HDInsight cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 2c43b9aabda56e1204870575e86934bf93d05882
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: be71b065999c30546432895804df8633da21b43e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Utilizar Log Analytics do Azure para monitorizar clusters do HDInsight
 
 Saiba como utilizar Log Analytics do Azure para monitorizar as operações de cluster de Hadoop no HDInsight.
 
-[Análise de registo](../log-analytics/log-analytics-overview.md) é um serviço no [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) que monitoriza a sua nuvem e no local ambientes para manter a respetiva disponibilidade e desempenho. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens. 
+[Análise de registo](../log-analytics/log-analytics-overview.md) é um serviço que monitoriza a sua nuvem e no local ambientes para manter a respetiva disponibilidade e desempenho. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma subscrição do Azure**. Antes de começar este tutorial, tem de ter uma subscrição do Azure. Veja o artigo [Crie hoje a sua conta do Azure gratuita](https://azure.microsoft.com/free).
 
-* **Um cluster do Azure HDInsight**. Atualmente, pode utilizar o Azure Operations Management Suite com os seguintes tipos de cluster do HDInsight:
+* **Um cluster do Azure HDInsight**. Atualmente, pode utilizar a análise de registos com os seguintes tipos de cluster do HDInsight:
 
     * Hadoop
     * HBase

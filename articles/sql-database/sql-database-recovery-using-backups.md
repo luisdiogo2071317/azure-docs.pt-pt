@@ -1,19 +1,20 @@
 ---
-title: "Restaurar uma base de dados SQL do Azure a partir de uma cópia de segurança | Microsoft Docs"
-description: "Saiba mais sobre o restauro de ponto no tempo, o que permite-lhe reverter a uma base de dados do SQL do Azure para um ponto anterior no tempo (até 35 dias)."
+title: Restaurar uma base de dados SQL do Azure a partir de uma cópia de segurança | Microsoft Docs
+description: Saiba mais sobre o restauro de ponto no tempo, o que permite-lhe reverter a uma base de dados do SQL do Azure para um ponto anterior no tempo (até 35 dias).
 services: sql-database
-author: CarlRabeler
+author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 02/13/2018
-ms.author: carlrab
-ms.openlocfilehash: d2cc2e44c13750b654e2d6acf39d4f6a80cac98a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/04/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure através de cópias de segurança da base de dados automatizada
 Base de dados do SQL Server fornece estas opções para a base de dados de recuperação utilizando [cópias de segurança da base de dados automatizadas](sql-database-automated-backups.md) e [cópias de segurança no retenção de longo prazo](sql-database-long-term-retention.md). Pode restaurar a partir de uma cópia de segurança da base de dados para:
@@ -30,7 +31,7 @@ Uma base de dados restaurada implica um custo de armazenamento adicional nas seg
 - Restaure de P11 – P15 S4 S12 ou P1 – P6 se o tamanho máximo da base de dados é maior do que 500 GB.
 - Restaure de P1 – P6 para S4 S12 se o tamanho máximo da base de dados for superior a 250 GB.
 
-O extra custo é porque o tamanho máximo da base de dados restaurada é maior do que a quantidade de armazenamento incluído para o nível de desempenho e qualquer aprovisionado superior a quantidade incluída de armazenamento adicional é cobrado extra.  Para detalhes de armazenamento adicional de preços, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/).  Se a quantidade real de espaço utilizado é inferior à quantidade de armazenamento incluído, em seguida, este custo extra pode ser evitada ao reduzir o tamanho máximo da base de dados para a quantidade incluída. Para obter mais informações sobre os tamanhos de armazenamento de base de dados e alterar o tamanho máximo da base de dados, consulte [única dos limites de recursos de base de dados](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+O extra custo é porque o tamanho máximo da base de dados restaurada é maior do que a quantidade de armazenamento incluído para o nível de desempenho e qualquer aprovisionado superior a quantidade incluída de armazenamento adicional é cobrado extra.  Para detalhes de armazenamento adicional de preços, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/).  Se a quantidade real de espaço utilizado é inferior à quantidade de armazenamento incluído, em seguida, este custo extra pode ser evitada ao reduzir o tamanho máximo da base de dados para a quantidade incluída. Para obter mais informações sobre os tamanhos de armazenamento de base de dados e alterar o tamanho máximo da base de dados, consulte [única dos limites de DTU com base em recursos de base de dados](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) e [única base de dados recursos baseados em vCore limites](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 
 > [!NOTE]
 > [Cópias de segurança da base de dados automatizadas](sql-database-automated-backups.md) são utilizados quando cria um [cópia da base de dados](sql-database-copy.md). 
@@ -117,7 +118,7 @@ Georrestauro é a opção de recuperação predefinida quando a base de dados n�
 Restauro de ponto no tempo numa secundária georreplicação não é atualmente suportado. Restauro de ponto no tempo pode ser feito apenas numa base de dados principal. Para obter informações detalhadas sobre como utilizar georrestauro para recuperar a partir de uma falha, consulte [recuperar a partir de uma falha](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Recuperação a partir de cópias de segurança é mais básica das soluções de recuperação após desastre disponíveis na base de dados do SQL Server com o objetivo de ponto de recuperação mais longo (RPO) e o tempo de recuperação de estimativa (ERT). Para soluções que utilizam as bases de dados básicas, georrestauro é frequentemente uma solução de DR razoável com um ERT de 12 horas. Para soluções que utilizam Standard ou Premium bases de dados maiores que necessitam de mais curtos tempos de recuperação, deve considerar a utilização [georreplicação ativa](sql-database-geo-replication-overview.md). Replicação geográfica activa oferece um RPO e ERT muito inferior porque apenas requer inicie uma ativação pós-falha para uma secundária continuamente replicada. Para obter mais informações sobre as opções de continuidade do negócio, consulte [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
+> Recuperação a partir de cópias de segurança é mais básica das soluções de recuperação após desastre disponíveis na base de dados do SQL Server com o objetivo de ponto de recuperação mais longo (RPO) e o tempo de recuperação de estimativa (ERT). Para soluções que utilizam bases de dados de tamanho pequeno (camada de serviço por exemplo, básico ou tamanho pequeno bases de dados em conjuntos elásticos de inquilino), georrestauro é frequentemente uma solução de DR razoável com um ERT de 12 horas. Para soluções utilizando bases de dados grandes e necessitam de recuperação mais curta vezes, deve considerar a utilização [ativação pós-falha de grupos e a georreplicação ativa](sql-database-geo-replication-overview.md). Replicação geográfica activa oferece um RPO e ERT muito inferior porque apenas requer inicie uma ativação pós-falha para uma secundária continuamente replicada. Para obter mais informações sobre as opções de continuidade do negócio, consulte [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
 > 
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -149,6 +150,5 @@ Cópias de segurança automáticas proteger as bases de dados de utilizador e er
 ## <a name="next-steps"></a>Passos Seguintes
 * Para cenários e uma descrição geral de continuidade de negócio, consulte [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
 * Para saber mais sobre o SQL do Azure, base de dados automática de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md).
-* Para saber mais sobre a retenção de cópias de segurança de longa duração, consulte [retenção de cópias de segurança de longa duração](sql-database-long-term-retention.md).
-* Para configurar, gerir e restaurar a partir de retenção de longo prazo de automática cópias de segurança num cofre dos serviços de recuperação do Azure no portal do Azure, consulte [configurar e a utilização de longa duração de cópia de segurança retenção](sql-database-long-term-backup-retention-configure.md). 
+* Para saber mais sobre a retenção de longo prazo, consulte [retenção de longo prazo](sql-database-long-term-retention.md).
 * Para saber mais sobre as opções de recuperação mais rápidas, consulte [ativação pós-falha de grupos e a georreplicação ativa](sql-database-geo-replication-overview.md).  

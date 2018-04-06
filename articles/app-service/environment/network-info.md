@@ -1,6 +1,6 @@
 ---
-title: "Considerações de redes com um ambiente do App Service do Azure"
-description: "Explica o tráfego de rede ASE e como definir os NSGs e UDRs com seu ASE"
+title: Considerações de redes com um ambiente do App Service do Azure
+description: Explica o tráfego de rede ASE e como definir os NSGs e UDRs com seu ASE
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre o funcionamento em rede para um ambiente de serviço de aplicações #
 
@@ -163,7 +163,7 @@ Os primeiro dois requisitos de entrada para ASE para a função são apresentado
 
 ![Regras de segurança de entrada][4]
 
-Uma regra predefinida permite que os IPs na VNet para que comunique com a sub-rede ASE. Outra regra predefinida permite que o Balanceador de carga, também conhecido como o VIP público, para comunicar com o ASE. Para ver as regras predefinidas, selecione **predefinido regras** junto a **adicionar** ícone. Se o put um Negar tudo o resto da regra depois do NSG regras apresentadas, impedir que o tráfego entre o VIP e o ASE. Para impedir o tráfego proveniente de dentro da VNet, adicione as suas próprias regras para permitir a entrada. Utilizar uma origem igual a AzureLoadBalancer com um destino **qualquer** e um intervalo de portas de  **\*** . Porque a regra NSG é aplicada à sub-rede ASE, não precisa de ser específico no destino.
+Uma regra predefinida permite que os IPs na VNet para que comunique com a sub-rede ASE. Outra regra predefinida permite que o Balanceador de carga, também conhecido como o VIP público, para comunicar com o ASE. Para ver as regras predefinidas, selecione **predefinido regras** junto a **adicionar** ícone. Se o put um Negar tudo o resto da regra depois do NSG regras apresentadas, impedir que o tráfego entre o VIP e o ASE. Para impedir o tráfego proveniente de dentro da VNet, adicione as suas próprias regras para permitir a entrada. Utilizar uma origem igual a AzureLoadBalancer com um destino **qualquer** e um intervalo de portas de **\***. Porque a regra NSG é aplicada à sub-rede ASE, não precisa de ser específico no destino.
 
 Se atribuir um endereço IP para a sua aplicação, certifique-se de que mantém as portas abertas. Para ver as portas, selecione **ambiente de serviço de aplicações** > **endereços IP**.  
 
@@ -175,31 +175,10 @@ Depois de definidos os NSGs, atribua-lhes para a sub-rede no seu ASE. Não se le
 
 ## <a name="routes"></a>Rotas ##
 
-As rotas são um aspeto fundamental do conceito de túnel forçado e de como lidar com o mesmo. Numa rede virtual do Azure, o encaminhamento é feito com base no LPM (Longest Prefix Match). Se houver mais de uma rota com a mesma correspondência LPM, uma rota é selecionada com base na respetiva origem pela seguinte ordem:
+Imposição do túnel é quando definir rotas na sua VNet para que o tráfego de saída não aceda diretamente à internet, mas em qualquer outro como um gateway ExpressRoute ou de uma aplicação virtual local.  Se precisar de configurar o seu ASE de tal forma, em seguida, continue a ler o documento [configurar o ambiente de serviço de aplicações com a imposição do túnel][forcedtunnel].  Este documento indicam as opções disponíveis para trabalhar com o ExpressRoute e de imposição do túnel.
 
-- Rota definida pelo utilizador (UDR)
-- Rota BGP (quando é utilizado o ExpressRoute)
-- Rota de sistema
-
-Para saber mais sobre o encaminhamento numa rede virtual, veja [Rotas definidas pelo utilizador e reencaminhamento IP][UDRs].
-
-A base de dados SQL do Azure que o ASE utiliza para gerir o sistema tem uma firewall. Necessita de comunicação de VIP ASE público. Ligações à base de dados SQL a partir de ASE serão rejeitadas se são enviadas para baixo a ligação do ExpressRoute e out outro endereço IP.
-
-Se as respostas para pedidos recebidos de gestão são enviadas para baixo o ExpressRoute, o endereço de resposta é diferente do destino original. Este erro de correspondência interrompe a comunicação de TCP.
-
-Para sua ASE funcionar enquanto a VNet está configurada com o ExpressRoute, a mais fácil coisa a fazer é:
-
--   Configurar o ExpressRoute para anunciar _0.0.0.0/0_. Por predefinição, aplica um túnel forçado a todo o tráfego de saída no local.
--   Criar um UDR. Aplicá-la para a sub-rede que contém o ASE com um prefixo de endereço de _0.0.0.0/0_ e tipo de um próximo salto _Internet_.
-
-Se efetuar estas duas alterações, o tráfego destinado de internet que origina da sub-rede ASE não é forçado para baixo o ExpressRoute e a ASE funciona. 
-
-> [!IMPORTANT]
-> As rotas definidas num UDR têm de ser suficientemente específicas para terem precedência sobre quaisquer rotas anunciadas pela configuração do ExpressRoute. O exemplo anterior utiliza o intervalo de endereços abrangente 0.0.0.0/0. Podem ser potencialmente substituídas por acidente por anúncios de rota que utilizam intervalos de endereço mais específicos.
->
-> ASEs não são suportadas com configurações de ExpressRoute que cross-anunciam rotas do caminho de peering de público para o caminho de peering de privada. As configurações do ExpressRoute com o peering público configurado recebem anúncios de rota da Microsoft. Os anúncios contêm um vasto conjunto de intervalos de endereços IP do Microsoft Azure. Se os intervalos de endereços entre anunciados no caminho de peering de privada, todos os pacotes de rede de saída da sub-rede a ASE são force em túnel à infraestrutura de rede no local do cliente. Este fluxo de rede não é suportado com ASEs. Uma solução para este problema é deixar de anunciar transversalmente as rotas do caminho de peering público para o caminho de peering privado.
-
-Para criar um UDR, siga estes passos:
+Quando criar ASE no portal também criamos um conjunto de tabelas de rota na sub-rede que é criada com o ASE.  As rotas simplesmente dizem enviar tráfego de saída diretamente à internet.  
+Para criar manualmente as rotas mesmas, siga estes passos:
 
 1. Aceda ao portal do Azure. Selecione **redes** > **tabelas de rotas**.
 
@@ -217,17 +196,15 @@ Para criar um UDR, siga estes passos:
 
     ![Os NSGs e as rotas][7]
 
-### <a name="deploy-into-existing-azure-virtual-networks-that-are-integrated-with-expressroute"></a>Implementar em existentes redes virtuais do Azure que estão integradas com o ExpressRoute ###
+## <a name="service-endpoints"></a>Pontos Finais de Serviço ##
 
-Para implementar o ASE numa VNet que está integrado com o ExpressRoute, pré-configurar a sub-rede onde pretende que o ASE implementado. Em seguida, utilize um modelo do Resource Manager para implementá-la. Para criar ASE numa VNet que já tem o ExpressRoute configurado:
+Os Pontos Finais de Serviço permitem restringir o acesso aos serviços multi-inquilino a um conjunto de sub-redes e redes virtuais do Azure. Pode ler mais sobre Pontos Finais de Serviço na documentação [Pontos Finais de Serviço de Rede Virtual][serviceendpoints]. 
 
-- Crie uma sub-rede para alojar o ASE.
+Quando ativar Pontos Finais de Serviço num recurso, são criadas rotas com uma prioridade mais alta do que todas as outras rotas. Se utilizar Pontos Finais de Serviço com um ASE com túnel forçado, o tráfego de gestão do SQL do Azure e do Armazenamento do Azure não fica com um túnel forçado. 
 
-    > [!NOTE]
-    > Mais nada pode estar na sub-rede, mas o ASE. Lembre-se de que escolha um espaço de endereços que permite o crescimento futuro. Não é possível alterar esta definição mais tarde. Recomendamos um tamanho de `/25` com endereços de 128.
+Quando estão ativados Pontos Finais de Serviço numa sub-rede com uma instância do SQL do Azure, todas as instâncias do SQL do Azure ligadas a partir dessa sub-rede precisam de ter Pontos Finais de Serviço ativados. Se quiser aceder a várias instâncias de SQL do Azure a partir da mesma sub-rede, não pode ativar Pontos Finais de Serviço numa instância do SQL do Azure e não na outra. O Armazenamento do Azure não tem um comportamento semelhante ao SQL do Azure. Quando ativar Pontos Finais de Serviço com o Armazenamento do Azure, pode bloquear o acesso a esse recurso a partir da sua sub-rede, mas pode continuar a aceder a outras contas de Armazenamento do Azure, mesmo que não tenham Pontos Finais de Serviço ativados.  
 
-- Crie UDRs (por exemplo, as tabelas de rotas), conforme descrito anteriormente e definir que na sub-rede.
-- Criar o ASE utilizando um modelo de Gestor de recursos, conforme descrito em [criar ASE utilizando um modelo do Resource Manager][MakeASEfromTemplate].
+![Pontos Finais de Serviço][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -237,6 +214,7 @@ Para implementar o ASE numa VNet que está integrado com o ExpressRoute, pré-co
 [5]: ./media/network_considerations_with_an_app_service_environment/networkase-outboundnsg.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png
 [7]: ./media/network_considerations_with_an_app_service_environment/networkase-subnet.png
+[8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -258,3 +236,6 @@ Para implementar o ASE numa VNet que está integrado com o ExpressRoute, pré-co
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[forcedtunnel]: ./forced-tunnel-support.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

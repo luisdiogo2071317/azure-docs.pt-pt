@@ -1,8 +1,8 @@
 ---
 title: Recolher registos personalizados no Log Analytics do Azure | Microsoft Docs
-description: "Análise de registos pode recolher eventos de ficheiros de texto em computadores Windows e Linux.  Este artigo descreve como definir um novo registo personalizado e detalhes dos registos que criarem na área de trabalho de análise de registos."
+description: Análise de registos pode recolher eventos de ficheiros de texto em computadores Windows e Linux.  Este artigo descreve como definir um novo registo personalizado e detalhes dos registos que criarem na área de trabalho de análise de registos.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registos personalizados na análise de registos
 A origem de dados de registos personalizados na análise de registos permite-lhe recolher eventos de ficheiros de texto em computadores Windows e Linux. Muitas aplicações regista informações nos ficheiros de texto em vez dos serviços de registo padrão, tais como o registo de eventos do Windows ou Syslog.  Depois de recolhidos, pode analisar cada registo de início de sessão para os campos individuais utilizando o [campos personalizados](log-analytics-custom-fields.md) funcionalidade de análise de registos.
@@ -31,7 +31,7 @@ Os ficheiros de registo a recolher têm de corresponder aos seguintes critérios
 
     HH: MM: DE AAAA-MM-DD<br>M/YYYY HH: SS AM/PM <br>MON DD, hh: mm: de aaaa
 
-- O ficheiro de registo não deve permitir atualizações circulares onde o ficheiro é substituído com novas entradas.
+- O ficheiro de registo não deve permitir o registo circular ou de rotação do registo, onde o ficheiro é substituído com novas entradas.
 - O ficheiro de registo tem de utilizar codificação ASCII ou UTF-8.  Não são suportados outros formatos, tais como UTF-16.
 
 >[!NOTE]
@@ -78,7 +78,7 @@ A tabela seguinte fornece exemplos de padrões válidos para especificar os dife
 | Todos os ficheiros na */var/log/audit* com um nome começado com uma extensão. txt no agente Linux e o registo |/var/log/audit/log\*.txt |
 
 1. Selecione Windows ou Linux para especificar qual o formato de caminho que está a adicionar.
-2. Escreva o caminho e clique em de  **+**  botão.
+2. Escreva o caminho e clique em de **+** botão.
 3. Repita o processo para qualquer caminhos adicionais.
 
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passo 4. Forneça um nome e descrição para o registo

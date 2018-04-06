@@ -1,11 +1,11 @@
 ---
-title: "Adicione um disco à VM com Linux utilizando a CLI do Azure | Microsoft Docs"
+title: Adicione um disco à VM com Linux utilizando a CLI do Azure | Microsoft Docs
 description: Saiba como adicionar um disco persistente na VM com Linux com a CLI do Azure 1.0 e 2.0.
-keywords: "máquina virtual do Linux, adicionar o disco de recursos"
+keywords: máquina virtual do Linux, adicionar o disco de recursos
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
@@ -17,18 +17,18 @@ ms.devlang: azurecli
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9db7d300b745001906bdc38769dcbe6e4d7c7b83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3d3e3468b491f366473899f5d073704ea9a95ea
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 Este artigo mostra como ligar um disco persistente à sua VM, de modo a que pode manter os dados -, mesmo se a VM é reaprovisionada devido a manutenção ou redimensionar. 
 
 
 ## <a name="use-managed-disks"></a>Utilizar discos geridos
-Discos gerida do Azure simplifica a gestão de disco para as VMs do Azure ao gerir as contas de armazenamento associadas aos discos VM. Só tem de especificar o tipo (Premium ou Standard) e o tamanho do disco é necessário e Azure cria e gere o disco para si. Para obter mais informações, consulte [descrição geral de discos geridos](managed-disks-overview.md).
+O Managed Disks do Azure simplifica a gestão de discos das VMs do Azure ao gerir as contas de armazenamento associadas aos discos das VMs. Tem apenas de especificar o tipo (Premium ou Standard) e o tamanho do disco de que precisa. Depois disso, o Azure cria e gere o disco por si. Para obter mais informações, consulte [descrição geral de discos geridos](managed-disks-overview.md).
 
 
 ### <a name="attach-a-new-disk-to-a-vm"></a>Anexar um disco novo a uma VM
@@ -264,7 +264,7 @@ Existem duas formas de ativar a limitação suportam na sua VM com Linux. Normal
 ## <a name="troubleshooting"></a>Resolução de problemas
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Lembre-se que o novo disco não está disponível para a VM se é reiniciado, a menos que escrever essas informações para o [fstab](http://en.wikipedia.org/wiki/Fstab) ficheiro.
 * Para garantir a VM com Linux está configurada corretamente, consulte o [otimizar o desempenho do computador Linux](optimization.md) recomendações.
 * Expandir a capacidade de armazenamento através da adição de discos adicionais e [configurar RAID](configure-raid.md) para um desempenho adicional.

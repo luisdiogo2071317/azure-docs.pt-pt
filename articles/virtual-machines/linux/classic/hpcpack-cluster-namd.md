@@ -1,11 +1,11 @@
 ---
 title: NAMD Microsoft HPC Pack em VMs do Linux | Microsoft Docs
-description: "Implementar um cluster do Microsoft HPC Pack no Azure e execute uma simulação NAMD com charmrun em diversos nós de computação do Linux"
+description: Implementar um cluster do Microsoft HPC Pack no Azure e execute uma simulação NAMD com charmrun em diversos nós de computação do Linux
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 76072c6b-ac35-4729-ba67-0d16f9443bd7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
-ms.openlocfilehash: 0c0b9875b4153edcc0ec0096577d041d394a842f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61dd49d4bd3183b6b9a78036d6d7d01798e4dc89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Executar o NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure
 Este artigo mostra-lhe uma forma de executar uma carga de computação de alto desempenho (HPC) trabalho Linux em máquinas virtuais do Azure. Aqui, configurou um [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster no Azure connosco de computação do Linux e executar um [NAMD](http://www.ks.uiuc.edu/Research/namd/) simulação calcule e visualizar a estrutura de um sistema biomolecular grandes.  
@@ -228,11 +228,11 @@ Agora, está pronto para submeter uma tarefa NAMD no Gestor de clusters HPC.
    ![Nova tarefa HPC][namd_job]
 5. No **detalhes da tarefa** página **tarefa recursos**, selecione o tipo de recurso como **nó** e defina o **mínimo** para 3. , executamos a tarefa em três nós do Linux e cada nó tem quatro núcleos.
    
-   ![Recursos de tarefa][job_resources]
+   ![Recursos da tarefa][job_resources]
 6. Clique em **editar tarefas** na navegação à esquerda e, em seguida, clique em **adicionar** para adicionar uma tarefa para a tarefa.    
 7. No **detalhes da tarefa e redirecionamento de e/s** página, defina os seguintes valores:
    
-   * **Linha de comandos**-
+   * **Linha de comandos** -
      `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
      
      > [!TIP]
@@ -252,7 +252,7 @@ Agora, está pronto para submeter uma tarefa NAMD no Gestor de clusters HPC.
    
    Por predefinição, o HPC Pack submete a tarefa como a sua conta de utilizador com sessão iniciada atual. Uma caixa de diálogo poderão solicitar-lhe para introduzir o nome de utilizador e palavra-passe depois de clicar em **submeter**.
    
-   ![Credenciais de tarefa][creds]
+   ![Credenciais da tarefa][creds]
    
    Em algumas condições, o HPC Pack memorizou as informações do utilizador antes de entrada e não mostrar esta caixa de diálogo. Para tornar o HPC Pack voltar a mostrar, introduza o seguinte comando numa linha de comandos e, em seguida, submeter a tarefa.
    

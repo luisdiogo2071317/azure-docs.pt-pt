@@ -1,13 +1,13 @@
 ---
 title: Configurar o Monitor de desempenho de rede para circuitos do ExpressRoute do Azure | Microsoft Docs
-description: "Configure a monitorização de rede baseado na nuvem para circuitos do ExpressRoute do Azure."
+description: Configure a monitorização de rede baseado na nuvem para circuitos do ExpressRoute do Azure.
 documentationcenter: na
 services: expressroute
 author: ajaycode
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 586d78e29177dd4a627c94cd754c21cc2b6f37d4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de desempenho de rede para o ExpressRoute
 
-Monitor de desempenho de rede (NPM) é uma solução que monitoriza a conectividade entre as implementações de nuvem do Azure e localizações no local (sucursais, etc.) de monitorização de rede baseado na nuvem. NPM faz parte do Microsoft Operations Management Suite (OMS). Agora, NPM oferece uma extensão para o ExpressRoute permite-lhe monitorizar o desempenho de rede através de circuitos ExpressRoute que estão configurados para utilizar o Peering privado. Quando configurar NPM para o ExpressRoute, pode detetar problemas de rede para identificar e eliminar.
+Monitor de desempenho de rede (NPM) é uma solução que monitoriza a conectividade entre as implementações de nuvem do Azure e localizações no local (sucursais, etc.) de monitorização de rede baseado na nuvem. NPM faz parte da análise de registos. Agora, NPM oferece uma extensão para o ExpressRoute permite-lhe monitorizar o desempenho de rede através de circuitos ExpressRoute que estão configurados para utilizar o Peering privado. Quando configurar NPM para o ExpressRoute, pode detetar problemas de rede para identificar e eliminar.
 
 Pode:
 
@@ -72,11 +72,11 @@ Crie uma área de trabalho na subscrição com a ligação de VNets para circuit
 
 1. No [portal do Azure](https://portal.azure.com), selecione a subscrição que tenha as VNETs em modo de peering para o circuito do ExpressRoute. Em seguida, pesquise a lista de serviços no **Marketplace** 'Monitor de desempenho de rede'. No retorno, clique para abrir o **Monitor de desempenho de rede** página.
 
->[!NOTE]
->Pode criar uma área de trabalho nova ou utilize uma área de trabalho existente.  Se pretender utilizar uma área de trabalho existente, certifique-se de que a área de trabalho foi migrada para o novo idioma de consulta. [Obter mais informações...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
->
+   >[!NOTE]
+   >Pode criar uma área de trabalho nova ou utilize uma área de trabalho existente.  Se pretender utilizar uma área de trabalho existente, certifique-se de que a área de trabalho foi migrada para o novo idioma de consulta. [Obter mais informações...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >
 
-  ![portal](.\media\how-to-npm\3.png)<br><br>
+   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Na parte inferior do principal **Monitor de desempenho de rede** página, clique em **criar** para abrir **Monitor de desempenho de rede - criar nova solução** página. Clique em **área de trabalho do OMS - Selecione uma área de trabalho** para abrir a página de áreas de trabalho. Clique em **+ criar nova área de trabalho** para abrir a página da área de trabalho.
 3. No **área de trabalho OMS** página, selecione **criar novo** e configure as seguintes definições:
 
@@ -86,15 +86,15 @@ Crie uma área de trabalho na subscrição com a ligação de VNets para circuit
   * Localização - tem de selecionar um [suportado região](#regions).
   * Escalão de preço - Selecione 'livres'
   
-  >[!NOTE]
-  >O circuito de ExpressRoute pode ser qualquer parte do mundo e não tem de estar na mesma região que a área de trabalho.
-  >
+    >[!NOTE]
+    >O circuito de ExpressRoute pode ser qualquer parte do mundo e não tem de estar na mesma região que a área de trabalho.
+    >
   
-  ![Área de trabalho](.\media\how-to-npm\4.png)<br><br>
+    ![Área de trabalho](.\media\how-to-npm\4.png)<br><br>
 4. Clique em **OK** para guardar e implementar o modelo de definições. Assim que valida o modelo, clique em **criar** para implementar a área de trabalho.
 5. Depois da área de trabalho ter sido implementada, navegue para o **NetworkMonitoring(name)** recursos que criou. Valide as definições, em seguida, clique em **solução requer configuração adicional**.
 
-  ![configuração adicional](.\media\how-to-npm\5.png)
+   ![configuração adicional](.\media\how-to-npm\5.png)
 
 ## <a name="agents"></a>Passo 2: Instalar e configurar agentes
 
@@ -126,9 +126,9 @@ Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação Exp
 2. Na página **Bem-vindo**, clique em **Seguinte**.
 3. No **termos de licenciamento** página, leia a licença e, em seguida, clique em **concordo**.
 4. No **pasta de destino** página, altere ou mantenha a pasta de instalação predefinida e, em seguida, clique em **seguinte**.
-5. No **opções de configuração do agente** página, pode optar por ligar o agente à análise de registos do Azure (OMS) ou o Operations Manager. Em alternativa, pode deixar as escolhas em branco se pretender configurar o agente mais tarde. Depois de efetuar o selection(s), clique em **seguinte**.
+5. No **opções de configuração do agente** página, pode optar por ligar o agente ao Log Analytics do Azure ou o Operations Manager. Em alternativa, pode deixar as escolhas em branco se pretender configurar o agente mais tarde. Depois de efetuar o selection(s), clique em **seguinte**.
 
-  * Se tiver optado por ligar para **análise de registos do Azure (OMS)**, cole o **ID da área de trabalho** e **chave da área de trabalho** (chave primária) que copiou no bloco de notas na secção anterior. Clique depois em **Seguinte**.
+  * Se tiver optado por ligar para **Log Analytics do Azure**, cole o **ID da área de trabalho** e **chave da área de trabalho** (chave primária) que copiou no bloco de notas na secção anterior. Clique depois em **Seguinte**.
 
     ![ID e a chave](.\media\how-to-npm\8.png)
   * Se tiver optado por ligar para **do Operations Manager**, no **configuração do grupo de gestão** , escreva o **Management Group Name**, **servidor de gestão** e o **porta do servidor de gestão**. Clique depois em **Seguinte**.
@@ -139,7 +139,7 @@ Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação Exp
     ![Conta](.\media\how-to-npm\10.png)
 6. No **pronto para instalar** página, reveja as suas opções e, em seguida, clique em **instalar**.
 7. Na página **Configuração Concluída com Êxito**, clique em **Concluir**.
-8. Quando terminar, o Microsoft Monitoring Agent é apresentado no painel de controlo. Pode rever a configuração não existe e certifique-se de que o agente está ligado ao Operational Insights (OMS). Quando estiver ligado à OMS, o agente apresenta uma mensagem a indicar: **o Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite**.
+8. Quando terminar, o Microsoft Monitoring Agent é apresentado no painel de controlo. Pode rever a configuração não existe e certifique-se de que o agente está ligado a análise de registos do Azure (OMS). Quando estiver ligado, o agente é apresentada uma mensagem a indicar: **o Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite**.
 
 9. Repita esta para cada VNET que precisa de ser monitorizados.
 
@@ -162,8 +162,8 @@ Pode facilmente verificar se os agentes estão a comunicar.
 
 1. Num servidor com o agente de monitorização, abra o **painel de controlo**.
 2. Abra o **Microsoft Monitoring Agent**.
-3. Clique em de **análise de registos do Azure (OMS)** separador.
-4. No **estado** coluna, deverá ver que o agente ligado com êxito para o serviço do Operations Management Suite.
+3. Clique em de **Log Analytics do Azure** separador.
+4. No **estado** coluna, deverá ver que o agente ligado com êxito à análise de registos.
 
   ![status](.\media\how-to-npm\12.png)
 

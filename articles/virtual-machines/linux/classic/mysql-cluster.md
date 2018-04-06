@@ -1,11 +1,11 @@
 ---
 title: Clusterize MySQL com conjuntos com balanceamento de carga | Microsoft Docs
-description: "Configurar uma balanceamento de carga, de elevada disponibilidade cluster Linux MySQL criado com o modelo de implementação clássico no Azure"
+description: Configurar uma balanceamento de carga, de elevada disponibilidade cluster Linux MySQL criado com o modelo de implementação clássico no Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: bureado
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 6c413a16-e9b5-4ffe-a8a3-ae67046bbdf3
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e2671def47879e3d4eae000c9084cd458e29b933
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Utilizar conjuntos com balanceamento de carga para clusterize MySQL no Linux
 > [!IMPORTANT]
@@ -335,7 +335,7 @@ As seguintes limitações aplicam-se:
 
 * O script de recursos DRBD linbit gere DRBD como um recurso no utiliza Pacemaker `drbdadm down` quando encerrar um nó, mesmo se o nó for apenas no modo de espera. Isto não é ideal porque o serviço secundário será não ser a sincronizar o recurso DRBD enquanto obtém de mestre de operações de escrita. Se o mestre não graciously falhar, o serviço secundário pode assumir um estado anterior do sistema de ficheiros. Existem duas formas possíveis de resolver isto:
   * Impor uma `drbdadm up r0` em todos os nós de cluster através de um local watchdog do (não clusterized)
-  * Editar o script DRBD linbit, certificando-se de que `down` não for chamado`/usr/lib/ocf/resource.d/linbit/drbd`
+  * Editar o script DRBD linbit, certificando-se de que `down` não for chamado `/usr/lib/ocf/resource.d/linbit/drbd`
 * O Balanceador de carga necessita, pelo menos, cinco segundos de responder, para que as aplicações devem ter em consideração o cluster e ser mais tolerante a tempo limite. Outras arquiteturas, tal como na aplicação filas e middlewares de consulta, também podem ajudar.
 * Otimização de MySQL é necessário para garantir que a escrever é feito a um ritmo gerível e caches são libertados para o disco com uma frequência de possíveis para minimizar a perda de memória.
 * Escrever o desempenho está dependente na VM interligar-se no comutador virtual porque este é o mecanismo utilizado pelo DRBD para replicar o dispositivo.

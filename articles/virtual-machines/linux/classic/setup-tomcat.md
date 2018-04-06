@@ -1,11 +1,11 @@
 ---
-title: "Configurar o Apache Tomcat numa máquina virtual com Linux | Microsoft Docs"
-description: "Saiba como configurar o Apache Tomcat7 através da utilização de máquinas virtuais do Azure com o Linux."
+title: Configurar o Apache Tomcat numa máquina virtual com Linux | Microsoft Docs
+description: Saiba como configurar o Apache Tomcat7 através da utilização de máquinas virtuais do Azure com o Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 45ecc89c-1cb0-4e80-8944-bd0d0bbedfdc
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 161a56a019f8c2c8ce5e3890e73ad5c5710e7b82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurar Tomcat7 numa máquina virtual Linux com o Azure
 Apache Tomcat (ou simplesmente Tomcat, também anteriormente denominadas Jakarta Tomcat) é um servidor de web de código aberto e contentor de servlet desenvolvidas por Foundation de Software do Apache (ASF). Tomcat implementa a Servlet Java e as especificações de páginas JavaServer (JSP) de Sun Microsystems. Tomcat disponibiliza um ambiente de servidor de web de Java HTTP puro na qual executar o código de Java. A configuração mais simples, Tomcat é executado num processo de sistema operativo única. Este processo é executada uma máquina virtual de Java (JVM). Todos os pedidos HTTP a partir de um browser para Tomcat é processado como um thread separado no processo de Tomcat.  
@@ -92,7 +92,7 @@ A porta TCP 8080 é o número de porta predefinidos que Tomcat utiliza para escu
 
       Se definir para 80, não precisa de incluir o número da porta no URL que é utilizado para aceder Tomcat. Por exemplo, http://tomcatdemo.cloudapp.net.    
 
-      Se pode defini-la para outro valor, tal como 81, terá de adicionar o número de porta para o URL para aceder à Tomcat. Por exemplo, http://tomcatdemo.cloudapp.net:81 /.
+      Se pode defini-la para outro valor, tal como 81, terá de adicionar o número de porta para o URL para aceder à Tomcat. Por exemplo, http://tomcatdemo.cloudapp.net:81/.
    2. Introduza 8080 no **porta privada**. Por predefinição, Tomcat escuta TCP na porta 8080. Se alterar a predefinição escutar a porta do Tomcat, deve atualizar **porta privada** para ser o mesmo que o Tomcat escutar a porta.  
       ![Captura de ecrã de IU que mostra o comando adicionar, Porta pública e privada da porta][7]
 4. Clique em **OK** para adicionar o ponto final à máquina virtual.
@@ -184,7 +184,7 @@ Utilize o seguinte comando para instalar Tomcat7.
 Se não estiver a utilizar Tomcat7, utilize a variação adequada deste comando.  
 
 #### <a name="confirm-that-tomcat7-installation-is-successful"></a>Confirme se Tomcat7 instalação foi bem-sucedida
-Para verificar se Tomcat7 é instalado com êxito, navegue para o nome DNS do seu servidor Tomcat. Neste artigo, o URL de exemplo é http://tomcatexample.cloudapp.net/. Se vir uma mensagem semelhante ao seguinte, Tomcat7 está corretamente instalado.
+Para verificar se Tomcat7 é instalado com êxito, navegue para o nome DNS do seu servidor Tomcat. Neste artigo, o URL do exemplo é http://tomcatexample.cloudapp.net/. Se vir uma mensagem semelhante ao seguinte, Tomcat7 está corretamente instalado.
 ![Mensagem de instalação Tomcat7 com êxito][16]
 
 ### <a name="install-other-tomcat7-components"></a>Instalar outros componentes de Tomcat7

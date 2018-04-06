@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
-ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração dinâmicas do site através da CDN do Azure
 
@@ -152,7 +152,7 @@ Com DSA, colocação em cache está desativada por predefinição na CDN, mesmo 
 
 Se tiver um Web site com uma combinação de recursos dinâmicos e estáticos, é melhor adotar uma abordagem de híbrida para obter o melhor desempenho. 
 
-Para **CDN do Azure da Verizon padrão** e **CDN do Azure da Akamai padrão** perfis, pode ativar a colocação em cache para os pontos finais DSA utilizando [regras a colocação em cache](cdn-caching-rules.md).
+Para **CDN do Azure Standard da Verizon** e **CDN do Azure Standard da Akamai** perfis, pode ativar a colocação em cache para os pontos finais DSA utilizando [regras a colocação em cache](cdn-caching-rules.md).
 
 A colocação em cache as regras de acesso:
 
@@ -164,7 +164,7 @@ A colocação em cache as regras de acesso:
 
 2. Crie uma regra de colocação em cache global ou personalizada para ativar a colocação em cache para o ponto final DSA. 
 
-Para **CDN do Azure da Verizon Premium** perfis, ativar a colocação em cache para os pontos finais DSA utilizando o [motor de regras](cdn-rules-engine.md). Quaisquer regras que são criadas afetam apenas esses pontos finais do seu perfil que estão otimizados para DSA. 
+Para **CDN do Azure Premium da Verizon** perfis, ativar a colocação em cache para os pontos finais DSA utilizando o [motor de regras](cdn-rules-engine.md). Quaisquer regras que são criadas afetam apenas esses pontos finais do seu perfil que estão otimizados para DSA. 
 
 Para o motor de regras de acesso:
     

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ac3d2d90909d740d28eb05396b915280f58c8ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e05d620a457edf427c946366a9caca471ac8531e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar uma área de trabalho de análise de registos no portal do Azure
 No Portal do Azure que pode configurar uma área de trabalho de análise de registos, que é um ambiente de análise de registos exclusivo com as suas próprias repositório de dados, as origens de dados e soluções.  Os passos descritos neste artigo são necessários se de que pretende recolher dados das seguintes origens:
@@ -47,7 +47,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
   * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
   * Para **grupo de recursos**, optar por utilizar um recurso existente grupo já configuração ou crie um novo.  
   * Selecione um disponível **localização**.  Para obter mais informações, veja em que [regiões está disponível o Log Analytics](https://azure.microsoft.com/regions/services/).
-  * Se estiver a criar uma área de trabalho numa nova subscrição criada após 2 de Abril de 2018, irão utilizar automaticamente o *por GB* preços plano e a opção para selecionar um escalão de preço não estarão disponíveis.  Se estiver a criar uma área de trabalho para uma subscrição existente criada antes 2 de Abril de ou a subscrição foi associada a uma inscrição EA existente, terá a opção de escolher entre três escalões de preços.  Este guia de introdução, se pretender selecionar o escalão gratuito.  Para obter informações adicionais sobre os escalões específicos, veja [Detalhes de Preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * Se estiver a criar uma área de trabalho numa nova subscrição criada após 2 de Abril de 2018, irão utilizar automaticamente o *por GB* preços plano e a opção para selecionar um escalão de preço não estarão disponíveis.  Se estiver a criar uma área de trabalho para uma subscrição existente criada antes 2 de Abril de ou a subscrição foi associada a uma inscrição EA existente, selecione o escalão de preço preferencial.  Para obter informações adicionais sobre os escalões específicos, veja [Detalhes de Preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 

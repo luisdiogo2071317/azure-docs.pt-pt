@@ -1,11 +1,11 @@
 ---
-title: "Criar uma VM com Linux no Azure com vários NICs | Microsoft Docs"
-description: "Saiba como criar uma VM com Linux com vários NICs anexados ao mesmo utilizando os modelos do Azure CLI 2.0 ou do Resource Manager."
+title: Criar uma VM com Linux no Azure com vários NICs | Microsoft Docs
+description: Saiba como criar uma VM com Linux com vários NICs anexados ao mesmo utilizando os modelos do Azure CLI 2.0 ou do Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 635d1373a51f2f2e4d4f7ab5053e520f5b9363a6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 79c5d70d201b54e7ca1c8d421a5f0dc5e6b53bcd
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com a rede de várias placas de interface
 Pode criar uma máquina virtual (VM) no Azure com várias interfaces de rede virtual (NICs) ligadas ao mesmo. Um cenário comum é ter diferentes sub-redes para a conectividade de front-end e back-end ou uma rede dedicada para uma solução de monitorização ou cópia de segurança. Este artigo fornece detalhes sobre como criar uma VM com vários NICs anexados e como adicionar ou remover NICs de VM existente. Diferentes [tamanhos de VM](sizes.md) suportar um número de NICs variando, por isso, tamanho da VM em conformidade.
@@ -190,7 +190,7 @@ echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-Para efetuar a alteração persistente e aplicadas durante a ativação da pilha de rede, edite */etc/sysconfig/network-scipts/ifcfg-eth0* e */etc/sysconfig/network-scipts/ifcfg-eth1*. Alterar a linha *"NM_CONTROLLED = yes"* para *"NM_CONTROLLED = não"*. Sem este passo, o adicional regras/encaminhamento não são automaticamente aplicadas.
+Para efetuar a alteração persistente e aplicadas durante a ativação da pilha de rede, edite */etc/sysconfig/network-scripts/ifcfg-eth0* e */etc/sysconfig/network-scripts/ifcfg-eth1*. Alterar a linha *"NM_CONTROLLED = yes"* para *"NM_CONTROLLED = não"*. Sem este passo, o adicional regras/encaminhamento não são automaticamente aplicadas.
  
 Em seguida, expandem as tabelas de encaminhamento. Vamos supor que temos a seguinte configuração no local:
 

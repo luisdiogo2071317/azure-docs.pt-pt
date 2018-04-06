@@ -1,11 +1,11 @@
 ---
 title: Modelo de dados do Log Analytics para o Azure Backup
-description: "Este artigo aborda detalhes de modelo de dados de análise de registos de dados de cópia de segurança do Azure."
+description: Este artigo aborda detalhes de modelo de dados de análise de registos de dados de cópia de segurança do Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: dfd5c73d-0d34-4d48-959e-1936986f9fc0
 ms.service: backup
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 041a8835a1dd185739b23d4073fd5811bb4490b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d55ec8ac4416fe0a082812584552462292b6dbb7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de dados de análise de registos de dados de cópia de segurança do Azure
-Este artigo descreve o modelo de dados utilizado para enviar dados de relatórios para análise de registos. Utilizar este modelo de dados, pode criar consultas personalizadas, dashboards e utilizá-lo no OMS. 
+Este artigo descreve o modelo de dados utilizado para enviar dados de relatórios para análise de registos. Utilizar este modelo de dados, pode criar consultas personalizadas, dashboards e utilizá-lo na análise de registos. 
 
 ## <a name="using-azure-backup-data-model"></a>Utilizar o modelo de dados de cópia de segurança do Azure
 Pode utilizar os seguintes campos fornecidos como parte do modelo de dados para criar os visuais, consultas personalizadas e um dashboard de acordo com os seus requisitos.
@@ -30,12 +30,12 @@ Pode utilizar os seguintes campos fornecidos como parte do modelo de dados para 
 ### <a name="alert"></a>Alerta
 Esta tabela fornece detalhes sobre os campos de alerta relacionados.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | AlertUniqueId_s |Texto |Id exclusivo do alerta gerado |
 | AlertType_s |Texto |Tipo de alerta gerado, por exemplo, cópia de segurança |
 | AlertStatus_s |Texto |Estado do alerta, por exemplo, Active Directory |
-| AlertOccurenceDateTime_s |Data/hora |Data e hora quando o alerta foi criado |
+| AlertOccurenceDateTime_s |Data/Hora |Data e hora quando o alerta foi criado |
 | AlertSeverity_s |Texto |Gravidade do alerta, por exemplo, crítico |
 | EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
 | BackupItemUniqueId_s |Texto |Id exclusivo do item de cópia de segurança a que este alerta pertence a |
@@ -57,7 +57,7 @@ Esta tabela fornece detalhes sobre os campos de alerta relacionados.
 ### <a name="backupitem"></a>BackupItem
 Esta tabela fornece detalhes sobre campos relacionados com o item de cópia de segurança.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Texto |Id exclusivo do item de cópia de segurança |
@@ -83,7 +83,7 @@ Esta tabela fornece detalhes sobre campos relacionados com o item de cópia de s
 ### <a name="backupitemassociation"></a>BackupItemAssociation
 Esta tabela fornece detalhes sobre as associações de item de cópia de segurança com várias entidades.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Texto |Id exclusivo do item de cópia de segurança |
@@ -106,7 +106,7 @@ Esta tabela fornece detalhes sobre as associações de item de cópia de seguran
 ### <a name="job"></a>Tarefa
 Esta tabela fornece detalhes sobre campos relacionados com a tarefa.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
 | BackupItemUniqueId_s |Texto |Id exclusivo do item de cópia de segurança a que esta tarefa pertence a |
@@ -121,7 +121,7 @@ Esta tabela fornece detalhes sobre campos relacionados com a tarefa.
 | JobOperation_s |Texto |Operação para o qual tarefa é executada por exemplo, cópia de segurança, restauro, configurar a cópia de segurança |
 | JobStatus_s |Texto |Estado da tarefa foi terminada, por exemplo, concluído, com falhas |
 | JobFailureCode_s |Texto |Cadeia de código de falha devido ao qual foi efetuada a falha da tarefa |
-| JobStartDateTime_s |Data/hora |Data e hora quando a tarefa foi iniciada em execução |
+| JobStartDateTime_s |Data/Hora |Data e hora quando a tarefa foi iniciada em execução |
 | BackupStorageDestination_s |Texto |Destino de cópia de segurança armazenamento, por exemplo, nuvem, o disco  |
 | JobDurationInSecs_s | Número |Duração total da tarefa em segundos |
 | DataTransferredInMB_s | Número |Dados transferidos em MB para esta tarefa|
@@ -136,7 +136,7 @@ Esta tabela fornece detalhes sobre campos relacionados com a tarefa.
 ### <a name="policy"></a>Política
 Esta tabela fornece detalhes sobre campos relacionados com a política.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto |Este campo indica que a versão atual do esquema, é **V1** |
@@ -176,7 +176,7 @@ Esta tabela fornece detalhes sobre campos relacionados com a política.
 ### <a name="policyassociation"></a>PolicyAssociation
 Esta tabela fornece detalhes sobre as associações de política com várias entidades.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto |Este campo indica que a versão atual do esquema, é **V1** |
@@ -197,7 +197,7 @@ Esta tabela fornece detalhes sobre as associações de política com várias ent
 ### <a name="protectedserver"></a>ProtectedServer
 Esta tabela fornece detalhes sobre campos relacionados com o servidor protegidos.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
 | ProtectedServerName_s |Texto |Nome do servidor protegido |
@@ -222,7 +222,7 @@ Esta tabela fornece detalhes sobre campos relacionados com o servidor protegidos
 ### <a name="protectedserverassociation"></a>ProtectedServerAssociation
 Esta tabela fornece detalhes sobre as associações de servidor protegido com outras entidades.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto |Este campo indica que a versão atual do esquema, é **V1** |
@@ -243,7 +243,7 @@ Esta tabela fornece detalhes sobre as associações de servidor protegido com ou
 ### <a name="storage"></a>Armazenamento
 Esta tabela fornece detalhes sobre campos relacionados com o armazenamento.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | CloudStorageInBytes_s |Número decimal |Armazenamento de cópia de segurança na nuvem utilizado pelo cópias de segurança, calculadas com base no valor mais recente |
 | ProtectedInstances_s |Número decimal |Número de instâncias protegidas utilizada para calcular o armazenamento de front-end no faturação, calculada com base no valor mais recente |
@@ -266,7 +266,7 @@ Esta tabela fornece detalhes sobre campos relacionados com o armazenamento.
 ### <a name="vault"></a>Cofre
 Esta tabela fornece detalhes sobre campos relacionados com o cofre.
 
-| Campo | Tipo de dados | Descrição |
+| Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto |Este campo indica que a versão atual do esquema, é **V1** |
@@ -285,5 +285,5 @@ Esta tabela fornece detalhes sobre campos relacionados com o cofre.
 | ResourceProvider |Texto |Este campo representa o fornecedor de recursos para o qual estão a ser recolhidos dados - Microsoft.RecoveryServices |
 | ResourceType |Texto |Este campo representa o tipo de recurso para o qual estão a ser recolhidos dados - cofres |
 
-## <a name="next-steps"></a>Passos seguintes
-Depois de rever o modelo de dados para a criação de relatórios de cópia de segurança do Azure, pode começar a [criar dashboard](../log-analytics/log-analytics-dashboards.md) na análise de registos e OMS.
+## <a name="next-steps"></a>Passos Seguintes
+Depois de rever o modelo de dados para a criação de relatórios de cópia de segurança do Azure, pode começar a [criar dashboard](../log-analytics/log-analytics-dashboards.md) na análise de registos.

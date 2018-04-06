@@ -1,11 +1,11 @@
 ---
 title: Repor palavra-passe de VM com Linux e a chave SSH da CLI | Microsoft Docs
-description: "Como utilizar a extensão VMAccess da Interface de linha de comandos do Azure (CLI) para repor uma palavra-passe de VM com Linux ou uma chave SSH, corrija a configuração de SSH e verificação de consistência de disco"
+description: Como utilizar a extensão VMAccess da Interface de linha de comandos do Azure (CLI) para repor uma palavra-passe de VM com Linux ou uma chave SSH, corrija a configuração de SSH e verificação de consistência de disco
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: d975eb70-5ff1-40d1-a634-8dd2646dcd17
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 4577b6b9656b6a1cf83e6f9a227526701ba297b4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: c36498d2f4fef506dc7047fe91666aceec73c13d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Como repor uma palavra-passe de VM com Linux ou uma chave SSH, corrija a configuração de SSH e verificação de consistência de disco com a extensão VMAccess
 Se não é possível ligar a uma máquina virtual do Linux no Azure devido a uma palavra-passe da esquecida, uma chave Secure Shell (SSH) incorreto, ou um problema com a configuração de SSH, utilizar a extensão VMAccessForLinux com a CLI do Azure para repor a palavra-passe ou chave SSH, corrija a configuração de SSH e verificação de consistência de disco. 
@@ -53,7 +53,7 @@ Terá de fazer o seguinte:
 * Ter uma nova palavra-passe ou o conjunto de chaves SSH, se pretender repor deles. Não precisa de estes se de que pretende repor a configuração de SSH.
 
 ## <a name="pwresetcli"></a>Repor a palavra-passe
-1. Crie um ficheiro no seu computador local com o nome PrivateConf.json com estas linhas. Substitua **myUserName** e  **myP@ssW0rd**  com o seu nome de utilizador e palavra-passe e definir a sua própria data de expiração.
+1. Crie um ficheiro no seu computador local com o nome PrivateConf.json com estas linhas. Substitua **myUserName** e **myP@ssW0rd** com o seu nome de utilizador e palavra-passe e definir a sua própria data de expiração.
 
     ```   
         {
@@ -83,7 +83,7 @@ Terá de fazer o seguinte:
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ## <a name="resetbothcli"></a>Repor a palavra-passe e a chave SSH
-1. Crie um ficheiro denominado PrivateConf.json com estes conteúdos. Substitua o **myUserName**, **mySSHKey** e  **myP@ssW0rd**  valores pelas suas informações.
+1. Crie um ficheiro denominado PrivateConf.json com estes conteúdos. Substitua o **myUserName**, **mySSHKey** e **myP@ssW0rd** valores pelas suas informações.
 
     ``` 
         {

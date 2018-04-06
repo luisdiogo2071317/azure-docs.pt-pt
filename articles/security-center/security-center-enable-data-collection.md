@@ -1,44 +1,44 @@
 ---
-title: "Recolha de dados no Centro de segurança do Azure | Microsoft Docs"
+title: Recolha de dados no Centro de segurança do Azure | Microsoft Docs
 description: " Saiba como ativar a recolha de dados no Centro de segurança do Azure. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2018
+ms.date: 04/03/2018
 ms.author: terrylan
-ms.openlocfilehash: d5f2c9960b720fc44f37956f9150e89d6425d154
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 90a73545afa82276256a021588eaa594b95ee8da
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
-Centro de segurança recolhe dados de máquinas de virtuais (VMs) do Azure e computadores não do Azure para monitorizar vulnerabilidades de segurança e ameaças. Os dados são recolhidos através do Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Os exemplos destes dados incluem: tipo e versão do sistema operativo, registos de sistema operativo (registos de eventos do Windows), processos em execução, nome da máquina, endereços IP, utilizador com sessão iniciada e ID do inquilino. O Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
+Centro de segurança recolhe dados de máquinas de virtuais (VMs) do Azure e computadores não do Azure para monitorizar vulnerabilidades de segurança e ameaças. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Os exemplos destes dados incluem: tipo e versão do sistema operativo, registos de sistema operativo (registos de eventos do Windows), processos em execução, nome da máquina, endereços IP, utilizador com sessão iniciada e ID do inquilino. O Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Ativar aprovisionamento automático do Microsoft Monitoring Agent     
-Quando o aprovisionamento automático está ativado, Aprovisiona o Centro de segurança do Microsoft Monitoring Agent em todos os suportadas VMs do Azure e quaisquer novos que são criados. Aprovisionamento Automático é vivamente recomendado, não sendo necessário para subscrições na camada padrão do Centro de segurança.
+Quando o aprovisionamento automático está ativado, Aprovisiona o Centro de segurança do Microsoft Monitoring Agent em todos os suportadas VMs do Azure e quaisquer novos que são criados. Aprovisionamento Automático é vivamente recomendado, mas a instalação manual do agente também está disponível. [Saiba como instalar a extensão do Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
-> Desativar automática aprovisionamento limites monitorização de segurança para os seus recursos. Para obter mais informações, consulte [desativar aprovisionamento automático](security-center-enable-data-collection.md#disable-automatic-provisioning) neste artigo. Coleção de artefacto e instantâneos de discos VM estão ativadas, mesmo se o aprovisionamento automático está desativado.
+> Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos. Para obter mais informações, consulte [desativar aprovisionamento automático](security-center-enable-data-collection.md#disable-automatic-provisioning) neste artigo. Coleção de artefacto e instantâneos de discos VM estão ativadas, mesmo se o aprovisionamento automático está desativado.
 >
 >
 
 Para ativar o aprovisionamento automático do Microsoft Monitoring Agent:
-1. No menu principal do Centro de segurança, selecione **política de segurança**.
+1. No menu principal do Centro de Segurança, selecione **Política de Segurança**.
 2. Selecione uma subscrição.
-3. Em **política de segurança**, selecione **recolha de dados**.
+3. Em **Política de segurança**, selecione **Recolha de Dados**.
 4. Em **integração**, selecione **no** para ativar o aprovisionamento automático.
 5. Selecione **Guardar**.
 
-![Ativar aprovisionamento automático][1]
+![Ativar o aprovisionamento automático][1]
 
 ## <a name="default-workspace-configuration"></a>Configuração de área de trabalho predefinida
 Dados recolhidos pelo centro de segurança são armazenados no workspace(s) de análise de registos.  Pode optar por ter dados recolhidos a partir de VMs do Azure armazenados no áreas de trabalho criadas pelo centro de segurança nem de uma área de trabalho existente que criou.
@@ -99,9 +99,9 @@ Eis uma divisão de segurança e do App Locker de IDs de evento para cada conjun
 
 | Camada de dados | Indicadores de evento recolhidos |
 | --- | --- |
-| mínimo | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
+| Mínimo | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| Comuns (predefinição) | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
+| Common | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -124,7 +124,7 @@ Para escolher a política de filtragem:
 Pode desativar aprovisionamento automático de recursos em qualquer altura desativar esta definição na política de segurança. Aprovisionamento Automático é altamente recomendável para obter os alertas de segurança e recomendações sobre as atualizações do sistema, endpoint protection e vulnerabilidades do SO.
 
 > [!NOTE]
-> Desativar aprovisionamento automático não remover o Microsoft Monitoring Agent VMs do Azure onde o agente tiver sido aprovisionado.
+> Desativar o aprovisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure onde o agente tiver sido aprovisionado.
 >
 >
 
@@ -132,7 +132,7 @@ Pode desativar aprovisionamento automático de recursos em qualquer altura desat
 
    ![Desativar aprovisionamento automático][6]
 
-2. Selecione a subscrição que pretende desativar aprovisionamento automático.
+2. Selecione a subscrição para a qual pretende desativar o aprovisionamento automático.
 3. No **política de segurança – recolha de dados** painel, em **integração** selecione **desativar** para desativar aprovisionamento automático.
 4. Selecione **Guardar**.  
 

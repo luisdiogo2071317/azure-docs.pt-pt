@@ -1,6 +1,6 @@
 ---
-title: "Ativar a otimização automática para a SQL Database do Azure | Microsoft Docs"
-description: "Pode ativar automática otimização na base de dados SQL do Azure facilmente."
+title: Ativar a otimização automática para a SQL Database do Azure | Microsoft Docs
+description: Pode ativar automática otimização na base de dados SQL do Azure facilmente.
 services: sql-database
 author: veljko-msft
 manager: drasumic
@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: vvasic
-ms.openlocfilehash: cfee95f5978073277a5351b976156cafefb87c16
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2ea5c0e640ac7e635692dafac1f30f377aa79625
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="enable-automatic-tuning"></a>Ativar o ajuste automático
 
@@ -22,7 +22,7 @@ Base de dados SQL do Azure é um serviço de dados geridos automaticamente que c
 ## <a name="enable-automatic-tuning-on-server"></a>Ativar a otimização automática no servidor
 No nível do servidor pode escolher para herdar a configuração automática de otimização de "Predefinições do Azure" ou não para herdar a configuração. Predefinições do Azure são FORCE_LAST_GOOD_PLAN ativada, CREATE_INDEX ativada e DROP_INDEX desativada.
 
-## <a name="configure-automiatic-tuning-e-mail-notifications"></a>Configurar automiatic otimização notificações por correio eletrónico
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurar notificações de correio eletrónico de otimização automática
 
 Consulte [automática de otimização de notificações por correio eletrónico](sql-database-automatic-tuning-email-notifications.md)
 

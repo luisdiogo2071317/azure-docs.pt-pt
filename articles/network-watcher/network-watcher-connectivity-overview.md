@@ -1,11 +1,11 @@
 ---
-title: "Resolver problemas de introdução à ligação de observador de rede do Azure | Microsoft Docs"
-description: "Esta página fornece uma descrição geral da capacidade de resolução de problemas de ligação de observador de rede"
+title: Resolver problemas de introdução à ligação de observador de rede do Azure | Microsoft Docs
+description: Esta página fornece uma descrição geral da capacidade de resolução de problemas de ligação de observador de rede
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: f8825af71620722065c03a28c93e113876c5aa71
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0268c7e54aa82df12243f98fd72de836fbc82070
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à ligação de resolução de problemas no observador de rede do Azure
 
 Resolver problemas relacionados com a ligação a funcionalidade de observador de rede fornece a capacidade para verificar uma ligação de TCP direta de uma máquina virtual a uma máquina virtual (VM), o nome de domínio completamente qualificado (FQDN), URI, ou o endereço IPv4. Cenários de rede são complexos, estão implementados utilizando grupos de segurança de rede, firewalls, rotas definidas pelo utilizador e de recursos fornecidos pelo Azure. Configurações complexas efetua a resolução de problemas de conectividade um desafio. Observador de rede ajuda a reduzir a quantidade de tempo para localizar e detetar problemas de conectividade. Os resultados devolvidos podem fornecer informações sobre se o problema de conectividade é devido a uma plataforma ou um problema de configuração do utilizador. Conectividade pode ser verificada com [PowerShell](network-watcher-connectivity-powershell.md), [CLI do Azure](network-watcher-connectivity-cli.md), e [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Resolver problemas de ligação requer uma extensão da máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão numa Windows VM visite [extensão da máquina virtual de agente de observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para, visite VM com Linux [extensão da máquina virtual de agente de observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> Resolver problemas de ligação requer que a VM resolver problemas de tenha a `AzureNetworkWatcherExtension` extensão da VM instalado. Para instalar a extensão numa Windows VM visite [extensão da máquina virtual de agente de observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para, visite VM com Linux [extensão da máquina virtual de agente de observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessário no ponto final de destino.
 
 ## <a name="response"></a>Resposta
 

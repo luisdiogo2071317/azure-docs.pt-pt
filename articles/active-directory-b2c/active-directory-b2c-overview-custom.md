@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 269b65662796c092190cd2622c240756f6bd1cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4c09fa5c454cee6ca9a0ed0d3fd4582b222c0c1a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: As políticas personalizadas
 
@@ -48,7 +48,7 @@ Recomendamos a utilização dos três tipos de ficheiros de política:
 - **um ficheiro de terceiros entidade Confiadora (RP)** que é o único ficheiro concentra-se tarefas que é invocado diretamente pela aplicação ou serviço (aka entidade Confiadora).  Leia o artigo em definições do ficheiro de política para obter mais informações.  Cada tarefa exclusiva requer a sua própria RP e consoante os requisitos de imagem corporativa o número pode ser "total de aplicações x o número total de cenários de utilização de".
 
 
-As políticas incorporadas no Azure AD B2C seguem o padrão de ficheiro de 3 descrito acima, mas o programador só vê o ficheiro de terceiros entidade Confiadora (RP), enquanto o portal faz com que as alterações em segundo plano para o ficheiro EXTenstions.
+As políticas incorporadas no Azure AD B2C seguem o padrão de ficheiro de 3 descrito acima, mas o programador só vê o ficheiro de terceiros entidade Confiadora (RP), enquanto o portal faz as alterações em segundo plano para o ficheiro de extensões.
 
 ## <a name="core-concepts-you-should-know-when-using-custom-policies"></a>Conceitos principais que deve conhecer ao utilizar políticas personalizadas
 

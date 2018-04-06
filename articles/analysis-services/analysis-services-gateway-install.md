@@ -2,24 +2,24 @@
 title: Instalar o gateway de dados no local | Microsoft Docs
 description: Saiba como instalar e configurar um gateway de dados no local.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: c2cbe1c60f67c689a38d1585245610a6fa73bff4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
 Um gateway de dados no local é necessário quando um ou mais servidores do Azure Analysis Services na mesma região ligarem a origens de dados no local. Para saber mais sobre o gateway, consulte [gateway de dados no local](analysis-services-gateway.md).
@@ -44,6 +44,7 @@ Um gateway de dados no local é necessário quando um ou mais servidores do Azur
 * Instale o gateway num computador que permanece no e não aceda a suspender.
 * Não instale o gateway num computador wirelessly ligado à sua rede. Desempenho pode ser o seu.
 * Inicie sessão no Azure com uma conta no Azure AD para o mesmo [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) como a subscrição que está a registar o gateway. Azure B2B contas (convidado) não são suportadas quando instalar e registar um gateway.
+* O gateway (unificado) descrito aqui não é suportado no Azure Government (Fairfax). Utilize o gateway de dedicado no local para Azure Analysis Services. O gateway dedicado não suporta serviços adicionais, como o Power BI e aplicações de energia. Gateway dedicado está instalado dos seus servidores de início rápido no portal.
 
 
 ## <a name="download"></a>Transferir

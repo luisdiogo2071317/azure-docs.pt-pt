@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Eventos de registo para a avaliação de diagnóstico e monitorização de soluções do Batch
 
@@ -97,7 +97,7 @@ Para além de armazenar eventos de registo de diagnóstico de uma conta de armaz
   Fluxo de eventos de diagnóstico de Batch para o serviço de entrada de dados altamente dimensionável, os Event Hubs. Hubs de eventos podem ingerir milhões de eventos por segundo, que pode, em seguida, transformar e armazenar utilizando um fornecedor de análise em tempo real.
 * [Analisar os registos de diagnóstico do Azure através da análise do registo](../log-analytics/log-analytics-azure-storage.md)
   
-  Envie registos de diagnóstico para análise de registos, onde pode analisá-las no portal do Operations Management Suite (OMS) ou, exportá-las para análise no Power BI ou no Excel.
+  Envie registos de diagnóstico para análise de registos, onde pode analisá-las no portal do Azure ou, exportá-las para análise no Power BI ou no Excel.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx

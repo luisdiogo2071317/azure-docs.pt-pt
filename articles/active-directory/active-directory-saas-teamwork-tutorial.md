@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Teamwork.com | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Teamwork.com."
+title: 'Tutorial: Integração do Azure Active Directory com Teamwork.com | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Teamwork.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 00292d0aed24ea034eba8686bcd9cbdd1ef676e3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b4be1256b77ac35efab9c6b2d593b4763cdf86
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Tutorial: Integração do Azure Active Directory com [Teamwork.com](https://www.teamwork.com/projects)
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: Integração do Azure Active Directory com Teamwork.com
 
 Neste tutorial, irá aprender a integrar Teamwork.com com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o
 Para configurar a integração do Azure AD com Teamwork.com, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- A [Teamwork.com](https://www.teamwork.com/projects) subscrição no plano de Pro ou superior
+- Um Teamwork.com-início de sessão único ativada subscrição
 
 > [!NOTE]
 > Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
@@ -108,10 +108,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio Teamwork.com e os URLs únicos de informações de início de sessão](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_url.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<company name>.teamwork.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<company name>.teamwork.com`
+
+    b. No **identificador** caixa de texto, escreva o URL:
+
+    |||
+    |-|-|
+    | `https://teamwork.com/saml`|
+    | `https://eu.teamwork.com/saml`|
 
     > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de Teamwork.com](mailto:support@teamwork.com) para obter este valor. 
+    > Este valor de URL de início de sessão não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de Teamwork.com](mailto:support@teamwork.com) para obter este valor. 
 
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -122,10 +129,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
 
 6. Para configurar o início de sessão único em **Teamwork.com** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de Teamwork.com](mailto:support@teamwork.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -204,8 +207,6 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

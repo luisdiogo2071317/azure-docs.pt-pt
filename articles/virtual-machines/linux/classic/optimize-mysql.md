@@ -1,11 +1,11 @@
 ---
 title: Otimizar o desempenho de MySQL no Linux | Microsoft Docs
-description: "Saiba como otimizar o MySQL em execução numa máquina virtual do Azure (VM) com Linux."
+description: Saiba como otimizar o MySQL em execução numa máquina virtual do Azure (VM) com Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 0c1c7fc5-a528-4d84-b65d-2df225f2233f
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 7e7582a31cb3e74fd8c3cd0dd54961392d9c53bb
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 447532452a848c88fd927f42e4263cef4742dd89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Otimizar o desempenho de MySQL em VMs do Linux do Azure
 Existem muitos fatores que afetam o desempenho de MySQL no Azure, tanto na seleção de virtual hardware e a configuração de software. Este artigo incida no otimizar o desempenho através de armazenamento, sistema e configurações de base de dados.
@@ -187,7 +187,7 @@ Para aumentar os máximos identificadores simultâneos permitidos, adicione as s
 
     * recuperável nofile 65536
     * disco rígido nofile 65536
-    * recuperável nproc 65536
+    * soft nproc 65536
     * disco rígido nproc 65536
 
 ### <a name="update-the-system-for-the-new-limits"></a>Atualize o sistema para os limites de novo
@@ -242,7 +242,7 @@ Por predefinição, este não está ativada. Ativar o registo de consultas lenta
 
 3. Verifique se a definição está a demorar efeito utilizando o **mostrar** comando.
 
-![NO lenta--registo de consultas][7]   
+![Slow-query-log ON][7]   
 
 ![Resultados de lenta--registo de consultas][8]
 

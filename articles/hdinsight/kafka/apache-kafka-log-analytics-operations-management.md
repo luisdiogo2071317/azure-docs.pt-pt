@@ -1,30 +1,30 @@
 ---
-title: "Análise de registo para Apache Kafka - Azure HDInsight | Microsoft Docs"
-description: Saiba como utilizar o Operations Management Suite para analisar os registos do cluster do Apache Kafka no Azure HDInsight.
+title: Análise de registo para Apache Kafka - o Azure HDInsight | Microsoft Docs
+description: Saiba como utilizar a análise de registos para analisar os registos do cluster do Apache Kafka no Azure HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 6fcb925829e33704c94c96209a61346b0404e13b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 15107a0fbcd6242ac13f366b16be10efaeaad6bb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analisar os registos para Apache Kafka no HDInsight
 
-Saiba como utilizar o Microsoft Operations Management Suite para analisar os registos gerados por Apache Kafka no HDInsight.
+Saiba como utilizar a análise de registos para analisar os registos gerados por Apache Kafka no HDInsight.
 
-## <a name="enable-oms-for-kafka"></a>Ativar OMS para Kafka
+## <a name="enable-log-analytics-for-kafka"></a>Ativar análise de registos para Kafka
 
 Os passos para ativar a análise de registos para o HDInsight são os mesmos para todos os clusters do HDInsight. Utilize as seguintes hiperligações para compreender como criar e configurar os serviços necessários:
 
@@ -38,27 +38,27 @@ Os passos para ativar a análise de registos para o HDInsight são os mesmos par
     > Também pode configurar o cluster para utilizar a análise de registos, utilizando o `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. Este cmdlet requer as seguintes informações:
     >
     > * O nome de cluster do HDInsight.
-    > * O ID da área de trabalho de análise de registos. Pode encontrar o ID da área de trabalho na área de trabalho OMS para a sua área de trabalho de análise do registo.
-    > * A chave primária para a ligação do OMS. Para localizar a chave primária, selecione a instância de análise do registo e, em seguida, __Portal do OMS__. A partir do Portal do OMS, selecione __definições__, __origens ligadas__e, em seguida, __servidores Linux__.
+    > * O ID da área de trabalho de análise de registos. Pode encontrar o ID da área de trabalho na sua área de trabalho de análise de registos.
+    > * A chave primária para a ligação de análise de registos. Para localizar a chave primária, selecione a instância de análise de registos e, em seguida, __Portal do OMS__. A partir do Portal do OMS, selecione __definições__, __origens ligadas__e, em seguida, __servidores Linux__.
 
 
 > [!IMPORTANT]
-> pode demorar cerca de 20 minutos antes dos dados estão disponíveis para análise de registos.
+> Pode demorar cerca de 20 minutos antes dos dados estão disponíveis para análise de registos.
 
 ## <a name="query-logs"></a>Registos de consulta
 
-1. Do [portal do Azure](https://portal.azure.com), selecione a sua área de trabalho de análise do registo.
+1. Do [portal do Azure](https://portal.azure.com), selecione a sua área de trabalho de análise de registos.
 
 2. Selecione __Iniciar pesquisa__. Aqui, pode procurar os dados recolhidos a partir de Kafka. Seguem-se alguns exemplos de procura:
 
-    * Utilização do disco:`Type=Perf ObjectName="Logical Disk" (CounterName="Free Megabytes")  InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by   Computer interval 1HOUR`
-    * Utilização da CPU:`Type:Perf CounterName="% Processor Time" InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer interval 1HOUR`
-    * Receber mensagens em fila por segundo:`Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s interval 1HOUR`
-    * Bytes recebidos por segundo:`Type=metrics_kafka_CL HostName_s="wn0-kafka" InstanceName_s="kafka-BrokerTopicMetrics-BytesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) interval 1HOUR`
-    * Bytes enviados por segundo:`Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" |  measure avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) interval 1HOUR`
+    * Utilização do disco: `Type=Perf ObjectName="Logical Disk" (CounterName="Free Megabytes")  InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by   Computer interval 1HOUR`
+    * Utilização da CPU: `Type:Perf CounterName="% Processor Time" InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer interval 1HOUR`
+    * Receber mensagens em fila por segundo: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s interval 1HOUR`
+    * Bytes recebidos por segundo: `Type=metrics_kafka_CL HostName_s="wn0-kafka" InstanceName_s="kafka-BrokerTopicMetrics-BytesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) interval 1HOUR`
+    * Bytes enviados por segundo: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" |  measure avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) interval 1HOUR`
 
     > [!IMPORTANT]
-    > Substitua os valores de consulta com as informações específicas do cluster. Por exemplo, `ClusterName_s` tem de ser definida para o nome do cluster. `HostName_s`tem de ser definida para o nome de domínio de um nó de trabalho no cluster.
+    > Substitua os valores de consulta com as informações específicas do cluster. Por exemplo, `ClusterName_s` tem de ser definida para o nome do cluster. `HostName_s` tem de ser definida para o nome de domínio de um nó de trabalho no cluster.
 
     Também pode introduzir `*` para procurar todos os tipos com sessão iniciados. Atualmente os seguintes registos estão disponíveis para consultas:
 

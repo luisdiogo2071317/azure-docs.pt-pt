@@ -1,108 +1,103 @@
 ---
-title: "Autenticação e autorização em Mobile Apps do Azure | Microsoft Docs"
-description: "Referência conceptual e descrição geral sobre a autenticação / autorização da funcionalidade para Mobile Apps do Azure"
-services: app-service\mobile
-documentationcenter: 
+title: Autenticação e autorização no serviço de aplicações do Azure para aplicações móveis | Microsoft Docs
+description: Referência conceptual e descrição geral sobre a autenticação / autorização funcionalidades do App Service do Azure, especificamente para aplicações móveis
+services: app-service
+documentationcenter: ''
 author: mattchenderson
-manager: cfowler
-editor: 
-ms.assetid: a46dbf70-867d-48f6-8885-7f5207ad102e
-ms.service: app-service-mobile
+manager: erikre
+editor: ''
+ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 57deec4acffc1387fcb5c42c17085bb363dfdbc1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 237310c607eb8488e53631b6e69d01703d1ebf99
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Autenticação e Autorização nas Aplicações Móveis do Azure
-## <a name="what-is-app-service-authentication--authorization"></a>O que é a aplicação serviço de autenticação / autorização?
-> [!NOTE]
-> Este artigo será migrado para um consolidado [aplicação serviço de autenticação / autorização](../app-service/app-service-authentication-overview.md) artigo, o qual abrange Web, móveis e API Apps.
-> 
-> 
+# <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autenticação e autorização no serviço de aplicações do Azure para aplicações móveis
 
-Autenticação do serviço de aplicação / autorização é uma funcionalidade que permite à aplicação de início de sessão utilizadores sem alterações de código necessárias no back-end da aplicação. Fornece uma forma fácil para proteger a sua aplicação e trabalhar com dados por utilizador.
+Este artigo descreve como a autenticação e autorização funciona quando desenvolver as aplicações móveis nativas com um back-end do serviço de aplicações. O App Service fornece integrada de autenticação e autorização, pelo que as suas aplicações móveis podem iniciar sessão utilizadores sem alterar qualquer código no App Service. Fornece uma forma fácil para proteger a sua aplicação e trabalhar com dados por utilizador. 
 
-Serviço de aplicações utiliza a identidade federada, no qual um terceiros 3rd **fornecedor de identidade** ("IDP") armazena as contas e autentica utilizadores. A aplicação utiliza esta identidade em vez dos seus próprios. Serviço de aplicações suporta cinco fornecedores de identidade a Box: *do Azure Active Directory*, *Facebook*, *Google*, *Account Microsoft*, e *Twitter*. Também pode expandir este suporte para as suas aplicações através da integração de outro fornecedor de identidade ou a sua própria solução de identidade personalizada.
+Este artigo incida no desenvolvimento de aplicações móveis. Para começar a trabalhar rapidamente com autenticação do serviço de aplicações e a autorização para a sua aplicação móvel, consulte um dos seguintes tutoriais [adicionar autenticação à sua aplicação iOS] [ iOS] (ou [Android], [Windows], [xamarin. IOS], [xamarin. Android], [xamarin. Forms], ou [Cordova ]). 
 
-A aplicação pode utilizar qualquer número destes fornecedores de identidade, para que possam fornecer aos utilizadores finais com opções para como iniciar sessão.
+Para obter informações sobre como a autenticação e autorização funcionam no App Service, consulte [autenticação e autorização no serviço de aplicações do Azure](../app-service/app-service-authentication-overview.md).
 
-Se pretender começar imediatamente, consulte um dos seguintes tutoriais:
+## <a name="authentication-with-provider-sdk"></a>Autenticação com o fornecedor de SDK
 
-* [Adicionar autenticação à sua aplicação iOS]
-* [Adicionar autenticação à sua aplicação xamarin. IOS]
-* [Adicionar autenticação à sua aplicação xamarin. Android]
-* [Adicionar autenticação à sua aplicação do Windows]
+Depois de está tudo configurado no App Service, pode modificar os clientes móveis iniciar sessão com o serviço de aplicações. Existem duas abordagens aqui:
 
-## <a name="how-authentication-works"></a>Como funciona a autenticação
-Para autenticar através de um dos fornecedores de identidade, terá primeiro de configurar o fornecedor de identidade saber sobre a sua aplicação. O fornecedor de identidade, em seguida, irá fornecer IDs e segredos que fornecem novamente à aplicação. Isto conclui a relação de confiança e permite que o serviço de aplicações validar as identidades fornecidas ao mesmo.
-
-Estes passos estão descritos nos tópicos seguintes:
-
-* [Como configurar a sua aplicação para utilizar o início de sessão do Azure Active Directory]
-* [Como configurar a sua aplicação para utilizar o início de sessão do Facebook]
-* [Como configurar a sua aplicação para utilizar o início de sessão do Google]
-* [Como configurar a sua aplicação para utilizar o início de sessão da conta Microsoft]
-* [Como configurar a sua aplicação para utilizar o início de sessão do Twitter]
-
-Assim que tudo está configurado no back-end, pode modificar o cliente para iniciar sessão. Existem duas abordagens aqui:
-
-* Utilizar uma única linha de código, permitem que as Mobile Apps cliente SDK aos utilizadores iniciar sessão.
-* Utilize um SDK publicado por um fornecedor de identidade fornecido para estabelecer a identidade e, em seguida, obter acesso ao serviço de aplicações.
+* Utilize um SDK que publica um fornecedor de identidade fornecido para estabelecer a identidade e, em seguida, obter acesso ao serviço de aplicações.
+* Utilize uma única linha de código, para que o SDK do cliente de Mobile Apps pode iniciar sessão de utilizadores.
 
 > [!TIP]
-> A maioria das aplicações devem utilizar um fornecedor de SDK para obter uma experiência de início de sessão mais nativo-feeling e tirar partido do suporte de atualização e outras vantagens específica do fornecedor.
+> A maioria das aplicações devem utilizar um fornecedor de SDK para obter uma experiência mais consistente quando os utilizadores iniciarem sessão, para utilizar o suporte de token de atualização bem como obter outras vantagens que especifica o fornecedor.
 > 
 > 
 
-### <a name="how-authentication-without-a-provider-sdk-works"></a>Como funciona a autenticação sem um fornecedor de SDK
-Se não pretender configurar um fornecedor de SDK, pode permitir que as Mobile Apps efetuar o início de sessão para si. O cliente de Mobile Apps SDK abre uma vista web para o fornecedor da sua escolha concluir o início de sessão. Ocasionalmente, poderá ver este fluxo de trabalho referido como o "fluxo de servidor" ou "direcionadas para o servidor de fluxo" uma vez que o servidor está a gerir o início de sessão e o cliente SDK nunca recebe o token de fornecedor.
+Quando utiliza um fornecedor de SDK, os utilizadores poderem iniciar sessão para uma experiência que integra-se mais rigidamente com o sistema operativo que a aplicação está em execução no. Este método também dá-lhe um token de fornecedor e algumas informações de utilizador no cliente, o que torna mais fácil e consumir APIs do gráfico e personalizar a experiência de utilizador. Ocasionalmente em blogues e fóruns, este é referido como "fluxo de cliente" ou "fluxo direcionadas para o cliente" porque o código no cliente inicia sessão dos utilizadores e o código de cliente tem acesso a um token de fornecedor.
 
-O código necessário para iniciar este fluxo é descrito no tutorial autenticação para cada plataforma. No final do fluxo, o cliente SDK tem um token de serviço de aplicações e o token é automaticamente anexado a todos os pedidos para o back-end.
+Depois de um token de fornecedor é obtido, tem de ser enviadas para o App Service para validação. Depois do serviço de aplicações valida o token, o App Service cria um novo token de serviço de aplicações, que é devolvido ao cliente. O SDK do cliente de Mobile Apps tem métodos de programa auxiliar para gerir este exchange e anexar automaticamente o token para todos os pedidos para a aplicação de back-end. Os programadores também podem manter uma referência para o token de fornecedor.
 
-### <a name="how-authentication-with-a-provider-sdk-works"></a>Como funciona a autenticação com um fornecedor de SDK
-Trabalhar com um fornecedor de SDK permite que a experiência de início de sessão mais rigidamente interajam com a plataforma de SO que a aplicação está em execução. O fornecedor de SDK também dá-lhe um token de fornecedor e algumas informações de utilizador no cliente, tornando mais fácil e consumir APIs do gráfico e personalizar a experiência de utilizador. Ocasionalmente, poderá ver este fluxo de trabalho referido como o fluxo"cliente" ou "direcionadas para o cliente fluxo" desde o código no cliente está a processar o início de sessão, e o código de cliente tem acesso a um token de fornecedor.
+Para obter mais informações sobre o fluxo de autenticação, consulte [fluxo de autenticação do serviço de aplicações](../app-service/app-service-authentication-overview.md#authentication-flow). 
 
-Depois de um token de fornecedor é obtido, tem de ser enviadas para o App Service para validação. No final do fluxo, o cliente SDK tem um token de serviço de aplicações e o token é automaticamente anexado a todos os pedidos para o back-end. Os programadores também podem manter uma referência para o token de fornecedor se escolherem, por isso.
+## <a name="authentication-without-provider-sdk"></a>Autenticação sem fornecedor de SDK
 
-## <a name="how-authorization-works"></a>Como funciona a autorização
-Autenticação do serviço de aplicação / autorização expõe várias opções para **ação a tomar quando o pedido não é autenticado**. Antes do seu código recebe um pedido específico, pode ter verificação do serviço de aplicações para ver se o pedido é autenticado e se não, rejeitá-lo e tentar possui o utilizador iniciar sessão antes de tentar novamente.
+Se não pretender configurar um fornecedor de SDK, pode permitir que a funcionalidade de aplicações móveis do serviço de aplicações do Azure para iniciar sessão para si. O SDK do cliente de Mobile Apps irá abrir uma vista web para o fornecedor da sua escolha e o utilizador iniciar sessão. Ocasionalmente em blogues e fóruns, é denominado o "fluxo de servidor" ou "direcionadas para o servidor de fluxo" porque o servidor gere o processo que inicia sessão dos utilizadores e o cliente SDK nunca recebe o token de fornecedor.
 
-Uma das alternativas consiste em ter não autenticados redireccionamento de pedidos para um dos fornecedores de identidade. Num browser, este redirecionamento demoraria, na verdade, o utilizador para uma nova página. No entanto, o cliente móvel não pode ser redirecionado desta forma, e não autenticadas respostas irão receber um HTTP *não autorizado 401* resposta. Tendo em conta esta, o primeiro pedido que faz com que o seu cliente deve ser sempre para o ponto final de início de sessão e, em seguida, pode efetuar chamadas para quaisquer outras APIs. Se tentar chamar outra API antes de iniciar sessão, o cliente irá receber um erro.
+Código para iniciar este fluxo está incluído no tutorial autenticação para cada plataforma. No final do fluxo, o cliente SDK tem um token de serviço de aplicações e o token é automaticamente anexado a todos os pedidos para o back-end da aplicação.
 
-Se pretender ter mais granular controlar ao longo do que os pontos finais exigir autenticação, também pode escolher "nenhuma ação (pedidos de permissões)" para pedidos não autenticados. Neste caso, todas as decisões de autenticação são adiadas ao código da aplicação. Isto também permite-lhe permitir o acesso a utilizadores específicos, com base nas regras de autorização personalizadas.
+Para obter mais informações sobre o fluxo de autenticação, consulte [fluxo de autenticação do serviço de aplicações](../app-service/app-service-authentication-overview.md#authentication-flow). 
+## <a name="more-resources"></a>Mais recursos
 
-## <a name="documentation"></a>Documentação
-Os tutoriais seguintes mostram como adicionar autenticação para os seus clientes móveis através do serviço de aplicações:
+Os tutoriais seguintes mostram como adicionar autenticação para os seus clientes móveis utilizando o [direcionadas para o servidor de fluxo](../app-service/app-service-authentication-overview.md#authentication-flow):
 
-* [Adicionar autenticação à sua aplicação iOS]
-* [Adicionar autenticação à sua aplicação xamarin. IOS]
-* [Adicionar autenticação à sua aplicação xamarin. Android]
-* [Adicionar autenticação à sua aplicação do Windows]
+* [Adicionar autenticação à sua aplicação iOS][iOS]
+* [Adicionar autenticação à sua aplicação Android][Android]
+* [Adicionar autenticação à sua aplicação do Windows][Windows]
+* [Adicionar autenticação à sua aplicação xamarin. IOS][xamarin. IOS]
+* [Adicionar autenticação à sua aplicação xamarin. Android][xamarin. Android]
+* [Adicionar autenticação à sua aplicação xamarin. Forms][xamarin. Forms]
+* [Adicionar autenticação à sua aplicação Cordova][Cordova ]
 
-Os tutoriais seguintes mostram como configurar o serviço de aplicações a utilizar fornecedores de autenticação diferentes:
+Utilize os seguintes recursos, se pretender utilizar o [direcionadas para o cliente fluxo](../app-service/app-service-authentication-overview.md#authentication-flow) do Azure Active Directory:
 
-* [Como configurar a sua aplicação para utilizar o início de sessão do Azure Active Directory]
-* [Como configurar a sua aplicação para utilizar o início de sessão do Facebook]
-* [Como configurar a sua aplicação para utilizar o início de sessão do Google]
-* [Como configurar a sua aplicação para utilizar o início de sessão da conta Microsoft]
-* [Como configurar a sua aplicação para utilizar o início de sessão do Twitter]
+* [Utilizar a biblioteca de autenticação do Active Directory para iOS][ADAL-iOS]
+* [Utilize a biblioteca de autenticação do Active Directory para Android][ADAL-Android]
+* [Utilizar a biblioteca de autenticação do Active Directory para o Windows e Xamarin][ADAL-dotnet]
 
-Se pretender utilizar um sistema de identidade sem ser aqueles fornecido aqui, também pode utilizar o [pré-visualizar suporte de autenticação personalizado no servidor de .NET SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
+Utilize os seguintes recursos, se pretender utilizar o [direcionadas para o cliente fluxo](../app-service/app-service-authentication-overview.md#authentication-flow) para Facebook:
 
-[Adicionar autenticação à sua aplicação iOS]: app-service-mobile-ios-get-started-users.md
-[Adicionar autenticação à sua aplicação xamarin. IOS]: app-service-mobile-xamarin-ios-get-started-users.md
-[Adicionar autenticação à sua aplicação xamarin. Android]: app-service-mobile-xamarin-android-get-started-users.md
-[Adicionar autenticação à sua aplicação do Windows]: app-service-mobile-windows-store-dotnet-get-started-users.md
+* [Utilizar o SDK do Facebook para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
 
-[Como configurar a sua aplicação para utilizar o início de sessão do Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Como configurar a sua aplicação para utilizar o início de sessão do Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Como configurar a sua aplicação para utilizar o início de sessão do Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Como configurar a sua aplicação para utilizar o início de sessão da conta Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Como configurar a sua aplicação para utilizar o início de sessão do Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+Utilize os seguintes recursos, se pretender utilizar o [direcionadas para o cliente fluxo](../app-service/app-service-authentication-overview.md#authentication-flow) para Twitter:
+
+* [Utilizar recursos de infraestrutura do Twitter para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
+
+Utilize os seguintes recursos, se pretender utilizar o [direcionadas para o cliente fluxo](../app-service/app-service-authentication-overview.md#authentication-flow) para o Google:
+
+* [Utilizar o SDK do início de sessão Google para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
+
+[iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
+[Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
+[xamarin. IOS]: ../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md
+[xamarin. Android]: ../app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md
+[xamarin. Forms]: ../app-service-mobile/app-service-mobile-xamarin-forms-get-started-users.md
+[Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
+[Cordova ]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
+
+[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
+[Google]: app-service-mobile-how-to-configure-google-authentication.md
+[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
+
+[custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
+
+[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
+[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
+[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal

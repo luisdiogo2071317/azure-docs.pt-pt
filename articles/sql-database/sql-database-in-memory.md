@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho ao utilizar tecnologias de dentro da memória na base de dados do SQL Server
 
@@ -22,7 +22,7 @@ Ao utilizar tecnologias de memória da SQL Database do Azure, pode conseguir mel
 Seguem-se dois exemplos de como ajudou a OLTP na memória para melhorar significativamente o desempenho:
 
 - Ao utilizar OLTP na memória, [soluções de negócio de quórum foi capaz de duplicar as carga de trabalho ao melhorar DTUs 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU significa *unidade de débito de base de dados*, e inclui uma mesurement de consumo de recursos.
+    - DTU significa *unidade de transação de base de dados*, e inclui uma mesurement de consumo de recursos.
 - O vídeo seguinte demonstra uma melhoria significativa no consumo de recursos com uma carga de trabalho de exemplo: [OLTP dentro da memória na base de dados SQL do Azure vídeo](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
     - Para obter mais informações, consulte a mensagem de blogue: [OLTP dentro da memória na mensagem do blogue do Azure SQL da base de dados](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -36,7 +36,7 @@ O vídeo seguinte explica potenciais ganhos de desempenho com tecnologias de den
 
 Base de dados SQL do Azure tem as seguintes tecnologias de dentro da memória:
 
-- *OLTP na memória* aumenta o débito e reduz a latência para processamento de transação. Cenários que beneficiam da OLTP na memória são: processamento como comercial e jogos, a ingestão de dados de eventos ou dispositivos de IoT, colocação em cache, carregamento de dados e tabela temporária e cenários de variável de tabela de transações de débito elevado.
+- *OLTP na memória* aumenta a transação e reduz a latência para processamento de transação. Cenários que beneficiam da OLTP na memória são: processamento como comercial e jogos, a ingestão de dados de eventos ou dispositivos de IoT, colocação em cache, carregamento de dados e tabela temporária e cenários de variável de tabela de transações de débito elevado.
 - *Colocar em cluster os índices columnstore* reduzir os requisitos de espaço de armazenamento (até 10 vezes) e melhorar o desempenho de consultas de análises e relatórios. Pode utilizá-lo com as tabelas de factos no seu marts de dados para se ajustar mais dados na base de dados e melhorar o desempenho. Além disso, pode utilizar este com dados históricos na sua base de dados operacional para arquivar e ser capaz de consultar até 10 vezes mais dados.
 - *Os índices columnstore não em cluster* para HTAP ajudá-lo a obter informações acerca em tempo real da sua empresa através de consultar a base de dados operacional diretamente, sem a necessidade de executar um dispendiosas extrair, transformar, carregar processo (ETL) e aguarde o armazém de dados para ser preenchido. Os índices columnstore não em cluster permitem muito rápida execução de consultas de análise na base de dados OLTP, ao reduzir o impacto na carga de trabalho operacional.
 - Também pode ter a combinação de uma tabela com otimização de memória com um índice columnstore. Esta combinação permite-lhe efetuar o processamento de transações muito rápido e a *em simultâneo* executar consultas de análises muito rapidamente os mesmos dados.
@@ -71,7 +71,7 @@ Vídeos aprofundados sobre as tecnologias de:
 
 OLTP na memória inclui tabelas com otimização de memória, que são utilizadas para armazenar dados de utilizador. Estas tabelas são necessários para caber na memória. Porque a gerir a memória diretamente no serviço de base de dados SQL, temos o conceito de uma quota de dados do utilizador. Esta ideia é referida como *armazenamento OLTP na memória*.
 
-Cada base de dados autónomo suportados cada escalão de preço de conjunto elástico e o escalão de preço inclui uma determinada quantidade de armazenamento do OLTP dentro da memória. No momento da escrita, pode obter um gigabyte de armazenamento para cada 125 unidades de transação de base de dados (DTUs) ou unidades de transação de bases de dados elásticas (eDTUs). Para obter mais informações, consulte [dos limites de recursos](sql-database-resource-limits.md).
+Cada base de dados autónomo suportados cada escalão de preço de conjunto elástico e o escalão de preço inclui uma determinada quantidade de armazenamento do OLTP dentro da memória. Consulte [limites de recursos baseados em DTU](sql-database-dtu-resource-limits.md) e [limites de recursos baseados em vCore](sql-database-vcore-resource-limits.md).
 
 Os seguintes itens contam para o limite de armazenamento OLTP na memória:
 
@@ -87,8 +87,8 @@ Para obter mais informações sobre como monitorizar a utilização do armazenam
 
 Com conjuntos elásticos, o armazenamento de OLTP na memória é partilhado entre todas as bases de dados no conjunto. Por conseguinte, a utilização de uma base de dados pode potencialmente afetar outras bases de dados. Dois mitigações para isto são:
 
-- Configure um máx.-eDTU para bases de dados que é inferior ao número de eDTU do conjunto como um todo. Este máximo caps a utilização do armazenamento OLTP na memória, em qualquer base de dados no conjunto, para o tamanho que corresponde à contagem de eDTU.
-- Configure um eDTU mínima que é maior que 0. Este mínimo garante que cada base de dados no conjunto possui a quantidade de armazenamento OLTP dentro da memória disponível que corresponde a eDTU do Min configurado.
+- Configurar um `Max-eDTU` ou `MaxvCore` para bases de dados é inferior ao número de eDTU ou vCore para o conjunto como um todo. Este máximo caps a utilização do armazenamento OLTP na memória, em qualquer base de dados no conjunto, para o tamanho que corresponde à contagem de eDTU.
+- Configurar um `Min-eDTU` ou `MinvCore` que seja superior a 0. Este mínimo garante que cada base de dados no conjunto possui a quantidade de armazenamento OLTP dentro da memória disponível que corresponde ao configurada `Min-eDTU` ou `vCore`.
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Tamanho dos dados e armazenamento para índices columnstore
 
@@ -152,7 +152,7 @@ Para obter uma mais simplistic, mas visualmente mais apelativos para resolver de
 
 #### <a name="installation-steps"></a>Passos de instalação
 
-1. No [portal do Azure](https://portal.azure.com/), criar uma base de dados Premium num servidor. Definir o **origem** na base de dados de amostra AdventureWorksLT. Para obter instruções detalhadas, consulte [criar a sua primeira base de dados SQL do Azure](sql-database-get-started-portal.md).
+1. No [portal do Azure](https://portal.azure.com/), criar um Premium ou críticos de negócio (pré-visualização) num servidor da base de dados. Definir o **origem** na base de dados de amostra AdventureWorksLT. Para obter instruções detalhadas, consulte [criar a sua primeira base de dados SQL do Azure](sql-database-get-started-portal.md).
 
 2. Ligar à base de dados com o SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 

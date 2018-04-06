@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 89469af2b1d02ef00fc347e47719956885e7f142
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador para as funções do Azure 
 
@@ -168,11 +168,11 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** | n/d | Tem de ser definida para "timerTrigger". Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direction** | n/d | Tem de ser definida para "em". Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
+|**tipo** | n/d | Tem de ser definida para "timerTrigger". Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
+|**direção** | n/d | Tem de ser definida para "em". Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o objeto temporizador no código da função. | 
-|**schedule**|**ScheduleExpression**|A [expressão CRON](#cron-expressions) ou um [TimeSpan](#timespan) valor. A `TimeSpan` pode ser utilizado apenas para uma aplicação de função que é executado um plano do App Service. Pode colocar a expressão de agenda uma definição de aplicação e definir esta propriedade para a aplicação encapsulado do nome da definição **%** inicia, tal como neste exemplo: "% NameOfAppSettingWithScheduleExpression %". |
-|**runOnStartup**|**RunOnStartup**|Se `true`, a função é invocada quando inicia o tempo de execução. Por exemplo, o tempo de execução é iniciado quando a aplicação de função reativado depois de ficar inativo devido a inatividade. Quando a aplicação de função reinicia devido a alterações de função e, quando a aplicação de função aumenta horizontalmente de forma. Por isso, **runOnStartup** deve raramente se alguma vez definir `true`, uma vez que este irá fazer código executar em alturas altamente imprevisíveis. Se pretender acionar a função fora a agenda de temporizador, pode criar uma segunda função com um tipo diferente de Acionador e partilhar o código de entre as duas funções. Por exemplo acionar na implementação pode [personalizar a sua implementação](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) para invocar a função de segundo por efetuar um pedido de HTTP quando a implementação estiver concluída.|
+|**schedule**|**ScheduleExpression**|A [expressão CRON](#cron-expressions) ou um [TimeSpan](#timespan) valor. A `TimeSpan` pode ser utilizado apenas para uma aplicação de função que é executado um plano do App Service. Pode colocar a expressão de agenda uma definição de aplicação e definir esta propriedade para a aplicação encapsulado do nome da definição **%** inicia, tal como neste exemplo: "% ScheduleAppSetting %". |
+|**runOnStartup**|**RunOnStartup**|Se `true`, a função é invocada quando inicia o tempo de execução. Por exemplo, o tempo de execução é iniciado quando a aplicação de função reativado depois de ficar inativo devido a inatividade. Quando a aplicação de função reinicia devido a alterações de função e, quando a aplicação de função aumenta horizontalmente de forma. Por isso, **runOnStartup** deve raramente se alguma vez definir `true`, uma vez que este irá fazer código executar em alturas altamente imprevisíveis.|
 |**useMonitor**|**UseMonitor**|Definido como `true` ou `false` para indicar se a agenda deve ser monitorizada. Agenda de monitorização mantém a agenda de ocorrências para ajudar a garantir que a agenda é mantida corretamente, mesmo quando reiniciar instâncias da aplicação de função. Se não definir explicitamente, a predefinição é `true` para agendas que tem um intervalo de periodicidade maior que 1 minuto. Para agendas acionam mais do que uma vez por minuto, a predefinição é `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

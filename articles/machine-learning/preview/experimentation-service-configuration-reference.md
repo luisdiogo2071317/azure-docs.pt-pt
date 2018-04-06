@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0bd9786d0c6a6e6ba571c58e7fdc4ad86cc20024
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Ficheiros de configuração do serviço de experimentação do Machine Learning do Azure
 
@@ -190,7 +190,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **TrackedRun**: este sinalizador sinalizar o serviço de experimentação se deve ou não controlar do Azure ML Workbench executar a infraestrutura de histórico de execução. O valor predefinido é _verdadeiro_. 
 
-**UseSampling**: _UseSampling_ Especifica se os conjuntos de dados de exemplo do Active Directory para origens de dados são utilizados para a execução. Se definido como _falso_, origens de dados de inserção e utilizar os dados de totais de leitura do arquivo de dados. Se definido como _verdadeiro_, exemplos de Active Directory são utilizados. Os utilizadores podem utilizar o * * DataSourceSettings "para especificar os conjuntos de dados de exemplo específica a utilizar se pretende substituir o exemplo de Active Directory. 
+**UseSampling**: _UseSampling_ Especifica se os conjuntos de dados de exemplo do Active Directory para origens de dados são utilizados para a execução. Se definido como _falso_, origens de dados de inserção e utilizar os dados de totais de leitura do arquivo de dados. Se definido como _verdadeiro_, exemplos de Active Directory são utilizados. Os utilizadores podem utilizar o **DataSourceSettings** para especificar os conjuntos de dados de exemplo específica a utilizar se pretende substituir o exemplo de Active Directory. 
 
 **DataSourceSettings**: Esta secção de configuração especifica as definições da origem de dados. Nesta secção, o utilizador Especifica qual amostra de dados existente para uma determinada origem de dados é utilizada como parte de execução. 
 

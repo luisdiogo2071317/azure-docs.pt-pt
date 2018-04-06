@@ -1,8 +1,8 @@
 ---
 title: Gerir clusters do Hadoop no HDInsight com o portal do Azure | Microsoft Docs
-description: "Saiba como criar e gerir clusters do HDInsight através do portal do Azure."
+description: Saiba como criar e gerir clusters do HDInsight através do portal do Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b0a9b808f2c1a65d10c1c12500325a9b5a34bc5a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Hadoop no HDInsight ao utilizar o portal do Azure
 
@@ -33,7 +33,7 @@ Utilizar o [portal do Azure][azure-portal], pode gerir clusters do Hadoop no Azu
 Para seguir os passos neste artigo, irá necessitar de um **subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="open-the-azure-portal"></a>Abra o portal do Azure
-1. Inicie sessão no [https://portal.azure.com](https://portal.azure.com).
+1. Inicie sessão no [ https://portal.azure.com ](https://portal.azure.com).
 2. Depois de abrir o portal, pode:
 
    * Clique em **crie um recurso** no menu à esquerda para criar um novo cluster:
@@ -75,7 +75,7 @@ Tem de especificar uma subscrição do Azure quando criar um cluster do HDInsigh
 Se receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionRegistration, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## <a name="list-and-show-clusters"></a>Listar e Mostrar clusters
-1. Inicie sessão no [https://portal.azure.com](https://portal.azure.com).
+1. Inicie sessão no [ https://portal.azure.com ](https://portal.azure.com).
 2. Clique em **Clusters do HDInsight** no menu à esquerda para listar os clusters existentes. Se não vir **Clusters do HDInsight**, clique em **todos os serviços** primeiro.
 3. Clique no nome do cluster. Se a lista de cluster for longa, pode utilizar o filtro no topo da página.
 4. Clique em cluster na lista para ver a página de descrição geral:
@@ -103,7 +103,7 @@ Se receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionRegistr
     * **As Metastores externas**: ver as metastores do Hive e Oozie. As metastores só podem ser configuradas durante o processo de criação do cluster. Consulte [utilizar metastore do Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Ações de script**: scripts de Bash executar no cluster. Consulte [clusters do HDInsight baseado em Linux personalizar através da ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
     * **Aplicações**: aplicações do HDInsight Adicionar/remover.  Consulte [instalar aplicações HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).
-    * **Monitorização**: monitorizar o cluster no Azure Operations Management Suite e Log Analytics do Azure.
+    * **Monitorização**: monitorizar o cluster no Log Analytics do Azure.
     * **Propriedades**: ver as propriedades de cluster.
     * **As contas do Storage**: ver as contas de armazenamento e as chaves. As contas de armazenamento são configuradas durante o processo de criação do cluster.
     * **Acesso de data Lake Store**: configurar o acesso armazena do Data Lake.  Consulte [criar clusters do HDInsight com o Data Lake Store utilizando o portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -345,7 +345,7 @@ Consulte [gerir clusters do HDInsight utilizando a IU da Web do Ambari](hdinsigh
 ## <a name="browse-files"></a>Procurar ficheiros
 No portal do Azure, pode procurar o conteúdo do contentor predefinido.
 
-1. Inicie sessão no [https://portal.azure.com](https://portal.azure.com).
+1. Inicie sessão no [ https://portal.azure.com ](https://portal.azure.com).
 2. Clique em **Clusters do HDInsight** no menu à esquerda para listar os clusters existentes.
 3. Clique no nome do cluster. Se a lista de cluster for longa, pode utilizar o filtro no topo da página.
 4. Clique em **contas do Storage** do menu à esquerda do cluster.

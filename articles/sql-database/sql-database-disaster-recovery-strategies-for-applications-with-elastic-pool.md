@@ -1,20 +1,20 @@
 ---
-title: "Criar soluções de recuperação de desastre - SQL Database do Azure | Microsoft Docs"
-description: "Saiba como conceber a sua solução de nuvem de recuperação após desastre ao escolher o padrão de ativação pós-falha à direita."
+title: Criar soluções de recuperação de desastre - SQL Database do Azure | Microsoft Docs
+description: Saiba como conceber a sua solução de nuvem de recuperação após desastre ao escolher o padrão de ativação pós-falha à direita.
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6ec202237a0b3fb1b7f0b7158c0aa454b4d65770
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f2f0819f987bf389ff4b2816ad422fdd8a81f82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastre para aplicações que utilizam conjuntos elásticos da base de dados SQL
 Ao longo dos anos podemos ter aprendidas que serviços em nuvem não são foolproof e ocorrem de incidentes catastrófica. Base de dados do SQL Server fornece várias capacidades para fornecer a continuidade de negócio da sua aplicação quando ocorrem estes incidentes. [Conjuntos elásticos](sql-database-elastic-pool.md) e bases de dados individuais suportam o mesmo tipo de funcionalidades de recuperação após desastre. Este artigo descreve várias estratégias de DR para conjuntos elásticos que tiram partido destas funcionalidades de continuidade empresarial da base de dados do SQL Server.
@@ -26,7 +26,7 @@ Este artigo utiliza o padrão de aplicação SaaS ISV canónico seguinte:
 Este artigo aborda as estratégias de DR que abrangem uma gama de cenários de aplicações de arranque confidenciais de custos para aqueles com requisitos de disponibilidade rigorosos.
 
 > [!NOTE]
-> Se estiver a utilizar agrupamentos e bases de dados Premium, pode efetuá-los resilientes às falhas regionais, convertendo-las à configuração de implementação redundante de zona (atualmente em pré-visualização). Consulte [basesdedadoszona redundante](sql-database-high-availability.md).
+> Se estiver a utilizar o Premium ou bases de dados críticos de negócio (pré-visualização) e conjuntos elásticos, pode torná-los falhas sejam resilientes a regionais, convertendo-las à configuração de implementação redundante de zona (atualmente em pré-visualização). Consulte [basesdedadoszona redundante](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Cenário 1. Custo arranque confidencial
 <i>Posso estou uma empresa de arranque e estou de custo extremamente confidencial.  Pretendo simplificar a implementação e gestão da aplicação e pode tiver um SLA limitado de clientes individuais. Mas quero garantir a aplicação como um todo nunca está offline.</i>
@@ -65,7 +65,7 @@ A chave **beneficiar** desta estratégia é baixo custo em curso para a redundâ
 ## <a name="scenario-2-mature-application-with-tiered-service"></a>Cenário 2. Aplicação madura com o serviço em camadas
 <i>Sou uma aplicação SaaS madura com ofertas de serviço em camadas e SLAs diferentes para os clientes de avaliação e pagar com clientes. Para os clientes de avaliação, tenho de reduzir o custo quanto possível. Clientes avaliação podem demorar um período de indisponibilidade, mas pretender reduzem a probabilidade. Para os clientes pagar, qualquer período de inatividade é um risco de voo. Para pretendo certificar-se de que pagar os clientes conseguem sempre aceder aos respetivos dados.</i> 
 
-Para suportar este cenário, separe os inquilinos avaliação de inquilinos pagos colocando-los em conjuntos elásticos separados. Os clientes avaliação tem inferior eDTU por inquilino e inferior SLA com mais tempo de recuperação. Os clientes de pagar estão num conjunto com superior eDTU por inquilino e um SLA mais elevado. Para garantir o menor tempo de recuperação, inquilino as bases de dados os clientes de pagar são georreplicação. Esta configuração é ilustrada no diagrama seguinte. 
+Para suportar este cenário, separe os inquilinos avaliação de inquilinos pagos colocando-los em conjuntos elásticos separados. Os clientes avaliação tem inferior eDTU ou vCores por inquilino e inferior SLA com mais tempo de recuperação. Os clientes de pagar estão num conjunto com superior eDTU ou vCores por inquilino e um SLA mais elevado. Para garantir o menor tempo de recuperação, inquilino as bases de dados os clientes de pagar são georreplicação. Esta configuração é ilustrada no diagrama seguinte. 
 
 ![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
@@ -80,7 +80,7 @@ Se ocorrer uma falha na região primária, os passos de recuperação para coloc
 * Efetuar imediatamente a ativação pós-falha as bases de dados de gestão para a região DR (3).
 * Altere a cadeia de ligação da aplicação para apontar para a região DR. Agora todas as novas contas e bases de dados de inquilino são criados na região DR. Os clientes existentes de avaliação, consulte os respetivos dados temporariamente indisponíveis.
 * Ativação pós-falha as bases de dados do inquilino paga do agrupamento na região DR para restaurar imediatamente a respetiva disponibilidade (4). Uma vez que a ativação pós-falha de uma alteração do nível de metadados rápido, considere uma otimização onde as ativações pós-falha individuais são acionadas a pedido através de ligações de utilizador final. 
-* Se o tamanho de eDTU do conjunto secundária foi inferior ao principal porque as bases de dados secundárias necessário apenas a capacidade para processar os registos de alteração enquanto estavam réplicas secundárias, imediatamente aumentar a capacidade de agrupamento agora para acomodar a carga de trabalho completa de todos os inquilinos ( 5). 
+* Se o valor de tamanho ou vCore de eDTU do conjunto secundária foi inferior ao principal porque as bases de dados secundárias necessário apenas a capacidade para processar os registos de alteração enquanto estavam réplicas secundárias, imediatamente aumentar a capacidade de agrupamento agora para acomodar a carga de trabalho completa de todos os inquilinos (5). 
 * Crie novo conjunto elástico com o mesmo nome e a mesma configuração na região DR para bases de dados dos clientes de avaliação (6). 
 * Assim que for criado o conjunto de avaliação dos clientes, utilize georrestauro para restaurar as bases de dados individuais de inquilino de avaliação para o novo agrupamento (7). Considere a acionar os restauros individuais, as ligações de utilizador final ou utilize outra esquema de prioridade específicas da aplicação.
 
@@ -108,7 +108,7 @@ A chave **beneficiar** desta estratégia é que fornece o SLA mais elevado para 
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Cenário 3. Aplicação distribuída geograficamente com o serviço em camadas
 <i>Tenho uma aplicação SaaS madura com ofertas de serviço em camadas. Pretende oferecer um SLA muito agressiva aos meus clientes pagas e minimizar o risco de impacto quando ocorrem falhas porque interrupção breve mesmo pode causar insatisfação de cliente. É fundamental que os clientes de pagar sempre podem aceder aos respetivos dados. As avaliações são gratuitas e um SLA não é oferecido durante o período de avaliação. </i> 
 
-Para suportar este cenário, utilize três conjuntos elásticos separados. Aprovisione dois conjuntos de tamanho igual com elevada eDTUs por base de dados em duas regiões diferentes para conter inquilino as bases de dados os clientes paga. O terceiro conjunto que contém os inquilinos avaliação pode ter inferior eDTUs por base de dados e aprovisionamento de uma das duas regiões.
+Para suportar este cenário, utilize três conjuntos elásticos separados. Aprovisione dois conjuntos de tamanho igual com eDTUs elevada ou vCores por base de dados em duas regiões diferentes para conter inquilino as bases de dados os clientes paga. O terceiro conjunto que contém os inquilinos avaliação pode ter inferior eDTUs ou vCores por base de dados e aprovisionamento de uma das duas regiões.
 
 Para garantir o menor tempo de recuperação durante a falhas, inquilino as bases de dados os clientes de pagar são georreplicação com 50% das bases de dados primárias em cada uma das duas regiões. Da mesma forma, cada região tem 50% das bases de dados secundárias. Desta forma, se uma região estiver offline, os apenas 50% das bases de dados dos clientes paga são afetados e tem de efetuar a ativação pós-falha. As outras bases de dados permanecem intactas. Esta configuração é ilustrada no diagrama seguinte:
 
@@ -125,7 +125,7 @@ O diagrama seguinte ilustra os passos de recuperação a tomar se ocorrer uma fa
 * Efetuar imediatamente a ativação pós-falha de gestão bases de dados à região B (3).
 * Altere a cadeia de ligação da aplicação para apontar para as bases de dados de gestão na região B. Modifique as bases de dados de gestão para se certificar de que as novas contas e bases de dados de inquilino são criados na região B e as bases de dados existente do inquilino encontram-se existir, bem como. Os clientes existentes de avaliação, consulte os respetivos dados temporariamente indisponíveis.
 * Efetuar a ativação pós-falha de bases de dados do inquilino paga ao agrupamento 2 na região B imediatamente restaurar a respetiva disponibilidade (4). Uma vez que a ativação pós-falha de uma alteração do nível de metadados rápido, pode considerar otimização onde as ativações pós-falha individuais são acionadas a pedido através de ligações de utilizador final. 
-* Desde agora conjunto 2 contém apenas primários bases de dados, a carga de trabalho total no aumenta conjunto e imediatamente pode aumentar o tamanho de eDTU (5). 
+* Desde agora conjunto 2 contém apenas primários bases de dados, a carga de trabalho total no aumenta conjunto e imediatamente pode aumentar o tamanho de eDTU (5) ou o número de vCores. 
 * Crie novo conjunto elástico com o mesmo nome e a mesma configuração na região B para bases de dados dos clientes de avaliação (6). 
 * Depois do conjunto for criado utilize georrestauro para restaurar a base de dados individuais de inquilino de avaliação para o conjunto (7). Pode considerar a acionar os restauros individuais, as ligações de utilizador final ou utilize outra esquema de prioridade específicas da aplicação.
 
@@ -142,7 +142,7 @@ Quando a região A recuperação terá de decidir se pretende utilizar região B
 * Cancele a todos os pedidos pendentes georrestauro ao agrupamento de DR avaliação.   
 * Ativação pós-falha da base de dados de gestão (8). Após a recuperação a região, o principal anterior ficou automaticamente secundário. Agora, torna-se o principal novamente.  
 * Selecione o inquilino pago bases de dados falharem novamente para o conjunto 1 e iniciar a ativação pós-falha para as respetivas bases de dados secundárias (9). Após a recuperação a região, todas as bases de dados no conjunto 1 automaticamente deixou de estar bases de dados secundárias. Agora a 50% deles ficar primaries novamente. 
-* Reduza o tamanho do conjunto 2 para a eDTU original (10).
+* Reduza o tamanho do conjunto 2 para a eDTU original (10) ou o número de vCores.
 * Conjunto de todos os restaurados avaliação bases de dados na região B para só de leitura (11).
 * Para cada base de dados no conjunto de DR avaliação que tenha sido alterado desde a recuperação, mude o nome ou eliminar a base de dados correspondente no conjunto principal de avaliação (12). 
 * Copie as bases de dados atualizadas do conjunto de DR para o conjunto principal (13). 

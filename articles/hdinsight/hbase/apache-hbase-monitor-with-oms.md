@@ -1,13 +1,13 @@
 ---
-title: Monitorizar o HBase no Operations Management Suite (OMS) - o Azure HDInsight | Microsoft Docs
-description: Utilize OMS com Log Analytics do Azure para monitorizar clusters do HBase do HDInsight.
+title: Monitorizar o HBase com a análise de registos do Azure - o Azure HDInsight | Microsoft Docs
+description: Utilize Log Analytics do Azure para monitorizar clusters do HBase do HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -16,23 +16,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: f78d570cfa8b040cd7673a5e14e6a992511f60bb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3746713cdadff0a4c6f4fe25d278e8d78555f9d6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="monitor-hbase-with-operations-management-suite-oms"></a>Monitor de HBase no Operations Management Suite (OMS)
+# <a name="monitor-hbase-with-log-analytics"></a>Monitor de HBase com a análise de registos
 
 Monitorização de HBase do HDInsight utiliza o Log Analytics do Azure para recolher métricas de desempenho do HBase do HDInsight a partir os nós de cluster do HDInsight. O Monitor fornece visualizações de HBase específicos e dashboards, ferramentas para pesquisar as métricas e a capacidade de criar regras personalizadas de monitorização e alertas. Pode monitorizar as métricas de vários clusters do HBase do HDInsight através de várias subscrições do Azure.
 
-Análise de registos é um serviço no [Operations Management Suite (OMS)](../../operations-management-suite/operations-management-suite-overview.md) que monitoriza a sua nuvem e no local ambientes para manter a respetiva disponibilidade e desempenho. Análise de registos recolhe dados gerados pelos recursos nos seus ambientes de nuvem e no local e a partir de outras ferramentas de monitorização, para fornecer analysis através de várias origens.
+Análise de registos é um serviço no [Azure](../../operations-management-suite/operations-management-suite-overview.md) que monitoriza a sua nuvem e no local ambientes para manter a respetiva disponibilidade e desempenho. Análise de registos recolhe dados gerados pelos recursos nos seus ambientes de nuvem e no local e a partir de outras ferramentas de monitorização, para fornecer analysis através de várias origens.
 
-[As soluções de gestão de análise de registo](../../log-analytics/log-analytics-add-solutions.md) adicionar funcionalidades à OMS, fornecendo dados adicionais e ferramentas de análise. Soluções de gestão de análise do registo são uma coleção de regras de aquisição lógica, visualização e os dados que fornecem as métricas para uma área específica. Uma solução também pode definir novos tipos de registo a ser recolhido e estes registos podem ser analisados pesquisas de registo ou com novas funcionalidades de interface de utilizador.
+[As soluções de gestão de análise de registo](../../log-analytics/log-analytics-add-solutions.md) adicionar funcionalidades à análise de registos, que fornece ferramentas de análise e dados adicionais. Soluções de gestão de análise do registo são uma coleção de regras de aquisição lógica, visualização e os dados que fornecem as métricas para uma área específica. Uma solução também pode definir novos tipos de registo a ser recolhido e estes registos podem ser analisados pesquisas de registo ou com novas funcionalidades de interface de utilizador.
 
 [Conhecimentos aprofundados & análise](https://azure.microsoft.com/pricing/details/insight-analytics/) baseia-se na plataforma de análise de registos. Pode optar por utilizar as capacidades de análise de registos e paga por GB ingerido no serviço, ou mudar a sua área de trabalho para a camada de conhecimentos aprofundados & análise e paga por nó gerido pelo serviço. Conhecimentos aprofundados & análise oferece um superconjunto das funcionalidades oferecidas pelas análise de registos. A solução de monitorização de HBase está disponível com a análise de registos ou conhecimentos aprofundados & análise.
 
-Quando aprovisionar uma solução de monitorização de HBase do HDInsight, criar uma área de trabalho do OMS. Cada área de trabalho como um ambiente de análise de registos exclusivo com as suas próprias repositório de dados, as origens de dados e soluções. Pode criar várias áreas de trabalho na sua subscrição para suportar vários ambientes, como produção e teste.
+Quando aprovisionar uma solução de monitorização de HBase do HDInsight, criar uma área de trabalho de análise de registos. Cada área de trabalho como um ambiente de análise de registos exclusivo com as suas próprias repositório de dados, as origens de dados e soluções. Pode criar várias áreas de trabalho na sua subscrição para suportar vários ambientes, como produção e teste.
 
 ## <a name="provision-hdinsight-hbase-monitoring"></a>Aprovisionar o HBase do HDInsight monitorização
 
@@ -50,7 +50,7 @@ Quando aprovisionar uma solução de monitorização de HBase do HDInsight, cria
 
     ![Painel de soluções de gestão](./media/apache-hbase-monitor-with-oms/hbase-solution.png)  
 6. No painel de solução de gestão, reveja as informações sobre a solução de gestão e, em seguida, selecione **criar**. 
-7. No *nome da solução de gestão* painel, selecione uma área de trabalho existente para associar a solução de gestão ou criar uma nova área de trabalho do OMS e, em seguida, selecioná-lo.
+7. No *nome da solução de gestão* painel, selecione uma área de trabalho existente para associar a solução de gestão ou criar uma nova área de trabalho de análise de registos e, em seguida, selecioná-lo.
 8. Alterar as definições da área de trabalho para a subscrição do Azure, o grupo de recursos e a localização conforme apropriado. 
     ![área de trabalho da solução](./media/apache-hbase-monitor-with-oms/solution-workspace.png)  
 9. Selecione **Criar**.  
@@ -68,9 +68,9 @@ Quando aprovisionar uma solução de monitorização de HBase do HDInsight, cria
 
 Para utilizar as ferramentas fornecidas pelo HDInsight HBase monitorização, terá de configurar o cluster, de modo a que transmite as métricas do respetivo servidor de região, nós principais e nós de ZooKeeper à análise de registos. Esta configuração é efetuada através da execução de uma ação de Script no seu cluster HBase do HDInsight.
 
-### <a name="get-oms-workspace-id-and-workspace-key"></a>Obter ID da área de trabalho OMS e a chave de área de trabalho
+### <a name="get-log-analytics-workspace-id-and-workspace-key"></a>Obter ID de área de trabalho de análise do registo e a chave de área de trabalho
 
-Terá do OMS ID e a chave da área de trabalho para permitir que os nós do cluster para se autenticar com a análise de registos. Para obter estes valores:
+Terá do ID de área de trabalho de análise do registo e a área de trabalho chave para permitir que os nós do cluster para se autenticar com a análise de registos. Para obter estes valores:
 
 1. A partir do seu painel monitorização do HBase no portal do Azure, selecione descrição geral.
 
@@ -146,5 +146,5 @@ Depois de concluída a ação de Script, deve ver os dados na solução de monit
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar alertas na análise de registos do OMS](../../log-analytics/log-analytics-alerts-creating.md)
+* [Criar alertas na análise de registos](../../log-analytics/log-analytics-alerts-creating.md)
 * [Encontrar dados com pesquisas de registo no Log Analytics do Azure](../../log-analytics/log-analytics-log-searches.md).

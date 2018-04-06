@@ -1,11 +1,11 @@
 ---
 title: Executar ESTRELA-CCM + com o HPC Pack em VMs do Linux | Microsoft Docs
-description: "Implementar um cluster do Microsoft HPC Pack no Azure e executar uma ESTRELA-CCM + tarefa no Linux vários nós de computação através de uma rede RDMA."
+description: Implementar um cluster do Microsoft HPC Pack no Azure e executar uma ESTRELA-CCM + tarefa no Linux vários nós de computação através de uma rede RDMA.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: xpillons
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 75523406-d268-4623-ac3e-811c7b74de4b
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8689d7abfd5ab45277df3b5672a1f6e7e874d88e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Executar ESTRELA-CCM + com o Microsoft HPC Pack num RDMA Linux cluster no Azure
 Este artigo mostra como implementar um cluster do Microsoft HPC Pack no Azure e execute um [CD adapco ESTRELA-CCM +](http://www.cd-adapco.com/products/star-ccm%C2%AE) tarefa em diversos nós de computação do Linux que estão interligados com InfiniBand.
@@ -284,7 +284,7 @@ Substitua **runner.java** com a ESTRELA preferencial-Iniciador do modelo CCM + J
     exit ${RTNSTS}
 ```
 
-No nosso teste, é utilizado um token de licença de energia-a pedido. Para esse token, tem de definir o **$CDLMD_LICENSE_FILE** variável de ambiente para  **1999@flex.cd-adapco.com**  e a chave no **- podkey** opção da linha de comandos.
+No nosso teste, é utilizado um token de licença de energia-a pedido. Para esse token, tem de definir o **$CDLMD_LICENSE_FILE** variável de ambiente para **1999@flex.cd-adapco.com** e a chave no **- podkey** opção da linha de comandos.
 
 Após alguma inicialização, extrai o script – do **$CCP_NODES_CORES** variáveis de ambiente que HPC Pack definidas – lista de nós para criar um hostfile que utiliza o iniciador MPI. Este hostfile irá conter a lista de nomes de nó de computação que são utilizados para a tarefa, o nome de um por linha.
 
@@ -296,19 +296,19 @@ O formato do **$CCP_NODES_CORES** segue este padrão:
 
 Em que:
 
-* `<Number of nodes>`é o número de nós atribuídos a esta tarefa.
-* `<Name of node_n_...>`é o nome de cada nó atribuído a esta tarefa.
-* `<Cores of node_n_...>`é o número de núcleos no nó atribuído a esta tarefa.
+* `<Number of nodes>` é o número de nós atribuídos a esta tarefa.
+* `<Name of node_n_...>` é o nome de cada nó atribuído a esta tarefa.
+* `<Cores of node_n_...>` é o número de núcleos no nó atribuído a esta tarefa.
 
 O número de núcleos (**$NBCORES**) também é calculado com base no número de nós (**$NBNODES**) e o número de núcleos por nó (fornecido como parâmetro **$NBCORESPERNODE**).
 
 Para as opções de MPI são aqueles que são utilizadas com Intel MPI no Azure:
 
-* `-mpi intel`Para especificar Intel MPI.
-* `-fabric UDAPL`Para utilizar o Azure InfiniBand verbos.
-* `-cpubind bandwidth,v`Para otimizar a largura de banda para MPI com ESTRELA-CCM +.
-* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"`Para tornar MPI Intel trabalhar com o Azure InfiniBand e para definir o número necessário de núcleos por nó.
-* `-batch`para iniciar ESTRELA-CCM + em modo batch com nenhuma IU.
+* `-mpi intel` Para especificar Intel MPI.
+* `-fabric UDAPL` Para utilizar o Azure InfiniBand verbos.
+* `-cpubind bandwidth,v` Para otimizar a largura de banda para MPI com ESTRELA-CCM +.
+* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` Para tornar MPI Intel trabalhar com o Azure InfiniBand e para definir o número necessário de núcleos por nó.
+* `-batch` para iniciar ESTRELA-CCM + em modo batch com nenhuma IU.
 
 Por fim, para iniciar uma tarefa, certifique-se de que os nós estão em execução e que estão online no Gestor de clusters. Em seguida, a partir de uma linha de comandos do PowerShell, execute este:
 
@@ -324,7 +324,7 @@ Mais tarde no, depois de terminado com os seus testes, pode utilizar os seguinte
     Start-HPCIaaSNode.ps1 -Name <prefix>-00*
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Tente executar outras cargas de trabalho do Linux. Por exemplo, consulte:
 
 * [Executar NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure](hpcpack-cluster-namd.md)

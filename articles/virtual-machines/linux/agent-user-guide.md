@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral do agente de VM Linux do Azure | Microsoft Docs"
-description: "Saiba como instalar e configurar o agente Linux (waagent) para gerir a interação da sua máquina virtual com o controlador de recursos de infraestrutura do Azure."
+title: Descrição geral do agente de VM Linux do Azure | Microsoft Docs
+description: Saiba como instalar e configurar o agente Linux (waagent) para gerir a interação da sua máquina virtual com o controlador de recursos de infraestrutura do Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: be3955c670382af1a2b558e8e7d656ca5a1f353d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreender e utilizar o agente Linux do Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -84,7 +84,7 @@ Os seguintes sistemas foram testados e são conhecidos para trabalhar com o agen
 * Debian 7.0 +
 * Ubuntu 12.04 +
 * openSUSE 12.3 +
-* SLES 11 SP3 +
+* SLES 11 SP3+
 * Oracle Linux 6.4 +
 
 Outros sistemas suportados:
@@ -273,19 +273,19 @@ Predefinição: n
 
 Se o conjunto de verbosidade do registo é elevado. Waagent regista /var/log/waagent.log e tira partido da funcionalidade de logrotate sistema para rodar os registos.
 
-**SO. EnableRDMA**  
+**OS.EnableRDMA**  
 Tipo: booleano  
 Predefinição: n
 
 Se definido, o agente irá tentar instalar e, em seguida, carregar um controlador de kernel RDMA que corresponde à versão de firmware no hardware subjacente.
 
-**SO. RootDeviceScsiTimeout:**  
+**OS.RootDeviceScsiTimeout:**  
 Tipo: número inteiro  
 Predefinição: 300
 
 Esta ação configura o limite de tempo de SCSI em segundos em unidades de dados e de disco do SO. Se não for definido, o sistema são utilizadas as predefinições.
 
-**SO. OpensslPath:**  
+**OS.OpensslPath:**  
 Tipo: Cadeia  
 Predefinição: nenhuma
 

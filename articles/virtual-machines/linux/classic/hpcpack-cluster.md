@@ -1,11 +1,11 @@
 ---
-title: "VMs de computação do Linux num cluster HPC Pack | Microsoft Docs"
-description: "Saiba como criar e utilizar um cluster HPC Pack no Azure para Linux elevado desempenho informática cargas de trabalho (HPC)"
+title: VMs de computação do Linux num cluster HPC Pack | Microsoft Docs
+description: Saiba como criar e utilizar um cluster HPC Pack no Azure para Linux elevado desempenho informática cargas de trabalho (HPC)
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 4d080fdd-5ffe-4f54-a78d-4c818f6eb3fb
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introdução aos nós de computação do Linux num cluster HPC Pack no Azure
 Configurar um [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) com uma distribuição Linux suportada de nós de computação de cluster no Azure que contém um nó principal com o Windows Server e várias. Explore as opções para mover dados entre os nós do Linux e o nó principal do cluster do Windows. Saiba como submeter as tarefas de Linux HPC para o cluster.
@@ -45,7 +45,7 @@ Para obter mais informações sobre as opções de implementação de cluster HP
 * **Quota de núcleos** -poderá ter de aumentar a quota de núcleos, especialmente se optar por implementar vários nós do cluster sem especializados tamanhos de VM. Para aumentar uma quota, abra um pedido de suporte online do cliente, sem encargos.
 * **As distribuições do Linux** -atualmente HPC Pack suporta as distribuições de Linux seguintes nós de computação. Pode utilizar Marketplace as versões destes distribuições, quando disponíveis, ou forneça o seu próprio.
   
-  * **Com base em centOS**: 6.5 6.6, 6.7, 7.0, 7.1, 7.2, 6.5 HPC, 7.1 HPC
+  * **CentOS-based**: 6.5, 6.6, 6.7, 7.0, 7.1, 7.2, 6.5 HPC, 7.1 HPC
   * **Red Hat Enterprise Linux**: 6.7, 6.8, 7.2
   * **SUSE Linux Enterprise Server**: SLES 12 SLES 12 (Premium), SLES 12 SP1, SLES 12 SP1 (Premium), SLES 12 para HPC, SLES 12 para HPC (Premium)
   * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
@@ -296,7 +296,7 @@ O pacote HPC [clusrun](https://technet.microsoft.com/library/cc947685.aspx) ferr
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Tente como aumentar verticalmente o um grande número de nós do cluster, ou tentar executar uma carga de trabalho do Linux no cluster. Por exemplo, consulte [NAMD executar com o Microsoft HPC Pack no Linux nós de computação em Azure](hpcpack-cluster-namd.md).
 * Tente um cluster com [VMs com capacidade RDMA, de computação intensiva](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) executar cargas de trabalho MPI. Por exemplo, consulte [cluster OpenFOAM executar com o Microsoft HPC Pack num RDMA Linux no Azure](hpcpack-cluster-openfoam.md).
 * Se estiver interessado em trabalhar com Linux nós num cluster HPC Pack no local, consulte o [TechNet orientações](https://technet.microsoft.com/library/mt595803.aspx).

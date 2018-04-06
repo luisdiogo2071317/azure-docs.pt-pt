@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Aceder a registos de diagnóstico para o Azure Data Lake Store
 Saiba mais ativar o diagnóstico de registo para a sua conta do Data Lake Store e ver os registos recolhidos para a sua conta.
@@ -47,7 +47,7 @@ As organizações podem ativar o registo de diagnóstico para a conta do Azure D
         
         * Selecione a opção para **fluxo para um hub de eventos** aos dados de registo de fluxo para um Hub de eventos do Azure. Provavelmente irá utilizar esta opção se tiver um pipeline de processamento a jusante para analisar os registos de entrada em tempo real. Se selecionar esta opção, tem de fornecer os detalhes para o Hub de eventos do Azure que pretende utilizar.
 
-        * Selecione a opção para **enviar ao Log Analytics** para utilizar o serviço de análise de registos do Azure para analisar os dados de registo gerado. Se selecionar esta opção, tem de fornecer os detalhes para a área de trabalho do Operations Management Suite que teria de utilizar a análise de registos de executar. Consulte [vista ou analisar os dados recolhidos com a pesquisa de registo de análise de registos](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre como utilizar a análise de registos.
+        * Selecione a opção para **enviar ao Log Analytics** para utilizar o serviço de análise de registos do Azure para analisar os dados de registo gerado. Se selecionar esta opção, tem de fornecer os detalhes para a área de trabalho de análise de registos que teria de utilizar a análise de registos de executar. Consulte [vista ou analisar os dados recolhidos com a pesquisa de registo de análise de registos](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre como utilizar a análise de registos.
      
    * Especifique se pretende obter registos de auditoria ou registos de pedidos ou ambos.
    * Especifique o número de dias para o qual os dados devem ser retidos. Retenção só é aplicável se estiver a utilizar a conta de armazenamento do Azure para arquivar dados de registo.

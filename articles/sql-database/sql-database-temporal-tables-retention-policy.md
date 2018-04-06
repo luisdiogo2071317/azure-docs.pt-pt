@@ -1,6 +1,6 @@
 ---
-title: "Gerir dados históricos em tabelas temporais com a política de retenção | Microsoft Docs"
-description: "Saiba como utilizar a política de retenção temporal para manter os dados históricos sob o seu controlo."
+title: Gerir dados históricos em tabelas temporais com a política de retenção | Microsoft Docs
+description: Saiba como utilizar a política de retenção temporal para manter os dados históricos sob o seu controlo.
 services: sql-database
 author: bonova
 manager: craigg
@@ -9,11 +9,11 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: bonova
-ms.openlocfilehash: 36ce6889cccbf5ae7df519c5c73846f12eed4a08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1ebfab93c94c27de8e765ac3f8278372c8f0690f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gerir dados históricos em tabelas temporais com a política de retenção
 As tabelas temporais podem aumentar o tamanho da base de dados com mais de tabelas regulares, especialmente se mantiver dados históricos para um período de tempo. Por conseguinte, a política de retenção de dados históricos é um aspeto importante de planeamento e a gerir o ciclo de vida de cada tabela temporal. As tabelas temporais na SQL Database do Azure são fornecidos com o mecanismo de retenção de fácil utilização que o ajuda a realizar esta tarefa.

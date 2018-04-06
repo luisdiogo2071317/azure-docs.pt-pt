@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 ## <a name="about-this-list"></a>Sobre esta lista
@@ -27,9 +27,11 @@ Quando importar uma API, poderá ser apresentados algumas restrições ou identi
 ## <a name="open-api"> </a>Abra API/Swagger
 Se está a receber erros de importar o documento de API aberta, certifique-se de ter validado-la - o utilizando o estruturador no portal do Azure (estrutura - Front-End - abra API especificação Editor) ou com terceiros uma ferramenta como <a href="http://www.swagger.io">Swagger Editor</a>.
 
-* **Nome de anfitrião** APIM requer um atributo de nome de anfitrião.
-* **Caminho de base** APIM requer um atributo de caminho de base.
-* **Os esquemas** APIM requer uma matriz de esquema.
+* Apenas o formato JSON para OpenAPI é suportado.
+* Esquemas referenciadas utilizando **$ref** propriedades não podem conter outros **$ref** propriedades.
+* **$ref** os apontadores não é possível fazer referência a ficheiros externos.
+* **x-ms-caminhos** e **x servidores** são as extensões suportadas apenas.
+* Extensões personalizadas são ignoradas na importação e não são guardadas ou preservadas para a exportação.
 
 > [!IMPORTANT]
 > Consulte este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) para informações importantes e sugestões relacionadas com a importação de OpenAPI.

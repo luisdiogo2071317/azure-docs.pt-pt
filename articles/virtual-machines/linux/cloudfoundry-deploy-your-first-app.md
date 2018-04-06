@@ -1,13 +1,13 @@
 ---
-title: "Implementar a sua primeira aplicação em Foundry de nuvem no Microsoft Azure | Microsoft Docs"
-description: "Implementar uma aplicação Foundry de nuvem no Azure"
+title: Implementar a sua primeira aplicação em Foundry de nuvem no Microsoft Azure | Microsoft Docs
+description: Implementar uma aplicação Foundry de nuvem no Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: seanmck
-manager: timlt
-editor: 
-tags: 
-keywords: 
+manager: jeconnoc
+editor: ''
+tags: ''
+keywords: ''
 ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b617127fc0a3f8dcae293e356ea669edcfa5deff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e7b321c9fc8f8568cd8109cea0ae877048d3663
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implementar a sua primeira aplicação em Foundry de nuvem no Microsoft Azure
 
@@ -35,7 +35,7 @@ Existem várias opções para criar um ambiente de nuvem Foundry no Azure:
 - [Implementar os pacotes de nuvem Foundry open source diretamente] [ oss-cf-bosh] ao configurar um [BOSH](http://bosh.io) director, uma VM que coordena a implementação do ambiente de nuvem Foundry.
 
 > [!IMPORTANT] 
-> Se estiver a implementar PCF no Azure Marketplace, anote o SYSTEMDOMAINURL e as credenciais de administrador necessárias para aceder ao Gestor de aplicações Pivotal, que são descritos no guia de implementação do marketplace. Estes são necessárias para concluir este tutorial. Para implementações do marketplace, o SYSTEMDOMAINURL está a ser https://system o formulário. *endereço ip*. cf.pcfazure.com.
+> Se estiver a implementar PCF no Azure Marketplace, anote o SYSTEMDOMAINURL e as credenciais de administrador necessárias para aceder ao Gestor de aplicações Pivotal, que são descritos no guia de implementação do marketplace. Estes são necessárias para concluir este tutorial. Para implementações do marketplace, o SYSTEMDOMAINURL tem o formato https://system. *endereço IP*. cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Ligar ao controlador de nuvem
 
@@ -141,7 +141,7 @@ cf scale -i 2 hello-spring-cloud
 Executar o `cf app` comando na aplicação apresenta Foundry de nuvem está a criar outra instância da aplicação. Assim que a aplicação foi iniciada, o Cloud Foundry inicia automaticamente para o tráfego de balanceamento de carga.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Leia a documentação de nuvem Foundry][cloudfoundry-docs]
 - [Configurar o plug-in do Visual Studio Team Services para a nuvem Foundry][vsts-plugin]
