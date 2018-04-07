@@ -1,11 +1,11 @@
 ---
-title: "Criar um nó principal do HPC Pack numa VM do Azure | Microsoft Docs"
-description: "Saiba como utilizar o portal do Azure e o modelo de implementação Resource Manager para criar um nó principal do Microsoft HPC Pack 2012 R2 numa VM do Azure."
+title: Criar um nó principal do HPC Pack numa VM do Azure | Microsoft Docs
+description: Saiba como utilizar o portal do Azure e o modelo de implementação Resource Manager para criar um nó principal do Microsoft HPC Pack 2012 R2 numa VM do Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,hpc-pack
 ms.assetid: e6a13eaf-9124-47b4-8d75-2bc4672b8f21
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: b2bb9caf82a580dc5f67ea0b0b1c2e9a46363e9c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acd4cd44dd35a5b1755d9456f683076567d62165
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Criar o nó principal de um cluster HPC Pack numa VM do Azure com uma imagem do Marketplace
 Utilize um [imagem de máquina virtual do Microsoft HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) do Azure Marketplace e o portal do Azure para criar o nó principal de um cluster HPC. Esta imagem de VM de pacote HPC é baseada no Windows Server 2012 R2 Datacenter com o HPC Pack 2012 R2 Update 3 pré-instaladas. Utilize este nó principal para uma prova de implementação de conceito de pacote HPC no Azure. Em seguida, pode adicionar nós de computação para o cluster para executar cargas de trabalho HPC.
@@ -73,7 +73,7 @@ Seguem-se passos de alto nível para utilizar o portal do Azure para criar uma V
    
     Nó principal adicionais para opções de configuração, escreva `get-help HPCHNPrepare.ps1`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Agora, pode trabalhar com o nó principal do cluster HPC Pack. Por exemplo, inicie o Gestor de clusters HPC e concluir o [lista de tarefas de implementação](https://technet.microsoft.com/library/jj884141.aspx).
 * Se pretender aumentar a cluster computação capacidade a pedido, adicione [Azure burst nós](classic/hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) num serviço em nuvem. 
 * Tente executar uma carga de trabalho de teste no cluster. Por exemplo, consulte o HPC Pack [guia de introdução](https://technet.microsoft.com/library/jj884144).

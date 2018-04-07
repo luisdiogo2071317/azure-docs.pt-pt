@@ -1,11 +1,11 @@
 ---
 title: Criar um ambiente de Linux completado com a CLI do Azure 1.0 | Microsoft Docs
-description: "Crie armazenamento, uma VM com Linux, uma rede virtual e sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo a partir do zero utilizando a CLI do Azure 1.0."
+description: Crie armazenamento, uma VM com Linux, uma rede virtual e sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo a partir do zero utilizando a CLI do Azure 1.0.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a43e138d3497e01fe9e0e5c55a4a66adac767c6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Criar um ambiente de Linux completado com a CLI do Azure 1.0
 Neste artigo, vamos criar uma rede simple com um balanceador de carga e um par de VMs que são úteis para desenvolvimento e computação simples. Vamos guiá-lo durante o processo de comando pelo comando, até ter duas VMs de Linux funcionar, segura ao qual pode ligar de qualquer lugar na Internet. Em seguida, pode passar mais complexas redes e ambientes.
@@ -300,7 +300,7 @@ data:
 info:    group create command OK
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Create a storage account
 Terá de contas de armazenamento para os discos da VM e para quaisquer discos de dados adicionais que pretende adicionar. Criar contas de armazenamento quase imediatamente após criar grupos de recursos.
 
 Aqui, utilizamos o `azure storage account create` comando, passando a localização da conta, o grupo de recursos que controla e o tipo de suporte de armazenamento que pretende. O exemplo seguinte cria uma conta de armazenamento com o nome `mystorageaccount`:
@@ -382,7 +382,7 @@ data:    vhds  Off            Sun, 27 Sep 2015 19:03:54 GMT
 info:    storage container list command OK
 ```
 
-## <a name="create-a-virtual-network-and-subnet"></a>Criar uma rede virtual e sub-rede
+## <a name="create-a-virtual-network-and-subnet"></a>Criar uma rede virtual e uma sub-rede
 Em seguida que vai precisar de criar uma rede virtual em execução no Azure e uma sub-rede na qual pode criar as suas VMs. O exemplo seguinte cria uma rede virtual denominada `myVnet` com o `192.168.0.0/16` prefixo de endereço:
 
 ```azurecli
@@ -795,7 +795,7 @@ data:    Backend address pool id         : /subscriptions/guid/resourceGroups/my
 info:    network lb rule create command OK
 ```
 
-## <a name="create-a-load-balancer-health-probe"></a>Criar uma sonda de estado de funcionamento do Balanceador de carga
+## <a name="create-a-load-balancer-health-probe"></a>Criar uma sonda de estado de funcionamento do balanceador de carga
 Um Estado de funcionamento periodicamente sonda verificações em VMs que estejam atrás nosso Balanceador de carga para se certificar de que está a funcionar e responder a pedidos, tal como definido. Caso contrário, está a ser removidos da operação para se certificar de que os utilizadores não estão a ser direcionados aos mesmos. Pode definir verificações personalizadas para a sonda de estado de funcionamento, juntamente com intervalos e valores de tempo limite. Para obter mais informações sobre as sondas de estado de funcionamento, consulte [sondas de Balanceador de carga](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). O exemplo seguinte cria um TCP estado de funcionamento sondado nomeado `myHealthProbe`:
 
 ```azurecli
@@ -1287,5 +1287,5 @@ azure group deployment create --resource-group myNewResourceGroup \
 
 Pode querer ler [mais informações sobre como implementar a partir de modelos](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Saiba mais sobre como atualizar ambientes de forma incremental, utilize o ficheiro de parâmetros e aceder modelos a partir de uma única localização de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora está pronto para começar a trabalhar com vários componentes de rede e as VMs. Pode utilizar este ambiente de exemplo para criar horizontalmente a aplicação ao utilizar os componentes principais introduzidos aqui.

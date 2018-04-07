@@ -3,9 +3,8 @@ title: Níveis de consistência na base de dados do Azure Cosmos | Microsoft Doc
 description: BD do Azure do Cosmos tem cinco níveis de consistência para ajudar a balancear eventual consistência, disponibilidade e a latência compromissos.
 keywords: consistência eventual, azure cosmos db, do azure, do Microsoft azure
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência sincronizáveis dados na base de dados do Azure Cosmos
 BD do Azure do Cosmos foi concebido partir do zero cópias de segurança com distribuição global em mente para cada modelo de dados. Foi concebido para oferecer vários modelos de simples de consistência bem definidos e de garantias de latência baixa previsível. Atualmente, a base de dados do Azure Cosmos fornece cinco níveis de consistência: forte, consistência vinculada, sessão, prefixo consistente e eventual. Consistência vinculada, sessão, prefixo consistente e eventual são designados "modelos de consistência simples" que fornecem o menor consistência que segura, que é o modelo a maioria das consistente altamente disponível. 
@@ -109,7 +108,7 @@ Pode configurar um nível de consistência predefinida na sua conta de base de d
 
 ## <a name="configuring-the-default-consistency-level"></a>Configurar o nível de consistência predefinida
 1. No [portal do Azure](https://portal.azure.com/), no Jumpbar, clique em **Azure Cosmos DB**.
-2. No **Azure Cosmos DB** página, selecione a conta de base de dados para modificar.
+2. Na página **Azure Cosmos DB**, selecione a conta de base de dados a modificar.
 3. Na página de conta, clique em **predefinido consistência**.
 4. No **consistência predefinida** página, selecione o novo nível de consistência e clique em **guardar**.
    

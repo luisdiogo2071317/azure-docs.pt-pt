@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Descrição geral das métricas no Microsoft Azure
 Este artigo descreve quais são as métricas no Microsoft Azure, os seus benefícios e como começar a utilizá-los.  
@@ -47,7 +47,7 @@ Também pode:
 
 * Configurar uma métrica **alerta regra que envia uma notificação ou demora automatizada ação** quando a métrica atravesse o limiar que definiu. Dimensionamento automático é uma ação automática especial que permite-lhe aumentar horizontalmente o recurso para satisfazer os pedidos recebidos ou carrega no seu Web site ou recursos informáticos. Pode configurar uma regra de definição de dimensionamento automático para aumentar ou reduzir com base numa métrica de cruzamento entre um limiar.
 
-* **Rota** todas as métricas do Application Insights ou análise de registos (OMS) para ativar a análise instantânea, pesquisa e alertas personalizados em dados de métricas dos seus recursos. Também pode transmitir métricas para um Hub de eventos, permitindo-lhe encaminhá-las para o Azure Stream Analytics ou para aplicações personalizadas para análise de quase em tempo real. Configurar o Hub de eventos com as definições de diagnóstico de transmissão em fluxo.
+* **Rota** todas as métricas do Application Insights ou análise de registos para ativar a análise instantânea, pesquisa e alertas personalizados em dados de métricas dos seus recursos. Também pode transmitir métricas para um Hub de eventos, permitindo-lhe encaminhá-las para o Azure Stream Analytics ou para aplicações personalizadas para análise de quase em tempo real. Configurar o Hub de eventos com as definições de diagnóstico de transmissão em fluxo.
 
 * **As métricas para o armazenamento de arquivo** de retenção mais longa ou utilizá-las para relatórios offline. Pode encaminhar as métricas para o armazenamento de Blobs do Azure quando configurar as definições de diagnóstico para o seu recurso.
 
@@ -100,11 +100,18 @@ As métricas do Azure podem ser acedidas através das APIs de Monitor do Azure. 
 Para obter instruções mais detalhadas com as APIs de REST de Monitor do Azure, consulte [instruções de API REST da Azure Monitor](monitoring-rest-api-walkthrough.md).
 
 ## <a name="export-metrics"></a>Métricas de exportação
-Pode ir para o **as definições de diagnóstico** painel sob o **Monitor** separador e ver as opções de exportação para as métricas. Pode selecionar métricas (e os registos de diagnóstico) para ser encaminhados para o Blob storage, Event Hubs do Azure ou para OMS para casos de utilização que foram mencionados anteriormente neste artigo.
+Pode ir para o **as definições de diagnóstico** painel sob o **Monitor** separador e ver as opções de exportação para as métricas. Pode selecionar métricas (e os registos de diagnóstico) para ser encaminhados para o Blob storage, Event Hubs do Azure ou para análise de registos para casos de utilização que foram mencionados anteriormente neste artigo.
 
  ![Opções de exportação para as métricas no Monitor do Azure](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
 Pode configurar isto através de modelos do Resource Manager, [PowerShell](insights-powershell-samples.md), [CLI do Azure](insights-cli-samples.md), ou [REST APIs](https://msdn.microsoft.com/library/dn931943.aspx).
+
+> [!NOTE]
+> Atualmente, o envio de métricas multidimensionais através de definições de diagnóstico não é suportada. Métricas com dimensões são exportadas como simplificadas único dimensional métricas agregadas em valores de dimensão.
+>
+> *Por exemplo*: A métrica de 'Receber mensagens em fila' num Hub de eventos pode ser explorou e charted num nível de fila por. No entanto, quando exportou através de definições de diagnóstico que a métrica será representada como todas as mensagens a receber em todos os coloca em fila de eventos Hub.
+>
+>
 
 ## <a name="take-action-on-metrics"></a>Execute as ações nas métricas
 Para receber notificações ou executar ações automatizadas dados métricos, pode configurar regras de alerta ou definições de dimensionamento automático.
@@ -127,7 +134,7 @@ Alguns recursos do Azure suportam o dimensionamento de saída ou de várias inst
 ## <a name="learn-about-supported-services-and-metrics"></a>Saiba mais sobre serviços suportados e métricas
 Pode ver uma lista detalhada de todos os serviços suportados e os respetivos métricas [métricas de Monitor do Azure – métricas suportadas por tipo de recurso](monitoring-supported-metrics.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte as ligações ao longo deste artigo. Além disso, saiba mais sobre:  
 
 * [Métricas de comuns de dimensionamento automático](insights-autoscale-common-metrics.md)

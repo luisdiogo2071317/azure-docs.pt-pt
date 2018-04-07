@@ -1,22 +1,19 @@
 ---
-title: Deteção de anomalias no guia de utilização do Azure (pré-visualização) | Microsoft Docs
-description: Utilize o do stream analytics e a aprendizagem automática detetar anomalias.
+title: Deteção de anomalias no Azure Stream Analytics (pré-visualização)
+description: Este artigo descreve como utilizar o Azure Stream Analytics e o Azure Machine Learning em conjunto, para detetar anomalias.
 services: stream-analytics
-documentationcenter: ''
 author: dubansal
-manager: katicad
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 02/12/2018
 ms.author: dubansal
-ms.openlocfilehash: 9d301f8586038f635ee97a3acdc9c4dc8a2bbcc6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 02/12/2018
+ms.openlocfilehash: cda5c26d4256720a8cf9af0e9abd604c979422a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Deteção de anomalias do Azure Stream Analytics
 
@@ -45,7 +42,7 @@ Quando utilizar o operador de AnomalyDetection, tem de especificar o **Limit Dur
 
 ### <a name="arguments"></a>Argumentos
 
-* **scalar_expression** -a expressão escalar durante o qual a deteção de anomalias é executada. Valores permitidos para este parâmetro incluem o número de vírgula flutuante ou de dados Bigint tipos de retorno ou um único () valor escalar. A expressão com carateres universais **\*** não é permitida. Expressão escalar não pode conter outras funções analíticas ou funções externas. 
+* **scalar_expression** -a expressão escalar durante o qual a deteção de anomalias é executada. Valores permitidos para este parâmetro incluem o número de vírgula flutuante ou de dados Bigint tipos de retorno ou um único () valor escalar. A expressão com carateres universais ** \* ** não é permitida. Expressão escalar não pode conter outras funções analíticas ou funções externas. 
 
 * **partition_by_clause** - `PARTITION BY <partition key>` cláusula divide a aprendizagem e a formação em partições separadas. Por outras palavras, um modelo separado seria utilizado por valor `<partition key>` e apenas eventos com que o valor seriam utilizados para formação esse modelo e de aprendizagem. Por exemplo, a seguinte consulta trains e pontua um leitura contra outras as leituras de apenas o sensor mesmo:
 
@@ -79,7 +76,7 @@ Foi detetada uma anomalias de um tipo quando um das pontuações de anomalias at
 
 ### <a name="training-the-models"></a>Os modelos de preparação 
 
-Como avança ser de tempo, modelos são preparados com dados diferentes. Para fazer sentido das pontuações, ajuda a compreender o mecanismo de subjacente através do qual os modelos são preparados. Aqui, **t<sub>0</sub>**  é o **hora de início do resultado da tarefa** e **d** é o **tamanho da janela** da duração de limite parâmetro. Partem do princípio de que a hora é dividida entre cópias de segurança **saltos de tamanho d**, a partir do `01/01/0001 00:00:00`. São utilizados os seguintes passos para preparar o modelo e Pontuar os eventos:
+Como avança ser de tempo, modelos são preparados com dados diferentes. Para fazer sentido das pontuações, ajuda a compreender o mecanismo de subjacente através do qual os modelos são preparados. Aqui, **t<sub>0</sub> ** é o **hora de início do resultado da tarefa** e **d** é o **tamanho da janela** da duração de limite parâmetro. Partem do princípio de que a hora é dividida entre cópias de segurança **saltos de tamanho d**, a partir do `01/01/0001 00:00:00`. São utilizados os seguintes passos para preparar o modelo e Pontuar os eventos:
 
 * Quando inicia uma tarefa de cópia de segurança, lê dados começando tempo t<sub>0</sub> – 2d.  
 * Quando o tempo atinge o salto seguinte, um novo modelo M1 é criado e começa a obter preparado.  

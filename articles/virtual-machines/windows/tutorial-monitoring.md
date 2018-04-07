@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b908e8877162a6a1d9292616a1704c1c528e1725
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Monitorizar e atualizar a Máquina Virtual do Windows com o Azure PowerShell
 
@@ -238,7 +238,7 @@ O gráfico mostra as alterações ocorridas ao longo do tempo. Após ter adicion
 
 ## <a name="advanced-monitoring"></a>Monitorização avançada
 
-Pode efetuar mais avançadas de monitorização da sua VM, utilizando as soluções como gestão de atualizações e alterações e inventário fornecidos pela automatização do Azure. [Operations Management Suite](../../automation/automation-intro.md).
+Pode fazê-lo mais avançadas de monitorização da sua VM, utilizando as soluções como gestão de atualizações e alterações e inventário fornecida pelo [da automatização do Azure](../../automation/automation-intro.md).
 
 Quando o utilizador tem acesso à área de trabalho de análise de registos, pode encontrar a chave de área de trabalho e o identificador de área de trabalho no selecionando **definições avançadas** em **definições**. Utilize o [conjunto AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) comando para adicionar a extensão do Microsoft Monitoring agent para a VM. Atualizar os valores das variáveis no abaixo exemplo para refletir a chave da área de trabalho de análise de registos e o ID da área de trabalho
 

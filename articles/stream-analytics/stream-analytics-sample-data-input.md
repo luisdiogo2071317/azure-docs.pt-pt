@@ -1,26 +1,21 @@
 ---
-title: Consulta de teste no Azure Stream Analytics | Microsoft Docs
-description: Identificar problemas quando resolver problemas relacionados com tarefas do Stream Analytics.
-keywords: resolver problemas de amostragem de entrada, a entrada
-documentationcenter: ''
+title: Testar uma consulta com dados de exemplo no Azure Stream Analytics
+description: Este artigo descreve como testar uma consulta com alguns dados de entrada de exemplo no Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 99c9f7f2dc84f53d09b7aee1916c5532427de692
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 305b767ee86de6c8b04fed17514a9092afc2d735
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>A amostragem de fluxo de entrada e de teste de consulta do Stream Analytics do Azure
+# <a name="test-a-query-and-sample-input-in-azure-stream-analytics"></a>Testar uma consulta e exemplo de entrada no Azure Stream Analytics 
 
 Ao utilizar o Azure Stream Analytics, pode apresentar exemplos eventos de entrada que vêm de um ficheiro e testar consultas no portal sem ser necessário iniciar ou parar uma tarefa.
 
@@ -52,11 +47,11 @@ Na imagem anterior, foi adicionada uma saída segundo, denominado **HighAvgTempO
 
 Quando utilizar várias saídas numa consulta, pode ver os resultados para cada saída separadamente e facilmente alternar entre elas.
 
-Depois de se satisfeito com os resultados, pode guardar a consulta, iniciar a sua tarefa, manter-se novamente e veja a magia do Stream Analytics.
+Depois de se satisfeito com os resultados, pode guardar a consulta, iniciar a tarefa, manter-se novamente e veja a magia do Stream Analytics.
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para mais assistência, tente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

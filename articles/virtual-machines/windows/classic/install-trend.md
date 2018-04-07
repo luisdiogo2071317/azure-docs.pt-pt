@@ -1,11 +1,11 @@
 ---
-title: "Instalar a tendência de segurança avançada Micro numa VM | Microsoft Docs"
-description: "Este artigo descreve como instalar e configurar a segurança de tendência Micro numa VM criada com o modelo de implementação clássico no Azure."
+title: Instalar a tendência de segurança avançada Micro numa VM | Microsoft Docs
+description: Este artigo descreve como instalar e configurar a segurança de tendência Micro numa VM criada com o modelo de implementação clássico no Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: e991b635-f1e2-483f-b7ca-9d53e7c22e2a
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 155f4d8c7aa3e0e8f64944435e14112a7970420d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Como instalar e configurar o Trend Micro Deep Security como Serviço numa VM do Windows
 > [!IMPORTANT]
@@ -77,7 +77,7 @@ Se o agente VM está instalado, execute estes comandos.
 
     Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Demora alguns minutos para que o agente iniciar a execução quando é instalado. Depois disso, terá de ativar segurança profunda na máquina virtual, para que possa ser gerido por um Gestor de segurança avançada. Consulte os artigos seguintes para obter instruções adicionais:
 
 * Artigo da tendência sobre esta solução, [Instant-On Cloud Security para o Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101)

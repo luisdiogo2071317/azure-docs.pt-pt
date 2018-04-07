@@ -1,12 +1,12 @@
 ---
-title: "Agregação de eventos de recursos de infraestrutura de serviço do Azure com diagnósticos do Azure do Linux | Microsoft Docs"
-description: "Saiba mais sobre agregar e recolha de eventos utilizando LAD para monitorização e diagnóstico de clusters de Service Fabric do Azure."
+title: Agregação de eventos de recursos de infraestrutura de serviço do Azure com diagnósticos do Azure do Linux | Microsoft Docs
+description: Saiba mais sobre agregar e recolha de eventos utilizando LAD para monitorização e diagnóstico de clusters de Service Fabric do Azure.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: b70780b2e1d169aced3412f6fe6d13ad4dab82be
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9ad63a67d3b51cad1376eb9e97e68fb9102013e3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregação de eventos e a coleção com Linux do diagnóstico do Azure
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 Quando estiver a executar um cluster do Service Fabric do Azure, é uma boa ideia para recolher os registos de todos os nós numa localização central. Com os registos numa localização central ajuda a analisar e resolver problemas no seu cluster, ou problemas em aplicações e serviços em execução nesse cluster.
 
-Uma forma para carregar e recolher registos consiste em utilizar a extensão do Linux do Azure Diagnostics (LAD), que carrega registos para o Storage do Azure e tem também a opção para enviar registos ao Application Insights do Azure ou Event Hubs. Também pode utilizar o processo externo para leitura dos eventos de armazenamento e colocá-los como um produto de plataforma de análise, [análise de registos do OMS](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise do registo.
+Uma forma para carregar e recolher registos consiste em utilizar a extensão do Linux do Azure Diagnostics (LAD), que carrega registos para o Storage do Azure e tem também a opção para enviar registos ao Application Insights do Azure ou Event Hubs. Também pode utilizar o processo externo para leitura dos eventos de armazenamento e colocá-los como um produto de plataforma de análise, [Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise do registo.
 
 ## <a name="log-and-event-sources"></a>Origens de registo e evento
 
@@ -52,4 +52,4 @@ Esta ação configura o agente LAD para monitorizar os ficheiros de registo espe
 ## <a name="next-steps"></a>Passos Seguintes
 
 1. Para saber mais detalhadamente que eventos deve examinar durante a resolução de problemas, consulte [LTTng documentação](http://lttng.org/docs) e [utilizando LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-2. [Configurar o agente do OMS](service-fabric-diagnostics-event-analysis-oms.md) para ajudar a recolher métricas, monitorizar contentores implementadas no seu cluster e visualizar os seus registos 
+2. [Configurar o agente de análise de registos](service-fabric-diagnostics-event-analysis-oms.md) para ajudar a recolher métricas, monitorizar contentores implementadas no seu cluster e visualizar os seus registos 

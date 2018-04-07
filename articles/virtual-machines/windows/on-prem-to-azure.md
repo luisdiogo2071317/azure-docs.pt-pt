@@ -1,13 +1,13 @@
 ---
 title: Migrar do AWS e outras plataformas para discos geridos no Azure | Microsoft Docs
-description: "Criar VMs no Azure utilizando VHDs carregados a partir de outras nuvens como AWS ou outras plataformas de Virtualização e tirar partido dos discos gerida do Azure."
+description: Criar VMs no Azure utilizando VHDs carregados a partir de outras nuvens como AWS ou outras plataformas de Virtualização e tirar partido dos discos gerida do Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: b7fe27ed8615b9684e14276d6d0f5bf84ee5ee81
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrar do Amazon Web Services (AWS) e outras plataformas para discos geridos no Azure
 
@@ -55,6 +55,7 @@ Discos gerida do Azure simplifica a gestão de VM, removendo a necessidade de ge
 
 Esta secção ajuda-o a tomar a decisão de melhor em tipos de disco e de VM.
 
+Se estiver a planear migrar de discos não geridos para gerido discos, deve ter em atenção que os utilizadores com o [contribuinte de Máquina Virtual](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) função não será possível alterar o tamanho da VM (uma vez que estes foi pré-conversão). Isto acontece porque as VMs com discos geridos exigem que o utilizador ter a permissão de Microsoft.Compute/disks/write nos discos do SO.
 
 ### <a name="location"></a>Localização
 
@@ -98,6 +99,6 @@ Por predefinição, o disco de política de colocação em cache é *só de leit
 Reveja o [preços para discos geridos](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Preços dos discos de geridos Premium é a mesmo discos Premium não gerido. Mas preços para os discos padrão geridos são diferente de discos padrão de não gerido.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - Antes de carregar qualquer VHD para o Azure, deve seguir [preparar um VHD do Windows ou o VHDX para carregar para o Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

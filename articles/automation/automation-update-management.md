@@ -5,14 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -30,7 +30,7 @@ Os computadores geridos através da utilização de gestão de atualização, as
 * Função de Trabalho de Runbook Híbrida da Automatização
 * Microsoft Update ou Windows Server Update Services para computadores Windows
 
-O diagrama seguinte mostra uma vista concetual do comportamento e ligados de fluxo de dados com a forma como a solução avalia e aplica as atualizações de segurança para todos os Windows Server e os computadores com Linux numa área de trabalho.    
+O diagrama seguinte mostra uma vista concetual do comportamento e ligados de fluxo de dados com a forma como a solução avalia e aplica as atualizações de segurança para todos os Windows Server e os computadores com Linux numa área de trabalho.
 
 ![Atualizar o fluxo de processo de gestão](media/automation-update-management/update-mgmt-updateworkflow.png)
 
@@ -70,21 +70,24 @@ A tabela seguinte lista os sistemas operativos que não são suportados:
 
 #### <a name="windows"></a>Windows
 
-Agentes do Windows tem de ser configurados para comunicar com um servidor do Windows Server Update Services (WSUS) ou tem acesso ao Microsoft Update. Também o agente do Windows não pode ser gerido em simultâneo pelo System Center Configuration Manager. O [agente do Windows](../log-analytics/log-analytics-agent-windows.md) é necessária. Este agente é instalado automaticamente, se estiver a integração de VM do Azure.
+Agentes do Windows tem de ser configurados para comunicar com um servidor do Windows Server Update Services (WSUS) ou tem acesso ao Microsoft Update. Gestão de atualizações pode ser utilizada com o System Center Configuration Manager, para saber mais sobre os cenários de integração visitam [integrar o System Center Configuration Manager com a gestão de atualizações](oms-solution-updatemgmt-sccmintegration.md#configuration). O [agente do Windows](../log-analytics/log-analytics-agent-windows.md) é necessária. Este agente é instalado automaticamente, se estiver a integração de VM do Azure.
 
 #### <a name="linux"></a>Linux
 
 Para Linux, a máquina tem de ter acesso a um repositório de atualização, que pode ser privado ou público. Um agente do OMS para Linux configurado para relatar para várias áreas de trabalho de análise de registos não é suportado com esta solução.
 
-Para obter mais informações sobre como instalar o agente do OMS para Linux e transferir a versão mais recente, consulte [agente do Operations Management Suite para Linux](https://github.com/microsoft/oms-agent-for-linux). Para obter informações sobre como instalar o Agente do OMS para Windows, consultar [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md) (Agente do Operations Management Suite para Windows).  
+Para obter mais informações sobre como instalar o agente do OMS para Linux e transferir a versão mais recente, consulte [agente do Operations Management Suite para Linux](https://github.com/microsoft/oms-agent-for-linux). Para obter informações sobre como instalar o Agente do OMS para Windows, consultar [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md) (Agente do Operations Management Suite para Windows).
 
 ## <a name="permissions"></a>Permissões
-Para criar e gerir implementações de atualização, terá de permissões específicas. Para saber mais sobre estas permissões visitam [acesso funções com base - gestão de atualizações](automation-role-based-access-control.md#update-management) 
+
+Para criar e gerir implementações de atualização, terá de permissões específicas. Para saber mais sobre estas permissões visitam [acesso funções com base - gestão de atualizações](automation-role-based-access-control.md#update-management)
 
 ## <a name="solution-components"></a>Componentes da solução
+
 Esta solução consiste nos recursos seguintes que são adicionados à sua conta de Automatização e a agentes ligados diretamente ou a grupos de gestão ligados do Operations Manager.
 
 ### <a name="hybrid-worker-groups"></a>Grupos de Função de Trabalho Híbrida
+
 Depois de ativar esta solução, qualquer computador com o Windows diretamente ligada à sua área de trabalho de análise de registos é automaticamente configurado como um Runbook Worker híbrido para suportar os runbooks incluídos nesta solução. Para cada computador com o Windows gerido pela solução, estão listadas na página de grupos de trabalho híbrida como um grupo de trabalho híbrida de sistema para a conta de automatização seguir a Convenção de nomenclatura *Hostname FQDN_GUID*. Não pode visar estes grupos com runbooks na sua conta, caso contrário, que estas falhar. Estes grupos destinam-se apenas a suportar a solução de gestão.
 
 No entanto, pode adicionar os computadores Windows a um grupo de Função de Trabalho de Runbook Híbrida na conta de Automatização para suportar runbooks de Automatização, desde que esteja a utilizar a mesma conta para a solução e a subscrição do grupo de Função de Trabalho de Runbook Híbrida. Esta funcionalidade foi adicionada à versão 7.2.12024.0 da Função de Trabalho de Runbook Híbrida.
@@ -119,14 +122,13 @@ Heartbeat
 
 Num computador Windows, pode rever o seguinte procedimento para verificar a conectividade do agente de análise do registo:
 
-1.  Abra o Microsoft Monitoring Agent no painel de controlo e no **Log Analytics do Azure** separador, o agente apresenta uma mensagem a indicar: **o Microsoft Monitoring Agent foi ligado com êxito ao Log Analytics** .   
-2.  Abra o Registo de Eventos do Windows, navegue para **Registos de Aplicações e Serviços\Operations Manager** e procure os IDs de Evento 3000 e 5002 no Conector de Serviço de origem. Estes eventos indicarem o computador foi registado com a área de trabalho de análise de registos e está a receber configuração.  
+1. Abra o Microsoft Monitoring Agent no painel de controlo e no **Log Analytics do Azure** separador, o agente apresenta uma mensagem a indicar: **o Microsoft Monitoring Agent foi ligado com êxito ao Log Analytics** .   
+2. Abra o Registo de Eventos do Windows, navegue para **Registos de Aplicações e Serviços\Operations Manager** e procure os IDs de Evento 3000 e 5002 no Conector de Serviço de origem. Estes eventos indicarem o computador foi registado com a área de trabalho de análise de registos e está a receber configuração.
 
 Se o agente não consegue comunicar com a análise de registos e está configurado para comunicar com a internet através de um servidor de firewall ou proxy, certifique-se o servidor de firewall ou proxy está configurado corretamente revendo [configuração de rede para O agente do Windows](../log-analytics/log-analytics-agent-windows.md) ou [configuração de rede para o agente Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Se os sistemas Linux estão configurados para comunicar com um proxy ou Gateway do OMS e são integração esta solução, a atualização a *proxy.conf* permissões para o grupo de omiuser de conceder permissão de leitura nos ficheiro efetuando o seguinte comandos:  
-> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> Se os sistemas Linux estão configurados para comunicar com um proxy ou Gateway do OMS e são integração esta solução, a atualização a *proxy.conf* permissões para o grupo de omiuser de conceder permissão de leitura nos ficheiro efetuando o seguinte comandos: `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
 
 Os agentes do Linux adicionados recentemente mostrarão o estado **Atualizado** depois de ser realizada a avaliação. Este processo pode demorar até seis horas.
@@ -136,6 +138,7 @@ Para confirmar um grupo de gestão do Operations Manager está a comunicar com a
 ## <a name="data-collection"></a>Recolha de dados
 
 ### <a name="supported-agents"></a>Agentes suportados
+
 A tabela seguinte descreve as origens ligadas que são suportadas por esta solução.
 
 | Origem Ligada | Suportadas | Descrição |
@@ -145,11 +148,13 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | Grupo de gestão do Operations Manager |Sim |A solução recolhe informações sobre atualizações do sistema de agentes num grupo de gestão ligado.<br>Não é necessária uma ligação direta a partir do agente do Operations Manager ao Log Analytics. Dados seja reencaminhados do grupo de gestão para a área de trabalho de análise de registos. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
+
 Em cada computador Windows gerido, é feita uma análise duas vezes por dia. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o estado foi alterado e, se for esse o caso, é iniciada uma análise de conformidade. Em cada computador Linux gerido, é feita uma análise de três em três horas.
 
-O dashboard pode demorar entre 30 minutos a seis horas a apresentar os dados atualizados a partir dos computadores geridos.   
+O dashboard pode demorar entre 30 minutos a seis horas a apresentar os dados atualizados a partir dos computadores geridos.
 
 ## <a name="viewing-update-assessments"></a>Ver avaliações de atualizações
+
 Clique em de **gestão de atualizações** na sua conta de automatização para ver o estado das máquinas.
 
 Esta vista fornece informações sobre as máquinas, em falta atualizações, implementações de atualização e implementações de atualização agendada.
@@ -165,7 +170,7 @@ Depois de terem sido avaliadas as atualizações para todos os computadores Linu
 
 Para evitar que as atualizações sejam aplicadas fora da janela de manutenção no Ubuntu, reconfigure o pacote Unattended-Upgrade para desativar as atualizações automáticas. Para obter informações sobre como configurar, veja [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) (Tópico de Atualizações Automáticas no Guia do Ubuntu Server).
 
-Para máquinas virtuais criadas a partir de imagens de Red Hat Enterprise Linux (RHEL) a pedido disponíveis no Azure Marketplace, estão registadas para aceder à [Infraestrutura de Atualização do Red Hat (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) implementada no Azure. Qualquer outra distribuição de Linux tem de ser atualizada a partir do repositório de ficheiros online distros, de acordo com os respetivos métodos suportados.  
+Para máquinas virtuais criadas a partir de imagens de Red Hat Enterprise Linux (RHEL) a pedido disponíveis no Azure Marketplace, estão registadas para aceder à [Infraestrutura de Atualização do Red Hat (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) implementada no Azure. Qualquer outra distribuição de Linux tem de ser atualizada a partir do repositório de ficheiros online distros, de acordo com os respetivos métodos suportados.
 
 ## <a name="viewing-missing-updates"></a>Atualizações em falta de visualização
 
@@ -204,8 +209,8 @@ A tabela seguinte fornece pesquisas de registo de exemplo para registos de atual
 |Atualizar<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false<br>&#124;Computador título, KBID, classificação, PublishedDate do projeto |Todos os computadores com atualizações em falta<br>Adicione um dos seguintes para limitar o sistema operativo:<br>OSType = "Windows"<br>OSType == "Linux" |
 | Atualizar<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124;Computador título, KBID, produto, PublishedDate do projeto |Atualizações em falta num computador específico (substitua pelo nome do seu computador)|
 | Evento<br>&#124;onde EventLevelName = = "error" e o computador no ((atualização &#124; onde (classificação = = "Atualizações de segurança" e classificação = = "Atualizações críticas")<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false <br>&#124; distinct Computer)) |Eventos de erro de computadores que têm atualizações críticas ou de segurança necessárias em falta |
-| Atualizar<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false<br>&#124;Título distinto |Atualizações em falta distintas em todos os computadores | 
-| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Computadores com atualizações que falharam na execução de atualização<br>Adicione um dos seguintes para limitar o sistema operativo:<br>OSType = "Windows"<br>OSType == "Linux" | 
+| Atualizar<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false<br>&#124;Título distinto |Atualizações em falta distintas em todos os computadores |
+| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Computadores com atualizações que falharam na execução de atualização<br>Adicione um dos seguintes para limitar o sistema operativo:<br>OSType = "Windows"<br>OSType == "Linux" |
 | Atualizar<br>&#124; where OSType == "Linux"<br>&#124;onde UpdateState! = "Não necessárias" e (classificação = = "Atualizações críticas" ou classificação = = "Atualizações de segurança")<br>&#124; summarize AggregatedValue = count() by Computer |Lista de todos os computadores Linux, que tem disponível uma atualização do pacote, que aborda vulnerabilidade críticas ou de segurança | 
 | UpdateRunProgress<br>&#124; where UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|Computadores que foram atualizados nesta execução de atualizações (substitua o valor pelo nome da sua Implementação de Atualizações) | 
 
@@ -239,15 +244,15 @@ Implementar atualizações de classificação de atualização não pode funcion
 
 Esta secção disponibiliza informações para ajudar a resolver problemas com a solução Gestão de Atualizações.
 
-Se ocorrerem problemas ao tentar integrar a solução ou uma máquina virtual, consulte o registo de eventos **Registos de Aplicações e Serviços\Operations Manager** para eventos com o ID 4502 e mensagens de evento com **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. A tabela seguinte realça as mensagens de erro específicas e uma resolução possível para cada uma.  
+Se ocorrerem problemas ao tentar integrar a solução ou uma máquina virtual, consulte o registo de eventos **Registos de Aplicações e Serviços\Operations Manager** para eventos com o ID 4502 e mensagens de evento com **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. A tabela seguinte realça as mensagens de erro específicas e uma resolução possível para cada uma.
 
-| Mensagem | Razão | Solução |   
-|----------|----------|----------|  
-| Não É Possível Registar a Máquina para Gestão de Patches,<br>O Registo Falhou com a Exceção<br>System.InvalidOperationException: {"Message":"a máquina já está<br>registada numa conta diferente. "} | A máquina já está integrada noutra área de trabalho para Gestão de Atualizações | Efetue uma limpeza dos artefactos antigos ao [eliminar o grupo de runbooks híbridos](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
-| Não É Possível Registar a Máquina para Gestão de Patches,<br>O Registo Falhou com a Exceção<br>System.Net.Http.HttpRequestException: Ocorreu um erro ao enviar o pedido. ---><br>System.Net.WebException: A ligação subjacente<br>foi fechada: Ocorreu um erro inesperado<br>ao receber. ---> System.ComponentModel.Win32Exception:<br>O cliente e o servidor não conseguem comunicar,<br>porque não possuem um algoritmo comum | Proxy/Gateway/Firewall a bloquear a comunicação | [Rever os requisitos de rede](automation-offering-get-started.md#network-planning)|  
-| Não É Possível Registar a Máquina para Gestão de Patches,<br>O Registo Falhou com a Exceção<br>Newtonsoft.Json.JsonReaderException: Erro ao analisar o valor infinito positivo. | Proxy/Gateway/Firewall a bloquear a comunicação | [Rever os requisitos de rede](automation-offering-get-started.md#network-planning)| 
-| O certificado apresentado pelo <wsid>.oms.opinsights.azure.com do serviço<br>não foi emitido por uma autoridade de certificação<br>utilizada para os Serviços Microsoft. Contacto<br>o administrador da rede para ver se estão a executar um proxy que intercepte<br>a comunicação TLS/SSL. |Proxy/Gateway/Firewall a bloquear a comunicação | [Rever os requisitos de rede](automation-offering-get-started.md#network-planning)|  
-| Não É Possível Registar a Máquina para Gestão de Patches,<br>O Registo Falhou com a Exceção<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Falha ao criar um certificado autoassinado. ---><br>System. unauthorizedaccessexception: O acesso é negado. | Falha de geração do certificado autoassinado | Verifique se a conta do sistema tem<br>acesso de leitura à pasta:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
+| Mensagem | Razão | Solução |
+|----------|----------|----------|
+| Não É Possível Registar a Máquina para Gestão de Patches,<br>O Registo Falhou com a Exceção<br>System.InvalidOperationException: {"Message":"a máquina já está<br>registada numa conta diferente. "} | A máquina já está integrada noutra área de trabalho para Gestão de Atualizações | Efetue uma limpeza dos artefactos antigos ao [eliminar o grupo de runbooks híbridos](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Não É Possível Registar a Máquina para Gestão de Patches,<br>O Registo Falhou com a Exceção<br>System.Net.Http.HttpRequestException: Ocorreu um erro ao enviar o pedido. ---><br>System.Net.WebException: A ligação subjacente<br>foi fechada: Ocorreu um erro inesperado<br>ao receber. ---> System.ComponentModel.Win32Exception:<br>O cliente e o servidor não conseguem comunicar,<br>porque não possuem um algoritmo comum | Proxy/Gateway/Firewall a bloquear a comunicação | [Rever os requisitos de rede](automation-offering-get-started.md#network-planning)|
+| Não É Possível Registar a Máquina para Gestão de Patches,<br>O Registo Falhou com a Exceção<br>Newtonsoft.Json.JsonReaderException: Erro ao analisar o valor infinito positivo. | Proxy/Gateway/Firewall a bloquear a comunicação | [Rever os requisitos de rede](automation-offering-get-started.md#network-planning)|
+| O certificado apresentado pelo <wsid>.oms.opinsights.azure.com do serviço<br>não foi emitido por uma autoridade de certificação<br>utilizada para os Serviços Microsoft. Contacto<br>o administrador da rede para ver se estão a executar um proxy que intercepte<br>a comunicação TLS/SSL. |Proxy/Gateway/Firewall a bloquear a comunicação | [Rever os requisitos de rede](automation-offering-get-started.md#network-planning)|
+| Não É Possível Registar a Máquina para Gestão de Patches,<br>O Registo Falhou com a Exceção<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Falha ao criar um certificado autoassinado. ---><br>System. unauthorizedaccessexception: O acesso é negado. | Falha de geração do certificado autoassinado | Verifique se a conta do sistema tem<br>acesso de leitura à pasta:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

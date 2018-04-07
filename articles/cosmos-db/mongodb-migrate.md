@@ -4,9 +4,8 @@ description: Saiba como utilizar mongoimport e mongorestore para importar dados 
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,18 +15,18 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Do Azure Cosmos DB: Dados de MongoDB de importação 
 
-Para migrar dados de MongoDB a uma conta de base de dados do Azure Cosmos para utilização com a API para o MongoDB, tem de:
+Para migrar dados do MongoDB para uma conta de base de dados do Azure Cosmos DB para utilizar com a API do MongoDB, tem de:
 
 * Transferir o *mongoimport.exe* ou *mongorestore.exe* do [Centro de transferências do MongoDB](https://www.mongodb.com/download-center).
-* Obter o [API de cadeia de ligação do MongoDB](connect-mongodb-account.md).
+* Obtenha a sua [API de cadeia de ligação do MongoDB](connect-mongodb-account.md).
 
 Se estiver a importar dados de MongoDB e planeie a utilizá-la com a base de dados do Cosmos do Azure, deve utilizar o [ferramenta de migração de dados](import-data.md) para importar dados.
 
@@ -110,7 +109,7 @@ Exemplo:
     
 3. Determine a latência do seu computador para o serviço de nuvem do Azure Cosmos DB:
     
-    a. Ative o registo verboso da Shell do MongoDB utilizando este comando:```setVerboseShell(true)```
+    a. Ative o registo verboso da Shell do MongoDB utilizando este comando: ```setVerboseShell(true)```
     
     b. Executar uma consulta simple na base de dados: ```db.coll.find().limit(1)```. Irá receber uma resposta como esta:
 
@@ -118,7 +117,7 @@ Exemplo:
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. Remova o documento inserido antes da migração para se certificar de que existem não existem documentos duplicados. Pode remover documentos ao utilizar este comando:```db.coll.remove({})```
+4. Remova o documento inserido antes da migração para se certificar de que existem não existem documentos duplicados. Pode remover documentos ao utilizar este comando: ```db.coll.remove({})```
 
 5. Calcular o aproximado *batchSize* e *numInsertionWorkers* valores:
 
@@ -146,7 +145,7 @@ Exemplo:
    mongoimport.exe --host anhoh-mongodb.documents.azure.com:10255 -u anhoh-mongodb -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode avançar para o próximo tutorial e saiba como consultar dados de MongoDB, utilizando o Azure Cosmos DB. 
 

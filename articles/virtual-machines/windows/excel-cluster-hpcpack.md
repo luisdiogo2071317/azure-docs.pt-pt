@@ -1,11 +1,11 @@
 ---
 title: Cluster HPC Pack para o Excel e SOA | Microsoft Docs
-description: "Começar a executar cargas de trabalho em grande escala Excel e SOA num cluster HPC Pack no Azure"
+description: Começar a executar cargas de trabalho em grande escala Excel e SOA num cluster HPC Pack no Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,hpc-pack
 ms.assetid: cb6a9abe-caf3-44da-b911-849a50f6cfb3
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 63babd94fdab15217cfb0757e4cd6efe458a628d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Introdução ao executar cargas de trabalho do Excel e SOA num cluster HPC Pack no Azure
 Este artigo mostra como implementar um cluster do Microsoft HPC Pack 2012 R2 em máquinas virtuais do Azure, utilizando um modelo de início rápido do Azure ou, opcionalmente, um script de implementação do Azure PowerShell. O cluster utiliza as imagens de VM do Azure Marketplace concebidas para ser executado o Microsoft Excel ou cargas de trabalho de arquitetura orientada para serviços (SOA) com o HPC Pack. Pode utilizar o cluster para executar o Excel HPC e serviços SOA a partir de um computador de cliente no local. Os serviços do Excel HPC incluem descarregamento de livros do Excel e funções definidas pelo utilizador do Excel ou UDFs.
@@ -59,7 +59,7 @@ Utilize um modelo de início rápido do Azure para implementar rapidamente um cl
    
    a. No **parâmetros** página, introduza ou modificar os valores para os parâmetros do modelo. (Clique no ícone junto a cada definição para informações de ajuda.) Valores de exemplo são apresentados no ecrã seguinte. Este exemplo cria um cluster com o nome *hpc01* no *hpc.local* nós de computação de domínio constituída por um nó principal e 2. Os nós de computação são criados a partir de uma imagem de VM de pacote HPC inclui o Microsoft Excel.
    
-   ![Introduza os parâmetros][parameters-new-portal]
+   ![Introduzir parâmetros][parameters-new-portal]
    
    > [!NOTE]
    > O nó principal VM é criada automaticamente a partir de [mais recente imagem do Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) do HPC Pack 2012 R2 no Windows Server 2012 R2. Atualmente, se baseia a imagem no HPC Pack 2012 R2 Update 3.
@@ -341,7 +341,7 @@ Para utilizar o enlace de NetTcp, a configuração é semelhante à ligação a 
 
 A aplicação de cliente SOA não necessita de alterações, exceto a alterar o nome principal para o nome completo do cluster de IaaS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Consulte [estes recursos](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) para obter mais informações sobre como executar cargas de trabalho do Excel com o HPC Pack.
 * Consulte [gerir serviços SOA no Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) para obter mais informações sobre como implementar e gerir serviços SOA com o HPC Pack.
 

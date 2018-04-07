@@ -3,7 +3,7 @@ title: Criação de partições e o dimensionamento horizontal do BD Azure Cosmo
 description: Saiba mais sobre funciona como criação de partições de BD do Cosmos do Azure, como configurar a criação de partições e chaves de partição e como escolher a chave de partição adequado para a sua aplicação.
 services: cosmos-db
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: monicar
 documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 149d2ba5108fb49741203fbe5c50add6c0d523ae
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 16b0ddd45c8e524798a453af7c731af28f5f5c2d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e o dimensionamento do BD Azure Cosmos
 
@@ -83,12 +83,12 @@ A imagem à esquerda mostra o resultado de uma chave de partição inválido e a
 
 Para partições físicas a divisão de automático para **p1** e **p2** conforme descrito em [como funciona o trabalho de criação de partições](#how-does-partitioning-work), o contentor tem de ser criado com um débito de 1.000 RU/s ou mais , e uma chave de partição tem de ser fornecida. Ao criar um contentor no portal do Azure, selecione o **ilimitada** opção de capacidade de armazenamento para tirar partido da criação de partições e o dimensionamento automático. 
 
-Se criou um contentor no portal do Azure ou através de programação e o débito inicial foi 1.000 RU/s ou mais e os dados incluem uma chave de partição, pode tirar partido de criação de partições sem alterações à sua contentor - Isto inclui **fixo**  tamanho contentores, desde que o contentor inicial foi criado com, pelo menos, 1000 RU/s througput e uma chave de partição está presente nos dados.
+Se criou um contentor no portal do Azure ou através de programação e o débito inicial foi 1.000 RU/s ou mais e os dados incluem uma chave de partição, pode tirar partido de criação de partições sem alterações à sua contentor - Isto inclui **fixo ** tamanho contentores, desde que o contentor inicial foi criado com, pelo menos, 1000 RU/s througput e uma chave de partição está presente nos dados.
 
 Se tiver criado uma **Fixed** contentor de tamanho com nenhuma partição criado ou chave um **Fixed** contentor de tamanho com débito inferior a 1000 RU/s, o contentor não é automática-divisão conforme descrito neste artigo. Para migrar dados a partir do contentor como esta para um contentor ilimitado (um com, pelo menos, 1000 RU/s no débito e uma chave de partição), tem de utilizar o [ferramenta de migração de dados](import-data.md) ou [biblioteca de Feeds de alteração](change-feed.md) para Migre as alterações. 
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Débito aprovisionado e criação de partições
-BD do Azure do Cosmos foi concebida para um desempenho previsível. Quando cria um contentor, reservar débito em termos de  *[unidades de pedido](request-units.md) (RU) por segundo*. Cada pedido está atribuído um custo de RU é proporcional para a quantidade de recursos do sistema, tais como CPU, memória e consumidas pela operação de e/s. Uma leitura de um documento de 1 KB com consistência de sessão consome 1 RU. Uma leitura é 1 RU independentemente do número de itens armazenados ou o número de pedidos simultâneos em execução ao mesmo tempo. Itens de maior requerem RUs superiores, dependendo do tamanho. Se souber o tamanho do seu entidades e o número de leituras que tiver de suportar para a sua aplicação, pode aprovisionar a quantidade exata de débito necessário para a aplicação do leia necessidades. 
+BD do Azure do Cosmos foi concebida para um desempenho previsível. Quando cria um contentor, reservar débito em termos de * [unidades de pedido](request-units.md) (RU) por segundo*. Cada pedido está atribuído um custo de RU é proporcional para a quantidade de recursos do sistema, tais como CPU, memória e consumidas pela operação de e/s. Uma leitura de um documento de 1 KB com consistência de sessão consome 1 RU. Uma leitura é 1 RU independentemente do número de itens armazenados ou o número de pedidos simultâneos em execução ao mesmo tempo. Itens de maior requerem RUs superiores, dependendo do tamanho. Se souber o tamanho do seu entidades e o número de leituras que tiver de suportar para a sua aplicação, pode aprovisionar a quantidade exata de débito necessário para a aplicação do leia necessidades. 
 
 > [!NOTE]
 > Para alcançar o débito total do contentor, tem de escolher uma chave de partição permite-lhe distribuir uniformemente pedidos entre alguns valores de chave de partição distintos.

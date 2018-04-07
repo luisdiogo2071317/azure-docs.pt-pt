@@ -4,7 +4,7 @@ description: Como criar placas de interface de rede virtual e utilizar o DNS int
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: a17a82aa9bc31997d52aa41f387f95d7a8ae4ae2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8df9035cf4a5e62102353c701625526e211b7282
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Criar placas de interface de rede virtual e utilizar o DNS interno para a resolução de nome VM no Azure
 Este artigo mostra-lhe como definir estáticos nomes DNS internos para VMs com Linux com placas de interface de rede virtual (vNics) e nomes de etiqueta DNS com o 2.0 CLI do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Os nomes DNS estáticos são utilizados para serviços de infraestrutura permanente, como um servidor de compilação Jenkins, que é utilizado para este documento ou um servidor de Git.
@@ -161,6 +161,6 @@ az vm create \
 
 Ao utilizar os sinalizadores da CLI para chamar recursos existentes, vamos dar instruções ao Azure para implementar a VM dentro da rede existente. Para reiterate, depois de uma VNet e sub-rede tiverem sido implementados, pode ser deixados como estáticos ou permanentes recursos dentro da região do Azure.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Criar um ambiente personalizado para uma VM com Linux diretamente através dos comandos da CLI do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Criar uma VM com Linux no Azure utilizando modelos](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

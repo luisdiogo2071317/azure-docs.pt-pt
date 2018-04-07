@@ -1,11 +1,11 @@
 ---
-title: "Máquinas virtuais num modelo Azure Resource Manager | Microsoft Azure"
-description: "Saiba mais sobre como o recurso de máquina virtual está definido num modelo Azure Resource Manager."
+title: Máquinas virtuais num modelo Azure Resource Manager | Microsoft Azure
+description: Saiba mais sobre como o recurso de máquina virtual está definido num modelo Azure Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.openlocfilehash: 9c0039987ec28601c9338d2b94633c38c31e01f8
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 43cd6322bb03b5c781a890c3280247cbb2d118f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais num modelo Azure Resource Manager
 
@@ -162,7 +162,7 @@ A versão da API que especificar no seu modelo afeta as propriedades que pode de
 Utilize estas oportunidades para obter as versões de API mais recentes:
 
 - API de REST - [lista todos os fornecedores de recursos](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
-- PowerShell – [Get AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
+- PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
 - CLI do Azure 2.0 - [mostrar de fornecedor az](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## <a name="parameters-and-variables"></a>Os parâmetros e variáveis
@@ -278,10 +278,10 @@ Para definir esta propriedade, a interface de rede tem de existir. Por conseguin
 
 Vários elementos de perfil são utilizados para definir um recurso de máquina virtual. Algumas são necessárias e algumas são opcionais. Por exemplo, os elementos o hardwareProfile, osProfile, storageProfile e networkProfile são necessários, mas o diagnosticsProfile é opcional. Estes perfis definem definições, tais como:
    
-- [tamanho](sizes.md)
+- [size](sizes.md)
 - [nome](/architecture/best-practices/naming-conventions) e as credenciais
 - disco e [definições do sistema operativo](cli-ps-findimage.md)
-- [interface de rede](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- [Interface de rede](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - Diagnóstico de arranque
 
 ## <a name="disks-and-images"></a>Discos e imagens
@@ -453,7 +453,7 @@ Se estiver com curiosidade sobre o estado de recursos na implementação, pode u
     
 Não é um problema ao utilizar o mesmo modelo para criar recursos ou para atualizar recursos existentes. Quando utiliza comandos para implementar modelos, terá a oportunidade para indicar que [modo](../../resource-group-template-deploy.md) que pretende utilizar. O modo pode ser definido para o **concluída** ou **Incremental**. A predefinição é fazer atualizações incrementais. Seja cuidadoso ao utilizar o **concluída** modo porque acidentalmente pode eliminar recursos. Quando definir o modo como **concluída**, Gestor de recursos elimina todos os recursos no grupo de recursos que não estão no modelo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - Criar os seus próprios modelos utilizando [modelos Authoring Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Implementar o modelo que criou utilizando [criar máquina virtual do Windows com um modelo do Resource Manager](ps-template.md).

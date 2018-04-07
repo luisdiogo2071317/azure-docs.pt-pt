@@ -1,12 +1,12 @@
 ---
-title: "Aplicação Azure Service Fabric CLI - sfctl | Microsoft Docs"
-description: "Descreve os comandos de aplicação de sfctl CLI de recursos de infraestrutura de serviço."
+title: Aplicação Azure Service Fabric CLI - sfctl | Microsoft Docs
+description: Descreve os comandos de aplicação de sfctl CLI de recursos de infraestrutura de serviço.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: fe0ef5c81b1ef6bef298e65cde3649c9464089d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 Criar, eliminar e gerir aplicações e tipos de aplicações.
@@ -46,7 +46,7 @@ Criar, eliminar e gerir aplicações e tipos de aplicações.
 | retoma de atualização  | Retoma a atualizar uma aplicação no cluster de Service Fabric.|
 | upgrade-rollback| Inicia a reverter a atualização atualmente em curso de uma aplicação no cluster de Service Fabric.|
 | upgrade-status  | Obtém os detalhes para a atualização mais recente efetuada nesta aplicação.|
-| Carregar       | Copie um pacote de aplicação de Service Fabric para o arquivo de imagens.|
+| carregar       | Copie um pacote de aplicação de Service Fabric para o arquivo de imagens.|
 
 ## <a name="sfctl-application-create"></a>Criar aplicação sfctl
 Cria uma aplicação de Service Fabric utilizando a descrição especificada.
@@ -241,9 +241,7 @@ Obtém o manifesto que descreve um tipo de aplicação. A resposta contém o man
 ## <a name="sfctl-application-provision"></a>Aprovisionamento de aplicações sfctl
 Aprovisiona ou regista escrever uma aplicação de Service Fabric com o cluster utilizando o pacote SFPKG no arquivo de externo ou o pacote de aplicações no arquivo de imagem.
 
-Aprovisiona um tipo de aplicação de Service Fabric com o cluster. Isto é necessário antes de quaisquer novas aplicações podem ser instanciadas. A operação de aprovisionamento pode ser efetuada no pacote de aplicação especificada pelo relativePathInImageStore ou utilizando o URI do SFPKG externo. A menos que – externo-provision estiver definido, este comando espera o arquivo de imagens
-
-Aprovisionar.
+Aprovisiona um tipo de aplicação de Service Fabric com o cluster. Isto é necessário antes de quaisquer novas aplicações podem ser instanciadas. A operação de aprovisionamento pode ser efetuada no pacote de aplicação especificada pelo relativePathInImageStore ou utilizando o URI do SFPKG externo. A menos que – externo-provision estiver definido, este comando Aprovisiona o pacote de aplicações da loja de imagem.
         
 
 

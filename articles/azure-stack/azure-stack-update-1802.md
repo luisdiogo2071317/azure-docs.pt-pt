@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1802-update"></a>Atualização de pilha 1802 do Azure
 
@@ -56,7 +56,9 @@ Este artigo descreve os melhoramentos e corrige no pacote de atualização de 18
 
 
 ### <a name="post-update-steps"></a>Passos pós-atualização
-*Existem não existem passos pós-atualização para atualização 1802.*
+Após a instalação de 1802, instale as correções aplicáveis. Para mais informações, veja os seguintes artigos da base de dados de conhecimento, bem como a nossa [manutenção política](azure-stack-servicing-policy.md).  
+- [KB 4103348 - falhas de serviço de API do controlador de rede ao tentar instalar uma atualização de pilha do Azure](https://support.microsoft.com/help/4103348)
+
 
 
 ### <a name="new-features-and-fixes"></a>Novas funcionalidades e correções
@@ -82,7 +84,7 @@ Esta atualização inclui as seguintes melhorias e correções para pilha do Azu
 
 - **É adicionado suporte para múltiplos domínios de falhas**.  Para obter mais informações, consulte [elevada disponibilidade para o Azure pilha](azure-stack-key-features.md#high-availability-for-azure-stack).
 
-- **Várias correções** para desempenho, estabilidade, segurança e o sistema operativo que é utilizado pela pilha do Azure.
+- **Várias correções** para desempenho, estabilidade, segurança e o sistema operativo que é utilizado pela pilha de Azure.
 
 <!--
 #### New features
@@ -141,6 +143,10 @@ Existem não existem problemas conhecidos depois de atualizar para 1802.
 
 #### <a name="compute"></a>Computação
 - Definições de dimensionamento para conjuntos de dimensionamento de máquina virtual não estão disponíveis no portal. Como solução, pode utilizar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Devido às diferenças de versão do PowerShell, tem de utilizar o `-Name` parâmetro em vez de `-VMScaleSetName`.
+
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  Este problema seja resolvido numa versão 1803. Para resolver este problema para a versão 1802, instale a correção de pilha do Azure **1.0.180302.4**. Para obter mais informações, consulte [KB 4131152: conjuntos de dimensionamento de Máquina Virtual existente, pode ficar inutilizáveis]( https://support.microsoft.com/help/4131152). 
 
 - Pilha do Azure suporta a utilização de apenas de tipo fixo VHDs. Algumas imagens disponibilizadas através do marketplace na pilha do Azure utilizam VHDs dinâmicos, mas os que são removidos. O redimensionamento de uma máquina virtual (VM) com um disco dinâmico anexado deixa a VM em estado de falha.
 

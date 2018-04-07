@@ -1,10 +1,10 @@
 ---
-title: "Criar e gerir uma Máquina Virtual do Azure com c# | Microsoft Docs"
-description: "Utilize c# e do Azure Resource Manager para implementar uma máquina virtual e todos os respetivos recursos de suporte."
+title: Criar e gerir uma Máquina Virtual do Azure com c# | Microsoft Docs
+description: Utilize c# e do Azure Resource Manager para implementar uma máquina virtual e todos os respetivos recursos de suporte.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 5d9021c2f65b70e36d5ea82992c9fb9d2d6d394a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43dcc8e5d9756807a3e005d629e84469a2e6eb04
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerir VMs do Windows no Azure com c# #
 
@@ -73,7 +73,7 @@ Antes de começar este passo, certifique-se de que tem acesso a um [principal de
     graphURL=https://graph.windows.net/
     ```
 
-    Substitua  **&lt;id de subscrição&gt;**  com o identificador de subscrição,  **&lt;id da aplicação&gt;**  com a aplicação do Active Directory Identificador,  **&lt;chave de autenticação&gt;**  com a chave de aplicação, e  **&lt;id do inquilino&gt;**  com o identificador de inquilino.
+    Substitua **&lt;id de subscrição&gt;** com o identificador de subscrição, **&lt;id da aplicação&gt;** com a aplicação do Active Directory Identificador, **&lt;chave de autenticação&gt;** com a chave de aplicação, e **&lt;id do inquilino&gt;** com o identificador de inquilino.
 
 3. Guarde o ficheiro azureauth.properties. 
 4. Defina uma variável de ambiente do Windows com o nome AZURE_AUTH_LOCATION com o caminho completo do ficheiro de autorização que criou. Por exemplo, pode ser utilizado o seguinte comando do PowerShell:
@@ -239,7 +239,7 @@ azure.VirtualMachines.Define("myVM")
 
 ## <a name="perform-management-tasks"></a>Executar tarefas de gestão
 
-Durante o ciclo de vida de uma máquina virtual, poderá querer executar tarefas de gestão, tais como iniciar, parar ou eliminar uma máquina virtual. Além disso, pode querer criar código para automatizar tarefas repetitivas ou complexas.
+Durante o ciclo de vida de uma máquina virtual, poderá querer executar tarefas de gestão, como iniciar, parar ou eliminar uma máquina virtual. Além disso, pode querer criar código para automatizar tarefas repetitivas ou complexas.
 
 Quando precisar de fazer nada, com a VM, terá de obter uma instância do mesmo:
 
@@ -393,7 +393,7 @@ Deve demorar cerca de cinco minutos para esta aplicação de consola executar to
 
 2. Antes de premir **Enter** para iniciar a eliminação de recursos, pode demorar alguns minutos para verificar a criação dos recursos no portal do Azure. Clique no estado de implementação para ver informações sobre a implementação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Tirar partido da utilização de um modelo para criar uma máquina virtual, utilizando as informações no [implementar uma máquina de Virtual do Azure com c# e um modelo do Resource Manager](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Saiba mais sobre como utilizar o [bibliotecas do Azure para .NET](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).
 

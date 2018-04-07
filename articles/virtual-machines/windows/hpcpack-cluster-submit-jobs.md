@@ -2,10 +2,10 @@
 title: Submeter tarefas para um pacote HPC de cluster no Azure | Microsoft Docs
 description: Saiba como configurar um computador no local para submeter as tarefas para um cluster HPC Pack no Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management,hpc-pack
 ms.assetid: 78f6833c-4aa6-4b3e-be71-97201abb4721
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: d5953f1e1dd2deb4d871bd67352a6a5b2ae13dbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 263946c1a1bd792b2f23a55388b73a82ddad0000
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Submeter tarefas HPC de um computador no local para um cluster HPC Pack implementado no Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ Configurar um computador de cliente no local para submeter tarefas a um [Microso
 ![Submeter uma tarefa para um cluster no Azure][jobsubmit]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Nó principal HPC Pack implementado na VM do Azure** -é recomendável que utilize ferramentas automatizadas, tais como um [modelo de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) ou um [script do PowerShell do Azure](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para implementar o nó principal e cluster. Tem o nome DNS do nó principal e as credenciais de um administrador de cluster para concluir os passos neste artigo.
+* **Nó principal HPC Pack implementado na VM do Azure** -é recomendável que utilize ferramentas automatizadas, tais como um [modelo de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) ou um [script do PowerShell do Azure](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para implementar o nó principal e o cluster . Tem o nome DNS do nó principal e as credenciais de um administrador de cluster para concluir os passos neste artigo.
 * **Computador cliente** -necessita de um computador cliente Windows ou Windows Server que pode executar utilitários de cliente de HPC Pack (consulte [requisitos de sistema](https://technet.microsoft.com/library/dn535781.aspx)). Se apenas pretender utilizar o portal web do HPC Pack ou a REST API para submeter tarefas, pode utilizar qualquer computador cliente à sua escolha.
 * **Suporte de instalação do HPC Pack** - para instalar os utilitários de cliente de HPC Pack, o pacote de instalação livre para a versão mais recente do HPC Pack (pacote HPC 2012 R2) está disponível a partir do [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Certifique-se de que transfira a mesma versão do pacote HPC que está instalado no nó principal do VM.
 
@@ -167,7 +167,7 @@ Para verificar a configuração, tente tarefas em execução no cluster do Azure
 5. Clique em **submeter**. Se lhe for solicitado, forneça as credenciais de domínio de administrador de cluster HPC. A tarefa é submetida e o ID da tarefa é apresentado no **tarefas My** página.
 6. Para ver os resultados da tarefa que é submetido, clique o ID da tarefa e, em seguida, clique em **tarefas vista** para ver o resultado do comando (em **saída**).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Também pode submeter tarefas ao cluster do Azure com o [API de REST do HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 * Se pretende submeter as tarefas de cluster de um cliente Linux, consulte o exemplo de Python no [SDK do HPC Pack 2012 R2 e o código de exemplo](https://www.microsoft.com/download/details.aspx?id=41633).
 

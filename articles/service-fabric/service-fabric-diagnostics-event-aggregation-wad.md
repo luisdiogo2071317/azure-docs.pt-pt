@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: ede128d23ca73dc46f2d4dc4b1dd4b1f83a2bc3f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 65e5e45300e66cd8c3acc44a91335de45a919eb5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação de eventos e coleção utilizando o Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/28/2018
 
 Quando estiver a executar um cluster do Service Fabric do Azure, é uma boa ideia para recolher os registos de todos os nós numa localização central. Com os registos numa localização central ajuda a analisar e resolver problemas no seu cluster, ou problemas em aplicações e serviços em execução nesse cluster.
 
-Uma forma para carregar e recolher registos consiste em utilizar a extensão do Windows Azure Diagnostics (WAD), que carrega registos para o Storage do Azure e tem também a opção para enviar registos ao Application Insights do Azure ou Event Hubs. Também pode utilizar o processo externo para leitura dos eventos de armazenamento e colocá-los como um produto de plataforma de análise, [análise de registos do OMS](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise do registo.
+Uma forma para carregar e recolher registos consiste em utilizar a extensão do Windows Azure Diagnostics (WAD), que carrega registos para o Storage do Azure e tem também a opção para enviar registos ao Application Insights do Azure ou Event Hubs. Também pode utilizar o processo externo para leitura dos eventos de armazenamento e colocá-los como um produto de plataforma de análise, [Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise do registo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Estas ferramentas são utilizadas para executar algumas das operações neste documento:
@@ -285,11 +285,11 @@ Enviar dados de monitorização e diagnóstico para o Application Insights (AI) 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Assim que tiver configurado corretamente o diagnóstico do Azure, verá dados as tabelas de armazenamento a partir de registos do ETW e EventSource. Se optar por utilizar o OMS, Kibana ou quaisquer outro dados e visualização de análise plataforma que não é diretamente configurada no modelo do Resource Manager, certifique-se configurar a plataforma à sua escolha para ler nos dados destas tabelas de armazenamento. Fazê-lo para OMS é relativamente trivial e é explicado no [análise de eventos e o registo através de OMS](service-fabric-diagnostics-event-analysis-oms.md). O Application Insights está pouco num caso especial neste sentido, uma vez que pode ser configurado como parte da configuração da extensão de diagnóstico, por isso, consulte o [artigo adequado](service-fabric-diagnostics-event-analysis-appinsights.md) se optar por utilizar AI.
+Assim que tiver configurado corretamente o diagnóstico do Azure, verá dados as tabelas de armazenamento a partir de registos do ETW e EventSource. Se optar por utilizar a análise de registos, Kibana ou quaisquer outro dados e visualização de análise plataforma que não é diretamente configurada no modelo do Resource Manager, certifique-se configurar a plataforma à sua escolha para ler nos dados destas tabelas de armazenamento. Fazê-lo para análise de registos é relativamente trivial e é explicado no [análise de eventos e registo](service-fabric-diagnostics-event-analysis-oms.md). O Application Insights está pouco num caso especial neste sentido, uma vez que pode ser configurado como parte da configuração da extensão de diagnóstico, por isso, consulte o [artigo adequado](service-fabric-diagnostics-event-analysis-appinsights.md) se optar por utilizar AI.
 
 >[!NOTE]
 >Atualmente, não há nenhuma forma de filtro ou tratar os eventos que são enviados para a tabela. Se não implemente um processo para remover eventos da tabela, a tabela continua a crescer. Atualmente, não há um exemplo de um serviço de tratamento de dados em execução [exemplo Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendado que escreve uma por si, a menos que exista um bom motivo para armazenar os registos para além de um período de tempo de dia 30 ou 90.
 
 * [Saiba como recolher contadores de desempenho ou os registos ao utilizar a extensão de diagnóstico](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Análise de eventos e visualização com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Análise de eventos e visualização com o OMS](service-fabric-diagnostics-event-analysis-oms.md)
+* [Análise de eventos e visualização de análise de registos](service-fabric-diagnostics-event-analysis-oms.md)

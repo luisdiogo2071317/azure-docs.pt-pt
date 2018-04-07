@@ -1,11 +1,11 @@
 ---
-title: "Adicionar nós rajada para um cluster HPC Pack | Microsoft Docs"
-description: "Saiba como expandir um cluster HPC Pack no Azure a pedido através da adição de instâncias de função de trabalho em execução num serviço em nuvem"
+title: Adicionar nós rajada para um cluster HPC Pack | Microsoft Docs
+description: Saiba como expandir um cluster HPC Pack no Azure a pedido através da adição de instâncias de função de trabalho em execução num serviço em nuvem
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 24b79a8a-24ad-4002-ae76-75abc9b28c83
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: eee9183321f21676271c8a9c7e023c80c4daf554
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Adicionar nós pedido "rajada" para um cluster HPC Pack no Azure
 Se configurar um [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster no Azure, poderá pretender que uma forma rapidamente aumentar a capacidade de cluster ou para baixo, sem mantendo um conjunto de nó de computação pré-configurada VMs. Este artigo mostra como adicionar nós pedido "rajada" (instâncias de função de trabalho em execução num serviço em nuvem) como recursos de computação para um nó principal no Azure. 
@@ -80,7 +80,7 @@ Depois de adicionar e iniciar os nós, estas estão prontas para que possa utili
 
 Se tiver problemas ao implementar nós do Azure, consulte o artigo [resolver problemas com implementações de nós do Azure com o Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para utilizar um tamanho de instância de computação intensiva para os nós de rajada, consulte as considerações no [tamanhos de VM de computação de elevado desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Se pretender automaticamente aumentar ou diminuir os recursos, de acordo com a carga de trabalho do cluster de computação do Azure, consulte [automaticamente aumentar e diminuir a recursos de computação do Azure num cluster HPC Pack](hpcpack-cluster-node-autogrowshrink.md).
 

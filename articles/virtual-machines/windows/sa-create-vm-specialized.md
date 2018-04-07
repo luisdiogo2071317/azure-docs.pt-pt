@@ -1,11 +1,11 @@
 ---
 title: Criar VM a partir de um disco especializado no Azure | Microsoft Docs
-description: "Crie uma nova VM ao anexar um disco não gerido especializado, no modelo de implementação Resource Manager."
+description: Crie uma nova VM ao anexar um disco não gerido especializado, no modelo de implementação Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 811cc6cea80acbe6cbbf4533c1f9a8c9c7f53702
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ffa36967eb987f5e1b66f007ae60a63e640a609a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar uma VM a partir de um VHD numa conta de armazenamento especializado
 
@@ -138,7 +138,7 @@ Terá dos URLs das contas de armazenamento de origem e de destino. O aspeto de U
 
 Pode utilizar o portal do Azure ou o Azure Powershell para obter o URL:
 
-* **Portal**: clique o  **>**  para **todos os serviços** > **contas do Storage** > *armazenamento conta* > **Blobs** e o ficheiro de VHD de origem está a ser provavelmente o **vhds** contentor. Clique em **propriedades** para o contentor e copie o texto da etiqueta **URL**. Terá dos URLs de contentores de origem e de destino. 
+* **Portal**: clique o **>** para **todos os serviços** > **contas do Storage** > *armazenamento conta* > **Blobs** e o ficheiro de VHD de origem está a ser provavelmente o **vhds** contentor. Clique em **propriedades** para o contentor e copie o texto da etiqueta **URL**. Terá dos URLs de contentores de origem e de destino. 
 * **PowerShell**: Utilize [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) para obter as informações de VM com o nome **myVM** no grupo de recursos **myResourceGroup**. Nos resultados, procure no **perfil de armazenamento** secção para o **Uri de Vhd**. A primeira parte do Uri é o URL para o contentor e a última parte é o nome do VHD do SO para a VM.
 
 ```powershell

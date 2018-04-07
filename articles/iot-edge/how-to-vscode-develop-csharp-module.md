@@ -1,25 +1,25 @@
 ---
-title: "Utilizar o Visual Studio Code para desenvolver um módulo de c# com o Azure IoT Edge | Microsoft Docs"
-description: "Desenvolver e implementar um módulo de c# com o limite de IoT do Azure no Visual Studio Code, sem mudar de contexto."
+title: Utilizar o Visual Studio Code para desenvolver um módulo de c# com o Azure IoT Edge | Microsoft Docs
+description: Desenvolver e implementar um módulo de c# com o limite de IoT do Azure no Visual Studio Code, sem mudar de contexto.
 services: iot-edge
-keywords: 
+keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4cf07d5c4a21fa989e7de6e996cc62424099e3e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 48c6cacebdeb7505c8dc2bcaed099c33862589ac
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-develop-a-c-module-with-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver um módulo de c# com o Azure IoT Edge
 Este artigo fornece instruções detalhadas para utilizar [Visual Studio Code](https://code.visualstudio.com/) como a ferramenta de desenvolvimento principal para desenvolver e implementar os módulos do Azure IoT Edge. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este tutorial parte do princípio de que está a utilizar um computador ou máquina virtual com o Windows ou Linux como computador de desenvolvimento. O dispositivo de limite de IoT pode ser outro dispositivo físico, ou pode simular o seu dispositivo de limite de IoT no computador de desenvolvimento.
+Este artigo pressupõe que está a utilizar um computador ou máquina virtual com o Windows ou Linux como computador de desenvolvimento. O dispositivo de limite de IoT pode ser outro dispositivo físico, ou pode simular o seu dispositivo de limite de IoT no computador de desenvolvimento.
 
 Antes de começar esta orientação, conclua os seguintes tutoriais:
 - Implementar o Azure IoT Edge num dispositivo simulado [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) ou [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
@@ -86,7 +86,7 @@ Instalar e iniciar o tempo de execução do Azure IoT Edge no seu dispositivo. I
 O tutorial [desenvolver um módulo c#](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module), atualizar, criar e publicar a imagem de módulo no VS Code. Em seguida, aceda ao portal do Azure para implementar o seu módulo c#. Esta secção apresenta como utilizar o VS Code para implementar e monitorizar o seu módulo c#.
 
 ### <a name="start-a-local-docker-registry"></a>Iniciar um registo de Docker local
-Pode utilizar qualquer registo compatível com o Docker para este tutorial. Dois populares Docker registo serviços disponíveis na nuvem são [registo de contentor do Azure](https://docs.microsoft.com/azure/container-registry/) e [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Esta secção utiliza um [registo Docker local](https://docs.docker.com/registry/deploying/), que é mais fácil para fins de teste durante o desenvolvimento antecipado.
+Pode utilizar qualquer registo compatível com o Docker para este artigo. O [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) e o [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) são dois populares serviços de registo do Docker que estão disponíveis na cloud. Esta secção utiliza um [registo Docker local](https://docs.docker.com/registry/deploying/), que é mais fácil para fins de teste durante o desenvolvimento antecipado.
 No VS Code **terminal integrada** (Ctrl + '), execute o seguinte comando para iniciar um registo local:  
 
 ```cmd/sh
@@ -105,7 +105,7 @@ Os passos seguintes mostram como criar um módulo de limite de IoT com base no .
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
-2. Crie um projeto para o módulo de novo. O comando seguinte cria a pasta do projeto, **FilterModule**, na pasta de trabalho atual:
+2. Crie um projeto para o módulo novo. O comando seguinte cria a pasta do projeto, **FilterModule**, na pasta de trabalho atual:
 
     ```cmd/sh
     dotnet new aziotedgemodule -n FilterModule
@@ -253,14 +253,14 @@ Os passos seguintes mostram como criar um módulo de limite de IoT com base no .
 
 ### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Criar uma imagem de Docker e publicá-lo no seu registo
 
-1. No Explorador de código de VS, expanda o **Docker** pasta. Em seguida, expanda a pasta para a sua plataforma de contentor, quer **linux x64** ou **windows nano**.
+1. No Explorador de código de VS, expanda o **Docker** pasta. Em seguida, expanda a pasta da sua plataforma de contentores, **linux-x64** ou **windows-nano**.
 2. Clique com botão direito do **Dockerfile** do ficheiro e selecione **imagem de Docker do módulo de limite de IoT criar**. 
 
     ![Captura de ecrã do Explorador de código de VS](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
 
 3. No **selecionar pasta** janela, procurar ou introduzir `./bin/Debug/netcoreapp2.0/publish`. Selecione **selecionar pasta como EXE_DIR**.
-4. Na caixa de texto de pop-up na parte superior da janela VS Code, introduza o nome da imagem. Por exemplo: `<your container registry address>/filtermodule:latest`. Se estiver a implementar no registo local, deve ser `localhost:5000/filtermodule:latest`.
-5. A imagem de emissão para o seu repositório de Docker. Utilize o **Edge: imagem de Docker do módulo de limite de Push de IoT** de comandos e introduza o URL da imagem na caixa de texto de pop-up na parte superior da janela VS Code. Utilize o mesmo URL de imagem utilizada no passo anterior. Verifique o registo de consola para se certificar de que a imagem foi instalada com êxito.
+4. Na caixa de texto de pop-up na parte superior da janela do VS Code, introduza o nome da imagem. Por exemplo: `<your container registry address>/filtermodule:latest`. Se estiver a implementar no registo local, deve ser `localhost:5000/filtermodule:latest`.
+5. Envie a imagem para o seu repositório do Docker. Utilize o **Edge: imagem de Docker do módulo de limite de Push de IoT** de comandos e introduza o URL da imagem na caixa de texto de pop-up na parte superior da janela VS Code. Utilize o mesmo URL de imagem utilizada no passo anterior. Verifique o registo de consola para se certificar de que a imagem foi instalada com êxito.
 
     ![Captura de ecrã de enviar a imagem de Docker](./media/how-to-vscode-develop-csharp-module/push-image.png) ![captura de ecrã do registo da consola](./media/how-to-vscode-develop-csharp-module/pushed-image.png)
 
@@ -296,7 +296,7 @@ Os passos seguintes mostram como criar um módulo de limite de IoT com base no .
     "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
     ```
    > [!NOTE]
-   > As regras de declarativas em tempo de execução definem onde as mensagens de fluxo. Neste tutorial, precisa de dois rotas. A rota primeiro transportes mensagens do sensor de temperatura para o módulo de filtro através do ponto final "input1". Este é o ponto final que configurou com o processador de FilterMessages. A segunda rota transportes mensagens do módulo de filtro ao IoT Hub. Esta rota montante é um destino especial que informa o limite de IoT Hub para enviar mensagens para o IoT Hub.
+   > As regras de declarativas em tempo de execução definem onde as mensagens de fluxo. Neste artigo, tem duas rotas. A primeira rota transporta mensagens do sensor de temperatura para o módulo de filtro através do ponto final "input1". Este é o ponto final que configurou com o processador de FilterMessages. A segunda rota transporta mensagens do módulo de filtro para o Hub IoT. Esta rota montante é um destino especial que informa o limite de IoT Hub para enviar mensagens para o IoT Hub.
 
 3. Guarde este ficheiro.
 4. Na paleta do comando, selecione **Edge: criar a implementação para o dispositivo de limite**. Em seguida, selecione o ID do dispositivo IoT limite para criar uma implementação. Em alternativa, o ID de dispositivo na lista de dispositivos com o botão direito e selecione **criar a implementação para o dispositivo de limite**.
@@ -317,7 +317,4 @@ Os passos seguintes mostram como criar um módulo de limite de IoT com base no .
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, criou um módulo de limite de IoT e implementado num dispositivo de limite de IoT no VS Code. Para mais informações sobre outros cenários quando estiver a desenvolver o limite de IoT do Azure no VS Code, consulte o tutorial seguinte:
-
-> [!div class="nextstepaction"]
-> [Depurar c# módulo no VS Code](how-to-vscode-debug-csharp-module.md)
+[Depurar c# módulo no VS Code](how-to-vscode-debug-csharp-module.md)

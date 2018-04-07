@@ -1,95 +1,77 @@
 ---
-title: "SSH para nós de cluster do serviço de contentor do Azure (AKS)"
-description: "Criar uma ligação SSH com um cluster do serviço de contentor do Azure (AKS) nós"
+title: SSH para nós de cluster do serviço de contentor do Azure (AKS)
+description: Criar uma ligação SSH com um cluster do serviço de contentor do Azure (AKS) nós
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/28/2018
+ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 00affc3d1c02c477826261aeac6e092934037e81
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>SSH para nós de cluster do serviço de contentor do Azure (AKS)
 
 Ocasionalmente, poderá ter de aceder a um nó de serviço de contentor do Azure (AKS) para manutenção, recolha de registos ou outras operações de resolução de problemas. Nós de serviço de contentor (AKS) do Azure não são expostos à internet. Utilize os passos detalhados neste documento para criar uma ligação SSH com um nó AKS.
 
-## <a name="configure-ssh-access"></a>Configurar o acesso SSH
+## <a name="get-aks-node-address"></a>Obter o endereço do nó AKS
 
- Para SSH para um nó específico, um pod é criado com `hostNetwork` acesso. Também é criado um serviço de acesso de pod. Esta configuração é privilegiada e deve ser removida após a utilização.
+Obter o endereço IP de uma utilização de nó de cluster do AKS o `az vm list-ip-addresses` comando. Substitua o nome do grupo de recursos com o nome do grupo de recursos AKS.
 
-Crie um ficheiro denominado `aks-ssh.yaml` e copie esta manifesto. Atualize o nome de nó com o nome do nó AKS de destino.
+```console
+$ az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: aks-ssh
-spec:
-  selector:
-    app: aks-ssh
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 22
-    targetPort: 22
----
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: aks-ssh
-  labels:
-    app: aks-ssh
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aks-ssh
-  template:
-    metadata:
-      labels:
-        app: aks-ssh
-    spec:
-      containers:
-      - name: alpine
-        image: alpine:latest
-        ports:
-        - containerPort: 22
-        command: ["/bin/sh", "-c", "--"]
-        args: ["while true; do sleep 30; done;"]
-      hostNetwork: true
-      nodeName: aks-nodepool1-42032720-0
+VirtualMachine            PrivateIPAddresses
+------------------------  --------------------
+aks-nodepool1-42032720-0  10.240.0.6
+aks-nodepool1-42032720-1  10.240.0.5
+aks-nodepool1-42032720-2  10.240.0.4
 ```
 
-Execute o manifesto para criar o pod e o serviço.
+## <a name="create-ssh-connection"></a>Criar a ligação SSH
 
-```azurecli-interactive
-$ kubectl apply -f aks-ssh.yaml
+Execute o `debian` contentor imagem e anexar uma sessão de terminal. O contentor, em seguida, pode ser utilizado para criar uma sessão SSH com qualquer nó no AKS cluster.
+
+```console
+kubectl run -it --rm aks-ssh --image=debian
 ```
 
-Obter o endereço IP externo do serviço exposto. Pode demorar um minuto para concluir a configuração do endereço IP. 
+Instale um cliente SSH no contentor.
 
-```azurecli-interactive
-$ kubectl get service
-
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
-kubernetes         ClusterIP      10.0.0.1      <none>          443/TCP        1d
-aks-ssh            LoadBalancer   10.0.51.173   13.92.154.191   22:31898/TCP   17m
+```console
+apt-get update && apt-get install openssh-client -y
 ```
 
-Criar o ssh ligação. 
+Abra o terminal um segundo e lista todos os pods de obter o nome de pod recentemente criado.
 
-O nome de utilizador predefinido para um cluster AKS é `azureuser`. Se esta conta foi alterada no momento de criação do cluster, substitua o nome de utilizador de admin adequado. 
+```console
+$ kubectl get pods
 
-Se a chave não estiver em `~/ssh/id_rsa`, forneça a localização correta a utilizar o `ssh -i` argumento.
+NAME                       READY     STATUS    RESTARTS   AGE
+aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
+```
 
-```azurecli-interactive
-$ ssh azureuser@13.92.154.191
+Copie a chave SSH para a pod, substitua o nome de pod com o valor adequado.
+
+```console
+kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+```
+
+Atualização do `id_rsa` para que seja utilizador só de leitura de ficheiros.
+
+```console
+chmod 0600 id_rsa
+```
+
+Crie uma ligação SSH para o nó AKS. O nome de utilizador predefinido para um cluster AKS é `azureuser`. Se esta conta foi alterada no momento de criação do cluster, substitua o nome de utilizador de admin adequado.
+
+```console
+$ ssh -i id_rsa azureuser@10.240.0.6
 
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
@@ -114,8 +96,4 @@ azureuser@aks-nodepool1-42032720-0:~$
 
 ## <a name="remove-ssh-access"></a>Remover o acesso SSH
 
-Quando tiver terminado, elimine o pod de acesso SSH e o serviço.
-
-```azurecli-interactive
-kubectl delete -f aks-ssh.yaml
-```
+Quando terminar, saia da sessão SSH e, em seguida, a sessão interativa de contentor. Esta ação elimina pod utilizado para acesso SSH do AKS cluster.

@@ -1,10 +1,10 @@
 ---
-title: "Como tag de uma máquina virtual do Linux do Azure | Microsoft Docs"
-description: "Saiba mais sobre a marcação de uma máquina virtual de Linux do Azure criada no Azure utilizando o modelo de implementação Resource Manager."
+title: Como tag de uma máquina virtual do Linux do Azure | Microsoft Docs
+description: Saiba mais sobre a marcação de uma máquina virtual de Linux do Azure criada no Azure utilizando o modelo de implementação Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: e68b97461e8630750462f2c640901511aa2f8676
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ac63d0f731dcbb393d7bd1cb30e135fdcca095de
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Como tag de uma máquina virtual Linux no Azure
 Este artigo descreve as diferentes formas para marcar uma máquina virtual Linux no Azure através do modelo de implementação Resource Manager. As etiquetas são definidos pelo utilizador pares chave-valor que podem ser colocadas diretamente um recurso ou um grupo de recursos. Atualmente, o Azure suporta até 15 etiquetas por recursos e o grupo de recursos. Etiquetas podem ser colocadas num recurso no momento da criação ou adicionadas a um recurso existente. Tenha em atenção, as etiquetas são suportadas para os recursos criados através de apenas o modelo de implementação do Resource Manager.

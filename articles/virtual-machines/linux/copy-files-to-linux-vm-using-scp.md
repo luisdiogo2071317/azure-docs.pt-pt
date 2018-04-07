@@ -1,13 +1,13 @@
 ---
 title: Mover os ficheiros de e para as VMs do Linux do Azure com o SCP | Microsoft Docs
-description: "Mover com segurança os ficheiros de e para uma VM com Linux no Azure utilizando o SCP e um par de chaves SSH."
+description: Mover com segurança os ficheiros de e para uma VM com Linux no Azure utilizando o SCP e um par de chaves SSH.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: danlep
-ms.openlocfilehash: 736f7c11ec3de04f1ad52ee29d0a4c952c9b0545
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0231e402848e617a46ca70470ba4d3272ace59f7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Mover os ficheiros de e para uma VM com Linux através de SCP
 
@@ -73,6 +73,6 @@ scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 
 O `-r` cli sinalizador dá instruções ao SCP para copiar recursivamente os ficheiros e diretórios a partir do ponto do diretório listados no comando.  Repare também que a sintaxe da linha de comandos é semelhante a um `cp` copiar o comando.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Gerir utilizadores, SSH e verificação ou reparar discos em VMs do Linux do Azure com a extensão VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

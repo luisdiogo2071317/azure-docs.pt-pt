@@ -1,13 +1,13 @@
 ---
-title: "Gerir no portal do Azure do Azure DDoS proteção padrão | Microsoft Docs"
-description: "Saiba como utilizar o Azure DDoS proteção padrão telemetria no Monitor do Azure para mitigar um ataque."
+title: Gerir no portal do Azure do Azure DDoS proteção padrão | Microsoft Docs
+description: Saiba como utilizar o Azure DDoS proteção padrão telemetria no Monitor do Azure para mitigar um ataque.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6a5ab1ba44197c0103e1e7d353a116dc01dfc163
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5cc03189124dbea56535af2fed84f5ca74aac6cd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir no portal do Azure do Azure DDoS proteção padrão
 
@@ -84,7 +84,7 @@ Existem três opções disponíveis para o registo:
 
 - **Arquivo para uma conta de armazenamento**: escreve registos para uma conta de armazenamento.
 - **Fluxo para um hub de eventos**: permite que um recetor de registo recolher registos com um hub de eventos. Isto permite a integração com Splunk ou outros sistemas SIEM.
-- **Enviar ao Log Analytics**: escreve registos para o serviço de análise de registos do Azure OMS.
+- **Enviar ao Log Analytics**: escreve registos para o serviço de análise de registos do Azure.
 
 ## <a name="use-ddos-protection-telemetry"></a>Utilize a telemetria de proteção DDoS
 

@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 517ce3547f471dd1b40c79b2f087b02ad7f51b85
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 82011126375a3c5016e110aac9ce6bc1b2d59cdf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Transmitir os registos de diagnóstico do Azure ao Log Analytics
-**[Os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  pode transmissão em fluxo em tempo real para análise de registos do Azure utilizando o portal, os cmdlets do PowerShell ou o CLI do Azure.
+
+**[Os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  pode transmissão em fluxo em tempo real para utilizar o portal, os cmdlets do PowerShell ou do Azure CLI 2.0 de Log Analytics do Azure.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>O que pode fazer com o diagnóstico de registos de análise de registos
 
@@ -33,9 +34,17 @@ Análise de registos do Azure é uma ferramenta de pesquisa e a análise de regi
 * **Análise avançada** - aplicar aprendizagem e padrão algoritmos correspondentes para identificar possíveis problemas revelados pelos seus registos.
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Ative a transmissão em fluxo de registos de diagnóstico ao Log Analytics
+
 Pode ativar a transmissão em fluxo de registos de diagnóstico programaticamente, através do portal, ou utilizando o [as APIs REST da Azure Monitor](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). Qualquer forma, pode cria uma definição de diagnóstico no que especificou uma área de trabalho de análise de registos e as categorias de registo e métricas que pretende enviar para essa área de trabalho. Um diagnóstico **categoria de registo** é um tipo de registo que pode fornecer um recurso.
 
 A área de trabalho de análise de registos não tem de estar na mesma subscrição, como o recurso emitir os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
+
+> [!NOTE]
+> Atualmente, o envio de métricas multidimensionais através de definições de diagnóstico não é suportada. Métricas com dimensões são exportadas como simplificadas único dimensional métricas agregadas em valores de dimensão.
+>
+> *Por exemplo*: A métrica de 'Receber mensagens em fila' num Hub de eventos pode ser explorou e charted num nível de fila por. No entanto, quando exportou através de definições de diagnóstico que a métrica será representada como todas as mensagens a receber em todos os coloca em fila de eventos Hub.
+>
+>
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Registos de diagnóstico de fluxo através do portal
 1. No portal, navegue para o Monitor do Azure e clique em **definições de diagnóstico**
@@ -53,7 +62,7 @@ A área de trabalho de análise de registos não tem de estar na mesma subscriç
    ![Adicionar definição de diagnóstico - existente definições](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
 3. Dê a definição de um nome e a caixa de verificação **enviar ao Log Analytics**, em seguida, selecione uma área de trabalho de análise de registos.
-   
+
    ![Adicionar definição de diagnóstico - existente definições](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
 4. Clique em **Guardar**.
@@ -69,19 +78,31 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resour
 
 Tenha em atenção que a propriedade workspaceID demora o ID de recurso do Azure completo da área de trabalho, não a área de trabalho ID/chave apresentada no portal da análise de registos.
 
-### <a name="via-azure-cli"></a>Através da CLI do Azure
-Para ativar a transmissão em fluxo através de [CLI do Azure](insights-cli-samples.md), pode utilizar o `insights diagnostic set` comando como esta:
+### <a name="via-azure-cli-20"></a>Através da CLI do Azure 2.0
+
+Para ativar a transmissão em fluxo através de [Azure CLI 2.0](insights-cli-samples.md), pode utilizar o [criar definições de diagnóstico do monitor az](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceID> --workspaceId <workspace resource ID> --categories <list of categories> --enabled true
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --workspace <log analytics name or object ID> \
+    --resource <target resource object ID> \
+    --resource-group <log analytics workspace resource group> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true
+    }
+    ]'
 ```
 
-Tenha em atenção que a propriedade workspaceId demora o ID de recurso do Azure completo da área de trabalho, não a área de trabalho ID/chave apresentada no portal da análise de registos.
+Pode adicionar categorias adicionais no registo de diagnóstico adicionando dicionários para a matriz JSON transmitida como o `--logs` parâmetro.
+
+O `--resource-group` argumento só é necessário se `--workspace` não é um ID de objeto.
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Como posso consultar os dados na análise de registos?
 
 No painel pesquisa de registo no portal ou a experiência de análise avançadas como parte da análise de registos, pode consultar os registos de diagnóstico como parte da solução de gestão do registo em tabela AzureDiagnostics. Também existem [várias soluções para os recursos do Azure](../log-analytics/log-analytics-add-solutions.md) pode instalar para obter informações imediatas sobre os dados de registo está a enviar para análise de registos.
 
-
 ## <a name="next-steps"></a>Passos Seguintes
+
 * [Leia mais sobre os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)

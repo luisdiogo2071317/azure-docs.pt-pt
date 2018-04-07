@@ -1,13 +1,13 @@
 ---
-title: "Repor a palavra-passe ou a configuração do ambiente de trabalho remoto numa VM do Windows no Azure | Microsoft Docs"
-description: "Saiba como repor uma palavra-passe de conta ou serviços de ambiente de trabalho remoto numa VM do Windows criada utilizando o modelo de implementação clássica, utilizando o portal do Azure ou o Azure PowerShell."
+title: Repor a palavra-passe ou a configuração do ambiente de trabalho remoto numa VM do Windows no Azure | Microsoft Docs
+description: Saiba como repor uma palavra-passe de conta ou serviços de ambiente de trabalho remoto numa VM do Windows criada utilizando o modelo de implementação clássica, utilizando o portal do Azure ou o Azure PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 200e5667f4bc2ca0b7dc041eef990b7aff0914ff
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 516cb740f9acad19dac77db0239341b42a2b27fe
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Como repor o serviço de ambiente de trabalho remoto ou a palavra-passe de início de sessão numa VM do Windows criada utilizando o modelo de implementação clássica
 > [!IMPORTANT]
@@ -102,7 +102,7 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' 
 
 Este comando define o fDenyTSConnections o valor de registo para 0, ativação de ligações de ambiente de trabalho remoto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se a extensão de acesso de VM do Azure não responde e não conseguir repor a palavra-passe, pode [repor o Windows palavra-passe local offline](../reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Este método é um processo mais avançado e requer que ligue o disco rígido virtual da VM problemático para outra VM. Siga os passos documentados neste artigo pela primeira vez e apenas tente o método de reposição de palavra-passe offline como último recurso.
 
 [Extensões VM do Azure e funcionalidades](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

@@ -1,13 +1,13 @@
 ---
 title: Mover um AWS VMs do Windows para o Azure | Microsoft Docs
-description: "Mova uma instância do Amazon Web Services (AWS) EC2 Windows para máquinas virtuais do Azure com o Azure PowerShell."
+description: Mova uma instância do Amazon Web Services (AWS) EC2 Windows para máquinas virtuais do Azure com o Azure PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: cynthn
-ms.openlocfilehash: 7d2b498d3f84c4fd6cccf97c6d7781f293f5b395
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b7e794cb08647dde6fe59b6d4b06a9cbfab06e1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Mover uma VM do Windows do Amazon Web Services (AWS) para o Azure com o PowerShell
 
@@ -60,7 +60,7 @@ Assim que o VHD foi exportado, siga as instruções em [como transferir um objet
 > Transferência de dados de encargos AWS taxas para transferir o VHD. Consulte [preços do Amazon S3](https://aws.amazon.com/s3/pricing/) para obter mais informações.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora pode carregar o VHD para o Azure e criar uma nova VM. 
 

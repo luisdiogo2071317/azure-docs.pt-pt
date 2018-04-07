@@ -1,11 +1,11 @@
 ---
 title: Otimizar a VM com Linux no Azure | Microsoft Docs
-description: "Saiba mais algumas sugestões de otimização para se certificar de que configurou a sua VM com Linux para um desempenho ideal no Azure"
-keywords: "máquina virtual do Linux, máquina virtual linux, ubuntu máquina"
+description: Saiba mais algumas sugestões de otimização para se certificar de que configurou a sua VM com Linux para um desempenho ideal no Azure
+keywords: máquina virtual do Linux, máquina virtual linux, ubuntu máquina
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: d3ee98253a69580e5ecafb4e117ef93f7c981416
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5b0d7eb0767bb18cd74c545dc386aa16be487dae
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
 A criação de uma máquina virtual (VM) do Linux é fácil fazer a partir da linha de comandos ou do portal. Este tutorial mostra como Certifique-se de que o configurou para otimizar o desempenho na plataforma Microsoft Azure. Este tópico utiliza uma VM do Ubuntu Server, mas também pode criar a máquina virtual do Linux utilizando [as suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -124,7 +124,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Utilizando o RAID de Software para alcançar superior posso / Ops
-Se as cargas de trabalho exigirem mais de IOps que pode fornecer um único disco, terá de utilizar uma configuração de RAID de software de vários discos. Porque o Azure executa já resiliência do disco na camada de recursos de infraestrutura local, o que poderá alcançar o nível mais elevado de desempenho de uma configuração de striping RAID 0.  Aprovisionar e criar discos no ambiente do Azure e anexe-os para a VM com Linux antes de criação de partições, formatação e montar as unidades.  Obter mais detalhes sobre como configurar um programa de configuração do RAID de software na sua VM com Linux no azure podem ser encontrados no  **[configuração RAID de Software no Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**  documento.
+Se as cargas de trabalho exigirem mais de IOps que pode fornecer um único disco, terá de utilizar uma configuração de RAID de software de vários discos. Porque o Azure executa já resiliência do disco na camada de recursos de infraestrutura local, o que poderá alcançar o nível mais elevado de desempenho de uma configuração de striping RAID 0.  Aprovisionar e criar discos no ambiente do Azure e anexe-os para a VM com Linux antes de criação de partições, formatação e montar as unidades.  Obter mais detalhes sobre como configurar um programa de configuração do RAID de software na sua VM com Linux no azure podem ser encontrados no **[configuração RAID de Software no Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** documento.
 
 ## <a name="next-steps"></a>Próximos Passos
 Lembre-se, tal como com todos os debates de otimização, terá de realizar testes antes e após cada alteração para medir o impacto que tem da alteração.  A otimização é um processo de passo a passo que tem resultados diferentes em vários computadores no seu ambiente.  O que funciona para uma configuração pode não funcionar para outras pessoas.

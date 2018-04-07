@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: 68f5784f1724441ff6f18e2581c8e01d66c60c5e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c9dab276b39b1ceb55851e865f9166e3e9e7fee8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com a monitorização do Azure
-Monitor do Azure fornece várias formas para interagir com métricas, incluindo charting-las no portal, aceder às mesmas através da API REST ou consultá-los utilizando o PowerShell ou a CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis no pipeline de métrico do Monitor do Azure.
+Monitor do Azure fornece várias formas para interagir com métricas, incluindo charting-las no portal, aceder às mesmas através da API REST ou consultá-los utilizando o PowerShell ou a CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis no pipeline de métrico do Monitor do Azure. Outras métricas poderão estar disponíveis no portal ou com APIs de legado. Esta lista abaixo inclui apenas as métricas disponíveis através do pipeline de métrico de Monitor do Azure consolidado. Para consultar e aceder a estas métricas utilize o [2018-01-01-versão de api](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
-> Outras métricas poderão estar disponíveis no portal ou com APIs de legado. Esta lista inclui apenas as métricas disponíveis através do pipeline de métrico de Monitor do Azure consolidado. Para consultar e aceder métricas com dimensões utilize o [2018-01-01-versão de api](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+> Atualmente, o envio de métricas multidimensionais através de definições de diagnóstico não é suportada. Métricas com dimensões são exportadas como simplificadas único dimensional métricas agregadas em valores de dimensão.
+>
+> *Por exemplo*: A métrica de 'Receber mensagens em fila' num Hub de eventos pode ser explorou e charted num nível de fila por. No entanto, quando exportou através de definições de diagnóstico que a métrica será representada como todas as mensagens a receber em todos os coloca em fila de eventos Hub.
 >
 >
 
@@ -85,7 +87,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |UnauthorizedRequests|Pedidos de Gateway não autorizado|Contagem|Total|Número de pedidos de gateway não autorizado|Location, Hostname|
 |FailedRequests|Pedidos de Gateway com falhas|Contagem|Total|Número de falhas nos pedidos de gateway|Location, Hostname|
 |OtherRequests|Outros pedidos de Gateway|Contagem|Total|Número de outros pedidos de gateway|Location, Hostname|
-|Duração|Duração global de pedidos de Gateway|milissegundos|Média|Geral duração de pedidos Gateway em milissegundos|Location, Hostname|
+|Duração|Duração global de pedidos de Gateway|Milissegundos|Média|Geral duração de pedidos Gateway em milissegundos|Location, Hostname|
 |Capacidade|Capacidade (pré-visualização)|Percentagem|Máximo|Métrica de utilização para o serviço de ApiManagement|Localização|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
@@ -127,7 +129,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|connectedclients|Clientes ligados|Contagem|Máximo||Não foram dimensões|
+|connectedclients|Clientes Ligados|Contagem|Máximo||Não foram dimensões|
 |totalcommandsprocessed|Total de Operações|Contagem|Total||Não foram dimensões|
 |cachehits|Acertos na Cache|Contagem|Total||Não foram dimensões|
 |cachemisses|Falhas na Cache|Contagem|Total||Não foram dimensões|
@@ -135,11 +137,11 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |setcommands|Conjuntos|Contagem|Total||Não foram dimensões|
 |operationsPerSecond|Operações por segundo|Contagem|Total||Não foram dimensões|
 |evictedkeys|Chaves Excluídas|Contagem|Total||Não foram dimensões|
-|totalkeys|Chaves totais|Contagem|Máximo||Não foram dimensões|
+|totalkeys|Chaves Totais|Contagem|Máximo||Não foram dimensões|
 |expiredkeys|Chaves Expiradas|Contagem|Total||Não foram dimensões|
 |usedmemory|Memória Utilizada|Bytes|Máximo||Não foram dimensões|
 |usedmemoryRss|Memória utilizada RSS|Bytes|Máximo||Não foram dimensões|
-|serverLoad|Carga de servidor|Percentagem|Máximo||Não foram dimensões|
+|serverLoad|Carga do Servidor|Percentagem|Máximo||Não foram dimensões|
 |cacheWrite|Escrita na Cache|BytesPerSecond|Máximo||Não foram dimensões|
 |cacheRead|Leitura da Cache|BytesPerSecond|Máximo||Não foram dimensões|
 |percentProcessorTime|CPU|Percentagem|Máximo||Não foram dimensões|
@@ -332,10 +334,10 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|TotalCalls|Totais de chamadas|Contagem|Total|Número total de chamadas.|Não foram dimensões|
+|TotalCalls|Total de Chamadas|Contagem|Total|Número total de chamadas.|Não foram dimensões|
 |SuccessfulCalls|Chamadas com êxito|Contagem|Total|Número de chamadas com êxito.|Não foram dimensões|
-|TotalErrors|Total de erros|Contagem|Total|Número total de chamadas com a resposta de erro (4xx de código de resposta HTTP ou 5xx).|Não foram dimensões|
-|BlockedCalls|Chamadas bloqueadas|Contagem|Total|Número de chamadas que excederam o limite da tarifa ou quota.|Não foram dimensões|
+|TotalErrors|Total de Erros|Contagem|Total|Número total de chamadas com resposta de erro (código de resposta HTTP 4xx ou 5xx).|Não foram dimensões|
+|BlockedCalls|Chamadas Bloqueadas|Contagem|Total|Número de chamadas que excederam o limite da tarifa ou quota.|Não foram dimensões|
 |ServerErrors|Erros no Servidor|Contagem|Total|Número de chamadas com erro interno do serviço (código de resposta HTTP 5xx).|Não foram dimensões|
 |ClientErrors|Erros do Cliente|Contagem|Total|Número de chamadas com erro do lado do cliente (código de resposta HTTP 4xx).|Não foram dimensões|
 |DataIn|Entrada de Dados|Bytes|Total|Tamanho dos dados recebidos em bytes.|Não foram dimensões|

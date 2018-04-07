@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: f9318b5baa46ab991b5e72e12a89a25e4f635db3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Configurar a sincronização de dados do SQL Server (pré-visualização)
 Neste tutorial, irá aprender a configurar a sincronização de dados SQL do Azure através da criação de um grupo de sincronização de híbridos que contenha as instâncias de SQL Database do Azure e SQL Server. O novo grupo de sincronização está completamente configurado e sincroniza na agenda que definir.
@@ -183,11 +183,11 @@ Depois dos novos membros do grupo de sincronização são criados e implementado
 
 2.  Na lista de tabelas disponíveis, selecione as tabelas que pretende sincronizar.
 
-    ![Selecione as tabelas para sincronizar](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
+    ![Selecionar tabelas a sincronizar](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
 
 3.  Por predefinição, estão selecionadas todas as colunas na tabela. Se não quiser sincronizar todas as colunas, desative a caixa de verificação para as colunas que não pretende sincronizar. Lembre-se de que deixe a coluna de chave primária selecionada.
 
-    ![Selecionar campos para sincronizar](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
+    ![Selecionar campos a sincronizar](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
 4.  Por fim, selecione **guardar**.
 
@@ -268,14 +268,14 @@ Se pretender executar o agente local partir de outro computador que está atualm
 
 5. Forneça credenciais da base de dados para todas as bases de dados que são apresentadas como inacessível. Estas bases de dados tem de ser acessíveis a partir do novo computador no qual o agente está instalado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Parabéns! Criou um grupo de sincronização que inclui uma instância de base de dados SQL e uma base de dados do SQL Server.
 
 Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 
 -   [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)
 -   [Melhores práticas da Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
--   [Monitorizar a Sincronização de Dados SQL do Azure com o OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Monitor sincronização de dados SQL do Azure com a análise de registos](sql-database-sync-monitor-oms.md)
 -   [Resolver problemas da Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:

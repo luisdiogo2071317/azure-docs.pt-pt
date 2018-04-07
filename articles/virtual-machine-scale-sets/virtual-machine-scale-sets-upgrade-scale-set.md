@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: cbd5b57d0cde3743c7ef70437f702536c27ac999
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquina virtual
 Ao longo do ciclo de vida das suas aplicações, poderá ter de modificar ou atualizar o conjunto de dimensionamento de máquina virtual. Estas atualizações podem incluir como atualizar a configuração do conjunto de dimensionamento, ou alterar a configuração da aplicação. Este artigo descreve como modificar um conjunto com as REST APIs, o Azure PowerShell ou o Azure CLI 2.0 de dimensionamento existente.
@@ -367,7 +367,7 @@ Determinados modificações podem ser aplicadas às VMs específicas em vez das 
 ## <a name="scenarios"></a>Cenários
 
 ### <a name="application-updates"></a>Atualizações da aplicação
-Se uma aplicação for implementada para uma escala definido através de extensões, uma atualização para a configuração da extensão faz com que a aplicação de atualização de acordo com a política de atualização. Por exemplo, se tiver uma nova versão de um script para executar uma extensão de Script personalizado, foi possível atualizar o *fileUris* propriedade para apontar para o script de novo. Em alguns casos, poderá pretender forçar uma atualização, apesar da configuração de extensão é alterada (por exemplo, atualizar o script sem uma alteração para o URI do script). Nestes casos, pode modificar o *forceUpdateTag* para forçar uma atualização. A plataforma do Azure não interpretar esta propriedade. Se alterar o valor, não há sem qualquer efeito nas como a extensão é executado. Uma alteração simplesmente força a extensão para voltar a executar. Para mais informações sobre o *forceUpdateTag*, consulte o [documentação da REST API para extensões](/rest/api/compute/virtualmachineextensions/createorupdate).
+Se uma aplicação for implementada para uma escala definido através de extensões, uma atualização para a configuração da extensão faz com que a aplicação de atualização de acordo com a política de atualização. Por exemplo, se tiver uma nova versão de um script para executar uma extensão de Script personalizado, foi possível atualizar o *fileUris* propriedade para apontar para o script de novo. Em alguns casos, poderá pretender forçar uma atualização, apesar da configuração de extensão é alterada (por exemplo, atualizar o script sem uma alteração para o URI do script). Nestes casos, pode modificar o *forceUpdateTag* para forçar uma atualização. A plataforma do Azure não interpretar esta propriedade. Se alterar o valor, não há sem qualquer efeito nas como a extensão é executado. Uma alteração simplesmente força a extensão para voltar a executar. Para mais informações sobre o *forceUpdateTag*, consulte o [documentação da REST API para extensões](/rest/api/compute/virtualmachineextensions/createorupdate). Tenha em atenção que o *forceUpdateTag* podem ser utilizadas com todas as extensões, não apenas a extensão de script personalizado.
 
 É também comum as aplicações implementadas através de uma imagem personalizada. Este cenário é descrito na secção seguinte.
 

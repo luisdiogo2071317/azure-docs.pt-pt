@@ -1,13 +1,13 @@
 ---
-title: "Detalhadas ambiente de trabalho remoto, resolução de problemas no Azure | Microsoft Docs"
-description: "Reveja os passos de resolução de problemas detalhados para erros de ambiente de trabalho remotos onde não é possível para máquinas virtuais do Windows no Azure"
+title: Detalhadas ambiente de trabalho remoto, resolução de problemas no Azure | Microsoft Docs
+description: Reveja os passos de resolução de problemas detalhados para erros de ambiente de trabalho remotos onde não é possível para máquinas virtuais do Windows no Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: "Não é possível ligar ao ambiente de trabalho remoto, resolver problemas de ambiente de trabalho remoto, não é possível ligar o ambiente de trabalho remoto, erros de ambiente de trabalho remotos, a resolução de ambiente de trabalho remoto, problemas de ambiente de trabalho remotos"
+keywords: Não é possível ligar ao ambiente de trabalho remoto, resolver problemas de ambiente de trabalho remoto, não é possível ligar o ambiente de trabalho remoto, erros de ambiente de trabalho remotos, a resolução de ambiente de trabalho remoto, problemas de ambiente de trabalho remotos
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2017
 ms.author: genli
-ms.openlocfilehash: afbaa3afc78efd220d74def2e9f106e9fbd1ee2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1485bc5ac7ae47df9a1a36c8b88d6515b5624360
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Passos de resolução de problemas detalhados para problemas de ligação de ambiente de trabalho remoto para VMs do Windows no Azure
 Este artigo fornece os passos detalhados de resolução de problemas para diagnosticar e corrigir os erros de ambiente de trabalho remoto complexos baseados em Windows máquinas virtuais do Azure.

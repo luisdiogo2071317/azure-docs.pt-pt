@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 177bc05eea3aa05231c71a42950fa622b68afc53
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Acelerador de escrita de mensagens em fila do Azure para implementações de SAP
 Acelerador de escrita do Azure é uma funcionalidade que está a obter implementada para VMs de série M exclusivamente. O acelerador de escrita do Azure não está disponível com quaisquer outro-série da VM no Azure, exceto a série M. Como o nome de Estados, o objetivo da funcionalidade é melhorar a latência de e/s de escritas contra o Premium Storage do Azure. 
@@ -55,15 +55,16 @@ Existem limites de VHDs de armazenamento do Azure Premium por VM que pode ser su
 > Para ativar o Azure escrever acelerador para um disco do Azure existente que não faça parte de uma compilação de volume fora vários discos com o disco do Windows ou gestores de volume, os espaços de armazenamento do Windows, Windows Escalamento horizontal (SOFS) do servidor de ficheiros, Linux LVM ou MDADM, a carga de trabalho a aceder a Disco do Azure tem de ser encerrada. Aplicações de base de dados utilizando o disco do Azure tem de ser encerradas.
 
 > [!IMPORTANT]
-> Ativar a escrever o acelerador para o disco do sistema de operativo Azure da VM irá reiniciar a VM. 
+> Ativar a escrever o acelerador para o disco de sistema operativo de VM do Azure da VM irá reiniciar a VM. 
 
 Ativar o Azure escrever acelerador para funcionar discos não deve ser necessário para SAP relacionadas com as configurações de VM
 
 ### <a name="restrictions-when-using-azure-write-accelerator"></a>Restrições ao utilizar o Azure escrever acelerador
 Quando utilizar o Azure escrever acelerador para um disco/VHD do Azure, estas restrições aplicam-se:
 
-- O disco Premium colocação em cache tem de ser definido como 'None'. Todos os outros modos de colocação em cache não são suportados.
+- O disco de Premium colocação em cache tem de ser definido como 'None' ou 'Read Only'. Todos os outros modos de colocação em cache não são suportados.
 - Instantâneo no disco acelerador de escrita ativado ainda não é suportado. Esta restrição bloqueia a capacidade do serviço de cópia de segurança do Azure para efetuar um instantâneo consistente da aplicação de todos os discos da máquina virtual.
+- Apenas os tamanhos de e/s mais pequenos são colocar o caminho na melhoria. Numa carga de trabalho situações em que está a obter em massa dados carregado ou onde memórias intermédias de registo de transação do DBMS diferente estão preenchidas para um maior grau antes de obter persistente para o armazenamento, de possibilidades são de que a e/s escritos no disco não está a ser o caminho na melhoria.
 
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Ativar o acelerador escrever num disco específico
@@ -290,7 +291,7 @@ O resultado pode ter o seguinte aspeto:
 
 ```
 
-Passo seguinte é atualizar o ficheiro JSON e ativar o acelerador escrita no disco chamado 'log1'. Pode fazê-lo ao adicionar este atributo para o ficheiro JSON após a entrada de cache do disco. 
+Passo seguinte é atualizar o ficheiro JSON e ativar o acelerador escrita no disco chamado 'log1'. Este passo pode ser conseguido ao adicionar este atributo para o ficheiro JSON após a entrada de cache do disco. 
 
 ```
         {

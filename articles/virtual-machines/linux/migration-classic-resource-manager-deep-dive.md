@@ -1,11 +1,11 @@
 ---
-title: "Técnica descrição profunda sobre a migração de plataforma suportada do clássico para o Azure Resource Manager | Microsoft Docs"
-description: "Este artigo uma descrição profunda técnica na plataforma suportada a migração de recursos do clássico para o Azure Resource Manager"
+title: Técnica descrição profunda sobre a migração de plataforma suportada do clássico para o Azure Resource Manager | Microsoft Docs
+description: Este artigo uma descrição profunda técnica na plataforma suportada a migração de recursos do clássico para o Azure Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 29267453-f894-4180-bb67-dce2a0e062bb
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 557a61f266c494cb6b8003cff945fa1a14348898
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fccf0655502d2bd023e7ac7f950c8be72e0076
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Análise detalhada técnica sobre a migração suportada por plataforma de clássico para o Azure Resource Manager
 
@@ -27,7 +27,7 @@ Vamos uma descrição profunda sobre a migração a partir do modelo de implemen
 
 [!INCLUDE [virtual-machines-common-migration-deep-dive](../../../includes/virtual-machines-common-classic-resource-manager-migration-deep-dive.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Descrição geral da migração de plataforma suportada dos recursos IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

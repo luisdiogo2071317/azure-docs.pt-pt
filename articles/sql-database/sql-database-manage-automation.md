@@ -1,19 +1,19 @@
 ---
-title: "Gerir bases de dados do SQL do Azure através da automatização do Azure | Microsoft Docs"
-description: "Saiba mais sobre como o serviço de automatização do Azure pode ser utilizado para gerir bases de dados SQL do Azure à escala."
+title: Gerir bases de dados do SQL do Azure através da automatização do Azure | Microsoft Docs
+description: Saiba mais sobre como o serviço de automatização do Azure pode ser utilizado para gerir bases de dados SQL do Azure à escala.
 services: sql-database, automation
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 0174b2b1dd5942e17ea60c2dce624c87fd1289c8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f0f071c2ad5e79168d89361c89a005c247599655
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Gerir bases de dados do SQL do Azure através da automatização do Azure
 Este guia apresenta-lhe o serviço de automatização do Azure e como podem ser utilizada para simplificar a gestão das bases de dados SQL do Azure.

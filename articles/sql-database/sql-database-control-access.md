@@ -1,19 +1,19 @@
 ---
-title: "Conceder acesso à Base de Dados SQL do Azure | Microsoft Docs"
-description: "Saiba como conceder acesso à Base de Dados SQL do Microsoft Azure."
+title: Conceder acesso à Base de Dados SQL do Azure | Microsoft Docs
+description: Saiba como conceder acesso à Base de Dados SQL do Microsoft Azure.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 85d3e7819ef06fd943c207e1410c95168f574a7d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7865ab165f1ef9377817b8110e35d516e01c0e0
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-sql-database-access-control"></a>Controlo de acesso à Base de Dados SQL do Azure
 Para fornecer segurança, a Base de Dados SQL controla o acesso com regras de firewall que limitam a conectividade por endereço IP, mecanismos de autenticação que exigem que os utilizadores provem a sua identidade e mecanismos de autorização que limitam os utilizadores a ações e dados específicos. 

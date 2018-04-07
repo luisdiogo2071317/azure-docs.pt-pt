@@ -1,6 +1,6 @@
 ---
-title: "Monitorizar o desempenho de um a multi-inquilino SQL database do Azure numa aplicação SaaS multi-inquilino | Microsoft Docs"
-description: "Monitorizar e gerir o desempenho da multi-inquilino SQL database do Azure numa aplicação SaaS multi-inquilino"
+title: Monitorizar o desempenho de um a multi-inquilino SQL database do Azure numa aplicação SaaS multi-inquilino | Microsoft Docs
+description: Monitorizar e gerir o desempenho da multi-inquilino SQL database do Azure numa aplicação SaaS multi-inquilino
 keywords: tutorial de base de dados sql
 services: sql-database
 author: stevestein
@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 43bac88a7ab6320c5fdcc9dc0fb6b5209bdbcaa3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho da multi-inquilino SQL database do Azure numa aplicação SaaS multi-inquilino
 
@@ -49,7 +49,7 @@ Gerir o desempenho da base de dados consiste em compilar e analisar dados de des
 
 O [portal do Azure](https://portal.azure.com) fornece monitorização e alertas incorporados na maior parte dos recursos. Para a base de dados do SQL Server, monitorização e alertas estão disponível em bases de dados. Esta monitorização incorporada e os alertas são recursos específicos, é conveniente utilizar pequenas quantidades de recursos, mas não for conveniente ao trabalhar com muitos recursos.
 
-Para cenários de volume elevado, onde está a trabalhar com muitos recursos, [análise de registos (OMS)](https://azure.microsoft.com/services/log-analytics/) pode ser utilizado. Este é um serviço Azure separado que fornece análises através de registos de diagnóstico emitidos e telemetria recolhidos numa área de trabalho de análise de registo. Análise de registos pode recolher a telemetria de vários serviços e ser utilizado para consultar e definir alertas.
+Para cenários de volume elevado, onde está a trabalhar com muitos recursos, [Log Analytics](https://azure.microsoft.com/services/log-analytics/) pode ser utilizado. Este é um serviço Azure separado que fornece análises através de registos de diagnóstico emitidos e telemetria recolhidos numa área de trabalho de análise de registo. Análise de registos pode recolher a telemetria de vários serviços e ser utilizado para consultar e definir alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obter o código de origem da aplicação de base de dados do Wingtip bilhetes SaaS multi-inquilino e os scripts
 

@@ -10,18 +10,18 @@ ms.component: manage
 ms.date: 04/02/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 42b716274e655bf91f72c1b3ab207b8a5f1ccee0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6ea45398b0bf7fca43c75797313b7e683972b1ab
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="upgrade-to-latest-generation-of-azure-sql-data-warehouse-in-the-azure-portal"></a>Atualizar para a geração de mais recente do Azure SQL Data Warehouse no portal do Azure
+# <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho por atualizar o SQL Data Warehouse
 
-Utilize o portal do Azure para atualizar o armazém de dados SQL do Azure para utilizar a geração da arquitetura de hardware e de armazenamento do Azure mais recente. Ao atualizar, pode tirar partido de um desempenho mais rápido, maior escalabilidade e armazenamento ilimitado para índices columnstore.  
+Pode agora totalmente atualizar para o Optimized para a camada de desempenho de computação no portal do Azure. Se tiver um Optimized elasticidade do armazém de dados, recomenda-se a atualização para a geração de mais recente de hardware do Azure e uma arquitetura de armazenamento avançado. Poderá tirar partido de um desempenho mais rápido, escalabilidade e armazenamento columnar ilimitado. 
 
 ## <a name="applies-to"></a>Aplica-se a
-Esta atualização aplica-se para armazéns de dados no Optimized para a camada de desempenho de elasticidade.  As instruções atualizar um armazém de dados de Optimized para a camada de desempenho de elasticidade para Optimized para a camada de desempenho de computação. 
+Esta atualização aplica-se para armazéns de dados no Optimized para a camada de desempenho de elasticidade.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -29,25 +29,98 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
+> [!NOTE]
+> A partir de 3/30, tem de ter [auditoria ao nível do servidor](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing#subheading-8) desativada antes de iniciar a atualização.
+> 
+>
+
+> [!NOTE]
+> Se existentes otimizado para elasticidade do armazém de dados não está numa região onde otimizado para computação está disponível, pode [georrestauro para Optimized da computação](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) através do PowerShell para uma região suportada.
+> 
+>
+
 1. Se o Optimized elasticidade do armazém de dados a ser atualizado está em pausa, [retomar o armazém de dados](pause-and-resume-compute-portal.md).
 2. Estar preparadas para alguns minutos de indisponibilidade. 
-3. O processo de atualização inutilizam todas as sessões e remove todas as ligações. Antes de atualizar, certifique-se de que concluíram as suas consultas. Se iniciar uma atualização com transações em curso, o tempo de reversão pode ser mais extenso. 
+
+
 
 ## <a name="start-the-upgrade"></a>Iniciar a atualização
 
-1. Abra o seu armazém de dados no portal do Azure e clique em **atualização Optimized da computação**.
-2. Tenha em atenção o Optimized para opções de camada de desempenho de computação. A seleção predefinida é comparável para o nível atual antes da atualização.
-3. Escolha um escalão de desempenho. O preço de Optimized para a camada de desempenho de computação está atualmente half-desativada durante o período de pré-visualização.
-4. Clique em **atualizar**.
-5. Verifique o estado no portal do Azure.
-6. Aguarde que o armazém de dados alterar para Online.
+1. Aceda ao seu Optimized para elasticidade dados armazém no portal do Azure e clique em **atualização Optimized da computação**: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
 
-## <a name="rebuild-columnstore-indexes"></a>Reconstruir índices columnstore
+2. Por predefinição, **selecione o nível de desempenho sugeridos** para o armazém de dados com base no seu nível de desempenho atual no Optimized para elasticidade com o mapeamento abaixo:
+    
+| Otimizado para Elasticidade | Otimizado para Computação |
+| :----------------------: | :-------------------: |
+|      DW100 – DW1000      |        DW1000c        |
+|          DW1200          |        DW1500c        |
+|          DW1500          |        DW1500c        |
+|          DW2000          |        DW2000c        |
+|          DW3000          |        DW3000c        |
+|          DW6000          |        DW6000c        |
 
-Assim que o armazém de dados estiver online, pode carregar os dados e executar consultas. No entanto, o desempenho pode ser lenta em primeiro lugar, porque um processo em segundo plano está a migrar os dados para o novo hardware. 
 
-Para forçar os dados para migrar como rapidamente quanto possível, recomendamos que reconstruir os índices columnstore. Para tal, consulte as orientações para [reconstruir índices columnstore para melhorar a qualidade de segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality). 
+3. Certifique-se de que a carga de trabalho foi concluída em execução e de terem silenciado antes de atualizar. Irá ocorrer um período de indisponibilidade para alguns minutos antes do armazém de dados estiver novamente online como um Optimized computação do armazém de dados. **Clique em Atualizar**. O preço de Optimized para a camada de desempenho de computação está atualmente half-desligado durante o período de pré-visualização:
+    
+    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
+
+4. **Monitorizar a sua atualização** verificando o estado no portal do Azure:
+
+   ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
+   
+   O primeiro passo do processo de atualização atravessa a operação de dimensionamento ("Atualizar - Offline") em que serão eliminadas todas as sessões e ligações serão ignoradas. 
+   
+   O segundo passo do processo de atualização é a migração de dados ("Atualizar - Online"). Migração de dados é um processo de em segundo plano online trickle, que lentamente move os dados columnar da arquitetura de armazenamento Gen1 antiga para a nova arquitetura de armazenamento Gen2 tirar partido da cache SSD local Gen2. Durante este período, o armazém de dados será online para consultar e carregar. Todos os seus dados serão disponíveis para consulta independentemente se esta tiver sido migrada ou não. A migração de dados ocorre uma taxa variando consoante o tamanho dos dados, o nível de desempenho e o número de segmentos sua columnstore. 
+
+5. **Recomendação opcional:** a fim de acelerar o processo de em segundo plano de migração de dados, é recomendado para forçar imediatamente o movimento de dados através da execução [reconstrução Alter Index](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) em todas as tabelas columnstore numa maior SLO e recursos classe. Esta operação está offline em comparação com o processo de fundo trickle; No entanto, a migração de dados será muito mais rápida onde, em seguida, pode tirar partido da arquitetura de armazenamento Gen2 uma vez concluída com rowgroups de alta qualidade. 
+
+Esta consulta seguinte gera os comandos necessários Alter Index Rebuild a fim de acelerar o processo de migração de dados:
+
+```sql
+SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
+       + Schema_name(tbl.schema_id) + '].[' 
+       + Object_name(idx.object_id) + '] REBUILD ' + ( CASE 
+                                                         WHEN ( 
+                                                     (SELECT Count(*) 
+                                                      FROM   sys.partitions 
+                                                             part2 
+                                                      WHERE  part2.index_id 
+                                                             = idx.index_id 
+                                                             AND 
+                                                     idx.object_id = 
+                                                     part2.object_id) 
+                                                     > 1 ) THEN 
+              ' PARTITION = ' 
+              + Cast(part.partition_number AS NVARCHAR(256)) 
+              ELSE '' 
+                                                       END ) + '; SELECT ''[' + 
+              idx.NAME + '] ON [' + Schema_name(tbl.schema_id) + '].[' + 
+              Object_name(idx.object_id) + '] ' + ( 
+              CASE 
+                WHEN ( (SELECT Count(*) 
+                        FROM   sys.partitions 
+                               part2 
+                        WHERE 
+                     part2.index_id = 
+                     idx.index_id 
+                     AND idx.object_id 
+                         = part2.object_id) > 1 ) THEN 
+              ' PARTITION = ' 
+              + Cast(part.partition_number AS NVARCHAR(256)) 
+              + ' completed'';' 
+              ELSE ' completed'';' 
+                                                    END ) 
+FROM   sys.indexes idx 
+       INNER JOIN sys.tables tbl 
+               ON idx.object_id = tbl.object_id 
+       LEFT OUTER JOIN sys.partitions part 
+                    ON idx.index_id = part.index_id 
+                       AND idx.object_id = part.object_id 
+WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
+```
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
-O armazém de dados está online. Para utilizar as novas funcionalidades de desempenho, consulte [classes de recursos para a gestão de carga de trabalho](resource-classes-for-workload-management.md).
+O armazém de dados atualizada está online. Para tirar partido da arquitetura do avançada, consulte [classes de recursos para a gestão de carga de trabalho](resource-classes-for-workload-management.md).
  

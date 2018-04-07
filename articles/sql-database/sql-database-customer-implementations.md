@@ -1,19 +1,19 @@
 ---
-title: "Cliente de base de dados SQL do Azure technical implementações | Microsoft Docs"
-description: "Saiba os detalhes técnicos sobre implementatons de cliente da base de dados do Azure SQL Server para resolver problemas de negócio"
+title: Cliente de base de dados SQL do Azure technical implementações | Microsoft Docs
+description: Saiba os detalhes técnicos sobre implementatons de cliente da base de dados do Azure SQL Server para resolver problemas de negócio
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 22f462010f636731cdceed5105e6057d2d45f005
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5eba1897a52c00430a2ced0d1679784177b3d561
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Azure SQL Database cliente implementação técnicos práticos
 

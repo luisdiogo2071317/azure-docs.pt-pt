@@ -1,19 +1,18 @@
 ---
-title: "Como gerir a sua conta com base dos serviços de localização do Azure e as chaves | Microsoft Docs"
-description: "Pode utilizar o portal do Azure para gerir a sua conta com base dos serviços de localização do Azure e gerir as chaves de acesso."
+title: Como gerir a sua conta com base dos serviços de localização do Azure e as chaves | Microsoft Docs
+description: Pode utilizar o portal do Azure para gerir a sua conta com base dos serviços de localização do Azure e gerir as chaves de acesso.
 services: location-based-services
-keywords: "Não adicione nem edite as palavras-chave sem consultar o perito em SEO."
 author: kgremban
 ms.author: kgremban
 ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 8ea7beae054157800ee404cf237772d0677574ca
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 38466a741bc836a6f13db83fd939d178fbbc1a7b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Como gerir a sua conta com base dos serviços de localização do Azure e as chaves
 

@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3708c4a1bae93682f81d8aad0f3649f6b2381ff5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Table storage do Azure: aplicação Web Node.js
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -55,7 +55,7 @@ Execute os seguintes passos para obter as credenciais da conta de armazenamento 
 3. Na janela do Azure Powershell, introduza o seguinte cmdlet para obter as informações de conta de armazenamento:
 
     ```powershell
-    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
+    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccount
     ```
 
    O cmdlet anterior obtém a lista de contas de armazenamento e a conta chaves com o serviço alojado.
@@ -342,9 +342,20 @@ O ficheiro **layout.jade** no diretório **vistas** é utilizado como um modelo 
 
 1. Transferir e extrair os ficheiros para [Twitter Bootstrap](http://getbootstrap.com/). Copiar o **bootstrap.min.css** de ficheiros do **arranque de configuração\\dist\\css** pasta para o **pública\\tramas** diretório da sua aplicação tasklist.
 2. Do **vistas** pasta, abra o **jade** de ficheiros no seu editor de texto e substitua o conteúdo com o seguinte:
-
-    título do doctype html html head = ligação título (rel = "folha de estilos', href='/stylesheets/bootstrap.min.css) ligação (rel = 'folha de estilos', href='/stylesheets/style.css) body.app nav.navbar.navbar predefinido div.navbar cabeçalho a.navbar-brand(href='/') tarefas My bloco conteúdo
-
+ 
+```jade
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body.app
+        nav.navbar.navbar-default
+          div.navbar-header
+            a.navbar-brand(href='/') My Tasks
+        block content
+```
 3. Guardar o **jade** ficheiro.
 
 ### <a name="running-the-application-in-the-emulator"></a>Executar a aplicação no emulador

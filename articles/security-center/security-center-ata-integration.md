@@ -1,11 +1,11 @@
 ---
-title: "Ligar o Microsoft Advanced Threat Analytics ao centro de segurança do Azure | Microsoft Docs"
-description: "Saiba como o Centro de segurança do Azure integra-se com o Microsoft Advanced Threat Analytics."
+title: Ligar o Microsoft Advanced Threat Analytics ao centro de segurança do Azure | Microsoft Docs
+description: Saiba como o Centro de segurança do Azure integra-se com o Microsoft Advanced Threat Analytics.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fb32fc55288229fb1d09dce98b6092d38c10abf2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Ligação Microsoft Advanced Threat Analytics ao centro de segurança do Azure
 Este documento ajuda-o a configurar a integração entre o Microsoft Advanced Threat Analytics e o Centro de segurança do Azure.
@@ -58,7 +58,7 @@ Partindo do princípio que já tiver instalado o ATA, e a funcionar corretamente
 
     ![Direcionar o agente](./media/security-center-ata-integration/security-center-ata-integration-fig6.png)
 
-12. Instale este agente no ATA Center. Durante a instalação, certifique-se de que seleciona a opção **ligar o agente para análise de registos do Azure (OMS)**e forneça o *ID da área de trabalho*, e *chave primária* quando solicitado .
+12. Instale este agente no ATA Center. Durante a instalação, certifique-se de que seleciona a opção **ligar o agente ao Log Analytics do Azure**e forneça o *ID da área de trabalho*, e *chave primária* quando solicitado.
 
 
 Depois de concluir a instalação, a integração for concluída e será capaz de ver novos alertas enviadas do ATA para o Centro de segurança no **pesquisa** resultado. A solução é apresentado no **soluções de segurança** página **ligado soluções**. 

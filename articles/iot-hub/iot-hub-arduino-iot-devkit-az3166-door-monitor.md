@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: e0882a6c87454498d0d1370ee244bfffc137aafb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ba02e877fe7152d759085e3d25090459cd2459fc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="door-monitor"></a>Monitor de porta          
 
@@ -44,7 +44,7 @@ Concluir o [guia de introdução]({{"/docs/get-started/" | absolute_url }}) para
 
 Uma subscrição ativa do Azure. Se não tiver uma, pode registar através de um dos seguintes métodos:
 
-* Ativar um [conta de Microsoft Azure avaliação de 30 dias gratuita](https://azureinfo.microsoft.com/us-freetrial.html).
+* Ativar um [conta de Microsoft Azure avaliação de 30 dias gratuita](https://azure.microsoft.com/en-us/free/).
 * Afirmação sua [crédito do Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se for um subscritor MSDN ou o Visual Studio.
 
 ## <a name="deploy-sendgrid-service-in-azure"></a>Implementar o serviço do SendGrid no Azure

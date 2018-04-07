@@ -1,18 +1,18 @@
 ---
-title: "Melhores práticas para a sincronização de dados de SQL do Azure (pré-visualização) | Microsoft Docs"
-description: "Saiba mais sobre as melhores práticas para configurar e executar a sincronização de dados de SQL do Azure (pré-visualização)."
+title: Melhores práticas para a sincronização de dados de SQL do Azure (pré-visualização) | Microsoft Docs
+description: Saiba mais sobre as melhores práticas para configurar e executar a sincronização de dados de SQL do Azure (pré-visualização).
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 1c8ad4b318d52b5cb6af284b3304cfa7ad35522b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="best-practices-for-sql-data-sync-preview"></a>Melhores práticas para a sincronização de dados do SQL Server (pré-visualização) 
 
@@ -20,7 +20,7 @@ Este artigo descreve as melhores práticas para a sincronização de dados SQL d
 
 Para obter uma descrição geral da sincronização de dados do SQL Server (pré-visualização), consulte [sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados de SQL do Azure (pré-visualização)](sql-database-sync-data.md).
 
-## <a name="security-and-reliability"></a>Segurança e fiabilidade
+## <a name="security-and-reliability"></a> Segurança e fiabilidade
 
 ### <a name="client-agent"></a>Agente do cliente
 
@@ -45,7 +45,7 @@ Base de dados SQL do Azure suporta apenas um único conjunto de credenciais. Par
 
 ## <a name="setup"></a>Configurar
 
-### <a name="database-considerations-and-constraints"></a>Considerações de base de dados e as restrições
+### <a name="database-considerations-and-constraints"></a> Considerações de base de dados e as restrições
 
 #### <a name="sql-database-instance-size"></a>Tamanho da instância de base de dados SQL
 
@@ -54,7 +54,7 @@ Quando cria uma nova instância de base de dados do SQL Server, defina o tamanho
 > [!IMPORTANT]
 > Sincronização de dados do SQL Server (pré-visualização) armazena os metadados adicionais com cada base de dados. Certifique-se de que tem em conta estes metadados ao calcular o espaço necessário. A quantidade de adicionar a sobrecarga está relacionado com a largura das tabelas (por exemplo, as tabelas estreito requerem mais overhead) e a quantidade de tráfego.
 
-### <a name="table-considerations-and-constraints"></a>Considerações de tabela e restrições
+### <a name="table-considerations-and-constraints"></a> Considerações de tabela e restrições
 
 #### <a name="selecting-tables"></a>Selecionar tabelas
 
@@ -66,7 +66,7 @@ Cada tabela num grupo de sincronização tem de ter uma chave primária. O servi
 
 Antes de utilizar a sincronização de dados do SQL Server (pré-visualização) na produção, teste o desempenho da sincronização iniciais e contínuas.
 
-### <a name="provisioning-destination-databases"></a>Aprovisionamento de bases de dados de destino
+### <a name="provisioning-destination-databases"></a> Aprovisionamento de bases de dados de destino
 
 Pré-visualização de sincronização de dados do SQL Server (pré-visualização) fornece autoprovisioning de base de dados básica.
 
@@ -90,7 +90,7 @@ Sincronização de dados do SQL Server (pré-visualização) tem as seguintes li
 -   Utilize a capacidade de autoprovisioning de sincronização de dados do SQL Server (pré-visualização) apenas quando está a tentar terminar o serviço.  
 -   Para produção, Aprovisione o esquema de base de dados.
 
-### <a name="locate-hub"></a>Onde localizar a base de dados do hub
+### <a name="locate-hub"></a> Onde localizar a base de dados do hub
 
 #### <a name="enterprise-to-cloud-scenario"></a>Cenário empresarial para a nuvem
 
@@ -107,7 +107,7 @@ Aplicam-se as diretrizes anteriores a configurações de grupo de sincronizaçã
 
 ## <a name="sync"></a>Sync
 
-### <a name="avoid-a-slow-and-costly-initial-synchronization"></a>Evitar lenta e dispendiosa sincronização inicial
+### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Evitar lenta e dispendiosa sincronização inicial
 
 Nesta secção, vamos discutir a sincronização inicial de um grupo de sincronização. Saiba como ajudar a evitar uma sincronização inicial de demorar mais tempo e a ser mais dispendioso do que o necessário.
 
@@ -121,13 +121,13 @@ Se as bases de dados estiverem em datacenters diferentes, cada linha tem de se e
 
 Se for possível, começar a utilizar dados em apenas uma das bases de dados do grupo de sincronização.
 
-### <a name="design-to-avoid-synchronization-loops"></a>Conceção para evitar os ciclos de sincronização
+### <a name="design-to-avoid-synchronization-loops"></a> Conceção para evitar os ciclos de sincronização
 
 Um ciclo de sincronização ocorre quando existem referências circulares dentro de um grupo de sincronização. Nesse cenário, cada alteração de uma base de dados é ter e forma circular replicada através de bases de dados no grupo de sincronização.   
 
 Certifique-se de que evitar os ciclos de sincronização, pois causar degradação do desempenho e poderá aumentar significativamente os custos.
 
-### <a name="handling-changes-that-fail-to-propagate"></a>Alterações que não obedeçam a propagação
+### <a name="handling-changes-that-fail-to-propagate"></a> Alterações que não obedeçam a propagação
 
 #### <a name="reasons-that-changes-fail-to-propagate"></a>Por motivos que não obedeçam a alterações à propagação
 
@@ -153,7 +153,7 @@ Monitorize o sincronização grupo e a base de dados de estado de funcionamento 
 
 ## <a name="maintenance"></a>Manutenção
 
-### <a name="avoid-out-of-date-databases-and-sync-groups"></a>Evitar Desatualizadas bases de dados e grupos de sincronização
+### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Evitar Desatualizadas bases de dados e grupos de sincronização
 
 Um grupo de sincronização ou uma base de dados num grupo de sincronização pode ficar desatualizada. Quando o estado de um grupo de sincronização é **Desatualizadas**, deixa de funcionar. Quando o estado de uma base de dados é **Desatualizadas**, dados poderão perder-se. É melhor evitar este cenário em vez de tentar recuperar.
 
@@ -178,7 +178,7 @@ Para impedir que os grupos de sincronização Desatualizadas:
 -   Atualize os valores de chaves externos para incluir os valores que estão contidos nas linhas com falhas.
 -   Atualize os valores de dados na linha falhado para que sejam compatíveis com o esquema ou chaves externas numa base de dados de destino.
 
-### <a name="avoid-deprovisioning-issues"></a>Evitar problemas de desaprovisionamento
+### <a name="avoid-deprovisioning-issues"></a> Evitar problemas de desaprovisionamento
 
 Em algumas circunstâncias, a anulação do registo uma base de dados com um agente do cliente pode causar a sincronização a falhar.
 
@@ -199,7 +199,7 @@ Para recuperar este cenário:
 2. Adicione a base de dados novamente em cada grupo de sincronização que removeu a.  
 3. Implemente a cada grupo de sincronização afetado (esta ação Aprovisiona a base de dados).  
 
-### <a name="modifying-your-sync-group"></a>Modificar um grupo de sincronização
+### <a name="modifying-your-sync-group"></a> Modificar um grupo de sincronização
 
 Não tente remover uma base de dados de um grupo de sincronização e, em seguida, edite o grupo de sincronização sem primeiro uma implementação de alterações.
 
@@ -207,16 +207,16 @@ Em vez disso, remova primeiro uma base de dados de um grupo de sincronização. 
 
 Se tentar remover uma base de dados e, em seguida, editar um grupo de sincronização sem primeiro uma implementação de alterações, um ou a outra operação falha. Interface do portal pode ficar inconsistente. Se isto acontecer, atualize a página para restaurar o estado correto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a sincronização de dados do SQL Server (pré-visualização), consulte:
 
 -   [Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados de SQL do Azure (pré-visualização)](sql-database-sync-data.md)
 -   [Configurar a sincronização de dados de SQL do Azure (pré-visualização)](sql-database-get-started-sql-data-sync.md)
--   [Monitor SQL do Azure de sincronização de dados (pré-visualização) com a análise de registos do OMS](sql-database-sync-monitor-oms.md)
+-   [Monitor SQL do Azure de sincronização de dados (pré-visualização) análise do registo](sql-database-sync-monitor-oms.md)
 -   [Resolver problemas com a sincronização de dados de SQL do Azure (pré-visualização)](sql-database-troubleshoot-data-sync.md)  
 -   Conclua os exemplos do PowerShell que mostram como configurar a sincronização de dados do SQL Server (pré-visualização):  
     -   [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
-    -   [Utilizar o PowerShell para sincronizar entre uma base de dados do SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)  
+    -   [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)  
 -   [Transferir a documentação da API de REST de sincronização de dados do SQL Server (pré-visualização)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 Para obter mais informações sobre a base de dados SQL, consulte:

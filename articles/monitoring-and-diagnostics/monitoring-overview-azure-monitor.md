@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 448711b7b2e102662bc157485561c33bf7f5fba1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Descrição geral do Monitor do Azure
 Este artigo fornece uma descrição geral do serviço Azure Monitor no Microsoft Azure. -Descreve o Monitor do Azure e fornece indicações para informações adicionais sobre como utilizar o Monitor do Azure.  Se preferir um vídeo de introdução, consulte seguintes passos ligações na parte inferior deste artigo. 
@@ -159,7 +159,7 @@ Em geral, pode manipular os dados, encaminhamento e o controlo de obtenção atr
 * [API REST](https://docs.microsoft.com/rest/api/monitor/)
 * [SDK do .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre
 - Um vídeo com instruções de Monitor de Azure apenas está disponível em  
 [Introdução ao Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). 
@@ -168,4 +168,4 @@ Saiba mais sobre
 - Configurar o [extensões de diagnóstico do Azure](../azure-diagnostics.md) se está a tentar diagnosticar problemas no seu serviço de nuvem, a Máquina Virtual, a Máquina Virtual Dimensionar conjuntos ou a aplicação de Service Fabric.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) se estiver a tentar diagnóstico problemas na sua aplicação de serviço Web da aplicação.
 - [Resolução de problemas de armazenamento do Azure](../storage/common/storage-e2e-troubleshooting.md) ao utilizar o armazenamento de Blobs, tabelas ou filas
-- [Análise de registo](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/oms/)
+- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)

@@ -1,11 +1,11 @@
 ---
-title: "Utilize uma VM com a CLI do Azure 1.0 de resolução de problemas de Linux | Microsoft Docs"
-description: "Saiba como resolver problemas de VM com Linux, ligando-se o disco de SO para uma VM utilizando a CLI do Azure 1.0 de recuperação"
+title: Utilize uma VM com a CLI do Azure 1.0 de resolução de problemas de Linux | Microsoft Docs
+description: Saiba como resolver problemas de VM com Linux, ligando-se o disco de SO para uma VM utilizando a CLI do Azure 1.0 de recuperação
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: d817358211f123c96d899c5cff88cc47aeb5c9c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 047d0041fa89fa480de0744e594b8ac4f974973a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-cli-10"></a>Resolver problemas de uma VM com Linux ao anexar o disco de SO para uma VM utilizando a CLI do Azure 1.0 de recuperação
 Se a máquina virtual (VM) do Linux encontra um erro de arranque ou de disco, poderá ter de efetuar os passos de resolução de problemas no disco de rígido virtual. Um exemplo comum é uma entrada inválida no `/etc/fstab` que impede a VM de ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar a CLI do Azure 1.0 para ligar o seu disco rígido virtual a outra VM com Linux para corrigir os eventuais erros, em seguida, voltar a criar a VM original.
@@ -199,7 +199,7 @@ Depois dos erros serem resolvidos, desmontar e desanexar o disco rígido virtual
 ## <a name="create-vm-from-original-hard-disk"></a>Criar a VM de disco rígido original
 Para criar uma VM a partir do seu disco rígido virtual original, utilize [este modelo Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). O modelo JSON é a seguinte hiperligação:
 
-- https://RAW.githubusercontent.com/Azure/Azure-QuickStart-Templates/Master/201-VM-Specialized-VHD/azuredeploy.JSON
+- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
 O modelo implementa uma VM numa rede virtual existente, utilizando o URL de VHD do comando anterior. O exemplo seguinte implementa o modelo para o grupo de recursos com o nome `myResourceGroup`:
 
@@ -237,5 +237,5 @@ Quando criar a VM a partir do disco rígido virtual existente, diagnóstico de a
 azure vm enable-diag --resource-group myResourceGroup --name myDeployedVM
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se estiver a ter problemas em ligar à VM, consulte [resolver problemas de SSH ligações a uma VM do Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para problemas com a aceder a aplicações em execução numa VM, consulte [resolver problemas de conectividade de aplicação numa VM com Linux](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

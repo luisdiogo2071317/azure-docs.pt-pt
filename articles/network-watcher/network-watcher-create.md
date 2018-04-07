@@ -1,11 +1,11 @@
 ---
-title: "Criar uma instância de observador de rede do Azure | Microsoft Docs"
-description: "Esta página fornece os passos para criar uma instância do observador de rede utilizando o portal e a API REST do Azure"
+title: Criar uma instância de observador de rede do Azure | Microsoft Docs
+description: Saiba como ativar o observador de rede numa região do Azure.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
 ms.devlang: na
@@ -14,30 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fb1e3f9a93d18e949cb42ac0a4e09129cfe414f6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9d3e579cd58bc6c7d67b29998ea5a48a65548b0a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância de observador de rede do Azure
 
 Observador de rede é um serviço regional que lhe permite monitorizar e diagnosticar condições a um nível de cenário rede, para e do Azure. Monitorização ao nível do cenário permite-lhe diagnosticar problemas de uma vista de nível de rede ponto a ponto. Diagnóstico de rede e ferramentas de visualização disponíveis com o observador de rede ajudam-na compreender, diagnosticar e obter informações sobre a sua rede no Azure.
 
-> [!NOTE]
-> Como atualmente o observador de rede suporta apenas CLI 1.0, as instruções para criar uma nova instância de observador de rede é fornecido para a CLI 1.0.
-
 ## <a name="create-a-network-watcher-in-the-portal"></a>Criar um observador de rede no portal
 
 Navegue para **todos os serviços** > **redes** > **observador de rede**. Pode selecionar todas as subscrições que pretende ativar o observador de rede para. Esta ação cria um observador de rede em cada região que está disponível.
 
-![criar um observador de rede][1]
+![criar um observador de rede](./media/network-watcher-create/figure1.png)
 
-Quando ativar o observador de rede através do Portal, o nome da instância do observador de rede irá definir automaticamente como NetworkWatcher_region_name onde region_name corresponde à região do Azure onde a instância foi ativada.  Por exemplo, um observador de rede ativada na região Central EUA oeste será designado NetworkWatcher_westcentralus
+Quando ativar o observador de rede através do portal, o nome da instância do observador de rede é automaticamente definido para *NetworkWatcher_region_name* onde *region_name* corresponde à região do Azure onde a instância está ativada. Por exemplo, um observador de rede ativada na região Central EUA oeste com o nome *NetworkWatcher_westcentralus*.
 
-Além disso, a instância de observador de rede será automaticamente adicionada para um grupo de recursos denominado NetworkWatcherRG.  Este grupo de recursos será criado se já existir.
+A instância de observador de rede é criada automaticamente um grupo de recursos com o nome *NetworkWatcherRG*. O grupo de recursos é criado se já existir.
 
-Se pretender personalizar o nome de uma instância de observador de rede e o grupo de recursos está a ser colocado, pode utilizar o Powershell, a REST API ou ARMClient métodos descritos abaixo.  Cada opção, o grupo de recursos tem de existir antes de colocar o observador de rede para a mesma.  
+Se pretender personalizar o nome de uma instância de observador de rede e o grupo de recursos está a ser colocado, pode utilizar o Powershell, a CLI do Azure, a REST API ou métodos ARMClient descritos nas secções que se seguem. Cada opção, o grupo de recursos tem de existir antes de criar um observador de rede no mesmo.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>Criar um observador de rede com o PowerShell
 
@@ -47,9 +44,17 @@ Para criar uma instância do observador de rede, execute o seguinte exemplo:
 New-AzureRmNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
+## <a name="create-a-network-watcher-with-the-azure-cli"></a>Criar um observador de rede com a CLI do Azure
+
+Para criar uma instância do observador de rede, execute o seguinte exemplo:
+
+```azurecli
+az network watcher configure --resource-group NetworkWatcherRG --locations westcentralus --enabled
+```
+
 ## <a name="create-a-network-watcher-with-the-rest-api"></a>Criar um observador de rede com a API REST
 
-ARMclient é utilizada para chamar a API de REST utilizando o PowerShell. ARMClient for encontrado no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
+O ARMclient é utilizada para chamar a API de REST utilizando o PowerShell. O ARMClient for encontrado no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
 
 ### <a name="log-in-with-armclient"></a>Iniciar sessão com ARMClient
 
@@ -85,17 +90,4 @@ Agora que tem uma instância do observador de rede, saiba mais sobre as funciona
 * [Registo de fluxo do NSG](network-watcher-nsg-flow-logging-overview.md)
 * [Resolução de problemas de Gateway de rede virtual](network-watcher-troubleshoot-overview.md)
 
-Quando tiver sido criada uma instância de observador de rede, a captura de pacote pode ser configurada ao seguir o artigo: [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md)
-
-[1]: ./media/network-watcher-create/figure1.png
-
-
-
-
-
-
-
-
-
-
-
+Assim que estiver uma instância de observador de rede, pode ativar a captura de pacotes das máquinas virtuais. Para saber como, consulte [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md)

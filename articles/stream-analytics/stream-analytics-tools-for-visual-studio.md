@@ -1,24 +1,19 @@
 ---
-title: Utilize as ferramentas do Azure Stream Analytics para o Visual Studio | Microsoft Docs
-description: Tutorial de introdução para as ferramentas de análise de fluxo do Azure para Visual Studio
-keywords: visual studio
-documentationcenter: ''
+title: Utilize as ferramentas do Azure Stream Analytics para o Visual Studio
+description: Este artigo descreve como começar a utilizar as ferramentas do Azure Stream Analytics para o Visual Studio.
 services: stream-analytics
 author: su-jie
-manager: ryanw
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: 23c4d058a1b045b0d66d8526a94e22774e6e6519
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/05/2018
+ms.openlocfilehash: eaaee36a2f4dd5a313f8871cea5fd885812fe351
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Utilize as ferramentas do Azure Stream Analytics para o Visual Studio
 Ferramentas de Stream Analytics do Azure para Visual Studio agora são geralmente disponíveis. Estas ferramentas ativar uma experiência mais rica para os utilizadores de Stream Analytics resolver problemas, bem como escrever consultas complexas e até mesmo escrever consultas localmente. Também pode exportar uma tarefa de Stream Analytics para um projeto do Visual Studio.

@@ -1,11 +1,11 @@
 ---
-title: "Planeamento da migração de recursos IaaS do clássico para o Azure Resource Manager | Microsoft Docs"
-description: "Planeamento da migração de recursos IaaS do clássico para o Azure Resource Manager"
+title: Planeamento da migração de recursos IaaS do clássico para o Azure Resource Manager | Microsoft Docs
+description: Planeamento da migração de recursos IaaS do clássico para o Azure Resource Manager
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: b77000c2cf46b59b65c27c78182193624fd62062
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 32e595b6ae01e77289a81734f61b9036835dd2fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planeamento da migração de recursos IaaS do clássico para o Azure Resource Manager
 Enquanto o Azure Resource Manager oferece muitas funcionalidades incrível, é essencial para planear a saída da sua viagem de migração para fazer coisas sure correm. A dedicar muito tempo sobre o planeamento irá garantir que não ocorrerem problemas ao executar atividades de migração.
@@ -122,7 +122,7 @@ Os seguintes foram problemas detetados em muitos das migrações maior. Não se 
     >
 
     - Interfaces de Rede
-    - Balanceadores de carga
+    - Balanceadores de Carga
     - IPs Públicos
     - IPs públicos estáticos
     - Núcleos
@@ -211,7 +211,7 @@ Ser tem um fim específico nos serviços que pretende ativar no Gestor de recurs
 Lembre-se de que o motivo pelo qual iniciou esta clássico para journey de migração do Gestor de recursos do Azure.  Quais eram as razões de negócio original? Foi possível alcançar o motivo de negócio?
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Descrição geral da migração de plataforma suportada dos recursos IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Técnica descrição profunda sobre a migração de plataforma suportada do clássico para o Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

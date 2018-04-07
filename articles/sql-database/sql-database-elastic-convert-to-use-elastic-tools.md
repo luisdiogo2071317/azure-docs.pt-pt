@@ -1,19 +1,19 @@
 ---
 title: Migrar bases de dados existentes para aumentar horizontalmente | Microsoft Docs
-description: "Converter a bases de dados para utilizar as ferramentas de base de dados elástica através da criação de um ID de partição horizontal Gestor do mapa"
+description: Converter a bases de dados para utilizar as ferramentas de base de dados elástica através da criação de um ID de partição horizontal Gestor do mapa
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: d82994f3ab925fa3ace0d0dbe1631a01dd1df586
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 41652717417f47858698b80eac83a4022dcfe13b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bases de dados existentes para aumentar horizontalmente
 Gerir facilmente a sua expandidos a bases de dados existentes com as ferramentas de base de dados de SQL Database do Azure (tais como o [biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md)). Comece por converter um conjunto de bases de dados para utilizar o [Gestor de mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md). 

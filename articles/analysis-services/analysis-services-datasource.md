@@ -2,24 +2,24 @@
 title: Origens de dados suportadas no Azure Analysis Services | Microsoft Docs
 description: Descreve as origens de dados suportadas para modelos de dados no Azure Analysis Services.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 04/05/2018
 ms.author: owend
-ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 16bf333fe18c912db7cb81e74fce29960b0728d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origens de dados suportadas no Azure Analysis Services
 
@@ -33,12 +33,10 @@ São apresentados as origens de dados e conectores apresentados no Assistente de
 |Azure SQL Data Warehouse     |   Sim      |   Sim       |
 |Armazenamento de Blobs do Azure *     |   Sim       |    Não      |
 |Armazenamento de tabela do Azure *    |   Sim       |    Não      |
-|Azure Cosmos BD (Beta) *     |  Sim        |  Não        |
+|Azure Cosmos DB*     |  Sim        |  Não        |
 |Azure Data Lake Store *     |   Sim       |    Não      |
 |Azure HDInsight HDFS *     |     Sim     |   Não       |
-|Azure HDInsight Spark (Beta) *     |   Sim       |   Não       |
-|Base de dados do Azure para MySQL (pré-visualização) *     |   Sim       |   Não      |
-|Base de dados do Azure para PostgreSQL (pré-visualização) *     | Sim         |  Não       |
+|Azure HDInsight Spark *     |   Sim       |   Não       |
 ||||
 
 \* Modelos em tabela 1400 apenas.

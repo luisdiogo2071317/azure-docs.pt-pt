@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funcionalidades do motor de regras CDN do Azure
 Este artigo apresenta uma lista de descrições detalhadas das funcionalidades disponíveis para a rede de entrega de conteúdos (CDN) do Azure [motor de regras](cdn-rules-engine.md).
@@ -28,7 +28,6 @@ O terceiro parte de uma regra é a funcionalidade. Uma funcionalidade define o t
 ## <a name="access-features"></a>Funcionalidades de acesso
 
 Estas funcionalidades são concebidas para controlar o acesso ao conteúdo.
-
 
 Nome | Objetivo
 -----|--------
@@ -312,7 +311,7 @@ Remover| Esta opção garante que uma `Cache-Control` cabeçalho não está incl
 
 Informações da chave:
 
-- Especifique um ou mais nomes de parâmetro de cadeia de consulta. Deliminate com um único espaço de nome de cada um dos parâmetros.
+- Especifique um ou mais nomes de parâmetro de cadeia de consulta e separe cada nome de parâmetro com um único espaço.
 - Esta funcionalidade determina se os parâmetros de cadeia de consulta são incluídos ou excluídos da chave da cache. São fornecidas informações adicionais para cada opção na seguinte tabela.
 
 Tipo|Descrição
@@ -325,6 +324,9 @@ Tipo|Descrição
 O motor de regras permite-lhe personalizar a forma no qual está implementada o colocação em cache de cadeia de consulta. Por exemplo, pode especificar que a colocação em cache de cadeia de consulta é executada apenas em determinadas localizações ou tipos de ficheiro.
 
 Para duplicar a cadeia de consulta "não-cache" comportamento na página de colocação em cache de cadeia de consulta a colocação em cache, crie uma regra que contém uma condição de correspondência de carateres universais de consulta de URL e uma funcionalidade de ignorar a Cache. Defina a condição de correspondência de carateres universais de consulta de URL para um asterisco (*).
+
+>[!IMPORTANT] 
+> Se autorização token está ativada para qualquer caminho esta conta, o modo de cache de padrão é o único modo que pode ser utilizado para colocar em cache de cadeia de consulta. Para obter mais informações, consulte [Control Azure CDN caching behavior with query strings](cdn-query-string-premium.md)(Controlar o comportamento de colocação em cache do Azure CDN com cadeias de consulta).
 
 #### <a name="sample-scenarios"></a>Cenários de exemplo
 
@@ -1054,10 +1056,12 @@ Desativado| Restaura o comportamento predefinido. O comportamento predefinido é
 ### <a name="token-auth-denial-code"></a>Código de recusa de token de autenticação
 **Objetivo:** determina o tipo de resposta que vai ser devolvido para um utilizador quando um pedido é negado devido a autenticação baseada em tokens.
 
-Os códigos de resposta disponíveis são listados abaixo.
+Código de recusa de autenticação token não pode ser utilizado com uma condição de correspondência de sempre. Em alternativa, utilize o **processamento de recusa personalizado** secção o **Token Auth** página do **gerir** portal. Para obter mais informações, consulte [ativos de proteger a CDN do Azure com a autenticação de token](cdn-token-auth.md).
+
+Os códigos de resposta disponíveis estão listados na seguinte tabela.
 
 Código de Resposta|Nome de resposta|Descrição
-----------------|-----------|--------
+-------------|-------------|--------
 301|Movida permanentemente|Este código de estado redireciona os utilizadores não autorizados para o URL especificado no cabeçalho de localização.
 302|Encontrado|Este código de estado redireciona os utilizadores não autorizados para o URL especificado no cabeçalho de localização. Este código de estado é o método de padrão da indústria da execução de um redirecionamento.
 307|Redirecionamento temporário|Este código de estado redireciona os utilizadores não autorizados para o URL especificado no cabeçalho de localização.

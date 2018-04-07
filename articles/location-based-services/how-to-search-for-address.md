@@ -1,18 +1,17 @@
 ---
-title: "Como procurar um endereço utilizando o serviço de pesquisa do Azure com base dos serviços de localização (pré-visualização) | Microsoft Docs"
-description: "Saiba como procurar um endereço utilizando os serviços de com base da localização do Azure (pré-visualização) serviço de pesquisa"
+title: Como procurar um endereço utilizando o serviço de pesquisa do Azure com base dos serviços de localização (pré-visualização) | Microsoft Docs
+description: Saiba como procurar um endereço utilizando os serviços de com base da localização do Azure (pré-visualização) serviço de pesquisa
 services: location-based-services
-keywords: "Não adicione nem edite as palavras-chave sem consultar o perito em SEO."
 author: kgremban
 ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8b886607fe0915396a659593cd5910a271fca93
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Como localizar um endereço utilizando o serviço de pesquisa do Azure com base dos serviços de localização (pré-visualização)
 O serviço de pesquisa é um conjunto de APIs concebidos para programadores procurar endereços, de locais, de pontos de interesse, listagens de empresas e outras informações geográficas RESTful. O serviço de pesquisa atribui um latitude/longitude para um endereço específico, Rua cruzada, funcionalidade geográfica ou ponto de interesse (POI). Os valores de latitude e longitude devolvidos pelas APIs do serviço de pesquisa podem ser utilizados como parâmetros outros do Azure com base os serviços de localização, tais como a rota e APIs de fluxo de tráfego.

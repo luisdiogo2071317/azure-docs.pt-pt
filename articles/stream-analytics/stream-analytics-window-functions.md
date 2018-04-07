@@ -1,24 +1,19 @@
 ---
-title: Introdução às funções de janela do Stream Analytics | Microsoft Docs
-description: Saiba mais sobre as funções de janela três do Stream Analytics (em cascata, hopping, a deslizante).
-keywords: em cascata janela, numa janela, hopping janela deslizante
-documentationcenter: ''
+title: Introdução às funções de sistema baseado em janelas do Azure Stream Analytics
+description: Este artigo descreve as três modos de janela funções (em cascata, hopping, a deslizante) que são utilizadas nas tarefas do Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: c6f5dbe49cb60e3c7b2bc6562acf2d7fd79096ec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Introdução às funções de janela do Stream Analytics
 Em tempo real muitos cenários de transmissão em fluxo, é necessário para efetuarem operações apenas nos dados contidos no windows temporais. Suporte nativo para funções de modos de janela é uma funcionalidade chave do Azure Stream Analytics que são transmitidos a agulha na produtividade do programador na criação as tarefas de processamento de fluxo complexas. Do Stream Analytics permite aos programadores utilizar [ **em cascata**](https://msdn.microsoft.com/library/dn835055.aspx), [ **Hopping** ](https://msdn.microsoft.com/library/dn835041.aspx) e [ **deslizantes** ](https://msdn.microsoft.com/library/dn835051.aspx) windows para executar operações temporais nos dados de transmissão em fluxo. É importante salientar que, todos os [janela](https://msdn.microsoft.com/library/dn835019.aspx) operações saída resultados no **final** da janela. A saída da janela serão evento único com base na função de agregação utilizada. O evento tem o carimbo de hora de fim da janela e todas as funções de janela estão definidas com um comprimento fixo. Por último é importante ter em atenção que todas as funções de janela devem ser utilizadas num [ **GROUP BY** ](https://msdn.microsoft.com/library/dn835023.aspx) cláusula.
@@ -41,7 +36,7 @@ Funções de janela deslizante, ao contrário do salto windows, ou em cascata pr
 ![Funções de Stream Analytics janela deslizante de introdução](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## <a name="getting-help-with-window-functions"></a>Obter ajuda com as funções de janela
-Para mais assistência, tente ler o nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para mais assistência, tente ler o nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

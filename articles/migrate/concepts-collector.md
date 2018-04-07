@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="collector-appliance"></a>Aplicação de recoletor
 
@@ -126,7 +126,7 @@ Assim que estiver ligado ao vCenter, pode selecionar um âmbito de deteção. Se
 
 1. O âmbito pode ser um centro de dados, uma pasta ou um anfitrião ESXi. 
 2. Pode selecionar apenas um âmbito de cada vez. Para selecionar mais máquinas virtuais, pode concluir uma deteção e reinicie o processo de deteção com um novo âmbito.
-3. Pode selecionar apenas um âmbito que tenha *menos de 1000 máquinas de virtuais*. Se selecionar um âmbito que tem mais de 1000 máquinas virtuais, precisa de dividir o âmbito em unidades mais pequenas através da criação de pastas. Em seguida, terá de executar deteções de independentes das pastas mais pequenas.
+3. Pode selecionar apenas um âmbito que tenha *menor 1500 máquinas de virtuais*.
 
 ## <a name="specify-migration-project"></a>Especifique o projeto de migração
 
@@ -197,6 +197,16 @@ Pode atualizar o Recoletor para a versão mais recente sem a transferir o OVA no
 5. Clique com o botão direito no Setup.ps1 e selecionar executar com o PowerShell e siga as instruções no ecrã para instalar a atualização.
 
 ### <a name="list-of-updates"></a>Lista de atualizações
+
+#### <a name="upgrade-to-version-1097"></a>Atualize para versão 1.0.9.7
+
+Para atualizar para transferências de versão 1.0.9.7 [pacote](https://aka.ms/migrate/col/upgrade_9_7)
+
+**Algoritmo** | **Valor de hash**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 #### <a name="upgrade-to-version-1095"></a>Atualize para versão 1.0.9.5
 

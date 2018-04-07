@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 79c5d70d201b54e7ca1c8d421a5f0dc5e6b53bcd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d981ffc9a0053ed8bf2d49f386f7c1c82d50c907
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com a rede de várias placas de interface
 Pode criar uma máquina virtual (VM) no Azure com várias interfaces de rede virtual (NICs) ligadas ao mesmo. Um cenário comum é ter diferentes sub-redes para a conectividade de front-end e back-end ou uma rede dedicada para uma solução de monitorização ou cópia de segurança. Este artigo fornece detalhes sobre como criar uma VM com vários NICs anexados e como adicionar ou remover NICs de VM existente. Diferentes [tamanhos de VM](sizes.md) suportar um número de NICs variando, por isso, tamanho da VM em conformidade.
@@ -100,6 +100,8 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
+Adicionar tabelas de encaminhamento para o SO convidado, efetuando os passos em [configurar o SO convidado para vários NICs](#configure-guest-os-for- multiple-nics).
+
 ## <a name="add-a-nic-to-a-vm"></a>Adicionar uma NIC para uma VM
 Os passos anteriores, criados uma VM com vários NICs. Também pode adicionar NICs a uma VM existente com o 2.0 CLI do Azure. Diferentes [tamanhos de VM](sizes.md) suportar um número de NICs variando, por isso, tamanho da VM em conformidade. Se necessário, pode [redimensionar uma VM](change-vm-size.md).
 
@@ -135,6 +137,8 @@ Iniciar a VM com [início de vm az](/cli/azure/vm#az_vm_start):
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
+
+Adicionar tabelas de encaminhamento para o SO convidado, efetuando os passos em [configurar o SO convidado para vários NICs](#configure-guest-os-for- multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Remover um NIC de uma VM
 Para remover um NIC de VM existente, Desalocação da VM com [az vm desalocar](/cli/azure/vm#az_vm_deallocate). O exemplo seguinte deallocates VM com o nome *myVM*:
@@ -179,6 +183,7 @@ Também pode utilizar um `copyIndex()` a em seguida, anexe um número para um no
 
 Pode ler um exemplo completo de [criar vários NICs com modelos do Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+Adicionar tabelas de encaminhamento para o SO convidado, efetuando os passos em [configurar o SO convidado para vários NICs](#configure-guest-os-for- multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configurar o SO convidado para vários NICs
 Quando adicionar vários NICs para uma VM com Linux, terá de criar regras de encaminhamento. Estas regras permitir que a VM enviar e receber tráfego, que pertence a um NIC específico. Caso contrário, tráfego que pertença a *eth1*, não pode ser processada por exemplo, corretamente, a rota predefinida definida.

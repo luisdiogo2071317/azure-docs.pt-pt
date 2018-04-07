@@ -1,12 +1,12 @@
 ---
 title: Associar um Linux de VM de RedHat VM a um DS do Azure Active Directory | Microsoft Docs
-description: "Como associar a VM de RedHat Enterprise Linux 7 VM existente para um serviço de domínio do Active Directory do Azure."
+description: Como associar a VM de RedHat Enterprise Linux 7 VM existente para um serviço de domínio do Active Directory do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2016
 ms.author: v-livech
-ms.openlocfilehash: 2e46a0f3c9bdbe267d121b4bf62e25d5d411fcc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68971372a3c9d9671ccad43db8d7b543d286fc7a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="join-a-redhat-linux-vm-to-an-azure-active-directory-domain-service"></a>Associar um Linux de VM de RedHat VM a um serviço de domínio do Active Directory do Azure
 
@@ -105,7 +105,7 @@ sudo realm join --verbose mydomain.com -U 'ahmet@mydomain.com'
 ssh -l ahmet@mydomain.com mydomain.cloudapp.net
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * [Infraestrutura de atualização do Red Hat (RHUI) para a pedido Red Hat Enterprise Linux VMs no Azure](update-infrastructure-redhat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Configurar o Cofre de chaves para máquinas virtuais no Gestor de recursos do Azure](key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

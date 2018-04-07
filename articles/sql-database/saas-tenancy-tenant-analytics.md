@@ -1,6 +1,6 @@
 ---
-title: "Executar a análise de inquilino entre utilizando os dados extraídos | Microsoft Docs"
-description: "Consultas de análises de inquilino entre utilizando os dados extraídos de várias bases de dados do SQL Database do Azure."
+title: Executar a análise de inquilino entre utilizando os dados extraídos | Microsoft Docs
+description: Consultas de análises de inquilino entre utilizando os dados extraídos de várias bases de dados do SQL Database do Azure.
 keywords: tutorial de base de dados sql
 services: sql-database
 author: stevestein
@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: ff57bd054f3ff28662d3fd2eb46dca02e74af69b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ec54e68ee1d0b09b5fb34a2a11c331cb0d478326
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Análise de inquilino entre utilizar dados extraídos
 
@@ -91,7 +91,7 @@ Nos passos seguintes, implementar o arquivo de análise, o que é chamado **tena
     - Para utilizar a base de dados SQL com o arquivo de colunas, defina **$DemoScenario** = **3**  
 3. Prima **F5** para executar o script de demonstração (que chama o *implementar TenantAnalytics<XX>. ps1* script) que cria o arquivo de análise de inquilino. 
 
-Agora que implementou a aplicação e preenchido este com dados interessantes do inquilino, utilize [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ligar **tenants1-dpt -&lt;utilizador&gt;**  e **catálogo-dpt -&lt;utilizador&gt;**  servidores utilizando o início de sessão = *programador*, palavra-passe =  *P@ssword1* . Consulte o [tutorial introdutórias](saas-dbpertenant-wingtip-app-overview.md) para obter mais orientações.
+Agora que implementou a aplicação e preenchido este com dados interessantes do inquilino, utilize [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ligar **tenants1-dpt -&lt;utilizador&gt;**  e **catálogo-dpt -&lt;utilizador&gt;**  servidores utilizando o início de sessão = *programador*, palavra-passe = *P@ssword1*. Consulte o [tutorial introdutórias](saas-dbpertenant-wingtip-app-overview.md) para obter mais orientações.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -173,7 +173,7 @@ Utilize os seguintes passos para ligar ao Power BI e, para importar as vistas qu
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selecione **base de dados** no painel esquerdo, em seguida, introduza o nome de utilizador = *programador*e introduza a palavra-passe =  *P@ssword1* . Clique em **Ligar**.  
+5. Selecione **base de dados** no painel esquerdo, em seguida, introduza o nome de utilizador = *programador*e introduza a palavra-passe = *P@ssword1*. Clique em **Ligar**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

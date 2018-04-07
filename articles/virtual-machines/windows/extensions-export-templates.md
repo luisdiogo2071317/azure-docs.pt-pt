@@ -1,11 +1,11 @@
 ---
-title: "Exportar os grupos de recursos do Azure que contêm as extensões de VM | Microsoft Docs"
-description: "Exporte os modelos do Resource Manager, que incluem as extensões de máquina virtual."
+title: Exportar os grupos de recursos do Azure que contêm as extensões de VM | Microsoft Docs
+description: Exporte os modelos do Resource Manager, que incluem as extensões de máquina virtual.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: danis
-ms.openlocfilehash: 739ae7995fca41fe8abb7cd54ccb72ff3bc43854
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2dc05fd21df3d408ed57badeec2b5c06e25bf50c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportar os grupos de recursos que contêm as extensões de VM
 
@@ -35,13 +35,13 @@ As seguintes extensões podem ser exportadas com a funcionalidade de script de a
 
 | Extensão ||||
 |---|---|---|---|
-| Cópia de segurança Acronis | Agente do Datadog Windows | SO de aplicação de patches para Linux | Linux de instantâneos VM
+| Cópia de segurança Acronis | Agente do Datadog Windows | SO de aplicação de patches para Linux | VM Snapshot Linux
 | Cópia de segurança Acronis Linux | Extensão de docker | Agente de puppet |
 | Informações de BG | Extensão DSC | Informações do site 24x7 Apm |
-| BMC CTM agente Linux | Dynatrace Linux | Servidor do site 24x7 Linux |
+| BMC CTM agente Linux | Dynatrace Linux | Site 24x7 Linux Server |
 | BMC CTM agente Windows | Dynatrace Windows | Servidor do site 24x7 Windows |
 | Cliente chef | HPE segurança aplicação Defender | DSA Micro tendência |
-| Script personalizado | Antimalware de IaaS | Tendência Micro DSA Linux |
+| Script personalizado | IaaS Antimalware | Tendência Micro DSA Linux |
 | Extensão de Script Personalizado | Diagnóstico do IaaS | Acesso VM para Linux |
 | Script personalizado para Linux | Cliente de Chef do Linux | Acesso VM para Linux |
 | Agente do Linux Datadog | Diagnóstico do Linux | Instantâneo VM |

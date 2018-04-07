@@ -1,19 +1,18 @@
 ---
-title: "Como utilizar o Azure localização com base dos serviços de controlo de mapa | Microsoft Docs"
-description: "Saiba como utilizar a biblioteca de Javascript do lado do cliente de controlo de mapa de serviços de com base na localização do Azure."
+title: Como utilizar o Azure localização com base dos serviços de controlo de mapa | Microsoft Docs
+description: Saiba como utilizar a biblioteca de Javascript do lado do cliente de controlo de mapa de serviços de com base na localização do Azure.
 services: location-based-services
-keywords: "Não adicione nem edite as palavras-chave sem consultar o perito em SEO."
 author: kgremban
 ms.author: kgremban
 ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 9843387a9e4f3b5751bafceb48d6fc949dff7e23
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ee767c9461f79437ab49d2a919bb82e7de8feba7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Como utilizar o Azure localização com base dos serviços de controlo de mapa
 A biblioteca de Javascript do lado do cliente de controlo de mapa permite-lhe compor maps e a funcionalidade de com base dos serviços de localização do Azure incorporada no seu web ou aplicação móvel. 

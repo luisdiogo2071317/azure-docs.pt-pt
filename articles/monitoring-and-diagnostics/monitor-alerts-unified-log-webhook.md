@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de Webhook para regras de alerta de registo
 Quando um [alerta é criado no Azure ](monitor-alerts-unified-usage.md), tem a opção de [configuração utilizar grupos de ação](monitoring-action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e detalhes sobre como configurar o webhook com base em JSON personalizado.
@@ -54,7 +54,7 @@ Webhooks incluir um URL e um payload formatado em JSON que é os dados enviados 
 | StartTime de intervalo de pesquisa |#searchintervalstarttimeutc |Hora de início para a consulta em formato UTC. 
 | SearchQuery |#searchquery |Consulta de pesquisa de registo utilizada pela regra de alerta. |
 | SearchResults |"IncludeSearchResults": VERDADEIRO|Registos devolvidos pela consulta como uma tabela de JSON, limitado para os primeiro 1000 registos; Se "IncludeSearchResults": true foi adicionado na definição de webhook JSON personalizada como uma propriedade de nível superior. |
-| WorkspaceID |#workspaceid |ID da sua área de trabalho de análise de registos (OMS). |
+| WorkspaceID |#workspaceid |ID da sua área de trabalho de análise de registos. |
 | ID da aplicação |#applicationid |ID do Application Insight aplicação. |
 | ID da subscrição |#subscriptionid |ID de subscrição do Azure utilizados com o Application Insights. 
 
@@ -77,7 +77,7 @@ Para incluir os resultados da pesquisa no payload personalizado, certifique-se d
 Esta secção mostra o payload de exemplo do webhook para alertas de registo, incluindo payload é padrão e a respetiva personalizada.
 
 > [!NOTE]
-> Para garantir a retrocompatibilidade, o payload de webhook padrão para alertas através de Log Analytics do Azure é igual ao [gestão de alertas do OMS](../log-analytics/log-analytics-alerts-creating.md). Mas para os alertas de registo utilizando [Application Insights](../application-insights/app-insights-analytics.md), o payload de webhook padrão baseia-se no esquema de ação grupo.
+> Para garantir a retrocompatibilidade, o payload de webhook padrão para alertas através de Log Analytics do Azure é igual ao [análise de registos de gestão de alertas](../log-analytics/log-analytics-alerts-creating.md). Mas para os alertas de registo utilizando [Application Insights](../application-insights/app-insights-analytics.md), o payload de webhook padrão baseia-se no esquema de ação grupo.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Webhook Standard para os alertas de registo 
 Ambos estes exemplos tiverem indicado um payload fictício com apenas duas colunas e linhas de dois.

@@ -1,12 +1,12 @@
 ---
-title: "Governação no Azure | Microsoft Docs"
-description: "Saiba mais sobre serviços informáticos baseada na nuvem que incluem uma seleção grande de instâncias de computação e serviços que podem ser dimensionados acima e abaixo automaticamente para satisfazer as necessidades da sua aplicação ou a empresa."
+title: Governação no Azure | Microsoft Docs
+description: Saiba mais sobre serviços informáticos baseada na nuvem que incluem uma seleção grande de instâncias de computação e serviços que podem ser dimensionados acima e abaixo automaticamente para satisfazer as necessidades da sua aplicação ou a empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="governance-in-azure"></a>Governação no Azure
 
@@ -64,7 +64,7 @@ Seguem-se os fatores que evoluiu e deu lugar:
 
 - Controlos de acesso com base de função
 
-- Gestão de recursos
+- Gestão de Recursos
 
 - Controlo de recursos
 
@@ -195,11 +195,11 @@ Em 2014, o Azure introduzida qual adicionou o conceito de um grupo de recursos d
 
 - Pode definir as dependências entre os recursos, de modo a que sejam implementados na ordem correta.
 
-![Gestão de recursos](./media/governance-in-azure/security-governance-in-azure-fig4.png)
+![Gestão de Recursos](./media/governance-in-azure/security-governance-in-azure-fig4.png)
 
 Gestor de recursos permite-lhe colocar recursos em grupos significativos para a afinidade de faturação ou natural de gestão. Conforme mencionado anteriormente, o Azure tem dois modelos de implementação. O anteriores no [modelo clássico](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model), a unidade básica de gestão foi a subscrição. Foi difícil dividir recursos numa subscrição, que levou a criação de grandes quantidades de subscrições. Com o modelo do Resource Manager, que vimos a introdução de grupos de recursos.
 
-Um grupo de recursos é um contentor que retém recursos relacionados para uma solução do Azure. [O grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) podem incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização.
+Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. [O grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) podem incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização.
 
 Para obter recomendações sobre modelos, veja o artigo [Melhores práticas para criar modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
 
@@ -285,7 +285,7 @@ Utilize as APIs de faturação do Azure para retirar dados de utilização e de 
 
 Utilizar o Azure [API de utilização de recursos](https://msdn.microsoft.com/library/azure/mt219003) para obter os seus dados de consumo estimado do Azure. A API inclui:
 
-- **Controlo de acesso baseado em funções do Azure** -configurar políticas de acesso no [portal do Azure](https://portal.azure.com/) ou através de [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para especificar quais os utilizadores ou aplicações podem obter acesso a dados de utilização da subscrição. Os chamadores tem de utilizar tokens padrão do Azure Active Directory para autenticação. Adicione o autor da chamada à função ou o leitor de faturação, leitor, proprietário ou contribuinte obter acesso aos dados de utilização de uma subscrição do Azure específica.
+- **Controlo de acesso baseado em funções do Azure** -configurar políticas de acesso no [portal do Azure](https://portal.azure.com/) ou através de [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para especificar quais os utilizadores ou aplicações podem obter acesso à dados de utilização da subscrição. Os chamadores tem de utilizar tokens padrão do Azure Active Directory para autenticação. Adicione o autor da chamada à função ou o leitor de faturação, leitor, proprietário ou contribuinte obter acesso aos dados de utilização de uma subscrição do Azure específica.
 
 - **Hora a hora ou agregações diárias** - os chamadores podem especificar registos se pretendem os seus dados de utilização do Azure hora a hora ou diária de registos. A predefinição é diária.
 
@@ -359,7 +359,7 @@ Cada empresa tem necessidades diferentes e cada negócio será reap distintas be
 
 O que os clientes pretendem de fornecedores de nuvem é:
 
-- **Proteger os nossos dados** enquanto confirmar que a nuvem pode fornecer aumenta a segurança dos dados e controlo administrativo, líderes das IT ainda são preocupações que migrar para a nuvem irá deixá-los mais vulnerável a hackers que as soluções de internas atuais.
+- **Proteger os nossos dados** enquanto confirmar que a nuvem pode fornecer aumenta a segurança dos dados e controlo administrativo, líderes das IT ainda são preocupações que migrar para a nuvem irá deixá-los mais vulnerável a hackers que os respetivos atual internas soluções.
 
 - **Manter os nossos dados** serviços de Cloud privados elevar os desafios de privacidade exclusivo para as empresas. Como ver empresas para a nuvem para poupar nos custos da infraestrutura e melhorar a respetiva flexibilidade, estes também preocupar com a perda do controlo de onde os dados são armazenados, que está a aceder ao mesmo e como é utilizado.
 
@@ -410,33 +410,33 @@ Centro de segurança do Azure monitoriza os seguintes recursos do Azure:
 
 - Integrado com a sua subscrição do Azure como uma firewall de aplicação web em VMs e de soluções de parceiros [ambiente de serviço de aplicações](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
 
-### <a name="operations-management-suite"></a>Operations Management Suite
+### <a name="log-analytics"></a>Log Analytics
 
-Segurança de informações do OMS software desenvolvimento e o serviço da equipa e [programa governação](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) suporta os requisitos de negócio e em conformidade com as leis e regulamentos conforme descrito em [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) e [compatibilidade de centro de fidedignidade da Microsoft](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Como OMS estabelecer requisitos de segurança, identifica os controlos de segurança, gere e monitoriza riscos também estão descritas não existe. Anual, vamos rever as políticas, normas, diretrizes e procedimentos.
+Segurança de informações de análise de registos software desenvolvimento e o serviço da equipa e [programa governação](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) suporta os requisitos de negócio e em conformidade com as leis e regulamentos conforme descrito em [confiança do Microsoft Azure Center](https://azure.microsoft.com/support/trust-center/) e [compatibilidade de centro de confiança do Microsoft](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Como análise de registos estabelecer requisitos de segurança, identifica os controlos de segurança, gere e monitoriza riscos também estão descritas não existe. Anual, vamos rever as políticas, normas, diretrizes e procedimentos.
 
-Cada membro de equipa de desenvolvimento do OMS recebe formação de segurança da aplicação formal. Internamente, iremos utilizar um sistema de controlo de versão para o desenvolvimento de software. Cada projeto de software está protegido pelo sistema de controlo de versão.
+Cada membro de equipa de desenvolvimento de análise de registos recebe formação de segurança da aplicação formal. Internamente, iremos utilizar um sistema de controlo de versão para o desenvolvimento de software. Cada projeto de software está protegido pelo sistema de controlo de versão.
 
-A Microsoft tem uma equipa de segurança e conformidade supervisiona e avalia todos os serviços Microsoft. Officers de segurança de informações, certifique-se a equipa e que não estiverem associados a engenharia departamentos que desenvolver OMS. Os officers de segurança têm as seus próprios cadeia de gestão e realize avaliações independentes dos produtos e serviços para garantir a segurança e conformidade.
+A Microsoft tem uma equipa de segurança e conformidade supervisiona e avalia todos os serviços Microsoft. Officers de segurança de informações, certifique-se a equipa e que não estiverem associados a engenharia departamentos que desenvolver a análise de registos. Os officers de segurança têm as seus próprios cadeia de gestão e realize avaliações independentes dos produtos e serviços para garantir a segurança e conformidade.
 
-O Operations Management Suite (também conhecido como OMS) é uma coleção de serviços de gestão concebidos desde o início para a cloud. Em vez de implementar e gerir recursos no local, os componentes do OMS inteiramente estão alojados no Azure. A configuração é mínima e pode começar a utilizá-lo numa questão de minutos.
+O Azure oferece uma coleção de serviços de gestão que foram concebidos na nuvem a partir do início. Em vez de implementar e gerir recursos no local, estes componentes inteiramente estão alojados no Azure. A configuração é mínima e pode começar a utilizá-lo numa questão de minutos.
 
 ![Suite do Operations Manager](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-Lá porque os serviços do OMS são executados na cloud, não significa que não consigam gerir eficazmente o seu ambiente no local.
+Apenas porque os serviços de análise de registos são executados nuvem não significa que eles não é possível gerir de forma eficaz o ambiente no local.
 
 Colocar um agente em todas as janelas ou computador com Linux no seu centro de dados e irá enviar dados para análise de registos em que pode ser analisado juntamente com todos os outros dados recolhidos a partir da nuvem ou em serviços no local. Utilize a cópia de segurança do Azure e o Azure Site Recovery para tirar partido da nuvem para cópia de segurança e a elevada disponibilidade para recursos no local.
 
 Normalmente, os runbooks na cloud não podem aceder aos recursos no local, mas pode também instalar um agente num ou mais computadores que alojarão os runbooks no seu datacenter. Quando inicia um runbook, basta especificar se quer que seja executado na cloud ou numa função de trabalho.
 
-A funcionalidade principal do OMS é disponibilizada por um conjunto de serviços que são executados no Azure. Cada serviço proporciona uma função de gestão específica e pode combinar serviços para alcançar cenários de gestão diferentes.
+A funcionalidade principal do Log Analytics é fornecida por um conjunto de serviços que são executados no Azure. Cada serviço proporciona uma função de gestão específica e pode combinar serviços para alcançar cenários de gestão diferentes.
 
 ![Suite do Operations Manager](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Gestor de operação do Azure expande as funcionalidades ao fornecer soluções de gestão. [As soluções de gestão](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) prepackaged conjuntos de lógica que implementam um cenário de gestão tirar partido de um ou mais serviços do OMS.
+Gestor de operação do Azure expande as funcionalidades ao fornecer soluções de gestão. [As soluções de gestão](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) prepackaged conjuntos de lógica que implementam um cenário de gestão tirar partido de um ou mais serviços de gestão.
 
 ![Gerir a operação do Azure](./media/governance-in-azure/security-governance-in-azure-fig10.png)
 
-Estão disponíveis diferentes soluções da Microsoft e de parceiros, que podem ser adicionados facilmente à sua subscrição do Azure para aumentar o valor acrescentado do investimento feito no OMS.
+Diferentes soluções estão disponíveis da Microsoft e de parceiros que pode facilmente adicionar à sua subscrição do Azure para aumentar o valor do seu investimento na análise de registos.
 
 Como parceiro, pode criar as suas próprias soluções para suportar as suas aplicações e serviços e fornecem aos utilizadores através do Azure Marketplace ou modelos de início rápido.
 
@@ -455,7 +455,7 @@ Alertas estão disponíveis em diferentes serviços, incluindo:
 >[!Note]
 > Consulte [definir alertas no Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) e [monitorizar a disponibilidade e capacidade de resposta de qualquer Web site](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Análise de registos (Operations Management Suite): Permite que o encaminhamento de atividade e os registos de diagnóstico para análise de registos. Operations Management Suite permite métrica, registo e outros tipos de alerta.
+- Análise de registos: Permite que o encaminhamento de atividade e os registos de diagnóstico para análise de registos e permite métrica, registo e outros tipos de alerta.
 
 >[!Note]
 > Para obter mais informações, consulte alertas no [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).
@@ -484,7 +484,7 @@ Seguem-se as ferramentas principais:
 - **System Center Operations Manager (SCOM)** é para gerir e monitorizar as instalações de nuvem de elevado. Poderá estar já familiarizado com o mesmo como uma ferramenta de gestão no local Windows Server e Hyper-V com base-nuvens, mas também pode integrar e gerir aplicações do Azure. Entre outras coisas, poderá instalar Application Insights num aplicações em direto existentes. Se uma aplicação ficar inativo, indica em segundos.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Melhores práticas para a criação de modelos Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
 

@@ -1,12 +1,12 @@
 ---
-title: "Consumir dados de monitorização do Azure | Microsoft Docs"
-description: "Saiba mais sobre todas as monitorização origens de dados disponíveis no Azure hoje."
+title: Consumir dados de monitorização do Azure | Microsoft Docs
+description: Saiba mais sobre todas as monitorização origens de dados disponíveis no Azure hoje.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.openlocfilehash: c7075c2e1a2500eca1d0aa9b3a797e8a0e903ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b10e95cd6b335468201b4cd123b3a29fb5d1bcdb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consumir dados de monitorização do Azure
 
@@ -45,11 +45,11 @@ Na plataforma do Azure, podemos colocarem em conjunto dados de monitorização n
 | Alertas de métricas de Monitor do Azure | Notificações | [Ver lista aqui](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [alertas métricas do Azure](insights-webhooks-alerts.md)</li></ul> |
 | Alertas de registo de atividade do Monitor do Azure | Notificações | Todos os serviços do Azure | <ul><li>**Webhook:** alertas de registo de atividade do Azure</li></ul> |
 | Notificações de dimensionamento automático | Notificações | [Ver lista aqui](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [esquema de payload de webhook de notificação de dimensionamento automático](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Alertas de consulta de pesquisa de registo do OMS | Notificações | Análise de registos do OMS | <ul><li>**Webhook:** [alertas de análise de registos](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| Alertas de consulta de pesquisa de registo | Notificações | Log Analytics | <ul><li>**Webhook:** [alertas de análise de registos](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
 | Alertas de métricos do Application Insights | Notificações | Application Insights | <ul><li>**Webhook:** [alertas do Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 | Testes web do Application Insights | Notificações | Application Insights | <ul><li>**Webhook:** [alertas do Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [métricas de Monitor do Azure](monitoring-overview-metrics.md)
 - Saiba mais sobre [o registo de atividade do Azure](monitoring-overview-activity-logs.md)

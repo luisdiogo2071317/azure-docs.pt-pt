@@ -1,19 +1,19 @@
 ---
-title: "Código de memória intermédia de anel de XEvent para a base de dados SQL | Microsoft Docs"
-description: "Fornece um exemplo de código de Transact-SQL que foi criado, fácil e rápido pela utilização de destino de memória intermédia de anel, na SQL Database do Azure."
+title: Código de memória intermédia de anel de XEvent para a base de dados SQL | Microsoft Docs
+description: Fornece um exemplo de código de Transact-SQL que foi criado, fácil e rápido pela utilização de destino de memória intermédia de anel, na SQL Database do Azure.
 services: sql-database
 author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: f553933d5a1435a96421939af8522daf53db1ff3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ee6181baf7a16bc827d35aaf5d18b281bcf9c3f7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Anel código de destino de memória intermédia de eventos expandidos na base de dados SQL
 
@@ -219,7 +219,7 @@ Para ver os resultados, iremos clica na célula sob o cabeçalho de coluna **tar
 
 Em seguida, no painel de resultados clica na célula sob o cabeçalho de coluna **target_data_XML**. Isto, clique em criar noutro separador do ficheiro no ssms.exe na qual foi apresentado o conteúdo da célula resultado, como XML.
 
-O resultado é apresentado no bloco de seguinte. Procura longo, mas é apenas dois  **<event>**  elementos.
+O resultado é apresentado no bloco de seguinte. Procura longo, mas é apenas dois **<event>** elementos.
 
 &nbsp;
 

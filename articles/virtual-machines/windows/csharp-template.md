@@ -2,9 +2,9 @@
 title: Implementar uma VM com c# e um modelo do Resource Manager | Microsoft Docs
 description: Saiba como como utilizar c# e um modelo do Resource Manager para implementar uma VM do Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: davidmu
-ms.openlocfilehash: b82a70d1b654ff9601db501011d9aa21af8e36c2
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: f2c488a891d1037535f1782da54544ac6af9dd41
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementar uma máquina de Virtual do Azure com c# e um modelo do Resource Manager
 Este artigo mostra como implementar um modelo de Gestor de recursos do Azure com c#. O modelo que criou implementa uma única máquina virtual com o Windows Server numa rede virtual novo com uma única sub-rede.
@@ -200,7 +200,7 @@ Antes de poder implementar um modelo, certifique-se de que tem acesso a um [prin
     graphURL=https://graph.windows.net/
     ```
 
-    Substitua  **&lt;id de subscrição&gt;**  com o identificador de subscrição,  **&lt;id da aplicação&gt;**  com a aplicação do Active Directory Identificador,  **&lt;chave de autenticação&gt;**  com a chave de aplicação, e  **&lt;id do inquilino&gt;**  com o identificador de inquilino.
+    Substitua **&lt;id de subscrição&gt;** com o identificador de subscrição, **&lt;id da aplicação&gt;** com a aplicação do Active Directory Identificador, **&lt;chave de autenticação&gt;** com a chave de aplicação, e **&lt;id do inquilino&gt;** com o identificador de inquilino.
 
 3. Guarde o ficheiro azureauth.properties.
 4. Defina uma variável de ambiente do Windows com o nome AZURE_AUTH_LOCATION com o caminho completo do ficheiro de autorização que criou, por exemplo do PowerShell seguinte comando pode ser utilizado:
@@ -249,7 +249,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Create a storage account
 
 O modelo e os parâmetros sejam implementados a partir de uma conta de armazenamento no Azure. Neste passo, pode criar a conta e carregar os ficheiros. 
 

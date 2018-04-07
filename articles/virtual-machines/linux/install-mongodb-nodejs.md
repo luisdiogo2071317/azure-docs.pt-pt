@@ -1,11 +1,11 @@
 ---
 title: Instalar MongoDB numa VM com Linux utilizando a CLI do Azure 1.0 | Microsoft Docs
-description: "Saiba como instalar e configurar o MongoDB numa máquina virtual com Linux no Azure utilizando o modelo de implementação Resource Manager."
+description: Saiba como instalar e configurar o MongoDB numa máquina virtual com Linux no Azure utilizando o modelo de implementação Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: ff9e23de41245ea21ba6e9c3efe13ca13b0b0ae1
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: a334a0b7b3b638229c61eef086b1919b4c303338
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Como instalar e configurar o MongoDB numa VM com Linux utilizando a CLI do Azure 1.0
 [MongoDB](http://www.mongodb.org) é um popular open source e de elevado desempenho base de dados NoSQL. Este artigo mostra como instalar e configurar o MongoDB numa VM com Linux no Azure utilizando o modelo de implementação Resource Manager. Os exemplos são apresentados como esse detalhe para:
@@ -113,7 +113,7 @@ sudo chkconfig mongod on
 ## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Criar a instância do MongoDB básica no CentOS através de um modelo
 Pode criar uma instância do MongoDB básica numa única VM CentOS utilizando o modelo seguinte de início rápido do Azure a partir do GitHub. Este modelo utiliza a extensão de Script personalizado para Linux para adicionar um `yum` repositório à sua VM do CentOS recém-criado e, em seguida, instalar MongoDB.
 
-* [Instância do MongoDB básica no CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
+* [Instância do MongoDB básica no CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
 O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` no `eastus` região. Introduza os seus próprios valores da seguinte forma:
 
@@ -160,7 +160,7 @@ test
 ## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Criar um Cluster de em partição horizontal do MongoDB complexos no CentOS através de um modelo
 Pode criar um cluster a MongoDB complexo utilizando o modelo seguinte de início rápido do Azure a partir do GitHub. Este modelo segue-se a [melhores práticas do MongoDB em partição horizontal cluster](https://docs.mongodb.com/manual/core/sharded-cluster-components/) para fornecer redundância e elevada disponibilidade. O modelo cria dois shards, com três nós em cada conjunto de réplicas. Uma réplica do servidor de configuração definida com três nós também é criada, juntamente com dois **mongos** servidores de router para fornecer consistência a partir de aplicações através de partições horizontais.
 
-* [Cluster de fragmentação do MongoDB em CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
+* [Cluster de fragmentação do MongoDB em CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
 > Implementar este cluster em partição horizontal do MongoDB complexo requer mais de 20 vCPUs, que é, geralmente, a contagem de vCPU predefinida por região para uma subscrição. Abra um pedido de suporte do Azure para aumentar a contagem de vCPU.
@@ -178,7 +178,7 @@ azure group create \
 > A CLI do Azure devolve para uma linha de comandos dentro de alguns segundos de criação da implementação, mas a instalação e configuração podem demorar mais de uma hora para concluir. Verificar o estado da implementação com `azure group deployment show myResourceGroup`, ajuste o nome do grupo de recursos em conformidade. Aguarde até que o **ProvisioningState** mostra *com êxito* antes de ligar às VMs.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Nestes exemplos, estabelece ligação à instância do MongoDB localmente da VM. Se pretender ligar à instância do MongoDB a partir de outro VM ou rede, certifique-se as adequadas [regras do grupo de segurança de rede são criadas](nsg-quickstart.md).
 
 Para obter mais informações sobre como criar modelos de utilização, consulte o [descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).

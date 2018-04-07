@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: b7bd5ce879e5119417a24879c875915245f9070b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 03fa2862bbce39ac9ee6b7da02bd93b02b05f216
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorização e diagnóstico para o Azure Service Fabric
 
@@ -68,7 +68,7 @@ A plataforma de Service Fabric inclui um modelo de estado de funcionamento, que 
 
 ![Dashboard de estado de funcionamento SFX](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-Para além de ver relatórios de estado de funcionamento mais recentes no SFX, cada relatório também está disponível como um evento. Eventos de estado de funcionamento podem ser recolhidos através do canal operacional (consulte [agregação de evento com o Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)) e armazenadas na análise de registos do OMS para alertas e consultar no futuro. Isto ajuda a detetar problemas que possam afetar a disponibilidade de aplicações, pelo que recomendamos que configure alertas para cenários de falha adequado (alertas personalizados através do OMS).
+Para além de ver relatórios de estado de funcionamento mais recentes no SFX, cada relatório também está disponível como um evento. Eventos de estado de funcionamento podem ser recolhidos através do canal operacional (consulte [agregação de evento com o Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)) e armazenadas na análise de registos para alertas e consultar no futuro. Isto ajuda a detetar problemas que possam afetar a disponibilidade de aplicações, pelo que recomendamos que configure alertas para cenários de falha adequado (alertas personalizados através de Log Analytics).
 
 ## <a name="other-logging-solutions"></a>Outras soluções de registo
 

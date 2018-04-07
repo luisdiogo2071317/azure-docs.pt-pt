@@ -1,11 +1,11 @@
 ---
-title: "Utilize uma VM com o 2.0 CLI do Azure de resolução de problemas de Linux | Microsoft Docs"
-description: "Saiba como resolver problemas de VM com Linux, ligando-se o disco de SO para uma recuperação VM utilizando o 2.0 CLI do Azure"
+title: Utilize uma VM com o 2.0 CLI do Azure de resolução de problemas de Linux | Microsoft Docs
+description: Saiba como resolver problemas de VM com Linux, ligando-se o disco de SO para uma recuperação VM utilizando o 2.0 CLI do Azure
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 9f1ac319e87f321306a2239b2e17725d281fbf59
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e96f31b3e91066bfc04af62c2bf82db200f35002
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Resolver problemas de uma VM com Linux ao anexar o disco de SO para uma VM com o 2.0 CLI do Azure de recuperação
 Se a máquina virtual (VM) do Linux encontra um erro de arranque ou de disco, poderá ter de efetuar os passos de resolução de problemas no disco de rígido virtual. Um exemplo comum é uma entrada inválida no `/etc/fstab` que impede a VM de ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar o 2.0 CLI do Azure para ligar o seu disco rígido virtual a outra VM com Linux para corrigir os eventuais erros, em seguida, voltar a criar a VM original. Também pode efetuar estes passos com a [CLI 1.0 do Azure](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

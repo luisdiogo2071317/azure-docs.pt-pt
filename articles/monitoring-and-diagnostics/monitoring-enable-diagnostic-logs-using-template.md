@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 80f427d5acb884be1752f470e2a9d9d04eee5518
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f1e1c2aa447e35ea483665cc33e4eb6af7a41f51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Ativar automaticamente definições de diagnóstico durante a criação de recursos através de um modelo do Resource Manager
 Neste artigo mostramos como pode utilizar um [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar definições de diagnóstico num recurso quando é criado. Isto permite-lhe iniciar automaticamente a transmissão em fluxo os registos de diagnóstico e métricas para os Event Hubs, arquivá-los numa conta de armazenamento ou enviando-as à análise de registos quando um recurso é criado.
@@ -40,7 +40,7 @@ Abaixo que lhe damos um exemplo do ficheiro de JSON do modelo que tem de gerar d
 ## <a name="non-compute-resource-template"></a>Modelo de recursos de computação não
 Não-recursos de computação, terá de efetuar dois procedimentos:
 
-1. Adicionar parâmetros para o blob de parâmetros para o nome da conta de armazenamento, ID de regra de autorização de hub de eventos e/ou ID da área de trabalho de análise de registos do OMS (ativar o arquivo de registos de diagnóstico numa conta do storage, transmissão em fluxo de registos para os Event Hubs, e/ou enviar registos ao registo Análise).
+1. Adicione parâmetros para o blob de parâmetros para o nome da conta de armazenamento, ID de regra de autorização de hub de eventos e/ou ID da área de trabalho de análise de registos (ativar o arquivo de registos de diagnóstico numa conta do storage, transmissão em fluxo de registos para os Event Hubs, e/ou enviar registos ao Log Analytics).
    
     ```json
     "settingName": {

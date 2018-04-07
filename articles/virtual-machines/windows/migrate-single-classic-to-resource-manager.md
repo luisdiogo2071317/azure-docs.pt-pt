@@ -1,13 +1,13 @@
 ---
-title: "Migrar uma VM clássica para uma VM de disco gerida ARM | Microsoft Docs"
-description: "Migre uma única VM do Azure do modelo de implementação clássica para discos geridos no modelo de implementação Resource Manager."
+title: Migrar uma VM clássica para uma VM de disco gerida ARM | Microsoft Docs
+description: Migre uma única VM do Azure do modelo de implementação clássica para discos geridos no modelo de implementação Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 82389834d85981c0ed71bdcc891fbfdbe1377654
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1241f893ca69e3ddaf464e66943caa2697e6d8e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>Migrar manualmente uma VM clássica para ARM geridos disco VM nova do VHD 
 
@@ -170,7 +170,7 @@ Prepare a sua aplicação para o período de indisponibilidade. Para efetuar uma
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Ligar à máquina virtual. Para obter instruções, consulte [como ligar e iniciar sessão a uma máquina virtual do Azure com o Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

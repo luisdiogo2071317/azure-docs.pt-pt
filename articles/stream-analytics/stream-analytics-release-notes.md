@@ -1,28 +1,24 @@
 ---
-title: Notas de versão do Stream Analytics | Microsoft Docs
-description: Notas de versão do Stream Analytics
+title: Do Azure Stream Analytics - notas de versão
+description: Este artigo descreve o histórico de lançamento do Azure Stream Analytics e as ferramentas do Visual Studio correspondentes.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 5e59f893-cd2c-43fb-9eca-c146ce637203
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 05/03/2017
 ms.author: jeanb
-ms.openlocfilehash: 645c9e7014beba0312de3784bbc04734927929a9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/03/2017
+ms.openlocfilehash: b5f6f4f42929127521320e56bcc9b36c324cde89
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-analytics-release-notes"></a>Notas de versão do Stream Analytics
 
 ## <a name="notes-for-06142017-update-of-stream-analytics-tools-for-visual-studio"></a>Notas de atualização de 14/06/2017 do Stream Analytics Tools para Visual Studio
-Esta atualização destina-se a nossa Visual Studio Tools. Esta versão contém as seguintes novas funcionalidades:
+Esta atualização é de ferramentas do Visual Studio. Esta versão contém as seguintes novas funcionalidades:
 
 | Cargo | Descrição |
 | --- | --- |
@@ -31,19 +27,19 @@ Esta atualização destina-se a nossa Visual Studio Tools. Esta versão contém 
 | Suporte CSV e Avro para entrada de teste local | Para além de JSON, agora pode utilizar o formato de ficheiro CSV e Avro para a entrada de teste local.|
 
 ## <a name="notes-for-05032017-update-of-stream-analytics"></a>Notas para atualização 03/05/2017 do Stream Analytics
-Esta atualização é a nossa versão de documentação de resolução de problemas.
+Esta atualização é para a versão de documentação de resolução de problemas.
 
-O [guia de resolução de problemas](stream-analytics-troubleshooting-guide.md) e foram lançados outros documentos. Reveja, comentários boas-vindas.
+O [guia de resolução de problemas](stream-analytics-troubleshooting-guide.md) e foram lançados outros documentos. Reveja neste guia, e os seus comentários são boas-vindas.
 
 ## <a name="notes-for-04242017-update-of-stream-analytics-tools-for-visual-studio"></a>Notas de atualização de 24/04/2017 do Stream Analytics Tools para Visual Studio
-Esta atualização destina-se a nossa Visual Studio Tools. Esta versão contém as seguintes novas funcionalidades:
+Esta atualização é de ferramentas do Visual Studio. Esta versão contém as seguintes novas funcionalidades:
 
 | Cargo | Descrição |
 | --- | --- |
 | Ver o resultado do teste local no Visual Studio | Para ver o resultado de saída do teste local, prima ENTER na janela da consola de saída ou fechá-lo. O resultado é apresentado numa janela no Visual Studio no formato de tabela. |
 | Resultado do local de saída no formato JSON | Quando executar um teste local, o resultado de saída é gerado como formatos de ficheiro JSON e CSV. |
 | Pré-visualize os dados de entradas/saídas de armazenamento do BLOBs/tabela | Fazendo duplo clique no armazenamento de BLOBs ou tabela de entrada/saída na vista de tarefa, pode pré-visualizar os dados no interior do Visual Studio facilmente. |
-| Mensagem de erro de vista para entradas/saídas | Se existirem alguns erros de runtime relacionadas com a sua tarefa entradas e saídas, é mostrado no diagrama tarefa onde pode passar na mesma para ver a mensagem de erro detalhadas.|
+| Mensagem de erro de vista para entradas/saídas | Se não houver qualquer erro de runtime relacionadas com a tarefa de entradas e saídas, é mostrado no diagrama tarefa onde pode passar na mesma para ver a mensagem de erro detalhadas.|
 
 
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Notas de versão de 01/02/2017 do Stream Analytics
@@ -76,7 +72,7 @@ Esta versão contém a seguinte atualização:
 | Cargo | Descrição |
 | --- | --- |
 | Atualização da versão de REST API |A versão da API de REST foi atualizada para 2015-10-01. Podem ser encontrados detalhes no MSDN em [referência de API do REST de gestão do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [integração de Machine Learning no Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md). |
-| Integração do Azure Machine Learning |Com esta versão inclui suporte para o Azure Machine Learning funções definidas pelo utilizador. Consulte o [tutorial](stream-analytics-machine-learning-integration-tutorial.md) para obter mais informações, bem como o [blogue geral anúncio](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
+| Integração do Azure Machine Learning |Com esta versão inclui suporte para o Azure Machine Learning funções definidas pelo utilizador. Para obter mais informações, consulte o [tutorial](stream-analytics-machine-learning-integration-tutorial.md) e [blogue geral anúncio](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
 
 ## <a name="notes-for-11122015-release-of-stream-analytics"></a>Notas de versão de 11/12/2015 do Stream Analytics
 Esta versão contém a seguinte atualização:
@@ -93,7 +89,7 @@ Esta versão contém as seguintes atualizações:
 | Funcionalidades de idioma de consulta adicionais |Do Stream Analytics expandiu o idioma de consulta, incluindo as seguintes funcionalidades: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [limite](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [piso](https://msdn.microsoft.com/library/azure/mt605240.aspx), [ ENERGIA](https://msdn.microsoft.com/library/azure/mt605287.aspx), [sessão](https://msdn.microsoft.com/library/azure/mt605290.aspx), [QUADRADA](https://msdn.microsoft.com/library/azure/mt605288.aspx), e [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx). |
 | Limitações de agregação removidas |Esta versão remove a limitação de 15 agregados numa consulta. Agora, não há nenhum limite para o número de agregados por consulta. |
 | GRUPO por Timestamp funcionalidades |O [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) função agora permite o window_type ou [Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx). |
-| DESVIO adicionado de salto windows e em cascata |Por predefinição, [em cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) e [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) windows estão alinhado com tempo (1/1/0001 e UTC 12:00:00: 00). O novo parâmetro (opcional) 'offsetsize' permite a especificação de um desvio personalizado (ou alinhamento). |
+| DESVIO adicionado de salto windows e em cascata |Por predefinição, [em cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) e [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) windows estão alinhado com tempo (1/1/0001 e UTC 12:00:00: 00). O novo parâmetro (opcional) `offsetsize` permitem especificar um desvio personalizado (ou alinhamento). |
 
 ## <a name="notes-for-09292015-release-of-stream-analytics"></a>Notas de versão de 29/09/2015 do Stream Analytics
 Esta versão contém as seguintes atualizações:
@@ -151,16 +147,16 @@ Esta versão contém as seguintes atualizações:
 | --- | --- |
 | Atraso na configuração da conta de armazenamento do Azure |Ao criar uma tarefa de Stream Analytics numa região pela primeira vez, lhe for pedido para criar uma nova conta de armazenamento ou especificar uma conta existente para a monitorização de tarefas do Stream Analytics nessa região. Devido à latência na configuração da monitorização, criar outra tarefa de Stream Analytics na mesma região dentro de 30 minutos a linha de comandos para a especificação de uma segunda conta de armazenamento em vez de mostrar dos configurado recentemente na lista pendente de conta de armazenamento de monitorização. Para evitar a criação de uma conta de armazenamento desnecessária, aguarde 30 minutos depois de criar uma tarefa numa região pela primeira vez antes do aprovisionamento tarefas adicionais nessa região. |
 | Tarefa de atualização |Neste momento, o Stream Analytics não suporta edições em direto para a configuração de uma tarefa em execução ou a definição. Para alterar a entrada, saída, consulta, escala ou a configuração de uma tarefa em execução, tem primeiro de parar a tarefa. |
-| Tipos de dados inferidos a partir da origem de entrada |Se não for utilizada uma instrução CREATE TABLE, o tipo de entrada é derivado de formato de entrada, por exemplo todos os campos do ficheiro CSV são cadeia. Campos têm de ser convertida explicitamente o tipo correcto utilizando a função de conversão para evitar erros de falta de correspondência de tipo. |
+| Tipos de dados inferidos a partir da origem de entrada |Se não for utilizada uma instrução CREATE TABLE, o tipo de entrada é derivado de formato de entrada, por exemplo todos os campos do ficheiro CSV são cadeia. Efetuar a conversão explícita campos para o tipo correcto utilizando a função de conversão para evitar erros de falta de correspondência de tipo. |
 | Os campos em falta são debitados como valores nulos |Referencia um campo que não está presente na origem de entrada resulta em valores nulos existentes no evento de saída. |
 | COM as instruções, tem de preceder o instruções SELECT |Na sua consulta, instruções SELECT tem de seguir as subconsultas definidas com as instruções. |
 | Problema de memória esgotada |Reinicie as tarefas de análise de transmissão em fluxo com base numa tolerância grande para fora de ordem eventos e/ou uma grande quantidade de estado pode fazer com que a tarefa para ser executada sem memória, resultando numa tarefa de manutenção de consultas complexas. As operações de início e paragem estão visíveis nos registos de operação da tarefa. Para evitar este comportamento, escalamento horizontal a consulta várias partições. Numa versão futura, esta limitação é abordada degradar o desempenho das tarefas afetados em vez de reiniciá-los de. |
 | Entradas de grande blob sem payload timestamp podem provocar um problema de memória esgotada |Consumir grandes ficheiros a partir do Blob storage pode fazer com que as tarefas do Stream Analytics para falha se um campo timestamp não for especificado através de TIMESTAMP BY. Para evitar este problema, mantenha cada blob em 10 MB de tamanho. |
-| Limitação de volume de eventos de base de dados SQL |Ao utilizar a base de dados do SQL Server como um destino de saída, muito elevados volumes de dados de saída podem fazer com que a tarefa de Stream Analytics para o tempo limite. Para resolver este problema, reduzir o volume de saída através da utilização de agregados ou operadores de filtro ou escolha armazenamento de Blobs do Azure ou Event Hubs como um destino de saída em vez disso. |
+| Limitação de volume de eventos de base de dados SQL |Ao utilizar a base de dados do SQL Server como um destino de saída, elevados volumes de dados de saída podem fazer com que a tarefa de Stream Analytics para o tempo limite. Para resolver este problema, reduzir o volume de saída através da utilização de agregados ou operadores de filtro ou escolha armazenamento de Blobs do Azure ou Event Hubs como um destino de saída em vez disso. |
 | Conjuntos de dados do Power BI só podem conter uma tabela |Power BI não suporta mais de uma tabela num conjunto de dados indicado. |
 
 ## <a name="get-help"></a>Obter ajuda
-Para mais assistência, tente ler o nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

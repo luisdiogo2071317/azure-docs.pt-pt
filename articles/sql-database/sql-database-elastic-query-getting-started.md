@@ -1,19 +1,19 @@
 ---
-title: "Relatório entre bases de dados de nuvem de escalamento horizontal (criação de partições horizontais) | Microsoft Docs"
-description: "Utilize base de dados entre consultas de base de dados ao relatório em várias bases de dados."
+title: Relatório entre bases de dados de nuvem de escalamento horizontal (criação de partições horizontais) | Microsoft Docs
+description: Utilize base de dados entre consultas de base de dados ao relatório em várias bases de dados.
 services: sql-database
 manager: jhubbard
 author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 05/23/2016
+ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: 29f1291f5c5d6023ca7bcd47fc2c0d9b69fd39fa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: caf7fc8d69486e185fabd44d753471f40fda42a1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Comunicar entre bases de dados de nuvem de escalamento horizontal (pré-visualização)
 Pode criar relatórios a partir de várias bases de dados SQL do Azure a partir de um ponto de ligação única utilizando um [consulta elástica](sql-database-elastic-query-overview.md). As bases de dados têm de ser particionados horizontalmente (também conhecido como "a").

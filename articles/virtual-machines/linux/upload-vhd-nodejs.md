@@ -1,10 +1,10 @@
 ---
 title: Carregar uma imagem personalizada do Linux com a CLI do Azure 1.0 | Microsoft Docs
-description: "Criar e carregar um disco rígido virtual (VHD) para o Azure com uma imagem personalizada do Linux, utilizando o modelo de implementação Resource Manager e a CLI do Azure 1.0."
+description: Criar e carregar um disco rígido virtual (VHD) para o Azure com uma imagem personalizada do Linux, utilizando o modelo de implementação Resource Manager e a CLI do Azure 1.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eb0cae2b70e0cbb9a4fb5fcab3a58d566d0f4d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Carregar e criar uma VM com Linux a partir de imagem de disco personalizado utilizando a CLI do Azure 1.0
 Este artigo mostra como carregar um disco rígido virtual (VHD) para o Azure utilizando o modelo de implementação Resource Manager e criar VMs com Linux a partir desta imagem personalizada. Esta funcionalidade permite-lhe instalar e configurar um distro Linux os seus requisitos e, em seguida, utilizar essa VHD para criar rapidamente máquinas de virtuais (VMs) do Azure.
@@ -88,7 +88,7 @@ A conta de armazenamento de destino tem de ser o mesmo que em que o seu disco vi
 ## <a name="requirements"></a>Requisitos
 Para concluir os passos seguintes, tem de:
 
-* **Sistema de operativo Linux instalado num ficheiro. vhd** -instalar um [distribuição Linux aprovadas pelo Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou consulte [informações para distribuições não aprovadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) para um disco virtual no VHD formato. Existem várias ferramentas para criar uma VM e os VHD:
+* **Sistema de operativo Linux instalado num ficheiro. vhd** -instalar um [distribuição Linux aprovadas pelo Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou consulte [informações para distribuições não aprovadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) para um disco virtual no formato VHD . Existem várias ferramentas para criar uma VM e os VHD:
   * Instalar e configurar [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou [KVM](http://www.linux-kvm.org/page/RunningKVM), tendo cuidado para utilizar o VHD como o formato de imagem. Se necessário, pode [converter uma imagem](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) utilizando `qemu-img convert`.
   * Também pode utilizar o Hyper-V [no Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) ou [no Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -122,7 +122,7 @@ Azure suporta várias distribuições em Linux (consulte [distribuições aprova
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Outras - distribuições não aprovadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
-Consulte também o  **[Linux instalação notas](create-upload-generic.md#general-linux-installation-notes)**  para dicas mais gerais sobre preparar imagens de Linux para o Azure.
+Consulte também o **[Linux instalação notas](create-upload-generic.md#general-linux-installation-notes)** para dicas mais gerais sobre preparar imagens de Linux para o Azure.
 
 > [!NOTE]
 > O [plataforma Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) aplica-se para VMs do Linux em execução apenas quando um das distribuições endorsed é utilizado com os detalhes de configuração conforme especificado em versões suportadas em [Linux em Azure-Endorsed distribuições](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -137,7 +137,7 @@ O exemplo seguinte cria um grupo de recursos denominado `myResourceGroup` no `We
 azure group create myResourceGroup --location "WestUS"
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Create a storage account
 VMs são armazenadas como blobs de páginas dentro de uma conta de armazenamento. Leia mais sobre [blob storage do Azure aqui](../../storage/common/storage-introduction.md#blob-storage). Criar uma conta de armazenamento para a imagem de disco personalizado e VMs. As VMs que criar a partir da imagem de disco personalizado tem de ser na mesma conta de armazenamento como dessa imagem.
 
 O exemplo seguinte cria uma conta de armazenamento com o nome `mystorageaccount` no grupo de recursos que criou anteriormente:
@@ -244,6 +244,6 @@ azure group deployment create --resource-group myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de ter preparado e carregado o disco virtual personalizado, pode ler mais sobre [utilizando o Gestor de recursos e modelos](../../azure-resource-manager/resource-group-overview.md). Pode também querer [adicionar um disco de dados](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para as VMs de novo. Se tiver aplicações em execução nas suas VMs que precisem de aceder, não se esqueça [abrir portas e os pontos finais](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

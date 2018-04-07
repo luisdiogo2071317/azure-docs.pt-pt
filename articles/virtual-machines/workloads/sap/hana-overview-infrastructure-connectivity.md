@@ -1,11 +1,11 @@
 ---
-title: "Infraestrutura e de conectividade para SAP HANA no Azure (instâncias de grande) | Microsoft Docs"
-description: "Configure a infraestrutura de conectividade necessários para utilizar o SAP HANA no Azure (instâncias de grande)."
+title: Infraestrutura e de conectividade para SAP HANA no Azure (instâncias de grande) | Microsoft Docs
+description: Configure a infraestrutura de conectividade necessários para utilizar o SAP HANA no Azure (instâncias de grande).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infraestrutura de SAP HANA (instâncias de grandes dimensões) e a conectividade no Azure 
 
@@ -49,9 +49,9 @@ Após a compra de SAP HANA no Azure (instâncias de grande) está finalizada ent
 - Dados para cada sistema de instâncias de grande HANA:
   - Nome de anfitrião desejado - Idealmente com o nome de domínio completamente qualificado.
   - Endereço IP pretendido para a unidade de instância grande HANA fora do intervalo de endereços do conjunto de IP do servidor - tenha em atenção que os 30 primeiros endereços IP no intervalo de endereços de conjunto de IP do servidor estão reservados para utilização interna dentro de instâncias de grande HANA
-  - Nome de SAP HANA SID para a instância de SAP HANA (necessário para criar os volumes de disco relacionados com o SAP HANA necessário). O SID de HANA é necessário para criar as permissões para <sidadm> nos volumes de NFS, qual obter anexados à unidade de instância grande HANA. Também é utilizado como um dos componentes nome dos volumes de disco que obterem montados. Se pretender executar mais do que uma instância HANA na unidade, terá de lista várias HANA SIDs. Cada um deles obtém um conjunto separado dos volumes atribuídos.
-  - O groupid que tem do utilizador hana sidadm no SO Linux é necessário para criar os volumes de disco necessários relacionados com o SAP HANA. A instalação de SAP HANA normalmente cria o grupo de sapsys com um id de grupo de 1001. O utilizador hana sidadm faz parte desse grupo
-  - O ID de utilizador que tem do utilizador hana sidadm no SO Linux é necessário para criar os volumes de disco necessários relacionados com o SAP HANA. Se estiver a executar várias instâncias HANA na unidade, tem de listar todas as o <sid>adm utilizadores 
+  - Nome de SAP HANA SID para a instância de SAP HANA (necessário para criar os volumes de disco relacionados com o SAP HANA necessário). O SID de HANA é necessário para criar as permissões para sidadm nos volumes de NFS, obter anexados à unidade de instância grande HANA. Também é utilizado como um dos componentes nome dos volumes de disco que obterem montados. Se pretender executar mais do que uma instância HANA na unidade, terá de lista várias HANA SIDs. Cada um deles obtém um conjunto separado dos volumes atribuídos.
+  - O groupid que tem do utilizador sidadm no SO Linux é necessário para criar os volumes de disco necessários relacionados com o SAP HANA. A instalação de SAP HANA normalmente cria o grupo de sapsys com um id de grupo de 1001. O utilizador sidadm faz parte desse grupo
+  - O ID de utilizador que tem do utilizador sidadm no SO Linux é necessário para criar os volumes de disco necessários relacionados com o SAP HANA. Se estiver a executar várias instâncias HANA na unidade, tem de listar todas as o <sid>adm utilizadores 
 - ID de subscrição do Azure para a subscrição do Azure para que SAP HANA no Azure HANA instâncias grande que vão ser diretamente ligado. Este ID de subscrição referencia a subscrição do Azure, que será debitado no valor as ou as unidades de instância grande HANA.
 
 Depois de fornecer as informações, a Microsoft Aprovisiona SAP HANA no Azure (instâncias de grandes dimensões) e irá devolver as informações necessárias para ligar as VNets do Azure para instâncias de grande HANA e para as unidades de instância grande HANA de acesso.
@@ -182,7 +182,7 @@ Se já existe um gateway, verifique se é um gateway ExpressRoute ou não. Caso 
 
 - Utilizar qualquer um da (novo) [portal do Azure](https://portal.azure.com/), ou o PowerShell para criar um gateway de VPN do ExpressRoute estiver ligado à sua VNet.
   - Se utilizar o portal do Azure, adicione um novo **Gateway de rede Virtual** e, em seguida, selecione **ExpressRoute** como o tipo de gateway.
-  - Se tiver escolhido o PowerShell, em vez disso, transfira o primeiro e utilizar a versão mais recente [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) para garantir uma experiência ideal. Os comandos seguintes criam um gateway do ExpressRoute. Os textos precedido por um  _$_  são variáveis definidas pelo utilizador que necessitam de ser atualizados com as suas informações específicas.
+  - Se tiver escolhido o PowerShell, em vez disso, transfira o primeiro e utilizar a versão mais recente [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) para garantir uma experiência ideal. Os comandos seguintes criam um gateway do ExpressRoute. Os textos precedido por um _$_ são variáveis definidas pelo utilizador que necessitam de ser atualizados com as suas informações específicas.
 
 ```PowerShell
 # These Values should already exist, update to match your environment

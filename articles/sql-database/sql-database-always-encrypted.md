@@ -1,20 +1,20 @@
 ---
 title: 'Sempre encriptado: SQL Database do Azure - arquivo de certificados do Windows | Microsoft Docs'
-description: "Este artigo mostra como proteger os dados confidenciais numa base de dados SQL com a encriptação de base de dados utilizando o assistente encriptado sempre no SQL Server Management Studio (SSMS). Mostra também como armazenar as chaves de encriptação no arquivo de certificados do Windows."
-keywords: "encriptar dados, a encriptação do SQL Server, a encriptação de base de dados, dados confidenciais, sempre encriptado"
+description: Este artigo mostra como proteger os dados confidenciais numa base de dados SQL com a encriptação de base de dados utilizando o assistente encriptado sempre no SQL Server Management Studio (SSMS). Mostra também como armazenar as chaves de encriptação no arquivo de certificados do Windows.
+keywords: encriptar dados, a encriptação do SQL Server, a encriptação de base de dados, dados confidenciais, sempre encriptado
 services: sql-database
 author: stevestein
 manager: jhubbard
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 1bb3f6bd3b4bfc1546e992734a85921248eff8fd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 38c4a724cc963370e60ae796729476c3bbc0342a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Sempre encriptado: Proteger dados sensíveis na base de dados SQL e armazenar as chaves de encriptação no arquivo de certificados do Windows
 
@@ -57,7 +57,7 @@ Irá precisar da cadeia de ligação mais tarde no tutorial. Depois de criar a b
 ## <a name="connect-to-the-database-with-ssms"></a>Ligar à base de dados com o SSMS
 Abra o SSMS e ligar ao servidor de base de dados do Clinic.
 
-1. Abra o SSMS. (Clique **Connect** > **motor de base de dados** para abrir o **ligar ao servidor** janela se não estiver aberto).
+1. Abra o SQL Server Management Studio. (Clique **Connect** > **motor de base de dados** para abrir o **ligar ao servidor** janela se não estiver aberto).
 2. Introduza o nome do servidor e as credenciais. O nome do servidor pode ser encontrado no painel de base de dados SQL e na cadeia de ligação que copiou anteriormente. Escreva o nome de servidor completo, incluindo *database.windows.net*.
    
     ![Copie a cadeia de ligação](./media/sql-database-always-encrypted/ssms-connect.png)

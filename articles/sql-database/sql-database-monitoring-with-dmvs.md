@@ -1,19 +1,19 @@
 ---
-title: "Monitorização de SQL Database do Azure utilizar as vistas de gestão dinâmica | Microsoft Docs"
-description: "Saiba como detetar e diagnosticar problemas de desempenho comuns utilizando vistas de gestão dinâmica para monitorizar a base de dados do Microsoft Azure SQL."
+title: Monitorização de SQL Database do Azure utilizar as vistas de gestão dinâmica | Microsoft Docs
+description: Saiba como detetar e diagnosticar problemas de desempenho comuns utilizando vistas de gestão dinâmica para monitorizar a base de dados do Microsoft Azure SQL.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 8185e2748f4aeec4343fa649d8b54958cdcb262a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 96255ed92e0dc05aa5a215a78a070f60f001e8bc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Monitorização da Base de Dados SQL do Azure utilizando vistas de gestão dinâmica
 Base de dados do Microsoft Azure SQL permite que um subconjunto de vistas de gestão dinâmica para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou de execução longa, congestionamentos de recursos, planos de consulta fraco e assim sucessivamente. Este tópico fornece informações sobre como detetar problemas de desempenho comuns ao utilizar as vistas de gestão dinâmica.

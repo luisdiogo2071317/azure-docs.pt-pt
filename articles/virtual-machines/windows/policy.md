@@ -1,11 +1,11 @@
 ---
-title: "Impor segurança com políticas em VMs do Windows no Azure | Microsoft Docs"
-description: "Como aplicar uma política para um Gestor de recursos do Windows Máquina Virtual do Azure"
+title: Impor segurança com políticas em VMs do Windows no Azure | Microsoft Docs
+description: Como aplicar uma política para um Gestor de recursos do Windows Máquina Virtual do Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0b71ba54-01db-43ad-9bca-8ab358ae141b
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 4bb9a5087ead309ab24128594c53ae313cd4b63c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7ec348bbd75bfce268d1e3d7a46b79397ee39f98
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Aplicar políticas de VMs do Windows com o Azure Resource Manager
 Ao utilizar políticas, uma organização pode aplicar vários convenções e regras em toda a empresa. Imposição do comportamento pretendido pode ajudar a mitigar o risco ao contribuir para o êxito da organização. Neste artigo, vamos descrever como pode utilizar as políticas do Azure Resource Manager para definir o comportamento pretendido para máquinas virtuais da sua organização.
@@ -225,7 +225,7 @@ Pode querer forbid a utilização de determinados tipos de extensões. Por exemp
 ```
 
 
-## <a name="azure-hybrid-use-benefit"></a>Benefício de utilização de híbridos do Azure
+## <a name="azure-hybrid-use-benefit"></a>Benefício Híbrido do Azure
 
 Quando tiver uma licença no local, pode guardar a taxa de licença na suas máquinas virtuais. Quando não tiver a licença, deve forbid a opção. A seguinte política proíbe a utilização do Azure híbrida utilize benefício (AHUB):
 
@@ -249,7 +249,7 @@ Quando tiver uma licença no local, pode guardar a taxa de licença na suas máq
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Depois de definir uma regra de política (conforme ilustrado nos exemplos anteriores), terá de criar a definição de política e atribua-a um âmbito. O âmbito pode ser uma subscrição, o grupo de recursos ou o recurso. Para atribuir políticas, consulte [portal do Azure de utilização para atribuir e gerir políticas de recursos](../../azure-policy/assign-policy-definition.md), [utilize o PowerShell para atribuir políticas](../../azure-policy/assign-policy-definition-ps.md), ou [CLI do Azure de utilização para atribuir políticas](../../azure-policy/assign-policy-definition-cli.md).
 * Para uma introdução às políticas de recursos, consulte [o que é a política do Azure?](../../azure-policy/azure-policy-introduction.md).
 * Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](../../azure-resource-manager/resource-manager-subscription-governance.md).

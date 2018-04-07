@@ -1,24 +1,19 @@
 ---
-title: Tratamento de ordem de eventos e lateness Azure Stream Analytics | Microsoft Docs
-description: Saiba mais sobre como funciona o Stream Analytics com eventos fora de ordem ou enlace tardio em fluxos de dados.
-keywords: fora de ordem, eventos
-documentationcenter: ''
+title: Ordem de eventos de processamento e lateness no Azure Stream Analytics
+description: Este artigo descreve a forma como o Stream Analytics processa os eventos fora de ordem ou enlace tardio em fluxos de dados.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 3c1924ad87715f7a44c3666991e792adc3a20af9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Considerações de ordem de eventos do Azure Stream Analytics
 
@@ -132,7 +127,7 @@ O Azure Stream Analytics implementa esta funcionalidade utilizando o [TIMESTAMP 
 * Quando está a combinar várias linhas cronológicas, falta de um dos partições ou origens de dados pode atrasar a saída por um período de tolerância de chegada enlace tardio adicionais.
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter assistência adicional, experimente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obter assistência adicional, experimente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)

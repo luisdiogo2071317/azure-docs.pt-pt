@@ -1,18 +1,18 @@
 ---
-title: "Publicar o evento personalizado tópico de grelha de eventos do Azure"
-description: "Descreve como publicar um evento para um tópico personalizado para a grelha de eventos do Azure"
+title: Publicar o evento personalizado tópico de grelha de eventos do Azure
+description: Descreve como publicar um evento para um tópico personalizado para a grelha de eventos do Azure
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 43dcdf9ab0fee5f7e61ecdc42aaf40430e272d92
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicar tópico personalizado para a grelha de eventos do Azure
 
@@ -91,8 +91,34 @@ Por exemplo, é um esquema de dados de evento válido:
 }]
 ```
 
+## <a name="response"></a>Resposta
+
+Após a publicação para o ponto final de tópico, receberá uma resposta. A resposta é um código de resposta HTTP padrão. Alguns respostas comuns são:
+
+|Resultado  |Resposta  |
+|---------|---------|
+|Êxito  | 200 OK  |
+|Ponto final incorreto | 404 Não Encontrado |
+|Chave de acesso inválido | 401 não autorizado |
+|Os dados do evento tem um formato incorreto | Pedido de 400 incorreta |
+
+Existência de erros, o corpo da mensagem tem o seguinte formato:
+
+```json
+{
+    "error": {
+        "code": "<HTTP status code>",
+        "message": "<description>",
+        "details": [{
+            "code": "<HTTP status code>",
+            "message": "<description>"
+    }]
+  }
+}
+```
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para uma introdução ao encaminhamento eventos personalizados, consulte [criar e rota eventos personalizados com a CLI do Azure e eventos grelha](custom-event-quickstart.md) ou [eventos personalizados, criar e rota com o Azure PowerShell e o evento grelha](custom-event-quickstart-powershell.md).
+* Para obter informações sobre a monitorização de entregas de eventos, consulte [entrega de mensagens de grelha de eventos do Monitor](monitor-event-delivery.md).
 * Para obter mais informações sobre a chave de autenticação, consulte [grelha de eventos de segurança e autenticação](security-authentication.md).
 * Para obter mais informações sobre como criar uma subscrição de grelha de eventos do Azure, consulte [esquema de subscrição de evento grelha](subscription-creation-schema.md).

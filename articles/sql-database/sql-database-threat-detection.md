@@ -1,19 +1,19 @@
 ---
-title: "Deteção - base de dados SQL do Azure de ameaças | Microsoft Docs"
-description: "A Deteção de Ameaças deteta atividades de base de dados anómalas, indicando potenciais ameaças de segurança para a base de dados."
+title: Deteção - base de dados SQL do Azure de ameaças | Microsoft Docs
+description: A Deteção de Ameaças deteta atividades de base de dados anómalas, indicando potenciais ameaças de segurança para a base de dados.
 services: sql-database
 author: rmatchoro
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 04/01/2018
 ms.author: ronmat
-ms.openlocfilehash: 4cb31eef4ba4b85ea28a58bb9b947b4e07cb0b58
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c4a94ab9c7e0dab9e8c25e54fdd0a30b28b7a8a3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sql-database-threat-detection"></a>Deteção de ameaças de base de dados do SQL Server
 
@@ -21,7 +21,7 @@ SQL Server a deteção de ameaças Deteta atividades anómalas, indicando invulg
 
 ## <a name="overview"></a>Descrição geral
 
-A deteção de ameaças do SQL Server fornece uma nova camada de segurança, o que permite que os clientes detetar e reagir a potenciais ameaças à medida que ocorrem, fornecendo alertas de segurança em atividades anómalas.  Os utilizadores recebem um alerta após a atividades suspeitas da base de dados, potenciais vulnerabilidades e ataques de injeção de SQL, bem como os padrões de acesso de base de dados anómalas. Alertas de deteção de ameaças do SQL Server fornecem detalhes de atividade suspeita e recomenda ação sobre a investigar e mitigar a ameaça. Os utilizadores podem explorar os eventos suspeitos utilizando [auditoria de base de dados SQL](sql-database-auditing.md) para determinar se eles resultam de uma tentativa de aceder, infringir ou exploram os dados na base de dados. A deteção de ameaças torna simples para resolver potenciais ameaças à base de dados sem a necessidade de ser um especialista de segurança ou faça a gestão de sistemas de monitorização de segurança avançada.
+A deteção de ameaças do SQL Server fornece uma nova camada de segurança, o que permite que os clientes detetar e reagir a potenciais ameaças à medida que ocorrem, fornecendo alertas de segurança em atividades anómalas.  Os utilizadores recebem um alerta após a atividades suspeitas da base de dados, potenciais vulnerabilidades e ataques de injeção de SQL, bem como os padrões de acesso de base de dados anómalas. Alertas de deteção de ameaças do SQL Server fornecem detalhes de atividade suspeita e recomenda ação sobre a investigar e mitigar a ameaça. Os utilizadores podem explorar os eventos suspeitos utilizando [auditoria de base de dados SQL](sql-database-auditing.md) para determinar se eles resultam de uma tentativa de aceder, infringir ou exploram os dados na base de dados. A Deteção de Ameaças simplifica a resolução de potenciais ameaças à base de dados sem que seja necessário ser um especialista em segurança ou gerir sistemas de monitorização de segurança avançados.
 
 Por exemplo, a injeção de SQL é uma dos problemas comuns de segurança de aplicação Web na Internet, utilizado para atacar aplicações condicionada por dados. Os atacantes tirar partido de vulnerabilidades de aplicação para injetar maliciosas instruções SQL para campos de entrada de aplicação, ser, ou modificar dados na base de dados.
 
