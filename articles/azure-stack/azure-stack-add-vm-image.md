@@ -1,24 +1,24 @@
 ---
 title: Adicionar uma imagem de VM a pilha do Azure | Microsoft Docs
-description: "Adicione a Windows ou Linux VM imagem personalizada sua organização para os inquilinos utilizarem."
+description: Adicione a Windows ou Linux VM imagem personalizada sua organização para os inquilinos utilizarem.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2018
+ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual personalizada na pilha do Azure
 
@@ -126,6 +126,7 @@ Para adicionar a imagem para a pilha do Azure Marketplace, conclua os seguintes 
     -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
   ```
 
+
 O comando faz o seguinte:
 
 * Autentica para o ambiente de pilha do Azure.
@@ -133,9 +134,9 @@ O comando faz o seguinte:
 * Adiciona a imagem VM para o repositório de imagens VM.
 * Cria um item do Marketplace.
 
-Para verificar que o comando foi executado com êxito, no portal, aceda ao Marketplace. Certifique-se de que a imagem VM está disponível no **máquinas virtuais** categoria.
+Para verificar que o comando foi executado com êxito, no portal, aceda ao Marketplace. Certifique-se de que a imagem VM está disponível no **computação** categoria.
 
-![Imagem de VM adicionada com êxito](./media/azure-stack-add-vm-image/image5.PNG)
+![Imagem de VM adicionada com êxito](./media/azure-stack-add-vm-image/verify-vm.png)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>Remover uma imagem de VM com o PowerShell
 
@@ -185,7 +186,7 @@ As imagens devem ser capazes de ser referenciado por um URI de armazenamento de 
 
    * Ao carregar o [imagem de VM do Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), certifique-se de que substitui o **iniciar sessão no Azure** passo com o [configurar o ambiente de PowerShell o operador de pilha do Azure](azure-stack-powershell-configure-admin.md) passo.  
 
-   * Tome nota do Blob storage URI onde carregar a imagem. Armazenamento de Blobs do URI tem o seguinte formato:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* . vhd.
+   * Tome nota do Blob storage URI onde carregar a imagem. Armazenamento de Blobs do URI tem o seguinte formato: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*. vhd.
 
    * Para tornar o blob anonimamente acessível, vá para o contentor de blob de conta de armazenamento onde a imagem VM VHD foi carregada. Selecione **Blob**e, em seguida, selecione **política de acesso**. Opcionalmente, pode em vez disso, gerar uma assinatura de acesso partilhado do contentor e incluí-la como parte do URI de blob.
 
