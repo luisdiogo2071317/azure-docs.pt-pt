@@ -1,5 +1,5 @@
 ---
-title: Retenção de cópias de segurança de longa duração & ARS cofre - SQL Database do Azure | Microsoft Docs
+title: Gerir retenção de cópias de segurança de longa duração de SQL Database do Azure | Microsoft Docs
 description: Saiba como armazenar cópias de segurança automatizadas do SQL Server do armazenamento do Azure e, em seguida, restaurá-las
 services: sql-database
 author: anosov1960
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 80dd58a9c0267975c9e4df74c77d60ac861a1fdb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 29bfc914dd5c1f4c8b5405ff0e7202b767d032b8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="configure-and-restore-backups-from-azure-sql-database-long-term-backup-retention-using-azure-sql-storage"></a>Configurar e restaurar cópias de segurança da base de dados do Azure SQL cópia de segurança retenção de longo prazo utilizando o armazenamento de SQL do Azure
+# <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir retenção de cópias de segurança de longa duração de SQL Database do Azure
 
 Pode configurar a base de dados SQL do Azure com um [retenção de cópias de segurança de longa duração](sql-database-long-term-retention.md) política (imediatamente disponíveis) para manter automaticamente cópias de segurança no armazenamento de Blobs do Azure para até 10 anos. Em seguida, pode recuperar uma base de dados utilizando estas cópias de segurança utilizando o portal do Azure ou o PowerShell.
 
@@ -112,6 +112,12 @@ $ltrPolicies = Get-AzureRmSqlDatabase -ResourceGroupName Default-SQL-WestCentral
 
 # Get the LTR policy of a specific database 
 $ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
+```
+### <a name="clear-an-ltr-policy"></a>Limpar uma política de imediatamente disponíveis
+Este exemplo mostra como eliminar uma política de imediatamente disponíveis a partir de uma base de dados
+
+```powershell
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
 ```
 
 ### <a name="view-ltr-backups"></a>Cópias de segurança do Vista imediatamente disponíveis

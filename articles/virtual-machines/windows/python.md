@@ -2,12 +2,12 @@
 title: Criar e gerir uma VM do Windows no Azure com o Python | Microsoft Docs
 description: Saiba como utilizar o Python para criar e gerir uma VM do Windows no Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
-ms.openlocfilehash: bb777d41570d7b1dc97402d532519488912948e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d56143a470be4da1faaea949ea286fca1ffd319d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerir VMs do Windows no Azure com o Python
 
@@ -363,7 +363,7 @@ Agora que criou todos os recursos de suporte, pode criar uma máquina virtual.
 
 ## <a name="perform-management-tasks"></a>Executar tarefas de gestão
 
-Durante o ciclo de vida de uma máquina virtual, poderá querer executar tarefas de gestão, tais como iniciar, parar ou eliminar uma máquina virtual. Além disso, pode querer criar código para automatizar tarefas repetitivas ou complexas.
+Durante o ciclo de vida de uma máquina virtual, poderá querer executar tarefas de gestão, como iniciar, parar ou eliminar uma máquina virtual. Além disso, pode querer criar código para automatizar tarefas repetitivas ou complexas.
 
 ### <a name="get-information-about-the-vm"></a>Obter informações sobre a VM
 
@@ -570,7 +570,7 @@ Porque os lhe é cobrados os recursos utilizados no Azure, é sempre boa prátic
     Deve demorar cerca de cinco minutos para esta aplicação de consola executar totalmente do início seja concluída. Pode demorar alguns minutos depois da aplicação foi concluída antes de todos os recursos e o grupo de recursos são eliminados.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Se ocorreram problemas com a implementação, um passo seguinte será ver [Troubleshooting resource group deployments with Azure portal (Resolução de problemas com implementações do grupo de recursos com o portal do Azure)](../../resource-manager-troubleshoot-deployments-portal.md)
 - Saiba mais sobre o [biblioteca Python do Azure](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)

@@ -9,20 +9,19 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0ea2dc723c674e7119b6ef38771a73ff4c11e98d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6c94701507f86f6ecab2875f952215cc3e4cc719
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code---preview"></a>Desenvolver uma solução de IoT Edge com vários módulos no Visual Studio Code - pré-visualização
-Pode utilizar o Visual Studio Code para desenvolver a sua solução de IoT Edge com vários módulos. Este tutorial explica-lhe como criar, atualizar e implementar uma solução de IoT limite que simplesmente ser transmitidos dados de sensores no dispositivo simulado contorno de IoT no Visual Studio Code. Neste tutorial, ficará a saber como:
+Pode utilizar o Visual Studio Code para desenvolver a sua solução de IoT Edge com vários módulos. Este artigo explica como criar, atualizar e implementar uma solução de IoT Edge esses dados de sensor pipes no dispositivo simulado contorno de IoT no Visual Studio Code. Neste artigo, saiba como:
 
-> [!div class="checklist"]
-> * Utilize o Visual Studio Code para criar uma solução de IoT Edge
-> * Utilizar o VS Code para adicionar um novo módulo ao seu trabalho solução de IoT Edge. 
-> * Implementar a solução de IoT Edge (vários módulos) para o seu dispositivo de limite de IoT
-> * Dados de vista gerada
+* Utilize o Visual Studio Code para criar uma solução de IoT Edge
+* Utilizar o VS Code para adicionar um novo módulo ao seu trabalho solução de IoT Edge. 
+* Implementar a solução de IoT Edge (vários módulos) para o seu dispositivo de limite de IoT
+* Ver os dados gerados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Concluir abaixo tutoriais
@@ -60,15 +59,14 @@ Pode utilizar o Visual Studio Code para desenvolver a sua solução de IoT Edge 
 
 3. Se estiver [simulando um dispositivo de limite de IoT](tutorial-simulate-device-linux.md) no computador de desenvolvimento. Verá que todos os contentores de imagem de módulo serão iniciados dentro de alguns minutos.
 
-## <a name="view-generated-data"></a>Dados de vista gerada
+## <a name="view-generated-data"></a>Ver os dados gerados
 
-1. Para monitorizar os dados que chegam ao IoT hub, selecione o **vista** > **paleta de comando...**  e procure **IoT: iniciar a monitorização de mensagem D2C**. 
-2. Para parar a monitorização de dados, utilize o **IoT: parar a monitorização D2C mensagem** comando na paleta do comando. 
+1. Para monitorizar os dados que chegam ao hub IoT, selecione **View** > **Command Palette...** e procure **IoT: Start monitoring D2C message** (IoT: Começar a monitorizar mensagens D2C). 
+2. Para parar a monitorização de dados, utilize o comando **IoT: Stop monitoring D2C message** (IoT: Parar a monitorização de mensagens D2C) na paleta de comandos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, criou uma solução de IoT limite com um c# módulo, mais tarde adicionado um módulo de função, atualizar as rotas para a solução, criado e implementado no seu dispositivo simulado de limite de IoT. Pode continuar a sessão em qualquer um dos seguintes tutoriais para saber mais sobre outros cenários quando desenvolver Azure IoT Edge no VS Code.
+Pode continuar a sessão em qualquer um dos seguintes artigos para saber mais sobre outros cenários quando desenvolver o limite de IoT do Azure no Visual Studio Code:
 
-> [!div class="nextstepaction"]
-> [Depurar um módulo c# no VS Code](how-to-vscode-debug-csharp-module.md)
-> [depurar uma função de c# no VS Code](how-to-vscode-debug-azure-function.md)
+* [Depurar um módulo c# no VS Code](how-to-vscode-debug-csharp-module.md)
+* [Depurar uma função de c# no VS Code](how-to-vscode-debug-azure-function.md)

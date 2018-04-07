@@ -1,6 +1,6 @@
 ---
-title: "Configuração de segurança de divisão de intercalação | Microsoft Docs"
-description: "Configurar x409 certificados de encriptação com o serviço de divisão/intercalação para horizontal elástico."
+title: Configuração de segurança de divisão de intercalação | Microsoft Docs
+description: Configurar x409 certificados de encriptação com o serviço de divisão/intercalação para horizontal elástico.
 metakeywords: Elastic Database certificates security
 services: sql-database
 manager: craigg
@@ -8,13 +8,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c07ba1e74daace546bae4f4209842312136914a3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 694c1755b5263d48fdfa5cad3c0b13e42bfb8522
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança de divisão de intercalação
 Para utilizar o serviço de divisão/intercalação, tem de configurar corretamente a segurança. O serviço é parte da funcionalidade do dimensionamento elástico da base de dados do Microsoft Azure SQL. Para obter mais informações, consulte [divisão de dimensionamento elástico e o Tutorial do serviço de intercalação](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -111,7 +111,7 @@ A configuração predefinida nega todos os acessos ao ponto final de HTTP. Esta 
 A configuração predefinida permite que todo o acesso ao ponto final de HTTPS. Esta definição pode ser restringida adicional.
 
 ### <a name="changing-the-configuration"></a>A alteração da configuração
-O grupo de regras de controlo de acesso que se aplicam a e o ponto final estão configuradas no  **<EndpointAcls>**  secção o **ficheiro de configuração do serviço**.
+O grupo de regras de controlo de acesso que se aplicam a e o ponto final estão configuradas no **<EndpointAcls>** secção o **ficheiro de configuração do serviço**.
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />

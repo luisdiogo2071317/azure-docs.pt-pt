@@ -1,24 +1,19 @@
 ---
-title: Tirar partido parallelization de consulta no Azure Stream Analytics | Microsoft Docs
-description: Saiba como dimensionar as tarefas do Stream Analytics ao configurar partições de entrada, a definição de consulta de Otimização e definir as unidades de transmissão em fluxo de trabalho.
-keywords: dados de transmissão em fluxo, processamento de dados de transmissão em fluxo otimizar a análise
+title: Utilize parallelization de consulta e a escala do Azure Stream Analytics
+description: Este artigo descreve como dimensionar as tarefas do Stream Analytics ao configurar partições de entrada, a definição de consulta de Otimização e definir as unidades de transmissão em fluxo de trabalho.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: eb19a9b4e92e7007f64ae7b593663be6a47a7a4b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Tirar partido parallelization de consulta no Azure Stream Analytics
 Este artigo mostra como tirar partido das parallelization do Azure Stream Analytics. Saiba como dimensionar as tarefas do Stream Analytics, deve configurar partições de entrada e otimizar a definição de consulta de análise.
@@ -50,7 +45,7 @@ Quando trabalha com o Stream Analytics, pode tirar partido as saídas de criaç�
 -   IoT Hub (é necessário definir explicitamente a chave de partição)
 -   Service Bus
 
-Saídas de Power BI, o SQL e o armazém de dados do SQL Server não suportam a criação de partições. No entanto, pode ainda de partição a entrada conforme descrito em [nesta secção](#multi-step-query-with-a-grouping-key) 
+Saídas de Power BI, o SQL e o armazém de dados do SQL Server não suportam a criação de partições. No entanto, pode ainda de partição a entrada conforme descrito em [nesta secção](#multi-step-query-with-different-partition-by-values) 
 
 Para obter mais informações sobre as partições, consulte os artigos seguintes:
 
@@ -65,7 +60,7 @@ Um *constrangedoramente paralelas* tarefa é o cenário mais dimensionável temo
 
 2. Depois dos dados são dispostos no lado de entrada, tem de se certificar de que a sua consulta está particionada. Isto requer a utilização **PARTITION BY** em todos os passos. São permitidos vários passos, mas todos eles têm de ser particionados pela mesma chave. Atualmente, a chave de criação de partições tem de ser definida **PartitionId** por ordem para a tarefa ser totalmente paralela.  
 
-3. Na maioria das nossa saída pode tirar partido da criação de partições, no entanto, se utilizar um tipo de saída que não suporta a criação de partições, a tarefa não será totalmente paralela. Consulte o [saída secção](#Outputs) para obter mais detalhes.
+3. Na maioria das nossa saída pode tirar partido da criação de partições, no entanto, se utilizar um tipo de saída que não suporta a criação de partições, a tarefa não será totalmente paralela. Consulte o [saída secção](#outputs) para obter mais detalhes.
 
 4. O número de partições de entrada tem de ser igual o número de partições de saída. Saída de armazenamento de blob atualmente não suporta partições. Mas que okay, vez que herda o esquema de partições da consulta a montante. Seguem-se exemplos de valores de partição que permitem que uma tarefa totalmente paralela:  
 
@@ -221,7 +216,7 @@ Esta consulta pode ser ampliada para 24 SUs.
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

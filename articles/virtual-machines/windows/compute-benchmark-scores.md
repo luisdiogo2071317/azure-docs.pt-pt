@@ -4,7 +4,7 @@ description: Comparar pontuações de benchmark de computação SPECint para VMs
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: cb77a058e72b8f08cb8974d5ec5088bc498e071d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0b3e717ef9bf8af98650e78ce4a89eb9bf3eb83c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcular as pontuações de benchmark para VMs do Windows
 As pontuações de benchmark SPECInt seguintes mostram o desempenho de computação para lineup VM de elevado desempenho do Azure com o Windows Server. Também estão disponíveis para computação benchmark pontuações [VMs com Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -69,6 +69,6 @@ As pontuações de benchmark SPECInt seguintes mostram o desempenho de computaç
 ## <a name="about-specint"></a>Sobre SPECint
 Números de Windows foram calculados executando [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) no Windows Server. SPECint foi executada utilizando a opção de taxa base (SPECint_rate2006), com uma cópia por vCPU. SPECint consiste em 12 testes separados, cada executada três vezes, demorar o valor mediano de cada teste e weighting-los para formar uma pontuação composta. Os testes foram, em seguida, executar através de várias VMs para fornecer as pontuações médias mostradas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para as capacidades de armazenamento, detalhes do disco e as considerações adicionais para escolher entre os tamanhos VM, consulte [tamanhos das virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

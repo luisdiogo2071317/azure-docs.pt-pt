@@ -1,6 +1,6 @@
 ---
-title: "Modelo de alojamento de infraestrutura de serviço do Azure | Microsoft Docs"
-description: "Descreve a relação entre réplicas (ou instâncias) de um serviço de recursos de infraestrutura Servic implementado e o processo de anfitrião do serviço."
+title: Modelo de alojamento de Service Fabric do Azure | Microsoft Docs
+description: Descreve a relação entre réplicas (ou instâncias) de um serviço de recursos de infraestrutura de serviço implementado e o processo de anfitrião do serviço.
 services: service-fabric
 documentationcenter: .net
 author: harahma
@@ -12,53 +12,53 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 0206a9a486e3511834a23b3cc3f20f236a1cc261
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b2ba019f21256ee98276ef30847c43709b9b3462
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="service-fabric-hosting-model"></a>Modelo de alojamento de Service Fabric
-Este artigo fornece uma descrição geral da aplicação que aloja modelos fornecidos pelo serviço de recursos de infraestrutura e descreve as diferenças entre o **processo partilhado** e **processo exclusivo** modelos. Descreve como uma aplicação implementada procura num nó de Service Fabric e a relação entre réplicas (ou instâncias) do serviço e o processo de anfitrião do serviço.
+# <a name="azure-service-fabric-hosting-model"></a>Modelo de alojamento de Service Fabric do Azure
+Este artigo fornece uma descrição geral da aplicação que aloja modelos fornecidos pelo Azure Service Fabric e descreve as diferenças entre o **processo partilhado** e **processo exclusivo** modelos. Descreve como uma aplicação implementada procura um nó de Service Fabric e a relação entre réplicas (ou instâncias) do serviço e o processo de anfitrião do serviço.
 
-Antes de prosseguir, certifique-se de que está familiarizado com [modelo de aplicação do serviço de recursos de infraestrutura] [ a1] e compreender as várias conceitos e relação entre elas. 
+Antes de prosseguir, não se esqueça de que compreende os conceitos vários e relações explicado [modelar uma aplicação no Service Fabric][a1]. 
 
 > [!NOTE]
-> Neste artigo, de simplicidade, a menos que explicitamente mencionado:
+> Neste artigo, a menos que explicitamente mencionadas como o que significa algo diferente:
 >
-> - Todas as utilizações dos palavra *réplica* refere-se para ambos os uma réplica de um serviço com monitorização de estado ou de uma instância de um serviço sem estado.
-> - *CodePackage* é tratada equivalente para *ServiceHost* processo regista um *ServiceType* e as réplicas de anfitriões de serviços que *ServiceType*.
+> - *Réplica* refere-se para ambos os uma réplica de um serviço com estado e uma instância de um serviço sem estado.
+> - *CodePackage* é tratado como equivalentes para um *ServiceHost* processo regista um *ServiceType*e as réplicas de anfitriões de serviços que *ServiceType*.
 >
 
-Para compreender o modelo de alojamento, informe-nos guiá-lo através de um exemplo. Diga-nos temos um *ApplicationType* 'MyAppType', que tem um *ServiceType* 'MyServiceType'.  'MyServiceType' fornecido pelo *ServicePackage* 'MyServicePackage', que tem um *CodePackage* 'MyCodePackage'. Regista 'MyCodePackage' *ServiceType* MyServiceType quando é executada.
+Para compreender o modelo de alojamento, vamos guiá-lo através de um exemplo. Vamos supor que temos uma *ApplicationType* 'MyAppType', que tem um *ServiceType* 'MyServiceType'. 'MyServiceType' fornecido pelo *ServicePackage* 'MyServicePackage', que tem um *CodePackage* 'MyCodePackage'. Regista 'MyCodePackage' *ServiceType* MyServiceType quando é executada.
 
-Vamos supor que temos um cluster de três nós e criamos uma *aplicação* **fabric: / App1** do tipo 'MyAppType'. Dentro de isto *aplicação* **recursos de infraestrutura: / App1** vamos criar um serviço **recursos de infraestrutura: App1/ServiceA** do tipo 'MyServiceType' que tem duas partições (diga **P1**   &  **P2**) e de três réplicas por partição. O diagrama seguinte mostra a vista desta aplicação dado que acaba por ficar implementado num nó.
+Vamos supor que temos um cluster de três nós e, criamos um *aplicação* **fabric: / App1** do tipo 'MyAppType'. No interior desta aplicação **fabric: / App1**, vamos criar um serviço **recursos de infraestrutura: App1/ServiceA** do tipo 'MyServiceType'. Este serviço tem duas partições (por exemplo, **P1** e **P2**) e três réplicas por partição. O diagrama seguinte mostra a vista desta aplicação dado que acaba por ficar implementado num nó.
 
-<center>
-![Vista de nó da aplicação implementada][node-view-one]
-</center>
 
-Service Fabric ativado 'MyServicePackage' que foi iniciado 'MyCodePackage' que está a alojar réplicas ambas as partições de.  Por exemplo, **P1** & **P2**. Todos os nós do cluster tem a mesma vista uma vez que escolhemos o número de réplicas por partição seja igual ao número de nós no cluster. Vamos criar outro serviço **recursos de infraestrutura: App1/ServiceB** na aplicação **fabric: / App1**, que tem uma partição (diga **P3**) e de três réplicas por partição. O diagrama seguinte mostra a vista de novo no nó:
+![Diagrama de vista de nó da aplicação implementada][node-view-one]
 
-<center>
-![Vista de nó da aplicação implementada][node-view-two]
-</center>
 
-Como é possível ver o Service Fabric colocado o novo réplica para a partição **P3** do serviço **fabric: / App1/ServiceB** na ativação existente de 'MyServicePackage'. Agora permite criar outro *aplicação* **fabric: / App2** do tipo 'MyAppType'. Dentro de **fabric: / App2**, criar um serviço **recursos de infraestrutura: App2/ServiceA** que tem duas partições (diga **P4** & **P5**) e três réplicas por partição. Os diagramas seguintes mostra a nova vista de nó:
+Service Fabric ativado 'MyServicePackage', que foi iniciado 'MyCodePackage', que está a alojar réplicas ambas as partições de. Todos os nós do cluster têm a mesma vista porque escolhemos o número de réplicas por partição seja igual ao número de nós no cluster. Vamos criar outro serviço, **fabric: / App1/ServiceB**, na aplicação **fabric: / App1**. Este serviço tem uma partição (por exemplo, **P3**) e três réplicas por partição. O diagrama seguinte mostra a vista de novo no nó:
 
-<center>
-![Vista de nó da aplicação implementada][node-view-three]
-</center>
 
-Service Fabric ativa uma nova cópia 'MyServicePackage', que inicia uma nova cópia 'MyCodePackage'. As réplicas de ambas as partições do serviço **fabric: / App2/ServiceA** (por exemplo, **P4** & **P5**) são colocados nesta nova cópia 'MyCodePackage'.
+![Diagrama de vista de nó da aplicação implementada][node-view-two]
+
+
+Service Fabric colocado o novo réplica para a partição **P3** do serviço **fabric: / App1/ServiceB** na ativação existente de 'MyServicePackage'. Agora. Vamos criar outra aplicação **fabric: / App2** do tipo 'MyAppType'. Dentro de **fabric: / App2**, criar um serviço **recursos de infraestrutura: App2/ServiceA**. Este serviço tem duas partições (**P4** e **P5**) e três réplicas por partição. O diagrama seguinte mostra a nova vista de nó:
+
+
+![Diagrama de vista de nó da aplicação implementada][node-view-three]
+
+
+Service Fabric ativa uma nova cópia 'MyServicePackage', que inicia uma nova cópia 'MyCodePackage'. As réplicas de ambas as partições do serviço **fabric: / App2/ServiceA** (**P4** e **P5**) são colocados nesta nova cópia 'MyCodePackage'.
 
 ## <a name="shared-process-model"></a>Partilhado do modelo de processo
-O que vimos acima a predefinição é o modelo fornecido pelo serviço de recursos de infraestrutura de alojamento e é referido como **processo partilhado** modelo. Neste modelo, para um determinado *aplicação*, apenas um copiar de um indicado *ServicePackage* está ativado num *nó* (que inicia a todos os o *CodePackages* nele contidos) e todas as réplicas de todos os serviços de um indicado *ServiceType* são colocados no *CodePackage* que regista que *ServiceType*. Por outras palavras, todas as réplicas de todos os serviços num nó de um determinado *ServiceType* partilhar o mesmo processo.
+A secção anterior descreve predefinida fornecido pelo Service Fabric, referido como o modelo de processo partilhado do modelo de alojamento. Neste modelo, para uma aplicação específica, apenas uma cópia de um determinado *ServicePackage* está ativado num nó (que inicia a todos os o *CodePackages* nela contidas). Todas as réplicas de todos os serviços de um determinado *ServiceType* são colocados no *CodePackage* que regista que *ServiceType*. Por outras palavras, todas as réplicas de todos os serviços num nó de um determinado *ServiceType* partilhar o mesmo processo.
 
 ## <a name="exclusive-process-model"></a>Modelo de processo exclusivo
-O modelo alojamento fornecido pelo Service Fabric é **processo exclusivo** modelo. Neste modelo, num determinado *nó*, para posicionar cada réplica, o Service Fabric ativa uma nova cópia do *ServicePackage* (que inicia a todos os o *CodePackages* nele contidos) e de réplica é colocada no *CodePackage* registados a *ServiceType* do serviço de ao qual réplica pertence. Por outras palavras, cada réplica se encontra no seu próprio processo dedicado. 
+O modelo alojamento fornecido pelo Service Fabric é o modelo de processo exclusivo. Neste modelo, num determinado nó, cada réplica se encontra no seu próprio processo dedicado. Service Fabric ativa uma nova cópia *ServicePackage* (que inicia a todos os *CodePackages* nela contidas). As réplicas são colocadas no *CodePackage* que registado o *ServiceType* do serviço ao qual pertence a réplica. 
 
-Este modelo é suportado a partir de versão 5.6 do Service Fabric. **Processo exclusivo** modelo pode ser selecionado no momento da criação do serviço (utilizando [PowerShell][p1], [REST][r1], ou [FabricClient][c1]) especificando **ServicePackageActivationMode** como 'ExclusiveProcess'.
+Se estiver a utilizar o Service Fabric versão 5.6 ou posterior, pode escolher o modelo de processo exclusivo no momento cria um serviço (utilizando [PowerShell][p1], [REST] [ r1], ou [FabricClient][c1]). Especifique **ServicePackageActivationMode** como 'ExclusiveProcess'.
 
 ```powershell
 PS C:\>New-ServiceFabricService -ApplicationName "fabric:/App1" -ServiceName "fabric:/App1/ServiceA" -ServiceTypeName "MyServiceType" -Stateless -PartitionSchemeSingleton -InstanceCount -1 -ServicePackageActivationMode "ExclusiveProcess"
@@ -79,7 +79,7 @@ var fabricClient = new FabricClient(clusterEndpoints);
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-Se tiver um serviço predefinido no seu manifesto de aplicação, pode escolher **processo exclusivo** modelo especificando **ServicePackageActivationMode** atributo conforme mostrado abaixo:
+Se tiver um serviço predefinido no seu manifesto de aplicação, pode escolher o modelo de processo exclusivo, especificando o **ServicePackageActivationMode** atributo:
 
 ```xml
 <DefaultServices>
@@ -90,95 +90,95 @@ Se tiver um serviço predefinido no seu manifesto de aplicação, pode escolher 
   </Service>
 </DefaultServices>
 ```
-Continuar com o exemplo anterior, permite criar outro serviço **recursos de infraestrutura: App1/ServiceC** na aplicação **fabric: / App1** que tem duas partições (diga **P6**  &  **P7**) e de três réplicas por partição com **ServicePackageActivationMode** definido como 'ExclusiveProcess'. Diagrama seguinte mostra a nova vista no nó:
+Agora vamos criar outro serviço, **fabric: / App1/ServiceC**, na aplicação **fabric: / App1**. Este serviço tem duas partições (por exemplo, **P6** e **P7**) e três réplicas por partição. Definir **ServicePackageActivationMode** para 'ExclusiveProcess'. O diagrama seguinte mostra a nova vista no nó:
 
-<center>
-![Vista de nó da aplicação implementada][node-view-four]
-</center>
 
-Como pode ver, o Service Fabric ativado duas novas cópias dos 'MyServicePackage' (um para cada réplica da partição **P6** & **P7**) e colocá-la cada réplica na respetiva cópia dedicada de *CodePackage*. Outra coisa salientar aqui, quando **processo exclusivo** modelo é utilizado, para um determinado *aplicação*, copia múltiplo de um indicado *ServicePackage* podem estar ativas num *nó*. No acima exemplo, Vemos que três cópias dos 'MyServicePackage' estão ativas para **fabric: / App1**. Cada uma destas cópias Active Directory de 'MyServicePackage' tem um **ServicePackageActivationId** associada com a qual identifica essa cópia no *aplicação* **recursos de infraestrutura: / App1**.
+![Diagrama de vista de nó da aplicação implementada][node-view-four]
 
-Quando apenas **processo partilhado** modelo é utilizado para um *aplicação*, como **fabric: / App2** acima exemplo, existe é apenas uma cópia ativa de *ServicePackage*  num *nó* e **ServicePackageActivationId** para esta ativação de *ServicePackage* é 'cadeia vazia'.
 
-> [!NOTE]
->- **Partilhado processo** modelo de alojamento corresponde à **ServicePackageActivationMode** igual **SharedProcess**. Esta é a predefinição de modelo de alojamento e **ServicePackageActivationMode** não tem de ser especificado no momento da criação do serviço.
->
->- **Processo exclusivo** modelo de alojamento corresponde à **ServicePackageActivationMode** definido como **ExclusiveProcess** e tem de ser especificado explicitamente no momento da criação do serviço. 
->
->- Modelo de alojamento de um serviço pode ser conhecido consultando o [descrição do serviço] [ p2] e observar o valor de **ServicePackageActivationMode**.
->
->
+Como pode ver, o Service Fabric ativado duas novas cópias dos 'MyServicePackage' (um para cada réplica da partição **P6** e **P7**). Service Fabric colocado cada réplica na respetiva cópia dedicada de *CodePackage*. Quando utiliza o modelo de processo exclusivas para uma aplicação específica, vários copia de um determinado *ServicePackage* podem estar ativas num nó. No exemplo anterior, três cópias dos 'MyServicePackage' estão ativas para **fabric: / App1**. Cada uma destas cópias Active Directory de 'MyServicePackage' tem um **ServicePackageActivationId** associados à mesma. Este ID identifica essa cópia na aplicação **fabric: / App1**.
 
-## <a name="working-with-deployed-service-package"></a>Trabalhar com o pacote de serviço implementado
-Uma cópia ativa um *ServicePackage* num nó é referida como [implementado o pacote de serviço][p3]. Conforme mencionado anteriormente, quando **processo exclusivo** modelo é utilizado para criar serviços, para um determinado *aplicação*, podem existir vários pacotes de serviço implementado para os mesmos  *ServicePackage*. Ao executar operações específicas para um pacote de serviço implementado (por exemplo, [relatórios de estado de funcionamento de um pacote de serviço implementado] [ p4] ou [reiniciar o pacote do código de um serviço implementado pacote][p5]), **ServicePackageActivationId** tem de ser fornecido identificar específico implementado o pacote de serviço.
-
-**ServicePackageActivationId** de um serviço implementado o pacote pode ser obtido ao consultar a lista de [implementar pacotes service] [ p3] num nó. Ao consultar [implementado tipos de serviço][p6], [implementado réplicas][p7], e [implementar pacotes de código] [ p8] num nó, o resultado da consulta contém também o **ServicePackageActivationId** do pacote de serviço principal implementada.
+Quando utilizar o modelo de processo partilhado para uma aplicação, há apenas uma cópia ativa de *ServicePackage* num nó. O **ServicePackageActivationId** para esta ativação de *ServicePackage* é uma cadeia vazia. É este o caso, por exemplo, com **fabric: / App2**.
 
 > [!NOTE]
->- Em **processo partilhado** modelo de alojamento, num determinado *nó*, para um determinado *aplicação*, apenas um copiar de uma *ServicePackage* está ativado. Tem **ServicePackageActivationId** igual a *uma cadeia vazia* e não precisa de ser especificado ao executar operações relacionadas com o pacote de serviço implementado. 
+>- O processo partilhado corresponde ao modelo de alojamento **ServicePackageActivationMode** é igual a **SharedProcess**. Esta é a predefinição de modelo de alojamento, e **ServicePackageActivationMode** não tem de ser especificado no momento da criação do serviço.
 >
-> - Em **processo exclusivo** modelo de alojamento, num determinado *nó*, para um determinado *aplicação*, um ou mais cópias de um *ServicePackage* podem estar ativas. Cada ativação tem um *vazios* **ServicePackageActivationId**, especificado ao executar operações relacionadas com o pacote de serviço implementado. 
+>- O processo exclusivo corresponde ao modelo de alojamento **ServicePackageActivationMode** é igual a **ExclusiveProcess**. Para utilizar esta definição, deve especificar explicitamente no momento da criação do serviço. 
 >
-> - Se **ServicePackageActivationId** for omitido, por predefinição 'string vazio'. Se um serviço implementado o pacote que foi ativado em **processo partilhado** modelo está presente, em seguida, será possível efetuar a operação no mesmo, caso contrário, a operação falhará.
+>- Para ver o modelo de alojamento de um serviço, consultar o [descrição do serviço][p2]e observe o valor de **ServicePackageActivationMode**.
 >
-> - Não consultar uma vez e cache **ServicePackageActivationId**, porque é gerada dinamicamente e podem ser alteradas para várias razões. Antes de efetuar uma operação que precisa de **ServicePackageActivationId**, primeiro, deve consultar a lista de [implementar pacotes service] [ p3] num nó e, em seguida, utilize  **ServicePackageActivationId** do resultado da consulta para efetuar a operação original.
+>
+
+## <a name="work-with-a-deployed-service-package"></a>Trabalhar com um pacote de serviço implementado
+Uma cópia ativa um *ServicePackage* num nó é referido como um [implementado o pacote de serviço][p3]. Quando utiliza o modelo de processo exclusivo para a criação de serviços, para uma aplicação específica, podem existir vários pacotes de serviço implementado para os mesmos *ServicePackage*. Se estiver a efetuar operações específicas para um pacote de serviço implementado, deve fornecer **ServicePackageActivationId** para identificar um pacote específico de serviço implementado. Por exemplo, forneça o ID, se estiver [relatórios de estado de funcionamento de um pacote de serviço implementado] [ p4] ou [reiniciar o pacote do código de um pacote de serviço implementado] [p5].
+
+Pode encontrar o **ServicePackageActivationId** de um pacote de serviço implementado através da consulta a lista de [implementar pacotes service] [ p3] num nó. Quando estiver a consultar para o [implementado tipos de serviço][p6], [implementado réplicas][p7], e [implementado os pacotes de código ] [ p8] num nó, o resultado da consulta contém também o **ServicePackageActivationId** do pacote de serviço principal implementada.
+
+> [!NOTE]
+>- No modelo de alojamento de processo partilhado, num determinado nó, para uma aplicação específica, apenas uma cópia de um *ServicePackage* está ativado. Tem um **ServicePackageActivationId** igual a *uma cadeia vazia*e não precisa de ser especificado ao executar operações relacionadas com o pacote de serviço implementado. 
+>
+> - Sob o alojamento de processo exclusivo de modelo, num determinado nó, para uma aplicação específica, cópias de uma ou mais de um *ServicePackage* podem estar ativas. Cada ativação tem um *vazios* **ServicePackageActivationId**, especificado ao executar operações relacionadas com o pacote de serviço implementado. 
+>
+> - Se **ServicePackageActivationId** for omitida, será assumida a *uma cadeia vazia*. Se um pacote de serviço implementado foi ativado no modelo de processo partilhado estiver presente, será possível efetuar a operação no mesmo. Caso contrário, a operação falha.
+>
+> - Não consultar uma vez e cache a **ServicePackageActivationId**. O ID é gerado dinamicamente e pode ser alteradas para várias razões. Antes de efetuar uma operação que precisa de **ServicePackageActivationId**, primeiro, deve consultar a lista de [implementar pacotes service] [ p3] num nó. Em seguida, utilize o **ServicePackageActivationId** do resultado da consulta para efetuar a operação original.
 >
 >
 
 ## <a name="guest-executable-and-container-applications"></a>Aplicações de executável e contentor de convidado
-Trata do Service Fabric [executável convidado] [ a2] e [contentor] [ a3] aplicações como serviços sem monitorização de estado, que são autónomo: Não há nenhum tempo de execução do Service Fabric no *ServiceHost* (um processo ou contentor). Uma vez que estes serviços são autónomo, número de réplicas por *ServiceHost* não se aplica a estes serviços. A configuração mais comuns utilizada com estes serviços é partição única com [InstanceCount] [ c2] igual a -1 (ou seja, uma cópia o código do serviço em execução em cada nó do cluster). 
+Trata do Service Fabric [executável convidado] [ a2] e [contentor] [ a3] aplicações como serviços sem monitorização de estado, que são autónomo. Não há nenhum tempo de execução do Service Fabric no *ServiceHost* (um processo ou contentor). Uma vez que estes serviços são autónomo, o número de réplicas por *ServiceHost* não se aplica a estes serviços. A configuração mais comuns utilizada com estes serviços é partição única, com [InstanceCount] [ c2] igual a -1 (uma cópia o código do serviço em execução em cada nó do cluster). 
 
-A predefinição **ServicePackageActivationMode** para estes serviços é **SharedProcess**, caso em que o Service Fabric ativa apenas uma cópia *ServicePackage* num  *Nó* para um determinado *aplicação*.  Isto significa que apenas uma cópia do código do serviço será executado um *nó*. Se pretender várias cópias do seu código de serviço com um *nó* quando criar vários serviços (*Service1* para *ServiceN*) de *ServiceType* (especificado na *ServiceManifest*) ou quando o serviço está particionado em várias, deve especificar **ServicePackageActivationMode** como **ExclusiveProcess** no momento da criação do serviço.
+A predefinição **ServicePackageActivationMode** para estes serviços é **SharedProcess**, caso em que o Service Fabric ativa apenas uma cópia *ServicePackage* num nó para uma determinada aplicação.  Isto significa que apenas uma cópia do código do serviço será executado um nó. Se pretender várias cópias do seu código de serviço para ser executada num nó, especifique **ServicePackageActivationMode** como **ExclusiveProcess** no momento da criação do serviço. Por exemplo, pode fazer isto ao criar vários serviços (*Service1* para *ServiceN*) de *ServiceType* (especificado na *ServiceManifest*), ou quando o serviço não está particionado em várias. 
 
-## <a name="changing-hosting-model-of-an-existing-service"></a>Alterar modelo de alojamento de um serviço existente
-Alterar modelo de alojamento de um serviço de **processo partilhado** para **processo exclusivo** e vice-versa através de atualizar o mecanismo de atualização (ou especificação no manifesto de aplicação de serviço no predefinido) não é atualmente suportada. Suporte para esta funcionalidade será colocada em versões futuras.
+## <a name="change-the-hosting-model-of-an-existing-service"></a>Alterar o modelo de alojamento de um serviço existente
+À hora presente, não é possível alterar o modelo de alojamento de um serviço do processo partilhado para o processo exclusivos (ou vice-versa).
 
-## <a name="choosing-between-shared-process-and-exclusive-process-model"></a>Escolher entre processo partilhado e o modelo de processo exclusivo
-Ambos estes modelos de alojamento tem respetivo os profissionais de TI e contras e necessidades de utilizadores para avaliar a que um adequada aos requisitos do seu melhor. **Partilhado processo** modelo permite uma melhor utilização de recursos de SO porque processos menos são gerados, várias réplicas no mesmo processo podem partilhar portas, etc. No entanto, se uma das réplicas chegar a um erro em que tem de colocar para baixo o anfitrião do serviço, irá afetar todos os outras réplicas no mesmo processo.
+## <a name="choose-between-the-hosting-models"></a>Escolha entre os modelos de alojamento
+Deve avaliar o modelo de alojamento melhor se adeque às necessidades. O modelo de processo partilhado utiliza recursos do sistema operativo melhor, porque os processos menos são gerados e várias réplicas no mesmo processo podem partilhar portas. No entanto, se uma das réplicas tem um erro em que tem de colocar para baixo o anfitrião do serviço, afeta todos os outras réplicas no mesmo processo.
 
- **Processo exclusivo** modelo fornece isolamento melhor com cada réplica num processo próprio e uma réplica funcionar incorretamente não irá afetar outras réplicas. Esta é apresentada no útil nos casos em que a partilha de porta não é suportado pelo protocolo de comunicação. -Facilita a capacidade de aplicar a governação de recursos ao nível de réplica. No entanto, **processo exclusivo** irá consumir mais recursos de SO cria um processo para cada réplica no nó.
+ O modelo de processo exclusivo fornece isolamento melhor, com cada réplica num processo próprio. Se uma das réplicas tem um erro, não afetar outras réplicas. Este modelo é útil nos casos em que a partilha de porta não é suportado pelo protocolo de comunicação. -Facilita a capacidade de aplicar a governação de recursos ao nível de réplica. No entanto, o processo de exclusivo consome mais recursos de sistema operativo, como se cria um processo para cada réplica no nó.
 
-## <a name="exclusive-process-model-and-application-model-considerations"></a>Considerações de modelo do modelo de processo exclusivo e aplicação
-A forma recomendada para modelar a sua aplicação no Service Fabric é manter um *ServiceType* por *ServicePackage* e este modelo funciona bem para a maioria das aplicações. 
+## <a name="exclusive-process-model-and-application-model-considerations"></a>Considerações de modelo de modelo de processo exclusivo e a aplicação
+Para a maioria das aplicações, pode modelar a sua aplicação no Service Fabric mantendo um *ServiceType* por *ServicePackage*. 
 
-Concebida para certos casos de utilização, recursos de infraestrutura de serviço também permite que mais do que um *ServiceType* por *ServicePackage* (e um *CodePackage* pode registar mais do que um  *ServiceType*). Seguem-se alguns dos cenários em que estas configurações podem ser úteis:
+Em determinados casos, de Service Fabric também permite que mais do que um *ServiceType* por *ServicePackage* (e um *CodePackage* pode registar mais do que um  *ServiceType*). Seguem-se alguns dos cenários em que estas configurações podem ser úteis:
 
-- Pretende otimizar a utilização de recursos do SO ao gerar menos processos e ter superior densidade de réplica por processo.
-- Réplicas de ServiceTypes diferentes têm de partilhar alguns dados comuns que tem um inicialização elevada ou o custo de memória.
-- Tiver uma oferta de serviço gratuito e que pretende colocar em pausa um limite de utilização de recursos colocando todas as réplicas do serviço no mesmo processo.
+- Se pretender otimizar a utilização de recursos por gerar menos processos e ter superior densidade de réplica por processo.
+- As réplicas a partir de diferentes *ServiceTypes* necessário partilhar alguns dados comuns que tenha uma memória ou elevada inicialização custo.
+- Tiver um oferta de serviço gratuito e que pretende colocar em pausa um limite de utilização de recursos colocando todas as réplicas do serviço no mesmo processo.
 
-**Processo exclusivo** alojamento modelo não é coherent com o modelo de aplicação ter vários *ServiceTypes* por *ServicePackage*. Isto acontece porque vários *ServiceTypes* por *ServicePackage* foram concebidos para alcançar partilha entre as réplicas e permite réplica densidade superior por processo de recursos superior. Este é contrária ao disposto que **processo exclusivo** modelo foi concebido para alcançar.
+O processo exclusivo que aloja o modelo não é coherent com um modelo de aplicação ter vários *ServiceTypes* por *ServicePackage*. Isto acontece porque vários *ServiceTypes* por *ServicePackage* foram concebidos para alcançar superior recursos entre as réplicas de partilha e permite a densidade de réplica superior por processo. O modelo de processo exclusivo foi concebido para alcançar os resultados diferentes.
 
-Considere o caso de vários *ServiceTypes* por *ServicePackage* com diferentes *CodePackage* registar cada *ServiceType*. Vamos supor que temos uma *ServicePackage* 'MultiTypeServicePackge', que tem dois *CodePackages*:
+Considere o caso de vários *ServiceTypes* por *ServicePackage*, com outra *CodePackage* registar cada *ServiceType*. Vamos supor que temos uma *ServicePackage* 'MultiTypeServicePackge', que tem dois *CodePackages*:
 
 - 'MyCodePackageA', que regista *ServiceType* 'MyServiceTypeA'.
 - 'MyCodePackageB', que regista *ServiceType* 'MyServiceTypeB'.
 
-Agora, diga, criamos um *aplicação* **recursos de infraestrutura: / SpecialApp** e dentro **recursos de infraestrutura: / SpecialApp** iremos criar dois serviços com os seguintes **processo exclusivo** modelo:
+Agora, vamos supor que criamos uma aplicação, **fabric: / SpecialApp**. Dentro de **fabric: / SpecialApp**, iremos criar dois serviços com o modelo de processo exclusivo os seguintes:
 
-- Serviço **fabric: / SpecialApp/ServiceA** do tipo 'MyServiceTypeA' com duas partições (diga **P1** e **P2**) e três réplicas por partição.
-- Serviço **fabric: / SpecialApp/ServiceB** do tipo 'MyServiceTypeB' com duas partições (diga **P3** e **P4**) e três réplicas por partição.
+- Serviço **fabric: / SpecialApp/ServiceA** do tipo 'MyServiceTypeA', com duas partições (por exemplo, **P1** e **P2**) e três réplicas por partição.
+- Serviço **fabric: / SpecialApp/ServiceB** do tipo 'MyServiceTypeB', com duas partições (**P3** e **P4**) e três réplicas por partição.
 
-Num determinado nó, ambos os serviços tem duas réplicas. Uma vez que utilizámos **processo exclusivo** modelo para criar serviços, recursos de infraestrutura de serviço irá ativar uma nova cópia 'MyServicePackge' para cada réplica. Cada ativação de 'MultiTypeServicePackge' iniciará uma cópia de 'MyCodePackageA' e 'MyCodePackageB'. No entanto, apenas um dos 'MyCodePackageA' ou 'MyCodePackageB' irá alojar a réplica para o qual 'MultiTypeServicePackge' foi ativado. Diagrama seguinte mostra a vista de nó:
+Num determinado nó, ambos os serviços têm duas réplicas. Porque o modelo de processo exclusivo é utilizado para criar os serviços, o Service Fabric ativa uma nova cópia 'MyServicePackage' para cada réplica. Cada ativação de 'MultiTypeServicePackge' inicia uma cópia de 'MyCodePackageA' e 'MyCodePackageB'. No entanto, apenas um dos 'MyCodePackageA' ou 'MyCodePackageB' aloja a réplica para o qual 'MultiTypeServicePackge' foi ativado. O diagrama seguinte mostra a vista de nó:
 
-<center>
-![Vista de nó da aplicação implementada][node-view-five]
-</center>
 
-Na ativação de 'MultiTypeServicePackge' para a réplica da partição **P1** do serviço **fabric: / SpecialApp/ServiceA**, 'MyCodePackageA' está a alojar a réplica e 'MyCodePackageB' está a funcionar . Da mesma forma, na ativação de 'MultiTypeServicePackge' para a réplica da partição **P3** do serviço **fabric: / SpecialApp/ServiceB**, 'MyCodePackageB' está a alojar a réplica e 'MyCodePackageA' é de apenas cópia de segurança e em execução e assim sucessivamente. Por conseguinte, mais o número de *CodePackages* (registar diferentes *ServiceTypes*) por *ServicePackage*, maior será a utilização de recursos redundante. 
+![Diagrama de vista de nó da aplicação implementada][node-view-five]
+
+
+Na ativação de 'MultiTypeServicePackge' para a réplica da partição **P1** do serviço **fabric: / SpecialApp/ServiceA**, 'MyCodePackageA' está a alojar a réplica. 'MyCodePackageB' está em execução. Da mesma forma, na ativação de 'MultiTypeServicePackge' para a réplica da partição **P3** do serviço **fabric: / SpecialApp/ServiceB**, 'MyCodePackageB' está a alojar a réplica. 'MyCodePackageA' está em execução. Por conseguinte, o maior número de *CodePackages* (registar diferentes *ServiceTypes*) por *ServicePackage*, quanto maior for a redundante utilização de recursos. 
  
- No entanto, se criamos serviços **recursos de infraestrutura: SpecialApp/ServiceA** e **recursos de infraestrutura: SpecialApp/ServiceB** com **processo partilhado** ativados de recursos de infraestrutura de modelo, é apenas um cópia de MultiTypeServicePackge para *aplicação* **fabric: / SpecialApp** (uma vez que vimos anteriormente). 'MyCodePackageA' irá alojar todas as réplicas para o serviço **fabric: / SpecialApp/ServiceA** (ou de qualquer serviço do tipo 'MyServiceTypeA' para ser mais precisas). 'MyCodePackageB' irá alojar todas as réplicas para o serviço **fabric: / SpecialApp/ServiceB** (ou de qualquer serviço do tipo 'MyServiceTypeB' para ser mais precisas). O diagrama seguinte mostra a vista de nó nesta definição: 
+ No entanto, se criamos os serviços **fabric: / SpecialApp/ServiceA** e **recursos de infraestrutura: SpecialApp/ServiceB** com o modelo de processo partilhado, o Service Fabric ativa apenas uma cópia de ' MultiTypeServicePackge' para a aplicação **fabric: / SpecialApp**. 'MyCodePackageA' aloja todas as réplicas para o serviço **fabric: / SpecialApp/ServiceA**. 'MyCodePackageB' aloja todas as réplicas para o serviço **fabric: / SpecialApp/ServiceB**. O diagrama seguinte mostra a vista de nó nesta definição: 
 
-<center>
-![Vista de nó da aplicação implementada][node-view-six]
-</center>
 
-No exemplo anterior, se pensa se 'MyCodePackageA' regista 'MyServiceTypeA' e 'MyServiceTypeB' e não há nenhum MyCodePackageB, em seguida, existirá não redundante *CodePackage* em execução. Estiver correto, no entanto, como mencionadas anteriormente. Este modelo de aplicação não estão alinhados com **processo exclusivo** modelo de alojamento. Se o objetivo é colocar cada réplica num processo próprio dedicado, em seguida, registar ambos *ServiceTypes* do mesmo *CodePackage* não é necessária. Colocar cada *ServiceType* no seu próprio *ServicePacakge* é uma opção mais natural.
+![Diagrama de vista de nó da aplicação implementada][node-view-six]
+
+
+No exemplo anterior, se pensa que se 'MyCodePackageA' regista 'MyServiceTypeA' e 'MyServiceTypeB' e não há nenhum MyCodePackageB, em seguida, há não redundante *CodePackage* em execução. Apesar de Isto está correto, este modelo de aplicação não estão alinhados com o processo exclusivo modelo de alojamento. Se o objetivo é colocar cada réplica num processo próprio dedicado, não terá de registar ambos *ServiceTypes* do mesmo *CodePackage*. Em vez disso, basta coloca cada *ServiceType* no seu próprio *ServicePackage*.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Uma aplicação do pacote] [ a4] e prepará-lo a implementar.
 
-[Implementar e remover aplicações] [ a5] descreve como utilizar o PowerShell para gerir instâncias da aplicação.
+[Implementar e remover aplicações][a5]. Este artigo descreve como utilizar o PowerShell para gerir instâncias da aplicação.
 
 <!--Image references-->
 [node-view-one]: ./media/service-fabric-hosting-model/node-view-one.png

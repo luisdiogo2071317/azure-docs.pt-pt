@@ -1,5 +1,5 @@
 ---
-title: "Começar a utilizar com a auditoria de base de dados SQL do Azure | Microsoft Docs"
+title: Começar a utilizar com a auditoria de base de dados SQL do Azure | Microsoft Docs
 description: Utilize a auditoria de base de dados SQL do Azure para controlar eventos de base de dados para um registo de auditoria.
 services: sql-database
 author: giladm
@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 0339dc2ecc93fb9ec260ede9d3f2e9b7b1419b08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 Auditoria de base de dados SQL do Azure controla os eventos de base de dados e escreve-los para uma auditoria iniciar sessão na sua conta do storage do Azure. Auditoria também:
@@ -118,7 +118,7 @@ Existem vários métodos que pode utilizar para ver os registos de auditoria de 
 
     4. Para abrir o ficheiro intercalado no SSMS, onde pode ver e analisá-lo, bem como de exportá-lo para um ficheiro XEL ou CSV ou a uma tabela.
 
-* Utilize o [sincronizar aplicações](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que foi criado. Este é executado no Azure e utiliza o Operations Management Suite (OMS) análise de registos APIs públicas para enviar registos de auditoria SQL para OMS. A aplicação de sincronização pushes registos de auditoria SQL para análise de registos do OMS para consumo através do dashboard de análise de registos do OMS.
+* Utilize o [sincronizar aplicações](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que foi criado. Este é executado no Azure e utiliza a análise de registos APIs públicas para enviar registos de auditoria SQL para análise de registos. A aplicação de sincronização pushes registos de auditoria SQL para análise de registos para consumo através do dashboard de análise de registos.
 
 * Utilize o Power BI. Pode ver e analisar dados de registo de auditoria no Power BI. Saiba mais sobre [Power BI e acesso de um modelo transferível](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 

@@ -2,12 +2,12 @@
 title: Transferir um VHD de Linux a partir do Azure | Microsoft Docs
 description: Transferir um VHD de Linux utilizando a CLI do Azure e o portal do Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 20af28dd4caa6ee5487b9a2ed83715b9b16fad48
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d177e8de7ace571c57a0b8b39c8834fb5b115365
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Transferir um VHD de Linux a partir do Azure
 
@@ -35,10 +35,10 @@ Não é possível transferir um VHD a partir do Azure se está ligado a uma VM e
 
 Para utilizar o VHD como uma imagem para criar outras VMs, conclua estes passos:
 
-1. Utilize o SSH, o nome da conta e o endereço IP público da VM para ligar à mesma e desaprovisioná-lo. O + parâmetro user também remove a última conta de utilizador aprovisionado. Se estiver baking credenciais de conta para a VM, deixe terminar este + parâmetro de utilizador. O exemplo a seguir remove a última conta de utilizador aprovisionado:
+1. Utilize o SSH, o nome da conta e o endereço IP público da VM para ligar à mesma e desaprovisioná-lo. Pode encontrar o endereço IP público com [mostrar de ip público de rede az](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). O + parâmetro user também remove a última conta de utilizador aprovisionado. Se estiver baking credenciais de conta para a VM, deixe terminar este + parâmetro de utilizador. O exemplo a seguir remove a última conta de utilizador aprovisionado:
 
     ```bash
-    ssh azureuser@40.118.249.235
+    ssh azureuser@<publicIpAddress>
     sudo waagent -deprovision+user -force
     exit 
     ```

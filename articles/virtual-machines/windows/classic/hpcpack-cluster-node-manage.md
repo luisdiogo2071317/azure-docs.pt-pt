@@ -1,11 +1,11 @@
 ---
-title: "Gerir os nós de computação de cluster HPC Pack | Microsoft Docs"
-description: "Saiba mais sobre as ferramentas de script do PowerShell para adicionar, remover, iniciar e parar nós de computação de cluster HPC Pack 2012 R2 no Azure"
+title: Gerir os nós de computação de cluster HPC Pack | Microsoft Docs
+description: Saiba mais sobre as ferramentas de script do PowerShell para adicionar, remover, iniciar e parar nós de computação de cluster HPC Pack 2012 R2 no Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 4193f03b-94e9-4704-a7ad-379abde063a9
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 453f53be15b24b96f183b4935cc45fc97ad058bd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Gerir o número e a disponibilidade de nós de computação num cluster HPC Pack no Azure
 Se tiver criado um cluster HPC Pack 2012 R2 em VMs do Azure, é aconselhável formas de facilmente adicionar, remover, iniciar (aprovisionar) ou a parar (deprovision) algumas VMs de nó do cluster de computação. Para efetuar estas tarefas, execute scripts do PowerShell do Azure que estão instaladas no nó principal do VM. Estes scripts ajudam a controlar o número e a disponibilidade dos seus recursos de cluster HPC Pack, pelo que pode controlar os custos.
@@ -147,6 +147,6 @@ O exemplo seguinte força nós offline com nomes a partir *HPCNode-CN -* e, em s
 Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para automaticamente aumentar ou diminuir os nós de cluster, de acordo com a atual carga de trabalho de trabalhos e tarefas no cluster, consulte o artigo [automaticamente aumentar e diminuir os recursos de cluster HPC Pack no Azure, de acordo com a carga de trabalho de cluster](hpcpack-cluster-node-autogrowshrink.md).
 

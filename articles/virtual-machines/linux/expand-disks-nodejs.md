@@ -1,12 +1,12 @@
 ---
 title: Expanda o disco do SO na VM com Linux com a CLI do Azure 1.0 | Microsoft Docs
-description: "Saiba como expandir o disco virtual do sistema operativo (SO) numa VM com Linux utilizando a CLI do Azure 1.0 e o modelo de implementação Resource Manager"
+description: Saiba como expandir o disco virtual do sistema operativo (SO) numa VM com Linux utilizando a CLI do Azure 1.0 e o modelo de implementação Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f81054727bb1f0e8ffa752783e866a72d573589d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Expanda o disco do SO numa VM com Linux utilizando a CLI do Azure com a CLI do Azure 1.0
 O tamanho de disco rígido virtual predefinido para o sistema operativo (SO) é, geralmente, 30 GB numa máquina virtual (VM) do Linux no Azure. Pode [adicionar discos de dados](add-disk.md) fornecer espaço de armazenamento adicional, mas também pode pretender expandir o disco de SO. Este artigo fornece detalhes sobre como expandir o disco de SO para uma VM com Linux utilizando discos não geridos com a CLI do Azure 1.0.
@@ -47,7 +47,7 @@ Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo com os seu
     ```
 
     > [!NOTE]
-    > `azure vm stop`não libertar os recursos de computação. Para libertar recursos de computação, utilize `azure vm deallocate`. A VM tem de ser desalocada para expandir o disco rígido virtual.
+    > `azure vm stop` não libertar os recursos de computação. Para libertar recursos de computação, utilize `azure vm deallocate`. A VM tem de ser desalocada para expandir o disco rígido virtual.
 
 2. Atualizar o tamanho da utilização de disco de SO não geridos a `azure vm set` comando. O exemplo seguinte atualiza a VM com o nome *myVM* no grupo de recursos denominado *myResourceGroup* ser *50* GB:
 
@@ -73,5 +73,5 @@ Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo com os seu
     /dev/sda1        49G  1.3G   48G   3% /
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se precisar de armazenamento adicional, também [adicionar discos de dados para uma VM com Linux](add-disk.md). Para obter mais informações sobre a encriptação de disco, consulte [encriptar discos numa VM com Linux utilizando a CLI do Azure](encrypt-disks.md).

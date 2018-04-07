@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Auditoria e registo do Azure
 ## <a name="introduction"></a>Introdução
@@ -74,7 +74,7 @@ A tabela seguinte lista o tipo mais importante de registos disponíveis no Azure
 |[Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Registo de armazenamento e fornece dados de métricas para uma conta de armazenamento|Fornece informações para pedidos de rastreio, analisar tendências de utilização e diagnosticar problemas com a sua conta de armazenamento.|    REST API ou o [biblioteca de clientes](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Registos de fluxo NSG (grupo de segurança de rede)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON e mostra os fluxos de saída e entrados numa base por regra|Ver informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede|[Observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Informações de aplicação](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Os registos, exceções e diagnóstico personalizado|    Serviço de gestão de desempenho (APM) de aplicação para programadores de web em várias plataformas.| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|Processar os dados / alerta de segurança| Alerta de centro de segurança do Azure, o alerta do OMS| As informações de segurança e alertas.|   REST APIs, JSON|
+|Processar os dados / alerta de segurança| Alerta de centro de segurança do Azure, o alerta de análise do registo|   As informações de segurança e alertas.|   REST APIs, JSON|
 
 ### <a name="activity-log"></a>Registo de Atividades
 O [registo de atividade do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), fornece informações sobre as operações que foram executadas no recursos na sua subscrição. O registo de atividade era anteriormente conhecido como "Registos de auditoria" ou "Registos operacionais", uma vez que esta comunica [eventos de controlo plane](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) para as suas subscrições. Utilizar o registo de atividade, poderá determinar o "o que, quem e quando" para quaisquer operações (PUT, POST, DELETE) efetuadas nos recursos na sua subscrição de escrita. Também pode compreender o estado da operação e outras propriedades relevantes. O registo de atividade não inclui as operações de leitura (GET).
@@ -114,7 +114,7 @@ Os registos de diagnóstico do Azure oferecem várias opções de configuração
 
 -   [Transmiti-las para os Event Hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) para ingestão por um serviço independente ou uma solução de análise personalizada, tal como [PowerBI.](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
--   Analisá-los com [análise de registos do OMS.](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+-   Analisá-los com [análise de registos](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 
 **Serviços, suportados pelo esquema para os registos de diagnóstico e categorias de registo suportado por tipo de recurso**
 
@@ -333,11 +333,11 @@ Muitas operações de segurança e as equipas de resposta a incidentes dependem 
 
 ## <a name="log-analytics"></a>Log Analytics
 
-Análise de registos é um serviço no [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) que ajuda a recolher e analisar dados gerados pelos recursos na sua nuvem e no local ambientes. Fornece informações em tempo real, utilizando a pesquisa integrada e dashboards personalizados para analisar prontamente milhões de registos em todas as suas cargas de trabalho e servidores, independentemente da respetiva localização física.
+Análise de registos é um serviço no Azure ajuda-o a recolher e analisar dados gerados pelos recursos na sua nuvem e no local ambientes. Fornece informações em tempo real, utilizando a pesquisa integrada e dashboards personalizados para analisar prontamente milhões de registos em todas as suas cargas de trabalho e servidores, independentemente da respetiva localização física.
 
 ![Log Analytics](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-No centro do Log Analytics é o repositório do OMS, que está alojado na nuvem do Azure. Os dados são recolhidos no repositório a partir de origens ligadas mediante a configuração das origens de dados e da adição de soluções à sua subscrição. As origens de dados e as soluções criarão, cada uma, diferentes tipos de registos que têm os seus próprios conjuntos de propriedades, mas que podem ser analisados em conjunto em consultas feitas no repositório. Desta forma, pode utilizar as mesmas ferramentas e métodos para trabalhar com diversos tipos de dados recolhidos por diferentes origens.
+No centro do Log Analytics é a área de trabalho de análise de registos, que está alojada na nuvem do Azure. Dados são recolhidos para a área de trabalho de origens ligadas por configurar origens de dados e soluções de adicionar à sua subscrição. Origens de dados e soluções irão cada criar tipos de registo diferentes que tenham o seu próprio conjunto de propriedades mas que podem ser analisados em conjunto nas consultas para a área de trabalho. Desta forma, pode utilizar as mesmas ferramentas e métodos para trabalhar com diversos tipos de dados recolhidos por diferentes origens.
 
 As origens ligadas são os computadores e outros recursos que geram os dados recolhidos pelo Log Analytics. Isto pode incluir agentes instalados na [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) e [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) computadores que estabelecem ligação diretamente ou agentes em [um grupo de gestão do System Center Operations Manager ligado.](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents) Análise de registos também pode recolher dados a partir de [storage do Azure.](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)
 

@@ -1,27 +1,22 @@
 ---
-title: Tarefa de dimensionamento com as funções do Azure Stream Analytics & AzureML | Microsoft Docs
-description: Saiba como dimensionar corretamente tarefas do Stream Analytics (criação de partições, a quantidade SU e mais) ao utilizar as funções do Azure Machine Learning.
-keywords: ''
-documentationcenter: ''
+title: Dimensionar as funções de Machine Learning no Azure Stream Analytics
+description: Este artigo descreve como dimensionar as tarefas do Stream Analytics que utilizam as funções de Machine Learning, configurando as unidades de criação de partições e o fluxo.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: dd6effab3ba0b411131414bd757ffe8cc54e49d2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 015312ab95d6dd5615a5f5bc62d270d46b795ffa
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Dimensionar a sua tarefa do Stream Analytics com as funções do Azure Machine Learning
-Muitas vezes, é fácil de configurar uma tarefa de Stream Analytics e executar alguns dados de exemplo através do mesmo. O que podemos fazer quando é necessário executar a mesma tarefa com o volume de dados superior? Requer-nos compreender como configurar a tarefa de Stream Analytics para que o se dimensiona. Neste documento, iremos focar-se nos aspetos de especiais de dimensionamento tarefas do Stream Analytics com as funções de Machine Learning. Para obter informações sobre como dimensionar as tarefas do Stream Analytics em geral, consulte o artigo [dimensionamento tarefas](stream-analytics-scale-jobs.md).
+É diretamente reencaminhar para configurar uma tarefa de Stream Analytics e executar alguns dados de exemplo através do mesmo. O que podemos fazer quando é necessário executar a mesma tarefa com o volume de dados superior? Requer-nos compreender como configurar a tarefa de Stream Analytics para que o se dimensiona. Neste documento, iremos focar-se nos aspetos de especiais de dimensionamento tarefas do Stream Analytics com as funções de Machine Learning. Para obter informações sobre como dimensionar as tarefas do Stream Analytics em geral, consulte o artigo [dimensionamento tarefas](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>O que é uma função do Azure Machine Learning no Stream Analytics?
 Uma função de Machine Learning no Stream Analytics pode ser utilizada como uma chamada de função regulares no idioma de consulta do Stream Analytics. No entanto, atrás cena, as chamadas de função são, na verdade, os pedidos de serviço Web do Azure Machine Learning. Serviços web Machine Learning suportam "criação de batches" várias linhas, denominado mini batch, a mesma API chamada de serviço web, para melhorar o débito global. Consulte os artigos seguintes para obter mais detalhes; [Funções do azure Machine Learning no Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) e [serviços Web do Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
@@ -111,7 +106,7 @@ Para resumir os pontos principais, para poder dimensionar uma tarefa de Stream A
 2. A latência tolerated para a tarefa de Stream Analytics em execução (e, consequentemente, o tamanho do lote dos pedidos de serviço web do Machine Learning)
 3. O aprovisionamento SUs de análise de fluxo e o número de pedidos de serviço web Machine Learning (os relacionadas com a função custos adicionais)
 
-Uma consulta do Stream Analytics totalmente particionada foi utilizada como exemplo. Se necessitar de uma consulta mais complexa o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) é um ótimo recurso para obter ajuda adicional da equipa do Stream Analytics.
+Uma consulta do Stream Analytics totalmente particionada foi utilizada como exemplo. Se necessitar de uma consulta mais complexa o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) é um ótimo recurso para obter ajuda adicional da equipa do Stream Analytics.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre o Stream Analytics, consulte:

@@ -1,19 +1,19 @@
 ---
 title: Funcionalidades de JSON de base de dados SQL do Azure | Microsoft Docs
-description: "Base de dados SQL do Azure permite-lhe analisar, consulta e dados do formato na notação de JavaScript Object Notation (JSON)."
+description: Base de dados SQL do Azure permite-lhe analisar, consulta e dados do formato na notação de JavaScript Object Notation (JSON).
 services: sql-database
 author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.date: 11/15/2016
+ms.date: 04/01/2018
 ms.author: jovanpop
 ms.topic: article
-ms.openlocfilehash: 353a1cc99f122c773f0a005a20f04391236ad913
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f36d7b551a0ff89589564f5f9170aa24f62a61ad
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introdução às funcionalidades JSON na SQL Database do Azure
 Azure base de dados SQL permite-lhe analisar e consulta dados representados no JavaScript Object Notation [(JSON)](http://www.json.org/) formatar e exportar os dados relacionais como texto JSON.

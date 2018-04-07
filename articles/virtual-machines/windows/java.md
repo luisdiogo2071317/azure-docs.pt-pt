@@ -1,13 +1,13 @@
 ---
-title: "Criar e gerir uma Máquina Virtual do Azure utilizando Java | Microsoft Docs"
-description: "Utilize o Java e o Azure Resource Manager para implementar uma máquina virtual e todos os respetivos recursos de suporte."
+title: Criar e gerir uma Máquina Virtual do Azure utilizando Java | Microsoft Docs
+description: Utilize o Java e o Azure Resource Manager para implementar uma máquina virtual e todos os respetivos recursos de suporte.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: b970b7a5e1db6d8580ede9699d4776a79e03c98f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: da8f8b0e84a51683bd4f631832e1f319f3a9bbb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerir VMs do Windows no Azure utilizando Java
 
@@ -133,7 +133,7 @@ Antes de começar este passo, certifique-se de que tem acesso a um [principal de
     graphURL=https://graph.windows.net/
     ```
 
-    Substitua  **&lt;id de subscrição&gt;**  com o identificador de subscrição,  **&lt;id da aplicação&gt;**  com a aplicação do Active Directory Identificador,  **&lt;chave de autenticação&gt;**  com a chave de aplicação, e  **&lt;id do inquilino&gt;**  com o identificador de inquilino.
+    Substitua **&lt;id de subscrição&gt;** com o identificador de subscrição, **&lt;id da aplicação&gt;** com a aplicação do Active Directory Identificador, **&lt;chave de autenticação&gt;** com a chave de aplicação, e **&lt;id do inquilino&gt;** com o identificador de inquilino.
 
 2. Guarde o ficheiro.
 3. Defina uma variável de ambiente com o nome AZURE_AUTH_LOCATION na sua shell com o caminho completo para o ficheiro de autenticação.
@@ -320,7 +320,7 @@ azure.virtualMachines.define("myVM")
 
 ## <a name="perform-management-tasks"></a>Executar tarefas de gestão
 
-Durante o ciclo de vida de uma máquina virtual, poderá querer executar tarefas de gestão, tais como iniciar, parar ou eliminar uma máquina virtual. Além disso, pode querer criar código para automatizar tarefas repetitivas ou complexas.
+Durante o ciclo de vida de uma máquina virtual, poderá querer executar tarefas de gestão, como iniciar, parar ou eliminar uma máquina virtual. Além disso, pode querer criar código para automatizar tarefas repetitivas ou complexas.
 
 Quando precisar de fazer nada, com a VM, terá de obter uma instância do mesmo. Adicione este código para o bloco try do método principal:
 
@@ -470,6 +470,6 @@ Deve demorar cerca de cinco minutos para esta aplicação de consola executar to
 2. Antes de premir **Enter** para iniciar a eliminação de recursos, pode demorar alguns minutos para verificar a criação dos recursos no portal do Azure. Clique no estado de implementação para ver informações sobre a implementação.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre como utilizar o [bibliotecas do Azure para Java](https://docs.microsoft.com/java/azure/java-sdk-azure-overview).
 

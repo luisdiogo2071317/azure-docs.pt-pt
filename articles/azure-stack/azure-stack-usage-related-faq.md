@@ -1,9 +1,25 @@
- ---
-Título: Perguntas mais frequentes relacionadas com a API de utilização | Descrição da Microsoft Docs: medidores de lista de pilha do Azure, comparar com a API de utilização do Azure, tempo de utilização e comunicadas hora, códigos de erro.
-serviços: documentationcenter de pilha do azure: ' autor: Gestor mattbriggs: femila editor: '
-
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071 ms.service: azure-stack ms.workload: na ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 03/09/2018 ms.author: mabrigg ms.reviewer: alfredop
-
+---
+title: Perguntas mais frequentes relacionadas com a API de utilização | Microsoft Docs
+description: Lista de medidores de pilha do Azure, a comparação com a API de utilização do Azure, tempo de utilização e comunicadas hora, códigos de erro.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/09/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 3d6f2bf569ecfebe3bf4f535a7a8ab3bf22849f1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Perguntas mais frequentes sobre a utilização de pilha de Azure API do
 Este artigo responde a algumas perguntas mais frequentes sobre a API de utilização de pilha do Azure.

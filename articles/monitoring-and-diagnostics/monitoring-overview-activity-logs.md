@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 6e373740d6b5af4b3b7d3dca8877c952d79f8b20
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividade do Azure
+
 O **registo de atividade do Azure** é um registo de subscrição que fornece informações sobre os eventos de nível de subscrição ocorridos no Azure. Isto inclui uma série de dados, a partir dos dados operacionais do Azure Resource Manager para atualizações de eventos de estado de funcionamento do serviço. O registo de atividade era anteriormente conhecido como "Registos de auditoria" ou "Registos operacionais," dado que os eventos de controlo plane de relatórios de categoria administrativa para as suas subscrições. Utilizar o registo de atividade, poderá determinar o ' que, quem e quando ' para quaisquer operações (PUT, POST, DELETE) efetuadas nos recursos na sua subscrição de escrita. Também pode compreender o estado da operação e outras propriedades relevantes. O registo de atividade não incluir operações de leitura (GET) ou as operações para recursos que utilizam clássica / modelo "RDFE".
 
 ![Atividade registos vs outros tipos de registos ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
@@ -37,9 +38,7 @@ O registo de atividade é diferente do [os registos de diagnóstico](monitoring-
 Pode obter eventos a partir do seu registo de atividade no portal do Azure, CLI, cmdlets do PowerShell e a API de REST de Monitor do Azure.
 
 > [!NOTE]
-
->  [Os alertas mais recentes)](monitoring-overview-unified-alerts.md) oferece uma experiência melhorada quando criar e gerir atividade regras de alerta de registo.  [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
-
+>  [Os alertas mais recentes](monitoring-overview-unified-alerts.md) oferece uma experiência melhorada quando criar e gerir atividade regras de alerta de registo.  [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
 
 Veja o vídeo seguinte introduzindo o registo de atividade.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
@@ -103,7 +102,7 @@ A **registo perfil** controla a forma como o registo de atividade é exportado. 
 * Em que regiões (localizações) devem ser exportados. Certifique-se incluir "global," conforme muitos eventos no registo de atividade são globais.
 * Quanto o registo de atividade deve ser mantido na conta de armazenamento.
     - Uma retenção de zero dias significa que os registos são mantidos indefinidamente. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 2147483647.
-    - Se as políticas de retenção estão definidas, mas armazenar os registos numa conta do Storage está desativada (por exemplo, se apenas as opções de Event Hubs ou OMS estão selecionadas), as políticas de retenção não tem qualquer efeito.
+    - Se as políticas de retenção estão definidas, mas armazenar os registos numa conta do Storage está desativada (por exemplo, se apenas as opções de Event Hubs ou análise de registos são selecionadas), as políticas de retenção não tem qualquer efeito.
     - As políticas de retenção são aplicada por-dia, no fim do dia (UTC), registos a partir do dia em que é agora a retenção política são eliminadas. Por exemplo, se tiver uma política de retenção de um dia, no início do dia de hoje os registos de ontem de antes do dia seriam eliminados.
 
 Pode utilizar um armazenamento conta ou event hub espaço de nomes que não se encontra na mesma subscrição que aquele emitir os registos. O utilizador que configura a definição tem de ter o acesso adequado do RBAC para ambas as subscrições.
@@ -129,12 +128,15 @@ Pode transmitir o registo de atividade para um Hub de eventos ou armazená-las n
 4. Clique em **guardar** para guardar estas definições. As definições são imediatamente aplicadas à sua subscrição.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Configurar perfis de registo utilizando os Cmdlets do PowerShell do Azure
+
 #### <a name="get-existing-log-profile"></a>Obter o perfil de registo existente
+
 ```
 Get-AzureRmLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Adicionar um perfil de registo
+
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
@@ -153,33 +155,32 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Configurar perfis de registo utilizando a CLI de plataforma do Azure
+### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Configurar perfis de registo utilizando o 2.0 CLI do Azure
+
 #### <a name="get-existing-log-profile"></a>Obter o perfil de registo existente
+
+```azurecli
+az monitor log-profiles list
+az monitor log-profiles show --name <profile name>
 ```
-azure insights logprofile list
-```
-```
-azure insights logprofile get --name my_log_profile
-```
+
 O `name` propriedade deve ser o nome do perfil do registo.
 
 #### <a name="add-a-log-profile"></a>Adicionar um perfil de registo
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+
+```azurecli
+az monitor log-profiles create --name <profile name> \
+    --locations <location1 location2 ...> \
+    --location <location> \
+    --categories <category1 category2 ...>
 ```
 
-| Propriedade | Necessário | Descrição |
-| --- | --- | --- |
-| nome |Sim |Nome do perfil do registo. |
-| storageId |Não |ID de recurso da conta do Storage para o qual deverá ser guardado o registo de atividade. |
-| serviceBusRuleId |Não |ID de regra de barramento de serviço para o espaço de nomes do Service Bus que gostaria de ter os event hubs criados no. É uma cadeia com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| localizações |Sim |Lista separada por vírgulas das regiões para as quais pretende recolher eventos de registo de atividade. |
-| retentionInDays |Sim |Número de dias para que eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os registos indefinidamente (indefinidamente). |
-| categorias |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidas. Os valores possíveis são escrita, a eliminação e a ação. |
+Para obter a documentação completa para criar um perfil de monitor com a CLI, consulte o [referência de comandos da CLI](/cli/azure/monitor/log-profiles#az-monitor-log-profiles-create)
 
 #### <a name="remove-a-log-profile"></a>Remover um perfil de registo
-```
-azure insights logprofile delete --name my_log_profile
+
+```azurecli
+az monitor log-profiles delete --name <profile name>
 ```
 
 ## <a name="next-steps"></a>Próximos Passos

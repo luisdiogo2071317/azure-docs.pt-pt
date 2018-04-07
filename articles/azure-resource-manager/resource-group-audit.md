@@ -1,8 +1,8 @@
 ---
 title: Ver registos de atividade do Azure para monitorizar recursos | Microsoft Docs
-description: "Utilize os registos de atividade para ações de utilizador de revisão e erros. Mostra o PowerShell Portal do Azure, CLI do Azure e REST."
+description: Utilize os registos de atividade para ações de utilizador de revisão e erros. Mostra o PowerShell Portal do Azure, CLI do Azure e REST.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -12,15 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 990c3ed8c6fd79430b27c7c96673f7845e54b26f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Ver registos de atividade para auditar as ações em recursos
+
 Através de registos de atividade, poderá determinar:
 
 * as operações que foram executadas nos recursos na sua subscrição
@@ -38,6 +39,7 @@ Registos de atividade são mantidos durante 90 dias. Pode consultar qualquer int
 Pode obter informações a partir de registos de atividade através do portal, do PowerShell, a CLI do Azure, a API de REST de Insights, ou [Insights .NET biblioteca](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## <a name="portal"></a>Portal
+
 1. Para ver os registos de atividade através do portal, selecione **Monitor**.
    
     ![Selecione os registos de atividade](./media/resource-group-audit/select-monitor.png)
@@ -68,6 +70,7 @@ Pode obter informações a partir de registos de atividade através do portal, d
     ![operação de vista](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
+
 1. Para obter as entradas de registo, execute o **Get-AzureRmLog** comando. Fornecer parâmetros adicionais para filtrar a lista de entradas. Se não especificar uma hora de início e de fim, são devolvidas as entradas de última hora. Por exemplo, para obter as operações de um grupo de recursos durante a hora anterior a executar:
 
   ```powershell
@@ -136,17 +139,20 @@ Pode obter informações a partir de registos de atividade através do portal, d
 
 
 ## <a name="azure-cli"></a>CLI do Azure
-* Para obter as entradas de registo, execute o **mostrar de registo de grupo do azure** comando.
+
+Para obter as entradas de registo, execute o [lista de registo de atividade do monitor az](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) comando.
 
   ```azurecli
-  azure group log show ExampleGroup --json
+  az monitor activity-log list --resource-group <group name>
   ```
 
 
 ## <a name="rest-api"></a>API REST
+
 As operações REST para trabalhar com o registo de atividade são parte a [Insights API de REST](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para obter eventos de registo de atividade, consulte [lista os eventos de gestão numa subscrição](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * Os registos de atividade do Azure podem ser utilizados com o Power BI para obter mais informações sobre as ações na sua subscrição. Consulte [ver e analisar registos de atividade do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * Para saber mais sobre a definição de políticas de segurança, consulte [controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md).
 * Para saber mais sobre os comandos para ver as operações de implementação, consulte [ver as operações de implementação](resource-manager-deployment-operations.md).

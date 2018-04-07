@@ -1,10 +1,10 @@
 ---
-title: "Inicie sessão numa VM do Azure clássico | Microsoft Docs"
-description: "Utilize o portal do Azure para iniciar sessão na máquina virtual do Windows criada com o modelo de implementação clássica."
+title: Inicie sessão numa VM do Azure clássico | Microsoft Docs
+description: Utilize o portal do Azure para iniciar sessão na máquina virtual do Windows criada com o modelo de implementação clássica.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: c35bfeaa81f89dc5a636d67ed9a2a930d689c54a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bcbebc216dbd63acfb33cf72ba774d088149a3a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Iniciar sessão numa máquina virtual do Windows através do portal do Azure
 No portal do Azure, utilize o **Connect** botão para iniciar uma sessão de ambiente de trabalho remoto e inicie sessão numa VM do Windows.
@@ -40,7 +40,7 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 1. Inicie sessão no Portal do Azure.
 2. Clique na máquina virtual que pretende aceder. O nome está listado no **todos os recursos** painel.
 
-    ![Localizações de máquina virtual](./media/connect-logon/azureportaldashboard.png)
+    ![Virtual-machine-locations](./media/connect-logon/azureportaldashboard.png)
 
 3. Clique em **Connect** na barra de comando visível o dashboard de máquina virtual.
 
@@ -60,10 +60,10 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 ## <a name="next-steps"></a>Passos Seguintes
 * Se o **Connect** botão está inativo ou tenha outros problemas com a ligação de ambiente de trabalho remoto, tente a repor a configuração. Clique em **reponha o acesso remoto** partir do dashboard de máquina virtual.
 
-    ![Reposição-remota-acesso](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
+    ![Reset-remote-access](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
 
 * Para problemas com a palavra-passe, tente repor. Clique em **Repor palavra-passe** ao longo do limite esquerdo do virtual machine dashboard, em **suporte + resolução de problemas**.
 
-    ![Reposição de palavra-passe](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
+    ![Reset-password](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
 
 Se estas sugestões não funcionam ou não são o que precisa de, consulte [ligações de resolução de problemas de ambiente de trabalho remoto para uma baseado no Windows Azure Máquina Virtual](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Este artigo orienta-o ao longo do diagnóstico e da resolução de problemas comuns.

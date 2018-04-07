@@ -1,19 +1,19 @@
 ---
-title: "Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho da aplicação SQL Database do Azure"
-description: "O tópico fornece uma prova que operações de base de dados lotes imroves significativamente a velocidade e escalabilidade das suas aplicações de base de dados do Azure SQL. Embora estas técnicas de lotes de trabalho para qualquer base de dados do SQL Server, o foco do artigo é no Azure."
+title: Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho da aplicação SQL Database do Azure
+description: O tópico fornece uma prova que operações de base de dados lotes imroves significativamente a velocidade e escalabilidade das suas aplicações de base de dados do Azure SQL. Embora estas técnicas de lotes de trabalho para qualquer base de dados do SQL Server, o foco do artigo é no Azure.
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL
 Criação de batches de operações para a SQL Database do Azure significativamente melhora o desempenho e a escalabilidade das suas aplicações. Para compreender as vantagens, a primeira parte deste artigo abrange alguns resultados do teste de exemplo que comparam sequenciais e batches pedidos para uma base de dados do SQL Server. O resto do artigo mostra as técnicas, cenários e as considerações para ajudar a utilizar a criação de batches com êxito nas suas aplicações do Azure.
@@ -154,7 +154,7 @@ No código, crie um **DataTable** com os nomes de mesmos exatos e tipos de tipo 
         cmd.ExecuteNonQuery();
     }
 
-No exemplo anterior, o **SqlCommand** objeto insere linhas de um parâmetro de valor de tabela,  **@TestTvp** . Criado anteriormente **DataTable** objeto está atribuído para este parâmetro com o **SqlCommand.Parameters.Add** método. Criação de batches inserções numa chamada significativamente aumenta o desempenho através de inserções sequenciais.
+No exemplo anterior, o **SqlCommand** objeto insere linhas de um parâmetro de valor de tabela, **@TestTvp**. Criado anteriormente **DataTable** objeto está atribuído para este parâmetro com o **SqlCommand.Parameters.Add** método. Criação de batches inserções numa chamada significativamente aumenta o desempenho através de inserções sequenciais.
 
 Para melhorar ainda mais o exemplo anterior, utilize um procedimento armazenado em vez de um comando baseado em texto. O comando de Transact-SQL seguinte cria um procedimento armazenado que aceita o **SimpleTestTableType** parâmetro de valor de tabela.
 

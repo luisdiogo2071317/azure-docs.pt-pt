@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral de segurança de recursos de infraestrutura de serviço do Azure | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral de segurança do Azure Service Fabric."
+title: Descrição geral de segurança de recursos de infraestrutura de serviço do Azure | Microsoft Docs
+description: Este artigo fornece uma descrição geral de segurança do Azure Service Fabric.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9b6c2463c2a782f463e64d6e350a565fa7898b63
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-service-fabric-security-overview"></a>Descrição geral de segurança do Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) é uma plataforma de sistemas distribuídos que facilita a pacote, implementar e gerir micro-serviços escaláveis e fiáveis. Service Fabric aborda os desafios significativos de desenvolvimento e gestão de aplicações em nuvem. Permite, assim, que os programadores e administradores evitem problemas complexos de infraestrutura e se concentrem na implementação de cargas de trabalho exigentes e fundamentais que sejam dimensionáveis, fiáveis e geríveis.
@@ -104,7 +104,7 @@ O fluxo de trabalho geral de monitorização e diagnóstico consiste em três pa
 
 -   **Agregação de evento:** Generated eventos tem de ser recolhidos e agregados antes que podem ser apresentados. Normalmente, recomendamos que utilize [diagnósticos do Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (semelhantes a recolha de registos com base no agente) ou [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (-processo de recolha de registos).
 
--   **Análise:** eventos tem de ser visualizadas e acessível algumas formato, para permitir a análise e da apresentação. Existem várias plataformas para a análise e visualização de dados de monitorização e diagnóstico. Os dois que recomendamos são [Operations Management Suite](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) e [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) devido ao respetiva bom integração com o Service Fabric.
+-   **Análise:** eventos tem de ser visualizadas e acessível algumas formato, para permitir a análise e da apresentação. Existem várias plataformas para a análise e visualização de dados de monitorização e diagnóstico. Os dois que recomendamos são [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) e [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) devido ao respetiva bom integração com o Service Fabric.
 
 Também pode utilizar [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) monitorizar muitos dos recursos do Azure no qual baseia-se um cluster do Service Fabric.
 
@@ -189,6 +189,6 @@ A segurança é um dos aspetos mais importantes de comunicação. A estrutura da
 -   [Ajudar a proteger um serviço quando estiver a utilizar a comunicação remota do serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication)
 -   [Ajudar a proteger um serviço quando estiver a utilizar uma pilha de comunicação baseada em WCF](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication#help-secure-a-service-when-youre-using-a-wcf-based-communication-stack)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter informações concetuais sobre a segurança do cluster, consulte [criar um cluster do Service Fabric com o Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) e [portal do Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal).
 - Para saber mais sobre a segurança do cluster no Service Fabric, consulte [segurança de cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).

@@ -2,7 +2,6 @@
 title: Gerir as contas administrativas de acesso de emergência no Azure AD | Microsoft Docs
 description: Este artigo descreve como utilizar contas de acesso de emergência para ajudar as organizações a restringir o acesso privilegiado num ambiente existente do Azure Active Directory.
 services: active-directory
-keywords: Não adicione nem edite as palavras-chave sem consultar o perito em SEO.
 author: markwahl-msft
 ms.author: billmath
 ms.date: 12/13/2017
@@ -11,11 +10,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 1545fb9a89794a74efbb855c4480040973c3308e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5c256befba4c73527b529c953f7b9cd4d266450c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Gerir as contas administrativas de acesso de emergência no Azure AD 
 

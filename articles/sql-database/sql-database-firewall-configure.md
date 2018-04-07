@@ -1,6 +1,6 @@
 ---
 title: As regras de firewall de base de dados SQL do Azure | Microsoft Docs
-description: "Saiba como configurar uma firewall de base de dados SQL com regras de firewall ao nível do servidor e da base de dados para gerir o acesso."
+description: Saiba como configurar uma firewall de base de dados SQL com regras de firewall ao nível do servidor e da base de dados para gerir o acesso.
 keywords: firewall de base de dados
 services: sql-database
 author: CarlRabeler
@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: cde076dfdcc2f3aea69081def7ea86be2744ccc7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d68ae802e37b5d0b8421099894da43a0559f2fc2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Regras de firewall ao nível do servidor e o nível de base de dados de base de dados SQL do Azure 
 

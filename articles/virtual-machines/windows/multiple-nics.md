@@ -1,11 +1,11 @@
 ---
-title: "Criar e gerir VMs do Windows no Azure que utilizar vários NICs | Microsoft Docs"
-description: "Saiba como criar e gerir uma VM do Windows que tenha vários NICs anexados ao mesmo utilizando os modelos do Azure PowerShell ou Gestor de recursos."
+title: Criar e gerir VMs do Windows no Azure que utilizar vários NICs | Microsoft Docs
+description: Saiba como criar e gerir uma VM do Windows que tenha vários NICs anexados ao mesmo utilizando os modelos do Azure PowerShell ou Gestor de recursos.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0f19ed89e49b34ff4b8abf5d22e7d59b89fd6d72
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Criar e gerir a máquina virtual do Windows que tenha vários NICs
 Máquinas virtuais (VMs) no Azure pode ter vários virtual interface as placas de rede (NICs) ligadas aos mesmos. Um cenário comum é ter diferentes sub-redes para a conectividade de front-end e back-end ou uma rede dedicada para uma solução de monitorização ou cópia de segurança. Este artigo fornece detalhes sobre como criar uma VM que tenha vários NICs anexados ao mesmo. Também irá aprender a adicionar ou remover NICs de VM existente. Diferentes [tamanhos de VM](sizes.md) suportar um número de NICs variando, por isso, tamanho da VM em conformidade.
@@ -116,11 +116,13 @@ Agora começar a criar a configuração de VM. Cada tamanho da VM tem um limite 
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Por fim, crie a VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+5. Criar a VM com [novo-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
     ```powershell
     New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
+
+6. Adicionar rotas para NICs secundários para o SO, efetuando os passos em [configurar o sistema operativo para vários NICs](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Adicionar uma NIC para uma VM existente
 Para adicionar uma NIC virtual a uma VM existente, a Desalocação da VM, adicione o NIC virtual, em seguida, iniciar a VM. Diferentes [tamanhos de VM](sizes.md) suportar um número de NICs variando, por isso, tamanho da VM em conformidade. Se necessário, pode [redimensionar uma VM](resize-vm.md).
@@ -175,6 +177,8 @@ Para adicionar uma NIC virtual a uma VM existente, a Desalocação da VM, adicio
     ```powershell
     Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
+
+5. Adicionar rotas para NICs secundários para o SO, efetuando os passos em [configurar o sistema operativo para vários NICs](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Remover um NIC de VM existente
 Para remover uma NIC virtual de VM existente, Desalocação da VM, remova o virtual NIC e iniciar a VM.
@@ -233,6 +237,8 @@ Também pode utilizar `copyIndex()` acrescentar um número para um nome de recur
 
 Pode ler um exemplo completo de [criar vários NICs utilizando modelos do Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+Adicionar rotas para NICs secundários para o SO, efetuando os passos em [configurar o sistema operativo para vários NICs](#configure-guest-os-for-multiple-nics).
+
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configurar o SO convidado para vários NICs
 
 Azure atribui um gateway predefinido para a primeira interface de rede (principal) ligada à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. Interfaces de rede secundárias podem, no entanto, comunicar com recursos fora da sua sub-rede, apesar dos passos para ativar a comunicação são diferentes para sistemas operativos diferentes.
@@ -287,7 +293,7 @@ Azure atribui um gateway predefinido para a primeira interface de rede (principa
 
     A rota listada com *192.168.1.1* em **Gateway**, a rota existe por predefinição para a interface de rede principal. A rota com *192.168.2.1* em **Gateway**, a rota que adicionou.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Reveja [tamanhos de Windows VM](sizes.md) quando está a tentar criar uma VM que tenha vários NICs. Preste atenção para o número máximo de NICs que suporte a cada tamanho da VM. 
 
 

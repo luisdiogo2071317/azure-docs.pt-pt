@@ -1,19 +1,19 @@
 ---
-title: "Resolver problemas de sincronização de dados SQL do Azure (pré-visualização) | Microsoft Docs"
-description: "Saiba como resolver problemas comuns com a sincronização de dados de SQL do Azure (pré-visualização)."
+title: Resolver problemas de sincronização de dados SQL do Azure (pré-visualização) | Microsoft Docs
+description: Saiba como resolver problemas comuns com a sincronização de dados de SQL do Azure (pré-visualização).
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: a24e16abd78a89d6143c00fc08a3ef91d7dd8202
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Resolver problemas com a sincronização de dados do SQL Server (pré-visualização)
 
@@ -442,13 +442,13 @@ Para obter mais informações sobre a sincronização de dados do SQL Server (pr
 -   [Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados de SQL do Azure (pré-visualização)](sql-database-sync-data.md)  
 -   [Configurar a sincronização de dados de SQL do Azure (pré-visualização)](sql-database-get-started-sql-data-sync.md)  
 -   [Melhores práticas para a sincronização de dados de SQL do Azure (pré-visualização)](sql-database-best-practices-data-sync.md)  
--   [Monitor SQL do Azure de sincronização de dados (pré-visualização) com a análise de registos do OMS](sql-database-sync-monitor-oms.md)  
+-   [Monitor SQL do Azure de sincronização de dados (pré-visualização) análise do registo](sql-database-sync-monitor-oms.md)  
 -   Conclua os exemplos do PowerShell que mostram como configurar a sincronização de dados do SQL Server (pré-visualização):  
     -   [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
-    -   [Utilizar o PowerShell para sincronizar entre uma base de dados do SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)  
+    -   [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)  
 -   [Transferir a documentação da API de REST de sincronização de dados do SQL Server (pré-visualização)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Para obter mais informações sobre a base de dados SQL, consulte:
 
--   [Descrição geral da base de dados do SQL Server](sql-database-technical-overview.md)
--   [Gestão de ciclo de vida de base de dados](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Descrição Geral da Base de Dados SQL](sql-database-technical-overview.md)
+-   [Gestão do Ciclo de Vida da Base de Dados](https://msdn.microsoft.com/library/jj907294.aspx)

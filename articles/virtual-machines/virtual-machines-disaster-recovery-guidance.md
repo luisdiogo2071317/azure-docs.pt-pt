@@ -1,11 +1,11 @@
 ---
-title: "Cenários de recuperação após desastre para as VMs do Azure | Microsoft Docs"
-description: "Saiba o que fazer no caso de uma interrupção do serviço do Azure tem impacto sobre máquinas virtuais do Azure."
+title: Cenários de recuperação após desastre para as VMs do Azure | Microsoft Docs
+description: Saiba o que fazer no caso de uma interrupção do serviço do Azure tem impacto sobre máquinas virtuais do Azure.
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: kmouss
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
 ms.service: virtual-machines
 ms.workload: virtual-machines
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: kmouss;aglick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb986a41e33501ee71c93a48457ac4114e33c671
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70aec41c885ab81371f5318f7557b0e628ac3308
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>O que fazer no caso de uma interrupção do serviço do Azure tem impacto sobre as VMs do Azure
 Na Microsoft, trabalhamos rígido para assegurar que os nossos serviços de sempre estão disponíveis para si quando precisá-los. Força se para além dos nosso controlo, por vezes, um impacto no-nos de formas que provocar interrupções de serviço não planeada.
@@ -47,7 +47,7 @@ Esta é a melhor opção se não tiver definido cópias de segurança do Azure S
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Iniciar [proteger as suas aplicações em execução em máquinas virtuais do Azure](https://aka.ms/a2a-getting-started) utilizando o Azure Site Recovery
 

@@ -1,13 +1,13 @@
 ---
 title: Passos detalhados para criar um par de chaves SSH para VMs do Linux no Azure | Microsoft Docs
-description: "Conheça os passos adicionais para criar um par de chaves públicas e privadas SSH para VMs do Linux no Azure, bem como certificados específicos para diferentes casos de utilização."
+description: Conheça os passos adicionais para criar um par de chaves públicas e privadas SSH para VMs do Linux no Azure, bem como certificados específicos para diferentes casos de utilização.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.openlocfilehash: 1308812287fa4484e244c47497a7aef7aa994b14
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 20d36f5e377f2d5af588319cee2be1808571f905
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Processo detalhado para criar um par de chaves SSH e certificados adicionais para uma VM do Linux no Azure
 Com um par de chaves SSH pode criar Máquinas Virtuais no Azure que estão predefinidas para utilizar chaves SSH para autenticação, eliminando a necessidade de palavras-passe para iniciar sessão. As palavras-passe podem ser adivinhadas e abrir as VMs até as tentativas de força bruta excessiva desvendarem a sua palavra-passe. As VMs criadas com modelos da CLI do Azure ou do Resource Manager podem incluir a sua chave pública SSH como parte da implementação ao remover um passo de configuração de pós-implementação de desativação de inícios de sessão de palavra-passe para SSH. Este artigo fornece os passos detalhados e exemplos adicionais de geração de certificados, tal como para utilização com máquinas virtuais do Linux. Se quiser criar e utilizar rapidamente um par de chaves SSH, veja [Como criar um par de chaves públicas e privadas SSH para VMs do Linux no Azure](mac-create-ssh-keys.md).
@@ -55,7 +55,7 @@ ssh-keygen \
 
 `ssh-keygen` = o programa utilizado para criar as chaves
 
-`-t rsa`= o tipo de chave para criar, que é o [formato RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) 
+`-t rsa` = o tipo de chave para criar, que é o [formato RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) 
  `-b 2048` = bits da chave
 
 `-C "azureuser@myserver"` = um comentário acrescentado ao final do ficheiro da chave pública para o identificar facilmente.  Normalmente, um e-mail é utilizado como comentário, mas pode utilizar o que for mais adequado para a sua infraestrutura.
@@ -208,7 +208,7 @@ ssh fedora22
 
 Quando `ssh fedora22` é executado, o SSH primeiro localiza e carrega todas as definições do bloco `Host fedora22` e, em seguida, carrega todas as restantes definições a partir do último bloqueio, `Host *`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 O passo seguinte consiste na criação de VMs com Linux do Azure utilizando a nova chave pública SSH.  As VMs do Azure criadas com uma chave pública SSH como início de sessão estão mais protegidas do que as criadas com as palavras-passe, o método de início de sessão predefinido.  As VMs do Azure criadas com chaves SSH são, por predefinição, configuradas com as palavras-passe desativadas, evitando tentativas de adivinhação forçadas.
 

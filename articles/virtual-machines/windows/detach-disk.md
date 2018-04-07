@@ -1,11 +1,11 @@
 ---
 title: Desligar um disco de dados de uma VM do Windows - Azure | Microsoft Docs
-description: "Saiba como desligar um disco de dados de uma máquina virtual no Azure utilizando o modelo de implementação Resource Manager."
+description: Saiba como desligar um disco de dados de uma máquina virtual no Azure utilizando o modelo de implementação Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 7013e7ff3cb14dcad8e3e9a926bcee771180259d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e56e9ce22cc9e2bad75c944c20bff812d8720d18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desligar um disco de dados de máquina virtual do Windows
 Quando já não precisar de um disco de dados que esteja ligado a uma máquina virtual, pode desligá-lo facilmente. Remove o disco da máquina virtual, mas não o remover do armazenamento.
@@ -60,6 +60,6 @@ Update-AzureRmVM -ResourceGroupName "RG11" -VM $VirtualMachine
 
 Para obter mais informações, consulte [remover AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se pretender reutilizar o disco de dados, pode apenas [anexe-o para outra VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

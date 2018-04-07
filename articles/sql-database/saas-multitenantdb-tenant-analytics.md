@@ -1,6 +1,6 @@
 ---
-title: "Executar consultas de análise em bases de dados SQL do Azure | Microsoft Docs"
-description: "Consultas de análises de inquilino entre utilizando os dados extraídos de várias bases de dados do SQL Database do Azure."
+title: Executar consultas de análise em bases de dados SQL do Azure | Microsoft Docs
+description: Consultas de análises de inquilino entre utilizando os dados extraídos de várias bases de dados do SQL Database do Azure.
 keywords: tutorial do SQL Server
 services: sql-database
 author: stevestein
@@ -8,13 +8,13 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 04/01/2018
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 7f04ca4bf324586e0cb34effa324b1703d92d065
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fab5d893697a961ef588b0b26008fb27f92a5a18
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Análise de inquilino entre utilizar dados extraídos
 
@@ -91,7 +91,7 @@ Nos passos seguintes, implementar o arquivo de análise, o que é chamado **tena
     - Para utilizar a base de dados SQL com columnstore, defina **$DemoScenario** = **3**  
 3. Prima **F5** para executar o script de demonstração (que chama o *implementar TenantAnalytics<XX>. ps1* script) que cria o arquivo de análise de inquilino. 
 
-Agora que implementou a aplicação e preenchido este com dados interessantes do inquilino, utilize [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ligar **tenants1-mt -\<utilizador\>**  e **catálogo-mt -\<utilizador\>**  servidores utilizando o início de sessão = *programador*, palavra-passe =  *P@ssword1* .
+Agora que implementou a aplicação e preenchido este com dados interessantes do inquilino, utilize [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ligar **tenants1-mt -\<utilizador\>**  e **catálogo-mt -\<utilizador\>**  servidores utilizando o início de sessão = *programador*, palavra-passe = *P@ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -173,7 +173,7 @@ Utilize os seguintes passos para ligar ao Power BI e, para importar as vistas qu
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. Selecione **base de dados** no painel esquerdo, em seguida, introduza o nome de utilizador = *programador*e introduza a palavra-passe =  *P@ssword1* . Clique em **Ligar**.  
+5. Selecione **base de dados** no painel esquerdo, em seguida, introduza o nome de utilizador = *programador*e introduza a palavra-passe = *P@ssword1*. Clique em **Ligar**.  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 

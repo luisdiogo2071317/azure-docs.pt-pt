@@ -1,23 +1,19 @@
 ---
-title: Stream Analytics JavaScript definido pelo utilizador as funções do Azure | Microsoft Docs
-description: Executar consulta avançada mechanics com as funções definidas pelo utilizador de JavaScript
-keywords: JavaScript, funções, udf definidas pelo utilizador
+title: JavaScript as funções definidas pelo utilizador no Azure Stream Analytics
+description: Este artigo descreve como realizar uma consulta avançada mechanics com as funções definidas pelo utilizador do JavaScript no Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: f2b14029ebea7f9cf1fa74a384ecbb72b08b7ad6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 462bd55dfae3a2c471d1111637a6de0bc95e6bfa
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Stream Analytics JavaScript definido pelo utilizador as funções do Azure
 O Azure Stream Analytics suporta as funções definidas pelo utilizador escritas em JavaScript. Com a avançada conjunto de **cadeia**, **RegExp**, **bibliotecas**, **matriz**, e **data** métodos que JavaScript Fornece, transformações de dados complexas Stream Analytics tarefas ficam mais fáceis de criar.
@@ -138,7 +134,7 @@ FROM
 ```
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter ajuda adicional, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obter ajuda adicional, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

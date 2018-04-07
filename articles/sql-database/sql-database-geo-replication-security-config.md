@@ -1,19 +1,19 @@
 ---
-title: "Configurar a segurança de SQL Database do Azure para recuperação após desastre | Microsoft Docs"
-description: "Saiba as considerações de segurança para configurar e gerir a segurança depois de restaurar uma base de dados ou uma ativação pós-falha para um servidor secundário."
+title: Configurar a segurança de SQL Database do Azure para recuperação após desastre | Microsoft Docs
+description: Saiba as considerações de segurança para configurar e gerir a segurança depois de restaurar uma base de dados ou uma ativação pós-falha para um servidor secundário.
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 04/01/2018
 ms.author: sashan
-ms.openlocfilehash: 758096692c83ae08c8ef2bce8ec67dd9bc6e878d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6b4b599fee9a8ff5b4674cf26ca19b22230d6364
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurar e gerir a segurança de SQL Database do Azure para georrestauro ou de ativação pós-falha 
 

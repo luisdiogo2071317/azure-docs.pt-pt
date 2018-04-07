@@ -1,11 +1,11 @@
 ---
-title: "Desenvolver e executar as funções do Azure localmente | Microsoft Docs"
-description: "Saiba como code e testar as funções do Azure no seu computador local antes de executar em funções do Azure."
+title: Desenvolver e executar as funções do Azure localmente | Microsoft Docs
+description: Saiba como code e testar as funções do Azure no seu computador local antes de executar em funções do Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1fe07790bd534cbe18c25cb5fb1e0634f54ac9e2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Código e teste das funções do Azure localmente
 
@@ -110,7 +110,7 @@ Para criar o projeto sem um repositório de Git local, utilize o `--no-source-co
 
 Versão 2 do tempo de execução das funções do Azure, tem explicitamente de registar o [enlace extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) que utilizar na sua aplicação de função. 
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
 Para obter mais informações, consulte [acionadores de funções do Azure e conceitos de enlaces](functions-triggers-bindings.md#register-binding-extensions).
 
@@ -215,7 +215,7 @@ func host start
 | **`--nodeDebugPort -n`** | A porta para o depurador do nó utilizar. : Um valor predefinido De launch.json ou 5858. |
 | **`--debugLevel -d`** | O nível de rastreio de consola (desativado, verboso, info, warning ou error). Predefinição: as informações.|
 | **`--timeout -t`** | O tempo limite para o anfitrião de funções iniciar, em segundos. Predefinição: 20 segundos.|
-| **`--useHttps`** | Vincular ao https://localhost:{porta}, em vez de para http://localhost:{porta}. Por predefinição, esta opção cria um certificado fidedigno no computador.|
+| **`--useHttps`** | Vincular ao https://localhost:{port} em vez da http://localhost:{port}. Por predefinição, esta opção cria um certificado fidedigno no computador.|
 | **`--pause-on-error`** | Colocar em pausa para a entrada adicional antes de sair do processo. Útil quando iniciar ferramentas de núcleos de funções do Azure a partir de um ambiente de desenvolvimento integrado (IDE).|
 
 Quando o anfitrião de funções é iniciado, produz as funções acionadas por URL de HTTP:

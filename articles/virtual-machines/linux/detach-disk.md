@@ -1,13 +1,13 @@
 ---
 title: Desligar um disco de dados de uma VM com Linux - Azure | Microsoft Docs
-description: "Saiba como desligar um disco de dados de uma máquina virtual no Azure utilizando o CLI 2.0 ou no portal do Azure."
+description: Saiba como desligar um disco de dados de uma máquina virtual no Azure utilizando o CLI 2.0 ou no portal do Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c589dd8c9d597145fd87a00d9a2ba040988cd8ec
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 572fe5bd4d6d79bb9dd94353732e273282e2a0af
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desligar um disco de dados de uma máquina virtual Linux
 
@@ -56,6 +56,6 @@ O disco permanece no armazenamento, mas já não está ligado a uma máquina vir
 O disco permanece no armazenamento, mas já não está ligado a uma máquina virtual.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se pretender reutilizar o disco de dados, pode apenas [anexe-o para outra VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

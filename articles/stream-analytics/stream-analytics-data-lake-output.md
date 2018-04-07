@@ -1,24 +1,19 @@
 ---
-title: Saída de arquivo Data Lake do Stream Analytics | Microsoft Docs
+title: Saída de data Lake Store do Azure Stream Analytics
 description: Configuração de autenticação e autorização de um Azure Data Lake Store numa tarefa do Stream Analytics
-keywords: ''
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 802193b9f15cbc35bec32191ccc63df3329b96f9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: a0586b32fd12744c8bfce782583cdc4078979ef1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Saída de Stream Analytics Data Lake Store
 Tarefas do Stream Analytics suportam vários métodos de saída, a ser um um [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). O Azure Data Lake Store é um repositório de hiper escala a nível da empresa para cargas de trabalho de análise de macrodados. Arquivo data Lake permite-lhe armazenar dados de qualquer tamanho, tipo e velocidade de ingestão para análises exploratórias e operacionais.

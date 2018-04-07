@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma a aplicação multi-inquilino que utiliza a SQL Database do Azure
 
@@ -57,7 +57,7 @@ Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 
 Os passos desta secção, deve fornecer um *utilizador* valor que é utilizado para garantir que os nomes de recursos são exclusivos e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implementação da aplicação. Para uma pessoa designada *Ann Finley*, sugerimos que:
 - *Utilizador:* **af1***(respetivo iniciais, mais um dígito. Utilize um valor diferente (por exemplo, af2) se implementar a aplicação uma segunda vez.)*
-- *Grupo de recursos:* **wingtip-dpt-af1** *(wingtip dpt indica que esta é a aplicação de base de dados por inquilino. Acrescentar o af1 de nome de utilizador está correlacionada com o nome do grupo de recursos com os nomes dos recursos que nele contidos.)*
+- *Grupo de recursos:* **wingtip-mt-af1** *(wingtip mt indica que esta é a aplicação multi-inquilino. Acrescentar o af1 de nome de utilizador está correlacionada com o nome do grupo de recursos com os nomes dos recursos que nele contidos.)*
 
 Escolha os nomes agora e escrevê-las para baixo. 
 
@@ -123,7 +123,7 @@ Cada venue obtém uma aplicação web personalizado para listar os respetivos ev
 Um centro **Hub de eventos** página Web fornece uma lista de ligações para os inquilinos na sua implementação específica. Utilize os seguintes passos para experimentar o **Hub de eventos** página Web e uma aplicação web individuais:
 
 1. Abra o **Hub de eventos** no seu browser:
-    - http://events.Wingtip-MT.&lt;utilizador&gt;. trafficmanager.net &nbsp; *(substituir &lt;utilizador&gt; com o valor de utilizador da sua implementação.)*
+    - http://events.wingtip-mt. &lt;utilizador&gt;. trafficmanager.net &nbsp; *(substituir &lt;utilizador&gt; com o valor de utilizador da sua implementação.)*
 
     ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 

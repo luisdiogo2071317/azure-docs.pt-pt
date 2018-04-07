@@ -1,6 +1,6 @@
 ---
-title: "Afirmações mapeamento no Azure Active Directory (pré-visualização pública) | Microsoft Docs"
-description: "Esta página descreve o mapeamento de afirmações de Azure Active Directory."
+title: Afirmações mapeamento no Azure Active Directory (pré-visualização pública) | Microsoft Docs
+description: Esta página descreve o mapeamento de afirmações de Azure Active Directory.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Afirmações mapeamento no Azure Active Directory (pré-visualização pública)
 
@@ -234,7 +234,7 @@ Não não possível modificar afirmações restritas utilizando a política. Nã
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Mapeamento de propriedades da política de afirmações
-Utilize as propriedades de uma política de mapeamento para o controlo que afirmações são emitidas e, em que os dados de origem de afirmações. Se nenhuma política estiver definida, o sistema emite tokens que contém o conjunto de afirmações core, o conjunto de afirmações básico e quaisquer afirmações opcionais que a aplicação tiver optado por receber.
+Utilize as propriedades de uma política de mapeamento para o controlo que afirmações são emitidas e, em que os dados de origem de afirmações. Se nenhuma política estiver definida, os tokens de problemas do sistema que contém as principais afirmação definido, o conjunto de afirmações básico e quaisquer [afirmações opcionais](develop/active-directory-optional-claims.md) que a aplicação tiver optado por receber.
 
 ### <a name="include-basic-claim-set"></a>Incluir o conjunto de afirmações básico
 
@@ -403,7 +403,7 @@ Com base no método escolhido, é esperado um conjunto de entradas e saídas. Es
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabela 6: Métodos de transformação permitidos para SAML NameID
 |TransformationMethod|Restrições|
 | ----- | ----- |
-|ExtractMailPrefix|Nenhum|
+|ExtractMailPrefix|Nenhuma|
 |Associar|O sufixo que está a ser associado tem de ser um domínio verificado do inquilino de recursos.|
 
 ### <a name="custom-signing-key"></a>Chave de assinatura de personalizado

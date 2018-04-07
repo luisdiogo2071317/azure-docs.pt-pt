@@ -1,8 +1,8 @@
 ---
-title: "Restaurar uma aplicação no Azure"
-description: "Saiba como restaurar a aplicação a partir de uma cópia de segurança."
+title: Restaurar uma aplicação no Azure
+description: Saiba como restaurar a aplicação a partir de uma cópia de segurança.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 60b55acaf687dae76e054b428b8d6584d8eb09f8
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 502e3cefca5e2e60efe6a9875de0b63413bc4578
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar uma aplicação no Azure
 Este artigo mostra como restaurar uma aplicação no [App Service do Azure](../app-service/app-service-web-overview.md) que criou anteriormente ter cópias de segurança (consulte [cópia de segurança sua aplicação no Azure](web-sites-backup.md)). Pode restaurar a aplicação com o respetiva ligado bases de dados a pedido para um estado anterior ou criar uma nova aplicação com base dos cópias de segurança da sua aplicação original. App Service do Azure suporta as seguintes bases de dados de cópia de segurança e restauro:
 - [Base de Dados SQL](https://azure.microsoft.com/en-us/services/sql-database/)
-- [Base de dados do Azure para MySQL (pré-visualização)](https://azure.microsoft.com/en-us/services/mysql)
-- [Base de dados do Azure para PostgreSQL (pré-visualização)](https://azure.microsoft.com/en-us/services/postgres)
+- [Base de dados do Azure para MySQL)](https://azure.microsoft.com/en-us/services/mysql)
+- [Base de Dados do Azure para PostgreSQL](https://azure.microsoft.com/en-us/services/postgres)
 - [MySQL na aplicação](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 O restauro de cópias de segurança está disponível para aplicações em execução **padrão** e **Premium** camada. Para obter informações sobre como aumentar verticalmente a sua aplicação, consulte [aumentar verticalmente a uma aplicação no Azure](web-sites-scale.md). **Premium** camada permite um maior número de cópias de segurança diárias para ser executada a **padrão** camada.

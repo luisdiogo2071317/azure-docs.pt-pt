@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: kumud
-ms.openlocfilehash: 09c51441d393de5d801e7a4c259b711a527349d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6e9dd09558a3485629d5b70dd8b68b292427b18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-availability-ports-overview"></a>Descrição geral de portas de elevada disponibilidade
 
@@ -72,20 +72,20 @@ Esta configuração não permite quaisquer outra balanceamento de carga na confi
 
 No entanto, pode configurar um balanceador de carga padrão público para as instâncias de back-end para além desta regra de porta HA.
 
-## <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Uma configuração única de vírgula flutuante HA portas IP (devolução direta do servidor) no balanceador de carga padrão interno
+### <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Uma configuração única de vírgula flutuante HA portas IP (devolução direta do servidor) no balanceador de carga padrão interno
 
 Da mesma forma pode configurar o Balanceador de carga a utilizar uma regra com o balanceamento de carga **HA porta** com um único front-end e o **IP flutuante** definido como **ativado**. 
 
 Esta configuração permite-lhe adicionar regras de e / ou um balanceador de carga público de balanceamento de carga IP flutuante mais. No entanto, não é possível utilizar uma configuração de balanceamento de boad sem de vírgula flutuante IP HA porta sobre esta configuração.
 
-## <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Configurações com várias portas HA no balanceador de carga padrão interno
+### <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Configurações com várias portas HA no balanceador de carga padrão interno
 
 Se o seu cenário requer que configure HA mais do que uma porta frontends, para o mesmo conjunto de back-end, pode conseguir isto por: 
 - configurar mais do que um front-end privada os endereços IP para um único recurso de padrão Balanceador de carga interno.
 - configurar várias regras, onde cada regra tem uma única de balanceamento de carga exclusivo front-end está selecionado endereço IP.
 - Selecione **HA portas** opção e defina **IP flutuante** para **ativado** para todas a regras de balanceamento de carga.
 
-## <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Balanceador de carga interno com portas HA & Balanceador de carga público nas mesmas instâncias de back-end
+### <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Balanceador de carga interno com portas HA & Balanceador de carga público nas mesmas instâncias de back-end
 
 Pode configurar **um** recurso de Balanceador de carga padrão público para os recursos de back-end, juntamente com um único padrão Balanceador de carga interno com portas HA.
 

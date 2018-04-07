@@ -1,10 +1,10 @@
 ---
-title: "Configurar LVM numa máquina virtual com Linux | Microsoft Docs"
+title: Configurar LVM numa máquina virtual com Linux | Microsoft Docs
 description: Saiba como configurar LVM no Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: 7f533725-1484-479d-9472-6b3098d0aecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 7926627aaa3f0da935131f491d927ab5cb4b35c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a22426d0422585714cb78d541a84d55d2fce6e0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configurar LVM numa VM com Linux no Azure
 Este documento irá discutir como configurar o Gestor de lógica de Volume (LVM) na sua máquina virtual do Azure. Apesar de ser exequível a configurar LVM em qualquer disco ligado à máquina virtual, por predefinição a maioria das imagens da nuvem não terá LVM configurado no disco do SO. Isto serve para evitar problemas com grupos de volume duplicados se o disco do SO é alguma vez ligado a outra VM, do mesmo distribuição e do tipo, ou seja, durante um cenário de recuperação. Por isso, recomenda-se apenas ao utilizar LVM nos discos de dados.
@@ -141,7 +141,7 @@ Neste guia iremos assumir ter ligado três discos de dados, que irá denominamos
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
     ```
 
-5. (Opcional) Parâmetros de arranque FailSafe no`/etc/fstab`
+5. (Opcional) Parâmetros de arranque FailSafe no `/etc/fstab`
    
     Muitas distribuições incluem um o `nobootwait` ou `nofail` montar os parâmetros que podem ser adicionados à `/etc/fstab` ficheiro. Estes parâmetros permitem para falhas ao montar um sistema de ficheiros específica e permitir que o sistema de Linux continuar a arrancar mesmo se for não é possível montar corretamente o sistema de ficheiros RAID. Consulte a documentação da sua distribuição para obter mais informações sobre estes parâmetros.
    

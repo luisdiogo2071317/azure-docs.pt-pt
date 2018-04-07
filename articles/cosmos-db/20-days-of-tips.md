@@ -1,23 +1,23 @@
 ---
-title: "sugestões de 20 dias de base de dados do Azure Cosmos | Microsoft Docs"
-description: "Localize todas as sugestões dos dias de 20 do Simona Cotin de séries de sugestões de base de dados do Azure Cosmos num único local."
+title: sugestões de 20 dias de base de dados do Azure Cosmos | Microsoft Docs
+description: Localize todas as sugestões dos dias de 20 do Simona Cotin de séries de sugestões de base de dados do Azure Cosmos num único local.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: cda
-ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 79ef4a8c22143ed77535e1190b5f7e8eb5d17bb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 dias de base de dados do Azure Cosmos sugestões
 
@@ -29,7 +29,7 @@ Visite esta página diariamente para uma nova sugestão 5th de Setembro - 29th d
 
 ## <a name="tip-1-what-is-cosmos"></a>Sugestão 1: O que é Cosmos?
 
-O que é #cosmosdb? A base de dados melhor NoSQL que não está a utilizar! [https://aka.MS/ubw007](https://aka.ms/ubw007)
+O que é #cosmosdb? A base de dados melhor NoSQL que não está a utilizar! [https://aka.ms/ubw007](https://aka.ms/ubw007)
 
 > [!VIDEO https://www.youtube.com/embed/cGxO995iakM] 
 
@@ -37,7 +37,7 @@ O que é #cosmosdb? A base de dados melhor NoSQL que não está a utilizar! [htt
 
 ## <a name="tip-2-seeing-is-believing"></a>Sugestão 2: Ver é acreditar
 
-Ver é acreditar. Utilize a interface de visual #cosmosDB no portal do Azure para inspecionar e consultar a base de dados [https://aka.ms/jprf75](https://aka.ms/jprf75)
+Ver é acreditar. Utilize a interface de visual #cosmosDB no portal do Azure para inspecionar e consultar a base de dados  [https://aka.ms/jprf75](https://aka.ms/jprf75)
 
 > [!VIDEO https://www.youtube.com/embed/4aWL5p_SJDE]
 
@@ -45,7 +45,7 @@ Ver é acreditar. Utilize a interface de visual #cosmosDB no portal do Azure par
 
 ## <a name="tip-3-replicate-data-globally"></a>Sugestão 3: Replicar dados globalmente
 
-Sugestão 3: Tem de ser incrivelmente rápida em qualquer local no mundo à aplicação? Replicar os dados com #cosmosDB é fácil inutilizado! [https://aka.MS/nimw2g](https://aka.ms/nimw2g)  
+Sugestão 3: Tem de ser incrivelmente rápida em qualquer local no mundo à aplicação? Replicar os dados com #cosmosDB é fácil inutilizado! [https://aka.ms/nimw2g](https://aka.ms/nimw2g)  
 
 > [!VIDEO https://www.youtube.com/embed/i22R7I_Rgdg]
 
@@ -61,7 +61,7 @@ Sugestão 4: São gremlins o encravamento? #cosmosdb loves Gremlin demasiado! Ve
 
 ## <a name="tip-5-try-azure-cosmos-db-free"></a>Sugestão 5: Tente Azure Cosmos DB livre
 
-Sugestão 5: Pretender #CosmosDB do Azure gratuitamente? Sem inscrição ou cartões de crédito, basta ir para [https://aka.ms/d81vxr](https://aka.ms/d81vxr) e iniciar a codificação!  
+Sugestão 5: Pretender #CosmosDB do Azure gratuitamente? Sem inscrição ou cartões de crédito, basta ir para [ https://aka.ms/d81vxr ](https://aka.ms/d81vxr) e iniciar a codificação!  
 
 > [!VIDEO https://www.youtube.com/embed/Vf8iZCmoG2E]
 
@@ -69,7 +69,7 @@ Sugestão 5: Pretender #CosmosDB do Azure gratuitamente? Sem inscrição ou cart
 
 ## <a name="tip-6-migrate-your-mean-app"></a>Sugestão 6: Migrar a sua aplicação média
 
-Sugestão 6: É significam que o coisa? Saiba como migre facilmente a sua aplicação para #cosmosDB do Azure! vídeo completa https://aka.MS/gfh6i5: https://aka.ms/aoojih  
+Sugestão 6: É significam que o coisa? Saiba como migre facilmente a sua aplicação para #cosmosDB do Azure! https://aka.ms/gfh6i5 Vídeo completa:  https://aka.ms/aoojih  
 
 > [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
 
@@ -77,7 +77,7 @@ Sugestão 6: É significam que o coisa? Saiba como migre facilmente a sua aplica
 
 ## <a name="tip-8-build-a-nodejs-app-by-using-sql-api"></a>Sugestão 8: Criar uma aplicação Node.js utilizando a API do SQL Server
 
-Sugestão 8: Criar um @nodejs aplicação utilizando a API do SQL Server e #CosmosDB do Azure. Obter mais informações na página de docs [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
+Sugestão 8: Criar um @nodejs aplicação utilizando a API do SQL Server e #CosmosDB do Azure. Obter mais informações na página de documentos [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
 
 > [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
 
@@ -85,7 +85,7 @@ Sugestão 8: Criar um @nodejs aplicação utilizando a API do SQL Server e #Cosm
 
 ## <a name="tip-9-query-using-mongodb-in-nodejs"></a>Sugestão 9: Consultar utilizando MongoDB no Node.js
 
-Sugestão 9: Consultar #CosmosDB do Azure utilizando a API do MongoDB no Node.js. Obter mais informações na página de docs [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
+Sugestão 9: Consultar #CosmosDB do Azure utilizando a API do MongoDB no Node.js. Obter mais informações na página de documentos [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
 
 ![Consulta com MongoDB](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
 
@@ -109,7 +109,7 @@ Artigo: [criar uma aplicação do MongoDB com DB reagir e Cosmos do Azure](https
 
 ## <a name="tip-12-go-serverless"></a>Sugestão 12: Aceda sem servidor
 
-Sugestão 12: Aceda sem servidor com o Azure #CosmosDB e @AzureFunctions! Total de documentos no [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j)
+Sugestão 12: Aceda sem servidor com o Azure #CosmosDB e @AzureFunctions! Docs completas em [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j)
 
 > [!VIDEO https://www.youtube.com/embed/U--3mfisNCs]
 
@@ -125,7 +125,7 @@ Artigo: [criar uma aplicação do MongoDB com Cosmos angular para e do Azure, ba
 
 ## <a name="tip-14-use-cases"></a>Sugestão 14: Casos de utilização
 
-Sugestão 14: Curiosidade sobre casos de utilização do Azure #CosmosDB comuns? Veja [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00) para saber mais sobre IoT, aplicações de jogos e redes sociais
+Sugestão 14: Curiosidade sobre casos de utilização do Azure #CosmosDB comuns? Veja [ https://aka.ms/Ihpf00 ](https://aka.ms/Ihpf00) para saber mais sobre IoT, aplicações de jogos e redes sociais
 
 Artigo: [casos de utilização de base de dados de Cosmos comuns do Azure](https://aka.ms/Ihpf00)
 
@@ -133,7 +133,7 @@ Artigo: [casos de utilização de base de dados de Cosmos comuns do Azure](https
 
 ## <a name="tip-15-vs-code-integration"></a>Sugestão 15: Integração de VS Code
 
-Sugestão 15: Criar nova conta do Azure #CosmosDB sem sair alguma vez @code. Instalar a extensão de [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
+Sugestão 15: Criar nova conta do Azure #CosmosDB sem sair alguma vez @code. Instalar a extensão do [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
 
 > [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
 
@@ -151,7 +151,7 @@ Sugestão 16: Demonstração extraordinário! Integrar #cosmosDB do Azure, as fu
 
 ## <a name="tip-17-using-mongoose-discriminators"></a>Sugestão 17: Discriminators de utilizando o Mongoose
 
-Sugestão 17: Otimizar custo utilizando Mongoose discriminators para armazenar várias entidades numa coleção #CosmosDB único [https://aka.ms/M488jm](https://aka.ms/M488jm)
+Sugestão 17: Otimizar os custos utilizando Mongoose discriminators para armazenar várias entidades numa coleção #CosmosDB único [https://aka.ms/M488jm](https://aka.ms/M488jm)
 
 Blogue: [utilizando o Mongoose Discriminators para armazenar várias entidades numa coleção Cosmos único DB por António Chu](https://aka.ms/M488jm)
 
@@ -159,7 +159,7 @@ Blogue: [utilizando o Mongoose Discriminators para armazenar várias entidades n
 
 ## <a name="tip-18-request-units"></a>Sugestão 18: Unidades de pedido
 
-Sugestão 18: Saber quais são as unidades de pedido (RU) e como configurá-las no Azure #CosmosDB. Mais informações sobre as docs em [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
+Sugestão 18: Saber quais são as unidades de pedido (RU) e como configurá-las no Azure #CosmosDB. Documentos em mais em [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
 
 Artigo: [unidades no Azure Cosmos DB de pedido](https://aka.ms/Kt2nbn)
 
@@ -181,7 +181,7 @@ Cábula: [BD do Azure do Cosmos: SQL consulta cábula PDF](https://aka.ms/Nt01nl
 
 [![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre a base de dados do Azure Cosmos através da leitura [bem-vindo ao Azure Cosmos DB](introduction.md) e [uma descrição geral técnica da base de dados do Azure Cosmos](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/).
 

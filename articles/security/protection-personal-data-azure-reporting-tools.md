@@ -1,12 +1,12 @@
 ---
-title: "O documento de proteção de dados pessoais com o Azure, as ferramentas de relatórios | Microsoft Docs"
-description: "Utilize o reporting services do Azure para proteger a privacidade dos dados pessoais no iniciativas para estar em conformidade com Regulamento de proteção de dados gerais (GDPR)."
+title: O documento de proteção de dados pessoais com o Azure, as ferramentas de relatórios | Microsoft Docs
+description: Utilize o reporting services do Azure para proteger a privacidade dos dados pessoais no iniciativas para estar em conformidade com Regulamento de proteção de dados gerais (GDPR).
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc859f3aa34531133b7a21e36591b011c63d511c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Proteção de documentos dos dados pessoais com o Azure, as ferramentas de relatórios
 
@@ -95,13 +95,13 @@ Ferramentas de análise na análise de registos, tais como a procura de registo,
 
 #### <a name="how-do-i-use-log-analytics"></a>Como posso utilizar a análise de registos?
 
-Pode aceder a análise de registos através do portal do OMS ou o portal do Azure, a partir de qualquer browser web. O Log Analytics inclui uma linguagem de consulta para obter e consolidar rapidamente dados no repositório. Pode criar e guardar pesquisas de registo para analisar diretamente dados no portal.
+Pode aceder a análise de registos através do portal do OMS ou o portal do Azure, a partir de qualquer browser web. Análise de registos inclui uma linguagem de consulta para obter e consolidar os dados na área de trabalho de análise de registos rapidamente. Pode criar e guardar pesquisas de registo para analisar diretamente dados no portal.
 
 Para criar uma área de trabalho de análise de registos no portal do Azure, efetue o seguinte:
 
 1. Selecione **Log Analytics** da lista de serviços no Marketplace.
 
-2. Selecione **criar,** , em seguida, especifique o nome da sua área de trabalho do OMS, selecione a sua subscrição, o grupo de recursos, a localização e escalão de preço.
+2. Selecione **criar,** , em seguida, especifique o nome da sua área de trabalho de análise de registos, selecione a sua subscrição, o grupo de recursos, a localização e escalão de preço.
 
 3. Clique em **OK** para apresentar uma lista das suas áreas de trabalho.
 

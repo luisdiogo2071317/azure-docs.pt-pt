@@ -1,11 +1,11 @@
 ---
-title: "Opções de cluster Windows HPC Pack no Azure | Microsoft Docs"
-description: "Saiba mais sobre as opções de com o Microsoft HPC Pack para criar e gerir um desempenho elevado do Windows computação em cluster (HPC) na nuvem do Azure"
+title: Opções de cluster Windows HPC Pack no Azure | Microsoft Docs
+description: Saiba mais sobre as opções de com o Microsoft HPC Pack para criar e gerir um desempenho elevado do Windows computação em cluster (HPC) na nuvem do Azure
 services: virtual-machines-windows,cloud-services,batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management,hpc-pack
 ms.assetid: 02c5566d-2129-483c-9ecf-0d61030442d7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 10/26/2017
 ms.author: danlep
-ms.openlocfilehash: 3dd00d4fb0d334e836256e66207358c034fc005a
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: c5b8c16e076be3002425ceeac377043cea1a40a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="options-with-hpc-pack-to-create-and-manage-a-cluster-for-windows-hpc-workloads-in-azure"></a>Opções com o HPC Pack para criar e gerir um cluster para cargas de trabalho do Windows HPC no Azure
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]

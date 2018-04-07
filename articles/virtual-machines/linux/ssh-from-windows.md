@@ -1,11 +1,11 @@
 ---
 title: Utilizar chaves SSH com o Windows para VMs com Linux | Microsoft Docs
-description: "Saiba como gerar e utilizar chaves SSH num computador Windows para ligar a uma máquina virtual do Linux no Azure."
+description: Saiba como gerar e utilizar chaves SSH num computador Windows para ligar a uma máquina virtual do Linux no Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
-ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fcc2365c3b41fb69492aa68bf7c48c2d3b8ee5f3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como utilizar o SSH chaves com Windows no Azure
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ Seguem-se os cenários de implementação e os tipos de ficheiros que utilizam e
 ## <a name="install-git-for-windows"></a>Instalar o Git para Windows
 A secção anterior vários pacotes listados que incluem o `openssl` ferramenta para o Windows. Esta ferramenta é necessário para criar chaves públicas e privadas. Os seguintes exemplos de como instalar e utilizar detalhe **Git para Windows**, embora pode escolher qualquer pacote que preferir. **Git para Windows** dá-lhe acesso a alguns programas de software open source adicionais ([OSS](https://en.wikipedia.org/wiki/Open-source_software)) ferramentas e utilitários que poderão ser útil à medida que trabalha com VMs com Linux.
 
-1. Transfira e instale **Git para Windows** da seguinte localização: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
+1. Transfira e instale **Git para Windows** da seguinte localização: [ https://git-for-windows.github.io/ ](https://git-for-windows.github.io/).
 2. Aceite as opções predefinidas durante o processo de instalação não ser que necessite especificamente para alterá-los.
 3. Executar **Git Bash** do **iniciar Menu** > **Git** > **Git Bash**. A consola semelhante ao seguinte exemplo:
 

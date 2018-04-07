@@ -1,20 +1,20 @@
 ---
-title: "Escala elástica do SQL do Azure FAQ | Microsoft Docs"
-description: "Perguntas mais frequentes sobre a escala elástica do SQL do Azure da base de dados."
+title: Escala elástica do SQL do Azure FAQ | Microsoft Docs
+description: Perguntas mais frequentes sobre a escala elástica do SQL do Azure da base de dados.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 575167293d9b4685ecc38303414b69074c366ab2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 57a5ef07aa8ca6d35085f9b2425cbc1c08c23b36
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="elastic-database-tools-faq"></a>Ferramentas de base de dados elástica FAQ
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Se tiver um único inquilino por ID de partição horizontal e nenhuma chave de fragmentação, como posso preencher a chave de fragmentação para as informações de esquema?
@@ -30,7 +30,7 @@ Utilizar a biblioteca de cliente da base de dados elástica não implica quaisqu
 Não usar credenciais no formato "ID de utilizador =username@servername", em vez disso, basta utilizar "ID de utilizador = nome de utilizador".  Além disso, lembre-se de que o início de sessão de "nomedeutilizador" tem permissões nas partições horizontais.
 
 #### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>É necessário criar um Gestor de mapa de partições horizontais e preencher shards sempre que iniciar a minhas aplicações?
-Não, a criação do Gestor de mapa de partições horizontais (por exemplo,  **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) é uma operação única.  A aplicação deve utilizar a chamada  **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)**  no momento do arranque de aplicação.  Deve existir apenas um desse chamada por domínio de aplicação.
+Não, a criação do Gestor de mapa de partições horizontais (por exemplo,  **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) é uma operação única.  A aplicação deve utilizar a chamada **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** no momento do arranque de aplicação.  Deve existir apenas um desse chamada por domínio de aplicação.
 
 #### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Posso ter dúvidas sobre como utilizar as ferramentas de base de dados elástica, como obtê-los respondidas?
 Contacte-no [fórum da SQL Database do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).

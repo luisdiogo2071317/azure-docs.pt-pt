@@ -1,53 +1,47 @@
 ---
-title: "Mapeamento no Azure Active Directory de afirmações de utilizador de colaboração do B2B | Microsoft Docs"
-description: "afirmações de mapeamento de referência para colaboração B2B do Azure Active Directory do"
+title: Mapeamento no Azure Active Directory de afirmações de utilizador de colaboração do B2B | Microsoft Docs
+description: Personalize as afirmações de utilizador que são emitidas no token SAML para utilizadores do B2B Azure Active Directory (Azure AD).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/15/2017
+ms.date: 04/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 3fe75e96c153a7cbcad638d606d0fbc248bd983a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8f5e471d4e7102300cd5581976b45c9fa8cc57bc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Afirmações de utilizador de colaboração do B2B mapeamento no Azure Active Directory
 
-Personalizar afirmações emitidas no token SAML para os utilizadores de colaboração B2B do Azure suporta o Active Directory (Azure AD). Quando um utilizador efetua a autenticação para a aplicação, o Azure AD emite um token SAML para a aplicação que contém informações (ou afirmações) sobre o utilizador que identifica exclusivamente. Por predefinição, isto inclui o nome de utilizador, endereço de correio eletrónico, nome próprio e apelido do utilizador. Pode ver ou editar as afirmações enviadas no token SAML para a aplicação no separador atributos.
+Personalizar as afirmações que são emitidas no token SAML para os utilizadores de colaboração B2B do Azure suporta o Active Directory (Azure AD). Quando um utilizador efetua a autenticação para a aplicação, o Azure AD emite um token SAML para a aplicação que contém informações (ou afirmações) sobre o utilizador que identifica exclusivamente. Por predefinição, isto inclui o nome de utilizador, endereço de correio eletrónico, nome próprio e apelido do utilizador.
 
-Existem duas razões possíveis por que razão poderá ser necessário editar as afirmações emitidas no SAML token.
+No [portal do Azure](https://portal.azure.com), pode ver ou editar as afirmações que são enviadas no token SAML para a aplicação. Para aceder às definições, selecione **do Azure Active Directory** > **aplicações empresariais** > a aplicação que está configurada para o início de sessão único > **de sessão único-** . Ver as definições de token SAML no **atributos de utilizador** secção.
 
-1. A aplicação foi escrita para solicitar a um conjunto diferente de afirmação URIs ou valores de afirmação
+![Mostra os atributos de token SAML na IU](media/active-directory-b2b-claims-mapping/view-claims-in-saml-token.png)
 
-2. A aplicação requer a afirmação NameIdentifier ser algo que o nome principal de utilizador armazenado no Azure Active Directory.
+Existem duas razões possíveis por que razão poderá ser necessário editar as afirmações que são emitidas no SAML token:
 
-  ![Vista de afirmações num SAML token](media/active-directory-b2b-claims-mapping/view-claims-in-saml-token.png)
+1. A aplicação requer um conjunto diferente de URIs ou valores de afirmação.
 
-Para obter informações sobre como adicionar e editar afirmações, consulte este artigo sobre a personalização de afirmações, [personalizar afirmações emitidas no token SAML para aplicações previamente integradas no Azure Active Directory](develop/active-directory-saml-claims-customization.md). Para colaboração B2B utilizadores, mapeamento entre-inquilinos NameID e UPN são impedidos por motivos de segurança.
+2. A aplicação requer a afirmação NameIdentifier ser algo que o nome de principal de utilizador (UPN) que é armazenado no Azure AD.
 
+Para obter informações sobre como adicionar e editar afirmações, consulte [personalizar afirmações emitidas no token SAML para aplicações da empresa no Azure Active Directory](develop/active-directory-saml-claims-customization.md).
+
+Para colaboração B2B utilizadores, mapeamento entre-inquilinos NameID e UPN são impedidos por motivos de segurança.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
+- Para obter informações sobre as propriedades de utilizador de colaboração B2B, consulte [propriedades de um utilizador de colaboração do Azure Active Directory B2B](active-directory-b2b-user-properties.md).
+- Para obter informações sobre os tokens de utilizador para os utilizadores de colaboração do B2B, consulte [compreender tokens de utilizador em colaboração B2B do Azure AD](active-directory-b2b-user-token.md).
 
-* [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Propriedades de utilizador de colaboração B2B](active-directory-b2b-user-properties.md)
-* [A adição de um utilizador de colaboração B2B a uma função](active-directory-b2b-add-guest-to-role.md)
-* [Delegar B2bB convites de colaboração](active-directory-b2b-delegate-invitations.md)
-* [Grupos dinâmicos e de colaboração B2B](active-directory-b2b-dynamic-groups.md)
-* [Código de colaboração do B2B e exemplos do PowerShell](active-directory-b2b-code-samples.md)
-* [Configurar aplicações SaaS colaboração B2B](active-directory-b2b-configure-saas-apps.md)
-* [Partilha externa do Office 365](active-directory-b2b-o365-external-user.md)
-* [Tokens de utilizador de colaboração B2B](active-directory-b2b-user-token.md)
-* [Limitações atuais de colaboração B2B](active-directory-b2b-current-limitations.md)

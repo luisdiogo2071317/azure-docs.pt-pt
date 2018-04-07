@@ -13,18 +13,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: b7c641cebad5a3157808938040ea9309d2868896
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 10decbd5291e2054e373bfef266b64eae36ea1cf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalizar a autenticação e autorização no serviço de aplicações do Azure
 
-Este artigo mostra como personalizar a autenticação e autorização no serviço de aplicações e gerir a identidade da sua aplicação. 
+Este artigo mostra como personalizar [autenticação e autorização no serviço de aplicações](app-service-authentication-overview.md)e gerir a identidade da sua aplicação. 
 
 Para começar a trabalhar rapidamente, consulte um dos seguintes tutoriais:
 
+* [Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto no App Service do Azure](app-service-web-tutorial-auth-aad.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Google](app-service-mobile-how-to-configure-google-authentication.md)
@@ -144,3 +145,7 @@ Clique em **editar**, modifique a propriedade seguinte e, em seguida, clique em 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
+## <a name="next-steps"></a>Passos Seguintes
+
+> [!div class="nextstepaction"]
+> [Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto](app-service-web-tutorial-auth-aad.md)

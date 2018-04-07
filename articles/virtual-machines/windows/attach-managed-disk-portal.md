@@ -1,13 +1,13 @@
 ---
 title: Anexar um disco de dados geridos para uma VM do Windows - Azure | Microsoft Docs
-description: "Como ligar o novo disco de dados geridos para uma VM do Windows no portal do Azure utilizando o modelo de implementação Resource Manager."
+description: Como ligar o novo disco de dados geridos para uma VM do Windows no portal do Azure utilizando o modelo de implementação Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 603d1c423ff2039915bdd3d5ed4a79b78d491edc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 14721b2f2bc7913c2b7eadfc5ee801a223201ea9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Como anexar um disco de dados geridos para uma VM do Windows no portal do Azure
 
@@ -38,7 +38,7 @@ Também pode [anexar um disco de dados com o Powershell](attach-disk-ps.md).
 3. Na página da máquina virtual, clique em **discos**.
 4. No **discos** página, clique em **+ adicionar disco de dados**.
 5. Na lista pendente para o novo disco, selecione **criar disco**.
-6. No **criar disco de gerido** página, escreva um nome para o disco e ajustar as outras definições conforme necessário. Quando tiver terminado, clique em **criar**.
+6. No **criar disco de gerido** página, escreva um nome para o disco e ajustar as outras definições conforme necessário. Quando tiver concluído, clique em **Criar**.
 7. No **discos** página, clique em **guardar** para guardar a nova configuração de disco para a VM.
 6. Depois do Azure cria o disco e anexa-lo para a máquina virtual, o novo disco está listado nas definições de disco da máquina virtual em **discos de dados**.
 

@@ -1,13 +1,13 @@
 ---
 title: Criar um pipeline de CI/CD no Azure com o Team Services | Microsoft Docs
-description: "Saiba como criar um pipeline do Visual Studio Team Services para a integração contínua e entrega que implementa uma aplicação web IIS numa VM do Windows"
+description: Saiba como criar um pipeline do Visual Studio Team Services para a integração contínua e entrega que implementa uma aplicação web IIS numa VM do Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Criar um pipeline de integração contínua com o Visual Studio Team Services e o IIS
 Para automatizar a criação, teste e fases de implementação de desenvolvimento de aplicações, pode utilizar uma integração contínua e o pipeline de implementação (CI/CD). Neste tutorial, vai criar um pipeline de CI/CD com o Visual Studio Team Services e uma máquina virtual (VM) do Windows no Azure que executa o IIS. Saiba como:
@@ -218,7 +218,7 @@ Com a sua aplicação web em execução no IIS, experimente agora o pipeline de 
     ![Aplicação web do ASP.NET em execução no IIS VM a partir do pipeline de CI/CD](media/tutorial-vsts-iis-cicd/running_web_app_cicd.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou uma aplicação web ASP.NET no Team Services e configurado a compilação e definições de versão para implementar o novo web implementar pacotes de IIS em cada consolidação de código. Aprendeu a:
 
@@ -230,7 +230,7 @@ Neste tutorial, criou uma aplicação web ASP.NET no Team Services e configurado
 > * Criar uma versão definição para publicar o novo web implementar pacotes em IIS
 > * Testar o pipeline de CI/CD
 
-Avançar para o próximo tutorial para saber como instalar um SQL Server &#92; IIS &#92;. Pilha de rede num par de VMs do Windows.
+Avançadas para o próximo tutorial para saber como instalar o SQL&#92;IIS&#92;pilha de .NET num par de VMs do Windows.
 
 > [!div class="nextstepaction"]
-> [SQL &#92; IIS &#92;. Pilha de rede](tutorial-iis-sql.md)
+> [SQL&#92;IIS&#92;.NET stack](tutorial-iis-sql.md)

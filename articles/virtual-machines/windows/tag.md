@@ -1,10 +1,10 @@
 ---
 title: Como etiqueta de um recurso de VM do Windows no Azure | Microsoft Docs
-description: "Saiba mais sobre a marcação de uma máquina virtual do Windows criada no Azure utilizando o modelo de implementação Resource Manager"
+description: Saiba mais sobre a marcação de uma máquina virtual do Windows criada no Azure utilizando o modelo de implementação Resource Manager
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 5f00c4265cea3db02dbb09a7f81be636a3fdd3d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5044bda855b6ac88eb5784f257686bf8a1838222
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Como tag de máquina virtual do Windows no Azure
 Este artigo descreve as diferentes formas para marcar a máquina virtual do Windows no Azure através do modelo de implementação Resource Manager. As etiquetas são definidos pelo utilizador pares chave-valor que podem ser colocadas diretamente um recurso ou um grupo de recursos. Atualmente, o Azure suporta até 15 etiquetas por recursos e o grupo de recursos. Etiquetas podem ser colocadas num recurso no momento da criação ou adicionadas a um recurso existente. Tenha em atenção que as etiquetas são suportadas para os recursos criados através de apenas o modelo de implementação do Resource Manager. Para marcar uma máquina virtual Linux, consulte [como tag de uma máquina virtual Linux no Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -63,7 +63,7 @@ O segundo comando apresenta as etiquetas para a variável indicada.
         Value        Production
         Name        Environment
 
-O terceiro comando adiciona uma tag adicional para o *$tags* variável. Tenha em atenção a utilização do  **+=**  acrescentar o novo par chave/valor para o *$tags* lista.
+O terceiro comando adiciona uma tag adicional para o *$tags* variável. Tenha em atenção a utilização do **+=** acrescentar o novo par chave/valor para o *$tags* lista.
 
         PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 
@@ -92,7 +92,7 @@ Para saber mais sobre a etiquetagem através do PowerShell, veja o [Cmdlets de r
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre a etiquetagem os recursos do Azure, consulte o artigo [descrição geral do Azure Resource Manager] [ Azure Resource Manager Overview] e [etiquetas a utilizar para organizar os recursos do Azure] [ Using Tags to organize your Azure Resources].
 * Para ver como as etiquetas podem ajudá-lo a gerir a utilização de recursos do Azure, consulte [compreender a fatura do Azure] [ Understanding your Azure Bill] e [obter informações acerca do consumo de recursos do Microsoft Azure] [Gain insights into your Microsoft Azure resource consumption].
 

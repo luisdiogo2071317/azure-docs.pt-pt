@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7fcd8e12a7109218387788e47eddad48e72797bb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Datacenter Virtual do Microsoft Azure: Uma perspetiva de rede
 **Microsoft Azure**: agilizar, poupar dinheiro, integrar aplicações no local e dados
@@ -259,9 +259,9 @@ Um vDC, é extremamente importante controlar os registos de NSGs, particularment
 
 Todos os registos podem ser armazenados em contas do Storage do Azure para fins de cópia de segurança, de análise estático ou de auditoria. Quando os registos são armazenados uma conta de armazenamento do Azure, os clientes podem utilizar diferentes tipos de arquiteturas de obter, preparação, analisar e visualizar estes dados para comunicar o estado e estado de funcionamento dos recursos de nuvem.
 
-As grandes empresas, devem já ter adquirido uma estrutura padrão para monitorização sistemas no local e podem expandir esse framework para integrar os registos gerados por implementações de nuvem. Para as organizações que pretendem manter todos os registo na nuvem, [Microsoft Operations Management Suite (OMS)] [ OMS] é uma escolha ideal. Quando o OMS estiver implementado como um serviço baseado na nuvem, pode colocá-lo em execução de imediato com o mínimo investimento em termos de serviços de infraestrutura. OMS também pode integrar com componentes do System Center, tais como o System Center Operations Manager para expandir os investimentos de gestão para a nuvem.
+As grandes empresas, devem já ter adquirido uma estrutura padrão para monitorização sistemas no local e podem expandir esse framework para integrar os registos gerados por implementações de nuvem. Para as organizações que pretendem manter todos os registo na nuvem, [Log Analytics] [ LogAnalytics] é uma escolha ideal. Uma vez que a análise de registos é implementado como um serviço baseado na nuvem, pode ter e em execução rapidamente com mínimo investimento em serviços de infraestrutura. Análise de registos também pode integrar com componentes do System Center, tais como o System Center Operations Manager para expandir os investimentos de gestão para a nuvem.
 
-Análise de registos do OMS é um componente do framework OMS para ajudar a recolher, correlacionar, procurar e atuar sobre dados de registo e de desempenho gerados por sistemas operativos, aplicações, componentes de infraestrutura de nuvem. Proporciona aos clientes as informações operacionais em tempo real utilizando a pesquisa integrada e dashboards personalizados para analisar todos os registos em todas as suas cargas de trabalho uma vDC.
+Análise de registos é um serviço no Azure que ajuda a recolhe, correlacionar, procura e atua sobre dados de registo e de desempenho gerados por sistemas operativos, aplicações e componentes de infraestrutura de nuvem. Proporciona aos clientes as informações operacionais em tempo real utilizando a pesquisa integrada e dashboards personalizados para analisar todos os registos em todas as suas cargas de trabalho uma vDC.
 
 #### <a name="component-type-workloads"></a>Tipo de componente: cargas de trabalho
 Componentes de carga de trabalho são onde residem os seus serviços e aplicações reais. Também é onde suas equipas de desenvolvimento de aplicações gastam a maior parte do respetivo tempo.
@@ -332,7 +332,7 @@ As seguintes funcionalidades foram abordadas neste documento. Clique nas hiperli
 |Funcionalidades de rede|Balanceamento de Carga|Conectividade|
 |[Redes virtuais do Azure][VNet]</br>[Grupos de segurança de rede][NSG]</br>[NSG Logs][NSGLog]</br>[Encaminhamento definido pelo utilizador][UDR]</br>[Dispositivos de rede Virtual][NVA]</br>[Endereços IP públicos][PIP]|[Balanceador de carga do Azure (L3) ][ALB]</br>[Gateway de aplicação (L7) ][AppGW]</br>[Firewall de aplicações Web][WAF]</br>[Traffic Manager do Azure][TM] |[O VNet Peering][VNetPeering]</br>[Rede privada virtual][VPN]</br>[ExpressRoute][ExR]
 |Identidade</br>|Monitorização</br>|Melhores práticas</br>|
-|[Azure Active Directory][AAD]</br>[Autenticação Multifator][MFA]</br>[Controlos de acesso de Base de função][RBAC]</br>[Funções predefinidas do AAD][Roles] |[Registos de atividade][ActLog]</br>[Registos de diagnóstico][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Melhores práticas de redes de perímetro][DMZ]</br>[Gestão de subscrição][SubMgmt]</br>[Gestão de grupo de recursos][RGMgmt]</br>[Limites de subscrição do Azure][Limits] |
+|[Azure Active Directory][AAD]</br>[Autenticação Multifator][MFA]</br>[Controlos de acesso de Base de função][RBAC]</br>[Funções predefinidas do AAD][Roles] |[Registos de atividade][ActLog]</br>[Registos de diagnóstico][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[Melhores práticas de redes de perímetro][DMZ]</br>[Gestão de subscrição][SubMgmt]</br>[Gestão de grupo de recursos][RGMgmt]</br>[Limites de subscrição do Azure][Limits] |
 |Outros serviços do Azure|
 |[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Hubs de Eventos][EventHubs]</br>[Service Bus][ServiceBus]|
 
@@ -379,7 +379,7 @@ As seguintes funcionalidades foram abordadas neste documento. Clique nas hiperli
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

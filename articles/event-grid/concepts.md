@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/04/2018
 ms.author: babanisa
-ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos na grelha de eventos do Azure
 
@@ -32,9 +32,11 @@ Os publicadores categorizam eventos em tópicos. O tópico inclui um ponto final
 
 Tópicos de sistema são tópicos incorporados fornecidos pelos serviços do Azure. Tópicos de personalizados são tópicos de terceiros e aplicações.
 
+Ao conceber a sua aplicação, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere uma aplicação que envia eventos relacionados com a modificar contas de utilizador e as ordens de processamento. É pouco provável de qualquer processador de eventos pretender que ambas as categorias de eventos. Criar dois tópicos personalizados e permita que os processadores de eventos subscrever que lhe interessa-los. Quando subscrever o tópico personalizado, o processador de eventos pode filtrar por tipo de evento.
+
 ## <a name="event-subscriptions"></a>Subscrições de eventos
 
-Uma subscrição instrui a grelha de evento que eventos de um tópico está interessado em receção um subscritor.  Uma subscrição também contém informações sobre como os eventos devem ser entregues para o subscritor.
+Uma subscrição instrui a grelha de evento que eventos de um tópico está interessado em receção um subscritor. Uma subscrição também contém informações sobre como os eventos devem ser entregues para o subscritor.
 
 ## <a name="event-handlers"></a>Processadores de eventos
 

@@ -1,11 +1,10 @@
 ---
-title: "Arquiteturas de base de dados com múltiplos mestra com a base de dados do Azure Cosmos | Microsoft Docs"
-description: "Saiba mais sobre como conceber arquiteturas de aplicações com locais leituras e escritas em várias regiões geográficas com base de dados do Azure Cosmos."
+title: Arquiteturas de base de dados com múltiplos mestra com a base de dados do Azure Cosmos | Microsoft Docs
+description: Saiba mais sobre como conceber arquiteturas de aplicações com locais leituras e escritas em várias regiões geográficas com base de dados do Azure Cosmos.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +14,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 941af42561afbdf91cb3529fd51971ee88fafdbc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Mestre multi replicado globalmente arquiteturas de base de dados com base de dados do Azure Cosmos
 BD do Azure do Cosmos suporta chave na mão [replicação global](distribute-data-globally.md), que permite-lhe distribuir dados para várias regiões com acesso de latência baixa em qualquer lugar na carga de trabalho. Este modelo é geralmente utilizado para cargas de trabalho do publicador/consumidor onde existe um escritor numa única região geográfica e leitores globalmente distribuídos noutras regiões (leitura). 
@@ -166,7 +165,7 @@ Agora vamos ver os dados principais métodos de acesso, temos de implementar. Ei
 ## <a id="Architecture"></a>Configuração de conta do Cosmos BD do Azure
 Para garantir local lê e escreve, é necessário de partição dados não apenas na partição chave, mas também com base num padrão de acesso geográfica em regiões. O modelo baseia-se em ter uma conta de base de dados de base de dados do Azure Cosmos georreplicação para cada região. Por exemplo, com duas regiões, segue-se um programa de configuração para escritas de multirregião:
 
-| Nome da Conta | Escrever região | Região de leitura |
+| Nome da Conta | Região de Escrita | Região de Leitura |
 | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
@@ -197,7 +196,7 @@ Eis um fragmento de código que mostra como iniciar, os clientes de uma camada D
 
 Com a configuração anterior, a camada de acesso de dados pode reencaminhar todas as operações de escrita para a conta local, com base nos quais tenha sido implementado. Leituras são efetuadas durante a leitura do ambas as contas para obter a vista de dados global. Esta abordagem pode ser expandida para regiões tantos conforme necessário. Por exemplo, é uma configuração com três regiões geográficas aqui:
 
-| Nome da Conta | Escrever região | Ler região 1 | Ler região 2 |
+| Nome da Conta | Região de Escrita | Ler região 1 | Ler região 2 |
 | --- | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |

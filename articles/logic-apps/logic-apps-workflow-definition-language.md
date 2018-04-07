@@ -1,11 +1,11 @@
 ---
-title: "Esquema de linguagem de definição de fluxo de trabalho - Azure Logic Apps | Microsoft Docs"
-description: "Definir fluxos de trabalho com base no esquema de definição de fluxo de trabalho para o Azure Logic Apps"
+title: Esquema de linguagem de definição de fluxo de trabalho - Azure Logic Apps | Microsoft Docs
+description: Definir fluxos de trabalho com base no esquema de definição de fluxo de trabalho para o Azure Logic Apps
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 994b8946078ed9b4c8aa965a3bc0e117ba3185c0
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 42932e6d1727a1444c62f565ae3c48dc178aeb2b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Esquema de linguagem de definição de fluxo de trabalho para o Azure Logic Apps
 
@@ -70,10 +70,10 @@ O exemplo seguinte mostra a estrutura de uma definição do parâmetro:
 
 |Nome do elemento|Necessário|Descrição|  
 |------------------|--------------|-----------------|  
-|tipo|Sim|**Tipo**: cadeia <p> **Declaração**: `"parameters": {"parameter1": {"type": "string"}` <p> **Especificação**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: securestring <p> **Declaração**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: int <p> **Declaração**: `"parameters": {"parameter1": {"type": "int"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value" : 5}}` <p> **Tipo**: bool <p> **Declaração**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": true }}` <p> **Tipo**: matriz <p> **Declaração**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Tipo**: objeto <p> **Declaração**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Tipo**: secureobject <p> **Declaração**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Nota:** o `securestring` e `secureobject` tipos não são devolvidos em `GET` operações. Todas as palavras-passe, chaves e segredos devem utilizar este tipo.|  
+|tipo|Sim|**Tipo**: cadeia <p> **Declaração**: `"parameters": {"parameter1": {"type": "string"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: securestring <p> **Declaração**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: int <p> **Declaração**: `"parameters": {"parameter1": {"type": "int"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value" : 5}}` <p> **Tipo**: bool <p> **Declaração**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": true }}` <p> **Tipo**: matriz <p> **Declaração**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Tipo**: objeto <p> **Declaração**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Tipo**: secureobject <p> **Declaração**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Nota:** o `securestring` e `secureobject` tipos não são devolvidos em `GET` operações. Todas as palavras-passe, chaves e segredos devem utilizar este tipo.|  
 |defaultValue|Não|Especifica o valor predefinido para o parâmetro quando for especificado nenhum valor momento que o recurso é criado.|  
 |allowedValues|Não|Especifica uma matriz de valores permitidos para o parâmetro.|  
-|Metadados|Não|Especifica informações adicionais sobre o parâmetro, como uma descrição legível ou tempo de criação de dados utilizadas pelo Visual Studio ou outras ferramentas.|  
+|do IdP|Não|Especifica informações adicionais sobre o parâmetro, como uma descrição legível ou tempo de criação de dados utilizadas pelo Visual Studio ou outras ferramentas.|  
   
 Este exemplo mostra como pode utilizar um parâmetro na secção de corpo de uma ação:  
   
@@ -229,7 +229,7 @@ Estas funções são úteis no interior de condições e podem ser utilizadas pa
   
 |Nome da função|Descrição|  
 |-------------------|-----------------|  
-|igual a|Devolve true se dois valores são iguais. Por exemplo, se parameter1 someValue, esta função devolve `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 de objeto <p> **Descrição**: necessário. O objeto comparar para **objeto 2**. <p> **Número de parâmetro**: 2 <p> **Nome**: objeto 2 <p> **Descrição**: necessário. O objeto comparar para **objeto 1**.|  
+|é igual a|Devolve true se dois valores são iguais. Por exemplo, se parameter1 someValue, esta função devolve `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 de objeto <p> **Descrição**: necessário. O objeto comparar para **objeto 2**. <p> **Número de parâmetro**: 2 <p> **Nome**: objeto 2 <p> **Descrição**: necessário. O objeto comparar para **objeto 1**.|  
 |menor|Devolve VERDADEIRO se o primeiro argumento for menor do que o segundo. Tenha em atenção de que os valores só podem ser do tipo número inteiro, flutuante ou uma cadeia. Por exemplo, esta função devolve `true`: <p>`less(10,100)` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 de objeto <p> **Descrição**: necessário. O objeto para verificar se é inferior a **objeto 2**. <p> **Número de parâmetro**: 2 <p> **Nome**: objeto 2 <p> **Descrição**: necessário. O objeto para verificar se é superior ao **objeto 1**.|  
 |lessOrEquals|Devolve true se o primeiro argumento é menor ou igual ao segundo. Tenha em atenção de que os valores só podem ser do tipo número inteiro, flutuante ou uma cadeia. Por exemplo, esta função devolve `true`: <p>`lessOrEquals(10,10)` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 de objeto <p> **Descrição**: necessário. O objeto para verificar se é menor ou igual a **objeto 2**. <p> **Número de parâmetro**: 2 <p> **Nome**: objeto 2 <p> **Descrição**: necessário. O objeto para verificar se é maior que ou igual a **objeto 1**.|  
 |maior|Devolve true se o primeiro argumento é maior do que o segundo. Tenha em atenção de que os valores só podem ser do tipo número inteiro, flutuante ou uma cadeia. Por exemplo, esta função devolve `false`:  <p>`greater(10,10)` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 de objeto <p> **Descrição**: necessário. O objeto para verificar se é superior ao **objeto 2**. <p> **Número de parâmetro**: 2 <p> **Nome**: objeto 2 <p> **Descrição**: necessário. O objeto para verificar se é inferior a **objeto 1**.|  

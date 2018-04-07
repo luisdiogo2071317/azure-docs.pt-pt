@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: 84a3834416c7d93ecb4f51fea9c7baed8af85db0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5b2335ee2584af07ed23ce87be92a869f3a07ba1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>As alterações de preço para o Monitor de desempenho de rede do Azure
 
-Iremos listened para si e recentemente ter introduzido um [novos preços experiência](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), para várias monitorização serviços através do Azure.
+Iremos ouvir os seus comentários e recentemente ter introduzido um [novos preços experiência](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), para várias monitorização serviços através do Azure.
 
 Este documento captura as preços alterações relacionadas com o Azure [Monitor de desempenho de rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM), em qualquer fáceis de ler o formato de pergunta e resposta.
 
@@ -32,11 +32,11 @@ Monitor de desempenho da rede consiste em três componentes:
 * [Monitor de ponto final do serviço](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor) e
 * [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
-A secção abaixo explica as alterações de preços para o Monitor de desempenho, o Monitor de ExpressRoute e o Monitor de ponto final de serviço.
+A secção abaixo explica as alterações de preços para os componentes acima.
 
 ## <a name="performance-monitor-pm"></a>Monitor de desempenho (horas)
 
-**Como foi a utilização do Monitor de desempenho cobrados no esquema antigo?**
+**Como foi a utilização do Monitor de desempenho cobrados no modelo antigo?**
 
 A faturação de NPM foi com base no consumo/utilização dois componentes:
 * Nós: Todas as transações sintéticas provir e terminam os nós. Nós são também conhecidos como agentes ou MMA (agentes de gestão da Microsoft).
@@ -121,3 +121,8 @@ Uma ligação é um teste de acessibilidade para um ponto final (serviço de red
 
 - Consulte o [ligação monitorização](https://azure.microsoft.com/pricing/details/network-watcher/) secção, o custo de um ponto final de monitorização para o mês completo.
 - A taxa de dados está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para análise de registos.  (Secção: ingestão de dados).
+
+## <a name="references"></a>Referências
+
+- [FAQ sobre preços de análise de registo](https://azure.microsoft.com/pricing/details/log-analytics/) -secção das FAQ o tem informações no escalão gratuito, por nó preços, etc.
+

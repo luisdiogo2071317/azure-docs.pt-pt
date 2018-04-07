@@ -1,21 +1,21 @@
 ---
-title: Monitorizar a sincronização de dados SQL do Azure (pré-visualização) com a análise de registos do OMS | Microsoft Docs
-description: Saiba como monitorizar a sincronização de dados de SQL do Azure (pré-visualização) através da utilização de análise de registos do OMS
+title: Monitorizar a sincronização de dados SQL do Azure (pré-visualização) análise do registo | Microsoft Docs
+description: Saiba como monitorizar a sincronização de dados de SQL do Azure (pré-visualização) através da utilização de análise de registos
 services: sql-database
-ms.date: 11/07/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: c106d5bbea118c9b78cbccee187b8eb5c347f232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Monitor SQL de sincronização de dados (pré-visualização) com a análise de registos do OMS 
+# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Monitor SQL de sincronização de dados (pré-visualização) análise do registo 
 
 Verifique o registo de atividade de sincronização de dados do SQL Server e detetar erros e avisos, que tinha anteriormente verificar a sincronização de dados SQL manualmente no portal do Azure ou utilizar o PowerShell ou a API REST. Siga os passos neste artigo para configurar uma solução personalizada que melhora a experiência de monitorização de sincronização de dados. Pode personalizar esta solução para que se adeque ao seu cenário.
 
@@ -23,27 +23,27 @@ Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincroni
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard de monitorização para todos os grupos de sincronização 
 
-Já não precisam de examine os registos de cada grupo de sincronização individualmente para procurar problemas. Pode monitorizar todos os grupos de sincronização de qualquer uma das suas subscrições no local através da utilização de uma vista personalizada do OMS (Operations Management Suite). Esta vista apresenta as informações que mais lhe interessam para clientes de sincronização de dados do SQL Server.
+Já não precisam de examine os registos de cada grupo de sincronização individualmente para procurar problemas. Pode monitorizar todos os grupos de sincronização de qualquer uma das suas subscrições no local através da utilização de uma vista personalizada de análise de registos. Esta vista apresenta as informações que mais lhe interessam para clientes de sincronização de dados do SQL Server.
 
 ![Dashboard de monitorização de sincronização de dados](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Notificações de correio eletrónico automatizadas
 
-Já não precisam de verificar o registo manualmente no portal do Azure ou através do PowerShell ou a API REST. Com [análise de registos do OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), pode criar alertas diretamente para os endereços de e-mail das pessoas que necessitam para vê-los quando ocorre um erro.
+Já não precisam de verificar o registo manualmente no portal do Azure ou através do PowerShell ou a API REST. Com [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), pode criar alertas diretamente para os endereços de e-mail das pessoas que necessitam para vê-los quando ocorre um erro.
 
 ![Notificações de correio eletrónico de sincronização de dados](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>Como pode configurar estas funcionalidades de monitorização? 
 
-Implemente uma solução de monitorização para a sincronização de dados do SQL Server em menos de uma hora, efetuando os seguintes procedimentos OMS personalizado:
+Implemente uma solução de monitorização para a sincronização de dados do SQL Server em menos de uma hora, efetuando os seguintes procedimentos de análise de registos personalizados:
 
 Terá de configurar os três componentes:
 
--   Um runbook do PowerShell para o feed de dados de registo de sincronização de dados do SQL Server para OMS.
+-   Um runbook do PowerShell para o feed de dados de registo de sincronização de dados do SQL Server para análise de registos.
 
--   Um alerta de análise de registos do OMS para notificações por e-mail.
+-   Um alerta de análise de registos para notificações por e-mail.
 
--   Uma vista do OMS para monitorização.
+-   Uma vista de análise do registo para a monitorização.
 
 ### <a name="samples-to-download"></a>Exemplos para transferir
 
@@ -51,7 +51,7 @@ Transfira os exemplos de dois seguintes:
 
 -   [Runbook do PowerShell de registo de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Vista OMS de registo de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Vista de análise de registo de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,11 +59,11 @@ Certifique-se de que configurou as seguintes ações:
 
 -   Uma conta de automatização do Azure
 
--   Análise de registos ligado com área de trabalho do OMS
+-   Área de trabalho do Log Analytics
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>Runbook do PowerShell para obter o registo de sincronização de dados do SQL Server 
 
-Utilize um runbook de PowerShell alojado na automatização do Azure para extrair os dados de registo de sincronização de dados do SQL Server e envia-as à OMS. Um script de exemplo está incluído. Como pré-requisito, tem de ter uma conta de automatização do Azure. Em seguida, terá de criar um runbook e agendar para execução. 
+Utilize um runbook de PowerShell alojado na automatização do Azure para extrair os dados de registo de sincronização de dados do SQL Server e envia-as à análise de registos. Um script de exemplo está incluído. Como pré-requisito, tem de ter uma conta de automatização do Azure. Em seguida, terá de criar um runbook e agendar para execução. 
 
 ### <a name="create-a-runbook"></a>Criar um runbook
 
@@ -121,9 +121,9 @@ Agendar o runbook:
 
 Para monitorizar se o seu automatização está em execução conforme esperado em **descrição geral** para a sua conta de automatização, localizar o **estatísticas de tarefa** ver em **monitorização**. Afixe esta vista para o seu dashboard para uma visualização mais fácil. É executado com êxito de mostrar o runbook como "Concluída" e falha executa mostra como "Falhado".
 
-## <a name="create-an-oms-log-reader-alert-for-email-notifications"></a>Criar um alerta de leitor de registos do OMS para notificações por E-Mail
+## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Criar um alerta de leitor de análise do registo para notificações por E-Mail
 
-Para criar um alerta que utiliza a análise de registos do OMS, efetue os seguintes procedimentos. Como pré-requisito, tem de ter a análise de registos associados com uma área de trabalho do OMS.
+Para criar um alerta que utiliza a análise de registos, efetue os seguintes procedimentos. Como pré-requisito, tem de ter ligado com uma área de trabalho de análise de registos de análise de registos.
 
 1.  No portal do OMS, selecione **pesquisa registo**.
 
@@ -179,7 +179,7 @@ Na maioria dos casos, esta solução é gratuita.
 
 **A automatização do Azure:** poderá existir um custo tarifas com a conta de automatização do Azure, dependendo da sua utilização. Os primeiro 500 minutos de tempo por mês de execução da tarefa são gratuitos. Na maioria dos casos, esta solução deverá utilizar menos de 500 minutos por mês. Para evitar encargos, agende o runbook seja executado um intervalo de duas horas ou mais. Para obter mais informações, consulte [automatização preços](https://azure.microsoft.com/pricing/details/automation/).
 
-**Análise de registos do OMS:** poderá existir um custo associado OMS, dependendo da sua utilização. O escalão gratuito inclui 500 MB de dados de transmissões em por dia. Na maioria dos casos, esta solução é esperada para a ingestão de menos de 500 MB por dia. Para reduzir a utilização, utilize ao só de falha de filtragem incluída no runbook. Se estiver a utilizar mais do que 500 MB por dia, atualize para o escalão pago para evitar o risco de análise parar quando for atingido o limite. Para obter mais informações, consulte [preços de análise de registos](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Análise de registos:** poderá existir um custo associado a análise de registos, dependendo da sua utilização. O escalão gratuito inclui 500 MB de dados de transmissões em por dia. Na maioria dos casos, esta solução é esperada para a ingestão de menos de 500 MB por dia. Para reduzir a utilização, utilize ao só de falha de filtragem incluída no runbook. Se estiver a utilizar mais do que 500 MB por dia, atualize para o escalão pago para evitar o risco de análise parar quando for atingido o limite. Para obter mais informações, consulte [preços de análise de registos](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Exemplos de código
 
@@ -187,9 +187,9 @@ Transfira os exemplos de código descritos neste artigo das seguintes localizaç
 
 -   [Runbook do PowerShell de registo de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Vista OMS de registo de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Vista de análise de registo de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 
 -   [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)

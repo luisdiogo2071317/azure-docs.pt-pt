@@ -1,11 +1,11 @@
 ---
 title: Configurar o acesso de WinRM para uma VM do Azure | Microsoft Docs
-description: "Configure o acesso de WinRM para utilização com uma máquina virtual do Azure criada no modelo de implementação Resource Manager."
+description: Configure o acesso de WinRM para utilização com uma máquina virtual do Azure criada no modelo de implementação Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9718e85b-d360-4621-90b8-0b0b84a21208
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 2d6533462400bc1d93d0d3b0227769784e2658a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fa82dd4a85ff2e62848df0fdc6006922005a84b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configurar o acesso de WinRM para máquinas virtuais no Gestor de recursos do Azure
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>WinRM na gestão de serviço do Azure vs do Azure Resource Manager
@@ -88,7 +88,7 @@ Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretV
 O fornecedor de recursos Microsoft. Compute tem um URL para o segredo no Cofre de chaves ao aprovisionamento de VM. Isto permite que o fornecedor de recursos Microsoft. Compute transferir o segredo e criar o certificado equivalente na VM.
 
 > [!NOTE]
-> O URL do segredo tem de incluir, bem como a versão. Um URL de exemplo aspeto abaixo https://contosovault.vault.azure.net:443/segredos/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> O URL do segredo tem de incluir, bem como a versão. Um URL de exemplo aspeto abaixo https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 > 
 > 
 
@@ -157,7 +157,7 @@ Antes de poder ligar à VM tem de certificar-se a máquina está configurada par
     Enable-PSRemoting -Force
 
 > [!NOTE]
-> Poderá ter de certificar-se de que o serviço WinRM está em execução se o procedimento acima não funciona. Pode fazê-lo que utilizar`Get-Service WinRM`
+> Poderá ter de certificar-se de que o serviço WinRM está em execução se o procedimento acima não funciona. Pode fazê-lo que utilizar `Get-Service WinRM`
 > 
 > 
 

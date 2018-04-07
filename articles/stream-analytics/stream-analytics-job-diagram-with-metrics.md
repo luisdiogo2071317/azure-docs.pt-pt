@@ -1,24 +1,19 @@
 ---
-title: O Azure Stream Analytics condicionada por dados depuração utilizando o diagrama de tarefa | Microsoft Docs
-description: Resolver problemas relacionados com a sua tarefa do Stream Analytics utilizando o diagrama de tarefa e as métricas.
-keywords: ''
-documentationcenter: ''
+title: Depuração no Azure Stream Analytics condicionada por dados
+description: Este artigo descreve como resolver problemas com a tarefa de Stream Analytics do Azure utilizando o diagrama de tarefa e as métricas no portal do Azure.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 05/01/2017
 ms.author: jeanb
-ms.openlocfilehash: 65eeeee7daa22b94074f55defdfd1219049774c9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/01/2017
+ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuração utilizando o diagrama de tarefa condicionada por dados
 
@@ -85,7 +80,7 @@ Se o passo de consulta anterior é um processador de entrada, utilize as métric
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter assistência adicional, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obter assistência adicional, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)

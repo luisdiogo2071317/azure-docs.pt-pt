@@ -3,7 +3,7 @@ title: O registo de atividade do Azure para os Hubs de eventos de fluxo | Micros
 description: Saiba como transmitir o registo de atividade para os Event Hubs do Azure.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: ec4c2d2c-8907-484f-a910-712403a06829
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2018
 ms.author: johnkem
-ms.openlocfilehash: 4b2d9866839f943f65beb271d44bc691441b0fb3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8a599558fc35ca2bf48ce2a5f11ec4978bf10277
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Fluxo de registo de atividade do Azure para os Event Hubs
 Pode transmitir o [registo de atividade do Azure](monitoring-overview-activity-logs.md) em tempo real para qualquer aplicação ao:
@@ -56,38 +56,48 @@ Para atualizar o perfil de registo de registo de atividade para incluir a transm
 
    > [!WARNING]  
    > Se selecionar algo diferente de **todas as regiões**, que irá perder a chaves eventos que pretende receber. O registo de atividade é um registo (não regionais) global, para que a maior parte dos eventos não dispõe de uma região associada aos mesmos. 
-   > 
+   >
 
 4. Selecione **guardar** para guardar estas definições. As definições são imediatamente aplicadas à sua subscrição.
 5. Se tiver várias subscrições, repita esta ação e enviar todos os dados para o mesmo hub de eventos.
 
 ### <a name="via-powershell-cmdlets"></a>Através de cmdlets do PowerShell
-Se já existir um perfil de registo, terá primeiro de remover esse perfil.
+Se já existir um perfil de registo, terá primeiro de remover o perfil de registo existente e, em seguida, crie um novo perfil de registo.
 
-1. Utilize `Get-AzureRmLogProfile` para identificar se existir um perfil de registo.
-2. Se Sim, utilizar `Remove-AzureRmLogProfile` removê-lo.
-3. Utilize `Set-AzureRmLogProfile` para criar um perfil:
+1. Utilize `Get-AzureRmLogProfile` para identificar se existir um perfil de registo.  Se existir um perfil de registo, localize o *nome* propriedade.
+2. Utilize `Remove-AzureRmLogProfile` para remover o perfil de registo com o valor da *nome* propriedade.
+
+    ```powershell
+    # For example, if the log profile name is 'default'
+    Remove-AzureRmLogProfile -Name "default"
+    ```
+3. Utilize `Add-AzureRmLogProfile` para criar um novo perfil de registo:
 
    ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your event hub belongs to>"
+   $eventHubNamespace = "<event hub namespace>"
 
-   Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+   # Build the service bus rule Id from the settings above
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
 
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
-
-O ID de regra de Service Bus é uma cadeia com este formato: `{service bus resource ID}/authorizationrules/{key name}`. 
 
 ### <a name="via-azure-cli"></a>Através da CLI do Azure
-Se já existir um perfil de registo, terá primeiro de remover esse perfil.
+Se já existir um perfil de registo, terá primeiro de remover o perfil de registo existente e, em seguida, crie um novo perfil de registo.
 
-1. Utilize `azure insights logprofile list` para identificar se existir um perfil de registo.
-2. Se Sim, utilizar `azure insights logprofile delete` removê-lo.
-3. Utilize `azure insights logprofile add` para criar um perfil:
+1. Utilize `az monitor log-profiles list` para identificar se existir um perfil de registo.
+2. Utilize `az monitor log-profiles delete --name "<log profile name>` para remover o perfil de registo com o valor da *nome* propriedade.
+3. Utilize `az monitor log-profiles create` para criar um novo perfil de registo:
 
    ```azurecli-interactive
-   azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
-
-O ID de regra de Service Bus é uma cadeia com este formato: `{service bus resource ID}/authorizationrules/{key name}`.
 
 ## <a name="consume-the-log-data-from-event-hubs"></a>Consumir os dados de registo dos Event Hubs
 O esquema para o registo de atividade está disponível no [monitorizar atividade de subscrição com o registo de atividade do Azure](monitoring-overview-activity-logs.md). Cada evento está a ser uma matriz de blobs JSON chamado *registos*.

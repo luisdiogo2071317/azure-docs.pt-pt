@@ -1,10 +1,10 @@
 ---
-title: "Criar uma cópia da sua VM do Linux com a CLI do Azure 1.0 | Microsoft Docs"
-description: "Saiba como criar uma cópia da máquina virtual Linux do Azure com a CLI do Azure 1.0 no modelo de implementação Resource Manager"
+title: Criar uma cópia da sua VM do Linux com a CLI do Azure 1.0 | Microsoft Docs
+description: Saiba como criar uma cópia da máquina virtual Linux do Azure com a CLI do Azure 1.0 no modelo de implementação Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
 ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 62ae54f3596c9383cbf3b401fcfdb42ecfdee63c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb350f8d14ad451ad3ff7cd617ca3f90967aaa4b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Criar uma cópia de uma máquina virtual de Linux em execução no Azure com a CLI do Azure 1.0
 Este artigo mostra como criar uma cópia da sua máquina virtual do Azure (VM) com Linux utilizando o modelo de implementação Resource Manager. Primeiro copiar sobre o sistema operativo e os discos de dados para um novo contentor, em seguida, configurar os recursos de rede e criar a nova máquina virtual.
@@ -46,7 +46,7 @@ Certifique-se de que cumpre os seguintes pré-requisitos antes de iniciar os pas
 | Nome do contentor |`azure storage container list -a <sourcestorageaccountname>` |
 | Nome de ficheiro de VHD de VM de origem |`azure storage blob list --container <containerName>` |
 
-* Terá de efetuar algumas opções sobre a nova VM:   <br> -Nome do contentor   <br> Nome da - VM   <br> Tamanho da - VM   <br> nome da - vNet   <br> -Nome da sub-rede   <br> Nome do - IP   <br> Nome - NIC
+* Terá de efetuar algumas opções sobre a nova VM:    <br> -Nome do contentor    <br> Nome da - VM    <br> Tamanho da - VM    <br> nome da - vNet    <br> -Nome da sub-rede    <br> Nome do - IP    <br> Nome - NIC
 
 ## <a name="login-and-set-your-subscription"></a>Início de sessão e definir a sua subscrição
 1. Início de sessão para a CLI.
@@ -110,6 +110,6 @@ azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber como utilizar a CLI do Azure para gerir a sua nova máquina virtual, consulte [comandos da CLI do Azure para o Azure Resource Manager](../azure-cli-arm-commands.md).
 

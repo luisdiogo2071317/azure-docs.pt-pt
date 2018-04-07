@@ -1,28 +1,23 @@
 ---
-title: "Executar as funções do Azure com tarefas do Azure Stream Analytics | Microsoft Docs"
-description: "Saiba como configurar as funções do Azure como um sink de saída para tarefas do Stream Analytics."
-keywords: "dados de saída, transmissão em fluxo de dados, a função do Azure"
-documentationcenter: 
+title: Executar as funções do Azure a partir de tarefas do Azure Stream Analytics
+description: Este artigo descreve como configurar as funções do Azure como um sink de saída das tarefas do Stream Analytics, para cargas de trabalho de evento unidade.
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 manager: kfile
-ms.assetid: 
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: sngun
-ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Executar as funções do Azure com tarefas do Azure Stream Analytics 
+# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Executar as funções do Azure a partir de tarefas do Azure Stream Analytics 
 
-Pode executar as funções do Azure com o Azure Stream Analytics através da configuração de funções como um dos sinks de saída para a tarefa de Stream Analytics. As funções são uma experiência de cálculo a pedido condicionada por eventos que lhe permite implementar o código que é acionado pelos eventos que ocorrem no Azure ou serviços de terceiros. Esta capacidade de funções para responder a acionadores torna uma saída natural para tarefas do Stream Analytics.
+Pode executar as funções do Azure a partir do Azure Stream Analytics através da configuração de funções como um dos sinks de saída para a tarefa de Stream Analytics. As funções são uma experiência de cálculo a pedido condicionada por eventos que lhe permite implementar o código que é acionado pelos eventos que ocorrem no Azure ou serviços de terceiros. Esta capacidade de funções para responder a acionadores torna uma saída natural para tarefas do Stream Analytics.
 
 Do Stream Analytics invoca funções através de acionadores HTTP. O adaptador de saída de funções permite aos utilizadores ligar funções Stream Analytics, para que os eventos podem ser acionados baseada em consultas do Stream Analytics. 
 

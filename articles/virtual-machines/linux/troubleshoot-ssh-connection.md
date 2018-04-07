@@ -1,12 +1,12 @@
 ---
-title: "Resolver problemas de ligação SSH para uma VM do Azure | Microsoft Docs"
-description: "Como resolver problemas, tais como 'Falhada de ligação SSH' ou 'Recusada a ligação de SSH' para uma VM do Azure com o Linux."
-keywords: "SSH ligação recusada, ssh erro, azure ssh, ligação SSH falhou"
+title: Resolver problemas de ligação SSH para uma VM do Azure | Microsoft Docs
+description: Como resolver problemas, tais como 'Falhada de ligação SSH' ou 'Recusada a ligação de SSH' para uma VM do Azure com o Linux.
+keywords: SSH ligação recusada, ssh erro, azure ssh, ligação SSH falhou
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: dcb82e19-29b2-47bb-99f2-900d4cfb5bbb
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 176477105e1f660b0bd22d95142b744ef17044ee
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 533a80edbb115dfd324db9e4488e5c66dc36667e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Resolver problemas de uma VM com Linux do Azure que falhe, erros de saída, ou é recusada ligações SSH
 Existem várias razões se encontrar erros de Secure Shell (SSH), falhas de ligação de SSH, ou SSH é recusou-se ao tentar ligar a uma máquina virtual (VM) do Linux. Este artigo ajuda-o a localizar e corrigir os problemas. Pode utilizar o portal do Azure, CLI do Azure ou a extensão de acesso de VM para Linux para resolver problemas de ligação.
@@ -68,6 +68,14 @@ Como primeiro passo, selecione `Reset configuration only` do **modo** menu pende
 Para repor as credenciais de um utilizador existente, selecione `Reset SSH public key` ou `Reset password` do **modo** menu pendente, como a captura de ecrã anterior. Especifique o nome de utilizador e uma chave SSH ou nova palavra-passe, em seguida, clique em de **repor** botão.
 
 Também pode criar um utilizador com privilégios sudo na VM este menu. Introduza um novo nome de utilizador e palavra-passe associada ou chave SSH e, em seguida, clique em de **repor** botão.
+
+### <a name="check-security-rules"></a>Verifica as regras de segurança
+
+Utilize [Certifique-se de fluxo IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar se uma regra num grupo de segurança de rede está a bloquear o tráfego de ou para uma máquina virtual. Também pode consultar regras do grupo de segurança eficaz para garantir que a entrada "Permitir" NSG regra existe e está definida para a porta SSH (predefinição 22). Para obter mais informações, consulte [utilizar regras de segurança eficaz para resolver problemas de VM de fluxo de tráfego](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+
+### <a name="check-routing"></a>Verifique o encaminhamento
+
+Utilizar o observador de rede [próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) capacidade para confirmar que uma rota não está a impedir o tráfego, de que está a ser encaminhados para ou de uma máquina virtual. Também pode rever as rotas efetivas para ver todas as rotas eficazes para uma interface de rede. Para obter mais informações, consulte [fluxo de tráfego de rotas efetivas do Using para resolver problemas de VM](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
 
 ## <a name="use-the-azure-cli-20"></a>Utilizar a CLI do Azure 2.0
 Se ainda não o fez, instale a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/reference-index#az_login).

@@ -1,13 +1,13 @@
 ---
-title: "Sobre a monitorização de rede na análise de registos | Microsoft Docs"
-description: "Descrição geral de soluções, incluindo NPM, para gerir redes em ambientes de nuvem, no local e híbridos da monitorização de rede."
+title: Sobre a monitorização de rede na análise de registos | Microsoft Docs
+description: Descrição geral de soluções, incluindo NPM, para gerir redes em ambientes de nuvem, no local e híbridos da monitorização de rede.
 services: monitoring-and-diagnostics
 documentationcenter: na
 author: agummadi
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitorização de rede 
 
@@ -60,9 +60,11 @@ NPM para o ExpressRoute oferece monitorização ExpressRoute completa para liga�
 
 * Deteção automática de circuitos ER associados à subscrição
 * Deteção de topologia de rede no local para as suas aplicações na nuvem
-* Planeamento de análise da utilização da capacidade
+* O planeamento de capacidade, análise da utilização de utilização de largura de banda por rede Virtual
 * Monitorização e alertas sobre os caminhos principais e secundários
 * Detetar degradação de conectividade para VNets
+
+![Tráfego de apresentação do mapa Georreplicação em regiões](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 Para obter mais informações, veja os artigos seguintes:
 
@@ -116,7 +118,6 @@ Incorporado para os administradores de DNS, esta solução recolhe, analisa e es
 Ligações relacionadas:
 * [Mensagem de blogue](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [documentação](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="miscellaneous"></a>Diversos
 
-* [Configurar o Monitor de desempenho de rede](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
-* [Configurar o Monitor de Desempenho de Rede para o ExpressRoute](../expressroute/how-to-npm.md)
+* [Novos preços](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

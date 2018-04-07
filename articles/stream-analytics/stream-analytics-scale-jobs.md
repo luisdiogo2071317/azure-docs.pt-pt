@@ -1,31 +1,25 @@
 ---
-title: Tarefas do Stream Analytics para aumentar o débito de escala | Microsoft Docs
-description: Saiba como dimensionar as tarefas do Stream Analytics ao configurar partições de entrada, a definição de consulta de Otimização e definir as unidades de transmissão em fluxo de trabalho.
-keywords: dados de transmissão em fluxo, processamento de dados de transmissão em fluxo otimizar a análise
+title: Aumentar verticalmente e horizontalmente nas tarefas do Azure Stream Analytics
+description: Este artigo descreve como dimensionar uma tarefa de Stream Analytics através da criação de partições de dados de entrada, a consulta de Otimização e definir as unidades de transmissão em fluxo de trabalho.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Tarefas do Stream Analytics do Azure para aumentar o débito de escala
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Uma tarefa de Stream Analytics do Azure para aumentar o débito de escala
 Este artigo mostra como otimizar a uma consulta do Stream Analytics para aumentar o débito para as tarefas de análise de transmissão em fluxo. Pode utilizar o guia seguinte para dimensionar a sua tarefa para processar uma carga maior e tirar partido de mais recursos do sistema (por exemplo, mais largura de banda, mais recursos de CPU, memória mais).
 Como pré-requisito, poderá ter de ler os artigos seguintes:
 -   [Compreender e ajustar as Unidades de Transmissão em fluxo](stream-analytics-streaming-unit-consumption.md)
 -   [Criar tarefas paralelizáveis](stream-analytics-parallelization.md)
-
 
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Caso 1 – sua consulta é totalmente inerentemente paralelizável em partições de entrada
 Se a sua consulta é totalmente inerentemente paralelizável em partições de entrada, pode seguir os seguintes passos:
@@ -40,7 +34,6 @@ Se a sua consulta é totalmente inerentemente paralelizável em partições de e
 >[!Note]
 > Escolha o número correto de unidades de transmissão em fluxo: porque o Stream Analytics cria um nó de processamento para cada SU 6 adicionadas, é preferível efectuar um divisor do número de partições de entrada, o número de nós para as partições podem ser distribuídas uniformemente em todos os nós.
 > Por exemplo, ter medido o 6 tarefa SU pode alcançar 4 MB/s de processamento velocidade e a contagem da partição de entrada é 4. Pode optar por executar a tarefa com 12 SU para alcançar a taxa de processamento de aproximadamente 8 MB/s ou SU 24 para alcançar a 16 MB/s. Em seguida, pode decidir quando aumentar o número SU para a tarefa para que valor, como uma função de taxa de entrada.
-
 
 
 ## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Caso 2 - se a consulta não é constrangedoramente paralela.
@@ -150,7 +143,7 @@ E o gráfico seguinte mostra uma visualização da relação entre SUs e débito
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

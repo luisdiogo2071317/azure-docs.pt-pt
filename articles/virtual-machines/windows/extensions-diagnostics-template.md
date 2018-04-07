@@ -1,11 +1,11 @@
 ---
-title: "Adicionar monitorização e diagnóstico para uma máquina virtual do Azure | Microsoft Docs"
-description: "Utilize um modelo Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnóstico do Azure."
+title: Adicionar monitorização e diagnóstico para uma máquina virtual do Azure | Microsoft Docs
+description: Utilize um modelo Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnóstico do Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: sbtron
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e205352ebf4eaf89627c268d78b69bb2d49c3f3e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e54060769f19546ad3ccb8c52df928eeebf03776
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utilizar a monitorização e diagnóstico com modelos de VM do Windows e o Azure Resource Manager
 A extensão de diagnóstico do Azure fornece as capacidades de monitorização e diagnóstico numa máquina virtual baseado no Windows Azure. Pode ativar estas capacidades na máquina virtual, incluindo a extensão como parte do modelo Azure Resource Manager. Consulte [criação de modelos de Gestor de recursos do Azure com extensões de VM](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) para obter mais informações sobre incluindo qualquer extensão como parte de um modelo de máquina virtual. Este artigo descreve como adicionar a extensão de diagnóstico do Azure para um modelo de máquina virtual do windows.  

@@ -1,11 +1,11 @@
 ---
-title: "Conclua uma revisão do acesso dos membros de um grupo ou o acesso dos utilizadores a uma aplicação com o Azure AD | Microsoft Docs"
-description: "Saiba como realizar uma revisão do acesso para os membros de um grupo ou os utilizadores com acesso a uma aplicação no Azure Active Directory."
+title: Conclua uma revisão do acesso dos membros de um grupo ou o acesso dos utilizadores a uma aplicação com o Azure AD | Microsoft Docs
+description: Saiba como realizar uma revisão do acesso para os membros de um grupo ou os utilizadores com acesso a uma aplicação no Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: de853d633aa65c9f08f5e28088d5240c2e4d7fa6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c4efdbf5a355ddc9a31091517665f91dd8e68ec0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Conclua uma revisão do acesso dos membros de um grupo ou o acesso dos utilizadores a uma aplicação no Azure AD
 
-Os administradores podem utilizar o Azure Active Directory (Azure AD) para [criar uma revisão do acesso](active-directory-azure-ad-controls-create-access-review.md) para membros do grupo ou os utilizadores atribuídos a uma aplicação. Azure AD envia automaticamente revisores uma mensagem de e-mail que lhe solicita informações para rever o acesso. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes as instruções [rever o seu acesso](active-directory-azure-ad-controls-perform-access-review.md). O período de revisão do acesso ou se um administrador deixa a revisão do acesso, siga os passos neste artigo para ver e aplicar os resultados.
+Os administradores podem utilizar o Azure Active Directory (Azure AD) para [criar uma revisão do acesso](active-directory-azure-ad-controls-create-access-review.md) para membros do grupo ou os utilizadores atribuídos a uma aplicação. Azure AD envia automaticamente revisores uma mensagem de e-mail que lhe solicita informações para rever o acesso. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes as instruções [rever o seu acesso](active-directory-azure-ad-controls-perform-access-review.md). (Tenha em atenção que os convidados que são atribuídos como revisores, mas não tem aceite o convite não irão receber um e-mail de revisões de acesso, como, primeiro tem de aceitar um convite antes de revisão.) O período de revisão do acesso ou se um administrador deixa a revisão do acesso, siga os passos neste artigo para ver e aplicar os resultados.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Ver uma revisão do acesso no portal do Azure
 
@@ -35,13 +35,15 @@ Se a revisão ainda não atingiu a data de fim agendada, um administrador pode s
 
 ## <a name="apply-the-changes"></a>Aplicar as alterações 
 
-Depois de concluída a revisão do acesso, porque atingiu a data de fim ou um administrador que o impediu manualmente, selecione **aplicar**. O resultado de revisão é implementado atualizando o grupo ou aplicação. Se acesso um utilizador foi negado na revisão, quando um administrador seleciona esta opção, o Azure AD remove a atribuição de associação ou aplicação. 
+Após a conclusão, uma revisão do acesso a vez que atingiu a data de fim ou um administrador parado-la manualmente e aplicam-se automaticamente não foi configurado para a análise, pode selecionar **aplicar** para aplicar as alterações manualmente. O resultado de revisão é implementado atualizando o grupo ou aplicação. Se acesso um utilizador foi negado na revisão, quando um administrador seleciona esta opção, o Azure AD remove a atribuição de associação ou aplicação. 
 
-Selecionar **aplicar** não tem um efeito de um grupo que origina um diretório no local ou um grupo dinâmico. Se pretender alterar um grupo que tem origem no local, transfira os resultados e aplicar essas alterações para a representação do grupo no diretório.
+Depois de concluído uma revisão do acesso e aplicam-se automaticamente foi configurado, em seguida, o estado do Consulte deixará de concluído através de Estados intermédios e por fim, irá alterar estado aplicada. Deverá ver negados utilizadores, se aplicável, que está a ser removido do recurso do grupo de atribuição de associação ou aplicação dentro de alguns minutos.
+
+Um configurado automaticamente aplicar revisão ou selecionar **aplicar** não tem um efeito de um grupo que origina um diretório no local ou um grupo dinâmico. Se pretender alterar um grupo que tem origem no local, transfira os resultados e aplicar essas alterações para a representação do grupo no diretório.
 
 ## <a name="download-the-results-of-the-review"></a>Transferir os resultados de revisão
 
-Para obter os resultados de revisão, selecione **aprovações** e, em seguida, selecione **transferir**. O ficheiro CSV resultante pode ser visualizado no Excel ou em outros programas que abrem ficheiros CSV.
+Para obter os resultados de revisão, selecione **aprovações** e, em seguida, selecione **transferir**. O ficheiro CSV resultante pode ser visualizado no Excel ou em outros programas que abra UTF-8 codificado ficheiros CSV.
 
 ## <a name="optional-delete-a-review"></a>Opcional: Eliminar uma revisão
 Se já não estiver interessado em de revisão, podem eliminá-lo. Selecione **eliminar** para remover a revisão do Azure AD.
@@ -51,7 +53,7 @@ Se já não estiver interessado em de revisão, podem eliminá-lo. Selecione **e
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Gerir o acesso de utilizador com as revisões de acesso do Azure AD](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 - [Gerir o acesso de convidado com as revisões de acesso do Azure AD](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)

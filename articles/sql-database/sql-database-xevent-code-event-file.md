@@ -1,19 +1,19 @@
 ---
-title: "Código de XEvent eventos ficheiros de base de dados SQL | Microsoft Docs"
-description: "Fornece o PowerShell e o Transact-SQL para um exemplo de código em duas fases, que demonstra o destino de ficheiro de eventos num evento expandido na SQL Database do Azure. Storage do Azure é uma parte necessária neste cenário."
+title: Código de XEvent eventos ficheiros de base de dados SQL | Microsoft Docs
+description: Fornece o PowerShell e o Transact-SQL para um exemplo de código em duas fases, que demonstra o destino de ficheiro de eventos num evento expandido na SQL Database do Azure. Storage do Azure é uma parte necessária neste cenário.
 services: sql-database
 author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 630e0ca84479757d3bb4397aa63ee8a440e69427
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f13ac366a1c382e955db23f3bcefb8f31c89fcb9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino de ficheiro de evento expandido eventos na base de dados do SQL Server
 
@@ -455,9 +455,9 @@ GO
 
 ## <a name="output"></a>Saída
 
-Quando tiver concluído o script Transact-SQL, clicar numa célula sob o **event_data_XML** cabeçalho da coluna. Um  **<event>**  elemento é apresentado que mostra uma instrução de ATUALIZAÇÃO.
+Quando tiver concluído o script Transact-SQL, clicar numa célula sob o **event_data_XML** cabeçalho da coluna. Um **<event>** elemento é apresentado que mostra uma instrução de ATUALIZAÇÃO.
 
-Eis um  **<event>**  elemento que foi gerado durante os testes:
+Eis um **<event>** elemento que foi gerado durante os testes:
 
 
 ```xml

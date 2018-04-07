@@ -1,10 +1,10 @@
 ---
-title: "Configurar software RAID numa máquina virtual com Linux | Microsoft Docs"
+title: Configurar software RAID numa máquina virtual com Linux | Microsoft Docs
 description: Saiba como utilizar mdadm para configurar o RAID em Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: 12f540a700fbf85e579e8aadc9f6def039299ff7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d6e831692da37645e264c6674f1ba54bb16d25d4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-software-raid-on-linux"></a>Configurar o RAID de Software no Linux
 É um cenário comum para utilizar o software RAID em máquinas virtuais do Linux no Azure para apresentar vários discos de dados anexados como um único dispositivo RAID. Normalmente, isto pode ser utilizado para melhorar o desempenho e permitir a obtenção de débito melhorado em comparação comparado a utilização de apenas um único disco.
@@ -61,7 +61,7 @@ Neste exemplo, vamos criar uma partição de disco individual no /dev/sdc. A nov
                     sectors (command 'u').
     ```
 
-2. Prima 'n' na linha de comandos para criar um  **n** partição ew:
+2. Prima 'n' na linha de comandos para criar um **n**partição ew:
 
     ```bash
     Command (m for help): n
