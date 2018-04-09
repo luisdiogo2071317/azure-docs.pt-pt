@@ -1,12 +1,12 @@
 ---
-title: "Segurança de rede do Azure | Microsoft Docs"
-description: "Saiba mais sobre serviços informáticos baseada na nuvem que incluem uma seleção grande de instâncias de computação e serviços que podem ser dimensionados acima e abaixo automaticamente para satisfazer as necessidades da sua aplicação ou a empresa."
+title: Segurança de rede do Azure | Microsoft Docs
+description: Saiba mais sobre serviços informáticos baseada na nuvem que incluem uma seleção grande de instâncias de computação e serviços que podem ser dimensionados acima e abaixo automaticamente para satisfazer as necessidades da sua aplicação ou a empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
@@ -392,7 +392,7 @@ Além disso, Gateway de aplicação WAF ajuda-o a monitorizar aplicações web c
 
 O registo de formato JSON vai diretamente para conta de armazenamento do cliente. Tem controlo total sobre estes registos e pode aplicar as suas políticas de retenção.
 
-Também pode incorporar estes registos no seu sistema de análise utilizando [a integração de registo do Azure](https://aka.ms/AzLog). Registos de WAF também são integrados com [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite) pelo que pode utilizar a análise de registos do OMS para executar consultas de detalhado sofisticadas.
+Também pode incorporar estes registos no seu sistema de análise utilizando [a integração de registo do Azure](https://aka.ms/AzLog). Registos de WAF também são integrados com [Log Analytics](../log-analytics/log-analytics-overview.md) pelo que pode utilizar a análise de registos para executar consultas de detalhado sofisticadas.
 
 #### <a name="azure-web-application-firewall-waf"></a>Firewall de aplicação web do Azure (WAF)
 
@@ -606,7 +606,7 @@ Observador de rede fornece que um diagnóstico os registos de vista. Esta vista 
 
 ### <a name="log-analytics"></a>Log analytics
 
-[Análise de registo](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é um serviço no [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) que monitoriza a sua nuvem e no local ambientes para manter a respetiva disponibilidade e desempenho. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens.
+[Análise de registo](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é um serviço no Azure que monitoriza a sua nuvem e no local ambientes para manter a respetiva disponibilidade e desempenho. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens.
 
 Análise de registos oferece as seguintes soluções para monitorização as redes:
 
@@ -650,7 +650,7 @@ São suportados os seguintes registos para [grupos de segurança de rede](https:
 
 - **NetworkSecurityGroupRuleCounter:** contém entradas quantas vezes cada NSG regra é aplicada a negar e permitir o tráfego.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saber mais sobre a segurança ao ler alguns dos nossos tópicos de segurança aprofundados:
 
 -   [Análise de registos para grupos de segurança de rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
