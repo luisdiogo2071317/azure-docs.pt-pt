@@ -155,14 +155,10 @@
           href: backup-client-automation.md
     - name: Base de Dados SQL do Azure
       items:
-        - name: Configurar a retenção de cópias de segurança de longa duração
-          href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Ver cópias de segurança num cofre dos Serviços de Recuperação
-          href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Restaurar a partir de retenção de cópias de segurança de longa duração
-          href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Eliminar cópias de segurança do SQL do Azure de longa duração
-          href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Configure e restaure cópias de segurança da Base de Dados SQL – armazenamento SQL
+          href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Configure e restaure cópias de segurança da Base de Dados SQL – cofre dos Serviços de Recuperação
+          href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
     - name: Windows Server
       items:
         - name: Fazer cópias de segurança de ficheiros e pastas do Windows Server

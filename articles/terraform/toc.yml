@@ -15,6 +15,8 @@
       maintainContext: true
 - name: Tutoriais
   items:
+    - name: Blocos de implementação de fornecedor do Terraform e do Azure
+      href: terraform-slot-walkthru.md
     - name: Criar uma VM do Terraform com o MSI ativado
       href: terraform-vm-msi.md
     - name: Criar um cluster de VMs com módulos do Terraform (Create a VM cluster with Terraform modules)

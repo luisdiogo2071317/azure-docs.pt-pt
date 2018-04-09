@@ -164,7 +164,7 @@ items:
       - name: Segurança
         href: database-security.md
       - name: TCO
-        href: 'https://aka.ms/documentdb-tco-paper'
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Casos de utilização
         href: use-cases.md
         items:
@@ -184,13 +184,15 @@ items:
               - name: desempenho de consultas SQL
                 href: sql-api-sql-query-metrics.md
               - name: Recreio do SQL
-                href: 'https://www.documentdb.com/sql/demo'
+                href: 'https://aka.ms/cosmos-db-playground'
               - name: Criação de partições
                 href: sql-api-partition-data.md
               - name: 'Procedimentos armazenados, acionadores e UDFs'
                 href: programming.md
               - name: Teste de desempenho
                 href: performance-testing.md
+              - name: Sugestões de desempenho para Async Java
+                href: performance-tips-async-java.md
               - name: Sugestões de desempenho para .NET
                 href: performance-tips.md
               - name: Sugestões de desempenho para Java
@@ -378,17 +380,17 @@ items:
           - name: Registo de aplicações com as Logic Apps
             href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
           - name: Vincular às Funções do Azure
-            href: ../azure-functions/functions-bindings-documentdb.md
+            href: ../azure-functions/functions-bindings-cosmosdb.md
           - name: Integrar no Azure Search
-            href: ../search/search-howto-index-documentdb.md
+            href: ../search/search-howto-index-cosmosdb.md
           - name: Mover dados com o Azure Data Factory
             href: ../data-factory/connector-azure-cosmos-db.md
           - name: Analisar dados em tempo real com o Azure Stream Analytics
-            href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
+            href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
           - name: Obter o registo HL7 FHIR alterado através das Aplicações Lógicas
             href: change-feed-hl7-fhir-logic-apps.md
           - name: Processar dados de sensores em tempo real
-            href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+            href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
           - name: Ver os seus dados com o Power BI
             href: powerbi-visualize.md
           - name: Tirar partido do controlador ODBC para visualização de dados
