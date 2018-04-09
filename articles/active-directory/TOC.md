@@ -215,11 +215,12 @@
 ##### [Página inicial personalizada](application-proxy-office365-app-launcher.md)
 ##### [Converter ligações inline](application-proxy-link-translation.md)
 ##### [Aplicações de caráter universal](active-directory-application-proxy-wildcard.md)
-##### [Proxy de Aplicações do Azure AD e Qlik Sense](active-directory-application-proxy-qlik.md) 
+
 #### Instruções de publicação
 ##### [Ambiente de Trabalho Remoto](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Equipas da Microsoft](application-proxy-teams.md)
+##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Resolução de problemas](active-directory-application-proxy-troubleshoot.md)
 

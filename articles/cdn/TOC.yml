@@ -1,15 +1,28 @@
 - name: Documentação do CDN
   href: index.md
 - name: Descrição geral
-  href: cdn-overview.md
   items:
     - name: O que é a CDN do Azure?
-      href: ../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json
-- name: Introdução
+      href: cdn-overview.md
+    - name: Funcionalidades de produto da CDN do Azure
+      href: cdn-features.md
+- name: Inícios rápidos
   items:
-    - name: Ativar a CDN do Azure
+    - name: Criar um perfil e ponto final
       href: cdn-create-new-endpoint.md
-- name: Procedimento
+- name: Tutoriais
+  items:
+    - name: Adicionar um domínio personalizado
+      href: cdn-map-content-to-custom-domain.md
+- name: Amostras
+  items:
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
+- name: Conceitos
+  items:
+    - name: Como funciona a colocação em cache
+      href: cdn-how-caching-works.md
+- name: Guias de procedimentos
   items:
     - name: Integrar
       items:
@@ -124,8 +137,6 @@
           href: cdn-rules-engine-reference-match-conditions.md
         - name: Funcionalidades do motor de regras
           href: cdn-rules-engine-reference-features.md
-    - name: Exemplos de código
-      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cdn'
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cdn
     - name: .NET
@@ -145,7 +156,7 @@
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn'
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurecdn'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cdn/'
     - name: Calculadora de preços

@@ -19,16 +19,18 @@
       href: tutorial-prioritized-routes.md
 - name: Conceitos
   items:
-    - name: Níveis de Zoom e Grelha de Mosaico
+    - name: Níveis de zoom e grelha de mosaico
       href: zoom-levels-and-tile-grid.md
-    - name: Cobertura de Geocodificação
+    - name: Cobertura de geocodificação
       href: geocoding-coverage.md
-    - name: Cobertura de Tráfego
+    - name: Cobertura de tráfego
       href: traffic-coverage.md
-    - name: Cobertura de Composição
+    - name: Cobertura de composição
       href: render-coverage.md
-    - name: Cobertura de Encaminhamento
+    - name: Cobertura de encaminhamento
       href: routing-coverage.md
+    - name: Linguagens suportadas
+      href: supported-languages.md
 - name: Guias de procedimentos
   items:
     - name: Gerir conta e chaves
