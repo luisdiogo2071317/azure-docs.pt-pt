@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d8091fdade9cd417af58755d8245c2fb091b86b3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5e7e365a73c9ba9cfd91d4f93759e7af55a0ad48
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 A tabela seguinte lista os requisitos para gateways PolicyBased e de RouteBased VPN. Esta tabela aplica-se aos modelos de implementação clássica e Resource Manager. Para o modelo clássico, os gateways de PolicyBased VPN são os mesmos que os gateways estáticos e os gateways baseados na rota são os mesmos que os gateways dinâmicos.
 
@@ -23,4 +23,6 @@ A tabela seguinte lista os requisitos para gateways PolicyBased e de RouteBased 
 | **Método de autenticação** |Chave pré-partilhada |Chave pré-partilhada para a conetividade S2S, Certificados para a conetividade P2S |Chave pré-partilhada para a conetividade S2S, Certificados para a conetividade P2S |Chave pré-partilhada para a conetividade S2S, Certificados para a conetividade P2S |
 | **Número máximo de ligações S2S** |1 |10 |10 |30 |
 | **Número máximo de ligações P2S** |Não suportado |128 |128 |128 |
-| **Suporte de encaminhamento ativo (BGP)** |Não suportado |Não suportado |Suportadas |Suportadas |
+| **Suporte de encaminhamento ativo (BGP)** (*) |Não suportado |Não suportado |Suportadas |Suportadas |
+
+  (*) BGP não é suportado para o modelo de implementação clássica.

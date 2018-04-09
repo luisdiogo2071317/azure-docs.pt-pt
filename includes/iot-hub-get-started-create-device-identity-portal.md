@@ -1,6 +1,22 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 04/05/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: b08bfcd4cb9e85f9e682efe0f599b6dd88897962
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/06/2018
+---
 ## <a name="create-a-device-identity"></a>Criar uma identidade de dispositivo
 
-Esta secção, irá utilizar o [portal do Azure] [ lnk-azure-portal] para criar uma identidade de dispositivo no registo de identidade no seu IoT hub. Não é possível ligar um dispositivo ao hub IoT, exceto se tiver uma entrada no registo de identidade. Para obter mais informações, veja a secção "Identity registry" (Registo de identidades) do [Hub IoT developer guide (Guia do programador do Hub IoT)][lnk-devguide-identity]. O **Explorador de dispositivo** na ajuda do portal gerar um ID de dispositivo exclusivo e uma chave que o seu dispositivo pode utilizar para se identificar quando se liga ao IoT Hub. Os IDs dos dispositivos são sensíveis às maiúsculas e minúsculas.
+Esta secção, irá utilizar o [portal do Azure] [ lnk-azure-portal] para criar uma identidade de dispositivo no registo de identidade no seu IoT hub. Não é possível ligar um dispositivo ao hub IoT, exceto se tiver uma entrada no registo de identidade. Para obter mais informações, veja a secção "Identity registry" (Registo de identidades) do [Hub IoT developer guide (Guia do programador do Hub IoT)][lnk-devguide-identity]. Utilize o **dispositivos IoT** painel no portal para gerar um ID de dispositivo exclusivo e a chave do seu dispositivo para utilizar para se identificar ao IoT Hub. Os IDs dos dispositivos são sensíveis às maiúsculas e minúsculas.
 
 1. Certifique-se de tem sessão iniciada para o [portal do Azure][lnk-azure-portal].
 
@@ -8,7 +24,7 @@ Esta secção, irá utilizar o [portal do Azure] [ lnk-azure-portal] para criar 
 
     ![Navegue até ao seu Iot hub][img-find-iothub]
 
-1. Quando o recurso do hub IoT é aberto, clique em de **Explorador de dispositivo** ferramenta e, em seguida, clique em **adicionar** na parte superior. Forneça o nome para o novo dispositivo, como **myDeviceId**e clique em **guardar**.
+1. Quando o recurso do hub IoT é aberto, clique em de **dispositivos IoT** ferramenta e, em seguida, clique em **adicionar** na parte superior. Forneça o nome para o novo dispositivo, como **myDeviceId**e clique em **guardar**.
 
     ![Criar a identidade de dispositivo no portal][img-create-device]
 
@@ -16,7 +32,7 @@ Esta secção, irá utilizar o [portal do Azure] [ lnk-azure-portal] para criar 
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-1. No **Explorador de dispositivo**da lista de dispositivos, clique no dispositivo recém-criado e anote o **cadeia de ligação---chave primária**. 
+1. No **dispositivos IoT**da lista de dispositivos, clique no dispositivo recém-criado e anote o **cadeia de ligação---chave primária**.
 
     ![Cadeia de ligação do dispositivo][img-connection-string]
 
