@@ -1,32 +1,32 @@
 ---
-title: "Criar uma VM do Windows numa zona definida – Azure PowerShell | Microsoft Docs"
-description: "Criar uma máquina virtual do Windows numa zona de disponibilidade com o Azure PowerShell"
+title: Criar uma VM do Windows numa zona definida – Azure PowerShell | Microsoft Docs
+description: Criar uma máquina virtual do Windows numa zona de disponibilidade com o Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/27/2018
 ms.author: danlep
-ms.custom: 
-ms.openlocfilehash: ada47536dbd736386a4efc76249f4ff3a1cfd527
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.custom: ''
+ms.openlocfilehash: 4b6ae95d9b8f7cc4924ea89a743cf9878c7dd79a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Criar uma máquina virtual do Windows numa zona de disponibilidade com o PowerShell
 
 Este artigo descreve a utilização do Azure PowerShell para criar uma máquina virtual do Azure com o Windows Server 2016 uma zona de disponibilidade do Azure. Uma [zona de disponibilidade](../../availability-zones/az-overview.md) é uma zona separada fisicamente numa região do Azure. Utilize as zonas de disponibilidade para proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo.
 
-[!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
+Para utilizar uma zona de disponibilidade, crie a máquina virtual numa [região suportada do Azure](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
 Certifique-se de que instalou o módulo Azure PowerShell mais recente. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
 
@@ -50,7 +50,7 @@ Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("eastus2")};
 O resultado será semelhante ao seguinte exemplo condensado, que mostra as Zonas de Disponibilidade em que cada tamanho de VM está disponível:
 
 ```powershell
-ResourceType                Name  Location      Zones
+ResourceType                Name  Location      Zones   [...]
 ------------                ----  --------      -----
 virtualMachines  Standard_DS1_v2   eastus2  {1, 2, 3}
 virtualMachines  Standard_DS2_v2   eastus2  {1, 2, 3}
@@ -68,16 +68,16 @@ virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *eastus2*. East US 2 (E.U.A. Leste 2) é uma das regiões do Azure que suporta zonas de disponibilidade em modo de pré-visualização.
+Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *eastus2*. 
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location eastus2
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS2
 ```
 
 ## <a name="create-networking-resources"></a>Criar recursos de rede
 
 ### <a name="create-a-virtual-network-subnet-and-a-public-ip-address"></a>Criar uma rede virtual, uma sub-rede e um endereço IP público 
-Estes recursos são utilizados para fornecer conectividade de rede à máquina virtual e ligá-la à Internet. Crie o endereço IP numa zona de disponibilidade, *2* neste exemplo. Para criar a VM numa zona de disponibilidade (um procedimento mostrado num passo posterior), especifique a mesma zona utilizada para criar o endereço IP.
+Estes recursos são utilizados para fornecer conectividade de rede à máquina virtual e ligá-la à Internet. Crie o endereço IP numa zona de disponibilidade, *2* neste exemplo. Num passo posterior, vai criar a VM na mesma zona utilizada para criar o endereço IP.
 
 ```powershell
 # Create a subnet configuration
@@ -85,7 +85,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPre
 
 # Create a virtual network
 $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus2 `
-    -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+    -Name myVNet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address in an availability zone and specify a DNS name
 $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus2 -Zone 2 `
@@ -122,7 +122,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGrou
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-Criar uma configuração da máquina virtual. Esta configuração inclui as definições que são utilizadas ao implementar a máquina virtual, como uma imagem de máquina virtual, o tamanho e a configuração da autenticação. O tamanho *Standard_DS1_v2* deste exemplo é suportado no modo de pré-visualização de zonas de disponibilidade. Esta configuração também especifica a zona de disponibilidade que definiu ao criar o endereço IP. Ao executar este passo, serão pedidas credenciais. Os valores que introduzir são configurados, como o nome de utilizador e a palavra-passe para a máquina virtual.
+Criar uma configuração da máquina virtual. Esta configuração inclui as definições que são utilizadas ao implementar a máquina virtual, como uma imagem de máquina virtual, o tamanho e a configuração da autenticação. O tamanho *Standard_DS1_v2* deste exemplo é suportado nas zonas de disponibilidade. Esta configuração também especifica a zona de disponibilidade que definiu ao criar o endereço IP. Ao executar este passo, serão pedidas credenciais. Os valores que introduzir são configurados, como o nome de utilizador e a palavra-passe para a máquina virtual.
 
 ```powershell
 # Define a credential object
@@ -141,9 +141,9 @@ Criar a máquina virtual com [New-AzureRmVM](/powershell/module/azurerm.compute/
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
 ```
 
-## <a name="zone-for-ip-address-and-managed-disk"></a>Zona para o endereço IP e o disco gerido
+## <a name="confirm-zone-for-managed-disk"></a>Confirmar a zona do disco gerido
 
-Criou o recurso de endereço IP da VM na mesma zona de disponibilidade que a VM. O recurso de disco gerido para a VM também é criado na mesma zona de disponibilidade. Pode verificar isto com [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk):
+Criou o recurso de endereço IP da VM na mesma zona de disponibilidade que a VM. O recurso de disco gerido para a VM é criado na mesma zona de disponibilidade. Pode verificar isto com [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk):
 
 ```powershell
 Get-AzureRmDisk -ResourceGroupName myResourceGroup
@@ -154,9 +154,9 @@ O resultado mostra que o disco gerido está na mesma zona de disponibilidade que
 ```powershell
 ResourceGroupName  : myResourceGroup
 AccountType        : PremiumLRS
-OwnerId            : /subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.
+OwnerId            : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.
                      Compute/virtualMachines/myVM
-ManagedBy          : /subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.
+ManagedBy          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx//resourceGroups/myResourceGroup/providers/Microsoft.
                      Compute/virtualMachines/myVM
 Sku                : Microsoft.Azure.Management.Compute.Models.DiskSku
 Zones              : {2}
@@ -166,7 +166,7 @@ CreationData       : Microsoft.Azure.Management.Compute.Models.CreationData
 DiskSizeGB         : 127
 EncryptionSettings :
 ProvisioningState  : Succeeded
-Id                 : /subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.
+Id                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.
                      Compute/disks/myVM_OsDisk_1_bd921920bb0a4650becfc2d830000000
 Name               : myVM_OsDisk_1_bd921920bb0a4650becfc2d830000000
 Type               : Microsoft.Compute/disks
@@ -175,8 +175,6 @@ Tags               : {}
 ```
 
 
-
-
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a criar uma VM uma zona de disponibilidade. Saiba mais sobre [regiões e disponibilidade](regions-and-availability.md) para VMs do Azure.
+Neste artigo, aprendeu a criar uma VM numa zona de disponibilidade. Saiba mais sobre [regiões e disponibilidade](regions-and-availability.md) para VMs do Azure.

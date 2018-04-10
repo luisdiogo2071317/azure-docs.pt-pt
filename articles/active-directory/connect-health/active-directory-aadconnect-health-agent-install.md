@@ -1,8 +1,8 @@
 ---
-title: "Instalação do agente do Azure AD Connect Health | Microsoft Docs"
-description: "Esta é a página do Azure AD Connect Health que descreve a instalação do agente para AD FS e sincronização."
+title: Instalação do agente do Azure AD Connect Health | Microsoft Docs
+description: Esta é a página do Azure AD Connect Health que descreve a instalação do agente para AD FS e sincronização.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 5a0dadb86b6bdcbf8fc9ba38d09a2bfc9f8ec341
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 Este documento descreve a instalação e a configuração dos Agentes do Azure AD Connect Health. Pode transferir os agentes de [aqui](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
@@ -136,7 +136,7 @@ Para que a funcionalidade de Análise de Utilização possa recolher e analisar 
 9. Selecione as caixas de verificação **Auditorias de êxito e Auditorias de falha** e clique em **OK**. Isto deve ser ativado por predefinição.
 10. Abra uma janela do PowerShell e execute o seguinte comando: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Tenha em atenção que o nível de auditoria "básico" está ativado por predefinição. Leia mais sobre a [Melhoria da Auditoria do AD FS no Windows Server 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
+Tenha em atenção que o nível de auditoria "básico" está ativado por predefinição. Leia mais sobre a [Melhoria da Auditoria do AD FS no Windows Server 2016](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>Para localizar os registos de auditoria do AD FS
@@ -144,6 +144,8 @@ Tenha em atenção que o nível de auditoria "básico" está ativado por predefi
 2. Aceda aos Registos do Windows e selecione **Segurança**.
 3. À direita, clique em **Filtrar os Registos Atuais**.
 4. Em Origem do evento, selecione **Auditoria do AD FS**.
+
+    [Notas de FAQ](active-directory-aadconnect-health-faq.md#operations-questions) relativas aos Registos de auditoria.
 
 ![Registos de auditoria do AD FS](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 

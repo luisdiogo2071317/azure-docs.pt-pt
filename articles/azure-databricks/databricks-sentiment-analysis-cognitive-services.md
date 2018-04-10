@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/20/2018
+ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 8858df394885ae7820a4bc72458f4f1d851965e6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 87984859d1f0562149e6700642f7f0a1361d624e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: análise de sentimentos na transmissão em fluxo de dados com o Azure Databricks
 
@@ -65,7 +65,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal do Azure.
 
-1. No portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**.
+1. No Portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**.
 
     ![Databricks no portal do Azure](./media/databricks-sentiment-analysis-cognitive-services/azure-databricks-on-portal.png "Databricks no portal do Azure")
 
@@ -113,7 +113,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 Para receber um fluxo de tweets, tem de criar uma aplicação no Twitter. Siga os passos para criar uma aplicação no Twitter e registe os valores que precisa para concluir este tutorial.
 
-1. A partir de um browser, aceda a [Gestão de Aplicações do Twitter](http://twitter.com/app) e selecione **Criar Nova Aplicação**.
+1. A partir de um browser, aceda a [Gestão de Aplicações do Twitter](https://apps.twitter.com/) e selecione **Criar Nova Aplicação**.
 
     ![Criar aplicação do Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Criar aplicação do Twitter")
 
@@ -121,7 +121,7 @@ Para receber um fluxo de tweets, tem de criar uma aplicação no Twitter. Siga o
 
     ![Detalhes da aplicação no Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Detalhes da aplicação no Twitter")
 
-3. Na página da aplicação, selecione o separador **Chaves e Tokens de Acesso** e copie os valores de **Chave de Consumo** e **Segredo de Consumidor**. Além disso, selecione **Criar o meu token de acesso** para gerar os tokens de acesso. Copie os valores de **Token de Acesso** e **Segredo de Token de Acesso**.
+3. Na página da aplicação, selecione o separador **Chaves e Tokens de Acesso** e copie os valores de **Chave de Consumidor** e **Segredo de Consumidor**. Além disso, selecione **Criar o meu token de acesso** para gerar os tokens de acesso. Copie os valores de **Token de Acesso** e **Segredo de Token de Acesso**.
 
     ![Detalhes da aplicação no Twitter](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Detalhes da aplicação no Twitter")
 
@@ -395,6 +395,8 @@ O resultado assemelha-se agora ao seguinte fragmento:
     -------------------------------------------
     ...
     ...
+
+Transmitiu em fluxo agora os dados dos Hubs de Eventos do Azure para o Azure Databricks em tempo quase real com o conector Hubs de Eventos para o Apache Spark. Para obter mais informações sobre como utilizar o conector Hubs de Eventos para Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>Executar a análise de sentimentos em tweets
 

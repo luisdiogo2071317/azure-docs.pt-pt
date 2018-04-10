@@ -1,13 +1,13 @@
 ---
-title: "Exemplo do PowerShell - esquema de sincronização de sincronização de dados do SQL Server de atualização | Microsoft Docs"
-description: "Script de exemplo do PowerShell do Azure para atualizar o esquema de sincronização de sincronização de dados do SQL Server"
+title: Exemplo do PowerShell - Atualizar o esquema de sincronização da Sincronização de Dados SQL (Pré-visualização) | Microsoft Docs
+description: Script de exemplo do Azure PowerShell para atualizar o esquema de sincronização da Sincronização de Dados SQL
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,38 +17,38 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 66bf084f585b86979e6521321daf466c571de10c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-ms.translationtype: MT
+ms.openlocfilehash: 5f9f0a5921951669d451a9755c5da2091287c909
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Utilize o PowerShell para atualizar o esquema de sincronização num grupo de sincronização existente
+# <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Utilizar o PowerShell para atualizar o esquema de sincronização num grupo de sincronização existente
 
-Neste exemplo do PowerShell atualiza o esquema de sincronização num grupo de sincronização existentes. Quando estiver a sincronizar a várias tabelas, este script ajuda-o para atualizar o esquema de sincronização de forma eficiente.
+Este exemplo do PowerShell atualiza o esquema de sincronização num grupo de sincronização da Sincronização de Dados SQL (Pré-visualização). Este script ajuda-o a atualizar de forma eficiente o esquema de sincronização se estiver a sincronizar vários tablets.
 
-Este exemplo demonstra a utilização do **UpdateSyncSchema** script, que está disponível no GitHub como [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
+Este exemplo demonstra a utilização do script **UpdateSyncSchema**, que está disponível no GitHub como [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
 
-Para obter uma descrição geral da sincronização de dados do SQL Server, consulte [sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados de SQL do Azure (pré-visualização)](../sql-database-sync-data.md).
+Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure (Pré-visualização)](../sql-database-sync-data.md).
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este exemplo requer o Azure PowerShell versão do módulo 4.2 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
+Este exemplo requer a versão 4.2 ou posterior do módulo do Azure PowerShell. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
  
-Executar `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Execute `Login-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="example-1---add-all-tables-to-the-sync-schema"></a>Exemplo 1 - adicionar todas as tabelas para o esquema de sincronização
+### <a name="example-1---add-all-tables-to-the-sync-schema"></a>Exemplo 1 - Adicionar todas as tabelas ao esquema de sincronização
 
-O exemplo seguinte atualiza o esquema de base de dados e adiciona todas as tabelas válidas na base de dados do hub para o esquema de sincronização.
+O exemplo seguinte atualiza o esquema da base de dados e adiciona todas as tabelas válidas na base de dados de hub ao esquema de sincronização.
 
 ```powershell
 UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -RefreshDatabaseSchema $true -AddAllTables $true
 ```
 
-### <a name="example-2---add-and-remove-tables-and-columns"></a>Exemplo 2 - adicionar e remover as tabelas e colunas
+### <a name="example-2---add-and-remove-tables-and-columns"></a>Exemplo 2 - Adicionar e remover tabelas e colunas
 
-O exemplo seguinte adiciona `[dbo].[Table1]` e `[dbo].[Table2].[Column1]` para o esquema de sincronização e remove `[dbo].[Table3]`.
+O exemplo seguinte adiciona `[dbo].[Table1]` e `[dbo].[Table2].[Column1]` ao esquema de sincronização e remove `[dbo].[Table3]`.
 
 ```powershell
 UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -TablesAndColumnsToAdd "[dbo].[Table1],[dbo].[Table2].[Column1]" -TablesAndColumnsToRemove "[dbo].[Table3]"
@@ -56,57 +56,57 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 
 ## <a name="script-parameters"></a>Parâmetros do script
 
-O **UpdateSyncSchema** script tem os seguintes parâmetros:
+O script **UpdateSyncSchema** tem os seguintes parâmetros:
 
 | Parâmetro | Notas |
 |---|---|
-| $SubscriptionId | A subscrição em que o grupo de sincronização é criado. |
-| $ResourceGroupName | O grupo de recursos em que o grupo de sincronização é criado.|
-| $ServerName | O nome do servidor da base de dados do hub.|
-| $DatabaseName | O nome de base de dados do hub. |
+| $SubscriptionId | A subscrição na qual o grupo de sincronização é criado. |
+| $ResourceGroupName | O grupo de recursos no qual o grupo de sincronização é criado.|
+| $ServerName | O nome do servidor da base de dados de hub.|
+| $DatabaseName | O nome da base de dados de hub. |
 | $SyncGroupName | O nome do grupo de sincronização. |
-| $MemberName | Especifique o nome de membro, se pretender carregar o esquema de base de dados do membro em vez de sincronização da base de dados do hub. Se pretender carregar o esquema de base de dados do hub, deixe em branco este parâmetro. |
-| $TimeoutInSeconds | Tempo limite quando o script atualiza o esquema de base de dados. Predefinição é 900 segundos. |
-| $RefreshDatabaseSchema | Especifique se o script tem de atualizar o esquema de base de dados. Se o esquema de base de dados foi alterado da configuração anterior - por exemplo, se tiver adicionado uma nova tabela ou anew coluna), terá de atualizar o esquema antes de pode reconfigurá-lo. Predefinição é falsa. |
-| $AddAllTables | Se este valor for VERDADEIRO, todos os válido tabelas e colunas são adicionadas para o esquema de sincronização. Os valores de $TablesAndColumnsToAdd e $TablesAndColumnsToRemove são ignorados. |
-| $TablesAndColumnsToAdd | Especifica as tabelas ou colunas para ser adicionado para o esquema de sincronização. Cada nome de tabela ou coluna tem de ser delimitados totalmente com o nome do esquema. Por exemplo: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Vários nomes de tabela ou coluna podem ser especificados e separados por vírgulas (,). |
-| $TablesAndColumnsToRemove | Especifica as tabelas ou colunas para ser removido o esquema de sincronização. Cada nome de tabela ou coluna tem de ser delimitados totalmente com o nome de esquema. Por exemplo: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Vários nomes de tabela ou coluna podem ser especificados e separados por vírgulas (,). |
+| $MemberName | Indique o nome do membro se quiser carregar o esquema da base de dados a partir do membro de sincronização em vez da base de dados de hub. Se pretender carregar o esquema da base de dados do hub, deixe este parâmetro em branco. |
+| $TimeoutInSeconds | O tempo limite para a atualização do esquema da base de dados por parte do script. A predefinição são 900 segundos. |
+| $RefreshDatabaseSchema | Especifique se o script tem de atualizar o esquema da base de dados. Se o esquema da base de dados tiver mudado da configuração anterior (se, por exemplo, tiver adicionado uma tabela ou uma coluna nova), tem de atualizá-lo antes de poder reconfigurá-lo. A predefinição é falso. |
+| $AddAllTables | Se este valor for verdadeiro, todas as tabelas e colunas válidas são adicionadas ao esquema de sincronização. Os valores de $TablesAndColumnsToAdd e $TablesAndColumnsToRemove são ignorados. |
+| $TablesAndColumnsToAdd | Especifique as tabelas ou colunas que vão ser adicionadas ao esquema de sincronização. O nome de cada tabela ou coluna tem de ser totalmente delimitado pelo nome do esquema. Por exemplo: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Podem ser especificados vários nomes de tabelas ou colunas, separados por vírgulas (,). |
+| $TablesAndColumnsToRemove | Especifique as tabelas ou colunas que vão ser removidas do esquema de sincronização. O nome de cada tabela ou coluna tem de ser totalmente delimitado pelo nome do esquema. Por exemplo: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Podem ser especificados vários nomes de tabelas ou colunas, separados por vírgulas (,). |
 |||
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-O **UpdateSyncSchema** script utiliza os seguintes comandos. Cada comando nas ligações de tabela para a documentação específica do comando.
+O script **UpdateSyncSchema** utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Get-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncgroup) | Devolve informações sobre um grupo de sincronização. |
-| [Atualização AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncgroup) | Um grupo de sincronização de atualizações. |
+| [Get-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncgroup) | Devolve informações sobre um grupo de sincronizações. |
+| [Update-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncgroup) | Atualiza um grupo de sincronização. |
 | [Get-AzureRmSqlSyncMember](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncmember) | Devolve informações sobre um membro de sincronização. |
 | [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncschema) | Devolve informações sobre um esquema de sincronização. |
-| [Atualização AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncschema) | Um esquema de sincronização de atualizações. |
+| [Update-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncschema) | Atualiza um esquema de sincronização. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Azure PowerShell, consulte [documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Exemplos de script do PowerShell de base de dados do SQL adicionais podem ser encontrados na [scripts do PowerShell de base de dados do SQL Azure](../sql-database-powershell-samples.md).
+Pode ver exemplos do script do PowerShell da Base de Dados SQL adicionais nos [scripts do PowerShell da Base de Dados SQL do Azure](../sql-database-powershell-samples.md).
 
-Para obter mais informações sobre a sincronização de dados do SQL Server, consulte:
+Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 
--   [Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados SQL do Azure](../sql-database-sync-data.md)
--   [Configurar a sincronização de dados SQL do Azure](../sql-database-get-started-sql-data-sync.md)
--   [Melhores práticas para a sincronização de dados SQL do Azure](../sql-database-best-practices-data-sync.md)
--   [Monitor sincronização de dados SQL do Azure com a análise de registos do OMS](../sql-database-sync-monitor-oms.md)
--   [Resolver problemas com a sincronização de dados SQL do Azure](../sql-database-troubleshoot-data-sync.md)
+-   [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](../sql-database-sync-data.md)
+-   [Configurar a Sincronização de Dados SQL do Azure](../sql-database-get-started-sql-data-sync.md)
+-   [Melhores práticas da Sincronização de Dados SQL do Azure](../sql-database-best-practices-data-sync.md)
+-   [Monitorizar a Sincronização de Dados SQL do Azure com o OMS Log Analytics](../sql-database-sync-monitor-oms.md)
+-   [Resolver problemas da Sincronização de Dados SQL do Azure](../sql-database-troubleshoot-data-sync.md)
 
--   Conclua os exemplos do PowerShell que mostram como configurar a sincronização de dados do SQL Server:
+-   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:
     -   [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](sql-database-sync-data-between-sql-databases.md)
-    -   [Utilizar o PowerShell para sincronizar entre uma base de dados do SQL do Azure e uma base de dados do SQL Server no local](sql-database-sync-data-between-azure-onprem.md)
+    -   [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](sql-database-sync-data-between-azure-onprem.md)
 
--   [Transferir a documentação da API de REST de sincronização de dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Transferir a documentação da API REST da Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-Para obter mais informações sobre a base de dados SQL, consulte:
+Para obter mais informações sobre a Base de Dados SQL, veja:
 
--   [Descrição geral da base de dados do SQL Server](../sql-database-technical-overview.md)
--   [Gestão de ciclo de vida de base de dados](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Descrição Geral da Base de Dados SQL](../sql-database-technical-overview.md)
+-   [Gestão do Ciclo de Vida da Base de Dados](https://msdn.microsoft.com/library/jj907294.aspx)
