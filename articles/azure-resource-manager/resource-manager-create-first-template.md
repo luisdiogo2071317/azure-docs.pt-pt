@@ -1,8 +1,8 @@
 ---
 title: Criar o primeiro modelo do Azure Resource Manager | Microsoft Docs
-description: "Um guia passo a passo para criar o primeiro modelo do Azure Resource Manager. Mostra como utilizar a referência de modelo para uma conta de armazenamento para criar o modelo."
+description: Um guia passo a passo para criar o primeiro modelo do Azure Resource Manager. Mostra como utilizar a referência de modelo para uma conta de armazenamento para criar o modelo.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -10,14 +10,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2017
+ms.date: 03/30/2018
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adf7d6ad04b9c341eac2172e09da3cb1f044aa62
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Criar e implementar o seu primeiro modelo do Azure Resource Manager
 Este tópico explica os passos de criação do primeiro modelo do Azure Resource Manager. Os modelos do Resource Manager são ficheiros JSON que definem os recursos que precisa de implementar para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções do Azure, veja [Descrição geral do Azure Resource Manager](resource-group-overview.md). Se dispõe de recursos existentes e pretende obter um modelo para esses recursos, veja [Exportar um modelo do Azure Resource Manager a partir de recursos existentes](resource-manager-export-template.md).
@@ -26,8 +26,9 @@ Para criar e rever modelos, é necessário um editor de JSON. O [Visual Studio C
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Visual Studio Code. Se for preciso, instale-o a partir do site [https://code.visualstudio.com/](https://code.visualstudio.com/).
+* Visual Studio Code. Se necessário, instale-o a partir de [https://code.visualstudio.com/](https://code.visualstudio.com/).
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* [Azure PowerShell](/powershell/azure/install-azurerm-ps) ou [CLI do Azure](/cli/azure/install-azure-cli) instalados localmente. Neste tutorial, precisa de uma instalação local, porque o modelo vai ser guardado como ficheiro local. Para utilizar o Cloud Shell, tem de [carregar o seu modelo para uma conta de armazenamento](resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell).
 
 ## <a name="create-template"></a>Criar o modelo
 
@@ -92,24 +93,6 @@ Está pronto para implementar este modelo. Utilize o PowerShell ou a CLI do Azur
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
-
-Uma vez concluída a implementação, a sua conta de armazenamento passa a estar presente no grupo de recursos.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
-
-Para a CLI do Azure, utilize os seguintes comandos:
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-```
-
-Atualmente, o PowerShell está disponível no Cloud Shell como uma pré-visualização. Para o PowerShell, utilize os seguintes comandos:
-
-```powershell
-New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
-```
 
 Uma vez concluída a implementação, a sua conta de armazenamento passa a estar presente no grupo de recursos.
 
@@ -244,12 +227,6 @@ Para a CLI do Azure, utilize:
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
-Para o Cloud Shell, carregue o modelo alterado na partilha de ficheiros. Substitua o ficheiro existente. Em seguida, utilize o seguinte comando:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
-```
-
 ## <a name="use-autocomplete"></a>Utilizar a conclusão automática
 
 Até agora, o trabalho no modelo tem consistido apenas em copiar e colar o JSON deste artigo. No entanto, quando desenvolver os seus próprios modelos, será útil localizar e especificar as propriedades e os valores que estão disponíveis para o tipo de recurso. O VS Code lê o esquema para o tipo de recurso e sugere propriedades e valores. Para ver a funcionalidade de conclusão automática, aceda ao elemento de propriedades do seu modelo e adicione uma linha nova. Introduza um ponto de exclamação e repare que o VS Code sugere imediatamente nomes disponíveis dentro do elemento de propriedades.
@@ -377,12 +354,6 @@ Para a CLI do Azure, utilize:
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
-```
-
-Para o Cloud Shell, carregue o modelo alterado na partilha de ficheiros. Substitua o ficheiro existente. Em seguida, utilize o seguinte comando:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos

@@ -1,29 +1,32 @@
 ---
-title: "O que é o Azure IoT Edge | Microsoft Docs"
-description: "Descrição geral do serviço Azure IoT Edge"
+title: O que é o Azure IoT Edge | Microsoft Docs
+description: Descrição geral do serviço Azure IoT Edge
 services: iot-Edge
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
 editor: chipalost
-ms.assetid: 
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: 
-ms.openlocfilehash: 5f69041572729d1458a22a855128639056d61586
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: 9071caedd9ab3b63527c2c0bdab38db2efadb17c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>O que é o Azure IoT Edge - pré-visualização
 
 O Azure IoT Edge move as análises e a lógica empresarial personalizada da cloud para os dispositivos, para que a sua organização se possa dedicar às informações relevantes e não à gestão de dados. Permita que a sua solução se dimensione verdadeiramente ao configurar o seu software IoT, implementá-lo nos dispositivos através de contentores padrão e monitorizá-lo a partir da cloud.
+
+>[!NOTE]
+>O Azure IoT Edge só está disponível no escalão standard do Hub IoT. Para obter mais informações sobre os escalões básico e standard, veja [How to choose the right IoT Hub tier](../iot-hub/iot-hub-scaling.md) (Como escolher o escalão do Hub IoT certo).
 
 Nas soluções IoT, o valor empresarial é impulsionado pelas análises, mas nem todas as análises têm de estar na cloud. Se quiser que um dispositivo responda a emergências o mais depressa possível, pode realizar uma deteção de anomalias no próprio dispositivo. Da mesma forma, se pretender reduzir os custos de largura de banda e evitar terabytes de transferências de dados não processados, pode fazer a limpeza e a agregação de dados localmente. Depois, envie as informações para a cloud. 
 

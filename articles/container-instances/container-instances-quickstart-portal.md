@@ -6,16 +6,16 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 04/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 18238c94ba9acff15497a666a63b65b95779d4ac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: cb0c8c5f5730ae1f7a2e9b38c3ef3e04ee8cde67
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início rápido: Criar o seu primeiro contentor no Azure Container Instances
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início Rápido: crie o seu primeiro contentor no Azure Container Instances
 
 O Azure Container Instances permite criar e gerir facilmente contentores no Azure. Neste guia de introdução, cria um contentor no Azure e expõe-no na Internet com um endereço IP público. Esta operação foi concluída com o portal do Azure. Com apenas alguns cliques, verá isto no seu browser:
 
@@ -27,7 +27,7 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 ## <a name="create-a-container-instance"></a>Criar uma instância de contentor
 
-Selecione **Criar um recurso** > **Contentores** > **Azure Container Instances (pré-visualização)**.
+Selecione **Criar um recurso** > **Contentores** > **Azure Container Instances**.
 
 ![Começar a criar uma nova instância do contentor no portal do Azure][aci-portal-01]
 
@@ -53,7 +53,7 @@ Quando inicia a implementação, é colocado um mosaico no dashboard do portal q
 
 ![Progresso da criação de uma nova instância do contentor no portal do Azure][aci-portal-08]
 
-Selecione o grupo de contentores **mycontainer-myc1** para apresentar as propriedades do grupo do contentor. Tome nota do **endereço Ip** do grupo de contentores, bem como o **ESTADO** do seu contentor.
+Selecione o grupo de contentores **mycontainer-myc1** para apresentar as propriedades do grupo do contentor. Tome nota do **endereço IP** do grupo de contentores, bem como do **ESTADO** do seu contentor.
 
 ![Descrição geral do grupo de contentores no portal do Azure][aci-portal-06]
 
@@ -72,7 +72,7 @@ Isto irá iniciar uma caixa de diálogo de confirmação, selecione **Sim** quan
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
-[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png
+<!--[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png-->
 [aci-portal-03]: ./media/container-instances-quickstart-portal/qs-portal-03.png
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png

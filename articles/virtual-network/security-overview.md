@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral da segurança de rede do Azure | Microsoft Docs"
-description: "Saiba mais sobre as opções de segurança para controlar o fluxo do tráfego de rede entre recursos do Azure."
+title: Descrição geral da segurança de rede do Azure | Microsoft Docs
+description: Saiba mais sobre as opções de segurança para controlar o fluxo do tráfego de rede entre recursos do Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 950c64ea1ea2edc072650a9f63a6d21ad369c496
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="network-security"></a>Segurança da rede
 
@@ -117,7 +117,7 @@ Não pode remover as regras predefinidas, mas pode criar regras com prioridades 
  As etiquetas de serviço representam um grupo de prefixos de endereços IP, que ajudam a minimizar a complexidade da criação de regras de segurança. Não pode criar as suas próprias etiquetas de serviço nem especificar que endereços IP estão incluídos nas mesmas. A Microsoft gere os prefixos de endereços que as etiquetas abrangem e atualiza-as automaticamente à medida que os endereços são alterados. Ao criar regras de segurança, pode utilizar etiquetas de serviço em vez de endereços IP específicos. Estão disponíveis as etiquetas de serviço seguintes para utilização em definições de regras de segurança. Os nomes variam ligeiramente entre os [modelos de implementação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para a clássica): esta etiqueta inclui o espaço de endereços das redes virtuais (todos os intervalos de CIDR definidos para as redes virtuais), todos os espaços de endereços no local ligados e as redes em [modo de peering](virtual-network-peering-overview.md) ou as redes virtuais ligadas a um [gateway de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** par clássica): esta etiqueta denota o balanceador de carga da infraestrutura do Azure. A etiqueta traduz-se num [endereço IP de um datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), onde as sondas de estado de funcionamento do Azure têm origem. Se não estiver a utilizar o balanceador de carga do Azure, pode substituir esta regra.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para clássico): esta etiqueta denota o balanceador de carga da infraestrutura do Azure. A etiqueta traduz-se num [endereço IP de um datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), onde as sondas de estado de funcionamento do Azure têm origem. Se não estiver a utilizar o balanceador de carga do Azure, pode substituir esta regra.
 * **Internet** (Gestor de Recursos) (**INTERNET** para clássica): esta etiqueta denota o espaço de endereços IP que está fora da rede virtual e acessível pela Internet pública. O intervalo de endereços inclui o [espaço de endereço IP público pertencente ao Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (apenas Resource Manager): esta etiqueta denota o espaço de endereços IP de pesquisa do Gestor de Tráfego do Azure. Pode encontrar mais informações no Gestor de Tráfego de pesquisa de IPs nas [Perguntas e Respostas do Gestor de Tráfego do Azure](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs).
 * **Armazenamento** (apenas Resource Manager): esta etiqueta denota o espaço de endereços IP do serviço Armazenamento do Azure. Se especificar *Storage* no valor, o tráfego é permitido ou negado para o armazenamento. Se quiser apenas permitir o acesso ao armazenamento numa determinada [região](https://azure.microsoft.com/regions), pode especificá-la. Por exemplo, se pretender permitir o acesso ao Armazenamento do Azure apenas na região E.U.A. Leste, pode especificar *Storage.EastUS* como a etiqueta de serviço. A etiqueta representa o serviço, mas não instâncias específicas do mesmos. Por exemplo, representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica.
@@ -141,7 +141,7 @@ Se criar outras regras, especificando outros grupos de segurança de aplicaçõe
  
 Para saber mais sobre os limites durante a criação de grupos de segurança de aplicações e como especificá-los em regras de segurança, veja [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) (Limites do Azure).
 
-Os grupos de segurança de aplicações estão disponíveis na versão de pré-visualização. As funcionalidades em pré-visualização não têm o mesmo nível de disponibilidade e fiabilidade do que as funcionalidades em versão geral. Antes de utilizar os grupos de segurança de aplicação, tem, primeiro, de se registar para utilizá-los ao concluir os passos 1 a 5 nas secções [Create a network security group with application security groups](create-network-security-group-preview.md) (Criar um grupo de segurança de rede com grupos de segurança de aplicação) relativas ao Azure ou ao PowerShell. Os grupos de segurança de aplicação têm as seguintes restrições:
+Os grupos de segurança de aplicação têm as seguintes restrições:
 
 -   Todas as interfaces de rede dentro de um grupo de segurança de aplicação têm de existir na mesma rede virtual. Não é possível adicionar interfaces de rede de redes virtuais diferentes ao mesmo grupo de segurança de aplicação. A rede virtual em que se encontra a primeira interface de rede atribuída ao grupo de segurança da aplicação define a rede virtual em que todas as interfaces de rede posteriormente atribuídas têm de existir.
 - Se especificar grupos de segurança de aplicação como a origem e o destino numa regra de segurança, as interfaces de rede em ambos os grupos de segurança de aplicação têm de existir na mesma rede virtual. Por exemplo, se ASG1 contivesse interfaces de rede da VNet1 e ASG2 contivesse interfaces de rede da VNet2, não poderia atribuir ASG1 como a origem e ASG2 como o destino de uma regra, pois todas as interfaces de rede têm de existir na VNet1.
@@ -165,5 +165,4 @@ Os grupos de segurança de aplicações estão disponíveis na versão de pré-v
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Concluir o tutorial [Create a network security group](virtual-networks-create-nsg-arm-pportal.md) (Criar grupos de segurança de rede)
-* Concluir o tutorial [Create a network security group with application security groups](create-network-security-group-preview.md) (Criar grupos de segurança de rede com grupos de segurança de aplicações)
+* Leia o artigo [Create a network security group](tutorial-filter-network-traffic.md) (Criar um grupo de segurança de rede).

@@ -1,11 +1,11 @@
 ---
-title: "Monitorizar as APIs publicadas na Gestão de API do Azure | Microsoft Docs"
-description: "Siga os passos deste tutorial para aprender a monitorizar a sua API na Gestão de API do Azure."
+title: Monitorizar as APIs publicadas na Gestão de API do Azure | Microsoft Docs
+description: Siga os passos deste tutorial para aprender a monitorizar a sua API na Gestão de API do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 445723242a76dcef4a6b137439728235d5d6e32a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 93cbcf91af4ecf9425ed43ade400a0c82cea72d8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
@@ -44,29 +44,6 @@ O vídeo seguinte mostra como monitorizar a Gestão de API através do Azure Mon
 + Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
-## <a name="diagnostic-logs"></a>Ver registos de atividades
-
-Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos serviços de Gestão de API. Ao utilizar registos de atividades, pode determinar o "quê, quem e quando" de quaisquer operações de escrita (PUT, POST, DELETE) efetuadas nos seus serviços de Gestão de API. 
-
-> [!NOTE]
-> Os registos de atividades não incluem operações de leitura (GET) nem operações executadas no Portal do Azure ou com as APIs de Gestão originais.
-
-Pode aceder aos registos de atividades no serviço de Gestão de API ou aceder aos registos de todos os recursos do Azure no Azure Monitor. 
-
-Para ver registos de atividades:
-
-1. Selecione a instância de serviço APIM.
-2. Clique em **Registo de atividades**.
-
-## <a name="view-diagnostic-logs"></a>Ver registos de diagnóstico
-
-Os registos de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria, bem como para fins de resolução de problemas. Os registos de diagnóstico diferem dos registos de atividades. Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos recursos do Azure. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo próprio recurso.
-
-Para aceder a registos de diagnóstico:
-
-1. Selecione a instância de serviço APIM.
-2. Clique em **Registo de diagnóstico**.
 
 ## <a name="view-metrics-of-your-apis"></a>Ver métricas das APIs
 
@@ -109,6 +86,118 @@ Para configurar alertas:
     > A regra de alerta também pode chamar um Web Hook ou uma Aplicação Lógica do Azure quando é acionada.
 
     ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+
+## <a name="activity-logs"></a>Registos de Atividade
+
+Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos serviços de Gestão de API. Ao utilizar registos de atividades, pode determinar o "quê, quem e quando" de quaisquer operações de escrita (PUT, POST, DELETE) efetuadas nos seus serviços de Gestão de API. 
+
+> [!NOTE]
+> Os registos de atividades não incluem operações de leitura (GET) nem operações executadas no Portal do Azure ou com as APIs de Gestão originais.
+
+Pode aceder aos registos de atividades no serviço de Gestão de API ou aceder aos registos de todos os recursos do Azure no Azure Monitor. 
+
+Para ver registos de atividades:
+
+1. Selecione a instância de serviço APIM.
+2. Clique em **Registo de atividades**.
+
+## <a name="diagnostic-logs"></a>Registos de Diagnóstico
+
+Os registos de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria, bem como para fins de resolução de problemas. Os registos de diagnóstico diferem dos registos de atividades. Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos recursos do Azure. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo próprio recurso.
+
+Para configurar os registos de diagnóstico:
+
+1. Selecione a instância de serviço APIM.
+2. Clique em **Registo de diagnóstico**.
+3. Clique em **Ativar diagnósticos**. Pode arquivar registos de diagnósticos juntamente com as métricas numa conta de armazenamento, transmiti-los em fluxo para um hub do Hub de Eventos ou enviá-los para o Log Analytics. 
+
+Atualmente, a Gestão de API disponibiliza registos de diagnósticos (batches criados de hora a hora) sobre pedidos à API individuais tendo cada entrada o esquema seguinte:
+
+```json
+{  
+    "isRequestSuccess" : "",
+    "time": "",   
+    "operationName": "",      
+    "category": "",   
+    "durationMs": ,   
+    "callerIpAddress": "",   
+    "correlationId": "",   
+    "location": "",      
+    "httpStatusCodeCategory": "",      
+    "resourceId": "",      
+    "properties": {   
+        "method": "", 
+        "url": "", 
+        "clientProtocol": "", 
+        "responseCode": , 
+        "backendMethod": "", 
+        "backendUrl": "", 
+        "backendResponseCode": ,
+        "backendProtocol": "",  
+        "requestSize": , 
+        "responseSize": , 
+        "cache": "", 
+        "cacheTime": "", 
+        "backendTime": , 
+        "clientTime": , 
+        "apiId": "",
+        "operationId": "", 
+        "productId": "", 
+        "userId": "", 
+        "apimSubscriptionId": "", 
+        "backendId": "",
+        "lastError": { 
+            "elapsed" : "", 
+            "source" : "", 
+            "scope" : "", 
+            "section" : "" ,
+            "reason" : "", 
+            "message" : ""
+        } 
+    }      
+}  
+```
+
+| Propriedade  | Tipo | Descrição |
+| ------------- | ------------- | ------------- |
+| isRequestSuccess | boolean | “Verdadeiro” se o pedido HTTP for concluído com o código de estado de resposta no intervalo 2xx ou 3xx |
+| hora | date-time | Carimbo de data/hora da receção do pedido HTTP por parte do gateway |
+| operationName | string | Valor constante “Microsoft.ApiManagement/GatewayLogs” |
+| categoria | string | Valor constante “GatewayLogs” |
+| durationMs | número inteiro | Número de milissegundos a partir do momento em que o gateway recebeu o pedido até ao momento em que a resposta é enviada integralmente |
+| callerIpAddress | string | Endereço IP do chamador de Gateway de imediato (pode ser um intermediário) |
+| correlationId | string | Identificador de pedido http exclusivo atribuído pela Gestão de API |
+| localização | string | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
+| httpStatusCodeCategory | string | Categoria do código de estado da resposta http: bem-sucedida (301 ou menos ou 304 ou 307), não autorizada (401, 403, 429), Errónea (400, entre 500 e 600), Outro |
+| resourceId | string | "Id do recurso da Gestão de API /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| propriedades | objeto | Propriedades do pedido atual |
+| método | string | Método HTTP do pedido a receber |
+| url | string | URL do pedido a receber |
+| clientProtocol | string | Versão do protocolo HTTP do pedido a receber |
+| responseCode | número inteiro | Código de estado da resposta  HTTP enviada para um cliente |
+| backendMethod | string | Método HTTP do pedido enviado para um back-end |
+| backendUrl | string | URLdo pedido enviado para um back-end |
+| backendResponseCode | número inteiro | Código da resposta HTTP recebido a partir de um back-end |
+| backendProtocol | string | Versão do protocolo HTTP do pedido enviado para um back-end | 
+| requestSize | número inteiro | Número de bytes recebidos de um cliente durante o processamento do pedido | 
+| responseSize | número inteiro | Número de bytes enviados para um cliente durante o processamento do pedido | 
+| cache | string | Estado do envolvimento da cache da Gestão de API no processamento do pedido (ou seja, hit, miss, none) | 
+| cacheTime | número inteiro | Número de milissegundos despendidos na E/S de cache da Gestão de API global (ligar, enviar e receber bytes) | 
+| backendTime | número inteiro | Número de milissegundos despendidos na E/S de back-end global (ligar, enviar e receber bytes) | 
+| clientTime | número inteiro | Número de milissegundos despendidos na E/S de cliente global (ligar, enviar e receber bytes) | 
+| apiId | string | Identificador da entidade de API do pedido atual | 
+| operationId | string | Identificador da entidade de operação do pedido atual | 
+| productId | string | Identificador da entidade de produto do pedido atual | 
+| userId | string | Identificador da entidade de utilizador do pedido atual | 
+| apimSubscriptionId | string | Identificador da entidade de subscrição do pedido atual | 
+| backendId | string | Identificador da entidade de back-end do pedido atual | 
+| LastError | objeto | Último erro de processamento de pedido | 
+| elapsed | número inteiro | Número de milissegundos decorridos desde que o Gateway recebeu o pedido até ao momento em que o erro ocorreu | 
+| source | string | Nome da política ou processador interno provocou o erro | 
+| scope | string | Âmbito do documento da política que contém a política que provocou o erro | 
+| section | string | Secção do documento da política que contém a política que provocou o erro | 
+| reason | string | Motivo do erro | 
+| message | string | Mensagem de erro | 
 
 ## <a name="next-steps"></a>Passos seguintes
 

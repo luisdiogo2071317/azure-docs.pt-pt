@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recolher Registos de Atividades do Azure no Log Analytics entre subscrições
 
@@ -324,9 +324,9 @@ Para ver informações detalhadas sobre cada passo, clique nos nomes dos mesmos 
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Passo 5 - Ver o Registo de Atividades do Azure no Log Analytics
 O último passo é verificar a área de trabalho do Log Analytics, para confirmar que os dados estão a ser recolhidos conforme esperado.
 
-1. No portal do Azure, selecione **Log Analytics**.
-2. Selecione a área de trabalho e, em seguida, o mosaico **Log Search** (Pesquisa de Registos).
-3. Na barra de consultas de pesquisa, escreva `AzureActivity_CL` e clique no botão “Pesquisar”. Se não tiver dado o nome *AzureActivity* ao seu registo personalizado, escreva o nome que escolheu e acrescente `_CL`.
+1. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+2. Na lista de áreas de trabalho do Log Analytics, selecione a sua área de trabalho.
+3.  Clique no mosaico **Pesquisa de Registos**, no painel Pesquisa de Registos, no tipo de campo de consulta `AzureActivity_CL` e, em seguida, prima Enter ou clique no botão de pesquisa à direita do campo de consulta. Se não tiver dado o nome *AzureActivity* ao seu registo personalizado, escreva o nome que escolheu e acrescente `_CL`.
 
 >[!NOTE]
 > Da primeira vez que for enviado um registo personalizado novo para o Log Analytics, esse registo poderá demorar uma hora até poder ser pesquisável.

@@ -1,20 +1,20 @@
 ---
-title: "Início Rápido do Azure - Executar Tarefa do Batch - Python"
+title: Início Rápido do Azure - Executar Tarefa do Batch - Python
 description: Execute rapidamente uma tarefa do Batch com a biblioteca de clientes do Batch Python.
 services: batch
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0e6a631a8d4956e2be9fd14941131968d5f4443f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e843bc0d3a56b9e99cd3fbb865bb0066321475df
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a API Python
 
@@ -34,13 +34,13 @@ Este início rápido executa uma tarefa do Azure Batch a partir de uma aplicaç�
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-[Transfira ou clonar a aplicação de exemplo](https://github.com/Azure-Samples/batch-python-quickstart) a partir do GitHub. Para clonar o repositório de aplicações de exemplo com um cliente Git, utilize o seguinte comando:
+[Transfira ou clone a aplicação de exemplo](https://github.com/Azure-Samples/batch-python-quickstart) a partir do GitHub. Para clonar o repositório de aplicações de exemplo com um cliente Git, utilize o seguinte comando:
 
 ```
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git

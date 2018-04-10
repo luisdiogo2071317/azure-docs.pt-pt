@@ -1,6 +1,6 @@
 ---
-title: "Executar uma carga de trabalho paralela – Azure Batch Python"
-description: "Tutorial – Processar ficheiros de multimédia em paralelo com o ffmpeg no Azure Batch através da biblioteca de cliente Python para o Batch"
+title: Executar uma carga de trabalho paralela – Azure Batch Python
+description: Tutorial – Processar ficheiros de multimédia em paralelo com o ffmpeg no Azure Batch através da biblioteca de cliente Python para o Batch
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: dlepow
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f9853578962027d6308581a76e00d6619cbbf9ec
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a04cd63944d0ed75ff90f211134cd93c77abe1e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch através da API Python
 
@@ -34,7 +34,7 @@ Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o for
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
+* [Python versão 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
 
 * Gestor de pacotes [pip](https://pip.pypa.io/en/stable/installing/)
 
@@ -42,7 +42,7 @@ Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o for
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 
@@ -50,7 +50,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 
 ### <a name="download-the-sample"></a>Transferir o exemplo
 
-[Transfira ou clonar a aplicação de exemplo](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) a partir do GitHub. Para clonar o repositório de aplicações de exemplo com um cliente Git, utilize o seguinte comando:
+[Transfira ou clone a aplicação de exemplo](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) a partir do GitHub. Para clonar o repositório de aplicações de exemplo com um cliente Git, utilize o seguinte comando:
 
 ```
 git clone https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial.git

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 40abc884a898dc16ae4d785c13d3e926fb30e432
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1d477bfe42cebbc35db4fd40aa5bc3de4829c49b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Criar máquinas virtuais do Linux com o PowerShell
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Este guia de introdução requer a versão do módulo 3.6 ou posterior do Azure PowerShell. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
 
-Finalmente, uma chave SSH pública com o nome *id_rsa.pub* tem de ser armazenada no diretório *.ssh* do seu perfil de utilizador do Windows. Para obter informações detalhadas sobre a criação de chaves SSH para o Azure, consulte [Create SSH keys for Azure (Criar chaves SSH para o Azure)](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Finalmente, uma chave SSH pública com o nome *id_rsa.pub* tem de ser armazenada no diretório *.ssh* do seu perfil de utilizador do Windows. Para obter informações detalhadas sobre a criação e utilização de chaves SSH, veja [Create SSH keys for Azure](ssh-from-windows.md) (Criar chaves SSH para o Azure).
 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure

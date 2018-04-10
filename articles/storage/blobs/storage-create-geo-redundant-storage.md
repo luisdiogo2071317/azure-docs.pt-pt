@@ -10,20 +10,20 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ce72c1a68c1dbe5cede33dd42adc1b002a81326e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6226fea5001d19a6f0e1f6700d90ea2b9481d43c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Tornar os dados das suas aplicações altamente disponíveis com o Armazenamento do Azure
 
-Este tutorial é a primeira parte de uma série, que mostra como tornar os dados das suas aplicações altamente disponíveis no Azure. Quando tiver terminado, terá uma aplicação de consola que carrega e obtém um blob para uma conta de armazenamento [geograficamente redundante de acesso de leitura](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS). O RA-GRS funciona ao replicar as transações da região primária para a secundária. Este processo de replicação garante que os dados na região secundária acabam por ser consistentes. A aplicação utiliza o padrão [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) para determinar a que ponto final se ligar. A aplicação muda para o ponto final secundário quando uma falha é simulada.
+Este tutorial é a primeira parte de uma série, que mostra como tornar os dados das suas aplicações altamente disponíveis no Azure. Quando tiver terminado, terá uma aplicação de consola que carrega e obtém um blob para uma conta de armazenamento [geograficamente redundante de acesso de leitura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS). O RA-GRS funciona ao replicar as transações da região primária para a secundária. Este processo de replicação garante que os dados na região secundária acabam por ser consistentes. A aplicação utiliza o padrão [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) para determinar a que ponto final se ligar. A aplicação muda para o ponto final secundário quando uma falha é simulada.
 
 Na primeira parte da série, saiba como:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage
+> * Create a storage account
 > * Transferir o exemplo
 > * Definir a cadeia de ligação
 > * Executar a aplicação de consola
@@ -54,7 +54,7 @@ Para concluir este tutorial:
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Uma conta de armazenamento fornece um espaço de nomes exclusivo para armazenar e aceder aos objetos de dados de armazenamento do Azure.
 
@@ -241,7 +241,7 @@ def response_callback(response):
 Na parte um da série, aprendeu a tornar uma aplicação altamente disponível com contas de armazenamento RA-GRS, nomeadamente a:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage
+> * Create a storage account
 > * Transferir o exemplo
 > * Definir a cadeia de ligação
 > * Executar a aplicação de consola

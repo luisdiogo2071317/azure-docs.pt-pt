@@ -8,11 +8,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: c2a52a387860de640e290746b25c164090819654
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Tutorial: Autenticar utilizadores com o Azure Active Directory B2C numa aplicação Web ASP.NET
 
@@ -66,7 +66,7 @@ Anote o **ID de Cliente da Aplicação**. O ID identifica exclusivamente a aplic
 
 ### <a name="create-a-client-password"></a>Criar uma palavra-passe de cliente
 
-O Azure AD B2C utiliza a autorização de OAuth2 para [aplicações cliente](../active-directory/develop/active-directory-dev-glossary.md#client-application). As aplicações Web são [clientes confidenciais](../active-directory/develop/active-directory-dev-glossary.md#web-client) e requerem um segredo do cliente (palavra-passe). O ID da aplicação cliente e o segredo do cliente são utilizados quando a aplicação Web efetua a autenticação no Azure Active Directory. 
+O Azure AD B2C utiliza a autorização de OAuth2 para [aplicações cliente](../active-directory/develop/active-directory-dev-glossary.md#client-application). As aplicações Web são [clientes confidenciais](../active-directory/develop/active-directory-dev-glossary.md#web-client) e requerem um ID de cliente ou um ID de aplicação e um segredo de cliente, palavra-passe de cliente ou chave de aplicação.
 
 1. Selecione a página Chaves para a aplicação Web registada e clique em **Gerar chave**.
 
@@ -150,7 +150,7 @@ Existem dois projetos na solução de exemplo:
 
 **Exemplo de aplicação da API Web (TaskService):** API Web que suporta a funcionalidade de criação, leitura, atualização e eliminação da lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pela aplicação Web.
 
-Tem de alterar a aplicação para utilizar o registo de aplicações no inquilino. Também tem de configurar as políticas que criou. A aplicação Web de exemplo define os valores de configuração como definições da aplicação no ficheiro Web.config. Para alterar as definições da aplicação:
+Tem de alterar a aplicação de modo a utilizar o registo de aplicações no seu inquilino, que inclui o ID de cliente ou o ID de aplicação e a palavra-passe de cliente ou a chave de aplicação. Também tem de configurar as políticas que criou. A aplicação Web de exemplo define os valores de configuração como definições da aplicação no ficheiro Web.config. Para alterar as definições da aplicação:
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 
@@ -161,7 +161,7 @@ Tem de alterar a aplicação para utilizar o registo de aplicações no inquilin
     
     <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
     
-    <add key="ida:ClientSecret" value="Client password (client secret)" />
+    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
 3. Atualize as definições de política com o nome gerado quando criou as políticas.
 

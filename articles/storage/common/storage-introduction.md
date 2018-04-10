@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: eb68993924bff8605fc244f438a686f0142c4762
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 18a8065bba8a4a0ec2025d6b9134fe9fab21eb5f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introdução ao Storage do Microsoft Azure
 
@@ -143,35 +143,11 @@ Para obter mais informações sobre a encriptação do lado do cliente, veja [En
 
 ## <a name="replication"></a>Replicação
 
-Para garantir que os seus dados são duráveis, o Armazenamento do Azure manterá (e gerirá) várias cópias dos mesmos. Estas cópias são denominadas “réplicas” ou, por vezes, “redundância”. Quando configurar a sua conta de armazenamento, vai selecionar um tipo de replicação. Na maioria dos casos, esta definição pode ser alterada após a configuração da conta de armazenamento.
+Para garantir que os seus dados são duráveis, o Armazenamento do Azure replica várias cópias dos mesmos. Quando configurar a sua conta de armazenamento, vai selecionar um tipo de replicação. Na maioria dos casos, esta definição pode ser alterada após a criação da conta de armazenamento. 
 
-**Armazenamento localmente redundante (LRS)**
-
-Armazenamento localmente redundante (LRS), que foi criado para proporcionar, pelo menos, 99,999999999% (11 9 s) de durabilidade de objetos ao longo de um ano. Isto significa que são geridas várias cópias dos seus dados pelo Armazenamento do Azure no datacenter especificado quando a conta de armazenamento foi configurada. Quando as alterações forem consolidadas, todas as cópias são atualizadas antes da devolução com êxito. Isto significa que as réplicas estão sempre sincronizadas. Além disso, as cópias residem em domínios de falha e em domínios de atualização diferentes, o que quer dizer que os seus dados estão disponíveis mesmo que um nó de armazenamento que contenha os seus dados falhe ou seja colocado offline para ser atualizado.
-
-**Armazenamento com redundância de zona (ZRS) (Pré-visualização)**
-
-O armazenamento com redundância de zona (ZRS) foi concebido para simplificar o desenvolvimento de aplicações de elevada disponibilidade. O ZRS fornece durabilidade para objetos de armazenamento de, pelo menos, 99.9999999999% (12 9 s) ao longo de um ano específico. O ZRS replica os dados de forma síncrona em várias zonas de disponibilidade. Considere o ZRS para cenários, como aplicações transacionais onde o período de indisponibilidade não é aceitável. O ZRS permite aos clientes ler e escrever dados, mesmo se uma única zona está indisponível ou irrecuperável. As inserções e atualizações para os dados são efetuadas de forma síncrona e são vivamente consistentes.    
-
-A capacidade ZRS anterior agora é referida como ZRS Classic. As contas ZRS Classic estão disponíveis apenas para blobs de blocos em contas de armazenamento para fins gerais V1. O ZRS Classic replica os dados no modo assíncrono entre datacenters dentro de uma ou duas regiões. Uma réplica pode não estar disponível, a menos que a Microsoft inicie a ativação pós-falha para o secundário. Uma conta ZRS Classic não pode ser convertida para ou do LRS ou GRS e não tem as métricas de capacidade de inicio de sessão.
-
-**Armazenamento georredundante (GRS)**
-
-O armazenamento georredundante (GRS) foi criado para proporcionar 99,99999999999999% (16 9 s) de durabilidade de objetos ao longo de um ano, ao manter as cópias locais dos seus dados numa região primária e outro conjunto de cópias numa região secundária, a centenas de quilómetros da primária. Se ocorrer uma falha na região primária, o Armazenamento do Azure fará uma ativação pós-falha para a região secundária.
-
-**Armazenamento georredundante com acesso de leitura (RA-GRS)**
-
-O armazenamento georredundante com acesso de leitura é exatamente igual ao GRS, com a diferença de que obtém acesso de leitura aos dados na localização secundária. Se o datacenter primário ficar temporariamente indisponível, pode continuar a ler os dados na localização secundária. Isto pode ser muito útil. Por exemplo, pode ter uma aplicação Web que muda para o modo só de leitura e aponta para a cópia secundária, permitindo algum acesso mesmo apesar de as atualizações não estarem disponíveis.
-
-> [!IMPORTANT]
-> Pode alterar como os dados são replicados depois de criar a sua conta do Storage. No entanto, pode ser cobrado um custo único adicional relativo à transferência de dados se mudar do LRS ou ZRS para o GRS ou o RA-GRS.
->
-
-Para obter mais informações sobre as opções de replicação, veja [Azure Storage replication](storage-redundancy.md) (Replicação do Armazenamento do Azure).
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 Para obter informações sobre a recuperação após desastre, veja [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md) (O que fazer em caso de falha do Armazenamento do Azure).
-
-Para obter um exemplo de como tirar partido do armazenamento RA-GRS para garantir a elevada disponibilidade, veja [Designing Highly Available Applications using RA-GRS](storage-designing-ha-apps-with-ragrs.md) (Conceber Aplicações de Elevada Disponibilidade com RA-GRS).
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Transferir dados de e para o Armazenamento do Azure
 
