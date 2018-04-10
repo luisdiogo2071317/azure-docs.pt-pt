@@ -1,8 +1,8 @@
 ---
 title: Como criar, gerir ou eliminar uma conta de armazenamento no portal do Azure | Microsoft Docs
-description: "Crie uma nova conta de armazenamento, efetue a gestão das chaves de acesso da conta ou elimine uma conta de armazenamento no portal do Azure. Saiba mais sobre contas do Storage standard e premium."
+description: Crie uma nova conta de armazenamento, efetue a gestão das chaves de acesso da conta ou elimine uma conta de armazenamento no portal do Azure. Saiba mais sobre contas do Storage standard e premium.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -12,7 +12,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-f1_keywords: sql13.swb.windowsazurestorage.connect.f1
+f1_keywords:
+- sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
 ms.openlocfilehash: dde2ec3b68f5951e268c32b1c6551641f22a0511
