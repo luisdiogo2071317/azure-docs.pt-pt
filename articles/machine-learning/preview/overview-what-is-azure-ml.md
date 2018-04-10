@@ -1,6 +1,6 @@
 ---
 title: O que é o Azure Machine Learning? | Microsoft Docs
-description: Descrição geral da Experimentação e da Gestão de Modelos do Azure Machine , uma solução de ciência de dados completa e integrada para cientistas de dados profissionais, que lhes permite desenvolver, experimentar e implementar aplicações de análise avançada à escala da cloud.
+description: Explica os conceitos básicos de machine learning na nuvem, descreve como pode utilizá-lo e define os termos de machine learning. Descrição geral do Azure Machine Learning, uma solução de ciência de dados completa e integrada para cientistas de dados profissionais, que lhes permite desenvolver, experimentar e implementar aplicações de análise avançada à escala da cloud.
 services: machine-learning
 author: mwinkle
 ms.author: mwinkle
@@ -9,14 +9,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: e5716e3fc519c48aaea3ec17939d11008a1b1fd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8a92f42ecee926042e9e0662f6b0bd9438024248
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
+# <a name="what-is-machine-learning"></a>O que é o Machine Learning?
 
+A aprendizagem automática é uma técnica da ciência de dados que permite aos computadores utilizar dados existentes para prever futuros comportamentos, resultados e tendências. Ao utilizarem a aprendizagem automática, os computadores aprendem sem serem explicitamente programados.
+
+As previsões ou predições da aprendizagem automática podem tornar as aplicações e os dispositivos mais inteligentes. Quando faz compras online, o Machine Learning recomenda outros produtos que poderá gostar com base nos que já comprou. Quando o seu cartão de crédito é usado, o machine learning compara a transação com uma base de dados de transações e ajuda a detetar fraudes. Quando o robô aspirador limpa uma sala, o machine learning ajuda-o a decidir se a tarefa está concluída.
+
+## <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 O Azure Machine Learning é uma solução de análise avançada e de ciência de dados integrada e completa. Permite que os cientistas de dados prepararem dados, desenvolvam experimentações e implementem modelos à escala da cloud.
 
 Os componentes principais do Azure Machine Learning são:
@@ -29,6 +34,7 @@ Os componentes principais do Azure Machine Learning são:
 Em conjunto, estes serviços e aplicações ajudam a acelerar significativamente o desenvolvimento e a implementação do seu projeto de ciência de dados. 
 
 ![Conceitos do Azure Machine Learning](media/overview-what-is-azure-ml/aml-concepts.png)
+
 
 ## <a name="open-source-compatible"></a>Compatível com código aberto
 

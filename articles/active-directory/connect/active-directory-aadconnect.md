@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 6f0b5cd7b981cddeda7e5630967f5f8dba18bb98
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: febe055348efb49ea1e6bc670333f435de654cfc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integre os diretórios no local ao Azure Active Directory
 O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Isto permite-lhe fornecer uma identidade comum para o utilizadores das aplicações do Office 365, do Azure e do SaaS integradas com o Azure AD. Este tópico descreve o planeamento, a implementação e os passos de operação. É uma coleção de ligações para os tópicos relacionados com esta área.
@@ -88,7 +88,7 @@ O Azure AD Connect inclui várias funcionalidades que pode ativar como opção o
 
 A [filtragem](active-directory-aadconnectsync-configure-filtering.md) é utilizada quando pretende limitar os objetos que são sincronizados para o Azure AD. Por predefinição, são sincronizados todos os utilizadores, contactos, grupos e computadores com Windows 10. Pode alterar a filtragem com base em domínios, UOs ou atributos.
 
-A [sincronização de palavra-passe](active-directory-aadconnectsync-implement-password-synchronization.md) sincroniza o hash de palavra-passe no Active Directory para o Azure AD. O utilizador final pode utilizar a mesma palavra-passe no local e na nuvem, mas geri-la apenas numa única localização. Uma vez que utiliza o Active Directory no local como autoridade,pode também utilizar a sua própria política de palavras-passe.
+A [sincronização de hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) sincroniza o hash de palavra-passe no Active Directory para o Azure AD. O utilizador final pode utilizar a mesma palavra-passe no local e na nuvem, mas geri-la apenas numa única localização. Uma vez que utiliza o Active Directory no local como autoridade,pode também utilizar a sua própria política de palavras-passe.
 
 A [repetição de escrita de palavras-passe](../active-directory-passwords-getting-started.md) permitirá que os utilizadores alterem e reponham as respetivas palavras-passe na nuvem e a aplicação da sua política de palavras-passe no local.
 
@@ -102,7 +102,7 @@ A [atualização automática](active-directory-aadconnect-feature-automatic-upgr
 |Tópico |Ligação|  
 | --- | --- |
 |Configurar a filtragem | [Sincronização do Azure AD Connect: configurar a filtragem](active-directory-aadconnectsync-configure-filtering.md)|
-|Sincronização de palavras-passe | [Sincronização do Azure AD Connect: implementar a sincronização de palavras-passe](active-directory-aadconnectsync-implement-password-synchronization.md)|
+|Sincronização de hash de palavra-passe | [Sincronização do Azure AD Connect: implementar a sincronização de hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
 |Repetição de escrita de palavras-passe | [Introdução à gestão de palavras-passe](../active-directory-passwords-getting-started.md)|
 |Repetição de escrita do dispositivo | [Ativar a repetição de escrita do dispositivo no Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |Impedir eliminações acidentais | [Sincronização do Azure AD Connect: impedir eliminações acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
