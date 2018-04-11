@@ -1,9 +1,9 @@
 ---
-title: "Referência das definições de roaming do Windows 10 | Microsoft Docs"
-description: "Uma lista completa de todas as definições que serão movidos ou uma cópia de segurança no Windows 10."
+title: Referência das definições de roaming do Windows 10 | Microsoft Docs
+description: Uma lista completa de todas as definições que serão movidos ou uma cópia de segurança no Windows 10.
 services: active-directory
 keywords: roaming de estado empresarial, na nuvem do windows
-documentationcenter: 
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -49,7 +49,7 @@ Os seguintes grupos de definições estão disponíveis para os utilizadores fin
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
 
-Sincronização de grupo (Favoritos, lista de leitura) do contorno browser definição pode ser ativado ou desativado pelos utilizadores finais através do browser Edge opção do menu de definições.
+Sincronização de grupo (Favoritos, lista de leitura) do contorno browser definição pode ser ativado ou desativado pelos utilizadores finais através do browser Microsoft Edge opção do menu de definições.
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
 
@@ -86,21 +86,21 @@ As definições que não sejam acedidas remotamente ou sincronização não irã
 | **Personalização de ambiente de trabalho**: definições de barra de tarefas (posição, ocultar automática, etc.) |Sincronização |X |Tema |
 | **Personalização de ambiente de trabalho**: iniciar o esquema do ecrã |X |cópia de segurança | |
 | **Dispositivos**: partilhado impressoras se ligar à |X |X |outro |
-| **Edge browser**: lista de leitura |Sincronização |Sincronização |Interno |
-| **Edge browser**: Favoritos |Sincronização |Sincronização |Interno |
-| **Edge browser**: principais sites <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Edge browser**: escreveu URLs <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Edge browser**: definições de barra de Favoritos <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Edge browser**: Mostrar botão home <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Edge browser**: bloquear pop-ups <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Edge browser**: perguntar o que fazer com cada transferência <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Edge browser**: oferecem guardar as palavras-passe <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Edge browser**: enviar not track pedidos <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Edge browser**: guardar entradas do formulário <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: lista de leitura |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: Favoritos |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: principais sites <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: escreveu URLs <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: definições de barra de Favoritos <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: Mostrar botão home <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: bloquear pop-ups <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: perguntar o que fazer com cada transferência <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: oferecem guardar as palavras-passe <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: enviar not track pedidos <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: guardar entradas do formulário <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
 | **Edge browser**: Mostrar sugestões de pesquisa e o site como posso tipo <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Edge browser**: preferência de cookies <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Edge browser**: permitir que os sites guardar licenças de suporte de dados protegidos no meu dispositivo <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
-| **Edge browser**: a definição de leitor de ecrã <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: preferência de cookies <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: permitir que os sites guardar licenças de suporte de dados protegidos no meu dispositivo <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
+| **Browser Microsoft Edge**: a definição de leitor de ecrã <sup> [[1]](#footnote-1)</sup> |Sincronização |Sincronização |Interno |
 | **Alto contraste**: ou desativar |Sincronização |X |Facilidade de acesso |
 | **Alto contraste**: definições de tema |Sincronização |X |Facilidade de acesso |
 | **Internet Explorer**: Abra separadores (URL e título) |Sincronização |Sincronização |Internet Explorer |

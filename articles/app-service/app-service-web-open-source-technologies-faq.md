@@ -240,4 +240,4 @@ Depois de assegurar que MySQL via aplicação está em execução, tente utiliza
 
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>Posso obter um erro de HTTP 403 quando tento importar ou exportar a minha base de dados MySQL na aplicação utilizando PHPMyadmin. Como resolver isto?
 
-Se estiver a utilizar uma versão anterior do Chrome, poderá ocorrer um erro conhecido. Para resolver o problema, atualize para uma versão mais recente do Chrome. Experimente também utilizando um browser diferente, como o Internet Explorer ou Edge, onde o problema não ocorre.
+Se estiver a utilizar uma versão anterior do Chrome, poderá ocorrer um erro conhecido. Para resolver o problema, atualize para uma versão mais recente do Chrome. Experimente também utilizando um browser diferente, como o Internet Explorer ou Microsoft Edge, onde o problema não ocorre.

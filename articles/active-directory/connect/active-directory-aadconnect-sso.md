@@ -58,7 +58,7 @@ SSO totalmente integrada pode ser combinado com uma o [sincronização de Hash d
 - É uma funcionalidade livre e não precisa de quaisquer edições pagas do Azure AD para utilizá-lo.
 - É suportada em clientes de baseada no browser da web e os clientes do Office que suportam [autenticação moderna](https://aka.ms/modernauthga) em plataformas e browsers com capacidade de autenticação Kerberos:
 
-| OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
+| OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Sim|Não|Sim|Sim\*|N/A
 |Windows 8.1|Sim|N/A|Sim|Sim\*|N/A

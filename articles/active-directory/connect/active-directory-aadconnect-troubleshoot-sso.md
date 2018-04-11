@@ -1,9 +1,9 @@
 ---
 title: 'Azure Active Directory Connect: Resolver totalmente integrada Single Sign-On | Microsoft Docs'
-description: "Este tópico descreve como resolver problemas do Azure Active Directory totalmente integrada Single Sign-On"
+description: Este tópico descreve como resolver problemas do Azure Active Directory totalmente integrada Single Sign-On
 services: active-directory
-keywords: "o que é o Azure AD Connect, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único"
-documentationcenter: 
+keywords: o que é o Azure AD Connect, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -28,7 +28,7 @@ Este artigo ajuda-o a encontrar informações sobre problemas comuns sobre Azure
 
 - Em alguns casos, a ativação SSO totalmente integrada pode demorar até 30 minutos.
 - Se desativar e reativar o SSO totalmente integrado no seu inquilino, os utilizadores não receberão a experiência de início de sessão único até as respetivas permissões de Kerberos em cache, normalmente válidos para 10 horas, tem expirado.
-- Suporte de browser Edge não está disponível.
+- Suporte de browser Microsoft Edge não está disponível.
 - Se tiver êxito SSO totalmente integrada, o utilizador não tem a oportunidade de selecionar **manter a minha sessão iniciada**. Devido a este comportamento, cenários de mapeamento do OneDrive e do SharePoint não funcionam.
 - Os clientes do Office abaixo versão 16.0.8730.xxxx não suportam não interativo início de sessão com o SSO totalmente integrada. Esses clientes, os utilizadores tem de introduzir os nomes de utilizador, mas não as palavras-passe, início de sessão.
 - SSO totalmente integrada não funciona no modo privado de navegação no Firefox.

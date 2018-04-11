@@ -1,10 +1,10 @@
 ---
 title: Utilizar o Azure Event Grid para automatizar o redimensionamento de imagens carregadas | Microsoft Docs
-description: "O Azure Event Grid pode acionar carregamentos de blobs no Armazenamento do Azure. Pode utilizá-lo para enviar ficheiros de imagem carregados para o Armazenamento do Azure para outros serviços, como as Funções do Azure, para redimensionar e outras melhorias."
+description: O Azure Event Grid pode acionar carregamentos de blobs no Armazenamento do Azure. Pode utilizá-lo para enviar ficheiros de imagem carregados para o Armazenamento do Azure para outros serviços, como as Funções do Azure, para redimensionar e outras melhorias.
 services: event-grid, functions
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -26,7 +26,7 @@ Este tutorial é a segunda parte de uma série de tutoriais sobre Armazenamento.
 
 Utilize a CLI do Azure e o portal do Azure para adicionar a funcionalidade de redimensionamento a uma aplicação de carregamento de imagens existente.
 
-![Aplicação Web publicada no browser Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Aplicação Web publicada no browser Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 Neste tutorial, ficará a saber como:
 
@@ -157,7 +157,7 @@ Clique na região **Carregar fotografias** para selecionar e carregar um ficheir
 
 Tenha em atenção que, depois de a imagem carregada desaparecer, é apresentada uma cópia da imagem carregada no carrossel **Miniaturas geradas**. Esta imagem foi redimensionada pela função, adicionada ao contentor de *miniaturas* e transferida pelo cliente Web.
 
-![Aplicação Web publicada no browser Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Aplicação Web publicada no browser Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -62,7 +62,7 @@ Sim. Suporta SSO totalmente integrado `Alternate ID` como o nome de utilizador q
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>O que é a diferença entre a experiência de início de sessão único fornecida pelo [associação do Azure AD](../active-directory-azureadjoin-overview.md) e SSO totalmente integrado?
 
-[A associação do Azure AD](../active-directory-azureadjoin-overview.md) fornece SSO para os utilizadores se os seus dispositivos estão registados com o Azure AD. Estes dispositivos não necessariamente tem de estar associado a um domínio. SSO é fornecido com *principal de atualização de tokens* ou *PRTs*e não Kerberos. A experiência de utilizador é ideal em dispositivos Windows 10. SSO ocorre automaticamente no Edge browser. Este exemplo também funciona no Chrome com a utilização de uma extensão de browser.
+[A associação do Azure AD](../active-directory-azureadjoin-overview.md) fornece SSO para os utilizadores se os seus dispositivos estão registados com o Azure AD. Estes dispositivos não necessariamente tem de estar associado a um domínio. SSO é fornecido com *principal de atualização de tokens* ou *PRTs*e não Kerberos. A experiência de utilizador é ideal em dispositivos Windows 10. SSO ocorre automaticamente no Microsoft Edge browser. Este exemplo também funciona no Chrome com a utilização de uma extensão de browser.
 
 Pode utilizar a associação do Azure AD e SSO totalmente integrado no seu inquilino. Estas duas funcionalidades são complementares. Se os dois recursos são ativados, o SSO de associação do Azure AD tem precedência sobre SSO totalmente integrada.
 

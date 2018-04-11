@@ -261,7 +261,7 @@ Se optar por executar manualmente os comandos, siga estes passos:
    > [!IMPORTANT]
    > Tem de utilizar o snap-in MMC do AD FS para configurar as regras de autorização de emissão ao utilizar o Windows Server 2012 ou 2012 R2 AD FS.
 
-4. Quando utilizar o Internet Explorer ou o browser Edge para aceder a pilha do Azure, deve ignorar enlaces de token. Caso contrário, as tentativas de início de sessão falharem. Na sua instância do AD FS ou um membro de farm, execute o seguinte comando:
+4. Quando utilizar o Internet Explorer ou o browser Microsoft Edge para aceder a pilha do Azure, deve ignorar enlaces de token. Caso contrário, as tentativas de início de sessão falharem. Na sua instância do AD FS ou um membro de farm, execute o seguinte comando:
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true
