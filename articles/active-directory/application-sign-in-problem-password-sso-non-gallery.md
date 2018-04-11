@@ -1,11 +1,11 @@
 ---
-title: "Problemas em iniciar sessão a uma aplicação de galeria do Azure AD configurada para a palavra-passe de sessão único-| Microsoft Docs"
-description: "Aborda áreas problemáticas que fornecem orientações para resolver problemas relacionados com o início de sessão aplicações do Azure AD Galeria configuradas para a palavra-passe-início de sessão único"
+title: Problemas em iniciar sessão a uma aplicação de galeria do Azure AD configurada para a palavra-passe de sessão único-| Microsoft Docs
+description: Aborda áreas problemáticas que fornecem orientações para resolver problemas relacionados com o início de sessão aplicações do Azure AD Galeria configuradas para a palavra-passe-início de sessão único
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -38,7 +38,7 @@ Para SSO baseada em palavra-passe, os browsers do utilizador final podem ser:
 -   Firefox 26.0 ou posterior – no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
 >[!NOTE]
->A extensão SSO baseada em palavra-passe fiquem disponíveis para Edge no Windows 10 quando as extensões de browser ficarem suportadas para o limite.
+>A extensão SSO baseada em palavra-passe fiquem disponíveis para Microsoft Edge no Windows 10 quando as extensões de browser ficarem suportadas para o limite.
 >
 >
 

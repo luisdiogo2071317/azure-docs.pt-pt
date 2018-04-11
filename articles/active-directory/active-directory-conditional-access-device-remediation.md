@@ -1,9 +1,9 @@
 ---
-title: "Não pode aceder aí a partir daqui no portal do Azure num dispositivo Windows | Microsoft Docs"
-description: "Saiba de onde vem \"onde não pode aceder aí a partir daqui\" e o que poderia verificar para evitar esta caixa de diálogo."
+title: Não pode aceder aí a partir daqui no portal do Azure num dispositivo Windows | Microsoft Docs
+description: Saiba de onde vem "onde não pode aceder aí a partir daqui" e o que poderia verificar para evitar esta caixa de diálogo.
 services: active-directory
 keywords: acesso condicional baseado no dispositivo, registo de dispositivos, ativar o registo de dispositivos, registo de dispositivos e MDM
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
@@ -40,7 +40,7 @@ Se estiver a utilizar um dispositivo **Windows**, deve verificar o seguinte:
 
 ## <a name="supported-browser"></a>Browser suportado
 
-Se o administrador tiver configurado uma política de acesso condicional, só pode aceder aos recursos da sua organização através de um browser suportado. Nos dispositivos Windows, só são suportados o **Internet Explorer** e o **Edge**.
+Se o administrador tiver configurado uma política de acesso condicional, só pode aceder aos recursos da sua organização através de um browser suportado. Nos dispositivos Windows, só são suportados o **Internet Explorer** e o **Microsoft Edge**.
 
 Pode determinar facilmente se não consegue aceder a um recurso devido a um browser não suportado, ao ler a secção de detalhes da página de erro:
 

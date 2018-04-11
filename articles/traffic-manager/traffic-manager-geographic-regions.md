@@ -1,12 +1,12 @@
 ---
-title: "Hierarquia de país/região utilizada pelo tipo de encaminhamento geográfica de Gestor de tráfego do Azure | Microsoft Docs"
-description: "Este artigo apresenta uma lista de hierarquia de país/região utilizada pelo tipo de encaminhamento geográfica de Gestor de tráfego do Azure"
+title: Hierarquia de país/região utilizada pelo tipo de encaminhamento geográfica de Gestor de tráfego do Azure | Microsoft Docs
+description: Este artigo apresenta uma lista de hierarquia de país/região utilizada pelo tipo de encaminhamento geográfica de Gestor de tráfego do Azure
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -478,7 +478,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - BW(Botswana)
 
-        - CD(Congo (DRC))
+        - CD(Congo (RDC))
 
         - CF (República de African Central)
 
