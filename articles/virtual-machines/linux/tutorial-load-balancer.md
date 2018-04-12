@@ -1,13 +1,13 @@
 ---
-title: "Como fazer o balanceamento de carga das máquinas virtuais do Linux no Azure | Microsoft Docs"
-description: "Saiba como utilizar o balanceador de carga do Azure para criar uma aplicação de elevada disponibilidade e segura entre três VMs do Linux"
+title: Como fazer o balanceamento de carga das máquinas virtuais do Linux no Azure | Microsoft Docs
+description: Saiba como utilizar o balanceador de carga do Azure para criar uma aplicação de elevada disponibilidade e segura entre três VMs do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: feb2c369fc00d37c9a6af0c0be68cbf7d9e59921
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c473a31261337f0b968ca21c85b61dafbf8fa74a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Como fazer o balanceamento de carga das máquinas virtuais do Linux no Azure para criar uma aplicação de elevada disponibilidade
-O balanceamento de carga fornece um nível mais elevado de disponibilidade ao propagar os pedidos recebidos por várias máquinas virtuais. Neste tutorial, vai conhecer os diferentes componentes do balanceador de carga do Azure que distribuem o tráfego e fornecem elevada disponibilidade. Saiba como:
+O balanceamento de carga fornece um nível mais elevado de disponibilidade ao propagar os pedidos recebidos por várias máquinas virtuais. Neste tutorial, vai conhecer os diferentes componentes do balanceador de carga do Azure que distribuem o tráfego e oferecem elevada disponibilidade. Saiba como:
 
 > [!div class="checklist"]
 > * Criar um balanceador de carga do Azure
@@ -59,7 +59,7 @@ az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Crie um endereço IP público
-Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Criar um endereço IP público com [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). O exemplo seguinte cria um endereço IP público com o nome *myPublicIP* no grupo de recursos *myResourceGroupLoadBalancer*:
+Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Criar um endereço IP público com [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). O exemplo seguinte cria um endereço IP público designado *myPublicIP* no grupo de recursos *myResourceGroupLoadBalancer*:
 
 ```azurecli-interactive 
 az network public-ip create \
@@ -96,7 +96,7 @@ az network lb probe create \
 ```
 
 ### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
-Uma regra de balanceador de carga é utilizada para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Para garantir que apenas as VMs em bom estado de funcionamento recebem o tráfego, também pode definir a sonda de estado de funcionamento a utilizar.
+É utilizada uma regra de balanceador de carga para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Para garantir que apenas as VMs em bom estado de funcionamento recebem o tráfego, também pode definir a sonda de estado de funcionamento a utilizar.
 
 Crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRule*, utiliza a sonda de estado de funcionamento *myHealthProbe* e faz o balanceamento de carga do tráfego na porta *80*:
 
@@ -264,7 +264,7 @@ Para ver o balanceador de carga a distribuir tráfego pelas três VMs que estão
 
 
 ## <a name="add-and-remove-vms"></a>Adicionar e remover VMs
-Pode ter de efetuar a manutenção nas VMs que estão a executar a aplicação, como instalar atualizações do SO. Para lidar com maior volume de tráfego para a aplicação, pode ter de adicionar mais VMs. Esta secção mostra como adicionar ou remover uma VM do balanceador de carga.
+Pode ter de realizar a manutenção nas VMs que estão a executar a aplicação, como instalar atualizações do SO. Para lidar com maior volume de tráfego para a aplicação, pode ter de adicionar mais VMs. Esta secção mostra como adicionar ou remover uma VM do balanceador de carga.
 
 ### <a name="remove-a-vm-from-the-load-balancer"></a>Remover uma VM do balanceador de carga
 Pode remover uma VM do conjunto de endereços de back-end com [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_remove). O exemplo seguinte remove a NIC virtual para **myVM2** de *myLoadBalancer*:

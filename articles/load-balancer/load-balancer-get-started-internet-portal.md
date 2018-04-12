@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1b7901542a699e74f65527bf734133f73acb0bea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c646b0b1ab0ec62cffb4f7cf7474b48c68dfabb4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-public-basic-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Criar um Balanceador de Carga Básico público para fazer o balanceamento de carga das VMs com o Portal do Azure
 
@@ -38,8 +38,8 @@ Nesta secção, irá utilizar o portal para criar um Balanceador de Carga Básic
 1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Rede** > **Balanceador de Carga**.
 2. Na página **Criar um balanceador de carga**, introduza estes valores para o balanceador de carga:
     - *myLoadBalancer* - no nome do balanceador de carga.
-    - **Público** - no tipo de front-end do Balanceador de carga 
-     - *myPublicIP* – o IP Público que tem de criar com o SKU como **Básico** e **Atribuição** definido como **Dinâmico**.
+    - **Público** - no tipo de balanceador de carga.
+    - *myPublicIP* – o IP Público que tem de criar com o SKU como **Básico** e **Atribuição** definido como **Dinâmico**.
     - *myResourceGroupLB* - no nome do novo grupo de recursos que criar.
 3. Clique em **Criar** para criar o balanceador de carga.
    
@@ -119,7 +119,7 @@ Nesta secção, vai criar regras de NSG para permitir ligações de entrada atra
     - Na página **Selecionar tipo de instalação**, clique em **Instalação baseada em funções ou baseada em funcionalidades**.
     - Na página **Selecionar servidor de destino**, clique em **myVM1**
     - Na página **Selecionar função de servidor**, clique em **Servidor Web (IIS)**
-    - Siga as instruções para concluir o resto do Assistente 
+    - Siga as instruções para concluir o resto do assistente 
 7. Repita os passos 1 a 6 para a máquina virtual *myVM2*.
 
 ## <a name="create-basic-load-balancer-resources"></a>Criar recursos do Balanceador de Carga Básico
