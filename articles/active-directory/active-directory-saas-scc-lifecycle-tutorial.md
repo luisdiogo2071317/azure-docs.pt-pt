@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o ciclo de vida SCC | Microsoft Docs"
-description: "Saiba como utilizar o ciclo de vida SCC com o Azure Active Directory para ativar o início de sessão único, aprovisionamento automatizado e muito mais!"
+title: 'Tutorial: Integração do Azure Active Directory com o ciclo de vida SCC | Microsoft Docs'
+description: Saiba como utilizar o ciclo de vida SCC com o Azure Active Directory para ativar o início de sessão único, aprovisionamento automatizado e muito mais!
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 943698311d10b479879fd92d2482d827650e2b0c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Tutorial: Integração do Azure Active Directory com SCC ciclo de vida
 O objetivo deste tutorial é mostrar a integração do Azure e SCC ciclo de vida.  
@@ -61,7 +61,7 @@ O objetivo desta secção consiste em descrevem como ativar a integração de ap
     ![Galeria de aplicações](./media/active-directory-saas-scc-lifecycle-tutorial/IC794121.png "Galeria de aplicações")
 7. No painel de resultados, selecione **SCC ciclo de vida**e, em seguida, clique em **concluída** para adicionar a aplicação.
    
-    ![SCC LifeCycle](./media/active-directory-saas-scc-lifecycle-tutorial/IC795082.png "SCC LifeCycle")
+    ![Ciclo de vida SCC](./media/active-directory-saas-scc-lifecycle-tutorial/IC795082.png "SCC ciclo de vida")
    
 ## <a name="configure-single-sign-on"></a>Configurar o início de sessão único
 
@@ -75,7 +75,7 @@ O objetivo desta secção consiste em descrevem como permitir que os utilizadore
 2. No **como gostaria aos utilizadores iniciar sessão ciclo de vida SCC** página, selecione **Microsoft Azure AD Single Sign-On**e, em seguida, clique em **seguinte**.
    
     ![Configurar o início de sessão único](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "configurar o início de sessão único")
-3. No **URL da aplicação configurar** na página de **URL de início de sessão** caixa de texto, escreva o URL utilizado pelos seus utilizadores para iniciar sessão sua aplicação de ciclo de vida SCC através do padrão de seguinte " *https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx* "e, em seguida, clique em **seguinte**.
+3. No **URL da aplicação configurar** na página de **URL de início de sessão** caixa de texto, escreva o URL utilizado pelos seus utilizadores para iniciar sessão sua aplicação de ciclo de vida SCC através do padrão de seguinte "*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*"e, em seguida, clique em **seguinte**.
    
     ![Configurar o URL da aplicação](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "configurar o URL da aplicação")
 4. No **configurar o início de sessão único no ciclo de vida SCC** página, clique em **transferir metadados**e, em seguida, guarde o ficheiro de metadados localmente no seu computador.

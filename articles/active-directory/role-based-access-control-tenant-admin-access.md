@@ -1,8 +1,8 @@
 ---
 title: Administrador de inquilinos elevar o acesso - do Azure AD | Microsoft Docs
-description: "Este tópico descreve a incorporado em funções para o controlo de acesso baseado em funções (RBAC)."
+description: Este tópico descreve a incorporado em funções para o controlo de acesso baseado em funções (RBAC).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: rqureshi
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 10/30/2017
 ms.author: rolyon
 ms.openlocfilehash: dff3a26201507f974d52de3fe6dcb23945cd900f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Elevar o acesso como um administrador inquilino com controlo de acesso baseado em funções
 
@@ -45,7 +45,7 @@ Esta funcionalidade é importante porque permite que o administrador de inquilin
 ![Administrador Global do Azure do Centro de administração do AD - propriedades - pode gerir a subscrição do Azure - captura de ecrã](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
 ## <a name="view-role-assignments-at-the--scope-using-powershell"></a>Ver as atribuições de função no âmbito "/" com o PowerShell
-Para ver o **administrador de acesso de utilizador** atribuição no  **/**  âmbito, utilize o `Get-AzureRmRoleAssignment` cmdlet do PowerShell.
+Para ver o **administrador de acesso de utilizador** atribuição no **/** âmbito, utilize o `Get-AzureRmRoleAssignment` cmdlet do PowerShell.
     
 ```powershell
 Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}

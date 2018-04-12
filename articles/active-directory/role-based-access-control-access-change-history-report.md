@@ -1,8 +1,8 @@
 ---
-title: "Relatórios de acesso - RBAC do Azure | Microsoft Docs"
-description: "Gere um relatório que apresenta uma lista de todas as alterações no acesso às suas subscrições do Azure com controlo de acesso baseado em funções nos últimos 90 dias."
+title: Relatórios de acesso - RBAC do Azure | Microsoft Docs
+description: Gere um relatório que apresenta uma lista de todas as alterações no acesso às suas subscrições do Azure com controlo de acesso baseado em funções nos últimos 90 dias.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 169ed8dd6d14d8d9d0fd49ad7306b1d4fb2c4d90
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Criar um relatório de acesso para controlo de acesso baseado em funções
 Sempre que alguém concede ou revoga acesso na suas subscrições, as alterações são registadas nos eventos do Azure. Pode criar relatórios de histórico de alterações de acesso para ver todas as alterações nos últimos 90 dias.
@@ -32,7 +32,7 @@ Quando chamar este comando, pode especificar que a propriedade das atribuições
 | Propriedade | Descrição |
 | --- | --- |
 | **Ação** |Indica se o acesso foi concedido ou revogado |
-| **Autor da chamada** |O proprietário responsável para que a alteração de acesso |
+| **Caller** |O proprietário responsável para que a alteração de acesso |
 | **PrincipalId** | O identificador exclusivo do utilizador, grupo ou aplicação que foi atribuída a função |
 | **PrincipalName** |O nome do utilizador, grupo ou aplicação |
 | **PrincipalType** |Indica se a atribuição foi de um utilizador, grupo ou aplicação |
@@ -49,7 +49,7 @@ Este comando de exemplo apresenta uma lista de todas as alterações de acesso n
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
 ```
 
-![PowerShell Get-AzureRMAuthorizationChangeLog - screenshot](./media/role-based-access-control-configure/access-change-history.png)
+![Get-AzureRMAuthorizationChangeLog - captura de ecrã do PowerShell](./media/role-based-access-control-configure/access-change-history.png)
 
 ## <a name="create-a-report-with-azure-cli"></a>Criar um relatório com a CLI do Azure
 Para criar um relatório de histórico de alterações de acesso na interface de linha de comandos do Azure (CLI), utilize o `azure role assignment changelog list` comando.
