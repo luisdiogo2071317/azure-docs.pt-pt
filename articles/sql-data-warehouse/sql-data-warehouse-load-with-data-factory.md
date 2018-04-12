@@ -1,11 +1,11 @@
 ---
-title: "Carregar dados para o Azure SQL Data Warehouse – Data Factory | Microsoft Docs"
+title: Carregar dados para o Azure SQL Data Warehouse – Data Factory | Microsoft Docs
 description: Este tutorial carrega dados para o Azure SQL Data Warehouse, utilizando o Azure Data Factory e utiliza uma base de dados do SQL Server como origem de dados.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-sql-data-warehouse;azure-data-factory
 ms.service: sql-data-warehouse
 ms.workload: data-management
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Carregar dados para o SQL Data Warehouse com o Data Factory
 
@@ -97,7 +97,7 @@ Agora, indique ao fábrica de dados sobre a base de dados no local do SQL Server
 
 Agora, indique ao fábrica de dados sobre as informações de destino.
 
-1. As informações de ligação do SQL Data Warehouse é automaticamente preenchidas. Introduza a palavra-passe para o nome de utilizador. e clique em **seguinte**.
+1. As informações de ligação do SQL Data Warehouse é automaticamente preenchidas. Introduza a palavra-passe do nome de utilizador. e clique em **seguinte**.
 
     ![Configurar o destino](media/sql-data-warehouse-load-with-data-factory/configure-destination.png)
 
@@ -146,7 +146,7 @@ Pode ver o progresso da implementação e os resultados no **implementação** p
 
 5. Para iniciar esta vista de monitorização posterior, aceda ao seu armazém de dados do SQL Server, clique em **carga dados > Azure Data Factory**, selecione a fábrica e escolha **monitorizar existente a carregar tarefas**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para migrar a base de dados para o SQL Data Warehouse, consulte [descrição geral da migração](sql-data-warehouse-overview-migrate.md).
 

@@ -2,18 +2,17 @@
 title: Fazer Cópias de Segurança de Ficheiros do Azure para o Azure
 description: Este artigo apresenta detalhes sobre como fazer cópias de segurança e restaurar as partilhas de ficheiros do Azure e explica as tarefas de gestão.
 services: backup
-keywords: Não adicione nem edite as palavras-chave sem consultar o perito em SEO.
 author: markgalioto
 ms.author: markgal
 ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 3eab85aa4f7fde190a93239fc396cb9c04c2396c
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 440cee4309fad0a22d8964982f3aad2178397124
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
 Este artigo explica como utilizar o Portal do Azure para fazer a cópia de segurança e restauro das [partilhas de ficheiros do Azure](../storage/files/storage-files-introduction.md).
@@ -32,7 +31,7 @@ Antes de fazer uma cópia de segurança de uma partilha de ficheiros do Azure, g
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações da cópia de segurança da partilha de ficheiros do Azure durante a Pré-visualização
 A cópia de segurança de partilhas de ficheiros do Azure está em pré-visualização. Esteja ciente das seguintes limitações durante a Pré-visualização:
-- Não pode proteger partilhas de ficheiros do Azure em Contas de armazenamento com a replicação do [armazenamento com redundância de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) ou do [armazenamento georredundante com acesso de leitura](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
+- Não pode proteger partilhas de ficheiros do Azure em Contas de armazenamento com a replicação do [armazenamento com redundância de zona (ZRS)](../storage/common/storage-redundancy-zrs.md) ou do [armazenamento georredundante com acesso de leitura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
 - Não pode proteger partilhas de ficheiros do Azure em Contas de armazenamento que têm Redes Virtuais ativadas.
 - Não existe PowerShell ou CLI disponível para proteger Ficheiros do Azure.
 - O número máximo de cópias de segurança agendadas por dia é de um.

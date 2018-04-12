@@ -1,31 +1,30 @@
 ---
 title: Ver ou analisar dados do Azure Log Analytics recolhidos | Microsoft Docs
-description: "Este artigo inclui um tutorial que descreve como criar pesquisas de registos e analisar os dados armazenados no seu recurso do Log Analytics através do portal da Pesquisa de Registos.  O tutorial inclui a execução de algumas consultas simples para devolver diferentes tipos de dados e analisar os resultados."
+description: Este artigo inclui um tutorial que descreve como criar pesquisas de registos e analisar os dados armazenados no seu recurso do Log Analytics através do portal da Pesquisa de Registos.  O tutorial inclui a execução de algumas consultas simples para devolver diferentes tipos de dados e analisar os resultados.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2017
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6345fe89a3bf25041621213274ea0c3081848d99
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Ver ou analisar dados recolhidos com a pesquisa de registos do Log Analytics
 
 No Log Analytics, pode tirar partido das pesquisas de registos ao criar consultas que analisem os dados recolhidos e utilizar dashboards pré-existentes que podem ser personalizados com vistas gráficas das suas pesquisas mais importantes.  Agora que definiu a recolha de dados de operações das suas VMs do Azure e dos seus Registos de Atividades, vai aprender, neste tutorial, a:
 
 > [!div class="checklist"]
-> * Atualizar o recurso do Azure Log Analytics para a linguagem de consultas nova 
 > * Fazer uma pesquisa simples de dados de eventos e utilizar funcionalidades para modificar e filtrar os resultados 
 > * Aprender a trabalhar com dados de desempenho
 
@@ -42,15 +41,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 Comece por abrir o portal do Registo de Pesquisas.   
 
 1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
-2. No painel de subscrições do Log Analytics, selecione uma área de trabalho e, em seguida, selecione o mosaico **Log Search** (Pesquisa de Registos).<br> ![Botão Pesquisa de Registos](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
-
-Poderá ter reparado na faixa na parte superior da página de recursos do Log Analytics no portal a convidá-lo a atualizar.<br> ![Aviso de atualização do Log Analytics no portal do Azure](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
-
-O Log Analytics introduziu, recentemente, uma linguagem de consultas nova que facilita a criação de consultas, a correlação de dados de várias origens e a análise para identificar, depressa, tendências ou problemas.
-
-A atualização é simples.  Comece o processo ao clicar na faixa que diz **Learn more and upgrade** (Saber mais e atualizar).  Leia as informações adicionais relativas à atualização na página de informações da mesma e clique em **Upgrade Now** (Atualizar agora).
-
-A conclusão do processo demora alguns minutos e pode acompanhar o progresso em **Notifications** (Notificações) no menu. Pode saber mais em [Benefits of the new query language](log-analytics-log-search-upgrade.md#why-the-new-language) (Benefícios da nova linguagem de consultas).
+2. No painel de subscrições do Log Analytics, selecione uma área de trabalho e, em seguida, selecione o mosaico **Log Search** (Pesquisa de Registos).<br><br> ![Botão Pesquisa de Registos](media/log-analytics-tutorial-viewdata/azure-portal-02.png)
 
 ## <a name="create-a-simple-search"></a>Criar uma pesquisa simples
 A forma mais rápida de obter alguns dados com os quais trabalhar é utilizar uma pesquisa simples que devolve todos os registos numa tabela.  Se tiver clientes Windows ou Linux ligados à sua área de trabalho, terá dados na tabela Event (Windows) ou Syslog (Linux).

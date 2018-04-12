@@ -2,24 +2,24 @@
 title: Tutorial do Azure Container Service - monitorizar o Kubernetes
 description: Tutorial do Azure Container Service - Monitorizar o Kubernetes com o Log Analytics
 services: container-service
-author: dlepow
+author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/26/2018
-ms.author: danlep
+ms.date: 04/05/2018
+ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e7d55f1579ce45a39f9b07225bc88c8ef8ff6b66
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5b11c3cdf3eb457ade111d0908a2dac867ac1278
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Monitorizar um cluster do Kubernetes com o Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-É fundamental monitorizar o cluster e os contentores do Kubernetes, especialmente ao gerir um cluster de produção em escala, com várias aplicações. 
+É fundamental monitorizar o cluster e os contentores do Kubernetes, especialmente ao gerir um cluster de produção em escala, com várias aplicações.
 
 Pode tirar partido das várias soluções de monitorização do Kubernetes, da Microsoft ou de outros fornecedores. Neste tutorial, vai monitorizar o seu cluster do Kubernetes com a solução Contentores do [Log Analytics](../../operations-management-suite/operations-management-suite-overview.md), a solução da Microsoft para gestão de TI com base na cloud. (A solução Contentores está em pré-visualização.)
 
@@ -32,9 +32,9 @@ Este tutorial, a parte sete de sete, abrange as seguintes tarefas:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nos tutoriais anteriores, foi compactada uma aplicação em imagens de contentores, carregadas estas imagens para o Azure Container Registry e criado um cluster de Kubernetes. 
+Nos tutoriais anteriores, foi compactada uma aplicação em imagens de contentores, carregadas estas imagens para o Azure Container Registry e criado um cluster de Kubernetes.
 
-Se ainda não concluiu estes passos e pretende acompanhar, regresse ao [Tutorial 1 – Criar imagens de contentor](./container-service-tutorial-kubernetes-prepare-app.md). 
+Se ainda não concluiu estes passos e pretende acompanhar, regresse ao [Tutorial 1 – Criar imagens de contentor](./container-service-tutorial-kubernetes-prepare-app.md).
 
 ## <a name="get-workspace-settings"></a>Obter definições da Área de Trabalho
 
@@ -50,9 +50,9 @@ kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID -
 
 ## <a name="set-up-oms-agents"></a>Configurar os agentes OMS
 
-Segue-se um ficheiro YAML para configurar os agentes OMS em nós de cluster do Linux. Cria um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) do Kubernetes, que executa um único pod idêntico em cada nó de cluster. O recurso DaemonSet é ideal para implementar um agente de monitorização. 
+O ficheiro de manifesto do Kubernetes seguinte pode ser utilizado para configurar agentes de monitorização do contentor num cluster de Kubernetes. Cria um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) do Kubernetes, que executa um único pod idêntico em cada nó de cluster.
 
-Guarde o seguinte texto num ficheiro denominado `oms-daemonset.yaml` e substitua os valores de marcador de posição de *myWorkspaceID* e *myWorkspaceKey* pelos seus ID da Área de Trabalho e Chave do Log Analytics. (Na produção, pode codificar estes valores como segredos.)
+Guarde o seguinte texto num ficheiro denominado `oms-daemonset.yaml`.
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -68,26 +68,26 @@ spec:
     dockerProviderVersion: 1.0.0-30
   spec:
    containers:
-     - name: omsagent 
+     - name: omsagent
        image: "microsoft/oms"
        imagePullPolicy: Always
        securityContext:
          privileged: true
        ports:
        - containerPort: 25225
-         protocol: TCP 
+         protocol: TCP
        - containerPort: 25224
          protocol: UDP
        volumeMounts:
         - mountPath: /var/run/docker.sock
           name: docker-sock
-        - mountPath: /var/log 
+        - mountPath: /var/log
           name: host-log
         - mountPath: /etc/omsagent-secret
           name: omsagent-secret
           readOnly: true
-        - mountPath: /var/lib/docker/containers 
-          name: containerlog-path  
+        - mountPath: /var/lib/docker/containers
+          name: containerlog-path
        livenessProbe:
         exec:
          command:
@@ -97,26 +97,26 @@ spec:
         initialDelaySeconds: 60
         periodSeconds: 60
    nodeSelector:
-    beta.kubernetes.io/os: linux    
+    beta.kubernetes.io/os: linux
    # Tolerate a NoSchedule taint on master that ACS Engine sets.
    tolerations:
     - key: "node-role.kubernetes.io/master"
       operator: "Equal"
       value: "true"
-      effect: "NoSchedule"     
+      effect: "NoSchedule"
    volumes:
-    - name: docker-sock 
+    - name: docker-sock
       hostPath:
        path: /var/run/docker.sock
     - name: host-log
       hostPath:
-       path: /var/log 
+       path: /var/log
     - name: omsagent-secret
       secret:
        secretName: omsagent-secret
     - name: containerlog-path
       hostPath:
-       path: /var/lib/docker/containers 
+       path: /var/lib/docker/containers
 ```
 
 Crie o DaemonSet com o seguinte comando:
@@ -142,7 +142,7 @@ Após os agentes estarem em execução, demora alguns minutos para o Log Analyti
 
 ## <a name="access-monitoring-data"></a>Aceder aos dados de monitorização
 
-Veja e analise o dados de monitorização do contentor com a [solução Contentor](../../log-analytics/log-analytics-containers.md) no portal do OMS ou no portal do Azure. 
+Veja e analise o dados de monitorização do contentor com a [solução Contentor](../../log-analytics/log-analytics-containers.md) no portal do OMS ou no portal do Azure.
 
 Para instalar a solução Contentor através do [portal do OMS](https://mms.microsoft.com), aceda à **Galeria de Soluções**. Em seguida, adicione **Solução Contentor**. Em alternativa, adicione a solução Contentores do [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 

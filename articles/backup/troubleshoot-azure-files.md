@@ -3,25 +3,24 @@ title: Resolução de Problemas da Cópia de Segurança de Ficheiros do Azure
 description: Este artigo apresenta informações sobre a resolução de problemas que ocorrem ao proteger as suas partilhas de ficheiros do Azure.
 services: backup
 ms.service: backup
-keywords: Não adicione nem edite as palavras-chave sem consultar o perito em SEO.
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Resolução de problemas da cópia de segurança de Ficheiros do Azure
 Pode resolver problemas e erros encontrados ao utilizar a cópia de segurança de Ficheiros do Azure com as informações listadas nas tabelas seguintes.
 
 ## <a name="preview-boundaries"></a>Limites de pré-visualização
 A cópia de segurança de Ficheiros do Azure está em Pré-visualização. Os seguintes cenários de cópia de segurança não são suportados nas partilhas de ficheiros do Azure:
-- Proteger partilhas de ficheiros do Azure em Contas de Armazenamento com a replicação do [armazenamento com redundância de zona](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) ou do [armazenamento georredundante com acesso de leitura](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
+- Proteger partilhas de ficheiros do Azure em Contas de Armazenamento com a replicação do [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) ou do [armazenamento georredundante com acesso de leitura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
 - Proteger partilhas de ficheiros do Azure em Contas de Armazenamento que têm Redes Virtuais ativadas.
 - Fazer Cópias de segurança de partilhas de ficheiros do Azure através do PowerShell ou da CLI.
 
