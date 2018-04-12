@@ -1,8 +1,8 @@
 ---
-title: "Criar funções personalizadas para RBAC do Azure | Microsoft Docs"
-description: "Saiba como definir funções personalizadas com controlo de acesso em funções do Azure mais precisa para gestão de identidades na sua subscrição do Azure."
+title: Criar funções personalizadas para RBAC do Azure | Microsoft Docs
+description: Saiba como definir funções personalizadas com controlo de acesso em funções do Azure mais precisa para gestão de identidades na sua subscrição do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2871ff5eea8fb99040dfab2593d1640d79f51092
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Criar funções personalizadas para controlo de acesso em funções do Azure
 Crie uma função personalizada no controlo de acesso em funções do Azure (RBAC), se nenhuma das funções incorporadas satisfazer as suas necessidades de acesso específicas. Funções personalizadas podem ser criadas utilizando [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Interface de linha de comandos do Azure](role-based-access-control-manage-access-azure-cli.md) (CLI) e o [REST API](role-based-access-control-manage-access-rest.md). Tal como funções incorporadas, pode atribuir funções personalizadas para os utilizadores, grupos e aplicações na subscrição, o grupo de recursos e âmbitos de recursos. Funções personalizadas são armazenadas num inquilino do Azure AD e podem ser partilhadas entre subscrições.
@@ -59,11 +59,11 @@ O exemplo seguinte mostra uma função personalizada de monitorização e reinic
 ## <a name="actions"></a>Ações
 O **ações** propriedade de uma função personalizada especifica as operações do Azure para os quais a função concede acesso. É uma coleção de cadeias de operação que identificam as operações com capacidade de segurança de fornecedores de recursos do Azure. Cadeias de operação seguem o formato do `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Cadeias de operação que contêm carateres universais (\*) conceder acesso a todas as operações que corresponde à cadeia de operação. Por exemplo:
 
-* `*/read`concede acesso de leitura de operações para todos os tipos de recursos de todos os fornecedores de recursos do Azure.
-* `Microsoft.Compute/*`concede acesso a todas as operações para todos os tipos de recurso no fornecedor de recursos Microsoft. Compute.
-* `Microsoft.Network/*/read`concede acesso de leitura de operações para todos os tipos de recurso no fornecedor de recursos de Network do Azure.
-* `Microsoft.Compute/virtualMachines/*`concede acesso a todas as operações de máquinas virtuais e respetivos subordinados tipos de recursos.
-* `Microsoft.Web/sites/restart/Action`concede acesso ao reiniciar os Web sites.
+* `*/read` concede acesso de leitura de operações para todos os tipos de recursos de todos os fornecedores de recursos do Azure.
+* `Microsoft.Compute/*` concede acesso a todas as operações para todos os tipos de recurso no fornecedor de recursos Microsoft. Compute.
+* `Microsoft.Network/*/read` concede acesso de leitura de operações para todos os tipos de recurso no fornecedor de recursos de Network do Azure.
+* `Microsoft.Compute/virtualMachines/*` concede acesso a todas as operações de máquinas virtuais e respetivos subordinados tipos de recursos.
+* `Microsoft.Web/sites/restart/Action` concede acesso ao reiniciar os Web sites.
 
 Utilize `Get-AzureRmProviderOperation` (no PowerShell) ou `azure provider operations show` (na CLI do Azure) para operações de lista de fornecedores de recursos do Azure. Também pode utilizar estes comandos para verificar se uma cadeia de operação é válida e, para expandir as cadeias de operação de caráter universal.
 

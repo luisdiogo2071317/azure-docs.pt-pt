@@ -1,8 +1,8 @@
 ---
-title: "Gerir o acesso à gestão do Azure com o acesso condicional no Azure Active Directory"
-description: "Saiba como utilizar o acesso condicional no Azure AD para gerir o acesso à gestão do Azure."
+title: Gerir o acesso à gestão do Azure com o acesso condicional no Azure Active Directory
+description: Saiba como utilizar o acesso condicional no Azure AD para gerir o acesso à gestão do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 09/22/2017
 ms.author: skwan
 ms.openlocfilehash: 22d0e53c201853e2c316089479ffbd4d9e5d92be
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Gerir o acesso à gestão do Azure com o acesso condicional
 

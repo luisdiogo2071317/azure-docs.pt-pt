@@ -1,8 +1,8 @@
 ---
 title: Compreender o acesso a recursos no Azure | Microsoft Docs
-description: "Este tópico explica os conceitos sobre como utilizar os administradores da subscrição para controlar o acesso a recursos no portal do Azure completo"
+description: Este tópico explica os conceitos sobre como utilizar os administradores da subscrição para controlar o acesso a recursos no portal do Azure completo
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
@@ -15,10 +15,10 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.custom: it-pro;
 ms.openlocfilehash: 621ebec898e5b345556832097b12ca9b54506e7c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="understanding-resource-access-in-azure"></a>Compreender o acesso a recursos no Azure
 

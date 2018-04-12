@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: rolyon
 ms.openlocfilehash: 0b8c8823c6d21df96dcfd926db1855169f1570e4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Gestor de recursos do Azure
 
@@ -78,7 +78,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/recommendations/suppressions/delete|Elimina a supressão|
 |/recommendations/suppressions/read|Obtém suppressions|
 |/recommendations/suppressions/write|Cria/atualizações suppressions|
-|registar/ação|Regista a subscrição para a Microsoft Advisor|
+|/register/action|Regista a subscrição para a Microsoft Advisor|
 |/suppressions/delete|Elimina a supressão|
 |/suppressions/read|Obtém suppressions|
 |/suppressions/write|Cria/atualizações suppressions|
@@ -101,7 +101,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/locations/operationresults/read|Obtém as informações do resultado da operação especificada.|
 |/locations/operationstatuses/read|Obtém as informações do Estado da operação especificada.|
 |/operations/read|Obtém as informações de operações|
-|registar/ação|Regista o fornecedor de recursos do Analysis Services.|
+|/register/action|Regista o fornecedor de recursos do Analysis Services.|
 |/servers/delete|Elimina o servidor de Analysis Services.|
 |/servers/listGatewayStatus/action|Lista o estado do gateway associado ao servidor.|
 |/servers/providers/Microsoft.Insights/diagnosticSettings/read|Obtém a definição de diagnóstico para o servidor de Analysis Services|
@@ -111,7 +111,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/servers/read|Obtém as informações do servidor de Analysis Services especificada.|
 |/servers/resume/action|Retoma o Analysis Server.|
 |/servers/skus/read|Obter informações de SKU disponíveis para o servidor|
-|/Servers/suspend/Action|Suspende o Analysis Server.|
+|/servers/suspend/action|Suspende o Analysis Server.|
 |/servers/write|Cria ou atualiza o servidor de Analysis Services especificada.|
 |/skus/read|Obtém as informações de Skus|
 
@@ -121,7 +121,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |---|---|
 |/checkNameAvailability/read|Verifica se o nome de serviço está disponível|
 |/operations/read|Ler todas as operações API disponíveis para o recurso de Microsoft.ApiManagement|
-|registar/ação|Registar a subscrição para o fornecedor de recursos de Microsoft.ApiManagement|
+|/register/action|Registar a subscrição para o fornecedor de recursos de Microsoft.ApiManagement|
 |/reports/read|Obter relatórios agregados pelo períodos de tempo, região geográfica, os programadores, produtos, APIs, operações, subscrição e byRequest.|
 |/service/apis/delete|Remover API existente|
 |/service/apis/diagnostics/delete|Remova o diagnóstico existente|
@@ -181,7 +181,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/service/backends/read|Obter a lista de back-ends ou obter os detalhes de back-end|
 |/service/backends/reconnect/action|Criar um pedido de restabelecimento de ligação|
 |/service/backends/write|Adicionar um novo back-end ou atualizar detalhes do back-end existente|
-|/service/backup/action|Serviço de gestão de API a cópia de segurança para o contentor especificado um utilizador forneceu a conta de armazenamento|
+|/Service/backup/Action|Serviço de gestão de API a cópia de segurança para o contentor especificado um utilizador forneceu a conta de armazenamento|
 |/service/certificates/delete|Remover o certificado existente|
 |/service/certificates/read|Obter a lista de certificados ou obter os detalhes do certificado|
 |/service/certificates/write|Adicionar novo certificado|
@@ -278,7 +278,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/service/tenant/read|Obter a configuração de política para o inquilino ou Get inquilino detalhes de informações de acesso|
 |/service/tenant/regeneratePrimaryKey/action|Regenerar a chave de acesso primária|
 |/service/tenant/regenerateSecondaryKey/action|Regenerar a chave de acesso secundária|
-|/Service/tenant/Save/Action|Cria a consolidação com instantâneos de configuração para o ramo especificado no repositório|
+|/service/tenant/save/action|Cria a consolidação com instantâneos de configuração para o ramo especificado no repositório|
 |/service/tenant/syncState/read|Obter o estado da última sincronização do git|
 |/service/tenant/validate/action|Valida as alterações do ramo do git especificado|
 |/service/tenant/write|Definir a configuração de política para o inquilino ou para detalhes de informação de acesso de inquilino de atualização|
@@ -297,9 +297,9 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/service/users/keys/read|Obter a lista de chaves de utilizador|
 |/service/users/read|Obter uma lista de utilizadores registados ou obter os detalhes da conta de utilizador|
 |/service/users/subscriptions/read|Obter a lista de subscrições do utilizador|
-|/Service/Users/token/Action|Obter o token acesso token para um utilizador|
+|/service/users/token/action|Obter o token acesso token para um utilizador|
 |/service/users/write|Registar um novo utilizador ou detalhes da conta de atualização de um utilizador existente|
-|/ service/escrita|Criar uma nova instância do serviço de gestão de API|
+|/service/write|Criar uma nova instância do serviço de gestão de API|
 |/unregister/action|Subscrição de anular o registo do fornecedor de recursos de Microsoft.ApiManagement|
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
@@ -435,14 +435,14 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/b2cDirectories/read|Visualizar o recurso do Diretório B2C|
 |/b2cDirectories/write|Criar ou atualizar o recursos do Diretório B2C|
 |/operations/read|Ler todas as operações de API disponíveis para o fornecedor de recursos de Microsoft.AzureActiveDirectory|
-|registar/ação|Registar subscrição para o fornecedor de recursos de Microsoft.AzureActiveDirectory|
+|/register/action|Registar subscrição para o fornecedor de recursos de Microsoft.AzureActiveDirectory|
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 | Operação | Descrição |
 |---|---|
 |/Operations/read|Obtém as propriedades de uma operação do fornecedor de recursos|
-|registar/ação|Regista a subscrição no fornecedor de recursos de Microsoft.AzureStack|
+|/register/action|Regista a subscrição no fornecedor de recursos de Microsoft.AzureStack|
 |/registrations/customerSubscriptions/delete|Elimina uma subscrição do cliente de pilha do Azure|
 |/registrations/customerSubscriptions/read|Obtém as propriedades de uma subscrição de cliente de pilha do Azure|
 |/registrations/customerSubscriptions/write|Cria ou atualiza uma subscrição de cliente de pilha do Azure|
@@ -489,7 +489,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/batchAccounts/write|Cria uma nova conta do Batch ou atualiza uma conta de Batch existente|
 |/locations/checkNameAvailability/action|Verifica se o nome da conta é válido e não em utilização.|
 |/locations/quotas/read|Obtém as quotas de lote da subscrição especificada na região do Azure especificada|
-|registar/ação|Regista a subscrição para o fornecedor de recursos do Batch e permite a criação de contas do Batch|
+|/register/action|Regista a subscrição para o fornecedor de recursos do Batch e permite a criação de contas do Batch|
 |/unregister/action|Anula o registo da subscrição para o fornecedor de recursos do Batch que impede a criação de contas do Batch|
 
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
@@ -503,14 +503,14 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/fileservers/delete|Elimina um servidor de ficheiros Batch AI|
 |/fileservers/read|Apresenta uma lista de AI do Batch fileservers ou obtém as propriedades de um servidor de ficheiros Batch AI|
 |/fileservers/resume/action|Retoma um servidor de ficheiros Batch AI|
-|/fileservers/suspend/Action|Suspende a um servidor de ficheiros Batch AI|
+|/fileservers/suspend/action|Suspende a um servidor de ficheiros Batch AI|
 |/fileservers/write|Cria um novo servidor de ficheiros de AI do Batch ou atualiza um servidor de ficheiros existente do Batch AI|
 |/jobs/delete|Elimina uma tarefa de lote AI|
 |/jobs/read|Lista as tarefas de lote AI ou obtém as propriedades de uma tarefa de lote AI|
 |/jobs/remoteLoginInformation/action|Lista as informações de início de sessão remoto para uma tarefa de lote AI|
 |/jobs/terminate/action|Termina uma tarefa de lote AI|
 |/jobs/write|Cria uma nova tarefa de lote AI ou atualiza uma tarefa de lote AI existente|
-|registar/ação|Regista a subscrição para o fornecedor de recursos do Batch AI e permite a criação dos recursos do Batch AI|
+|/register/action|Regista a subscrição para o fornecedor de recursos do Batch AI e permite a criação dos recursos do Batch AI|
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -528,7 +528,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/mapApis/listSingleSignOnToken/action|Ler Token de Autorização de Início de Sessão Único para o Recurso|
 |/mapApis/Read|Operação de Leitura|
 |/mapApis/regenerateKey/action|Regenera a Chave|
-|mapApis/escrita|Operação de Escrita|
+|/mapApis/Write|Operação de Escrita|
 |/Operations/read|Descrição da operação.|
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
@@ -559,14 +559,14 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/redis/start/action|Iniciar uma instância de cache.|
 |/redis/stop/action|Parar uma instância de cache.|
 |/redis/write|Modificar as definições e a configuração da Cache de Redis no portal de gestão|
-|registar/ação|Regista o fornecedor de recursos "Microsoft.Cache" com uma subscrição|
+|/register/action|Regista o fornecedor de recursos "Microsoft.Cache" com uma subscrição|
 |/unregister/action|Anula o registo do fornecedor de recursos "Microsoft.Cache" com uma subscrição|
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 | Operação | Descrição |
 |---|---|
-|registar/ação|Regista o fornecedor de recursos de capacidade e permite a criação dos recursos de capacidade.|
+|/register/action|Regista o fornecedor de recursos de capacidade e permite a criação dos recursos de capacidade.|
 |/reservationorders/action|Atualizar qualquer reserva|
 |/reservationorders/delete|Eliminar reserva de qualquer|
 |/reservationorders/read|Ler todas as reservas|
@@ -631,15 +631,15 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/profiles/endpoints/providers/Microsoft.Insights/logDefinitions/read|Obtém os registos disponíveis para Microsoft.Cdn|
 |/profiles/endpoints/Purge/action||
 |/profiles/endpoints/read||
-|/profiles/endpoints/Start/action||
+|/Profiles/Endpoints/Start/Action||
 |/profiles/endpoints/Stop/action||
 |/profiles/endpoints/ValidateCustomDomain/action||
 |/profiles/endpoints/write||
 |/profiles/GenerateSsoUri/action||
 |/profiles/GetSupportedOptimizationTypes/action||
 |/profiles/read||
-|/ perfis/escrita||
-|registar/ação|Regista a subscrição para o fornecedor de recursos CDN e ativa a criação de perfis CDN.|
+|/profiles/write||
+|/register/action|Regista a subscrição para o fornecedor de recursos CDN e ativa a criação de perfis CDN.|
 |/ValidateProbe/action||
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
@@ -662,7 +662,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/certificateOrders/verifyDomainOwnership/Action|Verificar a propriedade do domínio|
 |/certificateOrders/Write|Adicionar um novo certificateOrder ou atualizar um já existente|
 |/provisionGlobalAppServicePrincipalInUserTenant/Action|Principal de serviço de aprovisionamento para o principal da aplicação de serviço|
-|registar/ação|Registar o fornecedor de recursos Microsoft Certificates para a subscrição|
+|/register/action|Registar o fornecedor de recursos Microsoft Certificates para a subscrição|
 |/validateCertificateRegistrationInformation/Action|Validar o objeto de compra do certificado sem submetê-la|
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
@@ -718,7 +718,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/operatingSystemFamilies/read|Lista as famílias de sistemas operativos convidadas disponíveis no Microsoft Azure, e lista as versões de sistema operativo disponíveis para cada família.|
 |/operatingSystems/read|Lista as versões dos sistemas operativos convidados que estão, de momento, disponíveis no Microsoft Azure.|
 |/quotas/read|Obtém a quota da subscrição.|
-|registar/ação|Registar na Computação Clássica|
+|/register/action|Registar na Computação Clássica|
 |/resourceTypes/skus/read|Obtém a lista de SKUs para tipos de recurso suportados.|
 |/validateSubscriptionMoveAvailability/action|Valide a disponibilidade da subscrição para operação de movimentação clássica.|
 |/virtualMachines/associatedNetworkSecurityGroups/delete|Elimina o grupo de segurança de rede associado à máquina virtual.|
@@ -766,7 +766,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/networkSecurityGroups/securityRules/write|Adiciona ou atualiza uma regra de segurança.|
 |/networkSecurityGroups/write|Adiciona um novo grupo de segurança de rede.|
 |/quotas/read|Obtém a quota da subscrição.|
-|registar/ação|Registar na Rede Clássica|
+|/register/action|Registar na Rede Clássica|
 |/reservedIps/delete|Elimina um IP reservado.|
 |/reservedIps/join/action|Associar um IP reservado|
 |/reservedIps/link/action|Ligar um IP reservado|
@@ -820,7 +820,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/osImages/read|Devolve a imagem de sistema operativo.|
 |/publicImages/read|Obtém a imagem pública da máquina virtual.|
 |/quotas/read|Obtém a quota da subscrição.|
-|registar/ação|Registar para Armazenamento Clássico|
+|/register/action|Registar para Armazenamento Clássico|
 |/storageAccounts/delete|Elimina a conta de armazenamento.|
 |/storageAccounts/disks/delete|Elimina um determinado disco de conta de armazenamento.|
 |/storageAccounts/disks/operationStatuses/read|Lê o estado da operação do recurso.|
@@ -857,7 +857,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/accounts/write|Escreve Contas da API.|
 |/locations/checkSkuAvailability/action|Lê SKUs disponíveis para uma subscrição.|
 |/Operations/read|Lista todas as operações disponíveis|
-|registar/ação|Regista a subscrição para serviços cognitivos|
+|/register/action|Regista a subscrição para serviços cognitivos|
 |/skus/read|Lê SKUs disponíveis para os serviços cognitivos.|
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
@@ -896,7 +896,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/locations/usages/read|Obtém os limites de serviço e as quantidades de utilização atuais dos recursos de computação da subscrição numa localização|
 |/locations/vmSizes/read|Lista os tamanhos de máquina virtual disponíveis numa localização|
 |/operations/read|Lista as operações disponíveis no fornecedor de recursos Microsoft.Compute|
-|registar/ação|Regista a Subscrição no fornecedor de recursos Microsoft.Compute|
+|/register/action|Regista a Subscrição no fornecedor de recursos Microsoft.Compute|
 |/restorePointCollections/delete|Elimina a coleção de ponto de restauro e pontos de restauro contidos|
 |/restorePointCollections/read|Obter as propriedades de uma coleção de ponto de restauro|
 |/restorePointCollections/restorePoints/delete|Elimina o ponto de restauro|
@@ -1013,7 +1013,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/checkNameAvailability/read|Verifica se o nome de registo do contentor está disponível para utilização.|
 |/locations/operationResults/read|Obtém um resultado de operação assíncrona|
 |/operations/read|Apresenta uma lista de todas as operações de API de REST de registo de contentor do Azure disponíveis|
-|registar/ação|Regista a subscrição para o fornecedor de recursos de registo do contentor e permite a criação de registos do contentor.|
+|/register/action|Regista a subscrição para o fornecedor de recursos de registo do contentor e permite a criação de registos do contentor.|
 |/registries/delete|Elimina um registo de contentor.|
 |/registries/eventGridFilters/delete|Elimina um filtro de grelha de eventos de um registo de contentor.|
 |/registries/eventGridFilters/read|Obtém as propriedades do filtro de grelha de evento especificado ou apresenta uma lista de todos os filtros de grelha de eventos para o registo de contentor especificado.|
@@ -1159,7 +1159,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/hubs/widgettypes/read|Ler todos os tipos de cliente do Azure Insights Widget de aplicação|
 |/hubs/write|Criar ou atualizar qualquer Hub de informações de cliente do Azure|
 |/operations/read|Ler Metadatas de Api de informações de cliente do Azure|
-|registar/ação|Regista a subscrição para o fornecedor de recursos de informações de cliente e permite a criação dos recursos de informações de cliente|
+|/register/action|Regista a subscrição para o fornecedor de recursos de informações de cliente e permite a criação dos recursos de informações de cliente|
 |/unregister/action|Anula o registo da subscrição para o fornecedor de recursos de informações de cliente|
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -1171,7 +1171,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/catalogs/write|Cria o catálogo ou as etiquetas e propriedades para o catálogo de atualizações.|
 |/checkNameAvailability/action|Verifica a disponibilidade do nome de catálogo para o inquilino.|
 |/operations/read|Lista as operações disponíveis no fornecedor de recursos de Microsoft.DataCatalog.|
-|registar/ação|Regista a subscrição no fornecedor de recursos de Microsoft.DataCatalog.|
+|/register/action|Regista a subscrição no fornecedor de recursos de Microsoft.DataCatalog.|
 |/unregister/action|Anula o registo da subscrição do fornecedor de recursos de Microsoft.DataCatalog.|
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
@@ -1217,7 +1217,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/locations/checkNameAvailability/action|Verifique a disponibilidade de um nome de conta DataLakeAnalytics.|
 |/locations/operationResults/read|Obter o resultado de uma operação de conta DataLakeAnalytics.|
 |/operations/read|Obter operações disponíveis de DataLakeAnalytics.|
-|registar/ação|Registe a subscrição para DataLakeAnalytics.|
+|/register/action|Registe a subscrição para DataLakeAnalytics.|
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
@@ -1243,7 +1243,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/locations/checkNameAvailability/action|Verifique a disponibilidade de um nome de conta DataLakeStore.|
 |/locations/operationResults/read|Obter o resultado de uma operação de conta DataLakeStore.|
 |/operations/read|Obter operações disponíveis de DataLakeStore.|
-|registar/ação|Registe a subscrição para DataLakeStore.|
+|/register/action|Registe a subscrição para DataLakeStore.|
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
@@ -1354,8 +1354,8 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/provisioningServices/Read|Obter o recurso de IotDps|
 |/provisioningServices/skus/Read|Obter IotDps Skus válidos|
 |/provisioningServices/Write|Criar recurso IotDps|
-|registar/ação|Registar a subscrição para o fornecedor de recursos do IotHub e permite a criação dos recursos de IotHub|
-|registar/ação|Registar a subscrição para o fornecedor de recursos do IotHub e permite a criação dos recursos de IotHub|
+|/register/action|Registar a subscrição para o fornecedor de recursos do IotHub e permite a criação dos recursos de IotHub|
+|/register/action|Registar a subscrição para o fornecedor de recursos do IotHub e permite a criação dos recursos de IotHub|
 |/usages/Read|Obter detalhes de utilização de subscrição para este fornecedor.|
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
@@ -1450,9 +1450,9 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/labs/virtualNetworks/write|Adiciona ou modifica as redes virtuais.|
 |/labs/write|Adiciona ou modifica laboratórios.|
 |/locations/operations/read|Operações de leitura.|
-|registar/ação|Regista a subscrição do|
+|/register/action|Regista a subscrição do|
 |/schedules/delete|Elimine agendas.|
-|/schedules/Execute/action|Execute uma agenda.|
+|/Schedules/execute/Action|Execute uma agenda.|
 |/schedules/read|As agendas de leitura.|
 |/schedules/Retarget/action|ID de recurso de destino de uma agenda de atualizações|
 |/schedules/write|Adiciona ou modifica as agendas.|
@@ -1500,7 +1500,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/locations/deleteVirtualNetworkOrSubnets/action|Notifica Microsoft.DocumentDB que está a ser eliminado VirtualNetwork ou sub-rede|
 |/operationResults/read|Ler o estado da operação assíncrona|
 |/operations/read|Operações de leitura disponíveis para a Microsoft DocumentDB |
-|registar/ação| Registar o fornecedor de recursos do Microsoft DocumentDB para a subscrição|
+|/register/action| Registar o fornecedor de recursos do Microsoft DocumentDB para a subscrição|
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
@@ -1511,7 +1511,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/domains/domainownershipidentifiers/Delete|Eliminar o identificador de propriedade|
 |/domains/domainownershipidentifiers/Read|Identificadores de propriedade de lista|
 |/domains/domainownershipidentifiers/Read|Obter o identificador de propriedade|
-|/Domains/domainownershipidentifiers/Write|Criar ou atualizar o identificador|
+|/domains/domainownershipidentifiers/Write|Criar ou atualizar o identificador|
 |/domains/operationresults/Read|Obter uma operação de domínio|
 |/domains/operations/Read|Lista todas as operações de registo de domínios do serviço de aplicações|
 |/domains/Read|Obter a lista de domínios|
@@ -1520,7 +1520,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/domains/Write|Adicionar um novo domínio ou atualizar um já existente|
 |/generateSsoRequest/Action|Gere um pedido de assinatura no Centro de controlo de domínio.|
 |/listDomainRecommendations/Action|Obter as recomendações de domínio de lista com base em palavras-chave|
-|registar/ação|Registar o fornecedor de recursos Microsoft Domains para a subscrição|
+|/register/action|Registar o fornecedor de recursos Microsoft Domains para a subscrição|
 |/topLevelDomains/listAgreements/Action|Ação de contrato de lista|
 |/topLevelDomains/Read|Obter toplevel domínios|
 |/topLevelDomains/Read|Obter toplevel domínio|
@@ -1552,7 +1552,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read|Obtém a definição de diagnóstico para tópicos|
 |/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write|Cria ou atualiza a definição de diagnóstico para tópicos|
 |/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read|Obtem as métricas disponíveis para tópicos|
-|registar/ação|Regista o eventSubscription para o fornecedor de recursos EventGrid e permite a criação de subscrições de grelha de eventos.|
+|/register/action|Regista o eventSubscription para o fornecedor de recursos EventGrid e permite a criação de subscrições de grelha de eventos.|
 |/topics/delete|Eliminar um tópico|
 |/topics/listKeys/action|Lista de chaves para o tópico|
 |/topics/providers/Microsoft.Insights/diagnosticSettings/read|Obtém a definição de diagnóstico para tópicos|
@@ -1560,7 +1560,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/topics/providers/Microsoft.Insights/metricDefinitions/read|Obtem as métricas disponíveis para tópicos|
 |/topics/read|Ler um tópico|
 |/topics/regenerateKey/action|Voltar a gerar chave para o tópico|
-|tópicos/escrita|Criar ou atualizar um tópico|
+|/topics/write|Criar ou atualizar um tópico|
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
@@ -1605,7 +1605,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/namespaces/read|Obter a lista de Descrição de Recursos de Espaço de nomes|
 |/namespaces/write|Crie um recurso de espaço de nomes e Atualize as respetivas propriedades. As etiquetas e a capacidade do espaço de nomes são as propriedades que podem ser atualizadas.|
 |/operations/read|Obter operações|
-|registar/ação|Regista a subscrição do fornecedor de recursos do EventHub e ativa a criação de recursos do EventHub|
+|/register/action|Regista a subscrição do fornecedor de recursos do EventHub e ativa a criação de recursos do EventHub|
 |/sku/read|Obter a lista de descrições de recursos de Sku|
 |/sku/regions/read|Obter a lista de descrições de recurso SkuRegions|
 |/unregister/action|Regista o Fornecedor de Recursos do EventHub|
@@ -1645,7 +1645,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/jobs/read|Obtém as propriedades para a tarefa especificada ou devolve a lista de tarefas.|
 |/jobs/write|Cria uma tarefa com os parâmetros especificados ou atualiza as propriedades ou etiquetas para a tarefa especificada.|
 |/locations/read|Obtém as propriedades para a localização especificada ou devolve a lista de localizações.|
-|registar/ação|Regista a subscrição para o fornecedor de recursos de importação/exportação e permite a criação de tarefas de importação/exportação.|
+|/register/action|Regista a subscrição para o fornecedor de recursos de importação/exportação e permite a criação de tarefas de importação/exportação.|
 
 ## <a name="microsoftinsights"></a>Microsoft.Insights
 
@@ -1663,7 +1663,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/AlertRules/Incidents/Read|Ler uma configuração de incidente da regra de alerta|
 |/AlertRules/Read|Ler uma configuração de regra de alerta|
 |/AlertRules/Resolved/Action|Regra de Alerta resolvida|
-|/AlertRules/Throttled/Action|A regra de alerta está otimizada|
+|/ AlertRules/limitadas/ação|A regra de alerta está otimizada|
 |/AlertRules/Write|Escrever numa configuração de regra de alerta|
 |/AutoscaleSettings/Delete|Eliminar a configuração de uma definição de dimensionamento automático|
 |/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read|Ler definições de métricas|
@@ -1680,8 +1680,8 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/Components/AnalyticsTables/Write|Escrever um Application Insights analytics tabela esquema|
 |/Components/Annotations/Delete|A eliminação de uma anotação do Application Insights|
 |/Components/Annotations/Read|Ler uma anotação do Application Insights|
-|/Components/Annotations/Write|Escrever uma anotação do Application Insights|
-|/Components/Api/Read|Leitura de dados de componentes do Application Insights API|
+|/ Componentes/anotações/escrita|Escrever uma anotação do Application Insights|
+|/ Componentes/Api/leitura|Leitura de dados de componentes do Application Insights API|
 |/Components/ApiKeys/Action|Gerar uma chave de API do Application Insights|
 |/Components/ApiKeys/Delete|Eliminar uma chave de API do Application Insights|
 |/Components/ApiKeys/Read|Ler uma chave de API do Application Insights|
@@ -1696,7 +1696,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/Components/ExportConfiguration/Write|Escrita Application Insights exportar definições|
 |/Components/ExtendQueries/Read|Componente de leitura Application Insights expandido os resultados da consulta|
 |/Components/Favorites/Delete|A eliminar o favorito do Application Insights|
-|/Components/Favorites/Read|Ler um favorito do Application Insights|
+|/ Componentes/Favoritos/leitura|Ler um favorito do Application Insights|
 |/ Componentes/Favoritos/escrita|Escrever um favorito do Application Insights|
 |/Components/FeatureCapabilities/Read|Capacidades de funcionalidade do componente de leitura Application Insights|
 |/Components/GetAvailableBillingFeatures/Read|Funcionalidades de faturação leitura Application Insights componente disponíveis|
@@ -1704,9 +1704,9 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/Components/ListMigrationDate/Action|Data de migração de subscrição back Get|
 |/Components/ListMigrationDate/Read|Data de migração de subscrição de back-Get|
 |/Components/MetricDefinitions/Read|Ler as definições de métrica de componentes do Application Insights|
-|/Components/Metrics/Read|Métricas de componente de leitura Application Insights|
+|/ Componentes/métricas/leitura|Métricas de componente de leitura Application Insights|
 |/Components/MigrateToNewpricingModel/Action|Migrar a subscrição para o novo modelo de preços|
-|/Components/Move/Action|Mover um componente do Application Insights para outro grupo de recursos ou subscrição|
+|/ Componentes / / ação mover|Mover um componente do Application Insights para outro grupo de recursos ou subscrição|
 |/Components/MyAnalyticsItems/Delete|Eliminar um item de pessoal de análise do Application Insights|
 |/Components/MyAnalyticsItems/Read|Ler um item de pessoal de análise do Application Insights|
 |/Components/MyAnalyticsItems/Write|Escrever um item de pessoal de análise do Application Insights|
@@ -1717,7 +1717,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/Components/ProactiveDetectionConfigs/Write|Escrita de configuração de deteção proativa do Application Insights|
 |/Components/providers/Microsoft.Insights/MetricDefinitions/Read|Ler definições de métricas|
 |/Components/QuotaStatus/Read|Ao ler o estado de quota de componentes do Application Insights|
-|/Components/Read|A ler uma configuração de componentes de informações da aplicação|
+|/ Componentes/leitura|A ler uma configuração de componentes de informações da aplicação|
 |/Components/RollbackToLegacyPricingModel/Action|Subscrição de reversão para legado do modelo de preços|
 |/Components/SyntheticMonitorLocations/Read|Localizações de teste Web leitura Application Insights|
 |/Components/WorkItemConfigs/Delete|Eliminar uma configuração de integração do Application Insights ALM|
@@ -1736,7 +1736,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/LogDefinitions/Read|Ler definições de registo|
 |/LogProfiles/Delete|Eliminar configuração dos perfis de registo|
 |/LogProfiles/Read|Ler perfis de registo|
-|/ LogProfiles/escrita|A escrever para uma configuração de perfil de registo|
+|/LogProfiles/Write|A escrever para uma configuração de perfil de registo|
 |/MetricAlerts/Delete|A eliminar um alerta de métrica|
 |/MetricAlerts/Read|A ler um alerta de métrica|
 |/MetricAlerts/Write|A escrever um alerta de métrica|
@@ -1772,7 +1772,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/locations/deleteVirtualNetworkOrSubnets/action|Notifica o Microsoft.KeyVault de que uma rede virtual ou sub-rede está a ser eliminada|
 |/locations/operationResults/read|Verificar o resultado de uma operação de execução longa|
 |/operations/read|Lista as operações disponíveis no fornecedor de recursos Microsoft.KeyVault|
-|registar/ação|Regista uma subscrição|
+|/register/action|Regista uma subscrição|
 |/unregister/action|Cancela o registo de uma subscrição|
 |/vaults/accessPolicies/write|Atualize uma política de acesso existente através da intercalação ou substituição, ou adicione uma nova política de acesso ao cofre.|
 |/vaults/delete|Eliminar um cofre de chaves|
@@ -1808,7 +1808,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/labAccounts/read|Ler as contas de laboratório.|
 |/labAccounts/write|Adiciona ou modifica contas de laboratório.|
 |/locations/operations/read|Operações de leitura.|
-|registar/ação|Regista a subscrição do|
+|/register/action|Regista a subscrição do|
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
@@ -1822,7 +1822,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/accounts/read|Obter uma localização com base dos serviços de conta.|
 |/accounts/regenerateKey/action|Gerar a nova localização com base em serviços primário ou secundário chave da conta|
 |/accounts/write|Criar ou atualizar uma conta de serviços com base da localização.|
-|registar/ação|Registar o fornecedor|
+|/register/action|Registar o fornecedor|
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -1867,7 +1867,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/integrationAccounts/write|Cria ou atualiza a conta de integração.|
 |/locations/workflows/validate/action|Valida o fluxo de trabalho.|
 |/operations/read|Obtém a operação.|
-|registar/ação|Regista o fornecedor de recursos de Microsoft.Logic para uma determinada subscrição.|
+|/register/action|Regista o fornecedor de recursos de Microsoft.Logic para uma determinada subscrição.|
 |/workflows/accessKeys/delete|Elimina a chave de acesso.|
 |/workflows/accessKeys/list/action|Lista os segredos da chave de acesso.|
 |/workflows/accessKeys/read|Lê a chave de acesso.|
@@ -1920,7 +1920,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/locations/operationresults/read|Obter Resultado de uma operação do Machine Learning|
 |/locations/operationsstatus/read|Obter o estado de uma operação de aprendizagem máquina em curso|
 |/operations/read|Obter operações de aprendizagem|
-|registar/ação|Regista a subscrição para a fornecedor de recursos do serviço web de aprendizagem e permite a criação de serviços web.|
+|/register/action|Regista a subscrição para a fornecedor de recursos do serviço web de aprendizagem e permite a criação de serviços web.|
 |/skus/read|Obter do Machine Learning SKUs do plano de compromisso|
 |/webServices/action|Criar as propriedades do serviço Web regional para as regiões suportadas|
 |/webServices/delete|Eliminar qualquer serviço Web do Machine Learning|
@@ -1942,7 +1942,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/operationalizationClusters/read|Qualquer conta de alojamento de leitura|
 |/operationalizationClusters/updateSystem/action|Atualizar os serviços do sistema de um cluster de operationalization|
 |/operationalizationClusters/write|Criar ou atualizar qualquer conta de alojamento|
-|registar/ação|Regista o ID de subscrição para o fornecedor de recursos e permite a criação de um de machine learning recursos de computação|
+|/register/action|Regista o ID de subscrição para o fornecedor de recursos e permite a criação de um de machine learning recursos de computação|
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 
@@ -1951,7 +1951,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/accounts/delete|Eliminar qualquer conta de alojamento|
 |/accounts/read|Qualquer conta de alojamento de leitura|
 |/accounts/write|Criar ou atualizar qualquer conta de alojamento|
-|registar/ação|Regista o ID de subscrição para o fornecedor de recursos e permite a criação de uma conta de alojamento|
+|/register/action|Regista o ID de subscrição para o fornecedor de recursos e permite a criação de uma conta de alojamento|
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
@@ -1983,7 +1983,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/labAccounts/read|Ler as contas de laboratório.|
 |/labAccounts/write|Adiciona ou modifica contas de laboratório.|
 |/locations/operations/read|Operações de leitura.|
-|registar/ação|Regista a subscrição do|
+|/register/action|Regista a subscrição do|
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
@@ -2029,9 +2029,9 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/mediaservices/read|Ler a qualquer conta de Media Services|
 |/mediaservices/regenerateKey/action|Voltar a gerar uma chave de serviços de suporte de dados ACS|
 |/mediaservices/syncStorageKeys/action|Sincronizar as chaves de armazenamento para uma conta de armazenamento do Azure anexada|
-|/ mediaservices/escrita|Criar ou atualizar qualquer conta de Media Services|
+|/mediaservices/write|Criar ou atualizar qualquer conta de Media Services|
 |/operations/read|Ler a qualquer conta de Media Services|
-|registar/ação|Regista a subscrição para o fornecedor de recursos de Media Services e permite a criação de contas dos Media Services|
+|/register/action|Regista a subscrição para o fornecedor de recursos de Media Services e permite a criação de contas dos Media Services|
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
@@ -2173,8 +2173,8 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/loadBalancers/read|Obtém uma definição de Balanceador de carga|
 |/loadBalancers/virtualMachines/read|Obtém as referências a todas as máquinas virtuais num Balanceador de carga|
 |/loadBalancers/write|Cria um balanceador de carga ou atualiza um balanceador de carga existente|
-|/localnetworkgateways/delete|Deletes LocalNetworkGateway|
-|/localnetworkgateways/read|Gets LocalNetworkGateway|
+|/localnetworkgateways/delete|Elimina LocalNetworkGateway|
+|/localnetworkgateways/read|Obtém LocalNetworkGateway|
 |/localnetworkgateways/write|Cria ou atualiza um LocalNetworkGateway existente|
 |/locations/checkDnsNameAvailability/read|Verifica se a etiqueta de dns está disponível na localização especificada|
 |/locations/operationResults/read|Obtém o resultado de um async POST ou operação de eliminação|
@@ -2206,8 +2206,8 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/networkWatchers/azureReachabilityReport/action|Devolve a classificação de latência relativo para a internet fornecedores de serviços de uma localização especificada para regiões do Azure.|
 |/networkWatchers/configureFlowLog/action|Configura o registo de fluxo para um recurso de destino.|
 |/networkWatchers/connectionMonitors/delete|Elimina um Monitor de ligação|
-|/networkWatchers/connectionMonitors/Providers/Microsoft.Insights/ diagnosticSettings/leitura|Obter as definições de diagnóstico do Monitor de ligação|
-|/networkWatchers/connectionMonitors/Providers/Microsoft.Insights/ diagnosticSettings/escrita|Cria ou atualiza as definições de diagnóstico de Monitor de ligação|
+|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ diagnosticSettings/read|Obter as definições de diagnóstico do Monitor de ligação|
+|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ diagnosticSettings/write|Cria ou atualiza as definições de diagnóstico de Monitor de ligação|
 |/networkWatchers/connectionMonitors/Providers/Microsoft.Insights/ metricDefinitions/leitura|Obtem as métricas disponíveis para o Monitor de ligação|
 |/networkWatchers/connectionMonitors/query/action|Consulta monitorização conectividade entre pontos finais especificados|
 |/networkWatchers/connectionMonitors/read|Obter os detalhes de Monitor de ligação|
@@ -2245,7 +2245,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read|Obter as definições de métrica de endereço IP público|
 |/publicIPAddresses/read|Obtém uma definição de endereço ip público.|
 |/publicIPAddresses/write|Cria um endereço Ip público ou atualiza um endereço Ip público existente. |
-|registar/ação|Regista a subscrição do|
+|/register/action|Regista a subscrição do|
 |/routeFilters/delete|Elimina uma definição de filtro de rota|
 |/routeFilters/join/action|Associa um filtro de rota|
 |/routeFilters/read|Obtém uma definição de filtro de rota|
@@ -2406,14 +2406,14 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/Namespaces/NotificationHubs/write|Criar um Hub de notificação e atualizar as respetivas propriedades. As respetivas propriedades incluem principalmente PNS credenciais. Regras de autorização e TTL|
 |/Namespaces/read|Obter a lista de Descrição de Recursos de Espaço de nomes|
 |/Namespaces/write|Crie um recurso de espaço de nomes e Atualize as respetivas propriedades. As etiquetas e a capacidade do espaço de nomes são as propriedades que podem ser atualizadas.|
-|registar/ação|Regista a subscrição do fornecedor de recursos de NotificationHubs e ativa a criação de Espaços de nomes e NotificationHubs|
+|/register/action|Regista a subscrição do fornecedor de recursos de NotificationHubs e ativa a criação de Espaços de nomes e NotificationHubs|
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 | Operação | Descrição |
 |---|---|
 |/linkTargets/read|Apresenta uma lista de contas existentes que não estão associadas uma subscrição do Azure. Para ligar esta subscrição do Azure a uma área de trabalho, utilize um id de cliente devolvido por esta operação na propriedade de id de cliente da operação de área de trabalho de criar.|
-|registar/ação|Registe uma subscrição para um fornecedor de recursos.|
+|/register/action|Registe uma subscrição para um fornecedor de recursos.|
 |/workspaces/analytics/query/action|A procura utilizando o motor de novo.|
 |/workspaces/analytics/query/schema/read|Obter o esquema de pesquisa V2.|
 |/workspaces/api/query/action|A procura utilizando o motor de novo.|
@@ -2464,7 +2464,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/managementConfigurations/delete|Eliminar Configuratin de gestão existente|
 |/managementConfigurations/read|Obter a configuração de gestão existente|
 |/managementConfigurations/write|Criar uma nova configuração de gestão|
-|registar/ação|Registe uma subscrição para um fornecedor de recursos.|
+|/register/action|Registe uma subscrição para um fornecedor de recursos.|
 |/solutions/delete|Eliminar a solução existente do OMS|
 |/solutions/read|Obter a sair com a solução do OMS|
 |/solutions/write|Criar nova solução do OMS|
@@ -2485,7 +2485,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/capacities/delete|Elimina o Power BI dedicado capacidade.|
 |/capacities/providers/Microsoft.Insights/metricDefinitions/read|Obtem as métricas disponíveis para a capacidade de dedicado do Power BI.|
 |/capacities/read|Obtém as informações de que o Power BI dedicado capacidade especificada.|
-|as capacidades/escrita|Cria ou atualiza o Power BI dedicado capacidade especificada.|
+|/capacities/write|Cria ou atualiza o Power BI dedicado capacidade especificada.|
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
@@ -2497,7 +2497,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/locations/backupStatus/action|Verificar o estado de cópia de segurança para os cofres dos serviços de recuperação|
 |/locations/backupValidateFeatures/action|Validar funcionalidades|
 |/operations/read|Operação devolve a lista de operações para um fornecedor de recursos|
-|registar/ação|Regista a subscrição de dado o fornecedor de recursos|
+|/register/action|Regista a subscrição de dado o fornecedor de recursos|
 |/Vaults/backupconfig/read|Cofre dos serviços de configuração de devolve para recuperação.|
 |/Vaults/backupconfig/write|Cofre dos serviços de configuração de atualizações para a recuperação.|
 |/Vaults/backupEngines/read|Devolve todos os servidores de gestão de cópia de segurança registados no cofre.|
@@ -2582,29 +2582,29 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/plannedFailover/action|Ativação pós-falha planeada|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/read|Ler os itens protegidos|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/recoveryPoints/read|Pontos de recuperação de replicação de leitura|
-|/ cofres replicationFabrics/replicationProtectionContainers/remover/replicationProtectedItems/ação|Remover o Item protegido|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/remove/action|Remover o Item protegido|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/repairReplication/action|Reparar a replicação|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/reProtect/action|Proteja o Item protegido|
-|/ cofres replicationFabrics/replicationProtectionContainers/testFailover/replicationProtectedItems/ação|Ativação pós-falha de teste|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/testFailover/action|Ativação pós-falha de teste|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/testFailoverCleanup/action|Limpeza da ativação pós-falha de teste|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/unplannedFailover/action|Ativação pós-falha|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/updateMobilityService/action|Serviço de mobilidade de atualização|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/write|Criar ou atualizar quaisquer itens protegidos|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/delete|Eliminar quaisquer mapeamentos de contentor de proteção|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/read|Ler quaisquer mapeamentos de contentor de proteção|
-|/ cofres replicationFabrics/replicationProtectionContainers/remover/replicationProtectionContainerMappings/ação|Remova o mapeamento de contentor de proteção|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/remove/action|Remova o mapeamento de contentor de proteção|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/write|Criar ou atualizar quaisquer mapeamentos de contentor de proteção|
 |/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action|Contentor de proteção do comutador|
 |/vaults/replicationFabrics/replicationProtectionContainers/write|Criar ou atualizar quaisquer contentores de proteção|
 |/vaults/replicationFabrics/replicationRecoveryServicesProviders/delete|Eliminar quaisquer fornecedores de serviços de recuperação|
 |/vaults/replicationFabrics/replicationRecoveryServicesProviders/read|Ler quaisquer fornecedores de serviços de recuperação|
-|cofres/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/ação|Atualize o fornecedor|
+|/vaults/replicationFabrics/replicationRecoveryServicesProviders/ refreshProvider/action|Atualize o fornecedor|
 |/vaults/replicationFabrics/replicationRecoveryServicesProviders/remove/action|Remover o fornecedor de serviços de recuperação|
 |/vaults/replicationFabrics/replicationRecoveryServicesProviders/write|Criar ou atualizar quaisquer fornecedores de serviços de recuperação|
 |/vaults/replicationFabrics/replicationStorageClassifications/read|Ler as classificações de armazenamento|
 |/vaults/replicationFabrics/replicationStorageClassifications/ replicationStorageClassificationMappings/delete|Eliminar quaisquer mapeamentos de classificação de armazenamento|
 |/vaults/replicationFabrics/replicationStorageClassifications/ replicationStorageClassificationMappings/read|Ler quaisquer mapeamentos de classificação de armazenamento|
-|/ cofres/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/escrita|Criar ou atualizar quaisquer mapeamentos de classificação de armazenamento|
+|/vaults/replicationFabrics/replicationStorageClassifications/ replicationStorageClassificationMappings/write|Criar ou atualizar quaisquer mapeamentos de classificação de armazenamento|
 |/vaults/replicationFabrics/replicationvCenters/delete|Eliminar todas as tarefas|
 |/vaults/replicationFabrics/replicationvCenters/read|Ler todas as tarefas|
 |/vaults/replicationFabrics/replicationvCenters/write|Criar ou atualizar todas as tarefas|
@@ -2677,7 +2677,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/namespaces/WcfRelays/write|Criar ou atualizar WcfRelay propriedades.|
 |/namespaces/write|Crie um recurso de espaço de nomes e Atualize as respetivas propriedades. As etiquetas e a capacidade do espaço de nomes são as propriedades que podem ser atualizadas.|
 |/operations/read|Obter operações|
-|registar/ação|Regista a subscrição do fornecedor de recursos de Reencaminhamento e ativa a criação de recursos de Reencaminhamento|
+|/register/action|Regista a subscrição do fornecedor de recursos de Reencaminhamento e ativa a criação de recursos de Reencaminhamento|
 |/unregister/action|Regista a subscrição do fornecedor de recursos de Reencaminhamento e ativa a criação de recursos de Reencaminhamento|
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
@@ -2686,13 +2686,13 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |---|---|
 |/AvailabilityStatuses/current/read|Obtém o estado de disponibilidade para o recurso especificado.|
 |/AvailabilityStatuses/read|Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado|
-|healthevent/ação|Indica a alteração no estado de funcionamento para o recurso especificado|
-|/healthevent/activated/Action|Indica a alteração no estado de funcionamento para o recurso especificado|
-|/healthevent/InProgress/Action|Indica a alteração no estado de funcionamento para o recurso especificado|
+|/healthevent/action|Indica a alteração no estado de funcionamento para o recurso especificado|
+|/healthevent/Activated/action|Indica a alteração no estado de funcionamento para o recurso especificado|
+|/healthevent/InProgress/action|Indica a alteração no estado de funcionamento para o recurso especificado|
 |/healthevent/Pending/Action|Indica a alteração no estado de funcionamento para o recurso especificado|
 |/healthevent/resolved/Action|Indica a alteração no estado de funcionamento para o recurso especificado|
-|/healthevent/updated/Action|Indica a alteração no estado de funcionamento para o recurso especificado|
-|registar/ação|Regista a subscrição para o Microsoft ResourceHealth|
+|/healthevent/Updated/action|Indica a alteração no estado de funcionamento para o recurso especificado|
+|/register/action|Regista a subscrição para o Microsoft ResourceHealth|
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
@@ -2755,7 +2755,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 | Operação | Descrição |
 |---|---|
 |/checkNameAvailability/action|Verifica a disponibilidade do nome do serviço.|
-|registar/ação|Regista a subscrição para o fornecedor de recursos de pesquisa e permite a criação de serviços de pesquisa.|
+|/register/action|Regista a subscrição para o fornecedor de recursos de pesquisa e permite a criação de serviços de pesquisa.|
 |/searchServices/createQueryKey/action|Cria a chave de consulta.|
 |/searchServices/delete|Elimina o serviço de pesquisa.|
 |/searchServices/diagnosticSettings/read|Obtém o diganostic definição de leitura para o recurso|
@@ -2796,7 +2796,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/pricings/delete|Elimina as definições de preços para o âmbito|
 |/pricings/read|Obtém as definições de preços para o âmbito|
 |/pricings/write|Atualiza as definições de preços para o âmbito|
-|registar/ação|Regista a subscrição para o Centro de segurança do Azure|
+|/register/action|Regista a subscrição para o Centro de segurança do Azure|
 |/securityContacts/delete|Elimina o contacto de segurança|
 |/securityContacts/read|Obtém o contacto de segurança|
 |/securityContacts/write|O contacto de segurança de atualizações|
@@ -2875,7 +2875,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/namespaces/topics/write|Criar ou propriedades de tópico de atualização.|
 |/namespaces/write|Crie um recurso de espaço de nomes e Atualize as respetivas propriedades. As etiquetas e a capacidade do espaço de nomes são as propriedades que podem ser atualizadas.|
 |/operations/read|Obter operações|
-|registar/ação|Regista a subscrição do fornecedor de recursos do ServiceBus e ativa a criação de recursos do ServiceBus|
+|/register/action|Regista a subscrição do fornecedor de recursos do ServiceBus e ativa a criação de recursos do ServiceBus|
 |/sku/read|Obter a lista de descrições de recursos de Sku|
 |/sku/regions/read|Obter a lista de descrições de recurso SkuRegions|
 |/unregister/action|Regista a subscrição do fornecedor de recursos do ServiceBus e ativa a criação de recursos do ServiceBus|
@@ -2909,7 +2909,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/locations/operationresults/read|Ler quaisquer Resultados da Operação|
 |/locations/operations/read|Ler quaisquer Operações por localização|
 |/operations/read|Ler quaisquer Operações Disponíveis|
-|registar/ação|Registar qualquer Ação|
+|/register/action|Registar qualquer Ação|
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
@@ -2922,7 +2922,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/applications/read|Obtém uma lista de aplicações.|
 |/applications/write|Cria uma aplicação.|
 |/locations/operationStatuses/read|Lê o estado da operação do recurso.|
-|registar/ação|Registe-se nas Soluções.|
+|/register/action|Registe-se nas Soluções.|
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
@@ -2973,7 +2973,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/managedInstances/securityAlertPolicies/write|Alterar a política de deteção de ameaças de servidor gerido para um determinado servidor gerido|
 |/managedInstances/write|Cria uma instância gerida com os parâmetros especificados ou atualizar as propriedades ou etiquetas para a instância de gerido especificada.|
 |/operations/read|Obtém as operações REST disponíveis|
-|registar/ação|Regista a subscrição para o fornecedor de recursos de base de dados do Microsoft SQL Server e permite a criação de bases de dados do Microsoft SQL Server.|
+|/register/action|Regista a subscrição para o fornecedor de recursos de base de dados do Microsoft SQL Server e permite a criação de bases de dados do Microsoft SQL Server.|
 |/servers/administratorOperationResults/read|Operações em curso obtém os administradores de servidores|
 |/servers/administrators/delete|Eliminar o administrador do servidor|
 |/servers/administrators/read|Obter os detalhes de administrador do servidor|
@@ -3179,7 +3179,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/checknameavailability/read|Verifica se o nome da conta é válido e se não está já a ser utilizado.|
 |/locations/deleteVirtualNetworkOrSubnets/action|Notifica o Microsoft.Storage que a rede ou sub-rede virtual está a ser eliminada|
 |/operations/read|Consulta o estado de uma operação assíncrona.|
-|registar/ação|Regista a subscrição do fornecedor de recursos de armazenamento e ativa a criação de contas de armazenamento.|
+|/register/action|Regista a subscrição do fornecedor de recursos de armazenamento e ativa a criação de contas de armazenamento.|
 |/skus/read|Lista os Skus suportados pelo Microsoft.Storage.|
 |/storageAccounts/blobServices/containers/clearLegalHold/action|Limpar o arquivo legal do contentor de blobs|
 |/storageAccounts/blobServices/containers/delete|Devolve o resultado da eliminação de um contentor|
@@ -3390,7 +3390,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/locations/quotas/Read|Quota de subscrição de análise de fluxo de leitura|
 |/operations/Read|Operações de leitura Stream Analytics|
 |/ Register/ação|Registar a subscrição com o fornecedor de recursos do Stream Analytics|
-|/streamingjobs/Delete|Delete Stream Analytics Job|
+|/streamingjobs/Delete|Eliminar a tarefa do Stream Analytics|
 |/streamingjobs/functions/Delete|Eliminar a função de tarefa do Stream Analytics|
 |/streamingjobs/functions/operationresults/Read|Resultados da operação de leitura para a função de tarefa do Stream Analytics|
 |/streamingjobs/functions/Read|Função de tarefa de análise de fluxo de leitura|
@@ -3416,11 +3416,11 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/streamingjobs/providers/Microsoft.Insights/metricDefinitions/read|Obtem as métricas disponíveis para streamingjobs|
 |/streamingjobs/Read|Leitura tarefa do Stream Analytics|
 |/streamingjobs/Start/action|Iniciar a tarefa do Stream Analytics|
-|/streamingjobs/Stop/action|Stop Stream Analytics Job|
+|/streamingjobs/Stop/action|Parar a tarefa do Stream Analytics|
 |/streamingjobs/transformations/Delete|Eliminar a transformação de tarefa do Stream Analytics|
 |/streamingjobs/transformations/Read|Transformação de tarefa de análise de fluxo de leitura|
 |/streamingjobs/transformations/Write|Escrever transformação de tarefa do Stream Analytics|
-|/streamingjobs/Write|Write Stream Analytics Job|
+|/streamingjobs/Write|Escrever a tarefa do Stream Analytics|
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
@@ -3433,7 +3433,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 
 | Operação | Descrição |
 |---|---|
-|registar/ação|Regista para o Fornecedor de Recursos de Suporte|
+|/register/action|Regista para o Fornecedor de Recursos de Suporte|
 |/supportTickets/read|Obtém os detalhes do Pedido de Suporte (incluindo o estado, gravidade, detalhes de contacto e comunicações) ou obtém a lista dos Pedidos de Suporte nas subscrições.|
 |/supportTickets/write|Cria ou atualiza um pedido de suporte. Pode criar um pedido de suporte para técnica, Quotas ou gestão de subscrição de faturação problemas relacionados com. Pode atualizar a gravidade, detalhes de contacto e comunicações para pedidos de suporte existentes.|
 
@@ -3460,7 +3460,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/environments/referencedatasets/write|Cria um novo conjunto de dados de referência para um ambiente ou atualiza um conjunto de dados de referência existente.|
 |/environments/status/read|Obter o estado do ambiente, estado do respetivos operações associados como entrada.|
 |/environments/write|Cria um novo ambiente ou atualiza um ambiente existente.|
-|registar/ação|Regista a subscrição para o fornecedor de recursos de informações de séries de tempo e permite a criação dos ambientes das informações de séries de tempo.|
+|/register/action|Regista a subscrição para o fornecedor de recursos de informações de séries de tempo e permite a criação dos ambientes das informações de séries de tempo.|
 
 ## <a name="microsoftweb"></a>microsoft.web
 
@@ -3492,7 +3492,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/billingmeters/read|Obter a lista de faturação medidores.|
 |/certificates/Delete|Elimine um certificado existente.|
 |/certificates/Read|Obter a lista de certificados.|
-|certificados/escrita|Adicionar um certificado novo ou atualizar um já existente.|
+|/certificates/Write|Adicionar um certificado novo ou atualizar um já existente.|
 |/checknameavailability/read|Verifique se o nome do recurso está disponível.|
 |/classicmobileservices/read|Obter clássicos Mobile Services.|
 |/connectionGateways/Delete|Elimina um Gateway de ligação.|
@@ -3504,11 +3504,11 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/connectionGateways/Write|Cria ou atualiza um Gateway de ligação.|
 |/connections/confirmconsentcode/action|Confirme o código de autorização de ligações.|
 |/connections/Delete|Elimina uma ligação.|
-|/Connections/JOIN/Action|Associa uma ligação.|
+|/connections/Join/Action|Associa uma ligação.|
 |/connections/listconsentlinks/action|Ligações de consentimento de lista de ligações.|
 |/connections/Move/Action|Move uma ligação.|
 |/connections/Read|Obter a lista de ligações.|
-|/connections/Write|Cria ou atualiza uma ligação.|
+|ligações/escrita|Cria ou atualiza uma ligação.|
 |/customApis/Delete|Elimina uma API personalizada.|
 |/customApis/extractApiDefinitionFromWsdl/Action|Extrai a definição da API de um WSDL.|
 |/customApis/Join/Action|Associa uma API personalizada.|
@@ -3564,8 +3564,8 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/publishingusers/read|Obter a publicação os utilizadores.|
 |/publishingusers/write|Atualize a publicação de utilizadores.|
 |/recommendations/Read|Obter a lista de recomendações para subscrições.|
-|registar/ação|Registe o fornecedor de recursos Microsoft. Web para a subscrição.|
-|/resourcehealthmetadata/read|Obter os metadados do Estado de funcionamento de recursos.|
+|/register/action|Registe o fornecedor de recursos Microsoft. Web para a subscrição.|
+|/resourcehealthmetadata/Read|Obter os metadados do Estado de funcionamento de recursos.|
 |/serverfarms/capabilities/read|Obter capacidades de planos do App Service.|
 |/serverfarms/Delete|Eliminar uma existente plano do App Service|
 |/serverfarms/firstpartyapps/settings/delete|Elimine o serviço de aplicações planos primeiro intervenientes as definições de aplicações.|
@@ -3831,12 +3831,12 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/sites/virtualnetworkconnections/read|Obter ligações de rede Virtual de aplicações Web.|
 |/sites/virtualnetworkconnections/write|Atualize ligações de rede Virtual de aplicações Web.|
 |/sites/webjobs/read|Obter WebJobs de aplicações Web.|
-|sites/escrita|Criar uma nova aplicação Web ou atualizar um já existente|
+|/sites/Write|Criar uma nova aplicação Web ou atualizar um já existente|
 |/skus/read|Obter SKUs.|
 |/sourcecontrols/read|Obter controlos de origem.|
 |/sourcecontrols/write|Controlos de origem de atualização.|
 |/unregister/action|Anular o registo do fornecedor de recursos Microsoft. Web para a subscrição.|
-|Validar/ação|Valide.|
+|/validate/action|Valide.|
 |/verifyhostingenvironmentvnet/action|Certifique-se de Vnet do ambiente de alojamento.|
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor

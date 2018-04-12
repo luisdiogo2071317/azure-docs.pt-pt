@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
 ms.openlocfilehash: 4d9df6743d84310b7db70034d1e84dd3591b3c21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas para controlo de acesso baseado em funções do Azure
 Inclui as seguintes funções incorporadas que podem ser atribuídas a utilizadores, grupos e serviços do Azure baseada em funções controlo de acesso (RBAC). Não é possível modificar as definições de funções incorporadas. No entanto, pode criar [funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md) para satisfazer as necessidades específicas da sua organização.
@@ -94,7 +94,7 @@ Este artigo aborda apenas as diferentes funções que existe atualmente. Quando 
 | [Operador de recuperação de site](#site-recovery-operator) | Permite-lhe efetuar a ativação pós-falha mas não efetuar outras operações de gestão do Site Recovery |
 | [Leitor de recuperação de site](#site-recovery-reader) | Permite-lhe ver o estado do Site Recovery mas não efetuar outras operações de gestão |
 | [Contribuinte da BD SQL](#sql-db-contributor) | Permite-lhe gerir bases de dados SQL, mas não aceder aos mesmos. Além disso, não é possível gerir as respetivas políticas relacionadas com segurança ou os servidores do SQL Server principal. |
-| [Gestor de segurança do SQL Server](#sql-security-manager) | Permite gerir as políticas de servidores e bases de dados SQL relacionadas com a segurança, mas não aceder às mesmas. |
+| [SQL Security Manager](#sql-security-manager) | Permite gerir as políticas de servidores e bases de dados SQL relacionadas com a segurança, mas não aceder às mesmas. |
 | [SQL Server contribuinte](#sql-server-contributor) | Permite gerir servidores e bases de dados SQL, mas não aceder aos mesmos nem às respetivas políticas relacionadas com a segurança. |
 | [Contribuinte de conta de armazenamento](#storage-account-contributor) | Permite-lhe gerir contas de armazenamento, mas não aceder às mesmas. |
 | [Função de serviço de operador de chave de conta de armazenamento](#storage-account-key-operator-service-role) | Os Operadores de Chave da Conta de Armazenamento têm permissão para listar e regenerar chaves em Contas de Armazenamento |
@@ -134,7 +134,7 @@ Permite-lhe ver tudo, mas não efetuar alterações.
 
 | **Ações** |  |
 | --- | --- |
-| * / leitura | Ler os recursos de todos os tipos, exceto os segredos. |
+| */read | Ler os recursos de todos os tipos, exceto os segredos. |
 
 ## <a name="api-management-service-contributor"></a>Contribuinte de Serviços de Gestão de API
 Pode gerir o serviço e as APIs
@@ -728,7 +728,7 @@ Contribuinte de análise do registo pode ler todos os dados de monitorização e
 
 | **Ações** |  |
 | --- | --- |
-| * / leitura | Ler os recursos de todos os tipos, exceto os segredos. |
+| */read | Ler os recursos de todos os tipos, exceto os segredos. |
 | Microsoft.Automation/automationAccounts/* |  |
 | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lista as chaves de acesso para as contas de armazenamento. |
@@ -747,7 +747,7 @@ O Leitor do Log Analytics pode visualizar e procurar todos os dados de monitoriz
 
 | **Ações** |  |
 | --- | --- |
-| * / leitura | Ler os recursos de todos os tipos, exceto os segredos. |
+| */read | Ler os recursos de todos os tipos, exceto os segredos. |
 | Microsoft.OperationalInsights/workspaces/analytics/query/action | A procura utilizando o motor de novo. |
 | Microsoft.OperationalInsights/workspaces/search/action | Executa uma consulta de pesquisa |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
@@ -836,7 +836,7 @@ Pode ler todos os dados de monitorização e editar as definições de monitoriz
 
 | **Ações** |  |
 | --- | --- |
-| * / leitura | Ler os recursos de todos os tipos, exceto os segredos. |
+| */read | Ler os recursos de todos os tipos, exceto os segredos. |
 | Microsoft.AlertsManagement/alerts/* |  |
 | Microsoft.AlertsManagement/alertsSummary/* |  |
 | Microsoft.Insights/AlertRules/* | Regras de alertas de leitura/escrita/eliminar. |
@@ -861,7 +861,7 @@ Pode ler todos os dados de monitorização (métricas, os registos, etc.). Consu
 
 | **Ações** |  |
 | --- | --- |
-| * / leitura | Ler os recursos de todos os tipos, exceto os segredos. |
+| */read | Ler os recursos de todos os tipos, exceto os segredos. |
 | Microsoft.OperationalInsights/workspaces/search/action | Executa uma consulta de pesquisa |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
@@ -1043,13 +1043,13 @@ Permite-lhe efetuar a ativação pós-falha mas não efetuar outras operações 
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Pontos de recuperação de replicação de leitura |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Reparar a replicação |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/reProtect/action | Proteja o Item protegido |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/ação | Ativação pós-falha de teste |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/action | Ativação pós-falha de teste |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Limpeza da ativação pós-falha de teste |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Ativação pós-falha |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Serviço de mobilidade de atualização |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler quaisquer mapeamentos de contentor de proteção |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read | Ler quaisquer fornecedores de serviços de recuperação |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/ação | Atualize o fornecedor |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/action | Atualize o fornecedor |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Ler as classificações de armazenamento |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Ler quaisquer mapeamentos de classificação de armazenamento |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Ler todas as tarefas |
@@ -1260,7 +1260,7 @@ Permite-lhe gerir o acesso de utilizador aos recursos do Azure.
 
 | **Ações** |  |
 | --- | --- |
-| * / leitura | Ler os recursos de todos os tipos, exceto os segredos. |
+| */read | Ler os recursos de todos os tipos, exceto os segredos. |
 | Microsoft.Authorization/* | Gerir autorização |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
