@@ -57,6 +57,8 @@
       href: asdk-register.md
     - name: Configurar definições de telemetria de pilha do Azure
       href: asdk-telemetry.md
+    - name: Iniciar e parar a ASDK
+      href: asdk-start-stop.md
     - name: Resolução de problemas
       href: asdk-troubleshooting.md
 - name: Referência

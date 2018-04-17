@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: eff58d77b2f79581ee0f611ca25d6cbbc258e996
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 93b63e7c657282fc0ef285054ba90c9d6bc310b6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre origens no local e a nuvem com o Data Management Gateway
 > [!NOTE]
@@ -72,7 +72,7 @@ Neste passo, utiliza o portal do Azure para criar uma instância do Azure Data F
 6. Clique em **criar** no **nova fábrica de dados** página.
 
    > [!IMPORTANT]
-   > Para criar instâncias do Data Factory, tem de ser um membro da função [Contribuinte do Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) ao nível do grupo de recursos/subscrição.
+   > Para criar instâncias do Data Factory, tem de ser um membro da função [Contribuinte do Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) ao nível do grupo de recursos/subscrição.
    >
    >
 7. Depois de concluída a criação, consulte o **Data Factory** página conforme mostrado na imagem seguinte:
@@ -409,7 +409,7 @@ Neste passo, irá utilizar o portal do Azure para monitorizar os acontecimentos 
 8. (opcional) Clique em **Pipelines**, clique em **ADFTutorialOnPremDF**e explorar as tabelas de entrada (**consumido**) ou conjuntos de dados de saída (**produzido**).
 9. Utilize ferramentas como [Explorador de armazenamento do Microsoft](http://storageexplorer.com/) para verificar se o ficheiro/blob é criado para cada hora.
 
-   ![Explorador do Storage do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Explorador do Armazenamento do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Consulte [Data Management Gateway](data-factory-data-management-gateway.md) artigo para todos os detalhes sobre o Data Management Gateway.
