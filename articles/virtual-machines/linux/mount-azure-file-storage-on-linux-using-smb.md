@@ -3,7 +3,7 @@ title: Armazenamento de ficheiros do Azure de montagem em VMs do Linux utilizand
 description: Como montar o File storage do Azure em VMs do Linux com o SMB 2.0 de CLI do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
-ms.author: v-livech
-ms.openlocfilehash: de200c9b18b9d27325bcb92e0d27e83ad7c65811
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: iainfou
+ms.openlocfilehash: 01e18103f9e94615357ff3b9c4be7f2473763a57
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Armazenamento de ficheiros do Azure de montagem em VMs do Linux utilizando o SMB
 
-Este artigo mostra-lhe como utilizar o serviço de armazenamento de ficheiros do Azure numa VM com Linux com uma montagem SMB 2.0 de CLI do Azure. File storage do Azure oferece partilhas de ficheiros na nuvem utilizando o protocolo SMB padrão. Também pode efetuar estes passos com a [CLI 1.0 do Azure](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Os requisitos são:
+Este artigo mostra-lhe como utilizar o serviço de armazenamento de ficheiros do Azure numa VM com Linux com uma montagem SMB 2.0 de CLI do Azure. File storage do Azure oferece partilhas de ficheiros na nuvem utilizando o protocolo SMB padrão. Também pode efetuar estes passos com a [CLI 1.0 do Azure](mount-azure-file-storage-on-linux-using-smb-nodejs.md). Os requisitos são:
 
 - [uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/)
 - [Ficheiros de chaves públicas e privadas SSH](mac-create-ssh-keys.md)
@@ -49,14 +49,14 @@ mkdir -p /mnt/mymountpoint
 ### <a name="mount-the-file-storage-smb-share-to-the-mount-point"></a>Montar o partilha do SMB para o ponto de montagem de armazenamento de ficheiros
 
 ```bash
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ### <a name="persist-the-mount-after-a-reboot"></a>Manter a montagem após um reinício
 Para tal, adicione a seguinte linha para o `/etc/fstab`:
 
 ```bash
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+//myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ## <a name="detailed-walkthrough"></a>Instruções detalhadas
@@ -121,7 +121,7 @@ Nestas instruções detalhadas, iremos criar os pré-requisitos necessários par
     Crie um diretório local no sistema de ficheiros do Linux para montar a partilha SMB. Nada escritas ou ler a partir do diretório de montagem local é reencaminhado para a partilha do SMB que está alojada no armazenamento de ficheiros. Para criar um diretório local no /mnt/mymountdirectory, utilize o seguinte exemplo:
 
     ```bash
-    sudo mkdir -p /mnt/mymountdirectory
+    sudo mkdir -p /mnt/mymountpoint
     ```
 
 6. Monte a partilha SMB para o diretório local.
@@ -129,7 +129,7 @@ Nestas instruções detalhadas, iremos criar os pré-requisitos necessários par
     Forneça o seu próprio nome de utilizador de conta de armazenamento e a chave da conta de armazenamento para as credenciais de montagem da seguinte forma:
 
     ```azurecli
-    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
+    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountpoint -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
     ```
 
 7. Manter a montagem SMB através de reinícios.
@@ -137,11 +137,11 @@ Nestas instruções detalhadas, iremos criar os pré-requisitos necessários par
     Quando reiniciar a VM com Linux, a partilha SMB montada é desmontada durante o encerramento. Para remontar na partilha SMB no arranque, adicione uma linha para o /etc/fstab Linux. Linux utiliza o ficheiro de fstab para listar os sistemas de ficheiros que necessita de montagem durante o processo de arranque. Adicionar a partilha SMB garante que a partilha do File storage é um sistema de ficheiro permanentemente instalado para a VM com Linux. É possível adicionar o armazenamento de ficheiros de partilha do SMB para uma nova VM ao utilizar init de nuvem.
 
     ```bash
-    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Nuvem init a utilizar para personalizar uma VM com Linux durante a criação](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Adicionar um disco a uma VM do Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Encriptar discos uma VM com Linux utilizando a CLI do Azure](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Nuvem init a utilizar para personalizar uma VM com Linux durante a criação](using-cloud-init.md)
+- [Adicionar um disco a uma VM do Linux](add-disk.md)
+- [Encriptar discos uma VM com Linux utilizando a CLI do Azure](encrypt-disks.md)

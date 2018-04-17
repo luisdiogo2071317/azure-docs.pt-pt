@@ -1,45 +1,93 @@
 ---
-title: "Classes de recursos para a gestão de carga de trabalho - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Orientações para a utilização de classes de recursos para gerir a simultaneidade e recursos para consultas no armazém de dados SQL do Azure de computação."
+title: Classes de recursos para a gestão de carga de trabalho - Azure SQL Data Warehouse | Microsoft Docs
+description: Orientações para a utilização de classes de recursos para gerir a simultaneidade e recursos para consultas no armazém de dados SQL do Azure de computação.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/23/2017
-ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+author: kevinvngo
+manager: craigg-msft
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: kevin
+ms.reviewer: jrj
+ms.openlocfilehash: 289281567eff7f2575f26f1ae7ec2f9ee4389461
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="resource-classes-for-workload-management"></a>Classes de recursos para a gestão de carga de trabalho
-Orientações para a utilização de classes de recursos para gerir o número de consultas em simultâneo que são executados em simultâneo e recursos para consultas no armazém de dados SQL do Azure de computação.
+# <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestão de carga de trabalho com classes de recursos no Azure SQL Data Warehouse
+Orientações para a utilização de classes de recursos para gerir a memória e simultaneidade de consultas no Azure SQL Data Warehouse.  
  
 ## <a name="what-is-workload-management"></a>O que é a gestão de carga de trabalho?
-Gestão de carga de trabalho é a capacidade para otimizar o desempenho global de todas as consultas. Executa uma carga de trabalho bem atento consultas e operações de carga de forma eficiente, independentemente de estar computação intensivas ou e/s intensivas. 
+Gestão de carga de trabalho é a capacidade para otimizar o desempenho global de todas as consultas. Executa uma carga de trabalho bem atento consultas e operações de carga de forma eficiente, independentemente de estar computação intensivas ou e/s intensivas.  Armazém de dados do SQL Server fornece capacidades de gestão de carga de trabalho para ambientes de vários utilizadores. Um armazém de dados não se destina a multi-inquilinos cargas de trabalho.
 
-Armazém de dados do SQL Server fornece capacidades de gestão de carga de trabalho para ambientes de vários utilizadores. Um armazém de dados não se destina a multi-inquilinos cargas de trabalho.
+A capacidade de desempenho do armazém de dados é determinada pelo [camada de desempenho](memory-and-concurrency-limits.md#performance-tiers) e [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
+
+- Para ver os limites de memória e simultaneidade para todos os perfis de desempenho, consulte [limites de memória e simultaneidade](memory-and-concurrency-limits.md).
+- Para ajustar a capacidade de desempenho, pode [aumentar ou reduzir verticalmente](quickstart-scale-compute-portal.md).
+
+A capacidade de desempenho de uma consulta é determinada pela classe de recursos da consulta. Este resto deste artigo explica quais são as classes de recursos e como ajustá-los.
+
 
 ## <a name="what-are-resource-classes"></a>Quais são as classes de recurso?
-Classes de recursos são os limites de recursos previamente determinada que regulam a execução da consulta. O SQL Data Warehouse limita os recursos de computação para cada consulta de acordo com a classe de recursos. 
+Classes de recursos são previamente determinadas limites de recursos no Azure SQL Data Warehouse que regem recursos de computação e simultaneidade para execução da consulta. Classes de recurso podem ajudar a gerir a sua carga de trabalho através da definição de limites no número de consultas que são executadas em simultâneo e os recursos de computação atribuídos a cada consulta. Não há um compromisso entre a memória e concorrência.
 
-Classes de recursos ajudam a gerir o desempenho global da sua carga de trabalho do armazém de dados. Utilizar classes de recursos de forma eficaz ajuda-o a gerir a sua carga de trabalho através da definição de limites no número de consultas que são executadas em simultâneo e os recursos de computação atribuídos a cada consulta. 
+- Classes de recursos mais pequenas reduza a memória máxima por consulta, mas aumentam a simultaneidade.
+- Maior classes de recurso aumenta a memória máxima por consulta, embora reduza a simultaneidade. 
 
-- Classes de recursos mais pequenas utilizam menos recursos de computação mas ativar maior simultaneidade de consulta global
-- Classes de recurso maior fornecem mais recursos de computação mas restringir a simultaneidade de consulta
+A capacidade de desempenho de uma consulta é determinada pela classe de recursos do utilizador.
 
-Classes de recurso foram concebidas para as atividades de gestão e manipulação de dados. Algumas consultas muito complexas beneficiarão também quando existem associações grande e ordena para que o sistema executa a consulta na memória, em vez de transbordar para disco.
+- Para ver a utilização de recursos para as classes de recursos, consulte [limites de memória e simultaneidade](memory-and-concurrency-limits.md#concurrency-maximums).
+- Para ajustar a classe de recursos, pode executar a consulta em outro utilizador ou [alterar a classe de recursos do utilizador atual](#change-a-user-s-resource-class) associação. 
 
-As seguintes operações são regidas pelas classes de recursos:
+Classes de recursos utilizam ranhuras de concorrência para medir o consumo de recursos.  [Ranhuras de concorrência](#concurrency-slots) explicado posteriormente neste artigo. 
+
+### <a name="static-resource-classes"></a>Classes de recurso estático
+Classes de recurso estático atribuir a mesma quantidade de memória, independentemente do nível de desempenho atual, o que é medido em [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md). Uma vez que as consultas de obter a atribuição de memória mesmo, independentemente do nível de desempenho, [aumentar horizontalmente o armazém de dados](quickstart-scale-compute-portal.md) permite consultas mais ser executada dentro de uma classe de recursos.
+
+As classes de estático recursos são implementadas com estas funções de base de dados predefinidos:
+
+- staticrc10
+- staticrc20
+- staticrc30
+- staticrc40
+- staticrc50
+- staticrc60
+- staticrc70
+- staticrc80
+
+Estas classes de recursos são mais adequadas para soluções que aumentar a classe de recursos para obter recursos de computação adicionais.
+
+### <a name="dynamic-resource-classes"></a>Classes de recursos dinâmicos
+Classes de recursos dinâmicos alocar uma variável quantidade de memória consoante o nível de serviço atual. Ao aumentar verticalmente para um maior nível de serviço, as suas consultas obtém automaticamente mais memória. 
+
+As classes de recursos dinâmicos são implementadas com estas funções de base de dados predefinidos:
+
+- smallrc
+- mediumrc
+- largerc
+- xlargerc. 
+
+Estas classes de recursos são mais adequadas para soluções que aumento computação escala para obter recursos adicionais. 
+
+
+### <a name="default-resource-class"></a>Classe de recursos predefinidos
+Por predefinição, cada utilizador é membro da classe de recursos dinâmicos **smallrc**. 
+
+A classe de recursos do administrador do serviço é fixo e não pode ser alterada.  O administrador de serviço é o utilizador criado durante o processo de aprovisionamento.
+
+> [!NOTE]
+> Os utilizadores ou grupos definidos como administrador do Active Directory também são administradores de serviços.
+>
+>
+
+## <a name="resource-class-operations"></a>Operações de classe de recursos
+
+Classes de recurso foram concebidas para melhorar o desempenho de atividades de gestão e manipulação de dados. Consultas complexas também podem beneficiar da executada sob uma classe de recursos de grandes dimensões. Por exemplo, consultar o desempenho para associações de grande e melhorar ordena quando a classe de recursos é suficientemente grande para ativar a consulta para executar na memória.
+
+### <a name="operations-governed-by-resource-classes"></a>Operações de classes de recursos
+
+Estas operações são regidas pelas classes de recursos:
 
 * SELECIONE DE INSERT, UPDATE, DELETE
 * SELECIONE (quando consultar tabelas de utilizador)
@@ -56,50 +104,7 @@ As seguintes operações são regidas pelas classes de recursos:
 > 
 > 
 
-## <a name="static-and-dynamic-resource-classes"></a>Classes de recursos dinâmicos e estáticos
-
-Existem dois tipos de classes de recurso: estáticos e dinâmicos.
-
-- **Classes de recurso estático** atribuir a mesma quantidade de memória, independentemente do nível de serviço atual, o que é medido em [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md). Este alocação estática significa no maiores níveis de serviço, que pode executar consultas mais em cada classe de recursos.  As classes de recurso estáticos são denominadas staticrc10, staticrc20, staticrc30, staticrc40, staticrc50, staticrc60, staticrc70 e staticrc80. Estas classes de recursos são mais adequadas para soluções que aumentar a classe de recursos para obter recursos de computação adicionais.
-
-- **Classes de recursos dinâmicos** alocar uma variável quantidade de memória consoante o nível de serviço atual. Ao aumentar verticalmente para um maior nível de serviço, as suas consultas obtém automaticamente mais memória. As classes de recursos dinâmicos são denominadas smallrc, mediumrc, largerc e xlargerc. Estas classes de recursos são mais adequadas para soluções que aumento computação escala para obter recursos adicionais. 
-
-O [escalões de desempenho](performance-tiers.md) use os mesmos nomes de classe de recursos, mas têm diferentes [especificações de memória e simultaneidade](performance-tiers.md). 
-
-
-## <a name="assigning-resource-classes"></a>Atribuição de recursos de classes
-
-Classes de recursos são implementadas por atribuir utilizadores a funções de base de dados. Quando um utilizador executa uma consulta, a consulta é executada com classe de recursos do utilizador. Por exemplo, quando um utilizador é membro da função de base de dados smallrc ou staticrc10, executam as consultas com pequenas quantidades de memória. Quando um utilizador de base de dados é um membro das funções de base de dados xlargerc ou staticrc80, executam as consultas com grandes quantidades de memória. 
-
-Para aumentar a classe de recursos de um utilizador, utilize o procedimento armazenado [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). 
-
-```sql
-EXEC sp_addrolemember 'largerc', 'loaduser';
-```
-
-Para diminuir a classe de recursos, utilize [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
-
-```sql
-EXEC sp_droprolemember 'largerc', 'loaduser';
-```
-
-A classe de recursos do administrador do serviço é fixo e não pode ser alterada.  O administrador de serviço é o utilizador criado durante o processo de aprovisionamento.
-
-> [!NOTE]
-> Os utilizadores ou grupos definidos como administrador do Active Directory também são administradores de serviços.
->
->
-
-### <a name="default-resource-class"></a>Classe de recursos predefinidos
-Por predefinição, cada utilizador é membro da classe de recurso pequeno, **smallrc**. 
-
-### <a name="resource-class-precedence"></a>Precedência de classe de recursos
-Os utilizadores podem ser membros de várias classes de recursos. Quando um utilizador pertence a mais do que uma classe de recursos:
-
-- Classes de recursos dinâmicos têm precedência sobre as classes de recurso estático. Por exemplo, se um utilizador for um membro de mediumrc(dynamic) e staticrc80 (estáticas), executam consultas com mediumrc.
-- Classes de recurso maiores têm precedência sobre classes de recursos mais pequenas. Por exemplo, se um utilizador for um membro de mediumrc e largerc, executam consultas com largerc. Da mesma forma, se um utilizador for um membro de staticrc20 e statirc80, executam consultas com staticrc80 alocações de recursos.
-
-### <a name="queries-exempt-from-resource-classes"></a>Consultas excluídos classes de recursos
+### <a name="operations-not-governed-by-resource-classes"></a>Não é regidas pelas classes de recursos de operações
 Algumas consultas são sempre executam na classe de recurso smallrc, apesar do utilizador é membro de uma classe de recurso maior. Estas consultas excluídas não contam para o limite de concorrência. Por exemplo, se o limite de concorrência 16, número de utilizadores que pode selecionar das vistas de sistema sem afetar os blocos de concorrência disponíveis.
 
 As seguintes declarações excluídos de classes de recursos e são sempre executados no smallrc:
@@ -126,6 +131,45 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
 -->
+
+## <a name="concurrency-slots"></a>Ranhuras de concorrência
+Ranhuras de concorrência são uma maneira conveniente para controlar os recursos disponíveis para execução da consulta. São, como pedidos de suporte que comprar para reservar utilizadores individuais num concert porque seating está limitado. O número total de ranhuras de concorrência do armazém de dados é determinado pelo nível de serviço. Antes de iniciar uma consulta em execução, tem de ser capaz de reserva suficiente ranhuras de concorrência. Quando uma consulta estiver concluída, versões respetivas ranhuras de concorrência.  
+
+- Uma consulta com 10 ranhuras de concorrência pode aceder a recursos de computação mais de 5 vezes que uma consulta com 2 ranhuras de concorrência.
+- Se cada consulta requer 10 ranhuras de simultaneidade e existem 40 ranhuras de simultaneidade, 4 apenas consultas podem executar em simultâneo.
+ 
+Apenas as consultas de recursos regida consumam ranhuras de concorrência. Consultas de sistema e algumas consultas Triviais não consumir quaisquer ranhuras. O número exato de ranhuras de concorrência consumido é determinado por classe de recursos a consulta.
+
+## <a name="view-the-resource-classes"></a>Ver as classes de recursos
+
+Classes de recursos são implementadas como funções de base de dados previamente definido. Existem dois tipos de classes de recurso: estáticos e dinâmicos. Para ver uma lista das classes de recursos, utilize a seguinte consulta:
+
+    ```sql
+    SELECT name FROM sys.database_principals
+    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+    ```
+
+## <a name="change-a-users-resource-class"></a>Alterar a classe de recursos de um utilizador
+
+Classes de recursos são implementadas por atribuir utilizadores a funções de base de dados. Quando um utilizador executa uma consulta, a consulta é executada com classe de recursos do utilizador. Por exemplo, quando um utilizador é membro da função de base de dados smallrc ou staticrc10, executam as consultas com pequenas quantidades de memória. Quando um utilizador de base de dados é um membro das funções de base de dados xlargerc ou staticrc80, executam as consultas com grandes quantidades de memória. 
+
+Para aumentar a classe de recursos de um utilizador, utilize o procedimento armazenado [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). 
+
+```sql
+EXEC sp_addrolemember 'largerc', 'loaduser';
+```
+
+Para diminuir a classe de recursos, utilize [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
+
+```sql
+EXEC sp_droprolemember 'largerc', 'loaduser';
+```
+
+## <a name="resource-class-precedence"></a>Precedência de classe de recursos
+Os utilizadores podem ser membros de várias classes de recursos. Quando um utilizador pertence a mais do que uma classe de recursos:
+
+- Classes de recursos dinâmicos têm precedência sobre as classes de recurso estático. Por exemplo, se um utilizador for um membro de mediumrc(dynamic) e staticrc80 (estáticas), executam consultas com mediumrc.
+- Classes de recurso maiores têm precedência sobre classes de recursos mais pequenas. Por exemplo, se um utilizador for um membro de mediumrc e largerc, executam consultas com largerc. Da mesma forma, se um utilizador for um membro de staticrc20 e statirc80, executam consultas com staticrc80 alocações de recursos.
 
 ## <a name="recommendations"></a>Recomendações
 É recomendável criar um utilizador que se dedica à execução de um tipo específico de consulta ou operações de carga. Em seguida, atribua esse utilizador uma classe de recursos permanente em vez de alterar a classe de recursos com frequência. Uma vez que as classes de recurso estático suportar maior controlo global da carga de trabalho sugerimos também utilizar essas primeiro antes de considerar as classes de recursos dinâmicos.

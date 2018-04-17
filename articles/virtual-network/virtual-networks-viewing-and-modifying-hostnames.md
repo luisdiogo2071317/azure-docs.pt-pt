@@ -1,10 +1,10 @@
 ---
-title: "Ver e modificar os nomes de anfitrião | Microsoft Docs"
-description: "Como ver e alterar os nomes de anfitrião para máquinas virtuais do Azure, web e funções de trabalho para resolução de nomes"
+title: Ver e modificar os nomes de anfitrião | Microsoft Docs
+description: Como ver e alterar os nomes de anfitrião para máquinas virtuais do Azure, web e funções de trabalho para resolução de nomes
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
-ms.author: jdial
-ms.openlocfilehash: 9a3a1e1b58dcb828e2d2d09c18f1aab6d46051aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 6fe3522c1b3e2f5a07de3d12875ae47a830873d3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Ver e modificar os nomes de anfitrião
 Para permitir que as instâncias da função ser referenciado por nome de anfitrião, tem de definir o valor para o nome de anfitrião no ficheiro de configuração do serviço para cada função. Fazê-lo ao adicionar o nome de anfitrião pretendido para o **vmName** atributo o **função** elemento. O valor da **vmName** atributo é utilizado como base para o nome de anfitrião de cada instância de função. Por exemplo, se **vmName** é *webrole* e existem três instâncias de função, os nomes de anfitrião das instâncias será *webrole0*, *webrole1*, e *webrole2*. Não tem de especificar um nome de anfitrião para máquinas virtuais no ficheiro de configuração, porque o nome de anfitrião para uma máquina virtual é preenchido com base no nome da máquina virtual. Para obter mais informações sobre como configurar um serviço do Microsoft Azure, consulte [esquema de configuração de serviço do Azure (. cscfg ficheiro)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -34,7 +34,7 @@ Instâncias de função também podem ser visualizadas no portal do Azure, mas q
 ### <a name="service-configuration-file"></a>Ficheiro de configuração de serviço
 Pode transferir o ficheiro de configuração de serviço para um serviço implementado o **configurar** painel do serviço no portal do Azure. Em seguida, pode procurar o **vmName** atributo para o **nome da função** elemento para ver o nome de anfitrião. Tenha em atenção que este nome de anfitrião é utilizado como base para o nome de anfitrião de cada instância de função. Por exemplo, se **vmName** é *webrole* e existem três instâncias de função, os nomes de anfitrião das instâncias será *webrole0*, *webrole1*, e *webrole2*.
 
-### <a name="remote-desktop"></a>Ambiente de trabalho remoto
+### <a name="remote-desktop"></a>Ambiente de Trabalho Remoto
 Depois de ativar o ambiente de trabalho remoto (Windows), sistema de interação remota do Windows PowerShell (Windows) ou ligações SSH (Linux e Windows) a máquinas virtuais ou instâncias de função, pode ver o nome de anfitrião a partir de uma ligação de ambiente de trabalho remoto Active Directory de várias formas:
 
 * Escreva o nome do anfitrião na linha de comandos ou do terminal SSH.
@@ -46,7 +46,7 @@ De um cliente REST, siga estas instruções:
 
 1. Certifique-se de que tem um certificado de cliente para ligar ao portal do Azure. Para obter um certificado de cliente, siga os passos apresentados na [como: transferir e importar definições de publicação e informações de subscrição](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Defina uma entrada de cabeçalho x-ms-version com um valor de 2013-11-01 com o nome.
-3. Enviar um pedido no seguinte formato: https://management.core.windows.net/\<subscrition id\>/services/hostedservices/\<nome do serviço\>? detalhes incorporar = true
+3. Enviar um pedido no seguinte formato: https://management.core.windows.net/ \<subscrition id\>/services/hostedservices/\<nome do serviço\>? detalhes incorporar = true
 4. Procure o **HostName** elemento para cada **RoleInstance** elemento.
 
 > [!WARNING]
@@ -57,7 +57,7 @@ De um cliente REST, siga estas instruções:
 ## <a name="modifying-a-hostname"></a>Modificar um nome de anfitrião
 Pode modificar o nome de anfitrião para qualquer máquina virtual ou instância de função através do carregamento de um ficheiro de configuração do serviço modificado ou mudar o nome do computador a partir de uma sessão de ambiente de trabalho remoto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Resolução de nomes (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 [Esquema de configuração do serviço do Azure (. cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)

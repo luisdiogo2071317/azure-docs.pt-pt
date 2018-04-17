@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d241bfb6245eb5a70f1e4fcedc86c969766019f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fc3dca82bea17b44f66b433f59e5861da3bb0ca2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Descrição geral: Grupos de ativação pós-falha e a georreplicação ativa
 Replicação geográfica activa permite-lhe configurar até quatro legíveis secundários bases de dados em localizações de centro de dados idêntica ou diferente (regiões). Bases de dados secundárias estão disponíveis para consulta e de ativação pós-falha se existir uma falha do Centro de dados ou a impossibilidade de estabelecer ligação à base de dados primária. A ativação pós-falha tem de ser iniciada manualmente a aplicação do utilizador. Após a ativação pós-falha, a nova principal tem um ponto final de ligação diferente. 
@@ -131,7 +131,7 @@ Devido à latência elevada de redes de área alargada, a cópia contínua utili
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>Através de programação gerir grupos de ativação pós-falha e a georreplicação ativa
 Tal como abordado anteriormente, grupos de auto-ativação pós-falha (em pré-visualização) e o Active Directory georreplicação também pode ser gerida através de programação utilizando o Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis.
 
-**API de Gestor de recursos do Azure e a segurança baseada em funções**: georreplicação ativa inclui um conjunto de APIs do Azure Resource Manager para a gestão, incluindo o [API de REST de base de dados do Azure SQL](https://docs.microsoft.com/rest/api/sql/) e [Azure Cmdlets do PowerShell](https://docs.microsoft.com/powershell/azure/overview). Estas APIs requerem a utilização de grupos de recursos e suportam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [controlo de acesso em funções do Azure](../active-directory/role-based-access-control-what-is.md).
+**API de Gestor de recursos do Azure e a segurança baseada em funções**: georreplicação ativa inclui um conjunto de APIs do Azure Resource Manager para a gestão, incluindo o [API de REST de base de dados do Azure SQL](https://docs.microsoft.com/rest/api/sql/) e [Azure Cmdlets do PowerShell](https://docs.microsoft.com/powershell/azure/overview). Estas APIs requerem a utilização de grupos de recursos e suportam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [controlo de acesso em funções do Azure](../role-based-access-control/overview.md).
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Gerir a ativação pós-falha de base de dados do SQL Server com o Transact-SQL
 
@@ -140,10 +140,10 @@ Tal como abordado anteriormente, grupos de auto-ativação pós-falha (em pré-v
 | [Falha de ALTER DATABASE (base de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Utilize o argumento de servidor para adicionar SECUNDÁRIO ON para criar uma base de dados secundária para uma base de dados existente e inicia a replicação de dados |
 | [Falha de ALTER DATABASE (base de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Utilize a ativação pós-falha ou FORCE_FAILOVER_ALLOW_DATA_LOSS para alternar uma base de dados secundária para ser primário para iniciar a ativação pós-falha |
 | [Falha de ALTER DATABASE (base de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Utilize remover no servidor SECUNDÁRIO para terminar uma replicação de dados entre uma base de dados do SQL Server e base de dados secundária especificada. |
-| [sys.geo_replication_links (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Devolve informações sobre todas as ligações de replicação existente para cada base de dados do servidor lógico da SQL Database do Azure. |
-| [sys.dm_geo_replication_link_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtém a última replicação, desfasamento de último e outras informações sobre a ligação de replicação para uma determinada base de dados do SQL. |
-| [sys.dm_operation_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Mostra o estado para todas as operações de base de dados, incluindo o estado das ligações de replicação. |
-| [sp_wait_for_database_copy_sync (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |faz com que a aplicação a aguardar até que todas as transações consolidadas são replicadas e confirmadas pela base de dados secundária Active Directory. |
+| [sys.geo_replication_links (SQL Database do Azure)](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Devolve informações sobre todas as ligações de replicação existente para cada base de dados do servidor lógico da SQL Database do Azure. |
+| [sys.dm_geo_replication_link_status (SQL Database do Azure)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtém a última replicação, desfasamento de último e outras informações sobre a ligação de replicação para uma determinada base de dados do SQL. |
+| [operation_status (SQL Database do Azure)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Mostra o estado para todas as operações de base de dados, incluindo o estado das ligações de replicação. |
+| [sp_wait_for_database_copy_sync (SQL Database do Azure)](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |faz com que a aplicação a aguardar até que todas as transações consolidadas são replicadas e confirmadas pela base de dados secundária Active Directory. |
 |  | |
 
 ## <a name="manage-sql-database-failover-using-powershell"></a>Gerir a ativação pós-falha de base de dados do SQL Server com o PowerShell

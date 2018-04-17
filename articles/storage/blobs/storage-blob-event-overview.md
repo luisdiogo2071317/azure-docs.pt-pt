@@ -1,6 +1,6 @@
 ---
-title: A agir os eventos de Blob Storage do Azure | Microsoft Docs
-description: Utilize a grelha de eventos do Azure para subscrever a eventos de armazenamento de Blobs.
+title: A agir os eventos de armazenamento de Blobs do Azure | Microsoft Docs
+description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs.
 services: storage,event-grid
 keywords: ''
 author: cbrooksmsft
@@ -8,23 +8,23 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reacting-to-blob-storage-events"></a>A agir os eventos de armazenamento de BLOBs
 
 Eventos de armazenamento do Azure permitem a reagir a criação e eliminação de blobs com arquiteturas sem servidor modernas de aplicações. Isto é feito sem a necessidade de código complicado ou serviços de consulta ineficaz e dispendiosa.  Em vez disso, os eventos são enviadas por push através do [grelha de eventos do Azure](https://azure.microsoft.com/services/event-grid/) para subscritores como [das funções do Azure](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou mesmo para o seu próprio serviço de escuta de http personalizado e apenas paga que utilizar. 
 
-Cenários comuns de eventos do Blob Storage incluem processamento de imagem ou as vídeo, a indexação da pesquisa ou qualquer fluxo de trabalho orientado para o ficheiro.  Carregamentos de ficheiros assíncrona são uma excelente opção para eventos.  Quando as alterações são pouco frequentes, mas o seu cenário exigir a capacidade de resposta imediata, arquitetura baseada em eventos pode ser especialmente eficiente.
+Cenários comuns de eventos do Blob storage incluem processamento de imagem ou as vídeo, a indexação da pesquisa ou qualquer fluxo de trabalho orientado para o ficheiro.  Carregamentos de ficheiros assíncrona são uma excelente opção para eventos.  Quando as alterações são pouco frequentes, mas o seu cenário exigir a capacidade de resposta imediata, arquitetura baseada em eventos pode ser especialmente eficiente.
 
 Disponibilidade de eventos de armazenamento está associada à grelha de evento [disponibilidade](../../event-grid/overview.md) e ficará disponível noutras regiões como sucede grelha de eventos. Observe [eventos de armazenamento de BLOBs de rota para personalizadas web endpoint - CLI](storage-blob-event-quickstart.md) ou [eventos de armazenamento de BLOBs de rota para personalizadas web endpoint - PowerShell](storage-blob-event-quickstart-powershell.md) para obter um exemplo rápido. 
 
 ![Modelo de grelha de eventos](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
-## <a name="blob-storage-accounts"></a>Contas de Armazenamento de blobs
+## <a name="blob-storage-accounts"></a>Contas do Blob Storage
 Eventos de armazenamento de BLOBs estão disponíveis no [contas do Blob storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) e na [contas de armazenamento de v2 de objetivo geral](../common/storage-account-options.md#general-purpose-v2). **V2 de objetivo geral (GPv2)** são contas de armazenamento que suportam todas as funcionalidades para todos os serviços de armazenamento, incluindo tabelas, filas, ficheiros e Blobs. A **conta de armazenamento de BLOBs** é uma conta do storage especializadas para armazenar os dados não estruturados como blobs (objetos) no Storage do Azure. Contas do blob storage são como as contas do storage para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho funcionalidades que utiliza atualmente, incluindo 100% de consistência de API para blobs de blocos e blobs de acréscimo. Para aplicações que requerem apenas armazenamento de blobs de blocos ou de blobs de acréscimo, recomendamos a utilização das contas de armazenamento de Blobs. 
 
 ## <a name="available-blob-storage-events"></a>Eventos de armazenamento de BLOBs disponíveis
@@ -92,7 +92,7 @@ Subscrições de eventos de blob podem ser filtradas com base no tipo de evento 
 
 O requerente de eventos de armazenamento de BLOBs utiliza o formato:
 
-```json
+```
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
@@ -100,19 +100,19 @@ Para fazer corresponder a todos os eventos para uma conta de armazenamento, pode
 
 Para fazer corresponder os eventos de criados num conjunto de partilhar um prefixo de contentores de blobs, utilize um `subjectBeginsWith` filtrar como:
 
-```json
+```
 /blobServices/default/containers/containerprefix
 ```
 
 Para fazer corresponder os eventos de blobs criados no contentor específico, utilize um `subjectBeginsWith` filtrar como:
 
-```json
+```
 /blobServices/default/containers/containername/
 ```
 
 Para fazer corresponder os eventos de blobs criados no contentor específico, um prefixo de nome de blob de partilha, utilize um `subjectBeginsWith` filtrar como:
 
-```json
+```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 

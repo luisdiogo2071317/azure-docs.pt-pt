@@ -1,36 +1,24 @@
 ---
-title: "A carga do Azure blob para o armazém de dados do Azure | Microsoft Docs"
-description: "Saiba como utilizar o PolyBase para carregar dados do blob storage do Azure para o SQL Data Warehouse. Carregar tabelas alguns dos dados públicos para o esquema do armazém de dados de revenda Contoso."
+title: Carregar dados de revenda Contoso ao Azure SQL Data Warehouse | Microsoft Docs
+description: Utilize comandos PolyBase e T-SQL para carregar duas tabelas dos dados de revenda do Contoso no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: barbkess
-editor: 
-ms.assetid: faca0fe7-62e7-4e1f-a86f-032b4ffcb06e
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 10/31/2016
-ms.author: barbkess
-ms.openlocfilehash: 4221bcd5a50fad680427a500e32837c1e75dd990
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: c32068c965810da8e9072094b5832c7943f2841d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>Carregar dados do blob storage do Azure para o SQL Data Warehouse (PolyBase)
-> [!div class="op_single_selector"]
-> * [Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
-> * [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-> 
-> 
+# <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Carregar dados de revenda Contoso ao Azure SQL Data Warehouse
 
-Utilize comandos PolyBase e T-SQL para carregar dados do blob storage do Azure para o Azure SQL Data Warehouse. 
-
-Para manter simples, este tutorial carrega duas tabelas de um Blob de armazenamento do Azure público para o esquema do armazém de dados de revenda Contoso. Para carregar o conjunto completo de dados, execute o exemplo [carregar o armazém de dados de revenda completa do Contoso] [ Load the full Contoso Retail Data Warehouse] do repositório amostras do Microsoft SQL Server.
+Utilize comandos PolyBase e T-SQL para carregar duas tabelas dos dados de revenda do Contoso no Azure SQL Data Warehouse. Para carregar o conjunto completo de dados, execute o exemplo [carregar o armazém de dados de revenda completa do Contoso](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) do repositório amostras do Microsoft SQL Server.
 
 Neste tutorial, irá:
 

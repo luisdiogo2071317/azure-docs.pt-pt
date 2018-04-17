@@ -1,12 +1,12 @@
 ---
-title: "Os procedimentos de segurança da base de dados do Azure | Microsoft Docs"
-description: "Este artigo fornece um conjunto de melhores práticas de segurança da base de dados do Azure."
+title: Os procedimentos de segurança da base de dados do Azure | Microsoft Docs
+description: Este artigo fornece um conjunto de melhores práticas de segurança da base de dados do Azure.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3c019e8e1518c661eb75065f061ee681f0231efa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-security-best-practices"></a>Procedimentos de segurança da base de dados do Azure
 
@@ -112,7 +112,7 @@ Mesmo quando o armazenamento completo é encriptado, é muito importante também
 Dado que um utilizador autorizado, tais como um administrador de segurança ou um administrador da base de dados pode aceder aos dados, mesmo se a base de dados é encriptado com TDE, também deve seguir as recomendações abaixo:
 
 -   Ative a autenticação do SQL Server ao nível da base de dados.
--   Utilizar o Azure AD de autenticação utilizando [funções do RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+-   Utilizar o Azure AD de autenticação utilizando [funções do RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 -   Utilizadores e aplicações devem utilizar contas separadas para autenticação. Desta forma pode limitar as permissões concedidas a utilizadores e aplicações e reduzir os riscos de atividade maliciosa.
 -   Segurança de nível de base de dados de implementar através de funções de base de dados fixa (como db_datareader ou db_datawriter), ou pode criar funções personalizadas para a sua aplicação conceder permissões explícitas para objetos de base de dados selecionada.
 
@@ -166,7 +166,7 @@ Para saber mais sobre a deteção de ameaças da base de dados e como ativá-la,
 ## <a name="conclusion"></a>Conclusão
 Base de dados do Azure é uma plataforma de base de dados robusta, com um conjunto completo de funcionalidades de segurança que cumprem os requisitos de conformidade de regulamentação e organizacional muitos. Pode ajudar a proteger os dados ao controlar o acesso físico aos seus dados e, utilizando uma variedade de opções de segurança de dados no ficheiro-, -de coluna ou ao nível da linha com a encriptação transparente de dados, a encriptação de nível de células ou a segurança ao nível da linha. Sempre encriptado também permite operações contra os dados encriptados, simplificar o processo de atualizações da aplicação. Por sua vez, acesso a auditoria de registos de atividade de base de dados do SQL Server fornece-lhe as informações que necessárias, permitindo-lhe saber como e quando os dados são acedidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para saber mais sobre as regras de firewall, consulte o artigo [regras de Firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 - Para saber mais sobre utilizadores e inícios de sessão, veja [Gerir inícios de sessão](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 - Para um tutorial, consulte [proteger a base de dados do SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial).

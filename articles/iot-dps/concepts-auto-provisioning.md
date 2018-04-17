@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: ''
-ms.openlocfilehash: cd458b1f6d26fbd5f5821a04cd01be5c3a4e4514
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="auto-provisioning-concepts"></a>Conceitos de aprovisionamento automático
 
@@ -31,7 +31,7 @@ Do Azure IoT automática aprovisionamento pode ser dividido em três fases:
    > [!NOTE]
    > Independentemente do tamanho da sua solução de IoT, mesmo que planeia suportar milhões de dispositivos, este é um **configuração única**.
 
-2. **Inscrição de dispositivos** -o processo de efetuar a instância de serviço de aprovisionamento de dispositivos em consideração os dispositivos que irão tentar registar no futuro. Inscrição é conseguida ao configurar informações de identidade de dispositivo no serviço de aprovisionamento, como uma "inscrição individuais" para um único dispositivo ou uma "inscrição de grupo" para vários dispositivos. Identidade baseada no [mecanismo de atestado](concepts-security.md#attestation-mechanism) o dispositivo foi concebido para utilizar, que permite que o serviço de aprovisionamento atestem a autenticidade do dispositivo durante o registo:
+2. **Inscrição de dispositivos** -o processo de efetuar a instância de serviço de aprovisionamento de dispositivos em consideração os dispositivos que irão tentar registar no futuro. [Inscrição](concepts-service.md#enrollment) é conseguido ao configurar informações de identidade de dispositivo no serviço de aprovisionamento, como uma "inscrição individuais" para um único dispositivo ou uma "inscrição de grupo" para vários dispositivos. Identidade baseada no [mecanismo de atestado](concepts-security.md#attestation-mechanism) o dispositivo foi concebido para utilizar, que permite que o serviço de aprovisionamento atestem a autenticidade do dispositivo durante o registo:
 
    - **TPM**: configurado como uma "inscrição individuais", a identidade de dispositivo é com base no ID de registo TPM e a chave de endossamento público. Dado que o TPM é um [especificação]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), o serviço espera apenas atestem pela especificação de, independentemente da implementação de TPM (hardware ou software). Consulte [aprovisionamento de dispositivos: atestado de identidade com TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) para obter detalhes sobre atestado baseado no TPM. 
 

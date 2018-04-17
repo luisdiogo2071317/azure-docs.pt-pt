@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: 676feb0b01ec5622feff4351ade54e9856e54b13
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: f5205bb158141a3f8e0296fefe2528d1bc5ea64c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Gerir os recursos associados as contas do Azure no Visual Studio Cloud Explorer
 Explorador de nuvem permite-lhe ver os recursos do Azure e os grupos de recursos, inspecionar as respetivas propriedades e efetuar ações de diagnóstico de chave para programadores no Visual Studio. 
 
-Como o [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer baseia-se na pilha do Azure Resource Manager. Por conseguinte, o Cloud Explorer compreende recursos, tais como grupos de recursos do Azure e serviços do Azure, tais como aplicações lógicas e API apps e suporta [controlo de acesso baseado em funções](active-directory/role-based-access-control-configure.md) (RBAC). 
+Como o [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer baseia-se na pilha do Azure Resource Manager. Por conseguinte, o Cloud Explorer compreende recursos, tais como grupos de recursos do Azure e serviços do Azure, tais como aplicações lógicas e API apps e suporta [controlo de acesso baseado em funções](role-based-access-control/role-assignments-portal.md) (RBAC). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) com o **carga de trabalho do Azure** selecionado, ou uma versão anterior do Visual Studio com o [Microsoft Azure SDK para .NET 2.9](https://www.microsoft.com/en-us/download/details.aspx?id=51657).

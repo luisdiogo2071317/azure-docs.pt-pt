@@ -1,28 +1,26 @@
 ---
-title: "Auditoria no armazém de dados SQL do Azure | Microsoft Docs"
-description: "Introdução ao Azure SQL Data Warehouse de auditoria"
+title: Auditoria no armazém de dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre a auditoria e como configurar a auditoria no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: 
 author: ronortloff
-manager: jhubbard
-editor: 
-ms.assetid: 0e6af148-b218-4b43-bb5f-907917d20330
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: security
-ms.date: 01/16/2018
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: rortloff
+ms.reviewer: jrj
+ms.openlocfilehash: 7bce59114dcfef7f9faa7f112c62dbb88044f2ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no armazém de dados SQL do Azure
 
+Saiba mais sobre a auditoria e como configurar a auditoria no Azure SQL Data Warehouse.
+
+## <a name="what-is-auditing"></a>O que é a auditoria?
 Auditoria de SQL Data Warehouse permite-lhe para registo de eventos na base de dados para uma auditoria iniciar sessão na sua conta do Storage do Azure. Auditoria pode ajudar a manter a conformidade de regulamentação, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que poderão indicar preocupações para a empresa ou suspeitas de violação de segurança. Auditoria de SQL Data Warehouse também integra-se com o Microsoft Power BI para análise e relatórios.
 
 As ferramentas de auditoria ativarem e facilitam a conformidade com as normas de conformidade, mas não garantir a compatibilidade. Para obter mais informações sobre o Azure programas que conformidade de padrões de suporte, consulte o <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centro de fidedignidade do Azure</a>.

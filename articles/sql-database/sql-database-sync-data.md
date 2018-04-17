@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados do SQL Server (pré-visualização)
 
@@ -44,7 +44,7 @@ Sincronização de dados utiliza uma topologia hub- and -spoke para sincronizar 
 
 ## <a name="when-to-use-data-sync"></a>Quando utilizar a sincronização de dados
 
-Sincronização de dados é útil nos casos em que dados tem de ser atualizados em várias bases de dados do Azure SQL ou bases de dados do SQL Server. Seguem-se os casos de utilização principal para sincronização de dados:
+Sincronização de dados é útil nos casos em que dados é necessário manter atualizado em várias bases de dados do Azure SQL ou bases de dados do SQL Server. Seguem-se os casos de utilização principal para sincronização de dados:
 
 -   **Sincronização de dados de híbrida:** com sincronização de dados, pode manter os dados sincronizados entre as bases de dados no local e as bases de dados do Azure SQL Server para permitir que aplicações híbridas. Esta capacidade pode recorrer aos clientes que estiver a considerar a mudança para a nuvem e pretenderem colocar alguns da respetiva aplicação no Azure.
 
@@ -110,7 +110,7 @@ Sincronização de dados utiliza insere, atualizar e eliminar acionadores para c
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Limitações sobre dimensões de serviço e a base de dados
 
-| **Dimensões**                                                      | **Limit**              | **Solução**              |
+| **Dimensões**                                                      | **Limite**              | **Solução**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Número máximo de grupos de sincronização qualquer base de dados pode pertencer a.       | 5                      |                             |
 | Número máximo de pontos finais de um grupo de sincronização único              | 30                     | Criar vários grupos de sincronização |
@@ -138,6 +138,11 @@ Sim. Tem de ter uma conta de base de dados do SQL Server para alojar a base de d
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Pode utilizar a sincronização de dados a sincronização entre o SQL Server no local bases de dados apenas? 
 Não diretamente. Pode sincronizar os entre bases de dados do SQL Server no local indiretamente, no entanto, ao criar uma base de dados do Hub no Azure e, em seguida, adicionar as bases de dados no local ao grupo de sincronização.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Pode utilizar dados de sincronização ao sincronizar entre bases de dados do SQL Server que pertencem a subscrições diferentes?
+Sim. Pode sincronizar entre bases de dados do SQL Server que pertencem a grupos de recursos pertencentes a subscrições diferentes.
+-   Se as subscrições de pertencer ao mesmo inquilino e se tem permissões para todas as subscrições, pode configurar o grupo de sincronização no portal do Azure.
+-   Caso contrário, terá de utilizar o PowerShell para adicionar os membros de sincronização que pertencem a subscrições diferentes.
    
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Posso utilizar a sincronização de dados para dados de seed da minha base de dados de produção para uma base de dados vazio e, em seguida, mantê-las sincronizados? 
 Sim. Crie manualmente o esquema na nova base de dados, processamento de scripts do original. Depois de criar o esquema, adicione as tabelas a um grupo de sincronização para copiar os dados e de as manter sincronizadas.
@@ -147,6 +152,12 @@ Sim. Crie manualmente o esquema na nova base de dados, processamento de scripts 
 Não se recomenda utilizar a sincronização de dados do SQL Server (pré-visualização) para criar uma cópia de segurança dos seus dados. Não é possível fazer cópias de segurança e restaurar para um ponto específico no tempo, porque as sincronizações de sincronização de dados do SQL Server (pré-visualização) não são com a versão. Além disso, a sincronização de dados do SQL Server (pré-visualização) não efetuar cópias de segurança outros objetos SQL, tais como procedimentos armazenados e não o equivalente a uma operação de restauro rapidamente.
 
 Para obter um recomendado técnica de cópia de segurança, consulte [copiar uma base de dados SQL do Azure](sql-database-copy.md).
+
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Sincronização de dados pode sincronizar encriptadas tabelas e colunas?
+
+-   Se uma base de dados utiliza sempre encriptados, pode sincronizar apenas as tabelas e colunas que são *não* encriptados. Não é possível sincronizar colunas encriptadas, porque a sincronização de dados não é possível desencriptar os dados.
+
+-   Se a uma coluna utiliza encriptação ao nível da coluna (CLE), pode sincronizar a coluna, desde que o tamanho de linha é inferior ao tamanho máximo de 24 Mb. Sincronização de dados trata da coluna encriptada pela chave (CLE) como dados binários normais. Para desencriptar os dados em outros membros de sincronização, tem de ter o mesmo certificado.
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>Agrupamento é suportado sincronização de dados SQL?
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6bc2c63e75e9c750da852b77e4486666c3fc8561
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e conformidade Blueprint - os dados de estado de funcionamento HIPAA/HITRUST e AI
 
@@ -79,14 +79,14 @@ A arquitetura dos é composto pelos seguintes componentes:
 ## <a name="roles"></a>Funções
 
 
-O blueprint define duas funções de utilizadores administrativos (operadores) e três funções de utilizador na gestão de hospital e patient cuidado. Uma função de sexto está definida para um auditor avaliar a compatibilidade com a HIPAA e outras normas. Azure baseada em funções controlo de acesso (RBAC) permite precisamente direcionadas para gestão de acesso para cada utilizador da solução através de funções incorporadas e personalizadas. Consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) e [funções incorporadas para controlo de acesso baseado em funções do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) para obter informações detalhadas sobre o RBAC, funções e permissões.
+O blueprint define duas funções de utilizadores administrativos (operadores) e três funções de utilizador na gestão de hospital e patient cuidado. Uma função de sexto está definida para um auditor avaliar a compatibilidade com a HIPAA e outras normas. Azure baseada em funções controlo de acesso (RBAC) permite precisamente direcionadas para gestão de acesso para cada utilizador da solução através de funções incorporadas e personalizadas. Consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) e [funções incorporadas para controlo de acesso baseado em funções do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) para obter informações detalhadas sobre o RBAC, funções e permissões.
 
 ### <a name="site-administrator"></a>Administrador do site
 
 
 O administrador do site é responsável pela subscrição do cliente do Azure. Controlar a implementação geral, mas tem sem acesso a registos patient.
 
--   Predefinição atribuições de funções: [proprietário](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+-   Predefinição atribuições de funções: [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Atribuições de função personalizada: n/d
 
@@ -97,7 +97,7 @@ O administrador do site é responsável pela subscrição do cliente do Azure. C
 O analista de base de dados administra a instância do SQL Server e base de dados.
 Têm sem acesso a registos patient.
 
--   Atribuições de função incorporada: [contribuinte da BD SQL](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor), [Contribuidor do SQL Server](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+-   Atribuições de função incorporada: [contribuinte da BD SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Contribuidor do SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Atribuições de função personalizada: n/d
 
@@ -108,7 +108,7 @@ Têm sem acesso a registos patient.
 
 O scientist dados funciona o serviço Azure Machine Learning. Pode importar, exportar e gerir os dados e executar relatórios. O scientist de dados tem acesso a dados patient, mas não tem privilégios administrativos.
 
--   Atribuições de função incorporada: [contribuinte de conta de armazenamento](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+-   Atribuições de função incorporada: [contribuinte de conta de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Atribuições de função personalizada: n/d
 
@@ -138,7 +138,7 @@ Esta função exige monitorizar o estado de doentes individuais, bem como garant
 
 O auditor avalia a solução de compatibilidade. Têm sem acesso direto à rede.
 
--   Atribuições de função incorporada: [leitor](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+-   Atribuições de função incorporada: [leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Atribuições de função personalizada: n/d
 
@@ -183,7 +183,7 @@ Caroline utiliza serão as predições da solução (LOS) comprimento-de-mantenh
 
 **Mais importantes para si linha Manager--Chris**
 
-*Email: Chris\_CareLineManager*
+*E-mail: Chris\_CareLineManager*
 
 Como o indivíduo diretamente responsável por gerir admissão patient e discharges em Contosoclinic, Chris utiliza serão as predições geradas pela solução LOS para garantir que está disponíveis para fornecer cuidado para patients enquanto estes são permanecendo no pessoal adequado a instalações.
 
@@ -222,7 +222,7 @@ Esta secção fornece detalhes sobre as configurações predefinidas e as medida
 
 -   [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) Deteta potenciais vulnerabilidades que afetam as identidades da organização, configura as respostas automatizadas detetadas ações suspeitas relacionada com as identidades da organização, e investiga incidentes suspeitas e executa uma ação adequada resolvê-los.
 
--   [Azure baseada em funções controlo de acesso (RBAC)](/azure/active-directory/role-based-access-control-configure) permite precisamente direcionadas para gestão de acesso ao Azure. Acesso de subscrição está limitado ao administrador da subscrição e o acesso do Cofre de chaves do Azure é limitado para o administrador do site. As palavras-passe seguras (12 carateres no mínimos com, pelo menos, uma letra em maiúsculas/inferior, o número e o caráter especial) são necessárias.
+-   [Azure baseada em funções controlo de acesso (RBAC)](/azure/role-based-access-control/role-assignments-portal) permite precisamente direcionadas para gestão de acesso ao Azure. Acesso de subscrição está limitado ao administrador da subscrição e o acesso do Cofre de chaves do Azure é limitado para o administrador do site. As palavras-passe seguras (12 carateres no mínimos com, pelo menos, uma letra em maiúsculas/inferior, o número e o caráter especial) são necessárias.
 
 -   Autenticação multifator é suportada quando o parâmetro - enableMFA é ativado durante a implementação.
 
@@ -230,7 +230,7 @@ Esta secção fornece detalhes sobre as configurações predefinidas e as medida
 
 **Funções:**
 
--   A solução utiliza [funções incorporadas](/azure/active-directory/role-based-access-built-in-roles) para gerir o acesso aos recursos.
+-   A solução utiliza [funções incorporadas](/azure/role-based-access-control/built-in-roles) para gerir o acesso aos recursos.
 
 -   Todos os utilizadores são atribuídos a funções incorporadas específicas por predefinição.
 

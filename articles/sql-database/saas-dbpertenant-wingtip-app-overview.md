@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf54c789d766c4bd3d353028e75e34c961470070
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introdução a uma aplicação SaaS multi-inquilino que utiliza o padrão de base de dados por inquilino com a base de dados SQL
 
@@ -24,7 +24,7 @@ Scripts de gestão e código de origem de aplicação estão disponíveis no [Wi
 
 ## <a name="application-architecture"></a>Arquitetura da aplicação
 
-A aplicação Wingtip SaaS utiliza o modelo de base de dados por inquilino. Utiliza conjuntos elásticos SQL para maximizar a eficiência. Para o aprovisionamento e os inquilinos de mapeamento para os seus dados, é utilizada uma base de dados do catálogo. As principais aplicação Wingtip SaaS utiliza um conjunto com três inquilinos de exemplo, para além da base de dados do catálogo. A concluir muitos dos resultados de tutoriais Wingtip SaaS na suplementos para a implementação inicial. Suplementos, como bases de dados analíticos e de gestão de esquema de base de dados em vários locais são introduzidos.
+A aplicação Wingtip SaaS utiliza o modelo de base de dados por inquilino. Utiliza conjuntos elásticos SQL para maximizar a eficiência. Para o aprovisionamento e os inquilinos de mapeamento para os seus dados, é utilizada uma base de dados do catálogo. As principais aplicação Wingtip SaaS utiliza um conjunto com três inquilinos de exemplo, para além da base de dados do catálogo. Os servidores de catálogo e o inquilino foram aprovisionados com aliases DNS. Estes aliases são utilizados para manter uma referência para os recursos de Active Directory utilizada pela aplicação Wingtip. Estes aliases são atualizadas para apontar para recursos de recuperação nos tutoriais de recuperação após desastre. A concluir muitos dos resultados de tutoriais Wingtip SaaS na suplementos para a implementação inicial. Suplementos, como bases de dados analíticos e de gestão de esquema de base de dados em vários locais são introduzidos.
 
 
 ![Arquitetura de SaaS Wingtip](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)

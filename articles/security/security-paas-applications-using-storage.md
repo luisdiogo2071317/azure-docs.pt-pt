@@ -1,12 +1,12 @@
 ---
-title: "Proteger aplicações PaaS, utilizando o armazenamento do Azure | Microsoft Docs"
+title: Proteger aplicações PaaS, utilizando o armazenamento do Azure | Microsoft Docs
 description: " Saiba mais sobre a segurança de armazenamento do Azure melhores práticas para proteger o seu web de PaaS e as aplicações móveis. "
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Proteger o PaaS web e aplicações móveis com o Storage do Azure
 Neste artigo, discutimos a uma coleção de segurança de armazenamento do Azure melhores práticas para proteger o seu web de PaaS e as aplicações móveis. Estas melhores práticas são derivadas da nossa experiência com o Azure e as experiências dos clientes, como por si.
@@ -75,7 +75,7 @@ Para obter mais informações, consulte [perguntas mais frequentes sobre geridos
 
 Anteriormente discutimos utilizando a assinatura de acesso partilhado (SAS) para conceder acesso limitado a objetos da sua conta do storage para outros clientes, sem a chave de conta de armazenamento de conta a exposição. Por vezes, os riscos associados uma operação específica em relação a sua conta do storage suplantam as vantagens de SAS. Por vezes, é mais simples gerir o acesso de outras formas.
 
-Outra forma de gerir o acesso é utilizar [controlo de acesso em funções do Azure](../active-directory/role-based-access-control-what-is.md) (RBAC). Utilizar o RBAC, foco no dar aos funcionários as permissões exatas que necessitam, com base na necessidade de conhecer e princípios de segurança do menor privilégio. Demasiados permissões podem expor uma conta para os atacantes. Permissões insuficientes significa que os funcionários não é possível obter o trabalho feito de forma eficiente. RBAC Ajuda a resolver este problema, oferecendo gestão de acesso detalhada para o Azure. Este é imperativo para as organizações que pretendem aplicar políticas de segurança para acesso a dados.
+Outra forma de gerir o acesso é utilizar [controlo de acesso em funções do Azure](../role-based-access-control/overview.md) (RBAC). Utilizar o RBAC, foco no dar aos funcionários as permissões exatas que necessitam, com base na necessidade de conhecer e princípios de segurança do menor privilégio. Demasiados permissões podem expor uma conta para os atacantes. Permissões insuficientes significa que os funcionários não é possível obter o trabalho feito de forma eficiente. RBAC Ajuda a resolver este problema, oferecendo gestão de acesso detalhada para o Azure. Este é imperativo para as organizações que pretendem aplicar políticas de segurança para acesso a dados.
 
 Pode tirar partido das funções incorporadas do RBAC do Azure para atribuir os privilégios aos utilizadores. Considere a utilização de contribuinte de conta de armazenamento para os operadores da nuvem que necessitam de gerir contas de armazenamento e a função de contribuinte de conta de armazenamento clássico para gerir contas de armazenamento clássicas. Para os operadores da nuvem que necessitam de gerir VMs, mas não o armazenamento de rede ou conta virtual ao qual estão ligados, considere a adicioná-los para a função de contribuinte de Máquina Virtual.
 
@@ -83,8 +83,8 @@ As organizações que não a impor controlo de acesso de dados ao tirar partido 
 
 Para saber mais sobre RBAC, consulte:
 
-- [Controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md)
-- [Funções incorporadas para controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-built-in-roles.md)
+- [Controlo de acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md)
+- [Funções incorporadas para controlo de acesso baseado em funções do Azure](../role-based-access-control/built-in-roles.md)
 - [Guia de segurança de armazenamento do Azure](../storage/common/storage-security-guide.md) para detalhes sobre como proteger a sua conta de armazenamento com o RBAC
 
 ## <a name="storage-encryption"></a>Encriptação do armazenamento
@@ -104,7 +104,7 @@ Consulte [encriptação de disco do Azure para o Windows e as VMs de Linux IaaS]
 ### <a name="storage-service-encryption"></a>Encriptação do Serviço de Armazenamento
 Quando [encriptação do serviço de armazenamento](../storage/storage-service-encryption.md) para armazenamento de ficheiros está ativado, os dados são encriptados automaticamente utilizando a encriptação AES 256. A Microsoft lida com todos os encriptação, desencriptação e gestão de chaves. Esta funcionalidade está disponível para tipos de redundância do LRS e GRS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este artigo introduzidos uma coleção de segurança de armazenamento do Azure melhores práticas para proteger o seu web de PaaS e as aplicações móveis. Para obter mais informações sobre como proteger as suas implementações PaaS, consulte:
 
 - [Proteger implementações PaaS](security-paas-deployments.md)

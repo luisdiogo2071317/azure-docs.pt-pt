@@ -1,11 +1,11 @@
 ---
-title: "Alterar as definições de cluster do Service Fabric do Azure | Microsoft Docs"
-description: "Este artigo descreve as definições de recursos de infraestrutura e as políticas de atualização de recursos de infraestrutura que pode personalizar."
+title: Alterar as definições de cluster do Service Fabric do Azure | Microsoft Docs
+description: Este artigo descreve as definições de recursos de infraestrutura e as políticas de atualização de recursos de infraestrutura que pode personalizar.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
-ms.author: chackdan
-ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: aljo
+ms.openlocfilehash: 7d32ebd54d501a2eb5d6e353d38834546200c813
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as definições de cluster do Service Fabric e política de atualização do Fabric
 Este documento indica como personalizar as várias definições de recursos de infraestrutura e os recursos de infraestrutura atualizar a política para o cluster do Service Fabric. Pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
@@ -30,7 +30,7 @@ Este documento indica como personalizar as várias definições de recursos de i
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personalizar as definições de cluster através de modelos do Resource Manager
 Os passos abaixo mostram como adicionar uma nova definição *MaxDiskQuotaInMB* para o *diagnóstico* secção.
 
-1. Aceda a https://resources.azure.com
+1. Ir para https://resources.azure.com
 2. Navegue até à sua subscrição, expandindo **subscrições** -> **\<a subscrição >** -> **resourceGroups**  ->   **\<o grupo de recursos >** -> **fornecedores** -> **Microsoft.ServiceFabric**  ->  **clusters** -> **\<o nome do Cluster >**
 3. No canto superior direito, selecione **leitura/escrita.**
 4. Selecione **editar** e atualizar o `fabricSettings` elemento JSON e adicione um novo elemento de:
@@ -60,7 +60,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 | DiskFullSafetySpaceInMB |Int, a predefinição é 1024 | Dinâmica |Espaço em disco restante em MB para proteger contra a utilização por DCA. |
 | ApplicationLogsFormatVersion |Int, a predefinição é 0 | Dinâmica |Formato de registo de versão para a aplicação. Os valores suportados são 0 e 1. Versão 1 inclui mais campos no registo de eventos ETW à versão 0. |
 | ClusterId |Cadeia | Dinâmica |O id exclusivo do cluster. Este é gerado quando o cluster for criado. |
-| EnableTelemetry |Booleana, a predefinição é verdadeiro | Dinâmica |Isto vai ativar ou desativar a telemetria. |
+| Ativar telemetria |Booleana, a predefinição é verdadeiro | Dinâmica |Isto vai ativar ou desativar a telemetria. |
 | EnableCircularTraceSession |Booleana, a predefinição é false | Estático |Sinalizador indica se devem ser utilizadas sessões de rastreio circular. |
 
 ### <a name="section-name-traceetw"></a>Nome de secção: Rastreio/Etw
@@ -230,7 +230,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |MaxNamingServiceHealthReports | Int, a predefinição é 10 |Dinâmica|O número máximo de operações lentas que armazenam Naming service relatórios mau estado de funcionamento de uma só vez. Se for 0; todas as operações lentas são enviadas. |
 | MaxMessageSize |Int, a predefinição é 4\*1024\*1024 |Estático|O tamanho máximo de mensagem para a comunicação de nó de cliente ao utilizar a atribuição de nomes. LINHA ataques alleviation; valor predefinido é 4MB. |
 | MaxFileOperationTimeout |Tempo em segundos, a predefinição é 30 |Dinâmica|Especifique timespan em segundos. Tempo limite máximo permitido para a operação de serviço de arquivo de ficheiros. Especificar o tempo limite de pedidos serão rejeitados. |
-| MaxOperationTimeout |Tempo em segundos, a predefinição é 600 |Dinâmica|Especifique timespan em segundos. Tempo limite máximo permitido para operações de cliente. Especificar o tempo limite de pedidos serão rejeitados. |
+| Maxoperationtimeout da |Tempo em segundos, a predefinição é 600 |Dinâmica|Especifique timespan em segundos. Tempo limite máximo permitido para operações de cliente. Especificar o tempo limite de pedidos serão rejeitados. |
 | MaxClientConnections |Int, a predefinição é 1000 |Dinâmica|O máximo permitido de número de ligações de cliente por gateway. |
 | ServiceNotificationTimeout |Tempo em segundos, a predefinição é 30 |Dinâmica|Especifique timespan em segundos. O tempo limite utilizado quando a entrega de notificações de serviço para o cliente. |
 | MaxOutstandingNotificationsPerClient |Int, a predefinição é 1000 |Dinâmica|O número máximo de pendentes notificações antes de um registo de cliente é forçado a fechar o gateway. |
@@ -252,7 +252,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |RunAsAccountType|cadeia, a predefinição é "" |Dinâmica|Indica o tipo de conta RunAs. Isto é necessário para os valores válidos de secção RunAs são "Utilizador_local/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|cadeia, a predefinição é "" |Dinâmica|Indica a palavra-passe da conta de RunAs. Isto apenas é necessário para o tipo de conta "DomainUser". |
 
-### <a name="section-name-runashttpgateway"></a>Section Name: RunAs_HttpGateway
+### <a name="section-name-runashttpgateway"></a>Secção nome: RunAs_HttpGateway
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
 | RunAsAccountName |cadeia, a predefinição é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para a conta "DomainUser" ou "ManagedServiceAccount" tipo. Os valores válidos são "domínio \ utilizador" ou "user@domain". |
@@ -299,10 +299,10 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |GatewayX509CertificateFindValue | cadeia, a predefinição é "" |Dinâmica| Valor de filtro de pesquisa utilizado para localizar o certificado de gateway de aplicação de http. Este certificado é configurado no ponto final de https e também pode ser utilizado para verificar a identidade da aplicação se for necessário pelos serviços. FindValue é consultado primeiro; e se que não existe FindValueSecondary é pesquisado. |
 |GatewayX509CertificateFindValueSecondary | cadeia, a predefinição é "" |Dinâmica|Valor de filtro de pesquisa utilizado para localizar o certificado de gateway de aplicação de http. Este certificado é configurado no ponto final de https e também pode ser utilizado para verificar a identidade da aplicação se for necessário pelos serviços. FindValue é consultado primeiro; e se que não existe FindValueSecondary é pesquisado.|
 |HttpRequestConnectTimeout|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(5)|Dinâmica|Especifique timespan em segundos.  Fornece o tempo limite de ligar para os pedidos de http que está a ser enviados do gateway de aplicação de http.  |
-|RemoveServiceResponseHeaders|cadeia, a predefinição é L "data; Servidor"|Estático|Vírgula semiestruturados / separados por vírgulas lista de cabeçalhos de resposta será removido da resposta do serviço; antes do reencaminhamento-lo para o cliente. Se isto estiver definido como uma cadeia vazia; passar todos os cabeçalhos devolvidos pelo serviço como-é. i.e Não substituir a data e o servidor |
+|RemoveServiceResponseHeaders|cadeia, a predefinição é L "data; Servidor"|Estático|Vírgula semiestruturados / separados por vírgulas lista de cabeçalhos de resposta será removido da resposta do serviço; antes do reencaminhamento-lo para o cliente. Se isto estiver definido como uma cadeia vazia; passar todos os cabeçalhos devolvidos pelo serviço como-é. revertidos Não substituir a data e o servidor |
 |ApplicationCertificateValidationPolicy|cadeia, a predefinição é L "None"|Estático| ApplicationCertificateValidationPolicy: Nenhum: não validar o certificado de servidor; concluída com êxito o pedido. ServiceCertificateThumbprints: Consulte a configuração ServiceCertificateThumbprints para obter a lista de valores separados por vírgulas de thumbprints dos certificados remotos que pode confiar do proxy inverso. ServiceCommonNameAndIssuer: Consulte a configuração ServiceCommonNameAndIssuer para o thumbprint de nome e o emissor de requerente dos certificados remotos que pode confiar do proxy inverso. |
 |ServiceCertificateThumbprints|cadeia, a predefinição é L""|Dinâmica| |
-|CrlCheckingFlag|uint, a predefinição é 0x40000000 |Dinâmica| Sinalizadores de validação da cadeia de certificados de aplicações/serviços; Por exemplo, 0x10000000 de verificação de CRL CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY definição a 0 Desativa a CRL a verificar se a obter uma lista completa de valores suportados é documentada dwFlags de CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078 (v=vs.85).aspx  |
+|CrlCheckingFlag|uint, a predefinição é 0x40000000 |Dinâmica| Sinalizadores de validação da cadeia de certificados de aplicações/serviços; Por exemplo, 0x10000000 de verificação de CRL CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY definição a 0 Desativa a CRL a verificar se a obter uma lista completa de valores suportados é documentada dwFlags de CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |IgnoreCrlOfflineError|booleana, a predefinição é verdadeiro|Dinâmica|Indica se deve ignorar erro offline de CRL para a verificação de certificado de aplicações/serviços. |
 |SecureOnlyMode|booleana, a predefinição é FALSE|Dinâmica| SecureOnlyMode: true: Proxy inverso só irá reencaminhar para os serviços que publicar pontos finais segurados. FALSO: Proxy inverso pode reencaminhar pedidos para os pontos finais secure/não segura.  |
 |ForwardClientCertificate|booleana, a predefinição é FALSE|Dinâmica| |
@@ -337,7 +337,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |MaxPercentDeltaUnhealthyNodes|Int, a predefinição é 10|Estático|Política de avaliação do Estado de funcionamento de atualização do cluster: percentagem de máxima de nós de mau estado de funcionamento de diferenças permitido para o cluster ser bom estado de funcionamento |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|Int, a predefinição é 15|Estático|Política de avaliação do Estado de funcionamento de atualização do cluster: percentagem de máxima de diferenças de nós mau estado de funcionamento de um domínio de atualização permitido para o cluster ser bom estado de funcionamento |
 
-### <a name="section-name-faultanalysisservice"></a>Section Name: FaultAnalysisService
+### <a name="section-name-faultanalysisservice"></a>Secção nome: FaultAnalysisService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
 | TargetReplicaSetSize |Int, a predefinição é 0 |Estático|NOT_PLATFORM_UNIX_START TargetReplicaSetSize para FaultAnalysisService. |
@@ -451,7 +451,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |ServerCertThumbprints|cadeia, a predefinição é L""|Dinâmica|Thumbprints de certificados de servidor utilizados pelo cluster para comunicar com os clientes; os clientes utilizam isto para autenticar o cluster. É uma lista de nomes de valores separados por vírgulas. |
 |ClientCertThumbprints|cadeia, a predefinição é L""|Dinâmica|Thumbprints de certificados utilizados por clientes para comunicar com o cluster cluster utiliza este autorizar a ligação de entrada. É uma lista de nomes de valores separados por vírgulas. |
 |AdminClientCertThumbprints|cadeia, a predefinição é L""|Dinâmica|Thumbprints de certificados utilizados por clientes numa função de administrador. É uma lista de nomes de valores separados por vírgulas. |
-|CrlCheckingFlag|uint, a predefinição é 0x40000000|Dinâmica|Sinalizador de validação da cadeia do certificado predefinida; pode ser substituído pelo sinalizador específica do componente; Por exemplo, Federação/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ APENAS a definição de 0 desativa a verificação de CRL completa lista de valores suportados é documentada dwFlags de CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078 (v=vs.85).aspx |
+|CrlCheckingFlag|uint, a predefinição é 0x40000000|Dinâmica|Sinalizador de validação da cadeia do certificado predefinida; pode ser substituído pelo sinalizador específica do componente; Por exemplo, Federação/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ Definição apenas para 0 desativa CRL a verificar se a lista completa dos valores suportados é documentada dwFlags de CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |IgnoreCrlOfflineError|booleana, a predefinição é FALSE|Dinâmica|Se pretende ignorar o erro offline da CRL ao lado do servidor verifica certificados de cliente recebidos |
 |IgnoreSvrCrlOfflineError|booleana, a predefinição é verdadeiro|Dinâmica|Se pretende ignorar o erro offline CRL aquando do lado do cliente verifica os certificados de servidor de receção; predefinido como true. Ataques de certificados de servidor revogados requerem comprometer DNS; mais difícil que com certificados de cliente revogados. |
 |CrlDisablePeriod|TimeSpan, a predefinição é Common::TimeSpan::FromMinutes(15)|Dinâmica|Especifique timespan em segundos. Quanto a verificação CRL está desativada para um determinado certificado depois de encontrar erro offline; Se o erro offline CRL pode ser ignorado. |
@@ -731,7 +731,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |InfrastructureTaskHealthCheckRetryTimeout | Tempo em segundos, a predefinição é 60 |Dinâmica|Especifique timespan em segundos. A quantidade de tempo gaste repetir falhas de verificação de estado de funcionamento durante o processamento pós-cópia de uma tarefa de infraestrutura. Observar uma verificação de estado de funcionamento transmitido irá repor este temporizador. |
 |ImageBuilderTimeoutBuffer |Tempo em segundos, a predefinição é 3 |Dinâmica|Especifique timespan em segundos. A quantidade de tempo para permitir a erros de tempo limite específico de construtor de imagens devolver ao cliente. Se esta memória intermédia é demasiado pequena; em seguida, o cliente exceder o tempo limite antes do servidor e obtém um erro de tempo limite genérico. |
 |MinOperationTimeout | Tempo em segundos, a predefinição é 60 |Dinâmica|Especifique timespan em segundos. O mínimo tempo limite global para operações em ClusterManager de processamento internamente. |
-|MaxOperationTimeout |Tempo em segundos, a predefinição é MaxValue |Dinâmica| Especifique timespan em segundos. O máximo tempo limite global para operações em ClusterManager de processamento internamente. |
+|Maxoperationtimeout da |Tempo em segundos, a predefinição é MaxValue |Dinâmica| Especifique timespan em segundos. O máximo tempo limite global para operações em ClusterManager de processamento internamente. |
 |MaxTimeoutRetryBuffer | Tempo em segundos, a predefinição é 600 |Dinâmica|Especifique timespan em segundos. O tempo limite da operação máximo ao repetir internamente devido a tempos limite é <Original Time out>  +  <MaxTimeoutRetryBuffer>. Limite de tempo adicional é adicionada em incrementos de MinOperationTimeout. |
 |MaxCommunicationTimeout |Tempo em segundos, a predefinição é 600 |Dinâmica|Especifique timespan em segundos. O tempo limite máximo para comunicação interna entre ClusterManager e outro sistema de serviços (ou seja, Serviço de atribuição de nomes; O Gestor de ativação pós-falha e etc.). Este tempo limite deve ser inferior a maxoperationtimeout da global (uma vez que podem existir vários comunicações entre componentes do sistema para cada operação de cliente). |
 |MaxDataMigrationTimeout |Tempo em segundos, a predefinição é 600 |Dinâmica|Especifique timespan em segundos. O tempo limite máximo para operações de recuperação para migração de dados após uma atualização do Fabric tiver sido efetuada. |
@@ -748,7 +748,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 | --- | --- | --- | --- |
 |PropertyGroup|KeyBoolValueMap, a predefinição é nenhum|Dinâmica|Determina o conjunto de métricas que devem ser utilizadas para desfragmentação e não para o balanceamento de carga. |
 
-### <a name="section-name-defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>Section Name: DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
+### <a name="section-name-defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>Secção nome: DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
 | **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, a predefinição é nenhum|Dinâmica|Determina o número de nós livres que são necessárias para considerar cluster defragmented, especificando ambos por cento no intervalo [0.0-1.0) ou número de nós vazias como número de > = 1.0 |

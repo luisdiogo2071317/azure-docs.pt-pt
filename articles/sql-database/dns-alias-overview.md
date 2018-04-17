@@ -1,6 +1,6 @@
 ---
 title: Alias de DNS para a SQL Database do Azure | Microsoft Docs
-description: "As aplicações podem ligar a um alias para o nome do servidor da SQL Database do Azure. Entretanto, pode alterar a base de dados do SQL Server o alias aponta para em qualquer altura, para facilitar a testar e assim sucessivamente."
+description: As aplicações podem ligar a um alias para o nome do servidor da SQL Database do Azure. Entretanto, pode alterar a base de dados do SQL Server o alias aponta para em qualquer altura, para facilitar a testar e assim sucessivamente.
 services: sql-database
 author: MightyPen
 manager: craigg
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi;ayolubek
 ms.author: dmalik
-ms.openlocfilehash: c2a2bce3b385bd5700bf327f283289cf4d94b057
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1793f44026db55d17fabde5fb92bc46795109418
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias de DNS para a SQL Database do Azure
 
@@ -63,7 +63,7 @@ As seguintes propriedades de aplicam a cada alias DNS para o servidor de base de
 - *Não vinculado a qualquer região:* aliases DNS não estiverem vinculadas a uma região. Nenhum alias DNS podem ser atualizadas para fazer referência a um servidor de SQL Database do Azure que reside em qualquer região geográfica.
     - No entanto, ao atualizar um alias para fazer referência a outro servidor, ambos os servidores tem de existir o mesmo Azure *subscrição*.
 
-- *Permissões:* para gerir um alias de DNS, o utilizador tem de ter *contribuinte de servidor* permissões, ou superior. Para obter mais informações, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../active-directory/role-based-access-control-what-is.md).
+- *Permissões:* para gerir um alias de DNS, o utilizador tem de ter *contribuinte de servidor* permissões, ou superior. Para obter mais informações, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md).
 
 
 

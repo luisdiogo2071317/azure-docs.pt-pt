@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - sistema e informações de integridade"
-description: "Automatização de aplicações FedRAMP Web - sistema e informações de integridade"
+title: Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - sistema e informações de integridade
+description: Automatização de aplicações FedRAMP Web - sistema e informações de integridade
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 0eca3c82aea287f6582bd56574512dce5e8e86c7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-information-integrity-si"></a>Sistema e informações de integridade (TAMA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de integridade do sistema e informações de endereços do objetivo, âmbito, funções, responsabilidades, compromisso de gestão, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação do sistema e política de integridade de informações e sistema associado e controlos de integridade de informações; analisa e atualiza a política de integridade de sistema e informações atual [atribuição: frequência definida de organização]; e procedimentos de integridade de sistema e informações [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,11 +45,11 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 2.a** organização identifica, relatórios e corrige falhas de sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução OMS automatização e controlo para controlar o estado das atualizações para as máquinas de virtuais do Windows implementadas nesta arquitetura. A partir do OMS dashboard, o mosaico de gestão de atualizações apresenta o estado de remediação de falha de todos os servidores de Windows implementados. |
+| **Cliente** | Este blueprint implementa a solução de automatização e controlo para controlar o estado das atualizações para as máquinas de virtuais do Windows implementadas nesta arquitetura. A partir do dashboard, o mosaico de gestão de atualizações apresenta o estado de remediação de falha de todos os servidores de Windows implementados. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 2.b** organização os testes de atualizações de software e firmware relacionados com a remediação de falha de eficácia e potenciais efeitos secundários antes da instalação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,11 +73,11 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 2.c** organização instala atualizações de software e firmware relevantes de segurança na [atribuição: organização definidos pelo período de tempo] da versão das atualizações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Máquinas virtuais do Windows implementadas por esta blueprint estão configuradas por predefinição para receber as atualizações automáticas do serviço de atualização do Windows. Esta solução também implementa a solução de automatização do OMS & controlo através do qual as implementações de atualização podem ser criadas para implementar patches nos servidores do Windows quando for necessário. |
+| **Cliente** | Máquinas virtuais do Windows implementadas por esta blueprint estão configuradas por predefinição para receber as atualizações automáticas do serviço de atualização do Windows. Esta solução também implementa a solução de automatização e controlo através do qual as implementações de atualização podem ser criadas para implementar patches nos servidores do Windows quando for necessário. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 2.d** organização incorpora remediação falha o processo de gestão de configuração organizacional.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,11 +101,11 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-2 (1)** organização gere centralmente o processo de remediação de falha.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução OMS automatização e controlo para controlar o estado das atualizações para as máquinas de virtuais do Windows implementadas nesta arquitetura. A partir do OMS dashboard, o mosaico de gestão de atualizações apresenta o estado de remediação de falha de todos os servidores de Windows implementados. Implementações de atualização podem ser criadas para implementar patches nos servidores do Windows quando for necessário. |
+| **Cliente** | Este blueprint implementa a solução de automatização e controlo para controlar o estado das atualizações para as máquinas de virtuais do Windows implementadas nesta arquitetura. A partir do dashboard, o mosaico de gestão de atualizações apresenta o estado de remediação de falha de todos os servidores de Windows implementados. Implementações de atualização podem ser criadas para implementar patches nos servidores do Windows quando for necessário. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -115,11 +115,11 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-2 (2)** organização emprega mecanismos automatizados [atribuição: frequência definida de organização] para determinar o estado dos componentes de sistema de informações em relação a remediação de falha.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução OMS automatização e controlo para controlar o estado das atualizações para as máquinas de virtuais do Windows implementadas nesta arquitetura. Em cada computador Windows gerido, é feita uma análise duas vezes por dia. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o estado foi alterado e, se for esse o caso, é iniciada uma análise de conformidade. |
+| **Cliente** | Este blueprint implementa a solução de automatização e controlo para controlar o estado das atualizações para as máquinas de virtuais do Windows implementadas nesta arquitetura. Em cada computador Windows gerido, é feita uma análise duas vezes por dia. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o estado foi alterado e, se for esse o caso, é iniciada uma análise de conformidade. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-2 (3) .a** organização mede o tempo entre a identificação de falha e a remediação de falha.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-2 (3) .b** organização estabelece [atribuição: benchmarks definido de organização] para colocar as ações corretivas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 3.a** a organização utiliza mecanismos de proteção de código malicioso em informações sistema entrada e saída pontos para detetar e eradicate código malicioso.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 3.b** mecanismos de proteção de código malicioso de atualizações de organização sempre que os novos lançamentos estão disponíveis em conformidade com a política de gestão de configuração organizacional e procedimentos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 3.c** organização configura mecanismos de proteção de código malicioso para efetuar verificações periódicas do sistema de informações [atribuição: frequência definida de organização] e análises em tempo real de ficheiros a partir de origens externas em [seleção (um ou mais informações); ponto final; pontos de entrada/saída de rede] como os ficheiros são transferidos, abriram, ou executado de acordo com a política de segurança organizacional; e [seleção (um ou mais): bloquear código malicioso; colocar em quarentena código malicioso; alerta de envio para o administrador; [Atribuição: ação definida por organização]] em resposta a deteção de código malicioso.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 3.d** organização endereços a receção de falsos positivos durante a deteção de código malicioso e eradication e o impacto potencial resultante na disponibilidade do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -213,11 +213,11 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-3 (1)** organização gere centralmente mecanismos de proteção de código malicioso.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. Azure OMS proporciona uma capacidade centralizada para rever o estado atual da solução antimalware. |
+| **Cliente** | Este blueprint implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. O Azure oferece uma capacidade centralizada para rever o estado atual da solução antimalware. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-3 (2)** o sistema de informações atualiza automaticamente os mecanismos de proteção de código malicioso.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-3 (7)** o sistema de informações implementa mecanismos de deteção baseada em nonsignature código malicioso.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -255,11 +255,11 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 4.a** organização monitoriza o sistema de informações para detetar ataques e indicadores de potenciais ataques em conformidade com [atribuição: definida organização monitorizar objetivos]; e locais não autorizados, rede e remoto ligações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a análise de registos e a solução de auditoria e segurança do OMS. Esta solução fornece uma vista abrangente de postura de segurança, ataques e indicadores de potenciais ataques. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções de OMS implementadas. |
+| **Cliente** | Este blueprint implementa a análise de registos e a solução de auditoria e segurança. Esta solução fornece uma vista abrangente de postura de segurança, ataques e indicadores de potenciais ataques. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções de gestão implementados. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -269,11 +269,11 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 4.b** organização identifica utilização não autorizada do sistema de informações através de [atribuição: métodos e técnicas definido de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. O domínio de identidade e acesso fornece um dashboard com uma descrição geral das informações identidade do Estado do sistema, incluindo o número de tentativas falhadas para iniciar sessão e o número atual de contas que é registado no. As informações disponíveis neste dashboard podem ajudar a identificação de atividade suspeita potencial. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança. O domínio de identidade e acesso fornece um dashboard com uma descrição geral das informações identidade do Estado do sistema, incluindo o número de tentativas falhadas para iniciar sessão e o número atual de contas que é registado no. As informações disponíveis neste dashboard podem ajudar a identificação de atividade suspeita potencial. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -283,11 +283,11 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 4.c** organização implementa dispositivos monitorização estrategicamente no sistema informações para recolher informações essenciais determinado de organização; e nas localizações ad hoc no sistema controlar a tipos específicos de transações de interesse para a organização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a análise de registos e a solução de auditoria e segurança do OMS. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções do OMS implementadas, incluindo aprofundadas sobre o sistema de operativo VM dados de monitorização. |
+| **Cliente** | Este blueprint implementa a análise de registos e a solução de auditoria e segurança. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções de gestão implementados, incluindo aprofundadas sobre o sistema de operativo VM dados de monitorização. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 4.d** a organização protege as informações obtidas a partir da monitorização de intrusões ferramentas a partir do acesso não autorizado, alteração e eliminação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4.e** A organização heightens o nível de atividade de monitorização, sempre que exista uma indicação de maior risco para operações organizacionais e recursos, pessoas, outras organizações ou Nation com base nas informações de imposição da lei, de sistema de informações informações de Intelligence ou outras origens credível de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 4.f** organização obtém opinião legal, relativamente à sistema informações monitorização de atividades de acordo com as federais leis, as ordens executivo, diretivas, políticas ou regulamentos aplicáveis.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 4.g** organização fornece [atribuição: informações de monitorização de sistema de informações definidas pela organização] para [atribuição: técnico definido pela organização ou funções] [seleção (um ou mais): conforme necessário; [Atribuição: frequência definida de organização]].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-4 (1)** organização estabelece ligação e configura as ferramentas de deteção de intrusões individuais para um sistema de deteção de intrusão de todo o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -367,11 +367,11 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-4 (2)** organização emprega automatizadas ferramentas para suportar quase em tempo real análise de eventos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a análise de registos e várias soluções OMS, incluindo a solução de auditoria e segurança. Análise de registos fornece quase em tempo real análise de eventos em recursos implementados. Soluções OMS fornece uma vista abrangente de postura de segurança em vários domínios de solução. OMS fornece informações sobre o estado de segurança de recursos implementados utilizando os dados disponíveis em soluções de OMS implementadas. OMS pode ser configurado para gerar alertas com base nos critérios definidos. |
+| **Cliente** | Este blueprint implementa a análise de registos e várias soluções de gestão, incluindo a solução de auditoria e segurança. Análise de registos fornece quase em tempo real análise de eventos em recursos implementados. Soluções de gestão proporciona uma vista abrangente do postura de segurança em vários domínios de solução. Análise de registos fornece informações sobre o estado de segurança de recursos implementados utilizando os dados disponíveis em soluções de gestão implementados. Análise de registos pode ser configurado para gerar alertas com base nos critérios definidos. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-4 (4)** o sistema de informações monitoriza o tráfego de entrada e saída comunicações [atribuição: frequência definida de organização] para atividades invulgares ou não autorizadas ou condições.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -395,11 +395,11 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-4 (5)** os alertas de sistema de informações [atribuição: técnico definido pela organização ou funções] quando ocorrem as indicações seguintes de comprometimento ou potencial comprometimento: [atribuição: indicadores de comprometimento definido de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa várias soluções OMS, incluindo a solução de auditoria e segurança. Análise de registos fornece quase em tempo real análise de eventos em recursos implementados. Soluções OMS fornece uma vista abrangente de postura de segurança em vários domínios de solução. OMS pode ser configurado para gerar alertas com base nos critérios definidos. |
+| **Cliente** | Este blueprint implementa várias soluções de gestão, incluindo a solução de auditoria e segurança. Análise de registos fornece quase em tempo real análise de eventos em recursos implementados. Soluções de gestão proporciona uma vista abrangente do postura de segurança em vários domínios de solução. Análise de registos pode ser configurado para gerar alertas com base nos critérios definidos. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-4 (11)** organização analisa o tráfego de comunicações de saída no limite externo do sistema de informações e selecionado [atribuição: interior definido de organização pontos no sistema (por exemplo, sub-redes, subsistemas)] para Deteção de anomalias.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-4 (14)** a organização utiliza um sistema de deteção de intrusões sem fios para identificar dispositivos sem fios rogue e para detetar ataques tenta e potenciais compromissos por danos no sistema de informações.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -437,11 +437,11 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-4 (16)** organização está correlacionada com informações a partir de ferramentas, empregue se encontram em todo o sistema de informações de monitorização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a análise de registos e várias soluções OMS, incluindo a solução de auditoria e segurança. OMS fornece informações sobre o estado de segurança de recursos implementados utilizando os dados disponíveis em soluções de OMS implementadas. |
+| **Cliente** | Este blueprint implementa a análise de registos e várias soluções de gestão, incluindo a solução de auditoria e segurança. Análise de registos fornece informações sobre o estado de segurança de recursos implementados utilizando os dados disponíveis em soluções de gestão implementados. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-4 (18)** a organização analisa o tráfego de comunicações de saída no limite externo do sistema de informações (ou seja, perímetro system) e em [atribuição: interior definido de organização pontos no sistema (por exemplo, subsistemas, sub-redes)] para detetar exfiltration covert de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-4 (19)** implementa a organização [atribuição: monitorização adicional definida para organização] de indivíduos que tenham sido identificados pelo [atribuição: origens definido de organização] como está a representar um maior nível de risco.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -473,13 +473,13 @@ ms.lasthandoff: 02/11/2018
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-si-4-20"></a>NIST 800-53 Control SI-4 (20)
+ ### <a name="nist-800-53-control-si-4-20"></a>TAMA do controlo NIST 800-53-4 (20)
 
 #### <a name="information-system-monitoring--privileged-users"></a>Monitorização de sistema de informações | Utilizadores com privilégios
 
 **TAMA-4 (20)** implementa a organização [atribuição: monitorização adicional definida para organização] de utilizadores privilegiados.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-4 (22)** o sistema de informações Deteta os serviços de rede que não autorizados ou não aprovados por [atribuição: processos de autorização ou aprovação definido para organização] e [seleção (um ou mais): auditorias; alertas [atribuição: técnico definido pela organização ou funções]].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -507,11 +507,11 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-4 (23)** implementa a organização [atribuição: definido de organização anfitrião mecanismos baseados na monitorização] em [atribuição: componentes do sistema de informações definidas pela organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint recolhe dados de monitorização de recursos implementados, incluindo dados de capacidades de monitorização baseada no anfitrião. O Microsoft Monitoring Agent está instalado em todas as máquinas virtuais do Windows para recolher dados de monitorização utilizados pela análise de registos e outras soluções OMS. |
+| **Cliente** | Este blueprint recolhe dados de monitorização de recursos implementados, incluindo dados de capacidades de monitorização baseada no anfitrião. O Microsoft Monitoring Agent está instalado em todas as máquinas virtuais do Windows para recolher dados de monitorização utilizados por outras soluções de gestão e de análise de registos. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-4 (24)** o sistema de informações Deteta, recolhe, distribui e utiliza indicadores de comprometimento.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 5.a** a organização recebe alertas de segurança do sistema de informações, advisories e as diretivas de [atribuição: organizações externas definido de organização] numa base contínua.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 5.b** organização gera alertas de segurança interna, advisories e diretivas como considerar necessário.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 5.c** organização disseminates alertas de segurança, advisories e diretivas para: [seleção (um ou mais): [atribuição: técnico definido pela organização ou funções]; [Atribuição: elementos definido de organização dentro da organização]; [Atribuição: organizações externas definido de organização]].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 5.d** organização implementa as diretivas de segurança em conformidade com estabelecida de tempo de fotogramas ou notifica a organização emissora do grau de não conformidade.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-5 (1)** organização emprega automatizados mecanismos para tornar segurança alerta e advisory informações disponíveis sobre a organização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 6.a** o sistema de informações verifica o funcionamento correto do [atribuição: funções de segurança definido para organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-6. b** o sistema de informações executa esta verificação [seleção (um ou mais): [atribuição: Estados de transição de organização definidos pelo sistema]; após o comando por utilizador com privilégios adequados; [Atribuição: frequência definida de organização]].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-6. c** notifica o sistema de informações [atribuição: técnico definido pela organização ou funções] dos testes de verificação de segurança falhada.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 6.d** o sistema de informações [seleção (um ou mais): encerra o sistema de informações; reiniciar o sistema de informações; [Atribuição: definido de organização alternativas ações]] Quando são detetadas anomalias.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 7** a organização utiliza as ferramentas de verificação de integridade para detetar as alterações não autorizadas a [atribuição: software definida pelo organização, de firmware e informações].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-7 (1)** o sistema de informações executa uma verificação de integridade de [atribuição: software definida pelo organização, de firmware e informações] [seleção (um ou mais): no arranque; em [atribuição: os Estados de transição definido pela organização ou eventos de segurança relevantes]; [Atribuição: frequência definida de organização]].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-7 (2)** organização emprega automatizadas ferramentas que fornecem a notificação para o [atribuição: técnico definido pela organização ou funções] após deteção discrepâncias durante a verificação de integridade.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-7 (5)** o sistema de informações automaticamente [seleção (um ou mais): encerra o sistema de informações; reiniciar o sistema de informações; implementa [atribuição: as proteções de segurança definido para organização]] quando são violações de integridade detetado.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-7 (7)** organização incorpora a deteção não autorizado [atribuição: definido de organização alterações relevantes de segurança para o sistema de informações] para a capacidade de resposta a incidentes organizacional.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-7 (14)** organização proíbe a utilização de código binary ou o executável de máquina de origens com limitada ou nenhuma garantia e sem o aprovisionamento de código de origem e fornece exceções para o requisito de código de origem apenas para o missão convincentes / requisitos operacionais e com aprovação de authorizing oficial.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 8.a** os organização emprega spam proteção mecanismos em informações sistema entrada e saída pontos para detetar e executar ações em mensagens não solicitadas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -759,7 +759,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 8.b** organização atualizações spam proteção mecanismos de quando os novos lançamentos estão disponíveis em conformidade com a política de gestão de configuração organizacional e procedimentos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -773,7 +773,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-8 (1)** organização gere centralmente mecanismos de proteção de spam.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-8 (2)** o sistema de informações atualiza automaticamente os mecanismos de proteção de spam.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -801,7 +801,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 10** o sistema de informações verifica a validade do [atribuição: entradas de informações definidas pela organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -815,7 +815,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 11.a** o sistema de informações gera mensagens de erro que fornecem informações necessárias para ações corretivas sem revelando informações que podem ser forem exploradas por adversários qualificados.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -829,7 +829,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA 11.b** o sistema de informações mensagens de erro de revela só [atribuição: técnico definido pela organização ou funções].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -843,7 +843,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-12** processa e mantém informações do sistema de informações e saída de informações do sistema de acordo com as leis federais aplicáveis, a organização executivo ordens, diretivas, políticas, normas, normas, e requisitos operacionais.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -857,7 +857,7 @@ ms.lasthandoff: 02/11/2018
 
 **TAMA-16** implementa o sistema de informações [atribuição: as proteções de segurança definido para organização] para proteger a respetiva memória da execução do código não autorizado.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

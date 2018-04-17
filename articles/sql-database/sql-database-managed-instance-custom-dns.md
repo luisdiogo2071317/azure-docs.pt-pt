@@ -1,20 +1,20 @@
 ---
-title: "Base de dados SQL do Azure gerida no DNS do instância personalizado | Microsoft Docs"
-description: "Este tópico descreve opções de configuração para um DNS personalizado com uma instância de gerido da base de dados do Azure SQL."
+title: Base de dados SQL do Azure gerida no DNS do instância personalizado | Microsoft Docs
+description: Este tópico descreve opções de configuração para um DNS personalizado com uma instância de gerido da base de dados do Azure SQL.
 services: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 993ff518a1987581ad7de4797611f104080c2c2f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3175b99c0e41cedf313115043b09608496adfdca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurar um DNS personalizado para a base de dados SQL do Azure gerida instância
 
@@ -39,7 +39,7 @@ Para configurar o reencaminhamento de DNS no Windows Server 2016, utilize estes 
 
 3. Clique em **Editar**. 
 
-   ![Forwarders-list](./media/sql-database-managed-instance-custom-dns/forwarders-list.png) 
+   ![Lista de reencaminhadores](./media/sql-database-managed-instance-custom-dns/forwarders-list.png) 
 
 4. Introduza recursiva resoluções endereço IP do Azure, tais como 168.63.129.16.
 
@@ -79,5 +79,5 @@ Configuração de DNS numa VNet do Azure requer que introduza os endereços IP, 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma descrição geral, consulte [o que é uma instância geridos](sql-database-managed-instance.md)
-- Para obter um exemplo de criar uma VNet e, em seguida, criar uma instância geridos, consulte [criação de uma instância geridos](sql-database-managed-instance-tutorial-portal.md).
-- Para configurar a VNet, consulte [configuração de VNet para as instâncias geridas](sql-database-managed-instance-vnet-configuration.md)
+- Para um tutorial mostrar como criar uma nova instância geridos, consulte [criação de uma instância geridos](sql-database-managed-instance-create-tutorial-portal.md).
+- Para obter informações sobre como configurar uma VNet para uma instância geridos, consulte [configuração de VNet para as instâncias geridas](sql-database-managed-instance-vnet-configuration.md)

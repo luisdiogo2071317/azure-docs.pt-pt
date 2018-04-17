@@ -1,5 +1,5 @@
 ---
-title: "Azure Blueprint de processamento do pagamento - requisitos de monitorização"
+title: Azure Blueprint de processamento do pagamento - requisitos de monitorização
 description: Requisito de PCI DSS 10
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 5fa1d17e68ce04b1f67081479518279be6cca099
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 708c57c1d7b79d3fd3c129de9a7ce4099ab6ac36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>Requisitos de monitorização para ambientes em conformidade de PCI DSS 
 ## <a name="pci-dss-requirement-10"></a>Requisito de PCI DSS 10
@@ -38,8 +38,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure restringe o acesso a ferramentas administrativas e diagnóstico para a empregados autorizados com responsabilidade tarefa relevantes. Microsoft Azure restringe o acesso privilegiado para as ferramentas utilizadas no ambiente de produção com base em, pelo menos, princípios de privilégio. Microsoft Azure regista e mantém um registo de acesso de utilizador individuais todos os componentes de sistema do Microsoft Azure no ambiente de plataforma.<br /><br />Componentes de plataforma do Microsoft Azure (incluindo o SO, CloudNet, recursos de infraestrutura e assim sucessivamente) estão configurados para iniciar sessão e recolher eventos de segurança. Atividade de administrador na plataforma Microsoft Azure é registada. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore tem registo de um vasto conjunto de todos os sistema e a atividade do utilizador (registo, incluindo CHD). Para obter mais informações, consulte [orientações de PCI - registo](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure restringe o acesso a ferramentas administrativas e diagnóstico para a empregados autorizados com responsabilidade tarefa relevantes. Microsoft Azure restringe o acesso privilegiado para as ferramentas utilizadas no ambiente de produção com base em, pelo menos, princípios de privilégio. Microsoft Azure regista e mantém um registo de acesso de utilizador individuais todos os componentes de sistema do Microsoft Azure no ambiente de plataforma.<br /><br />Componentes de plataforma do Microsoft Azure (incluindo o SO, CloudNet, recursos de infraestrutura e assim sucessivamente) estão configurados para iniciar sessão e recolher eventos de segurança. Atividade de administrador na plataforma Microsoft Azure é registada. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore tem registo de um vasto conjunto de todos os sistema e a atividade do utilizador (registo, incluindo CHD). Para obter mais informações, consulte [orientações de PCI - registo](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -58,8 +58,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure restringe o acesso a ferramentas administrativas e diagnóstico para a empregados autorizados com responsabilidade tarefa relevantes. Microsoft Azure restringe o acesso privilegiado para as ferramentas utilizadas no ambiente de produção com base em, pelo menos, princípios de privilégio. Microsoft Azure regista e mantém um registo de acesso de utilizador individuais todos os componentes de sistema do Microsoft Azure no ambiente de plataforma.<br /><br />Componentes de plataforma do Microsoft Azure (incluindo o SO, CloudNet, recursos de infraestrutura e assim sucessivamente) estão configurados para iniciar sessão e recolher eventos de segurança. Atividade de administrador na plataforma Microsoft Azure é registada. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore tem registo de um vasto conjunto de todas as atividades de utilizador e de sistema, incluindo registo CHD. Para obter mais informações, consulte [orientações de PCI - registo](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure restringe o acesso a ferramentas administrativas e diagnóstico para a empregados autorizados com responsabilidade tarefa relevantes. Microsoft Azure restringe o acesso privilegiado para as ferramentas utilizadas no ambiente de produção com base em, pelo menos, princípios de privilégio. Microsoft Azure regista e mantém um registo de acesso de utilizador individuais todos os componentes de sistema do Microsoft Azure no ambiente de plataforma.<br /><br />Componentes de plataforma do Microsoft Azure (incluindo o SO, CloudNet, recursos de infraestrutura e assim sucessivamente) estão configurados para iniciar sessão e recolher eventos de segurança. Atividade de administrador na plataforma Microsoft Azure é registada. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore tem registo de um vasto conjunto de todas as atividades de utilizador e de sistema, incluindo registo CHD. Para obter mais informações, consulte [orientações de PCI - registo](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -77,8 +77,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure estabelecida procedimentos para sincronizar os servidores e dispositivos de rede no ambiente do Microsoft Azure com os servidores de hora NTP Stratum 1 sincronizadas para Global posicionamento System (GPS) satélites. Sincronização, é automaticamente executada a cada cinco minutos. Microsoft Azure é responsável por assegurar que os anfitriões corretamente hora de sincronização. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Regista o Contoso Webstore identificação do utilizador, tipo de evento, carimbo de data hora, eventos de falha de êxito, a origem de evento e o nome do recurso conforme exigido pelo controlo 10.3.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure estabelecida procedimentos para sincronizar os servidores e dispositivos de rede no ambiente do Microsoft Azure com os servidores de hora NTP Stratum 1 sincronizadas para Global posicionamento System (GPS) satélites. Sincronização, é automaticamente executada a cada cinco minutos. Microsoft Azure é responsável por assegurar que os anfitriões corretamente hora de sincronização. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Regista o Contoso Webstore identificação do utilizador, tipo de evento, carimbo de data hora, eventos de falha de êxito, a origem de evento e o nome do recurso conforme exigido pelo controlo 10.3.|
 
 
 
@@ -92,8 +92,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure estabelecida procedimentos para sincronizar os servidores e dispositivos de rede no ambiente do Microsoft Azure com os servidores de hora NTP Stratum 1 sincronizadas para Global posicionamento System (GPS) satélites. Sincronização, é automaticamente executada a cada cinco minutos. Microsoft Azure é responsável por assegurar que os anfitriões corretamente hora de sincronização. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Sincronização de hora para o serviço de PaaS é efetuada pelo Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure estabelecida procedimentos para sincronizar os servidores e dispositivos de rede no ambiente do Microsoft Azure com os servidores de hora NTP Stratum 1 sincronizadas para Global posicionamento System (GPS) satélites. Sincronização, é automaticamente executada a cada cinco minutos. Microsoft Azure é responsável por assegurar que os anfitriões corretamente hora de sincronização. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Sincronização de hora para o serviço de PaaS é efetuada pelo Azure.|
 
 
 
@@ -105,8 +105,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.4](#pci-dss-requirement-10-4). |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Sincronização de hora para o serviço de PaaS é efetuada pelo Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.4](#pci-dss-requirement-10-4). |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Sincronização de hora para o serviço de PaaS é efetuada pelo Azure.|
 
 
 
@@ -118,8 +118,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.4](#pci-dss-requirement-10-4). |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Sincronização de hora para o serviço de PaaS é efetuada pelo Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.4](#pci-dss-requirement-10-4). |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Sincronização de hora para o serviço de PaaS é efetuada pelo Azure.|
 
 
 
@@ -131,8 +131,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.4](#pci-dss-requirement-10-4). |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Sincronização de hora para o serviço de PaaS é efetuada pelo Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.4](#pci-dss-requirement-10-4). |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Sincronização de hora para o serviço de PaaS é efetuada pelo Azure.|
 
 
 
@@ -144,8 +144,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Ferramentas de IDS e de FIM são implementadas no ambiente do Microsoft Azure. Microsoft Azure utiliza EWS para suportar a análise em tempo real de eventos dentro do respetivo ambiente operacional. MAs e OBJETIVOS geram quase em tempo real alertas sobre eventos que potencialmente podem comprometer o sistema. <br /><br />O registo de eventos de segurança, de utilizador e de serviço (registos de servidores web, os registos do servidor FTP e assim sucessivamente) está ativado e mantido centralmente. Azure restringe o acesso aos registos de auditoria para a empregados autorizados com base nas responsabilidades de trabalho. Registos de eventos estão arquivados na infraestrutura de arquivo segura do Azure e são mantidos durante 180 dias. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece para auditoria de todos os elementos à OMS. Fazer uma cópia até uma origem externa pode ser efetuada pela [cópia de segurança do Azure](https://azure.microsoft.com/services/backup/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Ferramentas de IDS e de FIM são implementadas no ambiente do Microsoft Azure. Microsoft Azure utiliza EWS para suportar a análise em tempo real de eventos dentro do respetivo ambiente operacional. MAs e OBJETIVOS geram quase em tempo real alertas sobre eventos que potencialmente podem comprometer o sistema. <br /><br />O registo de eventos de segurança, de utilizador e de serviço (registos de servidores web, os registos do servidor FTP e assim sucessivamente) está ativado e mantido centralmente. Azure restringe o acesso aos registos de auditoria para a empregados autorizados com base nas responsabilidades de trabalho. Registos de eventos estão arquivados na infraestrutura de arquivo segura do Azure e são mantidos durante 180 dias. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece para auditoria de todos os elementos para o Azure. Fazer uma cópia até uma origem externa pode ser efetuada pela [cópia de segurança do Azure](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -157,8 +157,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece para auditoria de todos os elementos à OMS. Fazer uma cópia até uma origem externa pode ser efetuada pela [cópia de segurança do Azure](https://azure.microsoft.com/services/backup/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.5](#pci-dss-requirement-10-5). |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece para auditoria de todos os elementos para o Azure. Fazer uma cópia até uma origem externa pode ser efetuada pela [cópia de segurança do Azure](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -170,8 +170,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece para auditoria de todos os elementos à OMS. Fazer uma cópia até uma origem externa pode ser efetuada pela [cópia de segurança do Azure](https://azure.microsoft.com/services/backup/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.5](#pci-dss-requirement-10-5). |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece para auditoria de todos os elementos para o Azure. Fazer uma cópia até uma origem externa pode ser efetuada pela [cópia de segurança do Azure](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -183,8 +183,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece para auditoria de todos os elementos à OMS. Fazer uma cópia até uma origem externa pode ser efetuada pela [cópia de segurança do Azure](https://azure.microsoft.com/services/backup/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.5](#pci-dss-requirement-10-5). |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece para auditoria de todos os elementos para o Azure. Fazer uma cópia até uma origem externa pode ser efetuada pela [cópia de segurança do Azure](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -196,8 +196,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece para auditoria de todos os elementos à OMS. Fazer uma cópia até uma origem externa pode ser efetuada pela [cópia de segurança do Azure](https://azure.microsoft.com/services/backup/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.5](#pci-dss-requirement-10-5). |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece para auditoria de todos os elementos para o Azure. Fazer uma cópia até uma origem externa pode ser efetuada pela [cópia de segurança do Azure](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -209,8 +209,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece para auditoria de todos os elementos à OMS. Fazer uma cópia até uma origem externa pode ser efetuada pela [cópia de segurança do Azure](https://azure.microsoft.com/services/backup/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.5](#pci-dss-requirement-10-5). |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece para auditoria de todos os elementos para o Azure. Fazer uma cópia até uma origem externa pode ser efetuada pela [cópia de segurança do Azure](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -225,8 +225,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Ferramentas de IDS e de FIM são implementadas no ambiente do Microsoft Azure. Microsoft Azure utiliza EWS para suportar a análise em tempo real de eventos dentro do respetivo ambiente operacional. MAs e OBJETIVOS geram quase em tempo real alertas sobre eventos que potencialmente podem comprometer o sistema. <br /><br />O registo de eventos de segurança, de utilizador e de serviço (registos de servidores web, os registos do servidor FTP e assim sucessivamente) está ativado e mantido centralmente. Azure restringe o acesso aos registos de auditoria para a empregados autorizados com base nas responsabilidades de trabalho. Registos de eventos estão arquivados na infraestrutura de arquivo segura do Azure e são mantidos durante 180 dias. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) para monitorizar, comunicar e impedir anomalias. [Azure Advisor](/azure/advisor/advisor-security-recommendations) fornece uma vista consolidada consistente de recomendações para todos os seus recursos do Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Ferramentas de IDS e de FIM são implementadas no ambiente do Microsoft Azure. Microsoft Azure utiliza EWS para suportar a análise em tempo real de eventos dentro do respetivo ambiente operacional. MAs e OBJETIVOS geram quase em tempo real alertas sobre eventos que potencialmente podem comprometer o sistema. <br /><br />O registo de eventos de segurança, de utilizador e de serviço (registos de servidores web, os registos do servidor FTP e assim sucessivamente) está ativado e mantido centralmente. Azure restringe o acesso aos registos de auditoria para a empregados autorizados com base nas responsabilidades de trabalho. Registos de eventos estão arquivados na infraestrutura de arquivo segura do Azure e são mantidos durante 180 dias. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) para monitorizar, comunicar e impedir anomalias. [Azure Advisor](/azure/advisor/advisor-security-recommendations) fornece uma vista consolidada consistente de recomendações para todos os seus recursos do Azure.|
 
 
 
@@ -242,8 +242,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.6](#pci-dss-requirement-10-6). |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) para monitorizar, comunicar e impedir anomalias. [Azure Advisor](/azure/advisor/advisor-security-recommendations) fornece uma vista consolidada consistente de recomendações para todos os seus recursos do Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.6](#pci-dss-requirement-10-6). |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) para monitorizar, comunicar e impedir anomalias. [Azure Advisor](/azure/advisor/advisor-security-recommendations) fornece uma vista consolidada consistente de recomendações para todos os seus recursos do Azure.|
 
 
 
@@ -255,8 +255,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.6](#pci-dss-requirement-10-6). |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) para monitorizar, comunicar e impedir anomalias. [Azure Advisor](/azure/advisor/advisor-security-recommendations) fornece uma vista consolidada consistente de recomendações para todos os seus recursos do Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" para [requisito 10.6](#pci-dss-requirement-10-6). |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) para monitorizar, comunicar e impedir anomalias. [Azure Advisor](/azure/advisor/advisor-security-recommendations) fornece uma vista consolidada consistente de recomendações para todos os seus recursos do Azure.|
 
 
 
@@ -268,8 +268,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" [requisito 10.6](#pci-dss-requirement-10-6). |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) para monitorizar, comunicar e impedir anomalias. [Azure Advisor](/azure/advisor/advisor-security-recommendations) fornece uma vista consolidada consistente de recomendações para todos os seus recursos do Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Consulte a secção "Microsoft Azure" [requisito 10.6](#pci-dss-requirement-10-6). |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) para monitorizar, comunicar e impedir anomalias. [Azure Advisor](/azure/advisor/advisor-security-recommendations) fornece uma vista consolidada consistente de recomendações para todos os seus recursos do Azure.|
 
 
 
@@ -281,8 +281,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure mantém os registos de auditoria durante um ano, com os mais recentes 3 meses imediatamente acessíveis através do respetivo portal interno. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore tem registo de um vasto conjunto de todos os sistema e a atividade do utilizador (registo, incluindo CHD). Para obter mais informações, consulte [orientações de PCI - registo](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure mantém os registos de auditoria durante um ano, com os mais recentes 3 meses imediatamente acessíveis através do respetivo portal interno. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore tem registo de um vasto conjunto de todos os sistema e a atividade do utilizador (registo, incluindo CHD). Para obter mais informações, consulte [orientações de PCI - registo](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -307,8 +307,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utiliza EWS para suportar a análise em tempo real de eventos dentro do respetivo ambiente operacional. MAs e OBJETIVOS geram quase em tempo real alertas sobre eventos que potencialmente podem comprometer o sistema. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore tem registo de um vasto conjunto de todos os sistema e a atividade do utilizador (registo, incluindo CHD). Para obter mais informações, consulte [orientações de PCI - registo](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utiliza EWS para suportar a análise em tempo real de eventos dentro do respetivo ambiente operacional. MAs e OBJETIVOS geram quase em tempo real alertas sobre eventos que potencialmente podem comprometer o sistema. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore tem registo de um vasto conjunto de todos os sistema e a atividade do utilizador (registo, incluindo CHD). Para obter mais informações, consulte [orientações de PCI - registo](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -330,8 +330,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utiliza EWS para suportar a análise em tempo real de eventos dentro do respetivo ambiente operacional. MAs e OBJETIVOS geram quase em tempo real alertas sobre eventos que potencialmente podem comprometer o sistema. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore tem registo de um vasto conjunto de todos os sistema e a atividade do utilizador (registo, incluindo CHD). Para obter mais informações, consulte [orientações de PCI - registo](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utiliza EWS para suportar a análise em tempo real de eventos dentro do respetivo ambiente operacional. MAs e OBJETIVOS geram quase em tempo real alertas sobre eventos que potencialmente podem comprometer o sistema. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore tem registo de um vasto conjunto de todos os sistema e a atividade do utilizador (registo, incluindo CHD). Para obter mais informações, consulte [orientações de PCI - registo](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -344,8 +344,8 @@ Mecanismos de registo e a capacidade para controlar as atividades dos utilizador
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece um caso de utilização e uma descrição sobre como o CHD é gerido e protegido.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece um caso de utilização e uma descrição sobre como o CHD é gerido e protegido.|
 
 
 

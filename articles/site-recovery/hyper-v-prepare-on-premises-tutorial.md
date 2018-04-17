@@ -1,6 +1,6 @@
 ---
-title: "Preparar o servidor de Hyper-V no local para a recuperação após desastre de VMs de Hyper-V para o Azure | Microsoft Docs"
-description: "Saiba como preparar as VMs de Hyper-V no local não são geridos pelo System Center VMM para a recuperação de desastre para o Azure com o serviço do Azure Site Recovery."
+title: Preparar o servidor de Hyper-V no local para a recuperação após desastre de VMs de Hyper-V para o Azure | Microsoft Docs
+description: Saiba como preparar as VMs de Hyper-V no local não são geridos pelo System Center VMM para a recuperação de desastre para o Azure com o serviço do Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7e0219a662483ef123bdc2889a43dd3d93d23ac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparar os servidores de Hyper-V no local para a recuperação de desastre para o Azure
 
@@ -36,7 +36,7 @@ Certifique-se de anfitriões de Hyper-V e VMs cumprir os requisitos.
 2. [Verifique os requisitos](hyper-v-azure-support-matrix.md#replicated-vms) para as VMs de Hyper-V que pretende replicar para o Azure.
 3. Verifique o anfitrião Hyper-V [rede](hyper-v-azure-support-matrix.md#hyper-v-network-configuration); e o anfitrião e o convidado [armazenamento](hyper-v-azure-support-matrix.md#hyper-v-host-storage) para anfitriões de Hyper-V no local.
 4. Verifique o que é suportado para [redes do Azure](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [armazenamento](hyper-v-azure-support-matrix.md#azure-storage), e [computação](hyper-v-azure-support-matrix.md#azure-compute-features), após a ativação pós-falha.
-5. As suas VMs no local replicar para o Azure tem de cumprir [requisitos de VM do Azure](hyper-v-azure-support-matrix.md#azure-vm-requirements).
+5. As suas VM no local que replica para o Azure devem estar em conformidade com os [requisitos de VM do Azure](hyper-v-azure-support-matrix.md#azure-vm-requirements).
 
 
 ## <a name="prepare-vmm-optional"></a>Preparar o VMM (opcional)
@@ -58,14 +58,13 @@ Prepare VMM mapeamento da rede da seguinte forma:
 
 ## <a name="verify-internet-access"></a>Verificar o acesso à internet
 
-1. Para efeitos do tutorial, é a configuração mais simples para os anfitriões Hyper-V e o servidor VMM, se aplicável, para ter acesso direto à internet sem utilizar um proxy. 
+1. Para efeitos do tutorial, é a configuração mais simples para o servidor VMM e anfitriões Hyper-V tenham acesso direto à internet sem utilizar um proxy. 
 2. Certifique-se de que anfitriões Hyper-V e o servidor VMM, se forem relevantes, podem aceder a estes URLs: 
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-3. Certifique-se de que:
-    - Quaisquer regras de firewall baseadas no endereço IP devem permitir a comunicação com o Azure.
-    - Permita os [Intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).
+3. Se está a controlar o acesso por endereço IP, certifique-se de que:
+    - Regras de firewall baseadas no endereço IP podem ligar ao [intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)e a porta HTTPS (443).
     - Permita intervalos de endereços IP para a região do Azure da sua subscrição e para EUA oeste (utilizado para gestão de identidade e controlo de acesso).
 
 

@@ -1,13 +1,13 @@
 ---
-title: "VM com o IP de vários endereços utilizando a CLI do Azure | Microsoft Docs"
-description: "Saiba como atribuir vários endereços IP a uma máquina virtual utilizando a interface de linha de comandos do Azure (CLI)."
+title: VM com o IP de vários endereços utilizando a CLI do Azure | Microsoft Docs
+description: Saiba como atribuir vários endereços IP a uma máquina virtual utilizando a interface de linha de comandos do Azure (CLI).
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: a1e78f7fa892586385e1dbd186125630ee1fb307
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Atribuir vários endereços IP para máquinas virtuais utilizando a CLI do Azure
 
@@ -167,7 +167,7 @@ Adicionar os endereços IP privados para o sistema operativo VM, efetuando os pa
 
 ## <a name="add"></a>Adicionar endereços IP para uma VM
 
-Pode adicionar endereços IP privados e públicos adicionais para uma NIC existente, efetuando os passos que se seguem. Os exemplos são criados após o [cenário](#Scenario) descrito neste artigo.
+Pode adicionar endereços IP privados e públicos adicionais para uma interface de rede do Azure existente, efetuando os passos que se seguem. Os exemplos são criados após o [cenário](#Scenario) descrito neste artigo.
 
 1. Abra uma shell de comandos e conclua os restantes passos nesta secção dentro de uma única sessão. Se ainda não tiver a CLI do Azure, instalado e configurado, concluir os passos a [instalação Azure CLI 2.0](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) artigo e início de sessão para o seu Azure conta com o `az-login` comando.
 

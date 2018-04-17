@@ -10,13 +10,13 @@ ms.component: manage
 ms.date: 04/02/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6ea45398b0bf7fca43c75797313b7e683972b1ab
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 724f027f3f43cd0ad846210b511c8fc1af27153f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho por atualizar o SQL Data Warehouse
+# <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
 
 Pode agora totalmente atualizar para o Optimized para a camada de desempenho de computação no portal do Azure. Se tiver um Optimized elasticidade do armazém de dados, recomenda-se a atualização para a geração de mais recente de hardware do Azure e uma arquitetura de armazenamento avançado. Poderá tirar partido de um desempenho mais rápido, escalabilidade e armazenamento columnar ilimitado. 
 
@@ -70,9 +70,9 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
    
    O primeiro passo do processo de atualização atravessa a operação de dimensionamento ("Atualizar - Offline") em que serão eliminadas todas as sessões e ligações serão ignoradas. 
    
-   O segundo passo do processo de atualização é a migração de dados ("Atualizar - Online"). Migração de dados é um processo de em segundo plano online trickle, que lentamente move os dados columnar da arquitetura de armazenamento Gen1 antiga para a nova arquitetura de armazenamento Gen2 tirar partido da cache SSD local Gen2. Durante este período, o armazém de dados será online para consultar e carregar. Todos os seus dados serão disponíveis para consulta independentemente se esta tiver sido migrada ou não. A migração de dados ocorre uma taxa variando consoante o tamanho dos dados, o nível de desempenho e o número de segmentos sua columnstore. 
+   O segundo passo do processo de atualização é a migração de dados ("Atualizar - Online"). Migração de dados é um processo de em segundo plano online trickle, que lentamente move os dados columnar de arquitetura de armazenamento antigo para a nova arquitetura de armazenamento tirar partido de uma cache SSD local. Durante este período, o armazém de dados será online para consultar e carregar. Todos os seus dados serão disponíveis para consulta independentemente se esta tiver sido migrada ou não. A migração de dados ocorre uma taxa variando consoante o tamanho dos dados, o nível de desempenho e o número de segmentos sua columnstore. 
 
-5. **Recomendação opcional:** a fim de acelerar o processo de em segundo plano de migração de dados, é recomendado para forçar imediatamente o movimento de dados através da execução [reconstrução Alter Index](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) em todas as tabelas columnstore numa maior SLO e recursos classe. Esta operação está offline em comparação com o processo de fundo trickle; No entanto, a migração de dados será muito mais rápida onde, em seguida, pode tirar partido da arquitetura de armazenamento Gen2 uma vez concluída com rowgroups de alta qualidade. 
+5. **Recomendação opcional:** a fim de acelerar o processo de em segundo plano de migração de dados, é recomendado para forçar imediatamente o movimento de dados através da execução [reconstrução Alter Index](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) em todas as tabelas columnstore numa maior SLO e recursos classe. Esta operação está offline em comparação com o processo de fundo trickle; No entanto, a migração de dados será muito mais rápida onde, em seguida, pode tirar partido da nova arquitetura do armazenamento avançado uma vez concluída com rowgroups de alta qualidade. 
 
 Esta consulta seguinte gera os comandos necessários Alter Index Rebuild a fim de acelerar o processo de migração de dados:
 

@@ -1,12 +1,12 @@
 ---
-title: "Proteger o PaaS web e aplicações móveis com o App Service do Azure | Microsoft Docs"
+title: Proteger o PaaS web e aplicações móveis com o App Service do Azure | Microsoft Docs
 description: " Saiba mais sobre a segurança do App Service do Azure melhores práticas para proteger o seu web de PaaS e as aplicações móveis. "
 services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dec45d91ad1a73306b3e2656dd9bf7fdbe456720
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d2e606fe23a3a6eb9d2310b0932ccec8fcfc518c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Proteger o PaaS web e aplicações móveis com o App Service do Azure
 
@@ -32,11 +32,11 @@ Neste artigo, discutimos a uma coleção de [App Service do Azure](https://azure
 Quando utilizar o App Service, siga estas práticas recomendadas:
 
 - [Autenticar através do Azure Active Directory (AD)](../app-service/app-service-authentication-overview.md). Serviço de aplicações fornece um serviço OAuth 2.0 para o fornecedor de identidade. OAuth 2.0 está centrado nas simplicidade de programador do cliente ao fornecer autorização específico fluxos de telemóveis, aplicações de ambiente de trabalho e aplicações Web. Azure AD utiliza OAuth 2.0 para que possa autorizar o acesso ao móveis e aplicações web.
-- Restringir o acesso com base na necessidade de conhecer e princípios de segurança do menor privilégio. Restringir o acesso é imperativo para as organizações que pretendem aplicar políticas de segurança para acesso a dados. Controlo de acesso baseado em funções (RBAC) pode ser utilizado para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito. Para saber mais sobre conceder aos utilizadores acesso a aplicações, consulte o artigo [introdução à gestão de acesso](../active-directory/role-based-access-control-what-is.md).
+- Restringir o acesso com base na necessidade de conhecer e princípios de segurança do menor privilégio. Restringir o acesso é imperativo para as organizações que pretendem aplicar políticas de segurança para acesso a dados. Controlo de acesso baseado em funções (RBAC) pode ser utilizado para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito. Para saber mais sobre conceder aos utilizadores acesso a aplicações, consulte o artigo [introdução à gestão de acesso](../role-based-access-control/overview.md).
 - Proteger as suas chaves. É irrelevante como boa a segurança é se perder as chaves de subscrição. O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Ao utilizar o cofre de chaves do Azure, pode encriptar chaves e segredos (tal como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, ficheiros .PFX e palavras-passe) utilizando as teclas que estão protegidas por módulos de segurança de hardware (HSM). Para maior segurança, pode importar ou gerar chaves nos HSMs. Consulte [Cofre de chaves do Azure](../key-vault/key-vault-whatis.md) para obter mais informações. Também pode utilizar o Cofre de chaves para gerir os certificados TLS com a renovação automática.
 - Restringir os endereços IP de origem recebidos. [Ambiente de serviço de aplicações](../app-service/environment/intro.md) tem uma funcionalidade de integração de rede virtual que o ajuda a restringir os endereços recebidos de IP de origem através de grupos de segurança de rede (NSGs). Se estiver familiarizado com o Azure redes virtuais (VNETs), esta é uma funcionalidade que permite-lhe colocar muitos dos seus recursos do Azure numa rede de internet não, encaminhável que controlam o acesso a. Para obter mais informações, consulte [integrar a sua aplicação com uma Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este artigo introduzidos uma coleção de serviço de aplicações segurança melhores práticas para proteger o seu web de PaaS e as aplicações móveis. Para obter mais informações sobre como proteger as suas implementações PaaS, consulte:
 
 - [Proteger implementações PaaS](security-paas-deployments.md)

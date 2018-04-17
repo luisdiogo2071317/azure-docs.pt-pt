@@ -1,13 +1,13 @@
 ---
 title: Redes do Azure | Microsoft Docs
-description: "Saiba mais sobre os serviços de rede do Azure e capacidades."
+description: Saiba mais sobre os serviços de rede do Azure e capacidades.
 services: networking
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-networking"></a>Redes do Azure
 
@@ -138,7 +138,7 @@ O Azure oferece as seguintes ferramentas para monitorizar e gerir redes:
 - **Os registos de diagnóstico:** Periodic e spontaneous eventos são criados pelos recursos de rede e registados em contas do storage do Azure, enviados para um Hub de eventos do Azure ou enviados para análise de registos do Azure. Os registos de diagnóstico fornecem informações aprofundadas sobre o estado de funcionamento de um recurso. Os registos de diagnóstico são fornecidos para o Balanceador de carga (através da Internet), os grupos de segurança de rede, as rotas e Gateway de aplicação. Para saber mais sobre os registos de diagnóstico, leia o [descrição geral de registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fnetworking%2ftoc.json) artigo.
 - **Métricas:** métricas são medidas de desempenho e contadores recolhidos durante um período de tempo nos recursos. Métricas podem ser utilizadas para acionar alertas com base nos limiares. Atualmente as métricas estão disponíveis no Gateway de aplicação. Para saber mais sobre as métricas, leia o [descrição geral de métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json) artigo.
 - **Resolução de problemas:** informações de resolução de problemas está acessível diretamente no portal do Azure. As informações de ajuda a diagnosticar problemas comuns com o ExpressRoute, Gateway de VPN, Gateway de aplicação, registos de segurança de rede, rotas, DNS, Balanceador de carga e do Traffic Manager.
-- **O controlo de acesso baseado em funções (RBAC):** controlar quem pode criar e gerir recursos de rede com controlo de acesso baseado em funções (RBAC). Saiba mais sobre o RBAC o lendo o [começar a utilizar o RBAC](../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fnetworking%2ftoc.json) artigo. 
+- **O controlo de acesso baseado em funções (RBAC):** controlar quem pode criar e gerir recursos de rede com controlo de acesso baseado em funções (RBAC). Saiba mais sobre o RBAC o lendo o [começar a utilizar o RBAC](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artigo. 
 - **Captura de pacotes:** serviço o observador de rede do Azure fornece a capacidade de executar uma captura de pacotes numa VM através de uma extensão dentro da VM. Esta capacidade está disponível para Linux e VMs do Windows. Para saber mais sobre a captura de pacotes, leia o [descrição geral de captura de pacotes](../network-watcher/network-watcher-packet-capture-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artigo.
 - **Certifique-se de fluxos IP:** observador de rede permite-lhe verificar fluxos IP entre uma VM do Azure e um recurso remoto para determinar se os pacotes são permitidos ou negados. Esta capacidade permite aos administradores Diagnostique rapidamente problemas de conectividade. Para obter mais informações sobre como verificar fluxos IP, leia o [fluxo IP verificar descrição geral](../network-watcher/network-watcher-ip-flow-verify-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artigo.
 - **Resolver problemas de conectividade VPN:** capacidade de troubleshooter a VPN do observador de rede fornece a capacidade de consultar uma ligação ou o gateway e verificar o estado de funcionamento dos recursos. Para obter mais informações sobre resolução de problemas de ligações VPN, leia o [descrição geral de resolução de problemas de conectividade VPN](../network-watcher/network-watcher-troubleshoot-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artigo.

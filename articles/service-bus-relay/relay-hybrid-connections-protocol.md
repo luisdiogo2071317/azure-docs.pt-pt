@@ -1,11 +1,11 @@
 ---
-title: "Guia de protocolo as ligações híbridas do reencaminhamento do Azure | Microsoft Docs"
-description: "Guia de protocolo de ligações híbridas de reencaminhamento do Azure."
+title: Guia de protocolo as ligações híbridas do reencaminhamento do Azure | Microsoft Docs
+description: Guia de protocolo de ligações híbridas de reencaminhamento do Azure.
 services: service-bus-relay
 documentationcenter: na
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1979746d143dbf8c3f4bca3f9a3a7925fe8e3f0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de ligações híbridas de reencaminhamento do Azure
-Reencaminhamento do Azure é uma das pillars a capacidade de chave de plataforma do Service Bus do Azure. A nova *ligações híbridas* capacidade de reencaminhamento é uma evolução segura e protocolo open com base em HTTP e WebSockets. Este substitui o anterior, igualmente denominado *BizTalk Services* funcionalidade que foi criada no foundation protocolo proprietário. A integração de ligações híbridas para os serviços de aplicações do Azure irá continuar a funcionar como-é.
+Reencaminhamento do Azure é uma das pillars a capacidade de chave de plataforma do Service Bus do Azure. A nova *ligações híbridas* capacidade de reencaminhamento é uma evolução segura e protocolo open com base em HTTP e WebSockets. Este substitui o anterior, denominado de forma idêntica *BizTalk Services* funcionalidade que foi criada no foundation protocolo proprietário. A integração de ligações híbridas para os serviços de aplicações do Azure irá continuar a funcionar como-é.
 
 As ligações híbridas permite a comunicação de stream binário de bidirecionais entre duas aplicações de rede, durante os quais as partes de um ou ambos os podem residir atrás de firewalls ou dos NATs. Este artigo descreve as interações do lado do cliente com o reencaminhamento de ligações híbridas para ligação de clientes no serviço de escuta e funções do remetente e, como os serviços de escuta aceitarem novas ligações.
 
 ## <a name="interaction-model"></a>Modelo de interação
 O reencaminhamento de ligações híbridas liga-se duas partes, fornecendo um ponto de encontro na nuvem do Azure que as entidades confiadoras podem detetar e ligar a partir da perspetiva da sua própria rede. Esse ponto de encontro é chamado "Ligação híbrida" neste e outra documentação, nas APIs e também no portal do Azure. O ponto final de serviço de ligações híbridas é referido como "serviço" para o resto deste artigo. O modelo de interação leans no nomenclature estabelecido pelo muitas outras APIs de rede.
 
-Não há um serviço de escuta que primeiro indica preparação para processar ligações de entrada e, subsequentemente, aceita-las à medida que chegam. No outro lado, há um cliente de ligação que estabelece ligação para o serviço de escuta, era esperado essa ligação sejam aceites para estabelecer um caminho de comunicação bidirecional.
+Não há um serviço de escuta que primeiro indica preparação para processar ligações de entrada e, subsequentemente, aceita-las à medida que chegam. No outro lado, há uma ligação de cliente que oferece uma ligação ao serviço de escuta, o que esperar essa ligação sejam aceites para estabelecer um caminho de comunicação bidirecional.
 "Ligar", "Escuta" e "Aceitar" é mesmos termos que encontrará no socket a maioria das APIs.
 
-Qualquer modelo de comunicação retransmitidas tem a efetuar ligações de saída para um ponto final de serviço, que faz com que o "serviço de escuta" também um "cliente" em utilização colloquial e também pode fazer com que outras sobrecargas terminologia de terceiros. Segue-se a terminologia precisa que utilizamos, por conseguinte, para as ligações híbridas:
+Qualquer modelo de comunicação retransmitidas tem ambos os intervenientes efetuar ligações de saída para um ponto final de serviço, tornando o "serviço de escuta" também um "cliente" em utilização colloquial e também pode fazer com que outras sobrecargas terminologia. Segue-se a terminologia precisa que utilizamos, por conseguinte, para as ligações híbridas:
 
 Os programas em ambos os lados de uma ligação são denominados "clientes", uma vez que estes clientes para o serviço. O cliente que aguarda e aceita ligações é o "serviço de escuta" ou possui correspondências é denominado "função de serviço de escuta." O cliente que inicia uma nova ligação para um serviço de escuta através do serviço é chamado "remetente", ou está na "função de remetente".
 
@@ -40,7 +40,7 @@ O serviço de escuta tem quatro interações com o serviço; todos os detalhes d
 
 #### <a name="listen"></a>Escutar
 Para indicar a preparação para o serviço que um serviço de escuta está pronto para aceitar ligações, cria uma ligação de WebSocket saída. O handshake de ligação acarreta o nome de uma ligação híbrida configurado no espaço de nomes de reencaminhamento e um token de segurança que confers "Escuta" correto esse nome.
-Quando o WebSocket é aceite pelo serviço, o registo é concluído e o web estabelecida WebSocket é mantida activa como "canal de controlo" para ativar todas as interações subsequentes. O serviço permite que os serviços de escuta em simultâneo até 25 numa ligação híbrida. Se existirem dois ou mais serviços de escuta Active Directory, ligações de entrada são equilibradas entre-los pela ordem aleatória; distribuição justa não é garantida.
+Quando o WebSocket é aceite pelo serviço, o registo é concluído e o WebSocket estabelecido é mantido activa como "canal de controlo" para ativar todas as interações subsequentes. O serviço permite que os serviços de escuta em simultâneo até 25 numa ligação híbrida. Se existirem dois ou mais serviços de escuta Active Directory, ligações de entrada são equilibradas entre-los pela ordem aleatória; distribuição justa não é garantida.
 
 #### <a name="accept"></a>Aceitar
 Quando um remetente abre uma nova ligação do serviço, o serviço escolhe e notifica um dos serviços de escuta de Active Directory na ligação híbrida. Esta notificação é enviada para o serviço de escuta através do canal de controlo aberto como uma mensagem JSON que contém o URL do ponto final de WebSocket que o serviço de escuta tem de ligar para aceitar a ligação.
@@ -52,7 +52,7 @@ As informações codificadas só são válidas durante um curto período de temp
 O token de segurança que tem de ser utilizado para registar o serviço de escuta e manter o canal de controlo pode expirar enquanto o serviço de escuta está ativo. A expiração do token não afeta as ligações em curso, mas fazer com que o canal de controlo ser removido pelo serviço, ou logo após o momento de expiração. A operação "renovar" é uma mensagem JSON que o serviço de escuta pode enviar para substituir o token associado com o canal de controlo, para que o canal de controlo pode ser mantido por períodos prolongados.
 
 #### <a name="ping"></a>Ping
-Se o canal de controlo permanece inativo durante muito tempo, intermediários na forma, tais como a carga balanceadores ou os NATs podem remover a ligação de TCP. A operação de "ping" evita que enviando uma pequena quantidade de dados no canal que relembra todas as pessoas a rota de rede que a ligação se destinar a ser alive, e também serve como um teste de "dinâmicos" para o serviço de escuta. Se o ping falhar, o canal de controlo deve ser considerado inutilizável e o serviço de escuta deve voltar a ligar.
+Se o canal de controlo permanece inativo durante muito tempo, intermediários na forma, tais como os balanceadores de carga ou os NATs, podem remover a ligação de TCP. A operação de "ping" evita que enviando uma pequena quantidade de dados no canal que relembra todas as pessoas a rota de rede que a ligação se destinar a ser alive, e também serve como um teste de "dinâmicos" para o serviço de escuta. Se o ping falhar, o canal de controlo deve ser considerado inutilizável e o serviço de escuta deve voltar a ligar.
 
 ### <a name="sender-interaction"></a>Interação de remetente
 O remetente tem apenas uma única interação com o serviço: para estabelecer a ligação.
@@ -75,7 +75,7 @@ Todas as ligações de WebSocket que são efetuadas na porta 443 como uma atuali
 O protocolo serviço de escuta é constituído por dois gestos de ligação e três operações de mensagem.
 
 #### <a name="listener-control-channel-connection"></a>Ligação de canal de controlo do serviço de escuta
-O canal de controlo é aberto com criação de uma ligação de WebSocket para:
+O canal de controlo está aberto por criar uma ligação de WebSocket para:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...
@@ -147,11 +147,11 @@ O URL tem de ser utilizado como-é para estabelecer o socket de aceitar, mas con
 
 | Parâmetro | Necessário | Descrição |
 | --- | --- | --- |
-| `sb-hc-action` |Sim |Para aceitar um socket, o parâmetro tem de ser`sb-hc-action=accept` |
+| `sb-hc-action` |Sim |Para aceitar um socket, o parâmetro tem de ser `sb-hc-action=accept` |
 | `{path}` |Sim |(consulte o parágrafo seguinte) |
 | `sb-hc-id` |Não |Ver descrição anterior **id**. |
 
-`{path}`é o caminho de espaço de nomes com codificação URL da ligação híbrida pré-configurada em que pretende registar este serviço de escuta. É acrescentada esta expressão para o fixo `$hc/` parte do caminho. 
+`{path}` é o caminho de espaço de nomes com codificação URL da ligação híbrida pré-configurada em que pretende registar este serviço de escuta. É acrescentada esta expressão para o fixo `$hc/` parte do caminho. 
 
 O `path` expressão pode ser expandida com um sufixo e uma expressão de cadeia de consulta que se segue o nome registado após uma barra separating. Isto permite que o cliente do remetente passar os argumentos de distribuição para o serviço de escuta aceitar quando não é possível incluir cabeçalhos de HTTP. As expectativas são de que a arquitetura do serviço de escuta analisa a parte do caminho fixo e o nome do caminho de registado e faz com que o resto, possivelmente sem quaisquer argumentos de cadeia de consulta como prefixo `sb-`, disponível para a aplicação para decidir se pretende aceitar a ligação.
 
@@ -183,7 +183,7 @@ Rejeitar o socket, o cliente utiliza o endereço URI da mensagem de "aceitar" e 
 | Param | Necessário | Descrição |
 | --- | --- | --- |
 | statusCode |Sim |Código de estado HTTP numérico. |
-| statusDescription |Sim |Motivo legível humano a rejeição. |
+| StatusDescription |Sim |Motivo legível humano a rejeição. |
 
 O URI resultante, em seguida, é utilizado para estabelecer uma ligação de WebSocket.
 
@@ -195,7 +195,7 @@ Quando concluir corretamente, este handshake intencionalmente ocorre uma falha c
 | 500 |Erro interno |Ocorreu um erro no serviço. |
 
 ### <a name="listener-token-renewal"></a>Renovação de token de serviço de escuta
-Quando o token de serviço de escuta está prestes a expirar, pode substituir esta enviando uma mensagem de moldura de texto para o serviço através do canal de controlo estabelecida. A mensagem contém um objeto JSON chamado `renewToken`, que define a seguinte propriedade neste momento:
+Quando o token de serviço de escuta está prestes a expirar, o serviço de escuta pode substituir esta enviando uma mensagem de moldura de texto para o serviço através do canal de controlo estabelecida. A mensagem contém um objeto JSON chamado `renewToken`, que define a seguinte propriedade neste momento:
 
 * **token** – um token de acesso de partilhado de barramento de serviço válido, com codificação URL para o espaço de nomes ou da ligação híbrida que confers o **escutar** à direita.
 

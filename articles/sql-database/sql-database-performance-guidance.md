@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 89575f94e95c5ae378d95220d63c162e53158069
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9a04f6ebbca60e969d608e0ad92839b5e04d772
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Otimização de desempenho na SQL Database do Azure
 
@@ -28,7 +28,7 @@ Estes são os métodos manuais porque terá de decidir o que [escalões de servi
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumentar a camada de desempenho da base de dados
 
-Base de dados SQL do Azure oferece quatro [escalões de serviço](sql-database-service-tiers.md) que pode escolher entre: básicas, Standard e Premium (desempenho é medido em unidades de débito de base de dados, ou [DTUs](sql-database-what-is-a-dtu.md). Cada escalão de serviço estritamente isola os recursos que pode utilizar a base de dados do SQL Server e garante o desempenho previsível que nível de serviço. Neste artigo, vamos oferecem orientações que podem ajudar a escolher o escalão de serviço para a sua aplicação. Vamos discutir também formas que pode otimizar a sua aplicação para tirar o máximo da SQL Database do Azure.
+Base de dados SQL do Azure oferece dois modelos de compras, um modelo de compra baseado em vCore e um modelo de compra v Core baseada em. Cada modelo tem vários [escalões de serviço](sql-database-service-tiers.md) que pode escolher. Cada escalão de serviço estritamente isola os recursos que pode utilizar a base de dados do SQL Server e garante o desempenho previsível que nível de serviço. Neste artigo, vamos oferecem orientações que podem ajudar a escolher o escalão de serviço para a sua aplicação. Vamos discutir também formas que pode otimizar a sua aplicação para tirar o máximo da SQL Database do Azure.
 
 > [!NOTE]
 > Este artigo incida no guia de desempenho das bases de dados na base de dados do Azure SQL. Para orientações de desempenho relacionados com conjuntos elásticos, consulte [considerações sobre preço e desempenho para conjuntos elásticos](sql-database-elastic-pool-guidance.md). Tenha em atenção, no entanto, pode aplicar muitas das recomendações otimização neste artigo para bases de dados num conjunto elástico e obter os benefícios de desempenho semelhante.

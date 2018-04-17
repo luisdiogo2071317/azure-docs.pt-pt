@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/09/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: a4474aec212084006becd02f317dabae6e731d98
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5ac9623b9089fc0aa8a440196fb7f48cb4963a64
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quais são os escalões de serviço do SQL Database do Azure?
 
@@ -101,6 +101,12 @@ Na com base em vCore compra modelo clientes pay para:
 > [!IMPORTANT]
 > IOs, dados, de computação e armazenamento de registo são cobrados por base de dados ou o conjunto elástico. Armazenamento de cópias de segurança é cobrado por cada base de dados. Para obter detalhes da instância geridos encargos consulte [da base de dados geridas por instância de SQL do Azure](sql-database-managed-instance.md).
 
+> [!IMPORTANT]
+> Limitações de região: 
+>
+> O modelo de compra baseado em vCore ainda não está disponível no Sudeste da Austrália. A pré-visualização não está disponível nas seguintes regiões: Europa Ocidental, França Central, sul do RU e RU oeste.
+> 
+
 ### <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Escolher o escalão de serviço, computação, memória, armazenamento e de recursos de e/s
 
 Converter para o modelo de compra baseado em vCore permite-lhe dimensionar recursos de armazenamento e computação independentemente, corresponde ao desempenho no local e otimizar o preço. Se a base de dados ou o conjunto elástico consome mais do que 300 DTU conversão para vCore pode reduzir o custo. Pode converter a utilizar a API escolhidas ou no portal do Azure, sem período de indisponibilidade. No entanto, a conversão não é necessária. Se o modelo de compra de DTU cumprir os seus requisitos de negócio e desempenho, deve continuar a utilizá-la. Se optar por converter do modelo de DTU vCore modelo, deve selecionar o nível de desempenho utilizando a seguinte regra prática: pelo menos 1 vCore requer que cada 100 DTU no escalão Standard e cada DTU 125 no escalão Premium requer, pelo menos, 1 vCore.
@@ -109,7 +115,7 @@ A tabela seguinte ajuda-o a compreender as diferenças entre estas duas camadas:
 
 ||**Fins gerais**|**Crítico de negócio**|
 |---|---|---|
-|Melhor para|A maioria das cargas de trabalho de negócio. Ofertas budget orientado para opções de armazenamento e computação equilibradas e dimensionáveis.|Aplicações de negócio com requisitos de e/s elevadas. Oferece maior resiliência a falhas utilizando várias réplicas isoladas.|
+|Melhor para|A maioria das cargas de trabalho de negócio. Ofertas budget orientado para opções de armazenamento e computação equilibradas e dimensionáveis.|Aplicações empresariais com requisitos elevados de E/S. Oferece maior resiliência a falhas com várias réplicas isoladas.|
 |Computação|1 e 16 vCore|1 e 16 vCore|
 |Memória|7 GB por núcleo |7 GB por núcleo |
 |Armazenamento|Armazenamento Premium remoto, 5 GB – 4 TB|Armazenamento SSD local, 5 GB – 1 TB|
@@ -149,7 +155,7 @@ Para monitorizar o tamanho total atual do MDF e LDF, utilize [sp_spaceused](http
 
 Armazenamento de cópias de segurança da base de dados está alocado para suportar o ponto no tempo restaurar (PITR) e de longo prazo retenção imediatamente disponíveis capacidades da base de dados do SQL Server. Este tipo de armazenamento é alocado em separado para cada base de dados e cobrado como dois separado por encargos de bases de dados. 
 
-- **PITR**: base de dados individuais de cópias de segurança são copiadas para o armazenamento RA-GRS são automaticamente. O tamanho de armazenamento dinamicamente aumenta à medida que novas cópias de segurança são criadas.  O armazenamento é utilizado pelo cópias de segurança completas semanais, cópias de segurança diferenciais diárias e transação iniciar as cópias de segurança copiadas a cada 5 minutos. O consumo de armazenamento depende a taxa de alteração da base de dados e o período de retenção. Pode configurar um período de retenção separado para cada base de dados entre 7 e 35 dias. É fornecida uma quantidade de armazenamento mínima igual a 1 x do tamanho dos dados, sem encargos adicionais. Para a maioria das bases de dados, esta quantidade é suficiente para armazenar 7 dias de cópias de segurança.
+- **PITR**: base de dados individuais de cópias de segurança são copiadas para o armazenamento RA-GRS são automaticamente. O tamanho de armazenamento dinamicamente aumenta à medida que novas cópias de segurança são criadas.  O armazenamento é utilizado por cópias de segurança completas semanais, cópias de segurança diferenciais diárias e cópias de segurança de registo de transações copiadas a cada 5 minutos. O consumo de armazenamento depende a taxa de alteração da base de dados e o período de retenção. Pode configurar um período de retenção separado para cada base de dados entre 7 e 35 dias. É fornecida uma quantidade de armazenamento mínima igual a 1 x do tamanho dos dados, sem encargos adicionais. Para a maioria das bases de dados, esta quantidade é suficiente para armazenar 7 dias de cópias de segurança.
 - **Imediatamente disponíveis**: base de dados do SQL Server oferece a opção de configurar a retenção de longa duração das cópias de segurança completas para até 10 anos. Se estiver ativada a política de imediatamente disponíveis, as cópias de segurança presumem são armazenadas no armazenamento RA-GRS automaticamente, mas pode controlar a frequência de cópias de segurança são copiadas. Para cumprir o requisito de conformidade diferente, pode selecionar períodos de retenção diferentes para cópias de segurança semanais, mensais e/ou anuais. Esta configuração irá definir a quantidade de armazenamento será utilizado para as cópias de segurança imediatamente disponíveis. Pode utilizar a Calculadora de preços imediatamente disponíveis para estimar os custos de armazenamento imediatamente disponíveis. Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
 
 ### <a name="azure-hybrid-use-benefit"></a>Benefício Híbrido do Azure
@@ -169,13 +175,13 @@ A tabela seguinte fornece orientações para cenários de migração específica
 |Camada de serviço atual|Camada de serviço de destino|Tipo de migração|Ações de utilizador|
 |---|---|---|---|
 |Standard|Fins gerais|Lateral|Pode migrar por qualquer ordem, mas certifique-se de um dimensionamento vCore adequado *|
-|Premium|Crítico para Empresas|Lateral|Pode migrar por qualquer ordem, mas tem de garantir vCore adequado dimensionamento *|
-|Standard|Crítico para Empresas|Atualizar|Deve migrar primeiro secundário|
-|Crítico para Empresas|Standard|Mudar para uma versão anterior|Deve migrar primeiro primário|
+|Premium|Crítico para a Empresa|Lateral|Pode migrar por qualquer ordem, mas tem de garantir vCore adequado dimensionamento *|
+|Standard|Crítico para a Empresa|Atualizar|Deve migrar primeiro secundário|
+|Crítico para a Empresa|Standard|Mudar para uma versão anterior|Deve migrar primeiro primário|
 |Premium|Fins gerais|Mudar para uma versão anterior|Deve migrar primeiro primário|
 |Fins gerais|Premium|Atualizar|Deve migrar primeiro secundário|
-|Crítico para Empresas|Fins gerais|Mudar para uma versão anterior|Deve migrar primeiro primário|
-|Fins gerais|Crítico para Empresas|Atualizar|Deve migrar primeiro secundário|
+|Crítico para a Empresa|Fins gerais|Mudar para uma versão anterior|Deve migrar primeiro primário|
+|Fins gerais|Crítico para a Empresa|Atualizar|Deve migrar primeiro secundário|
 ||||
 
 \* Cada 100 DTU no escalão Standard requer, pelo menos, 1 vCore e cada DTU 125 no escalão Premium requer, pelo menos, 1 vCore

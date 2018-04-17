@@ -1,11 +1,11 @@
 ---
-title: "Serviço de centro de segurança do Azure e SQL Database do Azure | Microsoft Docs"
-description: "Este artigo mostra como o Centro de segurança pode ajudar a proteger as bases de dados na base de dados do Azure SQL."
+title: Serviço de centro de segurança do Azure e SQL Database do Azure | Microsoft Docs
+description: Este artigo mostra como o Centro de segurança pode ajudar a proteger as bases de dados na base de dados do Azure SQL.
 services: sql-database
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b507a62db9a80866005cb63d2008fb14612b516f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Serviço de centro de segurança do Azure e SQL Database do Azure
 O [Centro de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/) ajuda-o a evitar, detetar e responder a ameaças. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
@@ -38,7 +38,7 @@ Para além de ajudar a proteger os seus recursos de base de dados SQL, o Centro 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. O escalão gratuito do Centro de segurança está ativado com a sua subscrição. Para obter mais informações sobre o Centro de segurança escalões gratuito e Standard, consulte [preços do Centro de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
-Centro de segurança suporta o acesso baseado em funções. Para saber mais sobre o controlo de acesso baseado em funções (RBAC) no Azure, consulte o artigo [controlo de acesso baseado em função do Active Directory do Azure](../active-directory/role-based-access-control-configure.md). FAQ do Centro de segurança fornece informações sobre [como permissões são processadas no Centro de segurança](security-center-faq.md#permissions).
+Centro de segurança suporta o acesso baseado em funções. Para saber mais sobre o controlo de acesso baseado em funções (RBAC) no Azure, consulte o artigo [controlo de acesso baseado em função do Active Directory do Azure](../role-based-access-control/role-assignments-portal.md). FAQ do Centro de segurança fornece informações sobre [como permissões são processadas no Centro de segurança](security-center-faq.md#permissions).
 
 ## <a name="access-security-center"></a>Aceder ao Centro de Segurança
 Pode aceder ao Centro de Segurança a partir do [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). [Inicie sessão portal do](https://portal.azure.com/) e selecione o **opção Centro de segurança**.
@@ -100,7 +100,7 @@ Como é mostrado abaixo, o Centro de segurança fornece detalhes adicionais facu
 
 Para obter mais informações, consulte [gerir e responder a alertas de segurança](security-center-managing-and-responding-alerts.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [FAQ do Centro de segurança](security-center-faq.md) – encontre as perguntas mais frequentes sobre como utilizar o serviço.
 * [Guia de operações e planeamento do Centro de segurança](security-center-planning-and-operations-guide.md) - um conjunto de passos e tarefas para otimizar a utilização do Centro de segurança com base nos requisitos de segurança da sua organização e o modelo de gestão de nuvem.
 * [Segurança de dados do Centro de segurança](security-center-data-security.md) – Saiba como o Centro de segurança recolhe e processa dados sobre os seus recursos do Azure, incluindo informações de configuração, metadados, registos de eventos, ficheiros de informação de falha e muito mais.

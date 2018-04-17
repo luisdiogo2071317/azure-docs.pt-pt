@@ -1,24 +1,20 @@
 ---
-title: "Conceber de orientações para tabelas replicadas - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Recomendações para estruturar replicadas tabelas no seu esquema de Azure SQL Data Warehouse."
+title: Conceber de orientações para tabelas replicadas - Azure SQL Data Warehouse | Microsoft Docs
+description: Recomendações para estruturar replicadas tabelas no seu esquema de Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ronortloff
-manager: jhubbard
-editor: 
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 10/23/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.topic: conceptual
+ms.component: design
+ms.date: 04/11/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 271b832f329e33b68f60fbc62005c6ee36bafe69
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Conceber de orientações para a utilização de tabelas replicadas no Azure SQL Data Warehouse
 Este artigo fornece recomendações para estruturar tabelas replicadas no seu esquema de armazém de dados do SQL Server. Utilize estas recomendações para melhorar o desempenho de consulta ao reduzir a complexidade de movimento e a consulta de dados.
@@ -84,7 +80,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Converter tabelas round robin existentes em tabelas replicadas
 Se já tiver tabelas round robin, recomendamos a convertê-los para tabelas replicadas se cumprem com os critérios descritos neste artigo. As tabelas replicadas melhoram o desempenho através de tabelas de round robin porque se eliminar a necessidade de movimento de dados.  Uma tabela de round robin requer sempre movimento de dados de associações. 
 
-Este exemplo utiliza [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para alterar a tabela de DimSalesTerritory para uma tabela não replicada. Neste exemplo funciona independentemente se DimSalesTerritory é distribuído de hash ou round robin.
+Este exemplo utiliza [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para alterar a tabela de DimSalesTerritory para uma tabela não replicada. Neste exemplo funciona independentemente se DimSalesTerritory é distribuído de hash ou round robin.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
@@ -112,7 +108,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Exemplo de desempenho de consulta para round-robin versus replicado 
 
-Uma tabela não replicada não requer qualquer movimento de dados para associações porque a tabela inteira já está presente em cada nó de computação. Se as tabelas de dimensão são distribuído round robin, uma associação copia a tabela de dimensão de completa para cada nó de computação. Para mover os dados, o plano de consulta contém uma operação chamada BroadcastMoveOperation. Este tipo de operação de movimento de dados abrandar o desempenho das consultas e é eliminado utilizando tabelas replicadas. Para ver os passos do plano de consulta, utilize o [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) vista de catálogo de sistema. 
+Uma tabela não replicada não requer qualquer movimento de dados para associações porque a tabela inteira já está presente em cada nó de computação. Se as tabelas de dimensão são distribuído round robin, uma associação copia a tabela de dimensão de completa para cada nó de computação. Para mover os dados, o plano de consulta contém uma operação chamada BroadcastMoveOperation. Este tipo de operação de movimento de dados abrandar o desempenho das consultas e é eliminado utilizando tabelas replicadas. Para ver os passos do plano de consulta, utilize o [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) vista de catálogo de sistema. 
 
 Por exemplo, na seguinte consulta no esquema AdventureWorks, o ` FactInternetSales` tabela é distribuído de hash. O `DimDate` e `DimSalesTerritory` as tabelas são tabelas de dimensão mais pequena. Esta consulta devolve as totais vendas na América do Norte para ano fiscal 2004:
  
@@ -140,7 +136,7 @@ O SQL Data Warehouse implementa uma tabela não replicada, mantendo uma versão 
 
 Recria é necessário após:
 - Os dados são carregados ou modificados
-- O armazém de dados é dimensionado para outro [nível de serviço](performance-tiers.md#service-levels)
+- O armazém de dados é dimensionado para um nível diferente
 - Definição da tabela está atualizada
 
 Recria não é necessário após:
@@ -178,7 +174,7 @@ Por exemplo, neste padrão de carga carrega dados a partir de origens de quatro,
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Reconstruir uma tabela replicada após uma carga de batch
 Para garantir que os tempos de execução de consulta consistente, recomendamos que forçar uma atualização das tabelas replicadas após uma carga de batch. Caso contrário, a primeira consulta tem de aguardar as tabelas atualizar, que inclui a reconstruir os índices. Dependendo do tamanho e número de tabelas replicadas afetados, o impacto de desempenho pode ser significativo.  
 
-Esta consulta utiliza a [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV para listar as tabelas replicadas que modificada, mas não reconstruídas.
+Esta consulta utiliza a [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV para listar as tabelas replicadas que modificada, mas não reconstruídas.
 
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
@@ -197,11 +193,11 @@ Para forçar uma reconstrução, execute a seguinte instrução em cada tabela n
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
  
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 Para criar uma tabela não replicada, utilize um destas instruções:
 
-- [Criar tabela (armazém de dados SQL do Azure)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [Criar TABLE AS SELECT (armazém de dados SQL do Azure)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [Criar tabela (armazém de dados SQL do Azure)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [Criar TABLE AS SELECT (armazém de dados SQL do Azure)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 Para obter uma descrição geral das tabelas distribuídas, consulte [distribuídas tabelas](sql-data-warehouse-tables-distribute.md).
 

@@ -3,8 +3,8 @@ title: Como migrar conteúdo de coleção de área de trabalho do Power BI para 
 description: Saiba como migrar a partir de coleções de área de trabalho do Power BI para Power BI Embedded e tirar partido de avanços para incorporar nas aplicações.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
-manager: erikre
+author: markingmyname
+manager: kfile
 editor: ''
 tags: ''
 ms.service: power-bi-embedded
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: 069f31c8213bd0d8586f7ca50e543acfdad8a2b3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: maghan
+ms.openlocfilehash: d138b0c26ffc0a44947f79811fd586dda7df4509
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>Como migrar conteúdo de coleção de área de trabalho do Power BI para Power BI Embedded
 
@@ -107,19 +107,19 @@ Existem vários tipos de relatórios, cada necessidade de um fluxo de migração
 
 Conjuntos de dados em cache Consulte os ficheiros PBIX que tinham importado dados, por oposição a uma ligação em direto ou a ligação de DirectQuery.
 
-**Flow**
+**Fluxo**
 
 1. Chame a API de PBIX transferir da sua área de trabalho de coleção de área de trabalho do Power BI.
-2. Save PBIX.
+2. Guarde o PBIX.
 3. Chamada PBIX de importação para a sua área de trabalho do Power BI Embedded.
 
 #### <a name="directquery-dataset-and-report"></a>Conjunto de dados de DirectQuery e relatório
 
-**Flow**
+**Fluxo**
 
 1. Chamada GET https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources e guardar a cadeia de ligação que recebeu.
 2. Chame a API de PBIX transferir da sua área de trabalho de coleção de área de trabalho do Power BI.
-3. Save PBIX.
+3. Guarde o PBIX.
 4. Chamada PBIX de importação para a sua área de trabalho do Power BI Embedded.
 5. Atualizar a cadeia de ligação ao chamar - POST  https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections
 6. Obter ID de GW ID e a origem de dados, chamando - introdução https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
@@ -129,7 +129,7 @@ Conjuntos de dados em cache Consulte os ficheiros PBIX que tinham importado dado
 
 Relatórios carregados antes de Outubro de 2016 não suportam a funcionalidade de transferir PBIX.
 
-**Flow**
+**Fluxo**
 
 1. Obter PBIX do seu ambiente de desenvolvimento (o controlo de origem interna).
 2. Chamada PBIX de importação para a sua área de trabalho do Power BI Embedded.
@@ -138,7 +138,7 @@ Relatórios carregados antes de Outubro de 2016 não suportam a funcionalidade d
 
 Transferir PBIX não suporta *Push API* conjuntos de dados. Dados de conjunto de dados de API de push não podem ser de coleções de área de trabalho do Power BI convertidos para serem Power BI Embedded.
 
-**Flow**
+**Fluxo**
 
 1. Chame a API de "Criar conjunto de dados" com o conjunto de dados Json para criar o conjunto de dados para a sua área de trabalho do Power BI Embedded.
 2. Reconstrua o relatório para o conjunto de dados criada *.

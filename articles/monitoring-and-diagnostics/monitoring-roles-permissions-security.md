@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução à segurança com a monitorização do Azure, funções e permissões
 Várias equipas necessário estritamente regular o acesso aos dados e definições de monitorização. Por exemplo, se tiver os membros da equipa que trabalham exclusivamente no monitorização (engenheiros de suporte, os engenheiros de devops) ou se utilizar um fornecedor de serviço geridas, poderá querer conceder-lhes acesso a dados de monitorização apenas ao restringir a capacidade de criar, modificar ou eliminar recursos. Este artigo mostra como rapidamente aplicam-se uma função RBAC monitorização incorporada a um utilizador no Azure ou criar a sua própria função personalizada para um utilizador que tem permissões de monitorização limitadas. Em seguida, explica como considerações de segurança para os recursos relacionados com o Monitor do Azure e como pode limitar o acesso a dados que contêm.
@@ -71,20 +71,20 @@ As pessoas atribuídas a função de contribuinte de monitorização podem ver t
 > 
 
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>As permissões e funções do RBAC personalizadas de monitorização
-Se as funções incorporadas acima não satisfazem as necessidades exatas da sua equipa, pode [criar uma função personalizada do RBAC](../active-directory/role-based-access-control-custom-roles.md) com permissões mais granulares. Seguem-se as operações comuns do RBAC de Monitor do Azure com as suas descrições.
+Se as funções incorporadas acima não satisfazem as necessidades exatas da sua equipa, pode [criar uma função personalizada do RBAC](../role-based-access-control/custom-roles.md) com permissões mais granulares. Seguem-se as operações comuns do RBAC de Monitor do Azure com as suas descrições.
 
 | Operação | Descrição |
 | --- | --- |
-| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Grupos de ação de escrita/leitura/eliminar. |
-| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Alerta de registo de atividade de leitura/escrita/eliminar. |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Regras de alertas de leitura/escrita/eliminar (a partir de alertas clássicas). |
+| Microsoft.Insights/ActionGroups/[Read, escrita, eliminar] |Grupos de ação de escrita/leitura/eliminar. |
+| Microsoft.Insights/ActivityLogAlerts/[Read, escrita, eliminar] |Alerta de registo de atividade de leitura/escrita/eliminar. |
+| Microsoft.Insights/AlertRules/[Read, escrita, eliminar] |Regras de alertas de leitura/escrita/eliminar (a partir de alertas clássicas). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Lista de incidentes (histórico de regra de alerta que está a ser acionado) para regras de alertas. Isto aplica-se apenas para o portal. |
-| Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Definições de dimensionamento automático de leitura/escrita/eliminar. |
-| Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Definições de diagnóstico de leitura/escrita/eliminar. |
+| Microsoft.Insights/AutoscaleSettings/[Read, escrita, eliminar] |Definições de dimensionamento automático de leitura/escrita/eliminar. |
+| Microsoft.Insights/DiagnosticSettings/[Read, escrita, eliminar] |Definições de diagnóstico de leitura/escrita/eliminar. |
 | Microsoft.Insights/EventCategories/Read |Enumerar todas as categorias de possíveis no registo de atividade. Utilizada pelo portal do Azure. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Esta permissão é necessária para os utilizadores que necessitam de aceder a registos de atividade através do portal. |
 | Microsoft.Insights/eventtypes/values/Read |Lista de eventos de registo de atividade (eventos de gestão) numa subscrição. Esta permissão é aplicável ao acesso programático e portal de registo de atividade. |
-| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Definições de diagnóstico de leitura/escrita/eliminar registos de fluxo de rede. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, escrita, eliminar] | Definições de diagnóstico de leitura/escrita/eliminar registos de fluxo de rede. |
 | Microsoft.Insights/LogDefinitions/Read |Esta permissão é necessária para os utilizadores que necessitam de aceder a registos de atividade através do portal. |
 | Microsoft.Insights/LogProfiles/[Read, escrita, eliminar] |Perfis de registo de leitura/escrita/eliminar (transmissão em fluxo de registo de atividade para a conta de armazenamento ou hub de eventos). |
 | Microsoft.Insights/MetricAlerts/[Read, escrita, eliminar] |Leitura/escrita/eliminar quase em tempo real alertas métricas |
@@ -125,7 +125,7 @@ Todas as três dos seguintes tipos de dados podem ser armazenadas numa conta de 
 
 * Utilize uma conta de armazenamento dedicada único para os dados de monitorização. Se precisar de separar os dados de monitorização em várias contas do storage, nunca partilhar a utilização de uma conta de armazenamento entre monitorização e não-monitorização de dados, como esta inadvertidamente podem dar os utilizadores que apenas necessitam de aceder a dados (por exemplo, um SIEM de terceiros) de monitorização acesso a monitorização não dados.
 * Utilize um único, dedicado barramento de serviço ou o Hub de eventos espaço de nomes em todas as definições de diagnóstico para a mesma razão, conforme apresentado acima.
-* Limitar o acesso a contas de armazenamento relacionadas com a monitorização ou event hubs ao mantê-los num grupo de recursos separado, e [utilizar âmbito](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) nas funções de monitorização para limitar o acesso a esse grupo de recursos.
+* Limitar o acesso a contas de armazenamento relacionadas com a monitorização ou event hubs ao mantê-los num grupo de recursos separado, e [utilizar âmbito](../role-based-access-control/overview.md#basics-of-access-management-in-azure) nas funções de monitorização para limitar o acesso a esse grupo de recursos.
 * Nunca conceda a permissão de ListKeys para contas de armazenamento ou os hubs de eventos no âmbito da subscrição quando um utilizador necessita apenas de acesso a dados de monitorização. Em vez disso, atribuir estas permissões ao utilizador a um recurso ou grupo de recursos (se tiver um grupo de recursos dedicado monitorização) âmbito.
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Limitar o acesso a contas de armazenamento relacionadas com a monitorização
@@ -178,6 +178,6 @@ Um padrão semelhante pode ser seguido com os event hubs, mas tem primeiro de cr
    ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Leia sobre RBAC e permissões no Gestor de recursos](../active-directory/role-based-access-control-what-is.md)
+* [Leia sobre RBAC e permissões no Gestor de recursos](../role-based-access-control/overview.md)
 * [Leia a descrição geral da monitorização no Azure](monitoring-overview.md)
 

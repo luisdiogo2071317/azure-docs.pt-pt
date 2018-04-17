@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia de publicador do Azure Marketplace e AppSource
 
@@ -112,7 +112,7 @@ Cada storefront suporta vários tipos de opções e oferta publicação. Selecio
 
 |**Opção de publicação**  | **Tipo de oferta** | **Storefront**  |
 |---------|---------|---------|
-|**List**    |    Contactar-Me, consultadoria serviços     |  Azure Marketplace, AppSource       |
+|**lista**    |    Contactar-Me, consultadoria serviços     |  Azure Marketplace, AppSource       |
 |**Avaliação**   |     Livres versão de avaliação, avaliação de SaaS, demonstração interativa, a versão de teste    |  Azure Marketplace, AppSource       |
 |**Transação**     |   A máquina virtual, modelo de solução, aplicações geridas      |    Azure Marketplace     |
 
@@ -121,8 +121,7 @@ Cada storefront suporta vários tipos de opções e oferta publicação. Selecio
 Utilize contactar-Me quando a participação de nível de versão de avaliação ou ao nível da transação não é exequível. A vantagem desta abordagem é que permite a publicadores com uma solução no mercado iniciar imediatamente a receção de clientes potenciais clientes potenciais que podem ser nurtured para as fundamentais sobre oportunidades para iniciar o flywheel de negócio. No entanto, a desvantagem é que o engagement de cliente é limitada, as compared with outros tipos de oferta.
 
 >[!IMPORTANT]
-<<<<<<< O engagement de cliente HEAD é melhor com a versão de avaliação e Transact oferece. O valor de contactar-Me é antecedência que recebe, por isso, se escolher este tipo de listagem, certifique-se de que o destino de oportunidades potenciais está configurado e pronto maximizar as oportunidades potenciais. === Não recomendamos a contactar-Me a listagem de tipo. Deve utilizá-lo apenas em situações onde não é possível estabelecer uma experiência de avaliação. O engagement de cliente é melhor com ofertas de versão de avaliação e transação. Se tiver qualquer tipo de experiência de avaliação gratuita, o nosso processo de integração irá ajudá-lo a um dessas opções, dependendo do seu cenário.
->>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
+>O engagement de cliente é melhor com a versão de avaliação e Transact oferece. O valor de contactar-Me é antecedência que recebe, por isso, se escolher este tipo de listagem, certifique-se de que o destino de oportunidades potenciais está configurado e pronto maximizar as oportunidades potenciais. 
 
 Quando a oferta consiste principalmente serviços profissionais (por exemplo, as avaliações de implementações, workshops), utilize os serviços de consultoria da oferta de tipo. Âmbito de oferta, a duração e o preço têm de ser corrigidos, tem de ser para um único cliente e tem de ser efetuadas no site.
 
@@ -413,7 +412,7 @@ Nesta secção, vamos explicar os passos para:
 
 |Passo de registo do Marketplace  |Hora  |Descrição  |
 |---------|---------|---------|
-| Registar-se numa rede de parceiros de Microoft | 15 min | Os publicadores tem de estar registado na rede de parceiros de Microsoft (MPN) para poder ter primeiro nível da validação de conta e receber outras vantagens e suporte para a ser um publicador do Azure Marketplace |
+| Registar-se numa rede de parceiro da Microsoft | 15 min. | Os publicadores tem de estar registado na rede de parceiros de Microsoft (MPN) para poder ter primeiro nível da validação de conta e receber outras vantagens e suporte para a ser um publicador do Azure Marketplace |
 |Criar uma ID da Microsoft     |   15 minutos      |   Os parceiros têm de ter um ID. Microsoft Este ID de Microsoft será utilizado para aceder ao Portal de parceiros de nuvem.       |
 |Submeter o formulário de nomination do marketplace     |  1 a 3 dias       |  Os parceiros têm submeter o formulário nomination para iniciar o processo de aprovação para o mercado. Depois do formulário é submetido, a equipa de integração do marketplace irá rever a aplicação e validar o pedido.       |
 |Registar no Centro de programadores     |    5-10 dias     | O registo com o Microsoft Developer Center é necessário para a Microsoft validar se o parceiro é uma entidade legal válida com um ID de dedução dos impostos válido para o país/região na qual está registado. O Centro de programadores irá ativar o parceiro para ser um programador da Microsoft registado e fornecem acesso para o programa de programador do Azure. <br><br>Tenha em atenção que se ainda não concluído o formulário de nomination marketplace, irá ser-lhe pedido para pagar uma taxa de registo $99. Para que esta taxa não cobrada, preencha o formulário de nomination marketplace e irá receber um código promocional via e-mail.  |
@@ -493,7 +492,6 @@ Esta é a lista das opções de suporte para o Azure Marketplace:
 
 |Canal de suporte  |Descrição  |
 |---------|---------|
-|Slack: [associar Slack do Marketplace](https://join.marketplace.azure.com)    |   Ambiente slack para parceiros com problemas técnicos de suporte. Existem mais do que 350 parceiros atualmente a funcionar neste ambiente.        |
 |Fóruns do MSDN: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Fórum do Microsoft Developer Network.         |
 |Capacidade excedida da pilha: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Ambiente de capacidade excedida para obter soluções e fazer perguntas sobre tudo relacionados com o Azure e o Marketplace da pilha:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Máquinas Virtuais do Azure](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 

@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 832c7831-d0e9-449b-b39c-9a09ba051531
 ms.service: virtual-network
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Criar rotas definidas pelo utilizador (UDR) através de um modelo
 
@@ -186,7 +186,7 @@ Para implementar o modelo Azure Resource Manager utilizando a CLI do Azure, exec
 
         info:    New mode is arm
 
-3. O seu browser, navegue para **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do ficheiro json e cole um novo ficheiro na sua computador. Para este cenário, copie os seguintes valores para um ficheiro denominado **c:\udr\azuredeploy.parameters.json**.
+3. O seu browser, navegue para **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do ficheiro json e cole um novo ficheiro no seu computador. Para este cenário, copie os seguintes valores para um ficheiro denominado **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {

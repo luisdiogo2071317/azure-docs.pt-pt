@@ -1,6 +1,6 @@
 ---
-title: "Configure a recuperação de desastre para o Azure para servidores físicos no local com o Azure Site Recovery | Microsoft Docs"
-description: "Saiba como configurar a recuperação após desastre para o Azure para os servidores de Windows e Linux no local, com o serviço do Azure Site Recovery."
+title: Configure a recuperação de desastre para o Azure para servidores físicos no local com o Azure Site Recovery | Microsoft Docs
+description: Saiba como configurar a recuperação após desastre para o Azure para os servidores de Windows e Linux no local, com o serviço do Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configure a recuperação de desastre para o Azure para servidores físicos no local
 
@@ -54,7 +54,7 @@ Obter um Microsoft [conta do Azure](http://azure.microsoft.com/).
 Certifique-se a que sua conta do Azure tem permissões para a replicação de VMs no Azure.
 
 - Reveja o [permissões](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) terá de replicar máquinas para o Azure.
-- Certifique-se e modificar [acesso baseado em funções](../active-directory/role-based-access-control-configure.md) permissões. 
+- Certifique-se e modificar [acesso baseado em funções](../role-based-access-control/role-assignments-portal.md) permissões. 
 
 
 

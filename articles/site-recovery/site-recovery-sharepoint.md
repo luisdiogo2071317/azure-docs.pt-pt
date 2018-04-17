@@ -1,24 +1,24 @@
 ---
-title: "Replicar uma aplicação do SharePoint de várias camadas utilizando o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como replicar uma aplicação do SharePoint de várias camadas utilizando as capacidades do Azure Site Recovery."
+title: Replicar uma aplicação do SharePoint de várias camadas utilizando o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como replicar uma aplicação do SharePoint de várias camadas utilizando as capacidades do Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: sujayt
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/23/2017
+ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Replicar uma aplicação do SharePoint de várias camadas para a recuperação de desastre utilizando o Azure Site Recovery
 
@@ -91,7 +91,7 @@ Siga [esta orientação](site-recovery-vmware-to-azure.md) iniciar a replicaçã
 
 * Assim que a replicação estiver concluída, certifique-se de que vá para cada máquina virtual de cada camada e selecione o mesma conjunto de disponibilidade no ' item replicados > Definições > propriedades > computação e rede '. Por exemplo, se a camada web tiver 3 VMs, certifique-se a todos os 3 VMs estão configuradas para fazer parte do mesma conjunto de disponibilidade no Azure.
 
-    ![Set-Availability-Set](./media/site-recovery-sharepoint/select-av-set.png)
+    ![Conjunto de disponibilidade de conjunto](./media/site-recovery-sharepoint/select-av-set.png)
 
 * Para obter orientações sobre a proteger o Active Directory e DNS, consulte [proteger o Active Directory e DNS](site-recovery-active-directory.md) documento.
 
@@ -115,7 +115,7 @@ Siga [esta orientação](site-recovery-vmware-to-azure.md) iniciar a replicaçã
 Para a internet com sites, [criar um perfil do Traffic Manager do tipo 'Priority'](../traffic-manager/traffic-manager-create-profile.md) na subscrição do Azure. E, em seguida, configure o seu perfil do Traffic Manager e o DNS da seguinte forma.
 
 
-| **Where** | **Origem** | **Target**|
+| **onde** | **origem** | **Target**|
 | --- | --- | --- |
 | DNS público | DNS público para sites do SharePoint <br/><br/> Ex: sharepoint.contoso.com | Gestor de Tráfego <br/><br/> contososharepoint.trafficmanager.net |
 | DNS no local | sharepointonprem.contoso.com | IP público no farm de no local |
@@ -159,7 +159,7 @@ Pode implementar os scripts de Azure Site Recovery frequentemente utilizados na 
 
 2. Adicionar um script de ação de post para anexar um balanceador de carga a falha na ativação pós-falha de máquinas virtuais da camada Web (grupo 2). Utilize o script de 'ASR AddSingleLoadBalancer' publicado nos scripts de exemplo. Certifique-se de que siga as orientações no script e efetue as alterações necessárias no script adequadamente.
 
-    ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
+    ![Adicionar-LB-Script-passo-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
 
     ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
 

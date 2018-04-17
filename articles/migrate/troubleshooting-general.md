@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 03/19/2018
 ms.author: raynew
-ms.openlocfilehash: b2c89a980411cac02f46bc91d53620bc94fa845b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bba52534c534ea33c2939d0d9b76b7b4138e13cd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -37,7 +37,7 @@ Certifique-se ter copiados e colados as informações corretas. Para resolver pr
 2. Para iniciar a instalação, faça duplo clique o ficheiro transferido.
 3. Na configuração, no **boas-vindas** página, clique em **seguinte**. No **termos de licenciamento** página, clique em **concordo** para aceitar a licença.
 4. No **pasta de destino**, manter ou modificar a pasta de instalação predefinida > **seguinte**.
-5. No **opções de configuração do agente**, selecione **análise de registos do Azure (OMS)** > **seguinte**.
+5. No **opções de configuração do agente**, selecione **Log Analytics do Azure** > **seguinte**.
 6. Clique em **adicionar** para adicionar uma nova área de trabalho de análise de registos. Cole no ID de projeto e a chave que copiou. Clique depois em **Seguinte**.
 7. Certifique-se de que o agente pode ligar ao projeto. Se não pode ser, verifique as definições. Se o agente pode ligar, mas o recoletor não é possível, contacte o suporte.
 
@@ -62,12 +62,12 @@ Para ativar a recolha de dados de desempenho de disco e da rede, altere o nível
 
 **Posso agentes instalados e utilizados a visualização de dependência para criar grupos. Agora publique ativação pós-falha, as máquinas mostram ação "Instalar o agente", em vez de "Dependências de vista"**
 * Post planeada ou ativação pós-falha não planeada, no local as máquinas estão desativadas e do Azure são aceleradas máquinas equivalentes. Estas máquinas adquiram um endereço MAC diferente. Estes podem adquirir um endereço IP diferente, com base em se o utilizador optou por manter o endereço IP no local ou não. Se forem diferentes endereços IP e MAC, Azure migrar associa as máquinas no local quaisquer dados de dependência de mapa de serviço e pede-lhe utilizador para instalar agentes em vez de visualização de dependências.
-* Após a ativação pós-falha de teste, as máquinas no local se mantêm ativadas conforme esperado. Máquinas equivalentes aceleradas no Azure adquiram outro endereço de MAC e poderão adquirir o endereço IP diferente. A menos que o utilizador bloqueia o tráfego de saída OMS dessas máquinas, Azure migrar associa as máquinas no local quaisquer dados de dependência de mapa de serviço e pede-lhe utilizador para instalar agentes em vez de visualização de dependências.
+* Após a ativação pós-falha de teste, as máquinas no local se mantêm ativadas conforme esperado. Máquinas equivalentes aceleradas no Azure adquiram outro endereço de MAC e poderão adquirir o endereço IP diferente. A menos que o utilizador bloqueia o tráfego de saída de análise de registos dessas máquinas, Azure migrar associa as máquinas no local quaisquer dados de dependência de mapa de serviço e pede-lhe utilizador para instalar agentes em vez de visualização de dependências.
 
 
 ## <a name="troubleshoot-readiness-issues"></a>Resolver problemas de preparação
 
-**Issue** | **Fix**
+**Problema** | **Corrigir**
 --- | ---
 Tipo de arranque não suportado | Azure não suporta VMs com o tipo de arranque EFI. Recomenda-se para converter o tipo de arranque BIOS antes de executar uma migração. <br/><br/>Pode utilizar [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) para fazer a migração dessas VMs irá converter o tipo de arranque da VM BIOS durante a migração.
 SO de Windows condicionalmente suportados | O SO passou o respetivo fim de suporte de data e tem um personalizada suporta contrato (CSA) para [suportar no Azure](https://aka.ms/WSosstatement), considere atualizar o sistema operativo antes de migrar para o Azure.

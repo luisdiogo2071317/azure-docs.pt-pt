@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 356599cbe1e4e1948a5ec16d0d504835fa7dcd43
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3bbed692bfccaa2a3296ba4697c66e9069b6e914
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>Requisitos de CHD para ambientes em conformidade de PCI DSS
 ## <a name="pci-dss-requirement-3"></a>Requisito de PCI DSS 3
@@ -43,8 +43,8 @@ Consulte o PCI DSS e PA DSS Glossário de termos de licenciamento, abreviaturas 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Azure é responsável por assegurar que os dados de clientes designados para eliminação são desativados de forma segura utilizando NIST protocolos compatíveis 800 88 especificados nas respetivas políticas Disposal seguro. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore não elimina nem destruir qualquer CHD armazenado. No entanto, todos os dados são encriptados e não primário dados de número (PAN) de conta são armazenados.<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure é responsável por assegurar que os dados de clientes designados para eliminação são desativados de forma segura utilizando NIST protocolos compatíveis 800 88 especificados nas respetivas políticas Disposal seguro. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore não elimina nem destruir qualquer CHD armazenado. No entanto, todos os dados são encriptados e não primário dados de número (PAN) de conta são armazenados.<br /><br />|
 
 
 
@@ -60,8 +60,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore não elimina nem destruir qualquer CHD armazenado; os dados de exemplo são armazenados durante apenas a fins de demonstração. No entanto, todos os dados são encriptada e não primária conta dados de número (PAN) estão armazenados.<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore não elimina nem destruir qualquer CHD armazenado; os dados de exemplo são armazenados durante apenas a fins de demonstração. No entanto, todos os dados são encriptada e não primária conta dados de número (PAN) estão armazenados.<br /><br />|
 
 
 
@@ -73,7 +73,7 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 > No decorrer normal da empresa, os seguintes elementos de dados do stripe a torção poderão ter de ser mantidos: 
 > - Nome do cardholder 
 > - Número de conta principal (PAN) 
-> - Data de expiração 
+> - Data de validade 
 > - Código do serviço 
 >
 > Para minimizar o risco, armazene apenas estes elementos de dados conforme necessário para empresas.
@@ -82,8 +82,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore não armazena o conteúdo completo qualquer CHD.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore não armazena o conteúdo completo qualquer CHD.|
 
 
 
@@ -95,8 +95,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore encripta todos os dados, incluindo os exemplos CVV.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore encripta todos os dados, incluindo os exemplos CVV.|
 
 
 
@@ -108,8 +108,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore armazenam informações de PIN.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore armazenam informações de PIN.|
 
 
 
@@ -124,8 +124,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore dissimula o número de conta principal (PAN) utilizando a encriptação transparente de dados, colunas encriptadas sempre e máscara de dados dinâmicos. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore dissimula o número de conta principal (PAN) utilizando a encriptação transparente de dados, colunas encriptadas sempre e máscara de dados dinâmicos. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -144,8 +144,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore encripta todos os dados de cartão de crédito e utiliza o Cofre de chaves do Azure para gerir chaves, impedir a obtenção de CHD.<br /><br />Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore encripta todos os dados de cartão de crédito e utiliza o Cofre de chaves do Azure para gerir chaves, impedir a obtenção de CHD.<br /><br />Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -160,8 +160,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore encripta os dados armazenados todos os e segrega o tráfego para impedir ataques de elevação de privilégio para funções de DevOps.<br /><br />Como o ambiente de serviço de aplicações está protegido e bloqueado, tem de haver um mecanismo para permitir qualquer DevOps versões ou as alterações que poderão ser necessárias, tais como a capacidade de monitorizar uma aplicação Web utilizando o Kudu.<br /><br />Uma máquina virtual é estabelecida como um jumpbox (anfitrião de bastion) com as seguintes configurações:<br /><br /><ul><li>[Extensão de antimalware](/azure/security/azure-security-antimalware)</li><li>[Extensão de monitorização do OMS](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Extensão de diagnóstico de VM](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Disco encriptado do BitLocker](/azure/security/azure-security-disk-encryption)</li></ul>Utilizar o Cofre de chaves do Azure está alinhada com o Azure Government, PCI DSS e requisitos de HIPAA.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore encripta os dados armazenados todos os e segrega o tráfego para impedir ataques de elevação de privilégio para funções de DevOps.<br /><br />Como o ambiente de serviço de aplicações está protegido e bloqueado, tem de haver um mecanismo para permitir qualquer DevOps versões ou as alterações que poderão ser necessárias, tais como a capacidade de monitorizar uma aplicação Web utilizando o Kudu.<br /><br />Uma máquina virtual é estabelecida como um jumpbox (anfitrião de bastion) com as seguintes configurações:<br /><br /><ul><li>[Extensão de antimalware](/azure/security/azure-security-antimalware)</li><li>[Extensão de monitorização de análise do registo](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Extensão de diagnóstico de VM](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Disco encriptado do BitLocker](/azure/security/azure-security-disk-encryption)</li></ul>Utilizar o Cofre de chaves do Azure está alinhada com o Azure Government, PCI DSS e requisitos de HIPAA.|
 
 
 
@@ -176,8 +176,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />Microsoft Azure garante que cofres de chaves do cliente são logicamente isoladas entre si e logicamente isoladas entre o plane de gestão do serviço Cofre de chaves. O Cofre de chaves foi concebido para que a Microsoft não tem qualquer acesso colocado ao Cofre de chaves do cliente. <br /><br />As chaves são salvaguardadas pelo Microsoft Azure, utilizando algoritmos de norma da indústria, comprimentos de chave e módulos de segurança de hardware (HSMs).<br /><br />Uma chave armazenada no Cofre de chave do Microsoft Azure pode ser utilizada para proteger a chave de outro. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece documentação para ilustrar e ajudar a implementar uma solução de chave protegida para proteger a demonstração CHD.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />Microsoft Azure garante que cofres de chaves do cliente são logicamente isoladas entre si e logicamente isoladas entre o plane de gestão do serviço Cofre de chaves. O Cofre de chaves foi concebido para que a Microsoft não tem qualquer acesso colocado ao Cofre de chaves do cliente. <br /><br />As chaves são salvaguardadas pelo Microsoft Azure, utilizando algoritmos de norma da indústria, comprimentos de chave e módulos de segurança de hardware (HSMs).<br /><br />Uma chave armazenada no Cofre de chave do Microsoft Azure pode ser utilizada para proteger a chave de outro. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece documentação para ilustrar e ajudar a implementar uma solução de chave protegida para proteger a demonstração CHD.|
 
 
 
@@ -195,8 +195,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />Microsoft Azure garante que cofres de chaves do cliente são logicamente isoladas entre si e logicamente isoladas entre o plane de gestão do serviço Cofre de chaves. O Cofre de chaves foi concebido para que a Microsoft não tem qualquer acesso colocado ao Cofre de chaves do cliente. <br /><br />As chaves são salvaguardadas pelo Microsoft Azure, utilizando algoritmos de norma da indústria, comprimentos de chave e módulos de segurança de hardware (HSMs).<br /><br />Uma chave armazenada no Cofre de chave do Microsoft Azure pode ser utilizada para proteger a chave de outro. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece documentação para ilustrar e ajudar a implementar uma solução de chave protegida para proteger a demonstração CHD.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />Microsoft Azure garante que cofres de chaves do cliente são logicamente isoladas entre si e logicamente isoladas entre o plane de gestão do serviço Cofre de chaves. O Cofre de chaves foi concebido para que a Microsoft não tem qualquer acesso colocado ao Cofre de chaves do cliente. <br /><br />As chaves são salvaguardadas pelo Microsoft Azure, utilizando algoritmos de norma da indústria, comprimentos de chave e módulos de segurança de hardware (HSMs).<br /><br />Uma chave armazenada no Cofre de chave do Microsoft Azure pode ser utilizada para proteger a chave de outro. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece documentação para ilustrar e ajudar a implementar uma solução de chave protegida para proteger a demonstração CHD.|
 
 
 
@@ -209,8 +209,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />O Cofre de chaves suporta políticas de acesso granular, que permitem conceder acesso a funcionalidades específicas para efetuar operações específicas para entidades específicas de um proprietário de Cofre de chaves. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Gestão de chaves contoso Webstore está isolada para conta de utilizador (admin # #@contosowebstore.com).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />O Cofre de chaves suporta políticas de acesso granular, que permitem conceder acesso a funcionalidades específicas para efetuar operações específicas para entidades específicas de um proprietário de Cofre de chaves. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Gestão de chaves contoso Webstore está isolada para conta de utilizador (admin # #@contosowebstore.com).|
 
 
 
@@ -228,8 +228,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />As chaves são armazenadas nos cofres de chaves específicos identificados pelo cliente.<br /><br />O Cofre de chaves podem ser acedido em simultâneo e globalmente por várias aplicações que reduz a necessidade de copiar uma chave e armazenar em várias localizações. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />As chaves são armazenadas nos cofres de chaves específicos identificados pelo cliente.<br /><br />O Cofre de chaves podem ser acedido em simultâneo e globalmente por várias aplicações que reduz a necessidade de copiar uma chave e armazenar em várias localizações. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -242,8 +242,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />As chaves são armazenadas nos cofres de chaves específicos identificados pelo cliente. <br /><br />O Cofre de chaves podem ser acedido em simultâneo e globalmente por várias aplicações que reduz a necessidade de copiar uma chave e armazenar em várias localizações. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />As chaves são armazenadas nos cofres de chaves específicos identificados pelo cliente. <br /><br />O Cofre de chaves podem ser acedido em simultâneo e globalmente por várias aplicações que reduz a necessidade de copiar uma chave e armazenar em várias localizações. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -258,8 +258,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -271,8 +271,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:** <br /><br />Quando a gerar chaves no Cofre de chave, Azure é responsável pela geração de chaves por especificações do cliente. As chaves são geradas a utilizar um HSM. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:** <br /><br />Quando a gerar chaves no Cofre de chave, Azure é responsável pela geração de chaves por especificações do cliente. As chaves são geradas a utilizar um HSM. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -284,8 +284,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />Traga a seus próprios ferramenta de chave (BYOK) contém a chave de cliente e está direcionada para um cofre de segurança específico que está associado a uma subscrição do Azure específica. A chave apenas pode ser importada para o Cofre de chaves da subscrição definido, na região especificada. Este processo utiliza os procedimentos de encriptação fornecidos pelo fabricante de hardware. Os clientes recebem uma notificação de que a transferência foi concluída com êxito. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />Traga a seus próprios ferramenta de chave (BYOK) contém a chave de cliente e está direcionada para um cofre de segurança específico que está associado a uma subscrição do Azure específica. A chave apenas pode ser importada para o Cofre de chaves da subscrição definido, na região especificada. Este processo utiliza os procedimentos de encriptação fornecidos pelo fabricante de hardware. Os clientes recebem uma notificação de que a transferência foi concluída com êxito. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -297,8 +297,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />As chaves são armazenadas nos HSMs e são protegidas através de segurança de criptografia do fabricante de hardware. Os metadados de chaves é armazenado no armazenamento do Azure num estado encriptado, que é exclusivo para cada Cofre de chaves. <br /><br /> |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />As chaves são armazenadas nos HSMs e são protegidas através de segurança de criptografia do fabricante de hardware. Os metadados de chaves é armazenado no armazenamento do Azure num estado encriptado, que é exclusivo para cada Cofre de chaves. <br /><br /> |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -310,8 +310,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />O Cofre de chaves suporta a funcionalidade atualizar ou implementar chaves, que é definida pelo cliente. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />O Cofre de chaves suporta a funcionalidade atualizar ou implementar chaves, que é definida pelo cliente. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -326,8 +326,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />O Cofre de chaves suporta a funcionalidade de extinguir ou substituir, que é definida pelo cliente. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />O Cofre de chaves suporta a funcionalidade de extinguir ou substituir, que é definida pelo cliente. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -342,8 +342,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -355,8 +355,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />Cofres de chave são logicamente separados e não suportam a autorização de diretório entre. Como resultado, é impedida a substituição não autorizada. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | **Para clientes que utilizam o Cofre de chaves:**<br /><br />Cofres de chave são logicamente separados e não suportam a autorização de diretório entre. Como resultado, é impedida a substituição não autorizada. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -368,8 +368,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Gestão de chaves contoso Webstore está isolada para conta de utilizador (admin # #@contosowebstore.com).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Gestão de chaves contoso Webstore está isolada para conta de utilizador (admin # #@contosowebstore.com).|
 
 
 
@@ -381,8 +381,8 @@ Dados de autenticação confidenciais incluem os dados como citou nos seguintes 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Cofre de chaves do Azure para toda a gestão de chave. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 

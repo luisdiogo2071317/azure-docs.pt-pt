@@ -1,32 +1,32 @@
 ---
-title: "OpenShift em tarefas de pós-implementação do Azure | Microsoft Docs"
+title: OpenShift em tarefas de pós-implementação do Azure | Microsoft Docs
 description: Tarefas adicionais para depois de um cluster de OpenShift foi implementada.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 77c4719b5cee7f5736d73ee10cf6abf12229ea11
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1fe44f6d18199fe1a37db566f8b30eeaa4fbfab2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="post-deployment-tasks"></a>Tarefas de pós-implementação
 
 Depois de implementar um cluster de OpenShift, pode configurar itens adicionais. Este artigo abrange o seguinte:
 
 - Como configurar o início de sessão único através do Azure Active Directory (Azure AD)
-- Como configurar o Operations Management Suite para monitorizar OpenShift
+- Como configurar a análise de registos para monitorizar OpenShift
 - Como configurar as métricas e registo
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Configurar o início de sessão único através do Azure Active Directory
@@ -38,9 +38,9 @@ Para utilizar o Azure Active Directory para autenticação, primeiro tem de cria
 Estes passos utilizam a CLI do Azure para criar o registo de aplicação e o GUI (portal) para definir as permissões. Para criar o registo de aplicação, terá dos seguintes cinco tipos de informações:
 
 - Nome a apresentar: nome de registo da aplicação (por exemplo, OCPAzureAD)
-- Página inicial: OpenShift URL da consola (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com:8443/consola)
-- Identificador URI: URL da consola OpenShift (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com:8443/consola)
-- URL de resposta: URL público mestre e o nome do registo de aplicação (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- Página inicial: OpenShift consola URL (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Identificador URI: URL da consola OpenShift (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- URL de resposta: Principal do URL público e o nome do registo de aplicação (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
 - Palavra-passe: Palavra-passe segura (utilize uma palavra-passe segura)
 
 O exemplo seguinte cria um registo de aplicação utilizando as informações:
@@ -145,7 +145,7 @@ Insira as seguintes linhas imediatamente após as linhas anteriores:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Localize o ID de inquilino utilizando o seguinte comando da CLI:```az account show```
+Localize o ID de inquilino utilizando o seguinte comando da CLI: ```az account show```
 
 Reinicie os serviços de mestres de OpenShift em todos os nós principais:
 
@@ -171,11 +171,11 @@ sudo systemctl restart atomic-openshift-master
 
 Na consola do OpenShift, agora, ver duas opções para a autenticação: htpasswd_auth e [registo de aplicação].
 
-## <a name="monitor-openshift-with-operations-management-suite"></a>Monitor OpenShift no Operations Management Suite
+## <a name="monitor-openshift-with-log-analytics"></a>Monitor OpenShift com a análise de registos
 
-Para monitorizar OpenShift com o Operations Management Suite, pode utilizar uma das duas opções: instalação do agente do OMS no anfitrião VM ou o contentor do OMS. Este artigo fornece instruções para implementar o contentor do OMS.
+Para monitorizar OpenShift com a análise de registos, pode utilizar uma das duas opções: instalação do agente do OMS no anfitrião VM ou o contentor do OMS. Este artigo fornece instruções para implementar o contentor do OMS.
 
-## <a name="create-an-openshift-project-for-operations-management-suite-and-set-user-access"></a>Criar um projeto de OpenShift para o Operations Management Suite e defina o acesso de utilizador
+## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Criar um projeto de OpenShift para análise de registos e definir o acesso de utilizador
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -244,7 +244,7 @@ spec:
 
 ## <a name="create-a-secret-yaml-file"></a>Criar um ficheiro de yaml secreta
 
-Para criar o ficheiro yaml secreta, precisa de dois tipos de informações: ID da área de trabalho OMS e a chave de partilhada área de trabalho do OMS. 
+Para criar o ficheiro yaml secreta, precisa de dois tipos de informações: ID de área de trabalho de análise do registo e a chave partilhada área de trabalho de análise de registo. 
 
 Um ficheiro de ocp-secret.yml de exemplo seguinte: 
 
@@ -258,7 +258,7 @@ data:
   KEY: key_data
 ```
 
-Substituir wsid_data com o Base64 codificado ID da área de trabalho OMS. Em seguida, substitua key_data o com codificação Base64 OMS área de trabalho chave partilhada.
+Substituir wsid_data com o Base64 codificado ID da área de trabalho de análise de registo. Em seguida, substitua key_data o com codificação Base64 registo de análise de área de trabalho chave partilhada.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'
@@ -347,7 +347,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 -e openshift_logging_install_logging=True 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Introdução à plataforma de contentor OpenShift](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
 - [Introdução ao OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)

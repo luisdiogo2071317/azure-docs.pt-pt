@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Auditoria e registo do Azure
 ## <a name="introduction"></a>Introdução
@@ -101,7 +101,7 @@ Cenários de integração
 
 -   Exportar o registo de atividade com perfis de registo para [Iniciar análise](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
-Pode utilizar uma conta de armazenamento ou [espaço de nomes de hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) que não está na mesma subscrição, como a um registo de emissão. O utilizador que configura a definição tem de ter o adequado [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) acesso para ambas as subscrições
+Pode utilizar uma conta de armazenamento ou [espaço de nomes de hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) que não está na mesma subscrição, como a um registo de emissão. O utilizador que configura a definição tem de ter o adequado [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) acesso para ambas as subscrições
 ### <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 Os registos de diagnóstico do Azure são emitidos por um recurso que fornecem dados avançados, frequentes sobre o funcionamento desse recurso. O conteúdo estes registos varia consoante o tipo de recurso (por exemplo, [registos de sistema de eventos do Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)são uma categoria de registo de diagnóstico para VMs e [blob, tabela e fila registos](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) são categorias de registos de diagnóstico para contas de armazenamento) e é diferente do registo de atividade, que fornece informações sobre as operações que foram executadas no recursos na sua subscrição.
 
@@ -364,12 +364,12 @@ Existem quatro formas diferentes de [recolher registos e as métricas para os se
 |Arquivo data Lake|   Microsoft.DataLakeStore/<br>accounts|   Diagnóstico|||
 |Espaço de nomes do Hub de Eventos|   Microsoft.EventHub/<br>Espaços de nomes|  Diagnóstico|    Diagnóstico||
 |Hubs IoT|  Microsoft.Devices/<br>IotHubs||     Diagnóstico||
-|Cofre de Chaves| Microsoft.KeyVault/<br>vaults|  Diagnóstico  || [KeyVault Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
+|Cofre de Chaves| Microsoft.KeyVault/<br>cofres|  Diagnóstico  || [Análise de KeyVault](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Balanceadores de Carga|    Microsoft.Network/<br>loadBalancers|    Diagnóstico|||
 |Aplicações Lógicas|    Microsoft.Logic/<br>Fluxos de trabalho|  Diagnóstico|    Diagnóstico||
 ||Microsoft.Logic/<br>integrationAccounts||||
 |Grupos de Segurança de Rede|   Microsoft.Network/<br>networksecuritygroups|Diagnóstico||   [Análise de grupo de segurança de rede do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
-|Cofres de recuperação|   Microsoft.RecoveryServices/<br>vaults|||[O Azure Recovery Services análise (pré-visualização)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
+|Cofres de recuperação|   Microsoft.RecoveryServices/<br>cofres|||[O Azure Recovery Services análise (pré-visualização)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Procurar serviços|   Microsoft.Search/<br>searchServices|    Diagnóstico|    Diagnóstico||
 |Espaço de nomes do Service Bus| Microsoft.ServiceBus/<br>Espaços de nomes|    Diagnóstico|Diagnóstico|    [Análise de barramento de serviço (pré-visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Armazenamento||    [Análise de recursos de infraestrutura de serviço (pré-visualização)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
@@ -382,7 +382,7 @@ Existem quatro formas diferentes de [recolher registos e as métricas para os se
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |Web farms de servidores|Microsoft.Web/<br>serverfarms||   Diagnóstico
 |Web Sites| Microsoft.Web/<br>sites ||      Diagnóstico|    [Obter mais informações](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
-||Microsoft.Web/<br>sites/<br>ranhuras|||||
+||Microsoft.Web/<br>sites /<br>ranhuras|||||
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Integração de registo com sistemas SIEM no local

@@ -3,7 +3,7 @@
 
 * A conversão não é reversível. 
 
-* Tenha em atenção que todos os utilizadores com o [contribuinte de Máquina Virtual](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) função não será possível alterar o tamanho da VM (uma vez que estes foi pré-conversão). Isto acontece porque as VMs com discos geridos exigem que o utilizador ter a permissão de Microsoft.Compute/disks/write nos discos do SO.
+* Tenha em atenção que todos os utilizadores com o [contribuinte de Máquina Virtual](../articles/role-based-access-control/built-in-roles.md#virtual-machine-contributor) função não será possível alterar o tamanho da VM (uma vez que estes foi pré-conversão). Isto acontece porque as VMs com discos geridos exigem que o utilizador ter a permissão de Microsoft.Compute/disks/write nos discos do SO.
 
 * Certifique-se de que testa a conversão. Migre uma máquina virtual de teste antes de efetuar a migração na produção.
 

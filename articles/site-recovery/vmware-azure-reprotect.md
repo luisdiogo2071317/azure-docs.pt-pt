@@ -1,6 +1,6 @@
 ---
 title: Proteja as VMs do Azure para um site no local | Microsoft Docs
-description: "Após a ativação pós-falha de VMs para o Azure, pode iniciar uma reativação pós-falha para colocar as VMs no local. Saiba como voltar a proteger antes de uma reativação pós-falha."
+description: Após a ativação pós-falha de VMs para o Azure, pode iniciar uma reativação pós-falha para colocar as VMs no local. Saiba como voltar a proteger antes de uma reativação pós-falha.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: cd5e53b49a850acf851e8351b5e14e2993176435
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 499f363dd6241612553e94e43dd56de6cfc8f71f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Proteja máquinas do Azure para um site no local
 
@@ -79,7 +79,7 @@ Depois de criar um servidor de destino mestre, efetue o seguinte:
 - Tem de adicionar uma nova unidade se estiver a utilizar uma máquina de servidor de configuração do servidor de processo existente ou uma escala ou um computador de servidor de destino do processo servidor/principal. A nova unidade deve satisfazer os requisitos de anteriores. Se a unidade de retenção não estiver presente, não aparecem na lista pendente de seleção no portal. Depois de adicionar uma unidade para o destino principal no local, que demora até 15 minutos para a unidade a aparecer na seleção no portal. Também pode atualizar o servidor de configuração se a unidade não aparecer após 15 minutos.
 - Instale as ferramentas do VMware no servidor de destino mestre. Sem as ferramentas do VMware, não é possível detetar o datastores no anfitrião ESXi do destino principal.
 - Definir o `disk.EnableUUID=true` definição os parâmetros de configuração da máquina virtual destino principal no VMware. Se esta linha não existir, adicioná-lo. Esta definição é necessário para fornecer um UUID consistente para o disco de máquina virtual (VMDK) para que o se monta corretamente.
-- O destino principal deve ter pelo menos um arquivo de dados VMFS ligado. Se não houver nenhum, o **arquivo de dados** entrada na página de reproteção estará vazia, e não é possível continuar.
+- O anfitrião do ESX nos quais o destino principal é criado deve ter pelo menos um arquivo de dados VMFS anexado ao mesmo. Se não houver nenhum, o **arquivo de dados** entrada na página de reproteção estará vazia, e não é possível continuar.
 - O servidor de destino principal não pode ter instantâneos de discos. Se existirem instantâneos, só e a reativação pós-falha falharem.
 - O destino principal não pode ter um controlador de Paravirtual SCSI. O controlador só pode ser um controlador de LSI Logic. Sem um controlador de LSI Logic só irá falhar.
 - Em qualquer instância especificada, o destino principal pode ter Step-by-atmst 60 discos ligados ao mesmo. Se o número de máquinas virtuais que está a ser proteger ao destino principal no local têm um número total de soma de mais de 60 discos, em seguida, reprotects ao destino principal começarão a falhar. Certifique-se de que tem suficiente mestre ranhuras de disco de destino ou implementar servidores de destino mestre adicionais.
@@ -92,7 +92,7 @@ Depois de uma máquina virtual arranca no Azure, demora algum tempo para o agent
 
 1. No **cofre** > **replicado itens**, faça duplo clique na máquina virtual que é foi efetuada a ativação pós-falha e, em seguida, selecione **voltar a proteger**. Também pode clique na máquina e selecione **voltar a proteger** de botões de comando.
 2. Certifique-se a direção da proteção, **do Azure para o local**, já está selecionada.
-3. No **servidor de destino mestre** e **servidor de processos**, selecione o servidor de destino principal no local e o servidor de processos.
+3. No **servidor de destino mestre** e **servidor de processos**, selecione o servidor de destino principal no local e o servidor de processos.  
 4. Para **arquivo de dados**, selecione o arquivo de dados para o qual pretende recuperar o discos no local. Esta opção é utilizada quando a máquina virtual no local é eliminada e tem de criar novos discos. Esta opção é ignorada se os discos já existem, mas ainda tem de especificar um valor.
 5. Escolha a unidade de retenção.
 6. A política de reativação pós-falha é selecionada automaticamente.

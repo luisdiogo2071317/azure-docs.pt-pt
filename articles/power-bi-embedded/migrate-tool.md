@@ -1,24 +1,24 @@
 ---
-title: "Utilize a ferramenta de migração Power BI Embedded | Microsoft Docs"
-description: "A Power BI Embedded ferramenta de migração pode ser utilizada para copiar os relatórios das coleções de área de trabalho do Power BI para Power BI Embedded."
+title: Utilize a ferramenta de migração Power BI Embedded | Microsoft Docs
+description: A Power BI Embedded ferramenta de migração pode ser utilizada para copiar os relatórios das coleções de área de trabalho do Power BI para Power BI Embedded.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: 0b7b5089045daf6dd88fcd84e316b2bd44f8c927
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 4f76b1efb509745653bfde0926f56032030f7d47
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-power-bi-embedded-migration-tool"></a>Utilize a ferramenta de migração Power BI Embedded
 
@@ -262,7 +262,7 @@ Em seguida, pode atualizar a cadeia de ligação para o conjunto de dados no ser
 * [Atualizar a cadeia de ligação de DirectQuery no Power BI Embedded](migrate-code-snippets.md#update-directquery-connection-string-in-power-bi-embedded)
 * [Defina credenciais de DirectQuery no Power BI Embedded](migrate-code-snippets.md#set-directquery-credentials-in-power-bi-embedded)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que os seus relatórios tiverem sido migrados do coleções de área de trabalho do Power BI para Power BI Embedded, pode atualizar a sua aplicação e começar a incorporar os relatórios na área de trabalho desta aplicação.
 

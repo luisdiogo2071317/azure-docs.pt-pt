@@ -1,8 +1,8 @@
 ---
-title: "Registo de diagnóstico e de métricas de base de dados SQL do Azure | Microsoft Docs"
-description: "Saiba mais sobre como configurar a base de dados do Azure SQL Server para armazenar a utilização de recursos, conectividade e estatísticas de execução da consulta."
+title: Registo de diagnóstico e de métricas de base de dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre como configurar a base de dados do Azure SQL Server para armazenar a utilização de recursos, conectividade e estatísticas de execução da consulta.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: veljko-msft
 manager: craigg
 ms.service: sql-database
@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnóstico 
 Base de dados SQL do Azure pode emitir métricas e diagnóstico registos para a monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
@@ -191,11 +191,11 @@ A forma mais fácil de configurar as métricas de registo de bases de dados de o
 
 ### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>Instalar a solução de análise de SQL na galeria do
 
-1. Depois de criar o recurso de análise de registos e os seus dados é que fluem para, instale a solução de análise do SQL Server. Na home page do Operations Management Suite, no menu do lado, selecione **soluções galeria**. Na galeria, selecione o **análise do Azure SQL** solução e selecione **adicionar**.
+1. Depois de criar o recurso de análise de registos e os seus dados é que fluem para, instale a solução de análise do SQL Server. Na página inicial, no menu do lado, selecione **soluções galeria**. Na galeria, selecione o **análise do Azure SQL** solução e selecione **adicionar**.
 
    ![solução de monitorização](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. Na home page do Operations Management Suite, o **análise do Azure SQL** apresentada no mosaico. Selecione este mosaico para abrir o dashboard de análise do SQL Server.
+2. Na sua home page, o **análise do Azure SQL** apresentada no mosaico. Selecione este mosaico para abrir o dashboard de análise do SQL Server.
 
 ### <a name="use-the-sql-analytics-solution"></a>Utilizar a solução de análise do SQL Server
 

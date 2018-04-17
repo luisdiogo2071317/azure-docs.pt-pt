@@ -1,28 +1,56 @@
-## <a name="what-is-blob-storage"></a>O que é o Blob storage?
-O Blob Storage do Azure é um serviço para armazenar grandes quantidades de dados de objetos não estruturados, como texto ou dados binários, que podem ser acedidos de qualquer local no mundo através de HTTP ou HTTPS. Pode utilizar o armazenamento de Blobs para expor publicamente os dados ao mundo ou para armazenar dados da aplicação em privado.
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 203f5a766c4c8a8f1e577f6be1e18d0f9ac95403
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/16/2018
+---
+Armazenamento de Blobs do Azure é a solução de armazenamento de objeto da Microsoft para a nuvem. Armazenamento de Blobs está otimizado para armazenar as quantidades enormes de dados não estruturados, como texto ou dados binários.
 
-Utilizações comuns do armazenamento de Blobs:
+O blob storage é ideal para:
 
 * Que serve imagens ou documentos diretamente a um browser.
 * Armazenamento de ficheiros para acesso distribuído.
 * Transmissão em fluxo de áudio e vídeo.
+* Escrever nos ficheiros de registo.
 * Armazenamento de dados para cópia de segurança e restauro, recuperação após desastre e arquivo.
 * Armazenamento de dados para análise no local ou serviço alojado no Azure.
 
+Os objetos no Blob storage podem ser acedidos de qualquer local no mundo através de HTTP ou HTTPS. Os utilizadores ou aplicações de cliente podem aceder a blobs através de URLs, o [API de REST do Storage do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [CLI do Azure](https://docs.microsoft.com/cli/azure/storage), ou uma biblioteca de clientes do Storage do Azure. As bibliotecas de cliente de armazenamento estão disponíveis para vários idiomas, incluindo [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/en/latest/index.html), [PHP](http://azure.github.io/azure-storage-php/), e [Ruby](http://azure.github.io/azure-storage-ruby).
+
 ## <a name="blob-service-concepts"></a>Conceitos do serviço Blob
-O serviço Blob contém os seguintes componentes:
 
-![Diagrama da arquitetura de serviço Blob](./media/storage-blob-concepts-include/blob1.png)
+O blob storage expõe três recursos: a conta de armazenamento, os contentores na conta e os blobs num contentor. O diagrama seguinte mostra a relação entre estes recursos.
 
-* **Conta de armazenamento:** todos os acessos ao Storage do Azure é efetuado através de uma conta de armazenamento. Esta conta de armazenamento pode ser um **conta do storage para fins gerais** ou um **conta de armazenamento de BLOBs**, que é especializada para armazenar objetos ou os blobs. Consulte [About Azure storage accounts (Acerca das contas de armazenamento do Azure)](../articles/storage/common/storage-create-storage-account.md) para obter mais informações.
-* **Contentor:** um contentor fornece um agrupamento de um conjunto de blobs. Todos os blobs tem de estar num contentor. Uma conta pode conter um número ilimitado de contentores. Um contentor pode armazenar um número ilimitado de blobs. Tenha em atenção que o nome do contentor tem de ser em minúsculas.
-* **Blob:** um ficheiro de qualquer tipo e tamanho. Storage do Azure oferece três tipos de blobs: blobs de blocos, blobs de acréscimo e blobs de páginas.
+![Diagrama da arquitetura de armazenamento de Blob (objeto)](./media/storage-blob-concepts-include/blob1.png)
+
+### <a name="storage-account"></a>Conta de Armazenamento
+
+Todo o acesso a objetos de dados no armazenamento do Azure ocorre através de uma conta de armazenamento. Para obter mais informações, consulte [contas do storage do Azure sobre](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+### <a name="container"></a>Contentor
+
+Um contentor organiza um conjunto de blobs, semelhantes a uma pasta no sistema de ficheiros. Todos os blobs residem num contentor. Uma conta do storage pode conter um número ilimitado de contentores e um contentor pode armazenar um número ilimitado de blobs. Tenha em atenção que o nome do contentor tem de ser em minúsculas.
+
+### <a name="blob"></a>Blobs
+ 
+Storage do Azure oferece três tipos de blobs – blobs de blocos, blobs, de acréscimo e [blobs de páginas](../articles/storage/blobs/storage-blob-pageblob-overview.md) (utilizado para ficheiros VHD).
+
+* Armazenam blobs de blocos texto e os dados binários, até cerca de 4.7 TB. Os blobs de blocos são constituídos por blocos de dados que podem ser geridos individualmente.
+* Acrescentar blobs são constituídos por blocos, como os blobs de blocos, mas estão otimizados para operações de acréscimo. Acrescentar blobs são ideais para cenários tais como dados de registo a partir de máquinas virtuais.
+* Página arquivo de blobs acesso aleatório ficheiros até 8 TB de tamanho. Os blobs de páginas armazenam os ficheiros VHD que apoiam a VMs.
+
+Todos os blobs residem num contentor. Um contentor é semelhante a uma pasta no sistema de ficheiros. Ainda pode organizar os blobs em diretórios virtuais e atravessá-los tal como faria com um sistema de ficheiros. 
+
+Para conjuntos de dados muito grandes e em que as limitações de rede fazem com que carregar ou transferir dados para o Armazenamento de blobs de forma automática seja irrealista, pode enviar um conjunto de discos rígidos à Microsoft para importar ou exportar dados diretamente do datacenter. Para obter mais informações, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o Blob Storage](../articles/storage/common/storage-import-export-service.md).
   
-    Os *blobs de blocos* são ideais para armazenar ficheiros de texto ou binários, como documentos e ficheiros multimédia. Um único blob de blocos pode conter até 50.000 blocos com um máximo de 100 MB cada, para um tamanho total ligeiramente acima de 4.75 TB (100 MB X 50.000). 
-
-    Os *blobs de acréscimo* são semelhantes aos blobs de blocos na medida em que são constituídos por blocos, mas estão otimizados para operações de acréscimo, sendo pois úteis para cenários de registo. Um único blob de acréscimo pode conter até 50.000 blocos com um máximo de 4 MB cada, para um tamanho total ligeiramente acima de 195 GB (4 MB X 50.000).
-  
-    Os *blobs de páginas* podem ter até 1 TB de tamanho e são mais eficientes para operações de leitura/escrita frequentes. Máquinas virtuais do Azure utilizam blobs de páginas como discos de dados e de sistema operativo.
-  
-    Para obter detalhes sobre a nomenclatura contentores e blobs, veja [nomenclatura e referência de contentores, blobs e metadados](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
-
+Para obter detalhes sobre os nomes dos contentores e dos blobs, veja [Naming and Referencing Containers, Blobs, and Metadata (Nomenclatura e Referência de Contentores, Blobs e Metadados)](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).

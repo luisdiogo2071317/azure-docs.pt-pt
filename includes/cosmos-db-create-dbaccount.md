@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: cosmos-db
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: sngun
+ms.custom: include file
+ms.openlocfilehash: f8ef3070c318293af59a8f22d271b9c836c06f69
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/16/2018
+---
 1. Numa nova janela do browser, inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **Criar um recurso** > **Bases de dados** > **Azure Cosmos DB**.
    
@@ -17,7 +33,7 @@
 
     Em seguida, clique em **Criar**.
 
-    ![A nova página de conta de base de dados do Azure Cosmos](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![A nova página de conta de base de dados do Azure Cosmos](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account.png)
 
 4. A criação da conta demora alguns minutos. Aguarde que o portal apresentar o **Parabéns! Foi criada a sua conta de base de dados do Azure Cosmos** página.
 

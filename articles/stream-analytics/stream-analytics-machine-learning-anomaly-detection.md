@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/12/2018
-ms.openlocfilehash: cda5c26d4256720a8cf9af0e9abd604c979422a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Deteção de anomalias do Azure Stream Analytics
 
@@ -42,7 +42,7 @@ Quando utilizar o operador de AnomalyDetection, tem de especificar o **Limit Dur
 
 ### <a name="arguments"></a>Argumentos
 
-* **scalar_expression** -a expressão escalar durante o qual a deteção de anomalias é executada. Valores permitidos para este parâmetro incluem o número de vírgula flutuante ou de dados Bigint tipos de retorno ou um único () valor escalar. A expressão com carateres universais ** \* ** não é permitida. Expressão escalar não pode conter outras funções analíticas ou funções externas. 
+* **scalar_expression** -a expressão escalar durante o qual a deteção de anomalias é executada. Valores permitidos para este parâmetro incluem o número de vírgula flutuante ou de dados Bigint tipos de retorno ou um único () valor escalar. A expressão com carateres universais **\*** não é permitida. Expressão escalar não pode conter outras funções analíticas ou funções externas. 
 
 * **partition_by_clause** - `PARTITION BY <partition key>` cláusula divide a aprendizagem e a formação em partições separadas. Por outras palavras, um modelo separado seria utilizado por valor `<partition key>` e apenas eventos com que o valor seriam utilizados para formação esse modelo e de aprendizagem. Por exemplo, a seguinte consulta trains e pontua um leitura contra outras as leituras de apenas o sensor mesmo:
 
@@ -66,6 +66,8 @@ Para extrair os valores fora do registo individuais, utilize o **GetRecordProper
 
 Foi detetada uma anomalias de um tipo quando um das pontuações de anomalias atravesse um limiar. O limiar pode ser qualquer número de vírgula flutuante > = 0. O limiar é um compromisso entre sensibilidade e o confiança. Por exemplo, um limiar mais baixo seria efetuar deteção mais confidenciais para as alterações e gerar alertas mais, enquanto que um limiar mais elevado pode tornar deteção menos sensível e mais certeza mas mascarar algumas anomalias. O valor de limiar exato a utilizar depende do cenário. Não existe nenhum limite superior, mas o intervalo recomendado é de 3.25 5. 
 
+O valor 3.25 mostrado no exemplo é apenas um ponto de partida sugerido. Otimizar o valor ao executar as operações no seu próprio conjunto de dados e observe o valor de saída até chegar um limiar tolerable.
+
 ## <a name="anomaly-detection-algorithm"></a>Algoritmo de deteção de anomalias
 
 * Operador de AnomalyDetection utiliza um **learning não supervisionado** abordagem em que não assume qualquer tipo de distribuição nos eventos. Em geral, os dois modelos são mantidos em paralelo em qualquer momento, em que uma delas é utilizada para classificação e o outro está preparado em segundo plano. Os modelos de deteção de anomalias são preparados com dados da sequência atual, em vez de utilizar um mecanismo fora de banda. A quantidade de dados utilizados para formação depende o d de tamanho de janela especificado pelo utilizador dentro do parâmetro Limit Duration. Cada modelo termina obter preparado com base no d para 2d visão de eventos. É recomendado ter pelo menos 50 eventos em cada janela para obter os melhores resultados. 
@@ -76,7 +78,7 @@ Foi detetada uma anomalias de um tipo quando um das pontuações de anomalias at
 
 ### <a name="training-the-models"></a>Os modelos de preparação 
 
-Como avança ser de tempo, modelos são preparados com dados diferentes. Para fazer sentido das pontuações, ajuda a compreender o mecanismo de subjacente através do qual os modelos são preparados. Aqui, **t<sub>0</sub> ** é o **hora de início do resultado da tarefa** e **d** é o **tamanho da janela** da duração de limite parâmetro. Partem do princípio de que a hora é dividida entre cópias de segurança **saltos de tamanho d**, a partir do `01/01/0001 00:00:00`. São utilizados os seguintes passos para preparar o modelo e Pontuar os eventos:
+Como avança ser de tempo, modelos são preparados com dados diferentes. Para fazer sentido das pontuações, ajuda a compreender o mecanismo de subjacente através do qual os modelos são preparados. Aqui, **t<sub>0</sub>**  é o **hora de início do resultado da tarefa** e **d** é o **tamanho da janela** da duração de limite parâmetro. Partem do princípio de que a hora é dividida entre cópias de segurança **saltos de tamanho d**, a partir do `01/01/0001 00:00:00`. São utilizados os seguintes passos para preparar o modelo e Pontuar os eventos:
 
 * Quando inicia uma tarefa de cópia de segurança, lê dados começando tempo t<sub>0</sub> – 2d.  
 * Quando o tempo atinge o salto seguinte, um novo modelo M1 é criado e começa a obter preparado.  
@@ -118,19 +120,19 @@ Vamos rever a computação strangeness detalhadamente (partem do princípio de u
    - Se event_value/90th_percentile, event_value > 90th_percentile  
    - 10th_percentile/event_value, se for o event_value < 10th_percentile  
 
-2. **Tendência positiva lenta:** uma linha de tendência ao longo de valores de eventos na janela do histórico é calculada e iremos procurar uma tendência positiva dentro da linha. O valor de strangeness é calculado como:  
+2. **Tendência positiva lenta:** uma linha de tendência ao longo de valores de eventos na janela do histórico é calculada e a operação de procura uma tendência positiva dentro da linha. O valor de strangeness é calculado como:  
 
    - Declive, se declive for positivo  
    - 0, caso contrário 
 
-1. **Tendência negativa lenta:** uma linha de tendência ao longo de valores de eventos na janela do histórico é calculada e iremos procurar tendência negativa dentro da linha. O valor de strangeness é calculado como: 
+3. **Tendência negativa lenta:** uma linha de tendência ao longo de valores de eventos na janela do histórico é calculada e a operação de procura tendência negativa dentro da linha. O valor de strangeness é calculado como: 
 
    - Declive, se declive for negativo  
    - 0, caso contrário  
 
 Assim que o valor de strangeness para o evento de entrada é calculado, um valor de martingale é calculado com base no valor strangeness (consulte o [blogue de Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) para obter detalhes sobre como o valor de martingale é calculado). Este valor martingale é retuned como a classificação de anomalias. O valor de martingale lentamente aumenta em resposta a um valores, que permite que o detector permaneça robusta para alterações esporádicas e reduz a alertas de falsas. Também tem uma propriedade úteis: 
 
-Probabilidade [existe t esse que M<sub>t</sub> > λ] < 1/λ, onde M<sub>t</sub> é o valor de martingale em t instantânea e λ é um valor real. Por exemplo, se, iremos alertá quando M<sub>t</sub>> 100, em seguida, a probabilidade de falsos positivos é inferior a 1/100.  
+Probabilidade [existe t esse que M<sub>t</sub> > λ] < 1/λ, onde M<sub>t</sub> é o valor de martingale em t instantânea e λ é um valor real. Por exemplo, se existir um alerta quando M<sub>t</sub>> 100, em seguida, a probabilidade de falsos positivos é inferior a 1/100.  
 
 ## <a name="guidance-for-using-the-bi-directional-level-change-detector"></a>Orientações para utilizar o nível de bidirecional alterar detector 
 

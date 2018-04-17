@@ -1,10 +1,10 @@
 ---
-title: "Endereços de IP público (clássica) de nível de instância do Azure | Microsoft Docs"
-description: "Compreender a instância de endereços IP públicos nível (ILPIP) e como geri-los através do PowerShell."
+title: Endereços de IP público (clássica) de nível de instância do Azure | Microsoft Docs
+description: Compreender a instância de endereços IP públicos nível (ILPIP) e como geri-los através do PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
-ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 631b667b12941781a7e69361a0e731f94b7119f8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Instância pública IP (clássica) Descrição geral detalhada
 Uma instância IP público ao nível (ILPIP) é um endereço IP público que pode atribuir diretamente a uma instância de função VM ou Cloud Services, em vez de para o serviço em nuvem que a VM ou instância de função residem no. Um ILPIP não tem o local de IP virtual (VIP) que é atribuído ao seu serviço em nuvem. Em vez disso, é um endereço IP adicional que pode utilizar para ligar diretamente à sua VM ou instância de função.
@@ -43,7 +43,7 @@ Quando cria um serviço em nuvem no Azure, correspondentes DNS registos são cri
 ## <a name="why-would-i-request-an-ilpip"></a>Por que motivo seria a pedir uma ILPIP?
 Se pretender ser capaz de ligar à sua instância de função VM ou um endereço IP atribuído diretamente ao mesmo, em vez de utilizar a nuvem de serviço VIP:&lt;número de porta&gt;, pedir um ILPIP para a VM ou instância de função.
 
-* **Active Directory FTP** -atribuindo um ILPIP a uma VM, pode receber tráfego em qualquer porta. Pontos finais não são necessários para a VM receber tráfego.  Consulte [geral do protocolo FTP] (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) para obter detalhes sobre o protocolo FTP.
+* **Active Directory FTP** -atribuindo um ILPIP a uma VM, pode receber tráfego em qualquer porta. Pontos finais não são necessários para a VM receber tráfego.  Consulte (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[geral do protocolo FTP] para obter detalhes sobre o protocolo FTP.
 * **Saída IP** - provenientes de VM de tráfego de saída está mapeado para o ILPIP como origem e o ILPIP identifica exclusivamente a VM para as entidades externas.
 
 > [!NOTE]
@@ -144,6 +144,6 @@ Para adicionar um ILPIP a uma instância de função de serviços em nuvem, conc
     ```
 3. Carregar o ficheiro. cscfg para o serviço em nuvem, efetuando os passos a [como configurar os serviços em nuvem](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) artigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Compreender como [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implementação clássica.
 * Saiba mais sobre [reservado IPs](virtual-networks-reserved-public-ip.md).

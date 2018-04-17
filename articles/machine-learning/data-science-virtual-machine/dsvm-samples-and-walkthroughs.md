@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 6c5b5c8c9dbb03a2189eb5f1539499ace55e7dfc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3e3ee232b6342601e44d728148d32e70e6f3f00b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Amostras nas máquinas de virtuais de ciência de dados (DSVM)
 
@@ -38,7 +38,7 @@ Os DSVMs vêm incluídos exemplos de escalamento de trabalhado totalmente sob a 
 | **Azure Machine Learning** AzureML  | Interagir com **Azure Machine Learning** Studio e a criação de pontos finais do serviço web a partir de modelos de formação localmente, para fluxos de trabalho classificação baseados na nuvem. <br/> [Captura de ecrã](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | Profundidade exemplos de utilização de aprendizagem **caffe2** com base em redes neurais. Existem vários blocos de notas concebidos para familiarizar-os utilizadores com caffe2 e como utilizá-lo de forma eficaz, incluindo exemplos como imagem previamente processamento, criação de conjunto de dados, regressão e utilizar previamente preparado modelos. <br/> [Captura de ecrã](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | Exemplos de baseado no Python através das **H2O** inúmeros problemas de cenário do mundo real. <br/> [Captura de ecrã](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
-| **SparkML** Language  | Exemplo de utilização de funcionalidades e capacidades do Spark **MLlib** toolkit através de **pySpark 2.0** no **Apache Spark 2.0**.  <br/> [Captura de ecrã](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/><br/> |
+| **SparkML** idioma  | Exemplo de utilização de funcionalidades e capacidades do Spark **MLlib** toolkit através de **pySpark 2.0** no **Apache Spark 2.0**.  <br/> [Captura de ecrã](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/><br/> |
 | **MMLSpark** idioma  | Exemplos de utilização de diversas **MMLSpark - Microsoft Machine Learning para Apache Spark**, que é uma estrutura que fornece um número de ferramentas de ciência de dados para e de aprendizagem profunda **Apache Spark**. <br/> [Captura de ecrã](#sparkml) | <br/>`~notebooks/MMLSpark`<br/><br/> |
 | **TensorFlow**  | Vários exemplos de rede neuronal diferente e técnicas implementadas utilizando o **TensorFlow** framework. <br/> [Captura de ecrã](#tensorflow) | <br/>`~notebooks/tensorflow`<br/><br/> |
 | **XGBoost** | Amostras de Machine Learning padrão no **XGBoost** para cenários, como a classificação, regressão etc. <br/> [Captura de ecrã](#xgboost) | <br/>`~samples/xgboost/demo`<br/><br/> |
@@ -89,7 +89,7 @@ Inicie sessão com a mesma palavra-passe como o início de sessão para o DSVM.
 ## <a name="azureml"></a>AzureML 
 <br/>![Exemplos de AzurekML](./media/azureml-samples.png)<br/>
 
-## <a name="caffe2"></a>caffe2 
+## <a name="caffe2"></a>Caffe2 
 <br/>![Exemplos de caffe2](./media/caffe2-samples.png)<br/>
 
 ## <a name="h2o"></a>H2O 

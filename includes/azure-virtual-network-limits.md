@@ -26,12 +26,12 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Sub-redes por rede virtual |1000 |10000 |
 | Peerings de rede virtual por rede Virtual |10 |50 |
 | Servidores de DNS por rede virtual |9 |25 |
-| Endereços de IP privados por rede virtual |4096 |8192 |
+| Endereços de IP privados por rede virtual |16384 * * |16384 |
 | Endereços IP privados por interface de rede |256 |1024 |
 | Em simultâneo TCP ou UDP flui por NIC de uma máquina virtual ou instância de função |500 K |500 K |
-| Interfaces de Rede (NIC) |350 |20000 |
+| Interfaces de Rede (NIC) |24000 * * |24000 |
 | Grupos de Segurança de Rede (NSG) |100 |5000 |
-| Regras do NSG por NSG |200 |1000 |
+| Regras do NSG por NSG |1000 * * |1000 |
 | Endereços IP e intervalos especificados para a origem ou de destino num grupo de segurança |2000 |4000 |
 | Grupos de segurança de aplicações |200 |500 |
 | Grupos de segurança de aplicações por configuração de IP, por NIC |10 |20 |
@@ -43,6 +43,8 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Endereços IP públicos - estáticos |20 (básico) |contactar o suporte |
 | Endereços IP públicos - estáticos |20 (padrão) |contactar o suporte |
 | Certificados de Raiz do Ponto-a-Site por Gateway de VPN |20 |20 |
+
+* * Estes limites de predefinição aplicam às subscrições que não tenham sido anteriormente estes limites aumentadas através do suporte
 
 #### <a name="load-balancer"></a>Limites de Balanceador de carga
 

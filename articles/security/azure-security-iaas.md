@@ -1,5 +1,5 @@
 ---
-title: "Segurança melhores práticas para IaaS cargas de trabalho no Azure | Microsoft Docs"
+title: Segurança melhores práticas para IaaS cargas de trabalho no Azure | Microsoft Docs
 description: " A migração de cargas de trabalho IaaS do Azure coloca oportunidades para reevaluate nosso estruturas "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 376a3e47e5099aa4d74732e0b6ed14ed9af14091
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho IaaS no Azure
 
@@ -83,7 +83,7 @@ Pode utilizar [Privileged Identity Management](../active-directory/active-direct
 
 Utilizar o Azure para os ambientes de desenvolvimento e laboratórios permite às organizações ganhar agilidade ao desenvolvimento e teste adotando ausente atrasos que apresenta o aprovisionamento de hardware. Infelizmente, falta de familiaridade com o Azure ou um desejo para ajudar a agilizar a adoção poderá originar o administrador para ser excessivamente permissiva com atribuição de direitos. Este risco inadvertidamente poderá expor da organização a ataques internos. Alguns utilizadores poderão ser concedidos acesso muito mais do que devem ter.
 
-O [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service utiliza [controlo de acesso em funções do Azure](../active-directory/role-based-access-control-what-is.md) (RBAC). Ao utilizar o RBAC, pode segregar funções na sua equipa em funções conceder apenas o nível de acesso necessário para os utilizadores para as respetivas tarefas. RBAC inclui funções predefinidas (proprietário, utilizador do laboratório e contribuinte). Mesmo pode utilizar estas funções para atribuir direitos para parceiros externos e simplificar significativamente a colaboração.
+O [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service utiliza [controlo de acesso em funções do Azure](../role-based-access-control/overview.md) (RBAC). Ao utilizar o RBAC, pode segregar funções na sua equipa em funções conceder apenas o nível de acesso necessário para os utilizadores para as respetivas tarefas. RBAC inclui funções predefinidas (proprietário, utilizador do laboratório e contribuinte). Mesmo pode utilizar estas funções para atribuir direitos para parceiros externos e simplificar significativamente a colaboração.
 
 Uma vez que DevTest Labs utiliza RBAC, é possível criar adicionais, [funções personalizadas](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs não só simplifica a gestão de permissões, simplifica o processo de obtenção ambientes aprovisionados. Também o ajuda a lidar com outros típicos desafios de equipas que estão a funcionar em ambientes de desenvolvimento e teste. É necessária alguma preparação, mas a longo prazo, irá facilitar as coisas para a sua equipa.
 
@@ -224,7 +224,7 @@ A seguinte captura de ecrã mostra um exemplo das informações que pode apresen
 
 ![Linhas de base de segurança do Operations Management Suite](./media/azure-security-iaas/oms-security-baseline.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Blogue da Equipa de Segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)

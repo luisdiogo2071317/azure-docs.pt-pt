@@ -1,24 +1,24 @@
 ---
-title: "Replicar aplicações com o SQL Server e o Azure Site Recovery | Microsoft Docs"
+title: Replicar aplicações com o SQL Server e o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como replicar do SQL Server utilizando o Azure Site Recovery para capacidades de desastres do SQL Server.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: prateek9us
 manager: gauravd
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 04/09/2018
 ms.author: pratshar
-ms.openlocfilehash: 7981173b419632683a40a54bc07f51f0fccab531
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: f0c43eee127857edfd1692dce825ef295be09f7b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Proteger o SQL Server utilizando a recuperação de desastres do SQL Server e o Azure Site Recovery
 
@@ -95,7 +95,7 @@ Esta tabela resume o nosso recomendações para integrar tecnologias BCDR do SQL
 
 Configure o Active Directory, no site secundário de recuperação, para o SQL Server ser executado corretamente.
 
-* **Enterprise pequeno**— com um pequeno número de aplicações e o controlador de domínio único para o site no local, se pretender efetuar a ativação pós-falha de todo o local, recomendamos que utilize replicação de recuperação de sites para replicar o controlador de domínio para o datacenter secundário ou para o Azure.
+* **Enterprise pequeno**— com um pequeno número de aplicações e o controlador de domínio único para o site no local, se pretender efetuar a ativação pós-falha de todo o local, recomendamos que utilize replicação de recuperação de sites para replicar o controlador de domínio para o secundário Centro de dados, ou para o Azure.
 * **Médias e grandes empresas**— se tiver um grande número de aplicações, uma floresta do Active Directory, e pretende falhar pelo carga de trabalho ou aplicação, recomendamos que configure um controlador de domínio adicional no Centro de dados secundário, ou no Azure. Se estiver a utilizar grupos de disponibilidade Always On para recuperar a um site remoto, recomendamos que configurou o outro controlador de domínio adicionais no site secundário ou no Azure, a utilizar para a instância do SQL Server recuperada.
 
 As instruções neste artigo presumem que um controlador de domínio está disponível na localização secundária. [Leia mais](site-recovery-active-directory.md) sobre como proteger o Active Directory com a recuperação de Site.

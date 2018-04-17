@@ -2,24 +2,24 @@
 title: ESP8266 na nuvem - ligar Feather HUZZAH ESP8266 ao IoT Hub do Azure | Microsoft Docs
 description: Saiba como configurar e ligar Adafruit Feather HUZZAH ESP8266 ao IoT Hub do Azure para o mesmo para enviar dados para a plataforma de nuvem do Azure, neste tutorial.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
-ms.author: xshi
-ms.openlocfilehash: e8f0397797d8f4c3349afcdfb02de071a6593c72
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: b850bb25d7a6d06a2d0f55ed915321badf76bb39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Ligar Adafruit Feather HUZZAH ESP8266 ao IoT Hub do Azure na nuvem
 
@@ -210,7 +210,7 @@ A aplicação de exemplo pode simular dados relativos à temperatura e humidade 
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Implementar a aplicação de exemplo para Feather HUZZAH ESP8266
 
-1. No Visual Studio Code, clique em  **<Select Serial Port>**  no estado barra e, em seguida, clique na porta série para Feather HUZZAH ESP8266.
+1. No Visual Studio Code, clique em **<Select Serial Port>** no estado barra e, em seguida, clique na porta série para Feather HUZZAH ESP8266.
 1. Introduza `F1`, em seguida, escreva **Arduino** e selecione **Arduino: carregar** para criar e implementar a aplicação de exemplo para Feather HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Introduza as suas credenciais
@@ -222,7 +222,7 @@ Após a conclusão do carregamento com êxito, siga estes passos para introduzir
 1. Selecione **terminar nenhuma linha** para a esquerda na lista pendente.
 1. Selecione **transmissão 115200** para a direita na lista pendente.
 1. Na caixa de entrada localizada na parte superior da janela monitor de série, introduza as seguintes informações se lhe for pedido que forneça-los e, em seguida, clique em **enviar**.
-   * Wi-Fi SSID
+   * SSID Wi-Fi
    * Palavra-passe de Wi-Fi
    * Cadeia de ligação do dispositivo
 

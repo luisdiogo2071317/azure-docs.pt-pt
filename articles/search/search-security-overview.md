@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 95c1f209d51093c3f2bf2555f987983a85f2bf09
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Segurança e o acesso controlado na Azure Search
 
@@ -51,7 +51,7 @@ Encriptação de Inativos foi anunciou a 24 de Janeiro de 2018 e aplica-se a tod
 Vários mecanismos de segurança estão disponíveis em toda a pilha do Azure e assim automaticamente disponíveis para os recursos de pesquisa do Azure que cria.
 
 + [Bloqueios da subscrição ou ao nível de recursos para evitar a eliminação](../azure-resource-manager/resource-group-lock-resources.md)
-+ [Baseada em funções controlo de acesso (RBAC) para controlar o acesso a informações e operações administrativas](../active-directory/role-based-access-control-what-is.md)
++ [Baseada em funções controlo de acesso (RBAC) para controlar o acesso a informações e operações administrativas](../role-based-access-control/overview.md)
 
 Todos os serviços do Azure suportam controlos de acesso baseado em funções (RBAC) para definir níveis de acesso de forma consistente em todos os serviços. Por exemplo, visualização de dados confidenciais, tais como a chave de administrador, está restrito às funções de proprietário e contribuinte, enquanto que a visualizar o estado do serviço está disponível para os membros de qualquer função. RBAC fornece funções de proprietário, leitor e contribuinte. Por predefinição, todos os administradores de serviço são membros da função de proprietário.
 

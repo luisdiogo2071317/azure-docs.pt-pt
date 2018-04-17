@@ -1,34 +1,30 @@
 ---
-title: Arquitetura MPP - Azure SQL Data Warehouse? | Microsoft Docs
-description: "Saiba como o Azure SQL Data Warehouse combina processamento paralelo em grande escala (MPP) com o storage do Azure para alcançar elevado desempenho e escalabilidade."
+title: O Azure SQL Data Warehouse - arquitetura MPP | Microsoft Docs
+description: Saiba como o Azure SQL Data Warehouse combina processamento paralelo em grande escala (MPP) com o storage do Azure para alcançar elevado desempenho e escalabilidade.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
+author: acomet
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: architecture
-ms.date: 11/15/2017
-ms.author: jrj;barbkess
-ms.openlocfilehash: 4c230eb0633b2917b90a5c1f9f4176882bfd0290
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.topic: conceptual
+ms.component: design
+ms.date: 04/11/2018
+ms.author: acomet
+ms.reviewer: mausher
+ms.openlocfilehash: a0dad8afa87b3424c8561b2aaf44fbe0f5d5dae6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>O Azure SQL Data Warehouse - paralelo em grande escala (MPP) arquitetura de processamento
 Saiba como o Azure SQL Data Warehouse combina processamento paralelo em grande escala (MPP) com o storage do Azure para alcançar elevado desempenho e escalabilidade. 
 
 ## <a name="mpp-architecture-components"></a>Componentes de arquitetura MPP
-SQL Data Warehouse tira partido de uma arquitetura para distribuir computacional processamento de dados em vários nós de ampliação. A unidade de escala é uma abstração da capacidade de computação que é conhecida como uma unidade do armazém de dados. O SQL Data Warehouse separa de computação de armazenamento que permitem que o utilizador, como o utilizador ao dimensionar a computação independentemente dos dados no seu sistema.
+SQL Data Warehouse tira partido de uma arquitetura para distribuir computacional processamento de dados em vários nós de ampliação. A unidade de escala é uma abstração da capacidade de computação que é conhecida como uma unidade do armazém de dados. O SQL Data Warehouse separa de computação de armazenamento que permitem que lhe dimensionar a computação independentemente dos dados no seu sistema.
 
 ![Arquitetura do SQL Data Warehouse](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-O SQL Data Warehouse utiliza uma arquitetura de nó com base. Aplicações de ligarem e emitir comandos de T-SQL para um nó de controlo, o que é o único ponto de entrada para o armazém de dados. O nó de controlo é executado o motor MPP que otimiza consultas para processamento paralelo e, em seguida, passa operações em nós de computação para trabalhar em paralelo. Os nós de computação armazenarem todos os dados de utilizador no armazenamento do Azure e executam as consultas paralelas. O serviço de movimento de dados (DMS) é um serviço de interno de ao nível do sistema que move os dados em todos os nós conforme for necessário para executar consultas em paralelo e devolver resultados precisos. 
+O SQL Data Warehouse utiliza uma arquitetura baseada no nó. Aplicações de ligarem e emitir comandos de T-SQL para um nó de controlo, o que é o único ponto de entrada para o armazém de dados. O nó de controlo é executado o motor MPP que otimiza consultas para processamento paralelo e, em seguida, passa operações em nós de computação para trabalhar em paralelo. Os nós de computação armazenarem todos os dados de utilizador no armazenamento do Azure e executam as consultas paralelas. O serviço de movimento de dados (DMS) é um serviço de interno de ao nível do sistema que move os dados em todos os nós conforme for necessário para executar consultas em paralelo e devolver resultados precisos. 
 
 Com armazenamento e computação desacoplados, o SQL Data Warehouse pode:
 
@@ -91,7 +87,7 @@ O diagrama seguinte mostra uma tabela não replicada. Armazém de dados do SQL S
 
 ![Tabela de replicados](media/sql-data-warehouse-distributed-data/replicated-table.png "replicados tabela") 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que já sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um SQL Data Warehouse][create a SQL Data Warehouse] e [carregar dados de exemplo][load sample data] rapidamente. Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure][Azure glossary] quando se deparar com terminologia nova. Em alternativa, veja alguns destes outros Recursos do SQL Data Warehouse.  
 
 * [Histórias de sucesso de clientes]

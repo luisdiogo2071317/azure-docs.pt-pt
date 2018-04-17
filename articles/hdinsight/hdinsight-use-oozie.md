@@ -1,8 +1,8 @@
 ---
 title: Utilizar o Oozie do Hadoop no HDInsight | Microsoft Docs
-description: "Utilize o Oozie do Hadoop no HDInsight, um serviço de macrodados. Saiba como definir um fluxo de trabalho do Oozie e submeter uma tarefa de Oozie."
+description: Utilize o Oozie do Hadoop no HDInsight, um serviço de macrodados. Saiba como definir um fluxo de trabalho do Oozie e submeter uma tarefa de Oozie.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -10,18 +10,16 @@ editor: cgronlun
 ms.assetid: 870098f0-f416-4491-9719-78994bf4a369
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 73d8a26945be05ac0131148b5c0ffdd5f8053bcd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a3c7252be926c6e6b2f9116efb652b888154e46a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Utilizar o Oozie com o Hadoop para definir e executar um fluxo de trabalho no HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -617,7 +615,7 @@ Eis um exemplo de script de PowerShell que pode utilizar:
 
     $conn.close()
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu como definir um fluxo de trabalho do Oozie e como executar uma tarefa de Oozie com o PowerShell. Para obter mais informações, consulte os artigos seguintes:
 
 * [Utilizar o coordenador de Oozie baseado no tempo com o HDInsight][hdinsight-oozie-coordinator-time]

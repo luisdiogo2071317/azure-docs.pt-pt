@@ -1,11 +1,11 @@
 ---
-title: "Migração de plataforma do Centro de segurança FAQ | Microsoft Docs"
-description: "Estas perguntas mais frequentes respondem a dúvidas sobre a migração de plataforma Centre de segurança do Azure."
+title: Migração de plataforma do Centro de segurança FAQ | Microsoft Docs
+description: Estas perguntas mais frequentes respondem a dúvidas sobre a migração de plataforma Centre de segurança do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2017
 ms.author: terrylan
-ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 197b1a844291f2bef2dd35001d1e6b8807ac9805
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-center-platform-migration-faq"></a>Migração de plataforma do Centro de segurança FAQ
 No precoce de Junho de 2017, o Centro de segurança do Azure começou a utilizar o Microsoft Monitoring Agent para recolher e armazenar dados. Para obter mais informações, consulte [migração de plataforma de centro de segurança do Azure](security-center-platform-migration.md). Estas perguntas mais frequentes respondem a dúvidas sobre a migração de plataforma.
@@ -34,7 +34,7 @@ Centro de segurança utiliza o Microsoft Monitoring Agent para recolher dados de
 Dados recolhidos pelo agente são armazenados numa área de trabalho do Log Analytics existente ligado à VM ou uma nova área de trabalho criados pelo centro de segurança. Quando o Centro de segurança cria uma nova área de trabalho, a geolocalização da VM é contemplada.
 
 > [!NOTE]
-> O Microsoft Monitoring Agent é o mesmo agente utilizado pelo Operations Management Suite (OMS), serviço de análise de registos e o System Center Operations Manager (SCOM).
+> O Microsoft Monitoring Agent é o mesmo agente utilizado pelo serviço de análise de registos e System Center Operations Manager (SCOM).
 >
 >
 
@@ -64,8 +64,8 @@ A localização da área de trabalho é com base na localização da VM. Para ob
 >
 >
 
-### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>Estou cobrado para análise de registos ou OMS nas áreas de trabalho criadas pelo centro de segurança?
-Não. Áreas de trabalho criadas pelo centro de segurança, embora a configurada para OMS por faturação de nó, não pagar OMS. Faturação do Centro de segurança baseia-se sempre na sua política de segurança do Centro de segurança e as soluções instaladas na área de trabalho:
+### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Estou cobrado para análise de registos em áreas de trabalho criadas pelo centro de segurança?
+Não. Áreas de trabalho criadas pelo centro de segurança, embora a configurada para análise de registos por nó de faturação, não de pagar a análise de registos. Faturação do Centro de segurança baseia-se sempre na sua política de segurança do Centro de segurança e as soluções instaladas na área de trabalho:
 
 - **Escalão gratuito** – o Centro de segurança permite que a solução de 'SecurityCenterFree' na área de trabalho predefinida. Não são cobradas para o escalão gratuito.
 - **Escalão Standard** – o Centro de segurança permite que a solução de 'Security' na área de trabalho predefinida.
@@ -73,7 +73,7 @@ Não. Áreas de trabalho criadas pelo centro de segurança, embora a configurada
 Para obter mais informações sobre preços, consulte [preços do Centro de segurança](https://azure.microsoft.com/pricing/details/security-center/). A página de preços aborda as alterações ao armazenamento de dados de segurança e proporcional faturação a partir de Junho de 2017.
 
 > [!NOTE]
-> O OMS escalão de áreas de trabalho criados pelo centro de segurança de preço não afeta a faturação do Centro de segurança.
+> A análise de registos escalão de áreas de trabalho criados pelo centro de segurança de preço não afeta a faturação do Centro de segurança.
 >
 >
 
@@ -101,7 +101,7 @@ Para selecionar uma área de trabalho de análise de registos existente:
 
 1. Em **política de segurança – recolha de dados**, selecione **utilizar outra área de trabalho**.
 
-   ![Utilizar outra área de trabalho][5]
+   ![Utilize outra área de trabalho][5]
 
 2. No menu pendente, selecione uma área de trabalho para armazenar os dados recolhidos.
 
@@ -204,12 +204,12 @@ Para remover manualmente o agente:
 >
 >
 
-## <a name="existing-oms-customers"></a>Clientes existentes do OMS
+## <a name="existing-log-analytics-customers"></a>Clientes de análise de registos existentes
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>O Centro de segurança substituir todas as ligações existentes entre as VMs e áreas de trabalho?
 Se uma VM já tem o Microsoft Monitoring Agent instalada como uma extensão do Azure, o Centro de segurança não substitui a ligação de área de trabalho existente. Em vez disso, o Centro de segurança utiliza a área de trabalho existente.
 
-Uma solução de centro de segurança está instalado na área de trabalho se não estiver já presente, e a solução é aplicada apenas às VMs relevantes. Quando adiciona uma solução, é automaticamente implementada por predefinição para todos os agentes Windows e Linux ligado à sua área de trabalho de análise de registos. [Filtragem de solução](../operations-management-suite/operations-management-suite-solution-targeting.md), que é uma funcionalidade do OMS, permite-lhe aplicar um âmbito para as suas soluções.
+Uma solução de centro de segurança está instalado na área de trabalho se não estiver já presente, e a solução é aplicada apenas às VMs relevantes. Quando adiciona uma solução, é automaticamente implementada por predefinição para todos os agentes Windows e Linux ligado à sua área de trabalho de análise de registos. [Filtragem de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite-lhe aplicar um âmbito para as suas soluções.
 
 Se o Microsoft Monitoring Agent é instalado diretamente na VM (não como uma extensão do Azure), o Centro de segurança não instala o Microsoft Monitoring Agent e monitorização de segurança é limitado.
 
@@ -220,18 +220,13 @@ Isto não deve ocorrer. Se esta situação ocorrer, em seguida, [para criar um p
 - O ID de recurso do Azure da área de trabalho configurado na extensão antes da ligação foi interrompida
 - O agente e a versão que foi anteriormente instalado
 
-### <a name="does-security-center-install-solutions-on-my-existing-oms-workspaces-what-are-the-billing-implications"></a>Centro de segurança instalar soluções no meu áreas de trabalho do OMS existentes? Quais são as implicações de faturação?
+### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Centro de segurança instalar soluções no meu áreas de trabalho de análise de registos existentes? Quais são as implicações de faturação?
 Quando o Centro de segurança identifica que um VM já está ligada a uma área de trabalho que criou, o Centro de segurança permitem soluções nesta área de trabalho, de acordo com o escalão de preço. As soluções são aplicadas apenas para as VMs do Azure relevantes, através de [solução filtragem](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), por isso, a faturação permanece igual.
 
 - **Escalão gratuito** – Centro de segurança instala a solução de 'SecurityCenterFree', na área de trabalho. Não são cobradas para o escalão gratuito.
 - **Escalão Standard** – Centro de segurança instala a solução de 'Security', na área de trabalho.
 
    ![Soluções na área de trabalho predefinido][4]
-
-> [!NOTE]
-> O 'Security' na análise de registos é a solução de segurança e de auditoria no OMS.
->
->
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Já tenho áreas de trabalho no meu ambiente, posso utilizá-los para recolher dados de segurança?
 Se uma VM já tem o Microsoft Monitoring Agent instalada como uma extensão do Azure, o Centro de segurança utiliza a área de trabalho ligada existente. Uma solução de centro de segurança está instalado na área de trabalho se não estiver já presente, e a solução é aplicada apenas às VMs relevantes através de [solução filtragem](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
@@ -241,7 +236,7 @@ Quando o Centro de segurança instala o Microsoft Monitoring Agent em VMs, utili
 ### <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Já tenho solução de segurança no meu áreas de trabalho. Quais são as implicações de faturação?
 A solução de segurança e de auditoria é utilizada para ativar funcionalidades do escalão padrão de centro de segurança para as VMs do Azure. Se a solução de segurança & auditoria já está instalada na área de trabalho, o Centro de segurança utiliza a solução existente. Não há nenhuma alteração no faturação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre a migração de plataforma do Centro de segurança, consulte
 
 - [Migração de plataforma do Centro de segurança do Azure](security-center-platform-migration.md)

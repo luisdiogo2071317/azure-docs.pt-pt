@@ -1,11 +1,11 @@
 ---
 title: Utilizar o Azure Machine Learning com o SQL Data Warehouse | Microsoft Docs
-description: "Tutorial para utilizar o Azure Machine Learning com o Azure SQL Data Warehouse para desenvolver soluções."
+description: Tutorial para utilizar o Azure Machine Learning com o Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: ac6bc731-6add-47a9-b3fe-68996e656f4d
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: c19860c6b5b1c15d1e29ddc67f9cf9ad4618725b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Utilização do Azure Machine Learning com o SQL Data Warehouse
 O Azure Machine Learning é um serviço de Análise Preditiva completamente gerido que pode utilizar para criar modelos preditivos contra os dados no armazém de dados do SQL Server e, em seguida, publicar como serviços web prontos a consumir. Pode aprender as noções básicas de Análise Preditiva e machine learning ao ler [introdução ao Machine Learning no Azure][Introduction to Machine Learning on Azure].  Em seguida, pode saber como criar, dar formação, Pontuar e testar um machine learning utilizando o modelo de [criar experimentação tutorial][Create experiment tutorial].
@@ -109,7 +109,7 @@ Selecione o módulo de escritor e preencher o painel de propriedades.
 1. Execute a experimentação ao clicar em execução na tela de experimentação.
 2. Quando a experimentação estiver concluída, todos os módulos terá uma marca de verificação verde para indicar que se foi concluída com êxito.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais sugestões de desenvolvimento, veja [SQL Data Warehouse development overview (Descrição geral do desenvolvimento no SQL Data Warehouse)][SQL Data Warehouse development overview].
 
 <!--Image references-->

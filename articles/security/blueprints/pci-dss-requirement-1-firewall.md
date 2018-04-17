@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 995ecd5ef876695145fc6313aba2a46d2cc085cc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 4e04d6417f1468c1bafada1a93ab63a73e39653d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="firewall-requirements-for-pci-dss-compliant-environments"></a>Requisitos da firewall para ambientes em conformidade de PCI DSS 
 ## <a name="pci-dss-requirement-1"></a>PCI DSS requisito 1
@@ -42,8 +42,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece firewalling do CDE utiliza o isolamento de PaaS e uma implementação de ambiente de serviço de aplicações garante que a entrada CDE e de saída de dados está protegido.<br /><br />Um [ambiente de serviço de aplicações (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) é um plano de serviço Premium utilizado por motivos de conformidade. Para obter mais informações sobre controlos de ASE e a configuração, consulte [orientações de PCI - ambiente de serviço de aplicações](payment-processing-blueprint.md#app-service-environment).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece firewalling do CDE utiliza o isolamento de PaaS e uma implementação de ambiente de serviço de aplicações garante que a entrada CDE e de saída de dados está protegido.<br /><br />Um [ambiente de serviço de aplicações (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) é um plano de serviço Premium utilizado por motivos de conformidade. Para obter mais informações sobre controlos de ASE e a configuração, consulte [orientações de PCI - ambiente de serviço de aplicações](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -56,8 +56,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Uma instância de Contoso Webstore estabelece um modelo de CI/CD DevOps para se certificar de que todas as alterações são corretamente geridas. [Operations Management Suite (OMS)](/azure/operations-management-suite/) fornece registos um vasto conjunto de alterações. As alterações podem ser revistas e podem ser verificadas em termos de exatidão. Para obter instruções mais específicas, consulte [orientações de PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) fornece uma vista centralizada de estado de segurança dos seus recursos do Azure. De forma rápida, pode verificar que os controlos de segurança adequados são cumpridos e corretamente configurado e que possa identificar rapidamente quaisquer recursos que necessitam da atenção.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Uma instância de Contoso Webstore estabelece um modelo de CI/CD DevOps para se certificar de que todas as alterações são corretamente geridas. Análise de registos fornece extenso registo de alterações. As alterações podem ser revistas e podem ser verificadas em termos de exatidão. Para obter instruções mais específicas, consulte [orientações de PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) fornece uma vista centralizada de estado de segurança dos seus recursos do Azure. De forma rápida, pode verificar que os controlos de segurança adequados são cumpridos e corretamente configurado e que possa identificar rapidamente quaisquer recursos que necessitam da atenção.|
 
 
 
@@ -69,8 +69,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Consulte a Contoso Webstore arquitetura e estrutura documentação de referência fornecida como parte do padrão de instalação da solução.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Consulte a Contoso Webstore arquitetura e estrutura documentação de referência fornecida como parte do padrão de instalação da solução.|
 
 
 
@@ -82,8 +82,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Consulte o Contoso Webstore DFD e o modelo de ameaça.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Consulte o Contoso Webstore DFD e o modelo de ameaça.|
 
 
 
@@ -95,8 +95,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure emprega dispositivos de proteção de limite, como gateways, ACLs de rede e firewalls de aplicação para comunicações de controlo em limites internos e externos ao nível da plataforma. O cliente, em seguida, configura estas seus requisitos e especificações. Microsoft Azure filtra comunicação quando entra de plataforma. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece uma rede de Perímetro utilizando o isolamento de PaaS e uma implementação de ambiente de serviço de aplicações assegura que a entrada CDE e de saída de dados está protegido.<br /><br />Um [ambiente de serviço de aplicações (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) é um plano de serviço Premium utilizado por motivos de conformidade. Para obter mais informações sobre controlos de ASE e a configuração, consulte [orientações de PCI - ambiente de serviço de aplicações](payment-processing-blueprint.md#app-service-environment).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure emprega dispositivos de proteção de limite, como gateways, ACLs de rede e firewalls de aplicação para comunicações de controlo em limites internos e externos ao nível da plataforma. O cliente, em seguida, configura estas seus requisitos e especificações. Microsoft Azure filtra comunicação quando entra de plataforma. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece uma rede de Perímetro utilizando o isolamento de PaaS e uma implementação de ambiente de serviço de aplicações assegura que a entrada CDE e de saída de dados está protegido.<br /><br />Um [ambiente de serviço de aplicações (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) é um plano de serviço Premium utilizado por motivos de conformidade. Para obter mais informações sobre controlos de ASE e a configuração, consulte [orientações de PCI - ambiente de serviço de aplicações](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -108,8 +108,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza [controlo de acesso em funções do Azure (RBAC)](/azure/active-directory/role-based-access-control-configure) para isolar as funções de utilizador. RBAC permite precisamente direcionadas para gestão de acesso ao Azure. Existem configurações específicas para acesso de subscrição e o acesso do Cofre de chaves do Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza [controlo de acesso em funções do Azure (RBAC)](/azure/role-based-access-control/role-assignments-portal) para isolar as funções de utilizador. RBAC permite precisamente direcionadas para gestão de acesso ao Azure. Existem configurações específicas para acesso de subscrição e o acesso do Cofre de chaves do Azure.|
 
 
 
@@ -121,8 +121,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore abre-se apenas portas e protocolos necessários em toda a estrutura de ar. Detalhes sobre o fluxo de dados podem ser vistos no modelo de DFD e ameaças.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore abre-se apenas portas e protocolos necessários em toda a estrutura de ar. Detalhes sobre o fluxo de dados podem ser vistos no modelo de DFD e ameaças.|
 
 
 
@@ -134,8 +134,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | No Contoso Webstore, os conjuntos de regras de firewall são revistos para garantir que nenhum desnecessárias ou não utilizadas regras estão incluídas. Por predefinição, a demonstração é implementada com um privilégio menores requisitos de espaço do caminho.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | No Contoso Webstore, os conjuntos de regras de firewall são revistos para garantir que nenhum desnecessárias ou não utilizadas regras estão incluídas. Por predefinição, a demonstração é implementada com um privilégio menores requisitos de espaço do caminho.|
 
 
 
@@ -150,8 +150,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Webstore de Contoso CDE está definido na documentação do ar e implementação. Por predefinição serão negados redes não fidedignas.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Webstore de Contoso CDE está definido na documentação do ar e implementação. Por predefinição serão negados redes não fidedignas.|
 
 
 
@@ -163,8 +163,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Webstore de Contoso CDE está definido na documentação do ar e implementação. Por predefinição serão negados redes não fidedignas. Demonstração de Contoso Webstore configura a firewall de aplicação do Microsoft Azure para permitir apenas especificados intervalos de endereços IP para aceder aos serviços do Microsoft Azure. O Contoso Webstore fornece uma firewall de negar-all em todos os limites CDE. Todas as configurações é efetuada durante a configuração inicial da implementação.
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Webstore de Contoso CDE está definido na documentação do ar e implementação. Por predefinição serão negados redes não fidedignas. Demonstração de Contoso Webstore configura a firewall de aplicação do Microsoft Azure para permitir apenas especificados intervalos de endereços IP para aceder aos serviços do Microsoft Azure. O Contoso Webstore fornece uma firewall de negar-all em todos os limites CDE. Todas as configurações é efetuada durante a configuração inicial da implementação.
 
 > [!NOTE]
 > Ambiente de serviço de aplicações (ASE) é utilizada nesta solução para isolar o CDE no entanto, é essencial que o seu Assessor qualificado de segurança (QSA) avalia esta solução, como ASE implementa uma isolamento de rede de Perímetro que permita ligações de saída para ser efetuada pelo ASE. PCI-DSS requer que todas as ligações de entrada e saídas que não são necessárias têm de ser impedidas. Para ASE funcione corretamente, ASE irão estabelecer ligações de saída como necessário, tal como definido no ["Considerações de rede para um ambiente de serviço de aplicações"](/azure/app-service/app-service-environment/network-info). Os clientes devem avaliar as ligações de saída com o seu QSA antes de implementar a solução para um ambiente de produção para se certificar de que cumpra as necessidades. |
@@ -179,8 +179,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece configurações sincronizadas para controlos de rede nativo do Microsoft Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece configurações sincronizadas para controlos de rede nativo do Microsoft Azure.|
 
 
 
@@ -192,8 +192,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore não tem quaisquer capacidades ativadas ou soluções sem fios.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore não tem quaisquer capacidades ativadas ou soluções sem fios.|
 
 
 
@@ -205,8 +205,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure emprega dispositivos de proteção de limite baseada no anfitrião e baseados na rede, tais como firewalls, balanceadores de carga e ACLs. Estes dispositivos utilizam mecanismos, tais como o isolamento de VLAN, NAT e filtragem de tráfego do cliente distinta da Internet e o tráfego de gestão de pacotes. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece, no momento da implementação, as configurações de firewall de aplicação do Azure para permitir apenas especificados intervalos de endereços IP para aceder ao site, que incluem o bastion VMs do Azure no respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure emprega dispositivos de proteção de limite baseada no anfitrião e baseados na rede, tais como firewalls, balanceadores de carga e ACLs. Estes dispositivos utilizam mecanismos, tais como o isolamento de VLAN, NAT e filtragem de tráfego do cliente distinta da Internet e o tráfego de gestão de pacotes. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece, no momento da implementação, as configurações de firewall de aplicação do Azure para permitir apenas especificados intervalos de endereços IP para aceder ao site, que incluem o bastion VMs do Azure no respetivo CDE.|
 
 
 
@@ -219,8 +219,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A implementação de Contoso Webstore do seu DMZ garante que apenas os serviços autorizados podem ligar-se com o CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A implementação de Contoso Webstore do seu DMZ garante que apenas os serviços autorizados podem ligar-se com o CDE.|
 
 
 
@@ -232,8 +232,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A implementação de Contoso Webstore do seu DMZ garante que apenas os serviços autorizados podem ligar-se com o CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A implementação de Contoso Webstore do seu DMZ garante que apenas os serviços autorizados podem ligar-se com o CDE.|
 
 
 
@@ -245,8 +245,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure implementa rede filtragem para impedir a denuncia tráfego e restringir o tráfego de entrada e saído para componentes de plataforma fidedigna. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure implementa rede filtragem para impedir a denuncia tráfego e restringir o tráfego de entrada e saído para componentes de plataforma fidedigna. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -259,8 +259,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A arquitetura de Contoso Webstore impede que o tráfego de saída não autorizado de ambiente no âmbito à Internet. Isto é conseguido através da configuração de tráfego de saída ACL para portas aprovadas e protocolos no Microsoft Azure. Estes controlos de incluem o acesso à CDE na base de dados do SQL Server. <br /><br />Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A arquitetura de Contoso Webstore impede que o tráfego de saída não autorizado de ambiente no âmbito à Internet. Isto é conseguido através da configuração de tráfego de saída ACL para portas aprovadas e protocolos no Microsoft Azure. Estes controlos de incluem o acesso à CDE na base de dados do SQL Server. <br /><br />Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -273,8 +273,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure implementa rede filtragem para impedir a denuncia tráfego e restringir o tráfego de entrada e saído para componentes de plataforma fidedigna. A rede do Microsoft Azure é segregada para separar o tráfego de cliente da gestão de tráfego. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure implementa rede filtragem para impedir a denuncia tráfego e restringir o tráfego de entrada e saído para componentes de plataforma fidedigna. A rede do Microsoft Azure é segregada para separar o tráfego de cliente da gestão de tráfego. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -287,8 +287,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utiliza segregação de rede e NAT para separar o tráfego de cliente da gestão de tráfego. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A arquitetura de Contoso Webstore impede que o tráfego de saída não autorizado de ambiente no âmbito à Internet. Isto é conseguido através da configuração de tráfego de saída ACL para portas aprovadas e protocolos no Microsoft Azure. Estes controlos de incluem o acesso à CDE na base de dados do SQL Server. <br /><br />Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utiliza segregação de rede e NAT para separar o tráfego de cliente da gestão de tráfego. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A arquitetura de Contoso Webstore impede que o tráfego de saída não autorizado de ambiente no âmbito à Internet. Isto é conseguido através da configuração de tráfego de saída ACL para portas aprovadas e protocolos no Microsoft Azure. Estes controlos de incluem o acesso à CDE na base de dados do SQL Server. <br /><br />Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -308,8 +308,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utiliza a tradução de endereços de rede (NAT) e a segregação de rede para separar o tráfego de cliente da gestão de tráfego. Dispositivos do Azure exclusivamente são identificados pelo respetivo UUID e são autenticados utilizando Kerberos. Azure geridos rede dispositivos são identificados pelo IP RFC 1918 resolvido. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore coloca todos os dados de cardholder atrás de firewalls/servidores de proxy e utiliza o espaço de endereços RFC1918 internamente.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utiliza a tradução de endereços de rede (NAT) e a segregação de rede para separar o tráfego de cliente da gestão de tráfego. Dispositivos do Azure exclusivamente são identificados pelo respetivo UUID e são autenticados utilizando Kerberos. Azure geridos rede dispositivos são identificados pelo IP RFC 1918 resolvido. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore coloca todos os dados de cardholder atrás de firewalls/servidores de proxy e utiliza o espaço de endereços RFC1918 internamente.|
 
 
 
@@ -323,8 +323,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore não fornece proteção de utilizador final dispositivos. [Microsoft Intune](https://www.microsoft.com/cloud-platform/microsoft-intune) pode ser utilizado para gerir os sua força de trabalho utiliza para aceder aos dados da empresa de dispositivos móveis.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore não fornece proteção de utilizador final dispositivos. [Microsoft Intune](https://www.microsoft.com/cloud-platform/microsoft-intune) pode ser utilizado para gerir os sua força de trabalho utiliza para aceder aos dados da empresa de dispositivos móveis.|
 
 
 
@@ -336,8 +336,8 @@ Outros componentes do sistema poderão fornecer a funcionalidade de firewall, de
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece, no momento da implementação, as configurações de firewall de aplicação do Azure para permitir apenas especificados intervalos de endereços IP para aceder ao site, que incluem o bastion VMs do Azure no respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece, no momento da implementação, as configurações de firewall de aplicação do Azure para permitir apenas especificados intervalos de endereços IP para aceder ao site, que incluem o bastion VMs do Azure no respetivo CDE.|
 
 
 

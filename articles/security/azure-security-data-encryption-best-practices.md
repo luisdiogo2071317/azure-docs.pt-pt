@@ -1,6 +1,6 @@
 ---
-title: "Encriptação e de segurança dos dados melhores práticas | Microsoft Docs"
-description: "Este artigo fornece um conjunto de melhores práticas de segurança dos dados e utilizar encriptação incorporada no capacidades do Azure."
+title: Encriptação e de segurança dos dados melhores práticas | Microsoft Docs
+description: Este artigo fornece um conjunto de melhores práticas de segurança dos dados e utilizar encriptação incorporada no capacidades do Azure.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0cebc7ae5279b720e8fd0d6c986e1706d944476f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 159bdf681761b9fc46f77cbcf25a210db11d1d9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Melhores práticas de segurança de dados do Azure e encriptação
 Uma das chaves para proteção de dados na nuvem é contabilidade para os Estados possíveis em que os dados poderão ocorrer e que controlos estão disponíveis para esse Estado. Para efeitos de dados do Azure segurança encriptação melhores práticas e recomendações serão à volta de Estados dos dados seguintes:
@@ -63,11 +63,11 @@ Para obter mais informações sobre o MFA do Azure, leia o artigo [introdução 
 ## <a name="use-role-based-access-control-rbac"></a>Controlo de acesso (RBAC) baseado em funções de utilização
 Restringir o acesso com base no [precisa de saber](https://en.wikipedia.org/wiki/Need_to_know) e [menor privilégio](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança. Este é imperativo para as organizações que pretendem aplicar políticas de segurança para acesso a dados. Azure baseada em funções controlo de acesso (RBAC) pode ser utilizado para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito. O âmbito de uma atribuição de função pode ser uma subscrição, um grupo de recursos ou um único recurso.
 
-Pode tirar partido [funções incorporadas do RBAC](../active-directory/role-based-access-built-in-roles.md) no Azure para atribuir os privilégios aos utilizadores. Considere a utilização de *contribuinte de conta de armazenamento* para os operadores da nuvem que necessitam de gerir as contas do storage e *contribuinte de conta de armazenamento clássico* função para gerir contas de armazenamento clássicas. Para os operadores da nuvem que necessita para gerir VMs e conta de armazenamento, considere adicionar-lhes *contribuinte de Máquina Virtual* função.
+Pode tirar partido [funções incorporadas do RBAC](../role-based-access-control/built-in-roles.md) no Azure para atribuir os privilégios aos utilizadores. Considere a utilização de *contribuinte de conta de armazenamento* para os operadores da nuvem que necessitam de gerir as contas do storage e *contribuinte de conta de armazenamento clássico* função para gerir contas de armazenamento clássicas. Para os operadores da nuvem que necessita para gerir VMs e conta de armazenamento, considere adicionar-lhes *contribuinte de Máquina Virtual* função.
 
 As organizações que não a impor controlo de acesso de dados ao tirar partido das capacidades, tal como o RBAC podem ser dá ao mais privilégios que necessários para os respetivos utilizadores. Isto pode levar ao comprometimento de dados por ter alguns utilizadores ter acesso aos dados que não deve ter em primeiro lugar.
 
-Pode saber mais sobre o RBAC do Azure ao ler o artigo [controlo de acesso em funções do Azure](../active-directory/role-based-access-control-configure.md).
+Pode saber mais sobre o RBAC do Azure ao ler o artigo [controlo de acesso em funções do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Encriptar Virtual Machines do Azure
 Para muitas organizações, [encriptação de dados Inativos](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é um passo obrigatório para soberania dos dados, conformidade e privacidade de dados. Encriptação de disco do Azure permite aos administradores de TI encriptar discos do Windows e Linux IaaS Máquina Virtual (VM). Tira partido do Azure Disk Encryption a funcionalidade do BitLocker de padrão da indústria do Windows e a funcionalidade de DM-Crypt do Linux para fornecer a encriptação de volume para o SO e os discos de dados.
@@ -107,7 +107,7 @@ Falta do endpoint protection pode colocar dados em risco, certifique-se para imp
 Pode saber mais sobre privileged aceder a estação de trabalho ao ler o artigo [proteger o acesso privilegiado](https://technet.microsoft.com/library/mt631194.aspx).
 
 ## <a name="enable-sql-data-encryption"></a>Ativar a encriptação de dados do SQL Server
-[Encriptação de dados transparente de base de dados SQL do Azure](https://msdn.microsoft.com/library/dn948096.aspx) (TDE) ajuda a proteger contra a ameaça de atividade maliciosa efetuando a encriptação em tempo real e a desencriptação da base de dados, cópias de segurança associadas e ficheiros de registo de transações Inativos sem necessidade de alterações à aplicação.  TDE encripta o armazenamento de uma base de dados completa através de uma chave simétrica chamada a chave de encriptação da base de dados.
+[Encriptação de dados transparente de base de dados SQL do Azure](https://msdn.microsoft.com/library/dn948096.aspx) (TDE) ajuda a proteger contra a ameaça de atividade maliciosa efetuando a encriptação em tempo real e a desencriptação da base de dados, cópias de segurança associadas e ficheiros de registo de transações Inativos sem exigir alterações à aplicação.  TDE encripta o armazenamento de uma base de dados completa através de uma chave simétrica chamada a chave de encriptação da base de dados.
 
 Mesmo quando o armazenamento completo é encriptado, é muito importante também encripte a sua própria base de dados. Esta é uma implementação de defesa numa abordagem de profundidade para proteção de dados. Se estiver a utilizar [SQL Database do Azure](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) e pretende proteger os dados confidenciais, tais como o cartão de crédito ou números de segurança social, pode encriptar as bases de dados com FIPS 140-2 validado bits 256 AES encriptação que cumpra os requisitos de muitos normas da indústria (por exemplo, HIPAA, PCI).
 

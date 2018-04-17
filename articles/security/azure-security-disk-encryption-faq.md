@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2018
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 5316efb54a12b5ad057d5a0561f36efdfff30884
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: devtiw
+ms.openlocfilehash: cb523b4fbf6e8abdf5c5158ab041d3485add9b23
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Encriptação de disco do Azure FAQ
 
@@ -46,7 +46,7 @@ Encriptação de disco do Azure é suportada no seguintes distribuições de ser
 
 | Distribuição de Linux | Versão | Tipo de volume suportado para a encriptação|
 | --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | Disco do SO e dados |
+| Ubuntu | 16.04-DIARIAMENTE-LTS | Disco do SO e dados |
 | Ubuntu | 14.04.5-DAILY-LTS | Disco do SO e dados |
 | RHEL | 7.4 | Disco de dados * |
 | RHEL | 7.3 | Disco de dados * |
@@ -54,7 +54,7 @@ Encriptação de disco do Azure é suportada no seguintes distribuições de ser
 | RHEL | 6.8 | Disco de dados * |
 | RHEL | 6.7 | Disco de dados * |
 | CentOS | 7.3 | Disco do SO e dados |
-| CentOS | 7.2n | Disco do SO e dados |
+| CentOS | 7.2N | Disco do SO e dados |
 | CentOS | 6.8 | Disco do SO e dados |
 | CentOS | 7.1 | Disco de dados |
 | CentOS | 7.0 | Disco de dados |
@@ -65,7 +65,7 @@ Encriptação de disco do Azure é suportada no seguintes distribuições de ser
 | SLES | 12 SP1 | Disco de dados |
 | SLES | Prioridade: 12-SP1 | Disco de dados |
 | SLES | HPC 12 | Disco de dados |
-| SLES | Priority:11-SP4 | Disco de dados |
+| SLES | Prioridade: 11-SP4 | Disco de dados |
 | SLES | 11 SP4 | Disco de dados |
 
 *__ADE é suportada para RHEL para o disco de dados. A implementação atual do ADE funcionar para o disco do SO, mas não é suportada atualmente jointly. Microsoft e Red Hat trabalhar para uma solução jointly suportada. No provisório, pode referenciar o documento técnico ADE para encriptação de disco de SO Linux [aqui](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__

@@ -1,12 +1,12 @@
 ---
-title: "As capacidades técnicas de segurança do Azure | Microsoft Docs"
-description: "Saiba mais sobre serviços informáticos baseada na nuvem que incluem uma seleção grande de instâncias de computação e serviços que podem ser dimensionados acima e abaixo automaticamente para satisfazer as necessidades da sua aplicação ou a empresa."
+title: As capacidades técnicas de segurança do Azure | Microsoft Docs
+description: Saiba mais sobre serviços informáticos baseada na nuvem que incluem uma seleção grande de instâncias de computação e serviços que podem ser dimensionados acima e abaixo automaticamente para satisfazer as necessidades da sua aplicação ou a empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas de segurança do Azure
 
@@ -166,7 +166,7 @@ Controlo de acesso no Azure inicia-se de uma perspetiva de faturação. O propri
 
 As subscrições também terem uma associação a um diretório. O diretório define um conjunto de utilizadores. Estes podem ser os utilizadores do trabalho ou escola que criou o diretório ou podem ser utilizadores externos (ou seja, Accounts Microsoft). Subscrições podem ser acedidas por um subconjunto dos utilizadores de diretório que atribuiu como administrador de serviço (SA) ou Coadministrador (AC); a única exceção é que, por motivos de legado, Accounts da Microsoft (anteriormente Windows Live ID) podem ser atribuídos como SA ou AC sem estar presente no diretório.
 
-Segurança e orientado para empresas devem focar-se em fornecer aos funcionários as permissões exatas que precisam. Demasiados permissões podem expor uma conta para os atacantes. Permissões insuficientes significam que os funcionários não é possível obter o trabalho feito de forma eficiente. [Azure baseada em funções controlo de acesso (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) ajuda a resolver este problema, oferecendo gestão de acesso detalhada para o Azure.
+Segurança e orientado para empresas devem focar-se em fornecer aos funcionários as permissões exatas que precisam. Demasiados permissões podem expor uma conta para os atacantes. Permissões insuficientes significam que os funcionários não é possível obter o trabalho feito de forma eficiente. [Azure baseada em funções controlo de acesso (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) ajuda a resolver este problema, oferecendo gestão de acesso detalhada para o Azure.
 
 ![Acesso a recursos protegidos ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 

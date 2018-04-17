@@ -1,6 +1,6 @@
 ---
-title: "Autenticação de serviços ao Cofre de chaves do Azure através do .NET"
-description: "Utilize a biblioteca de Microsoft.Azure.Services.AppAuthentication para autenticar para o Cofre de chaves do Azure através do .NET."
+title: Autenticação de serviços ao Cofre de chaves do Azure através do .NET
+description: Utilize a biblioteca de Microsoft.Azure.Services.AppAuthentication para autenticar para o Cofre de chaves do Azure através do .NET.
 keywords: credenciais locais authentication Cofre de chaves do Azure
 author: lleonard-msft
 manager: mbaldwin
@@ -8,15 +8,15 @@ services: key-vault
 ms.author: alleonar
 ms.date: 11/15/2017
 ms.topic: article
-ms.prod: 
-ms.service: microsoft-keyvault
-ms.technology: 
+ms.prod: ''
+ms.service: key-vault
+ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db0b0ca72f41c68e19db6635d9ba0e9144183204
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação de serviços ao Cofre de chaves do Azure através do .NET
 
@@ -113,7 +113,7 @@ Para utilizar a CLI do Azure para desenvolvimento local:
 
 Utilize `az account get-access-token` para verificar o acesso.  Se receber um erro, certifique-se de que o passo 1 concluída com êxito. 
 
-Se a CLI do Azure não está instalado para o diretório predefinido, poderá receber um erro de relatório que `AzureServiceTokenProvider` não é possível localizar o caminho para a CLI do Azure.  Utilize o **AzureCLIPath**variável de ambiente para definir a pasta de instalação da CLI do Azure. `AzureServiceTokenProvider`Adiciona o diretório especificado no **AzureCLIPath** variável de ambiente para o **caminho** variável de ambiente quando for necessário.
+Se a CLI do Azure não está instalado para o diretório predefinido, poderá receber um erro de relatório que `AzureServiceTokenProvider` não é possível localizar o caminho para a CLI do Azure.  Utilize o **AzureCLIPath**variável de ambiente para definir a pasta de instalação da CLI do Azure. `AzureServiceTokenProvider` Adiciona o diretório especificado no **AzureCLIPath** variável de ambiente para o **caminho** variável de ambiente quando for necessário.
 
 Se tem sessão iniciada a CLI do Azure através de várias contas ou a conta tem acesso a várias subscrições, tem de especificar a subscrição específica a utilizar.  Para tal, utilize:
 
@@ -211,7 +211,7 @@ Para iniciar sessão com um Azure AD partilhado secreta credencial:
 
 3. Execute a aplicação. 
 
-Assim que tudo está configurado corretamente, não existem mais alterações de código são necessários.  `AzureServiceTokenProvider`utiliza a variável de ambiente e o certificado para autenticar com o Azure AD. 
+Assim que tudo está configurado corretamente, não existem mais alterações de código são necessários.  `AzureServiceTokenProvider` utiliza a variável de ambiente e o certificado para autenticar com o Azure AD. 
 
 <a name="connectionstrings"></a>
 ## <a name="connection-string-support"></a>Suporte de cadeia de ligação
@@ -228,12 +228,12 @@ São suportadas as seguintes opções:
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Desenvolvimento local | AzureServiceTokenProvider utiliza o Visual Studio ao obter o token. |
 | `RunAs=CurrentUser;` | Desenvolvimento local | AzureServiceTokenProvider utiliza a autenticação integrada do Azure AD para obter o token. |
 | `RunAs=App;` | Identidade do Serviço Gerido | AzureServiceTokenProvider utiliza a identidade de serviço geridas ao obter o token. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Principal de serviço | `AzureServiceTokenProvider`utiliza o certificado ao obter o token do Azure AD. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Principal de serviço | `AzureServiceTokenProvider`utiliza o certificado ao obter o token do Azure AD|
-| `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Principal de serviço |`AzureServiceTokenProvider`utiliza o segredo para obter o token do Azure AD. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Principal de serviço | `AzureServiceTokenProvider` utiliza o certificado ao obter o token do Azure AD. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Principal de serviço | `AzureServiceTokenProvider` utiliza o certificado ao obter o token do Azure AD|
+| `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Principal de serviço |`AzureServiceTokenProvider` utiliza o segredo para obter o token do Azure AD. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [identidade de serviço geridas](/azure/app-service/app-service-managed-service-identity).
 

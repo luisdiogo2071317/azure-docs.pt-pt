@@ -1,6 +1,6 @@
 ---
-title: "Começar a utilizar a solução de simulação de dispositivo - Azure | Microsoft Docs"
-description: "A solução de simulação de IoT Suite é uma ferramenta que pode ser utilizada para ajudar o desenvolvimento e teste de uma solução de IoT. O serviço de simulação é autónomo oferta que pode ser utilizado em conjunto com outras soluções pré-configuradas ou utilizado com as suas próprias soluções personalizadas."
+title: Começar a utilizar a solução de simulação de dispositivo - Azure | Microsoft Docs
+description: A solução de simulação de IoT Suite é uma ferramenta que pode ser utilizada para ajudar o desenvolvimento e teste de uma solução de IoT. O serviço de simulação é autónomo oferta que pode ser utilizado em conjunto com outras soluções pré-configuradas ou utilizado com as suas próprias soluções personalizadas.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Instruções de simulação de dispositivo
 
@@ -69,22 +69,22 @@ O modelo do dispositivo permite-lhe escolher o tipo de dispositivo para simular.
 
 Dispositivo de simulação fornece três modelos de dispositivos pré-configurados. Modelos de dispositivos para Chillers, Elevators e Trucks estão disponíveis.
 
-Modelos de dispositivos pré-configurados incluem vários sensores com uma frequência de telemetria previamente determinada. Não é possível configurar a frequência de telemetria para estes dispositivos.
+Modelos de dispositivos pré-configurados incluem vários sensores com comportamentos avançados definidos num ficheiro JavaScript. Estes comportamentos personalizados não são suportados na IU da web. 
 
 A tabela seguinte mostra uma lista de configurações para cada modelo de dispositivo previamente configurada:
 
-| Modelo do dispositivo | Sensor de | Unidade | Frequência de telemetria
-| -------------| ------ | -----| --------------------|
-| Chiller | humidade | % | 5 segundos |
-| | pressure | psig | 5 segundos |
-| | Temperatura | F | 5 segundos |
-| Abordagem | piso | | 5 segundos |
-| | vibration | mm | 5 segundos |
-| | Temperatura | F | 5 segundos |
-| Camião | Latitude | | 3 segundos |
-| | Longitude | | 3 segundos |
-| | Velocidade | mph | 5 segundos |
-| | cargotemperature | F | 5 segundos |
+| Modelo do dispositivo | Sensor de | Unidade | 
+| -------------| ------ | -----| 
+| Chiller | humidade | % |
+| | pressure | psig | 
+| | Temperatura | F | 
+| Abordagem | piso | 
+| | vibration | mm | 
+| | Temperatura | F | 
+| Camião | Latitude | |
+| | Longitude | | 
+| | Velocidade | mph | 
+| | cargotemperature | F | 
 
 #### <a name="custom-device-model"></a>Modelo de dispositivo personalizada
 
@@ -106,7 +106,7 @@ Sensores personalizados possuir as seguintes propriedades:
 
 ### <a name="number-of-devices"></a>Número de dispositivos
 
-Dispositivo de simulação atualmente permite-lhe simular até 1000 dispositivos.
+Dispositivo de simulação atualmente permite-lhe simular até 20 000 dispositivos.
 
 ![Número de dispositivos](media/iot-suite-device-simulation-explore/numberofdevices.png)
 

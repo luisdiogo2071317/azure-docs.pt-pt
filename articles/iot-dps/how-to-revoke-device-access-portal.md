@@ -1,28 +1,28 @@
 ---
-title: "Gerir o acesso ao dispositivo para o serviço de aprovisionamento de dispositivos do Azure IoT Hub | Microsoft Docs"
-description: "Como revogar o acesso de dispositivo ao seu serviço DPS no Portal do Azure"
+title: Como disenroll um dispositivo a partir do serviço de aprovisionamento de dispositivos do Azure IoT Hub
+description: Como disenroll um dispositivo para impedir o aprovisionamento através do serviço de aprovisionamento de dispositivos do Azure IoT Hub
 services: iot-dps
-keywords: 
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 12/22/2017
+keywords: ''
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/05/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 12aebf3a56aa7469a765ab6fc67aa65b254db71a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 50074eaecacf603d2bc6170183fd632b4a1ab2d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Revogar o acesso de dispositivo para o serviço de aprovisionamento no portal do Azure
+# <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como disenroll um dispositivo a partir do serviço de aprovisionamento de dispositivos do Azure IoT Hub
 
-Gestão adequado de credenciais de dispositivo é fundamental para sistemas de perfil de alta como soluções de IoT. Uma melhor prática para esses sistemas é ter um plano limpar como revogar o acesso para dispositivos quando as respetivas credenciais, se um token de assinaturas (SAS) de acesso partilhado ou de um certificado x. 509, podem ficar comprometidas. Este artigo descreve como revogar o acesso de dispositivo, o passo de aprovisionamento.
+Gestão adequado de credenciais de dispositivo é fundamental para sistemas de perfil de alta como soluções de IoT. Uma melhor prática para esses sistemas é ter um plano limpar como revogar o acesso para dispositivos quando as respetivas credenciais, se um token de assinaturas (SAS) de acesso partilhado ou de um certificado x. 509, podem ficar comprometidas. 
 
-Para saber mais sobre revogar o acesso de dispositivo a um IoT hub depois do dispositivo tiver sido aprovisionado, consulte [desativar dispositivos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+Inscrição no serviço de aprovisionamento de dispositivos permite que um dispositivo ser [aprovisionamento automático](concepts-auto-provisioning.md). Um dispositivo aprovisionado é aquele que foi registado com o IoT Hub, permitindo que recebe a sua inicial [dispositivo duplo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) de estado e começar a dados de telemetria de relatórios. Este artigo descreve como disenroll um dispositivo da sua instância de serviço aprovisionamento, impedir de que está a ser aprovisionado novamente no futuro.
 
 > [!NOTE] 
 > Tenha em atenção a política de repetição de dispositivos que se revogar o acesso. Por exemplo, um dispositivo que tem uma política de repetição infinita poderá continuamente tentar registar com o serviço de aprovisionamento. Nessa situação consome recursos do serviço e possivelmente afeta o desempenho.
@@ -37,10 +37,10 @@ Para temporariamente lista de proibições o dispositivo, desativando a respetiv
 2. Na lista de recursos, selecione o serviço de aprovisionamento que pretende que a lista de proibições do seu dispositivo.
 3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione o **inscrições individuais** separador.
 4. Selecione a entrada de registo para o dispositivo que pretende que a lista de proibições. 
-5. Selecione **desativar** no **ativar entrada** mudar e, em seguida, selecione **guardar**.  
+5. Desloque-se na parte inferior e selecione **desativar** no **ativar entrada** mudar e, em seguida, selecione **guardar**.  
 
-   ![Desativar a entrada de registo individuais no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
-    
+   [![Desativar a entrada de registo individuais no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+
 Para permanentemente lista de proibições o dispositivo, eliminando a respetiva entrada de inscrição:
 
 1. Inicie sessão no Azure portal e selecione **todos os recursos** no menu esquerdo.
@@ -64,9 +64,8 @@ Para temporariamente lista de proibições o certificado, desativando o grupo de
 1. Inicie sessão no Azure portal e selecione **todos os recursos** no menu esquerdo.
 2. Na lista de recursos, selecione o serviço de aprovisionamento que pretende que a lista de proibições o certificado de assinatura de.
 3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione o **inscrição grupos** separador.
-4. Selecione o grupo de inscrição para o certificado que pretende que a lista de proibições.
-5. A entrada de grupo de inscrição, selecione **Editar grupo**.
-6. Selecione **desativar** no **ativar entrada** mudar e, em seguida, selecione **guardar**.  
+4. Selecione o grupo de inscrição com o certificado que pretende que a lista de proibições.
+5. Selecione **desativar** no **ativar entrada** mudar e, em seguida, selecione **guardar**.  
 
    ![Desativar a entrada de grupo de inscrição no portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
@@ -96,12 +95,15 @@ Na lista de proibições um dispositivo individual num grupo de inscrição, sig
 2. Na lista de recursos, selecione o serviço de aprovisionamento que contém o grupo de inscrição para o dispositivo que pretende que a lista de proibições.
 3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione o **inscrições individuais** separador.
 4. Selecione o **adicionar** botão na parte superior. 
-5. Selecione **x. 509** como o mecanismo de segurança para o dispositivo e carregue o certificado de dispositivo. Este é o certificado de entidade final assinado instalado no dispositivo. O dispositivo utiliza-o para gerar certificados para autenticação.
+5. Selecione **x. 509** como o mecanismo de atestado de dispositivo e carregue o certificado de dispositivo. Este é o certificado de entidade final assinado instalado no dispositivo. O dispositivo utiliza-o para gerar certificados para autenticação.
 6. Para **ID do dispositivo IoT Hub**, introduza o ID do dispositivo. 
 7. Selecione **desativar** no **ativar entrada** mudar e, em seguida, selecione **guardar**. 
 
-   ![Desativar a entrada de registo individuais no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+    [![Utilize desativada entrada de registo individuais para desativar o dispositivo da inscrição de grupo, no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 Quando criar com êxito a inscrição, deverá ver o seu dispositivo aparecem no **inscrições individuais** separador.
 
+## <a name="next-steps"></a>Passos Seguintes
+
+Disenrollment também faz parte do processo de desaprovisionamento maior. Desaprovisionamento um dispositivo inclui tanto disenrollment do serviço de aprovisionamento e deregistering a partir do IoT hub. Para saber mais sobre o processo completo, consulte [como desaprovisionar dispositivos que foram auto-aprovisionados anteriormente](how-to-unprovision-devices.md) 
 

@@ -1,8 +1,8 @@
 ---
 title: Utilizar baseados no tempo coordenador de Oozie do Hadoop no HDInsight | Microsoft Docs
-description: "Utilize baseados no tempo coordenador de Oozie do Hadoop no HDInsight, um serviço de macrodados. Saiba como definir Oozie fluxos de trabalho e os coordenadores e submeter as tarefas."
+description: Utilize baseados no tempo coordenador de Oozie do Hadoop no HDInsight, um serviço de macrodados. Saiba como definir Oozie fluxos de trabalho e os coordenadores e submeter as tarefas.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -10,18 +10,16 @@ editor: cgronlun
 ms.assetid: 00c3a395-d51a-44ff-af2d-1f116c4b1c83
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0fa8e3630610913d909a75bf76236d120c8f1a2b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: db7f1f85601cfcf4531bb11176a21126625ce7f0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Utilize o coordenador de Oozie baseado no tempo com o Hadoop no HDInsight para definir fluxos de trabalho e coordenar as tarefas
 Neste artigo, irá aprender como definir fluxos de trabalho e os coordenadores e como acionar as tarefas de coordenador, com base no tempo. É útil seguir [Oozie de utilização com o HDInsight] [ hdinsight-use-oozie] antes de ler este artigo. Para além do Oozie, também pode agendar tarefas utilizando o Azure Data Factory. Para obter o Azure Data Factory, consulte [Pig de utilização e o Hive com o Data Factory](../data-factory/transform-data.md).
@@ -712,7 +710,7 @@ $cmd.executenonquery()
 $conn.close()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu como definir um fluxo de trabalho do Oozie e coordenador de Oozie e como executar uma tarefa de coordenador de Oozie com o Azure PowerShell. Para obter mais informações, consulte os artigos seguintes:
 
 * [Introdução ao HDInsight][hdinsight-get-started]

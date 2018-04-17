@@ -1,8 +1,24 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-network
+author: genli
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: genli
+ms.custom: include file
+ms.openlocfilehash: edfcd4d59eceada9e1c6014dad9afa7fe8ab3c8f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Como criar uma VNet clássica no portal do Azure
 Para criar uma clássica que vnet com base no cenário anterior, siga estes passos.
 
 1. Num browser, navegue para http://portal.azure.com e, se necessário, inicie sessão com a sua conta do Azure.
-2. Clique em **crie um recurso** > **redes** > **rede Virtual**. Tenha em atenção que o **selecionar um modelo de implementação** já lista mostra **clássico**. 3. Clique em **criar** conforme mostrado na figura seguinte.
+2. Clique em **Criar um recurso** > **Rede** > **Rede virtual**. Tenha em atenção que o **selecionar um modelo de implementação** já lista mostra **clássico**. 3. Clique em **criar** conforme mostrado na figura seguinte.
    
     ![Criar a VNet no Portal do Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
 4. No **rede Virtual** painel, escreva o **nome** da VNet e, em seguida, clique em **espaço de endereços**. Configure as definições de espaço de endereço para a VNet e a primeira sub-rede, em seguida, clique em **OK**. A figura seguinte mostra as definições de bloco CIDR para o nosso cenário.

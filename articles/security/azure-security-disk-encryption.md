@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 5219ebc22e56ad4b5cdfc125f7fa5882c61adb9f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: devtiw
+ms.openlocfilehash: f42f20893a815640378b9d18186c88b782e61284
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Encriptação de disco do Azure para o Windows e as VMs de Linux IaaS
 Microsoft Azure é vivamente consolidada para assegurar a privacidade dos dados, soberania de dados e permite avançadas, para controlar o Azure alojadas dados através de uma variedade de tecnologias para encriptar, controlar e gerir chaves de encriptação, controlo & auditar o acesso aos dados. Isto proporciona aos clientes do Azure a flexibilidade para escolher a solução que melhor se adeque às suas necessidades de negócio. Neste documento, vamos apresenta-lhe uma nova solução de tecnologia "Do Azure Disk Encryption para o Windows e de Linux IaaS VM" para ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacional. O documento fornece orientações detalhadas sobre como utilizar as funcionalidades de encriptação de disco do Azure, incluindo os cenários suportados e o utilizador experiências.
@@ -572,7 +572,7 @@ A tabela seguinte lista os parâmetros do modelo do Resource Manager para existe
 | volumeType | Tipo de volume que é efetuar a operação de encriptação no. Os valores suportados válidos são _SO_ ou _todos os_ (consulte suportado Linux distros e das respetivas versões de SO e discos de dados na secção de prerequisiteis anteriormente). |
 | sequenceVersion | Versão de sequência da operação BitLocker. Aumentar este número de versão sempre que uma operação de encriptação de disco é executada na mesma VM. |
 | vmName | Nome da VM que a operação de encriptação está a ser efetuada numa. |
-| passPhrase | Escreva uma frase de acesso forte como a chave de encriptação de dados. |
+| frase de acesso | Escreva uma frase de acesso forte como a chave de encriptação de dados. |
 
 > [!NOTE]
 > _KeyEncryptionKeyURL_ é um parâmetro opcional. Pode colocar o seus próprios KEK para salvaguardar adicional a chave de encriptação de dados (segredo frase de acesso) no seu Cofre de chaves.

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ddd80f2ebfa9d06fcd47c41d337348e01ac112e9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gerir computação no Azure SQL Data Warehouse
 Saiba mais sobre a gestão de recursos de computação no Azure SQL Data Warehouse. Baixar os custos ao colocar em pausa o armazém de dados ou aumentar o armazém de dados para satisfazer os pedidos de desempenho. 
@@ -28,7 +28,7 @@ Saiba mais sobre a gestão de recursos de computação no Azure SQL Data Warehou
 A arquitetura do SQL Data Warehouse separa o armazenamento e computação independentes, permitindo cada dimensionar de forma independente. Como resultado, pode dimensionar a computação para satisfazer os pedidos de desempenho independentes do armazenamento de dados. Também pode colocar em pausa e retomar a recursos de computação. Um consequence natural colateral desta arquitetura é que [faturação](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) de computação e de armazenamento está separado. Se não precisa de utilizar o seu armazém de dados para o tempo, pode poupar custos de computação por colocar em pausa computação. 
 
 ## <a name="scaling-compute"></a>Dimensionamento de computação
-Pode aumentar ou reduzir horizontalmente computação back ao ajustar o [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md) definição para o seu armazém de dados. Desempenho de consulta e de carregamento pode aumentar de forma linear à medida que adiciona mais unidades de armazém de dados. O SQL Data Warehouse oferece [níveis de serviço](performance-tiers.md#service-levels) para dados de unidades de armazém que certifique-se de uma mudança considerável no desempenho quando dimensiona out ou fazer uma cópia. 
+Pode aumentar ou reduzir horizontalmente computação back ao ajustar o [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md) definição para o seu armazém de dados. Desempenho de consulta e de carregamento pode aumentar de forma linear à medida que adiciona mais unidades de armazém de dados. 
 
 Para obter passos de escalamento horizontal, consulte o [portal do Azure](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), ou [T-SQL](quickstart-scale-compute-tsql.md) inícios rápidos. Também pode efetuar operações de escalamento horizontal com um [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
@@ -103,19 +103,19 @@ Recomendamos que transações existentes sejam concluídas antes de iniciar uma 
 
 Ao colocar em pausa ou dimensionar o SQL Data Warehouse, em segundo plano, as consultas são canceladas quando iniciar o pedido de colocação em pausa ou dimensionamento.  Cancelar uma consulta SELECT simples é uma operação rápida e quase não tem impacto sobre o tempo que demora a colocar em pausa ou a dimensionar a sua instância.  No entanto, as consultas transacionais que modificam os seus dados ou a estrutura dos mesmos, podem não ser paradas rapidamente.  **As consultas transacionais, por definição, têm de ser concluídas na sua totalidade ou têm de reverter as alterações.**  A reversão do trabalho concluído por uma consulta transacional pode demorar tanto tempo, ou mais, como a alteração original que a consulta aplicou.  Por exemplo, se cancelar uma consulta que estava a eliminar linhas e que já estiva a ser executada há uma hora, o sistema pode demorar uma hora a inserir novamente as linhas que foram eliminadas.  Se colocar em pausa ou dimensionar enquanto as transações estiverem a decorrer, a colocação em pausa ou o dimensionamento podem demorar muito tempo, uma vez que a colocação em pausa e o dimensionamento têm de aguardar que a reversão esteja concluída para poderem continuar.
 
-Consulte também [transações compreender](sql-data-warehouse-develop-transactions.md)e [otimizar transações][otimizar transações](sql-data-warehouse-develop-best-practices-transactions.md).
+Consulte também [transações compreender](sql-data-warehouse-develop-transactions.md), e [otimizar transações](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## <a name="automating-compute-management"></a>Automatizar a gestão de computação
 Para automatizar as operações de gestão de computação, consulte [gerir computação com as funções do Azure](manage-compute-with-azure-functions.md).
 
 Cada um de escalamento horizontal, colocar em pausa e operações de retoma pode demorar vários minutos a concluir. Se o dimensionamento são, colocar em pausa, ou retomar automaticamente, recomendamos que implementar a lógica para garantir que determinadas operações concluiu antes de continuar com a ação de outra. A verificar o estado do armazém de dados através de vários pontos finais permite-lhe implementar corretamente a automatização de operações. 
 
-Para verificar o estado de armazém de dados, se o [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) ou [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) início rápido. Também pode verificar o estado do armazém de dados com um [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+Para verificar o estado do armazém de dados, consulte o [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) ou [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) início rápido. Também pode verificar o estado do armazém de dados com um [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## <a name="permissions"></a>Permissões
 
-Dimensionamento do armazém de dados requer as permissões descritas [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Colocar em pausa e retomar requerem o [contribuinte da BD SQL](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor) permissão, especificamente Microsoft.Sql/servers/databases/action.
+Dimensionamento do armazém de dados requer as permissões descritas [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  Colocar em pausa e retomar requerem o [contribuinte da BD SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor) permissão, especificamente Microsoft.Sql/servers/databases/action.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

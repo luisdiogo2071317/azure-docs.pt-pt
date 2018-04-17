@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 16ce5aac26abcf2ef2cf7664fb0b9aae600708d4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 550fe16c5997947b528d284b7afdce9af0b7a56b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
@@ -36,14 +36,14 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 ## <a name="add-a-subnet"></a>Adicionar uma sub-rede
 
-1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparece nos resultados da pesquisa, selecionados-lo.
+1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o.
 2. Na lista de redes virtuais, selecione a rede virtual que pretende adicionar uma sub-rede para.
 3. Em **definições**, selecione **sub-redes**.
 4. Selecione **+ sub-rede**.
 5. Introduza valores para os seguintes parâmetros:
     - **Nome**: O nome tem de ser exclusivo dentro da rede virtual.
     - **Intervalo de endereços**: O intervalo deve ser exclusivo num espaço de endereços da rede virtual. O intervalo não pode sobrepor-se com outros intervalos de endereços de sub-rede na rede virtual. O espaço de endereços tem de ser especificado utilizando a notação de Classless entre domínios encaminhamento CIDR (). Por exemplo, numa rede virtual com endereço espaço 10.0.0.0/16, poderá definir um espaço de endereços da sub-rede do 10.0.0.0/24. O intervalo mais pequeno, que pode especificar é /29, que fornece oito endereços IP da sub-rede. O primeiro e último endereço em cada sub-rede para a conformidade de protocolo de reservas de Azure. Três endereços adicionais estão reservados para utilização do serviço do Azure. Como resultado, que define uma sub-rede com/29 resultados de intervalo três utilizáveis endereços de IP na sub-rede de endereços. Se planear ligar uma rede virtual para um gateway de VPN, tem de criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereço específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Pode alterar o intervalo de endereços depois da sub-rede é adicionada, sob condições específicas. Para saber como alterar um intervalo de endereços da sub-rede, consulte [alterar definições da sub-rede](#change-subnet-settings).
-    - **Grupo de segurança de rede**: pode associar zero ou uma rede grupo de segurança existente para uma sub-rede para filtrar o tráfego de rede de entrada e saída para a sub-rede. O grupo de segurança de rede tem de existir na mesma subscrição e localização da rede virtual. Saiba mais sobre [grupos de segurança de rede](security-overview.md) e [como criar um grupo de segurança de rede](virtual-networks-create-nsg-arm-pportal.md).
+    - **Grupo de segurança de rede**: pode associar zero ou uma rede grupo de segurança existente para uma sub-rede para filtrar o tráfego de rede de entrada e saída para a sub-rede. O grupo de segurança de rede tem de existir na mesma subscrição e localização da rede virtual. Saiba mais sobre [grupos de segurança de rede](security-overview.md) e [como criar um grupo de segurança de rede](tutorial-filter-network-traffic.md).
     - **Tabela de rotas**: pode associar zero ou uma existente tabela de rotas para uma sub-rede para controlar o encaminhamento de tráfego de rede a outras redes. A tabela de rota tem de existir na mesma subscrição e localização da rede virtual. Saiba mais sobre [encaminhamento Azure](virtual-networks-udr-overview.md) e [como criar uma tabela de rota](tutorial-create-route-table-portal.md)
     - **Pontos finais de serviço:** uma sub-rede pode ter zero ou vários pontos finais de serviço ativados para o mesmo. Para ativar um ponto final de serviço para um serviço, selecione o serviço ou serviços que pretende ativar pontos finais de serviço para a partir de **serviços** lista. Para remover um ponto final de serviço, anule a seleção de serviço que pretende remover o ponto final de serviço para. Para obter mais informações sobre pontos finais de serviço, consulte o artigo [descrição geral de pontos finais de serviço de rede Virtual](virtual-network-service-endpoints-overview.md). Depois de ativar um ponto final de serviço para um serviço, tem também de ativar o acesso de rede para a sub-rede para um recurso que criou com o serviço. Por exemplo, se ativar o ponto final de serviço para *Microsoft*, tem também de ativar acesso à rede para todas as contas de armazenamento do Azure que pretende conceder acesso à rede. Para obter detalhes sobre como ativar o acesso de rede para sub-redes ativado para um ponto final de serviço, consulte a documentação para o serviço individuais ativou o ponto final do serviço para.
 6. Para adicionar a sub-rede à rede virtual que selecionou, selecione **OK**.
@@ -55,15 +55,15 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 ## <a name="change-subnet-settings"></a>Alterar definições da sub-rede
 
-1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparece nos resultados da pesquisa, selecionados-lo.
+1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o.
 2. Na lista de redes virtuais, selecione a rede virtual que contém a sub-rede que pretende alterar as definições.
 3. Em **definições**, selecione **sub-redes**.
 4. Na lista de sub-redes, selecione a sub-rede que pretende alterar as definições. Pode alterar as seguintes definições:
 
     - **Intervalo de endereços:** se não existem recursos são implementados dentro da sub-rede, pode alterar o intervalo de endereços. Se existirem quaisquer recursos na sub-rede, deve mover os recursos para outra sub-rede ou eliminá-los primeiro da sub-rede. Os passos que efetuar para mover ou eliminar um recurso variam consoante o recurso. Para saber como mover ou eliminar os recursos que estão em sub-redes, leia a documentação para cada tipo de recurso que pretende mover ou eliminar. Consulte as restrições de **intervalo de endereços** no passo 5 [adicionar uma sub-rede](#add-a-subnet).
-    - **Os utilizadores**: pode controlar o acesso à sub-rede através da utilização de funções incorporadas ou as suas próprias funções personalizadas. Para saber mais sobre a atribuição de funções e os utilizadores acedam a sub-rede, consulte o artigo [utilizar atribuição de função para gerir o acesso aos seus recursos do Azure](../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access).
+    - **Os utilizadores**: pode controlar o acesso à sub-rede através da utilização de funções incorporadas ou as suas próprias funções personalizadas. Para saber mais sobre a atribuição de funções e os utilizadores acedam a sub-rede, consulte o artigo [utilizar atribuição de função para gerir o acesso aos seus recursos do Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access).
     - Para obter informações sobre como alterar **grupo de segurança de rede**, **tabela de rotas**, **utilizadores**, e **pontos finais de serviço**, consulte o passo 5 no [ Adicionar uma sub-rede](#add-a-subnet).
-5. Selecione **guardar**.
+5. Selecione **Guardar**.
 
 **Comandos**
 
@@ -74,7 +74,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 Pode eliminar uma sub-rede apenas se existem não existem recursos na sub-rede. Se existirem recursos na sub-rede, tem de eliminar os recursos que estão na sub-rede antes de poder eliminar a sub-rede. Os passos que efetuar para eliminar um recurso variam consoante o recurso. Para saber como eliminar os recursos que estão em sub-redes, leia a documentação para cada tipo de recurso que pretende eliminar.
 
-1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparece nos resultados da pesquisa, selecionados-lo.
+1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o.
 2. Na lista de redes virtuais, selecione a rede virtual que contém a sub-rede que pretende eliminar.
 3. Em **definições**, selecione **sub-redes**.
 4. Na lista de sub-redes, selecione **...** , à direita para a sub-rede que pretende eliminar
@@ -87,7 +87,7 @@ Pode eliminar uma sub-rede apenas se existem não existem recursos na sub-rede. 
 
 ## <a name="permissions"></a>Permissões
 
-Para executar tarefas em sub-redes, deve ser atribuída à conta para o [contribuinte de rede](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função atribuída as permissões adequadas listadas na seguinte tabela:
+Para executar tarefas em sub-redes, deve ser atribuída à conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função atribuída as permissões adequadas listadas na seguinte tabela:
 
 |Operação                                                                |   Nome da operação                               |
 |-----------------------------------------------------------------------  |   -------------------------------------------  |

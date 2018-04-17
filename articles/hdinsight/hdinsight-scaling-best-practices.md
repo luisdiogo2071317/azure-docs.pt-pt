@@ -2,25 +2,23 @@
 title: Dimensionar os tamanhos de cluster - Azure HDInsight | Microsoft Docs
 description: Dimensione um cluster do HDInsight para a carga de trabalho.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 7e9ee660c07d6265e55e94cf79ed13334fcb3d16
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8b76d7d0441a5c1c25ad17b73083ec0e4feef1fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scale-hdinsight-clusters"></a>Dimensionamento de clusters do HDInsight
 
@@ -125,7 +123,7 @@ Depois de abandonar o fileparser modo de segurança, pode manualmente remover os
 
 * Bases de dados de mostrar H100 não é possível submeter a instrução: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: ligar ao hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername . Falha de Internal.cloudapp.NET/1.1.1.1]: **ligação foi recusada**
 
-* Não foi possível H020 estabelecer ligação com hn0 hdisrv.servername.bx.internal.cloudapp .net: 10001: org.apache.thrift.transport.TTransportException: não foi possível criar a ligação de http para http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 /. org.apache.http.conn.HttpHostConnectException: ligar ao hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] falhou: ligação foi recusada: org.apache.thrift.transport.TTransportException: não foi possível criar a ligação de http para http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 /. org.apache.http.conn.HttpHostConnectException: ligar ao hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] falhou: **ligação foi recusada**
+* Não foi possível H020 estabelecer ligação com hn0 hdisrv.servername.bx.internal.cloudapp .net: 10001: org.apache.thrift.transport.TTransportException: não foi possível criar a ligação de http para http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: ligar ao hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] falhou: ligação foi recusada: org.apache.thrift.transport.TTransportException: não foi possível criar a ligação de http para http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: ligar ao hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] falhou: **ligação foi recusada**
 
 * Partir de registos do ramo de registo: avisar [principal]: servidor. HiveServer2 (HiveServer2.java:startHiveServer2(442)) – erro ao iniciar HiveServer2 21, de tentar novamente em 60 segundos java.lang.RuntimeException: erro ao aplicar a política de autorização na configuração do ramo de registo: org.apache.hadoop.ipc.RemoteException ( org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **não é possível criar o diretório** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Nó de nome está em modo seguro**.
     Os blocos comunicados 0 tem 9 blocos adicionais para atingir o limiar 0.9900 de blocos totais 9.
@@ -156,7 +154,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Modo de segurança desativado](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]
-> O `-D` comutador é necessário porque o sistema de ficheiros no HDInsight é o Storage do Azure ou do Azure Data Lake Store. `-D`Especifica que os comandos forem executados no sistema de ficheiros local do HDFS.
+> O `-D` comutador é necessário porque o sistema de ficheiros no HDInsight é o Storage do Azure ou do Azure Data Lake Store. `-D` Especifica que os comandos forem executados no sistema de ficheiros local do HDFS.
 
 Em seguida, pode ver um relatório que mostra os detalhes do Estado HDFS:
 

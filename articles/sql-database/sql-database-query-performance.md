@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 85f25946974b7ede64f9f8fb0009eed42c55c25a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c0cff73e8164bd493554b663d4ffbbf20f5155cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>SQL do Azure da base de dados desempenho das consultas
 Gerir e otimizar o desempenho das bases de dados relacionais são uma tarefa um desafio que requer conhecimentos significativos e o investimento de tempo. Desempenho das consultas permite-lhe gaste menos tempo a resolução de problemas de desempenho de base de dados ao fornecer o seguinte:
@@ -29,7 +29,7 @@ Gerir e otimizar o desempenho das bases de dados relacionais são uma tarefa um 
 * Consulta Performance Insight requer que [arquivo de consultas](https://msdn.microsoft.com/library/dn817826.aspx) está ativo na base de dados. Se o arquivo de consultas não está em execução, o portal do pede-lhe para ativá-la.
 
 ## <a name="permissions"></a>Permissões
-O seguinte [controlo de acesso baseado em funções](../active-directory/role-based-access-control-what-is.md) são necessárias permissões para utilizar o desempenho das consultas: 
+O seguinte [controlo de acesso baseado em funções](../role-based-access-control/overview.md) são necessárias permissões para utilizar o desempenho das consultas: 
 
 * **Leitor**, **proprietário**, **contribuinte**, **contribuinte da BD SQL**, ou **contribuinte de servidor de SQL** são necessárias permissões Para ver o recurso superior consumir consultas e gráficos. 
 * **Proprietário**, **contribuinte**, **contribuinte da BD SQL**, ou **contribuinte de servidor de SQL** são necessárias permissões para ver o texto da consulta.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: garbrad
-ms.openlocfilehash: 5d62c40bfc909915fa222db12413634aa7ce7158
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0539736f4b7294a613ffd42c28ff6bb29cf9e2bf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Através do DNS dinâmico para registar os nomes de anfitrião no servidor DNS
 [O Azure oferece resolução de nomes](virtual-networks-name-resolution-for-vms-and-role-instances.md) para máquinas virtuais (VMs) e instâncias de função. No entanto, quando a resolução do nome tem de passar para além dos fornecidos pelo Azure, pode fornecer os seus próprios servidores DNS. Isto dá-lhe a capacidade para personalizar a sua solução DNS para se adequarem às suas necessidades específicas. Por exemplo, precisa de aceder a recursos no local através do seu controlador de domínio do Active Directory.
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/23/2018
 Quando os servidores DNS personalizados estão alojados as VMs do Azure pode reencaminhar as consultas de nome de anfitrião para a mesma vnet para o Azure para resolver os nomes de anfitrião. Se não pretender utilizar esta rota, pode registar os nomes de anfitrião VM no seu servidor DNS através do DNS dinâmico.  Azure não tem a capacidade (por exemplo, credenciais) para criar diretamente os registos nos servidores DNS, pelo que disposições alternativas, muitas vezes, são necessários. Seguem-se alguns cenários comuns com alternativas.
 
 ## <a name="windows-clients"></a>Clientes Windows
-Os clientes do Windows não-associados a um domínio a tentativa de atualizações de DNS dinâmicos (DDNS) não segura quando estes arrancam ou quando muda do endereço IP. O nome DNS é o nome de anfitrião e o sufixo DNS primário. Azure deixa o sufixo DNS primário em branco, mas pode definir esta opção na VM, através de [IU](https://technet.microsoft.com/library/cc794784.aspx) ou [através da utilização de automatização, tal como descrito aqui](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
+Os clientes do Windows não-associados a um domínio a tentativa de atualizações de DNS dinâmicos (DDNS) não segura quando estes arrancam ou quando muda do endereço IP. O nome DNS é o nome de anfitrião e o sufixo DNS primário. Azure deixa o sufixo DNS primário em branco, mas pode definir esta opção na VM, através de [interface de utilizador](https://technet.microsoft.com/library/cc794784.aspx) ou [PowerShell](/powershell/module/dnsclient/set-dnsclient).
 
 Os clientes do Windows associados a um domínio registar os respetivos endereços IP com o controlador de domínio utilizando o DNS dinâmico segura. O processo de associação de domínio define o sufixo DNS primário no cliente e cria e mantém a relação de confiança.
 

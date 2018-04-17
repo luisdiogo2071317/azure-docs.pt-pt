@@ -24,7 +24,7 @@ Os Discos do Azure foram concebidos para garantir uma disponibilidade de 99,999%
 
 ### <a name="granular-access-control"></a>Controlo de acesso granulares
 
-Pode utilizar [controlo de acesso em funções do Azure (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) para atribuir permissões específicas para um disco gerido a um ou mais utilizadores. Gerido discos expõe uma variedade de operações, incluindo de leitura, escrita (criar/atualizar), eliminar e obter um [assinatura de acesso partilhado (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) para o disco. Pode conceder acesso apenas as operações de uma pessoa que precisa de realizar a tarefa. Por exemplo, se não pretender que uma pessoa para copiar um disco gerido para uma conta de armazenamento, pode optar por não conceda acesso para a ação de exportação para esse disco gerido. Da mesma forma, se não pretender que uma pessoa a utilizar um URI de SAS para copiar um disco gerido, pode optar por não conceder essa permissão para o disco gerido.
+Pode utilizar [controlo de acesso em funções do Azure (RBAC)](../articles/role-based-access-control/overview.md) para atribuir permissões específicas para um disco gerido a um ou mais utilizadores. Gerido discos expõe uma variedade de operações, incluindo de leitura, escrita (criar/atualizar), eliminar e obter um [assinatura de acesso partilhado (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) para o disco. Pode conceder acesso apenas as operações de uma pessoa que precisa de realizar a tarefa. Por exemplo, se não pretender que uma pessoa para copiar um disco gerido para uma conta de armazenamento, pode optar por não conceda acesso para a ação de exportação para esse disco gerido. Da mesma forma, se não pretender que uma pessoa a utilizar um URI de SAS para copiar um disco gerido, pode optar por não conceder essa permissão para o disco gerido.
 
 ### <a name="azure-backup-service-support"></a>Suporte do serviço de cópia de segurança do Azure
 Utilize o serviço de cópia de segurança do Azure com discos geridos para criar uma tarefa de cópia de segurança com políticas de retenção de cópias de segurança, fácil restauro de VM e cópias de segurança baseados no tempo. Discos geridos só suportam localmente redundante armazenamento (LRS) como a opção de replicação; Isto significa que mantém três cópias dos dados numa única região. Recuperação de desastres regionais, deve efetuar cópias de segurança aos discos VM numa região diferente através de [serviço cópia de segurança do Azure](../articles/backup/backup-introduction-to-azure-backup.md) e uma conta de armazenamento GRS como o Cofre de cópia de segurança. Atualmente, disco de dados do Backup do Azure suporta tamanhos até 1TB para cópia de segurança. Saiba mais sobre no [serviço utilizando a cópia de segurança do Azure para as VMs com discos geridos](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
@@ -53,14 +53,14 @@ Aqui estão os tamanhos de disco disponíveis para um disco gerido premium:
 
 | **Premium gerido <br>tipo de disco** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Tamanho do Disco        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| Tamanho do Disco        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 
 
 
 Seguem-se disponível para um disco gerido standard os tamanhos de disco:
 
 | **Standard gerido <br>tipo de disco** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Tamanho do Disco        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| Tamanho do Disco        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 
 
 
 **Número de transações**: É Faturado por número de transações que efetuar um disco gerido standard. Não há sem qualquer custo para transações para um disco gerido premium.
@@ -104,8 +104,7 @@ Existem dois tipos de encriptação para discutir no contexto de discos geridos.
 
 ### <a name="storage-service-encryption-sse"></a>Encriptação do serviço de armazenamento (SSE)
 
-[Encriptação do serviço de armazenamento do Azure](../articles/storage/common/storage-service-encryption.md) fornece encriptação em rest e salvaguardar os seus dados para satisfazer os seus compromissos de segurança e conformidade organizacionais. SSE está ativada por predefinição para todos os discos geridos, instantâneos e imagens em todas as regiões onde discos geridos está disponível. A partir de 10 de Junho de 2017, todos os novos geridos instantâneos/discos/imagens e novos dados escritos discos geridos existentes são automaticamente encriptados-em-rest com chaves geridas pela Microsoft por predefinição. Pode optar por colocar a sua própria chave de encriptação de ficheiros e Blobs do Azure. Encriptação para as tabelas e filas utilizará sempre as chaves Microsoft geridos.
-Tenha em atenção que depois de ativar a encriptação do serviço de armazenamento, apenas novos dados serão encriptados e quaisquer ficheiros existentes nesta conta de armazenamento serão retroactively obter encriptados por um processo de encriptação em segundo plano. Visite o [página de FAQ de discos geridos](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
+[Encriptação do serviço de armazenamento do Azure](../articles/storage/common/storage-service-encryption.md) fornece encriptação em rest e salvaguardar os seus dados para satisfazer os seus compromissos de segurança e conformidade organizacionais. SSE está ativada por predefinição para todos os discos geridos, instantâneos e imagens em todas as regiões onde discos geridos está disponível. A partir de 10 de Junho de 2017, todos os novos geridos instantâneos/discos/imagens e novos dados escritos discos geridos existentes são automaticamente encriptados-em-rest com chaves geridas pela Microsoft por predefinição. Visite o [página de FAQ de discos geridos](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
 
 
 ### <a name="azure-disk-encryption-ade"></a>Encriptação de disco do Azure (ADE)

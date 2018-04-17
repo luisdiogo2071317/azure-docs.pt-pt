@@ -1,6 +1,6 @@
 ---
-title: "Azure de identidade e acesso melhores práticas de segurança | Microsoft Docs"
-description: "Este artigo fornece um conjunto de melhores práticas para gestão de identidade e controlo de acesso utilizando incorporada capacidades do Azure."
+title: Azure de identidade e acesso melhores práticas de segurança | Microsoft Docs
+description: Este artigo fornece um conjunto de melhores práticas para gestão de identidade e controlo de acesso utilizando incorporada capacidades do Azure.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ec8eb8759e310e31c7798c54cc95f0170e95cf50
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Melhores práticas de segurança de controlo de acesso e gestão de identidades do Azure
 Muitas considere identidade seja de nova camada de limites para segurança, tendo mais essa função da perspetiva centrada em rede tradicional. Este evolução do pivot principal de segurança de atenção e investimentos provenientes do facto de que perimeters de rede têm de se cada vez mais porous e esse defesa de perímetro não pode ser como efetiva à medida que uma vez foram antes da explosão de [BYOD ](http://aka.ms/byodcg) dispositivos e aplicações em nuvem.
@@ -52,7 +52,7 @@ Identidade do Azure de gestão e acesso controlo melhores práticas de seguranç
 Para tal [identidade híbrida](../active-directory/active-directory-hybrid-identity-design-considerations-overview.md) cenário Recomendamos duas opções:
 
 * Sincronizar o seu diretório no local com o diretório em nuvem com o Azure AD Connect
-* Federar a sua identidade no local com o diretório de nuvem utilizando [serviços de Federação do Active Directory](https://msdn.microsoft.com/library/bb897402.aspx) (AD FS)
+* Ativar início de sessão com [sincronização de hash de palavra-passe](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization), [autenticação pass-through](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) ou federar a sua identidade no local com o diretório de nuvem utilizando [do Active Directory Os serviços de Federação](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-federation-servers) (AD FS)
 
 As organizações que não obedeçam a integrar as identidades no local com a identidade de nuvem verificará maiores despesas administrativas gerais na gestão de contas, que aumenta a probabilidade de prende e falhas de segurança.
 
@@ -95,11 +95,11 @@ Para obter mais informações sobre o MFA do Azure, leia o artigo [introdução 
 ## <a name="use-role-based-access-control-rbac"></a>Controlo de acesso (RBAC) baseado em funções de utilização
 Restringir o acesso com base no [precisa de saber](https://en.wikipedia.org/wiki/Need_to_know) e [menor privilégio](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é imperativo para as organizações que pretendem aplicar políticas de segurança para acesso a dados. Azure baseada em funções controlo de acesso (RBAC) pode ser utilizado para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito. O âmbito de uma atribuição de função pode ser uma subscrição, um grupo de recursos ou um único recurso.
 
-Pode tirar partido [incorporadas do RBAC](../active-directory/role-based-access-built-in-roles.md) funções no Azure para atribuir os privilégios aos utilizadores. Considere a utilização de *contribuinte de conta de armazenamento* para os operadores da nuvem que necessitam de gerir as contas do storage e *contribuinte de conta de armazenamento clássico* função para gerir contas de armazenamento clássicas. Para os operadores da nuvem que necessita para gerir VMs e conta de armazenamento, considere adicionar-lhes *contribuinte de Máquina Virtual* função.
+Pode tirar partido [incorporadas do RBAC](../role-based-access-control/built-in-roles.md) funções no Azure para atribuir os privilégios aos utilizadores. Considere a utilização de *contribuinte de conta de armazenamento* para os operadores da nuvem que necessitam de gerir as contas do storage e *contribuinte de conta de armazenamento clássico* função para gerir contas de armazenamento clássicas. Para os operadores da nuvem que necessita para gerir VMs e conta de armazenamento, considere adicionar-lhes *contribuinte de Máquina Virtual* função.
 
 As organizações que não a impor controlo de acesso de dados ao tirar partido das capacidades, tal como o RBAC podem ser dá ao mais privilégios que necessárias aos respetivos utilizadores. Isto pode levar a dados comprometimento por permitir que os utilizadores acesso a determinados tipos de tipos de dados (por exemplo, elevado impacto comercial), que não deve ter em primeiro lugar.
 
-Pode saber mais sobre o RBAC do Azure ao ler o artigo [controlo de acesso em funções do Azure](../active-directory/role-based-access-control-configure.md).
+Pode saber mais sobre o RBAC do Azure ao ler o artigo [controlo de acesso em funções do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="control-locations-where-resources-are-created-using-resource-manager"></a>Controlar as localizações onde os recursos são criados com o resource manager
 Ativar os operadores da nuvem efetuar tarefas ao impedir que interrompendo as convenções de que são necessárias para gerir os recursos da sua organização é muito importante. As organizações que pretendem controlar as localizações onde os recursos são criados rígido devem código estas localizações.

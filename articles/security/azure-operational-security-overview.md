@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral de segurança operacionais do Azure | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral da segurança operacional do Azure."
+title: Descrição geral de segurança operacionais do Azure | Microsoft Docs
+description: Este artigo fornece uma descrição geral da segurança operacional do Azure.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ca42e0cc76bc385f04cb2e010ff91dbb27bd627a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-operational-security-overview"></a>Descrição geral de segurança operacionais do Azure
 Segurança operacionais do Azure refere-se os serviços, controlos e funcionalidades disponíveis para os utilizadores para proteger os seus dados, aplicações e outros recursos no Microsoft Azure. [Segurança operacionais do Azure](https://docs.microsoft.com/azure/security/azure-operational-security) é uma estrutura que incorpora o conhecimento adquirida através de uma variedade de capacidades que são exclusivos para a Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), a resposta de segurança da Microsoft Programa do System Center e a deteção de ameaças de segurança informático.
@@ -65,7 +65,7 @@ O [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-r
 -   Fornece gestão de acesso central, início de sessão único (SSO) e relatórios
 -   Suporta a gestão de acesso integrada para [milhares de aplicações](https://azure.microsoft.com/marketplace/active-directory/) na Galeria de aplicações, incluindo o Salesforce, Google Apps, caixa, Concur e muito mais.
 
-Azure AD também inclui um conjunto completo de [capacidades de gestão de identidade](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports) incluindo [autenticação multifator](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), [registo de dispositivos]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview), [ gestão de palavra-passe self-service](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/), [gestão de grupos self-service](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), [privilegiadas de gestão de contas](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), [controlo de acesso baseado em funções](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is), [monitorização da utilização de aplicações](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health), [auditoria avançada](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), e [monitorização e alertas de segurança](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+Azure AD também inclui um conjunto completo de [capacidades de gestão de identidade](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports) incluindo [autenticação multifator](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), [registo de dispositivos]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview), [ gestão de palavra-passe self-service](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/), [gestão de grupos self-service](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), [privilegiadas de gestão de contas](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), [controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/overview), [monitorização da utilização de aplicações](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health), [auditoria avançada](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), e [monitorização e alertas de segurança](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
 
 Com o Azure Active Directory, todas as aplicações publicar para os parceiros e clientes (ou empresariais consumidor) possui a mesma identidade capacidades de gestão de acesso. Isto permite-lhe reduzir significativamente os custos operacionais.
 
@@ -80,7 +80,7 @@ O [Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-cent
 -   Validação de encriptação do disco
 -   Ataques baseados na rede
 
-Centro de segurança do Azure utiliza [controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure), que fornece [funções incorporadas](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) que podem ser atribuídos a utilizadores, grupos e serviços no Azure.
+Centro de segurança do Azure utiliza [controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), que fornece [funções incorporadas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) que podem ser atribuídos a utilizadores, grupos e serviços no Azure.
 
 Centro de segurança avalia a configuração dos seus recursos para identificar problemas de segurança e vulnerabilidades. No Centro de segurança, verá apenas informações relacionadas com a um recurso quando são atribuídas a função de proprietário, Contribuidor ou leitor para a subscrição ou grupo de recursos que um recurso pertence.
 
@@ -109,7 +109,7 @@ Além disso, pode utilizar dados de monitorização para obter conhecimentos apr
 
 Por exemplo, registos de sistema de eventos do Windows são uma categoria de registo de diagnóstico para VMs e blob, tabela e fila registos são categorias de registos de diagnóstico para contas de armazenamento.
 
-Registos de diagnóstico é diferente do [registo de atividade (anteriormente conhecido como registo de auditoria ou registo operacional)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). O registo de atividade fornece informações sobre as operações que foram executadas no recursos na sua subscrição. Registos de diagnóstico fornecem informações aprofundadas operations que o seu recurso efetuadas em si.
+Registos de diagnóstico é diferente do [registo de atividade (anteriormente conhecido como registo de auditoria ou registo operacional)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). O registo de atividade fornece informações sobre as operações que foram executadas no recursos na sua subscrição. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo próprio recurso.
 
 ### <a name="metrics"></a>Métricas
 Monitor do Azure permite-lhe consumir telemetria ganhar visibilidade sobre o desempenho e estado de funcionamento das suas cargas de trabalho no Azure. O tipo de dados de telemetria do Azure mais importante é as métricas (também denominadas de contadores de desempenho) emitidas pelo Azure mais recursos. Monitor do Azure fornece várias formas de configurar e consumir estes [métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) para monitorização e resolução de problemas.

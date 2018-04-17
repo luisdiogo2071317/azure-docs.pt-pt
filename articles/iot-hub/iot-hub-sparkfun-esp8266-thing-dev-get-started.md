@@ -2,24 +2,24 @@
 title: ESP8266 na nuvem - ligar Sparkfun ESP8266 coisa Dev ao IoT Hub do Azure | Microsoft Docs
 description: Saiba como configurar e ligar Sparkfun ESP8266 coisa Dev ao IoT Hub do Azure para o mesmo para enviar dados para a plataforma de nuvem do Azure, neste tutorial.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: 587fe292-9602-45b4-95ee-f39bba10e716
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
-ms.author: xshi
-ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: e6837d0312217d8e27e3639b8220f5016a2505a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Ligar Sparkfun ESP8266 coisa Dev ao IoT Hub do Azure na nuvem
 
@@ -119,7 +119,7 @@ Se utilizar Ubuntu, certifique-se que um utilizador normal tem as permissões pa
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>`é o nome de proprietário do grupo que obteve no passo anterior. `<username>`é o nome de utilizador Ubuntu.
+   `<group-owner-name>` é o nome de proprietário do grupo que obteve no passo anterior. `<username>` é o nome de utilizador Ubuntu.
 
 1. Terminar Ubuntu e inicie sessão-lo novamente para a alteração produza efeito.
 
@@ -221,7 +221,7 @@ Se vir o resultado seguinte da janela monitor de série e o LED intermitente no 
 
 ![resultado final no arduino ide](media/iot-hub-sparkfun-thing-dev-get-started/14_arduino-ide-final-output.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Ter ligado um programador de coisa ESP8266 Sparkfun ao seu IoT hub e enviados os dados de sensor capturada ao seu IoT hub com êxito. 
 

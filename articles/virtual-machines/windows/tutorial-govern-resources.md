@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 30f5fe83c46f2dbe1933e8347242be7fbb30a3e3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3c32b5ce90d4e5aafacb8211ff8f432bc3c78db8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Governação de máquina virtual com o Azure PowerShell
 
@@ -43,15 +43,15 @@ Atualmente, o grupo de recursos está vazio.
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
-Deve certificar-se de que os utilizadores na sua organização tiverem o nível adequado de acesso a estes recursos. Não pretende conceder acesso ilimitado a utilizadores, mas terá também de certificar-se de que podem fazer o seu trabalho. [Controlo de acesso baseado em funções](../../active-directory/role-based-access-control-what-is.md) permite-lhe gerir os utilizadores que têm permissão para concluir as ações específicas a um âmbito.
+Deve certificar-se de que os utilizadores na sua organização tiverem o nível adequado de acesso a estes recursos. Não pretende conceder acesso ilimitado a utilizadores, mas terá também de certificar-se de que podem fazer o seu trabalho. [Controlo de acesso baseado em funções](../../role-based-access-control/overview.md) permite-lhe gerir os utilizadores que têm permissão para concluir as ações específicas a um âmbito.
 
 Para criar e remover atribuições de funções, os utilizadores devem ter `Microsoft.Authorization/roleAssignments/*` acesso. Este acesso é concedido através de funções de proprietário ou administrador de acesso de utilizador.
 
 Para gerir soluções de máquina virtual, existem três funções específicas do recurso que fornecem acesso normalmente necessário:
 
-* [Contribuinte de máquina virtual](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Contribuidor de Rede](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Contribuinte de conta de armazenamento](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Contribuinte de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Contribuidor de Rede](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Contribuinte de conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Em vez de atribuir funções para utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) para utilizadores que necessitam para efetuar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função para um âmbito. 
 

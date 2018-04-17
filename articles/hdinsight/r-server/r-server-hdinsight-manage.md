@@ -1,24 +1,22 @@
 ---
 title: Gerir o cluster de servidor R no HDInsight - Azure | Microsoft Docs
 description: Saiba como gerir um cluster de servidor R no Azure HDInsight.
-services: HDInsight
+services: hdinsight
 documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
-ms.service: HDInsight
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: nitinme
-ms.openlocfilehash: c0a996555e35a99a6025e92bcb41fa192b18eece
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 827bcb7bb20f1def9acec8cb2043ea295801583a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-r-server-cluster-on-azure-hdinsight"></a>Gerir o cluster de servidor R no Azure HDInsight
 
@@ -342,6 +340,6 @@ Para instalar pacotes de R em nós de trabalho do cluster, tem de utilizar uma a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Operacionalizar o cluster de servidor R no HDInsight](r-server-operationalize.md)
-* [Opções de contexto do cluster de servidor R no HDInsight de computação](r-server-compute-contexts.md)
-* [Opções de armazenamento do Azure para o cluster de servidor R no HDInsight](r-server-storage.md)
+* [Operacionalizar o cluster do R Server no HDInsight](r-server-operationalize.md)
+* [Opções do contexto de cálculo para o cluster do R Server no HDInsight](r-server-compute-contexts.md)
+* [Opções do Armazenamento do Azure para o cluster do R Server no HDInsight](r-server-storage.md)

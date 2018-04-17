@@ -1,11 +1,11 @@
 ---
-title: "Integração do Azure Security Center Standard para a segurança avançada | Microsoft Docs"
+title: Integração do Azure Security Center Standard para a segurança avançada | Microsoft Docs
 description: " Saiba como a carregar para o Azure Security Center Standard para avançada segurança. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.openlocfilehash: a6394b1b02ebfe518dc2f2b7f65eb677bb0ba5f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Integração do Azure Security Center Standard para a segurança avançada
 Atualizar para o Security Center Standard para tirar partido da gestão de segurança avançada e proteção contra ameaças para as cargas de trabalho de nuvem híbrida.  Pode tentar padrão livre durante 60 dias. Consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
@@ -30,7 +30,7 @@ Padrão de centro de segurança inclui:
 - **Controlos de acesso e a aplicação** -software maligno de bloco e outras aplicações indesejáveis aplicando a listas brancas recomendações adaptada descritos para as cargas de trabalho específicas e utiliza a tecnologia de aprendizagem. Reduza a superfície de ataque rede com acesso just-in-time, controlada para as portas de gestão em VMs do Azure, reduzindo significativamente a exposição a força bruta e outros ataques de rede.
 
 ## <a name="detecting-unprotected-resources"></a>Detetar recursos desprotegidos     
-Centro de segurança Deteta automaticamente quaisquer subscrições do Azure ou não ativadas para padrão de centro de segurança de áreas de trabalho. Isto inclui as subscrições do Azure utilizando o Centro de segurança livre e áreas de trabalho que não têm a solução de segurança ativada.
+O Centro de Segurança deteta automaticamente quaisquer subscrições ou áreas de trabalho do Azure não ativadas para o Centro de Segurança Standard. Isto inclui as subscrições do Azure que utilizam o Centro de Segurança Gratuito e as áreas de trabalho que não têm a solução de Segurança ativada.
 
 Pode atualizar uma subscrição do Azure completa para o escalão padrão, que é herdado por todos os recursos dentro da subscrição, ou pode definir uma política exclusiva para atualizar apenas um grupo de recursos específico. Se as definições de política de grupo de recursos são exclusivas, o Centro de segurança não irá substituir as políticas de preços ao atualizar a subscrição para o escalão Standard. Aplicar o padrão de camada para uma subscrição aplica-se apenas às VMs na subscrição que estiverem a relatar a áreas de trabalho criadas pelo centro de segurança. Aplicar o padrão de camada para a área de trabalho que se aplica a todos os recursos para a área de trabalho de relatórios.
 
@@ -84,7 +84,7 @@ O Centro de Segurança pode monitorizar a postura de segurança dos seus computa
 1. Volte ao **integração**.   
 2. Selecione **que pretende adicionar novos computadores não Azure**.
 
-  ![Adicionar o computador não do Azure][3]
+  ![Adicionar computador não pertencente ao Azure][3]
 
 Se tiver de áreas de trabalho existentes, estão listados na **adicionar novos computadores não-Azure**. Pode adicionar computadores a uma área de trabalho existente ou criar uma nova área de trabalho. Para criar uma nova área de trabalho, selecione a ligação **adicionar uma nova área de trabalho**.
 
@@ -115,7 +115,7 @@ Pode adicionar um computador ao seguir o fluxo de trabalho de **integração**, 
 2. Selecione o **computação** mosaico.
 3. Em **computação**, selecione **adicionar computadores**.
 
-   ![Painel de computação][6]
+   ![Painel Computação][6]
 
 4. Em **adicionar novos computadores não Azure**, selecione uma área de trabalho para ligar o computador e clique em **adicionar computadores**.
 
@@ -123,7 +123,7 @@ Pode adicionar um computador ao seguir o fluxo de trabalho de **integração**, 
 
  O **agente direta** painel fornece uma hiperligação para transferir um agente do Windows ou Linux e chaves para o seu ID da área de trabalho utilizar na configuração do agente.   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu como integrar do Azure e de recursos não do Azure para beneficiar de segurança avançada do Centro de segurança.  Para fazer mais com os recursos de integradas, consulte
 
 - [Ativar a recolha de dados](security-center-enable-data-collection.md)

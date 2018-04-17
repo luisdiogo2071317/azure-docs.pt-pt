@@ -11,17 +11,15 @@ editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: ddb6291cdff7e2b65f54e89196c2b07dd6e4aaff
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3fb08a18fea056bc06eed797a2da809d25109cae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carregue dados para tarefas Hadoop no HDInsight
 
@@ -108,7 +106,7 @@ A CLI do Azure é uma ferramenta de plataforma que permite-lhe gerir os serviço
 >
 >
 
-#### <a id="powershell"></a>Azure PowerShell
+#### <a id="powershell"></a>O Azure PowerShell
 O Azure PowerShell é um ambiente de script que pode utilizar para controlar e automatizar a implementação e gestão das cargas de trabalho no Azure. Para obter informações sobre como configurar a sua estação de trabalho para executar o Azure PowerShell, consulte [instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
@@ -192,7 +190,7 @@ Também existem várias aplicações que fornecem uma interface gráfica para tr
 | [Explorador do Armazenamento do Azure](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [Armazenamento de nuvem Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Explorador do Azure](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Ferramentas do Visual Studio para o HDInsight
@@ -229,7 +227,7 @@ Pode ser utilizado o Azure Data Factory para mover dados para o Storage do Azure
 
 Para obter mais informações, consulte o [documentação do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
-#### <a id="sqoop"></a>Apache Sqoop
+#### <a id="sqoop"></a>O Apache Sqoop
 Sqoop é uma ferramenta concebida para transferir dados entre o Hadoop e bases de dados relacionais. Pode utilizá-lo para importar dados a partir de um sistema de gestão de base de dados relacional (RDBMS), tal como o SQL Server, MySQL ou Oracle para o sistema de ficheiros distribuído do Hadoop (HDFS), transformar os dados no Hadoop com o MapReduce ou Hive e, em seguida, exportar os dados de volta para um RDBMS.
 
 Para obter mais informações, consulte [utilize Sqoop com o HDInsight][hdinsight-use-sqoop].

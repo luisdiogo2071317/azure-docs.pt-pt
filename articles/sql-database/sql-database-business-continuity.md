@@ -12,11 +12,11 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 1f125596a6cc874f285611290d5c42700009afbe
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 46236c11b15f86c26be5e8c1311ba35e8bdd90f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -28,7 +28,7 @@ A Base de Dados SQL fornece várias funcionalidades de continuidade empresarial,
 
 A tabela seguinte compara as ERT e o RPO para cada camada de serviço para os três cenários mais comuns.
 
-| Capacidade | Básica | Standard | Premium  | Fins Gerais | Crítico para Empresas
+| Capacidade | Básica | Standard | Premium  | Fins Gerais | Crítico para a Empresa
 | --- | --- | --- | --- |--- |--- |
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança |Qualquer ponto de restauro num período de 7 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro dentro do período configurado (até 35 dias)|Qualquer ponto de restauro dentro do período configurado (até 35 dias)|
 | Georrestauro de cópias de segurança georreplicação |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h|ERT < 12h, RPO < 1h|
@@ -44,7 +44,7 @@ Se o período de retenção PITR suportado máximo não é suficiente para a sua
 Pode utilizar estas cópias de segurança automáticas da base de dados para recuperar uma base de dados após vários eventos problemáticos, tanto no seu centro de dados como para outro centro de dados. Ao utilizar cópias de segurança automáticas de bases de dados, o tempo estimado de recuperação depende de vários fatores, incluindo o número total de bases de dados a recuperar na mesma região ao mesmo tempo, o tamanho da base de dados, o tamanho do registo de transações e a largura de banda de rede. O tempo de recuperação é, normalmente, menos de 12 horas. Ao recuperar para outra região de dados, a potencial perda de dados está limitada a 1 hora pelo armazenamento georredundante de cópias de segurança de bases de dados diferenciais de hora a hora.
 
 > [!IMPORTANT]
-> Para recuperar através de cópias de segurança automáticas, tem de ser um membro da função de Contribuinte do SQL Server ou o proprietário da subscrição - veja [RBAC: funções incorporadas](../active-directory/role-based-access-built-in-roles.md). Pode recuperar através do portal do Azure, do PowerShell ou da API REST. Não é possível utilizar Transact-SQL.
+> Para recuperar através de cópias de segurança automáticas, tem de ser um membro da função de Contribuinte do SQL Server ou o proprietário da subscrição - veja [RBAC: funções incorporadas](../role-based-access-control/built-in-roles.md). Pode recuperar através do portal do Azure, do PowerShell ou da API REST. Não é possível utilizar Transact-SQL.
 >
 
 Utilize cópias de segurança automáticas como o mecanismo de continuidade empresarial e de recuperação se a aplicação:

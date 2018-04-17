@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 03/27/2018
+ms.date: 03/30/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f6410aa3ab21e7c50ec6918930f31b9e1455c464
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceitos de segurança do serviço de aprovisionamento de dispositivos IoT Hub 
 
-Aprovisionamento de serviço do dispositivos do Hub IoT é um serviço de programa auxiliar do IoT Hub que utiliza para configurar o dispositivo de zero touch aprovisionamento para um hub IoT especificado. Com o Serviço de Aprovisionamento de Dispositivos, pode aprovisionar milhões de dispositivos de forma segura e dimensionável. Este artigo fornece uma descrição geral sobre o *segurança* conceitos envolvidas no aprovisionamento de dispositivos. Este artigo é relevante para todas as pessoas fictícias envolvidas na obtenção de um dispositivo preparado para a implementação.
+Aprovisionamento de serviço do dispositivos do Hub IoT é um serviço de programa auxiliar do IoT Hub que utiliza para configurar o dispositivo de zero touch aprovisionamento para um hub IoT especificado. Com o serviço de aprovisionamento de dispositivos, pode [aprovisionamento automático](concepts-auto-provisioning.md) milhões de dispositivos de forma segura e escalável. Este artigo fornece uma descrição geral sobre o *segurança* conceitos envolvidas no aprovisionamento de dispositivos. Este artigo é relevante para todas as pessoas fictícias envolvidas na obtenção de um dispositivo preparado para a implementação.
 
 ## <a name="attestation-mechanism"></a>Mecanismo de atestado
 
@@ -46,6 +46,8 @@ Segredos do dispositivo também podem ser armazenados no software (memória), ma
 
 TPM pode fazer referência a um padrão para armazenar as chaves utilizadas para autenticar a plataforma de forma segura, ou podem referir-se para a interface de e/s utilizada para interagir com os módulos implementar padrão. Podem existir TPMs como hardware discreta, integrada hardware, firmware, funções ou baseada em software. Saiba mais sobre [TPMs e TPM atestado](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Serviço de aprovisionamento de dispositivos só suporta TPM 2.0.
 
+Atestado de TPM baseiam-se um desafio de nonce, que utiliza as chaves de raiz de armazenamento e de endossamento para apresentar um token de assinatura de acesso partilhado (SAS) assinado.
+
 ### <a name="endorsement-key"></a>Chave de endossamento
 
 A chave de endossamento é uma chave assimétrica contida no interior do TPM, o que foi gerado internamente ou injetado no tempo de fabrico e é exclusivo para cada TPM. A chave de endossamento não pode ser alterada ou removida. A parte privada da chave de endossamento nunca é libertada fora do TPM, enquanto a parte pública da chave de endossamento é utilizada para reconhecer um TPM genuíno. Saiba mais sobre o [chave de endossamento](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
@@ -56,21 +58,27 @@ A chave de raiz de armazenamento é armazenada no TPM e é utilizada para proteg
 
 ## <a name="x509-certificates"></a>Certificados x. 509
 
-A utilização de certificados x. 509 como um mecanismo de atestado é uma excelente forma de escala de produção e simplificar o aprovisionamento de dispositivos. Certificados x. 509 normalmente são dispostos numa cadeia de certificados de confiança no qual cada certificado na cadeia está assinado pela chave privada do certificado superior seguinte e assim sucessivamente, terminar num certificado de raiz autoassinado. Isto estabelece uma cadeia de fidedignidade do certificado de raiz gerado por uma raiz fidedigna autoridade de certificação (AC) para baixo através de cada AC intermediária para o certificado de entidade final instalado num dispositivo de delegado. Para obter mais informações, consulte [autenticação de dispositivo com certificados de AC de x. 509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+A utilização de certificados x. 509 como um mecanismo de atestado é uma excelente forma de escala de produção e simplificar o aprovisionamento de dispositivos. Certificados x. 509 normalmente são dispostos numa cadeia de certificados de confiança no qual cada certificado na cadeia está assinado pela chave privada do certificado superior seguinte e assim sucessivamente, terminar num certificado de raiz autoassinado. Isto estabelece uma cadeia de fidedignidade do certificado de raiz gerado por uma raiz fidedigna autoridade de certificação (AC) para baixo através de cada AC intermediária para o certificado de "folha" de entidade final instalado num dispositivo de delegado. Para obter mais informações, consulte [autenticação de dispositivo com certificados de AC de x. 509](/azure/iot-hub/iot-hub-x509ca-overview). 
 
-A cadeia de certificados representa com frequência algumas hierarquia lógica ou física associada a dispositivos. Por exemplo, um fabricante poderá emitir um certificado de AC de raiz autoassinado, utilizar esse certificado para gerar um certificado de AC intermediária exclusivo para cada fábrica, utilize o certificado de cada fábrica para gerar um certificado de AC intermediária exclusivo para cada de produção a maquinaria de linha e, finalmente, utilizar o certificado de linha de produção para gerar um certificado de dispositivo exclusivo (entidade final) para cada dispositivo fabricado na linha. Para obter mais informações, consulte [compreensão Conceptual a x. 509 de certificados da AC na indústria IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept). 
+A cadeia de certificados representa com frequência algumas hierarquia lógica ou física associada a dispositivos. Por exemplo, um fabricante poderá:
+- emitir um certificado de AC de raiz autoassinado.
+- utilizar o certificado de raiz para gerar um certificado de AC intermediária exclusivo para cada fábrica
+- utilizar o certificado de cada fábrica para gerar um certificado de AC intermediária exclusivo para cada linha de produção da maquinaria
+- e, finalmente, utilize o certificado de linha de produção, para gerar um certificado de dispositivo exclusivo (entidade final) para cada dispositivo fabricado na linha. 
+
+Para obter mais informações, consulte [compreensão Conceptual a x. 509 de certificados da AC na indústria IoT](/azure/iot-hub/iot-hub-x509ca-concept). 
 
 ### <a name="root-certificate"></a>Certificado de raiz
 
-Um certificado de raiz é um certificado x. 509 autoassinado que representa uma autoridade de certificação (AC). É o terminus ou âncora de confiança, da cadeia de certificados. Certificados de raiz podem ser personalizada emitidos por uma organização ou comprados numa autoridade de certificação de raiz. Para obter mais informações, consulte [certificados de AC de x. 509 obter](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). O certificado de raiz pode também ser referido como um certificado de AC de raiz.
+Um certificado de raiz é um certificado x. 509 autoassinado que representa uma autoridade de certificação (AC). É o terminus ou âncora de confiança, da cadeia de certificados. Certificados de raiz podem ser personalizada emitidos por uma organização ou comprados numa autoridade de certificação de raiz. Para obter mais informações, consulte [certificados de AC de x. 509 obter](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). O certificado de raiz pode também ser referido como um certificado de AC de raiz.
 
 ### <a name="intermediate-certificate"></a>Intermediária
 
 Um certificado intermediária é um certificado x. 509, que assinado pelo certificado de raiz (ou outro certificado intermédio com o certificado de raiz na cadeia). O último certificado intermédio numa cadeia é utilizado para assinar o certificado de folha. Um certificado intermediária pode também ser referido como um certificado de AC intermediária.
 
-### <a name="leaf-certificate"></a>Certificado de folha
+### <a name="end-entity-leaf-certificate"></a>Certificado de "folha" de entidade final
 
-O certificado de folha ou o certificado de entidade final, identifica o marcador de posição de certificado. Tem o certificado de raiz na respetiva cadeia de certificados, bem como zero ou mais certificados intermediários. O certificado de folha não é utilizado para assinar quaisquer outros certificados. Exclusivamente identifica o dispositivo para o serviço de aprovisionamento e é por vezes referido como o certificado do dispositivo. Durante a autenticação, o dispositivo utiliza a chave privada associada este certificado para responder a uma prova de desafio posse do serviço. Para obter mais informações, consulte [autenticar dispositivos assinados com certificados de AC de x. 509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+O certificado de folha ou o certificado de entidade final, identifica o marcador de posição de certificado. Tem o certificado de raiz na respetiva cadeia de certificados, bem como zero ou mais certificados intermediários. O certificado de folha não é utilizado para assinar quaisquer outros certificados. Exclusivamente identifica o dispositivo para o serviço de aprovisionamento e é por vezes referido como o certificado do dispositivo. Durante a autenticação, o dispositivo utiliza a chave privada associada este certificado para responder a uma prova de desafio posse do serviço. Para obter mais informações, consulte [autenticar dispositivos assinados com certificados de AC de x. 509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Controlar o acesso de dispositivo para o serviço de aprovisionamento com certificados x. 509
 

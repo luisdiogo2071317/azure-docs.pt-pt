@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 0c780b822e80bb8fce9ef4b1d85b445ee73ae7db
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 411729155f5135c7e45588b69995274c9cac1315
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Idiomas suportados na máquina de Virtual de ciência de dados 
 
@@ -144,7 +144,7 @@ Os ambientes do Python predefinido no DSVM são global ambiente legível por tod
 | Edições de DSVM suportados      | Linux, Windows     |
 | Como é mesmo configurado / instalado o DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Ligações para amostras      | Blocos de notas do Jupyter exemplo de R estão incluídos     |
-| Ferramentas relacionadas no DSVM      | SparkR, Python, Julia      |
+| Ferramentas relacionadas no DSVM      | Leonor SparkR, Python,      |
 ### <a name="how-to-use--run-it"></a>Como utilizar / executá-lo?    
 
 **Windows**:
@@ -188,7 +188,7 @@ R está instalado no DSVM num ambiente global legível por todos os utilizadores
 
 |    |           |
 | ------------- | ------------- |
-| Versões de idiomas suportados | 0.6 |
+| Versões de idiomas suportados | 0,6 |
 | Edições de DSVM suportados      | Linux, Windows     |
 | Como é mesmo configurado / instalado o DSVM?  | Windows: Uma instalação em `C:\JuliaPro-VERSION`<br /> Linux: Instalado `/opt/JuliaPro-VERSION`    |
 | Ligações para amostras      | Notas do Jupyter de exemplo para Leonor estão incluídas     |

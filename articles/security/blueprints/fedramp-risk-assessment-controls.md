@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - avaliação de riscos"
-description: "Automatização de aplicações FedRAMP Web - avaliação de riscos"
+title: Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - avaliação de riscos
+description: Automatização de aplicações FedRAMP Web - avaliação de riscos
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 7a7529f9a0ebe43c9fd6e473baff6f7a3b61e5e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="risk-assessment-ra"></a>Avaliação de riscos (RA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de avaliação de risco que endereços objetivo, âmbito, funções, responsabilidades, compromisso de gestão, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação da política de avaliação de risco e controlos de avaliação de risco associado; analisa e atualiza a política de avaliação de risco atual [atribuição: frequência definida de organização]; e procedimentos de avaliação de risco [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA 2.a** organização categoriza informações e o sistema de informações de acordo com as federais e leis aplicáveis, executivo ordens, diretivas, políticas, normas, normas, documentação de orientação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA 2.b** organização documentos os resultados de categorização de segurança (incluindo a lógica por detrás de suporte) no plano de segurança para o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA 2.c** organização garante que a autorizar oficial ou autorizar oficial representante designado revê e aprova a decisão de categorização de segurança.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA 3.a** organização efetua uma avaliação de risco, incluindo a probabilidade e a importância do perigo, de acesso não autorizado, utilização, divulgação, interrupção, modificação ou destruição do sistema de informações e as informações processa, armazena ou transmite.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA 3.b** organização documentos os resultados da avaliação de risco no [seleção: plano de segurança; o relatório de avaliação de risco; [Atribuição: documento definido de organização]].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA 3.c** organização revê os resultados da avaliação de risco [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA 3.d** organização disseminates os resultados da avaliação de risco a [atribuição: técnico definido pela organização ou funções].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.e** A organização atualiza a avaliação de risco [atribuição: frequência definida de organização] ou sempre que existem alterações significativas no sistema de informações ou o ambiente da operação (incluindo a identificação das novas ameaças e vulnerabilidades), ou outras condições que possam afetar o estado de segurança do sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,11 +157,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA 5.a** organização verifica a existência de vulnerabilidades no sistema de informações e aplicações hospedadas [atribuição: frequência definida de organização e/ou em aleatoriamente accordance com o processo definido pela organização] e quando novas vulnerabilidades potencialmente afetar as sistema/aplicações são identificados e reportado.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Esta solução fornece uma vista abrangente do postura de segurança. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Avaliação da linha de base avalia um conjunto de chaves de registo, as definições de política de auditoria e definições de política de segurança juntamente com os valores de recomendada da Microsoft para estas definições. Avaliação de atualização avalia o estado das atualizações disponíveis em todas as máquinas virtuais implementadas. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança. Esta solução fornece uma vista abrangente do postura de segurança. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Avaliação da linha de base avalia um conjunto de chaves de registo, as definições de política de auditoria e definições de política de segurança juntamente com os valores de recomendada da Microsoft para estas definições. Avaliação de atualização avalia o estado das atualizações disponíveis em todas as máquinas virtuais implementadas. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -171,11 +171,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA 5.b** organização emprega vulnerabilidade de análise de ferramentas e técnicas de que o facilitam a interoperabilidade entre as ferramentas e automatizar partes do processo de gestão de vulnerabilidade utilizando normas para enumerar plataformas, falhas de software e configurações inadequadas; listas de verificação de formatação e procedimentos de teste e medir o impacto de vulnerabilidade.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Problemas identificados são atribuídos uma classificação de gravidade. Os IDs de enumeração de configuração (CCE) comuns são fornecidos para regras de avaliação de linha de base.  |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Problemas identificados são atribuídos uma classificação de gravidade. Os IDs de enumeração de configuração (CCE) comuns são fornecidos para regras de avaliação de linha de base.  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA 5.c** organização analisa os relatórios de análise de vulnerabilidade e resulta das avaliações de controlo de segurança.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA 5.d** organização retifica vulnerabilidades legítimos [atribuição: tempos de resposta definido de organização] em conformidade com uma avaliação de risco organizacional.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5.e** A organização partilha as informações obtidas de vulnerabilidade avaliações de controlo de processo e de segurança com a análise [atribuição: técnico definido pela organização ou funções] para o ajudar a eliminar vulnerabilidades semelhantes em outros sistemas de informação (ou seja, fragilidades systemic ou falhas).
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -227,11 +227,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (1)** organização emprega vulnerabilidade análise ferramentas que incluem a capacidade de imediato atualizar as vulnerabilidades de sistema de informações para ser analisada.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Os critérios relativamente ao qual avaliar estas soluções é atualizada automaticamente. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Os critérios relativamente ao qual avaliar estas soluções é atualizada automaticamente. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -241,11 +241,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (2)** organização atualiza as vulnerabilidades de sistema de informações analisadas [seleção (um ou mais): [atribuição: frequência definida de organização]; antes da nova análise; quando novas vulnerabilidades são identificadas e reportadas].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Os critérios relativamente ao qual avaliar estas soluções é atualizada automaticamente. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Os critérios relativamente ao qual avaliar estas soluções é atualizada automaticamente. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -255,11 +255,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (3)** organização emprega vulnerabilidade análise procedimentos que podem identificar o volume e a profundidade de cobertura (ou seja, os componentes de sistema de informações analisados e vulnerabilidades marcadas).
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Avaliação de atualização efetua a avaliação contra máquinas virtuais Windows e Linux. Avaliação contra máquinas virtuais do Windows utilizando uma linha de base do Microsoft desenvolvida com base nas melhores práticas industriais efetua a avaliação de linha de base. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Avaliação de atualização efetua a avaliação contra máquinas virtuais Windows e Linux. Avaliação contra máquinas virtuais do Windows utilizando uma linha de base do Microsoft desenvolvida com base nas melhores práticas industriais efetua a avaliação de linha de base. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (4)** organização determina quais as informações sobre o sistema de informações é Detetáveis pelo adversários qualificados e, subsequentemente, demora [atribuição: ações corretivas definido de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (5)** o sistema de informações implementa autorização de acesso privilegiado para [atribuição: componentes do sistema de informações identificado por organização] para selecionado [atribuição: Vulnerabilidade definido de organização análise atividades].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -297,11 +297,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (6)** organização emprega automatizados mecanismos para comparar os resultados das análises de vulnerabilidade ao longo do tempo para determinar as tendências de vulnerabilidades de sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | OMS fornece a capacidade de criar os mosaicos do dashboard personalizado para analisar os dados recolhidos através da análise de registos e o Microsoft Monitoring Agent. Estes mosaicos podem ser personalizados para mostrar as tendências ao longo do tempo. |
+| **Cliente** | O Azure oferece a capacidade de criar os mosaicos do dashboard personalizado para analisar os dados recolhidos através da análise de registos e o Microsoft Monitoring Agent. Estes mosaicos podem ser personalizados para mostrar as tendências ao longo do tempo. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (8)** organização revê registos de auditoria históricos para determinar se uma vulnerabilidade identificada no sistema informações tenha sido anteriormente forem explorada.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,9 +325,9 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (10)** organização está correlacionada com o resultado da vulnerabilidade de análise de ferramentas para determinar a presença de vetores de ataque de várias-vulnerability/várias-hop.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Esta solução fornece uma vista abrangente do postura de segurança. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções de OMS implementadas. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança. Esta solução fornece uma vista abrangente do postura de segurança. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções de gestão implementados. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |

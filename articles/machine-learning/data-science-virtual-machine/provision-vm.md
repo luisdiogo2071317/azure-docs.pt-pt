@@ -1,23 +1,23 @@
 ---
-title: "Aprovisionar a máquina de Virtual de ciência de dados Windows no Azure | Microsoft Docs"
-description: "Configurar e criar uma máquina de Virtual de ciência de dados no Azure para análise e machine learning."
+title: Aprovisionar a máquina de Virtual de ciência de dados Windows no Azure | Microsoft Docs
+description: Configurar e criar uma máquina de Virtual de ciência de dados no Azure para análise e machine learning.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
-ms.openlocfilehash: 9f01ba69f6511a3f9a7f99e379522be3c00554f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: gokuma
+ms.openlocfilehash: 34bdbf6e98d5232bf924f3f32a2acb3460a7737f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionar a máquina de Virtual de ciência de dados Windows no Azure
 A máquina de Virtual de ciência de dados do Microsoft é uma imagem de máquina virtual (VM) do Windows Azure previamente instalado e configurado com várias ferramentas populares que são frequentemente utilizadas para análise de dados e de aprendizagem. As ferramentas incluídas são:
@@ -28,7 +28,7 @@ A máquina de Virtual de ciência de dados do Microsoft é uma imagem de máquin
 * Bloco de notas do Jupyter (com R, Python, PySpark kernels)
 * Edição do Visual Studio Community
 * Ambiente de trabalho do Power BI
-* SQL Server 2017 Developer Edition
+* Edição do SQL Server 2017 Programador
 * Instância de Spark autónoma de desenvolvimento local e teste
 * [JuliaPro](https://juliacomputing.com/products/juliapro.html)
 * Machine learning e as ferramentas de análise de dados
@@ -100,7 +100,7 @@ Assim que a VM é criada e aprovisionada, estará pronto começar a utilizar as 
 
 
 
-### <a name="microsoft-ml-server-developer-edition"></a>Microsoft ML Server Developer Edition
+### <a name="microsoft-ml-server-developer-edition"></a>Edição de programador do Microsoft Server de ML
 Se pretender utilizar bibliotecas do Microsoft enterprise para dimensionável R ou Python para a sua análise, a VM possui edição de ML programador do servidor da Microsoft (anteriormente conhecida como Microsoft R Server) instalada. Microsoft Server de ML é uma plataforma de análise amplamente implementável classe empresarial disponível para o R e Python e é dimensionável, comercialmente suportada e seguro. O suporte para uma variedade de estatísticas de macrodados, modelação preditiva e do machine learning capacidades, o servidor de ML suporta o intervalo completo de análise – exploração, análise, visualização e modelação. Ao utilizar e expandir open source para R e Python, Microsoft ML Server é totalmente compatível com R / scripts Python, funções e CRAN / através do pip / Dimensionar Conda pacotes, para analisar os dados na empresa. Também aborda as limitações de memória de abrir R de origem através da adição de processamento paralelo e segmentos de dados. Isto permite-lhe executar a análise nos dados muito maior do que o se adequa na memória principal.  Visual Studio Community edição incluído na VM contém as ferramentas de R para Visual Studio e Python ferramentas para a extensão do Visual Studio que fornece um IDE de completa para trabalhar com R ou Python. Fornecemos também outros IDEs, bem como [RStudio](http://www.rstudio.com) e [edição PyCharm Community](https://www.jetbrains.com/pycharm/) na VM. 
 
 ### <a name="python"></a>Python
@@ -178,8 +178,8 @@ O [ **instalador de plataforma Web Microsoft** ](https://www.microsoft.com/web/d
 | Anaconda (predefinição: Python 3.6) |c:\Anaconda |
 | Ambiente de Python 2.7 anaconda |c:\Anaconda\envs\python2 |
 | Microsoft ML Server autónomo Python  | C:\Programas\Microsoft Files\Microsoft\ML Server\PYTHON_SERVER |
-| Instância de predefinida R (ML servidor autónomo) |C:\Program Files\Microsoft\ML Server\R_SERVER |
-| Diretório de instância de na base de dados de serviços de ML do SQL Server |C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
+| Instância de predefinida R (ML servidor autónomo) |C:\Programas\Microsoft Files\Microsoft\ML Server\R_SERVER |
+| Diretório de instância de na base de dados de serviços de ML do SQL Server |C:\Program Files\Microsoft SQL Server\MSSQL14. MSSQLSERVER |
 | Workbench de aprendizagem máquina do Azure (por utilizador) | %localappdata%\amlworkbench | 
 | Diversas ferramentas |c:\dsvm\tools |
 
