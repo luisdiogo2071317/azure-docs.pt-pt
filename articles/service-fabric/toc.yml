@@ -201,6 +201,8 @@
       items:
         - name: Segurança do cluster
           href: service-fabric-cluster-security.md
+        - name: Dimensionamento
+          href: service-fabric-cluster-scaling.md
         - name: Diferenças de funcionalidades entre o Linux e o Windows
           href: service-fabric-linux-windows-differences.md
         - name: Clusters no Azure
@@ -323,6 +325,8 @@
               href: service-fabric-resource-governance.md
             - name: Controladores de volume e registo
               href: service-fabric-containers-volume-logging-drivers.md
+            - name: Ver registos de contentor
+              href: service-fabric-containers-view-logs.md
             - name: Serviços no interior de contentores
               href: service-fabric-services-inside-containers.md
             - name: Modos de funcionamento em rede do contentor
@@ -539,8 +543,10 @@
           href: service-fabric-visualizing-your-cluster.md
         - name: Ligar a um cluster seguro
           href: service-fabric-connect-to-secure-cluster.md
-        - name: Aplicar o patch em nós de cluster
+        - name: Aplicar o patch em nós de cluster (Windows)
           href: service-fabric-patch-orchestration-application.md
+        - name: Aplicar o patch em nós de cluster (Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
     - name: Monitorizar e diagnosticar
       items:
         - name: Analisar com o OMS

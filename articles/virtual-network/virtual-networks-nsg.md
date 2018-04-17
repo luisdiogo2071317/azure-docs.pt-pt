@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: c38223674061aa8c257e47b6208f890b7aef378d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrar o tráfego de rede com grupos de segurança de rede
 
@@ -262,4 +262,4 @@ Uma vez que alguns dos NSGs estão associados a NICs individuais, as regras dest
 * [Deploy NSGs (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md) (Implementar NSGs [Resource Manager]).
 * [Deploy NSGs (classic)](virtual-networks-create-nsg-classic-ps.md) (Implementar NSGs [clássica]).
 * [Manage NSG logs](virtual-network-nsg-manage-log.md) (Gerir registos de NSGs).
-* [Troubleshoot NSGs] (virtual-network-nsg-troubleshoot-portal.md) (Resolver problemas de NSGs)
+* [Resolução de Problemas NSGs](virtual-network-nsg-troubleshoot-portal.md)

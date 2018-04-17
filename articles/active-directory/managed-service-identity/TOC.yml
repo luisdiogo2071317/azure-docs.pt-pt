@@ -1,6 +1,14 @@
 - name: Identidade do Serviço Gerido
   href: overview.md
   items:
+    - name: Inícios rápidos
+      items:
+        - name: Utilizar um MSI de VM para aceder ao Azure Resource Manager
+          items:
+            - name: VM do Windows
+              href: tutorial-windows-vm-access-arm.md
+            - name: VM do Linux
+              href: tutorial-linux-vm-access-arm.md
     - name: Configurar MSI para uma VM do Windows
       items:
         - name: Com o Portal do Azure
@@ -41,8 +49,6 @@
       items:
         - name: Aceder ao Azure Data Lake Store
           href: tutorial-windows-vm-access-datalake.md
-        - name: Aceder ao Azure Resource Manager
-          href: tutorial-windows-vm-access-arm.md
         - name: Aceder ao SQL do Azure
           href: tutorial-windows-vm-access-sql.md
         - name: Aceder ao Armazenamento do Azure com uma chave de acesso
@@ -55,14 +61,14 @@
       items:
         - name: Aceder ao Azure Data Lake Store
           href: tutorial-linux-vm-access-datalake.md
-        - name: Aceder ao Azure Resource Manager
-          href: tutorial-linux-vm-access-arm.md
         - name: Aceder ao Armazenamento do Azure com uma chave de acesso
           href: tutorial-linux-vm-access-storage.md
         - name: Aceder ao Armazenamento do Azure com SAS
           href: tutorial-linux-vm-access-storage-sas.md
         - name: Aceder ao Azure Key Vault
           href: tutorial-linux-vm-access-nonaad.md
+        - name: Acerca do Azure Cosmos DB
+          href: tutorial-linux-vm-access-cosmos-db.md
     - name: FAQ e problemas conhecidos
       href: known-issues.md
     - name: Referência

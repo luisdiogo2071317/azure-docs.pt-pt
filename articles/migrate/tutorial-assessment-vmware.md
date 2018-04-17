@@ -1,17 +1,17 @@
 ---
-title: "Detetar e avaliar VMs VMware no local para migração para o Azure com o Azure Migrate | Microsoft Docs"
-description: "Descreve como detetar e avaliar VMs VMware no local para migração para o Azure através do serviço Azure Migrate."
+title: Detetar e avaliar VMs VMware no local para migração para o Azure com o Azure Migrate | Microsoft Docs
+description: Descreve como detetar e avaliar VMs VMware no local para migração para o Azure através do serviço Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bbd08637894c43c543aeb8236f515e5ed9c5fc19
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d70b4ea2d45c38fa53ab3c00f76c00ef6f3d7663
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -84,7 +84,15 @@ Verifique se o ficheiro .OVA é seguro, antes de implementá-lo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. O hash gerado deve corresponder a estas definições.
+    
+    Para a versão OVA 1.0.9.7
 
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | d5b6a03701203ff556fa78694d6d7c35
+    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+    
     Para a versão OVA 1.0.9.5
 
     **Algoritmo** | **Valor de hash**
@@ -151,7 +159,7 @@ Importe o ficheiro transferido para o vCenter Server.
     - Se a VM acede à Internet através de um proxy, clique em **Definições de proxy** e especifique o endereço do proxy e a porta de escuta. Especifique as credenciais se o proxy precisar de autenticação.
 
     > [!NOTE]
-    > O endereço do proxy tem de ser introduzido no formato http://ProxyIPAddress ou http://ProxyFQDN. Apenas é suportado o proxy HTTP.
+    > O endereço de proxy tem de ser introduzido no formato http://ProxyIPAddress ou http://ProxyFQDN. Apenas é suportado o proxy HTTP.
 
     - O recoletor verifica se o serviço do recoletor está em execução. O serviço está instalado por predefinição na VM do recoletor.
     - Transfira e instale o VMware PowerCLI.

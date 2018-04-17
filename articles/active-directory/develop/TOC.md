@@ -7,9 +7,9 @@
 ### [Descrição geral](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [.NET](active-directory-devquickstarts-dotnet.md)
-### [Windows](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
+### [.NET (Ambiente de Trabalho do Windows)](active-directory-devquickstarts-dotnet.md)
+### [.NET (Windows Universal)](active-directory-devquickstarts-windowsstore.md)
+### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## Web Apps
@@ -96,11 +96,16 @@
 ### Aplicações Móveis e de Ambiente de Trabalho
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [.NET do Ambiente de Trabalho do Windows](guidedsetups/active-directory-windesktop.md)
+#### [.NET (Ambiente de Trabalho do Windows)](guidedsetups/active-directory-windesktop.md)
 ### Web Apps
-#### [JavaScript SPA](guidedsetups/active-directory-javascriptspa.md)
-#### [Servidor Web ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
-#### [Aplicação Web NodeJS](active-directory-v2-devquickstarts-node-web.md)
+#### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
+#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+### Aplicações de página única
+#### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
+### APIs da Web
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
+### Serviço a serviço
+#### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Guias
 ### [Registar uma aplicação](active-directory-v2-app-registration.md)
 ## Referência
@@ -111,9 +116,9 @@
 #### [Concessão implícita OAuth 2.0](active-directory-v2-protocols-implicit.md)
 #### [Concessão de credenciais de cliente OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Fluxo em-nome-de do OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
-#### [Referência de tokens](active-directory-v2-tokens.md)
 #### [Credenciais de certificado](active-directory-certificate-credentials.md)
-### [Âmbitos](active-directory-v2-scopes.md)
+### [Tokens](active-directory-v2-tokens.md)
+### [Âmbitos e Consentimento](active-directory-v2-scopes.md)
 # Recursos
 ## [Obter ajuda](active-directory-develop-help-support.md)
 ## [Mapa do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

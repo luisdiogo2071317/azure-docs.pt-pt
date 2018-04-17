@@ -1,11 +1,11 @@
 ---
-title: "Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL | Microsoft Docs"
-description: "Saiba como colocar uma aplicação ASP.NET a funcionar no Azure, com ligação a uma Base de Dados SQL."
+title: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL | Microsoft Docs
+description: Saiba como colocar uma aplicação ASP.NET a funcionar no Azure, com ligação a uma Base de Dados SQL.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL
 
 [As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra-lhe como implementar uma aplicação Web ASP.NET condicionada por dados no Azure e ligá-la à [Base de Dados SQL do Azure](../sql-database/sql-database-technical-overview.md). Quando tiver terminado, terá uma aplicação ASP.NET em execução no Azure e ligada à Base de Dados SQL.
 
@@ -48,6 +48,8 @@ Para concluir este tutorial:
   - **Desenvolvimento do Azure**
 
   ![Desenvolvimento do ASP.NET e Web e desenvolvimento do Azure (na Web e na nuvem)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+
+Se já tiver instalado o Visual Studio, adicione as cargas de trabalho no Visual Studio clicando em **Ferramentas** > **Obter Ferramentas e Funcionalidades**.
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 

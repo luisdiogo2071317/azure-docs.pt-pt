@@ -1,11 +1,11 @@
 ---
-title: "Criar uma aplicação Web PHP e MySQL no Azure | Microsoft Docs"
-description: "Saiba como pôr aplicações PHP a funcionar no Azure, com ligação a uma base de dados MySQL no Azure."
+title: Criar uma aplicação Web PHP e MySQL no Azure | Microsoft Docs
+description: Saiba como pôr aplicações PHP a funcionar no Azure, com ligação a uma base de dados MySQL no Azure.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 39bfc4e6a4f4066e8aeda0da387fe570525b6086
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 28c50aea9aaad1b9b18fb6b3034617d10beea7ec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure"></a>Criar uma aplicação Web PHP e MySQL no Azure
+# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: Criar uma aplicação Web PHP e MySQL no Azure
 
 > [!NOTE]
 > Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um Serviço de Aplicações no _Linux_, veja [Compilar uma aplicação Web PHP e MySQL no Serviço de Aplicações do Azure no Linux](./containers/tutorial-php-mysql-app.md).
@@ -154,7 +154,7 @@ Para parar o servidor do PHP, escreva `Ctrl + C` no terminal.
 
 ## <a name="create-mysql-in-azure"></a>Criar o MySQL no Azure
 
-Neste passo, vai criar uma base de dados MySQL na [Base de Dados do Azure para MySQL (Pré-visualização)](/azure/mysql). Posteriormente, vai configurar a aplicação PHP para se ligar a esta base de dados.
+Neste passo, vai criar uma base de dados MySQL na [Base de Dados do Azure para MySQL](/azure/mysql). Posteriormente, vai configurar a aplicação PHP para se ligar a esta base de dados.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -162,7 +162,7 @@ Neste passo, vai criar uma base de dados MySQL na [Base de Dados do Azure para M
 
 ### <a name="create-a-mysql-server"></a>Criar um servidor MySQL
 
-No Cloud Shell, crie um servidor na Base de Dados do Azure para MySQL (Pré-visualização) com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+No Cloud Shell, crie um servidor na Base de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 No comando seguinte, substitua o nome do servidor MySQL onde vê o marcador de posição _&lt;mysql_server_name>_ (os carateres válidos são `a-z`, `0-9` e `-`). Este nome faz parte do nome de anfitrião do servidor MySQL (`<mysql_server_name>.database.windows.net`); tem de ser globalmente exclusivo.
 
@@ -199,7 +199,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 ```
 
 > [!NOTE]
-> Atualmente, a Base de Dados do Azure para MySQL (Pré-visualização) não limita ligações apenas aos serviços do Azure. Uma vez que os endereços IP são atribuídos dinamicamente no Azure, é melhor ativar todos os endereços. O serviço está em pré-visualização. Estão previstos métodos melhores para proteger a sua base de dados.
+> Atualmente, a Base de Dados do Azure para MySQL não limita ligações apenas aos serviços do Azure. Uma vez que os endereços IP são atribuídos dinamicamente no Azure, é melhor ativar todos os endereços. Estão previstos métodos melhores para proteger a sua base de dados.
 >
 >
 
@@ -236,7 +236,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Ligar a aplicação ao MySQL do Azure
 
-Neste passo, vai ligar a aplicação PHP à base de dados MySQL que criou na Base de Dados do Azure para MySQL (Pré-visualização).
+Neste passo, vai ligar a aplicação PHP à base de dados MySQL que criou na Base de Dados do Azure para MySQL.
 
 <a name="devconfig"></a>
 
@@ -260,7 +260,7 @@ MYSQL_SSL=true
 Guarde as alterações.
 
 > [!TIP]
-> Para proteger as informações da ligação do MySQL, este ficheiro já está excluído do repositório Git (veja _.gitignore_ na raiz do repositório). Mais tarde, vai aprender a configurar variáveis de ambiente no Serviço de Aplicações para ligar à base de dados na Base de Dados do Azure para MySQL (Pré-visualização). Com as variáveis de ambiente, não precisa do ficheiro *.env* no Serviço de Aplicações.
+> Para proteger as informações da ligação do MySQL, este ficheiro já está excluído do repositório Git (veja _.gitignore_ na raiz do repositório). Mais tarde, vai aprender a configurar variáveis de ambiente no Serviço de Aplicações para ligar à base de dados na Base de Dados do Azure para MySQL. Com as variáveis de ambiente, não precisa do ficheiro *.env* no Serviço de Aplicações.
 >
 
 ### <a name="configure-ssl-certificate"></a>Configurar o certificado SSL
@@ -283,7 +283,7 @@ Neste tutorial, o certificado `BaltimoreCyberTrustRoot.crt.pem` é fornecido no 
 
 ### <a name="test-the-application-locally"></a>Testar a aplicação localmente
 
-Execute migrações de bases de dados do Laravel tendo _.env.production_ como o ficheiro de ambiente para criar as tabelas na sua base de dados MySQL na Base de Dados do Azure para MySQL (Pré-visualização). Lembre-se de que _.env.production_ tem as informações da ligação à sua base de dados MySQL no Azure.
+Execute migrações de bases de dados do Laravel tendo _.env.production_ como o ficheiro de ambiente para criar as tabelas na sua base de dados MySQL na Base de Dados do Azure para MySQL. Lembre-se de que _.env.production_ tem as informações da ligação à sua base de dados MySQL no Azure.
 
 ```bash
 php artisan migrate --env=production --force
@@ -305,7 +305,7 @@ Navegue para `http://localhost:8000`. Se a página for carregada sem erros, a ap
 
 Adicione algumas tarefas à página.
 
-![O PHP liga-se com êxito à Base de Dados do Azure para MySQL (Pré-visualização)](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
+![O PHP liga-se com êxito à Base de Dados do Azure para MySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
 Para parar o PHP, escreva `Ctrl + C` no terminal.
 
