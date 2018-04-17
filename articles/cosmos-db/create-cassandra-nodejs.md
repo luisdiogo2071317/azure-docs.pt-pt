@@ -1,11 +1,10 @@
 ---
-title: "Guia de introdução: Cassandra API com Node.js - Azure Cosmos DB | Microsoft Docs"
-description: "Este guia de introdução mostra como utilizar a Cassandra API do Azure Cosmos DB para criar uma aplicação de perfil com o Node.js"
+title: 'Guia de introdução: Cassandra API com Node.js - Azure Cosmos DB | Microsoft Docs'
+description: Este guia de introdução mostra como utilizar a Cassandra API do Azure Cosmos DB para criar uma aplicação de perfil com o Node.js
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 4732e57d-32ed-40e2-b148-a8df4ff2630d
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.author: govindk
-ms.openlocfilehash: abf88cf96b32bc4168cb8c09a6e70ad0e395e88c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.author: sngun
+ms.openlocfilehash: e2f2064de5dc29ef290e6dc6dd7df6ae0a466f92
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Guia de introdução: Criar uma aplicação do Cassandra com o Node.js e o Azure Cosmos DB
 
@@ -195,7 +194,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 3. Verifique os resultados como esperado na linha de comandos.
 
-    ![Verificar a saída](./media/create-cassandra-nodejs/output.png)
+    ![Ver e verificar a saída](./media/create-cassandra-nodejs/output.png)
 
     Prima CTRL + C para interromper a execução do programa e feche a janela da consola. 
 

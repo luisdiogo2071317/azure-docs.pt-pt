@@ -1,11 +1,11 @@
 ---
-title: "Compilar uma aplicação Web Node.js e MongoDB no Azure | Microsoft Docs"
-description: "Saiba como colocar uma aplicação Node.js a funcionar no Azure, com uma ligação à base de dados do Cosmos DB com uma cadeia de ligação do MongoDB."
+title: Compilar uma aplicação Web Node.js e MongoDB no Azure | Microsoft Docs
+description: Saiba como colocar uma aplicação Node.js a funcionar no Azure, com uma ligação à base de dados do Cosmos DB com uma cadeia de ligação do MongoDB.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b191af9edd8fd38c819483e8836568657d0b6bf0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8fdad8d8e62365c33b47e67b483c929aaab0083e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Compilar uma aplicação Web Node.js e MongoDB no Azure
+# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Tutorial: Compilar uma aplicação Web Node.js e MongoDB no Azure
 
 > [!NOTE]
 > Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um Serviço de Aplicações no _Linux_, veja [Compilar uma aplicação Web Node.js e MongoDB no Serviço de Aplicações do Azure no Linux](./containers/tutorial-nodejs-mongodb-app.md).
@@ -55,7 +55,7 @@ Para concluir este tutorial:
 
 ## <a name="test-local-mongodb"></a>Testar MongoDB local
 
-Abra a janela do terminal e `cd` para o diretório `bin` da sua instalação do MongoDB. Pode utilizar esta janela do terminal para executar todos os comandos deste tutorial.
+Abra a janela do terminal e `cd` para o diretório `bin` da sua instalação do MongoDB. Pode utilizar esta janela de terminal para executar todos os comandos deste tutorial.
 
 Execute `mongo` no terminal para ligar ao servidor MongoDB local.
 
@@ -308,7 +308,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 Poderá reparar que o processo de implementação executa o [Gulp](http://gulpjs.com/) depois de `npm install`. O Serviço de Aplicações não executa tarefas do Gulp ou do Grunt durante a implementação, pelo que este repositório de exemplo tem dois ficheiros adicionais no diretório raiz para a permitir: 
 
 - _.implementação_ - este ficheiro diz ao Serviço de Aplicações para executar `bash deploy.sh` como o script de implementação personalizado.
-- _deploy.sh_ - o script de implementação personalizado. Se revir o ficheiro, verá que executa `gulp prod` a seguir a `npm install` e `bower install`. 
+- _deploy.sh_ - o script de implementação personalizado. Se vir o ficheiro, verá que executa `gulp prod` a seguir a `npm install` e `bower install`. 
 
 Pode utilizar esta abordagem para adicionar qualquer passo à sua implementação baseada no Git. Se reiniciar a aplicação Web do Azure em qualquer momento, o Serviço de Aplicações não volta a executar estas tarefas de automatização.
 

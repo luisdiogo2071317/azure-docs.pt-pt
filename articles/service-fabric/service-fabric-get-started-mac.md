@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 81265dd61faee38d578a380ca392e7851662329c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76bbe686d07ff83bff6271f62793713194938212
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -187,9 +187,9 @@ Depois de criar e compilar a aplicação do Service Fabric, pode implementá-la 
 
 Instale o [.NET Core 2.0 SDK for Mac](https://www.microsoft.com/net/core#macos) para começar a [criar aplicações do Service Fabric em C#](service-fabric-create-your-first-linux-application-with-csharp.md). Os pacotes para aplicações do Service Fabric do .NET Core 2.0 são alojados no NuGet.org, que está atualmente em pré-visualização.
 
-## <a name="install-the-service-fabric-plug-in-for-eclipse-neon-on-your-mac"></a>Instalar o plug-in do Service Fabric para Eclipse Neon no seu Mac
+## <a name="install-the-service-fabric-plug-in-for-eclipse-on-your-mac"></a>Instalar o plug-in do Service Fabric para Eclipse no seu Mac
 
-Fornece um plug-in do Azure Service Fabric para o Eclipse Neon para o IDE Java. O plug-in simplifica o processo de criação e implementação de serviços Java. Para instalar ou atualizar o plug-in do Service Fabric para Eclipse para a versão mais recente, siga [estes passos](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon). Os outros passos na [documentação do Service Fabric para o Eclipse](service-fabric-get-started-eclipse.md) também são aplicáveis: criar uma aplicação, adicionar um serviço a uma aplicação, desinstalar uma aplicação e assim sucessivamente.
+Fornece um plug-in do Azure Service Fabric para o Eclipse Neon (ou posterior) para o IDE Java. O plug-in simplifica o processo de criação e implementação de serviços Java. Para instalar ou atualizar o plug-in do Service Fabric para Eclipse para a versão mais recente, siga [estes passos](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse). Os outros passos na [documentação do Service Fabric para o Eclipse](service-fabric-get-started-eclipse.md) também são aplicáveis: criar uma aplicação, adicionar um serviço a uma aplicação, desinstalar uma aplicação e assim sucessivamente.
 
 O último passo consiste em instanciar o contentor com um caminho que é partilhado com o anfitrião. O plug-in requer este tipo de instanciação para trabalhar com o contentor do Docker no seu Mac. Por exemplo:
 
