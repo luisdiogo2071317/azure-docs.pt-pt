@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 086cc528e500a55bba73796e5fc7b17c561de8b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0afdfb7b7d1f74d3df40b22bb97afc0f39bcc6d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados de MongoDB utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Pode copiar dados de um arquivo de dados de MongoDB no local para qualquer arqui
 ## <a name="prerequisites"></a>Pré-requisitos
 Para o serviço do Azure Data Factory conseguir ligar à base de dados MongoDB no local, tem de instalar os componentes seguintes:
 
-- Versões suportadas do MongoDB são: 2.4, 2.6, 3.0 e 3.2.
+- Versões suportadas do MongoDB são: 2.4, 2.6, 3.0, 3.2, 3.4 e 3.6.
 - O Data Management Gateway no mesmo computador que aloja a base de dados ou num computador separado para evitar a competir pela recursos com a base de dados. O Data Management Gateway é um software que liga as origens de dados no local a serviços em nuvem de forma segura e gerida. Consulte [Data Management Gateway](data-factory-data-management-gateway.md) artigo para obter detalhes sobre o Data Management Gateway. Consulte [mover os dados no local para a nuvem](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo sobre como configurar o gateway de um pipeline de dados mover os dados.
 
     Quando a instalação do gateway, instala automaticamente um controlador Microsoft MongoDB ODBC utilizado para ligar ao MongoDB.
@@ -70,7 +70,7 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos **
 | servidor |Nome anfitrião ou endereço IP do servidor MongoDB. |Sim |
 | porta |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Opcional, valor predefinido: 27017 |
 | authenticationType |Basic ou Anonymous. |Sim |
-| o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
+| nome do utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |Palavra-passe para o utilizador. |Sim (se for utilizada a autenticação básica). |
 | authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Opcional (se for utilizada a autenticação básica). predefinição: utiliza a conta de administrador e a base de dados especificada utilizando a propriedade databaseName. |
 | databaseName |Nome da base de dados MongoDB que pretende aceder. |Sim |
@@ -84,7 +84,7 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| collectionName |Nome da coleção na base de dados de MongoDB. |Sim |
+| CollectionName |Nome da coleção na base de dados de MongoDB. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e política estão disponíveis para todos os tipos de atividades.
@@ -324,14 +324,14 @@ Pode utilizar o [Assistente para copiar](data-factory-data-movement-activities.m
 ### <a name="example"></a>Exemplo
 Por exemplo, "ExampleTable" abaixo é uma tabela de MongoDB que tem uma coluna com uma matriz de objetos em cada célula – faturas e uma coluna com uma matriz de tipos escalares – classificações.
 
-| _id | Nome do cliente | Faturas | Nível de Serviço | Classificações |
+| ID | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: "123" item: "toaster", o preço: Desconto "456": "0,2"}, {invoice_id: "124" item: "oven", o preço: Desconto "1235": "0,2"}] |Prata |[5,6] |
 | 2222 |XYZ |[{invoice_id: item "135": "fridge", o preço: Desconto "12543": "0,0"}] |Dourado |[1,2] |
 
 O controlador irá gerar várias tabelas virtuais para representar esta tabela única. A primeira tabela virtual é a tabela base "ExampleTable", abaixo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foi omitidos e são expandidos nas tabelas virtuais.
 
-| _id | Nome do cliente | Nível de Serviço |
+| ID | Nome do cliente | Nível de Serviço |
 | --- | --- | --- |
 | 1111 |ABC |Prata |
 | 2222 |XYZ |Dourado |
@@ -344,7 +344,7 @@ As tabelas seguintes mostram as tabelas virtuais que representam matrizes origin
 
 Tabela "ExampleTable_Invoices":
 
-| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
+| ID | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |Toaster |456 |0.2 |
 | 1111 |1 |124 |oven |1235 |0.2 |
@@ -352,7 +352,7 @@ Tabela "ExampleTable_Invoices":
 
 Tabela "ExampleTable_Ratings":
 
-| _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
+| ID | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |
 | 1111 |0 |5 |
 | 1111 |1 |6 |

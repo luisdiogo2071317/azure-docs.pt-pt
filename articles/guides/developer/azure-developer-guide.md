@@ -1,12 +1,12 @@
 ---
-title: "Get guia de introdução para os programadores no Azure | Microsoft Docs"
-description: "Este tópico fornece informações essenciais para os programadores de procura para começar a utilizar a plataforma Microsoft Azure para as suas necessidades de desenvolvimento."
-services: 
-cloud: 
-documentationcenter: 
+title: Get guia de introdução para os programadores no Azure | Microsoft Docs
+description: Este tópico fornece informações essenciais para os programadores de procura para começar a utilizar a plataforma Microsoft Azure para as suas necessidades de desenvolvimento.
+services: ''
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: erikre
-ms.assetid: 
+ms.assetid: ''
 ms.service: na
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b1cda302636d8bd4d0f14536f186c7b4951c09c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -241,7 +241,7 @@ Para além das REST APIs, vários serviços do Azure também permitem-lhe gerir 
 
 Serviços, tais como [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) e [Media Services do Azure](../../media-services/media-services-dotnet-how-to-use.md) fornecer SDKs do lado do cliente para que os possa aceder aos serviços da web e aplicações de cliente para dispositivos móveis.
 
-### <a name="azure-resource-manager"></a>Azure Resource Manager 
+### <a name="azure-resource-manager"></a>Gestor de Recursos do Azure 
     
 Executar a sua aplicação no Azure provável envolve a trabalhar com vários serviços do Azure, sendo todas siga o mesmo ciclo de vida e podem considerar como uma unidade lógica. Por exemplo, uma aplicação web poderá utilizar as aplicações Web, base de dados SQL, armazenamento, a Cache de Redis do Azure e os serviços de rede de entrega de conteúdos do Azure. [O Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) permite trabalhar com os recursos na sua aplicação como um grupo. Pode implementar, atualizar ou eliminar todos os recursos numa operação única e coordenada.
 
@@ -295,7 +295,7 @@ Ao permitir o acesso aos recursos do Azure, é sempre melhor prática para forne
 
     >**Quando utilizar**: quando necessitar de gestão de acesso detalhado para utilizadores e grupos.
 
-    >**Introdução ao**: para obter mais informações, consulte [introdução à gestão de acesso no portal do Azure](../../active-directory/role-based-access-control-what-is.md).
+    >**Introdução ao**: para obter mais informações, consulte [introdução à gestão de acesso no portal do Azure](../../role-based-access-control/overview.md).
 
 -   **Objetos de principais de serviço**: para além de fornecer acesso a principais de utilizador e grupos, pode conceder o acesso ao mesmo a um principal de serviço.
 
@@ -321,7 +321,7 @@ Embora é difícil para estimar os custos de antecedência, o Azure tem um [Calc
 
 >**Introdução ao**: consulte [descrição geral da utilização de faturação do Azure e RateCard APIs](../../billing-usage-rate-card-overview.md).
 
-#### <a name="set-up-billing-alerts"></a>Set up billing alerts (Configurar alertas de faturação)
+#### <a name="set-up-billing-alerts"></a>Configurar alertas de faturação
 
 Depois de implementar a aplicação ou solução no Azure, pode criar alertas que enviar por e-mail quando abordar os limites de gastos que estão definidos no alerta.
 

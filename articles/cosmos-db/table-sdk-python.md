@@ -1,25 +1,25 @@
 ---
 title: API de tabela do Azure Cosmos DB para o Python | Microsoft Docs
-description: "Saiba tudo sobre API do Azure Cosmos DB tabela, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão."
+description: Saiba tudo sobre API do Azure Cosmos DB tabela, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão.
 services: cosmos-db
 documentationcenter: python
-author: mimig
-manager: jhubbard
-editor: 
-ms.assetid: 
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 11/20/2017
-ms.author: mimig1
-ms.custom: 
-ms.openlocfilehash: 70315d93b7211351c19a17553db88962f25d8acb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: sngun
+ms.custom: ''
+ms.openlocfilehash: 760f79bf50ea3e6e76beb26d2cd8419a8404a3ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB tabela API SDK para Python: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 |**Documentação da API**|[Documentação de referência da API de Python](https://azure.github.io/azure-cosmosdb-python/)|
 |**Instruções de instalação do SDK**|[Instruções de instalação do Python SDK](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
-|**Plataforma suportada atual**|[Python 2.7](https://www.python.org/downloads/) ou [Python 3.3, 3.4, 3.5 ou 3.6] (https://www.python.org/downloads/)|
+|**Plataforma suportada atual**|[Python 2.7](https://www.python.org/downloads/) ou ([Python 3.3, 3.4, 3.5 ou 3.6]https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
 > Se tiver criado uma conta de API de Tabela durante a pré-visualização, crie uma [nova conta de API de Tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs de API de Tabela disponíveis geralmente.
@@ -65,6 +65,6 @@ Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
 

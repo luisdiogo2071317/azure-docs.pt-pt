@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7493c10407bfe83bdc7277c49dae1a7e9d7c39f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Melhores práticas para utilizar o Azure Data Lake Store
 Neste artigo, pode saber mais sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Store. Este artigo fornece informações em torno da segurança, desempenho, resiliência e monitorização para o Data Lake Store. Antes de Data Lake Store, como trabalhar com macrodados verdadeiramente nos serviços como o Azure HDInsight era demasiado complexo. Era necessário dividir os dados em várias contas do Blob storage para que podem ser alcançados petabyte armazenamento e um desempenho ideal que escala. Com o Data Lake Store, a maioria dos limites de tamanho e o desempenho do disco rígidos é removida. No entanto, ainda existem algumas considerações que este artigo abrange, de modo a que possa obter o melhor desempenho com o Data Lake Store. 
@@ -26,11 +26,13 @@ Neste artigo, pode saber mais sobre as melhores práticas e considerações para
 
 O Azure Data Lake Store oferece acesso POSIX controla e detalhadas de auditoria para o Azure Active Directory (Azure AD) utilizadores, grupos e principais de serviço. Estes controlos de acesso podem ser definidos como pastas e ficheiros existentes. Os controlos de acesso também podem ser utilizados para criar as predefinições que podem ser aplicadas a novos ficheiros ou pastas. Quando as permissões estão definidas como pastas existentes e os objetos subordinados, as permissões têm de ser propagado em modo recursivo em cada objeto. Se existir grande número de ficheiros, propagar as permissões pode demorar muito tempo. O tempo que pode variar entre objetos de 30 a 50 processados por segundo. Por conseguinte, planear adequadamente os grupos de utilizador e a estrutura da pasta. Caso contrário, pode causar atrasos inesperados e problemas quando trabalha com os seus dados. 
 
-Partem do princípio de que tem uma pasta com 100.000 objetos subordinados. Se não efetuar o limite inferior de 30 objetos processados por segundo, ao atualizar a permissão para a pasta completa pode demorar uma hora. Estão disponíveis mais detalhes no Data Lake Store ACLs em [controlo de acesso no Azure Data Lake Store](data-lake-store-access-control.md). Para um melhor desempenho na atribuição recursivamente ACLs, pode utilizar a ferramenta de linha de comandos do Azure Data Lake. A ferramenta cria vários threads e lógica de navegação recursiva aplicarem rapidamente as ACLs para milhões de ficheiros. A ferramenta está disponível para Linux e Windows e o [documentação](https://github.com/Azure/data-lake-adlstool) e [transfere](http://aka.ms/adlstool-download) para esta ferramenta pode ser encontrada no GitHub.
+Partem do princípio de que tem uma pasta com 100.000 objetos subordinados. Se não efetuar o limite inferior de 30 objetos processados por segundo, ao atualizar a permissão para a pasta completa pode demorar uma hora. Estão disponíveis mais detalhes no Data Lake Store ACLs em [controlo de acesso no Azure Data Lake Store](data-lake-store-access-control.md). Para um melhor desempenho na atribuição recursivamente ACLs, pode utilizar a ferramenta de linha de comandos do Azure Data Lake. A ferramenta cria vários threads e lógica de navegação recursiva aplicarem rapidamente as ACLs para milhões de ficheiros. A ferramenta está disponível para Linux e Windows e o [documentação](https://github.com/Azure/data-lake-adlstool) e [transfere](http://aka.ms/adlstool-download) para esta ferramenta pode ser encontrada no GitHub. Estas melhorias de desempenho mesmo podem ser ativadas utilizando as suas próprias ferramentas escritas com o Data Lake Store [.NET](data-lake-store-data-operations-net-sdk.md) e [Java](data-lake-store-get-started-java-sdk.md) SDKs.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Utilizar grupos de segurança por oposição aos utilizadores individuais 
 
-Ao trabalhar com macrodados no Data Lake Store, provavelmente um principal de serviço é utilizado para permitir que os serviços como o Azure HDInsight para trabalhar com os dados. No entanto, poderão existir casos onde os utilizadores individuais têm acesso aos dados, bem como. Nestes casos, tem de utilizar grupos de segurança do Azure Active Director em vez de atribuir utilizadores individuais para pastas e ficheiros. Depois de um grupo de segurança é atribuído permissões, adição ou remoção de utilizadores do grupo não requer quaisquer atualizações para o Data Lake Store. 
+Ao trabalhar com macrodados no Data Lake Store, provavelmente um principal de serviço é utilizado para permitir que os serviços como o Azure HDInsight para trabalhar com os dados. No entanto, poderão existir casos onde os utilizadores individuais têm acesso aos dados, bem como. Nestes casos, tem de utilizar o Azure Active Directory [grupos de segurança](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) em vez de atribuir utilizadores individuais para pastas e ficheiros. 
+
+Depois de um grupo de segurança é atribuído permissões, adição ou remoção de utilizadores do grupo não requer quaisquer atualizações para o Data Lake Store. Isto também ajuda a garantir que não excede o limite de [acesso 32 e predefinido ACLs](../azure-subscription-service-limits.md#data-lake-store-limits) (Isto inclui as quatro ACLs do estilo POSIX associados sempre todos os ficheiros e pastas: [o utilizador proprietário](data-lake-store-access-control.md#the-owning-user), [o grupo de proprietário](data-lake-store-access-control.md#the-owning-group), [a máscara](data-lake-store-access-control.md#the-mask-and-effective-permissions)e outros).
 
 ### <a name="security-for-groups"></a>Segurança para grupos 
 

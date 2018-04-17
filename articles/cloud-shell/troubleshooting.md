@@ -1,12 +1,12 @@
 ---
-title: "Resolução de problemas de Shell de nuvem do Azure | Microsoft Docs"
-description: "Resolução de problemas de Shell de nuvem do Azure"
+title: Resolução de problemas de Shell de nuvem do Azure | Microsoft Docs
+description: Resolução de problemas de Shell de nuvem do Azure
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendMSFT
 manager: angelc
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: 52ee832b643af573d8236b266df17d36e485ead2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7ab344f77ef88ffdc2ff1976d97b0b9aa86aa3fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Resolução de problemas & limitações do Azure na nuvem Shell
 
@@ -148,3 +148,29 @@ Utilizar cmdlets do PowerShell, os utilizadores não é podem criar os ficheiros
 ### <a name="gui-applications-are-not-supported"></a>Não são suportadas aplicações de GUI
 
 Se o utilizador executa um comando que iria criar uma caixa de diálogo do Windows, tais como `Connect-AzureAD` ou `Login-AzureRMAccount`, um vê uma mensagem de erro, tais como: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+## <a name="gdpr-compliance-for-cloud-shell"></a>Compatibilidade de GDPR da Shell de nuvem
+
+Shell de nuvem do Azure aceita os seus dados pessoais muito a sério, os dados capturados e armazenados pelo serviço de Shell de nuvem do Azure são utilizados para fornecer as predefinições para a sua experiência, tais como a maioria utilizados recentemente shell, tipo de letra preferido tamanho, tipo de letra preferido e ficheiro partilharem detalhes que faça uma cópia clouddrive. Deve que pretende exportar ou elimine dados, incluímos as instruções seguintes.
+
+### <a name="export"></a>Exportar
+Para **exportar** as definições de utilizador nuvem Shell guarda para si, tais como preferencial shell, o tamanho do tipo de letra e o tipo de letra, execute os seguintes comandos.
+
+1. Iniciar Bash na Shell de nuvem
+2. Execute os seguintes comandos:
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
+```
+
+### <a name="delete"></a>Eliminar
+Para **eliminar** as definições de utilizador nuvem Shell guarda para si, tais como preferencial shell, o tamanho do tipo de letra e o tipo de letra, execute os seguintes comandos. Da próxima vez que inicia a Shell de nuvem será pedido para carregar uma partilha de ficheiros novamente. 
+
+Os ficheiros de Azure real partilha não será eliminada se eliminar as definições de utilizador, aceda a ficheiros do Azure para concluir a ação.
+
+1. Iniciar Bash na Shell de nuvem
+2. Execute os seguintes comandos:
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
+```

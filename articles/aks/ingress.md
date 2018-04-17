@@ -9,17 +9,21 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4294169e89533150cade700fb89e14c4121c4404
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1fe8a52a946b7e70a845e26b80dec94176c346f0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Entrada HTTPS no serviço de contentor do Azure (AKS)
 
 Um controlador de entrada é um fragmento de software que fornece proxy inverso, o encaminhamento de tráfego configurável e terminação de TLS para Kubernetes serviços. Recursos de entrada Kubernetes são utilizados para configurar as regras de entrada e as rotas para serviços Kubernetes individuais. Utilizar um controlador de entrada e regras de entrada, um único endereço externo pode ser utilizado para encaminhar o tráfego para vários serviços num Kubernetes cluster.
 
 Este documento explica como através de uma implementação de exemplo do [controlador de entrada NGINX] [ nginx-ingress] de um cluster do serviço de contentor do Azure (AKS). Além disso, o [KUBE LEGO] [ kube-lego] projeto é utilizado para gerar e configurar automaticamente [vamos encriptar] [ lets-encrypt] certificados. Por fim, várias aplicações são executadas no cluster AKS, cada um dos quais está acessível através de um único endereço.
+
+## <a name="prerequisite"></a>Pré-requisito
+
+Instalar Helm CLI - consulte a CLI de Helm [documentação] [helm-cli] para obter instruções de instalação.
 
 ## <a name="install-an-ingress-controller"></a>Instalar um controlador de entrada
 
@@ -183,6 +187,7 @@ Saiba mais sobre o software demonstrado neste documento.
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
+[helm-client]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

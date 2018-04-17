@@ -1,11 +1,11 @@
 ---
-title: "Certifique-se de tráfego com o IP de observador de rede de Azure fluxo verifique - PowerShell | Microsoft Docs"
-description: "Este artigo descreve como verificar se o tráfego de ou para uma máquina virtual é permitido ou negado com o PowerShell"
+title: Certifique-se de tráfego com o IP de observador de rede de Azure fluxo verifique - PowerShell | Microsoft Docs
+description: Este artigo descreve como verificar se o tráfego de ou para uma máquina virtual é permitido ou negado com o PowerShell
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: e1dad757-8c5d-467f-812e-7cc751143207
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 5257a70aa2dbc25bfe4eca5e2e0db87ca5e6b6fe
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 7c2d5e0811f7a5e1f865992be1d5a2c189f10374
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Verifique se o tráfego é permitido ou negado de uma VM com o fluxo IP ou para verificar um componente do observador de rede do Azure
 
@@ -59,7 +59,7 @@ $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
 
 ## <a name="get-the-nics"></a>Obter os NICS
 
-O endereço IP de uma NIC na máquina virtual é necessário, neste exemplo, obtemos os NICs numa máquina virtual. Se já conhece o endereço IP que pretende testar na máquina virtual, pode ignorar este passo.
+É necessário o endereço IP de uma NIC na máquina virtual. Obter os NICs ligados a uma máquina virtual com o comando que se segue. Se já conhece o endereço IP que pretende testar na máquina virtual, pode ignorar este passo.
 
 ```powershell
 $Nics = Get-AzureRmNetworkInterface | Where {$_.Id -eq $vm.NetworkProfile.NetworkInterfaces.Id.ForEach({$_})}
@@ -67,7 +67,7 @@ $Nics = Get-AzureRmNetworkInterface | Where {$_.Id -eq $vm.NetworkProfile.Networ
 
 ## <a name="run-ip-flow-verify"></a>Certifique-se de execução de fluxo de IP
 
-Agora que temos as informações necessárias para executar o cmdlet, iremos executar o `Test-AzureRmNetworkWatcherIPFlow` cmdlet para testar o tráfego. Neste exemplo, estamos a utilizar o primeiro endereço IP no NIC primeiro.
+Execute o `Test-AzureRmNetworkWatcherIPFlow` cmdlet para testar o tráfego. Neste exemplo, é utilizado o primeiro endereço IP no NIC primeiro.
 
 ```powershell
 Test-AzureRmNetworkWatcherIPFlow -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id `
@@ -90,7 +90,7 @@ Allow  defaultSecurityRules/AllowInternetOutBound
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se o tráfego está a ser bloqueado e não deve ser, consulte [gerir grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para identificar as regras de segurança e de grupo de segurança de rede que estão definidas.
+Se o tráfego está a ser bloqueado e não deve ser, consulte [gerir grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para identificar as regras de segurança e de grupo de segurança de rede que estão definidas.
 
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018
-ms.openlocfilehash: 858c8933565aeeb22dc1b685082dab2c6481737b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f56b651c40187e42361ac12f0cbf4e509385e0d2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-the-container-image-used-for-azure-ml-models"></a>Personalizar a imagem de contentor utilizada para modelos do Azure ML
 
@@ -23,7 +23,7 @@ Este artigo descreve como personalizar uma imagem de contentor para os modelos d
 ## <a name="how-to-customize-the-docker-image"></a>Como personalizar a imagem do Docker
 Personalize a imagem de Docker do Azure ML implementa a utilizar:
 
-1. Um ficheiro de depenencies.yml: para gerir as dependências que podem ser instaladas a partir de [PyPi]( https://pypi.python.org/pypi), pode utilizar o ficheiro de conda_dependencies.yml do projeto Workbench ou criar os seus próprios. Esta é a abordagem de Recomendamos para instalação de dependências de Python que podem ser instaladas pip.
+1. A `dependencies.yml` ficheiro: para gerir as dependências que podem ser instaladas a partir de [PyPi]( https://pypi.python.org/pypi), pode utilizar o `conda_dependencies.yml` de ficheiros do projeto Workbench ou criar os seus próprios. Esta é a abordagem de Recomendamos para instalação de dependências de Python que podem ser instaladas pip.
 
    Comando da CLI de exemplo:
    ```azurecli

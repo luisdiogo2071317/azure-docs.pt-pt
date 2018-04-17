@@ -1,8 +1,8 @@
 ---
-title: "Recolher alertas da Nagios e da Zabbix na análise de registos do OMS | Microsoft Docs"
-description: "Nagios e Zabbix são de fonte aberta ferramentas de monitorização. Pode recolher alertas destas ferramentas para análise de registos para poder analisá-las, juntamente com alertas a partir de outras origens.  Este artigo descreve como configurar o agente do OMS para Linux recolher alertas a partir desses sistemas."
+title: Recolher alertas da Nagios e da Zabbix na análise de registos do OMS | Microsoft Docs
+description: Nagios e Zabbix são de fonte aberta ferramentas de monitorização. Pode recolher alertas destas ferramentas para análise de registos para poder analisá-las, juntamente com alertas a partir de outras origens.  Este artigo descreve como configurar o agente do OMS para Linux recolher alertas a partir desses sistemas.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -12,27 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Recolher alertas da Nagios e da Zabbix na análise de registos do agente do OMS para Linux 
-[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) são de fonte aberta ferramentas de monitorização.  Pode recolher alertas destas ferramentas para análise de registos para poder analisá-las juntamente com [alertas a partir de outras origens](log-analytics-alerts.md).  Este artigo descreve como configurar o agente do OMS para Linux recolher alertas a partir desses sistemas.
+[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) são de fonte aberta ferramentas de monitorização. Pode recolher alertas destas ferramentas para análise de registos para poder analisá-las juntamente com [alertas a partir de outras origens](log-analytics-alerts.md).  Este artigo descreve como configurar o agente do OMS para Linux recolher alertas a partir desses sistemas.
  
+## <a name="prerequisites"></a>Pré-requisitos
+O agente do OMS para Linux suporta recolher alertas a partir da Nagios até versão 4.2.x e Zabbix para versão 2. x.
+
 ## <a name="configure-alert-collection"></a>Configurar a recolha de alertas
 
 ### <a name="configuring-nagios-alert-collection"></a>Configurar a recolha de alertas da Nagios
-Execute os seguintes passos no servidor da Nagios para recolher alertas.
+Recolher alertas, execute os seguintes passos no servidor da Nagios.
 
-1. Conceder ao utilizador **omsagent** acesso de leitura para o ficheiro de registo da Nagios (ou seja, `/var/log/nagios/nagios.log`). Pressupondo que o ficheiro nagios.log proprietário é o grupo `nagios`, pode adicionar o utilizador **omsagent** para o **nagios** grupo. 
+1. Conceder ao utilizador **omsagent** acesso de leitura para o ficheiro de registo da Nagios `/var/log/nagios/nagios.log`. Pressupondo que o ficheiro nagios.log proprietário é o grupo `nagios`, pode adicionar o utilizador **omsagent** para o **nagios** grupo. 
 
     sudo usermod - a -G da nagios omsagent
 
-2.  Modificar o ficheiro de configuração em (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Certifique-se de que as seguintes entradas estão presentes e não comentado saída:  
+2.  Modificar o ficheiro de configuração em `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Certifique-se de que as seguintes entradas estão presentes e não comentado saída:  
 
         <source>  
           type tail  
@@ -53,11 +56,11 @@ Execute os seguintes passos no servidor da Nagios para recolher alertas.
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Configurar a recolha de alertas da Zabbix
-Recolher alertas de um servidor da Zabbix, tem de especificar um utilizador e palavra-passe no *apague texto*. Não é ideal, mas recomendamos que crie o utilizador e conceder permissões para monitorizar onlu.
+Recolher alertas de um servidor da Zabbix, tem de especificar um utilizador e palavra-passe no *apague texto*.  Apesar de não ideais, recomendamos que crie o utilizador e conceder permissões para monitorizar onlu.
 
-Execute os seguintes passos no servidor da Nagios para recolher alertas.
+Recolher alertas no servidor da Nagios, execute os seguintes passos.
 
-1. Modificar o ficheiro de configuração em (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Certifique-se de que as seguintes entradas estão presentes e não comentado enviados.  Altere o nome de utilizador e palavra-passe para os valores para o seu ambiente da Zabbix.
+1. Modificar o ficheiro de configuração em `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Certifique-se de que as seguintes entradas estão presentes e não comentado enviados.  Altere o nome de utilizador e palavra-passe para os valores para o seu ambiente da Zabbix.
 
         <source>
          type zabbix_alerts
@@ -101,9 +104,9 @@ Alerta registos recolhidos da Zabbix tem um **tipo** de **alerta** e um **Source
 | Tipo |*Alerta* |
 | SourceSystem |*Zabbix* |
 | AlertName | Nome do alerta. |
-| AlertPriority | Gravidade do alerta.<br><br>Não foi classificado<br>Informações<br>aviso<br>Média<br>Elevada<br>após desastre  |
-| AlertState | Estado do alerta.<br><br>0 - o estado é atualizado.<br>1 - estado for desconhecido.  |
-| AlertTypeNumber | Especifica se o alerta pode gerar vários eventos de problema.<br><br>0 - o estado é atualizado.<br>1 - estado for desconhecido.    |
+| AlertPriority | Gravidade do alerta.<br><br>Não foi classificado<br>informações<br>aviso<br>média<br>Elevada<br>após desastre  |
+| AlertState | Estado do alerta.<br><br>0 - o estado está atualizado.<br>1 - estado for desconhecido.  |
+| AlertTypeNumber | Especifica se o alerta pode gerar vários eventos de problema.<br><br>0 - o estado está atualizado.<br>1 - estado for desconhecido.    |
 | Comentários | Comentários adicionais para o alerta. |
 | Nome de anfitrião | Nome do anfitrião que criou o alerta. |
 | PriorityNumber | Valor que indica a gravidade do alerta.<br><br>0 - não classificado<br>1 - informações<br>2 - aviso<br>3 – média<br>4 - elevada<br>5 - desastre |
@@ -111,6 +114,6 @@ Alerta registos recolhidos da Zabbix tem um **tipo** de **alerta** e um **Source
 | TimeLastModified |Data e hora em que o estado do alerta foi alterado pela última vez. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [alertas](log-analytics-alerts.md) na análise de registos.
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 

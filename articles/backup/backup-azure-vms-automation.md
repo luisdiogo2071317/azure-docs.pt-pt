@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bac1e679aa46b280596ab09ba40da780c81cac5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8b5869e44e22fab1e996fcd58b4258849603a711
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Utilizar cmdlets de AzureRM.RecoveryServices.Backup para fazer uma cópia de segurança de máquinas virtuais
 
@@ -132,7 +132,7 @@ Os seguintes passos encaminharem através da criação de um cofre dos serviços
     ```
 
    > [!TIP]
-   > Cmdlets de cópia de segurança do Azure muitos requerem o objeto de cofre dos serviços de recuperação como entrada. Por este motivo, é conveniente armazenar o objeto de cofre dos serviços de recuperação de cópia de segurança numa variável.
+   > Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por este motivo, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação do Backup numa variável.
    >
    >
 
@@ -157,14 +157,14 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Utilize um cofre dos serviços de recuperação para proteger as máquinas virtuais. Antes de aplicar a proteção, defina o contexto de cofre (do tipo de dados protegidos no cofre) e certifique-se a política de proteção. A política de proteção está a agenda quando executar tarefas de cópia de segurança e quanto cada instantâneo de cópia de segurança é mantido.
 
 ### <a name="set-vault-context"></a>Contexto do Cofre de conjunto
-Antes de ativar a proteção numa VM, utilize **[conjunto AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** para definir o contexto do cofre. Depois do contexto de cofre for definido, aplica-se a todos os cmdlets subsequentes. O exemplo a seguir define o contexto do cofre para o cofre, *testvault*.
+Antes de ativar a proteção numa VM, utilize **[conjunto AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** para definir o contexto do cofre. Quando o contexto do cofre estiver definido, é aplicado a todos os cmdlets subsequentes. O exemplo a seguir define o contexto do cofre para o cofre, *testvault*.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault -Name "testvault" | Set-AzureRmRecoveryServicesVaultContext
 ```
 
 ### <a name="create-a-protection-policy"></a>Criar uma política de proteção
-Quando criar um cofre dos serviços de recuperação, este inclui proteção predefinida e as políticas de retenção. A política de proteção predefinido aciona uma tarefa de cópia de segurança por dia num momento especificado. A política de retenção predefinido mantém o ponto de recuperação diários 30 dias. Pode utilizar a política predefinida para proteger rapidamente a sua VM e editar a política mais tarde com detalhes diferentes.
+Quando cria um cofre dos Serviços de Recuperação, aquele inclui políticas de proteção e retenção predefinidas. A política de proteção predefinida aciona um trabalho de cópia de segurança todos os dias a uma hora especificada. A política de retenção predefinida retém o ponto de recuperação diária durante 30 dias. Pode utilizar a política predefinida para proteger rapidamente a sua VM e editar a política mais tarde com detalhes diferentes.
 
 Utilize **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)** para ver as políticas de proteção no cofre. Pode utilizar este cmdlet para obter uma política específica ou para ver as políticas associadas um tipo de carga de trabalho. O exemplo seguinte obtém as políticas para o tipo de carga de trabalho, AzureVM.
 
@@ -362,7 +362,7 @@ Depois de restaurar os discos, consulte a secção seguinte para criar a VM.
 Depois de ter restaurado os discos, utilize estes passos para criar e configurar a máquina virtual de disco.
 
 > [!NOTE]
-> Para criar VMs encriptadas de discos restaurados, a função do Azure tem de ter permissão para efetuar a ação **Microsoft.KeyVault/vaults/deploy/action**. Se a função não tem esta permissão, crie uma função personalizada com esta ação. Para obter mais informações, consulte [funções personalizadas no Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
+> Para criar VMs encriptadas de discos restaurados, a função do Azure tem de ter permissão para efetuar a ação **Microsoft.KeyVault/vaults/deploy/action**. Se a função não tem esta permissão, crie uma função personalizada com esta ação. Para obter mais informações, consulte [funções personalizadas no Azure RBAC](../role-based-access-control/custom-roles.md).
 >
 >
 

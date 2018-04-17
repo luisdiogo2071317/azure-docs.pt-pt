@@ -1,29 +1,27 @@
 ---
-title: "Submeter tarefas de R ferramentas do Visual Studio – Azure HDInsight | Microsoft Docs"
+title: Submeter tarefas de R ferramentas do Visual Studio – Azure HDInsight | Microsoft Docs
 description: Submeta tarefas de R do seu computador local do Visual Studio para um cluster do HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 1a82ba7790f739768156a8bee33a74d7130e24e1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c6f6e691ef4b317854aef1d7397d5fb840d25ff2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Submeter tarefas de R ferramentas para o Visual Studio
+# <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Submeter tarefas a partir das Ferramentas R para o Visual Studio
 
-[R Tools para Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) é uma extensão gratuita de open source para a Comunidade (gratuita), Professional, edições e Enterprise de ambos [Visual Studio 2017](https://www.visualstudio.com/downloads/), e [Visual Studio 2015 Update 3](http://go.microsoft.com/fwlink/?LinkId=691129) ou superior.
+[R Tools para Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) é uma extensão gratuita de open source para a Comunidade (gratuita), Professional, edições e Enterprise de ambos [Visual Studio 2017](https://www.visualstudio.com/downloads/), e [Visual Studio 2015 Update 3](http://go.microsoft.com/fwlink/?LinkId=691129)ou superior.
 
 RTVS melhora o fluxo de trabalho de R ao oferta ferramentas como o [janela R interativa](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), (conclusão de código), o intellisense [desenhar visualização](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) através de bibliotecas R como ggplot2 e ggviz, [Depuração de código do R](https://docs.microsoft.com/visualstudio/rtvs/debugging)e muito mais.
 
@@ -125,7 +123,7 @@ Utilizar um cliente do Microsoft R Microsoft/servidor R num computador Windows e
 
     1. A partir do painel de cluster do HDInsight R no Azure, selecione **contas do Storage** no menu esquerdo.
 
-        ![Contas de armazenamento](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
+        ![Contas de Armazenamento](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
 
     2. Selecione a conta de armazenamento predefinido para o cluster, de tomar nota do nome do contentor/diretório.
 

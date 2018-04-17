@@ -3,8 +3,7 @@ title: 'Do Azure Cosmos DB: Referência de consulta de sintaxe SQL | Microsoft D
 description: Documentação de referência para o idioma de consulta de base de dados SQL do Azure Cosmos.
 services: cosmos-db
 author: LalithaMV
-manager: jhubbard
-editor: mimig
+manager: kfile
 documentationcenter: ''
 ms.assetid: ''
 ms.service: cosmos-db
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 012fa27fdebebf1c86a324c49c53d665a15a91c2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 83ee1d37dd6d79ce26ae95cd1486298f0210f661
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referência de sintaxe Cosmos BD SQL do Azure
 
@@ -31,7 +30,7 @@ Também Convidamo-lo para visitar o [Query Playground](http://www.documentdb.com
 ## <a name="select-query"></a>Consulta SELECT  
 Obtém os documentos JSON da base de dados. Suporta a avaliação da expressão, projeções, filtragem e associa.  As convenções de utilizada para descrever as instruções SELECT são apresentadas na secção de convenções de sintaxe.  
   
-**Syntax**  
+**Sintaxe**  
   
 ```
 <select_query> ::=  
@@ -79,7 +78,7 @@ Enquanto carateres de espaço em branco e comentários não têm qualquer signif
 ##  <a name="bk_select_query"></a> Cláusula SELECT  
 As cláusulas na instrução SELECT tem de ser ordenadas conforme mostrado acima. Pode ser omitido a qualquer um das cláusulas opcionais. Mas, quando são utilizadas cláusulas opcionais, deve aparecer na ordem correta.  
 
-**Syntax**  
+**Sintaxe**  
 ```  
 SELECT <select_specification>  
 
@@ -141,7 +140,7 @@ Tenha em atenção que `SELECT <select_list>` e `SELECT *` são "sugar diferenç
 ##  <a name="bk_from_clause"></a> A cláusula FROM  
 Especifica a origem ou origens associadas. A cláusula FROM é opcional. Se não for especificadas, outras cláusulas ainda serão executadas como se a cláusula FROM fornecido um único documento.  
   
-**Syntax**  
+**Sintaxe**  
   
 ```  
 FROM <from_specification>  
@@ -320,7 +319,7 @@ Vamos observar a cláusula FROM seguintes: `<from_source1> JOIN <from_source2> J
 ##  <a name="bk_where_clause"></a> Cláusula WHERE  
  Especifica a condição de pesquisa para os documentos devolvidos pela consulta.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 WHERE <filter_condition>  
@@ -345,7 +344,7 @@ WHERE <filter_condition>
 ##  <a name="bk_orderby_clause"></a> Cláusula ORDER BY  
  Especifica a sequência de ordenação para resultados devolvidos pela consulta.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ORDER BY <sort_specification>  
@@ -385,7 +384,7 @@ ORDER BY <sort_specification>
   
  Para obter detalhes sobre qual expressão escalar poderá ter de valores, consulte [constantes](#bk_constants) secção.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 <scalar_expression> ::=  
@@ -482,8 +481,8 @@ ORDER BY <sort_specification>
   
 |**Categoria**|**Detalhes**|  
 |-|-|  
-|**arithmetic**|Operador espera input(s) ser Number(s). Saída também é um número. Se qualquer uma das entradas é **indefinido** ou um tipo diferente, em seguida, o resultado de número **indefinido**.|  
-|**bitwise**|Operador espera input(s) ser número inteiro com sinal de 32 bits Number(s). O resultado é também o número inteiro com sinal de 32 bits número.<br /><br /> Qualquer valor de não-inteiros será arredondado. Um valor positivo será arredondado para baixo, negativa valores arredondar por excesso.<br /><br /> Qualquer valor que está fora do intervalo de número inteiro de 32 bits será convertido, efetuando os últimos 32 bits da respetivo dois notação complemento.<br /><br /> Se qualquer uma das entradas é **indefinido** ou escreva outro número, em seguida, o resultado é **indefinido**.<br /><br /> **Nota:** o comportamento acima é compatível com o comportamento de operador bit a bit JavaScript.|  
+|**Aritmética**|Operador espera input(s) ser Number(s). Saída também é um número. Se qualquer uma das entradas é **indefinido** ou um tipo diferente, em seguida, o resultado de número **indefinido**.|  
+|**Totalmente**|Operador espera input(s) ser número inteiro com sinal de 32 bits Number(s). O resultado é também o número inteiro com sinal de 32 bits número.<br /><br /> Qualquer valor de não-inteiros será arredondado. Um valor positivo será arredondado para baixo, negativa valores arredondar por excesso.<br /><br /> Qualquer valor que está fora do intervalo de número inteiro de 32 bits será convertido, efetuando os últimos 32 bits da respetivo dois notação complemento.<br /><br /> Se qualquer uma das entradas é **indefinido** ou escreva outro número, em seguida, o resultado é **indefinido**.<br /><br /> **Nota:** o comportamento acima é compatível com o comportamento de operador bit a bit JavaScript.|  
 |**logical**|Operador espera input(s) ser Boolean(s). Saída também é um valor booleano.<br />Se qualquer uma das entradas é **indefinido** ou escreva exceto Boolean, em seguida, o resultado será **indefinido**.|  
 |**comparison**|Operador espera input(s) para ter o mesmo tipo e não pode ser definido. O resultado é um valor booleano.<br /><br /> Se qualquer uma das entradas é **indefinido** ou entradas têm tipos diferentes, em seguida, o resultado é **indefinido**.<br /><br /> Consulte **ordenação dos valores de comparação** tabela para o valor de ordenação detalhes.|  
 |**string**|Operador espera input(s) ser cadeia. Saída também é uma cadeia.<br />Se qualquer uma das entradas é **indefinido** ou escreva à cadeia, em seguida, o resultado é **indefinido**.|  
@@ -492,17 +491,17 @@ ORDER BY <sort_specification>
   
 |**Nome**|**operador**|**Detalhes**|  
 |-|-|-|  
-|**arithmetic**|+<br /><br /> -|Devolve o valor numérico.<br /><br /> Negação bit a bit. Devolve negated valor numérico.|  
-|**bitwise**|~|Daqueles complemento. Devolve um conjunto de um valor numérico.|  
-|**Logical**|**NOT**|Negação. Devolve negated valor booleano.|  
+|**Aritmética**|+<br /><br /> -|Devolve o valor numérico.<br /><br /> Negação bit a bit. Devolve negated valor numérico.|  
+|**Totalmente**|~|Daqueles complemento. Devolve um conjunto de um valor numérico.|  
+|**Lógica**|**NÃO**|Negação. Devolve negated valor booleano.|  
   
  **Operadores binários:**  
   
 |**Nome**|**operador**|**Detalhes**|  
 |-|-|-|  
-|**arithmetic**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Adição.<br /><br /> Subtração.<br /><br /> Multiplicação.<br /><br /> Divisão.<br /><br /> Reforçada.|  
-|**bitwise**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bit a bit OR.<br /><br /> Bit a bit AND.<br /><br /> Operação XOR.<br /><br /> Shift esquerdo.<br /><br /> Shift à direita.<br /><br /> Shift à direita do preenchimento de zero.|  
-|**logical**|**AND**<br /><br /> **OU**|Conjunção lógica. Devolve **verdadeiro** se ambos os argumentos forem **verdadeiro**, devolve **falso** caso contrário.<br /><br /> Conjunção lógica. Devolve **verdadeiro** se ambos os argumentos forem **verdadeiro**, devolve **falso** caso contrário.|  
+|**Aritmética**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Adição.<br /><br /> Subtração.<br /><br /> Multiplicação.<br /><br /> Divisão.<br /><br /> Reforçada.|  
+|**Totalmente**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bit a bit OR.<br /><br /> Bit a bit AND.<br /><br /> Operação XOR.<br /><br /> Shift esquerdo.<br /><br /> Shift à direita.<br /><br /> Shift à direita do preenchimento de zero.|  
+|**logical**|**E**<br /><br /> **OU**|Conjunção lógica. Devolve **verdadeiro** se ambos os argumentos forem **verdadeiro**, devolve **falso** caso contrário.<br /><br /> Conjunção lógica. Devolve **verdadeiro** se ambos os argumentos forem **verdadeiro**, devolve **falso** caso contrário.|  
 |**comparison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Igual a. Devolve **verdadeiro** se argumentos são iguais, devolve **falso** caso contrário.<br /><br /> Não é igual a. Devolve **verdadeiro** se argumentos não são iguais, devolve **falso** caso contrário.<br /><br /> Maior. Devolve **verdadeiro** se o primeiro argumento for maior do que o segundo, devolver **falso** caso contrário.<br /><br /> Maior ou igual a. Devolve **verdadeiro** se o primeiro argumento é maior que ou igual a segunda, devolver **falso** caso contrário.<br /><br /> Menor. Devolve **verdadeiro** se o primeiro argumento é menor que o um segundo, retorno **falso** caso contrário.<br /><br /> Menor ou igual a. Devolve **verdadeiro** se o primeiro argumento é menor ou igual a segunda, devolver **falso** caso contrário.<br /><br /> Unir. Devolve o segundo argumento, se o primeiro argumento é uma **indefinido** valor.|  
 |**Cadeia**|**&#124;&#124;**|Concatenação. Devolve uma concatenação de ambos os argumentos.|  
   
@@ -516,11 +515,11 @@ ORDER BY <sort_specification>
 |**Tipo**|**Ordem de valores**|  
 |-|-|  
 |**Indefinido**|Não é comparável.|  
-|**Null**|Único valor: **nulo**|  
+|**Valor nulo**|Único valor: **nulo**|  
 |**Número**|Número de real natural.<br /><br /> Valor de infinito negativo é menor do que qualquer outro valor de número.<br /><br /> Valor de infinito positivo é maior do que qualquer outro valor de número. **NaN** valor não é comparável. Comparar com **NaN** resultará na **indefinido** valor.|  
 |**Cadeia**|Lexicographical ordem.|  
 |**Matriz**|Não existem ordenação, mas equitable.|  
-|**Object**|Não existem ordenação, mas equitable.|  
+|**objeto**|Não existem ordenação, mas equitable.|  
   
  **Observações**  
   
@@ -544,14 +543,14 @@ ORDER BY <sort_specification>
 |**Tipo**|**Ordem de valores**|  
 |-|-|  
 |**Indefinido**|Único valor: **indefinido**|  
-|**Null**|Único valor: **nulo**|  
+|**Valor nulo**|Único valor: **nulo**|  
 |**Valor booleano**|Valores: **falso**, **verdadeiro**.|  
 |**Número**|Um dupla precisão número de vírgula flutuante, IEEE 754 padrão.|  
 |**Cadeia**|Uma sequência de zero ou mais carateres Unicode. Cadeias de têm de estar entre aspas único ou duplo.|  
 |**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto Undefined.|  
-|**Object**|Um conjunto não ordenado de zero ou mais pares nome/valor. O nome é uma cadeia Unicode, o valor pode ser de qualquer tipo de dados escalar, exceto **Undefined**.|  
+|**objeto**|Um conjunto não ordenado de zero ou mais pares nome/valor. O nome é uma cadeia Unicode, o valor pode ser de qualquer tipo de dados escalar, exceto **Undefined**.|  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 <constant> ::=  
@@ -629,12 +628,12 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|apóstrofo (')|U+0027|  
 |\\"|aspas (")|U+0022|  
-|\\\|solidus inversa (\\)|U+005C|  
-|\\/|solidus (/)|U+002F|  
+|\\\|solidus inversa (\\)|U + 005C|  
+|\\/|solidus (/)|U + 002F|  
 |\b|RETROCESSO|U+0008|  
 |\f|feed do formulário|U+000C|  
 |\n|linha|U+000A|  
-|\r|avanço retorno|U+000D|  
+|\r|avanço retorno|U + 000D|  
 |\t|tabulação|U+0009|  
 |\uXXXX|Um carácter Unicode definido pelo 4 dígitos hexadecimais.|U+XXXX|  
   
@@ -670,7 +669,7 @@ ORDER BY <sort_specification>
     |EM MAIÚSCULAS|Palavras-chave sensível.|  
     |minúsculas|Palavras-chave de maiúsculas e minúsculas.|  
     |\<nonterminal>|Nonterminal, definidas separadamente.|  
-    |\<nonterminal> ::=|Definição de sintaxe do nonterminal.|  
+    |\<nonterminal >:: =|Definição de sintaxe do nonterminal.|  
     |other_terminal|Terminal (token), descrito detalhadamente nas palavras.|  
     |Identificador|Identificador. Permite que os seguintes carateres: caráter de _First. a-z A-Z 0-9 não pode ser um dígito.|  
     |"cadeia"|Cadeia delimitada por aspas. Permite que qualquer cadeia de caracteres válida. Ver descrição de um string_literal.|  
@@ -697,18 +696,18 @@ ORDER BY <sort_specification>
 ||||  
 |-|-|-|  
 |[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
-|[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[CEILING](#bk_ceiling)|  
+|[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[LIMITE](#bk_ceiling)|  
 |[COS](#bk_cos)|[COT](#bk_cot)|[GRAUS](#bk_degrees)|  
 |[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[ENERGIA](#bk_power)|  
-|[RADIANOS](#bk_radians)|[ARREDONDAR](#bk_round)|[SIN](#bk_sin)|  
+|[RADIANOS](#bk_radians)|[ARREDONDAR](#bk_round)|[ÚNICO](#bk_sin)|  
 |[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[INÍCIO DE SESSÃO](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
  Devolve o valor absoluto (positivo) da expressão numérica especificada.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ABS (<numeric_expression>)  
@@ -741,7 +740,7 @@ SELECT ABS(-1), ABS(0), ABS(1)
 ####  <a name="bk_acos"></a> ACOS  
  Devolve o ângulo em radianos, cujo co-seno é a expressão numérica especificada; Também denominado o arco de co-seno.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ACOS(<numeric_expression>)  
@@ -774,7 +773,7 @@ SELECT ACOS(-1)
 ####  <a name="bk_asin"></a> ASIN  
  Devolve o ângulo em radianos, cujo seno é a expressão numérica especificada. Isto também é denominado o arco de seno.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ASIN(<numeric_expression>)  
@@ -807,7 +806,7 @@ SELECT ASIN(-1)
 ####  <a name="bk_atan"></a> ATAN  
  Devolve o ângulo em radianos, cuja tangente é a expressão numérica especificada. Isto também é denominado o arco de tangente.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ATAN(<numeric_expression>)  
@@ -840,7 +839,7 @@ SELECT ATAN(-45.01)
 ####  <a name="bk_atn2"></a> ATN2  
  Devolve o valor principal do tangente arco de y / x, expressado em radianos.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ATN2(<numeric_expression>, <numeric_expression>)  
@@ -873,7 +872,7 @@ SELECT ATN2(35.175643, 129.44)
 ####  <a name="bk_ceiling"></a> LIMITE  
  Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 CEILING (<numeric_expression>)  
@@ -906,7 +905,7 @@ SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)
 ####  <a name="bk_cos"></a> COS  
  Devolve o co-seno do ângulo especificado, trigonometric em radianos, a expressão especificada.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 COS(<numeric_expression>)  
@@ -939,7 +938,7 @@ SELECT COS(14.78)
 ####  <a name="bk_cot"></a> COT  
  Devolve a co-tangente do ângulo especificado, trigonometric em radianos, a expressão numérica especificado.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 COT(<numeric_expression>)  
@@ -972,7 +971,7 @@ SELECT COT(124.1332)
 ####  <a name="bk_degrees"></a> GRAUS  
  Devolve o ângulo correspondente em graus para um ângulo especificado em radianos.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 DEGREES (<numeric_expression>)  
@@ -1002,10 +1001,10 @@ SELECT DEGREES(PI()/2)
 [{"$1": 90}]  
 ```  
   
-####  <a name="bk_floor"></a> FLOOR  
+####  <a name="bk_floor"></a> PISO  
  Devolve o maior número inteiro menor ou igual a expressão numérica especificada.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 FLOOR (<numeric_expression>)  
@@ -1038,7 +1037,7 @@ SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)
 ####  <a name="bk_exp"></a> EXP  
  Devolve o valor da expressão especificada numérico exponencial.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 EXP (<numeric_expression>)  
@@ -1088,10 +1087,10 @@ SELECT EXP(LOG(20)), LOG(EXP(20))
 [{$1: 19.999999999999996, $2: 20}]  
 ```  
   
-####  <a name="bk_log"></a> LOG  
+####  <a name="bk_log"></a> REGISTO  
  Devolve o logaritmo natural da expressão numérica especificado.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 LOG (<numeric_expression> [, <base>])  
@@ -1148,7 +1147,7 @@ SELECT EXP(LOG(10))
 ####  <a name="bk_log10"></a> LOG10  
  Devolve o logaritmo base 10 da expressão numérica especificada.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 LOG10 (<numeric_expression>)  
@@ -1185,7 +1184,7 @@ SELECT LOG10(100)
 ####  <a name="bk_pi"></a> PI  
  Devolve o valor de PI constante.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 PI ()  
@@ -1218,7 +1217,7 @@ SELECT PI()
 ####  <a name="bk_power"></a> ENERGIA  
  Devolve o valor da expressão especificada para a potência especificada.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 POWER (<numeric_expression>, <y>)  
@@ -1252,10 +1251,10 @@ SELECT POWER(2, 3), POWER(2.5, 3)
 [{$1: 8, $2: 15.625}]  
 ```  
   
-####  <a name="bk_radians"></a> RADIANS  
+####  <a name="bk_radians"></a> RADIANOS  
  Devolve radianos quando uma expressão numérica, em graus, é introduzida.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 RADIANS (<numeric_expression>)  
@@ -1294,7 +1293,7 @@ SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIAN
 ####  <a name="bk_round"></a> ARREDONDAR  
  Devolve um valor numérico, arredondado para o valor de número inteiro mais próximo.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ROUND(<numeric_expression>)  
@@ -1324,10 +1323,10 @@ SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)
 [{$1: 2, $2: 3, $3: 3, $4: -2, $5: -3}]  
 ```  
   
-####  <a name="bk_sign"></a> SIGN  
+####  <a name="bk_sign"></a> INÍCIO DE SESSÃO  
  Devolve o positivo (+ 1), zero (0) ou negativo sessão (-1) da expressão numérica especificada.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 SIGN(<numeric_expression>)  
@@ -1357,10 +1356,10 @@ SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)
 [{$1: -1, $2: -1, $3: 0, $4: 1, $5: 1}]  
 ```  
   
-####  <a name="bk_sin"></a> SIN  
+####  <a name="bk_sin"></a> ÚNICO  
  Devolve o seno do ângulo especificado, trigonometric em radianos, a expressão especificada.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 SIN(<numeric_expression>)  
@@ -1393,7 +1392,7 @@ SELECT SIN(45.175643)
 ####  <a name="bk_sqrt"></a> SQRT  
  Devolve a raiz quadrada do valor numérico especificado.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 SQRT(<numeric_expression>)  
@@ -1423,10 +1422,10 @@ SELECT SQRT(1), SQRT(2.0), SQRT(3)
 [{$1: 1, $2: 1.4142135623730952, $3: 1.7320508075688772}]  
 ```  
   
-####  <a name="bk_square"></a> SQUARE  
+####  <a name="bk_square"></a> PARÊNTESES  
  Devolve o quadrado do valor numérico especificado.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 SQUARE(<numeric_expression>)  
@@ -1459,7 +1458,7 @@ SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)
 ####  <a name="bk_tan"></a> TAN  
  Devolve a tangente do ângulo especificado, em radianos, a expressão especificada.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 TAN (<numeric_expression>)  
@@ -1492,7 +1491,7 @@ SELECT TAN(PI()/2);
 ####  <a name="bk_trunc"></a> TRUNC  
  Devolve um valor numérico, truncada de acordo com o valor de número inteiro mais próximo.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 TRUNC(<numeric_expression>)  
@@ -1534,7 +1533,7 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 ####  <a name="bk_is_array"></a> IS_ARRAY  
  Devolve um valor booleano que indica se o tipo da expressão especificada é uma matriz.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 IS_ARRAY(<expression>)  
@@ -1574,7 +1573,7 @@ SELECT
 ####  <a name="bk_is_bool"></a> IS_BOOL  
  Devolve um valor booleano que indica se o tipo de expressão especificado é um valor booleano.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 IS_BOOL(<expression>)  
@@ -1614,7 +1613,7 @@ SELECT
 ####  <a name="bk_is_defined"></a> IS_DEFINED  
  Devolve um valor boleano que indica se a propriedade foi atribuída um valor.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 IS_DEFINED(<expression>)  
@@ -1650,7 +1649,7 @@ SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)
 ####  <a name="bk_is_null"></a> IS_NULL  
  Devolve um valor booleano que indica se o tipo da expressão especificada é nulo.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 IS_NULL(<expression>)  
@@ -1690,7 +1689,7 @@ SELECT
 ####  <a name="bk_is_number"></a> IS_NUMBER  
  Devolve um valor booleano que indica se o tipo de expressão especificado é um número.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 IS_NUMBER(<expression>)  
@@ -1730,7 +1729,7 @@ SELECT
 ####  <a name="bk_is_object"></a> IS_OBJECT  
  Devolve um valor booleano que indica se o tipo de expressão especificado é um objeto JSON.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 IS_OBJECT(<expression>)  
@@ -1770,7 +1769,7 @@ SELECT
 ####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
  Devolve um valor booleano que indica se o tipo da expressão especificada é uma primitiva (string, Boolean, numérico ou null).  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 IS_PRIMITIVE(<expression>)  
@@ -1810,7 +1809,7 @@ SELECT
 ####  <a name="bk_is_string"></a> IS_STRING  
  Devolve um valor booleano que indica se o tipo da expressão especificada é uma cadeia.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 IS_STRING(<expression>)  
@@ -1853,16 +1852,16 @@ SELECT
 ||||  
 |-|-|-|  
 |[CONCAT](#bk_concat)|[CONTÉM](#bk_contains)|[ENDSWITH](#bk_endswith)|  
-|[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTH](#bk_length)|  
-|[INFERIOR](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
-|[REPLICAR](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
+|[INDEX_OF](#bk_index_of)|[À ESQUERDA](#bk_left)|[LENGTH](#bk_length)|  
+|[INFERIOR](#bk_lower)|[LTRIM](#bk_ltrim)|[SUBSTITUIR](#bk_replace)|  
+|[REPLICAR](#bk_replicate)|[INVERSA](#bk_reverse)|[À DIREITA](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBCADEIA](#bk_substring)|  
 |[SUPERIOR](#bk_upper)|||  
   
 ####  <a name="bk_concat"></a> CONCAT  
  Devolve uma cadeia que é o resultado da concatenar duas ou mais valores de cadeia.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 CONCAT(<str_expr>, <str_expr> [, <str_expr>])  
@@ -1895,7 +1894,7 @@ SELECT CONCAT("abc", "def")
 ####  <a name="bk_contains"></a> CONTÉM  
  Devolve um booleano que indica se a primeira cadeia de expressão contém o segundo.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 CONTAINS(<str_expr>, <str_expr>)  
@@ -1928,7 +1927,7 @@ SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")
 ####  <a name="bk_endswith"></a> ENDSWITH  
  Devolve um booleano que indica se a primeira expressão de cadeia termina com o segundo.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ENDSWITH(<str_expr>, <str_expr>)  
@@ -1961,7 +1960,7 @@ SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")
 ####  <a name="bk_index_of"></a> INDEX_OF  
  Devolve a posição inicial da primeira ocorrência da segunda cadeia de expressão na primeira expressão de cadeia especificada ou -1 se a cadeia não foi encontrada.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 INDEX_OF(<str_expr>, <str_expr>)  
@@ -1994,7 +1993,7 @@ SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")
 ####  <a name="bk_left"></a> À ESQUERDA  
  Devolve a parte esquerda de uma cadeia com o número especificado de carateres.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 LEFT(<str_expr>, <num_expr>)  
@@ -2031,7 +2030,7 @@ SELECT LEFT("abc", 1), LEFT("abc", 2)
 ####  <a name="bk_length"></a> COMPRIMENTO  
  Devolve o número de carateres da expressão de cadeia especificada.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 LENGTH(<str_expr>)  
@@ -2064,7 +2063,7 @@ SELECT LENGTH("abc")
 ####  <a name="bk_lower"></a> INFERIOR  
  Devolve uma expressão de cadeia após a conversão de dados do caráter em maiúsculas em minúsculas.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 LOWER(<str_expr>)  
@@ -2098,7 +2097,7 @@ SELECT LOWER("Abc")
 ####  <a name="bk_ltrim"></a> LTRIM  
  Devolve uma expressão de cadeia após remove espaços em branco à esquerda.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 LTRIM(<str_expr>)  
@@ -2131,7 +2130,7 @@ SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")
 ####  <a name="bk_replace"></a> SUBSTITUIR  
  Substitui todas as ocorrências de um valor de cadeia especificada com outro valor de cadeia.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 REPLACE(<str_expr>, <str_expr>, <str_expr>)  
@@ -2164,7 +2163,7 @@ SELECT REPLACE("This is a Test", "Test", "desk")
 ####  <a name="bk_replicate"></a> REPLICAR  
  Repete-se um valor de cadeia um número de vezes especificado.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 REPLICATE(<str_expr>, <num_expr>)  
@@ -2201,7 +2200,7 @@ SELECT REPLICATE("a", 3)
 ####  <a name="bk_reverse"></a> INVERSA  
  Devolve a ordem inversa de um valor de cadeia.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 REVERSE(<str_expr>)  
@@ -2234,7 +2233,7 @@ SELECT REVERSE("Abc")
 ####  <a name="bk_right"></a> À DIREITA  
  Devolve a parte direita de uma cadeia com o número especificado de carateres.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 RIGHT(<str_expr>, <num_expr>)  
@@ -2271,7 +2270,7 @@ SELECT RIGHT("abc", 1), RIGHT("abc", 2)
 ####  <a name="bk_rtrim"></a> RTRIM  
  Devolve uma expressão de cadeia após remove espaços em branco à direita.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 RTRIM(<str_expr>)  
@@ -2304,7 +2303,7 @@ SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")
 ####  <a name="bk_startswith"></a> STARTSWITH  
  Devolve um booleano que indica se a primeira expressão de cadeia começa com o segundo.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 STARTSWITH(<str_expr>, <str_expr>)  
@@ -2337,7 +2336,7 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
 ####  <a name="bk_substring"></a> SUBCADEIA  
  Devolve a parte de uma expressão de cadeia a partir da posição carácter especificado baseado em zero e continua ao comprimento especificado ou para o fim da cadeia.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])  
@@ -2374,7 +2373,7 @@ SELECT SUBSTRING("abc", 1, 1)
 ####  <a name="bk_upper"></a> SUPERIOR  
  Devolve uma expressão de cadeia após a conversão de dados de carateres em minúsculas em maiúsculas.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 UPPER(<str_expr>)  
@@ -2415,7 +2414,7 @@ SELECT UPPER("Abc")
 ####  <a name="bk_array_concat"></a> ARRAY_CONCAT  
  Devolve uma matriz que é o resultado da concatenar duas ou mais valores de matriz.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])  
@@ -2448,7 +2447,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
 Devolve um valor boleano que indica se a matriz contém o valor especificado. Pode especificar se a correspondência total ou parcial. 
 
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
@@ -2510,7 +2509,7 @@ SELECT
 ####  <a name="bk_array_length"></a> ARRAY_LENGTH  
  Devolve o número de elementos da expressão de matriz especificada.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ARRAY_LENGTH(<arr_expr>)  
@@ -2543,7 +2542,7 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])
 ####  <a name="bk_array_slice"></a> ARRAY_SLICE  
  Devolve a parte de uma expressão de matriz.
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])  
@@ -2593,7 +2592,7 @@ SELECT
 ####  <a name="bk_st_distance"></a> ST_DISTANCE  
  Devolve a distância entre duas expressões de ponto de GeoJSON, polígono ou LineString.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ST_DISTANCE (<spatial_expr>, <spatial_expr>)  
@@ -2630,7 +2629,7 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 ####  <a name="bk_st_within"></a> ST_WITHIN  
  Devolve uma expressão booleana que indica se o objeto GeoJSON (ponto, polígono ou LineString) especificado no primeiro argumento é dentro GeoJSON (ponto, polígono ou LineString) no segundo argumento.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ST_WITHIN (<spatial_expr>, <spatial_expr>)  
@@ -2672,7 +2671,7 @@ WHERE ST_WITHIN(f.location, {
 ####  <a name="bk_st_intersects"></a> ST_INTERSECTS  
  Devolve uma expressão booleana que indica se o objeto GeoJSON (ponto, polígono ou LineString) especificado no primeiro argumento intersetar GeoJSON (ponto, polígono ou LineString) no segundo argumento.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ST_INTERSECTS (<spatial_expr>, <spatial_expr>)  
@@ -2714,7 +2713,7 @@ WHERE ST_INTERSECTS(a.location, {
 ####  <a name="bk_st_isvalid"></a> ST_ISVALID  
  Devolve um valor booleano que indica se a expressão de ponto de GeoJSON, polígono ou LineString especificada é válida.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ST_ISVALID(<spatial_expr>)  
@@ -2751,7 +2750,7 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 ####  <a name="bk_st_isvaliddetailed"></a> ST_ISVALIDDETAILED  
  Devolve um valor JSON que contém um valor boleano valor se a expressão de ponto de GeoJSON, polígono ou LineString especificada é válida e se inválido, além do motivo como um valor de cadeia.  
   
- **Syntax**  
+ **Sintaxe**  
   
 ```  
 ST_ISVALID(<spatial_expr>)  

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="pim-for-azure-resources"></a>PIM para recursos do Azure
 
@@ -37,13 +37,13 @@ Do Azure Active Directory Privileged Identity gestão (PIM), já pode gerir, con
 Pode gerir o Azure AD PIM funções incorporadas de recursos do Azure, bem como as funções (RBAC) personalizadas, incluindo (mas não se limitando):
 
 - Proprietário
-- Administrador de Acesso de Utilizador
+- Administrador de Acesso dos Utilizadores
 - Contribuinte
 - Administrador de Segurança
 - Gestor de segurança e muito mais
 
 >[!NOTE]
-Os utilizadores ou membros de um grupo atribuídas às funções de proprietário ou administrador de acesso de utilizador e os administradores globais que ativar a gestão de subscrição no Azure AD são administradores de recursos. Estes administradores podem atribuir funções, configure definições de função e rever o acesso a utilizar o PIM para recursos do Azure. Ver a lista de [funções incorporadas para recursos do Azure](../role-based-access-built-in-roles.md).
+Os utilizadores ou membros de um grupo atribuídas às funções de proprietário ou administrador de acesso de utilizador e os administradores globais que ativar a gestão de subscrição no Azure AD são administradores de recursos. Estes administradores podem atribuir funções, configure definições de função e rever o acesso a utilizar o PIM para recursos do Azure. Ver a lista de [funções incorporadas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="tasks"></a>Tarefas
 
@@ -193,6 +193,6 @@ Selecione as minhas funções no menu de navegação esquerdo e escolha a funç�
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Funções incorporadas para recursos do Azure](../role-based-access-built-in-roles.md)
+- [Funções incorporadas para recursos do Azure](../../role-based-access-control/built-in-roles.md)
 - Saiba mais sobre [ativar aqui a funções do Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md)
 - [Fluxos de trabalho de aprovação de PIM](azure-ad-pim-approval-workflow.md)

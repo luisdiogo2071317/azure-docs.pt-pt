@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 4d971d75424f85bb07c0be779b9dfedb1ef41c1e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5561ac0089225ae2d06e51a90fa2081e409ce41
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="manage-an-azure-machine-learning-workspace"></a>Gerir uma área de trabalho do Azure Machine Learning
+# <a name="manage-an-azure-machine-learning-workspace"></a>Gerir um espaço de trabalho do Azure Machine Learning
 
 > [!NOTE]
 > Para obter informações sobre a gestão de serviços Web no portal de serviços Web Machine Learning, consulte [gira um serviço Web utilizando o portal de serviços Web do Azure Machine Learning](manage-new-webservice.md).
@@ -31,7 +31,7 @@ Pode gerir áreas de trabalho do Machine Learning no portal do Azure.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
+## <a name="use-the-azure-portal"></a>Utilizar o Portal do Azure
 
 Para gerir uma área de trabalho no portal do Azure:
 
@@ -49,7 +49,7 @@ Para gerir os serviços web associados a esta área de trabalho, utilize o porta
 > [!NOTE]
 > Para implementar ou gerir novos serviços web tem de ser atribuída uma função de contribuinte ou de administrador na subscrição em que o serviço web é implementado. Se convidar outro utilizador para uma área de trabalho de aprendizagem, tem de atribuir-lhes uma função de administrador ou de Contribuidor na subscrição antes de poderem implementar ou gerir serviços web. 
 > 
->Para obter mais informações sobre a definição de permissões de acesso, consulte [atribuições de acesso de vista para utilizadores e grupos no portal do Azure](../../active-directory/role-based-access-control-manage-assignments.md).
+>Para obter mais informações sobre a definição de permissões de acesso, consulte [atribuições de acesso de vista para utilizadores e grupos no portal do Azure](../../role-based-access-control/role-assignments-users.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [implementar Machine Learning com modelos do Azure Resource Manager](deploy-with-resource-manager-template.md). 

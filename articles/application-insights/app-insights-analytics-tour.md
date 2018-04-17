@@ -1,8 +1,8 @@
 ---
-title: "A introdução através de análise no Azure Application Insights | Microsoft Docs"
-description: "Curtas amostras de todas as consultas principais na análise, a ferramenta poderosa pesquisa do Application Insights."
+title: A introdução através de análise no Azure Application Insights | Microsoft Docs
+description: Curtas amostras de todas as consultas principais na análise, a ferramenta poderosa pesquisa do Application Insights.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f82e436e25d01bbfa09ec1e8a2efcdf0be8c006
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>A introdução de análise no Application Insights
 [Análise de](app-insights-analytics.md) é a funcionalidade de pesquisa poderoso de [Application Insights](app-insights-overview.md). Estas páginas descrevem o idioma de consulta de análise de registos.
@@ -69,7 +69,7 @@ Se pretender combinar dados de várias aplicações do Application Insights, uti
 ```
 
 ## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Parte superior](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) e [ordenação](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
-`take`é útil para obter um exemplo rápido de resultado, mas as linhas da tabela mostra nenhuma ordem específica. Para obter uma vista ordenada, utilize `top` (por exemplo) ou `sort` (através da tabela completa).
+`take` é útil para obter um exemplo rápido de resultado, mas as linhas da tabela mostra nenhuma ordem específica. Para obter uma vista ordenada, utilize `top` (por exemplo) ou `sort` (através da tabela completa).
 
 Mostra as primeiras n linhas, ordenadas por uma coluna específica:
 
@@ -79,11 +79,11 @@ Mostra as primeiras n linhas, ordenadas por uma coluna específica:
 ```
 
 * *Sintaxe:* operadores a maioria das tem parâmetros de palavra-chave, tal como `by`.
-* `desc`= a ordem descendente, `asc` = ascendente.
+* `desc` = a ordem descendente, `asc` = ascendente.
 
 ![](./media/app-insights-analytics-tour/260.png)
 
-`top...`é uma forma de performant mais de indicar `sort ... | take...`. Iremos foi de escrever:
+`top...` é uma forma de performant mais de indicar `sort ... | take...`. Iremos foi de escrever:
 
 ```AIQL
 
@@ -128,7 +128,7 @@ Converter um valor de cadeia para um número inteiro para utilizar maior-de comp
 `resultCode` has type string, so we must cast it app-insights-analytics-reference.md#casts for a numeric comparison.
 --->
 
-## <a name="time"></a>Hora
+## <a name="time"></a>Tempo
 
 Por predefinição, as suas consultas estão limitadas para as últimas 24 horas. Mas pode alterar este intervalo:
 
@@ -146,7 +146,7 @@ Substituir o intervalo de tempo ao escrever qualquer consulta que menciona supor
 
 A funcionalidade de intervalo de tempo é equivalente a uma cláusula 'where' inserida após cada menção de uma das tabelas de origem.
 
-`ago(3d)`significa 'há três dias'. Horas de incluir outras unidades de tempo (`2h`, `2.5h`), minutos (`25m`) e segundos (`10s`).
+`ago(3d)` significa 'há três dias'. Horas de incluir outras unidades de tempo (`2h`, `2.5h`), minutos (`25m`) e segundos (`10s`).
 
 Outros exemplos:
 
@@ -170,7 +170,7 @@ Outros exemplos:
 
 ```
 
-[Datas e horas referência](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
+[Datas e horas referência](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
 ## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Projeto](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): selecionar, mudar o nome e colunas de computação
@@ -199,10 +199,10 @@ Também pode mudar o nome de colunas e definir novos:
 
 ![resultado](./media/app-insights-analytics-tour/270.png)
 
-* Os nomes das colunas podem incluir espaços ou símbolos se estes estão entre parênteses assim: `['...']` ou`["..."]`
-* `%`é a habitual operador do módulo.
-* `1d`(que é um dígito, em seguida, um tinha ') é um timespan literal, o que significa um dia. Seguem-se algumas mais literais de timespan: `12h`, `30m`, `10s`, `0.01s`.
-* `floor`(alias `bin`) arredonda por um valor para o múltiplo de valor base que fornece mais próximo. Por isso, `floor(aTime, 1s)` Arredonda por um período de tempo para baixo para a segunda mais próximo.
+* Os nomes das colunas podem incluir espaços ou símbolos se estes estão entre parênteses assim: `['...']` ou `["..."]`
+* `%` é a habitual operador do módulo.
+* `1d` (que é um dígito, em seguida, um tinha ') é um timespan literal, o que significa um dia. Seguem-se algumas mais literais de timespan: `12h`, `30m`, `10s`, `0.01s`.
+* `floor` (alias `bin`) arredonda por um valor para o múltiplo de valor base que fornece mais próximo. Por isso, `floor(aTime, 1s)` Arredonda por um período de tempo para baixo para a segunda mais próximo.
 
 As expressões podem incluir todos os operadores habituais (`+`, `-`,...), sendo uma variedade de funções de útil.
 
@@ -231,7 +231,7 @@ Carimbos encontram-se sempre em UTC. Por isso, se estiver em Costa do Pacífico-
 
 
 ## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>[Resumir](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): Agregar grupos de linhas
-`Summarize`aplica-se uma determinada *numa função de agregação* através de grupos de linhas.
+`Summarize` aplica-se uma determinada *numa função de agregação* através de grupos de linhas.
 
 Por exemplo, o tempo a aplicação web demora a responder a um pedido é reportado no campo `duration`. Vamos ver o tempo de resposta médio para todos os pedidos:
 
@@ -241,13 +241,13 @@ Ou, iremos foi separar o resultado em pedidos de nomes diferentes:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize`recolhe os pontos de dados no fluxo em grupos para os quais o `by` cláusula avalia igualmente. Cada valor de `by` expressão - cada nome de operação exclusivos no exemplo acima - resulta numa linha na tabela de resultados.
+`Summarize` recolhe os pontos de dados no fluxo em grupos para os quais o `by` cláusula avalia igualmente. Cada valor de `by` expressão - cada nome de operação exclusivos no exemplo acima - resulta numa linha na tabela de resultados.
 
 Ou, iremos foi agrupar os resultados por hora do dia:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Repare como estamos a utilizar o `bin` função (aka `floor`). Se é utilizada apenas `by timestamp`, cada linha da entrada terminaria cópias de segurança no seu próprio grupo reduzida. Para qualquer escalar contínua, como vezes ou números, temos de quebrar o intervalo de contínuo um número de valores discretos gerível. `bin`-que é apenas a familiar arredondamento pendente `floor` funcionar – é a forma mais fácil fazê-lo.
+Repare como estamos a utilizar o `bin` função (aka `floor`). Se é utilizada apenas `by timestamp`, cada linha da entrada terminaria cópias de segurança no seu próprio grupo reduzida. Para qualquer escalar contínua, como vezes ou números, temos de quebrar o intervalo de contínuo um número de valores discretos gerível. `bin` -que é apenas a familiar arredondamento pendente `floor` funcionar – é a forma mais fácil fazê-lo.
 
 Podemos utilizar a mesma técnica para reduzir os intervalos de cadeias:
 
@@ -256,7 +256,7 @@ Podemos utilizar a mesma técnica para reduzir os intervalos de cadeias:
 Tenha em atenção que pode utilizar `name=` para definir o nome de uma coluna de resultados, ou as expressões de agregação nem por-cláusula.
 
 ## <a name="counting-sampled-data"></a>Contagem de amostragem dados
-`sum(itemCount)`é a agregação recomendada para a contagem de eventos. Em muitos casos, itemCount = = 1, pelo que a função contagens simplesmente configurar o número de linhas no grupo. Mas quando [amostragem](app-insights-sampling.md) está numa operação, apenas uma fração dos eventos originais são mantidos como pontos de dados no Application Insights, para que para cada ponto de dados, ver, existem `itemCount` eventos.
+`sum(itemCount)` é a agregação recomendada para a contagem de eventos. Em muitos casos, itemCount = = 1, pelo que a função contagens simplesmente configurar o número de linhas no grupo. Mas quando [amostragem](app-insights-sampling.md) está numa operação, apenas uma fração dos eventos originais são mantidos como pontos de dados no Application Insights, para que para cada ponto de dados, ver, existem `itemCount` eventos.
 
 Por exemplo, se amostragem rejeita 75% de eventos originais, então itemCount = = 4 nos registos de retidos - ou seja, para cada registo retido, ocorreram quatro registos originais.
 
@@ -453,7 +453,7 @@ Para obter uma divisão separada para cada país, iremos apenas tem de colocar a
 
 ![](./media/app-insights-analytics-tour/190.png)
 
-## <a name="join"></a>Associar
+## <a name="join"></a>Aderir
 Temos de acesso a várias tabelas, incluindo pedidos e exceções.
 
 Para localizar as exceções relacionadas com um pedido que devolveu uma resposta de falha, pode associar as tabelas no `session_Id`:
@@ -661,7 +661,7 @@ Para localizar os pedidos de HTTP que a aplicação foi processar quando ocorreu
 ![Associar exceções com pedidos no operation_Id](./media/app-insights-analytics-tour/analytics-exception-request.png)
 
 ### <a name="browser-timings-table"></a>Tabela de temporizações de browser
-`browserTimings`Mostra os dados de carregamento de página recolhidos nos browsers dos seus utilizadores.
+`browserTimings` Mostra os dados de carregamento de página recolhidos nos browsers dos seus utilizadores.
 
 [Configurar a aplicação de telemetria do lado do cliente](app-insights-javascript.md) para ver estas métricas.
 
@@ -672,7 +672,7 @@ Mostrar popularities de páginas diferentes e carregar vezes para cada página:
 ![Tempos de carregamento de página no Analytics](./media/app-insights-analytics-tour/analytics-page-load.png)
 
 ### <a name="availability-results-table"></a>Tabela de resultados de disponibilidade
-`availabilityResults`Mostra os resultados da sua [testes web](app-insights-monitor-web-app-availability.md). Cada execução do seu testes de cada localização de teste é comunicada separadamente.
+`availabilityResults` Mostra os resultados da sua [testes web](app-insights-monitor-web-app-availability.md). Cada execução do seu testes de cada localização de teste é comunicada separadamente.
 
 ![Tempos de carregamento de página no Analytics](./media/app-insights-analytics-tour/analytics-availability.png)
 

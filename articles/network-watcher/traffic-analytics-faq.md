@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 78449a527f5ee1410530ded18a11cb8c6a5dded5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Análise de tráfego perguntas mais frequentes
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/28/2018
 12.  Se receber a seguinte mensagem: "1) a analisar o NSG fluir registos pela primeira vez. Este processo pode demorar 20-30 minutos a concluir. Verifique novamente daqui a algum tempo. 2) se o passo anterior não funciona e a sua área de trabalho está sob o SKU livre, em seguida, verifique a utilização da área de trabalho aqui para validar através de quota, ou consulte a perguntas mais frequentes para obter mais informações", como posso resolvê-lo?
 
         Poderá receber o erro pelos seguintes motivos:
-        - Análise de tráfego pode ter sido recentemente ativada e pode ser agregar dados suficientes para o mesmo derivar significativos insights antes de quaisquer relatórios que podem ser gerados. Neste caso, tente novamente após 30 minutos
+        - Análise de tráfego pode ter sido ativada recentemente e poderá não ainda tem agregados dados suficientes para o mesmo derivar insights significativos.
         - A área de trabalho do OMS está sob o SKU livre e infringido, os limites de quota. Neste caso, terá de utilizar uma área de trabalho um SKU com maior capacidade.
     
         Se os problemas persistirem, criar problemas no [fórum de voz do utilizador](https://feedback.azure.com/forums/217313-networking?category_id=195844).

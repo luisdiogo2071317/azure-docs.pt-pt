@@ -2,24 +2,22 @@
 title: Analisar dados de atraso de voo com o Hadoop no HDInsight - Azure | Microsoft Docs
 description: Saiba como utilizar um script do Windows PowerShell para criar um cluster do HDInsight, execute uma tarefa do Hive, execute uma tarefa de Sqoop e eliminar o cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5da745901ec2fe57530e4d7fe38a055e0b8691ac
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6e42cfa666ad6b6523043f4412a321789adad9a1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analisar dados de atraso do voo utilizando o Hive no HDInsight
 Ramo de registo fornece um meio de tarefas em execução Hadoop MapReduce através de uma linguagem de scripts semelhante a SQL denominada  *[HiveQL][hadoop-hiveql]*, que podem ser aplicadas para resumir, consultar e analisar grandes volumes de dados.
@@ -54,7 +52,7 @@ No appendixes, pode encontrar as instruções para carregar dados de atraso do v
 ### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, tem de ter os seguintes itens:
 
-* **Uma subscrição do Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Uma estação de trabalho com o Azure PowerShell**.
 
     > [!IMPORTANT]
@@ -259,9 +257,9 @@ Carregar o ficheiro de dados e os ficheiros de script de HiveQL (consulte [apên
     <tr><th>Nome</th><th>Valor</th></tr>
     <tr><td>Filtrar ano</td><td>2013 </td></tr>
     <tr><td>Período de filtro</td><td>Janeiro</td></tr>
-    <tr><td>Campos</td><td>*Ano*, *FlightDate*, *UniqueCarrier*, *operadora*, *FlightNum*, *OriginAirportID*, *origem*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*,  *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (limpar todos os outros campos)</td></tr>
+    <tr><td>Campos</td><td>*Ano*, *FlightDate*, *UniqueCarrier*, *operadora*, *FlightNum*, *OriginAirportID*, *Origem*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (limpar todos os outros campos)</td></tr>
     </table>
-3.Clique em **transferir**.
+3. Clique em **transferir**.
 4. Deszipe o ficheiro para o **C:\Tutorials\FlightDelay\2013Data** pasta. Cada ficheiro é um ficheiro CSV e tem, aproximadamente, 60GB.
 5. Mudar o nome de ficheiro para o nome do mês que contém dados para. Por exemplo, o ficheiro que contém os dados de Janeiro deverá ser chamado *January.csv*.
 6. Repita os passos 2 e 5 para transferir um ficheiro para cada 12 meses em 2013. Será necessário um mínimo de um ficheiro para executar o tutorial.
@@ -383,8 +381,10 @@ Para obter uma lista completa dos comandos HiveQL, consulte [linguagem de defini
     <tr><td>$storageAccountName</td><td>A conta de armazenamento do Azure onde pretende carregar o script de HiveQL para.</td></tr>
     <tr><td>$blobContainerName</td><td>O contentor do Blob para carregar o script de HiveQL para onde pretende.</td></tr>
     </table>
-2. Abra o ISE do PowerShell do Azure.
-3. Copie e cole o seguinte script no painel de script:
+    
+2. Abra o ISE do PowerShell do Azure.  
+
+3. Copie e cole o seguinte script no painel de script:  
 
     ```powershell
     [CmdletBinding()]
@@ -573,8 +573,10 @@ Para obter uma lista completa dos comandos HiveQL, consulte [linguagem de defini
     <tr><td>$sqlDatabaseLocation</td><td>Este valor é utilizado apenas quando estiver a criar um novo servidor de base de dados do Azure.</td></tr>
     <tr><td>$sqlDatabaseName</td><td>A base de dados SQL, utilizado para criar a tabela de AvgDelays para a tarefa de Sqoop. Deixar em branco, irá criar uma base de dados chamado HDISqoop. O nome da tabela do resultado da tarefa de Sqoop é AvgDelays. </td></tr>
     </table>
+    
 2. Abra o ISE do PowerShell do Azure.
-3. Copie e cole o seguinte script no painel de script:
+
+3. Copie e cole o seguinte script no painel de script:  
 
     ```powershell
     [CmdletBinding()]
@@ -699,7 +701,7 @@ Para obter uma lista completa dos comandos HiveQL, consulte [linguagem de defini
     ```
 
    > [!NOTE]
-   > O script utiliza um serviço de transferência (REST) de estado representativo, http://bot.whatismyipaddress.com, para obter o endereço IP externo. O endereço IP é utilizado para criar uma regra de firewall para o servidor de base de dados do SQL Server.
+   > O script utiliza um serviço de transferência (REST) de estado representativo http://bot.whatismyipaddress.com, para obter o endereço IP externo. O endereço IP é utilizado para criar uma regra de firewall para o servidor de base de dados do SQL Server.
 
     Seguem-se algumas variáveis utilizadas no script:
 

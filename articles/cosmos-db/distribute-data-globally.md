@@ -3,7 +3,7 @@ title: Distribuir dados globalmente com a base de dados do Azure Cosmos | Micros
 description: Saiba mais sobre a recuperação de dados, ativação pós-falha e a georreplicação de planet escala bases de dados global do Azure Cosmos DB, um serviço de base de dados globalmente distribuídas, o modelo de estiverem a utilizar.
 services: cosmos-db
 documentationcenter: ''
-author: arramac
+author: SnehaGunda
 manager: kfile
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
-ms.author: arramac
-ms.openlocfilehash: 588eb4df9555f20fe4193e8ae34ad51c17921db2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: sngun
+ms.openlocfilehash: 54eac2f3a95ecd37af357c933ba03f6c59bb241f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Como distribuir dados globalmente com o Azure Cosmos DB
 Azure ubíquo - tem um requisitos de espaço global em 30 + regiões geográficas e continuamente está a expandir. Com a presença em todo o mundo, uma das capacidades de diferenciadas que Azure oferece aos respetivos programadores é a capacidade de criar, implementar e gerir facilmente aplicações distribuídas global. 
@@ -163,7 +163,7 @@ Azure DB de Cosmos consistência SLA garante que 100% de pedidos de leitura irá
         <td>100%</td>
     </tr>
     <tr>
-        <td>Forte</td>
+        <td>Segura</td>
         <td>Linearizable</td>
         <td>100%</td>
     </tr>
@@ -236,4 +236,4 @@ BD do Azure do Cosmos transparente expõe as métricas de débito, latência, co
 6. Peter Bailis ter usados. [Probabilistic Obsoletismo (. PBS) para práticas Quorums parciais](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 7. Naor e Wool. [Carga, a capacidade e a disponibilidade em sistemas de quórum](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)
 8. Herlihy e satisfeitas. [Lineralizability: Uma correcção condição para objetos em simultâneo](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)
-9. [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
+9. [SLA de BD do Cosmos do Azure](https://azure.microsoft.com/support/legal/sla/cosmos-db/)

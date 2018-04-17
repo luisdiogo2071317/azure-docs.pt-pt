@@ -1,12 +1,12 @@
 ---
-title: "Quais são as coleções de área de trabalho do Power BI?"
-description: "Power BI Embedded permite-lhe integrar relatórios do Power BI na sua web ou de aplicações móveis, por isso não terá de criar soluções personalizadas."
+title: Quais são as coleções de área de trabalho do Power BI?
+description: Power BI Embedded permite-lhe integrar relatórios do Power BI na sua web ou de aplicações móveis, por isso não terá de criar soluções personalizadas.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 7df172895bb926f1715370b941964e2c29ab393d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 0bd6ba74d176ed1db1e8f1f1b38646182da2c379
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Quais são as coleções de área de trabalho do Power BI?
 
@@ -81,7 +81,7 @@ Estes tokens são utilizados para as fases das suas interações com vários **c
 
 Agora pode editar os relatórios existentes ou criar novos relatórios diretamente na sua aplicação sem ter de utilizar o Power BI Desktop. Isto requer que um conjunto de dados existe dentro da sua área de trabalho.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 [Cenários comuns de coleções de área de trabalho do Microsoft Power BI](scenarios.md)  
 [Começar a utilizar coleções de área de trabalho do Microsoft Power BI](get-started.md)  

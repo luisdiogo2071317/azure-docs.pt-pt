@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introdução à informática em nuvem e o Microsoft Azure
 
@@ -158,7 +158,7 @@ Recursos do Azure são computação individuais, redes, dados ou aplicação que
 
 Um grupo de recursos do Azure é um contentor que retém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Grupos de recursos do Azure são abordados em mais detalhe posteriormente neste guia.
 
-### <a name="resource-manager-templates"></a>Modelos do Resource Manager
+### <a name="resource-manager-templates"></a>Modelos do Gestor de Recursos
 
 Um modelo Azure Resource Manager é um ficheiro de JavaScript Object Notation (JSON) que define um ou mais recursos para implementar um grupo de recursos. Também define dependências entre os recursos implementados. Modelos do Resource Manager são abordados em mais detalhe posteriormente neste guia.
 
@@ -234,11 +234,11 @@ Para obter mais informações, consulte [obter informações acerca do consumo d
 
 Os preços para cada serviço no Azure são diferente. Muitos serviços do Azure fornecem escalões básico, Standard e Premium. Normalmente, cada escalão tem vários níveis de preço e desempenho. Utilizando o [Calculadora de preços online](http://azure.microsoft.com/pricing/calculator), pode criar estimativas de preços. A Calculadora inclui flexibilidade para estimar o custo de um único recurso ou um grupo de recursos.
 
-### <a name="set-up-billing-alerts"></a>Set up billing alerts (Configurar alertas de faturação)
+### <a name="set-up-billing-alerts"></a>Configurar alertas de faturação
 
 Depois de ter implementado a sua aplicação ou solução no Azure, pode criar alertas que enviar por e-mail quando abordagem limites de gastos definido o alerta. Para obter mais informações, consulte [configurar alertas para as subscrições do Microsoft Azure de faturação](../../billing/billing-set-up-alerts.md).
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
+## <a name="azure-resource-manager"></a>Gestor de Recursos do Azure
 
 O Azure Resource Manager é um mecanismo de implementação, gestão e organização de recursos do Azure. Utilizando o Gestor de recursos, pode colocar vários recursos individuais em conjunto num grupo de recursos.
 
@@ -323,7 +323,7 @@ Seguem-se algumas funções de exemplo incorporadas no Azure:
 
 -   **Contribuinte de conta de armazenamento**: um utilizador com esta função podem gerir contas de armazenamento, mas não é possível gerir o acesso às contas de armazenamento.
 
-Para obter mais informações, consulte [utilize atribuições de funções para gerir o acesso aos recursos da sua subscrição do Azure](../../active-directory/role-based-access-control-configure.md).
+Para obter mais informações, consulte [utilize atribuições de funções para gerir o acesso aos recursos da sua subscrição do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Máquinas Virtuais do Azure
 
@@ -368,7 +368,7 @@ Gerir o acesso à máquina virtual através do endereço IP público utilizando 
 
 Por fim, tal como acontece com a gestão de qualquer sistema de computador, deve fornecer segurança para uma máquina virtual do Azure, o sistema operativo utilizando as credenciais de segurança e de firewalls de software.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 Storage do Azure é um serviço gerida pela Microsoft que fornece armazenamento durável, dimensionável e redundante. Pode adicionar uma conta de armazenamento do Azure como um recurso para qualquer grupo de recursos com qualquer método de implementação de recursos. Azure inclui quatro tipos de armazenamento: Blob storage, armazenamento de ficheiros, armazenamento de tabelas e o armazenamento de filas. Quando implementar uma conta de armazenamento, dois tipos de conta estiver disponível, para fins gerais e armazenamento de Blobs. Uma conta do storage para fins gerais dá-lhe acesso a todos os quatro tipos de armazenamento. Contas do blob storage são semelhantes às contas para fins gerais, mas contém blobs especializados que incluem camadas de acesso frequente e amovíveis. Para obter mais informações sobre armazenamento de BLOBs, consulte [Blob storage do Azure](../../storage/blobs/storage-blob-storage-tiers.md).
 

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -51,7 +51,7 @@ A tabela seguinte mostra uma lista dos sistemas operativos suportados:
 |Sistema Operativo  |Notas  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Só suporta as avaliações de atualização         |
-|Windows Server 2008 R2 SP1 e posterior     |.NET framework 4.5 e o WMF 5.0 ou posterior, são necessários para o Windows Server 2008 R2 SP1        |
+|Windows Server 2008 R2 SP1 e posterior     |É necessário o Windows PowerShell 4.0 ou superior ([transferir o WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br> 5.1 do Windows PowerShell ([transferir o WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) é recomendada para uma maior fiabilidade.         |
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
@@ -64,7 +64,7 @@ A tabela seguinte lista os sistemas operativos que não são suportados:
 |Sistema Operativo  |Notas  |
 |---------|---------|
 |Cliente Windows     | Sistemas operativos de cliente (Windows 7, Windows 10, etc.) não são suportados.        |
-|Windows Server 2016 Nano Server     | Não suportado       |
+|Servidor do Windows Server 2016 Nano     | Não suportado       |
 
 ### <a name="client-requirements"></a>Requisitos do cliente
 
@@ -208,9 +208,9 @@ A tabela seguinte fornece pesquisas de registo de exemplo para registos de atual
 | --- | --- |
 |Atualizar<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false<br>&#124;Computador título, KBID, classificação, PublishedDate do projeto |Todos os computadores com atualizações em falta<br>Adicione um dos seguintes para limitar o sistema operativo:<br>OSType = "Windows"<br>OSType == "Linux" |
 | Atualizar<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124;Computador título, KBID, produto, PublishedDate do projeto |Atualizações em falta num computador específico (substitua pelo nome do seu computador)|
-| Evento<br>&#124;onde EventLevelName = = "error" e o computador no ((atualização &#124; onde (classificação = = "Atualizações de segurança" e classificação = = "Atualizações críticas")<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false <br>&#124; distinct Computer)) |Eventos de erro de computadores que têm atualizações críticas ou de segurança necessárias em falta |
+| Evento<br>&#124;onde EventLevelName = = "error" e o computador no ((atualização &#124; onde (classificação = = "Atualizações de segurança" e classificação = = "Atualizações críticas")<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false <br>&#124;Computador distinto)) |Eventos de erro de computadores que têm atualizações críticas ou de segurança necessárias em falta |
 | Atualizar<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false<br>&#124;Título distinto |Atualizações em falta distintas em todos os computadores |
-| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Computadores com atualizações que falharam na execução de atualização<br>Adicione um dos seguintes para limitar o sistema operativo:<br>OSType = "Windows"<br>OSType == "Linux" |
+| UpdateRunProgress<br>&#124;onde InstallationStatus = = "Falha" <br>&#124;resumir AggregatedValue = existente pelo computador, o título, UpdateRunName |Computadores com atualizações que falharam na execução de atualização<br>Adicione um dos seguintes para limitar o sistema operativo:<br>OSType = "Windows"<br>OSType == "Linux" |
 | Atualizar<br>&#124; where OSType == "Linux"<br>&#124;onde UpdateState! = "Não necessárias" e (classificação = = "Atualizações críticas" ou classificação = = "Atualizações de segurança")<br>&#124; summarize AggregatedValue = count() by Computer |Lista de todos os computadores Linux, que tem disponível uma atualização do pacote, que aborda vulnerabilidade críticas ou de segurança | 
 | UpdateRunProgress<br>&#124; where UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|Computadores que foram atualizados nesta execução de atualizações (substitua o valor pelo nome da sua Implementação de Atualizações) | 
 

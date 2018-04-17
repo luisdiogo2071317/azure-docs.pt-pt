@@ -1,13 +1,12 @@
 ---
-title: "BD do Azure do Cosmos como um arquivo de valor de chave – descrição geral do custo | Microsoft Docs"
-description: "Saiba mais sobre a baixo custo de utilização da base de dados do Azure Cosmos como um arquivo de valor de chave."
+title: BD do Azure do Cosmos como um arquivo de valor de chave – descrição geral do custo | Microsoft Docs
+description: Saiba mais sobre a baixo custo de utilização da base de dados do Azure Cosmos como um arquivo de valor de chave.
 keywords: arquivo de valor de chave
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: 
-tags: 
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+tags: ''
+documentationcenter: ''
 ms.assetid: 7f765c17-8549-4509-9475-46394fc3a218
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: mimig
-ms.openlocfilehash: e6f87cd82ebe31965fcaac1f66d2df03fd58294f
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: 9854ed30672ea16650fbdd98e991fb3916afef07
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>BD do Azure do Cosmos como um arquivo de valor de chave – descrição geral do custo
 
@@ -53,7 +52,7 @@ Se aprovisionar 1.000 RU/seg, este quantidades m 3,6 RU/hora e irá custos $0.08
 
 Maioria dos BLOBs básico ou objeto arquivos de encargos de serviços $0.40 por milhões de transações de leitura e $5 por transação milhões de escrita. Se utilizados de forma ideal, base de dados do Cosmos podem ser até 98% mais barata que estas outras soluções (para transações de 1 KB).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Esteja atento e novos artigos sobre a otimização de aprovisionamento de recursos do Azure Cosmos DB. Entretanto, não hesite em utilizar o nosso [Calculadora RU](https://www.documentdb.com/capacityplanner).
 

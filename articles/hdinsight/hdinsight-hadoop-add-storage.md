@@ -2,24 +2,22 @@
 title: Adicionar contas de armazenamento do Azure adicionais ao HDInsight | Microsoft Docs
 description: Saiba como adicionar as contas do storage do Azure adicionais para um cluster do HDInsight existente.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 72045d363516a2f16d45e3f8ee157ddd9d9242bd
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 569a41dfdbf2f9d911e67f283f413130ba7e1f79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar contas de armazenamento adicional para o HDInsight
 
@@ -55,7 +53,7 @@ Durante o processamento, o script executa as seguintes ações:
 
 ## <a name="the-script"></a>O script
 
-__Script location__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
+__Localização do script__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
 __Requisitos__:
 
@@ -100,7 +98,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > Definir `$PASSWORD` para a palavra-passe da conta de início de sessão (administrador) do cluster. Definir `$CLUSTERNAME` com o nome do cluster do HDInsight. Definir `$STORAGEACCOUNTNAME` para o nome da conta de armazenamento.
 >
-> Este exemplo utiliza [curl (http://curl.haxx.se/)](http://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) para obter e analisar dados JSON.
+> Este exemplo utiliza [curl (http://curl.haxx.se/) ](http://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/) ](https://stedolan.github.io/jq/) para obter e analisar dados JSON.
 
 Quando utilizar este comando, substitua __CLUSTERNAME__ com o nome do cluster do HDInsight. Substitua __palavra-passe__ com a palavra-passe de início de sessão HTTP para o cluster. Substitua __STORAGEACCOUNT__ com o nome da conta do storage adicionado através da ação de script. As informações devolvidas a partir deste comando parece ser semelhantes para o seguinte texto:
 

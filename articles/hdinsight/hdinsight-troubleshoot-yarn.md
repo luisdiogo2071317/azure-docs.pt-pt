@@ -1,25 +1,23 @@
 ---
 title: Resolver problemas YARN utilizando o Azure HDInsight | Microsoft Docs
-description: "Obtenha respostas a questões recorrentes sobre como trabalhar com Apache Hadoop YARN e o Azure HDInsight."
-keywords: "FAQ do HDInsight, YARN, do Azure, manual, perguntas comuns de resolução de problemas"
+description: Obtenha respostas a questões recorrentes sobre como trabalhar com Apache Hadoop YARN e o Azure HDInsight.
+keywords: FAQ do HDInsight, YARN, do Azure, manual, perguntas comuns de resolução de problemas
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: F76786A9-99AB-4B85-9B15-CA03528FC4CD
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: fbcb4807aa7f6a3d6227cd630c77714c4d2834b3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 338d678fb31a86046b8bc6424d0e8aac2de1a0c5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Resolver problemas YARN utilizando o Azure HDInsight
 
@@ -35,7 +33,7 @@ Utilize os seguintes passos Ambari para criar uma nova fila YARN e, em seguida, 
 Neste exemplo, dois filas existentes (**predefinido** e **thriftsvr**) ambos são alteradas na capacidade de 50% para a capacidade de 25%, o que lhe dá a nova capacidade de 50% da fila (spark).
 | Filas | Capacidade | Capacidade máxima |
 | --- | --- | --- | --- |
-| predefinição | 25% | 50% |
+| predefinido | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
@@ -143,7 +141,7 @@ Estas alterações são visíveis imediatamente na IU de programador do YARN.
 - [Conceitos do Apache Hadoop YARN e aplicações](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 
-### <a name="see-also"></a>Veja Também
+### <a name="see-also"></a>Consultar Também
 [Resolver problemas utilizando o Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 

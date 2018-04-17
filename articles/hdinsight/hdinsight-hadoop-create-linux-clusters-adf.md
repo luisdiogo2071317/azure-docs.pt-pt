@@ -2,7 +2,7 @@
 title: Criar clusters do Hadoop a pedido utilizando o Data Factory - Azure HDInsight | Microsoft Docs
 description: Saiba como criar clusters do Hadoop a pedido no HDInsight com o Azure Data Factory.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: spelluru
 manager: jhubbard
@@ -11,16 +11,14 @@ ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 213f1122dc9f616474005070ae3aefa45641fecc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Criar clusters do Hadoop a pedido no HDInsight com o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -83,9 +81,9 @@ Pode utilizar até três contas de armazenamento neste cenário:
 
 Para simplificar o tutorial, pode utilizar uma conta de armazenamento para servir três efeitos. O script de exemplo do Azure PowerShell encontrado nesta secção efetua as seguintes tarefas:
 
-1. Inicie sessão no Azure.
+1. Iniciar sessão no Azure.
 2. Criar um grupo de recursos do Azure.
-3. Crie uma conta de armazenamento do Azure.
+3. Criar uma conta de Armazenamento do Azure.
 4. Criar um contentor de BLOBs na conta de armazenamento
 5. Copie os seguintes dois ficheiros para o contentor do Blob:
 
@@ -561,7 +559,7 @@ No caso de não pretender eliminar a conta de armazenamento ao eliminar o grupo 
         }
     },            
     ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a utilizar o Azure Data Factory para criar o cluster do HDInsight a pedido para processar as tarefas do Hive. Para mais informações:
 
 * [Tutorial do Hadoop: começar a utilizar o Hadoop baseado em Linux no HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

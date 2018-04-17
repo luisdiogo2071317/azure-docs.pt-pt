@@ -1,11 +1,11 @@
 ---
-title: "Automatizar a auditoria de NSG com vista do grupo de segurança de observador de rede do Azure | Microsoft Docs"
-description: "Esta página fornece instruções sobre como configurar a auditoria de um grupo de segurança de rede"
+title: Automatizar a auditoria de NSG com vista do grupo de segurança de observador de rede do Azure | Microsoft Docs
+description: Esta página fornece instruções sobre como configurar a auditoria de um grupo de segurança de rede
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 57f2200e541eeb629f72d60ffa0acb2d8233c018
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar a auditoria de NSG com vista do grupo de segurança de observador de rede do Azure
 
@@ -185,9 +185,9 @@ Direction                : Inbound
 SideIndicator            : <=
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Se as definições foram alteradas, consulte o artigo [gerir grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para identificar as regras de segurança e de grupo de segurança de rede que estão em questão.
+Se as definições foram alteradas, consulte o artigo [gerir grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para identificar as regras de segurança e de grupo de segurança de rede que estão em questão.
 
 
 

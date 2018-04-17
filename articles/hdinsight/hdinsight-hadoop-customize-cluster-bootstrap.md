@@ -1,8 +1,8 @@
 ---
-title: "Personalizar Clusters do HDInsight utilizando o arranque de configuração - Azure | Microsoft Docs"
-description: "Saiba como personalizar clusters do HDInsight utilizando o arranque de configuração."
+title: Personalizar Clusters do HDInsight utilizando o arranque de configuração - Azure | Microsoft Docs
+description: Saiba como personalizar clusters do HDInsight utilizando o arranque de configuração.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 2bead1a879811349e4bee5dfebdcbbb838130b81
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3991a291de04b8bd9696b456fc11c24a9ddfe1d9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight utilizando o arranque de configuração
 
@@ -34,7 +32,7 @@ Por vezes, pretende configurar os ficheiros de configuração, que incluem:
 * hdfs-site.xml
 * hive-env.xml
 * hive-site.xml
-* mapred-site
+* mapred site
 * oozie-site.xml
 * oozie-env.xml
 * storm-site.xml
@@ -133,7 +131,7 @@ Pode utilizar o arranque no modelo do Resource Manager:
 
 ![HDInsight Hadoop customizes modelo Azure Resource Manager arranque de configuração do cluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Criar clusters do Hadoop no HDInsight] [ hdinsight-provision-cluster] fornece instruções sobre como criar um cluster do HDInsight utilizando outras opções personalizadas.
 * [Desenvolver scripts de ação de Script para o HDInsight][hdinsight-write-script]
 * [Instalar e utilizar o Spark nos clusters do HDInsight][hdinsight-install-spark]

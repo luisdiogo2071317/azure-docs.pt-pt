@@ -1,36 +1,32 @@
 ---
-title: "Identidade do serviço no serviço de aplicações e funções do Azure gerido | Microsoft Docs"
-description: "Guia de referência e a configuração conceptual para o suporte de identidade de serviço geridas no App Service do Azure e as funções do Azure"
+title: Identidade do serviço no serviço de aplicações e funções do Azure gerido | Microsoft Docs
+description: Guia de referência e a configuração conceptual para o suporte de identidade de serviço geridas no App Service do Azure e as funções do Azure
 services: app-service
 author: mattchenderson
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a2aacc28a70a5150c1903a60c7a697409e2bbbe7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Como utilizar a identidade de serviço geridas (pré-visualização pública) do Azure no serviço de aplicações e funções do Azure
 
 > [!NOTE] 
-> Identidade de serviço geridas para o serviço de aplicações e funções do Azure está atualmente em pré-visualização.
+> Identidade de serviço geridas para o serviço de aplicações e funções do Azure está atualmente em pré-visualização. Serviço de aplicações no Linux e a aplicação Web para contentores não são atualmente suportadas.
 
 Este tópico mostra-lhe como criar uma identidade de aplicação gerida para aplicações de serviço de aplicações e funções do Azure e como utilizá-la para aceder a outros recursos. Uma identidade de serviço gerida do Azure Active Directory permite à aplicação aceder facilmente a outros recursos protegidos do AAD, tais como o Cofre de chaves do Azure. A identidade é gerida pela plataforma do Azure e não necessita de aprovisionar ou rodar os segredos. Para obter mais informações sobre a identidade de serviço geridas, consulte o [descrição geral de identidade de serviço geridas](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Criar uma aplicação com uma identidade
 
 A criação de uma aplicação com uma identidade requer uma propriedade adicional para ser definidas na aplicação.
-
-> [!NOTE] 
-> Apenas a ranhura de um site primária, irá receber a identidade. Gerido identidades de serviço para implementação ranhuras ainda não são suportadas.
-
 
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
@@ -48,11 +44,11 @@ Para configurar uma identidade de serviço geridas no portal, irá criar primeir
 
 ### <a name="using-the-azure-cli"></a>Com a CLI do Azure
 
-Para configurar uma identidade de serviço gerida utilizando a CLI do Azure, terá de utilizar o `az webapp assign-identity` comando em relação a uma aplicação existente. Tem três opções para executar os exemplos nesta secção:
+Para configurar uma identidade de serviço gerida utilizando a CLI do Azure, terá de utilizar o `az webapp identity assign` comando em relação a uma aplicação existente. Tem três opções para executar os exemplos nesta secção:
 
 - Utilize [Shell de nuvem do Azure](../cloud-shell/overview.md) do portal do Azure.
 - Utilize a Shell de nuvem do Azure incorporados através de "Tente-" botão, localizado no canto superior direito de cada bloco de código abaixo.
-- [Instale a versão mais recente do CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 ou posterior) se preferir utilizar uma consola local do CLI. 
+- [Instale a versão mais recente do CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 ou posterior) se preferir utilizar uma consola local do CLI. 
 
 Os passos seguintes irão guiá-lo através da criação de uma aplicação web e atribuição do mesmo uma identidade utilizando a CLI:
 
@@ -65,14 +61,14 @@ Os passos seguintes irão guiá-lo através da criação de uma aplicação web 
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location westus
-    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
-    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    az appservice plan create --name myPlan --resource-group myResourceGroup --sku S1
+    az webapp create --name myApp --resource-group myResourceGroup --plan myPlan
     ```
 
-3. Execute o `assign-identity` comando para criar a identidade para esta aplicação:
+3. Execute o `identity assign` comando para criar a identidade para esta aplicação:
 
     ```azurecli-interactive
-    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Utilizar um modelo Azure Resource Manager
@@ -163,7 +159,7 @@ O **MSI_ENDPOINT** é um URL local a partir da qual a aplicação pode pedir tok
 > |-----|-----|-----|
 > |Recurso|Consulta|O URI do recurso de recurso do AAD para que um token deve ser obtido.|
 > |versão de API|Consulta|A versão da API token a ser utilizado. "2017-09-01" está atualmente a única versão suportada.|
-> |segredo|Cabeçalho|O valor da variável de ambiente de MSI_SECRET.|
+> |secreta|Cabeçalho|O valor da variável de ambiente de MSI_SECRET.|
 
 
 Uma resposta com êxito de OK 200 inclui um corpo JSON com as seguintes propriedades:

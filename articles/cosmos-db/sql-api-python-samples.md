@@ -3,8 +3,8 @@ title: Exemplos de Python de API do SQL Server para a base de dados do Azure Cos
 description: Localize exemplos de Python no github para tarefas comuns na BD do Cosmos do Azure, incluindo as operações CRUD.
 keywords: Exemplos de Python
 services: cosmos-db
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 documentationcenter: python
 ms.assetid: 7f4f8db3-e9db-4645-92ef-7819d486a349
 ms.service: cosmos-db
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: mimig
-ms.openlocfilehash: ce9a7d071575b30e0150b23291292bddd0c65f1f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 84b12ff3812803e3c1cb3b10cc939176303f1709
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos de Python do Cosmos BD do Azure
 
@@ -54,7 +54,7 @@ Terá também de [Python SDK](sql-api-sdk-python.md).
 ## <a name="database-examples"></a>Exemplos de base de dados
 O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py) ficheiro o [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement) projeto mostra como realizar as seguintes tarefas:
 
-| Tarefa | Referência da API |
+| Tarefa | Referência de API |
 | --- | --- |
 | [Criar uma base de dados](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/DatabaseManagement/Program.py#L65-L76) |[document_client.CreateDatabase](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateDatabase) |
 | [Uma base de dados por ID de leitura](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/DatabaseManagement/Program.py#L79-L96) |[document_client.ReadDatabase](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#ReadDatabase) |
@@ -64,7 +64,7 @@ O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samp
 ## <a name="collection-examples"></a>Exemplos de coleção
 O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py) ficheiro o [CollectionManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement) projeto mostra como realizar as seguintes tarefas:
 
-| Tarefa | Referência da API |
+| Tarefa | Referência de API |
 | --- | --- |
 | [Criar uma coleção](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L84-L135) |[document_client.CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Ler uma lista de todas as coleções numa base de dados](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L198-L209) |[document_client.ReadCollections](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#ReadCollections) |
@@ -75,7 +75,7 @@ O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samp
 ## <a name="document-examples"></a>Exemplos de documento
 O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py) ficheiro o [DocumentManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement) projeto mostra como realizar as seguintes tarefas:
 
-| Tarefa | Referência da API |
+| Tarefa | Referência de API |
 | --- | --- |
 | [Criar um documento](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py#L55-L66) |[document_client.CreateDocument](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateDocument) |
 | [Criar uma coleção de documentos](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py#L55-L66) |[document_client.CreateDocuments](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateDocuments) |
@@ -85,7 +85,7 @@ O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samp
 ## <a name="indexing-examples"></a>Exemplos de indexação
 O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py) ficheiro o [IndexManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement) projeto mostra como realizar as seguintes tarefas:
 
-| Tarefa | Referência da API |
+| Tarefa | Referência de API |
 | --- | --- |
 | [Utilize a indexação manual (em vez do automático)](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L245-L246) |[IndexingPolicy.Automatic](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Excluir caminhos de documento especificado do índice](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L294-L367) |[IndexingPolicy.ExcludedPaths](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
@@ -97,7 +97,7 @@ O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samp
 ## <a name="query-examples"></a>Exemplos de consulta
 Os projetos de exemplo mostram também como efetuar as seguintes tarefas de consulta:
 
-| Tarefa | Referência da API |
+| Tarefa | Referência de API |
 | --- | --- |
 | [Consulta uma conta para uma base de dados](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/DatabaseManagement/Program.py#L49-L62) |[document_client.QueryDatabases](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html) |
 | [Consulta de documentos](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L152-L169) |[document_client.QueryDocuments](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#QueryDocuments) |

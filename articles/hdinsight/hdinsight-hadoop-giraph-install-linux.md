@@ -1,8 +1,8 @@
 ---
 title: Instalar e utilizar Giraph no HDInsight (Hadoop) - Azure | Microsoft Docs
-description: "Saiba como instalar Giraph nos clusters do HDInsight baseado em Linux utilizando as ações de Script. Ações de script permitem-lhe personalizar o cluster durante a criação, alteração da configuração de cluster ou instalar os serviços e utilitários."
+description: Saiba como instalar Giraph nos clusters do HDInsight baseado em Linux utilizando as ações de Script. Ações de script permitem-lhe personalizar o cluster durante a criação, alteração da configuração de cluster ou instalar os serviços e utilitários.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 1f2ee45d5d3a4dbb53faf43f67989ea92488b92a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: dcfd37a40ce16a1574c21e3a6e9520cb2e773166
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar Giraph em clusters do HDInsight Hadoop e utilizar Giraph para processar gráficos em grande escala
 
@@ -42,16 +40,16 @@ Saiba como instalar o Apache Giraph num cluster do HDInsight. A funcionalidade d
 > [!WARNING]
 > Componentes fornecidos com o cluster do HDInsight são totalmente suportados - Support da Microsoft ajuda a isolar e resolver problemas relacionados com estes componentes.
 >
-> Componentes personalizados, tais como Giraph, recebem suporte comercialmente razoável para ajudar a resolver o problema. Support da Microsoft podem ser capaz de resolver o problema. Caso contrário, tem de consultar Comunidades de open source para onde se encontra profundo conhecimentos para que a tecnologia. Por exemplo, existem vários sites de Comunidade que podem ser utilizadas, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Também projetos do Apache tem sites de projeto no [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
+> Componentes personalizados, tais como Giraph, recebem suporte comercialmente razoável para ajudar a resolver o problema. Support da Microsoft podem ser capaz de resolver o problema. Caso contrário, tem de consultar Comunidades de open source para onde se encontra profundo conhecimentos para que a tecnologia. Por exemplo, existem vários sites de Comunidade que podem ser utilizadas, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Também projetos do Apache tem sites de projeto no [ http://apache.org ](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
 
 
 ## <a name="what-the-script-does"></a>O que faz o script
 
 Este script executa as seguintes ações:
 
-* Instala Giraph para`/usr/hdp/current/giraph`
+* Instala Giraph para `/usr/hdp/current/giraph`
 
-* Copia o `giraph-examples.jar` ficheiro para o armazenamento de predefinido (WASB) para o cluster:`/example/jars/giraph-examples.jar`
+* Copia o `giraph-examples.jar` ficheiro para o armazenamento de predefinido (WASB) para o cluster: `/example/jars/giraph-examples.jar`
 
 ## <a name="install"></a>Instalar Giraph utilizando ações de Script
 
@@ -76,7 +74,7 @@ Esta secção fornece instruções sobre como utilizar o script de exemplo ao cr
 
    * **NOME**: introduza um nome amigável para a ação de script.
 
-   * **URI de SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+   * **URI DE SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
    * **HEAD**: esta entrada de verificação
 

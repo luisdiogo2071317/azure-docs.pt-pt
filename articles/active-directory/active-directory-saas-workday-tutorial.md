@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Workday | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e do Workday."
+title: 'Tutorial: Integração do Azure Active Directory com Workday | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e do Workday.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 1dfe319e708e6a4e815413da1a7bf635f4d0a53d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Azure Active Directory com Workday
 
@@ -108,15 +108,15 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínios e URLs do workday único informações de início de sessão](./media/active-directory-saas-workday-tutorial/tutorial_workday_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. No **identificador** caixa de texto, escreva um URL:`http://www.workday.com`
+    b. No **identificador** caixa de texto, escreva um URL: `http://www.workday.com`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte:
 
     ![Domínios e URLs do workday único informações de início de sessão](./media/active-directory-saas-workday-tutorial/tutorial_workday_url1.png)
 
-    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://impl.workday.com/<tenant>/login-saml.htmld`
+    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://impl.workday.com/<tenant>/login-saml.htmld`
      
     > [!NOTE] 
     > Estes valores não estiverem a real. Atualize estes valores com o URL de início de sessão real e o URL de resposta. O URL de resposta tem de ter um subdomínio por exemplo: www, wd2, wd3, wd3 impl, wd5, wd5 impl). Utilizar algo semelhante a "*http://www.myworkday.com*" funciona, mas "*http://myworkday.com*" não. Contacte [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter estes valores.  
@@ -153,7 +153,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     >[!NOTE]
     > O valor do atributo ambiente está associado ao valor do URL de inquilino:  
-    >-Se o nome de domínio do URL de inquilino do Workday começa com impl por exemplo: *https://impl.workday.com/\<inquilino\>/login-saml2.htmld*), o **ambiente** atributo tem de ser definida para a implementação.  
+    >-Se o nome de domínio do URL de inquilino do Workday começa com impl por exemplo:  *https://impl.workday.com/ \<inquilino\>/login-saml2.htmld*), o **ambiente** tem de ser definido a implementação.  
     >-Se o nome de domínio é iniciado com outra coisa, terá de contactar [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter a correspondência **ambiente** valor.
 
 11. No **configuração SAML** secção, execute os seguintes passos:
@@ -172,9 +172,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
    
     b. No portal do Azure, no **configurar início de sessão** janela, copie o **ID de entidade de SAML** valor e, em seguida, cole-o para o **emissor** caixa de texto.
 
-    ![Fornecedores de identidade SAML](./media/active-directory-saas-workday-tutorial/IC7829271(1).png "fornecedores de identidade SAML")
+    ![Fornecedores de identidade SAML](./media/active-directory-saas-workday-tutorial/IC7829272.png "fornecedores de identidade SAML")
    
-    c. Selecione **ativar a fim de sessão iniciada do Workday**.
+    c. Selecione **ativar idp iniciada a fim de sessão**.
    
     d. No portal do Azure, no **configurar início de sessão** janela, copie o **Sign-Out URL** valor e, em seguida, cole-o para o **URL de resposta de fim de sessão** caixa de texto.
 
@@ -226,9 +226,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     d. Clique em **OK**. 
    
     ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -309,7 +306,6 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-workday-tutorial/tutorial_general_01.png
@@ -323,4 +319,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-workday-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workday-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workday-tutorial/tutorial_general_203.png
-

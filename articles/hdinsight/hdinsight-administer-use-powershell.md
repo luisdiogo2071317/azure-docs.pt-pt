@@ -1,26 +1,24 @@
 ---
-title: "Gerir clusters do Hadoop no HDInsight com o PowerShell – Azure | Microsoft Docs"
+title: Gerir clusters do Hadoop no HDInsight com o PowerShell – Azure | Microsoft Docs
 description: Saiba como efetuar tarefas administrativas para os clusters do Hadoop no HDInsight com o Azure PowerShell.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 tags: azure-portal
 author: mumian
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 04bb16d4779741d71f686f53a8f325243ab8499e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8163c2a0443e5e92be6e54e04f529db307bc965a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gerir clusters do Hadoop no HDInsight ao utilizar o Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -33,7 +31,7 @@ Antes de começar este artigo, tem de ter os seguintes itens:
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
+## <a name="install-azure-powershell"></a>Instalar Azure PowerShell
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 Se tiver instalado o Azure PowerShell versão 0,9 x, tem de o desinstalar antes de instalar uma versão mais recente.

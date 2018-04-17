@@ -1,24 +1,25 @@
 ---
-title: "Aprovisionar uma máquina de Virtual Artificial Intelligence Georreplicação no Azure - Azure | Microsoft Docs"
-description: "Como aprovisionar uma máquina de Virtual AI Georreplicação no Azure."
-keywords: "ligação avançada learning AI, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise Geoespacial"
+title: Aprovisionar uma máquina de Virtual Artificial Intelligence Georreplicação no Azure - Azure | Microsoft Docs
+description: Como aprovisionar uma máquina de Virtual AI Georreplicação no Azure.
+keywords: ligação avançada learning AI, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise Geoespacial
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: gopitk
 manager: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2994ef858e960640d98ab2f7d02a401b11aa9e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 93dfe6594aeaf45a6905fe8cb55c98dd37cc9599
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual Artificial Intelligence Georreplicação no Azure 
 

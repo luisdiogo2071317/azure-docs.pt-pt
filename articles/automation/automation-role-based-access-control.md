@@ -1,7 +1,7 @@
 ---
-title: "Controlo de acesso baseado em funções na Automatização do Azure"
-description: "O controlo de acesso baseado em funções (RBAC) permite uma gestão de acesso para os recursos do Azure. Este artigo descreve como configurar o RBAC na Automatização do Azure."
-keywords: "rbac de automatização, controlo de acesso baseado em funções , rbac do azure"
+title: Controlo de acesso baseado em funções na Automatização do Azure
+description: O controlo de acesso baseado em funções (RBAC) permite uma gestão de acesso para os recursos do Azure. Este artigo descreve como configurar o RBAC na Automatização do Azure.
+keywords: rbac de automatização, controlo de acesso baseado em funções , rbac do azure
 services: automation
 ms.service: automation
 author: georgewallace
@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9fb77f3b435491b5ac5b16327d6ce74f90664a79
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9cdebd2fb7f650b042fa04f345ac440e0b41cb8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controlo de acesso baseado em funções na Automatização do Azure
 
-O controlo de acesso baseado em funções (RBAC) permite uma gestão de acesso para os recursos do Azure. Utilizar [RBAC](../active-directory/role-based-access-control-configure.md), pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores, grupos e aplicações que precisam para desempenhar as suas funções. O acesso baseado em funções pode ser concedido aos utilizadores através do portal do Azure, das ferramentas da Linha de Comandos do Azure ou de APIs de Gestão do Azure.
+O controlo de acesso baseado em funções (RBAC) permite uma gestão de acesso para os recursos do Azure. Utilizar [RBAC](../role-based-access-control/role-assignments-portal.md), pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores, grupos e aplicações que precisam para desempenhar as suas funções. O acesso baseado em funções pode ser concedido aos utilizadores através do portal do Azure, das ferramentas da Linha de Comandos do Azure ou de APIs de Gestão do Azure.
 
 ## <a name="roles-in-automation-accounts"></a>Funções de contas de automatização
 Na Automatização do Azure, é concedido acesso ao atribuir a função RBAC adequada aos utilizadores, grupos e aplicações no âmbito da conta de Automatização. Seguem-se as funções incorporadas suportadas por uma conta de Automatização:
@@ -34,7 +34,7 @@ Na Automatização do Azure, é concedido acesso ao atribuir a função RBAC ade
 | Leitor do Log Analytics | A função de leitor de análise do registo permite-lhe visualizar e pesquisar a todas as monitorização dados, bem como ver definições de monitorização. Isto inclui a visualizar a configuração de diagnóstico do Azure em todos os recursos do Azure. |
 | Contribuidor de Monitorização | A função de contribuinte de monitorização permite-lhe ler todos os dados de monitorização e atualizar as definições de monitorização.|
 | Leitor de Monitorização | A função de leitor de Montioring permite-lhe ler todos os dados de monitorização. |
-| Administrador de Acesso de Utilizador |A função de Administrador de Acesso de Utilizador permite-lhe gerir o acesso de utilizador para as contas de Automatização do Azure. |
+| Administrador de Acesso dos Utilizadores |A função de Administrador de Acesso de Utilizador permite-lhe gerir o acesso de utilizador para as contas de Automatização do Azure. |
 
 ## <a name="role-permissions"></a>Permissões de função
 
@@ -187,7 +187,7 @@ Um leitor de monitorização pode ler todos os dados de monitorização. A tabel
 |Microsoft.OperationalInsights/workspaces/search/action|Pesquise áreas de trabalho de análise de registos.|
 |Microsoft.Support/*|Criar e gerir pedidos de suporte|
 
-### <a name="user-access-administrator"></a>Administrador de Acesso de Utilizador
+### <a name="user-access-administrator"></a>Administrador de Acesso dos Utilizadores
 
 Um administrador de acesso de utilizador pode gerir o acesso de utilizador nos recursos do Azure. A tabela seguinte mostra as permissões concedidas para a função:
 
@@ -197,7 +197,7 @@ Um administrador de acesso de utilizador pode gerir o acesso de utilizador nos r
 |Microsoft.Authorization/*|Gerir autorização|
 |Microsoft.Support/*|Criar e gerir pedidos de suporte|
 
-## <a name="onboarding"></a>Inclusão
+## <a name="onboarding"></a>Carregamento
 
 As tabelas seguintes mostram as permissões necessárias mínimo necessárias para as máquinas virtuais de integração para a registo de alterações ou atualizar as soluções de gestão.
 
@@ -307,7 +307,7 @@ Este utilizador também não tem acesso para ver os webhooks associados a um run
 ![Sem acesso aos webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>Configurar o RBAC para a sua conta de automatização com o Azure PowerShell
-Acesso baseado em funções também pode ser configurado para uma conta de automatização utilizando os seguintes [cmdlets Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Acesso baseado em funções também pode ser configurado para uma conta de automatização utilizando os seguintes [cmdlets Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 • [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lista todas as funções do RBAC que estão disponíveis no Azure Active Directory. Pode utilizar este comando juntamente com a propriedade **Nome** para listar todas as ações que podem ser utilizadas com uma função específica.
 
@@ -380,7 +380,7 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 Nos exemplos anteriores, substitua **sessão Id**, **Id de subscrição**, **nome do grupo de recursos**, e **nome da conta de automatização** com o Detalhes da conta. Escolha **Sim** quando lhe for solicitado para confirmar antes de continuar para remover a atribuição de função de utilizador.   
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para obter informações sobre diferentes maneiras de configurar o RBAC para a Automatização do Azure, veja [Gerir o RBAC com o Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
+* Para obter informações sobre diferentes maneiras de configurar o RBAC para a Automatização do Azure, veja [Gerir o RBAC com o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Para obter detalhes sobre diferentes formas de iniciar um runbook, consulte o artigo [Iniciar um runbook](automation-starting-a-runbook.md)
 * Para obter informações sobre os vários tipos de runbook, veja [Tipos de runbook de Automatização do Azure](automation-runbook-types.md)
 

@@ -1,8 +1,8 @@
 ---
-title: "Utilize um utilizador atribuído MSI numa VM com Linux para aceder ao armazenamento do Azure"
-description: "Um tutorial que explica o processo de utilização de um utilizador atribuído geridos serviço de identidade (MSI) numa VM com Linux para aceder ao armazenamento do Azure."
+title: Utilize um utilizador atribuído MSI numa VM com Linux para aceder ao armazenamento do Azure
+description: Um tutorial que explica o processo de utilização de um utilizador atribuído geridos serviço de identidade (MSI) numa VM com Linux para aceder ao armazenamento do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: arluca
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5ae0e4e8149772d79190ee196cdd1c1bef344681
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dd82f1757d9c5a5fc8fb110cc36ec9f4bbd73e8a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Utilize um utilizador atribuído geridos serviço de identidade (MSI) numa VM com Linux para aceder ao armazenamento do Azure
 
@@ -43,9 +43,9 @@ Para executar os exemplos de script CLI neste tutorial, tem duas opções:
 - Utilize [Shell de nuvem do Azure](~/articles/cloud-shell/overview.md) do portal do Azure ou através do botão "Tente-", localizada no canto superior direito de cada bloco de código.
 - [Instale a versão mais recente do CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou posterior) se preferir utilizar uma consola local do CLI.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
-Inicie sessão no portal do Azure em [ https://portal.azure.com ](https://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual Linux num novo grupo de recursos
 
@@ -102,7 +102,7 @@ Atribuir o MSI utilizador atribuído à VM com Linux utilizando [az vm atribuir-
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage 
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
 Se ainda não tiver um, agora crie uma conta de armazenamento. Também pode ignorar este passo e utilizar uma conta de armazenamento existente, se preferir. 
 
@@ -189,7 +189,7 @@ Para concluir estes passos, precisa de um cliente SSH. Se estiver a utilizar o W
 4. Agora utilize o token de acesso para aceder ao armazenamento do Azure, por exemplo, para ler o conteúdo do ficheiro de exemplo que carregou anteriormente para o contentor. Substitua os valores de `<STORAGE ACCOUNT>`, `<CONTAINER NAME>`, e `<FILE NAME>` com os valores que especificou anteriormente, e `<ACCESS TOKEN>` com o token devolvido no passo anterior.
 
    ```bash
-   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2017-11-09 -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME> -H "x-ms-version: 2017-11-09" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
    A resposta contém o conteúdo do ficheiro:

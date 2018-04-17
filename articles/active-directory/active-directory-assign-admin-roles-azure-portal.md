@@ -1,25 +1,25 @@
 ---
-title: "Atribuir funções de administrador no Azure Active Directory | Microsoft Docs"
-description: "Uma função de administrador pode adicionar utilizadores, atribuir funções administrativas, repor palavras-passe do utilizador, gerir licenças de utilizador ou gerir os domínios. Um utilizador a quem é atribuído uma função de administrador tem as mesmas permissões em todos os serviços de nuvem para o qual a sua organização tiver subscrito."
+title: Atribuir funções de administrador no Azure Active Directory | Microsoft Docs
+description: Uma função de administrador pode adicionar utilizadores, atribuir funções administrativas, repor palavras-passe do utilizador, gerir licenças de utilizador ou gerir os domínios. Um utilizador a quem é atribuído uma função de administrador tem as mesmas permissões em todos os serviços de nuvem para o qual a sua organização tiver subscrito.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8ba4787852902f194deb3eee27ff9f0fc28fa5aa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 88cd8fd99b61a8332d443e4969e30eac39916d66
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -140,7 +140,7 @@ Vista do Azure AD início de sessão relatórios e registos de auditoria<br>Ver 
 ### <a name="security-reader"></a>Leitor de Segurança
 | No | Pode fazê-lo |
 | --- | --- |
-| Identity Protection Center |Ler todos os relatórios de segurança e informações de definições de funcionalidades de segurança<ul><li>Anti spam<li>Encriptação<li>Prevenção de perda de dados<li>Anti-malware<li>Proteção avançada contra ameaças<li>Antiphishing<li>Regras de Mailflow |
+| Identity Protection Center |Ler todos os relatórios de segurança e informações de definições de funcionalidades de segurança<ul><li>Anti spam<li>Encriptação<li>Prevenção de perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Antiphishing<li>Regras de Mailflow |
 | Privileged Identity Management |<p>Tem acesso só de leitura para todas as informações anexados no Azure AD PIM: as políticas e relatórios para atribuições de funções do Azure AD, segurança analisa e acesso aos dados de política e relatórios para cenários para além de atribuição de função do Azure AD de leitura no futuro.<p>**Não é possível** inscrever-se no Azure AD PIM ou efetue as alterações. No portal do PIM ou através do PowerShell, alguém que esta função pode ativar funções adicionais (por exemplo, Administrador Global ou com privilégios de função de administrador), se o utilizador é uma candidata para os mesmos. |
 | <p>O estado de funcionamento do monitor do Office 365 serviço</p><p>Segurança do Office 365 e o Centro de conformidade</p> |<ul><li>Ler e gerir alertas<li>Políticas de segurança de leitura<li>Ler informações sobre ameaças, o Cloud App Discovery e colocam em quarentena na procura e investigar<li>Ler todos os relatórios |
 
@@ -189,7 +189,7 @@ As seguintes funções não devem ser utilizadas. Estes foi despromovida e será
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre como alterar os administradores para uma subscrição do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
-* Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](active-directory-understanding-resource-access.md)
+* Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para obter mais informações sobre como o Azure Active Directory relacionada com a sua subscrição do Azure, consulte [subscrições do Azure como estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Gerir utilizadores](active-directory-create-users.md)
 * [Gerir palavras-passe](active-directory-manage-passwords.md)

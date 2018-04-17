@@ -1,12 +1,12 @@
 ---
-title: "Cópia de segurança do Azure: Preparar a cópia de segurança de máquinas virtuais | Microsoft Docs"
-description: "Certifique-se de que o seu ambiente está preparado para fazer uma cópia de segurança de máquinas virtuais no Azure."
+title: 'Cópia de segurança do Azure: Preparar a cópia de segurança de máquinas virtuais | Microsoft Docs'
+description: Certifique-se de que o seu ambiente está preparado para fazer uma cópia de segurança de máquinas virtuais no Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "cópias de segurança; cópia de segurança;"
+editor: ''
+keywords: cópias de segurança; cópia de segurança;
 ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70c1553c166cc334f9db03c78139181c6f5c0553
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -55,7 +55,7 @@ Antes de preparar o seu ambiente, é necessário compreender estas limitações:
 * Dados de cópia de segurança não incluem unidades de rede montado ligadas a uma VM.
 * A substituição de uma máquina virtual existente durante o restauro não é suportada. Se tentar restaurar a VM quando existe a VM, a operação de restauro irá falhar.
 * Por várias regiões criar cópias de segurança e restauro não são suportadas.
-* Cópia de segurança e restauro de máquinas virtuais utilizando discos não geridos em contas de armazenamento com regras de rede aplicadas, não é suportada. 
+* Cópia de segurança e restauro de máquinas virtuais utilizando discos não geridos em contas de armazenamento com regras de rede aplicadas, não é suportada para os clientes na pilha de cópia de segurança de VM antigo. 
 * Durante a configuração anterior cópias de segurança, certifique-se de que o **Firewalls e redes virtuais** as definições de conta de armazenamento permitem o acesso a partir de todas as redes.
 * Pode criar cópias de segurança máquinas virtuais em todas as regiões públicas do Azure. (Consulte o [lista de verificação](https://azure.microsoft.com/regions/#services) de regiões suportadas.) Se a região que procura não é suportada atualmente, não serão apresentados na lista pendente durante a criação do cofre.
 * Restaurar um controlador de domínio (DC) VM que faz parte de uma configuração de várias DC é suportada apenas através do PowerShell. Para obter mais informações, consulte [restaurar um controlador de domínio do DC várias](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
@@ -298,7 +298,7 @@ Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
 
-## <a name="questions"></a>Tem dúvidas?
+## <a name="questions"></a>Dúvidas?
 Se tiver dúvidas ou se houver alguma funcionalidade que pretende ver incluída, [envie-nos comentários](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 42fbf50ac0807a3982385990871d9c4724bdaaad
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Gestão de configuração e perguntas mais frequentes para aplicações Web no Azure
 
@@ -67,7 +67,7 @@ Para definir o fuso horário do servidor para a sua aplicação web:
 
 1. No portal do Azure, na sua subscrição do serviço de aplicações, vá para o **definições da aplicação** menu.
 2. Em **as definições de aplicação**, adicione esta definição:
-    * Key = WEBSITE_TIME_ZONE
+    * Chave = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário pretende*
 3. Selecione **Guardar**.
 
@@ -84,7 +84,7 @@ Para obter a lista de endereços IP saídas da sua aplicação web:
 
 É apresentada a lista de endereços IP saídas.
 
-Se o seu Web site estiver alojada num ambiente de serviço de aplicações para PowerApps, para saber como obter o seu endereço IP de saída, consulte o artigo [endereços de rede de saída](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
+Para saber como obter o endereço IP de saída, se o Web site estiver alojado num ambiente de serviço de aplicações, consulte [endereços de rede de saída](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Como obter um endereço IP entrado reservado ou dedicado a minha aplicação web?
 

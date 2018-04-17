@@ -2,25 +2,23 @@
 title: Monitorizar clusters do Hadoop no HDInsight utilizando a API do Ambari - Azure | Microsoft Docs
 description: Utilize as APIs do Apache Ambari para criar, gerir e monitorizar clusters do Hadoop. APIs e ferramentas de operador intuitiva ocultam a complexidade do Hadoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 editor: cgronlun
 manager: jhubbard
 ms.assetid: 052135b3-d497-4acc-92ff-71cee49356ff
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 57b63490037760c9150fd4b8fdb66267739f20ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 3c8b1af3ad151a7a901150352202ab0b85aa6ec8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Monitorize clusters Hadoop no HDInsight usando a API do Ambari
 Saiba como monitorizar clusters do HDInsight ao utilizar as APIs do Ambari.
@@ -143,7 +141,7 @@ A tabela seguinte lista algumas do Ambari mais comuns monitorizar chamadas de AP
 | Obter configurações |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations` |Tipos de configuração: site principal, hdfs local, mapred site, site do hive |
 | Obter as informações de configuração. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Tipos de configuração: site principal, hdfs local, mapred site, site do hive |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Agora tem aprendeu a utilizar Ambari monitorizar chamadas de API. Para saber mais, consulte:
 
 * [Gerir clusters do HDInsight através do portal do Azure][hdinsight-admin-portal]

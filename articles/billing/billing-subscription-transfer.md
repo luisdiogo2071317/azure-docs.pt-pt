@@ -1,12 +1,12 @@
 ---
-title: "Transferir a propriedade de subscrição do Azure para outra conta | Microsoft Docs"
-description: "Descreve como transferir uma subscrição do Azure para outro utilizador e algumas perguntas mais frequentes (FAQ) sobre o processo"
-keywords: "transferência de subscrição de transferência da subscrição do azure, do azure, mover subscrição do azure para outro proprietário de subscrição de alteração da conta, do azure, a transferência de subscrição do azure para outra conta"
-services: 
-documentationcenter: 
+title: Transferir a propriedade de subscrição do Azure para outra conta | Microsoft Docs
+description: Descreve como transferir uma subscrição do Azure para outro utilizador e algumas perguntas mais frequentes (FAQ) sobre o processo
+keywords: transferência de subscrição de transferência da subscrição do azure, do azure, mover subscrição do azure para outro proprietário de subscrição de alteração da conta, do azure, a transferência de subscrição do azure para outra conta
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e81037aeb3a8aee4f70eaf33280b1dc0d483332
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma subscrição do Azure para outra conta
 
@@ -29,7 +29,7 @@ Transferir a sua subscrição para outro utilizador no Centro de contas para alt
 
 > [!IMPORTANT]
 > 
-> Se transferir uma subscrição para um novo do Azure AD de inquilino, todas as atribuições de função no [controlo de acesso baseado em funções (RBAC)](../active-directory/role-based-access-control-what-is.md) são eliminados permanentemente o inquilino de origem e não são migradas para o inquilino de destino.
+> Se transferir uma subscrição para um novo do Azure AD de inquilino, todas as atribuições de função no [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) são eliminados permanentemente o inquilino de origem e não são migradas para o inquilino de destino.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferir a propriedade de uma subscrição do Azure
 
@@ -51,7 +51,7 @@ Transferir a sua subscrição para outro utilizador no Centro de contas para alt
 
    > [!IMPORTANT]
    > 
-   > Se transferir uma subscrição para um novo do Azure AD de inquilino, todas as atribuições de função no [controlo de acesso baseado em funções (RBAC)](../active-directory/role-based-access-control-what-is.md) são eliminados permanentemente o inquilino de origem e não são migradas para o inquilino de destino.
+   > Se transferir uma subscrição para um novo do Azure AD de inquilino, todas as atribuições de função no [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) são eliminados permanentemente o inquilino de origem e não são migradas para o inquilino de destino.
 
    ![Caixa de diálogo de subscrição de transferência](./media/billing-subscription-transfer/image2.PNG)
 
@@ -92,7 +92,7 @@ Transferência de subscrição de gestão personalizada está disponível para o
 | [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
 | [Rede de parceiro da Microsoft](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
 | [Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
+| [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
 | [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
 | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
 | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
@@ -115,7 +115,7 @@ O administrador da conta é a pessoa que inscreveu no ou comprou a subscrição 
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Tudo transferência? Incluindo grupos de recursos, VMs, discos e outros serviços em execução?
 
-Todos os recursos, como VMs, discos e transferência de Web sites para o novo proprietário. No entanto, quaisquer [funções de administrador](billing-add-change-azure-subscription-administrator.md) e [controlo de acesso baseado em funções (RBAC)](../active-directory/role-based-access-control-configure.md) configurou as políticas não são transferidos em diretórios diferentes. Além disso, [registos de aplicação](../active-directory//develop/active-directory-integrating-applications.md) e outros serviços de inquilino específico não transferência ao longo.
+Todos os recursos, como VMs, discos e transferência de Web sites para o novo proprietário. No entanto, quaisquer [funções de administrador](billing-add-change-azure-subscription-administrator.md) e [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md) configurou as políticas não são transferidos em diretórios diferentes. Além disso, [registos de aplicação](../active-directory//develop/active-directory-integrating-applications.md) e outros serviços de inquilino específico não transferência ao longo.
 
 ### <a id="no-button"></a> Por que motivo não vejo o botão "Transferir a subscrição"?
 

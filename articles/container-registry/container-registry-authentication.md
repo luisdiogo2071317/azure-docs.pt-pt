@@ -1,6 +1,6 @@
 ---
 title: Autenticar com um registo de contentor do Azure
-description: "Opções de autenticação para um registo de contentor do Azure, incluindo o Azure Active Directory do serviço de início de sessão de principais, direta e registo."
+description: Opções de autenticação para um registo de contentor do Azure, incluindo o Azure Active Directory do serviço de início de sessão de principais, direta e registo.
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 349d4f8cba2967edcedb202979695d271283fa8b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um registo de contentor do Docker privado
 
@@ -31,11 +31,11 @@ Ao trabalhar com o registo diretamente, tais como extrair imagens para e enviar 
 az acr login --name <acrName>
 ```
 
-Quando iniciar sessão com `az acr login`, a CLI utiliza o token criado quando é executada `az login` perfeitamente autenticar a sua sessão com o seu registo. Assim que tiver a sessão iniciada desta forma, as suas credenciais estão em cache e subsequentes `docker` comandos não necessitam de um nome de utilizador ou palavra-passe. Se o seu token expira, pode atualizá-lo utilizando o `az acr login` comando novamente para voltar. Utilizar `az acr login` com identidades do Azure fornece [acesso baseado em funções](../active-directory/role-based-access-control-configure.md).
+Quando iniciar sessão com `az acr login`, a CLI utiliza o token criado quando é executada `az login` perfeitamente autenticar a sua sessão com o seu registo. Assim que tiver a sessão iniciada desta forma, as suas credenciais estão em cache e subsequentes `docker` comandos não necessitam de um nome de utilizador ou palavra-passe. Se o seu token expira, pode atualizá-lo utilizando o `az acr login` comando novamente para voltar. Utilizar `az acr login` com identidades do Azure fornece [acesso baseado em funções](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="service-principal"></a>Principal de serviço
 
-Pode atribuir um [principal de serviço](../active-directory/develop/active-directory-application-objects.md) ao seu registo, e a aplicação ou serviço pode utilizá-lo para a autenticação sem interface. Permitem principais de serviço [acesso baseado em funções](../active-directory/role-based-access-control-configure.md) um registo, e pode atribuir vários principais de serviço para um registo. Vários principais de serviço permitem-lhe definir acesso diferentes para diferentes aplicações.
+Pode atribuir um [principal de serviço](../active-directory/develop/active-directory-application-objects.md) ao seu registo, e a aplicação ou serviço pode utilizá-lo para a autenticação sem interface. Permitem principais de serviço [acesso baseado em funções](../role-based-access-control/role-assignments-portal.md) um registo, e pode atribuir vários principais de serviço para um registo. Vários principais de serviço permitem-lhe definir acesso diferentes para diferentes aplicações.
 
 As funções disponíveis são:
 

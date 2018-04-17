@@ -1,25 +1,18 @@
 ---
-title: "Gerir funções de base de dados e os utilizadores no Azure Analysis Services | Microsoft Docs"
-description: "Saiba como gerir funções de base de dados e os utilizadores num servidor do Analysis Services no Azure."
-services: analysis-services
-documentationcenter: 
+title: Gerir funções de base de dados e os utilizadores no Azure Analysis Services | Microsoft Docs
+description: Saiba como gerir funções de base de dados e os utilizadores num servidor do Analysis Services no Azure.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 38bad0641d97028b435e05458d597bda378a8363
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 3c35fb1ee70544b8b01bbadaf72ee38145179b27
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir utilizadores e funções de base de dados
 
@@ -136,11 +129,11 @@ Filtros de linha podem ser definidos apenas para leitura e de leitura e permiss�
   
 Aplicam filtros de linha para as linhas especificadas e as linhas relacionadas. Quando uma tabela tem várias relações, filtros aplicam-se em segurança para a relação está ativa. Filtros de linha são intersected com outros filers da linha definidas para tabelas relacionadas, por exemplo:  
   
-|Tabela|Expressão DAX|  
+|Tabelas|Expressão DAX|  
 |-----------|--------------------|  
-|Região|=Region[Country]=”USA”|  
+|Região|= Região [País] = "EUA"|  
 |ProductCategory|= ProductCategory [nome] = "Bicycles"|  
-|Transações|=Transactions[Year]=2016|  
+|Transações|= Transações [ano] = 2016|  
   
  O efeito net é membros podem consultar as linhas de dados em que o cliente está em a EUA, a categoria de produto é bicycles, não sendo ano 2016. Os utilizadores não podem consultar transações fora EUA, transações que não sejam bicycles ou transações não 2016, a menos que sejam membros de outra função que concede as permissões.
   

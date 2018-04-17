@@ -1,26 +1,24 @@
 ---
 title: Hue com o Hadoop em clusters baseados no HDInsight Linux - Azure | Microsoft Docs
-description: "Saiba como instalar a Hue nos clusters do HDInsight e utilizar o túnel para encaminhar os pedidos para Hue. Utilize Hue para procurar o armazenamento e execute o ramo de registo ou Pig."
+description: Saiba como instalar a Hue nos clusters do HDInsight e utilizar o túnel para encaminhar os pedidos para Hue. Utilize Hue para procurar o armazenamento e execute o ramo de registo ou Pig.
 keywords: hue hadoop
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 829f309fa66bc548b9f74cca8112c244cc88775e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalar e utilizar Hue em clusters do HDInsight Hadoop
 
@@ -100,7 +98,7 @@ Túnel SSH é a única forma de aceder a Hue num cluster assim que estiver em ex
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Este é o nome de anfitrião do headnode primário onde está localizado o Web site Hue.
-4. Utilize o browser para abrir o portal da Hue em http://HOSTNAME:8888. Substitua o nome de anfitrião com o nome que obteve no passo anterior.
+4. Utilizar o browser para abrir o portal da Hue em http://HOSTNAME:8888. Substitua o nome de anfitrião com o nome que obteve no passo anterior.
 
    > [!NOTE]
    > Quando inicia sessão pela primeira vez, será solicitado para criar uma conta para iniciar sessão no portal da Hue. As credenciais que especificar aqui serão limitadas para o portal e não estão relacionadas com o administrador ou as credenciais de utilizador SSH que especificou ao aprovisionar o cluster.

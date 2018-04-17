@@ -1,8 +1,8 @@
 ---
 title: Monitorizar e gerir Hadoop com a API de REST do Ambari - Azure HDInsight | Microsoft Docs
-description: "Saiba como utilizar Ambari para monitorizar e gerir clusters do Hadoop no Azure HDInsight. Neste documento, irá aprender a utilizar a API de REST do Ambari incluído com clusters do HDInsight."
+description: Saiba como utilizar Ambari para monitorizar e gerir clusters do Hadoop no Azure HDInsight. Neste documento, irá aprender a utilizar a API de REST do Ambari incluído com clusters do HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 2400530f-92b3-47b7-aa48-875f028765ff
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 44066a3b4d5bebc67b089bebc2f3c11d33c77000
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6d82e67e546c8c2079d1feced6e10954fe67a83d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Gerir clusters do HDInsight utilizando a API de REST do Ambari
 
@@ -82,7 +80,7 @@ curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$C
 > Os exemplos de Bash neste documento efetuar os seguintes pressupostos:
 >
 > * O nome de início de sessão para o cluster é o valor predefinido de `admin`.
-> * `$CLUSTERNAME`contém o nome do cluster. Pode definir este valor utilizando`set CLUSTERNAME='clustername'`
+> * `$CLUSTERNAME` contém o nome do cluster. Pode definir este valor utilizando `set CLUSTERNAME='clustername'`
 > * Quando lhe for pedido, introduza a palavra-passe para o início de sessão do cluster (administrador).
 
 ```powershell
@@ -94,8 +92,8 @@ $resp.Content
 > [!IMPORTANT]
 > Os exemplos do PowerShell neste documento efetuar os seguintes pressupostos:
 >
-> * `$creds`é um objeto de credencial que contém o início de sessão de administrador e a palavra-passe para o cluster. Pode definir este valor utilizando `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` e fornecer as credenciais quando lhe for pedido.
-> * `$clusterName`é uma cadeia que contém o nome do cluster. Pode definir este valor utilizando `$clusterName="clustername"`.
+> * `$creds` é um objeto de credencial que contém o início de sessão de administrador e a palavra-passe para o cluster. Pode definir este valor utilizando `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` e fornecer as credenciais quando lhe for pedido.
+> * `$clusterName` é uma cadeia que contém o nome do cluster. Pode definir este valor utilizando `$clusterName="clustername"`.
 
 Ambos os exemplos de devolver um documento JSON que começa com informações semelhantes ao seguinte exemplo:
 
@@ -259,9 +257,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 O valor de retorno é semelhante a uma das seguintes exemplos:
 
-* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Este valor indica se o cluster está a utilizar uma conta de armazenamento do Azure para armazenamento de predefinido. O `ACCOUNTNAME` valor é o nome da conta de armazenamento. O `CONTAINER` parte é o nome do contentor do blob na conta de armazenamento. O contentor é a raiz de armazenamento HDFS compatível para o cluster.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` -Este valor indica se o cluster está a utilizar uma conta de armazenamento do Azure para armazenamento de predefinido. O `ACCOUNTNAME` valor é o nome da conta de armazenamento. O `CONTAINER` parte é o nome do contentor do blob na conta de armazenamento. O contentor é a raiz de armazenamento HDFS compatível para o cluster.
 
-* `adl://home`-Este valor indica se o cluster está a utilizar um Azure Data Lake Store para armazenamento de predefinido.
+* `adl://home` -Este valor indica se o cluster está a utilizar um Azure Data Lake Store para armazenamento de predefinido.
 
     Para localizar o nome de conta do Data Lake Store, utilize os seguintes exemplos:
 

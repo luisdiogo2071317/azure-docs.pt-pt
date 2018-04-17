@@ -1,8 +1,8 @@
 ---
-title: "Atualizar cluster do HDInsight para uma versão mais recente-Azure | Microsoft Docs"
-description: "Saiba como cluster de HDInsight atualizar para uma versão mais recente."
+title: Atualizar cluster do HDInsight para uma versão mais recente-Azure | Microsoft Docs
+description: Saiba como cluster de HDInsight atualizar para uma versão mais recente.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bhanupr
 manager: asadk
 editor: bhanupr
@@ -11,15 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: bhanupr
-ms.openlocfilehash: fa2e37bd922690322ccc3d8f68128180d013b701
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d6cd0dd8b326f5340e5014bba4babc6dd945744d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Atualize o cluster do HDInsight para uma versão mais recente
 Para tirar partido das funcionalidades mais recentes do HDInsight, recomendamos que os clusters do HDInsight sejam atualizados para a versão mais recente. Siga o abaixo diretrizes para atualizar o HDInsight versões de cluster.
@@ -48,7 +46,7 @@ Depois de verificar que tudo funciona conforme esperado, agende o período de in
 4.  Importe dados transitórios que uma cópia de segurança.
 5.  Iniciar tarefas/continuar a processar utilizando o novo cluster.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [Saiba como criar clusters do HDInsight baseado em Linux](hdinsight-hadoop-provision-linux-clusters.md)
 * [Ligar ao HDInsight através de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Gerir um cluster baseado em Linux com o Ambari](hdinsight-hadoop-manage-ambari.md)

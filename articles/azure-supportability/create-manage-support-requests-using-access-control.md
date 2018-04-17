@@ -7,15 +7,15 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c3557d54b9fb3fd0173eec1e327050ac7cc80fc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Azure baseada em funções controlo de acesso (RBAC) para controlar direitos de acesso para criar e gerir pedidos de suporte
 
-[Controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) permite uma gestão pormenorizada de acesso para o Azure.
+[Controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) permite uma gestão pormenorizada de acesso para o Azure.
 Suporta a criação de pedido no portal do Azure, [portal.azure.com](https://portal.azure.com), utiliza o modelo RBAC do Azure para definir quem pode criar e gerir pedidos de suporte.
 É concedido acesso ao atribuir a função RBAC adequada aos utilizadores, grupos e aplicações num determinado âmbito, que pode ser uma subscrição, o grupo de recursos ou um recurso.
 

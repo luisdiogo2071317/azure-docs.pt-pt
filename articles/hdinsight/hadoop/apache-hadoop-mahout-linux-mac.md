@@ -1,8 +1,8 @@
 ---
-title: "Gerar recomendações utilizando Mahout e HDInsight (SSH) - Azure | Microsoft Docs"
-description: "Saiba como utilizar a Apache Mahout biblioteca de machine learning para gerar recomendações de filmes com o HDInsight (Hadoop)."
+title: Gerar recomendações utilizando Mahout e HDInsight (SSH) - Azure | Microsoft Docs
+description: Saiba como utilizar a Apache Mahout biblioteca de machine learning para gerar recomendações de filmes com o HDInsight (Hadoop).
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: c78ec37c-9a8c-4bb6-9e38-0bdb9e89fbd7
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 4674008523704b9b1fb86de8606641f6140e2910
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 357df033c4d3fd0da84ea595d68802546aee3e9a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Gerar recomendações de filmes utilizando Mahout do Apache com Hadoop baseado em Linux no HDInsight (SSH)
 
@@ -49,9 +47,9 @@ Uma das funções que é fornecida pela Mahout é um motor de recomendação. Es
 
 O seguinte fluxo de trabalho é um exemplo simplificado que utiliza dados de filmes:
 
-* **Ocorrência conjunta**: Joe, Alice e Bernardo todos os gostou *estrela Wars*, *o Empire Strikes novamente*, e *retorno do Jedi*. Mahout determina que os utilizadores que como qualquer uma destes filmes também como as outras duas.
+* **ocorrência conjunta**: Joe, Alice e Bernardo todos os gostou *estrela Wars*, *o Empire Strikes novamente*, e *retorno do Jedi*. Mahout determina que os utilizadores que como qualquer uma destes filmes também como as outras duas.
 
-* **Ocorrência conjunta**: João e Alice também gostou *o Phantom Menace*, *ataque dos Clones*, e *Revenge do Sith*. Mahout determina que os utilizadores que gostou também os três filmes anteriores, como estes três filmes.
+* **ocorrência conjunta**: João e Alice também gostou *o Phantom Menace*, *ataque dos Clones*, e *Revenge do Sith*. Mahout determina que os utilizadores que gostou também os três filmes anteriores, como estes três filmes.
 
 * **Recomendação de semelhança**: Joe porque gostou os três primeiros filmes, Mahout observa filmes que outras pessoas com as preferências semelhantes que gostou, mas Joe não foi observada (gostou/classificados). Neste caso, recomenda Mahout *o Phantom Menace*, *ataque dos Clones*, e *Revenge do Sith*.
 

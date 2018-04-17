@@ -1,6 +1,6 @@
 ---
-title: "Configurar um servidor de processos no Azure para a VM de VMware e reativação pós-falha do servidor físico com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como configurar um servidor de processos no Azure, a reativação pós-falha VMs do Azure para VMware."
+title: Configurar um servidor de processos no Azure para a VM de VMware e reativação pós-falha do servidor físico com o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como configurar um servidor de processos no Azure, a reativação pós-falha VMs do Azure para VMware.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 9d9270d8c6d2ffc5e42dfc6f94818fdace89bfb5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7bbe690e749680edde08facadf6d5910d7896f7e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor de processos no Azure para reativação pós-falha
 
@@ -26,7 +26,7 @@ Saiba mais sobre o [só](vmware-azure-reprotect.md) e [reativação pós-falha](
 
 ## <a name="deploy-a-process-server-in-azure"></a>Implementar um servidor de processos no Azure
 
-1. No cofre > **infraestrutura de recuperação de Site**> **Mnaage** > **servidores de configuração**, selecione o servidor de configuração.
+1. No cofre > **infraestrutura de recuperação de Site**> **gerir** > **servidores de configuração**, selecione o servidor de configuração.
 2. Na página do servidor, clique em **+ o servidor de processos**
 3. No **Adicionar servidor de processos** página e selecione para implementar o servidor de processos no Azure.
 4. Especifique as definições do Azure, incluindo a subscrição utilizada para ativação pós-falha, um grupo de recursos, a região do Azure utilizados para a ativação pós-falha e a rede virtual no qual estão localizadas as VMs do Azure. Se utilizou várias redes do Azure, é necessário um servidor de processos em cada um deles.

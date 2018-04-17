@@ -10,16 +10,14 @@ ms.assetid: e17794e8-faae-4264-9434-67f61ea78f13
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 04c3a8262e52a630012a0a70e4b1ccb0ade76449
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 62ee373b450f512baf6615938718617254122d05
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar os documentos JSON utilizando o Apache Hive no Azure HDInsight
 
@@ -66,7 +64,7 @@ O ficheiro pode ser encontrado em **wasb://processjson@hditutorialdata.blob.core
 
 Neste tutorial, utilize a consola do Hive. Para obter instruções sobre como abrir a consola do Hive, consulte [utilizar o Hive com o Hadoop no HDInsight com o ambiente de trabalho remoto](apache-hadoop-use-hive-remote-desktop.md).
 
-## <a name="flatten-json-documents"></a>Flatten JSON documents
+## <a name="flatten-json-documents"></a>Aplanar documentos JSON
 Os métodos apresentados na secção seguinte requerem que o documento JSON ser composto por uma única linha. Por isso, tem aplanar o documento JSON numa cadeia. Se o documento JSON já é simplificado, pode ignorar este passo e ir diretamente para a secção seguinte no analisar dados JSON. Para aplanar o documento JSON, execute o seguinte script:
 
 ```sql

@@ -1,9 +1,9 @@
 ---
-title: "A configuração de cluster de Hadoop, Spark, Kafka, HBase ou servidor R - Azure HDInsight | Microsoft Docs"
+title: A configuração de cluster de Hadoop, Spark, Kafka, HBase ou servidor R - Azure HDInsight | Microsoft Docs
 description: Defina Hadoop, Kafka, Spark, HBase, R Server ou clusters de Storm para o HDInsight de um browser, a CLI do Azure, Azure PowerShell, REST ou SDK.
-keywords: "configuração de cluster do hadoop, kafka cluster configuração, a configuração de cluster do spark, o que é o cluster de hadoop"
+keywords: configuração de cluster do hadoop, kafka cluster configuração, a configuração de cluster do spark, o que é o cluster de hadoop
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -12,16 +12,14 @@ ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 54c88b25911ddfa4ed9ecf6ea4b28278c2d9aac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais
 
@@ -68,7 +66,7 @@ Siga as instruções no ecrã para efetuar uma configuração de cluster básico
 
 [O Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) ajuda a trabalhar com os recursos na sua aplicação como um grupo, referido como um grupo de recursos do Azure. Pode implementar, atualizar, monitorizar ou eliminar todos os recursos para a sua aplicação numa única operação coordenada.
 
-## <a name="cluster-types">Tipos de cluster e a configuração</a>
+## <a name="cluster-types"></a> Tipos de cluster e a configuração
 O Azure HDInsight fornece atualmente os seguintes tipos de cluster, cada um com um conjunto de componentes para fornecer determinadas funcionalidades.
 
 > [!IMPORTANT]
@@ -235,7 +233,7 @@ Por vezes, pretende configurar os seguintes ficheiros de configuração durante 
 * hdfs-site.xml
 * hive-env.xml
 * hive-site.xml
-* mapred-site
+* mapred site
 * oozie-site.xml
 * oozie-env.xml
 * storm-site.xml

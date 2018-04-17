@@ -1,6 +1,6 @@
 ---
-title: "Execute um teste de validação na pilha do Azure | Microsoft Docs"
-description: "Como recolher ficheiros de registo para obter um diagnóstico na pilha do Azure"
+title: Execute um teste de validação na pilha do Azure | Microsoft Docs
+description: Como recolher ficheiros de registo para obter um diagnóstico na pilha do Azure
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Execute um teste de validação de pilha do Azure
 
@@ -33,7 +33,8 @@ Quando tiver um problema, contacte o suporte ao cliente de serviços da Microsof
 2. Contacto técnico da Microsoft dos serviços de suporte.
 3. Executar **teste AzureStack** do ponto final com privilégios.
     1. O ponto final com privilégios de acesso. Para obter instruções, consulte [utilizando o ponto final com privilégios na pilha de Azure](azure-stack-privileged-endpoint.md). 
-    2. Inicie sessão como **AzureStack\CloudAdmin** no anfitrião de gestão.
+    2. No ASDK, inicie sessão para o anfitrião de gestão como **AzureStack\CloudAdmin**.  
+    Num sistema integrado, terá de utilizar o endereço IP para com privilégios--ponto final para a gestão fornecida pelo seu fornecedor de hardware do OEM.
     3. Abra o PowerShell como um Administrador.
     4. Execute: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. Execute: `Test-AzureStack`
@@ -61,13 +62,13 @@ Valida o estado da pilha do Azure. O cmdlet reporta o estado do software e hardw
 
 | Parâmetro               | Valor           | Necessário | Predefinição |
 | ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | PSCredential    | Não       | FALSE   |
-| DoNotDeployTenantVm     | SwitchParameter | Não       | FALSE   |
-| AdminCredential         | PSCredential    | Não       | ND      |
-<!-- | StorageConnectionString | Cadeia          | Não       | ND      | Não é suportada no 1802-->
-| Lista                    | SwitchParameter | Não       | FALSE   |
-| Ignorar                  | Cadeia          | Não       | ND      |
-| Incluir                 | Cadeia          | Não       | ND      |
+| ServiceAdminCredentials | PSCredential    | Não       | FALSO   |
+| DoNotDeployTenantVm     | SwitchParameter | Não       | FALSO   |
+| AdminCredential         | PSCredential    | Não       | N/D      |
+<!-- | StorageConnectionString | Cadeia          | Não       | N/D      | Não é suportada no 1802-->
+| Lista                    | SwitchParameter | Não       | FALSO   |
+| Ignorar                  | Cadeia          | Não       | N/D      |
+| Incluir                 | Cadeia          | Não       | N/D      |
 
 O cmdlet de teste AzureStack suporta os parâmetros comuns: verboso, depuração, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable e OutVariable. Para obter mais informações, consulte [sobre parâmetros comuns de](http://go.microsoft.com/fwlink/?LinkID=113216). 
 

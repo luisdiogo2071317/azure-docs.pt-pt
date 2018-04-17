@@ -1,35 +1,23 @@
 ---
-title: "Autenticação ao Azure SQL Data Warehouse | Microsoft Docs"
-description: Authentication do Azure Active Directory (AAD) e o SQL Server para o Azure SQL Data Warehouse.
+title: Autenticar para o armazém de dados SQL do Azure | Microsoft Docs
+description: Saiba como autenticar para o Azure SQL Data Warehouse, utilizando a autenticação do Azure Active Directory (AAD) ou o SQL Server.
 services: sql-data-warehouse
-documentationcenter: 
 author: ronortloff
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.custom: security
-ms.date: 03/21/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 2340168e736c13b5d911a987d36b0224d3c3b1ed
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="authentication-to-azure-sql-data-warehouse"></a>Authentication to Azure SQL Data Warehouse (Autenticação no Azure SQL Data Warehouse)
-> [!div class="op_single_selector"]
-> * [Descrição geral de segurança](sql-data-warehouse-overview-manage-security.md)
-> * [Autenticação](sql-data-warehouse-authentication.md)
-> * [Encriptação (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Encriptação (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-> 
-> 
+# <a name="authenticate-to-azure-sql-data-warehouse"></a>Autenticar para o armazém de dados SQL do Azure
+Saiba como autenticar para o Azure SQL Data Warehouse, utilizando a autenticação do Azure Active Directory (AAD) ou o SQL Server.
 
 Para ligar ao SQL Data Warehouse, tem de passar em credenciais de segurança para efeitos de autenticação. Depois de estabelecer uma ligação, determinadas definições de ligação estão configuradas como parte de estabelecer a sessão de consulta.  
 

@@ -1,8 +1,8 @@
 ---
 title: Utilizar o Pig de Hadoop com o ambiente de trabalho remoto no HDInsight - Azure | Microsoft Docs
-description: "Saiba como utilizar o comando de Pig para executar instruções Pig Latin a partir de uma ligação de ambiente de trabalho remoto para um cluster de Hadoop baseado em Windows no HDInsight."
+description: Saiba como utilizar o comando de Pig para executar instruções Pig Latin a partir de uma ligação de ambiente de trabalho remoto para um cluster de Hadoop baseado em Windows no HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: e034a286-de0f-465f-8bf1-3d085ca6abed
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8b5e8e7f400a4494549c997e969a46ca90eb0ba5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8d403e46f7460dff92cc418b829cc5510efd982
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Executar tarefas do Pig a partir de uma ligação de ambiente de trabalho remoto
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -64,7 +62,7 @@ Ativar o ambiente de trabalho remoto para o cluster do HDInsight, em seguida, li
 
     <table>
     <tr>
-    <th>Instrução</th><th>O que faz</th>
+    <th>Declaração</th><th>O que faz</th>
     </tr>
     <tr>
     <td>FILTEREDLEVELS = níveis de filtro por LOGLEVEL não seja nulo;</td><td>Remove linhas que contêm um valor nulo para o nível de registo e armazena os resultados em FILTEREDLEVELS.</td>
@@ -79,7 +77,7 @@ Ativar o ambiente de trabalho remoto para o cluster do HDInsight, em seguida, li
     <td>RESULTADO = ordem frequências por CONTAGEM desc;</td><td>Ordena os níveis de registo por contagem (descendente) e armazena no resultado</td>
     </tr>
     </table>
-6.Também pode guardar os resultados de uma transformação utilizando o `STORE` instrução. Por exemplo, o seguinte comando guarda o `RESULT` para o **/example/data/pigout** diretório no contentor de armazenamento predefinido para o cluster:
+6. Também pode guardar os resultados de uma transformação utilizando o `STORE` instrução. Por exemplo, o seguinte comando guarda o `RESULT` para o **/example/data/pigout** diretório no contentor de armazenamento predefinido para o cluster:
 
         STORE RESULT into 'wasb:///example/data/pigout'
 

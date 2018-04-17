@@ -1,26 +1,24 @@
 ---
-title: "Personalizar Clusters do HDInsight utilizando ações de script - Azure | Microsoft Docs"
-description: "Saiba como personalizar clusters do HDInsight através da ação de Script."
+title: Personalizar Clusters do HDInsight utilizando ações de script - Azure | Microsoft Docs
+description: Saiba como personalizar clusters do HDInsight através da ação de Script.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 3a63e216-4163-40c1-aa04-6b42fd0162ad
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: ec95b6d66c71b4278dd1e16807fcc75f5e8b1c36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5785fd6dc9b2c66913f7226a9c75246382c0485
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Personalizar clusters do HDInsight baseado em Windows através da ação de Script
 **Ação de script** pode ser utilizado para invocar [scripts personalizados](hdinsight-hadoop-script-actions.md) durante o processo de criação do cluster para instalar software adicional num cluster.
@@ -54,11 +52,11 @@ O HDInsight fornece vários scripts para instalar os seguintes componentes nos c
 
 | Nome | Script |
 | --- | --- |
-| **Instalar o Spark** |https://hdiconfigactions.blob.Core.Windows.NET/sparkconfigactionv03/spark-Installer-v03.ps1. Consulte [instalar e utilizar clusters do Spark no HDInsight][hdinsight-install-spark]. |
-| **Instalar o R** |https://hdiconfigactions.blob.Core.Windows.NET/rconfigactionv02/r-Installer-v02.ps1. Consulte [instalar e utilizar R nos clusters do HDInsight][hdinsight-install-r]. |
-| **Instalar Solr** |https://hdiconfigactions.blob.Core.Windows.NET/solrconfigactionv01/solr-Installer-v01.ps1. Consulte [instalar e utilizar Solr no HDInsight clusters](hdinsight-hadoop-solr-install.md). |
-| - **Instalar Giraph** |https://hdiconfigactions.blob.Core.Windows.NET/giraphconfigactionv01/giraph-Installer-v01.ps1. Consulte [instalar e utilizar Giraph no HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
-| **Pré-carregar as bibliotecas Hive** |https://hdiconfigactions.blob.Core.Windows.NET/setupcustomhivelibsv01/Setup-customhivelibs-v01.ps1. Consulte [bibliotecas adicionar Hive nos clusters do HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
+| **Instalar o Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Consulte [instalar e utilizar clusters do Spark no HDInsight][hdinsight-install-spark]. |
+| **Instalar o R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [instalar e utilizar R nos clusters do HDInsight][hdinsight-install-r]. |
+| **Instalar Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Consulte [instalar e utilizar Solr no HDInsight clusters](hdinsight-hadoop-solr-install.md). |
+| - **Instalar Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Consulte [instalar e utilizar Giraph no HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
+| **Pré-carregar as bibliotecas Hive** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Consulte [bibliotecas adicionar Hive nos clusters do HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## <a name="call-scripts-using-the-azure-portal"></a>Scripts de chamada no portal do Azure
 **No portal do Azure**
@@ -297,7 +295,7 @@ Componentes incorporados são totalmente suportados e Support da Microsoft irá 
 > [!WARNING]
 > Componentes fornecidos com o cluster do HDInsight são totalmente suportados e Support da Microsoft irá ajudá-lo para isolar e resolver problemas relacionados com estes componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudar a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para interagir com os canais disponíveis para as tecnologias de open source para onde se encontra profundo conhecimentos para que a tecnologia. Por exemplo, existem vários sites de Comunidade que podem ser utilizadas, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Também projetos do Apache tem sites de projeto no [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Componentes personalizados recebem suporte comercialmente razoável para ajudar a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para interagir com os canais disponíveis para as tecnologias de open source para onde se encontra profundo conhecimentos para que a tecnologia. Por exemplo, existem vários sites de Comunidade que podem ser utilizadas, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Também projetos do Apache tem sites de projeto no [ http://apache.org ](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 >
 >
 
@@ -310,7 +308,7 @@ O serviço de HDInsight fornece várias formas de utilizar componentes personali
 ## <a name="develop-script-action-scripts"></a>Desenvolver scripts de ação de Script
 Consulte [scripts de ação de Script desenvolver para o HDInsight][hdinsight-write-script].
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 * [Criar clusters do Hadoop no HDInsight] [ hdinsight-provision-cluster] fornece instruções sobre como criar um cluster do HDInsight utilizando outras opções personalizadas.
 * [Desenvolver scripts de ação de Script para o HDInsight][hdinsight-write-script]
 * [Instalar e utilizar o Spark nos clusters do HDInsight][hdinsight-install-spark]

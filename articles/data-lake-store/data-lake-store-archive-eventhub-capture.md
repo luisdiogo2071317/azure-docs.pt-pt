@@ -1,8 +1,8 @@
 ---
 title: Captura de dados a partir de Hubs de eventos para o Azure Data Lake Store | Microsoft Docs
-description: "Utilização do Azure Data Lake Store para capturar os dados dos Event Hubs"
+description: Utilização do Azure Data Lake Store para capturar os dados dos Event Hubs
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9f91acf8c26fdec0c8d128f598f218cff091c7aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Utilização do Azure Data Lake Store para capturar os dados dos Event Hubs
 
@@ -27,7 +27,7 @@ Saiba como utilizar o Azure Data Lake Store para capturar os dados recebidos pel
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Uma conta do Azure Data Lake Store**. Para obter instruções sobre como criar um, consulte [introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md).
+* **Uma conta do Azure Data Lake Store**. Para obter instruções sobre como criar uma, veja [Introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md).
 
 *  **Um espaço de nomes de Event Hubs**. Para obter instruções, consulte [criar um espaço de nomes de Event Hubs](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Certifique-se a conta de Data Lake Store e o espaço de nomes de Event Hubs na mesma subscrição do Azure.
 
@@ -58,9 +58,12 @@ Nesta secção, vai criar uma pasta dentro da conta em que pretenda capturar os 
 
     c. Em **atribuir permissões**, clique em **selecionar permissões**. Definir **permissões** para **executar**. Definir **adicionar ao** para **esta pasta e todos os elementos subordinados**. Definir **adicionar como** para **uma entrada de permissão de acesso e uma entrada de permissão predefinidas**.
 
-    ![Atribuir permissões para a raiz do Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "atribuir permissões para a raiz do Data Lake Store")
+> [!IMPORTANT]
+> Ao criar uma nova hierarquia de pastas para capturar os dados recebidos pelo Event Hubs do Azure, esta é uma forma fácil de garantir o acesso à pasta de destino.  No entanto, se adicionar permissões a todos os elementos subordinados de uma pasta de nível superior com muitos ficheiros de subordinados e pastas, pode demorar muito tempo.  Se a pasta de raiz contém um grande número de ficheiros e pastas, poderá ser mais rápida Adicionar **executar** permissões para `Microsoft.EventHubs` individualmente para cada pasta no caminho para a pasta de destino final. 
 
-    Clique em **OK**.
+    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+
+    Click **OK**.
 
 4. Atribua as permissões da pasta na conta do Data Lake Store, onde pretende capturar os dados.
 
@@ -120,6 +123,6 @@ Pode agora testar a solução ao enviar dados para o Hub de eventos do Azure. Si
 Depois dos dados no Data Lake Store, pode executar tarefas analíticas a processar e crunch os dados. Consulte [USQL Avro exemplo](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) sobre como fazê-lo utilizando o Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)
 * [Copiar dados de Blobs de armazenamento do Azure para o Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)

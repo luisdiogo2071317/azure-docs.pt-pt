@@ -1,11 +1,10 @@
 ---
 title: Guia de estrutura de tabela de armazenamento do Azure | Microsoft Docs
-description: "Design dimensionável e tabelas de Performant no Table Storage do Azure"
+description: Design dimensionável e tabelas de Performant no Table Storage do Azure
 services: cosmos-db
 documentationcenter: na
-author: mimig1
-manager: tadb
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: cosmos-db
 ms.devlang: na
@@ -13,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/03/2017
-ms.author: mimig
-ms.openlocfilehash: fadb81e16a6c641ca15efb4f910a51de4fe7c997
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: sngun
+ms.openlocfilehash: 667fef855238b2524c05bbc2f137d466c0e56de8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design da tabela de armazenamento do Azure: Estruturar dimensionável e tabelas Performant
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -52,7 +51,7 @@ O exemplo seguinte mostra um design de tabela simples para armazenar as entidade
 <table>
 <tr>
 <th>FirstName</th>
-<th>LastName</th>
+<th>Apelido</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -72,7 +71,7 @@ O exemplo seguinte mostra um design de tabela simples para armazenar as entidade
 <table>
 <tr>
 <th>FirstName</th>
-<th>LastName</th>
+<th>Apelido</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -109,7 +108,7 @@ O exemplo seguinte mostra um design de tabela simples para armazenar as entidade
 <table>
 <tr>
 <th>FirstName</th>
-<th>LastName</th>
+<th>Apelido</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -208,7 +207,7 @@ Os exemplos seguintes partem do princípio de serviço tabela está a armazenar 
 | **RowKey** (Id de empregado) |Cadeia |
 | **FirstName** |Cadeia |
 | **LastName** |Cadeia |
-| **idade** |Número inteiro |
+| **idade** |Número Inteiro |
 | **EmailAddress** |Cadeia |
 
 A secção anterior [descrição geral do serviço de Azure Table](#overview) descreve algumas das principais funcionalidades do serviço tabela do Azure que tenham uma influência direta na conceção para a consulta. Estes fazer com as seguintes diretrizes gerais para conceber consultas do serviço de tabela. Tenha em atenção que a sintaxe de filtro utilizada nos exemplos abaixo é a partir da API de REST do serviço tabela para obter mais informações, consulte [entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
@@ -1118,7 +1117,7 @@ O serviço de tabela é um *sem esquema* arquivo de tabela, que significa que um
 <table>
 <tr>
 <th>FirstName</th>
-<th>LastName</th>
+<th>Apelido</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -1138,7 +1137,7 @@ O serviço de tabela é um *sem esquema* arquivo de tabela, que significa que um
 <table>
 <tr>
 <th>FirstName</th>
-<th>LastName</th>
+<th>Apelido</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -1175,7 +1174,7 @@ O serviço de tabela é um *sem esquema* arquivo de tabela, que significa que um
 <table>
 <tr>
 <th>FirstName</th>
-<th>LastName</th>
+<th>Apelido</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -1211,7 +1210,7 @@ Tenha em atenção que cada entidade ainda tem de ter **PartitionKey**, **RowKey
 <tr>
 <th>EntityType</th>
 <th>FirstName</th>
-<th>LastName</th>
+<th>Apelido</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -1233,7 +1232,7 @@ Tenha em atenção que cada entidade ainda tem de ter **PartitionKey**, **RowKey
 <tr>
 <th>EntityType</th>
 <th>FirstName</th>
-<th>LastName</th>
+<th>Apelido</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -1274,7 +1273,7 @@ Tenha em atenção que cada entidade ainda tem de ter **PartitionKey**, **RowKey
 <tr>
 <th>EntityType</th>
 <th>FirstName</th>
-<th>LastName</th>
+<th>Apelido</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>

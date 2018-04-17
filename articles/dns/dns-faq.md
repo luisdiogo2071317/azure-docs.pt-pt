@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2017
 ms.author: kumud
-ms.openlocfilehash: f07f914ccf8ea6df216e3f571e38d7628b2d7fb6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0eb39ced1d88d2e0b6128493304f112f9c685fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-dns-faq"></a>Azure DNS FAQ
+# <a name="azure-dns-faq"></a>FAQ de DNS do Azure
 
 ## <a name="about-azure-dns"></a>Sobre o DNS do Azure
 
-### <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
+### <a name="what-is-azure-dns"></a>O que é o Azure DNS?
 
 O sistema de nomes de domínio ou DNS, é responsável por traduzir (ou resolver) um nome de Web site ou serviço para o endereço IP. O DNS do Azure é um serviço de alojamento de domínios DNS, fornecer a resolução do nome utilizando a infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure.
 
@@ -47,7 +47,8 @@ Para obter mais informações, consulte o [página SLA de DNS do Azure](https://
 
 Um domínio é um nome exclusivo no sistema de nome de domínio, por exemplo, "contoso.com".
 
-Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Por exemplo, o domínio "contoso.com" pode conter vários registos DNS, tais como "mail.contoso.com" (para um servidor de correio) e "www.contoso.com" (para um web site). Estes registos seriam alojados na zona DNS "contoso.com".
+
+Uma zona DNS é utilizada para alojar os registos de DNS de um domínio específico. Por exemplo, o domínio "contoso.com" pode conter vários registos DNS, tais como "mail.contoso.com" (para um servidor de correio) e "www.contoso.com" (para um web site). Estes registos seriam alojados na zona DNS "contoso.com".
 
 É um nome de domínio *apenas um nome*, enquanto que uma zona DNS é um recurso de dados que contém os registos DNS para um nome de domínio. O DNS do Azure permite-lhe alojar uma zona DNS e gerir os registos de DNS para um domínio no Azure. Também fornece servidores de nome DNS para responder às consultas DNS da Internet.
 
@@ -90,6 +91,14 @@ Transferência de zona é uma funcionalidade que está a ser controlada no regis
 Não. Serviços do URL de redirecionamento não são um serviço de DNS - funcionam ao nível do HTTP em vez do nível DNS. Alguns fornecedores DNS para agrupar um URL de redirecionamento serviço como parte da sua oferta geral. Isto não é atualmente suportado pelo DNS do Azure.
 
 Funcionalidade redirecionar o URL está registada no registo de segurança de DNS do Azure. Pode utilizar o site de comentários para [registar o suporte para esta funcionalidade](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
+
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>DNS do Azure suporta ASCII expandida codificação conjunto (de 8 bits) para TXT Recordset?
+
+Sim. O DNS do Azure suporta o conjunto de codificação ASCII expandido para TXT Recordsets, se utilizar a versão mais recente das APIs REST do Azure, SDKs, PowerShell e CLI (versões mais antigas do que 2017-10-01 ou efetue SDK 2.1 suporta o conjunto de ASCII expandido). Por exemplo, se o utilizador fornece uma cadeia como o valor para um registo TXT que tem o expandida caráter \128 ASCII (ex: "abcd\128efgh"), DNS do Azure irá utilizar o valor de byte deste caráter (que é 128) na representação interna. No momento da resolução de DNS, bem como este valor de byte será devolvido na resposta. Note também que "abc" e "\097\098\099" são permutáveis como preocupações resolução. 
+
+Iremos seguir [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zona as regras de escape do ficheiro principal formato para os registos TXT. Por exemplo, ' \' agora, na verdade, a escapes tudo por RFC de. Se especificar "A\B" como o valor de registo TXT, serão representadas e resolver como apenas "AB". Se pretender que realmente, o registo TXT com "A\B" na resolução, tem de terminar o "\" revertidos novo, especificar como "A\\B". 
+
+Tenha em atenção que este suporte não está atualmente disponível para os registos TXT criados a partir do Portal do Azure. 
 
 ## <a name="using-azure-dns"></a>Utilizar o DNS do Azure
 
@@ -169,7 +178,7 @@ Não. Zonas privada trabalhar em conjunto com redes virtuais e permita que os cl
 Sim. Os clientes podem associar uma única zona privada até 10 redes virtuais de resolução.
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Pode uma rede virtual que pertença a uma subscrição diferente ser adicionada como uma rede virtual de resolução para uma zona privada? 
-Sim, desde que o utilizador tem permissão de operação de escrita em ambas as redes virtuais, bem como a zona DNS privada. Tenha em atenção que a permissão de escrita pode ser atribuída a várias funções RBAC. Por exemplo, a função de clássico RBAC de contribuinte de rede tem permissões de escrita para redes virtuais. Para obter mais informações sobre funções do RBAC, consulte [controlo de acesso baseado em funções](../active-directory/role-based-access-control-what-is.md)
+Sim, desde que o utilizador tem permissão de operação de escrita em ambas as redes virtuais, bem como a zona DNS privada. Tenha em atenção que a permissão de escrita pode ser atribuída a várias funções RBAC. Por exemplo, a função de clássico RBAC de contribuinte de rede tem permissões de escrita para redes virtuais. Para obter mais informações sobre funções do RBAC, consulte [controlo de acesso baseado em funções](../role-based-access-control/overview.md)
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Serão os registos DNS registado automaticamente máquina virtual numa zona privada automaticamente eliminados quando as máquinas virtuais são eliminadas pelo cliente?
 Sim. Se eliminar uma máquina virtual dentro de uma rede virtual do registo, iremos irá eliminar automaticamente os registos DNS que foram registados para o horário devido a esta que está a ser uma rede virtual do registo. 

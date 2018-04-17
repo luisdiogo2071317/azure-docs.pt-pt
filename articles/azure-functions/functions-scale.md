@@ -1,13 +1,13 @@
 ---
-title: "Escala de funções do Azure e o alojar | Microsoft Docs"
-description: "Saiba como escolher entre o plano de consumo de funções do Azure e o plano do App Service."
+title: Escala de funções do Azure e o alojar | Microsoft Docs
+description: Saiba como escolher entre o plano de consumo de funções do Azure e o plano do App Service.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure funções, funções, o plano de consumo, plano do app service, o processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: Azure funções, funções, o plano de consumo, plano do app service, o processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala de funções do Azure e de alojamento
 
@@ -54,7 +54,7 @@ O plano de consumo a predefinição é o plano de alojamento e oferece as seguin
 - Paga apenas quando as suas funções estão em execução.
 - Aumentar horizontalmente automaticamente, mesmo durante períodos de alta carregar.
 
-## <a name="app-service-plan"></a>Plano do App Service
+## <a name="app-service-plan"></a>Plano do Serviço de Aplicações
 
 O plano de serviço de aplicações, as aplicações de função executam em VMs dedicadas em básicas, Standard, Premium e SKUs isolado, semelhantes às Web Apps, API Apps e aplicações móveis. VMs dedicadas são atribuídas às suas aplicações de serviço de aplicações, o que significa que o anfitrião de funções está sempre em execução. Planos de serviço de aplicações suportam Linux.
 
@@ -74,7 +74,7 @@ Se estiver a planear executar funções JavaScript um plano de serviço de aplic
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
-###Always On
+### Always On
 
 Se executar um plano de serviço de aplicações, deverá ativar a **Always On** definição para que a aplicação de função é executada corretamente. Um plano de serviço de aplicações, o tempo de execução de funções passa inativo após alguns minutos de inatividade, pelo que só acionadores HTTP "reativará" as suas funções. Isto é semelhante à forma como WebJobs tem de ter Always On ativado. 
 
@@ -86,7 +86,7 @@ Um plano de consumo ou um plano do App Service, uma aplicação de função nece
 
 <!-- JH: Does using a PRemium Storage account improve perf? -->
 
-Para saber mais sobre os tipos de conta de armazenamento, consulte o artigo [introduzir os serviços de armazenamento do Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
+Para saber mais sobre os tipos de conta de armazenamento, consulte o artigo [introduzir os serviços de armazenamento do Azure](../storage/common/storage-introduction.md#azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Como funciona o plano de consumo
 

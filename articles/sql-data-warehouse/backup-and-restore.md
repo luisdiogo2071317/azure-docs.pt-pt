@@ -1,23 +1,23 @@
 ---
 title: Cópia de segurança do armazém de dados SQL do Azure e de restauro - instantâneos, georredundante | Microsoft Docs
-description: Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilize cópias de segurança de armazém de dados para restaurar o seu armazém de dados para um ponto de restauro na região primária, ou as cópias de segurança georredundante restaurar para uma região geográfica diferentes.
+description: Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilize dados armazém cópias de segurança para restaurar o seu armazém de dados para um ponto de restauro na região primária. Utilize cópias de segurança georredundante restaurar para uma região geográfica diferentes.
 services: sql-data-warehouse
 author: ronortloff
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f540bca0d2eb2c9009a386bd14a5beda2912014
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 21708f51d09d640721af196d2ffa91aede97ffb3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
-Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilize cópias de segurança de armazém de dados para restaurar o seu armazém de dados para um ponto de restauro na região primária, ou as cópias de segurança georredundante restaurar para uma região geográfica diferentes. 
+Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilize dados armazém cópias de segurança para restaurar o seu armazém de dados para um ponto de restauro na região primária. Utilize cópias de segurança georredundante restaurar para uma região geográfica diferentes. 
 
 ## <a name="what-is-backup-and-restore"></a>O que é a cópia de segurança e restauro?
 A *cópia de segurança de armazém de dados* for a cópia da base de dados que pode utilizar para restaurar um armazém de dados.  Uma vez que o SQL Data Warehouse é um sistema distribuído, uma cópia de segurança do armazém de dados consiste em muitos ficheiros que estão localizados no armazenamento do Azure. Uma cópia de segurança do armazém de dados inclui instantâneos da base de dados local e georreplicação-as cópias de segurança de todas as bases de dados e ficheiros que estão associados um armazém de dados. 

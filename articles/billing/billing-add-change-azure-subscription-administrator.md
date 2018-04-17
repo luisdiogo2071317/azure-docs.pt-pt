@@ -1,11 +1,11 @@
 ---
-title: "Adicionar ou alterar funções de subscrição de administrador do Azure | Microsoft Docs"
-description: "Descreve como adicionar ou alterar o Coadministrador do Azure, o administrador de serviço e o administrador de conta"
-services: 
-documentationcenter: 
+title: Adicionar ou alterar funções de subscrição de administrador do Azure | Microsoft Docs
+description: Descreve como adicionar ou alterar o Coadministrador do Azure, o administrador de serviço e o administrador de conta
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
 ms.service: billing
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ecee98e9b74613a4176d20d231b32e4cb99a721e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar os administradores da subscrição do Azure
 
-Os administradores da subscrição clássico do Azure e Azure [controlo de acesso baseado em funções (RBAC)](../active-directory/role-based-access-control-what-is.md) são dois sistemas para gerir o acesso aos recursos do Azure:
+Os administradores da subscrição clássico do Azure e Azure [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) são dois sistemas para gerir o acesso aos recursos do Azure:
 
 * As funções de administrador de subscrição clássica oferecem gestão de acesso básico e incluem a conta de administrador, administrador de serviços e Coadministradores.
     * Quando se inscreve para uma nova subscrição do Azure, a sua conta está definido como o administrador de conta e o administrador de serviços por predefinição.
@@ -41,10 +41,12 @@ Para adicionar um utilizador como um administrador para a administração do ser
 
 1. Visite [ **subscrições** no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Selecione a subscrição que pretende conceder acesso.
-3. Selecione **(IAM) do controlo de acesso** no menu.
-4. No **função** caixa, selecione **proprietário**. 
-5. No **atribuir acesso** caixa, selecione **utilizador do Azure AD, grupo ou aplicação**. 
-6. No **selecione** caixa, escreva o endereço de e-mail do utilizador que pretende adicionar como proprietário. Selecione o utilizador e, em seguida, selecione **guardar**.
+3. Selecione **adicionar**  
+   (Se o botão Adicionar está em falta, não tem permissão para adicionar permissões.)
+4. Selecione **(IAM) do controlo de acesso** no menu.
+5. No **função** caixa, selecione **proprietário**. 
+6. No **atribuir acesso** caixa, selecione **utilizador do Azure AD, grupo ou aplicação**. 
+7. No **selecione** caixa, escreva o endereço de e-mail do utilizador que pretende adicionar como proprietário. Selecione o utilizador e, em seguida, selecione **guardar**.
 
     ![Captura de ecrã que mostra a função de proprietário selecionada](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
@@ -74,7 +76,7 @@ Apenas o administrador da conta pode alterar o administrador de serviço para um
 
 1. Certifique-se de que o seu cenário é suportado ao verificar o [limites para alterar os administradores de serviço](#limits).
 1. Inicie sessão no [Centro de contas](https://account.windowsazure.com/subscriptions) como o administrador da conta.
-1. Selecione uma subscrição.
+1. Selecionar uma subscrição.
 1. No lado direito, selecione **editar detalhes da subscrição**.
 
     ![Captura de ecrã que mostra o botão de subscrição de edição no Centro de contas](./media/billing-add-change-azure-subscription-administrator/editsub.png)
@@ -111,7 +113,7 @@ O administrador de conta é o utilizador que inicialmente inscreveu da subscriç
  Conta de administrador, administrador de serviço e coadministrador são os três tipos de funções de administrador de subscrição clássica no Azure. A conta que é utilizada para se inscrever no Azure é automaticamente definida como o administrador de conta e o administrador de serviço. Em seguida, podem ser adicionados Coadministradores adicionais. A tabela seguinte descreve as diferenças exatas entre estas três funções administrativas. 
 
 > [!TIP]
-> Para melhorar o controlo e gestão de acesso detalhado, recomendamos que utilize baseada em funções do Azure controlo de acesso (RBAC), que permite aos utilizadores a adicionar a várias funções. Para obter mais informações, consulte [controlo de acesso baseado em função do Active Directory do Azure](../active-directory/role-based-access-control-what-is.md).
+> Para melhorar o controlo e gestão de acesso detalhado, recomendamos que utilize baseada em funções do Azure controlo de acesso (RBAC), que permite aos utilizadores a adicionar a várias funções. Para obter mais informações, consulte [controlo de acesso baseado em função do Active Directory do Azure](../role-based-access-control/overview.md).
 
 | Administrador de subscrição clássica | Limite | Descrição |
 | --- | --- | --- |
@@ -121,7 +123,7 @@ O administrador de conta é o utilizador que inicialmente inscreveu da subscriç
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>Saiba mais sobre o controlo de acesso de recursos e do Active Directory
 
-* Para obter mais informações sobre como o acesso a recursos é controlado no Microsoft Azure, consulte o artigo [compreender o acesso a recursos no Azure](../active-directory/active-directory-understanding-resource-access.md).
+* Para obter mais informações sobre como o acesso a recursos é controlado no Microsoft Azure, consulte o artigo [compreender o acesso a recursos no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 * Para mais informações sobre o Azure Active Directory, consulte [subscrições do Azure como estão associadas ao Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) e [atribuir funções de administrador no Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.

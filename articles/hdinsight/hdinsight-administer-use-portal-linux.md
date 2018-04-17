@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Hadoop no HDInsight ao utilizar o portal do Azure
 
@@ -63,7 +61,7 @@ Tem de especificar uma subscrição do Azure quando criar um cluster do HDInsigh
     1. Inicie sessão no [portal do Azure](https://portal.azure.com).
     2. Clique em **subscrição** no menu esquerdo. Tem um ícone de chave amarelo. Deverá ver uma lista de subscrições.
     3. Clique na subscrição que utilizar para criar clusters. 
-    4. Clique em **as minhas permissões**.  Mostra o [função](../active-directory/role-based-access-control-what-is.md#built-in-roles) na subscrição. É necessário pelo menos acesso de contribuinte ao criar o cluster do HDInsight.
+    4. Clique em **as minhas permissões**.  Mostra o [função](../role-based-access-control/overview.md#built-in-roles) na subscrição. É necessário pelo menos acesso de contribuinte ao criar o cluster do HDInsight.
 
 - Para utilizar um grupo de recursos existente:
 
@@ -89,7 +87,7 @@ Se receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionRegistr
 
     **Menu à esquerda:**
     * **Registos de atividade**: consulta e mostrar registos de atividade.
-    * **(IAM) do controlo de acesso**: Utilize atribuições de funções.  Consulte [utilize atribuições de funções para gerir o acesso aos recursos da sua subscrição do Azure](../active-directory/role-based-access-control-configure.md).
+    * **(IAM) do controlo de acesso**: Utilize atribuições de funções.  Consulte [utilize atribuições de funções para gerir o acesso aos recursos da sua subscrição do Azure](../role-based-access-control/role-assignments-portal.md).
     * **Etiquetas**: permite-lhe definir os pares chave-valor para definir uma taxonomia personalizada dos seus serviços em nuvem. Por exemplo, pode criar uma chave denominada **projeto**e, em seguida, utiliza um valor comum para todos os serviços associados a um projeto específico.
     * **Diagnosticar e resolver problemas**: apresentar informações de resolução de problemas.
     * **Bloqueia**: adicionar um bloqueio para impedir que o cluster que está a ser modificado ou eliminado.
@@ -339,7 +337,7 @@ Não é possível executar a tarefa do Hive diretamente a partir do portal do Az
 3. Clique em **consulta** no menu superior.
 4. Introduza uma consulta do Hive no **Editor de consultas**e, em seguida, clique em **executar**.
 
-## <a name="monitor-jobs"></a>Monitorizar trabalhos
+## <a name="monitor-jobs"></a>Monitorizar tarefas
 Consulte [gerir clusters do HDInsight utilizando a IU da Web do Ambari](hdinsight-hadoop-manage-ambari.md#monitoring).
 
 ## <a name="browse-files"></a>Procurar ficheiros

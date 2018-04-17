@@ -1,22 +1,22 @@
 ---
-title: "Gerir inscrições de dispositivos com o portal do Azure | Microsoft Docs"
-description: "Como gerir inscrições de dispositivos para o seu serviço DPS no Portal do Azure"
+title: Gerir inscrições de dispositivos com o portal do Azure | Microsoft Docs
+description: Como gerir inscrições de dispositivos para o seu serviço DPS no Portal do Azure
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 04/05/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 06cc215e5c4087c7a38937de10eaa066037ac444
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 55486d9a37968351f5313c708e9ef26e5b89063c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerir inscrições de dispositivos com o Portal do Azure
 
@@ -31,28 +31,30 @@ Existem duas formas de poder inscrever os seus dispositivos com o serviço de ap
 
     Pode criar um grupo de inscrição no portal para um grupo de dispositivos utilizando os seguintes passos:
 
-    1. Inicie sessão no portal do Azure e clique em **todos os recursos** no menu esquerdo.
-    2. Clique no serviço de aprovisionamento de dispositivos de mensagens em fila que pretende inscrever o seu dispositivo a partir da lista de recursos.
-    3. No seu serviço de aprovisionamento, clique em **gerir inscrições**, em seguida, selecione **inscrição grupos** separador.
-    4. Clique em de **adicionar** botão na parte superior e introduza as informações necessárias para a entrada da lista de inscrição. Carregue o certificado de raiz para o grupo de dispositivos. 
-    5. Clique em **Guardar**. Na criação com êxito do seu grupo de inscrição, deverá ver o nome do grupo aparecer sob o **inscrição grupos** separador. 
+    1. Inicie sessão no portal do Azure e clique em **todos os recursos** no menu esquerdo.  
+    2. Clique no serviço de aprovisionamento de dispositivos de mensagens em fila que pretende inscrever o seu dispositivo a partir da lista de recursos.  
+    3. No seu serviço de aprovisionamento:  
+       a. Clique em **gerir inscrições**, em seguida, selecione o **inscrição grupos** separador.  
+       b. Clique no botão **+ Adicionar**, na parte superior.  
+       c. Quando for apresentado o painel "Adicionar grupo de inscrição", introduza as informações para a entrada da lista de inscrição.  **Nome do grupo** é necessária. Também selecionar "AC ou intermédio" para **tipo de certificado**e carregue a raiz **certificado principal** para o grupo de dispositivos.  
+       d. Clique em **Guardar**. Na criação com êxito do seu grupo de inscrição, deverá ver o nome do grupo aparecer sob o **inscrição grupos** separador.  
 
-        ![Grupo de inscrição no portal](./media/how-to-manage-enrollments/group-enrollment.png)
-
+       [![Grupo de inscrição no portal](./media/how-to-manage-enrollments/group-enrollment.png)] (. / media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
-* Um **inscrição individuais** é uma entrada para um único dispositivo pode registar. As inscrições individuais podem utilizar qualquer um dos x509 certificados ou SAS tokens (por um TPM real ou virtual) como mecanismos de atestado. Recomendamos que utilize inscrições individuais para os dispositivos que requerem configurações iniciais exclusivas, ou para dispositivos que só podem utilizar os tokens SAS através do TPM ou virtual TPM como o mecanismo de atestado. As inscrições individuais podem ter o ID de dispositivo do hub IoT pretendido especificado.
+
+* Um **inscrição individuais** é uma entrada para um único dispositivo pode registar. As inscrições individuais podem utilizar qualquer um dos x509 certificados ou SAS tokens (a partir de um TPM físico ou virtual) como mecanismos de atestado. Recomendamos que utilize inscrições individuais para os dispositivos que requerem configurações iniciais exclusivas, ou para dispositivos que só podem utilizar os tokens SAS através do TPM ou virtual TPM como o mecanismo de atestado. As inscrições individuais podem ter o ID de dispositivo do hub IoT pretendido especificado.
 
     Pode criar um registo individual no portal utilizando os seguintes passos:
 
     1. Inicie sessão no portal do Azure e clique em **todos os recursos** no menu esquerdo.
     2. Clique no serviço de aprovisionamento de dispositivos de mensagens em fila que pretende inscrever o seu dispositivo a partir da lista de recursos.
-    3. No seu serviço de aprovisionamento, clique em **gerir inscrições**, em seguida, selecione **inscrições individuais** separador.
-    4. Clique em de **adicionar** botão na parte superior. 
-    5. Selecione o mecanismo de segurança para o dispositivo e introduza as informações necessárias para a entrada da lista de inscrição. Carregar um certificado assinado se o seu dispositivo implementa x. 509. 
-    6. Clique em **Guardar**. Na criação com êxito do seu grupo de inscrição, deverá ver o seu dispositivo são apresentados no **inscrições individuais** separador. 
+    3. No seu serviço de aprovisionamento:  
+       a. Clique em **gerir inscrições**, em seguida, selecione o **inscrições individuais** separador.  
+       b. Clique no botão **+ Adicionar**, na parte superior.   
+       c. Quando for apresentado o painel "Adicionar inscrição", introduza as informações para a entrada da lista de inscrição. Selecione primeiro o atestado **mecanismo** para o dispositivo (x. 509 ou TPM). Atestado de x. 509 requer a carregar a folha **certificado principal** para o dispositivo. TPM requer que introduza o **atestado de chave** e **ID de registo** para o dispositivo.  
+       d. Clique em **Guardar**. Na criação com êxito do seu grupo de inscrição, deverá ver o seu dispositivo são apresentados no **inscrições individuais** separador.  
 
-        ![Inscrição individuais no portal](./media/how-to-manage-enrollments/individual-enrollment.png)
-
+       [![Inscrição individuais no portal](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
 ## <a name="update-an-enrollment-entry"></a>Atualizar uma entrada de inscrição
 Pode atualizar uma entrada de registo existente no portal utilizando os seguintes passos:
@@ -64,7 +66,6 @@ Pode atualizar uma entrada de registo existente no portal utilizando os seguinte
 
     ![Inscrição de atualização no portal](./media/how-to-manage-enrollments/update-enrollment.png)
 
-
 ## <a name="remove-a-device-enrollment"></a>Remover uma inscrição de dispositivos
 Em casos onde os dispositivos não têm de ser aprovisionada para qualquer hub IoT, pode remover a entrada de inscrição relacionado no portal utilizando os seguintes passos:
 
@@ -74,6 +75,5 @@ Em casos onde os dispositivos não têm de ser aprovisionada para qualquer hub I
 5. Assim que a ação for concluída, verá a entrada removida da lista de inscrições de dispositivos. 
  
     ![Remova a inscrição no portal](./media/how-to-manage-enrollments/remove-enrollment.png)
-
 
 

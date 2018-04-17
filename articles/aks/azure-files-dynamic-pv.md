@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 78f447c96afe7955f115de4bbd28015cd231bb53
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ab118cd43f1e3e57627d940072e50405cd85ca58
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Volumes persistentes com ficheiros do Azure
 
-Um volume persistente representa um conjunto de armazenamento que tenha sido aprovisionado para utilização num Kubernetes cluster. Um volume persistente pode ser utilizado por um ou vários pods e pode ser dinamicamente ou estaticamente aprovisionado. Este documento fornece detalhes sobre o aprovisionamento dinâmico de uma partilha de ficheiros do Azure como um volume persistente Kubernetes num AKS cluster. 
+Um volume persistente representa um conjunto de armazenamento que tenha sido aprovisionado para utilização num Kubernetes cluster. Um volume persistente pode ser utilizado por um ou vários pods e pode ser dinamicamente ou estaticamente aprovisionado. Este documento fornece detalhes sobre o aprovisionamento dinâmico de uma partilha de ficheiros do Azure como um volume persistente Kubernetes num AKS cluster.
 
 Para obter mais informações sobre volumes persistentes Kubernetes, consulte [volumes persistentes Kubernetes][kubernetes-volumes].
 
 ## <a name="create-storage-account"></a>Criar conta de armazenamento
 
-Quando aprovisionar dinamicamente uma partilha de ficheiros do Azure como um volume Kubernetes, pode ser utilizada qualquer conta de armazenamento, desde que está contido no mesmo grupo de recursos do cluster AKS. Se necessário, crie uma conta do storage no mesmo grupo de recursos do cluster AKS. 
+Quando aprovisionar dinamicamente uma partilha de ficheiros do Azure como um volume Kubernetes, pode ser utilizada qualquer conta de armazenamento, desde que está contido no mesmo grupo de recursos do cluster AKS. Se necessário, crie uma conta do storage no mesmo grupo de recursos do cluster AKS.
 
 Para identificar o grupo de recursos correto, utilize o [lista de grupos de az] [ az-group-list] comando.
 
@@ -40,7 +40,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Utilize o [criar conta de armazenamento az] [ az-storage-account-create] comando para criar a conta de armazenamento. 
+Utilize o [criar conta de armazenamento az] [ az-storage-account-create] comando para criar a conta de armazenamento.
 
 Utilizar este exemplo, atualizar `--resource-group` com o nome do grupo de recursos, e `--name` para um nome à sua escolha.
 
@@ -74,7 +74,7 @@ kubectl create -f azure-file-sc.yaml
 
 ## <a name="create-persistent-volume-claim"></a>Criar afirmações volume persistente
 
-Uma afirmação de volume persistente (PVC) utiliza o objeto de classe de armazenamento para aprovisionar dinamicamente uma partilha de ficheiros do Azure. 
+Uma afirmação de volume persistente (PVC) utiliza o objeto de classe de armazenamento para aprovisionar dinamicamente uma partilha de ficheiros do Azure.
 
 O manifesto seguinte pode ser utilizado para criar uma afirmação de volume persistente `5GB` tamanho com `ReadWriteOnce` acesso.
 
@@ -132,12 +132,12 @@ Criar pod com o [kubectl criar] [ kubectl-create] comando.
 kubectl create -f azure-pvc-files.yaml
 ```
 
-Tem agora um pod em execução com o Azure disco montado no `/mnt/azure` diretório. Pode ver o quando inspecionar o pod através de montagem do volume `kubectl describe pod mypod`.
+Tem agora um pod em execução com o Azure disco montado no `/mnt/azure` diretório. Esta configuração pode ser vista quando inspecionar o pod através de `kubectl describe pod mypod`.
 
 ## <a name="mount-options"></a>Opções de montagem
- 
+
 Valores predefinidos para fileMode e dirMode diferem entre versões Kubernetes conforme descrito na seguinte tabela.
- 
+
 | versão | valor |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
@@ -145,9 +145,9 @@ Valores predefinidos para fileMode e dirMode diferem entre versões Kubernetes c
 | V1.8.6 ou superior | 0755 |
 | v1.9.0 | 0700 |
 | V1.9.1 ou superior | 0755 |
- 
+
 Se utilizar um cluster de versão 1.8.5 ou superior, montagem opções podem ser especificadas num objeto de classe de armazenamento. Os seguintes conjuntos de exemplo `0777`.
- 
+
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -162,7 +162,7 @@ mountOptions:
 parameters:
   skuName: Standard_LRS
 ```
- 
+
 Se utilizar um cluster versão 1.8.0 - 1.8.4, de um contexto de segurança pode ser especificado com o `runAsUser` valor definido como `0`. Para obter mais informações sobre o contexto de segurança Pod, consulte [configurar um contexto de segurança][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Passos Seguintes

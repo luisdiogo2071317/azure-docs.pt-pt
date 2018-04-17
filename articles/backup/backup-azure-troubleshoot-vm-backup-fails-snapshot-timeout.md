@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 194b8237ce1bff6ac18878bc7eca6e0d3891aa33
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -29,7 +29,8 @@ Este artigo fornece os passos de resolução de problemas que podem ajudar a res
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Agente VM não é possível comunicar com o Backup do Azure
 
-Mensagem de erro: "Agente da VM não é possível comunicar com o Backup do Azure"
+Mensagem de erro: "Agente da VM não é possível comunicar com o Backup do Azure"<br>
+Código de erro: "UserErrorGuestAgentStatusUnavailable"
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança, a cópia de segurança inicia a tarefa ao comunicar com o agente VM para criar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo a ser acionado. Quando um instantâneo não está activado, a cópia de segurança poderá falhar. Conclua os seguintes passos de resolução de problemas, pela ordem listada a e, em seguida, repita a operação:
 
@@ -41,7 +42,8 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança, a c
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Falha na operação de instantâneo porque a máquina virtual não está ligada à rede
 
-Mensagem de erro: "A operação falhou devido a sem conectividade de rede na máquina virtual de instantâneos"
+Mensagem de erro: "A operação falhou devido a sem conectividade de rede na máquina virtual de instantâneos"<br>
+Código de erro: "ExtensionSnapshotFailedNoNetwork"
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa ao comunicar com a extensão de cópia de segurança de VM para criar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo a ser acionado. Se o instantâneo não é acionado, poderão ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas, pela ordem listada a e, em seguida, repita a operação:    
 **Causa 1: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**  
@@ -50,7 +52,8 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>Falha da operação de extensão VMSnapshot
 
-Mensagem de erro: "a operação de extensão de VMSnapshot falhou"
+Mensagem de erro: "a operação de extensão de VMSnapshot falhou"<br>
+Código de erro: "ExtentionOperationFailed"
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa ao comunicar com a extensão de cópia de segurança de VM para criar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo a ser acionado. Se o instantâneo não é acionado, poderão ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas, pela ordem listada a e, em seguida, repita a operação:  
 **Causa 1: [não é possível obter o estado de instantâneo ou não pode ser obtido um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -60,7 +63,7 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Cópia de segurança falha porque o agente VM está a responder
 
-Messagae de erro: "Não é possível efetuar a operação dado que o agente da VM não está a responder"
+Mensagem de erro: "Não é possível efetuar a operação dado que o agente da VM não está a responder"
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa ao comunicar com a extensão de cópia de segurança de VM para criar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo a ser acionado. Se o instantâneo não é acionado, poderão ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas, pela ordem listada a e, em seguida, repita a operação:  
 **Causa 1: [o agente está instalado na VM, mas do responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -144,7 +147,7 @@ Mais relacionados com o agente relacionadas com a extensão de falhas de ou para
 
    * /var/lib/waagent/*.xml
    * /var/log/waagent.log
-   * /var/log/azure/*
+   * var/iniciar/azure / *
 
 Se é necessário o registo verboso para waagent, siga estes passos:
 
@@ -177,6 +180,8 @@ Para desinstalar a extensão:
 3. Selecione **extensões**.
 4. Selecione **Vmsnapshot extensão**.
 5. Selecione **desinstalar**.
+
+Para a VM com Linux, se a extensão de VMSnapshot não for apresentada no portal do Azure, [atualizar o agente Linux do Azure](../virtual-machines/linux/update-agent.md), e, em seguida, execute a cópia de segurança. 
 
 Concluir estes passos, faz com que a extensão de ser reinstalado durante a próxima cópia de segurança.
 

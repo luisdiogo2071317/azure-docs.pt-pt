@@ -1,8 +1,8 @@
 ---
 title: Utilizar o Apache Kafka produtor e APIs de consumidor - o Azure HDInsight | Microsoft Docs
-description: "Saiba como utilizar o Apache Kafka produtor e APIs de consumidor com Kafka no HDInsight. Estas APIs permitem-lhe desenvolver aplicações que escreverem e ler a partir do Apache Kafka."
+description: Saiba como utilizar o Apache Kafka produtor e APIs de consumidor com Kafka no HDInsight. Estas APIs permitem-lhe desenvolver aplicações que escreverem e ler a partir do Apache Kafka.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/18/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: b57745d6bd993a993e923c964327d9071e745413
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 01592401c4c88adeed49b11df4e7963e27b1bcee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-kafka-producer-and-consumer-apis"></a>APIs de consumidor e Apache Kafka produtor
 
@@ -27,7 +27,7 @@ Saiba como criar uma aplicação que utiliza o produtor Kafka e APIs de consumid
 
 Para obter documentação APIs, consulte [produtor API](https://kafka.apache.org/documentation/#producerapi) e [API de consumidor](https://kafka.apache.org/documentation/#consumerapi).
 
-## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
+## <a name="set-up-your-development-environment"></a>Configurar o seu ambiente de desenvolvimento
 
 Tem de ter os seguintes componentes instalados no seu ambiente de desenvolvimento:
 
@@ -43,7 +43,7 @@ Este exemplo requer Kafka no HDInsight 3.6. Para saber como criar um Kafka num c
 
 ## <a name="build-and-deploy-the-example"></a>Criar e implementar o exemplo
 
-1. Transfira os exemplos de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Transfira os exemplos de [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
 2. Altere os diretórios para a localização do `Producer-Consumer` diretório e utilize o seguinte comando:
 
@@ -61,7 +61,7 @@ Este exemplo requer Kafka no HDInsight 3.6. Para saber como criar um Kafka num c
    
     Substitua **SSHUSER** pelo utilizador SSH do seu cluster, e substitua **CLUSTERNAME** pelo nome do seu cluster. Quando lhe for pedido, introduza a palavra-passe do utilizador SSH.
 
-## <a id="run"></a>Executar o exemplo
+## <a id="run"></a> Executar o exemplo
 
 1. Para abrir uma ligação SSH para o cluster, utilize o seguinte comando:
 
@@ -144,9 +144,9 @@ Neste documento, aprendeu a utilizar o produtor Kafka e a API do consumidor com 
 
 * [Analisar os registos do Kafka](apache-kafka-log-analytics-operations-management.md)
 * [Replicar dados entre clusters do Kafka](apache-kafka-mirroring.md)
-* [Fluxos Kafka API com o HDInsight](apache-kafka-streams-api.md)
+* [API de Fluxos Kafka com o HDInsight](apache-kafka-streams-api.md)
 * [Utilizar a transmissão em fluxo de Apache Spark (DStream) com o Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Utilizar a Transmissão em Fluxo Estruturada de Apache Spark com o Kafka no HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Utilizar o Apache Spark estruturados de transmissão em fluxo para mover dados de Kafka no HDInsight para Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
+* [Utilizar a Transmissão em Fluxo Estruturada do Apache Spark para mover dados do Kafka no HDInsight para o Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Utilizar o Apache Storm com Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Ligar ao Kafka através de uma Rede Virtual do Azure](apache-kafka-connect-vpn-gateway.md)

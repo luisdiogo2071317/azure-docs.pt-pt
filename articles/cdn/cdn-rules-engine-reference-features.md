@@ -1,6 +1,6 @@
 ---
 title: Funcionalidades do motor de regras do Azure CDN | Microsoft Docs
-description: Documentação de referência para a CDN do Azure regras de funcionalidades e as condições de correspondência do motor.
+description: Funcionalidades do motor de regras de documentação de referência para a CDN do Azure.
 services: cdn
 documentationcenter: ''
 author: Lichard
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/10/2018
 ms.author: rli
-ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fd670e3b01812b7fa8fc708a02d02210b598ac6a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funcionalidades do motor de regras CDN do Azure
 Este artigo apresenta uma lista de descrições detalhadas das funcionalidades disponíveis para a rede de entrega de conteúdos (CDN) do Azure [motor de regras](cdn-rules-engine.md).
@@ -29,9 +29,9 @@ O terceiro parte de uma regra é a funcionalidade. Uma funcionalidade define o t
 
 Estas funcionalidades são concebidas para controlar o acesso ao conteúdo.
 
-Nome | Objetivo
+Nome | Finalidade
 -----|--------
-[Deny Access (403)](#deny-access-403) | Determina se a todos os pedidos são rejeitados com resposta 403 Proibido.
+[Negar o acesso (403)](#deny-access-403) | Determina se a todos os pedidos são rejeitados com resposta 403 Proibido.
 [Autenticação de token](#token-auth) | Determina se a autenticação baseada em tokens é aplicada a um pedido.
 [Código de recusa de token de autenticação](#token-auth-denial-code) | Determina o tipo de resposta é devolvida a um utilizador quando um pedido é negado devido a autenticação baseada em tokens.
 [Autenticação de token ignorar URL maiúsculas / minúsculas](#token-auth-ignore-url-case) | Determina se comparações de URL, efetuadas pela autenticação baseada em tokens são maiúsculas e minúsculas.
@@ -42,7 +42,7 @@ Nome | Objetivo
 
 Estas funcionalidades são concebidas para personalizar quando e como conteúdo é colocado em cache.
 
-Nome | Objetivo
+Nome | Finalidade
 -----|--------
 [Parâmetros de largura de banda](#bandwidth-parameters) | Determina se os parâmetros de limitação de largura de banda (por exemplo, ec_rate e ec_prebuf) são Active Directory.
 [Limitação de largura de banda](#bandwidth-throttling) | Acelera a largura de banda para a resposta fornecida pela ponto de presença (POP).
@@ -72,7 +72,7 @@ Nome | Objetivo
 
 Esta funcionalidade foi concebida para fornecer informações adicionais dentro de uma regra.
 
-Nome | Objetivo
+Nome | Finalidade
 -----|--------
 [Comentário](#comment) | Permite que uma nota a adicionar dentro de uma regra.
  
@@ -80,7 +80,7 @@ Nome | Objetivo
 
 Estas funcionalidades são concebidas para adicionar, modificar ou eliminar os cabeçalhos do pedido ou resposta.
 
-Nome | Objetivo
+Nome | Finalidade
 -----|--------
 [Cabeçalho de resposta de antiguidade](#age-response-header) | Determina se um cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
 [Cabeçalhos de resposta de Cache de depuração](#debug-cache-response-headers) | Determina se uma resposta pode incluir o cabeçalho de resposta EC-X-Debug, que fornece informações sobre a política de cache para o recurso pedido.
@@ -93,7 +93,7 @@ Nome | Objetivo
 
 Estas funcionalidades são concebidas para personalizar os dados armazenados nos ficheiros de registo não processados.
 
-Nome | Objetivo
+Nome | Finalidade
 -----|--------
 [Campo de registo personalizado 1](#custom-log-field-1) | Determina o formato e o conteúdo que é atribuído para o campo de registo personalizado num ficheiro de registo não processados.
 [Cadeia de consulta de registo](#log-query-string) | Determina se uma cadeia de consulta é armazenada, juntamente com o URL nos registos de acesso.
@@ -147,7 +147,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 Estas funcionalidades são concebidas para controlar a forma como o CDN comunica com um servidor de origem.
 
-Nome | Objetivo
+Nome | Finalidade
 -----|--------
 [Máximo de pedidos de ligação Keep-Alive](#maximum-keep-alive-requests) | Define o número máximo de pedidos para uma ligação Keep-Alive antes de que está fechado.
 [Cabeçalhos especiais de proxy](#proxy-special-headers) | Define o conjunto de cabeçalhos de pedido de CDN específicas que são reencaminhados a partir de um POP para um servidor de origem.
@@ -157,7 +157,7 @@ Nome | Objetivo
 
 Estas funcionalidades fornecem a funcionalidade avançada para utilizadores avançados.
 
-Nome | Objetivo
+Nome | Finalidade
 -----|--------
 [Métodos de HTTP colocáveis](#cacheable-http-methods) | Determina o conjunto de métodos HTTP adicionais que podem ser colocadas em cache na rede.
 [Tamanho do corpo do pedido colocáveis](#cacheable-request-body-size) | Define o limiar para determinar se uma resposta POST pode ser colocadas em cache.
@@ -168,7 +168,7 @@ Nome | Objetivo
 
 Estas funcionalidades permitem um pedido para ser redirecionado ou rescrita para um URL diferente.
 
-Nome | Objetivo
+Nome | Finalidade
 -----|--------
 [Seguir redirecionamentos](#follow-redirects) | Determina se os pedidos podem ser redirecionados para o nome de anfitrião definida no cabeçalho de localização devolvido por um servidor de origem do cliente.
 [URL de redirecionamento](#url-redirect) | Redireciona pedidos através do cabeçalho de localização.
@@ -183,8 +183,8 @@ Nome | Objetivo
 **Objetivo**: determina se um cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
 Valor|Resultado
 --|--
-Ativado | O cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
-Desativado | O cabeçalho de resposta de idade foi excluído da resposta enviada para o autor do pedido.
+Activado | O cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
+Desactivado | O cabeçalho de resposta de idade foi excluído da resposta enviada para o autor do pedido.
 
 **Comportamento de predefinido**: desativado.
 
@@ -200,8 +200,8 @@ Parâmetros de limitação de largura de banda determinam se a velocidade de tra
 
 Valor|Resultado
 --|--
-Ativado|Permite que os POPs que respeite pedidos de limitação de largura de banda.
-Desativado|Faz com que os POPs ignorar os parâmetros de limitação de largura de banda. O conteúdo pedido é servido normalmente (ou seja, sem limitação de largura de banda).
+Activado|Permite que os POPs que respeite pedidos de limitação de largura de banda.
+Desactivado|Faz com que os POPs ignorar os parâmetros de limitação de largura de banda. O conteúdo pedido é servido normalmente (ou seja, sem limitação de largura de banda).
 
 **Comportamento predefinido:** ativada.
  
@@ -232,8 +232,8 @@ Segundos de Prebuf|Defina esta opção para o número de segundos para os POPs a
 
 Valor|Resultado
 --|--
-Ativado|Faz com que todos os pedidos para passar para o servidor de origem, mesmo que o conteúdo foi colocado em cache anteriormente no POPs.
-Desativado|Faz com que POPs aos recursos da cache, de acordo com a política de cache definido no respetivos cabeçalhos de resposta.
+Activado|Faz com que todos os pedidos para passar para o servidor de origem, mesmo que o conteúdo foi colocado em cache anteriormente no POPs.
+Desactivado|Faz com que POPs aos recursos da cache, de acordo com a política de cache definido no respetivos cabeçalhos de resposta.
 
 **Comportamento predefinido:**
 
@@ -428,14 +428,32 @@ Uma falha de acerto na cache parcial ocorre normalmente depois de um utilizador 
 
 Manter a configuração predefinida para a plataforma de HTTP grande, porque esta reduz a carga no seu servidor de origem do cliente e aumenta a velocidade a que os seus clientes transferem o conteúdo.
 
-Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: Edge Cname, Literal de cabeçalho de pedido, universal do cabeçalho de pedido, o Literal de consulta do URL e consulta de URL com carateres universais.
-
 Valor|Resultado
 --|--
-Ativado|Restaura o comportamento predefinido. É o comportamento predefinido para forçar o POP para iniciar a obtenção um fundo do elemento do servidor de origem. Após o qual, o elemento estarão disponíveis na cache local o POP.
-Desativado|Impede que um POP efetuar uma obtenção de fundo para o elemento. O resultado é que o pedido seguinte para esse recurso a que região faz com que um POP para solicitá-la a partir do servidor de origem do cliente.
+Activado|Restaura o comportamento predefinido. É o comportamento predefinido para forçar o POP para iniciar a obtenção um fundo do elemento do servidor de origem. Após o qual, o elemento estarão disponíveis na cache local o POP.
+Desactivado|Impede que um POP efetuar uma obtenção de fundo para o elemento. O resultado é que o pedido seguinte para esse recurso a que região faz com que um POP para solicitá-la a partir do servidor de origem do cliente.
 
 **Comportamento predefinido:** ativada.
+
+#### <a name="compatibility"></a>Compatibilidade
+Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
+- COMO número
+- Endereço IP do cliente
+- Parâmetro de cookie
+- Cookie parâmetro Regex
+- País
+- Dispositivo
+- Limite Cname
+- Referência de domínio
+- Literal de cabeçalho de pedido
+- Regex de cabeçalho de pedido
+- Caráter universal de cabeçalho de pedido
+- Método de pedido
+- Esquema de pedido
+- Literal de consulta de URL
+- Regex de consulta de URL
+- Consulta de URL com carateres universais
+- Parâmetro de consulta de URL
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
 
@@ -450,9 +468,9 @@ Um formato de ficheiro pode ser especificado utilizando o respetivo tipo de supo
 Tipo de suporte de Internet|Descrição
 --|--
 texto/plain|Ficheiros de texto simples
-text/html| Ficheiros HTML
+texto/html| Ficheiros HTML
 texto/css|Folhas de estilo em cascata (CSS)
-application/x-javascript|Javascript
+Application/x-javascript|Javascript
 aplicação/javascript|Javascript
 Informações da chave:
 
@@ -478,8 +496,8 @@ O formato para especificar os cabeçalhos de pedido e resposta é definido da se
 
 Tipo de cabeçalho|Formato|Exemplos
 -|-|-
-Cabeçalho de pedido|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
-Cabeçalho de Resposta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+Cabeçalho de pedido|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> % {Autorização} i
+Cabeçalho de Resposta|%{[ResponseHeader]()}[Nã]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Informações da chave:
 
@@ -487,7 +505,7 @@ Informações da chave:
 - Os carateres válidos para este campo são os seguintes: alfanuméricos (0-9, a-z e A-Z), travessões, vírgula, ponto e vírgula, apostrophes, vírgulas, períodos, carateres de sublinhado, sinais de igual, parênteses, parênteses Retos e espaços. O símbolo de percentagem e chavetas só são permitidas quando são utilizados para especificar um campo de cabeçalho.
 - A ortografia para cada campo de cabeçalho especificado tem de corresponder ao nome de cabeçalho de pedido/resposta pretendido.
 - Se pretender especificar vários cabeçalhos, utilize um separador para indicar o cabeçalho de cada. Por exemplo, pode utilizar uma abreviatura para cada cabeçalho:
-    - AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
+    - AE: % {aceitar codificação} i r: % {autorização} i Cionar: o % {Content-Type} 
 
 **Valor predefinido:** -
 
@@ -514,8 +532,8 @@ EC-X-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 Valor|Resultado
 -|-
-Ativado|Pedidos de cabeçalhos de resposta de cache de depuração irão devolver uma resposta que inclui o cabeçalho X-EC-Debug.
-Desativado|O cabeçalho de resposta EC-X-Debug será excluído da resposta.
+Activado|Pedidos de cabeçalhos de resposta de cache de depuração irão devolver uma resposta que inclui o cabeçalho X-EC-Debug.
+Desactivado|O cabeçalho de resposta EC-X-Debug será excluído da resposta.
 
 **Comportamento predefinido:** desativado.
 
@@ -538,16 +556,28 @@ Informações da chave:
     - Especificar um valor inteiro e, em seguida, selecionar a unidade de tempo pretendido (por exemplo, segundos, minutos, horas, etc.). Este valor define o intervalo de idade máxima interno predefinido.
 
 - Definir a unidade de tempo "Desligado" atribuirá um intervalo de idade máxima interno predefinido de 7 dias para pedidos que não tenham sido atribuídos uma indicação de idade máxima no respetivo `Cache-Control` ou `Expires` cabeçalho.
-- Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
-    - Edge 
-    - CNAME
-    - Literal de cabeçalho de pedido
-    - Caráter universal de cabeçalho de pedido
-    - Método de pedido
-    - Literal de consulta de URL
-    - Consulta de URL com carateres universais
 
 **Valor predefinido:** 7 dias
+
+#### <a name="compatibility"></a>Compatibilidade
+Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
+- COMO número
+- Endereço IP do cliente
+- Parâmetro de cookie
+- Cookie parâmetro Regex
+- País
+- Dispositivo
+- Limite Cname
+- Referência de domínio
+- Literal de cabeçalho de pedido
+- Regex de cabeçalho de pedido
+- Caráter universal de cabeçalho de pedido
+- Método de pedido
+- Esquema de pedido
+- Literal de consulta de URL
+- Regex de consulta de URL
+- Consulta de URL com carateres universais
+- Parâmetro de consulta de URL
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
 
@@ -559,8 +589,8 @@ Informações da chave:
 
 Valor | Resultado
 ------|-------
-Ativado| Faz com que todos os pedidos que satisfaçam os critérios de correspondência para ser rejeitada com resposta 403 Proibido.
-Desativado| Restaura o comportamento predefinido. O comportamento predefinido é permitir que o servidor de origem para determinar o tipo de resposta que vai ser devolvido.
+Activado| Faz com que todos os pedidos que satisfaçam os critérios de correspondência para ser rejeitada com resposta 403 Proibido.
+Desactivado| Restaura o comportamento predefinido. O comportamento predefinido é permitir que o servidor de origem para determinar o tipo de resposta que vai ser devolvido.
 
 **Comportamento de predefinido**: desativado
 
@@ -619,8 +649,8 @@ Informações da chave:
 
 Valor|Resultado
 -|-
-Ativado|Os pedidos podem ser redirecionados.
-Desativado|Pedidos não serão redirecionados.
+Activado|Os pedidos podem ser redirecionados.
+Desactivado|Pedidos não serão redirecionados.
 
 **Comportamento predefinido:** desativado.
 
@@ -642,16 +672,28 @@ Informações da chave:
     - Especificar um valor inteiro e selecionar a unidade de tempo pretendido (por exemplo, segundos, minutos, horas, etc.). Este valor define o intervalo de idade máxima do pedido.
 
 - Definir a unidade de tempo "Desligado" desativa esta funcionalidade. Um intervalo de idade máxima interno não será atribuído aos recursos de pedido. Se o cabeçalho original não contém instruções de colocação em cache, em seguida, o elemento irá ser colocados em cache, de acordo com a definição de Active Directory na funcionalidade de predefinida interno-idade máxima.
-- Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
-    - Edge 
-    - CNAME
-    - Literal de cabeçalho de pedido
-    - Caráter universal de cabeçalho de pedido
-    - Método de pedido
-    - Literal de consulta de URL
-    - Consulta de URL com carateres universais
 
 **Comportamento predefinido:** desativado
+
+#### <a name="compatibility"></a>Compatibilidade
+Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
+- COMO número
+- Endereço IP do cliente
+- Parâmetro de cookie
+- Cookie parâmetro Regex
+- País
+- Dispositivo
+- Limite Cname
+- Referência de domínio
+- Literal de cabeçalho de pedido
+- Regex de cabeçalho de pedido
+- Caráter universal de cabeçalho de pedido
+- Método de pedido
+- Esquema de pedido
+- Literal de consulta de URL
+- Regex de consulta de URL
+- Consulta de URL com carateres universais
+- Parâmetro de consulta de URL
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
 
@@ -680,8 +722,8 @@ Um pedido de cache não ocorre quando o cliente HTTP envia um `Cache-Control: no
 
 Valor|Resultado
 --|--
-Ativado|Permite que os pedidos de cache não de um cliente HTTP para ser reencaminhado para o servidor de origem e o servidor de origem irá devolver os cabeçalhos de resposta e o corpo através o POP de volta para o cliente HTTP.
-Desativado|Restaura o comportamento predefinido. O comportamento predefinido é para impedir que pedidos na cache não reencaminhados para o servidor de origem.
+Activado|Permite que os pedidos de cache não de um cliente HTTP para ser reencaminhado para o servidor de origem e o servidor de origem irá devolver os cabeçalhos de resposta e o corpo através o POP de volta para o cliente HTTP.
+Desactivado|Restaura o comportamento predefinido. O comportamento predefinido é para impedir que pedidos na cache não reencaminhados para o servidor de origem.
 
 Para todo o tráfego de produção, recomenda vivamente para deixar esta funcionalidade no respectivo estado predefinido desativado. Caso contrário, não serão possível proteger os servidores de origem aos utilizadores finais que inadvertidamente poderão acionar muitos pedidos não-cache ao atualizar as páginas web ou a partir de muitos jogadores popular do suporte de dados que são codificados para enviar um cabeçalho de cache não com cada pedido de vídeo. Contudo, esta funcionalidade pode ser útil para aplicar a determinados não a produção de teste ou testes diretórios, para permitir que o novo conteúdo ser solicitados a pedido do servidor de origem.
 
@@ -707,16 +749,28 @@ Informações da chave:
 - Configure esta funcionalidade, definir uma lista delimitada por espaços de códigos de estado para o qual as diretivas acima serão ignoradas.
 - O conjunto de códigos de estado válido para esta funcionalidade são: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 e 505.
 - Desative esta funcionalidade ao defini-la como um valor em branco.
-- Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
-    - Edge 
-    - CNAME
-    - Literal de cabeçalho de pedido
-    - Caráter universal de cabeçalho de pedido
-    - Método de pedido
-    - Literal de consulta de URL
-    - Consulta de URL com carateres universais
 
 **Comportamento predefinido:** o comportamento predefinido é que respeite as diretivas acima.
+
+#### <a name="compatibility"></a>Compatibilidade
+Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
+- COMO número
+- Endereço IP do cliente
+- Parâmetro de cookie
+- Cookie parâmetro Regex
+- País
+- Dispositivo
+- Limite Cname
+- Referência de domínio
+- Literal de cabeçalho de pedido
+- Regex de cabeçalho de pedido
+- Caráter universal de cabeçalho de pedido
+- Método de pedido
+- Esquema de pedido
+- Literal de consulta de URL
+- Regex de consulta de URL
+- Consulta de URL com carateres universais
+- Parâmetro de consulta de URL
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
 
@@ -730,8 +784,8 @@ Por predefinição, este código de estado é devolvido quando não é possível
 
 Valor|Resultado
 -|-
-Ativado|Impede que os POPs responder a um pedido de intervalo de byte inválido com um código de estado 416 pedido intervalo não satisfatório. Em vez disso, os servidores irão fornecer o recurso pedido e devolver um 200 OK para o cliente.
-Desativado|Restaura o comportamento predefinido. O comportamento predefinido é que respeite o código de estado 416 pedido intervalo não satisfatório.
+Activado|Impede que os POPs responder a um pedido de intervalo de byte inválido com um código de estado 416 pedido intervalo não satisfatório. Em vez disso, os servidores irão fornecer o recurso pedido e devolver um 200 OK para o cliente.
+Desactivado|Restaura o comportamento predefinido. O comportamento predefinido é que respeite o código de estado 416 pedido intervalo não satisfatório.
 
 **Comportamento predefinido:** desativado.
 
@@ -758,16 +812,28 @@ Informações da chave:
     - Especificar um valor inteiro e, em seguida, selecionar a unidade de tempo pretendido (por exemplo, segundos, minutos, horas, etc.). Este valor define a interna máximo obsoleta que será aplicada.
 
 - Definir a unidade de tempo "Desligado" irá desativar esta funcionalidade. Um recurso em cache não será servido que ultrapassem o tempo de expiração normal.
-- Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
-    - Edge 
-    - CNAME
-    - Literal de cabeçalho de pedido
-    - Caráter universal de cabeçalho de pedido
-    - Método de pedido
-    - Literal de consulta de URL
-    - Consulta de URL com carateres universais
 
 **Comportamento predefinido:** dois minutos
+
+#### <a name="compatibility"></a>Compatibilidade
+Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
+- COMO número
+- Endereço IP do cliente
+- Parâmetro de cookie
+- Cookie parâmetro Regex
+- País
+- Dispositivo
+- Limite Cname
+- Referência de domínio
+- Literal de cabeçalho de pedido
+- Regex de cabeçalho de pedido
+- Caráter universal de cabeçalho de pedido
+- Método de pedido
+- Esquema de pedido
+- Literal de consulta de URL
+- Regex de consulta de URL
+- Consulta de URL com carateres universais
+- Parâmetro de consulta de URL
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
 
@@ -779,8 +845,8 @@ Informações da chave:
 
 Valor|Resultado
 -|-
-Ativado|Permite que o armazenamento de cadeias de consulta ao gravar os URLs no registo de acesso. Se um URL contém uma cadeia de consulta, em seguida, esta opção só terá um efeito.
-Desativado|Restaura o comportamento predefinido. É o comportamento predefinido para ignorar as cadeias de consulta aquando a gravar URLs no registo de acesso.
+Activado|Permite que o armazenamento de cadeias de consulta ao gravar os URLs no registo de acesso. Se um URL contém uma cadeia de consulta, em seguida, esta opção só terá um efeito.
+Desactivado|Restaura o comportamento predefinido. É o comportamento predefinido para ignorar as cadeias de consulta aquando a gravar URLs no registo de acesso.
 
 **Comportamento predefinido:** desativado.
 
@@ -818,7 +884,7 @@ Uma das seguintes ações pode ser efetuada num cabeçalho de pedido:
 
 Opção|Descrição|Exemplo
 -|-|-
-Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de pedido existente.|**O valor do cabeçalho (cliente) do pedido:**Value1 <br/> **O valor do cabeçalho (motor de regras de HTTP) do pedido:** Value2 <br/>**Novo valor de cabeçalho de pedido:** Value1Value2
+Anexar|O valor especificado será adicionado ao fim do valor de cabeçalho de pedido existente.|**O valor do cabeçalho (cliente) do pedido:**Value1 <br/> **O valor do cabeçalho (motor de regras de HTTP) do pedido:** Value2 <br/>**Novo valor de cabeçalho de pedido:** Value1Value2
 Substituir|O valor do cabeçalho de pedido será definido para o valor especificado.|**O valor do cabeçalho (cliente) do pedido:**Value1 <br/>**O valor do cabeçalho (motor de regras de HTTP) do pedido:** Value2 <br/>**Novo valor de cabeçalho de pedido:** Value2 <br/>
 Eliminar|Elimina o cabeçalho de pedido especificado.|**O valor do cabeçalho (cliente) do pedido:**Value1 <br/> **Modificar configuração de cabeçalho de pedido de cliente:** eliminar o cabeçalho do pedido em questão. <br/>**Resultado:** o cabeçalho de pedido especificado não será reencaminhado para o servidor de origem.
 
@@ -856,7 +922,7 @@ Uma das seguintes ações pode ser efetuada num cabeçalho de resposta:
 
 Opção|Descrição|Exemplo
 -|-|-
-Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de resposta existente.|**O valor de cabeçalho de resposta (cliente):**Value1 <br/> **O valor de cabeçalho de resposta (motor de regras de HTTP):** Value2 <br/>**Novo valor de cabeçalho de resposta:** Value1Value2
+Anexar|O valor especificado será adicionado ao fim do valor de cabeçalho de resposta existente.|**O valor de cabeçalho de resposta (cliente):**Value1 <br/> **O valor de cabeçalho de resposta (motor de regras de HTTP):** Value2 <br/>**Novo valor de cabeçalho de resposta:** Value1Value2
 Substituir|O valor do cabeçalho de resposta será definido para o valor especificado.|**O valor de cabeçalho de resposta (cliente):**Value1 <br/>**O valor de cabeçalho de resposta (motor de regras de HTTP):** Value2 <br/>**Novo valor de cabeçalho de resposta:** Value2 <br/>
 Eliminar|Elimina o cabeçalho de resposta especificado.|**O valor de cabeçalho de resposta (cliente):** Value1 <br/> **Modificar configuração de cabeçalho de resposta do cliente:** eliminar o cabeçalho de resposta em questão. <br/>**Resultado:** o cabeçalho de resposta especificado não será reencaminhado para o autor do pedido.
 
@@ -869,7 +935,7 @@ Informações da chave:
     - cachE-Control
 - Eliminar um cabeçalho impede que sejam encaminhados para o autor do pedido.
 - Os seguintes cabeçalhos estão reservados e não podem ser modificados por esta funcionalidade:
-    - accept-encoding
+    - codificação aceitar
     - idade
     - ligação
     - content-encoding
@@ -878,7 +944,7 @@ Informações da chave:
     - data
     - servidor
     - trailer
-    - transfer-encoding
+    - codificação de transferência
     - atualização
     - variar
     - através do
@@ -897,8 +963,8 @@ Esta cache parcial, em seguida, pode ser utilizado para satisfazer os pedidos de
 
 Valor|Resultado
 -|-
-Ativado|Pedidos podem gerar o conteúdo parcialmente em cache.
-Desativado|Pedidos só é possível gerar uma versão totalmente em cache do conteúdo pedido.
+Activado|Pedidos podem gerar o conteúdo parcialmente em cache.
+Desactivado|Pedidos só é possível gerar uma versão totalmente em cache do conteúdo pedido.
 
 **Comportamento predefinido:** desativado.
 
@@ -945,8 +1011,8 @@ Os valores válidos são:
 
 Valor|Resultado
 --|--
-Ativado|Faz com que o POP de refetch o elemento a partir do servidor de origem.
-Desativado|Restaura o comportamento predefinido. É o comportamento predefinido para servir a recursos de cache válido após pedido.
+Activado|Faz com que o POP de refetch o elemento a partir do servidor de origem.
+Desactivado|Restaura o comportamento predefinido. É o comportamento predefinido para servir a recursos de cache válido após pedido.
 Esta funcionalidade não é necessária para a colocação em cache correto e de entrega de conteúdos, mas poderá ser útil como uma solução. Por exemplo, generators conteúdos dinâmicos nos servidores de origem inadvertidamente podem resultar em respostas 0 bytes enviadas para os POPs. Estes tipos de respostas são normalmente colocadas em cache pelos POPs. Se souber que uma resposta de 0 bytes nunca é uma resposta válida 
 
 para esse conteúdo, em seguida, esta funcionalidade pode impedir que estes tipos de recursos de ser servido aos seus clientes.
@@ -989,7 +1055,7 @@ Certifique-se de que o nome de cabeçalho especificado não corresponde a nenhum
 
 - Nomes de cabeçalho de pedido padrão. É possível encontrar uma lista de nomes de cabeçalho padrão no [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Nomes de cabeçalho reservado:
-    - forwarded-for
+    - reencaminhado para
     - anfitrião
     - variar
     - através do
@@ -1007,8 +1073,8 @@ Certifique-se de que o nome de cabeçalho especificado não corresponde a nenhum
 
 Valor|Resultado
 -|-
-Ativado|Conteúdo obsoleto é fornecido para o autor do pedido quando ocorre um erro durante uma ligação a um servidor de origem.
-Desativado|Erro do servidor de origem seja reencaminhado para o autor do pedido.
+Activado|Conteúdo obsoleto é fornecido para o autor do pedido quando ocorre um erro durante uma ligação a um servidor de origem.
+Desactivado|Erro do servidor de origem seja reencaminhado para o autor do pedido.
 
 **Comportamento predefinido:** desativado
 
@@ -1041,12 +1107,17 @@ Se a autenticação baseada em tokens está ativada, apenas pedidos que fornecem
 
 A chave de encriptação que é utilizada para encriptar e desencriptar valores token é determinada pela chave primária e as opções de chave de cópia de segurança na página de autenticação de Token. Tenha em atenção que as chaves de encriptação são específicas da plataforma.
 
+**Comportamento predefinido:** desativado.
+
+Esta funcionalidade tem precedência sobre a maioria das funcionalidades com a exceção a funcionalidade de URL Rewrite.
+
 Valor | Resultado
 ------|---------
-Ativado | Protege os conteúdos solicitados com a autenticação baseada em tokens. Apenas os pedidos de clientes que fornecem um token válido e cumpram os requisitos serão cumpridos. Transações de FTP são excluídas da autenticação baseada em tokens.
-Desativado| Restaura o comportamento predefinido. O comportamento predefinido é permitir que a configuração da autenticação baseada em tokens para determinar se um pedido esteja protegido.
+Activado | Protege os conteúdos solicitados com a autenticação baseada em tokens. Apenas os pedidos de clientes que fornecem um token válido e cumpram os requisitos serão cumpridos. Transações de FTP são excluídas da autenticação baseada em tokens.
+Desactivado| Restaura o comportamento predefinido. O comportamento predefinido é permitir que a configuração da autenticação baseada em tokens para determinar se um pedido esteja protegido.
 
-**Comportamento predefinido:** desativado.
+#### <a name="compatibility"></a>Compatibilidade
+Não utilize a autenticação de Token com uma condição de correspondência de sempre. 
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
 
@@ -1056,8 +1127,6 @@ Desativado| Restaura o comportamento predefinido. O comportamento predefinido é
 ### <a name="token-auth-denial-code"></a>Código de recusa de token de autenticação
 **Objetivo:** determina o tipo de resposta que vai ser devolvido para um utilizador quando um pedido é negado devido a autenticação baseada em tokens.
 
-Código de recusa de autenticação token não pode ser utilizado com uma condição de correspondência de sempre. Em alternativa, utilize o **processamento de recusa personalizado** secção o **Token Auth** página do **gerir** portal. Para obter mais informações, consulte [ativos de proteger a CDN do Azure com a autenticação de token](cdn-token-auth.md).
-
 Os códigos de resposta disponíveis estão listados na seguinte tabela.
 
 Código de Resposta|Nome de resposta|Descrição
@@ -1066,8 +1135,11 @@ Código de Resposta|Nome de resposta|Descrição
 302|Encontrado|Este código de estado redireciona os utilizadores não autorizados para o URL especificado no cabeçalho de localização. Este código de estado é o método de padrão da indústria da execução de um redirecionamento.
 307|Redirecionamento temporário|Este código de estado redireciona os utilizadores não autorizados para o URL especificado no cabeçalho de localização.
 401|Não autorizado|Combinar este código de estado com o cabeçalho de resposta WWW-Authenticate permite-lhe solicitar um utilizador para autenticação.
-403|Proibido|Esta é a mensagem de estado de proibido de 403 padrão que um utilizador não autorizado ao tentar aceder a conteúdo protegido.
+403|Proibido|Esta mensagem é a mensagem de estado de proibido de 403 padrão que um utilizador não autorizado ao tentar aceder a conteúdo protegido.
 404|Ficheiro Não Encontrado|Este código de estado indica que o cliente HTTP foi capaz de comunicar com o servidor, mas o conteúdo solicitado não foi encontrado.
+
+#### <a name="compatibility"></a>Compatibilidade
+Não utilize o código de recusa do Token Auth com uma condição de correspondência de sempre. Em alternativa, utilize o **processamento de recusa personalizado** secção o **Token Auth** página do **gerir** portal. Para obter mais informações, consulte [ativos de proteger a CDN do Azure com a autenticação de token](cdn-token-auth.md).
 
 #### <a name="url-redirection"></a>URL de redirecionamento
 
@@ -1113,8 +1185,8 @@ Os valores válidos são:
 
 Valor|Resultado
 ---|----
-Ativado|Faz com que o POP Ignorar maiúsculas / minúsculas ao comparar os URLs para os parâmetros de autenticação baseada em tokens.
-Desativado|Restaura o comportamento predefinido. O comportamento predefinido é de comparações de URL para a autenticação de Token estar maiúsculas e minúsculas.
+Activado|Faz com que o POP Ignorar maiúsculas / minúsculas ao comparar os URLs para os parâmetros de autenticação baseada em tokens.
+Desactivado|Restaura o comportamento predefinido. O comportamento predefinido é de comparações de URL para a autenticação de Token estar maiúsculas e minúsculas.
 
 **Comportamento predefinido:** desativado.
 
@@ -1134,8 +1206,8 @@ Informações da chave:
 
 Valor|Resultado
 ----|----
-Ativado|A opção de valor define o nome de parâmetro de cadeia de consulta através do qual os tokens devem ser definidos.
-Desativado|Um token pode ser especificado como um parâmetro de cadeia de consulta não definido no URL do pedido.
+Activado|A opção de valor define o nome de parâmetro de cadeia de consulta através do qual os tokens devem ser definidos.
+Desactivado|Um token pode ser especificado como um parâmetro de cadeia de consulta não definido no URL do pedido.
 
 **Comportamento predefinido:** desativado. Um token pode ser especificado como um parâmetro de cadeia de consulta não definido no URL do pedido.
 
@@ -1152,7 +1224,7 @@ A configuração desta funcionalidade precisa de definir as opções seguintes:
 Opção|Descrição
 -|-
 Código|Selecione o código de resposta que vai ser devolvido ao autor do pedido.
-Origem & padrão| Estas definições, defina um padrão URI do pedido que identifica o tipo de pedidos que podem ser redirecionados. Serão redirecionados apenas pedidos cujo URL satisfaça ambos os seguintes critérios: <br/> <br/> **Origem (ou ponto de acesso ao conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Esta é a secção "/XXXX/" e o nome do ponto final. <br/> **Origem (padrão):** um padrão que identifica pedidos pelo caminho relativo tem de ser definido. Neste padrão de expressão regular tem de definir um caminho que inicia diretamente após o acesso ao conteúdo anteriormente selecionado ponto (consultar acima). <br/> -Certifique-se de que o pedido URI critérios (ou seja, origem & padrão) definidos anteriormente não entra em conflito com quaisquer condições de correspondência definidas para esta funcionalidade. <br/> -Especifique um padrão; Se utilizar um valor em branco como o padrão, todas as cadeias são correspondidas.
+Origem & padrão| Estas definições, defina um padrão URI do pedido que identifica o tipo de pedidos que podem ser redirecionados. Serão redirecionados apenas pedidos cujo URL satisfaça ambos os seguintes critérios: <br/> <br/> **Origem (ou ponto de acesso ao conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Este caminho é o _/XXXX/_ secção e o nome do ponto final. <br/> **Origem (padrão):** um padrão que identifica pedidos pelo caminho relativo tem de ser definido. Neste padrão de expressão regular tem de definir um caminho que inicia diretamente após o acesso ao conteúdo anteriormente selecionado ponto (consultar acima). <br/> -Certifique-se de que o pedido URI critérios (ou seja, origem & padrão) definidos anteriormente não entra em conflito com quaisquer condições de correspondência definidas para esta funcionalidade. <br/> -Especifique um padrão; Se utilizar um valor em branco como o padrão, todas as cadeias são correspondidas.
 Destino| Defina o URL ao qual serão redirecionados os pedidos acima. <br/> Dinamicamente construir este URL a utilizar: <br/> -Um padrão de expressão regular <br/>-Variáveis HTTP <br/> Substitua os valores capturados o padrão de origem para o padrão de destino utilizando $_n_ onde _n_ identifica um valor pela ordem em que foi capturada. Por exemplo, $1 representa o primeiro valor capturado o padrão de origem, enquanto $2 representa o segundo valor. <br/> 
 Recomenda-se vivamente a utilização de um URL absoluto. A utilização de um URL relativo pode redirecionar os URLs da CDN para um caminho inválido.
 
@@ -1177,7 +1249,7 @@ Redirecionamento este URL pode ser conseguido através da configuração seguint
     - Cenário de exemplo #3: 
         - Exemplo de pedido (Edge CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
         - O URL de pedido (após o redirecionamento): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
-- A variável de esquema pedido (% {esquema}) foi utilizada na opção de destino. Isto garante que permanece inalterada esquema o pedido após o redirecionamento.
+- A variável de esquema de pedido (% {esquema}) é utilizada na opção de destino, que garante que permanece inalterada esquema o pedido após o redirecionamento.
 - Os segmentos de URL que foram capturados do pedido são acrescentados para o novo URL através de "$1."
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
@@ -1194,9 +1266,9 @@ Informações da chave:
 
 Opção|Descrição
 -|-
- Origem & padrão | Estas definições, defina um padrão URI do pedido que identifica o tipo de pedidos que podem ser foi reescrita. Irão ser foi reescritos apenas pedidos cujo URL satisfaça ambos os seguintes critérios: <br/>     - **Origem (ou ponto de acesso ao conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Esta é a secção "/XXXX/" e o nome do ponto final. <br/> - **Origem (padrão):** um padrão que identifica pedidos pelo caminho relativo tem de ser definido. Neste padrão de expressão regular tem de definir um caminho que inicia diretamente após o acesso ao conteúdo anteriormente selecionado ponto (consultar acima). <br/> Certifique-se de que o pedido URI critérios (ou seja, origem & padrão) definidos anteriormente não entra em conflito com qualquer uma das condições definidas para esta funcionalidade correspondência. Especificar um padrão; Se utilizar um valor em branco como o padrão, todas as cadeias são correspondidas. 
+ Origem & padrão | Estas definições, defina um padrão URI do pedido que identifica o tipo de pedidos que podem ser foi reescrita. Irão ser foi reescritos apenas pedidos cujo URL satisfaça ambos os seguintes critérios: <br/>     - **Origem (ou ponto de acesso ao conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Este caminho é o _/XXXX/_ secção e o nome do ponto final. <br/> - **Origem (padrão):** um padrão que identifica pedidos pelo caminho relativo tem de ser definido. Neste padrão de expressão regular tem de definir um caminho que inicia diretamente após o acesso ao conteúdo anteriormente selecionado ponto (consultar acima). <br/> Certifique-se de que o pedido URI critérios (ou seja, origem & padrão) definidos anteriormente não entra em conflito com qualquer uma das condições definidas para esta funcionalidade correspondência. Especificar um padrão; Se utilizar um valor em branco como o padrão, todas as cadeias são correspondidas. 
  Destino  |Defina o URL relativo ao qual os pedidos acima irão ser foi reescritos por: <br/>    1. Selecionar um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. Definir a utilizar um caminho relativo: <br/>        -Um padrão de expressão regular <br/>        -Variáveis HTTP <br/> <br/> Substitua os valores capturados o padrão de origem para o padrão de destino utilizando $_n_ onde _n_ identifica um valor pela ordem em que foi capturada. Por exemplo, $1 representa o primeiro valor capturado o padrão de origem, enquanto $2 representa o segundo valor. 
- Esta funcionalidade permite que os POPs de reescrever o URL sem efetuar um redirecionamento tradicional. Isto significa que o autor do pedido irá receber o mesmo código de resposta, como se o URL de conversão tinha sido pedido.
+ Esta funcionalidade permite que os POPs de reescrever o URL sem efetuar um redirecionamento tradicional. Ou seja, o autor do pedido recebe o mesmo código de resposta, como se o URL de conversão tinha sido pedido.
 
 **Cenário de exemplo 1**
 
@@ -1220,7 +1292,6 @@ Redirecionamento este URL pode ser conseguido através da configuração seguint
 - Os segmentos de URL que foram capturados do pedido são acrescentados para o novo URL através de "$1."
 
 #### <a name="compatibility"></a>Compatibilidade
-
 Esta funcionalidade inclui correspondentes aos critérios que devem ser satisfeitos antes de poder ser aplicado a um pedido. Para evitar a configurar os critérios de correspondência em conflito, esta funcionalidade é incompatível com as seguintes condições de correspondência:
 
 - COMO número

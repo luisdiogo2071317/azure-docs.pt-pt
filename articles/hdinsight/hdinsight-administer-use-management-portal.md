@@ -9,18 +9,16 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 9295a988-bd88-453a-8c8b-55fa103bf39c
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 78541feda8c82be143f91fdde88eac179cf0b1a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Hadoop baseados em Windows no HDInsight ao utilizar o portal do Azure
 
@@ -296,7 +294,7 @@ A consola de consulta do HDInsight inclui as seguintes funcionalidades:
 ## <a name="run-hive-queries"></a>Executar consultas do Hive
 Para executar tarefas do Hive a partir do Portal, clique em **Editor do Hive** na consola de consulta do HDInsight. Consulte [consola aberta HDInsight consulta](#open-hdinsight-query-console).
 
-## <a name="monitor-jobs"></a>Monitorizar trabalhos
+## <a name="monitor-jobs"></a>Monitorizar tarefas
 Para monitorizar tarefas a partir do Portal, clique em **histórico de tarefas** na consola de consulta do HDInsight. Consulte [consola aberta HDInsight consulta](#open-hdinsight-query-console).
 
 ## <a name="browse-files"></a>Procurar ficheiros

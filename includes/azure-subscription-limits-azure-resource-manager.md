@@ -5,7 +5,7 @@
 | Núcleos de VM por série (Dv2, F, etc.) por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por Região | Contactar o suporte |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por subscrição |Ilimitado |Ilimitado |
 | [Contas de armazenamento](../articles/storage/common/storage-create-storage-account.md) por subscrição |200 |200<sup>2</sup> |
-| [Grupos de Recursos](../articles/azure-resource-manager/resource-group-overview.md) por subscrição |800 |800 |
+| [Grupos de Recursos](../articles/azure-resource-manager/resource-group-overview.md) por subscrição |980 |980 |
 | [Conjuntos de Disponibilidade](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por subscrição |2000 por Região |2000 por Região |
 | Leituras da API do Resource Manager |15 000 por hora |15 000 por hora |
 | Escritas da API do Resource Manager |1200 por hora |1200 por hora |

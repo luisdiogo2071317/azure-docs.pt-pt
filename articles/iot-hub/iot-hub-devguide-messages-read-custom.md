@@ -5,19 +5,19 @@ services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3d54da43141dc2bdf34c9f71adc41dc7cf24ff10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utilizar rotas de mensagem e os pontos finais personalizados para mensagens do dispositivo-nuvem
 
@@ -26,11 +26,13 @@ IoT Hub permite-lhe encaminhar [mensagens do dispositivo para nuvem] [ lnk-devic
 | Propriedade      | Descrição |
 | ------------- | ----------- |
 | **Nome**      | O nome exclusivo que identifica a regra. |
-| **Origem**    | A origem do fluxo de dados para exigirão a tomada. Por exemplo, a telemetria do dispositivo. |
+| **origem**    | A origem do fluxo de dados para exigirão a tomada. Por exemplo, a telemetria do dispositivo. |
 | **Condição** | A expressão de consulta para a regra de encaminhamento que é executada no cabeçalhos e corpo da mensagem e determina se é uma correspondência para o ponto final. Para obter mais informações sobre a construção de uma condição de rota, consulte o [referência - linguagem de consulta para dispositivos duplos e tarefas][lnk-devguide-query-language]. |
 | **Endpoint**  | O nome do ponto final onde o IoT Hub envia mensagens que correspondem à condição. Pontos finais devem estar na mesma região que o IoT hub, caso contrário, poderá cobrada por várias regiões escritas. |
 
 Uma única mensagem pode correspondem à condição em várias regras de encaminhamento, na qual caso IoT Hub disponibiliza a mensagem para o ponto final associado a cada regra de correspondência. IoT Hub deduplicates também automaticamente a entrega de mensagens, pelo que o se corresponder a uma mensagem de várias regras que têm o mesmo destino, só são escrita uma vez para este destino.
+
+## <a name="endpoints-and-routing"></a>Pontos finais e encaminhamento
 
 Um IoT hub tem uma predefinição [ponto final incorporado][lnk-built-in]. Pode criar os pontos finais personalizados para encaminhar mensagens ao ligar a outros serviços na sua subscrição ao hub. IoT Hub suporta atualmente os contentores de armazenamento do Azure, Event Hubs, as filas do Service Bus e tópicos do Service Bus como pontos finais personalizados.
 
@@ -50,6 +52,12 @@ Para obter mais informações sobre a leitura do pontos finais personalizados, c
 * Ler a partir de [dos Event Hubs][lnk-getstarted-eh].
 * Ler a partir de [filas do Service Bus][lnk-getstarted-queue].
 * Ler a partir de [tópicos do Service Bus][lnk-getstarted-topic].
+
+## <a name="latency"></a>Latência
+
+Quando encaminhar mensagens de telemetria do dispositivo para a nuvem utilizando pontos finais incorporados, há um aumento ligeiras na latência ponto-a-ponto após a criação da rota primeiro.
+
+Na maioria dos casos, o aumento de latência média é inferior a um segundo. Pode monitorizar a utilização da latência **d2c.endpoints.latency.builtIn.events** [métrica do IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics). Criar ou eliminar quaisquer rota após primeiro não afeta a latência de ponto a ponto.
 
 ### <a name="next-steps"></a>Passos Seguintes
 

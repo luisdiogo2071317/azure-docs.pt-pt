@@ -1,6 +1,6 @@
 ---
-title: "Criar a identidade da aplicação do Azure com o PowerShell | Microsoft Docs"
-description: "Descreve como utilizar o Azure PowerShell para criar uma aplicação do Azure Active Directory e um principal de serviço e conceder acesso a recursos através do controlo de acesso baseado em funções. Mostra como a aplicação com um certificado de autenticação."
+title: Criar a identidade da aplicação do Azure com o PowerShell | Microsoft Docs
+description: Descreve como utilizar o Azure PowerShell para criar uma aplicação do Azure Active Directory e um principal de serviço e conceder acesso a recursos através do controlo de acesso baseado em funções. Mostra como a aplicação com um certificado de autenticação.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 175d95c16484b90b13936c3be39b67749f0c3238
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3b14d148669457a47eecda11cf6a8c85b5361677
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Utilizar o Azure PowerShell para criar um principal de serviço com um certificado
 
@@ -40,7 +40,7 @@ A forma mais fácil de verificar se a sua conta tem permissões adequadas é uti
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Criar o serviço principal com o certificado autoassinado
 
-O exemplo seguinte inclui um cenário simples. Utiliza [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) para criar um principal de serviço com um certificado autoassinado e utiliza [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para atribuir a [contribuinte](../active-directory/role-based-access-built-in-roles.md#contributor)função para o principal de serviço. A atribuição de função é confinada à sua subscrição do Azure atualmente selecionada. Para selecionar uma subscrição diferente, utilize [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+O exemplo seguinte inclui um cenário simples. Utiliza [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) para criar um principal de serviço com um certificado autoassinado e utiliza [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para atribuir a [contribuinte](../role-based-access-control/built-in-roles.md#contributor)função para o principal de serviço. A atribuição de função é confinada à sua subscrição do Azure atualmente selecionada. Para selecionar uma subscrição diferente, utilize [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -170,7 +170,7 @@ Se precisar de obter o ID da aplicação, utilize:
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Criar o serviço principal com o certificado de autoridade de certificação
 
-O exemplo seguinte utiliza um certificado emitido por uma autoridade de certificação para criar o serviço principal. A atribuição é confinada à subscrição do Azure especificada. Adiciona o principal de serviço para o [contribuinte](../active-directory/role-based-access-built-in-roles.md#contributor) função. Se ocorrer um erro durante a atribuição de função, repete a atribuição.
+O exemplo seguinte utiliza um certificado emitido por uma autoridade de certificação para criar o serviço principal. A atribuição é confinada à subscrição do Azure especificada. Adiciona o principal de serviço para o [contribuinte](../role-based-access-control/built-in-roles.md#contributor) função. Se ocorrer um erro durante a atribuição de função, repete a atribuição.
 
 ```powershell
 Param (

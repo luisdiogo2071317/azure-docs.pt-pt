@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 94a039ab1973cbd4112ddd0cd7548baa69924d26
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ee70c3784205a70f455bd7ef147467e4547d167
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces de funções de HTTP e webhook do Azure
 
@@ -37,7 +37,7 @@ Os enlaces de HTTP são fornecidos no [Microsoft.Azure.WebJobs.Extensions.Http](
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="trigger"></a>Acionador
+## <a name="trigger"></a>Acionar
 
 O acionador HTTP permite invocar uma função com um pedido de HTTP. Pode utilizar um acionador HTTP para criar APIs sem servidor e responder a webhooks. 
 
@@ -138,7 +138,6 @@ public static string Run(CustomObject req, TraceWriter log)
 
 public class CustomObject {
      public String name {get; set;}
-}
 }
 ```
 
@@ -389,12 +388,12 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **type** | n/d| Necessário - tem de ser definido como `httpTrigger`. |
-| **direction** | n/d| Necessário - tem de ser definido como `in`. |
+| **tipo** | n/d| Necessário - tem de ser definido como `httpTrigger`. |
+| **direção** | n/d| Necessário - tem de ser definido como `in`. |
 | **name** | n/d| Necessário - o nome da variável utilizado no código de função para o corpo do pedido ou o pedido. |
-| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina o chaves, se existirem, precisam de estar presente no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Não é necessária nenhuma chave de API.</li><li><code>function</code>&mdash;É necessária uma chave de API de específicas. Este é o valor predefinido se não for fornecido nenhum.</li><li><code>admin</code>&mdash;Não é necessária a chave mestra.</li></ul> Para obter mais informações, consulte a secção [chaves de autorização](#authorization-keys). |
-| **Métodos** |**Métodos** | Uma matriz dos métodos HTTP para os quais a função responde. Se não for especificado, a função de responde a todos os métodos HTTP. Consulte [personalizar o ponto final de http](#trigger---customize-the-http-endpoint). |
-| **route** | **Rota** | Define o modelo de rota, controlar ao qual pedido URLs responde a sua função. O valor predefinido se não for fornecido nenhum é `<functionname>`. Para obter mais informações, consulte [personalizar o ponto final de http](#customize-the-http-endpoint). |
+| <a name="http-auth"></a>**AuthLevel** |  **AuthLevel** |Determina o chaves, se existirem, precisam de estar presente no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Não é necessária nenhuma chave de API.</li><li><code>function</code>&mdash;É necessária uma chave de API de específicas. Este é o valor predefinido se não for fornecido nenhum.</li><li><code>admin</code>&mdash;Não é necessária a chave mestra.</li></ul> Para obter mais informações, consulte a secção [chaves de autorização](#authorization-keys). |
+| **Métodos** |**Métodos** | Uma matriz dos métodos HTTP para os quais a função responde. Se não for especificado, a função de responde a todos os métodos HTTP. Consulte [personalizar o ponto final de http](#customize-the-http-endpoint). |
+| **Rota** | **Rota** | Define o modelo de rota, controlar ao qual pedido URLs responde a sua função. O valor predefinido se não for fornecido nenhum é `<functionname>`. Para obter mais informações, consulte [personalizar o ponto final de http](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Configura o acionador HTTP para atuar como um [webhook](https://en.wikipedia.org/wiki/Webhook) recetor para o fornecedor especificado. Não defina a `methods` propriedade se definir esta propriedade. O tipo de webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final de webhook para fins gerais sem lógica para um fornecedor específico. Esta definição limita os pedidos para apenas os utilizando o HTTP POST e com o `application/json` tipo de conteúdo.</li><li><code>github</code>&mdash;A função responde a [GitHub webhooks](https://developer.github.com/webhooks/). Não utilize o _authLevel_ propriedade com o GitHub webhooks. Para obter mais informações, consulte a secção de webhooks GitHub neste artigo.</li><li><code>slack</code>&mdash;A função responde a [Slack webhooks](https://api.slack.com/outgoing-webhooks). Não utilize o _authLevel_ propriedade com Slack webhooks. Para obter mais informações, consulte a secção de Slack webhooks neste artigo.</li></ul>|
 
 ## <a name="trigger---usage"></a>Acionador - utilização
@@ -568,8 +567,8 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |Propriedade  |Descrição  |
 |---------|---------|
-| **type** |tem de ser definido como `http`. |
-| **direction** | tem de ser definido como `out`. |
+| **tipo** |tem de ser definido como `http`. |
+| **direção** | tem de ser definido como `out`. |
 |**name** | O nome da variável utilizado no código de função para a resposta. |
 
 ## <a name="output---usage"></a>Saída - utilização

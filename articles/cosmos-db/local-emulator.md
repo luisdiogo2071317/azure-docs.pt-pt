@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: ''
 keywords: Emulador do Cosmos BD do Azure
 author: David-Noble-at-work
-manager: jhubbard
+manager: kfile
 editor: ''
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
 ms.author: danoble
-ms.openlocfilehash: e0d23a163f16763dd4764eb7857dec8076f4754c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 810e3e8af5295348ba73b4f7433e3203f47f4554
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Utilizar o emulador de BD do Cosmos do Azure para desenvolvimento local e o teste
 
@@ -82,7 +82,7 @@ O emulador de BD do Azure Cosmos tem os seguintes requisitos de hardware e softw
 * Requisitos de software
   * Windows Server 2012 R2, Windows Server 2016 ou o Windows 10
 *   Requisitos mínimos de Hardware
-  * 2 GB RAM
+  * 2 GB DE RAM
   * 10 GB de espaço em disco de rígido disponível
 
 ## <a name="installation"></a>Instalação
@@ -208,19 +208,19 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 <tr>
   <td>DataPath</td>
   <td>Especifica o caminho onde pretende armazenar os ficheiros de dados. Predefinição é de % LocalAppdata%\CosmosDBEmulator.</td>
-  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
+  <td>CosmosDB.Emulator.exe /DataPath =&lt;datapath&gt;</td>
   <td>&lt;DataPath&gt;: um caminho acessível</td>
 </tr>
 <tr>
   <td>Porta</td>
   <td>Especifica o número de porta a utilizar para o emulador.  Predefinição é 8081.</td>
-  <td>CosmosDB.Emulator.exe /Port=&lt;port&gt;</td>
+  <td>CosmosDB.Emulator.exe /Port =&lt;porta&gt;</td>
   <td>&lt;porta&gt;: número de porta individual</td>
 </tr>
 <tr>
   <td>MongoPort</td>
   <td>Especifica o número de porta a utilizar para API de compatibilidade do MongoDB. Predefinição é 10255.</td>
-  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
+  <td>CosmosDB.Emulator.exe /MongoPort =&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: número de porta individual</td>
 </tr>
 <tr>
@@ -232,7 +232,7 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 <tr>
   <td>Chave</td>
   <td>Chave de autorização para o emulador. Chave tem de ser a codificação base 64 de um vetor de 64 bytes.</td>
-  <td>CosmosDB.Emulator.exe /Key:&lt;key&gt;</td>
+  <td>CosmosDB.Emulator.exe /Key:&lt;chave&gt;</td>
   <td>&lt;chave&gt;: chave tem de ser a codificação de um vetor de 64 bytes base-64</td>
 </tr>
 <tr>
@@ -262,13 +262,13 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 <tr>
   <td>PartitionCount</td>
   <td>Especifica o número máximo de coleções particionadas. Consulte [alterar o número de coleções](#set-partitioncount) para obter mais informações.</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
+  <td>CosmosDB.Emulator.exe /PartitionCount =&lt;partitioncount&gt;</td>
   <td>&lt;partitioncount&gt;: permissão de número máximo de coleções de partições únicas. Predefinição é 25. Máximo permitido é 250.</td>
 </tr>
 <tr>
   <td>DefaultPartitionCount</td>
   <td>Especifica o número predefinido de partições para uma coleção particionada.</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
+  <td>CosmosDB.Emulator.exe /DefaultPartitionCount =&lt;defaultpartitioncount&gt;</td>
   <td>&lt;defaultpartitioncount&gt; predefinição é 25.</td>
 </tr>
 <tr>

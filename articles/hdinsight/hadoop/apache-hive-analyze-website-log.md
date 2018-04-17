@@ -1,26 +1,24 @@
 ---
-title: "Utilizar o Hive com o Hadoop para análise de registos de Web site - Azure HDInsight | Microsoft Docs"
-description: "Saiba como utilizar o Hive com o HDInsight para analisar os registos de Web site. Irá utilizar um ficheiro de registo como entrada para uma tabela do HDInsight e utilizar o HiveQL para consultar os dados."
+title: Utilizar o Hive com o Hadoop para análise de registos de Web site - Azure HDInsight | Microsoft Docs
+description: Saiba como utilizar o Hive com o HDInsight para analisar os registos de Web site. Irá utilizar um ficheiro de registo como entrada para uma tabela do HDInsight e utilizar o HiveQL para consultar os dados.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 6fb7b5c2-8df4-40b1-a9e2-6815080004f9
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/17/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5aabb69dc233dfd927c1d6cc1b131115e2d096d4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53a0560d3bc5a52069d5829b9c3bd353e0c37ef3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Utilizar o Hive com o HDInsight baseado em Windows para analisar os registos de Web sites
 Saiba como utilizar o HiveQL com o HDInsight para analisar os registos de um Web site. Análise de registos de Web site pode ser utilizado para segmentar o público-alvo com base em atividades semelhantes, categorizar os visitantes do site por dados demográficos e para saber o conteúdo vista, Web sites entram do e assim sucessivamente.
@@ -52,7 +50,7 @@ Neste exemplo, pode utilizar um cluster do HDInsight para analisar ficheiros de 
 3. Da página web que se abre, clique em de **Getting iniciado galeria** separador e, no **soluções com dados de exemplo** categoria, clique em de **análise de registos de Web site** exemplo.
 4. Siga as instruções fornecidas na página web para concluir o exemplo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Tente o seguinte exemplo: [analisar dados de sensores utilizando o Hive com o HDInsight](apache-hive-analyze-sensor-data.md).
 
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md

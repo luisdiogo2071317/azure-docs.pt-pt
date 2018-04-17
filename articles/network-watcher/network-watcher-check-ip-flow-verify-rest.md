@@ -1,11 +1,11 @@
 ---
-title: "Certifique-se de tráfego com o fluxo de IP de observador de rede de Azure verificar - REST | Microsoft Docs"
-description: "Este artigo descreve como verificar se o tráfego de ou para uma máquina virtual é permitido ou negado"
+title: Certifique-se de tráfego com o fluxo de IP de observador de rede de Azure verificar - REST | Microsoft Docs
+description: Este artigo descreve como verificar se o tráfego de ou para uma máquina virtual é permitido ou negado
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3307a79f-03be-46a0-aaaf-b2079cb5f3b2
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3ccef9ef521b86ffc1eb6047174f4f9e5d9e4296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c3d38f776db63e777174b7dca8b09a0d19c387e8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Verifique se o tráfego é permitido ou negado com o fluxo IP Certifique-se de um componente do observador de rede do Azure
 
@@ -165,7 +165,7 @@ A resposta que regressar indica se o tráfego é permitido ou negado. A resposta
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se o tráfego está a ser bloqueado e não deve ser, consulte [gerir grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para obter mais informações sobre grupos de segurança de rede.
+Se o tráfego está a ser bloqueado e não deve ser, consulte [gerir grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para obter mais informações sobre grupos de segurança de rede.
 
 
 

@@ -1,11 +1,11 @@
 ---
 title: Guardar as mensagens do hub IoT para o armazenamento de dados do Azure | Microsoft Docs
-description: "Utilize o encaminhamento de mensagens do IoT Hub para guardar as mensagens do hub IoT para o armazenamento de Blobs do Azure. As mensagens do hub IoT contêm informações, tais como os dados de sensor, que são enviados a partir do dispositivo IoT."
+description: Utilize o encaminhamento de mensagens do IoT Hub para guardar as mensagens do hub IoT para o armazenamento de Blobs do Azure. As mensagens do hub IoT contêm informações, tais como os dados de sensor, que são enviados a partir do dispositivo IoT.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
+tags: ''
 keywords: armazenamento de dados do IOT, armazenamento de dados de sensor iot
 ms.assetid: 62fd14fd-aaaa-4b3d-8367-75c1111b6269
 ms.service: iot-hub
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
-ms.author: xshi
-ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 03111cd07364aa30f15ddcfdc196107d92d02e0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Guardar IoT hub mensagens que contêm dados de sensor para o armazenamento de Blobs do Azure
 
@@ -61,7 +61,7 @@ Saiba como criar uma conta de armazenamento do Azure e uma aplicação de funç�
 
 ## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>Preparar o seu IoT hub para encaminhar mensagens para o armazenamento
 
-IoT Hub suporta nativamente o encaminhamento de mensagens para o armazenamento do Azure como blobs.
+IoT Hub suporta nativamente o encaminhamento de mensagens para o armazenamento do Azure como blobs. Para saber mais sobre os pontos finais personalizados de IoT Hub do Azure, pode consultar [lista de pontos finais de IoT Hub incorporadas](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints).
 
 ### <a name="add-storage-as-a-custom-endpoint"></a>Adicionar armazenamento como um ponto de final personalizado
 

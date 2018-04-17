@@ -1,11 +1,11 @@
 ---
-title: "Oferta da subscrição do Azure de alteração | Microsoft Docs"
-description: "Saiba mais sobre como alterar a sua subscrição do Azure e mudar para uma oferta diferentes, utilizando o Centro de contas do Azure"
-services: 
-documentationcenter: 
+title: Oferta da subscrição do Azure de alteração | Microsoft Docs
+description: Saiba mais sobre como alterar a sua subscrição do Azure e mudar para uma oferta diferentes, utilizando o Centro de contas do Azure
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
 ms.service: billing
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 12e5641093dd1bdc1546cc115283f48d5c134121
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Alterar a sua subscrição pay as you go do Azure para uma oferta diferentes
 
@@ -29,14 +29,14 @@ Como um [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) client
 
 ## <a name="whats-supported"></a>O que é suportado:
 
-| De | Para |
+| De | a |
 | --- | --- |
-| "Pay As You Go" |[Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/) |
-| "Pay As You Go" |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |
-| "Pay As You Go" |[Visual Studio Professional de teste](https://azure.microsoft.com/offers/ms-azr-0060p/) |
-| "Pay As You Go" |[Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/) |
-| "Pay As You Go" |[Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) |
-| "Pay As You Go" |[Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |
+| "Pay-As-You-Go" |[Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/) |
+| "Pay-As-You-Go" |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |
+| "Pay-As-You-Go" |[Visual Studio Professional de teste](https://azure.microsoft.com/offers/ms-azr-0060p/) |
+| "Pay-As-You-Go" |[Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/) |
+| "Pay-As-You-Go" |[Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) |
+| "Pay-As-You-Go" |[Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |
 
 > [!NOTE]
 > Para outras alterações de oferta [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -105,7 +105,7 @@ No dia que mudar, é gerada uma fatura para todos os encargos pendentes. Em segu
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Pode migrar de pay as you go para [provedor de soluções de nuvem](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) ou [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* Para migrar para o CSP, consulte [migração da subscrição do Azure Pas-como-,-ir para o CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* Para migrar para o CSP, consulte [migração da subscrição do Azure pay as you go para CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * Para migrar para EA, tem de adicionar a sua conta para o EA o seu administrador de inscrição. Siga as instruções no e-mail de convite para que as suas subscrições movidas em inscrição EA. Para obter mais informações, consulte [associar uma conta existente](https://ea.azure.com/helpdocs/associateExistingAccount) no portal do EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Posso migrar dados e serviços para uma nova subscrição?

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
-ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f6f10649670dac523289724603e2aecaf17fa67d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Criar zonas DNS e conjuntos de registos utilizando o SDK .NET
 
@@ -29,7 +29,7 @@ Normalmente, é concedido acesso programático a recursos do Azure através de u
 
 1. Siga [estas instruções](../azure-resource-manager/resource-group-authenticate-service-principal.md) para criar uma conta do principal de serviço (o projeto de exemplo do SDK de DNS do Azure assume que a autenticação baseada em palavra-passe.)
 2. Criar um grupo de recursos ([Eis como](../azure-resource-manager/resource-group-template-deploy-portal.md)).
-3. Utilizar o RBAC do Azure para a conta do principal de serviço de conceder permissões de 'Contribuinte da zona de DNS' para o grupo de recursos ([Eis como](../active-directory/role-based-access-control-configure.md).)
+3. Utilizar o RBAC do Azure para a conta do principal de serviço de conceder permissões de 'Contribuinte da zona de DNS' para o grupo de recursos ([Eis como](../role-based-access-control/role-assignments-portal.md).)
 4. Se utilizar o projeto de exemplo do SDK de DNS do Azure, edite o ficheiro de 'program.cs' da seguinte forma:
 
    * Introduza os valores corretos para o tenantId, clientId (também conhecido como ID de conta), o segredo (service principal conta palavra-passe) e subscriptionId como utilizada no passo 1.

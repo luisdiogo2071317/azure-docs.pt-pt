@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Azure Application Insights com o Java no Eclipse | Documentos da Microsoft"
-description: "Utilizar o plug-in do Eclipse para adicionar o desempenho e a monitorização de utilização para o seu site em Java com o Application Insights"
+title: Introdução ao Azure Application Insights com o Java no Eclipse | Documentos da Microsoft
+description: Utilizar o plug-in do Eclipse para adicionar o desempenho e a monitorização de utilização para o seu site em Java com o Application Insights
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 616cbfed405454d2abbb6bb526166d2c72e4365d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Introdução ao Application Insights com o Java no Eclipse
 O Application Insights SDK envia a telemetria da sua aplicação web de Java para que possa analisar utilização e desempenho. O Eclipse Plug-in para o Application Insights instala automaticamente o SDK no projeto para que a tirar partido da telemetria de caixa, além de uma API que pode utilizar para escrever telemetria personalizada.   
@@ -28,7 +28,7 @@ Atualmente o funciona Plug-in para projetos do Maven e projetos Web dinâmico no
 
 Precisa de:
 
-* Oracle JRE 1.6 ou posterior
+* JRE 1.7 ou 1.8
 * Uma subscrição do [Microsoft Azure](https://azure.microsoft.com/).
 * [IDE Eclipse para programadores de Java EE](http://www.eclipse.org/downloads/), Indigo ou posterior.
 * Windows 7 ou posterior, ou Windows Server 2008 ou posterior
@@ -47,7 +47,7 @@ Só tem de executar este uma vez por máquina. Este passo instala um conjunto de
 Siga os passos restantes para cada projeto de Java.
 
 ## <a name="create-an-application-insights-resource-in-azure"></a>Criar um recurso do Application Insights no Azure
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Crie um novo recurso do Application Insights. Defina o tipo de aplicação para aplicação Web em Java.  
 
     ![Click + e escolha Application Insights](./media/app-insights-java-eclipse/01-create.png)  
@@ -192,7 +192,7 @@ Os contadores de desempenho ficam visíveis como métricas personalizadas no [Ex
 ### <a name="unix-performance-counters"></a>Contadores de desempenho Unix
 * [Instale collectd com o plug-in do Application Insights](app-insights-java-collectd.md) para obter uma ampla variedade de dados de sistema e de rede.
 
-## <a name="availability-web-tests"></a>Testes Web de disponibilidade
+## <a name="availability-web-tests"></a>Disponibilidade dos testes Web
 O Application Insights pode testar o seu site em intervalos regulares para verificar se está a funcionar e a responder bem. [Para configurar][availability], desloque para baixo para clicar em disponibilidade.
 
 ![Desloque para baixo, clique em Disponibilidade e, em seguida, em Adicionar teste Web](./media/app-insights-java-eclipse/31-config-web-test.png)
@@ -203,7 +203,7 @@ Irá obter gráficos de tempos de resposta e notificações por e-mail, se o seu
 
 [Saiba mais sobre testes Web de disponibilidade.][availability]
 
-## <a name="diagnostic-logs"></a>Registos de diagnósticos
+## <a name="diagnostic-logs"></a>Registos de diagnóstico
 Se estiver a utilizar Logback ou Log4J (v1.2 ou v 2.0) para o rastreio, pode fazer com que os registos de rastreio automaticamente enviados para o Application Insights, onde pode explorar e procurar nos mesmos.
 
 [Saiba mais sobre os registos de diagnóstico][javalogs]
@@ -215,7 +215,7 @@ Pode inserir código tanto na página web JavaScript do lado do servidor de Java
 
 [Saiba mais sobre a telemetria personalizada][track]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 #### <a name="detect-and-diagnose-issues"></a>Detetar e diagnosticar problemas
 * [Adicionar telemetria de cliente web] [ usage] para obter telemetria de desempenho do cliente web.
 * [Configure testes Web][availability] para certificar-se de que a aplicação permanece em direto e reativa.

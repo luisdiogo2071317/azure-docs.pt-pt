@@ -4,8 +4,7 @@ description: Saiba tudo sobre a API de processador de Feed de alteração e o SD
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
-manager: kirillg
-editor: mimig1
+manager: kfile
 ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: maquaran
-ms.openlocfilehash: 43ba189332cf012a80c309a0dc0f383e38a0915c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fe6dd9545be17453be38ce9afd5836aa07882ce6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alteração de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -38,7 +37,7 @@ ms.lasthandoff: 03/30/2018
 |**Transferência do SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentação da API**|[Alterar a documentação de referência da API de biblioteca de Feed de processador](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
 |**Introdução**|[Introdução ao SDK .NET do processador de Feed de alteração](change-feed.md)|
-|**Arquitetura suportada atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**Arquitetura suportada atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [O Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notas de versão
 
@@ -85,6 +84,6 @@ Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo s
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
 

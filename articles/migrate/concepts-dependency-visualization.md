@@ -1,16 +1,16 @@
 ---
-title: "Visualização de dependência no Azure migrar | Microsoft Docs"
-description: "Fornece uma descrição geral de cálculos de avaliação no serviço Azure migrar."
+title: Visualização de dependência no Azure migrar | Microsoft Docs
+description: Fornece uma descrição geral de cálculos de avaliação no serviço Azure migrar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d075ce9ee124d373a1284577324a50338245a03f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -24,7 +24,7 @@ Visualização de dependência na migrar do Azure permite-lhe criar grupos para 
 ## <a name="how-does-it-work"></a>Como funciona?
 
 Azure migrar utiliza o [mapa de serviço](../operations-management-suite/operations-management-suite-service-map.md) solução [Log Analytics](../log-analytics/log-analytics-overview.md) para visualização de dependência.
-- Quando cria um projeto de migração do Azure, é criada uma área de trabalho de análise de registos do OMS na sua subscrição.
+- Quando cria um projeto de migração do Azure, é criada uma área de trabalho de análise de registos na sua subscrição.
 - O nome da área de trabalho é o nome que especificar para o projeto de migração, o prefixo **migrar-**e, opcionalmente, o sufixo com um número. 
 - Navegue para a área de trabalho de análise de registos do **Essentials** secção do projeto **descrição geral** página.
 - A área de trabalho criada é etiquetada com a chave **MigrateProject**e o valor **nome do projeto**. Pode utilizá-las para procurar no portal do Azure.  

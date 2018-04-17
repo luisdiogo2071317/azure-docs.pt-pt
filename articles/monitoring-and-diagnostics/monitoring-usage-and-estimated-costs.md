@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f87705ebbdd14b1bbf7cade481a7dbe7dd3d5131
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ce295c449b01de4fa99df9198805a6b0727c0d18
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Utilização de monitorização e os custos estimados
 
@@ -61,12 +61,16 @@ Aqui, verá um conjunto diferente de medidores – medidores que correspondem pa
 3. Dados da aplicação Insights\Basic excedidas
 4. Dados da aplicação Insights\Included
 
-são combinados um medidor de ingestão dados comuns nova denominada **partilhado ingestão de Services\Data** , uma vez que o novo modelo de preços não tem as alocações de dados de incluídas com base no nó.
+são combinados um medidor de ingestão dados comuns nova denominada **partilhado ingestão de Services\Data** , uma vez que o novo modelo de preços não tem a elegibilidade de dados incluído por nó.
 
 Outra alteração irá ver é que os dados ingeridos para análise de registos ou Application Insights no regiões com custos superiores serão apresentados com os novo medidores regionais para corretamente refletir, para a instância **"ingestão de dados (E.U.A. oeste Centro)**.
 
 > [!NOTE]
-> Se tiver uma subscrição do Operations Management Suite (OMS), receberá análise de registos e o Application Insights alocações de ingestão de dados para cada nó compradas. Uma vez que isto é aplicado ao nível da conta (não na subscrição), esta estimativa não é possível mostrar o efeito destas alocações. . Consulte o seu representante de conta para um debate mais aprofundado de novo modelo de preços neste caso.
+> Os custos de estimado por subscrição não ter em conta na elegibilidade de nível por nó de conta da subscrição Operations Management Suite (OMS). . Consulte o seu representante de conta para um debate mais aprofundado de novo modelo de preços neste caso.
+
+## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Preços do novo modelo e a elegibilidade de subscrição do Operations Management Suite
+
+Os clientes que já tenham adquirido E1 do Microsoft Operations Management Suite e E2 são elegíveis para elegibilidade de ingestão de dados por nó para [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Para receber estas elegibilidade para a análise de registos áreas de trabalho ou do Application Insights recursos numa determinada subscrição, que a subscrição do modelo de preços tem de permanecer na pré-Abril 2018 preços de modelo onde o análise de registos "por nó (OMS)" escalão de preço e o Application Insights "Empresarial" plano de preços estão disponíveis. Dependendo do número de nós do suite adquirido pela sua organização, mover algumas subscrições para o novo modelo de preços ainda podem ser vantajosos, mas é necessário consideração cuidada. 
 
 ## <a name="changes-when-moving-to-the-new-pricing-model"></a>Alterações ao mover para o novo modelo de preços
 

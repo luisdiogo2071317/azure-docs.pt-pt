@@ -1,12 +1,12 @@
 ---
-title: "Glossário do Azure - dicionário do Azure | Microsoft Docs"
-description: "Utilize o glossário do Azure para compreender a terminologia de nuvem na plataforma do Azure. Este dicionário do Azure pequeno fornece definições comuns termos de nuvem do Azure."
-keywords: "Dicionário do Azure, terminologia de nuvem, Glossário do Azure, definições terminológicas, os termos de nuvem"
+title: Glossário do Azure - dicionário do Azure | Microsoft Docs
+description: Utilize o glossário do Azure para compreender a terminologia de nuvem na plataforma do Azure. Este dicionário do Azure pequeno fornece definições comuns termos de nuvem do Azure.
+keywords: Dicionário do Azure, terminologia de nuvem, Glossário do Azure, definições terminológicas, os termos de nuvem
 services: na
 documentationcenter: na
 author: MonicaRush
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 953320734c1601c411144bd7a6496716a65e452e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -48,7 +48,7 @@ Um dos dois [modelos de implementação](resource-manager-deployment-model.md) u
 ## <a name="cli"></a>Interface de linha de comandos (CLI) do Azure
 Uma interface de linha de comandos que podem ser utilizada para gerir serviços do Azure a partir do Windows, macOS e Linux.  Alguns serviços ou funcionalidades de serviço podem ser geridas apenas através do PowerShell ou a CLI. Consulte [CLI do Azure 2.0](/cli/azure)
 
-## <a name="powershell"></a>Azure PowerShell
+## <a name="powershell"></a>O Azure PowerShell
 Uma interface de linha de comandos para gerir os serviços do Azure através de uma linha de comandos a partir de Windows PCs. Alguns serviços ou funcionalidades de serviço podem ser geridas apenas através do PowerShell ou a CLI.
 Consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 
@@ -111,7 +111,7 @@ Consulte [descrição geral do Azure Resource Manager](azure-resource-manager/re
 
 ## <a name="role"></a>função
 Um meio para controlar o acesso que pode ser atribuído a utilizadores, grupos e serviços. As funções são capazes de realizar ações tais como criar, gerirem e ler nos recursos do Azure.  
-Consulte [RBAC: funções incorporadas](active-directory/role-based-access-built-in-roles.md)
+Consulte [RBAC: funções incorporadas](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>contrato de nível de serviço (SLA)
 O contrato que descreve os compromissos da Microsoft para o tempo de atividade e conectividade. Cada serviço do Azure tem um SLA específico.  
@@ -149,10 +149,10 @@ Consulte [sobre extensões de máquina virtual e funcionalidades (Windows)](virt
 Uma rede que fornece conectividade entre os recursos do Azure que seja isolado de todos os outros inquilinos do Azure. Um [Gateway de VPN do Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) permite-lhe estabelecer ligações entre redes virtuais e [entre uma rede virtual e uma rede no local](vpn-gateway/vpn-gateway-plan-design.md). Pode controlar totalmente os blocos de endereços IP, definições DNS, as políticas de segurança e as tabelas de rotas dentro de uma rede virtual.  
 Consulte [descrição geral da rede Virtual](virtual-network/virtual-networks-overview.md)  
 
-## <a name="web-app"></a>Aplicação Web
+## <a name="web-app"></a>Aplicação web
 Outro nome para [aplicação do serviço de aplicações](#app-service-app).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Introdução ao Azure](https://azure.microsoft.com/get-started/)
 * [Centro de recursos de nuvem](https://azure.microsoft.com/resources/)  

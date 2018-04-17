@@ -1,28 +1,26 @@
 ---
 title: O Apache Phoenix no HDInsight - o Azure HDInsight | Microsoft Docs
-description: 
+description: ''
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: a82ddc4a94688df87043ef93f24956efb93220c4
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 5d96b5656881815a82c89e0d159ba2bf556946b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="apache-phoenix-in-hdinsight"></a>O Apache Phoenix no HDInsight
+# <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix no HDInsight
 
 [O Apache Phoenix](http://phoenix.apache.org/) é um open source, a camada de base de dados relacional paralelo em grande escala incorporada no [HBase](hbase/apache-hbase-overview.md). O Phoenix permite-lhe utilizar consultas de como o SQL através de HBase. O Phoenix utiliza controladores JDBC por baixo para permitir aos utilizadores criar, eliminar, alter tabelas, índices, vistas e sequências e linhas de upsert SQL individualmente e em massa. O Phoenix utiliza compilação nativo noSQL, em vez de utilizar o MapReduce para compilar consultas, permitindo a criação de aplicações de latência baixa por cima do HBase. O Phoenix adiciona coprocessors para suportar a execução com o código fornecido pelo cliente no espaço de endereço do servidor, ao executar o código colocalizado com os dados. Esta abordagem minimiza a transferência de dados de cliente/servidor.
 
@@ -142,6 +140,6 @@ Um cluster HBase do HDInsight inclui o [Ambari IU](hdinsight-hadoop-manage-ambar
 
     ![Secção de configuração do Ambari Phoenix SQL](./media/hdinsight-phoenix-in-hdinsight/ambari-phoenix.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Utilizar o Apache Phoenix com clusters de HBase baseado em Linux no HDInsight](hbase/apache-hbase-phoenix-squirrel-linux.md)

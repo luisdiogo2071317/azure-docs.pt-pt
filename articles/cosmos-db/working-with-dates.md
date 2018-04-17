@@ -2,10 +2,9 @@
 title: Trabalhar com as datas do BD Azure Cosmos | Microsoft Docs
 description: Saiba mais sobre como trabalhar com as datas do BD Azure Cosmos.
 services: cosmos-db
-author: arramac
-manager: jhubbard
-editor: mimig
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: e587772f-ce9f-498c-a017-a51e7265bb23
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
-ms.author: arramac
-ms.openlocfilehash: 1a54884196e5b4ff5b16425e902abeb8d82aa8f1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: a1f8b38725eb188b609fbdc8efa09ed5aaaf6ae5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhar com as datas no Azure Cosmos DB
 BD do Cosmos do Azure oferece flexibilidade de esquema e indexação avançada através de um nativo [JSON](http://www.json.org) modelo de dados. Todos os recursos de BD do Cosmos do Azure, incluindo bases de dados, coleções, documentos e procedimentos armazenados são modelados e armazenados como documentos JSON. Como um requisito para a ser portátil, JSON (e a base de dados do Azure Cosmos) suportam apenas um pequeno conjunto de tipos básicos: cadeia, número, booleano, matriz, objeto e um valor nulo. No entanto, o JSON é flexível e permitir que os programadores e estruturas representar tipos mais complexos utilizando estes primitivos e de composição-los como objetos ou matrizes. 
@@ -87,7 +86,7 @@ Pode saber mais sobre a linguagem de consulta SQL da BD do Cosmos do Azure e o f
 
 Neste artigo, vamos analisar como armazenar, índice e consultar DATETIME do BD Azure Cosmos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Transfira e execute o [exemplos de código no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
 * Saiba mais sobre [as consultas SQL](sql-api-sql-query.md)
 * Saiba mais sobre [políticas de indexação do Azure Cosmos DB](indexing-policies.md)

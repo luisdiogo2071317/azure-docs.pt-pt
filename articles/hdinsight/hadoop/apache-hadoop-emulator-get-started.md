@@ -1,27 +1,25 @@
 ---
-title: "Saiba através de uma sandbox Hadoop - emulador - Azure HDInsight | Microsoft Docs"
-description: "Para iniciar a aprendizagem sobre a utilização do ecossistema do Hadoop, pode configurar um sandbox de Hadoop do Hortonworks numa máquina virtual do Azure. "
+title: Saiba através de uma sandbox Hadoop - emulador - Azure HDInsight | Microsoft Docs
+description: 'Para iniciar a aprendizagem sobre a utilização do ecossistema do Hadoop, pode configurar um sandbox de Hadoop do Hortonworks numa máquina virtual do Azure. '
 keywords: emulador do hadoop, hadoop sandbox
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
 author: nitinme
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: d7df18a80470beb8dc25cf6add6b7a61f45dcfe7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0b4daa8c832d40457b19ffe4aee1a365796b2435
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Começar com uma sandbox de Hadoop, um emulador numa máquina virtual
 
@@ -59,7 +57,7 @@ Para transferir um sandbox de versão mais antiga do HDP, expanda o arquivo:
 1. Do **começar** passo da página Hortonworks Sandbox, selecione **opções avançadas de vista**. Utilize as informações nesta página para iniciar sessão para a sandbox utilizando SSH. Utilize o nome e a palavra-passe fornecida.
    
    > [!NOTE]
-   > Se não tiver um cliente SSH instalado, pode utilizar o SSH baseado na web fornecido pela máquina virtual em **http://localhost:4200 /**.
+   > Se não tiver um cliente SSH instalado, pode utilizar o SSH baseado na web fornecido pela máquina virtual em **http://localhost:4200/**.
    > 
    
     Na primeira vez que o se ligar através do SSH, lhe for pedido para alterar a palavra-passe para a conta raiz. Introduza uma nova palavra-passe, que utilizar quando iniciar sessão utilizando SSH.
@@ -82,7 +80,7 @@ Para transferir um sandbox de versão mais antiga do HDP, expanda o arquivo:
    
         select * from sample_07 limit 10;
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Saiba como utilizar o Visual Studio com a Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
 * [Learning ropes de Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Tutorial do Hadoop - introdução HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

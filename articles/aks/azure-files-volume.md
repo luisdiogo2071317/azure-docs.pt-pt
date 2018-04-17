@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1def417f97a94fa0770b99606cd3a68189d1d51b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 04380e5e9e0f1f9b0c88fdba8d21b3e7e8e8a358
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="volumes-with-azure-files"></a>Volumes com ficheiros do Azure
 
@@ -66,7 +66,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-file-share-as-volume"></a>Montar a partilha de ficheiros como volume
 
-É possível montar a partilha de ficheiros do Azure no seu pod configurando o volume na respetiva especificação. Criar um novo ficheiro designado `azure-files-pod.yaml` com o seguinte conteúdo. Atualização `aksshare` com o nome atribuído ao Azure Files partilhar.
+Monte a partilha de ficheiros do Azure na sua pod configurando o volume na respetiva especificação. Criar um novo ficheiro designado `azure-files-pod.yaml` com o seguinte conteúdo. Atualização `aksshare` com o nome atribuído ao Azure Files partilhar.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ Utilize kubectl para criar um pod.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-Tem agora um contentor em execução com a partilha de ficheiros do Azure montada no `/mnt/azure` diretório. Pode ver o quando inspecionar o pod através de montagem do volume `kubectl describe pod azure-files-pod`.
+Tem agora um contentor em execução com a partilha de ficheiros do Azure montada no `/mnt/azure` diretório.  Pode ver o quando inspecionar o pod através de montagem do volume `kubectl describe pod azure-files-pod`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

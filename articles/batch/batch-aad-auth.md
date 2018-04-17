@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 2479701174086ddf680e0ecb1da4a9d13b32b76e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e67ae32902c989f74cee0c1d223dacc770c0d387
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço Batch com o Active Directory
 
@@ -139,7 +139,7 @@ Para autenticar com um principal de serviço, terá de atribuir uma função RBA
 1. No portal do Azure, navegue para a conta de Batch utilizada pela sua aplicação.
 2. No **definições** painel para a conta de Batch, selecione **controlo de acesso (IAM)**.
 3. Clique no botão **Adicionar**. 
-4. Do **função** pendente, escolha o o _contribuinte_ ou _leitor_ função para a sua aplicação. Para obter mais informações sobre estas funções, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../active-directory/role-based-access-control-what-is.md).  
+4. Do **função** pendente, escolha o o _contribuinte_ ou _leitor_ função para a sua aplicação. Para obter mais informações sobre estas funções, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md).  
 5. No **selecione** campo, introduza o nome da sua aplicação. Selecione a aplicação a partir da lista e clique em **guardar**.
 
 A aplicação deverá agora aparecer nas definições de controlo de acesso com uma função RBAC atribuída. 

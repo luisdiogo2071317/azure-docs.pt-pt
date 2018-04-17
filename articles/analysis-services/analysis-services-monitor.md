@@ -1,25 +1,18 @@
 ---
-title: "Monitorizar as métricas do servidor de Analysis Services do Azure | Microsoft Docs"
-description: "Saiba como monitorizar as métricas do servidor de Analysis Services no portal do Azure."
-services: analysis-services
-documentationcenter: 
+title: Monitorizar as métricas do servidor de Analysis Services do Azure | Microsoft Docs
+description: Saiba como monitorizar as métricas do servidor de Analysis Services no portal do Azure.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: e82fb85e78058d03b8615ef3fbe80bbfa1ad71ed
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: b07bd41ee3aa67924256d694c1f9dadd39b038cc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-server-metrics"></a>Métricas do servidor de monitor
 
@@ -57,12 +50,12 @@ Utilize esta tabela para determinar quais as métricas são melhores para o seu 
 |MemoryLimitHard|Memória: Disco rígido de limite de memória|Bytes|Média|Limite de memória de disco rígido, ficheiro de configuração.|
 |MemoryLimitHigh|Memória: Limite de memória elevada|Bytes|Média|Limite de memória elevada, ficheiro de configuração.|
 |MemoryLimitLow|Memória: Baixa de limite de memória|Bytes|Média|Limite de memória insuficiente, ficheiro de configuração.|
-|MemoryLimitVertiPaq|Memory: Memory Limit VertiPaq|Bytes|Média|Limite de memória, ficheiro de configuração.|
+|MemoryLimitVertiPaq|Memória: VertiPaq de limite de memória|Bytes|Média|Limite de memória, ficheiro de configuração.|
 |MemoryUsage|Memória: Utilização de memória|Bytes|Média|Utilização de memória do processo de servidor, conforme utilizado para calcular preço de memória de limpeza. Igual a Process\PrivateBytes mais o tamanho dos dados de mapeamento de memória, ignorando quaisquer memória, o que foi mapeada ou atribuída pelo motor de análise de memória (VertiPaq) que excedam o limite de memória do motor do contador.|
 |Quota|Memória: Quota|Bytes|Média|Quota atual de memória, em bytes. Quota de memória também é conhecido como uma reserva de memória ou de concessão de memória.|
 |QuotaBlocked|Memória: Quota bloqueado|Contagem|Média|Número atual de pedidos de quota são bloqueada até que outros quotas de memória são libertadas.|
 |VertiPaqNonpaged|Memória: VertiPaq na memória não paginável|Bytes|Média|Bytes de memória bloqueadas no conjunto de trabalho para utilização pelo motor dentro da memória.|
-|VertiPaqPaged|Memory: VertiPaq Paged|Bytes|Média|Bytes de memória paginada em utilização para dados em memória.|
+|VertiPaqPaged|Memória: VertiPaq bloco paginado|Bytes|Média|Bytes de memória paginada em utilização para dados em memória.|
 |ProcessingPoolJobQueueLength|Comprimento de fila de tarefa de conjunto de processamento|Contagem|Média|Número de tarefas não-I/O na fila do conjunto de threads de processamento.|
 |RowsConvertedPerSec|Processamento: Converter o linhas por seg|CountPerSecond|Média|Taxa de linhas converter durante o processamento.|
 |RowsReadPerSec|Processamento: Linhas lidas por seg|CountPerSecond|Média|Taxa de linhas lida todas as bases de dados relacionais.|

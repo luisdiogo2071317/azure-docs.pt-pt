@@ -1,11 +1,11 @@
 ---
 title: Configurar o Azure AD Privileged Identity Management | Microsoft Docs
-description: "Um tópico que explica o que é o Azure AD Privileged Identity Management e como utilizar o PIM para melhorar a segurança de nuvem."
+description: Um tópico que explica o que é o Azure AD Privileged Identity Management e como utilizar o PIM para melhorar a segurança de nuvem.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f91ebe0f94c57c9ad217ffe280f9aa0a9aa6acb9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -72,7 +72,7 @@ Para funções do RBAC do Azure, apenas um administrador de subscrição, um pro
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Descrição geral da gestão de identidade de privilégio (ponto de entrada)
 
-O Azure AD Privileged Identity Management suporta administração de funções de diretório do Azure AD e funções de recursos do Azure (pré-visualização). A função das funções para recursos do Azure diferem das funções administrativas no Azure AD. Funções de recursos do Azure fornecem permissões granulares para o recurso que estão atribuídos e todos os recursos subordinados na hierarquia de recursos (conhecido como herança). [Saiba mais sobre RBAC, a hierarquia de recursos e herança](role-based-access-control-configure.md). PIM para as funções de diretório do Azure AD e de recursos do Azure (pré-visualização) podem ser administrado acedendo na ligação respetiva na secção Gerir do menu de navegação à esquerda de ponto de entrada de descrição geral do PIM.
+O Azure AD Privileged Identity Management suporta administração de funções de diretório do Azure AD e funções de recursos do Azure (pré-visualização). A função das funções para recursos do Azure diferem das funções administrativas no Azure AD. Funções de recursos do Azure fornecem permissões granulares para o recurso que estão atribuídos e todos os recursos subordinados na hierarquia de recursos (conhecido como herança). [Saiba mais sobre RBAC, a hierarquia de recursos e herança](../role-based-access-control/role-assignments-portal.md). PIM para as funções de diretório do Azure AD e de recursos do Azure (pré-visualização) podem ser administrado acedendo na ligação respetiva na secção Gerir do menu de navegação à esquerda de ponto de entrada de descrição geral do PIM.
 
 PIM fornece acesso prático para ativar funções, ver ativações/pedidos pendentes aprovações (para funções de diretório do Azure AD), pendentes e revê pendentes a resposta da secção de tarefas do menu de navegação esquerdo.
 

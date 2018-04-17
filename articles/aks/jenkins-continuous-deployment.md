@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8238e0f55b88e4fa207357630aa4228250c33249
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b0adf5098b1be9f245b22c859dbb86a14335e435
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Implementação contínua com Jenkins e o serviço de contentor do Azure
 
-Este documento demonstra como configurar um fluxo de trabalho básico de implementação contínua entre Jenkins e um cluster do serviço de contentor do Azure (AKS). 
+Este documento demonstra como configurar um fluxo de trabalho básico de implementação contínua entre Jenkins e um cluster do serviço de contentor do Azure (AKS).
 
 O fluxo de trabalho de exemplo inclui os seguintes passos:
 
@@ -41,7 +41,7 @@ Terá dos itens seguintes para concluir os passos neste artigo.
 
 ## <a name="prepare-application"></a>Preparar a aplicação
 
-A aplicação de voto do Azure utilizada em todo este documento contém uma interface web alojada no pods de um ou mais e uma segunda pod Redis de alojamento para o armazenamento de dados temporária. 
+A aplicação de voto do Azure utilizada em todo este documento contém uma interface web alojada no pods de um ou mais e uma segunda pod Redis de alojamento para o armazenamento de dados temporária.
 
 Antes de criar o Jenkins / integração AKS, preparar e implementar a aplicação de voto do Azure para o cluster AKS. Considere este como versão da aplicação.
 
@@ -94,7 +94,7 @@ Utilize o [tag de docker] [ docker-tag] comando para marcar a imagem com o nome 
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Atualize o valor de servidor de início de sessão ACR com o nome do servidor de início de sessão ACR e push o `azure-vote-front` imagem ao registo. 
+Atualize o valor de servidor de início de sessão ACR com o nome do servidor de início de sessão ACR e push o `azure-vote-front` imagem ao registo.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:v1
@@ -118,7 +118,7 @@ Em seguida, utilize o [kubectl criar] [ kubectl-create] comando a executar a apl
 kubectl create -f azure-vote-all-in-one-redis.yaml
 ```
 
-A [Kubernetes serviço] [ kubernetes-service] é criado para expor a aplicação à internet. Este processo pode demorar alguns minutos. 
+A [Kubernetes serviço] [ kubernetes-service] é criado para expor a aplicação à internet. Este processo pode demorar alguns minutos.
 
 Para monitorizar o progresso, utilize o comando [kubectl get service][kubectl-get] com o argumento `--watch`.
 
@@ -127,12 +127,12 @@ kubectl get service azure-vote-front --watch
 ```
 
 Inicialmente, o *EXTERNAL-IP* do serviço *azure-vote-front* aparece como *pendente*.
-  
+
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Quando o endereço *EXTERNAL-IP* mudar de *pendente* para *Endereço IP*, utilize `control+c` para parar o processo de observação do kubectl. 
+Quando o endereço *EXTERNAL-IP* mudar de *pendente* para *Endereço IP*, utilize `control+c` para parar o processo de observação do kubectl.
 
 ```
 azure-vote-front   10.0.34.242   13.90.150.118   80:30676/TCP   2m
@@ -209,7 +209,7 @@ Clique em **OK** e regresse ao portal de administração do Jenkins.
 
 No portal de administração Jenkins, clique em **Novo Item**.
 
-Dê um nome, o projeto de exemplo por `azure-vote`, selecione **Freestyle projeto**e clique em **OK**. 
+Dê um nome, o projeto de exemplo por `azure-vote`, selecione **Freestyle projeto**e clique em **OK**.
 
 ![Jenkins projeto](media/aks-jenkins/jenkins-project.png)
 
@@ -217,9 +217,9 @@ Em **geral**, selecione **GitHub projeto** e introduza o URL para o repositório
 
 ![Projeto de GitHub](media/aks-jenkins/github-project.png)
 
-Em **gestão da origem de código**, selecione **Git**, introduza o URL para o repositório de cópia do repositório GitHub de voto do Azure. 
+Em **gestão da origem de código**, selecione **Git**, introduza o URL para o repositório de cópia do repositório GitHub de voto do Azure.
 
-As credenciais do utilizador, clique em e **adicionar** > **Jenkins**. Em **tipo**, selecione **texto secreto** e introduza o [token de acesso pessoal GitHub] [ git-access-token] como o segredo. 
+As credenciais do utilizador, clique em e **adicionar** > **Jenkins**. Em **tipo**, selecione **texto secreto** e introduza o [token de acesso pessoal GitHub] [ git-access-token] como o segredo.
 
 Selecione **adicionar** quando terminar.
 
@@ -233,7 +233,7 @@ Em **criar ambiente**, selecione **utilizar textos secretos ou ficheiros**.
 
 ![Ambiente de compilação Jenkins](media/aks-jenkins/build-environment.png)
 
-Em **enlaces**, selecione **adicionar** > **nome de utilizador e palavra-passe (separados)**. 
+Em **enlaces**, selecione **adicionar** > **nome de utilizador e palavra-passe (separados)**.
 
 Introduza `ACR_ID` para o **variável nome de utilizador**, e `ACR_PASSWORD` para o **variável de palavra-passe**.
 
@@ -263,13 +263,13 @@ Depois de concluída, clique em **guardar**.
 
 Antes de continuar, teste a compilação de Jenkins. Esta ação valida que a tarefa de compilação foi configurada corretamente, é o ficheiro de autenticação Kubernetes adequado no local e que as credenciais corretas de ACR foram fornecidas.
 
-Clique em **compilar agora** no menu da esquerda do projeto. 
+Clique em **compilar agora** no menu da esquerda do projeto.
 
 ![Compilação de teste de Jenkins](media/aks-jenkins/test-build.png)
 
 Durante este processo, é clonar o repositório do GitHub para o servidor de compilação Jenkins. Uma nova imagem do contentor é criada e enviada para o registo ACR. Por fim, a aplicação de voto do Azure em execução no AKS cluster é atualizada para utilizar a nova imagem. Porque não foram efetuadas alterações ao código da aplicação, a aplicação não é alterada.
 
-Depois do processo estiver concluído, pode clicar em **criar #1** em compilar o histórico e selecione **resultado da consola** para ver todos os resultados do processo de compilação. A linha final deve indicar uma compilação efetuada com êxito. 
+Depois do processo estiver concluído, clique em **criar #1** em compilar o histórico e selecione **resultado da consola** para ver todos os resultados do processo de compilação. A linha final deve indicar uma compilação efetuada com êxito.
 
 ## <a name="create-github-webhook"></a>Criar um webhook do GitHub
 
@@ -280,14 +280,14 @@ Em seguida, ligue o repositório da aplicação para o servidor de compilação 
 3. Escolha **Adicionar serviço**, introduza `Jenkins (GitHub plugin)` na caixa do filtro e selecione o plug-in.
 4. Para os Jenkins ligue URL, introduza `http://<publicIp:8080>/github-webhook/` onde `publicIp` é o endereço IP do servidor Jenkins. Certifique-se de que incluiu /.
 5. Selecione Adicionar serviço.
-  
+
 ![Webhook do GitHub](media/aks-jenkins/webhook.png)
 
 ## <a name="test-cicd-process-end-to-end"></a>Teste o processo de CI/CD ponto a ponto
 
-No computador de desenvolvimento, abra a aplicação clonada com um editor de código. 
+No computador de desenvolvimento, abra a aplicação clonada com um editor de código.
 
-Sob o **/azure-vote/azure-vote** directory, pode encontrar um ficheiro denominado **config_file.cfg**. Atualize os valores de voto neste ficheiro para algo que não sejam cats e dogs. 
+Sob o **/azure-vote/azure-vote** diretório, localizar um ficheiro com o nome **config_file.cfg**. Atualize os valores de voto neste ficheiro para algo que não sejam cats e dogs.
 
 O exemplo seguinte mostra e atualizado **config_file.cfg** ficheiro.
 
@@ -299,7 +299,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Quando terminar, guarde o ficheiro, consolidar as alterações e push para o repositório de cópia do repositório GitHub... Depois de concluída a consolidação, o webhook GitHub aciona uma nova compilação Jenkins, que atualiza a imagem de contentor e a implementação de AKS. Monitorize o processo de compilação na consola de administração do Jenkins. 
+Quando terminar, guarde o ficheiro, consolidar as alterações e push para o repositório de cópia do repositório GitHub... Depois de concluída a consolidação, o webhook GitHub aciona uma nova compilação Jenkins, que atualiza a imagem de contentor e a implementação de AKS. Monitorize o processo de compilação na consola de administração do Jenkins.
 
 Depois de concluída a compilação, procure novamente para o ponto final da aplicação para observar as alterações.
 

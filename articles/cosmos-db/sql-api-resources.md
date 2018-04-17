@@ -5,7 +5,7 @@ keywords: Modelo hierárquico cosmosdb, do azure, Microsoft azure
 services: cosmos-db
 documentationcenter: ''
 author: rafats
-manager: jhubbard
+manager: kfile
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 948fc84db2fd2d6f2059f9807b84194ebac59472
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f0fc8a977a172a859d6691a5b587135caf14e03f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Conceitos-chave e modelo de recursos hierárquicos do Azure Cosmos DB
 
@@ -60,7 +60,7 @@ Para começar a trabalhar com recursos, terá [criar uma conta de base de dados]
 | Permissão |Um token de autorização associado a um utilizador para aceder a um recurso específico. |
 | Coleção |Uma coleção é um contentor de documentos JSON e a lógica da aplicação associada JavaScript. Uma coleção é uma entidade faturável, onde o [custo](performance-levels.md) é determinado pelo nível de desempenho associado à coleção. As coleções podem abranger uma ou mais partições/servidores e podem dimensionar para processar volumes praticamente ilimitados de armazenamento ou débito. |
 | Procedimento Armazenado |Lógica da aplicação escrita em JavaScript, que é registado com uma coleção e uma forma executado dentro do motor de base de dados. |
-| Acionador |Lógica da aplicação escrita em JavaScript executado antes ou depois de um insert, substituir ou eliminar a operação. |
+| Acionar |Lógica da aplicação escrita em JavaScript executado antes ou depois de um insert, substituir ou eliminar a operação. |
 | UDF |Lógica da aplicação escrita em JavaScript. UDFs permitem-lhe modelar um operador de consulta personalizada e, deste modo, expandir as principais idioma de consulta da API do SQL Server. |
 | Documento |Conteúdos (arbitrários) JSON definidos pelo utilizador. Por predefinição, nenhum esquema tem de ser definido nem índices secundários precisam de ser fornecido para todos os documentos adicionados a uma coleção. |
 | Anexo |Um anexo é um documento especial que contém referências e os metadados associados para o blob/suporte de dados externo. O programador pode optar por ter o blob gerido pela base de dados do Cosmos ou armazene-o com um fornecedor de serviço blob externo, como o OneDrive, Dropbox, etc. |
@@ -96,7 +96,7 @@ Recursos, tais como contas de base de dados, bases de dados, coleções, os util
             <td valign="top"><p>Última timestamp atualizado do recurso</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>Self</p></td>
+            <td valign="top"><p>_self</p></td>
             <td valign="top"><p>Gerada pelo sistema</p></td>
             <td valign="top"><p>URI endereçável exclusivo do recurso</p></td>
         </tr>
@@ -160,7 +160,7 @@ Como parte do aprovisionamento e gestão de uma conta de base de dados que pode 
 
 Para além de aprovisionamento, configurar e gerir a sua conta de base de dados do portal do Azure, pode também programaticamente criar e gerir contas de base de dados de base de dados do Cosmos utilizando o [APIs REST do Azure Cosmos DB](/rest/api/cosmos-db/) , bem como [SDKs de cliente](sql-api-sdk-dotnet.md).  
 
-## <a name="databases"></a>Bases de Dados
+## <a name="databases"></a>Bases de dados
 Uma base de dados do Cosmos DB é um contentor lógico de uma ou mais coleções e os utilizadores, conforme mostrado no diagrama seguinte. Pode criar qualquer número de bases de dados com uma conta de base de dados de BD do Cosmos sujeitas a limites de oferta.  
 
 ![Modelo de hierárquico coleções e conta de base de dados][2]  
@@ -461,7 +461,7 @@ A única forma de obter uma chave de recurso é através da criação de um recu
 
 Como todos os outros recursos, permissões na base de dados do Azure Cosmos podem ser criadas, substituído, eliminar, ler ou enumerado facilmente através de REST APIs ou de qualquer um dos SDKs de cliente. BD do Azure do Cosmos fornece sempre consistência forte para ler ou consultar os metadados de uma permissão. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como trabalhar com recursos utilizando comandos HTTP no [RESTful interações com os recursos de base de dados do Azure Cosmos](https://msdn.microsoft.com/library/azure/mt622086.aspx).
 
 [1]: media/sql-api-resources/resources1.png

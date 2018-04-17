@@ -1,27 +1,25 @@
 ---
-title: "Operacionalize um pipeline de análise de dados - Azure | Microsoft Docs"
-description: "Configurar e executar um pipeline de dados de exemplo que é acionado por novos dados e produz resultados concisas."
+title: Operacionalize um pipeline de análise de dados - Azure | Microsoft Docs
+description: Configurar e executar um pipeline de dados de exemplo que é acionado por novos dados e produz resultados concisas.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 7a439c9d25a470a2474b427f6b20addb6ff3b0c7
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 7ac1ed0db15d91ef8af009c879c3634148826286
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalize um pipeline de análise de dados
+# <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalizar um pipeline de análise de dados
 
 *Pipelines de dados* underly muitas soluções de análise de dados. Como o nome sugere, um pipeline de dados aceita dados não processados, cleans reshapes-la conforme necessário e, em seguida, normalmente, efetua cálculos ou agregações antes de armazenar os dados processados. Os dados processados são consumidos por clientes, relatórios ou APIs. Um pipeline de dados tem de fornecer resultados repetíveis, se num agendamento ou quando é acionada por novos dados.
 
@@ -32,7 +30,7 @@ No cenário seguinte, os dados de entrada são um ficheiro simples que contém u
 | ANO | MÊS | DAY_OF_MONTH | OPERADORA |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2017 | 1 | 3 | AA | 10.142229 | 7.862926 | 2644539 |
-| 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
+| 2017 | 1 | 3 | TAL COMO | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | LD | 6.935409 | -2.1893024 | 1909696 |
 
 O pipeline de exemplo aguarda até que os dados de eventos de um novo período de tempo chega, em seguida, armazena essas informações detalhadas de trânsito para o armazém de dados do Hive para estatísticas de longo prazo. O pipeline também cria um muito mais pequeno conjunto de dados que resume apenas os dados de voo diária. Estes dados de resumo de voo diária são enviados para uma base de dados do SQL Server para fornecer relatórios, tal como para um Web site.
@@ -137,7 +135,7 @@ A base de dados do SQL do Azure está agora pronto.
 
        ![Definições do Metastore do HDInsight](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
-12. Selecione **seguinte**.
+12. Selecione **Seguinte**.
 13. No **resumo** painel, selecione **criar** para implementar o cluster.
 
 ### <a name="verify-ssh-tunneling-setup"></a>Certifique-se a configuração de túnel de SSH
@@ -181,7 +179,7 @@ Pode copiar o ficheiro com o SCP no seu `bash` shell sessão.
 
 Os dados de exemplo estão agora disponíveis. No entanto, o pipeline necessita de duas tabelas do Hive para processar, uma para os dados de entrada (`rawFlights`) e outra para os dados resumidos (`flights`). Crie estas tabelas no Ambari da seguinte forma.
 
-1. Inicie sessão no Ambari, navegando até [http://headnodehost:8080](http://headnodehost:8080).
+1. Inicie sessão no Ambari, navegando até [ http://headnodehost:8080 ](http://headnodehost:8080).
 2. Na lista de serviços, selecione **Hive**.
 
     ![A seleção do ramo de registo no Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
@@ -419,7 +417,7 @@ A tabela seguinte resume a cada uma das propriedades e indica onde pode encontra
 
 | Propriedade | Origem de valor |
 | --- | --- |
-| nameNode | O caminho completo para o contentor de armazenamento do Azure ligado ao cluster do HDInsight. |
+| NameNode | O caminho completo para o contentor de armazenamento do Azure ligado ao cluster do HDInsight. |
 | jobTracker | O nome de anfitrião interno para o cluster ativo YARN head nó. Na home page do Ambari, selecione o YARN da lista de serviços, em seguida, escolha o Gestor de recursos do Active Directory. O nome de anfitrião URI é apresentada na parte superior da página. Acrescente a porta 8050. |
 | queueName | O nome da fila utilizado durante o agendamento as ações de ramo de registo YARN. Deixe como predefinição. |
 | oozie.use.system.libpath | Deixe como verdadeiro. |

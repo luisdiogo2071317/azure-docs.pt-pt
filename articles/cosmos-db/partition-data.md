@@ -2,9 +2,8 @@
 title: Criação de partições e o dimensionamento horizontal do BD Azure Cosmos | Microsoft Docs
 description: Saiba mais sobre funciona como criação de partições de BD do Cosmos do Azure, como configurar a criação de partições e chaves de partição e como escolher a chave de partição adequado para a sua aplicação.
 services: cosmos-db
-author: arramac
+author: SnehaGunda
 manager: kfile
-editor: monicar
 documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
@@ -12,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: arramac
+ms.date: 04/10/2018
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16b0ddd45c8e524798a453af7c731af28f5f5c2d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fcb33dff131106fd801b72a0bfaafd528d9f1af9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e o dimensionamento do BD Azure Cosmos
 
@@ -62,7 +61,7 @@ A semântica para as chaves de partição é ligeiramente diferente para corresp
 | Azure Cosmos DB | caminho da chave de partição personalizado | `id` corrigido | 
 | MongoDB | Chave partilhada personalizada  | `_id` corrigido | 
 | Graph | propriedade de chave de partição personalizado | `id` corrigido | 
-| Tabela | `PartitionKey` corrigido | `RowKey` corrigido | 
+| Tabelas | `PartitionKey` corrigido | `RowKey` corrigido | 
 
 BD do Azure do Cosmos utiliza a criação de partições com base em hash. Quando escreve um item, base de dados do Azure Cosmos codifica o valor da chave de partição e utiliza o resultado com hash para determinar que partição que pretende armazenar no item. BD do Azure do Cosmos armazena todos os itens com a mesma chave de partição na mesma partição física. A escolha da chave de partição é uma decisão importante que terá de fazer no momento da concepção. Tem de escolher um nome de propriedade que tenha uma vasta gama de valores e tem o mesmo padrões de acesso. Se uma partição física atinge o limite de armazenamento da mesma chave de partição está em todos os dados na partição, base de dados do Azure Cosmos devolve o erro "a chave de partição atingido o tamanho máximo de 10 GB" e a partição não é dividida, deste modo, escolher uma chave de partição é uma importação muito Decisão de Ant.
 
@@ -83,12 +82,12 @@ A imagem à esquerda mostra o resultado de uma chave de partição inválido e a
 
 Para partições físicas a divisão de automático para **p1** e **p2** conforme descrito em [como funciona o trabalho de criação de partições](#how-does-partitioning-work), o contentor tem de ser criado com um débito de 1.000 RU/s ou mais , e uma chave de partição tem de ser fornecida. Ao criar um contentor no portal do Azure, selecione o **ilimitada** opção de capacidade de armazenamento para tirar partido da criação de partições e o dimensionamento automático. 
 
-Se criou um contentor no portal do Azure ou através de programação e o débito inicial foi 1.000 RU/s ou mais e os dados incluem uma chave de partição, pode tirar partido de criação de partições sem alterações à sua contentor - Isto inclui **fixo ** tamanho contentores, desde que o contentor inicial foi criado com, pelo menos, 1000 RU/s througput e uma chave de partição está presente nos dados.
+Se criou um contentor no portal do Azure ou através de programação e o débito inicial foi 1.000 RU/s ou mais e os dados incluem uma chave de partição, pode tirar partido de criação de partições sem alterações à sua contentor - Isto inclui **fixo**  tamanho contentores, desde que o contentor inicial foi criado com, pelo menos, 1000 RU/s througput e uma chave de partição está presente nos dados.
 
 Se tiver criado uma **Fixed** contentor de tamanho com nenhuma partição criado ou chave um **Fixed** contentor de tamanho com débito inferior a 1000 RU/s, o contentor não é automática-divisão conforme descrito neste artigo. Para migrar dados a partir do contentor como esta para um contentor ilimitado (um com, pelo menos, 1000 RU/s no débito e uma chave de partição), tem de utilizar o [ferramenta de migração de dados](import-data.md) ou [biblioteca de Feeds de alteração](change-feed.md) para Migre as alterações. 
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Débito aprovisionado e criação de partições
-BD do Azure do Cosmos foi concebida para um desempenho previsível. Quando cria um contentor, reservar débito em termos de * [unidades de pedido](request-units.md) (RU) por segundo*. Cada pedido está atribuído um custo de RU é proporcional para a quantidade de recursos do sistema, tais como CPU, memória e consumidas pela operação de e/s. Uma leitura de um documento de 1 KB com consistência de sessão consome 1 RU. Uma leitura é 1 RU independentemente do número de itens armazenados ou o número de pedidos simultâneos em execução ao mesmo tempo. Itens de maior requerem RUs superiores, dependendo do tamanho. Se souber o tamanho do seu entidades e o número de leituras que tiver de suportar para a sua aplicação, pode aprovisionar a quantidade exata de débito necessário para a aplicação do leia necessidades. 
+BD do Azure do Cosmos foi concebida para um desempenho previsível. Quando cria um contentor, reservar débito em termos de  *[unidades de pedido](request-units.md) (RU) por segundo*. Cada pedido está atribuído um custo de RU é proporcional para a quantidade de recursos do sistema, tais como CPU, memória e consumidas pela operação de e/s. Uma leitura de um documento de 1 KB com consistência de sessão consome 1 RU. Uma leitura é 1 RU independentemente do número de itens armazenados ou o número de pedidos simultâneos em execução ao mesmo tempo. Itens de maior requerem RUs superiores, dependendo do tamanho. Se souber o tamanho do seu entidades e o número de leituras que tiver de suportar para a sua aplicação, pode aprovisionar a quantidade exata de débito necessário para a aplicação do leia necessidades. 
 
 > [!NOTE]
 > Para alcançar o débito total do contentor, tem de escolher uma chave de partição permite-lhe distribuir uniformemente pedidos entre alguns valores de chave de partição distintos.
@@ -99,8 +98,8 @@ BD do Azure do Cosmos foi concebida para um desempenho previsível. Quando cria 
 ## <a name="work-with-the-azure-cosmos-db-apis"></a>Trabalhar com o Azure Cosmos APIs de base de dados
 Pode utilizar o portal do Azure ou a CLI do Azure para criar contentores e dimensioná-los em qualquer altura. Esta secção mostra como criar contentores e especifique a definição de chave de partição e débito em cada uma das APIs suportados.
 
-### <a name="azure-cosmos-db-api"></a>Azure Cosmos DB API
-O exemplo seguinte mostra como criar um contentor (coleção), utilizando a API de BD do Cosmos do Azure. 
+### <a name="sql-api"></a>SQL API
+O exemplo seguinte mostra como criar um contentor (coleção), utilizando a API de SQL do Azure Cosmos DB. 
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -125,7 +124,9 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 ```
 
-### <a name="mongodb-api"></a>API do MongoDB
+Para obter mais informações, consulte [criação de partições na base de dados do Cosmos do Azure utilizando a API do SQL Server](sql-api-partition-data.md).
+
+### <a name="mongodb-api"></a>API MongoDB
 Com a API do MongoDB, pode criar uma coleção em partição horizontal através da sua ferramenta favorita, controlador ou SDK. Neste exemplo, utilizamos a Shell do Mongo para a criação de coleção.
 
 Na Shell do Mongo:
@@ -186,7 +187,7 @@ Pode referenciar um limite utilizando a chave de partição e a chave de linha.
 g.E(['USA', 'I5'])
 ```
 
-Para obter mais informações, consulte [suporte Gremlin para a base de dados do Azure Cosmos](gremlin-support.md).
+Para obter mais informações, consulte [através de um gráfico particionado do BD Azure Cosmos](graph-partitioning.md).
 
 
 <a name="designing-for-partitioning"></a>

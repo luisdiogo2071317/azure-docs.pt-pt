@@ -4,9 +4,8 @@ description: Com o TTL, base de dados do Microsoft Azure Cosmos fornece a capaci
 services: cosmos-db
 documentationcenter: ''
 keywords: TTL
-author: arramac
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
-ms.author: arramac
-ms.openlocfilehash: 6f8ce4e270b94bf1043c27ba879878e20372ffe7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: sngun
+ms.openlocfilehash: 61db8f85e73d2c071bdec0ace60911813fa4f0e8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Expirar os dados em coleções de base de dados do Azure Cosmos automaticamente com TTL
 As aplicações podem produzir e armazenar grandes quantidades de dados. Alguns destes dados, incluindo machine gerado dados, os registos e utilizador a sessão do evento informações apenas são útil para um período de tempo finito. Depois dos dados ficam surplus às necessidades da aplicação é seguro remover estes dados e reduzir as necessidades de armazenamento de uma aplicação.

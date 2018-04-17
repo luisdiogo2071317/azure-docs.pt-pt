@@ -1,11 +1,11 @@
 ---
-title: "Resolver problemas de Gateway de rede Virtual do Azure e ligações - PowerShell | Microsoft Docs"
-description: "Esta página explica como utilizar o observador de rede de Azure resolver problemas relacionados com o cmdlet do PowerShell"
+title: Resolver problemas de Gateway de rede Virtual do Azure e ligações - PowerShell | Microsoft Docs
+description: Esta página explica como utilizar o observador de rede de Azure resolver problemas relacionados com o cmdlet do PowerShell
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f6f0a813-38b6-4a1f-8cfc-1dfdf979f595
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: d7ae5599b3fa1876e2b5af79f56548cd17c1c8ed
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d0ee73ebb05999eed18e555a9b7a928e73c284e7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Resolver problemas de Gateway de rede Virtual e ligações com o Azure PowerShell de observador de rede
 
@@ -58,7 +58,7 @@ Neste exemplo, a resolução de problemas de recursos está a ser foi executada 
 $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Resolução de problemas de recursos devolve dados sobre o estado de funcionamento do recurso, também economizam registos para uma conta de armazenamento para ser revisto. Neste passo, vamos criar uma conta de armazenamento, se existir uma conta de armazenamento existente poderá utilizá-lo.
 
@@ -89,4 +89,4 @@ Para obter instruções sobre como transferir ficheiros entre contas de armazena
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se foram alteradas as definições que conectividade VPN de parar, consulte o artigo [gerir grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para identificar as regras de segurança e de grupo de segurança de rede que poderão estar em questão.
+Se foram alteradas as definições que conectividade VPN de parar, consulte o artigo [gerir grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para identificar as regras de segurança e de grupo de segurança de rede que poderão estar em questão.

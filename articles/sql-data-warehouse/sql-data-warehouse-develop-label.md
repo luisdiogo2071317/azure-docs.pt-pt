@@ -1,28 +1,27 @@
 ---
-title: Utilize etiquetas para consultas de instrumento no SQL Data Warehouse | Microsoft Docs
-description: "Sugestões para utilizar etiquetas para consultas de instrumento no Azure SQL Data Warehouse para desenvolver soluções."
+title: Utilizar etiquetas para consultas de instrumento no SQL Data Warehouse | Microsoft Docs
+description: Sugestões para utilizar etiquetas para consultas de instrumento no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 44988de8-04c1-4fed-92be-e1935661a4e8
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 9e75bbe528a427724a623305fbd45e2277e9d0af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 48fe625573639c0ec98e672f02a35e4a9ae268e8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="use-labels-to-instrument-queries-in-sql-data-warehouse"></a>Utilize etiquetas para consultas de instrumento no SQL Data Warehouse
-Armazém de dados do SQL Server suporta um conceito chamado etiquetas de consulta. Antes de avançar para qualquer profundidade vamos observe um exemplo de uma:
+# <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Utilizar etiquetas para consultas de instrumento no Azure SQL Data Warehouse
+Sugestões para utilizar etiquetas para consultas de instrumento no Azure SQL Data Warehouse para desenvolver soluções.
+
+
+## <a name="what-are-labels"></a>Quais são as etiquetas?
+Armazém de dados do SQL Server suporta um conceito chamado etiquetas de consulta. Antes de avançar para qualquer profundidade, vamos ver um exemplo:
 
 ```sql
 SELECT *
@@ -31,11 +30,11 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Esta última linha de etiquetas a cadeia 'Os meus de consulta de etiqueta' para a consulta. Isto é particularmente útil, dado que a etiqueta é consulta possível através de DMVs. Isto permite-nos com um mecanismo para identificar as consultas de problema e também para ajudar a identificar progresso através de uma execução ETL.
+A última linha de etiquetas a cadeia 'Os meus de consulta de etiqueta' para a consulta. Esta etiqueta é particularmente útil, dado que a etiqueta é consulta possível através de DMVs. Consultar as etiquetas fornece um mecanismo para localizar consultas de problema e ajudar a identificar progresso através de um ELT executar.
 
-Uma convenção de nomenclatura boa realmente ajuda-o aqui. Por exemplo como ' PROJETO: procedimento: declaração: Comentário ' iria ajudar a identificar exclusivamente a consulta entre todos os o código de controlo de origem.
+Uma convenção de nomenclatura boa realmente ajuda. Por exemplo, a partir da etiqueta do PROJETO, comentário, instrução ou procedimento ajuda a identificar exclusivamente a consulta entre todos os o código de controlo de origem.
 
-Para procurar por etiqueta pode utilizar a seguinte consulta que utiliza as vistas de gestão dinâmica:
+A seguinte consulta utiliza uma vista de gestão dinâmica para procurar por etiqueta.
 
 ```sql
 SELECT  *
@@ -45,18 +44,11 @@ WHERE   r.[label] = 'My Query Label'
 ```
 
 > [!NOTE]
-> É essencial moldar Parênteses Retos ou aspas à volta a etiqueta do word resultante da consulta. Etiqueta é uma palavra reservada e causou um erro se não tiver sido delimitado.
+> É essencial para colocar entre parênteses Retos ou aspas à volta a etiqueta do word, ao consultar. Etiqueta é uma palavra reservada e causa um erro quando não está a ser delimitado. 
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
-Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento][development overview].
+## <a name="next-steps"></a>Passos Seguintes
+Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
 
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

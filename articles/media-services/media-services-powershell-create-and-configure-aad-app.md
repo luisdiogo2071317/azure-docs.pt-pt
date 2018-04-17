@@ -1,11 +1,11 @@
 ---
-title: "Utilizar o PowerShell para criar uma aplicação do Azure AD para aceder à API de serviços de suporte de dados do Azure | Microsoft Docs"
-description: "Saiba como utilizar o PowerShell para criar uma aplicação do Azure Active Directory (Azure AD) e defina-o até o acesso a API de serviços de suporte de dados do Azure."
+title: Utilizar o PowerShell para criar uma aplicação do Azure AD para aceder à API de serviços de suporte de dados do Azure | Microsoft Docs
+description: Saiba como utilizar o PowerShell para criar uma aplicação do Azure Active Directory (Azure AD) e defina-o até o acesso a API de serviços de suporte de dados do Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: eea0f3a03dd77ce56484f32b192299bd97c05300
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 575e8a050a344cf3abb8adcda40b1f66fd9dcf59
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Utilizar o PowerShell para criar uma aplicação do Azure AD para utilizar com a API de serviços de suporte de dados do Azure
 
@@ -55,9 +55,9 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 Para obter mais informações, veja os artigos seguintes:
 
 - [Utilizar o Azure PowerShell para criar um principal de serviço para aceder aos recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-- [Gerir o controlo de acesso baseado em funções utilizando o Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Gerir o controlo de acesso baseado em funções utilizando o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [Como configurar manualmente o daemon de aplicações através da utilização de certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Introdução ao [carregar ficheiros para a conta](media-services-portal-upload-files.md).

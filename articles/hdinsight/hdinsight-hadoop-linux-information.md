@@ -1,8 +1,8 @@
 ---
-title: "Sugestões para utilizar o Hadoop no HDInsight baseado em Linux - Azure | Microsoft Docs"
-description: "Obter sugestões de implementação para a utilização de clusters do HDInsight (Hadoop) baseado em Linux num ambiente familiar do Linux em execução na nuvem do Azure."
+title: Sugestões para utilizar o Hadoop no HDInsight baseado em Linux - Azure | Microsoft Docs
+description: Obter sugestões de implementação para a utilização de clusters do HDInsight (Hadoop) baseado em Linux num ambiente familiar do Linux em execução na nuvem do Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3ad7aa01200bf2bf4a63a380b2b883983c8622d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -72,7 +70,7 @@ Este comando devolve um documento JSON que descrevem o serviço e, em seguida, j
     >
     > Para utilizar a funcionalidade completa da IU da web do Ambari, utilize um túnel SSH para o tráfego de web de proxy para o nó principal do cluster. Consulte [utilize túnel SSH para aceder à IU da web do Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
+* **Ambari (REST)** -https://&lt;clustername >.azurehdinsight.net/ambari
 
     > [!NOTE]
     > Autenticar com o utilizador de administrador do cluster e a palavra-passe.
@@ -273,7 +271,7 @@ Para utilizar uma versão diferente de um componente, carregue a versão que pre
 > [!WARNING]
 > Componentes fornecidos com o cluster do HDInsight são totalmente suportados e Microsoft Support ajuda a isolar e resolver problemas relacionados com estes componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudar a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para interagir com os canais disponíveis para as tecnologias de open source para onde se encontra profundo conhecimentos para que a tecnologia. Por exemplo, existem vários sites de Comunidade que podem ser utilizadas, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Também projetos do Apache tem sites de projeto no [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Componentes personalizados recebem suporte comercialmente razoável para ajudar a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para interagir com os canais disponíveis para as tecnologias de open source para onde se encontra profundo conhecimentos para que a tecnologia. Por exemplo, existem vários sites de Comunidade que podem ser utilizadas, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Também projetos do Apache tem sites de projeto no [ http://apache.org ](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

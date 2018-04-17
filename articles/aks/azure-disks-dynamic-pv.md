@@ -8,17 +8,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: 36e25d7e5f1e5c6e1cf72442b73ac081810d216a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a6bc79d0556299634a78c5232bbab4e20810172c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Volumes persistentes com discos do Azure
 
 Um volume persistente representa um conjunto de armazenamento que tenha sido aprovisionado para utilização com pods de Kubernetes. Um volume persistente pode ser utilizado por um ou vários pods e pode ser dinamicamente ou estaticamente aprovisionado. Para obter mais informações sobre volumes persistentes Kubernetes, consulte [volumes persistentes Kubernetes][kubernetes-volumes].
 
 Este detalhes de documento com persistentes volumes de discos do Azure de um cluster do serviço de contentor do Azure (AKS).
+
+> [!NOTE]
+> Um disco do Azure só pode ser montado com o tipo de modo de acesso ReadWriteOnce, o que torna a mesma disponível para um único nó AKS. Se precisar de partilhar um volume persistente em vários nós, considere utilizar [ficheiros do Azure][azure-files-pvc].
 
 ## <a name="built-in-storage-classes"></a>Criado em classes de armazenamento
 
@@ -40,7 +43,7 @@ Uma afirmação de volume persistente (PVC) é utilizada para aprovisionar autom
 
 Crie um ficheiro denominado `azure-premimum.yaml`e copie o manifesto seguinte.
 
-Tome nota que o `managed-premium` classe de armazenamento é especificado em que a anotação e a afirmação está a pedir um disco `5GB` tamanho com `ReadWriteOnce` acesso. 
+Tome nota que o `managed-premium` classe de armazenamento é especificado em que a anotação e a afirmação está a pedir um disco `5GB` tamanho com `ReadWriteOnce` acesso.
 
 ```yaml
 apiVersion: v1
@@ -63,12 +66,9 @@ Criar a afirmação de volume persistente com o [kubectl criar] [ kubectl-create
 kubectl create -f azure-premimum.yaml
 ```
 
-> [!NOTE]
-> Um disco do Azure só pode ser montado com o tipo de modo de acesso ReadWriteOnce, o que torna a mesma disponível para um único nó AKS. Se precisar de partilhar um volume persistente em vários nós, considere utilizar [ficheiros do Azure][azure-files-pvc].
-
 ## <a name="using-the-persistent-volume"></a>Utilizar o volume persistente
 
-Depois da afirmação persistente volume foi criada, e o disco aprovisionado com êxito, um pod pode ser criado com acesso ao disco. O manifesto seguinte cria um pod que utiliza a afirmação de volume persistente `azure-managed-disk` montar o disco do Azure, o `/mnt/azure` caminho. 
+Depois da afirmação persistente volume foi criada, e o disco aprovisionado com êxito, um pod pode ser criado com acesso ao disco. O manifesto seguinte cria um pod que utiliza a afirmação de volume persistente `azure-managed-disk` montar o disco do Azure, o `/mnt/azure` caminho.
 
 Crie um ficheiro denominado `azure-pvc-disk.yaml`e copie o manifesto seguinte.
 
@@ -96,7 +96,7 @@ Criar pod com o [kubectl criar] [ kubectl-create] comando.
 kubectl create -f azure-pvc-disk.yaml
 ```
 
-Tem agora um pod em execução com o Azure disco montado no `/mnt/azure` diretório. Pode ver o quando inspecionar o pod através de montagem do volume `kubectl describe pod mypod`.
+Tem agora um pod em execução com o Azure disco montado no `/mnt/azure` diretório. Esta configuração pode ser vista quando inspecionar o pod através de `kubectl describe pod mypod`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

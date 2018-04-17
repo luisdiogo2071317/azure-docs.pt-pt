@@ -1,23 +1,23 @@
 ---
 title: Compreender a identidade do Azure | Microsoft Docs
-description: "Obter uma compreensão básica das recomendações para que possa tomar a decisão de governação de identidade melhor para a sua organização, conceitos e termos de solução de identidade do Microsoft Azure."
-keywords: 
+description: Obter uma compreensão básica das recomendações para que possa tomar a decisão de governação de identidade melhor para a sua organização, conceitos e termos de solução de identidade do Microsoft Azure.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Compreender as soluções de identidade do Azure
 Microsoft Azure Active Directory (Azure AD) é um identidades e acessos na nuvem solução de gestão que fornece serviços de diretório, governação de identidade e gestão de acesso de aplicação. Azure AD rapidamente [permite início de sessão único (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) em 1 000 das aplicações previamente integradas, comerciais e personalizadas no [Galeria de aplicações do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Muitas destas aplicações, provavelmente já utilizar como o Office 365, em Salesforce.com, caixa, ServiceNow e Workday.
@@ -37,12 +37,12 @@ Antes de pode decidir sobre uma solução de identidade do Azure para a sua orga
 |Subscrição do Azure |As subscrições são utilizadas para pagar para serviços em nuvem do Azure e que normalmente estão ligadas a um cartão de crédito. Pode ter várias subscrições, mas pode ser difícil de partilhar recursos entre subscrições.|
 |Inquilino do Azure | Um inquilino do Azure AD é representativo de uma única organização. É uma instância dedicada, fidedigna do Azure AD, que é criada automaticamente quando uma organização se inscreve para uma subscrição do serviço de nuvem Microsoft, tais como o Azure, o Intune ou o Office 365. Os inquilinos podem obter acesso aos serviços ou num ambiente dedicado (único inquilino) ou num ambiente partilhado com outras organizações (multi-inquilino).|
 |Diretório do Azure AD | Cada inquilino do Azure tem um Azure dedicado, fidedigno diretório AD que contém utilizadores, grupos e aplicações do inquilino. É utilizado para efetuar a identidade e acesso de funções de gestão de recursos de inquilino. Porque um único diretório do Azure AD é automaticamente aprovisionado para representar a sua organização quando se inscreve num serviço de nuvem da Microsoft, como o Azure, o Microsoft Intune ou o Office 365, por vezes, verá os termos de licenciamento *inquilino*, *do Azure AD*, e *diretório do Azure AD* -no alternadamente. |
-|Domínio personalizado | Quando se inscreve pela primeira vez para uma subscrição do serviço em nuvem Microsoft, o seu inquilino (organização) utiliza um *. onmicrosoft.com* nome de domínio. No entanto, a maioria das organizações tem uma ou mais nomes de domínio que são utilizados para efetuar negócio e de que os utilizadores finais utilizam para aceder a recursos da empresa. Pode adicionar o nome de domínio personalizado ao Azure AD para que o nome de domínio seja familiar aos utilizadores, tais como  *alice@contoso.com*  em vez de  *alice@contoso.onmicrosoft.com* . |
+|Domínio personalizado | Quando se inscreve pela primeira vez para uma subscrição do serviço em nuvem Microsoft, o seu inquilino (organização) utiliza um *. onmicrosoft.com* nome de domínio. No entanto, a maioria das organizações tem uma ou mais nomes de domínio que são utilizados para efetuar negócio e de que os utilizadores finais utilizam para aceder a recursos da empresa. Pode adicionar o nome de domínio personalizado ao Azure AD para que o nome de domínio seja familiar aos utilizadores, tais como *alice@contoso.com* em vez de *alice@contoso.onmicrosoft.com*. |
 |Conta do Azure AD | Estas são as identidades, que são criadas através do Azure AD ou outro serviço em nuvem da Microsoft como o Office 365. São armazenados no Azure AD e acessíveis para qualquer uma das subscrições de serviços em nuvem da organização. |
 |Administrador de subscrição do Azure| O administrador da conta é a pessoa que inscreveu no ou comprou a subscrição do Azure. Podem utilizar o [Centro de contas](https://account.azure.com/Subscriptions) para efetuar várias tarefas de gestão, como criar subscrições, cancelar subscrições, altere a faturação de uma subscrição ou alterar o administrador de serviço. |
 |Administrador Global do Azure AD | Administradores globais do Azure AD têm acesso total a todas as funcionalidades administrativas do Azure AD. A pessoa que se inscreve para uma subscrição do serviço em nuvem Microsoft automaticamente torna-se um administrador global por predefinição. Pode ter mais do que um administrador global, mas apenas os administradores globais podem atribuir qualquer um dos [as outras funções de administrador](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) aos utilizadores. |
 |Conta Microsoft | Contas Microsoft (criadas por si para utilização pessoal) fornecem acesso ao consumidor e orientado para produtos da Microsoft e serviços em nuvem, como o Outlook (Hotmail), OneDrive, Xbox LIVE ou do Office 365. Estas identidades são criadas e armazenadas no Microsoft consumidor identidade conta sistema executado pela Microsoft.|
-|Contas profissionais ou escolares | Contas profissionais ou escolares (emitidas por um administrador para utilização de negócio/académicas) fornecem acesso para a empresa nível empresarial cloud services da Microsoft, tais como o Azure, o Intune ou o Office 365.|
+|Contas escolares ou profissionais | Contas profissionais ou escolares (emitidas por um administrador para utilização de negócio/académicas) fornecem acesso para a empresa nível empresarial cloud services da Microsoft, tais como o Azure, o Intune ou o Office 365.|
 
 
 ## <a name="concepts-to-understand"></a>Conceitos para compreender
@@ -53,7 +53,7 @@ Agora que sabe os termos de identidade do Azure básica, deve obter mais informa
 |-----|-----|
 |[Como as subscrições do Azure estão associadas ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) |Cada subscrição do Azure tem uma relação de confiança com um diretório do Azure AD para autenticar utilizadores, serviços e dispositivos. *Várias subscrições podem confiar mesmo diretório do Azure AD, mas uma subscrição confiarão apenas um único diretório do Azure AD*. Esta relação de confiança é diferente da relação de uma subscrição com outros recursos do Azure (sites, bases de dados e assim sucessivamente), que são mais como recursos subordinados de uma subscrição. Se uma subscrição expirar, em seguida, acesso aos recursos associados a subscrição que não sejam do Azure AD também é interrompida. No entanto, o diretório do Azure AD permanece no Azure, para que possa associar outra subscrição esse diretório e continuar a gerir os recursos de inquilino.|
 |[O Azure AD licenciamento funciona](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-get-started-azure-portal) | Ao utilizador o compra ou ativar o Enterprise Mobility Suite, Azure AD Premium ou Basic do Azure AD, o diretório é atualizado com a subscrição, incluindo o respetivo período de validade e licenças pré-pago. Depois da subscrição está ativa, o serviço pode ser gerido por administradores globais do Azure AD e utilizado pelos utilizadores licenciados. Informações da sua subscrição, incluindo o número de licenças atribuídas ou disponíveis, estão disponíveis no portal do Azure a partir de **do Azure Active Directory** > **licenças** painel. Também é o melhor local para gerir a suas atribuições de licenças.|
-|[Controlo de acesso baseado em funções no portal do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)|Azure baseada em funções controlo de acesso (RBAC) ajuda a fornecer gestão de acesso detalhada para os recursos do Azure. Demasiados permissões podem expor e conta aos atacantes. Permissões insuficientes significa que os funcionários não é possível obter o trabalho feito de forma eficiente. Utilizando o RBAC, pode dar aos funcionários as permissões exatas que precisam de com base nas três funções básicas que se aplicam a todos os grupos de recursos: proprietário, Contribuidor, leitor. Também pode criar até 2000 dos seus [personalizadas funções do RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) para satisfazer as suas necessidades específicas. |
+|[Controlo de acesso baseado em funções no portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)|Azure baseada em funções controlo de acesso (RBAC) ajuda a fornecer gestão de acesso detalhada para os recursos do Azure. Demasiados permissões podem expor e conta aos atacantes. Permissões insuficientes significa que os funcionários não é possível obter o trabalho feito de forma eficiente. Utilizando o RBAC, pode dar aos funcionários as permissões exatas que precisam de com base nas três funções básicas que se aplicam a todos os grupos de recursos: proprietário, Contribuidor, leitor. Também pode criar até 2000 dos seus [personalizadas funções do RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) para satisfazer as suas necessidades específicas. |
 |[Identidade híbrida](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)|Identidade híbrida é conseguida ao integrar o seu local no Windows Server Active Directory (AD DS) com o Azure AD com [do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). Isto permite-lhe fornecer uma identidade comum para os seus utilizadores para o Office 365, Azure e aplicações no local ou as aplicações de SaaS integradas com o Azure AD. Com a identidade híbridas, expandir eficazmente ambiente no local para a nuvem para a identidade e acesso.|
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>A diferença entre o Windows Server AD DS e AD do Azure
@@ -89,7 +89,7 @@ Em vez disso que escolher entre no local ou de soluções de identidade baseada 
 > [!TIP]
 > Para obter mais informações sobre como CIOs efetuou do Azure Active Directory parte central da respetiva as estratégias, transfira o [Guia do CIO ao Azure Active Directory](https://aka.ms/AzureADCIOGuide).
 
-### <a name="azure-ad-domain-services"></a>Azure AD Domain Services
+### <a name="azure-ad-domain-services"></a>Serviços de Domínio do Azure AD
 **Serviços de domínio do Azure AD** oferece uma opção baseado na nuvem para utilizar o AD DS para o controlo de configuração de VM do Azure simples e uma forma para satisfazer os requisitos de identidade no local para o desenvolvimento de aplicações de rede e o teste. Serviços de domínio do Azure AD não se destina a comparação de precisão e deslocar no local infraestrutura de AD DS para VMs do Azure gerida pelos serviços de domínio do Azure AD. Em vez disso, as VMs do Azure nos domínios geridos deve ser utilizadas para suportar o desenvolvimento, teste e movimento de aplicações no local que necessitem de métodos de autenticação do AD DS para a nuvem.
 
 ## <a name="common-scenarios-and-recommendations"></a>Recomendações e cenários comuns
@@ -118,7 +118,7 @@ Temos um ton excelente recursos online para o ajudar a saber tudo sobre o Azure 
 * [O que é o licenciamento de Microsoft Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Como pode detetar aplicações na nuvem não sancionadas utilizadas dentro da minha organização](active-directory-cloudappdiscovery-whatis.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que compreende os conceitos de identidade do Azure e as opções disponíveis para si, pode utilizar os seguintes recursos para começar a implementar a opção que escolheu:
 

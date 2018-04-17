@@ -1,13 +1,13 @@
 ---
-title: "Resolver erros comuns de implementação do Azure | Microsoft Docs"
+title: Resolver erros comuns de implementação do Azure | Microsoft Docs
 description: Descreve como resolver erros comuns ao implementar recursos do Azure com o Azure Resource Manager.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-keywords: "Erro de implementação, a implementação do azure, implementar no azure"
+keywords: Erro de implementação, a implementação do azure, implementar no azure
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: support-article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 01cc75c522b85f7b4a4b38c92f42cb113d016b73
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver erros comuns de implementação do Azure com o Azure Resource Manager
 
@@ -31,9 +31,9 @@ Este artigo descreve alguns erros de implementação do Azure comuns que poderá
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Siga as restrições de nomenclatura para contas de armazenamento. | [Resolver o nome de conta de armazenamento](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponível. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | O cluster ou a região não dispõe de recursos disponíveis ou não suporta o tamanho da VM pedido. Repetir o pedido num momento posterior, ou peça um tamanho VM diferente. | [Problemas de aprovisionamento e a atribuição de Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) e [problemas de aprovisionamento e a alocação para Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| AllocationFailed | O cluster ou a região não dispõe de recursos disponíveis ou não suporta o tamanho da VM pedido. Repetir o pedido num momento posterior, ou peça um tamanho VM diferente. | [Problemas de aprovisionamento e a atribuição de Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problemas de aprovisionamento e a alocação para o Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e [resolver problemas de falhas de atribuição](../virtual-machines/windows/allocation-failure.md)|
 | AnotherOperationInProgress | Aguarde pela conclusão da operação em simultâneo. | |
-| AuthorizationFailed | A conta ou principal de serviço não tem acesso suficiente para concluir a implementação. Verifique a sua conta pertencer a função e o acesso para o âmbito da implementação. | [Controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md) |
+| AuthorizationFailed | A conta ou principal de serviço não tem acesso suficiente para concluir a implementação. Verifique a sua conta pertencer a função e o acesso para o âmbito da implementação. | [Controlo de acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md) |
 | BadRequest | Enviado valores de implementação que não corresponde ao que é esperado pelo Gestor de recursos. Consulte a mensagem de estado interna para obter ajuda na resolução de problemas. | [Referência de modelo](/azure/templates/) e [suportado localizações](resource-manager-templates-resources.md#location) |
 | Conflito | Está a pedir uma operação que não é permitida no estado atual do recurso. Por exemplo, redimensionamento de disco é permitido apenas quando criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActive | Aguarde pela implementação simultânea para este grupo de recursos para concluir. | |

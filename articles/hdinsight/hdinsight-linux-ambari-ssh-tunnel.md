@@ -1,8 +1,8 @@
 ---
-title: "Utilizar o SSH túnel para aceder ao Azure HDInsight | Microsoft Docs"
-description: "Saiba como utilizar um túnel SSH para procurar em segurança a recursos da web alojados em nós do HDInsight baseado em Linux."
+title: Utilizar o SSH túnel para aceder ao Azure HDInsight | Microsoft Docs
+description: Saiba como utilizar um túnel SSH para procurar em segurança a recursos da web alojados em nós do HDInsight baseado em Linux.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 05e06d6ed8c2a3bec0d12f81aae6f7022a56b942
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Utilizar o túnel SSH para aceder à IU da web do Ambari, JobHistory, NameNode, Oozie e outras web UIs
 
@@ -75,7 +73,7 @@ Este comando cria uma ligação que encaminha o tráfego para a porta local 9876
 * **2** -force SSH para experimentar apenas a versão 2 do protocolo.
 * **q** -modo silencioso.
 * **T** -desativar alocação pseudo-tty, uma vez que está a reencaminhar apenas uma porta.
-* **n**-Impedi a leitura de STDIN, uma vez que está a reencaminhar apenas uma porta.
+* **n** -impedir a leitura de STDIN, uma vez que está a reencaminhar apenas uma porta.
 * **N** -não é executar um comando remoto, uma vez que está a reencaminhar apenas uma porta.
 * **f** -executar em segundo plano.
 
@@ -85,7 +83,7 @@ Depois do comando for concluído, o tráfego enviado para a porta 9876 no comput
 
 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) for um cliente SSH gráfico para Windows. Utilize os seguintes passos para criar um túnel SSH PuTTY a utilizar:
 
-1. Abra o PuTTY e introduza as suas informações de ligação. Se não estiver familiarizado com o PuTTY, consulte o [documentação (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html) do PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
+1. Abra o PuTTY e introduza as suas informações de ligação. Se não estiver familiarizado com o PuTTY, consulte o [documentação do PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
 
 2. No **categoria** secção para a esquerda da caixa de diálogo, expanda **ligação**, expanda **SSH**e, em seguida, selecione **túneis**.
 
@@ -115,7 +113,7 @@ Depois do comando for concluído, o tráfego enviado para a porta 9876 no comput
    > [!NOTE]
    > Selecionar **DNS remoto** resolve pedidos de sistema de nomes de domínio (DNS), utilizando o cluster do HDInsight. Esta definição resolve DNS utilizando o nó principal do cluster.
 
-2. Certifique-se de que o túnel funciona, visitando o site, tais como [http://www.whatismyip.com/](http://www.whatismyip.com/). O IP devolvido deve ser utilizada pelo centro de dados do Microsoft Azure.
+2. Certifique-se de que o túnel funciona, visitando o site, tais como [ http://www.whatismyip.com/ ](http://www.whatismyip.com/). O IP devolvido deve ser utilizada pelo centro de dados do Microsoft Azure.
 
 ## <a name="verify-with-ambari-web-ui"></a>Certifique-se com a IU da web do Ambari
 
@@ -124,7 +122,7 @@ Quando o cluster for estabelecido, utilize os seguintes passos para verificar se
 1. No seu browser, aceda a http://headnodehost:8080. O `headnodehost` endereço é enviado através do túnel para o cluster e a resolver para o headnode Ambari está em execução. Quando lhe for pedido, introduza o nome de utilizador de admin (administrador) e a palavra-passe para o cluster. Poderá ser solicitado uma segunda vez pela IU da web do Ambari. Se assim for, reintroduza as informações.
 
    > [!NOTE]
-   > Quando utiliza o endereço de http://headnodehost:8080 para ligar ao cluster, está a ligar através do túnel. Comunicação é protegida através do túnel SSH em vez de HTTPS. Para ligar através da internet através de HTTPS, utilize https://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome do cluster.
+   > Ao utilizar o http://headnodehost:8080 endereço para ligar ao cluster, está a ligar através do túnel. Comunicação é protegida através do túnel SSH em vez de HTTPS. Para ligar através da internet através de HTTPS, utilize https://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome do cluster.
 
 2. Na IU da Web do Ambari, selecione o HDFS na lista à esquerda da página.
 

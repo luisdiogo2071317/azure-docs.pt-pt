@@ -11,16 +11,14 @@ ms.assetid: 4787f3cc-a650-4dc3-9d96-a19a67aad046
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 922dfd475f27f182d8958887087fc2f4945cc43a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8c58607e191d58d1cb6706569b909a4d709b14b3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gerir clusters do HDInsight utilizando a IU da Web do Ambari
 
@@ -39,7 +37,7 @@ IU da Web do Ambari é fornecido por predefinição com clusters do HDInsight qu
 > [!IMPORTANT]
 > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows). 
 
-## <a name="connectivity"></a>Conectividade
+## <a name="connectivity"></a>Ligação
 
 IU da Web do Ambari está disponível no seu cluster do HDInsight em HTTPS://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome do cluster.
 
@@ -50,7 +48,7 @@ IU da Web do Ambari está disponível no seu cluster do HDInsight em HTTPS://CLU
 
 Enquanto Ambari para o cluster está acessível diretamente através da Internet, algumas ligações a partir do IU da Web do Ambari (como juntar JobTracker) não são expostas na internet. Para aceder a estes serviços, tem de criar um túnel SSH. Para obter mais informações, consulte [utilize túnel SSH com o HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-## <a name="ambari-web-ui"></a>Ambari Web UI
+## <a name="ambari-web-ui"></a>IU da Web do Ambari
 
 > [!WARNING]
 > Nem todas as funcionalidades da IU da Web do Ambari são suportadas no HDInsight. Para obter mais informações, consulte o [não suportado operações](#unsupported-operations) secção deste documento.
@@ -59,7 +57,7 @@ Ao ligar a IU da Web do Ambari, lhe for pedido para autenticar para a página. U
 
 Quando abre a página, tenha em atenção a barra na parte superior. Esta barra contém as seguintes informações e controlos de:
 
-![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
+![ambari nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
 * **Logótipo do Ambari** -abre o dashboard, o que pode ser utilizado para monitorizar o cluster.
 

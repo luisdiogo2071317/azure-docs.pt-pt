@@ -1,11 +1,11 @@
 ---
-title: "Problemas de configuração e gestão de FAQ de serviços do Microsoft Azure nuvem | Microsoft Docs"
-description: "Este artigo apresenta uma lista de perguntas mais frequentes sobre a configuração e gestão de serviços de nuvem do Microsoft Azure."
+title: Problemas de configuração e gestão de FAQ de serviços do Microsoft Azure nuvem | Microsoft Docs
+description: Este artigo apresenta uma lista de perguntas mais frequentes sobre a configuração e gestão de serviços de nuvem do Microsoft Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão do Cloud Services do Azure: Perguntas mais frequentes sobre (FAQ)
 
@@ -133,7 +133,7 @@ Para obter mais informações, consulte os seguintes documentos:
 * [Armazenar e ver dados de diagnósticos no Armazenamento do Azure](cloud-services-dotnet-diagnostics-storage.md)
 * [Parar de registos de IIS escrever num serviço em nuvem](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
-## <a name="network-configuration"></a>Configuração da rede
+## <a name="network-configuration"></a>Configuração de rede
 
 ### <a name="how-do-i-set-the-idle-timeout-for-azure-load-balancer"></a>Como se definir o tempo limite de inatividade para o Balanceador de carga do Azure?
 Pode especificar o tempo limite no ficheiro de definição (. csdef) do serviço como esta:
@@ -180,7 +180,7 @@ Windows 10 e Windows Server 2016 vêm com suporte para HTTP/2 no lado do cliente
 5. Reinicie o servidor.
 6. Aceda ao seu **Web Site predefinido** e, em **enlaces**, crie um novo enlace de TLS com o certificado autoassinado que acabou de criar. 
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2)
 - [Vídeo: HTTP/2 no Windows 10: Browser, aplicações e o servidor Web](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -201,7 +201,7 @@ Para obter mais informações, consulte [HTTP/2 no IIS](https://blogs.iis.net/da
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Como posso implementar o acesso baseado em funções para serviços em nuvem?
 Serviços em nuvem não suporta o modelo de controlo de acesso baseado em funções (RBAC), dado que não é um serviço do Azure Resource Manager com base.
 
-Consulte [RBAC do Azure vs. os administradores da subscrição clássica](../active-directory/role-based-access-control-what-is.md#azure-rbac-vs-classic-subscription-administrators).
+Consulte [RBAC do Azure vs. os administradores da subscrição clássica](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators).
 
 ## <a name="remote-desktop"></a>Ambiente de trabalho remoto
 
@@ -297,7 +297,7 @@ Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o
 
 |Valor|Significado|
 ------|------
-|0|No SNI|
+|0|Não existem SNI|
 |1|SNI ativado |
 |2 |Não SNI enlace que utiliza o arquivo de certificados Central|
 |3|Armazenar o enlace de SNI que utiliza certificados Central |

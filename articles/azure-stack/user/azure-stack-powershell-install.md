@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 04/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7bf2d9b999db738007f75d72a8818ca0eb6f34ba
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 70a2118ef0e26043f9f6a9cceb9d4a533d343556
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instale o PowerShell para a pilha do Azure  
 
@@ -55,8 +55,7 @@ As secções seguintes descrevem os passos necessários para instalar o PowerShe
 
 Azure pilha compatíveis AzureRM os módulos são instalados através de perfis de versão de API. Pilha do Azure requer o **2017-03-09-perfil** perfil de versão de API, o que está disponível ao instalar o módulo de AzureRM.Bootstrapper. Para mais informações sobre perfis de versão de API e os cmdlets fornecidos pelo-las, consulte o [gerir perfis de versão de API](azure-stack-version-profiles-powershell.md). Para além de módulos AzureRM, deve também instalar os módulos do PowerShell de pilha específicos do Azure. Execute o seguinte script do PowerShell para instalar estes módulos na sua estação de trabalho de desenvolvimento:
 
-> [!IMPORTANT]  
-> A versão do módulo do PowerShell AzureRM 1.2.11 vem com uma lista de alterações de última hora. Para atualizar a partir de 1.2.10 versão, consulte o guia de migração em [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration).
+
 
   ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -83,9 +82,6 @@ Para confirmar a instalação, execute o seguinte comando:
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Instale o PowerShell num desligado ou um cenário parcialmente ligado (com acesso à internet limitada)
 
 Num cenário parcialmente ligado ou desligado, tem de transferir primeiro os módulos do PowerShell para uma máquina que tenha acesso à internet e, em seguida, transfere-os para o Kit de desenvolvimento de pilha do Azure para a instalação.
-
-> [!IMPORTANT]
-> A versão do módulo do PowerShell AzureRM 1.2.11 vem com uma lista de alterações de última hora. Para atualizar a partir de 1.2.10 versão, consulte o guia de migração em [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration).
 
 1. Inicie sessão computador onde tem conectividade internet e utilize o seguinte script de transferir o AzureRM e pacotes de AzureStack no seu computador local:
 

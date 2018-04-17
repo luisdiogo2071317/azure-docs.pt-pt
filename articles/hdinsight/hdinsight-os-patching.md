@@ -1,25 +1,23 @@
 ---
-title: "Configurar o agendamento para clusters do HDInsight baseado em Linux - Azure da aplicação de patches de SO | Microsoft Docs"
-description: "Saiba como configurar o agendamento para clusters do HDInsight baseado em Linux a aplicação de patches de SO."
+title: Configurar o agendamento para clusters do HDInsight baseado em Linux - Azure da aplicação de patches de SO | Microsoft Docs
+description: Saiba como configurar o agendamento para clusters do HDInsight baseado em Linux a aplicação de patches de SO.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: asadk
 editor: bprakash
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42771b9ff0f177b6b31f626d1dd2d07046a53965
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="os-patching-for-hdinsight"></a>Para o HDInsight a aplicação de patches de SO 
 Como um serviço gerido do Hadoop, HDInsight encarrega-se de aplicação de patches de SO das VMs subjacentes utilizados pelos clusters do HDInsight. A partir de 1 de Agosto de 2016, vamos foram alterados a política de aplicação de patches de SO convidado para os clusters do HDInsight baseado em Linux (versão 3.4 ou superior). O objetivo da nova política é reduzir significativamente o número de reinícios devido a aplicação de patches. A nova política irá continuar a correção máquinas de virtuais (VMs) em clusters do Linux cada segunda-feira ou quinta começando UTC 12: 00, de forma escalonada em nós em qualquer cluster especificado. No entanto, qualquer VM especificada só será reiniciado no máximo uma vez a cada 30 dias devido a aplicação de patches de SO do convidado. Além disso, o primeiro reinício para um cluster recém-criado não acontece mais cedo do que 30 dias a contar da data de criação do cluster. Correções de erros serão aplicadas depois das VMs são reiniciadas.
@@ -63,7 +61,7 @@ Quando utilizar este script requer as seguintes informações:
 Se aplicar o script como parte do processo de criação de cluster, este é continuada automaticamente.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter passos específicos sobre como utilizar a ação de script, consulte as secções seguintes o [clusters do HDInsight baseado em Personalizar Linuz através da ação de script](hdinsight-hadoop-customize-cluster-linux.md):
 

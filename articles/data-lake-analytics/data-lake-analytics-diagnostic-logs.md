@@ -1,11 +1,11 @@
 ---
-title: "Ver registos de diagnóstico para o Azure Data Lake Analytics | Microsoft Docs"
-description: "Compreender como o programa de configuração e aceder a registos de diagnóstico para o Azure Data Lake analytics "
+title: Ver registos de diagnóstico para o Azure Data Lake Analytics | Microsoft Docs
+description: 'Compreender como o programa de configuração e aceder a registos de diagnóstico para o Azure Data Lake analytics '
 services: data-lake-analytics
-documentationcenter: 
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.service: data-lake-analytics
 ms.devlang: na
@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/12/2018
-ms.author: larryfr
-ms.openlocfilehash: e6cc5fd3d45691dbdc004f346c10d7b4568ae9aa
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: efec1e00e9c2da519028f7e6ff094a0f0876df79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Aceder a registos de diagnóstico para o Azure Data Lake Analytics
 
@@ -28,7 +27,7 @@ Registo de diagnóstico permite-lhe recolher registos de auditoria de acesso de 
 * Frequência os dados são acedidos.
 * Quantidade de dados é armazenado na conta.
 
-## <a name="enable-logging"></a>Ativar registo
+## <a name="enable-logging"></a>Ativar o registo
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -132,7 +131,7 @@ Eis uma entrada de exemplo no registo de pedido formatada em JSON. Cada blob tem
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| hora |Cadeia |O carimbo (em UTC) do registo |
+| tempo |Cadeia |O carimbo (em UTC) do registo |
 | resourceId |Cadeia |O identificador do recurso que demorou a operação de colocar em |
 | categoria |Cadeia |A categoria de registo. Por exemplo, **pedidos**. |
 | operationName |Cadeia |Nome da operação que tem sessão iniciada. Por exemplo, GetAggregatedJobHistory. |
@@ -151,7 +150,7 @@ Eis uma entrada de exemplo no registo de pedido formatada em JSON. Cada blob tem
 | RequestContentLength |Int |O comprimento do conteúdo do pedido HTTP |
 | ClientRequestId |Cadeia |O identificador que identifica exclusivamente este pedido |
 | StartTime |Cadeia |A hora em que o servidor recebeu o pedido |
-| EndTime |Cadeia |A hora em que o servidor enviou uma resposta |
+| endTime |Cadeia |A hora em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Registos de auditoria
 
@@ -184,7 +183,7 @@ Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob 
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| hora |Cadeia |O carimbo (em UTC) do registo |
+| tempo |Cadeia |O carimbo (em UTC) do registo |
 | resourceId |Cadeia |O identificador do recurso que demorou a operação de colocar em |
 | categoria |Cadeia |A categoria de registo. Por exemplo, **auditoria**. |
 | operationName |Cadeia |Nome da operação que tem sessão iniciada. Por exemplo, JobSubmitted. |
@@ -207,7 +206,7 @@ Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob 
 | JobRunTime |Cadeia |O tempo de execução utilizado para processar a tarefa |
 | SubmitTime |Cadeia |O tempo (em UTC) que a tarefa foi submetida |
 | StartTime |Cadeia |O tempo que a tarefa começou a ser executada após submissão (em UTC) |
-| EndTime |Cadeia |O tempo que a tarefa foi concluída |
+| endTime |Cadeia |O tempo que a tarefa foi concluída |
 | Paralelismo |Cadeia |O número de unidades do Data Lake Analytics solicitado para esta tarefa durante a submissão |
 
 > [!NOTE]
@@ -215,7 +214,7 @@ Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob 
 
 ## <a name="process-the-log-data"></a>Processar os dados de registo
 
-Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar os dados de registo. Pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar os dados de registo. Pode encontrar o exemplo em [ https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample ](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Descrição geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)

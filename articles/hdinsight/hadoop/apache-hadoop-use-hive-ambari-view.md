@@ -2,7 +2,7 @@
 title: Utilizar vistas do Ambari para trabalhar com o Hive no HDInsight (Hadoop) - Azure | Microsoft Docs
 description: Saiba como utilizar a vista do Hive do seu browser para submeter consultas do Hive. A vista do Hive faz parte da IU da Web do Ambari fornecido com o cluster do HDInsight baseado em Linux.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 1abe9104-f4b2-41b9-9161-abbc43de8294
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: larryfr
-ms.openlocfilehash: af5fe44b611e8ff9d93aba8a30c71213c452aff9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 78fee8e3b3e4c0e0c02fa5e1c85bdef58c9cd543
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Utilizar a vista Ambari Hive com o Hadoop no HDInsight
 
@@ -108,7 +106,7 @@ Para apresentar uma visualização de plano de consulta, selecione o **explicam 
 
 O **explicam Visual** vista da consulta poderá ser útil compreender o fluxo de consultas complexas. Pode ver um equivalente textual desta vista, utilizando o **explicativo** botão no Editor de consultas.
 
-### <a name="tez-ui"></a>Tez UI
+### <a name="tez-ui"></a>Tez IU
 
 Para apresentar a IU de Tez para a consulta, selecione o **Tez** separador abaixo a folha de cálculo.
 

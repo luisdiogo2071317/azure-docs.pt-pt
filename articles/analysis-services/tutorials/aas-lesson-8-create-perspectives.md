@@ -1,25 +1,18 @@
 ---
-title: "Lição 8 do tutorial do Azure Analysis Services: Criar perspetivas | Microsoft Docs"
+title: 'Lição 8 do tutorial do Azure Analysis Services: Criar perspetivas | Microsoft Docs'
 description: Descreve como criar perspetivas no projeto de tutorial do Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 190a9c998bceb97f8446265809b8d2c3bdc76abc
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: bb6599fefaa03e2ca0fec2788dca27240dbad8c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-perspectives"></a>Criar perspetivas
 
@@ -50,7 +43,7 @@ Este tópico faz parte de um tutorial de modelação em tabela que deve ser conc
   
     Numa lição posterior, irá utilizar a funcionalidade Analyze em Excel para testar esta perspetiva. A lista de campos de tabela dinâmica do Excel inclui cada tabela, exceto a tabela DimCustomer.  
 
-## <a name="whats-next"></a>Passos seguintes?
+## <a name="whats-next"></a>O que se segue?
 [Lição 9: Criar hierarquias](../tutorials/aas-lesson-9-create-hierarchies.md).
   
   

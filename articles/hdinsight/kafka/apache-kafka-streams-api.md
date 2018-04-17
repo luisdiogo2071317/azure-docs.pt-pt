@@ -1,8 +1,8 @@
 ---
 title: Utilizar a API de fluxos do Apache Kafka - o Azure HDInsight | Microsoft Docs
-description: "Saiba como utilizar a API do Apache Kafka fluxos com Kafka no HDInsight. Esta API permite-lhe executar o fluxo de processamento entre tópicos Kafka."
+description: Saiba como utilizar a API do Apache Kafka fluxos com Kafka no HDInsight. Esta API permite-lhe executar o fluxo de processamento entre tópicos Kafka.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 36d67cdb99871f3948db1f6497b1a4638df4f3f1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-kafka-streams-api"></a>Fluxos do Apache Kafka API
 
@@ -27,7 +27,7 @@ Saiba como criar uma aplicação que utiliza a API de fluxos Kafka e executá-lo
 
 Ao trabalhar com Apache Kafka, processamento de fluxo, muitas vezes, é feito através do Apache Spark ou Storm. Kafka versão 0.10.0 (no HDInsight 3.5 e 3.6) introduziu a API de fluxos Kafka. Esta API permite-lhe transformar fluxos de dados entre tópicos de entrada e de saída, com uma aplicação que é executado no Kafka. Em alguns casos, isto poderá ser uma alternativa à criação de um Spark ou Storm solução de transmissão em fluxo. Para obter mais informações sobre fluxos Kafka, consulte o [introdução à fluxos](https://kafka.apache.org/10/documentation/streams/) documentação em Apache.org.
 
-## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
+## <a name="set-up-your-development-environment"></a>Configurar o seu ambiente de desenvolvimento
 
 Tem de ter os seguintes componentes instalados no seu ambiente de desenvolvimento:
 
@@ -45,7 +45,7 @@ Este exemplo requer Kafka no HDInsight 3.6. Para saber como criar um Kafka num c
 
 Utilize os seguintes passos para criar e implementar o projeto no seu Kafka num cluster do HDInsight.
 
-1. Transfira os exemplos de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Transfira os exemplos de [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
 2. Altere os diretórios para o `Streaming` diretório e, em seguida, utilize o seguinte comando para criar um pacote de jar:
 
@@ -114,14 +114,14 @@ Utilize os seguintes passos para criar e implementar o projeto no seu Kafka num 
 
     Este comando divide a apresentação SSH nas três secções:
 
-    * Secção esquerda executa um consumidor de consola, que lê mensagens do `wordcounts` tópico:`/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer`
+    * Secção esquerda executa um consumidor de consola, que lê mensagens do `wordcounts` tópico: `/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer`
 
         > [!NOTE]
         > O `--property` parâmetros dizer o consumidor da consola para a chave (word) juntamente com a contagem (valor) de impressão. Este parâmetro também configura o desserializador a utilizar ao ler estes valores do Kafka.
 
-    * A secção superior direita é executado a solução de fluxos de API:`java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS`
+    * A secção superior direita é executado a solução de fluxos de API: `java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS`
 
-    * A secção inferior direita é executado o produtor de consola e aguarda no introduzir mensagens a enviar para o `test` tópico:`/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test`
+    * A secção inferior direita é executado o produtor de consola e aguarda no introduzir mensagens a enviar para o `test` tópico: `/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test`
  
 6. Depois do `tmux` comando divide a apresentação, o cursor está na secção inferior direita. Inicie a introdução de frases. Após cada frase, o painel esquerdo é atualizado para apresentar uma contagem das palavras exclusivas. O resultado é semelhante ao seguinte texto:
    

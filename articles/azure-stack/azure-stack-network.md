@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 5ade2a09d0729f48c075a5bcaa20bee079ead47d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6438c353d84510ee918df120e6d54df0607c89d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede de pilha do Azure para o ajudar a decidir como pretende integrar melhor pilha do Azure no seu ambiente de rede existente. 
@@ -40,7 +40,7 @@ A tabela seguinte mostra as redes lógicas e os intervalos de sub-rede IPv4 asso
 
 | Rede lógica | Descrição | Tamanho | 
 | -------- | ------------- | ------------ | 
-| VIP público | Endereços IP públicos para um pequeno conjunto de serviços de pilha do Azure, com o resto utilizado pelas máquinas virtuais de inquilino. A infraestrutura de pilha do Azure utiliza 32 endereços desta rede. Se planeia utilizar o serviço de aplicações e os fornecedores de recursos do SQL Server, 7 mais endereços são utilizados. | / 26 (62 anfitriões) - /22 (1022 anfitriões)<br><br>Recomendado = /24 (254 anfitriões) | 
+| VIP público | Pilha do Azure utiliza um total de 32 endereços desta rede. Oito endereços IP públicos são utilizados para um pequeno conjunto de serviços de pilha do Azure e os restantes são utilizados por máquinas virtuais inquilinas. Se planeia utilizar o serviço de aplicações e os fornecedores de recursos do SQL Server, 7 mais endereços são utilizados. | / 26 (62 anfitriões) - /22 (1022 anfitriões)<br><br>Recomendado = /24 (254 anfitriões) | 
 | Infraestrutura de comutador | Endereços IP-to-Point para efeitos de encaminhamento, dedicados mudar interfaces de gestão e os endereços de loopback atribuídos ao comutador. | /26 | 
 | Infraestrutura | Utilizado para componentes internos de pilha do Azure para comunicar. | /24 |
 | Privado | Utilizado para a rede de armazenamento e VIPs privadas. | /24 | 
@@ -70,7 +70,7 @@ Isto/24 rede se encontra dedicado para componentes internos de pilha do Azure pa
 Isto/27 rede é o intervalo de pequeno da sub-rede de infraestrutura do Azure pilha mencionado anteriormente, não necessita de endereços IP públicos, mas requerem acesso à internet através de um NAT ou um Proxy transparente. Esta rede será atribuída para o sistema de consola de recuperação de emergência (ERCS), a VM ERCS requer acesso à internet durante o registo para o Azure e cópias de segurança da infraestrutura. A VM ERCS devem ser encaminhável para a sua rede de gestão para fins de resolução de problemas.
 
 ### <a name="public-vip-network"></a>Rede de VIP pública
-A rede de VIP público é atribuída ao controlador de rede na pilha do Azure. Não é uma rede lógica no comutador. O SLB utiliza o conjunto de endereços e atribui/32 redes para cargas de trabalho inquilinas. Na tabela de encaminhamento de comutador, estes IPs 32 estão anunciados como uma rota disponível através do BGP. Esta rede contém os endereços IP externo acessível ou públicos. A infraestrutura de pilha do Azure utiliza, pelo menos, 8 endereços desta rede VIP público enquanto o resto é utilizado pelas VMs inquilino. O tamanho da rede nesta sub-rede variam entre um mínimo de /26 (64 anfitriões) para um máximo de /22 (1022 anfitriões), recomendamos que planeie um /24 rede.
+A rede de VIP público é atribuída ao controlador de rede na pilha do Azure. Não é uma rede lógica no comutador. O SLB utiliza o conjunto de endereços e atribui/32 redes para cargas de trabalho inquilinas. Na tabela de encaminhamento de comutador, estes IPs 32 estão anunciados como uma rota disponível através do BGP. Esta rede contém os endereços IP externo acessível ou públicos. A infraestrutura de pilha do Azure utiliza 8 endereços desta rede VIP público enquanto o resto é utilizado pelas VMs inquilino. O tamanho da rede nesta sub-rede variam entre um mínimo de /26 (64 anfitriões) para um máximo de /22 (1022 anfitriões), recomendamos que planeie um /24 rede.
 
 ### <a name="switch-infrastructure-network"></a>Rede de infraestrutura do comutador
 Isto/26 rede é a sub-rede que contenha sub-redes/30 IP encaminhável-to-Point (anfitrião 2 IPs) e loopbacks que estão dedicados/32 sub-redes para a banda no comutador gestão e o ID de router BGP. Este intervalo de endereços IP tem de ser encaminhável externamente da solução pilha do Azure para o seu centro de dados, podem ser IPs privado ou público.

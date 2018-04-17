@@ -4,8 +4,7 @@ description: Saiba tudo sobre API do Azure Cosmos DB tabela, incluindo as datas 
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
-editor: cgronlun
+manager: kfile
 ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: mimig
-ms.openlocfilehash: 2afd7df65e7b223845752fc6bea5bc0ab4d3efd8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: rnagpal
+ms.openlocfilehash: 7e012e07b8f93554ea44404c611a7bc0eb64a0d0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Cosmos Azure API de .NET de tabela de base de dados: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -33,7 +32,7 @@ ms.lasthandoff: 03/28/2018
 |**Documentação da API**|[Documentação de referência da API de .NET](https://aka.ms/acdbtableapiref)|
 |**Início rápido**|[Azure Cosmos DB: Criar uma aplicação com o .NET e a tabela de API](create-table-dotnet.md)|
 |**Tutorial**|[Azure Cosmos DB: Desenvolver com a API de tabela no .NET](tutorial-develop-table-dotnet.md)|
-|**Arquitetura suportada atual**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
+|**Arquitetura suportada atual**|[O Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
 > Se tiver criado uma conta de API de Tabela durante a pré-visualização, crie uma [nova conta de API de Tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs de API de Tabela disponíveis geralmente.
@@ -53,7 +52,7 @@ ms.lasthandoff: 03/28/2018
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Versão de disponibilidade geral
 
-### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-preview
+### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-Preview
 * Versão de pré-visualização inicial
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
@@ -95,5 +94,5 @@ durante a tentativa de utilizar o pacote Microsoft.Azure.CosmosDB.Table NuGet, t
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre a API de tabela de base de dados do Azure Cosmos, consulte [introdução à API de tabela de base de dados do Azure Cosmos](table-introduction.md). 

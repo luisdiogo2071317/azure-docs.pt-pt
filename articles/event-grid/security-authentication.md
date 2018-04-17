@@ -1,5 +1,5 @@
 ---
-title: "Autenticação e segurança de grelha de eventos do Azure"
+title: Autenticação e segurança de grelha de eventos do Azure
 description: Descreve os conceitos e grelha de eventos do Azure.
 services: event-grid
 author: banisadr
@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f97de4e93c9330206ed22c071d8ade0821bf6691
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança de grelha de eventos e autenticação 
 
@@ -154,7 +154,7 @@ Grelha de eventos do Azure suporta as seguintes ações:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-As últimas três operações devolvem informações potencialmente secretas, que obtém filtradas normais operações de leitura. É recomendado para que possa restringir o acesso a estas operações. Funções personalizadas podem ser criadas utilizando [Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md), [Interface de linha de comandos do Azure (CLI)](../active-directory/role-based-access-control-manage-access-azure-cli.md)e o [REST API](../active-directory/role-based-access-control-manage-access-rest.md).
+As últimas três operações devolvem informações potencialmente secretas, que obtém filtradas normais operações de leitura. É recomendado para que possa restringir o acesso a estas operações. Funções personalizadas podem ser criadas utilizando [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Interface de linha de comandos do Azure (CLI)](../role-based-access-control/role-assignments-cli.md)e o [REST API](../role-based-access-control/role-assignments-rest.md).
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>Impor a função com base em verificação de acesso (RBAC)
 

@@ -1,8 +1,8 @@
 ---
-title: "Controlam o acesso, funções e recursos no Azure Application Insights | Microsoft Docs"
-description: "Os proprietários, contribuintes e leitores das informações da sua organização."
+title: Controlam o acesso, funções e recursos no Azure Application Insights | Microsoft Docs
+description: Os proprietários, contribuintes e leitores das informações da sua organização.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6e811c9b427469fa781cf1f5b7c7deff3a8e6eb3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bb6c33c083e1be690b70b63ca087c923d43f3ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controlo de acesso no Application Insights
-Pode controlar quem tem ler e atualizar o acesso aos seus dados no Azure [Application Insights][start], utilizando [controlo de acesso baseado em funções no Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+Pode controlar quem tem ler e atualizar o acesso aos seus dados no Azure [Application Insights][start], utilizando [controlo de acesso baseado em funções no Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Atribuir acesso para os utilizadores a **grupo de recursos ou subscrição** para que o recurso de aplicação pertence - não no recurso de si próprio. Atribuir o **contribuinte de componentes do Application Insights** função. Isto garante uniform controlo de acesso para testes web e alertas, juntamente com o seu recurso de aplicação. [Saiba mais](#access).
@@ -45,7 +45,7 @@ Primeiro, algumas definições:
 * [**Subscrição** ](https://portal.azure.com) - para utilizar o Application Insights ou outros recursos do Azure, pode iniciar sessão para uma subscrição do Azure. Cada grupo de recursos pertence a uma subscrição do Azure, onde escolher o seu pacote de preços e, se se tratar de uma subscrição de organização, escolha os membros e as respetivas permissões de acesso.
 * [**Conta Microsoft** ] [ account] -o nome de utilizador e palavra-passe que utiliza para iniciar sessão Microsoft Azure subscrições, XBox Live, Outlook.com e outros serviços Microsoft.
 
-## <a name="access"></a>Controlo de acesso no grupo de recursos
+## <a name="access"></a> Controlo de acesso no grupo de recursos
 É importante compreender que, para além do recurso que criou para a sua aplicação, também existem recursos ocultos separados para os alertas e testes web. Estão ligados ao mesmo [grupo de recursos](#resource-group) que a aplicação. Poderá também colocados outros serviços do Azure no mesmo, tais como Web sites ou de armazenamento.
 
 ![Recursos no Application Insights](./media/app-insights-resources-roles-access-control/00-resources.png)
@@ -91,7 +91,7 @@ Se o utilizador que pretende não se encontra no diretório, pode convidar qualq
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-* [Controlo de acesso no Azure baseado em funções](../active-directory/role-based-access-control-configure.md)
+* [Controlo de acesso no Azure baseado em funções](../role-based-access-control/role-assignments-portal.md)
 
 <!--Link references-->
 

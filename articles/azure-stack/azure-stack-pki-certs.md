@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestrutura de chaves públicas de pilha do Azure
 
@@ -67,13 +67,13 @@ Para a sua implementação, a [Região] [externalfqdn] valores tem de coincidir 
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
 | Portal público | portal.&lt;region>.&lt;fqdn> | Portais | &lt;region>.&lt;fqdn> |
 | Portal de administração | adminportal.&lt;region>.&lt;fqdn> | Portais | &lt;region>.&lt;fqdn> |
-| Público de Gestor de recursos do Azure | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| Administrador do Gestor de recursos do Azure | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
-| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Armazenamento de Tabelas | table.&lt;region>.&lt;fqdn> |
-| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Armazenamento de filas | queue.&lt;region>.&lt;fqdn> |
-| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Cofre de Chaves | vault.&lt;region>.&lt;fqdn> |
-| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) |  Keyvault interno |  adminvault.&lt;region>.&lt;fqdn> |
+| Público de Gestor de recursos do Azure | gestão. &lt;região >. &lt;fqdn > | Gestor de Recursos do Azure | &lt;region>.&lt;fqdn> |
+| Administrador do Gestor de recursos do Azure | adminmanagement. &lt;região >. &lt;fqdn > | Gestor de Recursos do Azure | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Armazenamento de Blobs | blob.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Armazenamento de Tabelas | tabela. &lt;região >. &lt;fqdn > |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Armazenamento de Filas | queue.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Key Vault | cofre. &lt;região >. &lt;fqdn > |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) |  Keyvault interno |  adminvault. &lt;região >. &lt;fqdn > |
 
 ### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Para o ambiente de pilha do Azure em versões de pré-1803
 
@@ -81,10 +81,10 @@ Para a sua implementação, a [Região] [externalfqdn] valores tem de coincidir 
 |-----|-----|-----|-----|
 |Portal público|portal.*&lt;region>.&lt;fqdn>*|Portais|*&lt;region>.&lt;fqdn>*|
 |Portal de administração|adminportal.*&lt;region>.&lt;fqdn>*|Portais|*&lt;region>.&lt;fqdn>*|
-|Público de Gestor de recursos do Azure|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|Administrador do Gestor de recursos do Azure|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
+|Público de Gestor de recursos do Azure|gestão.  *&lt;região >.&lt; FQDN >*|Gestor de Recursos do Azure|*&lt;region>.&lt;fqdn>*|
+|Administrador do Gestor de recursos do Azure|adminmanagement.*&lt;region>.&lt;fqdn>*|Gestor de Recursos do Azure|*&lt;region>.&lt;fqdn>*|
 |ACS<sup>1</sup>|Um certificado de caráter universal de várias subdomínio com nomes alternativos do requerente para:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Armazenamento|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL de caráter universal)|Cofre de Chaves|vault.*&lt;region>.&lt;fqdn>*|
+|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL de caráter universal)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
 |KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL de caráter universal)|Keyvault interno|adminvault.*&lt;region>.&lt;fqdn>*|
 |
 <sup>1</sup> certificados de ACS o requer três SANs de caráter universal num certificado único. Caráter universal vários SANs num único certificado poderá não ser suportado por todas as autoridades de certificação pública. 
@@ -120,7 +120,7 @@ A tabela seguinte descreve os pontos finais e certificados necessários para os 
 
 <sup>2</sup> A &#42;.appservice. *&lt;região >. &lt;fqdn >* certificado de caráter universal não pode ser utilizado em vez destas três certificados (api.appservice. *&lt;região >. &lt;fqdn >*, ftp.appservice. *&lt;região >. &lt;fqdn >*e sso.appservice. *&lt;região >. &lt;fqdn >*. Serviço de aplicações requer explicitamente a utilização de certificados separados para estes pontos finais. 
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Obter mais informações
 Saiba como [gerar os certificados PKI para a implementação da pilha de Azure](azure-stack-get-pki-certs.md). 
 
 ## <a name="next-steps"></a>Passos Seguintes

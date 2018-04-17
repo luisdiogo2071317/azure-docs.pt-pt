@@ -8,18 +8,18 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d4931c710bebc5e6c3ee23fb58e1432bb86da4a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Resultados de Runbook e mensagens na automatização do Azure
 A maioria dos runbooks de automatização do Azure têm algum tipo de resultado, como uma mensagem de erro para o utilizador ou um objeto complexo destinado a ser consumidos por outro fluxo de trabalho. O Windows PowerShell oferece [vários fluxos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para enviar o resultado de um script ou o fluxo de trabalho. A automatização do Azure funciona com cada um destes fluxos de forma diferente e devem seguir as melhores práticas utilizar cada quando estiver a criar um runbook.
 
 A tabela seguinte fornece uma breve descrição de cada um dos fluxos e do respetivo comportamento no portal do Azure, quando executar um runbook publicado e quando [testar um runbook](automation-testing-runbook.md). Existem mais detalhes sobre cada fluxo são fornecidos nas secções subsequentes.
 
-| Stream | Descrição | Publicado | Teste |
+| Stream | Descrição | Publicado | Testar |
 |:--- |:--- |:--- |:--- |
 | Saída |Objetos que se destinam a ser consumidos por outros runbooks. |Escrito no histórico da tarefa. |Apresentado no painel de resultados do teste. |
 | Aviso |Mensagem de aviso para o utilizador. |Escrito no histórico da tarefa. |Apresentado no painel de resultados do teste. |
@@ -33,29 +33,32 @@ O fluxo de saída destina-se a saída de objetos criados por um script ou um flu
 
 Pode escrever dados para o fluxo de saída através de [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) ou ao colocar o objeto na sua própria linha no runbook.
 
-    #The following lines both write an object to the output stream.
-    Write-Output –InputObject $object
-    $object
+```PowerShell
+#The following lines both write an object to the output stream.
+Write-Output –InputObject $object
+$object
+```
 
 ### <a name="output-from-a-function"></a>Saída de uma função
 Quando escrever o fluxo de saída numa função que está incluída no runbook, o resultado é passado para o runbook. Se o runbook atribuir essa saída a uma variável, em seguida, não será escrita no fluxo de saída. Escrever em quaisquer outros fluxos a partir de dentro da função escreve no fluxo correspondente para o runbook.
 
 Considere o runbook de exemplo seguinte:
 
-    Workflow Test-Runbook
-    {
-        Write-Verbose "Verbose outside of function" -Verbose
-        Write-Output "Output outside of function"
-        $functionOutput = Test-Function
-        $functionOutput
+```PowerShell
+Workflow Test-Runbook
+{
+  Write-Verbose "Verbose outside of function" -Verbose
+  Write-Output "Output outside of function"
+  $functionOutput = Test-Function
+  $functionOutput
 
-    Function Test-Function
-     {
-        Write-Verbose "Verbose inside of function" -Verbose
-        Write-Output "Output inside of function"
-      }
-    }
-
+  Function Test-Function
+  {
+    Write-Verbose "Verbose inside of function" -Verbose
+    Write-Output "Output inside of function"
+  }
+}
+```
 
 O fluxo de saída da tarefa de runbook seria:
 
@@ -81,13 +84,15 @@ Eis uma lista de exemplo os tipos de saída:
 
 O runbook de exemplo seguintes produz um objeto de cadeia e inclui uma declaração do respetivo tipo de saída. Se o runbook devolve uma matriz de um determinado tipo, em seguida, deve ainda especificar o tipo, por oposição a uma matriz do tipo.
 
-    Workflow Test-Runbook
-    {
-       [OutputType([string])]
+```PowerShell
+Workflow Test-Runbook
+{
+  [OutputType([string])]
 
-       $output = "This is some string output."
-       Write-Output $output
-    }
+  $output = "This is some string output."
+  Write-Output $output
+}
+ ```
 
 Para declarar um tipo de saída em runbooks gráfico ou gráfico fluxo de trabalho do PowerShell, pode selecionar o **entrada e saída** opção de menu e escreva o nome do tipo de saída. É recomendado que utilizar o nome de classe de .NET completo para torná-lo facilmente identificável ao referenciá-lo a partir de um runbook principal. Isto apresenta todas as propriedades dessa classe para o barramento de dados no runbook e fornece muito flexibilidade quando utilizá-los como lógica condicional, registo e de referência como valores para outras atividades no runbook.<br> ![Opção de entrada do Runbook e de saída](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
@@ -115,11 +120,13 @@ Os fluxos de avisos e erros destinam-se a registar problemas que ocorrem num run
 
 Criar um aviso ou erro mensagem através de [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](http://technet.microsoft.com/library/hh849962.aspx) cmdlet. As atividades também podem escrever nestes fluxos.
 
-    #The following lines create a warning message and then an error message that will suspend the runbook.
+```PowerShell
+#The following lines create a warning message and then an error message that will suspend the runbook.
 
-    $ErrorActionPreference = "Stop"
-    Write-Warning –Message "This is a warning message."
-    Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+$ErrorActionPreference = "Stop"
+Write-Warning –Message "This is a warning message."
+Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+```
 
 ### <a name="verbose-stream"></a>Fluxo verboso
 O fluxo de mensagens verbosas destina-se a informações gerais sobre o funcionamento do runbook. Uma vez que o [fluxo de depuração](#Debug) não está disponível num runbook, as mensagens verbosas devem ser utilizadas para informações de depuração. Por predefinição, as mensagens verbosas de runbooks publicados não são armazenadas no histórico da tarefa. Para armazenar as mensagens verbosas, configure os runbooks publicados para criar registos verbosos no separador Configurar do runbook no portal do Azure. Na maioria dos casos, deve manter a predefinição de não criar registos verbosos para um runbook por motivos de desempenho. Ative esta opção apenas para resolver problemas ou depurar um runbook.
@@ -128,9 +135,11 @@ Quando [testar um runbook](automation-testing-runbook.md), as mensagens verbosas
 
 Criar um através de mensagens verbosas de [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) cmdlet.
 
-    #The following line creates a verbose message.
+```PowerShell
+#The following line creates a verbose message.
 
-    Write-Verbose –Message "This is a verbose message."
+Write-Verbose –Message "This is a verbose message."
+```
 
 ### <a name="debug-stream"></a>Fluxo de depuração
 O fluxo de depuração destina-se com um utilizador interativo e não deve ser utilizado em runbooks.
@@ -168,24 +177,25 @@ No Windows PowerShell, pode obter resultados e mensagens de um runbook com o [Ge
 
 O exemplo seguinte inicia um runbook de exemplo e, em seguida, aguarda pela respetiva conclusão. Depois de concluído, o fluxo de saída é recolhido da tarefa.
 
-    $job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+```PowerShell
+$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
-    $doLoop = $true
-    While ($doLoop) {
-       $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
-       –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
-       $status = $job.Status
-       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
-    }
+$doLoop = $true
+While ($doLoop) {
+  $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
+  $status = $job.Status
+  $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
+}
 
-    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
-    
-    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
-    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
-    
+Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+
+# For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+``` 
 
 ### <a name="graphical-authoring"></a>Criação de gráficos
 Para runbooks gráficos, está disponível no formato de rastreio de nível de atividade registo extra. Existem dois níveis de rastreio: básico e detalhados. O rastreio básico, pode ver o início e hora de fim de cada atividade no runbook e informações relacionadas com a quaisquer tentativas de atividade, por exemplo, o número de tentativas e a hora de início da atividade. Rastreio de detalhado, receberá básico rastreio adição de entrada e saída para cada atividade. Atualmente os registos de rastreio são escritos utilizando o fluxo verboso, pelo que tem de ativar o registo verboso quando ativar o rastreio. Para obter runbooks gráficos com rastreio ativado, não é necessário para criar registos de progresso, porque o rastreio básico funciona a mesma finalidade e é mais informativo.

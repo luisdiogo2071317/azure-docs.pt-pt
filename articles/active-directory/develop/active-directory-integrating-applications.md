@@ -1,8 +1,8 @@
 ---
-title: "Integrar aplicações com o Azure Active Directory"
-description: "Como adicionar, atualizar ou remover uma aplicação no Azure Active Directory (Azure AD)."
+title: Integrar aplicações com o Azure Active Directory
+description: Como adicionar, atualizar ou remover uma aplicação no Azure Active Directory (Azure AD).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: PatAltimore
 manager: mtillman
 editor: mbaldwin
@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrar aplicações com o Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -47,7 +47,7 @@ Qualquer aplicação que pretende utilizar as capacidades do Azure AD primeiro t
     - Selecione "Nativo" para [aplicações cliente](active-directory-dev-glossary.md#client-application) que são instaladas localmente num dispositivo. Esta definição é utilizada para público OAuth [clientes nativos](active-directory-dev-glossary.md#native-client).
     - Selecione "aplicação Web / API" para [aplicações cliente](active-directory-dev-glossary.md#client-application) e [aplicações de recursos/API](active-directory-dev-glossary.md#resource-server) que são instaladas num servidor seguro. Esta definição é utilizada para OAuth confidencial [web clientes](active-directory-dev-glossary.md#web-client) públicas e [utilizador agente-os clientes baseados em](active-directory-dev-glossary.md#user-agent-based-client). A mesma aplicação também pode expor um cliente e de recursos/API.
   - **URL de início de sessão:** para "aplicação Web / API" aplicações, forneça o URL de base da sua aplicação. Por exemplo, `http://localhost:31544` poderá ser o URL de uma aplicação web em execução no seu computador local. Os utilizadores seriam utilizar este URL para iniciar sessão a uma aplicação de cliente web. 
-  - **URI de redirecionamento:** para aplicações "Nativas", forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico da aplicação, por exemplo`http://MyFirstAADApp`
+  - **URI de redirecionamento:** para aplicações "Nativas", forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico da aplicação, por exemplo `http://MyFirstAADApp`
 
    ![Registar uma nova aplicação – criar](./media/active-directory-integrating-applications/add-app-registration-create.png)
 
@@ -101,7 +101,7 @@ Os passos seguintes mostram como o consentimento experiência funciona para o pr
   > Conceder explícita consentimento utilizando o **conceder permissões** botão é atualmente necessário para aplicações de página única (SPA) que utilizam ADAL.js. Caso contrário, a aplicação falha quando o token de acesso é solicitado.   
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configurar uma aplicação de cliente para aceder a APIs web
-Por ordem para uma aplicação de cliente web confidencial conseguir a participar num fluxo de concessão de autorização que necessita de autenticação (e obter um token de acesso), tem de estabelecer credenciais seguras. O método de autenticação predefinido suportado pelo portal do Azure é o ID de cliente + chave secreta. Esta secção aborda os passos de configuração necessários para fornecer a chave secreta credenciais do seu cliente.
+Por ordem para uma aplicação de cliente web confidencial conseguir a participar num fluxo de concessão de autorização que necessita de autenticação (e obter um token de acesso), tem de estabelecer credenciais seguras. O método de autenticação predefinido suportado pelo portal do Azure é o ID de cliente + chave secreta. Esta secção aborda os passos de configuração necessários para fornecer a chave secreta com credenciais do cliente.
 
 Além disso, antes de um cliente pode aceder a uma API web do expostas por uma aplicação de recursos (por exemplo, o Microsoft Graph API), a arquitetura de consentimento garante o cliente obtém a concessão de permissão necessária, com base nas permissões pedidas. Por predefinição, todas as aplicações podem escolher permissões "Windows Azure Active Directory" (Graph API) e "Windows API de gestão de serviços do Azure." O [permissão de "início de sessão e perfil de utilizador de leitura" Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) também está selecionada por predefinição. Se o cliente está a ser registado num inquilino com contas de subscrever o Office 365, APIs da Web e permissões para o Exchange Online e SharePoint estão disponíveis para seleção. Pode selecionar [dois tipos de permissões](active-directory-dev-glossary.md#permissions) para cada pretendido web API:
 
@@ -129,7 +129,7 @@ Além disso, antes de um cliente pode aceder a uma API web do expostas por uma a
 
 5. Para adicionar permissões para aceder a recursos APIs a partir do seu cliente
   - Clique em de **permissões obrigatórias** secção no **definições** página. 
-  - Clique em de **adicionar** botão.
+  - Clique no botão **Adicionar**.
   - Clique em **selecionar um API** para selecionar o tipo de recursos que pretende que escolha.
   - Procure a lista das APIs disponíveis ou utilize a caixa de pesquisa para selecionar de entre as aplicações de recursos disponíveis no seu diretório que expõem uma API web. Clique no recurso que está interessado, em seguida, clique em **selecione**.
   - Está a ser direcionado para o **ativar o acesso ao** página. Selecione as permissões de aplicação e/ou necessita de permissões delegadas a aplicação quando aceder à API.
@@ -162,7 +162,7 @@ A secção seguinte mostra como para expor os âmbitos de acesso, modificando o 
 
 4. É direcionado para a página de registo principal da aplicação, o qual abre o **definições** página para a aplicação. Mudar para o **editar manifesto** página, ao clicar em **manifesto** da página de registo da aplicação. Abre o editor de manifesto baseada na web, permitindo-lhe **editar** o manifesto no portal. Opcionalmente, pode clicar em **transferir** e editar localmente, em seguida, utilizar **carregar** para voltar a aplicar à sua aplicação.
 
-5. Neste exemplo, expomos um novo âmbito chamado `Employees.Read.All` na nossa recurso/API, adicionando o seguinte elemento JSON para o `oauth2Permissions` coleção. Existente `user_impersonation` âmbito é fornecido por predefinição durante o registo. `user_impersonation`permite que uma aplicação de cliente pedir permissão para aceder ao recurso, com a identidade do utilizador com sessão iniciada. Certifique-se de adicionar a vírgula após existente `user_impersonation` analisar o elemento e alterar os valores de propriedade de acordo com as necessidades do seu recurso. 
+5. Neste exemplo, expomos um novo âmbito chamado `Employees.Read.All` na nossa recurso/API, adicionando o seguinte elemento JSON para o `oauth2Permissions` coleção. Existente `user_impersonation` âmbito é fornecido por predefinição durante o registo. `user_impersonation` permite que uma aplicação de cliente pedir permissão para aceder ao recurso, com a identidade do utilizador com sessão iniciada. Certifique-se de adicionar a vírgula após existente `user_impersonation` analisar o elemento e alterar os valores de propriedade de acordo com as necessidades do seu recurso. 
 
   ```json
   {
@@ -233,7 +233,7 @@ Efetuar um multi-inquilino de aplicação requer ambas as alterações de regist
 Se estiver a escrever uma aplicação que pretende disponibilizar aos seus clientes ou parceiros fora da sua organização, terá de atualizar a definição de aplicação no portal do Azure.
 
 > [!IMPORTANT]
-> O Azure AD requer o URI de ID de aplicação de aplicações de multi-inquilinos para ser globalmente exclusivo. O URI de ID de aplicação é uma das formas que uma aplicação for identificada nas mensagens de protocolo. Para uma aplicação de inquilino único, é suficiente para o URI de ID de aplicação a ser exclusivos dentro desse inquilino. Para uma aplicação multi-inquilino, tem de ser globalmente exclusivo para que o Azure AD pode encontrar a aplicação em todos os inquilinos. Exclusividade global é imposta, exigindo que o URI de ID de aplicação ter um nome de anfitrião que corresponde a um domínio verificado do inquilino do Azure AD. Por exemplo, se o nome do seu inquilino for contoso.onmicrosoft.com um URI de ID de aplicação válido seria https://contoso.onmicrosoft.com/myapp. Se o seu inquilino tem um domínio verificado do contoso.com, em seguida, um URI de ID de aplicação válido seria também https://contoso.com/myapp. Se o URI de ID de aplicação não seguir este padrão, a definição de uma aplicação como falha de multi-inquilino.
+> O Azure AD requer o URI de ID de aplicação de aplicações de multi-inquilinos para ser globalmente exclusivo. O URI de ID de aplicação é uma das formas que uma aplicação for identificada nas mensagens de protocolo. Para uma aplicação de inquilino único, é suficiente para o URI de ID de aplicação a ser exclusivos dentro desse inquilino. Para uma aplicação multi-inquilino, tem de ser globalmente exclusivo para que o Azure AD pode encontrar a aplicação em todos os inquilinos. Exclusividade global é imposta, exigindo que o URI de ID de aplicação ter um nome de anfitrião que corresponde a um domínio verificado do inquilino do Azure AD. Por exemplo, se o nome do seu inquilino está contoso.onmicrosoft.com, em seguida, um URI de ID de aplicação será https://contoso.onmicrosoft.com/myapp. Se o seu inquilino tem um domínio verificado do contoso.com, então também deverá ser um URI de ID de aplicação válido https://contoso.com/myapp. Se o URI de ID de aplicação não seguir este padrão, a definição de uma aplicação como falha de multi-inquilino.
 > 
 
 Para conceder a utilizadores externos a capacidade de aceder à aplicação: 

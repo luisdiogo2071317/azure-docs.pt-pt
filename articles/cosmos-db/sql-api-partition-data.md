@@ -3,7 +3,7 @@ title: Criação de partições e dimensionamento do BD Azure Cosmos | Microsoft
 description: Saiba mais sobre funciona como criação de partições de BD do Cosmos do Azure, como configurar a criação de partições e chaves de partição e como escolher a chave de partição adequado para a sua aplicação.
 services: cosmos-db
 author: rafats
-manager: jhubbard
+manager: kfile
 documentationcenter: ''
 ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
 ms.service: cosmos-db
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe78289938e752731ff2e830fb62ad210e12111e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 50be809df0938272a3e1d710b879ca3dd5de9428
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>A criação de partições na base de dados do Cosmos do Azure utilizando a API do SQL Server
 
@@ -60,7 +60,7 @@ Na API do SQL Server, especifique a definição de chave de partição sob a for
             <td valign="top"><p>Corresponde ao valor de doc.properties.name onde o documento é o item (propriedade aninhada).</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>/id</p></td>
+            <td valign="top"><p>formado</p></td>
             <td valign="top"><p>Corresponde ao valor de doc.id (chave de partição e id são a mesma propriedade).</p></td>
         </tr>
         <tr>
@@ -144,7 +144,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-Vamos o item pela sua chave de partição e o id de leitura, atualizá-lo e como passo final, elimine-o através da chave de partição e o id. Tenha em atenção que as leituras incluem um valor de PartitionKey (correspondente para o `x-ms-documentdb-partitionkey` cabeçalho do pedido na REST API).
+Vamos o item pela sua chave de partição e o id de leitura, atualizá-lo e como passo final, elimine-o através da chave de partição e o id. Tenha em atenção que as leituras incluem um valor de PartitionKey (correspondente ao cabeçalho do pedido `x-ms-documentdb-partitionkey` na API REST).
 
 ```csharp
 // Read document. Needs the partition key and the ID to be specified
@@ -169,7 +169,7 @@ await client.DeleteDocumentAsync(
 ```
 
 ### <a name="querying-partitioned-containers"></a>Consultar particionadas contentores
-Quando consulta os dados nos contentores particionadas, base de dados do Cosmos encaminha automaticamente a consulta para as partições correspondente para os valores de chave de partição especificados no filtro (se existir alguma). Por exemplo, esta consulta é encaminhada para a partição que contém a chave de partição "XMS-0001 e".
+Quando consulta os dados nos contentores particionadas, base de dados do Cosmos encaminha automaticamente a consulta para as partições correspondente para os valores de chave de partição especificados no filtro (se existir alguma). Por exemplo, esta consulta é encaminhada para a partição que contém a chave de partição "XMS-0001".
 
 ```csharp
 // Query using partition key
@@ -178,7 +178,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
     
-A seguinte consulta não tem um filtro a chave de partição (DeviceId) e fanned para todas as partições onde é executada relativamente o índice a particionar. Tenha em atenção que tem de especificar o EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` na REST API) com o SDK para executar uma consulta em partições.
+A seguinte consulta não tem um filtro para a chave de partição (DeviceId) e é distribuída para todas as partições onde é executada no índice da partição. Tenha em atenção que tem de especificar EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` na API REST) para que o SDK execute uma consulta nas várias partições.
 
 ```csharp
 // Query across partition keys
@@ -190,8 +190,8 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 Suporte cosmos DB [as funções de agregação](sql-api-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` e `AVG` over particionada contentores com o SQL a partir de com SDKs 1.12.0 e acima. As consultas têm de incluir um operador de agregação único e tem de incluir um valor único na projeção.
 
-### <a name="parallel-query-execution"></a>Execução paralela da consulta
-Os SDKs de BD do Cosmos 1.9.0 e acima opções de execução paralela da consulta de suporte, que permitem-lhe executar consultas de latência baixa contra coleções particionadas, mesmo quando precisar de touch um grande número de partições. Por exemplo, a seguinte consulta está configurada para ser executado em paralelo em partições.
+### <a name="parallel-query-execution"></a>Execução paralela de consultas
+Os SDKs de BD do Cosmos 1.9.0 e acima opções de execução paralela da consulta de suporte, que permitem-lhe executar consultas de latência baixa contra coleções particionadas, mesmo quando precisar de touch um grande número de partições. Por exemplo, a seguinte consulta está configurada para ser executada em paralelo em várias partições.
 
 ```csharp
 // Cross-partition Order By Queries
@@ -202,12 +202,12 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .OrderBy(m => m.MetricValue);
 ```
     
-Pode gerir a execução paralela da consulta por otimização os seguintes parâmetros:
+Pode gerir a execução paralela da consulta ao otimizar os parâmetros abaixo:
 
-* Por definição `MaxDegreeOfParallelism`, pode controlar o grau de paralelismo ou seja, o número máximo de ligações de rede em simultâneo para partições do contentor. Se definir esta opção como -1, o grau de paralelismo é gerido pelo SDK. Se o `MaxDegreeOfParallelism` não está especificado ou foi definido para 0, o qual é o valor predefinido, existirá uma ligação de rede único para partições do contentor.
-* Por definição `MaxBufferedItemCount`, pode comprometido a utilização de memória de latência e do lado do cliente de consulta. Se omitir este parâmetro ou defina esta opção como -1, o número de itens em memória intermédia durante a execução paralela da consulta é gerido pelo SDK.
+* Por definição `MaxDegreeOfParallelism`, pode controlar o grau de paralelismo ou seja, o número máximo de ligações de rede em simultâneo para partições do contentor. Se definir esta opção como -1, o nível de paralelismo é gerido pelo SDK. Se o `MaxDegreeOfParallelism` não está especificado ou foi definido para 0, o qual é o valor predefinido, existirá uma ligação de rede único para partições do contentor.
+* Ao definir `MaxBufferedItemCount`, pode compensar a latência da consulta e a utilização da memória do lado do cliente. Se omitir este parâmetro ou o definir como -1, o número de itens colocados em memória intermédia durante a execução paralela da consulta é gerido pelo SDK.
 
-Tendo em conta o mesmo Estado da coleção, uma consulta paralela irá devolver resultados pela mesma ordem como em execução série. Quando executar uma consulta de partição cruzada que inclui a ordenação (ORDER BY e/ou superior), o SDK de BD do Cosmos Azure emite a consulta em paralelo em partições e intercala parcialmente ordenados resultados no lado do cliente para produzir resultados globalmente ordenados.
+Tendo em conta o mesmo estado da coleção, uma consulta paralela devolverá resultados pela mesma ordem do que numa execução em série. Quando executar uma consulta de partição cruzada que inclui a ordenação (ORDER BY e/ou superior), o SDK de BD do Cosmos Azure emite a consulta em paralelo em partições e intercala parcialmente ordenados resultados no lado do cliente para produzir resultados globalmente ordenados.
 
 ### <a name="executing-stored-procedures"></a>Ao executar procedimentos armazenados
 Também pode executar transações atómicas contra documentos com o mesmo ID de dispositivo, por exemplo, se estiver a manter o estado mais recente de um dispositivo de um único item ou agregados. 
@@ -221,7 +221,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
    
 Na secção seguinte, vamos ver como pode mover a contentores particionadas de contentores de partição única.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, fornecemos-lhe uma descrição geral de como trabalhar com a criação de partições de contentores de BD do Cosmos do Azure com a API do SQL Server. Consulte também [criação de partições e dimensionamento horizontal](../cosmos-db/partition-data.md) para uma descrição geral dos conceitos e procedimentos recomendados para a criação de partições com qualquer API de BD do Cosmos do Azure. 
 
 * Efetue o dimensionamento e desempenho de teste com base de dados do Azure Cosmos. Consulte [desempenho e dimensionamento de teste com base de dados do Azure Cosmos](performance-testing.md) para um exemplo.

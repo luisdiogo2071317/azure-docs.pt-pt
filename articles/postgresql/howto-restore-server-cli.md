@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 8ca129640db862f6031325279cc98c1e08dcef59
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL utilizando a CLI do Azure
 
@@ -52,7 +52,7 @@ O JSON de retorno deve incluir o seguinte:
 }
 ```
 
-Se não for devolvido versão 0.0.5, execute o seguinte ao atualizar a extensão: 
+Se não for devolvida a versão 0.0.5, execute o seguinte para atualizar a extensão: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -114,6 +114,10 @@ Se tiver configurado o servidor para cópias de segurança georredundante, um no
 
 Para criar um servidor utilizando uma cópia de segurança redundante georreplicação, utilizar a CLI do Azure `az postgres server georestore` comando.
 
+> [!NOTE]
+> Quando um servidor é criado pela primeira vez pode não ser imediatamente disponível para o restauro de georreplicação. Poderá demorar algumas horas para os metadados necessários ser preenchido.
+>
+
 A georreplicação restaurar o servidor, na linha de comandos da CLI do Azure, introduza o seguinte comando:
 
 ```azurecli-interactive
@@ -135,7 +139,7 @@ O `az postgres server georestore` requies os seguintes parâmetros de comando:
 |nome | mydemoserver-georestored | O nome do novo servidor. |
 |source-server | mydemoserver | O nome do servidor existente cujas cópias de segurança redundante georreplicação são utilizadas. |
 |localização | eualeste | A localização do novo servidor. |
-|sku-name| GP_Gen4_8 | Este parâmetro define o escalão de preço, a geração de computação e o número de vCores do novo servidor. GP_Gen4_8 mapeia para um objetivo geral, o servidor Gen 4 com 8 vCores.|
+|nome do SKU| GP_Gen4_8 | Este parâmetro define o escalão de preço, a geração de computação e o número de vCores do novo servidor. GP_Gen4_8 mapeia para um objetivo geral, o servidor Gen 4 com 8 vCores.|
 
 
 >[!Important]
@@ -143,6 +147,6 @@ O `az postgres server georestore` requies os seguintes parâmetros de comando:
 
 Depois de concluir o processo de restauro, localize o novo servidor e certifique-se de que a serem restaurados conforme esperado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre o serviço [cópias de segurança](concepts-backup.md).
 - Saiba mais sobre [continuidade do negócio](concepts-business-continuity.md) opções.
