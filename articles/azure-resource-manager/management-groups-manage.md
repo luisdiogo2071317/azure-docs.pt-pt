@@ -1,10 +1,10 @@
 ---
-title: "Como alterar, eliminar ou gerir os grupos de gestão - Azure | Microsoft Docs"
-description: "Saiba como manter e atualizar a hierarquia de grupo de gestão."
+title: Como alterar, eliminar ou gerir os grupos de gestão - Azure | Microsoft Docs
+description: Saiba como manter e atualizar a hierarquia de grupo de gestão.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 33797ddcd2a6ff083c5fb4b2fa7ddb8f9d6bd76c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cba3f9290aff1808133b9d7780e4169fa25a10b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão 
-Grupos de gestão são contentores que ajudam a gerir o acesso, políticas e conformidade entre várias subscrições. Pode alterar, eliminar e gerir estes contentores ter hierarquias que podem ser utilizadas com [política Azure](../azure-policy/azure-policy-introduction.md) e [controlos de acesso com base do Azure funções (RBAC)](../active-directory/role-based-access-control-what-is.md). Para obter mais informações sobre grupos de gestão, consulte o artigo [organizar os recursos com grupos de gestão do Azure ](management-groups-overview.md).
+Grupos de gestão são contentores que ajudam a gerir o acesso, políticas e conformidade entre várias subscrições. Pode alterar, eliminar e gerir estes contentores ter hierarquias que podem ser utilizadas com [política Azure](../azure-policy/azure-policy-introduction.md) e [controlos de acesso com base do Azure funções (RBAC)](../role-based-access-control/overview.md). Para obter mais informações sobre grupos de gestão, consulte o artigo [organizar os recursos com grupos de gestão do Azure ](management-groups-overview.md).
 
 A funcionalidade de grupo de gestão está disponível uma versão de pré-visualização pública. Para começar a utilizar a gestão de grupos, início de sessão para o [portal do Azure](https://portal.azure.com) ou pode utilizar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), ou o [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para gerir os grupos de gestão.
 
-Para efetuar alterações a um grupo de gestão, tem de ter uma função de proprietário ou contribuinte no grupo de gestão. Para ver as permissões têm, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre as funções do RBAC, veja [gerir o acesso e permissões com RBAC](../active-directory/role-based-access-control-what-is.md).
+Para efetuar alterações a um grupo de gestão, tem de ter uma função de proprietário ou contribuinte no grupo de gestão. Para ver as permissões têm, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre as funções do RBAC, veja [gerir o acesso e permissões com RBAC](../role-based-access-control/overview.md).
 
 ## <a name="change-the-name-of-a-management-group"></a>Alterar o nome de um grupo de gestão 
 Pode alterar o nome do grupo de gestão utilizando o portal, o PowerShell ou a CLI do Azure.
@@ -64,7 +64,7 @@ Para eliminar um grupo de gestão, devem ser cumpridos os seguintes requisitos:
 1. Não são grupos de gestão do elemento subordinado ou subscrições sob o grupo de gestão. 
     - Para mover uma subscrição fora de um grupo de gestão, consulte [mover subscrição para outro grupo de managemnt](#Move-subscriptions-in-the-hierarchy). 
     - Para mover um grupo de gestão para outro grupo de gestão, consulte [mover grupos de gestão na hierarquia](#Move-management-groups-in-the-hierarchy). 
-2. Tem permissões de escrita a função de proprietário ou contribuinte grupo de gestão no grupo de gestão. Para ver as permissões têm, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, veja [gerir o acesso e permissões com RBAC](../active-directory/role-based-access-control-what-is.md).  
+2. Tem permissões de escrita a função de proprietário ou contribuinte grupo de gestão no grupo de gestão. Para ver as permissões têm, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, veja [gerir o acesso e permissões com RBAC](../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Eliminar no portal
 
@@ -139,7 +139,7 @@ Para mover a subscrição, existem alguns permissões que tem de ter:
 - Função de "Proprietário" na subscrição subordinado.
 - Função de "Proprietário" ou "Contribuinte" no novo grupo de gestão principal. 
 - Função de "Proprietário" ou "Contribuinte" no grupo de gestão antigo do principal.
-Para ver as permissões têm, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, veja [gerir o acesso e permissões com RBAC](../active-directory/role-based-access-control-what-is.md). 
+Para ver as permissões têm, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, veja [gerir o acesso e permissões com RBAC](../role-based-access-control/overview.md). 
 
 ### <a name="move-subscriptions-in-the-portal"></a>Mover subscrições no portal
 

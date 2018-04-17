@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 990c3ed8c6fd79430b27c7c96673f7845e54b26f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bd11ec7c8a32792853e60b4bb14d4ed52f53f4a3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Ver registos de atividade para auditar as ações em recursos
 
@@ -30,7 +30,7 @@ Através de registos de atividade, poderá determinar:
 * o estado da operação
 * os valores de outras propriedades que possam ajudá-lo pesquisar a operação
 
-O registo de atividade contém todas as operações de escrita (PUT, POST, DELETE) efetuadas nos seus recursos. Não inclui as operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [operações de fornecedor de recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md). Pode utilizar os registos de auditoria para encontrar um erro quando a resolução de problemas ou para monitorizar a forma como um utilizador na sua organização modificou um recurso.
+O registo de atividade contém todas as operações de escrita (PUT, POST, DELETE) efetuadas nos seus recursos. Não inclui as operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [operações de fornecedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Pode utilizar os registos de auditoria para encontrar um erro quando a resolução de problemas ou para monitorizar a forma como um utilizador na sua organização modificou um recurso.
 
 Registos de atividade são mantidos durante 90 dias. Pode consultar qualquer intervalo de datas, desde que a data de início não é mais de 90 dias no passado.
 
@@ -154,8 +154,8 @@ As operações REST para trabalhar com o registo de atividade são parte a [Insi
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Os registos de atividade do Azure podem ser utilizados com o Power BI para obter mais informações sobre as ações na sua subscrição. Consulte [ver e analisar registos de atividade do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
-* Para saber mais sobre a definição de políticas de segurança, consulte [controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md).
+* Para saber mais sobre a definição de políticas de segurança, consulte [controlo de acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md).
 * Para saber mais sobre os comandos para ver as operações de implementação, consulte [ver as operações de implementação](resource-manager-deployment-operations.md).
 * Para saber como impedir eliminações num recurso para todos os utilizadores, consulte [bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
-* Para ver a lista de operações disponíveis para cada fornecedor do Microsoft Azure Resource Manager, consulte [operações de fornecedor de recursos do Azure Resource Manager](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
+* Para ver a lista de operações disponíveis para cada fornecedor do Microsoft Azure Resource Manager, consulte [operações de fornecedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md)
 

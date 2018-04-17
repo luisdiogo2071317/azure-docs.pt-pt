@@ -1,26 +1,24 @@
 ---
-title: "Extrair, transformação e carregamento (ETL) à escala - Azure HDInsight | Microsoft Docs"
-description: "Saiba como ETL é utilizado no HDInsight com o Hadoop."
+title: Extrair, transformação e carregamento (ETL) à escala - Azure HDInsight | Microsoft Docs
+description: Saiba como ETL é utilizado no HDInsight com o Hadoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 8b55bafee83dd43d535f9ebb0488134b5c7b3446
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2f34233a68bec506d9f69426d779aee8e493d759
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extração, transformação e carregamento (ETL) à escala
 
@@ -60,7 +58,7 @@ Para obter mais informações sobre o Azure Data Factory, consulte o [documenta�
 
 Ficheiros de origem de dados, normalmente, são carregados para uma localização de armazenamento do Azure ou do Azure Data Lake Store. Os ficheiros podem estar em qualquer formato, mas normalmente são ficheiros simples, como CSVs. 
 
-### <a name="azure-storage"></a>Storage do Azure 
+### <a name="azure-storage"></a>Armazenamento do Azure 
 
 [Armazenamento do Azure](https://azure.microsoft.com/services/storage/blobs/) tem [metas de escalabilidade específico](../../storage/common/storage-scalability-targets.md).  Nós mais análise, de armazenamento do Azure dimensiona melhor ao lidar com vários ficheiros mais pequenos.  Armazenamento do Azure garante que o mesmo desempenho, independentemente do quantos ficheiros ou a forma como os ficheiros grandes (desde que respeitam os limites).  Isto significa que pode armazenar terabytes de dados e ainda obter um desempenho consistente, se estiver a utilizar um subconjunto de dados de ou para todos os dados.
 
@@ -72,7 +70,7 @@ Armazenamento do Azure tem também uma camada de API de WebHDFS para o armazenam
 
 Dados é normalmente ingeridos no armazenamento do Azure com o PowerShell, o SDK de armazenamento do Azure ou AZCopy.
 
-### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+### <a name="azure-data-lake-store"></a>Arquivo do Azure Data Lake
 
 O Azure Data Lake Store (ADLS) é um repositório de hiperescala geridos, para dados de análise que são compatíveis com HDFS.  ADLS utiliza uma paradigma de conceção que é semelhante ao HDFS e oferece ilimitada escalabilidade em termos de capacidade total e o tamanho dos ficheiros individuais. ADLS é muito bom ao trabalhar com ficheiros grandes, uma vez que um ficheiro grande pode ser armazenado em vários nós.  A criação de partições de dados no ADLS procedimento é efetuada em segundo plano.  Desta forma, fornece um débito maciço para executar tarefas de análise com milhares de executores simultâneos que leem e escrevem centenas de terabytes de dados de forma eficaz.
 
@@ -88,7 +86,7 @@ Para carregar conjuntos de dados no intervalo com vários terabytes, latência d
 
 * Carregar "Offline" de dados. Pode utilizar [serviço importar/exportar do Azure](../../storage/common/storage-import-export-service.md) para enviar unidades de disco rígido com os seus dados para um centro de dados do Azure. Os dados pela primeira vez são carregados para o Blobs Storage do Azure. Em seguida, pode utilizar [do Azure Data Factory](../../data-factory/v1/data-factory-azure-datalake-connector.md) ou [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) ferramenta para copiar dados de blobs de armazenamento do Azure para o Data Lake Store.
 
-### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+### <a name="azure-sql-data-warehouse"></a>Armazém de Dados SQL do Azure
 
 Armazém de dados SQL do Azure é uma escolha ideal para armazenar limpa e preparados resultados para análise futuras.  O Azure HDInsight pode ser utilizado para efetuar esses serviços para o armazém de dados do Azure SQL.
 

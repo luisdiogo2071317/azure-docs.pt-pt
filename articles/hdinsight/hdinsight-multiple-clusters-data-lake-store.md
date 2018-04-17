@@ -1,31 +1,29 @@
 ---
-title: "Utilizar vários clusters do HDInsight com uma conta do Azure Data Lake Store - Azure | Microsoft Docs"
-description: "Saiba como utilizar mais do que um cluster do HDInsight com uma única conta de Data Lake Store"
-keywords: "armazenamento do hdinsight, hdfs, dados estruturados, dados não estruturados, arquivo data lake"
+title: Utilizar vários clusters do HDInsight com uma conta do Azure Data Lake Store - Azure | Microsoft Docs
+description: Saiba como utilizar mais do que um cluster do HDInsight com uma única conta de Data Lake Store
+keywords: armazenamento do hdinsight, hdfs, dados estruturados, dados não estruturados, arquivo data lake
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: c306c66354f34fc945a5fe0ffa11d63bce4d7005
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 48e5a8d270701c43276e1d248d8ea4dc748d15b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Utilizar vários clusters do HDInsight com uma conta do Azure Data Lake Store
 
 A partir do HDInsight versão 3.5, pode criar clusters do HDInsight com contas do Azure Data Lake Store como o sistema de ficheiros predefinido.
-Data Lake Store suporta armazenamento ilimitado que torna a ideal não só para o alojamento de grandes quantidades de dados; mas também para alojar vários clusters do HDInsight que a partilha de uma única conta do Data Lake Store. Para instructionson como para criar um cluster do HDInsight com o Data Lake armazenar como o armazenamento, consulte [criar clusters do HDInsight com o Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Data Lake Store suporta armazenamento ilimitado que torna a ideal não só para o alojamento de grandes quantidades de dados; mas também para alojar vários clusters do HDInsight que a partilha de uma única conta do Data Lake Store. Para obter instruções sobre como criar um cluster do HDInsight com o Data Lake Store, como o armazenamento, consulte [criar clusters do HDInsight com o Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 Este artigo fornece recomendações para o Data Lake armazenam administrador para configurar um único e partilhado armazenar conta do Data Lake que podem ser utilizadas em vários **Active Directory** clusters do HDInsight. Estas recomendações aplicam-se para alojar vários clusters do Hadoop seguras, bem como não segura numa conta do Data Lake store partilhada.
 
@@ -94,9 +92,9 @@ Estas definições são conhecidas por afetam um específico HDInsight caso de u
 Conforme indicado na JIRA YARN anteriormente, ligado ao localizing recursos públicos, o localizer valida que todos os recursos pedidos públicos, de facto, verificando as respetivas permissões no sistema de ficheiros remoto. Qualquer LocalResource que se enquadram nessa condição é rejeitado para que a localização. A verificação de permissões, inclui acesso de leitura ao ficheiro para "outros". Este cenário não funciona out of box quando alojam clusters do HDInsight no Azure Data Lake, uma vez que o Azure Data Lake nega todos os acessos ao "outros" ao nível da pasta de raiz.
 
 #### <a name="workaround"></a>Solução
-Conjunto de leitura-permissões de execução para **outros** através da hierarquia, por exemplo, na  **/** , **/clusters** e   **/clusters/Finanças** conforme mostrado na tabela acima.
+Conjunto de leitura-permissões de execução para **outros** através da hierarquia, por exemplo, na **/**, **/clusters** e   **/clusters/Finanças** conforme mostrado na tabela acima.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Criar um cluster do HDInsight com o Data Lake Store, como armazenamento](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 

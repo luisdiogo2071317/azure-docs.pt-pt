@@ -1,24 +1,22 @@
 ---
-title: "Otimizar as configurações de cluster com o Ambari - Azure HDInsight | Microsoft Docs"
+title: Otimizar as configurações de cluster com o Ambari - Azure HDInsight | Microsoft Docs
 description: Utilize a IU da web do Ambari para configurar e otimizar os clusters do HDInsight.
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f3c1edc767ab07bcdd8b09a0e40e291cbd1f3d9a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utilizar Ambari para otimizar a configurações de cluster do HDInsight
 
@@ -183,7 +181,7 @@ Os tipos de compressão disponíveis são:
 
 | Formato | Ferramenta | Algoritmo | Extensão de ficheiro | Divisíveis? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .gz | Não |
+| Gzip | Gzip | DEFLATE | .GZ | Não |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Sim |
 | LZO | Lzop | LZO | .lzo | Sim, se indexada |
 | snappy | N/A | snappy | snappy | Não |

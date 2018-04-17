@@ -1,25 +1,18 @@
 ---
-title: "Permissões de autenticação e utilizador no Azure Analysis Services | Microsoft Docs"
-description: "Saiba mais sobre as permissões de autenticação e utilizador no Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
+title: Permissões de autenticação e utilizador no Azure Analysis Services | Microsoft Docs
+description: Saiba mais sobre as permissões de autenticação e utilizador no Azure Analysis Services.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authentication-and-user-permissions"></a>Permissões de autenticação e utilizador
 Serviços de análise do Azure utiliza o Azure Active Directory (Azure AD) para autenticação de utilizador e gestão de identidade. Qualquer utilizador a criar, gerir ou ligar a um Azure Analysis Services server tem de ter uma identidade de utilizador válido [inquilino do Azure AD](../active-directory/active-directory-administer.md) na mesma subscrição.
@@ -69,7 +62,7 @@ Os utilizadores do Excel podem ligar a um servidor utilizando uma conta do Windo
 
 ![Controlo de acesso no portal do Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Funções neste nível aplicam-se a utilizadores ou contas que precisam executar tarefas que podem ser executadas no portal ou utilizando os modelos Azure Resource Manager. Para obter mais informações, consulte [controlo de acesso baseado em funções](../active-directory/role-based-access-control-what-is.md). 
+Funções neste nível aplicam-se a utilizadores ou contas que precisam executar tarefas que podem ser executadas no portal ou utilizando os modelos Azure Resource Manager. Para obter mais informações, consulte [controlo de acesso baseado em funções](../role-based-access-control/overview.md). 
 
 
 ## <a name="database-roles"></a>Funções de base de dados
@@ -85,4 +78,4 @@ Funções neste nível aplicam-se a utilizadores ou contas que precisam executar
 [Gerir o acesso a recursos com grupos do Active Directory do Azure](../active-directory/active-directory-manage-groups.md)   
 [Gerir utilizadores e funções de base de dados](analysis-services-database-users.md)  
 [Gerir administradores de servidor](analysis-services-server-admins.md)  
-[Controlo de Acesso Baseado em Funções](../active-directory/role-based-access-control-what-is.md)  
+[Controlo de Acesso Baseado em Funções](../role-based-access-control/overview.md)  

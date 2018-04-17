@@ -1,5 +1,5 @@
 ---
-title: Utilizar o serviço de migração de base de dados do Azure para migrar o SQL Server para instância geridos base de dados SQL do Azure | Microsoft Docs
+title: Utilize o DMS para migrar para a base de dados geridas por instância de SQL do Azure | Microsoft Docs
 description: Saiba como migrar a partir do SQL Server no local para a base de dados geridas por instância de SQL do Azure utilizando o serviço de migração de base de dados do Azure.
 services: dms
 author: edmacauley
@@ -10,19 +10,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/29/2018
-ms.openlocfilehash: 8abf3bae3a2274ed5514a5c621675b4c9ec27ae2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 04/10/2018
+ms.openlocfilehash: f78a68704f1670b4670384931a07d9651cd646e3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance"></a>Migrar do SQL Server para instância gerida de base de dados SQL do Azure
-Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados de uma instância do SQL Server no local para a SQL Database do Azure. Neste tutorial, migra a **Adventureworks2012** base de dados de uma instância no local do SQL Server para uma base de dados do SQL do Azure utilizando o serviço de migração de base de dados do Azure.
+# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>Migrar do SQL Server para o Azure SQL da base de dados geridos instância utilizando DMS
+Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados a partir de uma instância do SQL Server no local para um [da base de dados geridas por instância de SQL do Azure](../sql-database/sql-database-managed-instance.md) quase sem período de indisponibilidade. Para métodos adicionais que requerem algum período de indisponibilidade, consulte [migração de instância do SQL Server para instância geridos base de dados SQL do Azure](../sql-database/sql-database-managed-instance-migrate.md).
+
+Neste tutorial, migra a **Adventureworks2012** base de dados de uma instância no local do SQL Server para uma base de dados do SQL do Azure utilizando o serviço de migração de base de dados do Azure.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Crie uma instância do serviço de migração de base de dados do Azure.
+> * Crie uma instância de serviço de migração de base de dados do Azure.
 > * Crie um projeto de migração utilizando o serviço de migração de base de dados do Azure.
 > * Execute a migração.
 > * Monitorize a migração.
@@ -36,7 +38,7 @@ Para concluir este tutorial, precisa de:
 - Abra a Firewall do Windows para permitir que o serviço de migração de base de dados do Azure para aceder à origem de SQL Server, que, por predefinição, é a porta TCP 1433.
 - Se estiver a executar várias instâncias do SQL Server com nome utilizando as portas dinâmicas, poderá pretender ativar o serviço de Browser do SQL Server e permitir o acesso à porta UDP 1434 através das firewalls para que o serviço de migração de base de dados do Azure podem ligar a uma instância nomeada na sua origem servidor.
 - Se estiver a utilizar uma aplicação de firewall à frente das bases de dados de origem, poderá ter de adicionar regras de firewall para permitir que o serviço de migração de base de dados do Azure para aceder a bases de dados de origem para migração, bem como os ficheiros através de porta SMB 445.
-- Criar uma instância de base de dados geridas por instância de SQL do Azure, seguindo o detalhe no artigo [criar uma instância de gerido da base de dados do Azure SQL no portal do Azure](https://aka.ms/sqldbmi).
+- Criar uma instância de gerido da base de dados do Azure SQL, seguindo o detalhe no artigo [criar uma instância de gerido da base de dados do Azure SQL no portal do Azure](https://aka.ms/sqldbmi).
 - Certifique-se de que os inícios de sessão utilizados para ligar a origem de SQL Server e instância geridos de destino são membros da função de servidor sysadmin.
 - Crie uma partilha de rede que pode utilizar o serviço de migração de base de dados do Azure para criar cópias de segurança da base de dados de origem.
 - Certifique-se de que a conta de serviço que executa a instância do SQL Server de origem tem privilégios de escrita na partilha de rede que criou.
@@ -54,7 +56,7 @@ Para concluir este tutorial, precisa de:
 1.  Pesquisa para a migração e, em seguida, à direita do **Microsoft.DataMigration**, selecione **registar**.
 ![registar o fornecedor de recursos](media\tutorial-sql-server-to-managed-instance\portal-register-resource-provider.png)    
 
-## <a name="create-an-instance"></a>Criar uma instância
+## <a name="create-an-azure-database-migration-service-instance"></a>Criar uma instância de serviço de migração de base de dados do Azure
 
 1.  No portal do Azure, selecione **+ criar um recurso**, procure **serviço de migração de base de dados do Azure**e, em seguida, selecione **serviço de migração de base de dados do Azure** da lista pendente lista.
 
@@ -145,3 +147,9 @@ Depois de criar o serviço, localizá-la no portal do Azure e abri-lo.
 
     ![Monitorizar a migração](media\tutorial-sql-server-to-managed-instance\dms-monitor-migration.png)
 
+## <a name="next-steps"></a>Passos Seguintes
+
+- Para um tutorial mostrar como migrar uma base de dados para uma instância geridos utilizando o comando de RESTAURO de T-SQL, consulte [restaurar uma cópia de segurança para uma instância geridos utilizando o comando restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+- Para obter informações sobre como importar uma base de dados a partir de um ficheiro BACPAC, consulte [importar um ficheiro BACPAC para uma nova base de dados do Azure SQL](../sql-database/sql-database-import.md).
+- Para obter informações sobre a instância geridos, consulte [o que é uma instância geridos](../sql-database/sql-database-managed-instance.md).
+- Para obter informações sobre a ligação a aplicações a uma instância geridos, consulte [ligar aplicações](../sql-database/sql-database-managed-instance-connect-app.md).

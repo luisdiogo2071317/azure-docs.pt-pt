@@ -1,6 +1,6 @@
 ---
 title: Segredo do Cofre de chaves com o modelo Azure Resource Manager | Microsoft Docs
-description: "Mostra como passar um segredo a partir de um cofre de chaves como um parâmetro durante a implementação."
+description: Mostra como passar um segredo a partir de um cofre de chaves como um parâmetro durante a implementação.
 services: azure-resource-manager,key-vault
 documentationcenter: na
 author: tfitzmac
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 04/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2643f79bb1e5e2603b1bd50b04c8ee3e7496f1f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utilizar o Cofre de chaves do Azure para passar o valor do parâmetro seguro durante a implementação
 
 Quando precisar de transferir um valor seguro (como uma palavra-passe) como um parâmetro durante a implementação, pode obter o valor de um [Cofre de chaves do Azure](../key-vault/key-vault-whatis.md). Obter o valor ao consultar o Cofre de chaves e um segredo no seu ficheiro de parâmetros. O valor nunca está exposto porque tem só fazem referência a um ID de Cofre de chaves. Não é necessário introduzir manualmente o valor para o segredo sempre que implementar os recursos. O Cofre da chave pode existir numa subscrição diferente do grupo de recursos que está a implementar. Quando referenciar o Cofre de chaves, incluem o ID da subscrição.
 
-Quando criar o Cofre de chaves, defina o *enabledForTemplateDeployment* propriedade *verdadeiro*. Por definição deste valor como VERDADEIRO, é permitir o acesso a partir de modelos do Resource Manager durante a implementação.
+Quando criar o Cofre de chaves, defina o *enabledForTemplateDeployment* propriedade *verdadeiro*. Por definição deste valor como VERDADEIRO, permitir o acesso a partir de modelos do Resource Manager durante a implementação.
 
 ## <a name="deploy-a-key-vault-and-secret"></a>Implementar um cofre de chaves e um segredo
 
@@ -62,7 +62,7 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 
 ## <a name="enable-access-to-the-secret"></a>Ativar o acesso para o segredo
 
-Se estiver a utilizar um cofre de chaves novo ou existente, certifique-se de que o utilizador a implementar o modelo possa aceder o segredo. O utilizador ao implementar um modelo que referencia um segredo tem de ter o `Microsoft.KeyVault/vaults/deploy/action` permissão para o Cofre de chaves. O [proprietário](../active-directory/role-based-access-built-in-roles.md#owner) e [contribuinte](../active-directory/role-based-access-built-in-roles.md#contributor) funções ambos os conceder o acesso.
+Se estiver a utilizar um cofre de chaves novo ou existente, certifique-se de que o utilizador a implementar o modelo possa aceder o segredo. O utilizador ao implementar um modelo que referencia um segredo tem de ter o `Microsoft.KeyVault/vaults/deploy/action` permissão para o Cofre de chaves. O [proprietário](../role-based-access-control/built-in-roles.md#owner) e [contribuinte](../role-based-access-control/built-in-roles.md#contributor) funções ambos os conceder o acesso.
 
 ## <a name="reference-a-secret-with-static-id"></a>Referenciar um segredo com o ID estático
 
@@ -131,6 +131,13 @@ Agora, crie um ficheiro de parâmetros para o modelo anterior. No ficheiro de pa
 }
 ```
 
+Se precisar de utilizar uma versão do segredo que não seja a versão atual, utilize o `secretVersion` propriedade.
+
+```json
+"secretName": "examplesecret",
+"secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
+```
+
 Agora, implemente o modelo e passar o ficheiro de parâmetros. Pode utilizar o modelo de exemplo a partir do GitHub, mas tem de utilizar um ficheiro de parâmetros local com os valores definidos para o seu ambiente.
 
 Para a CLI do Azure, utilize:
@@ -157,7 +164,7 @@ New-AzureRmResourceGroupDeployment `
 
 ## <a name="reference-a-secret-with-dynamic-id"></a>Referenciar um segredo com o dynamic ID
 
-A secção anterior mostrou como transmitir um ID de recurso estático para o segredo do Cofre de chaves. No entanto, em alguns cenários, tem de referenciar um segredo do Cofre de chaves que varia com base na implementação atual. Nesse caso, não é possível codificar o ID de recurso no ficheiro de parâmetros. Infelizmente, dinamicamente não é possível gerar o ID de recurso no ficheiro de parâmetros porque expressões de modelo não são permitidas no ficheiro de parâmetros.
+A secção anterior mostrou como transmitir um ID de recurso estático para o segredo do Cofre de chaves. No entanto, em alguns cenários, tem de referenciar um segredo do Cofre de chaves que varia com base na implementação atual. Nesse caso, não é possível codificar o ID de recurso no ficheiro de parâmetros. Infelizmente, dinamicamente não é possível gerar o ID de recurso no ficheiro de parâmetros porque não são permitidas expressões de modelo no ficheiro de parâmetros.
 
 Para gerar dinamicamente o ID de recurso para um segredo do Cofre de chaves, terá de mover os recursos que tem o segredo a um modelo de ligado. No modelo principal, adicione o modelo ligado e transmitir um parâmetro que contém o ID de recurso gerado dinamicamente. A imagem seguinte mostra como um parâmetro no modelo ligado referencia o segredo.
 
@@ -241,6 +248,6 @@ New-AzureRmResourceGroupDeployment `
   -vaultName <your-vault> -vaultResourceGroup examplegroup -secretName examplesecret -adminLogin exampleadmin -sqlServerName <server-name>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter informações gerais sobre cofres de chaves, consulte [introdução ao Cofre de chaves do Azure](../key-vault/key-vault-get-started.md).
 * Para obter exemplos completos de referenciar chaves segredos, consulte [exemplos do Cofre de chaves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

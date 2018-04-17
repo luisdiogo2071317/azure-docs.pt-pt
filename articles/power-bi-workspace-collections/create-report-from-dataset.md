@@ -1,26 +1,26 @@
 ---
-title: "Criar um novo relatório a partir de um conjunto de dados em coleções de área de trabalho do Power BI | Microsoft Docs"
-description: "Relatórios do Power BI coleção de área de trabalho agora podem ser criados a partir de um conjunto de dados na sua própria aplicação."
+title: Criar um novo relatório a partir de um conjunto de dados em coleções de área de trabalho do Power BI | Microsoft Docs
+description: Relatórios do Power BI coleção de área de trabalho agora podem ser criados a partir de um conjunto de dados na sua própria aplicação.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: aa902cbc4992292420948b36d85e52fafc7224de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Criar um novo relatório a partir de um conjunto de dados em coleções de área de trabalho do Power BI
 
@@ -199,7 +199,7 @@ var embedCreateConfiguration = {
     });
 ```
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 [Introdução com exemplo](get-started-sample.md)  
 [Guardar relatórios](save-reports.md)  

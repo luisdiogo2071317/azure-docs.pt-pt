@@ -1,26 +1,24 @@
 ---
-title: "Instalação publicado aplicação - Datameer - Azure HDInsight | Microsoft Docs"
-description: "Instalar e utilizar a aplicação de Hadoop do Datameer por terceiros."
+title: Instalação publicado aplicação - Datameer - Azure HDInsight | Microsoft Docs
+description: Instalar e utilizar a aplicação de Hadoop do Datameer por terceiros.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8a898b4f82cf2d7e05e8c3895e5eddd8cf02b173
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 5008056ae2274d058706649f286b91b71feadc27
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---datameer"></a>Instalar a aplicação publicada - Datameer
 
@@ -56,13 +54,13 @@ Para obter instruções passo a passo sobre como instalar esta e outras aplicaç
 
 4. Depois de concluir a opção de licenciamento selecionado, será apresentada com um formulário de início de sessão. Introduza as credenciais predefinidas apresentadas antes do formulário de início de sessão. Após iniciar sessão, aceite o contrato de software para continuar.
 
-    ![Iniciar sessão](./media/hdinsight-apps-install-datameer/login.png)
+    ![Início de Sessão](./media/hdinsight-apps-install-datameer/login.png)
 
 Os passos seguintes mostram uma demonstração de "Olá mundo".
 
 1. [Transferir o exemplo de CSV](https://datameer.box.com/s/wzzw27za3agic4yjj8zrn6vfrph0ppnf).
 
-2. Clique em de  **+**  assinar por cima do Datameer dashboard e clique em **carregar ficheiro**.
+2. Clique em de **+** assinar por cima do Datameer dashboard e clique em **carregar ficheiro**.
 
     ![Carregamento de Ficheiros](./media/hdinsight-apps-install-datameer/upload.png)
 
@@ -74,7 +72,7 @@ Os passos seguintes mostram uma demonstração de "Olá mundo".
 
     ![Guardar](./media/hdinsight-apps-install-datameer/save.png)
 
-5. Clique em de  **+**  iniciar sessão mais uma vez e selecionar **livro** para criar um novo livro para que os dados.
+5. Clique em de **+** iniciar sessão mais uma vez e selecionar **livro** para criar um novo livro para que os dados.
 
     ![Adicionar o livro](./media/hdinsight-apps-install-datameer/add-workbook.png)
 
@@ -96,7 +94,7 @@ Os passos seguintes mostram uma demonstração de "Olá mundo".
 
     ![Guardar o livro](./media/hdinsight-apps-install-datameer/save-workbook.png)
 
-11. Datameer fornece ferramentas de visualização de elevado desempenho. Para apresentar os dados, crie um gráfico informativo. Selecione o  **+**  assinar por cima do dashboard, em seguida, selecione **gráfico informativo**.
+11. Datameer fornece ferramentas de visualização de elevado desempenho. Para apresentar os dados, crie um gráfico informativo. Selecione o **+** assinar por cima do dashboard, em seguida, selecione **gráfico informativo**.
 
     ![Adicionar gráfico informativo](./media/hdinsight-apps-install-datameer/infographic-button.png)
 

@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: f8d7fff30d5f5289c362d78ad89027b8141bbbe6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cf73f792bcce906a673da0c6fb2eec099239c1c2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Ferramentas de ciência de dados e de aprendizagem máquina
 A Máquina Virtual de ciência de dados (DSVM) tem um conjunto avançado de ferramentas e as bibliotecas do machine learning disponível nos idiomas populares, como o Python, R, Leonor. 
@@ -48,7 +48,7 @@ Aqui estão algumas do machine learning ferramentas e bibliotecas no DSVM.
 | Como é mesmo configurado / instalado o DSVM?      |  Windows - instalador do msi, Linux - apt get |
 | Como utilizar / executá-lo?      | Como uma ferramenta de linha de comandos no caminho (`C:\Program Files\VowpalWabbit\vw.exe` no Windows, `/usr/bin/vw` no Linux)    |
 | Ligações para amostras      | [Exemplos de VowPal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
-| Ferramentas relacionadas no DSVM      |LightGBM, MXNet, XGBoost   |
+| Ferramentas relacionadas no DSVM      |XGBoost LightGBM, MXNet,   |
 
 
 ## <a name="weka"></a>Weka
@@ -59,7 +59,7 @@ Aqui estão algumas do machine learning ferramentas e bibliotecas no DSVM.
 | Utilizações comuns      | Ferramenta de ML geral     |
 | Como utilizar / executá-lo?      | No Windows, procure Weka no Menu Iniciar. No Linux, inicie sessão com X2Go, em seguida, navegue para aplicações -> desenvolvimento -> Weka. |
 | Ligações para amostras      | [Exemplos de weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Ferramentas relacionadas no DSVM      |LightGBM, Rattle, XGBooost   |
+| Ferramentas relacionadas no DSVM      |XGBooost LightGBM, Rattle,   |
 
 ## <a name="rattle"></a>Rattle
 |    |           |

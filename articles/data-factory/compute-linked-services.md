@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: fe4a4962acce06a6448cef8d5c1af398e3965a33
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 806d0db3536a00dea4e421f847cf0f75bcfc218c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 Este artigo explica vários ambientes de computação que pode utilizar para o processo ou de transformação de dados. Também fornece detalhes sobre as configurações diferentes (a pedido vs traga o seu próprio) suportados pela fábrica de dados, quando configurar serviços ligados de ligação estes computação ambientes para um Azure data factory.
@@ -29,7 +29,7 @@ A tabela seguinte fornece uma lista de ambientes de computação suportada pela 
 | [O Azure Batch](#azure-batch-linked-service) | [Personalizada](transform-data-using-dotnet-custom-activity.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: Execução de Lotes e Atualizar Recurso](transform-data-using-machine-learning.md) |
 | [Análise do Azure Data Lake](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimento Armazenado](transform-data-using-stored-procedure.md) |
+| [SQL do Azure](#azure-sql-database-linked-service), [do armazém de dados SQL do Azure](#azure-sql-data-warehouse-linked-service), [do SQL Server](#sql-server-linked-service) | [Procedimento Armazenado](transform-data-using-stored-procedure.md) |
 
 >  
 
@@ -125,7 +125,7 @@ O JSON seguinte define um serviço ligado do HDInsight baseado em Linux da pedid
 >
 > 
 
-#### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON example
+#### <a name="additionallinkedservicenames-json-example"></a>exemplo JSON additionalLinkedServiceNames
 
 ```json
 "additionalLinkedServiceNames": [{
@@ -138,9 +138,9 @@ O JSON seguinte define um serviço ligado do HDInsight baseado em Linux da pedid
 
 O serviço ligado de HDInsight a pedido no requer uma autenticação principal de serviço para criar clusters do HDInsight em seu nome. Para utilizar a autenticação principal de serviço, registar uma entidade de aplicação no Azure Active Directory (Azure AD) e conceder a **contribuinte** função de subscrição ou o grupo de recursos no qual o cluster do HDInsight é criado. Para obter passos detalhados, consulte [portal de utilização para criar um Azure Active Directory principal de serviço e aplicação que pode aceder aos recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tome nota dos seguintes valores que utilizar para definir o serviço ligado:
 
-- ID da aplicação
+- ID da Aplicação
 - Chave da aplicação 
-- ID do inquilino
+- ID do Inquilino
 
 Utilize a autenticação principal de serviço, especificando as seguintes propriedades:
 
@@ -238,7 +238,7 @@ Se pretender criar D4 um tamanho de nós principais e nós de trabalho, especifi
 "dataNodeSize": "Standard_D4",
 ```
 
-Se especificar um valor incorreto para estas propriedades, poderá receber o seguinte **erro:** Falha ao criar o cluster. Exceção: não foi possível concluir a operação de criação do cluster. A operação falhou com o código "400". Estado do cluster não concluído: "Erro". Message: 'PreClusterCreationValidationFailure'. Quando receber este erro, certifique-se de que está a utilizar o **CMDLET & APIS** nome da tabela no [tamanhos das Virtual Machines](../virtual-machines/linux/sizes.md) artigo.        
+Se especificar um valor incorreto para estas propriedades, poderá receber o seguinte **erro:** Falha ao criar o cluster. Exceção: não foi possível concluir a operação de criação do cluster. A operação falhou com o código "400". Estado do cluster não concluído: "Erro". Mensagem: 'PreClusterCreationValidationFailure'. Quando receber este erro, certifique-se de que está a utilizar o **CMDLET & APIS** nome da tabela no [tamanhos das Virtual Machines](../virtual-machines/linux/sizes.md) artigo.        
 
 ## <a name="bring-your-own-compute-environment"></a>Traga o seu ambiente de computação
 Este tipo de configuração, os utilizadores podem registar um ambiente informático já existente como um serviço ligado no Factory de dados. O ambiente informático é gerido pelo utilizador e o serviço fábrica de dados utiliza-o para executar as atividades.
@@ -286,7 +286,7 @@ Pode criar um serviço ligado do Azure HDInsight para registar o seu próprio cl
 | ----------------- | ---------------------------------------- | -------- |
 | tipo              | A propriedade de tipo deve ser definida como **HDInsight**. | Sim      |
 | clusterUri        | O URI de cluster do HDInsight.        | Sim      |
-| o nome de utilizador          | Especifique o nome do utilizador a ser utilizado para ligar a um cluster do HDInsight existente. | Sim      |
+| nome do utilizador          | Especifique o nome do utilizador a ser utilizado para ligar a um cluster do HDInsight existente. | Sim      |
 | palavra-passe          | Especifique a palavra-passe da conta de utilizador.   | Sim      |
 | linkedServiceName | Nome do serviço ligado do Storage do Azure que se refere ao blob storage do Azure utilizado pelo HDInsight cluster. <p>Atualmente, não é possível especificar o que serviço para esta propriedade de ligado um Azure Data Lake Store. Se o cluster do HDInsight tem acesso ao Data Lake Store, pode aceder a dados no Azure Data Lake Store de scripts Hive/Pig. </p> | Sim      |
 | connectVia        | O tempo de execução de integração a ser utilizado para emitir as atividades para este serviço ligado. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração. Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não       |
@@ -428,6 +428,65 @@ Criar um **Azure Data Lake Analytics** um Azure data factory do serviço de comp
 
 
 
+## <a name="azure-databricks-linked-service"></a>Serviço Databricks ligado do Azure
+Pode criar **serviço ligado do Azure Databricks** registar Databricks área de trabalho que irá utilizar para executar o workloads(notebooks) Databricks.
+
+### <a name="example---using-new-job-cluster-in-databricks"></a>Exemplo - utilizando o novo cluster de tarefa na Databricks
+
+```json
+{
+    "name": "AzureDatabricks_LS",
+    "properties": {
+        "type": "AzureDatabricks",
+        "typeProperties": {
+            "domain": "eastus.azuredatabricks.net",
+            "newClusterNodeType": "Standard_D3_v2",
+            "newClusterNumOfWorker": "1:10",
+            "newClusterVersion": "4.0.x-scala2.11",
+            "accessToken": {
+                "type": "SecureString",
+                "value": "dapif33c9c721144c3a790b35000b57f7124f"
+            }
+        }
+    }
+}
+
+```
+
+### <a name="example---using-existing-interactive-cluster-in-databricks"></a>Exemplo - utilizando o cluster interativa existente no Databricks
+
+```json
+{
+    "name": " AzureDataBricksLinedService",
+    "properties": {
+      "type": " AzureDatabricks",
+      "typeProperties": {
+        "domain": "https://westeurope.azuredatabricks.net",
+        "accessToken": {
+            "type": "SecureString", 
+            "value": "dapif33c9c72344c3a790b35000b57f7124f"
+          },
+        "existingClusterId": "{clusterId}"
+        }
+}
+
+```
+
+### <a name="properties"></a>Propriedades
+
+| Propriedade             | Descrição                              | Necessário                                 |
+| -------------------- | ---------------------------------------- | ---------------------------------------- |
+| nome                 | Nome do serviço ligado               | Sim   |
+| tipo                 | A propriedade de tipo deve ser definida como: **AzureDatabricks**. | Sim                                      |
+| domínio               | Especifique a região do Azure em conformidade com base na região da área de trabalho Databricks. Exemplo: https://eastus.azuredatabricks.net | Sim                                 |
+| accessToken          | Token de acesso é necessário para a fábrica de dados para se autenticar Databricks do Azure. Token de acesso tem de ser gerado a partir da área de trabalho databricks. Mais passos para localizar o token de acesso pode ser encontrado [aqui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Sim                                       |
+| existingClusterId    | ID de cluster de um cluster existente para executar todas as tarefas neste. Deve ser um Cluster interativa já criou. Terá de reiniciar manualmente o cluster se deixa de responder. Databricks sugerimos tarefas em execução no novos clusters para maior fiabilidade. Pode encontrar o ID de Cluster de um Cluster no Databricks -> área de trabalho interativa Clusters -> nome do Cluster interativa -> configuração -> etiquetas. [obter mais detalhes](https://docs.databricks.com/user-guide/clusters/tags.html) | Não 
+| newClusterVersion    | A versão do cluster do Spark. Será criado um cluster de tarefa na databricks. | Não  |
+| newClusterNumOfWorker| Número de nós de trabalho que deve ter este cluster. Um cluster tem um controlador de Spark e num_workers executor para um total de num_workers + 1 nós de Spark. Uma cadeia formatada Int32, como "1" significa numOfWorker é 1 ou "1:10" significa dimensionamento automático de 1 como min e 10 como máximo.  | Não                |
+| newClusterNodeType   | Este campo codifica, através de um valor único, os recursos disponíveis para cada um de nós neste cluster Spark. Por exemplo, o Spark nós podem ser aprovisionados e otimizados para cargas de trabalho que consomem muita memória ou processamento este campo é obrigatório para o novo cluster                | Não               |
+| newClusterSparkConf  | um conjunto de opcionais, o utilizador especificado pares de valor de chave de configuração de Spark. Os utilizadores podem também passar uma cadeia de opções adicionais como as JVM para o controlador e o executor através de spark.driver.extraJavaOptions e spark.executor.extraJavaOptions respetivamente. | Não  |
+
+
 ## <a name="azure-sql-database-linked-service"></a>Serviço ligado da Base de Dados SQL do Azure
 Criar um serviço ligado SQL do Azure e utilizá-la com o [atividade de procedimento armazenado](transform-data-using-stored-procedure.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Consulte [conector do SQL Azure](connector-azure-sql-database.md#linked-service-properties) artigo para obter detalhes sobre este serviço ligado.
 
@@ -442,7 +501,7 @@ A tabela seguinte fornece regras de nomenclatura artefactos do Data Factory de d
 
 | Nome                             | Exclusividade de nome                          | Verificações de validação                        |
 | :------------------------------- | :--------------------------------------- | :--------------------------------------- |
-| Data Factory                     | Exclusivo em todo o Microsoft Azure. Os nomes são sensível, ou seja, `MyDF` e `mydf` Consulte para a mesma fábrica de dados. | <ul><li>Cada fábrica de dados está associada ao exatamente uma subscrição do Azure.</li><li>Nomes de objeto tem de começar com uma letra ou um número e só podem conter letras, números e o caráter de travessão (-).</li><li>Cada caráter de travessão (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. Traços consecutivos não são permitidos em nomes de contentor.</li><li>Nome pode ter entre 3 e 63 carateres.</li></ul> |
+| Gestor de Dados                     | Exclusivo em todo o Microsoft Azure. Os nomes são sensível, ou seja, `MyDF` e `mydf` Consulte para a mesma fábrica de dados. | <ul><li>Cada fábrica de dados está associada ao exatamente uma subscrição do Azure.</li><li>Nomes de objeto tem de começar com uma letra ou um número e só podem conter letras, números e o caráter de travessão (-).</li><li>Cada caráter de travessão (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. Traços consecutivos não são permitidos em nomes de contentor.</li><li>Nome pode ter entre 3 e 63 carateres.</li></ul> |
 | Os serviços ligados/tabelas/pipelines | Exclusivo com uma fábrica de dados. Os nomes são sensível. | <ul><li>Número máximo de carateres num nome de tabela: a 260.</li><li>Nomes de objeto tem de começar com uma letra, o número ou um caráter de sublinhado (_).</li><li>Os seguintes carateres não são permitidos: ".", "+","?", "/", "<", ">","*", "%", "&", ":","\\"</li></ul> |
 | Grupo de Recursos                   | Exclusivo em todo o Microsoft Azure. Os nomes são sensível. | <ul><li>Número máximo de carateres: 1000.</li><li>O nome pode conter letras, dígitos e os seguintes carateres: "-", "_",","e"."</li></ul> |
 

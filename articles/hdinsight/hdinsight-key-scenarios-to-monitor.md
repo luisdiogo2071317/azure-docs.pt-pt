@@ -2,25 +2,23 @@
 title: Monitorizar o desempenho de cluster - Azure HDInsight | Microsoft Docs
 description: Como monitorizar um cluster do HDInsight para a capacidade e o desempenho.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: maxluk
-ms.openlocfilehash: f2333202cdccc82edea649ff1c295752a414c8b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9bf49631da58de86ffa1881bca976cab86677805
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-cluster-performance"></a>Monitorizar o desempenho do cluster
 
@@ -89,7 +87,7 @@ Se o arquivo de cópia de segurança do seu cluster do Azure Data Lake armazenar
 * [Guia de sintonização de desempenho para o MapReduce no HDInsight e Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
 * [Guia de sintonização de desempenho para o Storm no HDInsight e Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Visite as seguintes ligações para mais informações sobre resolução de problemas e os clusters de monitorização:
 

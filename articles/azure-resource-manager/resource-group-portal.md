@@ -2,7 +2,7 @@
 title: Utilize o portal do Azure para gerir recursos do Azure | Microsoft Docs
 description: Utilize o portal do Azure e o Azure Resource Manager para gerir os recursos. Mostra como funcionar com dashboards para monitorizar os recursos.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 61cfd9e9d955b6a722bc88542b872a4a3edf5a36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>Gerir recursos do Azure através do portal
 
@@ -26,7 +26,7 @@ Este artigo mostra como utilizar o [portal do Azure](https://portal.azure.com) c
 
 ## <a name="manage-resource-groups"></a>Gerir grupos de recursos
 
-Um grupo de recursos é um contentor que retém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização. Geralmente, adicione recursos que partilham o mesmo ciclo de vida para o mesmo grupo de recursos para que possa facilmente implementar, atualizar e eliminá-los como um grupo. 
+Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização. Geralmente, adicione recursos que partilham o mesmo ciclo de vida para o mesmo grupo de recursos para que possa facilmente implementar, atualizar e eliminá-los como um grupo. 
 
 O grupo de recursos armazena metadados sobre os recursos. Por conseguinte, quando especifica uma localização para o grupo de recursos, está a especificar onde esses metadados estão armazenados. Por motivos de conformidade, poderá ter de certificar que os dados estão armazenados numa determinada região.
 
@@ -123,10 +123,10 @@ Eliminar um grupo de recursos elimina todos os recursos contidos. Também pode e
 
 ![Eliminar grupo](./media/resource-group-portal/delete-group.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para ver registos de atividade, consulte [auditar operações com o Resource Manager](resource-group-audit.md).
 * Para ver detalhes sobre uma implementação, consulte [ver as operações de implementação](resource-manager-deployment-operations.md).
 * Para implementar recursos através do portal, consulte [implementar recursos com modelos do Resource Manager e o portal do Azure](resource-group-template-deploy-portal.md).
-* Para gerir o acesso aos recursos, consulte [utilize atribuições de funções para gerir o acesso aos recursos da sua subscrição do Azure](../active-directory/role-based-access-control-configure.md).
+* Para gerir o acesso aos recursos, consulte [utilize atribuições de funções para gerir o acesso aos recursos da sua subscrição do Azure](../role-based-access-control/role-assignments-portal.md).
 * Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](resource-manager-subscription-governance.md).
 

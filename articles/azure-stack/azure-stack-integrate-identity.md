@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do Centro de dados do Azure pilha - identidade
 Pode implementar a pilha do Azure utilizando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os fornecedores de identidade. Tem de se a opção antes de implementar pilha do Azure. Implementação a utilizar o AD FS é também referida como implementar a pilha do Azure no modo desligado.
@@ -65,7 +65,7 @@ São necessárias como entradas para os parâmetros de automatização as seguin
 
 |Parâmetro|Descrição|Exemplo|
 |---------|---------|---------|
-|CustomADGlobalCatalog|FQDN da floresta do Active Directory de destino<br>que pretende integrar com o|Contoso.com|
+|CustomADGlobalCatalog|FQDN da floresta do Active Directory de destino<br>que pretende integrar com o|contoso.com|
 |CustomADAdminCredentials|Um utilizador com permissão de leitura de LDAP|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Criar conta de utilizador no Active Directory existente (opcional)
@@ -109,7 +109,7 @@ Serviço de gráfico na pilha do Azure utiliza as seguintes portas e protocolos 
 |LDAP|389|TCP E UDP|
 |LDAP SSL|636|TCP|
 |LDAP GC|3268|TCP|
-|LDAP GC SSL|3269|TCP|
+|SSL LDAP DE GC|3269|TCP|
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Configurar a integração do AD FS ao transferir os metadados de Federação
 
@@ -262,6 +262,9 @@ Se optar por executar manualmente os comandos, siga estes passos:
    > Tem de utilizar o snap-in MMC do AD FS para configurar as regras de autorização de emissão ao utilizar o Windows Server 2012 ou 2012 R2 AD FS.
 
 4. Quando utilizar o Internet Explorer ou o browser Microsoft Edge para aceder a pilha do Azure, deve ignorar enlaces de token. Caso contrário, as tentativas de início de sessão falharem. Na sua instância do AD FS ou um membro de farm, execute o seguinte comando:
+
+   > [!note]  
+   > Este passo não é aplicável ao utilizar o Windows Server 2012 ou 2012 R2 AD FS. É seguro ignorar este comando e continue com a integração.
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true

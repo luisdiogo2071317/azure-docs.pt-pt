@@ -1,25 +1,23 @@
 ---
-title: "Adicionar as bibliotecas Hive durante a criação do cluster do HDInsight - Azure | Microsoft Docs"
-description: "Saiba como adicionar as bibliotecas Hive (ficheiros. jar), para um cluster do HDInsight durante a criação do cluster."
+title: Adicionar as bibliotecas Hive durante a criação do cluster do HDInsight - Azure | Microsoft Docs
+description: Saiba como adicionar as bibliotecas Hive (ficheiros. jar), para um cluster do HDInsight durante a criação do cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2fd74b8d-c006-45c6-a9e2-72ff5d2d978a
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 434c7d24f55c20cc763df3b83429e039bb5e8541
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 71e2859085dc4a9f4fa327d88faff4fecf5108ef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicione as bibliotecas Hive personalizadas ao criar o cluster do HDInsight
 
@@ -56,7 +54,7 @@ Para **clusters baseados em Windows**: [https://hdiconfigactions.blob.core.windo
 
 * A conta de armazenamento que contém a biblioteca de ficheiros jar **tem** ser ligado ao cluster do HDInsight durante a criação. -Tem de estar a conta do storage predefinida ou uma conta adicionados através do __configuração opcional__.
 
-* O caminho WASB para o contentor tem de ser especificado como parâmetro para a ação de Script. Por exemplo, se o v7 é armazenadas num contentor com o nome **libs** numa conta de armazenamento com o nome **mystorage**, o parâmetro seria  **wasb://libs@mystorage.blob.core.windows.net/** .
+* O caminho WASB para o contentor tem de ser especificado como parâmetro para a ação de Script. Por exemplo, se o v7 é armazenadas num contentor com o nome **libs** numa conta de armazenamento com o nome **mystorage**, o parâmetro seria **wasb://libs@mystorage.blob.core.windows.net/**.
 
   > [!NOTE]
   > Este documento assume que já criou uma conta de armazenamento, o contentor de blob e carregado os ficheiros ao mesmo.
@@ -76,7 +74,7 @@ Para **clusters baseados em Windows**: [https://hdiconfigactions.blob.core.windo
 
    * **NOME**: introduza um nome amigável para a ação de script.
 
-   * **URI de SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **URI DE SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
    * **HEAD**: selecione esta opção.
 
@@ -84,7 +82,7 @@ Para **clusters baseados em Windows**: [https://hdiconfigactions.blob.core.windo
 
    * **ZOOKEEPER**: deixar isto em branco.
 
-   * **Os parâmetros**: introduza o endereço WASB à conta de armazenamento e de contentor que contém o v7. Por exemplo,  **wasb://libs@mystorage.blob.core.windows.net/** .
+   * **Os parâmetros**: introduza o endereço WASB à conta de armazenamento e de contentor que contém o v7. Por exemplo, **wasb://libs@mystorage.blob.core.windows.net/**.
 
 3. Na parte inferior do **ações de Script**, utilize o **selecione** botão para guardar a configuração.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3784cb6f713c5ce476ab980122ee6ec9fa3ebc59
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 
@@ -75,7 +75,7 @@ Service Fabric gera uma quantidade substancial de contadores de desempenho perso
 
 As aplicações está a implementar para o cluster, se estiver a utilizar Reliable Actors, adicione countes de `Service Fabric Actor` e `Service Fabric Actor Method` categorias (consulte [serviço recursos de infraestrutura Reliable Actors diagnóstico](service-fabric-reliable-actors-diagnostics.md)).
 
-Se utilizar Reliable Services, temos de forma semelhante `Service Fabric Service` e `Service Fabric Service Method` categorias de contador deve recolher contadores do. 
+Se utilizar a comunicação remota do serviço, temos de forma semelhante `Service Fabric Service` e `Service Fabric Service Method` categorias de contador deve recolher contadores do. 
 
 Se utilizar coleções fiável, recomendamos adicionar o `Avg. Transaction ms/Commit` do `Service Fabric Transactional Replicator` para recolher a latência média de consolidação por métrica de transação.
 

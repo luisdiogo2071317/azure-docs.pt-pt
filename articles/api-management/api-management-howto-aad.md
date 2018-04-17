@@ -3,9 +3,9 @@ title: Autorizar a contas de programador, utilizando o Azure Active Directory - 
 description: Saiba como autorizar os utilizadores ao utilizar o Azure Active Directory na API Management.
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d89257cba70fb82d56fb1beef8a8efe66a8af02d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar a contas de programador na API Management do Azure utilizando o Azure Active Directory
 
@@ -34,7 +34,7 @@ Este artigo mostra como ativar o acesso ao portal do programador para os utiliza
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizar a contas de programador por utilizar o Azure AD
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
-2. Selecione ![seta](./media/api-management-howto-aad/arrow.png).
+2. Seleccionar ![seta](./media/api-management-howto-aad/arrow.png).
 3. Tipo **api** na caixa de pesquisa.
 4. Selecione **dos serviços de gestão de API**.
 5. Selecione a instância de serviço de API Management.
@@ -51,11 +51,11 @@ Este artigo mostra como ativar o acesso ao portal do programador para os utiliza
    ![Passos para adicionar um fornecedor de identidade no portal do Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. No seu browser, abra um separador de diferentes. 
 11. Aceda ao [Portal do Azure](https://portal.azure.com).
-12. Selecione ![seta](./media/api-management-howto-aad/arrow.png).
+12. Seleccionar ![seta](./media/api-management-howto-aad/arrow.png).
 13. Tipo **Active Directory**. O **do Azure Active Directory** painel aparece.
-14. Selecione **do Azure Active Directory**.
+14. Selecione **Azure Active Directory**.
 15. Em **GERIR**, selecione **registos de aplicação**.
-16. Selecione **novo registo de aplicação**.
+16. Selecione **Novo registo de aplicação**.
 
     ![Selecione as opções para criar um novo registo de aplicação](./media/api-management-howto-aad/api-management-with-aad002.png)
 

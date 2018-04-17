@@ -1,11 +1,10 @@
 ---
-title: "Introdução ao Armazenamento de Tabelas do Azure através do .NET | Microsoft Docs"
-description: "Armazene dados estruturados na nuvem através do Table Storage do Azure, um arquivo de dados NoSQL."
+title: Introdução ao Armazenamento de Tabelas do Azure através do .NET | Microsoft Docs
+description: Armazene dados estruturados na nuvem através do Table Storage do Azure, um arquivo de dados NoSQL.
 services: cosmos-db
 documentationcenter: .net
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: mimig
-ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: sngun
+ms.openlocfilehash: ff26ab122e920d6ca8dbf837a2229f8728a471ce
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Introdução ao Table Storage do Azure através do .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -49,11 +48,8 @@ Para concluir este tutorial com êxito, precisa do seguinte:
 ### <a name="more-samples"></a>Mais exemplos
 Para obter exemplos adicionais que utilizam o Armazenamento de Tabelas, veja [Introdução ao Armazenamento de Tabelas do Azure do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Pode transferir a aplicação de exemplo e executá-la ou procurar o código no GitHub.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
-
-Pode trabalhar com tabelas utilizando o Table storage do Azure ou a base de dados do Azure Cosmos. Pode saber mais sobre as diferenças entre os serviços ao ler [tabela ofertas](table-introduction.md#table-offerings). Terá de criar uma conta para o serviço que vai utilizar. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
 A forma mais fácil de criar a primeira conta de armazenamento do Azure é com o [portal do Azure](https://portal.azure.com). Para saber mais, veja [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -63,10 +59,9 @@ Também pode criar uma conta de armazenamento do Azure com o [Azure PowerShell](
 Se preferir não criar uma conta de armazenamento neste momento, pode também utilizar o emulador de armazenamento do Azure para executar e testar o seu código num ambiente local. Para obter mais informações, veja [Utilizar o Emulador de Armazenamento do Azure para Programação e Teste](../storage/common/storage-use-emulator.md).
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta de API de tabela de base de dados do Azure Cosmos
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-Para obter instruções sobre como criar uma conta de API de tabela do Azure Cosmos DB, consulte [criar uma conta de API de tabela](create-table-dotnet.md#create-a-database-account).
-
-## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
+## <a name="set-up-your-development-environment"></a>Configurar o seu ambiente de desenvolvimento
 Em seguida, configure o ambiente de desenvolvimento no Visual Studio, para estar pronto para experimentar os exemplos de código deste guia.
 
 ### <a name="create-a-windows-console-application-project"></a>Criar um projeto de aplicação de consola do Windows

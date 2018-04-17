@@ -1,11 +1,11 @@
 ---
-title: "Ativar vários inquilinos na pilha do Azure | Microsoft Docs"
-description: "Saiba como suportar vários diretórios do Azure Active Directory na pilha do Azure"
+title: Ativar vários inquilinos na pilha do Azure | Microsoft Docs
+description: Saiba como suportar vários diretórios do Azure Active Directory na pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66689d80cbee0be36b3e8c9951a43d0d43fa01be
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9ee54827ae9e8a803a5e3d7464559aec62c67119
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Ativar vários inquilinos na pilha do Azure
 
@@ -91,7 +91,7 @@ Register-AzSWithMyDirectoryTenant `
 ## <a name="direct-users-to-sign-in"></a>Utilizadores diretamente para iniciar sessão
 Agora que tem e a Maria tem concluído os passos para o diretório de carregar Maria, Maria direcionar os utilizadores da Fabrikam para iniciar sessão.  Fabrikam utilizadores (ou seja, utilizadores com o sufixo de fabrikam.onmicrosoft.com) a iniciar sessão, visitando https://portal.local.azurestack.external.  
 
-Maria irão direcionar qualquer [principais externas](../active-directory/active-directory-understanding-resource-access.md) no diretório Fabrikam (ou seja, utilizadores no diretório Fabrikam sem o sufixo de fabrikam.onmicrosoft.com) para iniciar sessão com https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se não utilizar este URL, estes são enviados para o respetivo diretório predefinido (Fabrikam) e recebem um erro que indica o que seu administrador não se consentiu.
+Maria irão direcionar qualquer [principais externas](../role-based-access-control/rbac-and-directory-admin-roles.md) no diretório Fabrikam (ou seja, utilizadores no diretório Fabrikam sem o sufixo de fabrikam.onmicrosoft.com) para iniciar sessão com https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se não utilizar este URL, estes são enviados para o respetivo diretório predefinido (Fabrikam) e recebem um erro que indica o que seu administrador não se consentiu.
 
 ## <a name="next-steps"></a>Próximos Passos
 

@@ -1,11 +1,11 @@
 ---
-title: "Atualização Cofre de cópia de segurança para o Cofre dos serviços de recuperação de cópia de segurança do Azure | Microsoft Docs"
-description: "Atualização Cofre de cópia de segurança para o Cofre dos serviços de recuperação para obter novas funcionalidades, como a cópia de segurança de VMs, a segurança avançada, a cópia de segurança de VM de VMware e a cópia de segurança do Estado do sistema para servidores do Windows do Gestor de recursos"
+title: Atualização Cofre de cópia de segurança para o Cofre dos serviços de recuperação de cópia de segurança do Azure | Microsoft Docs
+description: Atualização Cofre de cópia de segurança para o Cofre dos serviços de recuperação para obter novas funcionalidades, como a cópia de segurança de VMs, a segurança avançada, a cópia de segurança de VM de VMware e a cópia de segurança do Estado do sistema para servidores do Windows do Gestor de recursos
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: 
+editor: ''
 keyword: backup vault; upgrade vault; recovery services vault
 ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Atualizado para o Cofre dos serviços de recuperação Cofre de cópia de segurança
 Este artigo fornece uma descrição geral fornece o Cofre dos serviços de recuperação, perguntas mais frequentes sobre a atualização de cópia de segurança existente do cofre dos serviços de recuperação cofre e passos pós-atualização. Um cofre dos serviços de recuperação é o equivalente do Azure Resource Manager um cofre de cópia de segurança que aloja os seus dados de cópia de segurança. Os dados são, geralmente, cópias de dados ou informações de configuração para máquinas virtuais (VMs), cargas de trabalho, servidores ou estações de trabalho, se no local ou no Azure.
@@ -34,7 +34,7 @@ Os cofres dos serviços de recuperação baseiam-se no modelo Azure Resource Man
 
 - **Monitorização central para o ambiente de TI de híbrida**: cofres dos serviços de recuperação com, pode monitorizar não apenas o [VMs IaaS do Azure](backup-azure-manage-vms.md) , mas também o [recursos no local](backup-azure-manage-windows-server.md#manage-backup-items) de um portal central. [Saiba mais](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **Controlo de acesso baseado em funções (RBAC)**: RBAC fornece controlo de gestão de acesso detalhado no Azure. [O Azure oferece várias funções incorporadas](../active-directory/role-based-access-built-in-roles.md), e cópia de segurança do Azure tem três [funções incorporadas para gerir pontos de recuperação](backup-rbac-rs-vault.md). Os cofres dos serviços de recuperação são compatíveis com o RBAC, que restringe a cópia de segurança e restaurar o acesso ao conjunto definido de funções de utilizador. [Saiba mais](backup-rbac-rs-vault.md)
+- **Controlo de acesso baseado em funções (RBAC)**: RBAC fornece controlo de gestão de acesso detalhado no Azure. [O Azure oferece várias funções incorporadas](../role-based-access-control/built-in-roles.md), e cópia de segurança do Azure tem três [funções incorporadas para gerir pontos de recuperação](backup-rbac-rs-vault.md). Os cofres dos serviços de recuperação são compatíveis com o RBAC, que restringe a cópia de segurança e restaurar o acesso ao conjunto definido de funções de utilizador. [Saiba mais](backup-rbac-rs-vault.md)
 
 - **Proteger todas as configurações de Virtual Machines do Azure**: cofres dos serviços de recuperação protegem VMs baseadas no Resource Manager, incluindo discos Premium, discos geridos e VMs encriptados. Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação dá-lhe a oportunidade para atualizar as VMs baseadas no Service Manager para as VMs baseadas no Resource Manager. Ao atualizar o cofre, pode manter os pontos de recuperação VM baseadas no Service Manager e configure a proteção para VMs atualizadas (ativado Resource Manager). [Saiba mais](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 

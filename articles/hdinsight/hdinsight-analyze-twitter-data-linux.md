@@ -1,26 +1,24 @@
 ---
 title: Analisar dados do Twitter com Apache Hive - Azure HDInsight | Microsoft Docs
-description: "Saiba como utilizar a utilização do Hive e do Hadoop no HDInsight para transformar dados não processados do TWitter para uma tabela do Hive pesquisável."
+description: Saiba como utilizar a utilização do Hive e do Hadoop no HDInsight para transformar dados não processados do TWitter para uma tabela do Hive pesquisável.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b6e540576bc4a5876bc8546262a181bd82ad9727
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 1e3a9b12a9621baf91d49be48fb79a5d6bca1326
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analisar dados do Twitter através do Hive e do Hadoop no HDInsight
 
@@ -37,7 +35,7 @@ Twitter permite-lhe obter o [dados para cada tweet](https://dev.twitter.com/docs
 
 ### <a name="create-a-twitter-application"></a>Criar uma aplicação do Twitter
 
-1. Num browser da web, inicie sessão no [https://apps.twitter.com/](https://apps.twitter.com/). Clique em de **inscrição agora** ligação se não tiver uma conta do Twitter.
+1. Num browser da web, inicie sessão no [ https://apps.twitter.com/ ](https://apps.twitter.com/). Clique em de **inscrição agora** ligação se não tiver uma conta do Twitter.
 
 2. Clique em **criar nova aplicação**.
 

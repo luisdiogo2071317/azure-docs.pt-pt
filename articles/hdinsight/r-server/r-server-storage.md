@@ -1,25 +1,23 @@
 ---
 title: Soluções de armazenamento do Azure para o servidor R no HDInsight - Azure | Microsoft Docs
 description: Saiba mais sobre as opções de armazenamento diferentes disponíveis com o servidor R no HDInsight
-services: HDInsight
+services: hdinsight
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 1cf30096-d3ca-45ea-b526-aa3954402f66
-ms.service: HDInsight
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: nitinme
-ms.openlocfilehash: f0333252e404c52f123da916df01d198234ef5af
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 23e32a913fb73d2207f7cf37ce6230e428fbe95c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-solutions-for-r-server-on-azure-hdinsight"></a>Soluções de armazenamento do Azure para o servidor R no Azure HDInsight
 
@@ -166,7 +164,7 @@ Os comandos seguintes são utilizados para configurar a conta de Data Lake Store
 
 Há também uma opção de armazenamento de dados conveniente para utilização no nó de extremidade chamado [ficheiros do Azure] ((https://azure.microsoft.com/services/storage/files/). Permite-lhe montar uma partilha de ficheiros de armazenamento do Azure para o sistema de ficheiros do Linux. Esta opção pode ser útil para armazenar ficheiros de dados, os scripts de R e objetos de resultado que poderão ser necessário posteriormente, especialmente quando faz sentido utilizam o sistema de ficheiros nativo no nó de extremidade em vez de HDFS. 
 
-Uma vantagem principal de ficheiros do Azure é que as partilhas de ficheiros podem ser montadas e utilizadas por qualquer sistema com um SO suportado, tais como o Windows ou Linux. Por exemplo, pode ser utilizado por outro cluster de HDInsight foi, ou alguém na sua equipa, pela VM do Azure ou mesmo um sistema local. Para obter mais informações, consulte:
+Uma vantagem principal de ficheiros do Azure é que as partilhas de ficheiros podem ser montadas e utilizadas por qualquer sistema com um SO suportado, tais como o Windows ou Linux. Por exemplo, pode ser utilizado por outro cluster de HDInsight foi, ou alguém na sua equipa, pela VM do Azure ou mesmo um sistema local. Para obter mais informações, veja:
 
 - [How to use Azure File Storage with Linux (Como utilizar o Armazenamento de Ficheiros do Azure com o Linux)](../../storage/files/storage-how-to-use-files-linux.md)
 - [Como utilizar o File storage do Azure no Windows](../../storage/files/storage-dotnet-how-to-use-files.md)
@@ -176,5 +174,5 @@ Uma vantagem principal de ficheiros do Azure é que as partilhas de ficheiros po
 
 * [Descrição geral do cluster de servidor R no HDInsight](r-server-overview.md)
 * [Introdução ao cluster de servidor R no Hadoop](r-server-get-started.md)
-* [Opções de contexto do cluster de servidor R no HDInsight de computação](r-server-compute-contexts.md)
+* [Opções do contexto de cálculo para o cluster do R Server no HDInsight](r-server-compute-contexts.md)
 

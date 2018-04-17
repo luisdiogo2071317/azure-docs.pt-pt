@@ -1,11 +1,11 @@
 ---
-title: Consulta para mensagens B2B no Operations Management Suite - Azure Logic Apps | Microsoft Docs
-description: Criar consultas para controlar AS2, X12 e mensagens EDIFACT no Operations Management Suite
+title: Consulta para mensagens B2B na análise de registos - Azure Logic Apps | Microsoft Docs
+description: Criar consultas para controlar AS2, X12 e mensagens EDIFACT na análise de registos
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: bc1ea42c9fb81fe1e2a2594fda48500132cbb539
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 345857801035fb7f149a57a4f0d58e7668f35b81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>Consultar AS2, X12 e EDIFACT mensagens no Microsoft Operations Management Suite (OMS)
+# <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Consultar AS2, X12 e EDIFACT mensagens na análise de registos
 
-Para localizar o AS2, X12 ou EDIFACT mensagens que está a controlar com [Log Analytics do Azure](../log-analytics/log-analytics-overview.md) no [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), pode criar consultas que filtrar ações com base em critérios específicos. Por exemplo, pode encontrar as mensagens com base num número específico de intercâmbio de controlo.
+Para localizar o AS2, X12 ou EDIFACT mensagens que está a controlar com [Log Analytics do Azure](../log-analytics/log-analytics-overview.md), pode criar consultas que filtrar ações com base em critérios específicos. Por exemplo, pode encontrar as mensagens com base num número específico de intercâmbio de controlo.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -30,41 +30,41 @@ Para localizar o AS2, X12 ou EDIFACT mensagens que está a controlar com [Log An
 
 * Uma conta de integração que está configurada com a monitorização e registo. Saiba [como criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [como configurar a monitorização e o registo para essa conta](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Se ainda não o fez, [publicar dados de diagnóstico ao Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) e [configurar a mensagem de controlo no OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Se ainda não o fez, [publicar dados de diagnóstico ao Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) e [configurar a mensagem de controlo na análise de registos](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Após cumprir os requisitos anteriores, deve ter uma área de trabalho a [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Deve utilizar o mesmo espaço de trabalho do OMS para controlar a sua comunicação B2B no OMS. 
+> Após cumprir os requisitos anteriores, deve ter uma área de trabalho na análise de registos. Deve utilizar o mesmo espaço de trabalho para a sua comunicação B2B na análise de registos de controlo. 
 >  
-> Se não tiver uma área de trabalho do OMS, saiba [como criar uma área de trabalho do OMS](../log-analytics/log-analytics-get-started.md).
+> Se não tiver uma área de trabalho de análise de registos, saiba [como criar uma área de trabalho de análise de registos](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="create-message-queries-with-filters-in-the-operations-management-suite-portal"></a>Criar consultas de mensagens com filtros no portal do Operations Management Suite
+## <a name="create-message-queries-with-filters-in-log-analytics"></a>Criar consultas de mensagens com filtros na análise de registos
 
 Este exemplo mostra como pode encontrar com base no respetivo número de controlo de intercâmbio de mensagens.
 
 > [!TIP] 
-> Se souber o nome de área de trabalho do OMS, aceda à sua home page da área de trabalho (`https://{your-workspace-name}.portal.mms.microsoft.com`) e iniciar o passo 4. Caso contrário, comece no passo 1.
+> Se souber o nome da área de trabalho de análise de registos, aceda à sua home page da área de trabalho (`https://{your-workspace-name}.portal.mms.microsoft.com`) e iniciar o passo 4. Caso contrário, comece no passo 1.
 
 1. No [portal do Azure](https://portal.azure.com), escolha **todos os serviços**. Procure "análise de registos" e, em seguida, escolha **Log Analytics** conforme mostrado aqui:
 
    ![Localizar a análise de registos](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 
-2. Em **Log Analytics**, localize e selecione a sua área de trabalho do OMS.
+2. Em **Log Analytics**, localize e selecione a sua área de trabalho de análise de registos.
 
-   ![Selecione a sua área de trabalho do OMS](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+   ![Selecione a sua área de trabalho de análise de registos](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
 3. Em **gestão**, escolha **Portal do OMS**.
 
    ![Escolha o portal do OMS](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
 
-4. Na sua home page do OMS, escolha **pesquisa registo**.
+4. Na sua home page, escolha **pesquisa registo**.
 
-   ![Na sua home page do OMS, escolha "Registo de pesquisa"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![Na sua home page, escolha "Registo de pesquisa"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    -ou-
 
-   ![No menu do OMS, escolha "Registo de pesquisa"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![No menu, escolha "Registo de pesquisa"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
-5. Na caixa de pesquisa, introduza um campo que pretende localizar e prima **Enter**. Quando começar a escrever, OMS mostra-lhe correspondências possíveis e as operações que pode utilizar. Saiba mais sobre [como localizar dados na análise de registos](../log-analytics/log-analytics-log-searches.md).
+5. Na caixa de pesquisa, introduza um campo que pretende localizar e prima **Enter**. Quando começar a escrever, análise de registos mostra-lhe correspondências possíveis e as operações que pode utilizar. Saiba mais sobre [como localizar dados na análise de registos](../log-analytics/log-analytics-log-searches.md).
 
    Neste exemplo procura para eventos com **tipo = AzureDiagnostics**.
 
@@ -106,15 +106,15 @@ Este exemplo mostra como pode encontrar com base no respetivo número de control
 
    ![Selecione a sua consulta](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
-## <a name="find-and-run-saved-queries-in-the-operations-management-suite-portal"></a>Localizar e executar consultas guardadas no portal do Operations Management Suite
+## <a name="find-and-run-saved-queries-in-log-analytics"></a>Localizar e executar consultas guardadas na análise de registos
 
-1. Abra a sua home page de área de trabalho do OMS (`https://{your-workspace-name}.portal.mms.microsoft.com`) e escolha **pesquisa registo**.
+1. Abra a sua home page de área de trabalho do Log Analytics (`https://{your-workspace-name}.portal.mms.microsoft.com`) e escolha **pesquisa registo**.
 
-   ![Na sua home page do OMS, escolha "Registo de pesquisa"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![Na sua home page da análise de registos, escolha "Registo de pesquisa"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    -ou-
 
-   ![No menu do OMS, escolha "Registo de pesquisa"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![No menu, escolha "Registo de pesquisa"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
 2. No **pesquisa registo** página inicial, escolha **Favoritos**.
 

@@ -1,6 +1,6 @@
 ---
-title: "Cenários e exemplos de governação de subscrição | Microsoft Docs"
-description: "Fornece exemplos de como implementar a governação de subscrição do Azure para cenários comuns."
+title: Cenários e exemplos de governação de subscrição | Microsoft Docs
+description: Fornece exemplos de como implementar a governação de subscrição do Azure para cenários comuns.
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Exemplos para implementar andaime enterprise do Azure
 Este tópico fornece exemplos de como uma empresa pode implementar as recomendações para uma [andaime Azure enterprise](resource-manager-subscription-governance.md). Utiliza uma empresa fictícias com o nome Contoso para ilustrar melhores práticas para cenários comuns.
 
-## <a name="background"></a>Em segundo plano
+## <a name="background"></a>Segundo plano
 Contoso é uma empresa em todo o mundo, que fornece soluções de cadeia de fornecimento de clientes em tudo de um modelo de "Software como um serviço" para um modelo em pacote implementado no local.  Desenvolvem software em todo o mundo com centros de desenvolvimento importantes no Índia, Estados Unidos e Canadá.
 
 A parte de ISV da empresa está dividida em várias unidades de negócio independentes que gerem os produtos num negócio significativo. Cada unidade de negócio tem as suas próprias programadores, gestores de produto e arquitetos de TI.
@@ -56,10 +56,10 @@ Dave atribui as seguintes funções da subscrição:
 
 | Função | Atribuído a | Descrição |
 | --- | --- | --- |
-| [Proprietário](../active-directory/role-based-access-built-in-roles.md#owner) |Gerido ID a partir da Contoso AD |Este ID é controlado com apenas acesso de tempo (JIT) através da ferramenta de gestão de identidades da Contoso e assegura que o acesso de proprietário da subscrição é totalmente auditado |
-| [Gestor de segurança](../active-directory/role-based-access-built-in-roles.md#security-manager) |Segurança e riscos departamento de gestão |Esta função permite aos utilizadores ver o Centro de segurança do Azure e o estado dos recursos |
-| [Contribuidor de Rede](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Equipa de rede |Esta função permite a equipa de rede da Contoso gerir a VPN de Site a Site e as redes virtuais |
-| *Função personalizada* |Proprietário da aplicação |Dave cria uma função que concede a capacidade de modificar recursos no grupo de recursos. Para obter mais informações, consulte [funções personalizadas no Azure RBAC](../active-directory/role-based-access-control-custom-roles.md) |
+| [Proprietário](../role-based-access-control/built-in-roles.md#owner) |Gerido ID a partir da Contoso AD |Este ID é controlado com apenas acesso de tempo (JIT) através da ferramenta de gestão de identidades da Contoso e assegura que o acesso de proprietário da subscrição é totalmente auditado |
+| [Gestor de segurança](../role-based-access-control/built-in-roles.md#security-manager) |Segurança e riscos departamento de gestão |Esta função permite aos utilizadores ver o Centro de segurança do Azure e o estado dos recursos |
+| [Contribuidor de Rede](../role-based-access-control/built-in-roles.md#network-contributor) |Equipa de rede |Esta função permite a equipa de rede da Contoso gerir a VPN de Site a Site e as redes virtuais |
+| *Função personalizada* |Proprietário da aplicação |Dave cria uma função que concede a capacidade de modificar recursos no grupo de recursos. Para obter mais informações, consulte [funções personalizadas no Azure RBAC](../role-based-access-control/custom-roles.md) |
 
 ### <a name="policies"></a>Políticas
 Dave tem os seguintes requisitos para gerir recursos na subscrição:
@@ -86,7 +86,7 @@ Adiciona as seguintes [etiquetas](resource-group-using-tags.md) aos grupos de re
 | Nome da etiqueta | Valor da etiqueta |
 | --- | --- |
 | ApplicationOwner |O nome da pessoa que gere esta aplicação |
-| CostCenter |O Centro de custos do grupo que é pagar o consumo do Azure |
+| Centro de Custo |O Centro de custos do grupo que é pagar o consumo do Azure |
 | BusinessUnit |**ETS** (a unidade de empresas associada à subscrição) |
 
 ### <a name="core-network"></a>Rede principal
@@ -100,7 +100,7 @@ Ele cria os seguintes recursos:
 | Rede Virtual |vnet externo |Disponível para as aplicações futuras que necessitam de pontos finais de destinado ao público |
 | Grupo de segurança de rede |bitbucket nsg |Garante que a superfície de ataque desta carga de trabalho é minimizada ao permitir ligações apenas na porta 443 para a sub-rede onde a aplicação se encontra (`bitbucket`) |
 
-### <a name="resource-locks"></a>Bloqueios de recursos
+### <a name="resource-locks"></a>Bloqueios de recurso
 Dave reconhece que a conectividade da rede da empresa da Contoso para a rede virtual interna deve ser protegida a partir de qualquer wayward script ou a eliminação acidental.
 
 Ele cria as seguintes [bloqueio de recurso](resource-group-lock-resources.md):
@@ -175,7 +175,7 @@ Para o **subscrição de produção**, criarem:
 | Rede Virtual |vnet externo |Aloja a aplicação Loyalty Card e não está ligado diretamente ao ExpressRoute da Contoso. Código é enviado através do seu sistema de código fonte diretamente para os serviços de PaaS |
 | Grupo de segurança de rede |loyaltycard nsg |Garante que a superfície de ataque desta carga de trabalho é minimizada permitindo apenas a comunicação no vinculados no TCP 443.  Contoso é também investigar a utilizar uma Firewall de aplicação Web para a proteção adicional |
 
-### <a name="resource-locks"></a>Bloqueios de recursos
+### <a name="resource-locks"></a>Bloqueios de recurso
 Dave e Alice confer e optar por adicionar alguns dos recursos chaves no ambiente para evitar a eliminação acidental durante um push código errant bloqueios de recursos.
 
 Se criarem o bloqueio seguinte:
@@ -194,5 +194,5 @@ Gestão de serviço de TI da Contoso tem de identificar e processar ameaças rap
 
 Para cumprir estes requisitos, Dave permite que o Centro de segurança do Azure. Ele assegura que o Centro de segurança do Azure está a monitorizar os recursos e fornece acesso para as equipas de DevOps e segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre como criar modelos do Resource Manager, consulte [melhores práticas para a criação de modelos Azure Resource Manager](resource-manager-template-best-practices.md).

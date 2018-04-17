@@ -1,26 +1,24 @@
 ---
-title: "Descrição geral Machine learning - Azure HDInsight | Microsoft Docs"
-description: "Descreve a aprendizagem automática opções no HDInsight."
+title: Descrição geral Machine learning - Azure HDInsight | Microsoft Docs
+description: Descreve a aprendizagem automática opções no HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nitinme
-ms.openlocfilehash: ff99a7a60573cad5e6dd30d4ca48903423e9f87f
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b80c49b67c7cca835ae08346561984e168e3df4e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine learning no HDInsight
 
@@ -50,13 +48,13 @@ O Azure Machine Learning fornece ferramentas para Análise Preditiva modelo, bem
 
 Criar funcionalidades para o cluster de dados num Hadoop do HDInsight utilizando [ramo de registo de consultas](../machine-learning/team-data-science-process/create-features-hive.md). *Engenharia da funcionalidade* tenta aumentar a potência preditiva de algoritmos de aprendizagem através da criação de funcionalidades de dados não processados que facilitam o processo de aprendizagem. Pode executar consultas de HiveQL a partir do Azure ML e aceder a dados processados no ramo de registo e armazenados no blob storage, utilizando o [módulo importar dados](../machine-learning/studio/import-data.md).
 
-## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
+## <a name="microsoft-cognitive-toolkit"></a>Conjunto de Ferramentas Cognitivas da Microsoft
 
 [Learning profunda](https://www.microsoft.com/en-us/research/group/dltc/) é um ramo de aprendizagem que utiliza as redes neurais, inspiradas pelos processos biological do "humana-brain". Os investigadores muitos Consulte learning profunda como uma abordagem promising otimização artificial intelligence. Exemplos de aprendizagem profunda são por tradutores automáticos de idioma ditas, sistemas de reconhecimento de imagem e raciocínio máquina.
 
 Para ajudar a produzir o seu próprio trabalho no learning profunda, a Microsoft desenvolveu o livre, fácil de utilizar, open source [Toolkit de cognitivos](https://www.microsoft.com/en-us/cognitive-toolkit/). Este toolkit está a ser utilizado por uma vasta gama de produtos Microsoft, empresas em todo o mundo com a necessidade de implementar learning profunda em escala e alunos interessados em técnicas e algoritmos mais recente. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 ### <a name="scenarios"></a>Cenários
 

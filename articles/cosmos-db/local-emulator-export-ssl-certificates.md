@@ -1,12 +1,12 @@
 ---
 title: Exportar os certificados de emulador de BD do Cosmos do Azure | Microsoft Docs
-description: "Quando desenvolver em idiomas e tempos de execução que não utilizem o arquivo de certificados do Windows, terá de exportar e gerir os certificados SSL. Esta mensagem fornece instruções passo a passo."
+description: Quando desenvolver em idiomas e tempos de execução que não utilizem o arquivo de certificados do Windows, terá de exportar e gerir os certificados SSL. Esta mensagem fornece instruções passo a passo.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 keywords: Emulador do Cosmos BD do Azure
 author: voellm
-manager: jhubbard
-editor: 
+manager: kfile
+editor: ''
 ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 87d453cd544b3e913209f50e4e08b77282efab39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportar os certificados de emulador de BD do Cosmos do Azure para utilização com o Java, Python e Node.js
 
@@ -93,7 +93,7 @@ Por predefinição o [Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md
 
 Por predefinição o [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) para a API do SQL Server não tente e utilizar o certificado SSL ao estabelecer ligação com o emulador local. Se, no entanto, o que pretende utilizar validação de SSL pode seguir os exemplos de [Node.js documentação](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, fez o seguinte:
 

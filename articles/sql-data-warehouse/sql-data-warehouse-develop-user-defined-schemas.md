@@ -1,27 +1,26 @@
 ---
-title: Esquemas definido pelo utilizador no SQL Data Warehouse | Microsoft Docs
-description: "Sugestões para utilizar os esquemas de Transact-SQL no Azure SQL Data Warehouse para desenvolver soluções."
+title: Utilizar esquemas definido pelo utilizador no SQL Data Warehouse | Microsoft Docs
+description: Sugestões para utilizar esquemas definido pelo utilizador de T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 52af5bd5-d5d3-4f9b-8704-06829fb924e3
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: dfb58956ad6637cf0f50b4c052ab98fb7c26139d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d30434bf3c5e5f27f3a95bcb70bddaf3d92967bd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="user-defined-schemas-in-sql-data-warehouse"></a>Esquemas definido pelo utilizador no SQL Data Warehouse
+# <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Utilizar esquemas definido pelo utilizador no SQL Data Warehouse
+Sugestões para utilizar esquemas definido pelo utilizador de T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
+
+## <a name="schemas-for-application-boundaries"></a>Esquemas de limites de aplicação
+
 Os armazéns de dados tradicionais utilizam frequentemente bases de dados separadas para criar limites de aplicação com base na carga de trabalho, o domínio ou segurança. Por exemplo, um armazém de dados do SQL Server tradicional pode incluir uma base de dados de teste, uma base de dados do armazém de dados e algumas bases de dados do data mart. Nesta topologia, cada base de dados funciona como uma carga de trabalho e o limite de segurança numa arquitetura.
 
 Por outro lado, o SQL Data Warehouse executa a carga de trabalho de armazém de dados completo dentro de uma base de dados. Cruzada da base de dados não são permitidas associações. Por conseguinte, o SQL Data Warehouse espera todas as tabelas utilizadas ao armazém de ser armazenados dentro de uma base de dados.
@@ -120,14 +119,6 @@ FROM    [edw].customer
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
-Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento][development overview].
+## <a name="next-steps"></a>Passos Seguintes
+Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

@@ -1,25 +1,18 @@
 ---
 title: Gateway de dados no local | Microsoft Docs
 description: Um gateway no local é necessário se o servidor de Analysis Services no Azure irá ligar a origens de dados no local.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/03/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: f38faf4d75125201ee209eb40c9f223a0487f042
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: minewiskan
+ms.openlocfilehash: 5d327f016237890b506f45c4c494bd08ad2f71bb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>A ligar a origens de dados no local com o Gateway de dados do Azure no local
 O gateway de dados no local atua como uma ponte, fornecer transferência de proteger os dados entre origens de dados no local e os servidores de serviços de análise do Azure na nuvem. Para além de trabalhar com múltiplos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway é também funciona com Azure Logic Apps, Power BI, aplicações de energia e Flow Microsoft. Pode associar vários serviços na mesma região com um único gateway. 
@@ -162,7 +155,7 @@ Muitos problemas podem superfície quando a versão do gateway fica desatualizad
 
 Pode obter este erro se tentar instalar o gateway num controlador de domínio, que não é suportado. Certifique-se de que implementar o gateway num computador que não é um controlador de domínio.
 
-## <a name="logs"></a>Logs
+## <a name="logs"></a>Registos
 
 Ficheiros de registo são um recurso importante quando a resolução de problemas.
 

@@ -1,24 +1,18 @@
 ---
-title: "Gerir serviços de análise do Azure com o PowerShell | Microsoft Docs"
-description: "Gestão de Analysis Services do Azure com o PowerShell."
-services: analysis-services
-documentationcenter: 
+title: Gerir serviços de análise do Azure com o PowerShell | Microsoft Docs
+description: Gestão de Analysis Services do Azure com o PowerShell.
 author: minewiskan
 manager: kfile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: reference
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 0e154c7789b38843cd3784daa8cf60d078bdc546
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: c7315835bca446c4cae592f4bdd58a733b203655
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerir serviços de análise do Azure com o PowerShell
 
@@ -29,7 +23,7 @@ Tarefas de gestão de servidor, tais como criar ou eliminar um servidor, suspend
 ## <a name="permissions"></a>Permissões
 A maioria das tarefas de PowerShell necessitam de que ter privilégios de administrador no servidor do Analysis Services que está a gerir. Tarefas agendadas do PowerShell são operações autónomas. A conta que executa o programador tem de ter privilégios de administrador no servidor do Analysis Services. 
 
-Para operações de servidores utilizando AzureRm cmdlets, a conta ou a conta que executa o programador tem também de pertencer à função de proprietário para o recurso no [controlo de acesso em funções do Azure (RBAC)](../active-directory/role-based-access-control-what-is.md). 
+Para operações de servidores utilizando AzureRm cmdlets, a conta ou a conta que executa o programador tem também de pertencer à função de proprietário para o recurso no [controlo de acesso em funções do Azure (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="server-operations"></a>Operações do servidor 
 Cmdlets de Analysis Services do Azure estão incluídos no [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) módulo de componente. Para instalar os módulos do cmdlet AzureRM, consulte [cmdlets do Azure Resource Manager](/powershell/azure/overview) na galeria do PowerShell.
@@ -60,7 +54,7 @@ O módulo de SqlServer fornece cmdlets de gestão de base de dados específicas 
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remova um membro de uma função de base de dados.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Execute um script TMSL.|
 |[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Processar uma base de dados.|  
-|[Invoke-ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Processar uma partição.| 
+|[ProcessPartition invocar](https://msdn.microsoft.com/library/hh510164.aspx)|Processar uma partição.| 
 |[Invoke-ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Processo de uma tabela.|  
 |[Merge-Partition](https://msdn.microsoft.com/library/hh479576.aspx)|Uma partição de intercalação.|  
 |[Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Restaure uma base de dados do Analysis Services.| 

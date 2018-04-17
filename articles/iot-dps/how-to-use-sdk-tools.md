@@ -1,25 +1,25 @@
 ---
-title: "Utilizar ferramentas fornecidas no Azure dispositivo aprovisionamento serviço SDKs do IoT Hub para simplificar o desenvolvimento"
-description: "Este documento revê as ferramentas fornecidas no SDKs de serviço aprovisionamento a dispositivo do Azure IoT Hub para o desenvolvimento"
+title: Utilizar ferramentas fornecidas no Azure dispositivo aprovisionamento serviço SDKs do IoT Hub para simplificar o desenvolvimento
+description: Este documento revê as ferramentas fornecidas no SDKs de serviço aprovisionamento a dispositivo do Azure IoT Hub para o desenvolvimento
 services: iot-dps
-keywords: 
+keywords: ''
 author: yzhong94
 ms.author: yizhon
-ms.date: 01/18/2018
+ms.date: 04/09/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 76c6f64dea202f661691fafaa78a6d77b4a40f14
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a7e1a55bcfc8c7a8f76416fb12edf712340fadd2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Como utilizar ferramentas fornecidas nos SDKs para simplificar o desenvolvimento para o aprovisionamento
-O serviço de aprovisionamento de dispositivos do IoT Hub simplifica o processo de aprovisionamento com zero touch, just-in-time o aprovisionamento de forma segura e escalável.  É necessário o atestado de segurança no formato de certificado x. 509 ou Trusted Platform Module (TPM).  Microsoft também é partnering com [restantes parceiros de hardware de segurança](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para melhorar a confiança na proteger a implementação de IoT. Noções sobre o requisito de segurança de hardware pode ser bastante difícil para os programadores. Um conjunto de SDKs Service de aprovisionamento do IoT do Azure são fornecidos para que os programadores podem utilizar uma camada de conveniência para clientes de escrita que comuniquem com o serviço de aprovisionamento. Os SDKs também fornecem exemplos para cenários comuns, bem como um conjunto de ferramentas para simplificar o atestado de segurança de desenvolvimento.
+O serviço de aprovisionamento de dispositivos do IoT Hub simplifica o processo de aprovisionamento com zero-touch, just-in-time [aprovisionamento automático](concepts-auto-provisioning.md) de forma segura e escalável.  É necessário o atestado de segurança no formato de certificado x. 509 ou Trusted Platform Module (TPM).  Microsoft também é partnering com [restantes parceiros de hardware de segurança](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para melhorar a confiança na proteger a implementação de IoT. Noções sobre o requisito de segurança de hardware pode ser bastante difícil para os programadores. Um conjunto de SDKs Service de aprovisionamento do IoT do Azure são fornecidos para que os programadores podem utilizar uma camada de conveniência para clientes de escrita que comuniquem com o serviço de aprovisionamento. Os SDKs também fornecem exemplos para cenários comuns, bem como um conjunto de ferramentas para simplificar o atestado de segurança de desenvolvimento.
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>Fidedigna simulador de Platform Module (TPM)
 [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security#trusted-platform-module-tpm) pode fazer referência a um padrão para armazenar as chaves para a plataforma de autenticar de forma segura, ou podem referir-se para a interface de e/s utilizada para interagir com os módulos implementar padrão. Podem existir TPMs como hardware discreta, integrada hardware, firmware, funções ou baseada em software.  Na produção, TPM está localizado no dispositivo, como hardware discreta, hardware integrada, baseado no firmware ou. Na fase de teste, é fornecido um simulador TPM com base em software para os programadores.  Este simulador só está disponível para o desenvolvimento na plataforma do Windows por agora.
@@ -56,7 +56,7 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 2. Altere a raiz para o azure-iot-sdk-java.
 3. Executar ```mvn install -DskipTests=true``` transferir pacotes todos requeridos e compile o SDK
 4. Navegue para a raiz para o gerador de certificado x. 509 no ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator```.
-5. Criar com o```mvn clean install```
+5. Criar com o ```mvn clean install```
 6. Execute a ferramenta com os comandos seguintes:
 ```
 cd target

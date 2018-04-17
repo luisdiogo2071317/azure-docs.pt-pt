@@ -14,13 +14,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e8cb5df31a87f72c9947f78c25a41b74399b3727
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b54138c5197d1c5870eed6fd4782e47c6a8b0300
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o desempenho de atividade e o guia de otimização
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Versão 1 - GA](data-factory-copy-activity-performance.md)
+> * [Versão 2 - Pré-visualização](../copy-activity-performance.md)
+
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [copiar o desempenho de atividade e o guia de otimização para versão 2 do Data Factory](../copy-activity-performance.md).
 
@@ -203,10 +208,10 @@ Configurar o **enableStaging** definição na atividade de cópia para especific
 
 | Propriedade | Descrição | Valor predefinido | Necessário |
 | --- | --- | --- | --- |
-| **enableStaging** |Especifique se pretende copiar os dados através de um provisório arquivo de teste. |Falso |Não |
+| **enableStaging** |Especifique se pretende copiar os dados através de um provisório arquivo de teste. |False |Não |
 | **linkedServiceName** |Especifique o nome de um [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) serviço, que se refere à instância de armazenamento que utilizar como um arquivo de transição provisória ligado. <br/><br/> Não é possível utilizar o armazenamento com uma assinatura de acesso partilhado para carregar dados para o SQL Data Warehouse através do PolyBase. Pode utilizá-lo em todos os outros cenários. |N/A |Sim, quando **enableStaging** está definido como verdadeiro |
 | **path** |Especifique o caminho de armazenamento de BLOBs que pretende que contêm os dados de teste. Se não fornecer um caminho, o serviço cria um contentor para armazenar dados temporários. <br/><br/> Especifique um caminho de apenas se utilizar o armazenamento com uma assinatura de acesso partilhado ou exigir temporários de dados numa localização específica. |N/A |Não |
-| **enableCompression** |Especifica se os dados devem ser comprimidos antes que seja copiado para o destino. Esta definição reduz o volume de dados a serem transferidos. |Falso |Não |
+| **enableCompression** |Especifica se os dados devem ser comprimidos antes que seja copiado para o destino. Esta definição reduz o volume de dados a serem transferidos. |False |Não |
 
 Segue-se uma definição de exemplo de atividade de cópia com as propriedades descritas na tabela anterior:
 
@@ -248,7 +253,7 @@ Sugerimos que siga estes passos para otimizar o desempenho do seu serviço do Da
 
    Recolher o tempo de execução e as características de desempenho, utilizando o **monitorização e gestão de aplicações**. Escolha **Monitor & Gerir** na sua home page da fábrica de dados. Na vista de árvore, escolha o **conjunto de dados de saída**. No **atividade Windows** lista, escolha a execução da atividade de cópia. **Atividade Windows** lista a duração de atividade de cópia e o tamanho dos dados copiados. O débito está listado no **Explorador de janela de atividade**. Para saber mais sobre a aplicação, consulte [monitorizar e gerir pipelines do Azure Data Factory, utilizando a monitorização e a aplicação de gestão](data-factory-monitor-manage-app.md).
 
-   ![Detalhes da execução da atividade](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
+   ![Detalhes de execução da atividade](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
 
    O artigo, pode comparar o desempenho e a configuração do seu cenário para a atividade de cópia [referência de desempenho](#performance-reference) dos nossos testes.
 2. **Diagnosticar e otimizar o desempenho**. Se o desempenho que observar não cumprir as suas expectativas, tem de identificar constrangimentos de desempenho. Em seguida, Otimize o desempenho para remover ou minimizar o efeito de constrangimentos. Uma descrição completa de diagnóstico de desempenho ultrapassa o âmbito deste artigo, mas aqui estão algumas considerações comuns:

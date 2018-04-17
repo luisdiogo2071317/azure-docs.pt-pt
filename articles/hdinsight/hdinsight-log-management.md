@@ -1,28 +1,26 @@
 ---
 title: Gerir registos para um cluster do HDInsight - Azure HDInsight | Microsoft Docs
-description: "Determine os tipos, tamanhos e políticas de retenção para os ficheiros de registo de atividade do HDInsight."
+description: Determine os tipos, tamanhos e políticas de retenção para os ficheiros de registo de atividade do HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: a161a5c639ff02e1e8a2ea987d9f913ff41c5618
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 165464bd6851bf5fa76632731455722c393060c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos para um cluster do HDInsight
+# <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
 Um cluster do HDInsight produz uma variedade de ficheiros de registo. Por exemplo, o Apache Hadoop e serviços relacionados, tais como o Apache Spark produzem registos de execução da tarefa de detalhado. Gestão de ficheiros de registo faz parte da manutenção de um cluster do HDInsight em bom estado. Também pode ser requisitos regulamentares para arquivar de registo.  Devido ao número e tamanho dos ficheiros de registo, otimizar o armazenamento de registo e o arquivamento ajuda-o com o serviço Gestão de custo.
 
@@ -179,8 +177,8 @@ Pode utilizar o SDK .NET do Hadoop para examinar os ficheiros de registo gerados
 
 Para controlar o tamanho e o número de ficheiros de registo retidos, defina as seguintes propriedades do `RollingFileAppender`:
 
-* `maxFileSize`é o tamanho do ficheiro, acima, que o ficheiro é revertido crítico. O valor predefinido é de 10 MB.
-* `maxBackupIndex`Especifica o número de ficheiros de cópia de segurança criados, predefinição 1.
+* `maxFileSize` é o tamanho do ficheiro, acima, que o ficheiro é revertido crítico. O valor predefinido é de 10 MB.
+* `maxBackupIndex` Especifica o número de ficheiros de cópia de segurança criados, predefinição 1.
 
 ### <a name="other-log-management-techniques"></a>Outras técnicas de gestão do registo
 

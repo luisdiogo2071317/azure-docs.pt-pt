@@ -2,10 +2,10 @@
 title: Invocar programas de Spark de Azure Data Factory | Microsoft Docs
 description: Saiba como invocar programas de Spark de um Azure data factory, utilizando a atividade de MapReduce.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas de Spark do Azure Data Factory pipelines
 
@@ -59,7 +59,7 @@ Eis os passos típicos para criar um pipeline de fábrica de dados com uma ativi
 
 2. Criar um cluster do Spark no HDInsight ao seguir as instruções do tutorial [criar um cluster do Spark no HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associe a conta de armazenamento que criou no passo 1, com este cluster.
 
-3. Transferir e rever o ficheiro de script de Python **test.py** localizado em [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+3. Transferir e rever o ficheiro de script de Python **test.py** localizado em [ https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py ](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
 4. Carregar **test.py** para o **pyFiles** pasta o **adfspark** contentor de armazenamento de Blobs. Crie o contentor e a pasta, caso não existam.
 
@@ -84,7 +84,7 @@ Para criar uma fábrica de dados, siga estes passos:
 7. Selecione **Criar**.
 
    > [!IMPORTANT]
-   > Para criar instâncias do Data Factory, tem de ser um membro da função [Contribuinte do Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) ao nível da subscrição/grupo de recursos.
+   > Para criar instâncias do Data Factory, tem de ser um membro da função [Contribuinte do Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) ao nível da subscrição/grupo de recursos.
 
 8. Verá a fábrica de dados enquanto está a ser criado no dashboard do portal do Azure.
 
@@ -352,7 +352,7 @@ Crie a seguinte estrutura de pasta no armazenamento de BLOBs referenciado pelo s
 | . | O caminho da raiz da tarefa do Spark no serviço ligado de armazenamento. | Sim | Pasta |
 | &lt;Definido pelo utilizador &gt; | O caminho que aponta para o ficheiro de entrada da tarefa de Spark. | Sim | Ficheiro |
 | . / jars | Todos os ficheiros desta pasta são carregados e colocados a classpath Java do cluster. | Não | Pasta |
-| ./pyFiles | Todos os ficheiros desta pasta são carregados e colocados PYTHONPATH do cluster. | Não | Pasta |
+| . / pyFiles | Todos os ficheiros desta pasta são carregados e colocados PYTHONPATH do cluster. | Não | Pasta |
 | . / ficheiros | Todos os ficheiros desta pasta são carregados e colocados no diretório de trabalho de executor. | Não | Pasta |
 | . / arquiva | Todos os ficheiros desta pasta são descomprimidos. | Não | Pasta |
 | . / registos | A pasta onde estão armazenados os registos do cluster do Spark.| Não | Pasta |

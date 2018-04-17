@@ -1,24 +1,24 @@
 ---
 title: Como utilizar o Table Storage do Azure e a API de tabela de base de dados do Azure Cosmos com Ruby | Microsoft Docs
-description: "Armazene dados estruturados na nuvem através do Table Storage do Azure, um arquivo de dados NoSQL."
+description: Armazene dados estruturados na nuvem através do Table Storage do Azure, um arquivo de dados NoSQL.
 services: cosmos-db
 documentationcenter: ruby
-author: mimig1
-manager: jhubbard
-editor: 
+author: SnehaGunda
+manager: kfile
+editor: ''
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 02/27/2018
-ms.author: mimig
-ms.openlocfilehash: 104d793826116462f71e4889386906256b2df8f8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: 19ffdab40b3032421612ef4ba1b840eeb0d2e62b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-ruby"></a>Como utilizar o Table Storage do Azure e a API de tabela de base de dados do Azure Cosmos com Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -27,9 +27,14 @@ ms.lasthandoff: 03/08/2018
 ## <a name="overview"></a>Descrição geral
 Este guia mostra como efetuar cenários comuns utilizando o serviço de tabelas do Azure e a API de tabela de base de dados do Azure Cosmos. Os exemplos são escritos no Ruby e utilize o [biblioteca cliente de tabela de armazenamento do Azure para Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Os cenários abrangidos incluem **criar e eliminar uma tabela e a inserção e consultar entidades numa tabela**.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+### <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta de API de tabela de base de dados do Azure Cosmos
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="add-access-to-storage-or-azure-cosmos-db"></a>Adicione o acesso a armazenamento ou base de dados do Azure Cosmos
 Para utilizar o Storage do Azure ou a base de dados do Azure Cosmos, tem de transferir e utilizar o pacote de Ruby Azure inclui um conjunto de bibliotecas de conveniência que comunicam com os serviços de REST de tabela.

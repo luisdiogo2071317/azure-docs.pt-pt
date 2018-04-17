@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 3d378d188d9acec06f37ca91e3c67e82fb31fc08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>O Azure AD B2C: Início de sessão (SSO) sessão gestão único
 
@@ -47,6 +47,9 @@ Como o nome dita, este fornecedor não produz qualquer efeito. Este fornecedor p
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
 Este fornecedor pode ser utilizado para armazenar afirmações numa sessão. Este fornecedor, normalmente, é referenciado num perfil técnico utilizado para gerir contas locais. 
+
+> [!NOTE]
+> Quando utilizar o DefaultSSOSessionProvider para armazenar afirmações numa sessão, terá de garantir que quaisquer afirmações que precisam de ser reencaminhado para a aplicação ou é utilizado pelas condições prévias nos passos subsequentes, são armazenados na sessão ou aumentado mediante uma leitura do perfil de utilizadores no diretório. Isto irá garantir que da sua autenticação viagem não serão ativadas nas afirmações em falta.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">

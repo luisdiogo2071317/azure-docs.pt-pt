@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d284277f600465345be0058468192f2f5609d89
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0bc24fb0206455c723acf5e6f4b82d82002f727c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar os dados de ou para o Azure SQL Data Warehouse, utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -99,9 +99,9 @@ Para utilizar o serviço principal autenticação com base em AAD aplicação to
 
 1. **[Criar uma aplicação do Azure Active Directory a partir do portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Anote o nome da aplicação e os valores seguintes que utilizar para definir o serviço ligado:
 
-    - ID da aplicação
+    - ID da Aplicação
     - Chave da aplicação
-    - ID do inquilino
+    - ID do Inquilino
 
 2. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  para o servidor de SQL do Azure no portal do Azure se ainda não o feito. O administrador AAD pode ser um utilizador do AAD ou grupo AAD. Se conceder o grupo com MSI uma função de administrador, ignore o passo 3 e 4 abaixo, o administrador iria têm acesso total à BD.
 
@@ -130,7 +130,7 @@ Para utilizar o serviço principal autenticação com base em AAD aplicação to
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             },
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
@@ -353,7 +353,7 @@ Para copiar dados para o Azure SQL Data Warehouse, defina o tipo de sink na ativ
 | useTypeDefault |Especifica como processar os valores em falta nos ficheiros de texto delimitado quando PolyBase obtém dados a partir do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade da secção de argumentos no [criar formato de ficheiro externo (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Valores permitidos são: **verdadeiro**, **falso** (predefinição). |Não |
 | writeBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. Aplica-se apenas quando não for utilizado o PolyBase.<br/><br/>Valores permitidos são: número inteiro (número de linhas). |Não (a predefinição é 10000) |
 | writeBatchTimeout |De tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite. Aplica-se apenas quando não for utilizado o PolyBase.<br/><br/>Valores permitidos são: timespan. Exemplo: "00: 30:00" (30 minutos). |Não |
-| preCopyScript |Especifique uma consulta de SQL Server ser executado antes de escrever dados no Azure SQL Data Warehouse em cada execução de atividade de cópia. Pode utilizar esta propriedade para limpar os dados previamente carregados. |Não |(#repeatability-during-copy). |Uma instrução de consulta. |Não |
+| preCopyScript |Especifique uma consulta de SQL Server ser executado antes de escrever dados no Azure SQL Data Warehouse em cada execução de atividade de cópia. Pode utilizar esta propriedade para limpar os dados previamente carregados. |Não |(#repeatability durante-cópia). |Uma instrução de consulta. |Não |
 
 **Exemplo:**
 
@@ -516,7 +516,7 @@ Para obter uma melhor débito possíveis, considere atribuir uma maior classe de
 
 A tabela seguinte fornece exemplos sobre como especificar o **tableName** propriedade no conjunto de dados JSON para várias combinações de nome de esquema e de tabela.
 
-| DB Schema | Nome da tabela | propriedade JSON tableName |
+| Esquema da BD | Nome da tabela | propriedade JSON tableName |
 | --- | --- | --- |
 | dbo |MyTable |MyTable ou dbo. MyTable ou [dbo]. [MyTable] |
 | dbo1 |MyTable |dbo1. MyTable ou [dbo1]. [MyTable] |
@@ -548,7 +548,7 @@ Quando copiar dados de/para o Azure SQL Data Warehouse, os seguintes mapeamentos
 | bigint |Int64 |
 | Binário |Byte[] |
 | bits |Booleano |
-| char |String, Char[] |
+| char |Cadeia, Char [] |
 | data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
@@ -559,23 +559,23 @@ Quando copiar dados de/para o Azure SQL Data Warehouse, os seguintes mapeamentos
 | Imagem |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |
-| nchar |String, Char[] |
-| ntext |String, Char[] |
+| nchar |Cadeia, Char [] |
+| ntext |Cadeia, Char [] |
 | um valor numérico |Decimal |
-| nvarchar |String, Char[] |
-| real |Solteiro |
+| nvarchar |Cadeia, Char [] |
+| real |Único |
 | ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | em smallmoney |Decimal |
 | sql_variant |Objeto * |
-| Texto |String, Char[] |
-| hora |TimeSpan |
+| Texto |Cadeia, Char [] |
+| tempo |TimeSpan |
 | carimbo de data/hora |Byte[] |
 | tinyint |Bytes |
 | uniqueidentifier |GUID |
 | varbinary |Byte[] |
-| varchar |String, Char[] |
+| varchar |Cadeia, Char [] |
 | xml |Xml |
 
 ## <a name="next-steps"></a>Passos Seguintes

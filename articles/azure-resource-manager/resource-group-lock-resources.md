@@ -1,8 +1,8 @@
 ---
-title: "Recursos do Azure para impedir que as alterações de bloqueio | Microsoft Docs"
-description: "Impedir que utilizadores atualizar ou eliminar os recursos do Azure críticos aplicando um bloqueio para todos os utilizadores e funções."
+title: Recursos do Azure para impedir que as alterações de bloqueio | Microsoft Docs
+description: Impedir que utilizadores atualizar ou eliminar os recursos do Azure críticos aplicando um bloqueio para todos os utilizadores e funções.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6832bd6dfb136b944a752ae61da74465a01c80a4
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9edf49a404e5030c05acf17efcbc66123c67ad62
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Recursos de bloqueio para impedir que as alterações inesperadas 
 
@@ -31,7 +31,7 @@ Como administrador, poderá ter de bloquear uma subscrição, grupo de recursos 
 
 Ao aplicar um bloqueio num âmbito principal, todos os recursos desse âmbito herdam o bloqueio do mesmo. Recursos mesmo que adicionar mais tarde herdam o bloqueio do principal. O bloqueio mais restritivo na herança tem precedência.
 
-Ao contrário do controlo de acesso baseado em funções, utilize as bloqueios de gestão para aplicar uma restrição em todos os utilizadores e funções. Para saber mais sobre a definição de permissões de utilizadores e funções, consulte [controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md).
+Ao contrário do controlo de acesso baseado em funções, utilize as bloqueios de gestão para aplicar uma restrição em todos os utilizadores e funções. Para saber mais sobre a definição de permissões de utilizadores e funções, consulte [controlo de acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md).
 
 Bloqueios de Gestor de recursos são aplicadas apenas a operações acontecer na plane a gestão, que consiste em operações de envio para `https://management.azure.com`. Os bloqueios restringe como recursos executar as suas próprias funções. Alterações de recurso estão limitadas, mas as operações de recurso não estão restringidas. Por exemplo, um bloqueio de só de leitura de uma base de dados do SQL Server impede-o de eliminar ou modificar a base de dados, mas não o impede de criar, atualizar ou eliminar dados na base de dados. Transações de dados permitidas por essas operações não são enviadas para `https://management.azure.com`.
 

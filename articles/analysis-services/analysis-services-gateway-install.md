@@ -1,25 +1,18 @@
 ---
 title: Instalar o gateway de dados no local | Microsoft Docs
 description: Saiba como instalar e configurar um gateway de dados no local.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/03/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: minewiskan
+ms.openlocfilehash: 5a923d3b5fbb5e7afe5f2a922ba083608ff35fd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
 Um gateway de dados no local é necessário quando um ou mais servidores do Azure Analysis Services na mesma região ligarem a origens de dados no local. Para saber mais sobre o gateway, consulte [gateway de dados no local](analysis-services-gateway.md).
@@ -27,7 +20,7 @@ Um gateway de dados no local é necessário quando um ou mais servidores do Azur
 ## <a name="prerequisites"></a>Pré-requisitos
 **Requisitos mínimos:**
 
-* .NET 4.5 Framework
+* 4.5 do .NET framework
 * versão de 64 bits do Windows 7 / Windows Server 2008 R2 (ou posterior)
 
 **Recomendado:**
@@ -44,7 +37,7 @@ Um gateway de dados no local é necessário quando um ou mais servidores do Azur
 * Instale o gateway num computador que permanece no e não aceda a suspender.
 * Não instale o gateway num computador wirelessly ligado à sua rede. Desempenho pode ser o seu.
 * Inicie sessão no Azure com uma conta no Azure AD para o mesmo [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) como a subscrição que está a registar o gateway. Azure B2B contas (convidado) não são suportadas quando instalar e registar um gateway.
-* O gateway (unificado) descrito aqui não é suportado no Azure Government (Fairfax). Utilize o gateway de dedicado no local para Azure Analysis Services. O gateway dedicado não suporta serviços adicionais, como o Power BI e aplicações de energia. Gateway dedicado está instalado dos seus servidores de início rápido no portal.
+* O gateway (unificado) descrito aqui não é suportado em regiões sovereign Azure Government, Datacenters do Azure e Azure China. Utilize **dedicado gateway no local para Azure Analysis Services**, instalado a partir do seu servidor **início rápido** no portal. 
 
 
 ## <a name="download"></a>Transferir
@@ -60,7 +53,7 @@ Um gateway de dados no local é necessário quando um ou mais servidores do Azur
 
 3. Inicie sessão no Azure. A conta tem de ser do Azure Active Directory seu inquilino. Esta conta é utilizada para o administrador do gateway. Azure B2B contas (convidado) não são suportadas quando instalar e registar o gateway.
 
-   ![Iniciar sessão no Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![Inicie sessão no  Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
    > Se iniciar sessão com uma conta de domínio, está mapeada para a sua conta organizacional no Azure AD. A conta institucional é utilizada como o administrador do gateway.

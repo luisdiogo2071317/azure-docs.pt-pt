@@ -1,16 +1,16 @@
 ---
-title: "Refinar um grupo de avaliação com mapeamento de dependência de grupo no Azure migrar | Microsoft Docs"
-description: "Descreve como refinar uma avaliação utilizando o mapeamento de grupo de dependência no serviço Azure migrar."
+title: Refinar um grupo de avaliação com mapeamento de dependência de grupo no Azure migrar | Microsoft Docs
+description: Descreve como refinar uma avaliação utilizando o mapeamento de grupo de dependência no serviço Azure migrar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: raynew
-ms.openlocfilehash: 3b10765894501791004e3a9221363f196cc0c91d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a7c1dcae5708164252fa04a0fd1471eb1ae9bf90
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo utilizando o mapeamento de grupo de dependência
 
@@ -37,8 +37,8 @@ Para instalar o agente num computador Windows:
 1. Faça duplo clique o agente transferido.
 2. Na página **Bem-vindo**, clique em **Seguinte**. No **termos de licenciamento** página, clique em **concordo** para aceitar a licença.
 3. No **pasta de destino**, manter ou modificar a pasta de instalação predefinida > **seguinte**. 
-4. No **opções de configuração do agente**, selecione **análise de registos do Azure (OMS)** > **seguinte**. 
-5. Clique em **adicionar** para adicionar uma nova área de trabalho do OMS. Colar o ID da área de trabalho e a chave que copiou do portal. Clique em **Seguinte**.
+4. No **opções de configuração do agente**, selecione **Log Analytics do Azure** > **seguinte**. 
+5. Clique em **adicionar** para adicionar uma nova área de trabalho de análise de registos. Colar o ID da área de trabalho e a chave que copiou do portal. Clique em **Seguinte**.
 
 
 Para instalar o agente num computador Linux:

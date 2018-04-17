@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: b13e31be58502d670b11dace1f646b0632a2f039
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c3d80fcaa38d0f1d7fa1770879ca9b40642bb796
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte de gráfico do Cosmos Gremlin de BD do Azure
 BD do Azure do Cosmos suporta [do Apache Tinkerpop](http://tinkerpop.apache.org) idioma transversal, da graph [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma API de gráfico para criar entidades do gráfico e efetuar operações de consulta do gráfico. Pode utilizar o idioma de Gremlin para criar entidades do gráfico (vértices e contornos), modifique propriedades dentro desses entidades, executar consultas e traversals e eliminar entidades. 
@@ -80,10 +80,10 @@ A tabela seguinte lista as funcionalidades de TinkerPop que são implementadas p
 | --- | --- | --- |
 | Funcionalidades de gráfico | Fornece a persistência e ConcurrentAccess. Foi concebido para suportar transações | Métodos de computador podem ser implementados através do conector do Spark. |
 | Funcionalidades de variável | Suporta booleano, número inteiro, Byte, faça duplo, Float, Integer, longa, cadeia | Suporta tipos primitivos, é compatível com tipos complexos através do modelo de dados |
-| Funcionalidades de vértice | Supports RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Suporta a criar, modificar e eliminar vértices |
-| Funcionalidades de propriedade de vértice | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Suporta a criar, modificar e eliminar as propriedades de vértice |
-| Funcionalidades de limite | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Suporta a criar, modificar e eliminar contornos |
-| Funcionalidades de propriedade de limite | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Suporta a criar, modificar e eliminar as propriedades de limite |
+| Funcionalidades de vértice | Suporta RemoveVertices MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Suporta a criar, modificar e eliminar vértices |
+| Funcionalidades de propriedade de vértice | StringIds UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Suporta a criar, modificar e eliminar as propriedades de vértice |
+| Funcionalidades de limite | AddEdges RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Suporta a criar, modificar e eliminar contornos |
+| Funcionalidades de propriedade de limite | Propriedades, BooleanValues ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Suporta a criar, modificar e eliminar as propriedades de limite |
 
 ## <a name="gremlin-wire-format-graphson"></a>Formato de wire gremlin: GraphSON
 
@@ -154,18 +154,12 @@ Cada propriedade pode armazenar vários valores dentro de uma matriz.
 | --- | --- |
 | valor | O valor da propriedade
 
-## <a name="gremlin-partitioning"></a>A criação de partições de gremlin
-
-Na base de dados do Azure Cosmos, gráficos são armazenados no contentores que podem ser dimensionados independentemente em termos de débito (expressado em normalizado pedidos por segundo) e de armazenamento. Cada contentor tem de definir opcional mas recomendado a propriedade de chave de partição que determina um limite de lógica de partição para dados relacionados. Cada vértice/contorno tem de ter um `id` propriedade que seja exclusiva para entidades dentro desse valor de chave de partição. Os detalhes são abordados em [criação de partições do BD Azure Cosmos](partition-data.md).
-
-Operações de gremlin funcionam sem problemas em dados de gráfico que abrangem várias partições do BD Azure Cosmos. No entanto, é recomendado para escolher uma chave de partição para os gráficos que costuma é utilizada como um filtro em consultas, tem vários valores distintos e frequência semelhante de aceder a estes valores. 
-
 ## <a name="gremlin-steps"></a>Passos de gremlin
 Agora vamos ver os passos de Gremlin suportados pelo Azure Cosmos DB. Para uma referência completa no Gremlin, consulte [TinkerPop referência](http://tinkerpop.apache.org/docs/current/reference).
 
 | Passo | Descrição | Documentação de TinkerPop 3.2 |
 | --- | --- | --- |
-| `addE` | Adiciona uma extremidade entre duas vértices | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addE` | Adiciona uma extremidade entre duas vértices | [passo addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
 | `addV` | Adiciona um vértice ao gráfico | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
 | `and` | Garante que todos os traversals devolvem um valor | [e passo](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
 | `as` | Modulator um passo para atribuir uma variável para o resultado de um passo | [como passo](http://tinkerpop.apache.org/docs/current/reference/#as-step) |

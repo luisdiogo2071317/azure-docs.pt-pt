@@ -1,25 +1,18 @@
 ---
-title: "Lição suplementar do tutorial do Azure Analysis Services: Linhas detalhadas | Microsoft Docs"
-description: "Descreve como criar uma expressão das linhas detalhadas no tutorial do Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lição suplementar do tutorial do Azure Analysis Services: Linhas detalhadas | Microsoft Docs'
+description: Descreve como criar uma expressão das linhas detalhadas no tutorial do Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: 02e9edd966e64c0bfa32e2b80f4c26f797e58582
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lição suplementar - Linhas Detalhadas
 
@@ -31,19 +24,19 @@ Tempo estimado para concluir esta lição: **10 minutos**
 Esta lição suplementar faz parte de um tutorial de modelação em tabela. Antes de executar as tarefas nesta lição suplementar, deve concluir todas as lições anteriores ou ter concluído um projeto de modelo de exemplo de vendas na Internet Adventure Works.  
   
 ## <a name="whats-the-issue"></a>Qual é o problema?
-Vamos examinar os detalhes da nossa medida InternetTotalSales antes de adicionar uma expressão de linhas detalhadas.
+Vamos ver os detalhes da medida InternetTotalSales, antes de adicionar uma expressão de linhas de detalhe.
 
 1.  No SSDT, clique no menu **Modelo** > **Analyze em Excel** para abrir o Excel e criar uma tabela dinâmica em branco.
   
-2.  Em **PivotTable Fields**, adicione as medidas **InternetTotalSales** da tabela FactInternetSales para **Valores**, **CalendarYear** da tabela DimDate para **Colunas** e **EnglishCountryRegionName** para **Linhas**. A Tabela Dinâmica oferece-nos agora os resultados agregados das medidas InternetTotalSales por regiões e ano. 
+2.  Em **PivotTable Fields**, adicione as medidas **InternetTotalSales** da tabela FactInternetSales para **Valores**, **CalendarYear** da tabela DimDate para **Colunas** e **EnglishCountryRegionName** para **Linhas**. A tabela dinâmica fornece agora um agregado resultados da medida à InternetTotalSales regiões e ano. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. Na tabela dinâmica, clique duas vezes num valor agregado para um ano e num nome de região. Aqui devemos clicar duas vezes no valor para a Austrália para o ano de 2014. É aberta uma nova folha de cálculo que contém dados, mas os dados não são úteis.
+3. Na tabela dinâmica, clique duas vezes num valor agregado para um ano e num nome de região. O valor para a Austrália e o ano de 2014. É aberta uma nova folha de cálculo que contém dados, mas os dados não são úteis.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-Gostaríamos de ver aqui uma tabela com contém colunas e linhas de dados que contribuem para o resultado agregado da nossa medida InternetTotalSales. Para fazer isso, podemos adicionar uma expressão de linhas detalhadas como uma propriedade da medida.
+O objetivo aqui é uma tabela que contém as colunas e linhas de dados que contribuem para o resultado da medida InternetTotalSales agregado. Para tal, adicione uma expressão de linhas de detalhe como uma propriedade da medida.
 
 ## <a name="add-a-detail-rows-expression"></a>Adicionar uma expressão de linhas detalhadas
 
@@ -79,7 +72,9 @@ Gostaríamos de ver aqui uma tabela com contém colunas e linhas de dados que co
 5. Volte a implementar o modelo.
 
   
-## <a name="see-also"></a>Consulte também  
-[Função SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
-[Lição suplementar - Segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
-[Lição suplementar - Hierarquias desalinhadas](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+## <a name="see-also"></a>Ver também  
+
+[Função SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
+[Lesson suplementar - segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Lição suplementar - Hierarquias desalinhadas](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
+ 

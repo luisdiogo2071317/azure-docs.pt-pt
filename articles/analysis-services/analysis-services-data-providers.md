@@ -1,25 +1,18 @@
 ---
-title: "Bibliotecas de cliente necessárias para ligar ao Analysis Services do Azure | Microsoft Docs"
-description: "Descreve as bibliotecas de cliente necessárias para aplicações de cliente e ferramentas ligar do Azure Analysis Services"
-services: analysis-services
-documentationcenter: 
+title: Bibliotecas de cliente necessárias para ligar ao Analysis Services do Azure | Microsoft Docs
+description: Descreve as bibliotecas de cliente necessárias para aplicações de cliente e ferramentas ligar do Azure Analysis Services
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/27/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5c847f5cd02503b708db8a0a0211b5d403df0943
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.reviewer: minewiskan
+ms.openlocfilehash: 66818fd0d6618abe83903df8723e3e17920a4a2e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para ligar ao Azure Analysis Services
 
@@ -27,7 +20,7 @@ Bibliotecas de cliente são necessárias para aplicações de cliente e ferramen
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Transferir as bibliotecas de cliente mais recentes (programa de instalação do Windows)  
 
-|Transferência  |Versão do produto  | 
+|Transferir  |Versão do produto  | 
 |---------|---------|
 |[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.208      |
 |[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.208      |
@@ -63,7 +56,7 @@ Bibliotecas de cliente para ligações de cliente são diferentes de fornecedore
   
  Fornecedores de OLE DB, muitas vezes, são especificadas nas cadeias de ligação. Uma cadeia de ligação do Analysis Services utiliza um nomenclature diferentes de consultar o fornecedor de OLE DB: MSOLAP. \<versão >. dll.
 
-### <a name="amo"></a>AMO  
+### <a name="amo"></a>NO AMO  
 
  AMO é uma biblioteca de cliente geridos utilizada para administração de servidor e a definição de dados. Tem instalados e utilizados por ferramentas e aplicações de cliente. Por exemplo, o SQL Server Management Studio (SSMS) utiliza AMO para ligar ao Analysis Services. Uma ligação com o AMO é normalmente mínima, constituída por `“data source=\<servername>”`. Depois de é estabelecida uma ligação, utilize a API para trabalhar com coleções de base de dados e os objetos principais. SSDT e SSMS utilizar AMO para ligar a uma instância do Analysis Services.  
 
@@ -72,7 +65,7 @@ Bibliotecas de cliente para ligações de cliente são diferentes de fornecedore
 
  ADOMD.NET é uma biblioteca de cliente de dados geridos utilizada para consultar os dados de Analysis Services. Tem instalados e utilizados por ferramentas e aplicações de cliente. 
   
- Ao ligar a uma base de dados, as propriedades de cadeia de ligação para todas as bibliotecas de três são semelhantes. Praticamente qualquer cadeia de ligação, a definir para ADOMD.NET utilizando [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) também funciona para AMO e a análise serviços OLE DB Provider (MSOLAP). Para obter mais informações, consulte [propriedades de cadeia de ligação &#40; Do Analysis Services &#41; ](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
+ Ao ligar a uma base de dados, as propriedades de cadeia de ligação para todas as bibliotecas de três são semelhantes. Praticamente qualquer cadeia de ligação, a definir para ADOMD.NET utilizando [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) também funciona para AMO e a análise serviços OLE DB Provider (MSOLAP). Para obter mais informações, consulte [propriedades de cadeia de ligação &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
 
   
 ##  <a name="bkmk_LibUpdate"></a> Como determinar a versão da biblioteca de cliente   
@@ -86,7 +79,7 @@ Bibliotecas de cliente para ligações de cliente são diferentes de fornecedore
     ![Detalhes da biblioteca de cliente](media/analysis-services-data-providers/aas-msolap-details.png)
     
   
-### <a name="amo"></a>AMO
+### <a name="amo"></a>NO AMO
 
 1. Aceda a `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`. Se tiver mais do que uma pasta, selecione o número mais alto.
 2. Clique com botão direito **Microsoft.AnalysisServices** > **propriedades** > **detalhes**.  

@@ -1,28 +1,27 @@
 ---
-title: "Agrupar por opções no SQL Data Warehouse | Microsoft Docs"
-description: "Sugestões para implementar o grupo por opções no Azure SQL Data Warehouse para desenvolver soluções."
+title: Grupo a utilizar pelas opções no Azure SQL Data Warehouse | Microsoft Docs
+description: Sugestões para implementar o grupo por opções no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 98d2ecfd2f38d086e50f3103b8598b1dccc9323b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Agrupar por opções no SQL Data Warehouse
-O [GROUP BY] [ GROUP BY] cláusula é utilizada para agregar dados a um conjunto de resumo de linhas. Também tem algumas opções que expandem a respetiva funcionalidade que necessitam de ser trabalhado em torno como não são suportados diretamente ao Azure SQL Data Warehouse.
+Sugestões para implementar o grupo por opções no Azure SQL Data Warehouse para desenvolver soluções.
+
+## <a name="what-does-group-by-do"></a>O que faz GROUP BY?
+
+O [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) cláusula de T-SQL agrega os dados para um resumo de conjunto de linhas. GROUP BY tem algumas opções que não suporta o SQL Data Warehouse. Estas opções têm soluções.
 
 Estas opções são
 
@@ -31,10 +30,9 @@ Estas opções são
 * GROUP BY cubo
 
 ## <a name="rollup-and-grouping-sets-options"></a>Rollup e grouping define as opções
-A opção mais simples e aqui está a utilizar `UNION ALL` em vez disso, para efetuar o rollup em vez de depender a sintaxe explícita. O resultado é exatamente o mesmo
+Aqui a opção mais simples consiste em utilizar UNION ALL em vez disso, para executar o rollup em vez de depender a sintaxe explícita. O resultado é exatamente o mesmo
 
-Segue-se um exemplo de um grupo de instrução utilizando o `ROLLUP` opção:
-
+O exemplo seguinte utilizando a instrução GROUP BY com a opção de agregação:
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -48,13 +46,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Através da utilização de agregação, iremos pediu agregações seguintes:
+Através da utilização de agregação, o exemplo anterior pedidos agregações seguintes:
 
 * País e região
 * País
 * Total geral
 
-Para substituir isto, terá de utilizar `UNION ALL`; especificar agregações necessárias explicitamente para devolver os mesmos resultados:
+A substituir o ROLLUP e devolver os mesmos resultados, pode utilizar UNION ALL e especificar explicitamente agregações necessárias:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -81,10 +79,10 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Para conjuntos de agrupamento todos os temos de fazer é adotar o mesmo principal, mas só criar secções UNION ALL para os níveis de agregação, que queremos ver
+Para substituir GROUPING SETS, aplica-se do princípio de exemplo. Só tem de criar secções UNION ALL para os níveis de agregação que pretende ver.
 
 ## <a name="cube-options"></a>Opções do cubo
-É possível criar um grupo por com cubo utilizando a abordagem UNION ALL. O problema é que o código pode rapidamente tornar-se complexa e unwieldy. Para atenuar isto, pode utilizar este mais avançadas abordagem.
+É possível criar um grupo por com cubo utilizando a abordagem UNION ALL. O problema é que o código pode rapidamente tornar-se complexa e unwieldy. Para atenuar isto, pode utilizá-lo mais avançadas abordagem.
 
 Vamos utilizar o exemplo acima.
 
@@ -119,9 +117,9 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Os resultados do CTAS podem ser vistos abaixo:
+O seguinte mostra os resultados do CTAS:
 
-![][1]
+![Agrupar por cubo](media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
 O segundo passo é especificar uma tabela de destino para armazenar os resultados intermédio:
 
@@ -170,7 +168,7 @@ BEGIN
 END
 ```
 
-Por último, Devolvemos os resultados por simplesmente ao ler a partir da tabela temporária #Results
+Por último, pode devolver os resultados por simplesmente ao ler a partir da tabela temporária #Results
 
 ```sql
 SELECT *
@@ -179,19 +177,8 @@ ORDER BY 1,2,3
 ;
 ```
 
-Ao dividi o código em secções e de gerar uma construção ciclo o código torna-se mais fácil de gerir e sustentável.
+Ao dividi o código em secções e gerar uma construção ciclo, o código torna-se mais fácil de gerir e sustentável.
 
-## <a name="next-steps"></a>Passos seguintes
-Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento][development overview].
+## <a name="next-steps"></a>Passos Seguintes
+Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
-
-
-<!--Other Web references-->

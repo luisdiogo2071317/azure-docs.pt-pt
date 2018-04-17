@@ -1,29 +1,29 @@
 ---
-title: "Utilizar modelos Azure Resource Manager para criar e configurar uma área de trabalho de análise do registo | Microsoft Docs"
-description: "Pode utilizar os modelos Azure Resource Manager para criar e configurar áreas de trabalho de análise de registos."
+title: Utilizar modelos Azure Resource Manager para criar e configurar uma área de trabalho de análise do registo | Microsoft Docs
+description: Pode utilizar os modelos Azure Resource Manager para criar e configurar áreas de trabalho de análise de registos.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: richrund
-ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e51dab1543c9c5c1c762134b3e73d608bcd523ba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerir a análise de registo com modelos Azure Resource Manager
 Pode utilizar [modelos Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar áreas de trabalho de análise de registos. Exemplos de tarefas que pode efetuar com modelos incluem:
 
-* Criar uma área de trabalho
+* Criar uma área de trabalho, incluindo o escalão de preço da definição 
 * Adicionar uma solução
 * Criar procuras guardadas
 * Criar um grupo de computadores
@@ -34,32 +34,108 @@ Pode utilizar [modelos Azure Resource Manager](../azure-resource-manager/resourc
 * Adicionar o agente de análise do registo para uma máquina virtual do Azure
 * Configurar a análise de registos para dados do índice recolhidos através de diagnóstico do Azure
 
-Este artigo fornece um modelo de exemplos que ilustram algumas da configuração que pode realizar a partir de modelos.
+Este artigo fornece exemplos de modelo que ilustram alguns da configuração que pode realizar com modelos.
 
-## <a name="api-versions"></a>Versões da API
-O exemplo neste artigo é para um [atualizado a área de trabalho de análise de registos](log-analytics-log-search-upgrade.md).  Para utilizar uma área de trabalho legada, terá de alterar a sintaxe das consultas para o idioma de legado e altere a versão da API para cada recurso.  A tabela seguinte apresenta a versão da API para os recursos utilizados neste exemplo.
+## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho de análise de registos
+O exemplo seguinte cria uma área de trabalho utilizando um modelo a partir do seu computador local. O modelo JSON está configurado para solicitar-lhe apenas para o nome da área de trabalho e especifica um valor predefinido para os outros parâmetros que, provavelmente, seria utilizada como uma configuração padrão no seu ambiente.  
 
-| Recurso | Tipo de recurso | Versão de API legado | Versão de API atualizada |
-|:---|:---|:---|:---|
-| Área de trabalho   | Áreas de trabalho    | 2015-11-01-preview | 2017-03-15-preview |
-| Pesquisa      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
-| Origem de dados | origens de dados   | 2015-11-01-preview | 2015-11-01-preview |
-| Solução    | soluções     | 2015-11-01-preview | 2015-11-01-preview |
+Os seguintes parâmetros de definir um valor predefinido:
 
+* Localização - por predefinição, EUA leste
+* SKU - predefinições para o escalão de preço por GB novo lançado com o de 2018 de Abril de modelo de preços
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar uma área de trabalho de análise do registo
+>[!WARNING]
+>Se criar ou configurar uma área de trabalho de análise de registos de uma subscrição que tiver optado o de 2018 de Abril de novo modelo de preços, a análise de registos só é válido escalão de preço é **PerGB2018**. 
+>
+
+### <a name="create-and-deploy-template"></a>Criar e implementar a modelo
+
+1. Copie e cole a seguinte sintaxe JSON no seu ficheiro:
+
+    ```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String",
+            "metadata": {
+              "description": "Specifies the name of the workspace."
+            }
+        },
+        "location": {
+            "type": "String",
+            "allowedValues": [
+              "eastus",
+              "westus"
+            ],
+            "defaultValue": "eastus",
+            "metadata": {
+              "description": "Specifies the location in which to create the workspace."
+            }
+        },
+        "sku": {
+            "type": "String",
+            "allowedValues": [
+              "Standalone",
+              "PerNode",
+              "PerGB2018"
+            ],
+            "defaultValue": "PerGB2018",
+            "metadata": {
+            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
+        }
+          },
+    },
+    "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2017-03-15-preview",
+            "location": "[parameters('location')]",
+            "properties": {
+                "sku": {
+                    "Name": "[parameters('sku')]"
+                },
+                "features": {
+                    "searchVersion": 1
+                }
+            }
+          }
+       ]
+    }
+    ```
+2. Edite o modelo para satisfazer os seus requisitos.  Reveja [Microsoft.OperationalInsights/workspaces modelo](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referência para saber que propriedades e os valores são suportados. 
+3. Guarde este ficheiro como **deploylaworkspacetemplate.json** para uma pasta local.
+4. Está pronto para implementar este modelo. Utilize o PowerShell ou da linha de comandos para cretae a área de trabalho.
+
+   * Para o PowerShell, utilize os seguintes comandos a partir da pasta que contém o modelo:
+   
+        ```powershell
+        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        ```
+
+   * Para a linha de comandos, utilize os seguintes comandos a partir da pasta que contém o modelo:
+
+        ```cmd
+        azure config mode arm
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        ```
+
+A implementação pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte que inclui o resultado:<br><br> ![Depois de concluída a implementação de resultados de exemplo](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+
+## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar uma área de trabalho de análise de registos
 O exemplo de modelo seguinte ilustra como:
 
-1. Criar uma área de trabalho, incluindo a retenção de dados da definição
-2. Adicionar soluções para a área de trabalho
-3. Criar procuras guardadas
-4. Criar um grupo de computadores
-5. Ativar a recolha de registos de IIS a partir de computadores com o agente de Windows instalado
-6. Recolher contadores de desempenho disco lógico a partir de computadores com Linux (% de Inodes utilizados; Megabytes livres; % De espaço; utilizado Transferências/seg do disco; Leituras de disco/seg; Escritas de disco/seg)
-7. Recolher eventos syslog de computadores com Linux
-8. Recolher eventos de erro e aviso do registo de eventos de computadores Windows
-9. Recolher contador de desempenho Memória \ Mbytes disponíveis a partir de computadores Windows
-11. Recolher registos de IIS e os registos de eventos do Windows escritos pelo diagnóstico do Azure para uma conta de armazenamento
+1. Adicionar soluções para a área de trabalho
+2. Criar procuras guardadas
+3. Criar um grupo de computadores
+4. Ativar a recolha de registos de IIS a partir de computadores com o agente de Windows instalado
+5. Recolher contadores de desempenho disco lógico a partir de computadores com Linux (% de Inodes utilizados; Megabytes livres; % De espaço; utilizado Transferências/seg do disco; Leituras de disco/seg; Escritas de disco/seg)
+6. Recolher eventos syslog de computadores com Linux
+7. Recolher eventos de erro e aviso do registo de eventos de computadores Windows
+8. Recolher contador de desempenho Memória \ Mbytes disponíveis a partir de computadores Windows
+9. Recolher registos de IIS e os registos de eventos do Windows escritos pelo diagnóstico do Azure para uma conta de armazenamento
 
 ```json
 {
@@ -77,10 +153,11 @@ O exemplo de modelo seguinte ilustra como:
       "allowedValues": [
         "Free",
         "Standalone",
-        "PerNode"
+        "PerNode",
+        "PerGB2018"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standalone, or PerNode"
+        "description": "Service Tier: Free, Standalone, PerNode, or PerGB2018"
     }
       },
     "dataRetention": {
@@ -421,7 +498,6 @@ New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <r
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
-
 
 ## <a name="example-resource-manager-templates"></a>Modelos de Gestor de recursos de exemplo
 Galeria de modelo de início rápido do Azure inclui vários modelos para análise de registos, incluindo:

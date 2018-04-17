@@ -1,6 +1,6 @@
 ---
-title: "Criar um Principal de serviço para a pilha do Azure | Microsoft Docs"
-description: "Descreve como criar um novo principal de serviço que pode ser utilizado com o controlo de acesso baseado em funções no Gestor de recursos do Azure para gerir o acesso aos recursos."
+title: Criar um Principal de serviço para a pilha do Azure | Microsoft Docs
+description: Descreve como criar um novo principal de serviço que pode ser utilizado com o controlo de acesso baseado em funções no Gestor de recursos do Azure para gerir o acesso aos recursos.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 833efa7f24d01346525af3dd9ca37012ab0ba3c4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecer acesso de aplicações com a pilha do Azure
 
@@ -41,12 +41,12 @@ Dependendo de como tiver implementado pilha do Azure, que comece por criar um se
 
 Se implementou a pilha do Azure com o Azure AD como o arquivo de identidade, pode criar principais de serviço, tal como, fazê-lo para o Azure.  Esta secção mostra como efetuar os passos através do portal.  Verifique se tem o [necessárias permissões do Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes do início.
 
-### <a name="create-service-principal"></a>Criar um principal de serviço
+### <a name="create-service-principal"></a>Criar principal de serviço
 Nesta secção, vai criar uma aplicação (principal de serviço) no Azure AD que representa a sua aplicação.
 
 1. Inicie sessão na sua conta do Azure através de [portal do Azure](https://portal.azure.com).
 2. Selecione **do Azure Active Directory** > **registos de aplicação** > **adicionar**   
-3. Forneça um nome e o URL para a aplicação. Selecione **aplicação Web / API** ou **nativo** para o tipo de aplicação que pretende criar. Depois de definir os valores, selecione **criar**.
+3. Indique um nome e um URL para a aplicação. Selecione **aplicação Web / API** ou **nativo** para o tipo de aplicação que pretende criar. Depois de definir os valores, selecione **criar**.
 
 Criou um principal de serviço para a sua aplicação.
 
@@ -55,16 +55,16 @@ Quando programaticamente iniciar sessão, utilize o ID da aplicação e para uma
 
 1. De **registos de aplicação** no Active Directory, selecione a aplicação.
 
-2. Copiar o **ID da aplicação** e armazená-las no código da aplicação. As aplicações no [aplicações de exemplo](#sample-applications) secção fazer referência a este valor como o ID de cliente.
+2. Copie o **ID da Aplicação** e armazene-o no código da aplicação. As aplicações no [aplicações de exemplo](#sample-applications) secção fazer referência a este valor como o ID de cliente.
 
      ![id de cliente](./media/azure-stack-create-service-principal/image12.png)
 3. Para gerar uma chave de autenticação para uma aplicação Web / API, selecione **definições** > **chaves**. 
 
-4. Forneça uma descrição da chave e um período de tempo para a chave. Quando terminar, selecione **guardar**.
+4. Indique uma descrição e uma duração para a chave. Quando terminar, selecione **Guardar**.
 
-Depois de guardar a chave, é apresentado o valor da chave. Copie este valor, porque não é possível obter a chave mais tarde. Forneça o valor de chave com o ID de aplicação para iniciar sessão como a aplicação. Armazene o valor da chave em que a aplicação o pode obtê-lo.
+Depois de guardar a chave, o valor da mesma é apresentado. Copie este valor, porque não vai conseguir obter a chave mais tarde. Forneça o valor de chave com o ID de aplicação para iniciar sessão como a aplicação. Armazene o valor da chave num local onde a aplicação o possa obter.
 
-![guardar a chave](./media/azure-stack-create-service-principal/image15.png)
+![chave guardada](./media/azure-stack-create-service-principal/image15.png)
 
 
 Depois de concluído, avance para [atribuir uma função a sua aplicação](azure-stack-create-service-principals.md#assign-role-to-service-principal).
@@ -136,7 +136,7 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 ```
 
 ## <a name="assign-role-to-service-principal"></a>Atribuir função principal de serviço
-Para aceder a recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida qual a função representa as permissões corretas para a aplicação. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções incorporadas](../active-directory/role-based-access-built-in-roles.md).
+Para aceder a recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida qual a função representa as permissões corretas para a aplicação. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções incorporadas](../role-based-access-control/built-in-roles.md).
 
 Pode definir o âmbito ao nível da subscrição, do grupo de recursos ou do recurso. As permissões são herdadas a níveis inferiores de âmbito. Por exemplo, adicionar uma aplicação para a função de leitor para um grupo de recursos significa podem ler o grupo de recursos e todos os recursos que nele contidos.
 

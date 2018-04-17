@@ -1,25 +1,18 @@
 ---
-title: "Lição 10 do tutorial do Azure Analysis Services: Criar partições | Microsoft Docs"
-description: "Descreve como criar partições no projeto de tutorial do Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lição 10 do tutorial do Azure Analysis Services: Criar partições | Microsoft Docs'
+description: Descreve como criar partições no projeto de tutorial do Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: a73836b784a5e86d01df51fb83d619890d56502a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: 743eff21154502fc4ff651177abb8df91edb7494
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-partitions"></a>Criar partições
 
@@ -114,5 +107,5 @@ No Gestor de partições, observe a coluna **Última processada** para cada uma 
   
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
- ## <a name="whats-next"></a>Passos seguintes?
+ ## <a name="whats-next"></a>O que se segue?
 Avance para a próxima lição: [Lição 11: Criar funções](../tutorials/aas-lesson-11-create-roles.md). 

@@ -1,25 +1,25 @@
 ---
 title: Ligar ao Kafka utilizando redes virtuais - Azure HDInsight | Microsoft Docs
-description: "Saiba como ligar diretamente a Kafka no HDInsight através de uma rede Virtual do Azure. Saiba como ligar a Kafka de clientes de desenvolvimento utilizando um gateway de VPN ou de clientes na sua rede no local através da utilização de um dispositivo de gateway VPN."
+description: Saiba como ligar diretamente a Kafka no HDInsight através de uma rede Virtual do Azure. Saiba como ligar a Kafka de clientes de desenvolvimento utilizando um gateway de VPN ou de clientes na sua rede no local através da utilização de um dispositivo de gateway VPN.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
+ms.devlang: ''
 ms.custom: hdinsightactive
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/05/2018
 ms.author: larryfr
-ms.openlocfilehash: c82629c0f3d3b32314d22467164a06a4c7bcabfe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 53502257d85c88195a40b7bda033483bd97ff3f4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ligar ao Kafka no HDInsight através de uma rede Virtual do Azure
 
@@ -62,7 +62,7 @@ HDInsight não permite a ligação direta para Kafka através da internet públi
 
 Para obter mais informações sobre como utilizar o HDInsight numa rede virtual, consulte [expandir HDInsight ao utilizar redes virtuais do Azure](../hdinsight-extend-hadoop-virtual-network.md).
 
-## <a id="on-premises"></a>Ligar ao Kafka a partir de uma rede no local
+## <a id="on-premises"></a> Ligar ao Kafka a partir de uma rede no local
 
 Para criar um cluster de Kafka que comunica com a sua rede no local, siga os passos a [HDInsight ligar à sua rede no local](./../connect-on-premises-network.md) documento.
 
@@ -78,7 +78,7 @@ Estes passos, crie a seguinte configuração:
 
 Para verificar se um cliente Kafka pode ligar ao cluster no local, utilize os passos a [exemplo: cliente Python](#python-client) secção.
 
-## <a id="vpnclient"></a>Ligue Kafka com um cliente VPN
+## <a id="vpnclient"></a> Ligue Kafka com um cliente VPN
 
 Utilize os passos nesta secção para criar a seguinte configuração:
 
@@ -292,7 +292,7 @@ Por predefinição, o Zookeeper devolve o nome de domínio de mediadores de Kafk
 
 Para ligar ao gateway de VPN, utilize o __ligar ao Azure__ secção o [configurar uma ligação ponto a Site](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) documento.
 
-## <a id="python-client"></a>Exemplo: Cliente de Python
+## <a id="python-client"></a> Exemplo: Cliente de Python
 
 Para validar a conetividade Kafka, utilize os seguintes passos para criar e executar um produtor de Python e de consumidor:
 

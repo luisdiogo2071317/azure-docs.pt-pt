@@ -1,6 +1,6 @@
 ---
-title: "Correlação de telemetria do Azure Application Insights | Microsoft Docs"
-description: "Correlação de telemetria do Application Insights"
+title: Correlação de telemetria do Azure Application Insights | Microsoft Docs
+description: Correlação de telemetria do Application Insights
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
@@ -10,13 +10,13 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9adecca35524962402d46169c531d135d0772bbd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -53,7 +53,7 @@ Pode analisar telemetria resultante execução de uma consulta:
 
 Na nota de vista de resultado que todos os itens de telemetria partilham raiz `operation_Id`. Quando chamada ajax efetuada a partir da página - novo id exclusivo `qJSXU` está atribuída a telemetria de dependência e id do pageView é utilizado como `operation_ParentId`. Por sua vez no pedido do servidor utiliza o id do ajax como `operation_ParentId`, etc.
 
-| itemType   | nome                      | ID           | operation_ParentId | operation_Id |
+| ItemType   | nome                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | As cotações página                |              | STYz               | STYz         |
 | dependência | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -103,6 +103,31 @@ Núcleo de ASP.NET 2.0 suporta a extração dos cabeçalhos de Http e iniciar a 
 Há um novo módulo de Http [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) para clássica ASP.NET. Este módulo implementa utilizando DiagnosticsSource de correlação de telemetria. Começa com base nos cabeçalhos de pedido de entrada de atividade. Também está correlacionada com a telemetria de diferentes fases do processamento do pedido. Mesmo para os casos quando cada fase do processamento do IIS é executado num threads gerir diferentes.
 
 Versão inicial do Application Insights SDK `2.4.0-beta1` utiliza DiagnosticsSource e a atividade para recolher telemetria e associá-lo com a atividade atual. 
+
+<a name="java-correlation"></a>
+## <a name="telemetry-correlation-in-the-java-sdk"></a>Correlação de telemetria do SDK de Java
+O [Application Insights SDK de Java](app-insights-java-get-started.md) suporta correlação automática de início de telemetria com a versão `2.0.0`. Este ocupa automaticamente `operation_id` para toda a telemetria (rastreios, exceções, eventos personalizados, etc.) emitida no âmbito de um pedido. Se também trata da propagar os cabeçalhos de correlação (descritos acima) para chamadas de serviços através de HTTP se o [agente Java SDK](app-insights-java-agent.md) está configurado. Nota: apenas as chamadas efetuadas através do Apache HTTP cliente são suportadas para a funcionalidade de correlação. Se estiver a utilizar o modelo de Rest de mola ou Feign, podem ser ambos utilizados com Apache HTTP cliente sob definições avançadas.
+
+Atualmente, a propagação do contexto automática através de tecnologias de mensagens (por exemplo, Kafka, RabbitMQ, o Service Bus do Azure) não é suportada. É possível, no entanto manualmente codificar tais cenários utilizando o `trackDependency` e `trackRequest` do API, na qual a telemetria de dependência representa uma mensagem a ser colocados em fila por um produtor e o pedido representa uma mensagem a ser processada por um consumidor. Neste caso, ambos `operation_id` e `operation_parentId` deve ser propagados nas propriedades da mensagem.
+
+<a name="java-role-name"></a>
+### <a name="role-name"></a>Nome da Função
+Por vezes, pode querer personalizar a forma como os nomes de componentes são apresentados no [o mapeamento de aplicações](app-insights-app-map.md). Para tal, é possível definir manualmente as `cloud_roleName` efetuando um dos seguintes:
+
+Através de um inicializador de telemetria (todos os itens de telemetria são marcados)
+```Java
+public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
+
+    @Override
+    protected void onInitializeTelemetry(Telemetry telemetry) {
+        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
+    }
+  }
+```
+Através de [classe de contexto de dispositivo](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (apenas este item de telemetria é marcado)
+```Java
+telemetry.getContext().getDevice().setRoleName("My Component Name");
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

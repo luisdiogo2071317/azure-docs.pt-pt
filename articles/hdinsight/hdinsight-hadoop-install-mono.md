@@ -1,25 +1,25 @@
 ---
 title: Instalar ou atualizar Mono no HDInsight - Azure | Microsoft Docs
-description: "Saiba como utilizar uma versão específica do Mono com o cluster do HDInsight. Mono é utilizada para executar aplicações de .NET nos clusters do HDInsight baseado em Linux."
+description: Saiba como utilizar uma versão específica do Mono com o cluster do HDInsight. Mono é utilizada para executar aplicações de .NET nos clusters do HDInsight baseado em Linux.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 04/10/2018
 ms.author: larryfr
 ms.custom: hdinsightactive
-ms.openlocfilehash: 555f82ec9351c8c3610ad99a95159cc47d2ee539
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 165f1d8175c7c7b58a5eec02a208b81fe73cb5f9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Instalar ou atualizar Mono no HDInsight
 
@@ -31,7 +31,7 @@ Mono está instalado no HDInsight 3.4 e superior e é utilizada para executar ap
 
 Este script aceita o parâmetro seguinte:
 
-* __Número de versão mono__: A versão do Mono para instalar. A versão tem de estar disponível na [https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/](https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/).
+* __Número de versão mono__: A versão do Mono para instalar. A versão tem de estar disponível na [ https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/ ](https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/).
 
 O script instala os pacotes Mono seguintes:
 

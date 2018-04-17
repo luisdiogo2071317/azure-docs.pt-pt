@@ -1,11 +1,11 @@
 ---
-title: "O que fazer em caso de um Azure service interrupção que afeta o Cofre de chaves do Azure | Microsoft Docs"
-description: "Saiba o que fazer em caso de uma interrupção do serviço do Azure que afeta o Cofre de chaves do Azure."
+title: O que fazer em caso de um Azure service interrupção que afeta o Cofre de chaves do Azure | Microsoft Docs
+description: Saiba o que fazer em caso de uma interrupção do serviço do Azure que afeta o Cofre de chaves do Azure.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: adamglick
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
 ms.service: key-vault
 ms.workload: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: sumedhb;aglick
-ms.openlocfilehash: 1f19c4bba2152eb021831dedda734fd54ee78d75
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: aglick
+ms.openlocfilehash: 11c2fe5d4b84f99c3b0e303d1abeea73442f57aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilidade do Cofre de chaves do Azure e de redundância
 O Cofre de chaves do Azure inclui várias camadas de redundância para se certificar de que as chaves e segredos permanecem disponíveis para a sua aplicação, mesmo se os componentes individuais do serviço falharem.
@@ -45,6 +45,6 @@ Existem algumas limitações a ter em consideração:
   * Desenrolar
   * Verificar
   * Assinar
-  * Cópia de segurança
+  * Backup
 * Após uma ativação pós-falha é falha novamente, todos os tipos de pedido (incluindo leitura *e* pedidos de escrita) estão disponíveis.
 

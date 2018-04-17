@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 82aea8b13fd4bad777fd3120fa811fa1ab284ac1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c4f27f59412fbfc72e193f916895c3e67091f5f6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar os dados de ou para SQL Database do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -96,9 +96,9 @@ Para utilizar o serviço principal autenticação com base em AAD aplicação to
 
 1. **[Criar uma aplicação do Azure Active Directory a partir do portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Anote o nome da aplicação e os valores seguintes que utilizar para definir o serviço ligado:
 
-    - ID da aplicação
+    - ID da Aplicação
     - Chave da aplicação
-    - ID do inquilino
+    - ID do Inquilino
 
 2. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  para o servidor de SQL do Azure no portal do Azure se ainda não o feito. O administrador AAD tem de ser um utilizador do AAD ou grupo AAD, mas não pode ser um principal de serviço. Este passo é realizado para que, num passo subsequente, pode utilizar uma identidade do AAD para criar um utilizador de base de dados contida para o serviço principal.
 
@@ -127,7 +127,7 @@ Para utilizar o serviço principal autenticação com base em AAD aplicação to
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             },
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
@@ -572,7 +572,7 @@ Quando copiar dados de/para SQL Database do Azure, os seguintes mapeamentos são
 | bigint |Int64 |
 | Binário |Byte[] |
 | bits |Booleano |
-| char |String, Char[] |
+| char |Cadeia, Char [] |
 | data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
@@ -583,23 +583,23 @@ Quando copiar dados de/para SQL Database do Azure, os seguintes mapeamentos são
 | Imagem |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |
-| nchar |String, Char[] |
-| ntext |String, Char[] |
+| nchar |Cadeia, Char [] |
+| ntext |Cadeia, Char [] |
 | um valor numérico |Decimal |
-| nvarchar |String, Char[] |
-| real |Solteiro |
+| nvarchar |Cadeia, Char [] |
+| real |Único |
 | ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | em smallmoney |Decimal |
 | sql_variant |Objeto * |
-| Texto |String, Char[] |
-| hora |TimeSpan |
+| Texto |Cadeia, Char [] |
+| tempo |TimeSpan |
 | carimbo de data/hora |Byte[] |
 | tinyint |Bytes |
 | uniqueidentifier |GUID |
 | varbinary |Byte[] |
-| varchar |String, Char[] |
+| varchar |Cadeia, Char [] |
 | xml |Xml |
 
 ## <a name="next-steps"></a>Passos Seguintes

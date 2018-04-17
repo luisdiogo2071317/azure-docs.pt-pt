@@ -3,8 +3,8 @@ title: Registo de diagnóstico Cosmos BD do Azure | Microsoft Docs
 description: Utilize este tutorial para ajudá-lo com a base de dados do Azure Cosmos registo.
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: cosmos-db
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: mimig
-ms.openlocfilehash: 3b7c9f1acd79a2f170ecead9dedd200ad37d9388
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 0b49a23de62385a8aa362680dde845512d9302fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
@@ -455,7 +455,7 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 | **clientIpAddress** | **clientIpAddress_s** | Endereço IP do cliente. |
 | **requestCharge** | **requestCharge_s** | O número de RUs que são utilizados pela operação |
 | **collectionRid** | **collectionId_s** | O ID exclusivo para a coleção.|
-| **duration** | **duration_s** | A duração da operação, numa ticks. |
+| **Duração** | **duration_s** | A duração da operação, numa ticks. |
 | **requestLength** | **requestLength_s** | O comprimento do pedido, em bytes. |
 | **responseLength** | **responseLength_s** | O comprimento da resposta, em bytes.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Este valor é não vazia quando [tokens de recurso](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) são utilizados para autenticação. O valor aponta para o ID de recurso do utilizador. |

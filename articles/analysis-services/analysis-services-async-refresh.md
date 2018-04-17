@@ -1,25 +1,18 @@
 ---
-title: "Atualização assíncrona de modelos do Azure Analysis Services | Microsoft Docs"
-description: "Saiba como código de atualização assíncrona utilizando a REST API."
-services: analysis-services
-documentationcenter: 
+title: Atualização assíncrona de modelos do Azure Analysis Services | Microsoft Docs
+description: Saiba como código de atualização assíncrona utilizando a REST API.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: minewiskan
+ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 Ao utilizar qualquer linguagem de programação que suporta chamadas REST, pode efetuar operações de atualização de dados assíncrona nos seus modelos em tabela do Analysis Services do Azure. Isto inclui a sincronização de réplicas de só de leitura para consulta Escalamento horizontal. 
@@ -249,7 +242,7 @@ Consulte [criar principal de serviço - portal do Azure](../azure-resource-manag
 3.  Execute o exemplo.
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Exemplos](analysis-services-samples.md)   
 [API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   

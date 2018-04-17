@@ -1,25 +1,18 @@
 ---
 title: Gerir administradores de servidor no Azure Analysis Services | Microsoft Docs
 description: Saiba como gerir administradores de servidor para um servidor de Analysis Services no Azure.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: d90f1e3df8f5934d5c334ec72b5726f105842ca1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: def09f2853f761f3fefca80f341e6cc0557bac86
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-server-administrators"></a>Gerir administradores de servidor
 Os administradores de servidores tem de ser um utilizador ou grupo válido no Azure Active Directory (Azure AD) para o inquilino em que reside o servidor. Pode utilizar **administradores de serviços de análise** para o servidor no portal do Azure ou propriedades do servidor no SSMS para gerir os administradores de servidores. 
@@ -41,5 +34,5 @@ Os administradores de servidores tem de ser um utilizador ou grupo válido no Az
 ## <a name="next-steps"></a>Passos Seguintes 
 [Autenticação e permissões de utilizador](analysis-services-manage-users.md)  
 [Gerir utilizadores e funções de base de dados](analysis-services-database-users.md)  
-[Controlo de Acesso Baseado em Funções](../active-directory/role-based-access-control-what-is.md)  
+[Controlo de Acesso Baseado em Funções](../role-based-access-control/overview.md)  
 

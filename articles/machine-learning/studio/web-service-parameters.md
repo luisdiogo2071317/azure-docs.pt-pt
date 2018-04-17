@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 520427b99c05fcbc8125bdbde7d8eb56e7487292
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3eb6f08d89daec063841eeb5fff8479c9f2f41fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Utilizar Parâmetros do Serviço Web do Azure Machine Learning
 Um serviço web Azure Machine Learning é criado através da publicação de uma experimentação que contém módulos com parâmetros configuráveis. Em alguns casos, poderá pretender alterar o comportamento de módulo enquanto o serviço web está em execução. *Os parâmetros do serviço de Web* permitem-lhe executar esta tarefa. 
@@ -52,7 +52,7 @@ Por exemplo, vamos supor que temos uma experimentação com um [exportar dados] 
    * Em **especifique o destino de dados**, selecione "Blob Storage do Azure".
    * Em **especifique o tipo de autenticação**, selecione "Conta".
    * Introduza as informações de conta para o armazenamento de Blobs do Azure. 
-     <p />
+
 3. Clique no ícone para a direita do **caminho para o início com o parâmetro de contentor de BLOBs**. Este aspeto:
    
    ![Ícone de parâmetro de serviço Web][icon]

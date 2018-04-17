@@ -16,11 +16,11 @@ ms.date: 03/30/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: a4ed9ddabe19406fa694992f29cf529b491438c0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 25b3e47b013cbcd99a39d128cca733709b7a1bb9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributos para filiação dinâmica em grupos no Azure Active Directory
 No Azure Active Directory (Azure AD), pode criar regras avançadas para ativar complexas baseadas em atributos filiação dinâmica para grupos. Este artigo fornece detalhes sobre os atributos e a sintaxe para criar regras de associação dinâmica para utilizadores ou dispositivos. Pode configurar uma regra de filiação dinâmica em grupos de segurança ou grupos do Office 365.
@@ -122,9 +122,9 @@ A tabela seguinte lista erros comuns e como corrigir as entradas
 
 | Erro de análise de consulta | Utilização de erro | Utilização corrigida |
 | --- | --- | --- |
-| Erro: O atributo não suportado. |(user.invalidProperty -eq "Value") |(user.department - eq "value")<br/><br/>Certifique-se o atributo for o [suportado lista de propriedades](#supported-properties). |
+| Erro: O atributo não suportado. |(user.invalidProperty - eq "Value") |(user.department - eq "value")<br/><br/>Certifique-se o atributo for o [suportado lista de propriedades](#supported-properties). |
 | Erro: O operador não é suportado no atributo. |(user.accountEnabled-contém VERDADEIRO) |(user.accountEnabled - eq verdadeiro)<br/><br/>O operador utilizado não é suportado para o tipo de propriedade (neste exemplo,-contém não pode ser utilizado no tipo Booleano). Utilize os operadores corretos para o tipo de propriedade. |
-| Erro: Erro de compilação de consulta. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Operador em falta. Utilize o - e ou - ou dois associe predicados<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2 erro de numa expressão regular utilizada com - corresponder<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), alternatively: (user.userPrincipalName -match "@domain.ext$")|
+| Erro: Erro de compilação de consulta. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName-corresponder "*@domain.ext") |1. Operador em falta. Utilize o - e ou - ou dois associe predicados<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2 erro de numa expressão regular utilizada com - corresponder<br/><br/>(user.userPrincipalName-corresponder a ". *@domain.ext"), em alternativa: (user.userPrincipalName-corresponder "@domain.ext$")|
 
 ## <a name="supported-properties"></a>Propriedades suportadas
 Seguem-se todas as propriedades de utilizador que pode utilizar na sua regra avançada:
@@ -138,7 +138,7 @@ Operadores permitidos
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
 | accountEnabled |VERDADEIRO false |user.accountEnabled - eq verdadeiro |
-| dirSyncEnabled |VERDADEIRO false |user.dirSyncEnabled -eq true |
+| dirSyncEnabled |VERDADEIRO false |user.dirSyncEnabled - eq verdadeiro |
 
 ### <a name="properties-of-type-string"></a>Propriedades do tipo cadeia
 Operadores permitidos
@@ -156,32 +156,32 @@ Operadores permitidos
 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
-| city |Qualquer valor de cadeia ou *nulo* |(user.city -eq "value") |
-| País |Qualquer valor de cadeia ou *nulo* |(user.country -eq "value") |
+| city |Qualquer valor de cadeia ou *nulo* |(user.city - eq "value") |
+| País |Qualquer valor de cadeia ou *nulo* |(User. Country - eq "value") |
 | companyName | Qualquer valor de cadeia ou *nulo* | (user.companyName -eq "value") |
 | Departamento |Qualquer valor de cadeia ou *nulo* |(user.department - eq "value") |
-| displayName |Qualquer valor de cadeia |(user.displayName -eq "value") |
-| campo IDdeEmpregado |Qualquer valor de cadeia |(user.employeeId -eq "value")<br>(user.employeeId - ne *nulo*) |
-| facsimileTelephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |Qualquer valor de cadeia ou *nulo* |(user.givenName -eq "value") |
-| jobTitle |Qualquer valor de cadeia ou *nulo* |(user.jobTitle -eq "value") |
-| capacidade de correio |Qualquer valor de cadeia ou *nulo* (endereço SMTP do utilizador) |(user.mail -eq "value") |
+| displayName |Qualquer valor de cadeia |(user.displayName - eq "value") |
+| campo IDdeEmpregado |Qualquer valor de cadeia |(user.employeeId - eq "value")<br>(user.employeeId - ne *nulo*) |
+| facsimileTelephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.facsimileTelephoneNumber - eq "value") |
+| givenName |Qualquer valor de cadeia ou *nulo* |(user.givenName - eq "value") |
+| jobTitle |Qualquer valor de cadeia ou *nulo* |(user.jobTitle - eq "value") |
+| capacidade de correio |Qualquer valor de cadeia ou *nulo* (endereço SMTP do utilizador) |(user.mail - eq "value") |
 | mailNickName |Qualquer valor de cadeia (alias de correio do utilizador) |(user.mailNickName -eq "value") |
-| Mobile |Qualquer valor de cadeia ou *nulo* |(user.mobile -eq "value") |
-| objectId |GUID de objeto de utilizador |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
-| onPremisesSecurityIdentifier | No local o identificador de segurança (SID) para os utilizadores que foram sincronizadas no local para a nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
-| passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
+| Mobile |Qualquer valor de cadeia ou *nulo* |(user.mobile - eq "value") |
+| objectId |GUID de objeto de utilizador |(user.objectId - eq "11111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | No local o identificador de segurança (SID) para os utilizadores que foram sincronizadas no local para a nuvem. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+| passwordPolicies |Nenhum DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Qualquer valor de cadeia ou *nulo* |(user.physicalDeliveryOfficeName -eq "value") |
 | postalCode |Qualquer valor de cadeia ou *nulo* |(user.postalCode -eq "value") |
-| preferredLanguage |Código do ISO 639-1 |(user.preferredLanguage -eq "en-US") |
+| preferredLanguage |Código do ISO 639-1 |(user.preferredLanguage - eq "en-US") |
 | sipProxyAddress |Qualquer valor de cadeia ou *nulo* |(user.sipProxyAddress -eq "value") |
-| state |Qualquer valor de cadeia ou *nulo* |(user.state -eq "value") |
-| streetAddress |Qualquer valor de cadeia ou *nulo* |(user.streetAddress -eq "value") |
+| state |Qualquer valor de cadeia ou *nulo* |(user.state - eq "value") |
+| StreetAddress |Qualquer valor de cadeia ou *nulo* |(user.streetAddress - eq "value") |
 | Apelido |Qualquer valor de cadeia ou *nulo* |(user.surname - eq "value") |
-| telephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.telephoneNumber -eq "value") |
+| telephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.telephoneNumber - eq "value") |
 | usageLocation |Indicativo de país lettered dois |(user.usageLocation -eq "US") |
 | userPrincipalName |Qualquer valor de cadeia |(user.userPrincipalName -eq "alias@domain") |
-| userType |o convidado de membro *nulo* |(user.userType -eq "Member") |
+| UserType |o convidado de membro *nulo* |(user.userType - eq "Membro") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades de coleção de cadeia de tipo
 Operadores permitidos
@@ -202,7 +202,7 @@ Operadores permitidos
 
 | Propriedades | Valores | Utilização |
 | --- | --- | --- |
-| assignedPlans |Cada objeto na coleção expõe as seguintes propriedades de cadeia: capabilityStatus, serviço, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| assignedPlans |Cada objeto na coleção expõe as seguintes propriedades de cadeia: capabilityStatus, serviço, servicePlanId |user.assignedPlans-qualquer (assignedPlan.servicePlanId - eq "efb87545-963c-4e0d-99df-69c6916d9eb0"- e assignedPlan.capabilityStatus - eq "Ativado") |
 
 Propriedades de valores múltiplos são coleções de objetos do mesmo tipo. Pode utilizar - os e - todos os operadores para aplicar uma condição a um ou todos os itens na coleção, respetivamente. Por exemplo:
 
@@ -274,11 +274,11 @@ Também pode criar uma regra que seleciona objetos de dispositivo para a associa
  accountEnabled | VERDADEIRO false | (device.accountEnabled - eq verdadeiro)
  displayName | Qualquer valor de cadeia |(device.displayName -eq "Rob Iphone”)
  deviceOSType | Qualquer valor de cadeia | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")
- deviceOSVersion | Qualquer valor de cadeia | (device.OSVersion -eq "9.1")
+ DeviceOSVersion | Qualquer valor de cadeia | (device.OSVersion -eq "9.1")
  deviceCategory | um nome de categoria de dispositivo válido | (device.deviceCategory -eq "BYOD")
- deviceManufacturer | Qualquer valor de cadeia | (device.deviceManufacturer -eq "Samsung")
- deviceModel | Qualquer valor de cadeia | (device.deviceModel -eq "iPad Air")
- deviceOwnership | Pessoal, empresa, desconhecido | (device.deviceOwnership -eq "Company")
+ DeviceManufacturer | Qualquer valor de cadeia | (device.deviceManufacturer - eq "Samsung")
+ DeviceModel | Qualquer valor de cadeia | (device.deviceModel -eq "iPad Air")
+ deviceOwnership | Pessoal, empresa, desconhecido | (device.deviceOwnership - eq "Empresa")
  domainName | Qualquer valor de cadeia | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Nome do perfil de inscrição de dispositivos Apple | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | VERDADEIRO false | (device.isRooted - eq verdadeiro)
@@ -380,7 +380,7 @@ Para tornar um grupo dinâmico:
 ```
 ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Estes artigos fornecem informações adicionais sobre os grupos no Azure Active Directory.
 
 * [Consulte os grupos existentes](active-directory-groups-view-azure-portal.md)

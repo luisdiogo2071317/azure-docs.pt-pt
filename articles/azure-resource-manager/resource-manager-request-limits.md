@@ -1,6 +1,6 @@
 ---
 title: Os limites de pedido do Azure Resource Manager | Microsoft Docs
-description: "Descreve como utilizar a limitação com pedidos de Gestor de recursos do Azure quando atingiu limites de subscrição."
+description: Descreve como utilizar a limitação com pedidos de Gestor de recursos do Azure quando atingiu limites de subscrição.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 04/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc109cdaeade900e239624f408cea2a1f448ae5a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1d670fd7a9a165977fa5c8d3ce4caf5ff1b1df1e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitação de pedidos de Gestor de recursos
 Para cada subscrição e de inquilino, limites de Gestor de recursos pedidos para 15 000 por hora para ler e escrever pedidos 1,200 por hora. Aplicam estes limites para cada instância do Azure Resource Manager. Existem várias instâncias em cada região do Azure e do Azure Resource Manager é implementado para todas as regiões do Azure.  Para que, na prática, os limites de forma eficaz muito superiores a estes limites, como utilizador pedidos são normalmente servidos por várias instâncias diferentes.
@@ -36,8 +36,8 @@ Pode determinar o número de pedidos restantes, examinando os cabeçalhos de res
 
 | Cabeçalho de resposta | Descrição |
 | --- | --- |
-| x-ms-ratelimit-remaining-subscription-reads |Leituras de subscrição de um âmbito restante |
-| x-ms-ratelimit-remaining-subscription-writes |Um âmbito de subscrição escreve restante |
+| x-ms-ratelimit-remaining-subscription-reads |Um âmbito de subscrição lê restantes. Este valor é devolvido em operações de leitura. |
+| x-ms-ratelimit-remaining-subscription-writes |Um âmbito de subscrição escreve restantes. Este valor é devolvido nas operações de escrita. |
 | x-ms-ratelimit-remaining-tenant-reads |Um âmbito de inquilino lê restante |
 | x-ms-ratelimit-remaining-tenant-writes |Um âmbito de inquilino escreve restante |
 | x-ms-ratelimit-remaining-subscription-resource-requests |Subscrição confinadas pedidos de tipo de recurso dos restantes.<br /><br />Este valor de cabeçalho é devolvido apenas se um serviço substituiu o limite predefinido. Gestor de recursos adiciona este valor em vez da subscrição leituras ou escritas. |
@@ -70,7 +70,6 @@ Get-AzureRmResourceGroup -Debug
 Que devolve vários valores, incluindo o seguinte valor de resposta:
 
 ```powershell
-...
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -79,7 +78,25 @@ OK
 Headers:
 Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-reads: 14999
-...
+```
+
+Para obter os limites de escrita, utilize uma operação de escrita: 
+
+```powershell
+New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+```
+
+Que devolve vários valores, incluindo os seguintes valores:
+
+```powershell
+DEBUG: ============================ HTTP RESPONSE ============================
+
+Status Code:
+Created
+
+Headers:
+Pragma                        : no-cache
+x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
 No **CLI do Azure**, é possível obter o valor do cabeçalho utilizando a opção mais verbosa.
@@ -88,24 +105,41 @@ No **CLI do Azure**, é possível obter o valor do cabeçalho utilizando a opç�
 az group list --verbose --debug
 ```
 
-Que devolve vários valores, incluindo o seguinte objeto:
+Que devolve vários valores, incluindo os seguintes valores:
 
 ```azurecli
-...
-silly: returnObject
-{
-  "statusCode": 200,
-  "header": {
-    "cache-control": "no-cache",
-    "pragma": "no-cache",
-    "content-type": "application/json; charset=utf-8",
-    "expires": "-1",
-    "x-ms-ratelimit-remaining-subscription-reads": "14998",
-    ...
+msrest.http_logger : Response status: 200
+msrest.http_logger : Response headers:
+msrest.http_logger :     'Cache-Control': 'no-cache'
+msrest.http_logger :     'Pragma': 'no-cache'
+msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
+msrest.http_logger :     'Content-Encoding': 'gzip'
+msrest.http_logger :     'Expires': '-1'
+msrest.http_logger :     'Vary': 'Accept-Encoding'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '14998'
+```
+
+Para obter os limites de escrita, utilize uma operação de escrita: 
+
+```azurecli
+az group create -n myresourcegroup --location westus --verbose --debug
+```
+
+Que devolve vários valores, incluindo os seguintes valores:
+
+```azurecli
+msrest.http_logger : Response status: 201
+msrest.http_logger : Response headers:
+msrest.http_logger :     'Cache-Control': 'no-cache'
+msrest.http_logger :     'Pragma': 'no-cache'
+msrest.http_logger :     'Content-Length': '163'
+msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
+msrest.http_logger :     'Expires': '-1'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
 ## <a name="waiting-before-sending-next-request"></a>A aguardar antes de enviar o pedido seguinte
-Quando atingir o limite do pedido, o Gestor de recursos devolve o **429** código de estado HTTP e um **depois de repetir** valor no cabeçalho. O **depois de repetir** valor Especifica o número de segundos deve aguardar a sua aplicação (ou suspensão) antes de enviar o pedido seguinte. Se enviar um pedido antes do valor de repetição expirou, não é possível processar o pedido e é devolvido um novo valor de repetição.
+Quando atingir o limite do pedido, o Gestor de recursos devolve o **429** código de estado HTTP e um **depois de repetir** valor no cabeçalho. O **depois de repetir** valor Especifica o número de segundos deve aguardar a sua aplicação (ou suspensão) antes de enviar o pedido seguinte. Se enviar um pedido antes do valor de repetição expirou, o pedido não é processado e é devolvido um novo valor de repetição.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

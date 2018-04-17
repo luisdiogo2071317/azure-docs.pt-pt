@@ -1,25 +1,18 @@
 ---
 title: Origens de dados suportadas no Azure Analysis Services | Microsoft Docs
 description: Descreve as origens de dados suportadas para modelos de dados no Azure Analysis Services.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 16bf333fe18c912db7cb81e74fce29960b0728d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.reviewer: minewiskan
+ms.openlocfilehash: 3b60a5b96d7b8a0c48aacc916b1ba933dcd83705
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origens de dados suportadas no Azure Analysis Services
 
@@ -30,10 +23,10 @@ São apresentados as origens de dados e conectores apresentados no Assistente de
 |Origem de dados  |Dentro da memória  |DirectQuery  |
 |---------|---------|---------|
 |Base de Dados SQL do Azure     |   Sim      |    Sim      |
-|Azure SQL Data Warehouse     |   Sim      |   Sim       |
+|Armazém de Dados SQL do Azure     |   Sim      |   Sim       |
 |Armazenamento de Blobs do Azure *     |   Sim       |    Não      |
 |Armazenamento de tabela do Azure *    |   Sim       |    Não      |
-|Azure Cosmos DB*     |  Sim        |  Não        |
+|BD do Azure Cosmos *     |  Sim        |  Não        |
 |Azure Data Lake Store *     |   Sim       |    Não      |
 |Azure HDInsight HDFS *     |     Sim     |   Não       |
 |Azure HDInsight Spark *     |   Sim       |   Não       |
@@ -53,7 +46,7 @@ A ligar no local origens de dados de e do Azure que o servidor requerem um gatew
 |Origem de dados | Fornecedor de memória | Fornecedor de DirectQuery |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, fornecedor Microsoft OLE DB para SQL Server, o .NET Framework Data Provider para o SQL Server | Fornecedor de dados .NET framework para o SQL Server |
-| SQL Server Data Warehouse |SQL Server Native Client 11.0, fornecedor Microsoft OLE DB para SQL Server, o .NET Framework Data Provider para o SQL Server | Fornecedor de dados .NET framework para o SQL Server |
+| Armazém de dados do SQL Server |SQL Server Native Client 11.0, fornecedor Microsoft OLE DB para SQL Server, o .NET Framework Data Provider para o SQL Server | Fornecedor de dados .NET framework para o SQL Server |
 | Oracle |Fornecedor Microsoft OLE DB para Oracle, Oracle Data Provider para .NET |Fornecedor de dados Oracle para .NET | |
 | Teradata |Fornecedor OLE DB para Teradata, o fornecedor de dados Teradata para .NET |Fornecedor de dados Teradata para .NET | |
 | | | |
@@ -66,9 +59,9 @@ A ligar no local origens de dados de e do Azure que o servidor requerem um gatew
 |Active Directory *     |  
 |Analysis Services     |  
 |Analytics Platform System     |  
-|Dynamics CRM*     |  
+|Dynamics CRM *     |  
 |Livro do Excel     |  
-|Exchange*     |  
+|Exchange *     |  
 |Pasta *     | 
 |Documento JSON *     |  
 |Linhas de binário *     | 

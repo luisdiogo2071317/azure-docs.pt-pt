@@ -1,8 +1,8 @@
 ---
 title: Configurar ambientes para web apps no App Service do Azure de teste | Microsoft Docs
-description: "Saiba como utilizar a publicação de teste para web apps no App Service do Azure."
+description: Saiba como utilizar a publicação de teste para web apps no App Service do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: a262ba335256878b03a9a2cce6f7ba6a3dae715c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes no App Service do Azure de teste
 <a name="Overview"></a>
@@ -30,7 +30,7 @@ Ao implementar a aplicação web, a aplicação web no Linux, back-end móvel e 
 * Implementar uma aplicação para uma ranhura pela primeira vez e trocar-o em produção assegura que todas as instâncias da ranhura são preparadas antes de a ser alternados em produção. Isto elimina o período de indisponibilidade quando implementar a sua aplicação. O redirecionamento de tráfego é totalmente integrado e não existem pedidos são ignorados devido a operações de comutação. Este fluxo de trabalho completo pode ser automatizado configurando [automática comutação](#Auto-Swap) quando a validação de pré-troca de não é necessária.
 * Depois de uma troca a ranhura de aplicação previamente testada tem agora a aplicação de produção anterior. Se as alterações alternadas para a ranhura de produção não tem o aspeto esperado, pode efetuar a troca mesma imediatamente para obter o seu "último boa site conhecido" novamente.
 
-Cada escalão do plano de serviço de aplicações suporta um número diferente de ranhuras de implementação. Para saber o número de ranhuras de suporte de camada da sua aplicação, consulte [preços do App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Cada escalão do plano de serviço de aplicações suporta um número diferente de ranhuras de implementação. Para saber o número de ranhuras de suporte de camada da sua aplicação, consulte [limites de serviço de aplicações](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits).
 
 * Quando a aplicação tiver várias ranhuras, não é possível alterar a camada.
 * Dimensionamento não está disponível para ranhuras de não produção.

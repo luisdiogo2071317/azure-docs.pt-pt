@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: ab04214dc02f337afdf8268b7d05b5e0896efc73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2718a0b2e97c5af8ee25a96100c3d8cb0dbfe9fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Criar e gerir chaves de api para um serviço da Azure Search
 
@@ -65,12 +65,12 @@ Segurança de chave é certificar-se ao restringir o acesso através do portal o
 
 + No dashboard de serviço, clique em **(IAM) do controlo de acesso** para ver as atribuições de funções para o seu serviço.
 
-Os membros das seguintes funções podem ver e voltar a gerar chaves: proprietário, contribuinte, [os contribuintes do serviço de pesquisa](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#search-service-contributor)
+Os membros das seguintes funções podem ver e voltar a gerar chaves: proprietário, contribuinte, [os contribuintes do serviço de pesquisa](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 
 > [!Note]
 > Para acesso com base em identidades através de resultados da pesquisa, pode criar filtros de segurança para limitar os resultados pela identidade, remover documentos para o qual o requerente não deve ter acesso. Para obter mais informações, consulte [filtros de segurança](search-security-trimming-for-azure-search.md) e [seguro com o Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Controlo de acesso baseado em funções na Azure Search](search-security-rbac.md)
 + [Gerir com o PowerShell](search-manage-powershell.md) 

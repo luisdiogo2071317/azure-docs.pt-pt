@@ -1,40 +1,34 @@
 ---
-title: "Atribuir variáveis no SQL Data Warehouse | Microsoft Docs"
-description: "Sugestões para atribuição de variáveis de Transact-SQL no Azure SQL Data Warehouse para desenvolver soluções."
+title: Atribuir variáveis no Azure SQL Data Warehouse | Microsoft Docs
+description: Sugestões para atribuição de variáveis de T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 81ddc7cf-a6ba-4585-91a3-b6ea50f49227
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 045d5148cd3f12dac63c961ccf7c953d355ed725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 012bc76950f212d69d26607c666e878b22015e70
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="assign-variables-in-sql-data-warehouse"></a>Atribuir variáveis no SQL Data Warehouse
-As variáveis no armazém de dados do SQL Server são definidas utilizando o `DECLARE` instrução ou a `SET` instrução.
-
-Todos os seguintes são formas válidas perfeitamente para definir um valor de variável:
+---
+# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Atribuição de variáveis no Azure SQL Data Warehouse
+Sugestões para atribuição de variáveis de T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
 
 ## <a name="setting-variables-with-declare"></a>Definir variáveis com DECLARE
-A inicializar variáveis com DECLARE é uma das formas mais flexíveis para definir um valor da variável no armazém de dados do SQL Server.
+As variáveis no armazém de dados do SQL Server são definidas utilizando o `DECLARE` instrução ou a `SET` instrução. A inicializar variáveis com DECLARE é uma das formas mais flexíveis para definir um valor da variável no armazém de dados do SQL Server.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-Também pode utilizar DECLARE para definir mais de uma variável de cada vez. Não é possível utilizar `SELECT` ou `UPDATE` para efetuar este procedimento:
+Também pode utilizar DECLARE para definir mais de uma variável de cada vez. Não é possível utilizar SELECIONE ou a ATUALIZAÇÃO para fazer o seguinte:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -42,7 +36,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Não é possível inicializar o e utilizar uma variável na mesma instrução DECLARE. Para ilustrar o ponto de exemplo abaixo é **não** permitido como @p1 é inicializado tanto utilizado na mesma instrução DECLARE. Este procedimento resultará num erro.
+Não é possível inicializar e utilizar uma variável na mesma instrução DECLARE. Para ilustrar o ponto, o exemplo seguinte é **não** permitido desde @p1 é inicializado tanto utilizado na mesma instrução DECLARE. O exemplo seguinte fornece um erro.
 
 ```sql
 DECLARE @p1 int = 0
@@ -51,9 +45,9 @@ DECLARE @p1 int = 0
 ```
 
 ## <a name="setting-values-with-set"></a>Valores de definição com conjunto
-Conjunto é um método muito comum para definir uma única variável.
+CONJUNTO é um método comum para definir uma única variável.
 
-Todos os exemplos abaixo são formas válidas de definir uma variável com o conjunto de:
+As seguintes declarações são válidas todas as formas de definir uma variável com o conjunto de:
 
 ```sql
 SET     @v = (Select max(database_id) from sys.databases);
@@ -62,19 +56,11 @@ SET     @v = @v+1;
 SET     @v +=1;
 ```
 
-Só é possível definir uma variável num momento com conjunto. No entanto, como podem ser vistos acima operadores compostos são permissable.
+Só é possível definir uma variável num momento com conjunto. No entanto, os operadores compostos são permitidos.
 
 ## <a name="limitations"></a>Limitações
 Não é possível utilizar SELECIONE ou a ATUALIZAÇÃO para atribuição de variáveis.
 
-## <a name="next-steps"></a>Passos seguintes
-Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento][development overview].
+## <a name="next-steps"></a>Passos Seguintes
+Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

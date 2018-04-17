@@ -1,8 +1,8 @@
 ---
-title: "Publicar aplicações do Azure HDInsight | Microsoft Docs"
-description: "Saiba como criar uma aplicação do HDInsight e, em seguida, publicá-lo no Azure Marketplace."
+title: Publicar aplicações do Azure HDInsight | Microsoft Docs
+description: Saiba como criar uma aplicação do HDInsight e, em seguida, publicá-lo no Azure Marketplace.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 597ea68f063d02541132d275de815c1673369ae0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: aef54782c200ad0be261959705b9b10cd0ebb064
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar uma aplicação HDInsight no Azure Marketplace
 Pode instalar uma aplicação do Azure HDInsight num cluster do HDInsight baseado em Linux. Neste artigo, saiba como publicar uma aplicação HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [publicar uma oferta no Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -99,8 +97,8 @@ Para publicar uma aplicação HDInsight:
 3. Introduza um título e, em seguida, selecione **criar um novo modelo de solução**.
 4. Se ainda não registou sua organização, selecione **conta criar Dev Center e aderir ao programa Azure**.  Para obter mais informações, consulte [criar uma conta Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 5. Selecione **definir algumas topologias para começar a utilizar**. Um modelo de solução é um "elemento principal" para todas as respetivas topologias. Pode definir vários topologias num modelo de oferta ou solução um. Quando é emitida uma oferta para teste, esta é instalada com todas as respetivas topologias. 
-6. Introduza um nome de topologia e, em seguida, selecione  **+** .
-7. Introduza uma nova versão e, em seguida, selecione  **+** .
+6. Introduza um nome de topologia e, em seguida, selecione **+**.
+7. Introduza uma nova versão e, em seguida, selecione **+**.
 8. Carregue o ficheiro. zip que criou quando a [empacotada a aplicação](#package-application).  
 9. Selecione **solicitar certificação**. A equipa de certificação da Microsoft analisa os ficheiros e se certifica a topologia.
 

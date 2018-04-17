@@ -11,17 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: davidmu
-ms.openlocfilehash: ac0351ce220da5194d3a447e51185409b7368f21
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3347eac16e447091ffcaaf403e1291e2c7175a2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>O Azure AD B2C: Página única aplicação início de sessão utilizando o fluxo implícito de OAuth 2.0
-
-> [!NOTE]
-> Esta funcionalidade está em pré-visualização.
-> 
 
 Muitas aplicações modernas têm uma aplicação de página única front-end que é principalmente escrito em JavaScript. Muitas vezes, a aplicação é escrita através da utilização de uma estrutura como AngularJS, Ember.js ou Durandal. Aplicações de página única e outras aplicações de JavaScript que execute principalmente num browser tem alguns desafios de autenticação adicionais:
 
@@ -93,10 +89,10 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_type |Necessário |Tem de incluir `id_token` para OpenID Connect início de sessão. Também pode incluir o tipo de resposta `token`. Se utilizar `token`, a aplicação imediatamente pode receber um token de acesso de ponto final de autorização, sem o tornar um segundo pedido para o ponto final de autorização.  Se utilizar o `token` tipo de resposta, a `scope` parâmetro tem de conter um âmbito que indica qual para emitir o token para o recurso. |
 | redirect_uri |Recomendado |O URI de redirecionamento da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação. -Deve corresponder exatamente um do redirecionamento de URIs registados no portal, exceto que tem de ser codificados de URL. |
 | response_mode |Recomendado |Especifica o método a utilizar para enviar a cópia de segurança de token resultante para a sua aplicação.  Para fluxos implícitos, utilize `fragment`. |
-| Âmbito |Necessário |Uma lista separada por espaço de âmbitos. Indica um valor único âmbito para o Azure AD ambas as permissões que estão a ser solicitada. O `openid` âmbito indica uma permissão para iniciar o utilizador e obter dados sobre o utilizador no formato de tokens de identidade. (Iremos falar sobre esta mais mais tarde no artigo.) O `offline_access` âmbito é opcional para aplicações web. Indica que a aplicação tem um token de atualização de longa duração acesso a recursos. |
+| scope |Necessário |Uma lista separada por espaço de âmbitos. Indica um valor único âmbito para o Azure AD ambas as permissões que estão a ser solicitada. O `openid` âmbito indica uma permissão para iniciar o utilizador e obter dados sobre o utilizador no formato de tokens de identidade. (Iremos falar sobre esta mais mais tarde no artigo.) O `offline_access` âmbito é opcional para aplicações web. Indica que a aplicação tem um token de atualização de longa duração acesso a recursos. |
 | state |Recomendado |Um valor incluído no pedido de que também é devolvido na resposta token. Pode ser uma cadeia de todos os conteúdos que pretende utilizar. Normalmente, um valor exclusivo, gerado aleatoriamente, é utilizado, para impedir ataques de falsificação de pedidos entre sites. O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, como a página estivessem nas suas. |
 | nonce |Necessário |Um valor incluído no pedido de (gerado pela aplicação) que está incluído no token resultante ID como uma afirmação. A aplicação, em seguida, pode verificar este valor para mitigar ataques de repetição de token. Normalmente, o valor é uma cadeia de aleatório, exclusiva que pode ser utilizada para identificar a origem do pedido. |
-| p |Necessário |A política de execução. É o nome de uma política que é criado no seu inquilino do Azure AD B2C. O valor de nome de política deve iniciar com **b2c\_1\_**. Para obter mais informações, consulte [políticas incorporadas do Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| P |Necessário |A política de execução. É o nome de uma política que é criado no seu inquilino do Azure AD B2C. O valor de nome de política deve iniciar com **b2c\_1\_**. Para obter mais informações, consulte [políticas incorporadas do Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | linha de comandos |Opcional |O tipo de interação do utilizador necessárias. Atualmente, o único valor válido é `login`. Isto força o utilizador introduza as suas credenciais desse pedido. O início de sessão único não entrarão em vigor. |
 
 Neste momento, é pedido ao utilizador para concluir o fluxo de trabalho da política. Isto poderá envolver o utilizador introduzir o respetivo nome de utilizador e palavra-passe, início de sessão com uma identidade de redes social, inscrever-se para o diretório ou qualquer outro número de passos. Ações de utilizador dependem como a política está definida.
@@ -121,7 +117,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | access_token |O token de acesso que a aplicação pedida.  O token de acesso não deve estar descodificar ou caso contrário inspecioná-los. Pode ser tratado como uma cadeia opaco. |
 | token_type |O valor de tipo de token. O único tipo que suporte do Azure AD é portador. |
 | expires_in |O período de tempo que o token de acesso é válido (em segundos). |
-| Âmbito |Os âmbitos que o token é válido para. Também pode utilizar âmbitos para tokens de cache para utilização posterior. |
+| scope |Os âmbitos que o token é válido para. Também pode utilizar âmbitos para tokens de cache para utilização posterior. |
 | id_token |O token de ID que a aplicação pedida. Pode utilizar o token de ID para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. Para obter mais informações sobre os tokens de ID e os respetivos conteúdos, consulte o [referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md). |
 | state |Se um `state` parâmetro está incluído no pedido, o mesmo valor deve aparecer na resposta. A aplicação deve verificar que o `state` valores no pedido e resposta são idênticos. |
 
@@ -203,7 +199,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | client_id |Necessário |O ID da aplicação atribuído à sua aplicação no [portal do Azure](https://portal.azure.com). |
 | response_type |Necessário |Tem de incluir `id_token` para OpenID Connect início de sessão.  Também poderão incluir o tipo de resposta `token`. Se utilizar `token` aqui, a aplicação pode imediatamente receber um token de acesso de ponto final de autorização, sem o tornar um segundo pedido para o ponto final de autorização. Se utilizar o `token` tipo de resposta, a `scope` parâmetro tem de conter um âmbito que indica qual para emitir o token para o recurso. |
 | redirect_uri |Recomendado |O URI de redirecionamento da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação. -Deve corresponder exatamente um do redirecionamento de URIs registados no portal, exceto que tem de ser codificados de URL. |
-| Âmbito |Necessário |Uma lista separada por espaço de âmbitos.  Para obter os tokens, inclua todos os âmbitos que necessita para o recurso pretendido. |
+| scope |Necessário |Uma lista separada por espaço de âmbitos.  Para obter os tokens, inclua todos os âmbitos que necessita para o recurso pretendido. |
 | response_mode |Recomendado |Especifica o método que é utilizado para enviar a cópia de segurança de token resultante para a sua aplicação.  Pode ser `query`, `form_post`, ou `fragment`. |
 | state |Recomendado |Um valor incluído no pedido de que é devolvido na resposta token.  Pode ser uma cadeia de todos os conteúdos que pretende utilizar.  Normalmente, um valor exclusivo, gerado aleatoriamente, é utilizado, para impedir ataques de falsificação de pedidos entre sites.  O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu. Por exemplo, a página ou a vista foi o utilizador em. |
 | nonce |Necessário |Um valor incluído no pedido de gerado pela aplicação, o que está incluída no token resultante ID como uma afirmação.  A aplicação, em seguida, pode verificar este valor para mitigar ataques de repetição de token. Normalmente, o valor é uma cadeia de aleatório, exclusiva que identifica a origem do pedido. |
@@ -231,7 +227,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | token_type |O tipo de token será sempre portador. |
 | state |Se um `state` parâmetro está incluído no pedido, o mesmo valor deve aparecer na resposta. A aplicação deve verificar que o `state` valores no pedido e resposta são idênticos. |
 | expires_in |Quanto o token de acesso é válido (em segundos). |
-| Âmbito |Os âmbitos que o token de acesso é válido para. |
+| scope |Os âmbitos que o token de acesso é válido para. |
 
 ### <a name="error-response"></a>Resposta de erro
 As respostas de erro também podem ser enviadas para o URI de redirecionamento, para que a aplicação pode processar corretamente.  Para `prompt=none`, um erro esperado tem o seguinte aspeto:
@@ -265,7 +261,7 @@ p=b2c_1_sign_in
 
 | Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
-| p |Necessário |A política a utilizar para assinar o utilizador fora da sua aplicação. |
+| P |Necessário |A política a utilizar para assinar o utilizador fora da sua aplicação. |
 | post_logout_redirect_uri |Recomendado |O URL que o utilizador deve ser redirecionado para após êxito fim de sessão. Se não estiver incluída, o Azure AD B2C apresenta uma mensagem genérica ao utilizador. |
 
 > [!NOTE]
@@ -280,7 +276,7 @@ Para experimentar estes pedidos por si, conclua os seguintes três passos. Subst
 2. [Criar uma aplicação](active-directory-b2c-app-registration.md) para obter uma ID da aplicação e um `redirect_uri` valor. Inclua uma aplicação web ou a web API na sua aplicação. Opcionalmente, pode criar um segredo da aplicação.
 3. [Criar as políticas](active-directory-b2c-reference-policies.md) para obter os nomes de política.
 
-## <a name="samples"></a>Amostras
+## <a name="samples"></a>Exemplos
 
 * [Criar uma aplicação de página única utilizando Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
 * [Criar uma aplicação de página única utilizando o .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)

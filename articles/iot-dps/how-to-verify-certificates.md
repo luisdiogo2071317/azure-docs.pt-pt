@@ -1,22 +1,22 @@
 ---
-title: "Como efetuar uma prova de posse x. 509 para certificados de AC com o serviço de aprovisionamento de dispositivos do Azure IoT Hub | Microsoft Docs"
-description: "Como verificar os certificados da AC de x. 509 com o serviço DPS"
+title: Como efetuar uma prova de posse x. 509 para certificados de AC com o serviço de aprovisionamento de dispositivos do Azure IoT Hub | Microsoft Docs
+description: Como verificar os certificados da AC de x. 509 com o serviço DPS
 services: iot-dps
-keywords: 
-author: JimacoMS
+keywords: ''
+author: bryanla
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 07fe5f975e59c10fcd716db6585e2ae0fefc90e4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: dd54ca5a172bdb65b7781f2fb764b00f50e5df28
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Como efetuar uma prova de posse x. 509 para certificados de AC com o serviço de aprovisionamento de dispositivos
 
@@ -70,7 +70,7 @@ Os scripts do PowerShell e Bash fornecidos na documentação e SDKs dependem [Op
 
 1. Carregar a assinatura resultante como um certificado de verificação ao seu serviço no portal de aprovisionamento. No **detalhes do certificado** no portal do Azure, utilize o _Explorador de ficheiros_ ícone junto ao **ficheiro. pem ou. cer de certificado de verificação** campo para carregar assinada certificado de verificação do sistema.
 
-2. Depois do certificado é carregado com êxito, clique em **verifique**. O **estado** das alterações de certificado para  **_Verified_**  no **certificado Explorer** lista. Clique em **atualizar** se não atualizar automaticamente.
+2. Depois do certificado é carregado com êxito, clique em **verifique**. O **estado** das alterações de certificado para **_Verified_** no **certificado Explorer** lista. Clique em **atualizar** se não atualizar automaticamente.
 
    ![Carregar a verificação de certificado](./media/how-to-verify-certificates/upload-cert-verification.png)  
 

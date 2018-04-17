@@ -1,13 +1,13 @@
 ---
-title: "Reposição de palavra-passe self-service FAQ – Azure Active Directory"
+title: Reposição de palavra-passe self-service FAQ – Azure Active Directory
 description: Perguntas mais frequentes sobre a palavra-passe self-service do Azure AD repor
 services: active-directory
-keywords: "Gestão de palavras-passe do Active Directory, gestão de palavras-passe, do Azure AD Self-repor a palavra-passe do serviço"
-documentationcenter: 
+keywords: Gestão de palavras-passe do Active Directory, gestão de palavras-passe, do Azure AD Self-repor a palavra-passe do serviço
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d30e3f099f497f35938b702d5fbb3ca38565f7c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Gestão de palavras-passe perguntas mais frequentes
 
@@ -84,7 +84,7 @@ Estas FAQ é dividida nas seguintes secções:
   >
   >
 
-## <a name="password-reset"></a>Reposição de palavras-passe
+## <a name="password-reset"></a>Reposição de palavra-passe
 
 * **P: pode impedir que utilizadores várias tentativas para repor uma palavra-passe num curto período de tempo?**
 
@@ -105,7 +105,7 @@ Estas FAQ é dividida nas seguintes secções:
     >Se não receber a notificação neste período de tempo:
         > * Verifique a pasta lixo.
         > * Verifique se o número ou o e-mail que está a ser contactado é aquele que esperava.
-        > * Verifique se os dados de autenticação no diretório estão corretamente formatado, por exemplo, + 1 4255551234 ou  *user@contoso.com* . 
+        > * Verifique se os dados de autenticação no diretório estão corretamente formatado, por exemplo, + 1 4255551234 ou *user@contoso.com*. 
   >
   >
 * **P: quais idiomas são suportados pela reposição de palavra-passe?**
@@ -190,7 +190,7 @@ Estas FAQ é dividida nas seguintes secções:
   >
 * **P: posso bloquear os utilizadores de repor a palavra-passe?**
 
-  > **R:** Sim, se utilizar um grupo para ativar SSPR, pode remover um utilizador individual do grupo que permite aos utilizadores para repor a palavra-passe.
+  > **R:** Sim, se utilizar um grupo para ativar SSPR, pode remover um utilizador individual do grupo que permite aos utilizadores para repor a palavra-passe. Se o utilizador for um Administrador Global irão reter a capacidade de repor a palavra-passe e este não pode ser desativado.
   >
   >
 
@@ -245,7 +245,7 @@ Estas FAQ é dividida nas seguintes secções:
   >
   >
 
-## <a name="password-writeback"></a>Repetição de escrita de palavras-passe
+## <a name="password-writeback"></a>Repetição de escrita da palavra-passe
 
 * **P: como funciona a repetição de escrita de palavras-passe nos bastidores?**
 

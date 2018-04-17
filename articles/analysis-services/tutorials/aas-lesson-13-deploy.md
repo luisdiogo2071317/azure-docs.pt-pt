@@ -1,27 +1,20 @@
 ---
-title: "Lição 13 do tutorial do Azure Analysis Services: implementar | Microsoft Docs"
+title: 'Lição 13 do tutorial do Azure Analysis Services: implementar | Microsoft Docs'
 description: Descreve como implementar o projeto de tutorial do Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 251795f394d30418e1c03ec7b92fec40a75b2c3d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: 889cc4224e2ffe31e15590c04c3dbf4b656bc386
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="deploy"></a>Implementação
+# <a name="deploy"></a>Implementar
 
 Nesta lição, vai configurar as propriedades da implementação, especificando um servidor do Azure Analysis Services onde implementar e um nome para o modelo. Em seguida, irá implementar o modelo nessa instância. Depois de o modelo ser implementado, os utilizadores podem ligar-se ao mesmo através de uma aplicação de relatório para clientes. Para obter mais informações, consulte [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy) (Implementar no Azure Analysis Services).  
   
@@ -77,7 +70,7 @@ Parabéns! Acabou de criar e implementar o seu primeiro modelo do Analysis Servi
   
   
   
-## <a name="whats-next"></a>Passos seguintes?
+## <a name="whats-next"></a>O que se segue?
 [Ligar com o Power BI Desktop](../analysis-services-connect-pbi.md)   
 [Lição Suplementar - segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
 [Lição Suplementar - linhas Detalhadas](../tutorials/aas-supplemental-lesson-detail-rows.md)   

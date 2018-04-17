@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4d926ee08da593e590aa77a2ca09d8d1e1f6bb46
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5d91d8d00a37422dcead195354447d602b801f9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Proteger os dados armazenados no Azure Data Lake Store
 Proteger dados no Azure Data Lake Store é uma abordagem de três passos.  Ambos baseada em funções (RBAC) de controlo de acesso e listas de controlo de acesso (ACLs) tem de ser definidas para permitir totalmente o acesso aos dados para os utilizadores e grupos de segurança.
 
-1. Comece por criar grupos de segurança no Azure Active Directory (AAD). Estes grupos de segurança são utilizados para implementar o controlo de acesso baseado em funções (RBAC) no portal do Azure. Para obter mais informações, consulte [controlo de acesso baseado em funções no Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+1. Comece por criar grupos de segurança no Azure Active Directory (AAD). Estes grupos de segurança são utilizados para implementar o controlo de acesso baseado em funções (RBAC) no portal do Azure. Para obter mais informações, consulte [controlo de acesso baseado em funções no Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
 2. Atribua os grupos de segurança do AAD para a conta do Azure Data Lake Store. Controla o acesso à conta do Data Lake Store das operações de gestão de portal e do portal ou de APIs.
 3. Atribua os grupos de segurança do AAD como acesso (ACL) de listas de controlo no sistema de ficheiros de Data Lake Store.
 4. Além disso, também pode definir um intervalo de endereços IP para clientes que podem aceder aos dados no Data Lake Store.
@@ -148,7 +148,7 @@ Quando remover o grupo de segurança ACLs do sistema de ficheiros do Azure Data 
    
     ![Atribuir permissões para agrupar](./media/data-lake-store-secure-data/adl.remove.acl.png "atribuir permissões de grupo")
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Descrição geral do Azure Data Lake Store](data-lake-store-overview.md)
 * [Copiar dados de Blobs de armazenamento do Azure para o Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Utilizar o Azure Data Lake Analytics com o Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

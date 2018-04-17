@@ -1,12 +1,12 @@
 ---
-title: "Ligar a uma origem de dados em coleções de área de trabalho do Power BI | Microsoft Docs"
-description: "Saiba como ligar a uma origem de dados dentro de coleções de área de trabalho do Power BI."
+title: Ligar a uma origem de dados em coleções de área de trabalho do Power BI | Microsoft Docs
+description: Saiba como ligar a uma origem de dados dentro de coleções de área de trabalho do Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 24600c4343e3bfebe14f25020c5a7ba02d15af64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 5a154c4899db974645bb7ade028d8bd8f267aad7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-to-a-data-source"></a>Ligar a uma origem de dados
 
@@ -44,7 +44,7 @@ Com coleções de área de trabalho do Power BI, que pode utilizar o DirectQuery
 
 **DirectQuery**
 * Base de dados SQL do Azure
-* Azure SQL Data Warehouse
+* Armazém de Dados SQL do Azure
 
 **Importar**
 
@@ -72,7 +72,7 @@ Existem algumas limitações da utilização **DirectQuery**:
 ## <a name="directquery-and-measures"></a>DirectQuery e medidas
 Para garantir que as consultas enviadas para a origem de dados subjacente ter um desempenho aceitável, limitações são impostas em medidas. Quando utilizar **Power BI Desktop**, avançadas os utilizadores podem optar por ignorar esta limitação escolhendo **ficheiro > Opções e definições > opções**. No **opções** caixa de diálogo, escolha **DirectQuery**e selecione a opção **permitir sem restrições medidas no modo DirectQuery**. Quando esta opção está selecionada, pode ser utilizada uma expressão DAX que é válida para uma medida. Os utilizadores deverão ter conhecimento; No entanto, se algumas expressões que efetuar bem quando os dados são importados visualizem lenta consultas para o back-end de origem quando no **DirectQuery** modo. 
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 
 * [Começar a utilizar coleções de área de trabalho do Microsoft Power BI](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)

@@ -1,11 +1,11 @@
 ---
-title: "Aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure Active Directory | Microsoft Docs"
-description: "Saiba mais sobre conceitos e os passos para utilizar o Azure Active Directory (Azure AD) para autenticar o acesso à API de serviços de suporte de dados do Azure."
+title: Aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure Active Directory | Microsoft Docs
+description: Saiba mais sobre conceitos e os passos para utilizar o Azure Active Directory (Azure AD) para autenticar o acesso à API de serviços de suporte de dados do Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57f2680d6b3f06a88a13a09018e7d72afcb710a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure AD
  
 A API de serviços de suporte de dados do Azure é uma API RESTful. Pode utilizá-lo para efetuar operações nos recursos de suporte de dados utilizando uma API REST ou ao utilizar SDKs do cliente disponíveis. Media Services do Azure oferece um SDK do cliente de Media Services para Microsoft .NET. Para ser autorizadas a aceder a recursos de Media Services e a API de serviços de suporte de dados, tem primeiro de ser autenticado. 
 
-Os Media Services suportam [Azure Active Directory (Azure AD)-autenticação com base no](../active-directory/active-directory-whatis.md). O serviço de REST de suporte de dados do Azure requer que o utilizador ou aplicação que faz com que a API REST pedidos de ter o **contribuinte** ou **proprietário** função para aceder aos recursos. Para obter mais informações, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../active-directory/role-based-access-control-what-is.md).  
+Os Media Services suportam [Azure Active Directory (Azure AD)-autenticação com base no](../active-directory/active-directory-whatis.md). O serviço de REST de suporte de dados do Azure requer que o utilizador ou aplicação que faz com que a API REST pedidos de ter o **contribuinte** ou **proprietário** função para aceder aos recursos. Para obter mais informações, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
-> Atualmente, os Media Services suportam o modelo de autenticação do serviço de controlo de acesso do Azure. No entanto, a autorização de controlo de acesso vai ser preterida no dia 1 de Junho de 2018. Recomendamos a migração para o modelo de autenticação do Azure AD logo que possível.
+> Atualmente, os Media Services suportam o modelo de autenticação do serviço de controlo de acesso do Azure. No entanto, a autorização de controlo de acesso vai ser preterida no dia 1 de Junho de 2018. Recomendamos que migre para o modelo de autenticação do Azure AD assim que for possível.
 
 Este documento fornece uma descrição geral de como pode aceder a API de serviços de suporte de dados através de REST ou de APIs de .NET.
 
@@ -105,7 +105,7 @@ Para utilizar este método, crie uma aplicação do Azure AD e o serviço princi
 
 Depois de criar a aplicação do Azure AD, pode obter valores para as seguintes definições. Necessitar destes valores para a autenticação:
 
-- ID de cliente 
+- ID do Cliente 
 - Segredo do cliente 
 
 Na figura anterior, os números representam o fluxo de pedidos por ordem cronológica:
@@ -147,9 +147,9 @@ Os seguintes artigos-se descrições gerais de conceitos de autenticação do Az
 
 - [Cenários de autenticação endereçados através do Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 - [Adicionar, atualizar ou remover uma aplicação no Azure AD](../active-directory/develop/active-directory-integrating-applications.md)
-- [Configurar e gerir o controlo de acesso baseado em funções utilizando o PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Configurar e gerir o controlo de acesso baseado em funções utilizando o PowerShell](../role-based-access-control/role-assignments-powershell.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Utilizar o portal do Azure para [autenticação de acesso do Azure AD para consumir API de serviços de suporte de dados do Azure](media-services-portal-get-started-with-aad.md).
 * Autenticação de utilização do Azure AD para [aceder à API de serviços de suporte de dados do Azure com o .NET](media-services-dotnet-get-started-with-aad.md).

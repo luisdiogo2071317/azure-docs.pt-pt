@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 31e71f153c7bbf76b0f06f8f17a74c43cc1b1c81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar os recursos com grupos de gestão do Azure 
 
@@ -32,7 +32,7 @@ Pode criar uma estrutura flexível de grupos de gestão e as subscrições para 
 
 ![árvore](media/management-groups/MG_overview.png)
 
-Ao criar uma hierarquia que é agrupada por departamentos, que é possível atribuir [controlo de acesso em funções do Azure (RBAC)](../active-directory/role-based-access-control-what-is.md) funções que *herdar* para departamentos sob esse grupo de gestão. Ao utilizar grupos de gestão, pode reduzir a carga de trabalho e reduz o risco de erro por ter apenas uma vez a atribuir a função. 
+Ao criar uma hierarquia que é agrupada por departamentos, que é possível atribuir [controlo de acesso em funções do Azure (RBAC)](../role-based-access-control/overview.md) funções que *herdar* para departamentos sob esse grupo de gestão. Ao utilizar grupos de gestão, pode reduzir a carga de trabalho e reduz o risco de erro por ter apenas uma vez a atribuir a função. 
 
 ### <a name="important-facts-about-management-groups"></a>Factos importantes sobre grupos de gestão
 - 10 000 grupos de gestão podem ser suportados num único diretório. 
@@ -55,7 +55,7 @@ Este item está a ser trabalhado e será resolvido antes de grupos de gestão s�
 
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gestão de raiz para cada diretório
 
-Cada diretório é atribuído um grupo de gestão de nível superior única denominado o grupo de gestão "Raiz". Este grupo de gestão raiz está incorporado na hierarquia de ter todos os grupos de gestão e subscrições fold cópias de segurança ao mesmo. Este grupo de gestão de raiz permite políticas globais e atribuições de RBAC a aplicar ao nível do diretório. O [administrador da Directory tem de efetuar a elevação próprios](../active-directory/role-based-access-control-tenant-admin-access.md) ser inicialmente o proprietário deste grupo de raiz. Depois do administrador é o proprietário do grupo, que poderá atribuir qualquer função RBAC para outros utilizadores ou grupos para gerir a hierarquia.  
+Cada diretório é atribuído um grupo de gestão de nível superior única denominado o grupo de gestão "Raiz". Este grupo de gestão raiz está incorporado na hierarquia de ter todos os grupos de gestão e subscrições fold cópias de segurança ao mesmo. Este grupo de gestão de raiz permite políticas globais e atribuições de RBAC a aplicar ao nível do diretório. O [administrador da Directory tem de efetuar a elevação próprios](../role-based-access-control/elevate-access-global-admin.md) ser inicialmente o proprietário deste grupo de raiz. Depois do administrador é o proprietário do grupo, que poderá atribuir qualquer função RBAC para outros utilizadores ou grupos para gerir a hierarquia.  
 
 ### <a name="important-facts-about-the-root-management-group"></a>Factos importantes sobre o grupo de gestão raiz
 - Nome e o ID do grupo de gestão de raiz são indicados o ID do Active Directory do Azure por predefinição. O nome a apresentar pode ser atualizado em qualquer altura para mostrar diferente dentro do portal do Azure. 
@@ -67,9 +67,9 @@ Cada diretório é atribuído um grupo de gestão de nível superior única deno
   
 ## <a name="management-group-access"></a>Grupo de gestão de acesso
 
-Grupos de gestão do Azure suporta [controlo de acesso em funções do Azure (RBAC)](../active-directory/role-based-access-control-what-is.md) para todos os acessos de recursos e definições de funções. Estas permissões são herdadas para recursos subordinados que existam na hierarquia.   
+Grupos de gestão do Azure suporta [controlo de acesso em funções do Azure (RBAC)](../role-based-access-control/overview.md) para todos os acessos de recursos e definições de funções. Estas permissões são herdadas para recursos subordinados que existam na hierarquia.   
 
-Enquanto qualquer [função incorporada do RBAC](../active-directory/role-based-access-control-what-is.md#built-in-roles) podem ser atribuídos a um grupo de gestão, existem quatro funções que são frequentemente utilizadas: 
+Enquanto qualquer [função incorporada do RBAC](../role-based-access-control/overview.md#built-in-roles) podem ser atribuídos a um grupo de gestão, existem quatro funções que são frequentemente utilizadas: 
 - **Proprietário** tem acesso total a todos os recursos, incluindo o direito para delegar o acesso a outras pessoas. 
 - **Contribuidor** pode criar e gerir todos os tipos de recursos do Azure, mas não é possível conceder acesso a outras pessoas.
 - **Contribuinte de política de recurso** pode criar e gerir políticas no diretório de recursos.     

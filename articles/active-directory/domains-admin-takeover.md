@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assuma um diretório não gerido como administrador no Azure Active Directory
 Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório no Azure Active Directory (Azure AD) não gerido. Quando um utilizador self-service se inscreve num serviço em nuvem que utiliza o Azure AD, são adicionadas a um Azure não gerido diretório AD com base no respetivo domínio de correio eletrónico. Para mais informações sobre o Self-Service ou inscrever "viral" para um serviço, consulte [que é a inscrição self-service do Azure Active Directory?]()
@@ -83,14 +83,12 @@ Quando verificar a propriedade do nome de domínio, o Azure AD remove o nome de 
 - Utilizadores
 - Subscrições
 - Atribuições de licenças
- 
-O [ **ForceTakeover** opção](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) admin externo de nome de domínio aquisições suporte para apenas dois serviços, Power BI e o Azure RMS.
 
 ### <a name="support-for-external-admin-takeover"></a>Suporte para aquisições admin externo
 Aquisições admin externo é suportada pelos seguintes serviços online:
 
 - Power BI
-- Serviço Azure Rights Management (RMS)
+- Azure Rights Management
 - Exchange Online
 
 Os planos de serviço suportados incluem:
@@ -99,12 +97,19 @@ Os planos de serviço suportados incluem:
 - Power BI Pro
 - PowerApps livre
 - PowerFlow livre
-- Básico de serviço do Azure Rights Management (RMS)
-- Enterprise de serviço do Azure Rights Management (RMS)
+- RMS para indivíduos
 - Microsoft Stream
 - Versão de avaliação gratuita do Dynamics 365
 
-Exernal admin aquisições não é suportada relativamente a qualquer serviço que tenha os planos de serviço que incluem o SharePoint, o OneDrive ou o Skype para empresas; Por exemplo, através de uma subscrição gratuita do Office ou o SKU básico do Office.
+Aquisições admin externo não é suportada relativamente a qualquer serviço que tenha os planos de serviço que incluem o SharePoint, o OneDrive ou o Skype para empresas; Por exemplo, através de uma subscrição gratuita do Office ou o SKU básico do Office. Opcionalmente, pode utilizar o [ **ForceTakeover** opção](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio do inquilino não gerido e verificá-lo no inquilino pretendido. Esta opção ForceTakeover não irá mover através de utilizadores ou manter o acesso à subscrição. Em vez disso, esta opção apenas se move o nome de domínio. 
+
+#### <a name="more-information-about-rms-for-individuals"></a>Obter mais informações sobre o RMS para indivíduos
+
+Para [RMS para indivíduos](/information-protection/understand-explore/rms-for-individuals), quando o inquilino não gerido na mesma região que o inquilino que lhe pertence, criados automaticamente [chave de inquilino do Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) e [predefinido modelos de proteção](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) adicionalmente são movidos através de com o nome de domínio. 
+
+A chave e os modelos não são movidos através de quando o inquilino não gerido está numa região diferente. Por exemplo, o inquilino não gerido está a ser o inquilino que possui está a ser americano norte e Europa. 
+
+Embora o RMS para indivíduos é concebido para suportar a autenticação do Azure AD para abrir conteúdos protegidos, esta não impedir que os utilizadores também proteger conteúdo. Se os utilizadores proteger conteúdo com a subscrição do RMS para indivíduos e a chave e os modelos não foram movidos através de, esse conteúdo não estarão acessível após a aquisições de domínio.    
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlets do Azure AD PowerShell para a opção de ForceTakeover
 Pode ver estes cmdlets utilizados no [exemplo do PowerShell](#powershell-example).
@@ -118,7 +123,7 @@ Cmdlet | Utilização
 `get-msoldomain` | O nome de domínio está agora incluído na lista de nomes de domínio associado ao seu inquilino gerido, mas está listado como **Unverified**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Fornece as informações para colocar em novo registo TXT de DNS para o domínio (MS = xxxxx). Verificação poderá não acontecer imediatamente porque demora algum tempo para o registo TXT se propague, por isso, aguarde alguns minutos antes de considerar a **- ForceTakeover** opção. 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se o seu nome de domínio ainda não está a ser verificado, pode avançar com a **- ForceTakeover** opção. Verifica se o registo TXT foi criado e arranca, o processo de alimentar.<li>O **- ForceTakeover** opção deve ser adicionada ao cmdlet, apenas quando forçar uma aquisições admin externo, como quando o inquilino não gerido tem serviços do Office 365 bloquear a aquisições.
-`get-msoldomain` | A lista de domínio mostra agora o o nome de domínio como **Verified**.
+`get-msoldomain` | A lista de domínio mostra agora o nome de domínio como **Verified**.
 
 ### <a name="powershell-example"></a>Exemplo do PowerShell
 

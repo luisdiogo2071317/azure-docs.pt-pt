@@ -1,11 +1,11 @@
 ---
-title: "Certifique-se de tráfego com o Azure rede observador IP fluxo verifique - CLI do Azure | Microsoft Docs"
-description: "Este artigo descreve como verificar se o tráfego de ou para uma máquina virtual é permitido ou negado utilizando a CLI do Azure"
+title: Certifique-se de tráfego com o Azure rede observador IP fluxo verifique - CLI do Azure | Microsoft Docs
+description: Este artigo descreve como verificar se o tráfego de ou para uma máquina virtual é permitido ou negado utilizando a CLI do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 92b857ed-c834-4c1b-8ee9-538e7ae7391d
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f1355cd861722848211277250155c434da1e774d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8681118e55d8ddddf17ebac3bae63486446c70e9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Verifique se o tráfego é permitido ou negado de uma VM com o IP fluxo verificar ou para um componente do observador de rede do Azure
 
@@ -53,7 +53,7 @@ azure vm show -g resourceGroupName -n virtualMachineName
 
 ## <a name="get-the-nics"></a>Obter os NICS
 
-O endereço IP de uma NIC na máquina virtual é necessário, neste exemplo, obtemos os NICs numa máquina virtual. Se já conhece o endereço IP que pretende testar na máquina virtual, pode ignorar este passo.
+É necessário o endereço IP de uma NIC na máquina virtual. Obter os NICs de uma máquina virtual com o comando que se segue. Se já conhece o endereço IP que pretende testar na máquina virtual, pode ignorar este passo.
 
 ```
 azure network nic show -g resourceGroupName -n nicName
@@ -61,7 +61,7 @@ azure network nic show -g resourceGroupName -n nicName
 
 ## <a name="run-ip-flow-verify"></a>Certifique-se de execução de fluxo de IP
 
-Agora que temos as informações necessárias para executar o cmdlet, iremos executar o `network watcher ip-flow-verify` cmdlet para testar o tráfego. Neste exemplo, estamos a utilizar o primeiro endereço IP no NIC primeiro.
+Execute o `network watcher ip-flow-verify` cmdlet para testar o tráfego. Neste exemplo, é utilizado o primeiro endereço IP do primeiro NIC:
 
 ```
 azure network watcher ip-flow-verify -g resourceGroupName -n networkWatcherName -t targetResourceId -d directionInboundorOutbound -p protocolTCPorUDP -o localPort -m remotePort -l localIpAddr -r remoteIpAddr
@@ -82,7 +82,7 @@ info:    network watcher ip-flow-verify command OK
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se o tráfego está a ser bloqueado e não deve ser, consulte [gerir grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para identificar as regras de segurança e de grupo de segurança de rede que estão definidas.
+Se o tráfego está a ser bloqueado e não deve ser, consulte [gerir grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para identificar as regras de segurança e de grupo de segurança de rede que estão definidas.
 
 Saiba como as definições de NSG de auditoria, visitando [auditoria de segurança de rede grupos (NSG) com o observador de rede](network-watcher-nsg-auditing-powershell.md).
 

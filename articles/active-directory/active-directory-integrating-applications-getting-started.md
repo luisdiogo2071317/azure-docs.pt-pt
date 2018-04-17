@@ -1,11 +1,11 @@
 ---
-title: "Começar a integração do Azure AD com aplicações | Microsoft Docs"
-description: "Este artigo é um guia de introdução para integrar o Azure Active Directory (AD) com aplicações no local e aplicações em nuvem."
+title: Começar a integração do Azure AD com aplicações | Microsoft Docs
+description: Este artigo é um guia de introdução para integrar o Azure Active Directory (AD) com aplicações no local e aplicações em nuvem.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: bf8ef28b49a3a12772965e7ebc85539c1a86e10f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dd118dbda9b7b0bee27bf9c97627bb8269e2d9b4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução de integrar o Azure Active Directory com aplicações de introdução
 ## <a name="overview"></a>Descrição geral
@@ -51,7 +51,7 @@ Antes de tipo jump para integrar aplicações com o Azure AD, é importante sabe
 * Vai precisar de limpar bases de dados de utilizador/grupo antes da integração?  (Esta é uma pergunta pretty importante. Libertação da memória no lixo out.)
 
 ### <a name="access-management-inventory"></a>Inventário de gestão de acesso
-* Como atualmente gerir acesso de utilizador para as aplicações? A que precisa de alterar?  Ter é considerado outras formas de gerir o acesso, tal como com [RBAC](role-based-access-control-configure.md) por exemplo?
+* Como atualmente gerir acesso de utilizador para as aplicações? A que precisa de alterar?  Ter é considerado outras formas de gerir o acesso, tal como com [RBAC](../role-based-access-control/role-assignments-portal.md) por exemplo?
 * Quem tem acesso à que?
 
 Talvez não tiver as respostas para todas estas perguntas adiantado mas que okay.  Este guia possa ajudá-lo a responder a algumas dessas perguntas e tomar algumas decisões informadas.
@@ -90,6 +90,6 @@ Se estiver a escrever uma nova aplicação e pretender para ajudar os programado
 
 Se pretende adicionar a sua aplicação personalizada para a Galeria de aplicações do Azure, consulte o artigo ["Traga a sua própria aplicação" com a configuração SAML do Self-Service do Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
 

@@ -1,25 +1,18 @@
 ---
-title: "Se ligam aos serviços de análise do Azure com o Power BI | Microsoft Docs"
+title: Se ligam aos serviços de análise do Azure com o Power BI | Microsoft Docs
 description: Saiba como ligar a um servidor de Analysis Services do Azure utilizando o Power BI.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/10/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 568c18fb0591284995f5986f98b3762a9d19b056
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.reviewer: minewiskan
+ms.openlocfilehash: 03e654b3d03564d11db9156e6fd5793bbd78c85d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-with-power-bi"></a>Estabelecer ligação com o Power BI
 
@@ -55,7 +48,7 @@ Assim que tiver criado um servidor no Azure e implementar um modelo de tabela, o
 
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 [Ligar ao Azure Analysis Services](analysis-services-connect.md)   
 [Bibliotecas de cliente](analysis-services-data-providers.md)
 

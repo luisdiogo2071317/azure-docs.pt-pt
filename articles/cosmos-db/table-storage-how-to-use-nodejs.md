@@ -3,36 +3,43 @@ title: Como utilizar o Table storage do Azure ou a base de dados do Azure Cosmos
 description: Armazene dados estruturados na nuvem utilizando o Table storage do Azure ou a base de dados do Azure Cosmos.
 services: cosmos-db
 documentationcenter: nodejs
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/23/2018
-ms.author: mimig
-ms.openlocfilehash: fc6e3ca079b4d1edefa82e06dbe63b393ab2fbb3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: 3f1908a6c2d129da44e0719b2cf69cf09baef356
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Como utilizar o Table storage do Azure do Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este artigo mostra como efetuar cenários comuns utilizando o serviço tabela de armazenamento do Azure ou a base de dados do Azure Comsos numa aplicação Node.js.
+Este artigo mostra como efetuar cenários comuns utilizando o serviço tabela de armazenamento do Azure ou a base de dados do Azure Cosmos numa aplicação Node.js.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+
+### <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
+
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta de API de tabela de base de dados do Azure Cosmos
+
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configurar a sua aplicação para aceder ao armazenamento do Azure
-Para utilizar o Storage do Azure, terá do SDK de armazenamento do Azure para Node.js, que inclui um conjunto de bibliotecas de conveniência que comunicam com os serviços de REST de armazenamento.
+Para utilizar o Storage do Azure ou a base de dados do Azure Cosmos, terá do SDK de armazenamento do Azure para Node.js, que inclui um conjunto de bibliotecas de conveniência que comunicam com os serviços de REST de armazenamento.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Utilize o Gestor de pacote de nó (NPM) para instalar o pacote
 1. Utilize uma interface de linha de comandos, como **PowerShell** (Windows), **Terminal** (Mac), ou **Bash** (Unix) e navegue para a pasta onde criou a aplicação.
@@ -197,7 +204,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 1. Obter o ETag do objeto que está a ser atualizado. Este é devolvido como parte do `response` em nenhuma operação relacionada com entidade e podem ser recuperadas por meio `response['.metadata'].etag`.
 > 2. Quando efetuar uma operação de atualização numa entidade, adicione as informações de ETag obtidas anteriormente para a entidade de novo. Por exemplo:
 >
->       entity2['.metadata'].etag = currentEtag;
+>       entity2 .etag ['.metadata'] = currentEtag;
 > 3. Efetue a operação de atualização. Se a entidade foi modificada desde a obter o valor ETag, tais como outra instância da sua aplicação, um `error` é devolvida a indicar que a condição de atualização especificada no pedido não foi cumprida.
 >
 >

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 264befc6c60b87d41658b4da763e477fbb7e3f8c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utilize o portal para criar uma aplicação Azure Active Directory e um principal de serviço que pode aceder a recursos
 
@@ -34,9 +34,9 @@ Para concluir este artigo, tem de ter permissões suficientes para registar uma 
 
 ### <a name="check-azure-active-directory-permissions"></a>Verifique as permissões do Azure Active Directory
 
-1. Selecione **do Azure Active Directory**.
+1. Selecione **Azure Active Directory**.
 
-   ![Selecione do azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+   ![selecionar Azure Active Directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
 1. No Azure Active Directory, selecione **as definições de utilizador**.
 
@@ -46,13 +46,13 @@ Para concluir este artigo, tem de ter permissões suficientes para registar uma 
 
    ![registos de aplicação de vista](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Se os registos de aplicação definição estiver definida como **não**, apenas os utilizadores administradores podem registar aplicações. Verifique se a sua conta é um administrador de inquilino do Azure AD. Selecione **descrição geral** e observe as informações do utilizador. Se a sua conta está atribuída à função de utilizador, mas a definição de registo de aplicação (a partir do passo anterior) está limitada a utilizadores de administração, peça ao seu administrador para qualquer lhe atribuir a uma função de administrador ou permitir que os utilizadores registar as aplicações.
+1. Se os registos de aplicação definição estiver definida como **não**, apenas [administradores globais](../active-directory/active-directory-assign-admin-roles-azure-portal.md) pode registar aplicações. Verifique se a sua conta é um administrador de inquilino do Azure AD. Selecione **descrição geral** e observe as informações do utilizador. Se a sua conta está atribuída à função de utilizador, mas a definição de registo de aplicação (a partir do passo anterior) está limitada a utilizadores de administração, peça ao seu administrador para qualquer lhe atribuir a função de administrador global ou permitir que os utilizadores registar as aplicações.
 
    ![Localizar utilizador](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
 ### <a name="check-azure-subscription-permissions"></a>Verifique as permissões de subscrição do Azure
 
-Na sua subscrição do Azure, a conta tem de ter `Microsoft.Authorization/*/Write` acesso para atribuir uma aplicação AD a uma função. Esta ação é concedida através de [proprietário](../active-directory/role-based-access-built-in-roles.md#owner) função ou [administrador de acesso de utilizador](../active-directory/role-based-access-built-in-roles.md#user-access-administrator) função. Se a sua conta está atribuída a **contribuinte** função, não tem permissão suficiente. Recebe um erro ao tentar atribuir o principal de serviço a uma função.
+Na sua subscrição do Azure, a conta tem de ter `Microsoft.Authorization/*/Write` acesso para atribuir uma aplicação AD a uma função. Esta ação é concedida através de [proprietário](../role-based-access-control/built-in-roles.md#owner) função ou [administrador de acesso de utilizador](../role-based-access-control/built-in-roles.md#user-access-administrator) função. Se a sua conta está atribuída a **contribuinte** função, não tem permissão suficiente. Recebe um erro ao tentar atribuir o principal de serviço a uma função.
 
 Para verificar as permissões de subscrição:
 
@@ -71,71 +71,71 @@ Para verificar as permissões de subscrição:
 ## <a name="create-an-azure-active-directory-application"></a>Criar uma aplicação do Azure Active Directory
 
 1. Inicie sessão na sua conta do Azure através de [portal do Azure](https://portal.azure.com).
-1. Selecione **do Azure Active Directory**.
+1. Selecione **Azure Active Directory**.
 
-   ![Selecione do azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+   ![selecionar Azure Active Directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-1. Selecione **registos de aplicação**.
+1. Selecione **Registos das aplicações**.
 
-   ![Selecione os registos de aplicação](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
+   ![selecionar registos das aplicações](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
 
-1. Selecione **novo registo de aplicação**.
+1. Selecione **Novo registo de aplicação**.
 
-   ![Adicionar aplicação](./media/resource-group-create-service-principal-portal/select-add-app.png)
+   ![adicionar aplicação](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Forneça um nome e o URL para a aplicação. Selecione **aplicação Web / API** para o tipo de aplicação que pretende criar. Não é possível criar as credenciais para um [aplicação nativa](../active-directory/active-directory-application-proxy-native-client.md); por conseguinte, se o tipo não funcionam para uma aplicação automatizada. Depois de definir os valores, selecione **criar**.
+1. Indique um nome e um URL para a aplicação. Selecione **aplicação / API Web** no tipo de aplicação que quer criar. Não é possível criar as credenciais para um [aplicação nativa](../active-directory/active-directory-application-proxy-native-client.md); por conseguinte, se o tipo não funcionam para uma aplicação automatizada. Depois de definir os valores, selecione **criar**.
 
-   ![aplicação de nome](./media/resource-group-create-service-principal-portal/create-app.png)
+   ![dar nome à aplicação](./media/resource-group-create-service-principal-portal/create-app.png)
 
 Foi criada com a aplicação.
 
 ## <a name="get-application-id-and-authentication-key"></a>Obter a chave de autenticação e ID de aplicação
 
-Quando programaticamente iniciar sessão, terá do ID para a sua aplicação e uma chave de autenticação. Para obter esses valores, utilize os seguintes passos:
+Ao iniciar sessão programaticamente, precisa do ID da sua aplicação e de uma chave de autenticação. Para obter esses valores, utilize os seguintes passos:
 
-1. De **registos de aplicação** no Azure Active Directory, selecione a aplicação.
+1. Em **Registos das aplicações** no Azure Active Directory, selecione a aplicação.
 
-   ![Selecionar aplicação](./media/resource-group-create-service-principal-portal/select-app.png)
+   ![selecionar aplicação](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. Copiar o **ID da aplicação** e armazená-las no código da aplicação. Alguns [aplicações de exemplo](#log-in-as-the-application) fazer referência a este valor como o ID de cliente.
+1. Copie o **ID da Aplicação** e armazene-o no código da aplicação. Algumas [aplicações de exemplo](#log-in-as-the-application) referem-se a este valor como o ID de cliente.
 
    ![ID de cliente](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 
-1. Para gerar uma chave de autenticação, selecione **definições**.
+1. Para gerar uma chave de autenticação, selecione **Definições**.
 
-   ![Selecione as definições](./media/resource-group-create-service-principal-portal/select-settings.png)
+   ![selecionar as definições](./media/resource-group-create-service-principal-portal/select-settings.png)
 
-1. Para gerar uma chave de autenticação, selecione **chaves**.
+1. Para gerar uma chave de autenticação, selecione **Chaves**.
 
-   ![Selecione as chaves](./media/resource-group-create-service-principal-portal/select-keys.png)
+   ![selecionar chaves](./media/resource-group-create-service-principal-portal/select-keys.png)
 
-1. Forneça uma descrição da chave e um período de tempo para a chave. Quando terminar, selecione **guardar**.
+1. Indique uma descrição e uma duração para a chave. Quando terminar, selecione **Guardar**.
 
-   ![Guardar chave](./media/resource-group-create-service-principal-portal/save-key.png)
+   ![guardar chave](./media/resource-group-create-service-principal-portal/save-key.png)
 
-   Depois de guardar a chave, é apresentado o valor da chave. Copie este valor, porque não é possível obter a chave mais tarde. Forneça o valor de chave com o ID de aplicação para iniciar sessão como a aplicação. Armazene o valor da chave em que a aplicação o pode obtê-lo.
+   Depois de guardar a chave, o valor da mesma é apresentado. Copie este valor, porque não vai conseguir obter a chave mais tarde. O valor da chave é indicado com o ID da aplicação para iniciar sessão como esta. Armazene o valor da chave num local onde a aplicação o possa obter.
 
-   ![guardar a chave](./media/resource-group-create-service-principal-portal/copy-key.png)
+   ![chave guardada](./media/resource-group-create-service-principal-portal/copy-key.png)
 
-## <a name="get-tenant-id"></a>Obter ID de inquilino
+## <a name="get-tenant-id"></a>Obter o ID de inquilino
 
-Quando programaticamente iniciar sessão, tem de passar o ID do inquilino com o seu pedido de autenticação.
+Ao iniciar sessão programaticamente, tem de transmitir o ID de inquilino com o pedido de autenticação.
 
-1. Selecione **do Azure Active Directory**.
+1. Selecione **Azure Active Directory**.
 
-   ![Selecione do azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+   ![selecionar Azure Active Directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-1. Para obter o ID de inquilino, selecione **propriedades** para o seu inquilino do Azure AD.
+1. Para obter o ID de inquilino, selecione as **Propriedades** do seu inquilino do Azure AD.
 
    ![selecionar propriedades do Azure AD](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
-1. Copiar o **ID de diretório**. Este valor é o ID do inquilino.
+1. Copie o **ID do Diretório**. Este valor é o ID do inquilino.
 
    ![ID do inquilino](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
 ## <a name="assign-application-to-role"></a>Atribuir a aplicação a função
 
-Para aceder a recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida qual a função representa as permissões corretas para a aplicação. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções incorporadas](../active-directory/role-based-access-built-in-roles.md).
+Para aceder a recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida qual a função representa as permissões corretas para a aplicação. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções incorporadas](../role-based-access-control/built-in-roles.md).
 
 Pode definir o âmbito ao nível da subscrição, do grupo de recursos ou do recurso. As permissões são herdadas a níveis inferiores de âmbito. Por exemplo, adicionar uma aplicação para a função de leitor para um grupo de recursos significa podem ler o grupo de recursos e todos os recursos que nele contidos.
 
@@ -167,5 +167,5 @@ Pode definir o âmbito ao nível da subscrição, do grupo de recursos ou do rec
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para configurar uma aplicação multi-inquilino, consulte [guia para programadores para autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
-* Para saber mais sobre como especificar políticas de segurança, consulte [controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md).  
-* Para obter uma lista de ações disponíveis que pode ser concedeu ou negou aos utilizadores, consulte [operações de fornecedor de recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
+* Para saber mais sobre como especificar políticas de segurança, consulte [controlo de acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md).  
+* Para obter uma lista de ações disponíveis que pode ser concedeu ou negou aos utilizadores, consulte [operações de fornecedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md).

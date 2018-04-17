@@ -1,25 +1,18 @@
 ---
-title: "Lição 3 do tutorial do Azure Analysis Services: marcar como tabela de datas | Microsoft Docs"
+title: 'Lição 3 do tutorial do Azure Analysis Services: marcar como tabela de datas | Microsoft Docs'
 description: Descreve como marcar uma tabela de datas no projeto de tutorial do Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 25e4475c77a25e4dcdcb90729f8633656bb186ff
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: 1b7f6252faef02676be6ccb22653f5d4805020df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mark-as-date-table"></a>Marcar como Tabela de Data
 
@@ -54,6 +47,6 @@ Este tópico faz parte de um tutorial de modelação em tabela que deve ser conc
     ![aas-lesson3-date-table](../tutorials/media/aas-lesson3-date-table.png)
   
 
-## <a name="whats-next"></a>Passos seguintes?
+## <a name="whats-next"></a>O que se segue?
 [Lição 4: criar relações](../tutorials/aas-lesson-4-create-relationships.md)
   

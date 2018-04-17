@@ -1,8 +1,8 @@
 ---
-title: "Autenticação do serviço de serviço: Python com o Data Lake Store utilizando o Azure Active Directory | Microsoft Docs"
-description: "Aprenda a alcançar a autenticação do serviço de serviço com o Data Lake Store utilizando o Azure Active Directory com o Python"
+title: 'Autenticação do serviço de serviço: Python com o Data Lake Store utilizando o Azure Active Directory | Microsoft Docs'
+description: Aprenda a alcançar a autenticação do serviço de serviço com o Data Lake Store utilizando o Azure Active Directory com o Python
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: c04b870e72c5d29df95d16b96cc423441af6fd85
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4a60ce14b711f50dd6cca996438ba0405ba4abcb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>Autenticação de serviço a serviço com o Data Lake Store utilizando o Python
 > [!div class="op_single_selector"]
@@ -102,7 +102,15 @@ Utilize este fragmento para autenticar com o Azure AD para operações de gestã
 
 Utilize o fragmento seguinte para autenticar com o Azure AD para operações de sistema de ficheiros no Data Lake Store, tais como criar pastas, carregar ficheiros, etc. O fragmento seguinte pode ser utilizado para autenticar a aplicação de forma não interativa com o segredo do cliente de uma aplicação/principal de serviço. Utilize esta opção com uma ”Aplicação Web“ do Azure AD existente.
 
-    adlCreds = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE', resource = 'https://datalake.azure.net/')
+    tenant = '<TENANT>'
+    RESOURCE = 'https://datalake.azure.net/'
+    client_id = '<CLIENT_ID>'
+    client_secret = '<CLIENT_SECRET>'
+    
+    adlCreds = lib.auth(tenant_id = tenant,
+                    client_secret = client_secret,
+                    client_id = client_id,
+                    resource = RESOURCE)
 
 <!-- ## Service-to-service authentication with certificate for account management
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 3c1e5dbf60c247399b620a437da92a166990087e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d20ed753c2e53d6a7c117e0c00671ab05036b03
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados de MongoDB utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Pode copiar dados da base de dados de MongoDB para qualquer arquivo de dados sup
 
 Especificamente, este conector MongoDB suporta:
 
-- MongoDB **versões 2.4, 2.6, 3.0 e 3.2**.
+- MongoDB **versões 2.4, 2.6, 3.0, 3.2, 3.4 e 3.6**.
 - Copiar dados utilizando **básico** ou **anónimo** autenticação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -60,9 +60,11 @@ As seguintes propriedades são suportadas para o serviço ligado do MongoDB:
 | porta |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Não (a predefinição é 27017) |
 | databaseName |Nome da base de dados MongoDB que pretende aceder. |Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar à base de dados MongoDB.<br/>Valores permitidos são: **básico**, e **anónimo**. |Sim |
-| o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
+| nome do utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |Palavra-passe para o utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim (se for utilizada a autenticação básica). |
 | authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Não. Para a autenticação básica, a predefinição é utilizar a conta de administrador e a base de dados especificada utilizando a propriedade databaseName. |
+| enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é falso.  | Não |
+| allowSelfSignedServerCert | Especifica se pretende permitir que os certificados autoassinados do servidor. O valor predefinido é falso.  | Não |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo:**
@@ -99,7 +101,7 @@ Para copiar dados de MongoDB, defina a propriedade de tipo do conjunto de dados 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **MongoDbCollection** | Sim |
-| collectionName |Nome da coleção na base de dados de MongoDB. |Sim |
+| CollectionName |Nome da coleção na base de dados de MongoDB. |Sim |
 
 **Exemplo:**
 
@@ -116,7 +118,7 @@ Para copiar dados de MongoDB, defina a propriedade de tipo do conjunto de dados 
             "collectionName": "<Collection name>"
         }
     }
-
+}
 ```
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
@@ -206,14 +208,14 @@ Consulte os dados na tabela real, ativar o controlador para aceder aos dados den
 
 Por exemplo, aqui ExampleTable é uma tabela de MongoDB que tenha uma coluna com uma matriz de objetos em cada célula – faturas e uma coluna com uma matriz de tipos escalares – classificações.
 
-| _id | Nome do cliente | Faturas | Nível de Serviço | Classificações |
+| ID | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Prata |[5,6] |
-| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Dourado |[1,2] |
+| 1111 |ABC |[{invoice_id: "123" item: "toaster", o preço: Desconto "456": "0,2"}, {invoice_id: "124" item: "oven", o preço: Desconto "1235": "0,2"}] |Prata |[5,6] |
+| 2222 |XYZ |[{invoice_id: item "135": "fridge", o preço: Desconto "12543": "0,0"}] |Dourado |[1,2] |
 
 O controlador irá gerar várias tabelas virtuais para representar esta tabela única. A primeira tabela virtual é a tabela base "ExampleTable" mostrado no exemplo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foi omitidos e são expandidos nas tabelas virtuais.
 
-| _id | Nome do cliente | Nível de Serviço |
+| ID | Nome do cliente | Nível de Serviço |
 | --- | --- | --- |
 | 1111 |ABC |Prata |
 | 2222 |XYZ |Dourado |
@@ -226,7 +228,7 @@ As tabelas seguintes mostram as tabelas virtuais que representam matrizes origin
 
 **Tabela "ExampleTable_Invoices":**
 
-| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
+| ID | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |Toaster |456 |0.2 |
 | 1111 |1 |124 |oven |1235 |0.2 |
@@ -234,7 +236,7 @@ As tabelas seguintes mostram as tabelas virtuais que representam matrizes origin
 
 **Tabela "ExampleTable_Ratings":**
 
-| _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
+| ID | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |
 | 1111 |0 |5 |
 | 1111 |1 |6 |

@@ -1,20 +1,21 @@
 ---
-title: Instalar e utilizar a CLI de aprendizagem para as principais tarefas do Azure Machine Learning
+title: Instalar e utilizar a CLI para as principais tarefas - Azure Machine Learning
 description: Saiba como instalar e utilizar a CLI para o mais comuns de machine learning tarefas no Azure Machine Learning.
 services: machine-learning
 author: haining
 ms.author: haining
-manager: mwinkler
+manager: cgronlun
 ms.reviewer: mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2018
-ms.openlocfilehash: f34c247728c854c47f486925d440eee0dc5b1945
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 33a1665c8f09efae88c831172199fca3e0b7634d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-the-machine-learning-cli-for-top-tasks-in-azure-machine-learning"></a>Instalar e utilizar a CLI de aprendizagem para as principais tarefas no Azure Machine Learning
 
@@ -32,7 +33,11 @@ Este artigo apresenta alguns dos comandos CLI mais úteis para sua comodidade.
 
 ![Do Azure Machine Learning CLI](media/cli-for-azure-machine-learning/flow.png)
 
->[!NOTE]
+## <a name="what-you-need-to-get-started"></a>O que precisa de começar
+
+Precisa de acesso de contribuinte a uma subscrição do Azure ou um grupo de recursos onde pode implementar os seus modelos. Além disso, terá de instalar o Azure Machine Learning Workbench para executar a CLI. 
+
+>[!IMPORTANT]
 >A CLI entregue com os serviços do Azure Machine Learning é diferente do [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest), que é utilizado para gerir recursos do Azure.
 
 ## <a name="get-and-start-cli"></a>Obter e comece a CLI
@@ -192,7 +197,7 @@ Para definir o ambiente que deve ser utilizado:
 az ml env set -n <environment name> -g <resource group name>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Começar com um dos seguintes artigos: 
 + [Instalar e começar a utilizar o Azure Machine Learning](quickstart-installation.md)

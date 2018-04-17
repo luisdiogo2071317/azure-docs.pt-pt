@@ -1,27 +1,25 @@
 ---
 title: Serializar dados no Azure Hadoop - Microsoft Avro Library - | Microsoft Docs
-description: "Saiba como serializar e anular a serialização de dados no Hadoop no HDInsight com o Microsoft Avro Library para manter a memória, uma base de dados ou ficheiro."
+description: Saiba como serializar e anular a serialização de dados no Hadoop no HDInsight com o Microsoft Avro Library para manter a memória, uma base de dados ou ficheiro.
 keywords: avro, avro de hadoop
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: c78dc20d-5d8d-4366-94ac-abbe89aaac58
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 5bb2ee2b9b838cc9feca60eca6b2c721ca58ed45
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9b4bd615a8a64070a9b246cb8fe8635cc89108cf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Serializar dados no Hadoop com o Microsoft Avro Library
 
@@ -55,7 +53,7 @@ Quando o esquema de dados é conhecido para o escritor e o leitor da transmissã
 ## <a name="install-avro-library"></a>Instalar Avro biblioteca
 É necessário o seguinte antes de instalar a biblioteca:
 
-* <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
+* <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">O Microsoft .NET Framework 4</a>
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 ou posterior)
 
 Tenha em atenção que a dependência de Newtonsoft.Json.dll é transferida automaticamente com a instalação do Microsoft Avro Library. O procedimento é fornecido na secção seguinte:
@@ -1384,7 +1382,7 @@ Todas as informações de pré-requisitos devem ser introduzidas no ficheiro de 
 * Edite o ficheiro App. config no diretório de raiz de exemplo e, em seguida, criar a amostra
 * Primeiro criar a amostra e, em seguida, edite AvroHDISample.exe.config no diretório de compilação
 
-Em ambos os casos, todas as edições devem ser feitas  **<appSettings>**  secção de definições. Siga os comentários no ficheiro.
+Em ambos os casos, todas as edições devem ser feitas **<appSettings>** secção de definições. Siga os comentários no ficheiro.
 O exemplo é executado a partir da linha de comandos, executando o seguinte comando (caso contrário, onde o ficheiro. zip com o exemplo foi pressupõe-se a ser extraído para C:\AvroHDISample; se utilizar o caminho do ficheiro relevantes):
 
     AvroHDISample run C:\AvroHDISample\Data

@@ -1,11 +1,11 @@
 ---
 title: Azure DevTest Labs FAQ | Microsoft Docs
-description: "Encontrar respostas a questões recorrentes sobre o Azure DevTest Labs."
+description: Encontrar respostas a questões recorrentes sobre o Azure DevTest Labs.
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
 ms.service: devtest-lab
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 133a2978ce2b359366d3c5d0639b613977a723fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas a algumas perguntas mais comuns sobre o Azure DevTest Labs.
@@ -55,7 +55,7 @@ DevTest Labs é um serviço gratuito. Laboratórios de criar e configurar os art
 
 **Segurança**
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quais são os níveis de segurança diferentes no DevTest Labs?
-Acesso de segurança é determinado por [controlo de acesso baseado em funções (RBAC)](../active-directory/role-based-access-built-in-roles.md). Para saber como funciona o acesso, ajuda para saber as diferenças entre uma permissão, uma função e um âmbito, conforme definido pelo RBAC.
+Acesso de segurança é determinado por [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/built-in-roles.md). Para saber como funciona o acesso, ajuda para saber as diferenças entre uma permissão, uma função e um âmbito, conforme definido pelo RBAC.
 
 * **Permissão**: uma permissão é um acesso definidas para uma ação específica. Por exemplo, uma permissão pode ser acesso de leitura para todas as VMs.
 * **Função**: uma função é um conjunto de permissões que podem ser agrupados e atribuído a um utilizador. Por exemplo, um utilizador com uma função de proprietário da subscrição tem acesso a todos os recursos numa subscrição.

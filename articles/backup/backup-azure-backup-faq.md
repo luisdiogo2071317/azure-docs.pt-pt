@@ -1,25 +1,25 @@
 ---
 title: FAQ sobre o Backup do Azure | Microsoft Docs
-description: "Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. "
+description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "recuperação de cópia de segurança e após desastres; serviço de cópia de segurança"
+editor: ''
+keywords: recuperação de cópia de segurança e após desastres; serviço de cópia de segurança
 ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/21/2017
+ms.date: 4/11/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9226bef986a0fd2b6e8454cbd78b659feda401b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço Azure Backup
 Este artigo responde a questões recorrentes sobre os componentes do Backup do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Pode fazer perguntas sobre o Azure Backup ao clicar em **Comentários** (à direita). Os comentários aparecem na parte inferior do artigo. É necessária uma conta Livefyre para o comentário. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -27,13 +27,13 @@ Este artigo responde a questões recorrentes sobre os componentes do Backup do A
 Para analisar rapidamente as secções neste artigo, utilize as ligações à direita, em **Neste artigo**.
 
 
-## <a name="recovery-services-vault"></a>Cofre dos serviços de recuperação
+## <a name="recovery-services-vault"></a>Cofre de serviços de recuperação
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Existe algum limite ao número de cofres que podem ser criados em cada subscrição do Azure? <br/>
 Sim. A partir de Janeiro de 2018, pode criar até 25 cofres dos serviços de recuperação, por região suportada de cópia de segurança do Azure, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre? <br/>
-Pode registar até 200 Azure máquinas por cofre. Se estiver a utilizar o agente de MAB pode registar até 50 agentes MAB por cofre. E pode registar os 50 servidores de servidores/DPM MAB para um cofre.
+Pode registar até 200 Azure máquinas por cofre. Se estiver a utilizar o agente de MAB, pode registar até 50 agentes MAB por cofre. E pode registar os 50 servidores de servidores/DPM MAB para um cofre.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Se a minha organização tiver um cofre, como posso isolar os dados de um servidor de outro servidor quando restaurar os dados?<br/>
 Todos os servidores registados no mesmo cofre podem recuperar os dados de cópias de segurança de outros servidores *que utilizam a mesma frase de acesso*. Se tiver servidores cujos dados de cópia de segurança pretende isolar de outros servidores na sua organização, utilize uma frase de acesso designada para esses servidores. Por exemplo, os servidores de recursos humanos podem utilizar uma frase de acesso de encriptação, os servidores de gestão de contas outra e os servidores de armazenamento uma terceira.
@@ -81,13 +81,13 @@ Não. Todos os dados transferidos para o cofre, antes da tarefa de cópia de seg
 Se cancelar uma tarefa de cópia de segurança para uma VM do Azure, os dados transferidos são ignorados. A próxima tarefa de cópia de segurança transfere os dados incrementais desde a última tarefa de cópia de segurança bem-sucedida.
 
 ### <a name="are-there-limits-on-when-or-how-many-times-a-backup-job-can-be-scheduledbr"></a>Existem limites para quando ou para o número de vezes que uma tarefa de cópia de segurança pode ser agendada?<br/>
-Sim. Pode executar tarefas de cópia de segurança no Windows Server ou em estações de trabalho Windows até três vezes por dia. Pode executar tarefas de cópia de segurança no System Center DPM até duas vezes por dia. Pode executar uma tarefa de cópia de segurança para as VMs do IaaS uma vez por dia. Pode utilizar a política de agendamento para o Windows Server ou a estação de trabalho Windows para especificar agendamentos diários ou semanais. Ao utilizar o System Center DPM, pode especificar agendamentos diários, semanais, mensais e anuais.
+Sim. Pode executar tarefas de cópia de segurança no Windows Server ou em estações de trabalho Windows até três vezes por dia. Pode executar tarefas de cópia de segurança no System Center DPM até duas vezes por dia. Pode executar uma tarefa de cópia de segurança para as VMs do IaaS uma vez por dia. Utilize a política de agendamento para Windows Server ou estação de trabalho do Windows para especificar agendas diárias ou semanais. Com o System Center DPM, pode especificar agendas diárias, semanais, mensais e anuais.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Por que motivo o tamanho dos dados transferido para o cofre dos Serviços de Recuperação é inferior aos dados dos quais fiz uma cópia de segurança?<br/>
  Todos os dados para os quais são criadas cópias de segurança a partir do Agente do Azure Backup, do SCDPM ou do Azure Backup Server são comprimidos e encriptados antes de serem transferidos. Assim que for aplicada a compressão e encriptação, os dados no cofre dos serviços de recuperação são 30-40% mais reduzidos.
 
 ## <a name="what-can-i-back-up"></a>Do que posso fazer uma cópia de segurança
-### <a name="which-operating-systems-do-azure-backup-support-br"></a>Quais os sistemas operativos suportados pelo Azure Backup? <br/>
+### <a name="which-operating-systems-does-azure-backup-support-br"></a>Que sistemas operativos suporta a cópia de segurança do Azure? <br/>
 O Azure Backup suporta a lista seguinte de sistemas operativos para criar cópias de segurança: ficheiros e pastas, e aplicações de carga de trabalho protegidas com o Azure Backup Server e o System Center Data Protection Manager (DPM).
 
 | Sistema Operativo | Plataforma | SKU |
@@ -112,7 +112,7 @@ O Azure Backup suporta a lista seguinte de sistemas operativos para criar cópia
 
 
 ### <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>Existe um limite no tamanho de cada origem de dados para uma cópia de segurança? <br/>
-Não existe limite relativamente à quantidade de dados para os quais podem ser criadas cópias de segurança para um cofre. O Azure Backup restringe o tamanho máximo da origem de dados. Contudo, estes limites são grandes. A partir de agosto de 2015, o tamanho máximo das origens de dados para os sistemas operativos suportados é:
+Cópia de segurança do Azure impõe um tamanho máximo para uma origem de dados, no entanto, os limites para a origem são grandes. A partir de agosto de 2015, o tamanho máximo das origens de dados para os sistemas operativos suportados é:
 
 | S.No | Sistema operativo | Tamanho máximo da origem de dados |
 |:---:|:--- |:--- |
@@ -132,13 +132,16 @@ A tabela seguinte explica a forma como é determinado cada tamanho da origem de 
 | Microsoft Exchange |Soma de todas as bases de dados do Exchange num servidor Exchange para a cópia de segurança |
 | Estado do Sistema/BMR |Cada cópia individual da BMR ou estado do sistema da máquina para a cópia de segurança |
 
-Para cópia de segurança de VM do Azure, cada VM pode ter até 16 discos de dados com cada disco de dados que está a ser de tamanho 4095GB ou menos. <br>
+Para cópia de segurança de VM do IaaS do Azure, cada VM pode ter até 16 discos de dados e cada disco de dados pode ser 4095 GB.
+
+### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Existe um limite na quantidade de dados retidos num cofre dos serviços de recuperação?
+Não há nenhum limite a quantidade de dados que pode criar uma cópia de segurança serviços de recuperação do cofre.
 
 ## <a name="retention-policy-and-recovery-points"></a>Pontos de recuperação e política de retenção
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Existe alguma diferença entre a política de retenção para o DPM e o Windows Server/cliente Windows (ou seja, no Windows Server sem DPM)?<br/>
 Não, o DPM e o Windows Server/cliente Windows têm políticas de retenção diárias, semanais, mensais e anuais.
 
-### <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Posso configurar as minhas políticas de retenção seletivamente – por exemplo, configurar políticas de retenção semanais e diárias, mas não anuais e mensais?<br/>
+### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Pode configurar as minhas políticas de retenção seletivamente – isto é, configurar semanais e diárias, mas não anuais e mensais?<br/>
 Sim, a estrutura de retenção do Backup do Azure permite-lhe ter total flexibilidade na definição da política de retenção, de acordo com os seus requisitos.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Posso "agendar uma cópia de segurança" para as 18:00 e especificar políticas de retenção noutra hora?<br/>

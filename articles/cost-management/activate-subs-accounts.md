@@ -1,20 +1,20 @@
 ---
-title: "Ativar as subscrições do Azure e contas | Microsoft Docs"
-description: "Ativar o acesso através de APIs do Azure Resource Manager para novas e existentes contas e resolver problemas comuns de conta."
+title: Ativar as subscrições do Azure e contas | Microsoft Docs
+description: Ativar o acesso através de APIs do Azure Resource Manager para novas e existentes contas e resolver problemas comuns de conta.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Ativar as subscrições do Azure e contas com a gestão de custo do Azure
 
@@ -29,7 +29,7 @@ Permissões específicas são necessárias para concluir os procedimentos neste 
 - Permissão para registar a aplicação de CloudynCollector no inquilino do Azure AD.
 - A capacidade de atribuir a aplicação a uma função nas suas subscrições do Azure.
 
-Nas suas subscrições do Azure, as contas têm de ter `Microsoft.Authorization/*/Write` acesso para atribuir a aplicação de CloudynCollector. Esta ação é concedida através de [proprietário](../active-directory/role-based-access-built-in-roles.md#owner) função ou [administrador de acesso de utilizador](../active-directory/role-based-access-built-in-roles.md#user-access-administrator) função.
+Nas suas subscrições do Azure, as contas têm de ter `Microsoft.Authorization/*/Write` acesso para atribuir a aplicação de CloudynCollector. Esta ação é concedida através de [proprietário](../role-based-access-control/built-in-roles.md#owner) função ou [administrador de acesso de utilizador](../role-based-access-control/built-in-roles.md#user-access-administrator) função.
 
 Se a sua conta está atribuída a **contribuinte** função, não tem permissão suficiente para atribuir a aplicação. Recebe um erro durante a tentativa de atribuir a aplicação de CloudynCollector a sua subscrição do Azure.
 
@@ -61,7 +61,7 @@ Quando adiciona uma atualização da conta de uma subscrição, o acesso de gest
 2. Se necessário, introduza o ID de inquilino. Se não souber o ID de inquilino, utilize os seguintes passos para encontrá-lo:
     1. Inicie sessão no [portal do Azure](https://portal.azure.com).
     2. No portal do Azure, selecione **do Azure Active Directory**.
-    3. Para obter o ID de inquilino, selecione **propriedades** para o seu inquilino do Azure AD.
+    3. Para obter o ID de inquilino, selecione as **Propriedades** do seu inquilino do Azure AD.
     4. Copie o GUID de ID de diretório. Este valor é o ID do inquilino.
     Para obter mais informações, consulte [obter ID de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
 3. Se necessário, selecione o ID de taxa. Se não souber o ID de taxa, utilize os seguintes passos para encontrá-lo.

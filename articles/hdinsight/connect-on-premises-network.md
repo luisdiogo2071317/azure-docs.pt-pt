@@ -1,23 +1,21 @@
 ---
-title: "Ligar HDInsight à sua rede no local - Azure HDInsight | Microsoft Docs"
-description: "Saiba como criar um cluster do HDInsight numa rede Virtual do Azure e, em seguida, ligue-o à sua rede no local. Saiba como configurar a resolução de nome entre HDInsight e a sua rede no local através da utilização de um servidor DNS personalizado."
-documentationcenter: 
+title: Ligar HDInsight à sua rede no local - Azure HDInsight | Microsoft Docs
+description: Saiba como criar um cluster do HDInsight numa rede Virtual do Azure e, em seguida, ligue-o à sua rede no local. Saiba como configurar a resolução de nome entre HDInsight e a sua rede no local através da utilização de um servidor DNS personalizado.
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea793af7fc4565c054675af7cbf88b74722690f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Ligar HDInsight à sua rede no local
 
@@ -74,7 +72,7 @@ Para criar uma VM com Linux que utiliza o [vincular](https://www.isc.org/downloa
 > * [Criar VM - CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
 > * [Criar a VM - PowerShell do Azure](../virtual-machines/linux/quick-create-portal.md)
 
-1. Do [portal do Azure](https://portal.azure.com), selecione  __+__ , __computação__, e __Ubuntu Server 16.04 LTS__.
+1. Do [portal do Azure](https://portal.azure.com), selecione __+__, __computação__, e __Ubuntu Server 16.04 LTS__.
 
     ![Criar uma máquina virtual do Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
@@ -297,7 +295,7 @@ Utilize os passos no [criar um cluster do HDInsight no portal do Azure](./hdinsi
 
 ## <a name="connecting-to-hdinsight"></a>Ligar para o HDInsight
 
-A maioria das documentação no HDInsight parte do princípio de que tem acesso ao cluster através da internet. Por exemplo, se pode ligar ao cluster em https://CLUSTERNAME.azurehdinsight.net. Este endereço utiliza o gateway público, que não está disponível se tiver utilizado NSGs ou UDRs para restringir o acesso a partir da internet.
+A maioria das documentação no HDInsight parte do princípio de que tem acesso ao cluster através da internet. Por exemplo, que pode ligar ao cluster em https://CLUSTERNAME.azurehdinsight.net. Este endereço utiliza o gateway público, que não está disponível se tiver utilizado NSGs ou UDRs para restringir o acesso a partir da internet.
 
 Também faz referência a alguma documentação `headnodehost` quando ligar ao cluster a partir de uma sessão SSH. Este endereço só está disponível a partir de nós dentro de um cluster e não é utilizável nos clientes ligados através da rede virtual.
 

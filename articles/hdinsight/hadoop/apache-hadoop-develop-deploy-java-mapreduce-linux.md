@@ -1,26 +1,24 @@
 ---
 title: Criar Java MapReduce para o Hadoop - o Azure HDInsight | Microsoft Docs
-description: "Saiba como utilizar o Apache Maven para criar uma aplicação baseada em Java MapReduce, em seguida, execute-o com o Hadoop no HDInsight do Azure."
+description: Saiba como utilizar o Apache Maven para criar uma aplicação baseada em Java MapReduce, em seguida, execute-o com o Hadoop no HDInsight do Azure.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: Blackmist
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 16cb62c95784d7c8b284e03f0759028038af7f0a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 05b41f90b9508088c32923469b6c437b74ee5333
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>Desenvolver programas de Java MapReduce para o Hadoop no HDInsight
 
@@ -42,13 +40,13 @@ Saiba como utilizar o Apache Maven para criar uma aplicação baseada em Java Ma
 
 As seguintes variáveis de ambiente podem ser definidas quando instalar o Java e o JDK. No entanto, deve verificar que existe e que contêm os valores corretos para o seu sistema.
 
-* `JAVA_HOME`-devem apontar para o diretório onde o ambiente de tempo de execução Java (JRE) está instalado. Por exemplo, num sistema OS X, Unix ou Linux, deve ter um valor semelhante a `/usr/lib/jvm/java-7-oracle`. No Windows, terá um valor semelhante a`c:\Program Files (x86)\Java\jre1.7`
+* `JAVA_HOME` -devem apontar para o diretório onde o ambiente de tempo de execução Java (JRE) está instalado. Por exemplo, num sistema OS X, Unix ou Linux, deve ter um valor semelhante a `/usr/lib/jvm/java-7-oracle`. No Windows, terá um valor semelhante a `c:\Program Files (x86)\Java\jre1.7`
 
-* `PATH`-deve conter os seguintes caminhos:
+* `PATH` -deve conter os seguintes caminhos:
   
-  * `JAVA_HOME`(ou o caminho equivalente)
+  * `JAVA_HOME` (ou o caminho equivalente)
 
-  * `JAVA_HOME\bin`(ou o caminho equivalente)
+  * `JAVA_HOME\bin` (ou o caminho equivalente)
 
   * O diretório onde está instalado o Maven
 
@@ -69,9 +67,9 @@ As seguintes variáveis de ambiente podem ser definidas quando instalar o Java e
 
     Este comando cria um diretório com o nome especificado pelo `artifactID` parâmetro (**wordcountjava** neste exemplo.) Este diretório contém os seguintes itens:
 
-   * `pom.xml`-O [modelo de objeto do projeto (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) que contém detalhes de configuração e informações utilizados para compilar o projeto.
+   * `pom.xml` -O [modelo de objeto do projeto (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) que contém detalhes de configuração e informações utilizados para compilar o projeto.
 
-   * `src`-O diretório que contém a aplicação.
+   * `src` -O diretório que contém a aplicação.
 
 3. Eliminar o `src/test/java/org/apache/hadoop/examples/apptest.java` ficheiro. Não é utilizada neste exemplo.
 

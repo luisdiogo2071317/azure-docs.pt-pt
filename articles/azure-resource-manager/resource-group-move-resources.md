@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 40e79ba584843787ad7744f91e14907deb99ccaa
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3f5ad64a73bddbb64556ae7a329f91f93b99b016
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -111,7 +111,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Gestão de API
 * Aplicações de serviço de aplicações (aplicações web) - consulte [limitações do serviço de aplicações](#app-service-limitations)
 * Certificados de Serviço de Aplicações
-* Application Insights
+* Estatísticas das Aplicações
 * Automatização
 * Azure Cosmos DB
 * Batch
@@ -121,14 +121,14 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Serviços Cognitivos
 * Content Moderator
 * Catálogo de Dados
-* Data Factory
+* Gestor de Dados
 * Data Lake Analytics
-* Data Lake Store
+* Arquivo do Data Lake
 * DNS
-* Event Hubs
+* Hubs de Eventos
 * Clusters do HDInsight - consulte [limitações do HDInsight](#hdinsight-limitations)
 * Hubs IoT
-* Cofre de Chaves
+* Key Vault
 * Balanceadores de carga - consulte [limitações de Balanceador de carga](#lb-limitations)
 * Aplicações Lógicas
 * Machine Learning - Machine Learning Studio serviços web podem ser movidos para um grupo de recursos na mesma subscrição, mas não uma subscrição diferente. Outros recursos de Machine Learning podem ser movidos entre subscrições.
@@ -160,12 +160,12 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 
 Os serviços que atualmente não permitem mover um recurso são:
 
-* AD Domain Services
+* Serviços de domínio do AD
 * Serviço de estado de funcionamento de AD híbrido
-* Gateway de Aplicação
+* Gateway da Aplicação
 * Serviços BizTalk
 * Serviço de Contentor
-* ExpressRoute
+* Express Route
 * DevTest Labs - vá para o novo grupo de recursos na mesma subscrição está ativada, mas mover subscrição cruzada não está ativada.
 * Dynamics LCS
 * Balanceadores de carga - consulte [limitações de Balanceador de carga](#lb-limitations)
@@ -181,7 +181,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 
 Discos geridos não suportam a movimentação. Esta restrição significa que vários recursos relacionados não podem ser movidos demasiado. Não é possível mover:
 
-* Managed disks
+* Managed Disks
 * Máquinas virtuais com os discos geridos
 * Imagens de criada a partir de discos geridos
 * Instantâneos criados a partir de discos geridos
@@ -192,6 +192,8 @@ Não é possível mover máquinas virtuais criadas a partir dos recursos de merc
 Máquinas virtuais com certificado armazenado no Cofre de chaves podem ser movidas para um novo grupo de recursos na mesma subscrição, mas não nas subscrições.
 
 ## <a name="virtual-networks-limitations"></a>Limitações de redes virtuais
+
+Quando move uma rede virtual, também tem de mover os recursos dependentes. Por exemplo, tem de mover os gateways de rede virtual.
 
 Para mover uma rede virtual em modo de peering, primeiro tem de desativar o peering de rede virtual. Quando desativado, pode mover a rede virtual. Após a mudança, Reative o peering de rede virtual.
 
@@ -221,7 +223,7 @@ Quando move uma aplicação Web _entre subscrições_, aplicam as seguintes limi
     - Aplicações Web
     - Planos do Serviço de Aplicações
     - Certificados SSL carregados ou importados
-    - Ambientes do App Service
+    - Ambientes de Serviço de Aplicações
 - Todos os recursos do serviço de aplicações no grupo de recursos têm de ser movidos em conjunto.
 - Recursos do serviço de aplicações só podem ser afastados do grupo de recursos no qual foram originalmente criados. Se um recurso de serviço de aplicações já não consta no respetivo grupo de recursos original, têm de ser movido volta a esse grupo de recursos original pela primeira vez e, em seguida, pode ser movida entre subscrições. 
 
@@ -386,7 +388,7 @@ az resource move --destination-group newgroup --ids $webapp $plan
 
 Para mover para uma nova subscrição, forneça o `--destination-subscription-id` parâmetro.
 
-## <a name="use-rest-api"></a>Utilizar a API REST
+## <a name="use-rest-api"></a>Utilizar API REST
 
 Para mover recursos existentes para outro grupo de recursos ou subscrição, execute:
 

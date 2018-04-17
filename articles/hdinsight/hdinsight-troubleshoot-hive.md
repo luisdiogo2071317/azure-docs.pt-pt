@@ -1,25 +1,23 @@
 ---
 title: Resolver problemas do ramo de registo utilizando o Azure HDInsight | Microsoft Docs
-description: "Obtenha respostas a questões recorrentes sobre como trabalhar com Apache Hive e o Azure HDInsight."
-keywords: "FAQ do HDInsight, Hive, do Azure, manual, perguntas comuns de resolução de problemas"
+description: Obtenha respostas a questões recorrentes sobre como trabalhar com Apache Hive e o Azure HDInsight.
+keywords: FAQ do HDInsight, Hive, do Azure, manual, perguntas comuns de resolução de problemas
 services: Azure HDInsight
 documentationcenter: na
 author: dharmeshkakadia
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 15B8D0F3-F2D3-4746-BDCB-C72944AA9252
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 398cc7cd0fa815f12ba5b503a1328688e1159eee
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d397552285466dc038fe580a084e2d1d0d69bfe2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Resolver problemas do ramo de registo utilizando o Azure HDInsight
 
@@ -177,7 +175,7 @@ Existem duas formas para recolher os dados de Tez DAG:
 [Ligar a um cluster do HDInsight através de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-### <a name="see-also"></a>Veja Também
+### <a name="see-also"></a>Consultar Também
 [Resolver problemas utilizando o Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 

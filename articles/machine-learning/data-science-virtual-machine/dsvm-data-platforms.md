@@ -4,22 +4,22 @@ description: Plataformas de dados para a máquina de Virtual de ciência de dado
 keywords: ferramentas de ciência de dados, a máquina de virtual de ciência de dados, as ferramentas de ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c9c85ebed6382a4188db028fbfb35675751bce76
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b3f340006801287383c2afb2924706affbd77a51
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="data-platforms"></a>Plataformas de dados
 
@@ -27,7 +27,7 @@ A Máquina Virtual de ciência de dados (DSVM) permite-lhe criar a sua análise 
 
 Seguem-se as ferramentas de plataforma de dados suportadas no DSVM. 
 
-## <a name="sql-server-2016-developer-edition"></a>SQL Server 2016 Developer Edition
+## <a name="sql-server-2016-developer-edition"></a>Edição do SQL Server 2016 para programadores
 
 | | |
 | ------------- | ------------- |
@@ -41,7 +41,7 @@ Seguem-se as ferramentas de plataforma de dados suportadas no DSVM.
 > A edição do SQL Server 2016 programador só pode ser utilizada para desenvolvimento e fins de teste. Precisa de uma licença ou um das VMs de SQL Server para executá-la na produção. 
 
 
-### <a name="setup"></a>Configurar
+### <a name="setup"></a>Configuração
 
 O servidor de base de dados já está configurado previamente e relacionadas com os serviços do Windows para o SQL Server (como `SQL Server (MSSQLSERVER)`) estão definidos para serem executados automaticamente. O passo manual apenas para ser executado é para ativar a análise na base de dados com o Microsoft R. Pode fazê-lo executando o seguinte comando, como uma uma hora ação no SQL Server Management Studio (SSMS) depois de iniciar sessão na qualidade de administrador do computador, abra "Nova consulta" no SSMS, certifique-se de que a base de dados selecionada `master` e, em seguida, execute: 
 
@@ -82,7 +82,7 @@ Pode utilizar o Spark do R utilizando bibliotecas, como SparkR, Sparklyr ou Micr
 
 
 
-### <a name="setup"></a>Configurar
+### <a name="setup"></a>Configuração
 Antes de executar no contexto do Spark no Microsoft R Server na edição Ubuntu Linux DSVM, precisa de executar uma uma vez que o passo de configuração para ativar um único nó HDFS do Hadoop e o Yarn instância local. Por predefinição, serviços do Hadoop são instalados, mas o DSVM desativados. Para ativá-la, terá de executar os comandos seguintes como raiz na primeira vez:
 
     echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa

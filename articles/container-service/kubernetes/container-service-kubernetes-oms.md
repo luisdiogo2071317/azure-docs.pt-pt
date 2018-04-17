@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: efe4b3a1a63fa1986682a2fdde1a20221dc5d93a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b91b1f902b2d769823067ea66bf7d00bd17a5160
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Monitor de um cluster do serviço de contentor do Azure com a análise de registos
 
@@ -30,8 +30,8 @@ Pode testar se tiver o `az` ferramenta instalada através da execução:
 $ az --version
 ```
 
-Se não tiver o `az` ferramenta instalada, existem instruções [aqui](https://github.com/azure/azure-cli#installation).  
-Em alternativa, pode utilizar [Shell de nuvem do Azure](https://docs.microsoft.com/azure/cloud-shell/overview), que tem o `az` cli do Azure e `kubectl` ferramentas já instaladas por si.  
+Se não tiver o `az` ferramenta instalada, existem instruções [aqui](https://github.com/azure/azure-cli#installation).
+Em alternativa, pode utilizar [Shell de nuvem do Azure](https://docs.microsoft.com/azure/cloud-shell/overview), que tem o `az` cli do Azure e `kubectl` ferramentas já instaladas por si.
 
 Pode testar se tiver o `kubectl` ferramenta instalada através da execução:
 
@@ -67,40 +67,40 @@ Para obter mais informações sobre a solução de contentor, consulte o [análi
 ## <a name="installing-log-analytics-on-kubernetes"></a>Análise de registos de instalação no Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Obter o ID da área de trabalho e a chave
-Para o OMS agente para comunicar com o serviço, tem de ser configurado com um id de área de trabalho e uma chave de área de trabalho. Para obter o id da área de trabalho e a chave tem de criar uma conta no <https://mms.microsoft.com>.
-Siga os passos para criar uma conta. Quando tiver terminado a criar a conta, tem de obter o id e a chave clicando **definições**, em seguida, **origens ligadas**e, em seguida, **servidores Linux**, conforme mostrado abaixo.
+Para a análise de registos agente para comunicar com o serviço, tem de ser configurado com um ID de área de trabalho e uma chave de área de trabalho. Para obter o ID da área de trabalho e a chave tem de criar uma conta no <https://mms.microsoft.com>.
+Siga os passos para criar uma conta. Quando tiver terminado a criar a conta, tem de obter o ID e a chave clicando **definições**, em seguida, **origens ligadas**e, em seguida, **servidores Linux**, conforme mostrado abaixo.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-### <a name="install-the-oms-agent-using-a-daemonset"></a>Instalar o agente do OMS utilizando um DaemonSet
+### <a name="install-the-log-analytics-agent-using-a-daemonset"></a>Instalar o agente de análise de registos com um DaemonSet
 DaemonSets são utilizados pelo Kubernetes para executar uma única instância de um contentor em cada anfitrião no cluster.
 Se estiver a perfeita para a execução de agentes de monitorização.
 
-Eis o [ficheiro DaemonSet YAML](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Guarde-o num ficheiro denominado `oms-daemonset.yaml` e substitua os valores de marcador de posição-para `WSID` e `KEY` com o id da área de trabalho e a chave no ficheiro.
+Eis o [ficheiro DaemonSet YAML](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Guarde-o num ficheiro denominado `oms-daemonset.yaml` e substitua os valores de marcador de posição-para `WSID` e `KEY` com o ID da área de trabalho e a chave no ficheiro.
 
-Depois de adicionar o ID da área de trabalho e a chave para a configuração de DaemonSet, pode instalar o agente do OMS no seu cluster com o `kubectl` ferramenta de linha de comandos:
+Depois de adicionar o ID da área de trabalho e a chave para a configuração de DaemonSet, pode instalar o agente de análise de registos no seu cluster com o `kubectl` ferramenta da linha de comandos:
 
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
 
-### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Instalar o agente do OMS utilizando um segredo Kubernetes
+### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Instalar o agente de análise de registos com um segredo Kubernetes
 Para proteger o seu ID da área de trabalho de análise de registos e a chave pode utilizar o segredo Kubernetes como parte do ficheiro de DaemonSet YAML.
 
- - Copie o script, ficheiro de modelo secreta e o ficheiro DaemonSet YAML (de [repositório](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e certifique-se de que estão no mesmo diretório. 
+ - Copie o script, ficheiro de modelo secreta e o ficheiro de DaemonSet YAML (de [repositório](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e certifique-se de que estão no mesmo diretório.
       - segredo gerar script - gen.sh segredo
       - modelo secreto - template.yaml segredo
    - Ficheiro DaemonSet YAML - omsagent-ds-secrets.yaml
- - Execute o script. O script irá perguntar-para o ID de área de trabalho de análise do registo e a chave primária. Insira o que e o script irá criar um ficheiro de yaml secreta, pelo que pode executá-lo.   
+ - Execute o script. O script irá perguntar-para o ID de área de trabalho de análise do registo e a chave primária. Inserir que e o script irá criar um ficheiro de yaml secreta, pelo que pode executá-lo.
    ```
-   #> sudo bash ./secret-gen.sh 
+   #> sudo bash ./secret-gen.sh
    ```
 
    - Crie o pod segredos executando o seguinte: ``` kubectl create -f omsagentsecret.yaml ```
- 
-   - Para verificar, execute o seguinte: 
 
-   ``` 
+   - Para verificar, execute o seguinte:
+
+   ```
    root@ubuntu16-13db:~# kubectl get secrets
    NAME                  TYPE                                  DATA      AGE
    default-token-gvl91   kubernetes.io/service-account-token   3         50d
@@ -116,10 +116,10 @@ Para proteger o seu ID da área de trabalho de análise de registos e a chave po
    Data
    ====
    WSID:   36 bytes
-   KEY:    88 bytes 
+   KEY:    88 bytes
    ```
- 
+
   - Criar a sua omsagent daemon-set executando ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### <a name="conclusion"></a>Conclusão
-Já está! Após alguns minutos, deverá conseguir ver os dados enviados para o dashboard do OMS.
+Já está! Após alguns minutos, deverá conseguir ver que fluem para o dashboard de análise de registos de dados.

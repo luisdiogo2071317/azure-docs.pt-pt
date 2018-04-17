@@ -2,7 +2,7 @@
 title: Utilizar o Sqoop de Hadoop com Curl no HDInsight - Azure | Microsoft Docs
 description: Saiba como remotamente submeter tarefas de Sqoop para o HDInsight utilizando Curl.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 39798321-78ca-428c-bcfe-322e49af4059
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 08e7288d4d9d06f3a74464817892c2b03ae8a86c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 66c82cc22b9b460281928c4892dab8308ccf1098
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Executar tarefas de Sqoop com o Hadoop no HDInsight com o Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -72,7 +70,7 @@ Para concluir os passos neste artigo, irá precisar do seguinte:
 
     Os parâmetros utilizados neste comando são os seguintes:
 
-    * **-d** - desde `-G` não for utilizado, o pedido está predefinida para o método POST. `-d`Especifica os valores de dados que são enviados com o pedido.
+    * **-d** - desde `-G` não for utilizado, o pedido está predefinida para o método POST. `-d` Especifica os valores de dados que são enviados com o pedido.
 
         * **User.name** -o utilizador que está a executar o comando.
 

@@ -1,6 +1,6 @@
 ---
-title: "Funções de modelo do Resource Manager | Microsoft Docs"
-description: "Descreve as funções de utilizar um modelo Azure Resource Manager para obter os valores, trabalhar com cadeias e números e obter informações de implementação."
+title: Funções de modelo do Resource Manager | Microsoft Docs
+description: Descreve as funções de utilizar um modelo Azure Resource Manager para obter os valores, trabalhar com cadeias e números e obter informações de implementação.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 04/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 54580abdca8b6be10576cf74ad23e8ff2665341c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 834488e259caf60ae96450fcf7c8188c5ffb0bc5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções de modelo do Azure Resource Manager
 Este artigo descreve todas as funções que pode utilizar um modelo Azure Resource Manager.
@@ -51,22 +51,22 @@ Funções de modelo e os respetivos parâmetros são sensível. Por exemplo, o G
 O Resource Manager fornece várias funções para trabalhar com objetos e matrizes.
 
 * [array](resource-group-template-functions-array.md#array)
-* [coalesce](resource-group-template-functions-array.md#coalesce)
+* [Unir](resource-group-template-functions-array.md#coalesce)
 * [concat](resource-group-template-functions-array.md#concat)
-* [contains](resource-group-template-functions-array.md#contains)
+* [contém](resource-group-template-functions-array.md#contains)
 * [createArray](resource-group-template-functions-array.md#createarray)
 * [empty](resource-group-template-functions-array.md#empty)
 * [first](resource-group-template-functions-array.md#first)
 * [intersection](resource-group-template-functions-array.md#intersection)
 * [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
-* [length](resource-group-template-functions-array.md#length)
+* [comprimento](resource-group-template-functions-array.md#length)
 * [min](resource-group-template-functions-array.md#min)
 * [max](resource-group-template-functions-array.md#max)
 * [range](resource-group-template-functions-array.md#range)
 * [skip](resource-group-template-functions-array.md#skip)
-* [take](resource-group-template-functions-array.md#take)
-* [union](resource-group-template-functions-array.md#union)
+* [tirar](resource-group-template-functions-array.md#take)
+* [União](resource-group-template-functions-array.md#union)
 
 <a id="equals" />
 <a id="less" />
@@ -92,7 +92,7 @@ O Resource Manager fornece as seguintes funções, para obter os valores de sec�
 
 * [deployment](resource-group-template-functions-deployment.md#deployment)
 * [parameters](resource-group-template-functions-deployment.md#parameters)
-* [variables](resource-group-template-functions-deployment.md#variables)
+* [variáveis](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" />
 <a id="bool" />
@@ -103,11 +103,11 @@ O Resource Manager fornece as seguintes funções, para obter os valores de sec�
 ## <a name="logical-functions"></a>Funções lógicas
 O Resource Manager fornece as seguintes funções para trabalhar com condições lógicas:
 
-* [and](resource-group-template-functions-logical.md#and)
+* [E](resource-group-template-functions-logical.md#and)
 * [bool](resource-group-template-functions-logical.md#bool)
 * [if](resource-group-template-functions-logical.md#if)
 * [not](resource-group-template-functions-logical.md#not)
-* [or](resource-group-template-functions-logical.md#or)
+* [ou](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
 <a id="copyindex" />
@@ -130,8 +130,8 @@ O Resource Manager fornece as seguintes funções para trabalhar com números in
 * [int](resource-group-template-functions-numeric.md#int)
 * [min](resource-group-template-functions-numeric.md#min)
 * [max](resource-group-template-functions-numeric.md#max)
-* [mod](resource-group-template-functions-numeric.md#mod)
-* [mul](resource-group-template-functions-numeric.md#mul)
+* [MOD](resource-group-template-functions-numeric.md#mod)
+* [MUL](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
 
 <a id="listkeys" />
@@ -145,7 +145,9 @@ O Resource Manager fornece as seguintes funções para trabalhar com números in
 ## <a name="resource-functions"></a>Funções de recursos
 O Resource Manager fornece as seguintes funções, para obter valores de recursos:
 
-* [listKeys e lista {Value}](resource-group-template-functions-resource.md#listkeys)
+* [listKeys](resource-group-template-functions-resource.md#listkeys)
+* [listSecrets](resource-group-template-functions-resource.md#list)
+* [lista *](resource-group-template-functions-resource.md#list)
 * [fornecedores](resource-group-template-functions-resource.md#providers)
 * [reference](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
@@ -190,7 +192,7 @@ O Resource Manager fornece as seguintes funções para trabalhar com cadeias de:
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
 * [base64ToString](resource-group-template-functions-string.md#base64tostring)
 * [concat](resource-group-template-functions-string.md#concat)
-* [contains](resource-group-template-functions-string.md#contains)
+* [contém](resource-group-template-functions-string.md#contains)
 * [dataUri](resource-group-template-functions-string.md#datauri)
 * [dataUriToString](resource-group-template-functions-string.md#datauritostring)
 * [empty](resource-group-template-functions-string.md#empty)
@@ -200,7 +202,7 @@ O Resource Manager fornece as seguintes funções para trabalhar com cadeias de:
 * [indexOf](resource-group-template-functions-string.md#indexof)
 * [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
-* [length](resource-group-template-functions-string.md#length)
+* [comprimento](resource-group-template-functions-string.md#length)
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [replace](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
@@ -208,12 +210,12 @@ O Resource Manager fornece as seguintes funções para trabalhar com cadeias de:
 * [startsWith](resource-group-template-functions-string.md#startswith)
 * [string](resource-group-template-functions-string.md#string)
 * [substring](resource-group-template-functions-string.md#substring)
-* [take](resource-group-template-functions-string.md#take)
+* [tirar](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
 * [toUpper](resource-group-template-functions-string.md#toupper)
 * [trim](resource-group-template-functions-string.md#trim)
 * [uniqueString](resource-group-template-functions-string.md#uniquestring)
-* [uri](resource-group-template-functions-string.md#uri)
+* [URI](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 

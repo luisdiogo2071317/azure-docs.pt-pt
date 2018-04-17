@@ -1,11 +1,11 @@
 ---
-title: Tirar partido dos ciclos de T-SQL no Azure SQL Data Warehouse | Microsoft Docs
-description: "Sugestões para ciclos de Transact-SQL e cursores substituindo no Azure SQL Data Warehouse para desenvolver soluções."
+title: Utilizar ciclos de T-SQL no Azure SQL Data Warehouse | Microsoft Docs
+description: Sugestões para utilizar ciclos de T-SQL e de substituir cursores no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: f3384b81-b943-431b-bc73-90e47e4c195f
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,19 +15,23 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 40a872ff310f48bfd543ac184fe7301b85b50258
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e49a0de0e4a6aba6639f7f3100f41c8db254220
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="loops-in-sql-data-warehouse"></a>Ciclos no SQL Data Warehouse
-Armazém de dados do SQL Server suporta o [enquanto][enquanto] ciclo para executar repetidamente blocos de instrução. Isto irá continuar para, desde que as condições especificadas são verdadeiras ou até que o código termina especificamente o ciclo utilizando o `BREAK` palavra-chave. Ciclos são particularmente úteis para substituir os cursores definidos no código do SQL Server. Felizmente, quase todos os cursores que são escritos no código do SQL Server são de reencaminhamento rápido, de leitura apenas variedade. Por conseguinte [enquanto] ciclos são uma excelente alternativa caso se ter que substituir um.
+# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Utilizar ciclos de T-SQL no SQL Data Warehouse
+Sugestões para utilizar ciclos de T-SQL e de substituir cursores no Azure SQL Data Warehouse para desenvolver soluções.
 
-## <a name="leveraging-loops-and-replacing-cursors-in-sql-data-warehouse"></a>Tirar partido dos ciclos e de substituir os cursores no SQL Data Warehouse
-No entanto, antes de diving no cabeçalho pela primeira vez deve faça a mesmo à seguinte pergunta: "Foi deste cursor ser novamente escrito para utilizar operações de conjunto com base?". Em muitos casos, a resposta será Sim e é, muitas vezes, a abordagem das melhores. Muitas vezes, uma operação de definição com base efetua significativamente mais rapidamente do que uma abordagem iterativa, linha por linha.
+## <a name="purpose-of-while-loops"></a>Objetivo ao ciclos
 
-Cursores só de leitura rápida reencaminhar podem ser facilmente substituídos com uma construção de ciclo. Segue-se um exemplo simples. Este exemplo de código atualiza as estatísticas de cada tabela na base de dados. Por iterating através de tabelas do ciclo, mas é possível executar cada comando na sequência.
+Armazém de dados do SQL Server suporta o [enquanto](/sql/t-sql/language-elements/while-transact-sql) ciclo para executar repetidamente blocos de instrução. Este ciclo de tempo continua para, desde que as condições especificadas são true, ou até que o código especificamente termina o ciclo utilizando a quebra de palavra-chave. Ciclos são úteis para substituir os cursores definidos no código do SQL Server. Felizmente, quase todos os cursores que são escritos no código do SQL Server têm a variedade de reencaminhar rápido só de leitura. Por conseguinte, [enquanto] ciclos são uma excelente alternativa para substituir os cursores.
+
+## <a name="replacing-cursors-in-sql-data-warehouse"></a>Substituir os cursores no SQL Data Warehouse
+No entanto, antes de diving no cabeçalho pela primeira vez deve faça a mesmo à seguinte pergunta: "foi deste cursor ser rescrito para utilizar operações com base em conjunto?." Em muitos casos, a resposta é Sim e é, muitas vezes, a abordagem das melhores. Uma operação baseada em conjunto, muitas vezes, efetua mais rapidamente do que uma abordagem iterativa, linha por linha.
+
+Cursores só de leitura rápida reencaminhar podem ser facilmente substituídos com uma construção de ciclo. Segue-se um exemplo simples. Este exemplo de código atualiza as estatísticas de cada tabela na base de dados. Por iterating através de tabelas do ciclo, cada comando executa na sequência.
 
 Em primeiro lugar, crie uma tabela temporária contendo um número de linha exclusivo utilizado para identificar as declarações de individuais:
 
@@ -69,19 +73,6 @@ Por fim, remover a tabela temporária criada no primeiro passo
 DROP TABLE #tbl;
 ```
 
+## <a name="next-steps"></a>Passos Seguintes
+Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-
-## <a name="next-steps"></a>Passos seguintes
-Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento][development overview].
-
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[enquanto]: https://msdn.microsoft.com/library/ms178642.aspx
-
-
-<!--Other Web references-->

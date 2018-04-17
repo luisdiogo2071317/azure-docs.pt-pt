@@ -9,17 +9,15 @@ editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 1b2f5fc9bd4f8fc8cd70437e38831595d0a8a819
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 61467d702f3123085fd7e067a8d56c30331c5bc6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Análise de registos do Azure de consulta para monitorizar clusters do HDInsight
 
@@ -150,7 +148,7 @@ Pode utilizar qualquer consulta que pretende criar um alerta.
 
 6. Do **definições** página, clique em **alertas** para ver os alertas que criou. Também pode ativar ou desativar um alerta, editar ou eliminá-lo. Para obter mais informações, consulte [trabalhar com regras de alertas na análise de registos](../log-analytics/log-analytics-alerts-creating.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Trabalhar com a análise de registos](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Criar regras de alertas na análise de registos](../log-analytics/log-analytics-alerts-creating.md)

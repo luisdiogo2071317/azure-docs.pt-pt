@@ -2,7 +2,7 @@
 title: Criar e partilhar dashboards de portais do Azure | Microsoft Docs
 description: Este artigo explica como criar e editar dashboards no portal do Azure.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: sewatson
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 7f90c882285170bac34bfe020831d3ac04010a11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5a5ae944b5f0059ee78a2171a9688902aaf6db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e partilhar os dashboards no portal do Azure
 Pode criar dashboards vários e partilhá-los com outras pessoas que têm acesso às suas subscrições do Azure.  Este artigo abordar as noções básicas de criação, edição, publicar e gerir o acesso aos dashboards.
@@ -75,7 +75,7 @@ Quando cria um dashboard, é privado por predefinição, o que significa que é 
 
 ![Partilhe o dashboard](./media/azure-portal-dashboards/share-dashboard.png)
 
-É-lhe pedido para escolher uma subscrição e o grupo de recursos para o seu dashboard para ser publicado. Para perfeitamente integrar dashboards do ecossistema, iremos tiver implementado dashboards partilhados como recursos do Azure (para que não é possível partilhar, escrevendo um endereço de e-mail).  Acesso para as informações apresentadas pela maioria dos mosaicos no portal são regidos pelas [controlo de acesso baseado em do Azure funções](../active-directory/role-based-access-control-configure.md). De uma perspetiva de controlo de acesso partilhados dashboards são não diferentes de uma máquina virtual ou uma conta de armazenamento.  
+É-lhe pedido para escolher uma subscrição e o grupo de recursos para o seu dashboard para ser publicado. Para perfeitamente integrar dashboards do ecossistema, iremos tiver implementado dashboards partilhados como recursos do Azure (para que não é possível partilhar, escrevendo um endereço de e-mail).  Acesso para as informações apresentadas pela maioria dos mosaicos no portal são regidos pelas [controlo de acesso baseado em do Azure funções](../role-based-access-control/role-assignments-portal.md). De uma perspetiva de controlo de acesso partilhados dashboards são não diferentes de uma máquina virtual ou uma conta de armazenamento.  
 
 Vamos supor que tiver uma subscrição do Azure e os membros da sua equipa foram atribuídos as funções de **proprietário**, **contribuinte**, ou **leitor** da subscrição.  Os utilizadores que são proprietários ou contribuintes são capazes de lista, ver, criar, modificar ou eliminar dashboards dentro dessa subscrição.  Os utilizadores que são leitores são capazes de lista e vista dashboards, mas não é possível modificar ou eliminar.  Os utilizadores com acesso de leitor são capazes de efetuar edições de locais para um dashboard partilhado, mas não conseguem publicar as alterações no servidor.  No entanto, fazer uma cópia do dashboard para os seus próprios utilização privada.  Como sempre, individuais mosaicos no dashboard impor as suas próprias regras de controlo de acesso baseadas nos recursos que correspondem a.  
 
@@ -91,7 +91,7 @@ Depois do dashboard é publicado, a **partilha + acesso** painel de controlo ir�
 
 ![Gerir o controlo de acesso](./media/azure-portal-dashboards/manage-access.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para gerir recursos, consulte [recursos do Azure de gerir através do portal](../azure-resource-manager/resource-group-portal.md).
 * Para implementar os recursos, consulte [implementar recursos com modelos do Resource Manager e o portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 

@@ -1,25 +1,18 @@
 ---
-title: "Gerir serviços de análise do Azure | Microsoft Docs"
+title: Gerir serviços de análise do Azure | Microsoft Docs
 description: Saiba como gerir um servidor de Analysis Services no Azure.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 79491d0b-b00d-4e02-9ca7-adc99bc02fdb
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 0cad50788eeb4a31d1e3f6f7e6c038ba2a8d4d9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-analysis-services"></a>Gerir do Analysis Services
 Depois de criar um servidor de Analysis Services no Azure, poderão existir algumas tarefas de administração e gestão que terá de efetuar imediatamente ou algum tempo para baixo viagem. Por exemplo, executar processamento para os atualização de dados, controlar quem pode aceder aos modelos no seu servidor, ou monitorizar estado de funcionamento do seu servidor. Algumas tarefas de gestão só podem ser efetuadas no portal do Azure, outros no SQL Server Management Studio (SSMS), e algumas tarefas podem ser efetuadas no.
@@ -47,13 +40,18 @@ Para obter todas as funcionalidades mais recentes e a experiência de smoothest 
    
     ![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. No SSMS > **Object Explorer**, clique em **Connect** > **Analysis Services**.
-3. No **ligar ao servidor** caixa de diálogo, colar no nome do servidor, em seguida, em **autenticação**, escolha um dos seguintes tipos de autenticação:
-   
+3. No **ligar ao servidor** caixa de diálogo, colar no nome do servidor, em seguida, em **autenticação**, escolha um dos seguintes tipos de autenticação:   
+    > [!NOTE]
+    > Tipo de autenticação, **do Active Directory - Universal com suporte MFA**, é recomendado.
+
+    > [!NOTE]
+    > Se iniciar sessão com um Account Microsoft Live ID, Yanoo, Gmail, etc., deixe o campo de palavra-passe em branco. É-lhe pedida uma palavra-passe depois de clicar em ligar.
+
     **Autenticação do Windows** para utilizar as credenciais de domínio ome de utilizador e palavra-passe do Windows.
 
     **Autenticação de palavra-passe do Active Directory** para utilizar uma conta institucional. Por exemplo, quando ligar a partir de um domínio associado a um computador.
 
-    **Autenticação de Universal do Active Directory** utilizar [autenticação não interativa ou multifator](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory – Universal com suporte MFA** utilizar [autenticação não interativa ou multifator](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
     ![Se ligar no SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

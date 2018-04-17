@@ -1,8 +1,8 @@
 ---
-title: "Gerir soluções do Azure com o PowerShell | Microsoft Docs"
+title: Gerir soluções do Azure com o PowerShell | Microsoft Docs
 description: Utilize o Azure PowerShell e do Resource Manager para gerir os recursos.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9521a9be1d2bdc91836830dbb6471d2ffcb4daaf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gerir os recursos com o Azure PowerShell
 
@@ -51,9 +51,9 @@ Atualmente, o grupo de recursos está vazio.
 
 Neste artigo, implementar uma máquina virtual e a rede virtual relacionadas. Para gerir soluções de máquina virtual, existem três funções específicas do recurso que fornecem acesso normalmente necessário:
 
-* [Contribuinte de máquina virtual](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Contribuidor de Rede](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Contribuinte de conta de armazenamento](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Contribuinte de máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Contribuidor de Rede](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Contribuinte de conta de armazenamento](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Em vez de atribuir funções para utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) para utilizadores que necessitam para efetuar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função para um âmbito. 
 

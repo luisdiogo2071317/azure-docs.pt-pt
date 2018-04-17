@@ -1,6 +1,6 @@
 ---
-title: Configure o HTTPS um domínio personalizado de rede de entrega de conteúdos do Azure | Microsoft Docs
-description: Saiba como ativar ou desativar HTTPS no ponto final de CDN do Azure com um domínio personalizado.
+title: Configure o HTTPS um domínio personalizado de CDN do Azure | Microsoft Docs
+description: Saiba como ativar ou desativar HTTPS no seu domínio personalizado de ponto final de CDN do Azure.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 554ae4c19d1a3d35075ad174549a62a20329e5fa
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ca3dad18973197f63e69e6568b8ea5988b279e01
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Configure o HTTPS um domínio personalizado de rede de entrega de conteúdos do Azure
+# <a name="configure-https-on-an-azure-cdn-custom-domain"></a>Configure o HTTPS um domínio personalizado de CDN do Azure
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Microsoft suporta o protocolo HTTPS para domínios personalizados na rede de entrega de conteúdos (CDN) do Azure. Com suporte de domínio personalizado de HTTPS, pode fornecer segura do conteúdo através de SSL com o seu próprio nome de domínio para melhorar a segurança dos dados em trânsito. O fluxo de trabalho para ativar HTTPS para o domínio personalizado é simplificado através de ativação de um clique e gestão de certificados completo, todos os sem custos adicionais.
+Azure entrega rede conteúdos (CDN) suporta o protocolo HTTPS para um domínio personalizado no ponto final da CDN. Utilizando o protocolo HTTPS no seu domínio personalizado, certifique-se de que os dados confidenciais é entregue em segurança através de encriptação SSL quando é enviado através da internet. Fornece HTTPS confiança de autenticação e protege as suas aplicações web contra ataques. Além disso, a fornecer a segura do conteúdo utilizando o seu próprio nome de domínio (por exemplo, https:\//www.contoso.com). O fluxo de trabalho para permitir HTTPS é simplificado através de ativação de um clique e gestão de certificados completo, todos os sem custos adicionais.
 
-É fundamental para garantir a privacidade e a integridade dos dados de dados confidenciais da sua aplicação web enquanto esta se encontra em trânsito. Ao utilizar o protocolo HTTPS, certifique-se de que os dados sensíveis são encriptados quando é enviado através da internet. Fornece confiança de autenticação e protege as suas aplicações web contra ataques. Por predefinição, a CDN do Azure suporta HTTPS no ponto final da CDN. Por exemplo, se criar um ponto final da CDN do Azure CDN (por exemplo, https:\//contoso.azureedge.net), HTTPS é ativado automaticamente. Além disso, com suporte HTTPS de domínio personalizado, também pode ativar a entrega segura para um domínio personalizado (por exemplo, https:\//www.contoso.com). 
+CDN do Azure também suporta HTTPS num nome de anfitrião de ponto final CDN, por predefinição. Por exemplo, se criar um ponto final de CDN (por exemplo, https:\//contoso.azureedge.net), HTTPS é ativado automaticamente.  
 
 Alguns dos principais atributos da funcionalidade HTTPS são:
 
@@ -77,6 +77,8 @@ Para obter mais informações sobre registos CNAME, consulte [criar o registo CN
 
 Se o registo CNAME no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e adiciona-o para o certificado de nomes de alternativo do requerente (SAN). DigitCert não enviar uma mensagem de verificação e não terá de aprovar o pedido. O certificado é válido durante um ano e será automaticamente-renovada antes de expirar. Avance para [passo 3: aguardar propagação](#step-3-wait-for-propagation). 
 
+A validação automática normalmente demora alguns minutos. Se não vir o seu domínio validado dentro de uma hora, abra um pedido de suporte.
+
 #### <a name="cname-record-is-not-mapped-to-cdn-endpoint"></a>Registo CNAME não está mapeado para o ponto final de CDN
 
 Se a entrada de registo CNAME para o ponto final já não existe ou contém o subdomínio cdnverify, siga o resto das instruções neste passo.
@@ -124,7 +126,7 @@ A tabela seguinte mostra o progresso da operação que ocorre quando ativar HTTP
 | 1 submeter pedido | Submeter pedido |
 | | O seu pedido HTTPS está a ser submetido. |
 | | O seu pedido HTTPS foi submetido com êxito. |
-| Validação de domínio 2 | Tem a enviada uma mensagem de e-mail a pedir-lhe para validar a propriedade de domínio. A aguardar que a sua confirmação. ** |
+| Validação de domínio 2 | Domínio é validado automaticamente se for CNAME mapeado para o ponto final da CDN. Caso contrário, será enviado um pedido de verificação para o e-mail listado no registo do seu domínio (WHOIS registrant). Verifique o domínio logo que possível. |
 | | A propriedade do domínio foi validada com êxito. |
 | | Pedido de validação de propriedade de domínio expirou (cliente provavelmente não responder dentro de dias 6). HTTPS não será ativado no seu domínio. * |
 | | Pedido de validação de propriedade de domínio foi rejeitado pelo cliente. HTTPS não será ativado no seu domínio. * |
@@ -135,7 +137,6 @@ A tabela seguinte mostra o progresso da operação que ocorre quando ativar HTTP
 
 \* Esta mensagem não aparecer, a menos que ocorreu um erro. 
 
-\** Esta mensagem não é apresentada se tiver uma entrada CNAME para o seu domínio personalizado que aponta diretamente para o seu nome de anfitrião de ponto final CDN.
 
 Se ocorrer um erro antes do pedido ser submetido, será apresentada a seguinte mensagem de erro:
 
@@ -189,7 +190,7 @@ A tabela seguinte mostra o progresso da operação que ocorre quando desativar o
 
 3. *E se não receber correio eletrónico de verificação de domínio do DigiCert?*
 
-    Se não receber uma mensagem de e-mail dentro de 24 horas, contacte o suporte da Microsoft. Se tiver uma entrada CNAME para o seu domínio personalizado que aponta diretamente para o seu nome de anfitrião de ponto final (e não estiver a utilizar o nome de subdomínio cdnverify), não irão receber um e-mail de verificação de domínio. Validação ocorre automaticamente.
+    Se tiver uma entrada CNAME para o seu domínio personalizado que aponta diretamente para o seu nome de anfitrião de ponto final (e não estiver a utilizar o nome de subdomínio cdnverify), não irão receber um e-mail de verificação de domínio. Validação ocorre automaticamente. Caso contrário, se não tiver uma entrada CNAME e que ainda não recebeu uma mensagem de e-mail dentro de 24 horas, contacte o suporte da Microsoft.
 
 4. *Está a utilizar um certificado SAN menos seguro do que um certificado dedicado?*
     

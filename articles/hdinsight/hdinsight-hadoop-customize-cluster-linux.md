@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: bc8078a1681b8977a0748f633df02beb2f2bdc8a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5d1af5ae008fb2811f1ae59396a03833b8c1b15f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalizar clusters do HDInsight baseado em Linux utilizando as ações de script
 
@@ -50,8 +48,8 @@ Além disso, se estiver a criar, pelo menos, um cluster do HDInsight, alguém co
 
 Para obter mais informações sobre como trabalhar com a gestão do acesso, veja os documentos seguintes:
 
-* [Get started with access management in the Azure portal (Introdução à gestão do acesso no portal do Azure)](../active-directory/role-based-access-control-what-is.md)
-* [Utilize atribuições de funções para gerir o acesso aos recursos de subscrição do Azure](../active-directory/role-based-access-control-configure.md)
+* [Get started with access management in the Azure portal (Introdução à gestão do acesso no portal do Azure)](../role-based-access-control/overview.md)
+* [Utilize atribuições de funções para gerir o acesso aos recursos de subscrição do Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="understanding-script-actions"></a>Compreender as ações de script
 

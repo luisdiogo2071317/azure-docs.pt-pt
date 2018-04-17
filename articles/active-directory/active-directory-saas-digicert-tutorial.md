@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com DigiCert | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e DigiCert."
+title: 'Tutorial: Integração do Azure Active Directory com DigiCert | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e DigiCert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 646f3129-aa67-4875-9073-1d0b6a3173d9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 04/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 1eb3f6eda8603174fa5be5c76e16f7c2e3e58b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f291b69f084913808f4494c7379a0f753254e3f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: Integração do Azure Active Directory com DigiCert
 
@@ -106,9 +106,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
  
     ![Configurar o início de sessão único](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_samlbase.png)
 
-3. No **DigiCert domínio e os URLs** secção, o utilizador não tem de efetuar quaisquer passos, tal como a aplicação já está pré-integrada com o Azure.
+3. No **DigiCert domínio e os URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_url.png)
+    
+    No **identificador** caixa de texto, escreva o URL: `https://www.digicert.com/sso`
 
 4. Aplicação de DigiCert espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos a partir de "**atributos de utilizador**" secção na página de integração de aplicações. A seguinte captura de ecrã mostra um exemplo para esta configuração. 
 
@@ -145,9 +147,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar o início de sessão único](./media/active-directory-saas-digicert-tutorial/tutorial_general_400.png)
 
 8. Para configurar o início de sessão único em **DigiCert** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de DigiCert](mailto:support@digicert.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.

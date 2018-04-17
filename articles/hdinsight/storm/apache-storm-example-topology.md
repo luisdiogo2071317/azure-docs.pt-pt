@@ -1,8 +1,8 @@
 ---
 title: Topologias do Apache Storm de exemplo no HDInsight | Microsoft Docs
-description: "Uma lista das topologias do Storm de exemplo criado e testado com Apache Storm no HDInsight, incluindo as topologias c# e Java básicas e trabalhar com os Event Hubs."
+description: Uma lista das topologias do Storm de exemplo criado e testado com Apache Storm no HDInsight, incluindo as topologias c# e Java básicas e trabalhar com os Event Hubs.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: f9b1bdff-5928-4705-a76d-52fd200917cb
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 38a2d6e6c8594def54ac42546d0cb547445334ed
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f633797147b2090680ebb5ea11f60271addc7f52
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Topologias do Storm de exemplo e componentes para o Apache Storm no HDInsight
 
@@ -32,8 +30,8 @@ Segue-se uma lista de exemplos criado e mantido pela Microsoft para utilização
 | [Origem de evento Hub Spout e Bolt](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Origem do Event Hub Spout e Bolt |Java |
 | [Desenvolver topologias baseadas em Java para o Apache Storm no HDInsight][5797064f] |Maven |Java |
 | [Desenvolver topologias c# para Apache Storm no HDInsight com o Visual Studio][16fce2d1] |Ferramentas do HDInsight para o Visual Studio |C#, Java |
-| [Processar eventos provenientes dos Hubs de eventos do Azure com o Storm no HDInsight (c#)][844d1d81] |Event Hubs |C# e Java |
-| [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) (Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight [Java]) |Event Hubs |Java |
+| [Processar eventos provenientes dos Hubs de eventos do Azure com o Storm no HDInsight (c#)][844d1d81] |Hubs de Eventos |C# e Java |
+| [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) (Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight [Java]) |Hubs de Eventos |Java |
 | [Processar os dados de sensor vehicle provenientes dos Hubs de eventos a utilizar o Storm no HDInsight][246ee964] |Event Hubs, Cosmos DB, armazenamento do Azure Blob (WASB) |C#, Java |
 | [Extração, transformação e carregamento (ETL) de Event Hubs do Azure para HBase, utilizar o Storm no HDInsight][b4b68194] |Event Hubs, HBase |C# |
 | [Projeto de topologia de c# Storm de modelo para trabalhar com os serviços do Azure do Storm no HDInsight][ce0c02a2] |Event Hubs, Cosmos DB, SQL Server da base de dados, HBase, SignalR |C#, Java |

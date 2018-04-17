@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Use e rascunho com o serviço de contentor do Azure (AKS)
 
@@ -33,10 +33,10 @@ Por fim, tem de instalar [Docker](https://www.docker.com).
 
 ## <a name="install-draft"></a>Instalar rascunho
 
-A CLI de rascunho é um cliente que é executado no seu sistema de desenvolvimento e permite-lhe quicky implementa código num Kubernetes cluster. 
+A CLI de rascunho é um cliente que é executado no seu sistema de desenvolvimento e permite-lhe quicky implementa código num Kubernetes cluster.
 
-> [!NOTE] 
-> Se instalou rascunho anteriores à versão 0.12, deve primeiro eliminar rascunho do seu cluster `helm delete --purge draft` e, em seguida, remova a configuração local executando `rm -rf ~/.draft`. Se estiver no MacOS, pode executar `brew upgrade draft`.
+> [!NOTE]
+> Se instalou rascunho anteriores à versão 0.12, deve primeiro eliminar rascunho do seu cluster `helm delete --purge draft` e, em seguida, remova a configuração local executando `rm -rf ~/.draft`. Se estiver no MacOS, execute `brew upgrade draft`.
 
 Para instalar a CLI de rascunho num utilize Mac `brew`. Para opções de instalação adicionais consulte, a [rascunho instalar guia][install-draft].
 
@@ -71,9 +71,9 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 Agora que não existe uma relação de confiança entre AKS e ACR, os passos seguintes permitem a utilização de ACR do seu cluster AKS.
 1. Definir a configuração de rascunho `registry` valor executando `draft config set registry <registry name>.azurecr.io`, onde _&lt;nome do registo&lt;_ é o nome do seu registo ACR.
-2. Inicie sessão no registo ACR executando `az acr login -n <registry name>`. 
+2. Inicie sessão no registo ACR executando `az acr login -n <registry name>`.
 
-Uma vez que tem agora sessão iniciada num localmente ACR e criou uma relação de confiança com AKS e ACR, sem palavras-passe ou segredos são necessários para push ou pull do ACR para AKS. A autenticação ocorre ao nível do Azure Resource Manager, utilizando o Azure Active Directory. 
+Uma vez que tem agora sessão iniciada num localmente ACR e criou uma relação de confiança com AKS e ACR, sem palavras-passe ou segredos são necessários para push ou pull do ACR para AKS. A autenticação ocorre ao nível do Azure Resource Manager, utilizando o Azure Active Directory.
 
 ## <a name="run-an-application"></a>Executar uma aplicação
 
@@ -143,7 +143,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-Agora pode testar a aplicação ao navegar para http://localhost:46143 (por exemplo anterior; a porta pode ser diferente). Quando terminar de testar a utilização de aplicação `Control+C` para parar a ligação de proxy.
+Agora testar a aplicação ao navegar para http://localhost:46143 (por exemplo anterior; a porta pode ser diferente). Quando terminar de testar a utilização de aplicação `Control+C` para parar a ligação de proxy.
 
 > [!NOTE]
 > Também pode utilizar o `draft up --auto-connect` comando para criar e implementar a sua aplicação e imediatamente ligar ao contentor de execução do primeiro para tornar a iteração ciclo mesmo mais rapidamente.

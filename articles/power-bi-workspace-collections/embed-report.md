@@ -1,26 +1,26 @@
 ---
-title: "Incorporar um relatório em coleções de área de trabalho do Azure Power BI | Microsoft Docs"
-description: "Saiba como incorporar um relatório que está a ser coleções de área de trabalho do Power BI na sua aplicação."
+title: Incorporar um relatório em coleções de área de trabalho do Azure Power BI | Microsoft Docs
+description: Saiba como incorporar um relatório que está a ser coleções de área de trabalho do Power BI na sua aplicação.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 56e7ca90132527c0ef9d4bd478e99b75ca055272
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: b6fa46b1cf3a251d6116e7de6ef41a9e6d265c29
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Incorporar um relatório em coleções de área de trabalho do Power BI
 
@@ -148,7 +148,7 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 
 O relatório será automaticamente incorporado com base no tamanho do respectivo contentor. Para substituir o tamanho predefinido do item incorporado, adicione simplesmente um estilos de atributo ou inline classe CSS para a largura e altura.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 [Introdução com exemplo](get-started-sample.md)  
 [Autenticação e autorização nas Coleções de Áreas de Trabalho do Power BI](app-token-flow.md)  

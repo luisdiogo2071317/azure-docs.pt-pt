@@ -2,26 +2,24 @@
 title: Utilizar o Spark para ler e escrever dados de HBase - Azure HDInsight | Microsoft Docs
 description: Utilize o conector de HBase do Spark para ler e escrever dados a partir de um cluster do Spark para um cluster HBase.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: ccbcd1d9cb45da7076d73f71a2ed692e71816650
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: acad1058cbff2099a67603cc547a19d6cac022be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="use-spark-to-read-and-write-hbase-data"></a>Utilizar o Spark para ler e escrever dados de HBase
+# <a name="use-spark-to-read-and-write-hbase-data"></a>Utilizar o Spark para ler e escrever dados do HBase
 
 Apache HBase, normalmente, é consultado com a API de nível baixo (análises, obtém e PUT) ou com uma sintaxe de SQL Server utilizando o Phoenix. Apache também fornece o conector HBase, Spark, que é uma prática e performant alternativa para consultar e modificar os dados armazenados pelo HBase.
 
@@ -77,7 +75,7 @@ Neste passo, pode criar e preencher uma tabela simple no HBase que, em seguida, 
 3. Navegue para o cluster de HBase utilizando o [portal do Azure](https://portal.azure.com).
 4. Selecione as contas de armazenamento. 
 
-    ![Contas de armazenamento](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
+    ![Contas de Armazenamento](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
 
 5. Selecione a conta de armazenamento na lista que tem uma marca de verificação sob a coluna predefinida.
 
@@ -94,14 +92,14 @@ Neste passo, pode criar e preencher uma tabela simple no HBase que, em seguida, 
 
 9. No painel de propriedades Blob, selecione transfira e guarde `hbase-site.xml` para uma localização no seu computador local.
 
-    ![Transferência](./media/hdinsight-using-spark-query-hbase/download.png)
+    ![Transferir](./media/hdinsight-using-spark-query-hbase/download.png)
 
 ## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Colocar hbase site.xml no seu cluster do Spark
 
 1. Navegue para o cluster do Spark utilizando o [portal do Azure](https://portal.azure.com).
 2. Selecione as contas de armazenamento.
 
-    ![Contas de armazenamento](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
+    ![Contas de Armazenamento](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
 
 3. Selecione a conta de armazenamento na lista que tem uma marca de verificação sob a coluna predefinida.
 

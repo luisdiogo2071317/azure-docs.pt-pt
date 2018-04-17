@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2018
+ms.date: 04/09/2018
 ms.author: vinagara
-ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a786ac2e241657cc0020ecfe9438e3d1a5e4c5fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de Webhook para regras de alerta de registo
 Quando um [alerta é criado no Azure ](monitor-alerts-unified-usage.md), tem a opção de [configuração utilizar grupos de ação](monitoring-action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e detalhes sobre como configurar o webhook com base em JSON personalizado.
@@ -32,7 +32,7 @@ As ações de Webhook requerem as propriedades na tabela seguinte:
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Webhook URL |O URL do webhook. |
+| URL do Webhook |O URL do webhook. |
 | Payload JSON personalizado |Payload personalizado para enviar com o webhook, quando esta opção é escolhida durante a criação do alerta. Detalhes disponíveis em [gerir alertas através de alertas do Azure ](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
@@ -48,28 +48,32 @@ Webhooks incluir um URL e um payload formatado em JSON que é os dados enviados 
 | AlertThresholdOperator |#thresholdoperator |Operador de limiar para a regra de alerta.  *Maior* ou *menor*. |
 | AlertThresholdValue |#thresholdvalue |Valor de limiar para a regra de alerta. |
 | LinkToSearchResults |#linktosearchresults |Ligar a pesquisa de registo de análise de registos que devolve os registos da consulta que criou o alerta. |
-| ResultCount |#searchresultcount |Número de registos nos resultados da pesquisa. |
+| O parâmetro ResultCount |#searchresultcount |Número de registos nos resultados da pesquisa. |
 | Hora de fim do intervalo de pesquisa |#searchintervalendtimeutc |Hora de fim para a consulta em formato UTC. |
 | Intervalo de pesquisa |#searchinterval |Janela de tempo para a regra de alerta. |
 | StartTime de intervalo de pesquisa |#searchintervalstarttimeutc |Hora de início para a consulta em formato UTC. 
 | SearchQuery |#searchquery |Consulta de pesquisa de registo utilizada pela regra de alerta. |
 | SearchResults |"IncludeSearchResults": VERDADEIRO|Registos devolvidos pela consulta como uma tabela de JSON, limitado para os primeiro 1000 registos; Se "IncludeSearchResults": true foi adicionado na definição de webhook JSON personalizada como uma propriedade de nível superior. |
 | WorkspaceID |#workspaceid |ID da sua área de trabalho de análise de registos. |
-| ID da aplicação |#applicationid |ID do Application Insight aplicação. |
-| ID da subscrição |#subscriptionid |ID de subscrição do Azure utilizados com o Application Insights. 
+| ID da Aplicação |#applicationid |ID do Application Insight aplicação. |
+| ID de Subscrição |#subscriptionid |ID de subscrição do Azure utilizados com o Application Insights. 
 
 
 Por exemplo, poderá especificar o payload personalizado seguinte, que inclui um único parâmetro chamado *texto*.  O serviço que chama o webhook seria possível esperar este parâmetro.
 
+```json
+
     {
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
-
+```
 Este payload de exemplo seria resolver algo semelhante ao seguinte quando enviados para o webhook.
 
+```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
+```
 
 Para incluir os resultados da pesquisa no payload personalizado, certifique-se de que **IncudeSearchResults** está definido como uma propriedade de nível superior no json payload. 
 
@@ -85,7 +89,8 @@ Ambos estes exemplos tiverem indicado um payload fictício com apenas duas colun
 #### <a name="log-alert-for-azure-log-analytics"></a>Alerta de registo para análise de registos do Azure
 Segue-se um payload de exemplo para uma ação do webhook padrão *sem opção de Json personalizado* a ser utilizado para alertas com base na análise do registo.
 
-    {
+```json
+{
     "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
     "AlertRuleName":"AcmeRule","SearchQuery":"search *",
     "SearchResult":
@@ -95,7 +100,7 @@ Segue-se um payload de exemplo para uma ação do webhook padrão *sem opção d
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -104,7 +109,7 @@ Segue-se um payload de exemplo para uma ação do webhook padrão *sem opção d
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -114,15 +119,14 @@ Segue-se um payload de exemplo para uma ação do webhook padrão *sem opção d
     "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
     "Severity": "Warning"
-    }
-    
-
+ }
+ ```   
 
 #### <a name="log-alert-for-azure-application-insights"></a>Alerta de registo para o Azure Application Insights
 Segue-se um payload de exemplo para um webhook padrão *sem opção de Json personalizado* quando utilizado para o application insights-alertas com base em registo-.
     
-
-    {
+```json
+{
     "schemaId":"Microsoft.Insights/LogAlert","data":
     { 
     "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
@@ -134,7 +138,7 @@ Segue-se um payload de exemplo para um webhook padrão *sem opção de Json pers
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -143,7 +147,7 @@ Segue-se um payload de exemplo para um webhook padrão *sem opção de Json pers
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -152,10 +156,11 @@ Segue-se um payload de exemplo para um webhook padrão *sem opção de Json pers
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error"
+    "Severity": "Error",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
-    }
+}
+```
 
 > [!NOTE]
 > Alerta de registo para o Application Insights, está a ser público pré-visualize - a funcionalidade e a experiência de utilizador está sujeita a alterações.
@@ -163,14 +168,16 @@ Segue-se um payload de exemplo para um webhook padrão *sem opção de Json pers
 #### <a name="log-alert-with-custom-json-payload"></a>Alerta de registo com o Payload JSON personalizado
 Por exemplo, para criar um payload personalizado que inclua apenas o nome do alerta e os resultados da pesquisa, pode utilizar o seguinte: 
 
+```json
     {
        "alertname":"#alertrulename",
        "IncludeSearchResults":true
     }
+```
 
 Segue-se um payload de exemplo para uma ação de webhook personalizadas para qualquer alerta de registo.
     
-
+```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
     "SearchResult":
@@ -180,7 +187,7 @@ Segue-se um payload de exemplo para uma ação de webhook personalizadas para qu
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -191,8 +198,7 @@ Segue-se um payload de exemplo para uma ação de webhook personalizadas para qu
                 ]
         }
     }
-
-
+```
 
 
 ## <a name="next-steps"></a>Passos Seguintes

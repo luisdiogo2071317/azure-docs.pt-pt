@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 6d214072bccb8b2b42828ee003dcf349985b4f43
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4bdbf48030dda18e6698a7731989ec2de2319b35
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="upgrade-to-vm-backup-stack-v2"></a>Atualizar para a pilha de cópia de segurança de VM V2
 A atualização de cópia de segurança pilha V2 de máquina virtual (VM) fornece as seguintes melhorias de funcionalidade:
@@ -49,7 +49,9 @@ Por predefinição, instantâneos serão mantidos durante sete dias. Isto permit
 * Esta é uma atualização unidirecional da pilha de cópia de segurança de VM. Por isso, todas as cópias de segurança futuras entra neste fluxo. Uma vez que **estiver ativada a um nível de subscrição, todas as VMs que serão enviadas para este fluxo**. Todas as novas adições de funcionalidade serão com base na pilha mesma. Capacidade para controlar que este nível de política futuras nas futuras versões. 
 * Para VMs com discos premium, durante a primeira cópia de segurança, certifique-se de que o espaço de armazenamento equivalente ao tamanho da VM está disponível na conta de armazenamento até concluir a primeira cópia de segurança. 
 * Uma vez que os instantâneos são armazenados localmente para melhorar a criação do ponto de recuperação e também para acelerar o restauro, verá os custos de armazenamento correspondente a instantâneos durante o período de sete dias.
+* Instantâneos incrementais são armazenados como blobs de páginas. Todos os clientes utilizando discos de não geridos serão cobrados os instantâneos de 7 dias armazenados na conta de armazenamento local do cliente. De acordo com o modelo de preços atual, há sem qualquer custo para clientes em discos geridos.
 * Se estão a fazer um restauro do ponto de recuperação de instantâneos para uma VM do Premium, verá uma localização de armazenamento temporário que está a ser utilizada enquanto a VM está a ser criada como parte do restauro. 
+* Em caso de contas de armazenamento premium, os instantâneos decorridos para a recuperação imediata vai ocupar o espaço de 10 TB atribuído na conta do premium storage.
 
 ## <a name="how-to-upgrade"></a>Como atualizar?
 ### <a name="the-azure-portal"></a>O portal do Azure

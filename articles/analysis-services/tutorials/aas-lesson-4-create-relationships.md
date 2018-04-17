@@ -1,25 +1,18 @@
 ---
-title: "Lição 4 do tutorial do Azure Analysis Services: Criar relações | Microsoft Docs"
-description: "Descreve como criar relações no projeto de tutorial do Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lição 4 do tutorial do Azure Analysis Services: Criar relações | Microsoft Docs'
+description: Descreve como criar relações no projeto de tutorial do Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: 694043454ba2564900416135e1f143bdeb63c202
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-relationships"></a>Criar relações
 
@@ -58,7 +51,7 @@ Antes de continuar a criar o seu modelo, deve confirmar se as relações entre a
   
 3.  Verifique se foram criadas as relações seguintes quando cada uma das tabelas foi importada da base de dados AdventureWorksDW:  
   
-    |Ativa|Tabela|Tabela de Pesquisa Relacionada|  
+    |Activo|Tabelas|Tabela de Pesquisa Relacionada|  
     |----------|---------|------------------------|  
     |Sim|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
     |Sim|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
@@ -100,7 +93,7 @@ Em alguns casos, poderá ter de criar relações adicionais entre tabelas do seu
     
      ![aas-lesson4-newinactive](../tutorials/media/aas-lesson4-newinactive.png)
   
-## <a name="whats-next"></a>Passos seguintes?
+## <a name="whats-next"></a>O que se segue?
 [Lição 5: Criar colunas calculadas (Lesson 5: Create calculated columns)](../tutorials/aas-lesson-5-create-calculated-columns.md).
   
   

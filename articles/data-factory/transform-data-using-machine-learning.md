@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: bd72fd957948e77df6ffb0b310c590132c663235
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8d87facdf1724ddbcb3bb6d7c189d8ff41d44973
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines preditivos com o Azure Machine Learning e o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/23/2018
 
 1. **Criar uma experimentação de preparação**. Execute este passo utilizando o Azure ML Studio. ML studio é um ambiente de desenvolvimento de visual de colaboração que utilizar para formação e testar um modelo de Análise Preditiva utilizando dados de preparação.
 2. **Convertê-lo para uma experimentação preditiva**. Depois do seu modelo tem sido preparado com a dados existentes e está pronto para utilizá-lo para pontuar novos dados, pode prepara e simplificar a sua experimentação para classificação.
-3. **Implementá-lo como um serviço web**. Pode publicar a sua experimentação de classificação como um serviço web do Azure. Pode enviar dados para o seu modelo através deste ponto de final de serviço web e receber predições resultado fro o modelo.  
+3. **Implementá-lo como um serviço web**. Pode publicar a sua experimentação de classificação como um serviço web do Azure. Pode enviar dados para o seu modelo através deste ponto de final de serviço web e receber predições do resultado do modelo.  
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade de execução do Machine Learning Batch no V1](v1/data-factory-azure-ml-batch-execution-activity.md).
@@ -51,7 +51,9 @@ Criar um **Azure Machine Learning** serviço para associar um serviço Web do Az
 
 ```JSON
 {
+    "type" : "linkedServices",
     "name": "AzureMLLinkedService",
+    "apiVersion" : "2017-09-01-preview",
     "properties": {
         "type": "AzureML",
         "typeProperties": {

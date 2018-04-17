@@ -1,24 +1,24 @@
 ---
-title: "Comparar as permissões de utilizador predefinidas no Azure Active Directory | Microsoft Docs"
-description: "Comparar o membro, o convidado, o proprietário da aplicação e permissões de proprietário do grupo"
+title: Comparar as permissões de utilizador predefinidas no Azure Active Directory | Microsoft Docs
+description: Comparar o membro, o convidado, o proprietário da aplicação e permissões de proprietário do grupo
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Permissões de utilizador predefinidas no Azure Active Directory
 
@@ -38,11 +38,11 @@ As permissões predefinidas para os convidados são restritivas por predefiniç�
 Utilizadores e contactos | Ler todas as propriedades públicas de utilizadores e contactos<br>Convidar convidados<br>Alterar a própria palavra-passe<br>Gerir o número de telemóvel próprio<br>Gerir fotografia própria<br>Invalidar própria atualização de tokens | Ler as suas próprias propriedades<br>Ler o nome a apresentar, e-mail, nome de início de sessão, fotografias, nome principal de utilizador e propriedades de tipo de utilizador de outros utilizadores e contactos<br>Alterar a própria palavra-passe
 Grupos   | Criar grupos de segurança<br>Criar grupos do Office 365<br>Ler todas as propriedades dos grupos<br>Ler as associações de grupo não oculto<br>Leitura oculto associações a grupos do Office 365 para associados a um grupo<br>Gerir propriedades, a propriedade e a associação dos grupos pertencentes à empresa<br>Adicionar convidados em grupos pertencentes à empresa<br>Gerir definições de associação dinâmica<br>Eliminar grupos pertencentes à empresa<br>Restauro pertencentes a grupos do Office 365 | Ler todas as propriedades dos grupos<br>Ler as associações de grupo não oculto<br>Ler ocultas associações a grupos do Office 365 para grupos associados<br>Gerir grupos pertencentes à empresa<br>Adicionar convidados em grupos pertencentes à empresa (se for permitida)<br>Eliminar grupos pertencentes à empresa<br>Restauro pertencentes a grupos do Office 365           
 Aplicações | Registar (criar) nova aplicação<br>Leitura de propriedades de registado e aplicações empresariais<br>Gerir propriedades da aplicação, atribuições e as credenciais para aplicações pertencentes à empresa<br>Criar ou eliminar aplicação palavra-passe do utilizador<br>Eliminar aplicações pertencentes à empresa<br>Restore aplicações pertencentes à empresa | Leitura de propriedades de registado e aplicações empresariais<br>Gerir propriedades da aplicação, atribuições e as credenciais para aplicações pertencentes à empresa<br>Eliminar aplicações pertencentes à empresa<br>Restore aplicações pertencentes à empresa
-Dispositivos | Ler todas as propriedades dos dispositivos<br>Gerir todas as propriedades dos dispositivos pertencentes à empresa<br> | Sem permissões<br>Eliminar dispositivos pertencentes à empresa<br>
+Dispositivos | Ler todas as propriedades dos dispositivos<br>Gerir todas as propriedades dos dispositivos pertencentes à empresa<br> | Não existem permissões<br>Eliminar dispositivos pertencentes à empresa<br>
 Diretório | Ler todas as informações da empresa<br>Ler todos os domínios<br>Ler todos os contratos de parceiros | Nome a apresentar de leitura e a verificar a domínios
-Funções e âmbitos | Ler todas as associações e funções administrativas<br>Ler todas as propriedades e associação a unidades administrativas | Sem permissões              
-Subscrições | Ler todas as subscrições<br>Ativar membro do plano de serviço | Sem permissões
-Políticas | Ler todas as propriedades de políticas<br>Gerir todas as propriedades da política de propriedade | Sem permissões
+Funções e âmbitos | Ler todas as associações e funções administrativas<br>Ler todas as propriedades e associação a unidades administrativas | Não existem permissões              
+Subscrições | Ler todas as subscrições<br>Ativar membro do plano de serviço | Não existem permissões
+Políticas | Ler todas as propriedades de políticas<br>Gerir todas as propriedades da política de propriedade | Não existem permissões
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>Para restringir as permissões predefinidas para os utilizadores de membro
 
@@ -77,6 +77,6 @@ Quando um utilizador cria um grupo, eles são adicionados automaticamente como u
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre como alterar os administradores para uma subscrição do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
-* Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](active-directory-understanding-resource-access.md)
+* Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para obter mais informações sobre como o Azure Active Directory relacionada com a sua subscrição do Azure, consulte [subscrições do Azure como estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Gerir utilizadores](active-directory-create-users.md)

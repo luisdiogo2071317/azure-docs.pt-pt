@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 018893a2124f1ab9c98e0728bc90ad0a69cf471f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3f553b9ea3629a38ab9dea0e93b16c62aebe301f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Azure Active Directory com o Amazon Web Services (AWS)
 
@@ -202,9 +202,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     b. No **descrição da função** caixa de texto, introduza a descrição.
 
-    a. Clique em **criar função**.
+    c. Clique em **criar função**.
 
-    b. Criar funções tantos conforme necessário e mapeá-los para o fornecedor de identidade.
+    d. Criar funções tantos conforme necessário e mapeá-los para o fornecedor de identidade.
 
 18. Utilize credenciais de conta de serviço do AWS para obter as funções da conta AWS no aprovisionamento de utilizador do Azure AD. Para tal, abra a consola do AWS doméstica.
 
@@ -270,16 +270,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     c. Clique em **"Criar a política"** botão.
 
-24. No **revisão** caixa de diálogo, execute os seguintes passos:   
-    
-    ![Configurar a revisão de início de sessão único][34] 
-
-    a. Clique em **criar função**.
-
-    b. Criar funções tantos conforme necessário e mapeá-los para o fornecedor de identidade.
-
-
-25. Crie uma nova conta de utilizador no serviço de IAM AWS, efetuando os seguintes passos:
+24. Crie uma nova conta de utilizador no serviço de IAM AWS, efetuando os seguintes passos:
 
     a. Clique em **utilizadores** navegação na consola do AWS IAM.
 
@@ -299,7 +290,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     * Clique em de **permissões seguinte** botão no canto inferior direito.
 
-26. Agora, crie uma nova política para este utilizador, efetuando os seguintes passos:
+25. Agora, crie uma nova política para este utilizador, efetuando os seguintes passos:
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
@@ -309,7 +300,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     c. Selecione o **política** e, em seguida, clique em de **seguinte: Reveja** botão.
 
-27. Rever a política para o utilizador ligado, efetuando os seguintes passos:
+26. Rever a política para o utilizador ligado, efetuando os seguintes passos:
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
     
@@ -317,7 +308,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     b. Clique em de **criar utilizador** botão no canto inferior direito para criar o utilizador.
 
-28. Transferir as credenciais de utilizador de um utilizador, efetuando os seguintes passos:
+27. Transferir as credenciais de utilizador de um utilizador, efetuando os seguintes passos:
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
     
@@ -327,11 +318,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     c. Clique em **fechar** na parte inferior.
 
-29. Navegue para **aprovisionamento de utilizadores** secção da aplicação do Amazon Web Services no Portal de gestão do Azure AD.
+28. Navegue para **aprovisionamento de utilizadores** secção da aplicação do Amazon Web Services no Portal de gestão do Azure AD.
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-30. Introduza o **chave de acesso** e **segredo** no **segredo do cliente** e **segredo Token** campo respetivamente.
+29. Introduza o **chave de acesso** e **segredo** no **segredo do cliente** e **segredo Token** campo respetivamente.
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -343,7 +334,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     d. Guardar a definição ao clicar no **guardar** botão na parte superior.
  
-31. Agora Certifique-se de que ativa o estado de aprovisionamento **no** na secção de definições, tornando o comutador em e, em seguida, clicando no **guardar** botão na parte superior.
+30. Agora Certifique-se de que ativa o estado de aprovisionamento **no** na secção de definições, tornando o comutador em e, em seguida, clicando no **guardar** botão na parte superior.
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
 

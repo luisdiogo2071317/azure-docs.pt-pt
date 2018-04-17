@@ -2,10 +2,10 @@
 title: Configurar mensagens com o Service Bus do Azure para o Azure Logic Apps | Microsoft Docs
 description: Enviar e receber mensagens com as logic apps utilizando o Service Bus do Azure
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 02/06/2018
 ms.author: ladocs
-ms.openlocfilehash: e81580db17610adc6be534c9801881f9b68b14fd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5a4760e1e0f38fd81fd779786985f5753d77eab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Enviar e receber mensagens com o conector do Service Bus do Azure
 
@@ -65,12 +65,17 @@ A [ *acionador* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um
 
    ![Selecione o acionador do Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
+   > [!NOTE]
+   > Algumas aciona uma retorno ou mensagens, tais como o *Service Bus - quando uma ou mais mensagens chegam numa fila (a conclusão automática)* acionador.
+   > Quando estes acionadores acionados, devolvem entre um e o número de mensagens em fila especificada pelo acionador **máximo de mensagem** propriedade.
+
    1. Se ainda não tiver uma ligação para o espaço de nomes do Service Bus, é-lhe pedido que criar agora esta ligação. Dê um nome da ligação e selecione o espaço de nomes de barramento de serviço que pretende utilizar.
 
       ![Criar a ligação do Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
 
       Ou, para inserirem manualmente a cadeia de ligação, escolha **introduzir manualmente as informações de ligação**. 
       Saiba [como encontrar a cadeia de ligação](#permissions-connection-string).
+      
 
    2. Agora, selecione a política de barramento de serviço para utilizar e escolha **criar**.
 
@@ -79,6 +84,11 @@ A [ *acionador* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um
 4. Seleccione a fila de barramento de serviço a utilizar e configurar o intervalo de frequência e para quando a fila de verificação.
 
    ![Selecione a fila do Service Bus, configurar o intervalo de consulta](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+   > [!NOTE]
+   > Todos os acionadores de Service Bus **longa consulta** acionadores, o que significa que, quando um acionador é acionado, o acionador processa todas as mensagens e, em seguida, aguarda 30 segundos, dos mais mensagens apareça na subscrição fila ou um tópico.
+   > Se não existem mensagens são recebidas na 30 segundos, é ignorada a execução do acionador. Caso contrário, o acionador continua a leitura de mensagens até que a subscrição de fila ou um tópico está vazia.
+   > A seguinte consulta de Acionador baseia-se no intervalo de periodicidade especificado nas propriedades do acionador.
 
 5. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**.
 

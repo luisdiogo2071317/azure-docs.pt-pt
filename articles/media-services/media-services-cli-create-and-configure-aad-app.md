@@ -1,11 +1,11 @@
 ---
-title: "Utilize o CLI 2.0 para criar uma aplicação do Azure AD e configurá-lo para aceder à API de serviços de suporte de dados do Azure | Microsoft Docs"
-description: "Este tópico mostra como utilizar a CLI 2.0 para criar uma aplicação do Azure AD e configurá-lo para aceder à API de serviços de suporte de dados do Azure."
+title: Utilize o CLI 2.0 para criar uma aplicação do Azure AD e configurá-lo para aceder à API de serviços de suporte de dados do Azure | Microsoft Docs
+description: Este tópico mostra como utilizar a CLI 2.0 para criar uma aplicação do Azure AD e configurá-lo para aceder à API de serviços de suporte de dados do Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 205e554fa42b1c28ed78add3e84c046855875872
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b640455b151d0e5d4701b8c076ee1a587b92f5b6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Utilize o CLI 2.0 para criar uma aplicação AAD e configurá-lo para aceder à API de serviços de suporte de dados do Azure
 
@@ -33,7 +33,7 @@ Este tópico mostra como utilizar a CLI 2.0 para criar uma aplicação do Azure 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Inicie a Shell de nuvem a partir do painel de navegação superior do portal.
 
-    ![Cloud Shell,](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 
+    ![Cloud Shell](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 
 
 Para obter mais informações, consulte [descrição geral do Azure na nuvem Shell](../cloud-shell/overview.md).
 
@@ -61,7 +61,7 @@ Por exemplo, poderia ser um dos seguintes níveis:
 
 Para obter mais informações, consulte [criar um Azure principal de serviço com o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
-Consulte também [Manage Role-Based o controlo de acesso com a interface de linha de comandos do Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md). 
+Consulte também [Manage Role-Based o controlo de acesso com a interface de linha de comandos do Azure](../role-based-access-control/role-assignments-cli.md). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

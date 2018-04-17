@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69b2caa6cd2fe6d2c89074614aaf28e2ad68a25a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas de Balanceador de carga do Azure
 
@@ -50,7 +50,7 @@ Se a VM está em bom estada, mas não está a responder a pesquisa, em seguida, 
 
 1. Inicie sessão no back-end da VM. 
 2. Abra uma linha de comandos e execute o seguinte comando validar existe, é uma aplicação em escuta na porta de pesquisa:   
-            netstat -an
+            netstat - an
 3. Se o estado de porta não estiver listado como **LISTENING**, configurar a porta correta. 
 4. Em alternativa, selecione outra porta, o que está listada como **LISTENING**e atualize a configuração de Balanceador de carga em conformidade.              
 
@@ -95,7 +95,7 @@ Se uma VM não responder para o tráfego de dados, poderá ser porque a porta de
 
 1. Inicie sessão no back-end da VM. 
 2. Abra uma linha de comandos e execute o seguinte comando validar existe, é uma aplicação em escuta na porta de dados:  
-            netstat -an 
+            netstat - an 
 3. Se a porta não estiver listada com o estado "ESCUTAR", configurar a porta do serviço de escuta adequada 
 4. Se a porta está marcada como Listening, em seguida, verifique a aplicação de destino nessa porta para quaisquer problemas possíveis. 
 
@@ -103,9 +103,7 @@ Se uma VM não responder para o tráfego de dados, poderá ser porque a porta de
 
 Se um ou mais grupos de segurança de rede configuradas na sub-rede ou na VM, está a bloquear o IP de origem ou a porta, em seguida, a VM não é possível a responder.
 
-* Lista os grupos de segurança de rede configurados no back-end da VM. Para obter mais informações, consulte:
-    -  [Gerir grupos de segurança de rede através do Portal](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
-    -  [Gerir grupos de segurança de rede através do PowerShell](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
+* Lista os grupos de segurança de rede configurados no back-end da VM. Para obter mais informações, consulte [gerir grupos de segurança de rede](../virtual-network/manage-network-security-group.md).
 * Na lista de grupos de segurança de rede, verifique se:
     - o tráfego de entrada ou de saída na porta de dados tem interferências. 
     - um **negar todos os** regra de grupo de segurança no NIC de VM ou a sub-rede que tenha uma prioridade mais alta do que as sondas a regra predefinida que permite que o Balanceador de carga de rede e de tráfego (grupos de segurança de rede têm de permitir IP de Balanceador de carga de 168.63.129.16, que é a porta da sonda) 
