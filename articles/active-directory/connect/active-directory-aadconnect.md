@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: febe055348efb49ea1e6bc670333f435de654cfc
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: bd2b65c31e7736346957dde4edfb7c32894c833e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integre os diretórios no local ao Azure Active Directory
 O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Isto permite-lhe fornecer uma identidade comum para o utilizadores das aplicações do Office 365, do Azure e do SaaS integradas com o Azure AD. Este tópico descreve o planeamento, a implementação e os passos de operação. É uma coleção de ligações para os tópicos relacionados com esta área.
@@ -73,7 +73,7 @@ Pode encontrar a transferência do Azure AD Connect no [Centro de Transferência
 |Após a instalação | [Verificar a instalação e atribuir licenças ](active-directory-aadconnect-whats-next.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Saber mais sobre como instalar o Azure AD Connect
-Terá também de se preparar para questões [operacionais](active-directory-aadconnectsync-operations.md). Pode pretender ter um servidor de reserva a que possa recorrer facilmente caso aconteça um [desastre](active-directory-aadconnectsync-operations.md#disaster-recovery). Se planear efetuar alterações frequentes na configuração, deverá planear um servidor no [modo de teste](active-directory-aadconnectsync-operations.md#staging-mode).
+Terá também de se preparar para questões [operacionais](active-directory-aadconnectsync-operations.md). Pode pretender ter um servidor de reserva a que possa efetuar a ativação pós-falha facilmente em caso de [desastre](active-directory-aadconnectsync-operations.md#disaster-recovery). Se planear efetuar alterações frequentes na configuração, deverá planear um servidor no [modo de teste](active-directory-aadconnectsync-operations.md#staging-mode).
 
 |Tópico |Ligação|  
 | --- | --- |

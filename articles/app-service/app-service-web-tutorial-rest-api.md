@@ -1,11 +1,11 @@
 ---
-title: "API RESTful com CORS no Serviço de Aplicações do Azure | Microsoft Docs"
-description: "Saiba como é que o Serviço de Aplicações do Azure o ajuda a tirar o máximo partido das suas APIs RESTful com suporte para CORS."
+title: API RESTful com CORS no Serviço de Aplicações do Azure | Microsoft Docs
+description: Saiba como é que o Serviço de Aplicações do Azure o ajuda a tirar o máximo partido das suas APIs RESTful com suporte para CORS.
 services: app-service\api
 documentationcenter: dotnet
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7420e92bc929808f074e9be00dfbcb7d8476654a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4b5e432a9c553f5221f138b19a180f92420e6058
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>Alojar uma API RESTful com CORS no Serviço de Aplicações do Azure
+# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Alojar uma API RESTful com CORS no Serviço de Aplicações do Azure
 
 O [Serviço de Aplicações do Azure](app-service-web-overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Além disso, o Serviço de Aplicações tem suporte incorporado para [Partilha de Recursos de Várias Origens (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) para APIs RESTful. Este tutorial mostra como implementar uma aplicação API ASP.NET Core no Serviço de Aplicações com suporte para CORS. A aplicação é configurada com ferramentas de linha de comandos e implementada na aplicação através do Git. 
 
@@ -40,7 +40,7 @@ Pode seguir os passos neste tutorial em macOS, Linux e Windows.
 
 Para concluir este tutorial:
 
-* [Instale o Git](https://git-scm.com/).
+* [Instalar o Git](https://git-scm.com/).
 * [Instale o .NET Core](https://www.microsoft.com/net/core/).
 
 ## <a name="create-local-aspnet-core-app"></a>Criar uma aplicação .NET Core local
@@ -204,7 +204,7 @@ O que aprendeu:
 > * Implementar uma API RESTful no Azure com o Git
 > * Ativar o suporte para CORS no Serviço de Aplicações
 
-Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para a aplicação Web.
+Avançar para o próximo tutorial para saber como autenticar e autorizar utilizadores.
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para as Aplicações Web do Azure](app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Autenticar e autorizar utilizadores ponto a ponto](app-service-web-tutorial-auth-aad.md)

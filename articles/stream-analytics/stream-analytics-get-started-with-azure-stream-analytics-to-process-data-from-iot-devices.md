@@ -1,24 +1,19 @@
 ---
-title: Fluxos de dados em tempo real da IoT e Azure Stream Analytics | Microsoft Docs
+title: Fluxos de dados em tempo real da IoT com o Azure Stream Analytics
 description: Etiquetas do sensor da IoT e transmissão de dados com análises de transmissão e processamento de dados em tempo real
-keywords: solução iot, começar com iot
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
-manager: ryanw
-ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: sngun
-ms.openlocfilehash: 52b05d4daf75d81402d7c72cd05f3819a3456171
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 491b0fdba464e5b0c6225a75c534ca6abb710855
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introdução ao Azure Stream Analytics para o processamento de dados a partir de dispositivos da IoT
 Neste tutorial, vai aprender a criar uma lógica de processamento da transmissão para recolher dados em dispositivos IoT (Internet das Coisas). Vamos analisar um caso real de utilização da Internet das Coisas (IoT) para mostrar como deve construir a solução rapidamente e de forma económica.

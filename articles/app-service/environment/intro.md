@@ -1,6 +1,6 @@
 ---
-title: "Introdução aos ambientes de Serviço de Aplicações do Azure"
-description: "Breve descrição geral dos ambientes de Serviço de Aplicações do Azure"
+title: Introdução aos Ambientes de Serviço de Aplicações do Azure
+description: Breve descrição geral dos Ambientes de Serviço de Aplicações do Azure
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="introduction-to-app-service-environments"></a>Introdução aos ambientes de Serviço de Aplicações #
+# <a name="introduction-to-the-app-service-environments"></a>Introdução aos Ambientes de Serviço de Aplicações #
  
 ## <a name="overview"></a>Descrição geral ##
 
@@ -43,7 +43,7 @@ Os ASEs são isolados para executarem apenas as aplicações de um único client
 
 ## <a name="dedicated-environment"></a>Ambiente dedicado ##
 
-Um ASE é dedicado exclusivamente a uma subscrição individual e pode alojar 100 instâncias. O intervalo pode abranger de 100 instâncias num único plano do Serviço de Aplicações até 100 planos do Serviço de Aplicações de instância única, e tudo o que está dentro deste intervalo.
+Um ASE é dedicado exclusivamente a uma subscrição individual e pode alojar 100 instâncias do Plano do Serviço de Aplicações. O intervalo pode abranger de 100 instâncias num único plano do Serviço de Aplicações até 100 planos do Serviço de Aplicações de instância única, e tudo o que está dentro deste intervalo.
 
 Um ASE é composto por front-ends e trabalhos. Os front-ends são responsáveis pela terminação de HTTP/HTTPS e pelo balanceamento de carga automático de pedidos de aplicações num ASE. Os front-ends são adicionados automaticamente à medida que os planos do Serviço de Aplicações no ASE são aumentados horizontalmente.
 

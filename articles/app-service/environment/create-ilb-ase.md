@@ -1,6 +1,6 @@
 ---
-title: Criar e utilizar um balanceador de carga interno com um ambiente de Serviço de Aplicações do Azure
-description: Detalhes sobre como criar e utilizar um ambiente de Serviço de Aplicações do Azure isolado da Internet
+title: Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações do Azure
+description: Detalhes sobre como criar e utilizar um Ambiente de Serviço de Aplicações do Azure isolado da Internet
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um ambiente de Serviço de Aplicações #
+# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações #
 
- O Ambiente de Serviço de Aplicações do Azure é uma implementação do Serviço de Aplicações do Azure numa sub-rede de uma rede virtual do Azure (VNet). Existem duas formas de implementar um ambiente de Serviço de Aplicações (ASE): 
+ O Ambiente de Serviço de Aplicações do Azure é uma implementação do Serviço de Aplicações do Azure numa sub-rede de uma rede virtual do Azure (VNet). Existem duas formas de implementar um Ambiente de Serviço de Aplicações (ASE): 
 
 - Com um VIP num endereço IP externo, muitas vezes chamado ASE Externo.
 - Com um VIP num endereço IP interno, muitas vezes chamado ASE de ILB porque o ponto final interno é um balanceador de carga interno (ILB). 
 
-Este artigo mostra como criar um ASE de ILB. Para obter uma descrição geral sobre o ASE, veja [Introdução aos ambientes de Serviço de Aplicações][Intro]. Para saber como criar um ASE externo, veja [Criar um ASE Externo][MakeExternalASE].
+Este artigo mostra como criar um ASE de ILB. Para obter uma descrição geral sobre o ASE, veja [Introdução aos Ambientes de Serviço de Aplicações][Intro]. Para saber como criar um ASE externo, veja [Criar um ASE Externo][MakeExternalASE].
 
 ## <a name="overview"></a>Descrição geral ##
 
@@ -63,7 +63,7 @@ Para criar um ASE de ILB:
 
 4. Selecione ou crie uma VNet.
 
-5. Se selecionar uma VNet existente, terá de criar uma sub-rede para conter o ASE. Certifique-se de que define um tamanho de sub-rede suficientemente grande para se adaptar a qualquer crescimento futuro do seu ASE. Recomendamos um tamanho de `/25`, que tem 128 endereços e pode processar um ASE de tamanho máximo. O tamanho mínimo que pode selecionar é `/28`. Este tamanho pode ser dimensionado até um máximo de 11 instâncias, de acordo com as necessidades da infraestrutura.
+5. Se selecionar uma VNet existente, terá de criar uma sub-rede para conter o ASE. Certifique-se de que define um tamanho de sub-rede suficientemente grande para se adaptar a qualquer crescimento futuro do seu ASE. Recomendamos um tamanho de `/25`, que tem 128 endereços e pode processar um ASE de tamanho máximo. O tamanho mínimo que pode selecionar é `/28`. Este tamanho apenas pode ser dimensionado até um máximo de três instâncias, de acordo com as necessidades da infraestrutura.
 
     * Ultrapasse o máximo predefinido de 100 instâncias nos seus planos do Serviço de Aplicações.
 
@@ -81,7 +81,7 @@ Para criar um ASE de ILB:
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   O nome de domínio personalizado utilizado para aplicações e o nome de domínio utilizado pelo seu ASE não se podem sobrepor. Para um ASE de ILB com o nome de domínio _contoso.com_, não pode utilizar nomes de domínio personalizados para as suas aplicações, como:
+   Há uma funcionalidade denominada nomes de domínio personalizados que lhe permite mapear um nome DNS existente para a sua aplicação Web. Pode ler mais sobre esta funcionalidade no documento [Mapear um nome DNS existente para a sua aplicação Web][customdomain]. O nome de domínio personalizado utilizado para aplicações e o nome de domínio utilizado pelo seu ASE não se podem sobrepor. Para um ASE de ILB com o nome de domínio _contoso.com_, não pode utilizar nomes de domínio personalizados para as suas aplicações, como:
 
     * www.contoso.com
 
@@ -250,3 +250,4 @@ Para obter mais informações sobre como configurar o ASE de ILB com um disposit
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[customdomain]: ../app-service-web-tutorial-custom-domain.md
