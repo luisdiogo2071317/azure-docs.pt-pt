@@ -1,11 +1,11 @@
 ---
-title: "Início Rápido do Centro de Segurança do Azure - Incluir os computadores Windows no Centro de Segurança | Microsoft Docs"
-description: "Este guia de introdução mostra-lhe como aprovisionar o MMA (Microsoft Monitoring Agent) num computador Windows."
+title: Início Rápido do Centro de Segurança do Azure - Incluir os computadores Windows no Centro de Segurança | Microsoft Docs
+description: Este guia de introdução mostra-lhe como aprovisionar o MMA (Microsoft Monitoring Agent) num computador Windows.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure
 Depois de incluir as subscrições do Azure, pode ativar o Centro de Segurança para os recursos em execução fora do Azure, por exemplo, no local ou em outras clouds, ao aprovisionar o MMA.
@@ -62,7 +62,7 @@ Agora tem de instalar o ficheiro transferido no computador de destino.
 2. Na página **Bem-vindo**, selecione **Seguinte**.
 3. Na página **Termos de Licenciamento**, leia a licença e selecione **Aceito**.
 4. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação predefinida e selecione **Seguinte**.
-5. Na página **Opções de Configuração do Agente**, escolha ligar o agente ao Azure Log Analytics (OMS) e selecione **Seguinte**.
+5. Na página **Opções de Configuração do Agente**, escolha ligar o agente ao Azure Log Analytics e selecione **Seguinte**.
 6. Na página **Azure Log Analytics**, cole o **ID da Área de Trabalho** e a **Chave da Área de Trabalho (Chave Primária)** que copiou para o Bloco de Notas no procedimento anterior.
 7. Caso o computador deva reportar a uma área de trabalho do Log Analytics na cloud do Azure Government, selecione **Azure US Government**, na lista pendente **Azure Cloud**.  Se o computador tiver de comunicar através de um servidor proxy com o serviço do Log Analytics, selecione **Avançadas** e forneça o URL e o número da porta do servidor proxy.
 8. Selecione **Seguinte**, depois de indicar as definições de configuração necessárias.

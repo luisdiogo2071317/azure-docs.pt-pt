@@ -1,6 +1,6 @@
 ---
-title: "Adicionar uma CDN para um serviço de aplicações do Azure | Microsoft Docs"
-description: "Adicione uma Rede de Entrega de Conteúdos (CDN) a um Serviço de Aplicações do Azure para colocar em cache e entregar os seus ficheiros estáticos a partir de servidores próximos aos seus clientes em todo o mundo."
+title: Adicionar uma CDN ao Serviço de Aplicações do Azure | Microsoft Docs
+description: Adicione uma Rede de Entrega de Conteúdos (CDN) a um Serviço de Aplicações do Azure para colocar em cache e entregar os seus ficheiros estáticos a partir de servidores próximos aos seus clientes em todo o mundo.
 services: app-service\web
 author: syntaxc4
 ms.author: cfowler
@@ -10,13 +10,13 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 257b75d01f3904661c1a188a2d53ffcb74f48f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Adicionar uma Rede de Entrega de Conteúdos (CDN) ao Serviço de Aplicações do Azure
+# <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Tutorial: adicionar uma Rede de Entrega de Conteúdos (CDN) ao Serviço de Aplicações do Azure
 
 A [Rede de Entrega de Conteúdos (CDN) do Azure](../cdn/cdn-overview.md) coloca em cache conteúdo Web estático em localizações estrategicamente colocadas de modo a fornecer o débito máximo para disponibilização de conteúdo aos utilizadores. A CDN também reduz a carga do servidor na sua aplicação Web. Este tutorial mostra como adicionar a CDN do Azure a uma [aplicação Web no Serviço de Aplicações do Azure](app-service-web-overview.md). 
 
@@ -37,17 +37,17 @@ O que irá aprender:
 Para concluir este tutorial:
 
 - [Instale o Git](https://git-scm.com/).
-- [Instalar a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-web-app"></a>Criar a aplicação Web
 
-Para criar a aplicação web que irá funcionar com, siga o [guia de introdução HTML estático](app-service-web-get-started-html.md) através de **navegue para a aplicação** passo.
+Para criar a aplicação Web com que irá trabalhar, siga o [início rápido HTML estático](app-service-web-get-started-html.md), através do passo **Navegar para a aplicação**.
 
 ### <a name="have-a-custom-domain-ready"></a>Ter um domínio personalizado pronto
 
-Para concluir o passo de domínio personalizado deste tutorial, terá de possuir um domínio personalizado e ter acesso ao seu registo de DNS para o seu fornecedor de domínio (por exemplo, a GoDaddy). Por exemplo, para adicionar entradas DNS para `contoso.com` e `www.contoso.com`, tem de ter acesso para configurar as definições de DNS para o domínio de raiz `contoso.com`.
+Para concluir o passo de domínio personalizado deste tutorial, precisa de possuir um domínio personalizado e ter acesso ao seu registo DNS para o seu fornecedor de domínios (como a GoDaddy). Por exemplo, para adicionar entradas DNS para `contoso.com` e `www.contoso.com`, tem de ter acesso para configurar as definições de DNS para o domínio de raiz `contoso.com`.
 
 Se ainda não tiver um nome de domínio, considere seguir o [App Service domain tutorial](custom-dns-web-site-buydomains-web-app.md)(tutorial de domínio do Serviço de Aplicações), para comprar um domínio com o portal do Azure. 
 
@@ -71,8 +71,8 @@ Na página **Azure Content Delivery Network**(Rede de Entrega de Conteúdos do A
 
 | Definição | Valor sugerido | Descrição |
 | ------- | --------------- | ----------- |
-| **Perfil da CDN** | myCDNProfile | Selecione **criar nova** para criar um perfil da CDN. Um perfil da CDN é uma coleção de pontos finais da CDN com o mesmo escalão de preços. |
-| **Escalão de preço** | Standard da Akamai | O [escalão de preço](../cdn/cdn-overview.md#azure-cdn-features) especifica o fornecedor e as funcionalidades disponíveis. Neste tutorial, estamos a utilizar Standard da Akamai. |
+| **Perfil da CDN** | myCDNProfile | Selecione **Criar novo** para criar um novo perfil de CDN. Um perfil da CDN é uma coleção de pontos finais da CDN com o mesmo escalão de preços. |
+| **Escalão de preço** | Standard da Akamai | O [escalão de preço](../cdn/cdn-overview.md#azure-cdn-features) especifica o fornecedor e as funcionalidades disponíveis. Neste tutorial, estamos a utilizar Standard Akamai. |
 | **Nome do ponto final da CDN** | Qualquer nome que é exclusivo no domínio azureedge.net | Aceda aos seus recursos em cache no domínio  *\<endpointname>.azureedge.net*.
 
 Selecione **Criar**.
@@ -103,7 +103,7 @@ http://<endpointname>.azureedge.net/index.html
 
 ![Home page da aplicação de exemplo servida a partir de CDN](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
- Será apresentada a página mesma que tenha sido executada anteriormente numa aplicação web do Azure. CDN do Azure tem de obter recursos da aplicação de web de origem e está servir de ponto final de CDN
+ Será apresentada a mesma página que executou anteriormente numa aplicação Web do Azure. A CDN do Azure obteve os ativos da aplicação Web de origem e está a servi-los a partir do ponto final da CDN
 
 Para se certificar de que esta página está colocada em cache no CDN, atualize-a. Por vezes são necessários dois pedidos para o mesmo recurso, para o CDN colocar em cache os conteúdos solicitados.
 
@@ -194,7 +194,7 @@ O Azure CDN oferece as seguintes opções de comportamento de colocação em cac
 * Ignorar a colocação em cache de cadeias de consulta
 * Colocar em cache todos os URL exclusivos 
 
-O primeiro conjunto é o predefinido, o que significa que existe apenas uma versão em cache de um ativo, independentemente da cadeia de consulta no URL. 
+O primeiro dos seguintes é o predefinido, o que significa que existe apenas uma versão em cache de um ativo, independentemente da cadeia de consulta no URL. 
 
 Nesta secção do tutorial, pode alterar o comportamento de colocação em cache para colocar em cache todos os URL exclusivos.
 
@@ -243,8 +243,8 @@ http://<endpointname>.azureedge.net/index.html?q=1
 
 Este resultado mostra que cada cadeia de consulta é tratada de forma diferente:
 
-* q = 1 foi utilizada antes de, pelo que os conteúdos armazenados em cache são devolvidos (V2).
-* q = 2 é novo, pelo que o conteúdo de aplicação web mais recente é obtido e devolvido (V3).
+* q=1 foi utilizado antes, pelo que os conteúdos armazenados em cache são devolvidos (V2).
+* q=2 é novo, pelo que os conteúdos mais recentes da aplicação Web são obtidos e devolvidos (V3).
 
 Para obter mais informações, consulte [Control Azure CDN caching behavior with query strings](../cdn/cdn-query-string.md)(Controlar o comportamento de colocação em cache do Azure CDN com cadeias de consulta).
 
@@ -270,7 +270,7 @@ Navegue para o site da entidade de domínio e localize a secção para criar reg
 
 Encontre a secção para gerir CNAMEs. Poderá ter de voltar a uma página de definições avançadas e procurar as palavras, CNAME, Alias ou Subdomínios.
 
-Crie um registo CNAME, que mapeia o subdomínio escolhido (por exemplo, **estático** ou **cdn**) para o **nome de anfitrião de ponto final** mostrado anteriormente no portal. 
+Crie um registo CNAME que mapeia o subdomínio escolhido (por exemplo, **estático** ou **cdn**) para o **Nome de anfitrião do ponto final** apresentado anteriormente no portal. 
 
 ### <a name="enter-the-custom-domain-in-azure"></a>Introduza o domínio personalizado no Azure
 
@@ -278,7 +278,7 @@ Regresse à página **Adicionar domínio personalizado** e introduza o seu domí
    
 O Azure verifica se o registo CNAME existe para o nome de domínio que introduziu. Se o CNAME estiver correto, o seu domínio personalizado é validado.
 
-Pode levar algum tempo para o registo CNAME ser propagado para servidores de nomes na Internet. Se o seu domínio não é validado imediatamente, aguarde alguns minutos e tente novamente.
+Pode levar algum tempo para o registo CNAME ser propagado para servidores de nomes na Internet. Se o seu domínio não for validado imediatamente, aguarde alguns minutos e tente novamente.
 
 ### <a name="test-the-custom-domain"></a>Testar o domínio personalizado
 

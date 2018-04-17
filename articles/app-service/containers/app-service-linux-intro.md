@@ -1,12 +1,12 @@
 ---
-title: "Introdução ao Serviço de Aplicações no Linux | Microsoft Docs"
-description: "Saiba mais sobre o Serviço de Aplicações do Azure no Linux."
-keywords: "serviço de aplicações do azure, linux, oss"
+title: Introdução ao Serviço de Aplicações no Linux | Microsoft Docs
+description: Saiba mais sobre o Serviço de Aplicações do Azure no Linux.
+keywords: serviço de aplicações do azure, linux, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 465e3d2c0c2b7c5d811441ede20adb9da2dbe847
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: df97d2020309fa9af7f67170729ce9c2d723572d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
@@ -33,9 +33,23 @@ O Serviço de Aplicações no Linux suporta um número de imagens Incorporadas p
 | Idioma | Versões Suportadas |
 |---|---|
 | Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
+| Java * | 8.0 |
 | PHP | 5.6, 7.0 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
+
+* Pré-visualização do suporte para funcionalidades
+
+### <a name="preview-supported-java-runtimes"></a>Pré-visualização: runtimes Java suportados
+
+Os runtimes Java disponíveis no Serviço de Aplicações no Linux são os seguintes:
+
+| Runtime | Versão |
+|---|---|
+| Apache Tomcat | 8.5 |
+| Apache Tomcat | 9.0 |
+
+Consulte [Criar uma aplicação Web Java no Serviço de Aplicações no Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java) para mais detalhes.
 
 ## <a name="deployments"></a>Implementações
 

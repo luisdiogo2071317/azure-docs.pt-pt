@@ -48,14 +48,18 @@
       href: sql-database-design-first-database.md
     - name: 1 - Criar BD através de .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - Migrar BD do SQL Server
+    - name: 2 - Migrar para a BD do SQL Server com o DMS
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Proteger a sua BD SQL
       href: sql-database-security-tutorial.md
     - name: 4 - Implementar uma base de dados distribuída geograficamente
       href: sql-database-implement-geo-distributed-database.md
     - name: 5 - Criar Instância Gerida
-      href: sql-database-managed-instance-tutorial-portal.md
+      href: sql-database-managed-instance-create-tutorial-portal.md
+    - name: 6 - Restaurar uma cópia de segurança para uma Instância Gerida
+      href: sql-database-managed-instance-restore-from-backup-tutorial.md
+    - name: 7 - Migrar para uma Instância Gerida com o DMS
+      href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Amostras
   items:
     - name: Exemplos de código
@@ -410,6 +414,10 @@
               href: saas-tenancy-cross-tenant-reporting.md
             - name: ETL para análise
               href: saas-tenancy-tenant-analytics.md
+            - name: Recuperação após desastre com restauro geográfico
+              href: saas-dbpertenant-dr-geo-restore.md
+            - name: Recuperação após desastre com georreplicação de base de dados
+              href: saas-dbpertenant-dr-geo-replication.md
         - name: Base de dados multi-inquilino
           items:
             - name: Implementar aplicação de exemplo

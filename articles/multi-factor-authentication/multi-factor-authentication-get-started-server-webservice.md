@@ -1,8 +1,8 @@
 ---
-title: "Serviço Web da Aplicação Móvel do Servidor MFA do Azure | Microsoft Docs"
-description: "A aplicação Microsoft Authenticator oferece uma opção de autenticação fora de banda adicional.  Permite ao servidor MFA utilizar notificações push para os utilizadores."
+title: Serviço Web da Aplicação Móvel do Servidor MFA do Azure | Microsoft Docs
+description: A aplicação Microsoft Authenticator oferece uma opção de autenticação fora de banda adicional.  Permite ao servidor MFA utilizar notificações push para os utilizadores.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 83b04e48dd528881097bcf16bc03e1a18ea20c43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ca5c7bcc82f0a77276f4f39a02d8abf2f47bc10
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Ativar a autenticação de aplicação móvel com o Servidor Multi-Factor Authentication do Azure
 
@@ -29,11 +29,13 @@ A aplicação Microsoft Authenticator oferece uma opção de verificação fora 
 
 Dependendo do seu ambiente, poderá implementar o serviço Web de aplicação móvel no mesmo servidor que o Servidor Multi-Factor Authentication ou noutro servidor com acesso à Internet.
 
+Se tiver instalado o Servidor MFA versão 8.0 ou superior, a maior parte dos passos abaixo não são necessários. A autenticação da aplicação móvel pode ser configurada seguindo os passos em [Configurar a aplicação móvel](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server).
+
 ## <a name="requirements"></a>Requisitos
 
 Para utilizar a aplicação Microsoft Authenticator, é necessário o seguinte para que a aplicação consiga comunicar com o Serviço Web da Aplicação Móvel com êxito:
 
-* Servidor Multi-Factor Authentication do Azure v6.0 ou superior
+* Servidor Multi-Factor Authentication do Azure v6.x ou superior
 * Instalar o Serviço Web da Aplicação Móvel num servidor Web com acesso à Internet com [Serviços de Informação Internet (IIS) IIS 7.x ou superior](http://www.iis.net/) da Microsoft®
 * O ASP.NET v4.0.30319 estar instalado, registado e definido como Permitido
 * Os serviços de função necessários incluem o ASP.NET e a Compatibilidade com Metabase do IIS 6
@@ -48,6 +50,7 @@ Para utilizar a aplicação Microsoft Authenticator, é necessário o seguinte p
 
 Antes de instalar o serviço Web da aplicação móvel, tenha em atenção os seguintes detalhes:
 
+* A instalação do serviço Web da aplicação móvel não é necessário para a v8.0 ou superior. Execute apenas os passos em [Configurar a aplicação móvel](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server).
 * Precisa de uma Conta de Serviço que faz parte do Grupo "PhoneFactor Admins". Esta conta pode ser a mesma que utilizou para a instalação do Portal de Utilizador.
 * Facilita se abrir um browser no servidor Web com acesso à Internet e navegar para o URL do SDK do Serviço Web que foi introduzido no ficheiro web.config. Se o browser conseguir aceder ao serviço Web com êxito, este deve solicitar-lhe as credenciais. Introduza o nome de utilizador e a palavra-passe que foram introduzidos no ficheiro web.config, tal como é apresentado no ficheiro. Certifique-se de que não são apresentados erros ou avisos de certificado.
 * Se uma firewall ou um proxy inverso estiver junto do servidor Web do Serviço Web da Aplicação Móvel e a fazer o descarregamento de SSL, pode editar o ficheiro web.config do Serviço Web da Aplicação Móvel para que o Serviço Web da Aplicação Móvel possa utilizar http em vez de https. Ainda é necessário utilizar o SSL a partir da Aplicação Móvel para a firewall/proxy inverso. Adicione a chave seguinte à secção \<appSettings\>:
@@ -80,25 +83,24 @@ O SDK do Serviço Web tem de estar protegido por um certificado SSL. Pode utiliz
 
    * Encontre a chave **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** e altere **value=""** para **value="DOMAIN\User"**, onde DOMAIN\User é uma Conta de Serviço que pertence ao Grupo "PhoneFactor Admins".
    * Encontre a chave **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** e altere **value=""** para **value="Password"**, onde a Palavra-passe é a palavra-passe da Conta de Serviço introduzida na linha anterior.
-   * Encontre a definição **pfMobile App Web Service_pfwssdk_PfWsSdk** e altere o valor de **http://localhost:4898/PfWsSdk.asmx** para o URL do SDK do Serviço Web (Exemplo: https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx).
+   * Localize a definição **pfMobile App Web Service_pfwssdk_PfWsSdk** e altere o valor de **http://localhost:4898/PfWsSdk.asmx** para o URL do SDK do Serviço Web (Exemplo: https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx).
    * Guarde o ficheiro Web.Config e feche o Bloco de notas.
 
    > [!NOTE]
    > Uma vez que o SSL é utilizado para esta ligação, tem de fazer referência ao SDK do Serviço Web por **nome de domínio completamente qualificado (FQDN)** e **não por endereço IP**. O certificado SSL teria sido emitido para o FQDN e o URL utilizado tem de corresponder ao nome do certificado.
 
 7. Se o site no qual o Serviço Web da Aplicação Móvel foi instalado não tiver já sido vinculado a um certificado assinado publicamente, instale o certificado no servidor, abra o Gestor do IIS e vincule o certificado ao site.
-8. Abra um browser a partir de qualquer computador e navegue para o URL no qual o Serviço Web da Aplicação Móvel foi instalado (Exemplo: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Certifique-se de que não são apresentados erros ou avisos de certificado.
+8. Abra um browser a partir de qualquer computador e navegue para o URL em que o Serviço Web da Aplicação Móvel foi instalado (Exemplo: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Certifique-se de que não são apresentados erros ou avisos de certificado.
 9. Para obter mais informações sobre os métodos disponíveis no SDK dos serviços Web, veja o ficheiro de ajuda do servidor MFA.
+10. Agora que o serviço Web da aplicação móvel está instalado, terá de configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o portal.
 
 ## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Configurar as definições da aplicação móvel no Servidor Multi-Factor Authentication do Azure
-
-Agora que o serviço Web da aplicação móvel está instalado, terá de configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o portal.
 
 1. Na consola do Servidor Multi-Factor Authentication, clique no ícone do Portal de Utilizador. Se os utilizadores tiverem permissão para controlar os respetivos métodos de autenticação, selecione **Aplicação Móvel** no separador Definições, em **Permitir que os utilizadores selecionem o método**. Sem esta funcionalidade ativada, os utilizadores finais têm de contactar o Suporte Técnico para concluir a ativação da Aplicação Móvel.
 2. Selecione a caixa **Permitir que os utilizadores ativem a aplicação móvel**.
 3. Selecione a caixa **Permitir a inscrição de utilizadores**.
 4. Clique no ícone **Aplicação Móvel**.
-5. Introduza o URL que está a ser utilizado com o diretório virtual que foi criado ao instalar o MultiFactorAuthenticationMobileAppWebServiceSetup64 (Exemplo: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/) no campo **URL do Serviço Web da Aplicação Móvel:**.
+5. Se estiver a utilizar a v8.0 ou superior, ignore o passo seguinte: introduza o URL que está a ser utilizado com o diretório virtual que foi criado ao instalar o MultiFactorAuthenticationMobileAppWebServiceSetup64 (Exemplo: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/) no campo **URL do Serviço Web da Aplicação Móvel:**.
 6. Preencha o campo **Nome da conta** com o nome da empresa ou organização a apresentar na aplicação móvel desta conta.
    ![Definições da Aplicação Móvel de configuração do Servidor MFA](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)
 

@@ -1,26 +1,25 @@
 ---
-title: "Documentação do Azure SQL Data Warehouse - Tutoriais, Referência da API | Microsoft Docs"
-description: "Saiba como utilizar o SQL Data Warehouse, combinando o SQL Server com o processamento paralelo em massa. A documentação mostra como carregar, analisar, gerir e exportar dados."
+title: Documentação do Azure SQL Data Warehouse - Tutoriais, Conceitos | Microsoft Docs
+description: Saiba como utilizar o Azure SQL Data Warehouse, que combina bases de dados relacionais SQL com processamento paralelo em massa. Os tutoriais e a restante documentação mostram-lhe como conceber, carregar, gerir e analisar dados através de um armazém de dados.
 services: sql-data-warehouse
-author: czeumault
-manager: carolz
+author: hirokib
+manager: craigg-msft
 layout: LandingPage
-ms.assetid: 
 ms.service: sql-data-warehouse
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 47807360dd58f0c19360d90ed66f726d8922be1e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.component: design
+ms.date: 04/11/2018
+ms.author: elbutter
+ms.reviewer: jrj
+ms.openlocfilehash: 42db87fd64bca58ee3e86589acdc85107e057665
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-data-warehouse-documentation"></a>Documentação do SQL Data Warehouse
 
-Saiba como utilizar o SQL Data Warehouse, que combina a base de dados relacional do SQL Server com o processamento paralelo em massa. Tutoriais e outra documentação mostram-lhe como carregar dados para o armazém, analisar, gerir e exportá-los.
+Saiba como utilizar o Azure SQL Data Warehouse, que combina bases de dados relacionais SQL com processamento paralelo em massa. Os tutoriais e a restante documentação mostram-lhe como conceber, carregar, gerir e analisar dados através de um armazém de dados. 
 
 <ul class="panelContent cardsFTitle">
     <li>

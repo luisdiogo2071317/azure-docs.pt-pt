@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: bwren
-ms.openlocfilehash: b20283e1189e4f1a3555e2dd8d25972c9a677cd6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 36dd04be167d9e8e63ab38e4af80c5766ba55370
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-management---monitoring"></a>Gestão do Azure - Monitorização
 
@@ -54,3 +54,14 @@ Proteção passa por se certificar de que os seus dados e aplicações estão se
 
 ## <a name="migrate"></a>Migrar 
 Migração refere-se à transição das cargas de trabalho atualmente em execução no local para a cloud do Azure.  O [Azure Migrate](../migrate/migrate-overview.md) é um serviço que o ajuda a avaliar a adequação da migração, incluindo o dimensionamento com base no desempenho e estimativas de custos, de máquinas virtuais no local para o Azure.  O Azure Site Recovery pode ajudá-lo a fazer a migração real de máquinas virtuais a partir [do local](../site-recovery/migrate-tutorial-on-premises-azure.md) ou [do Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  O [Azure Database Migration](../dms/dms-overview.md) irá ajudá-lo a migrar várias origens de dados para as Plataformas de Dados do Azure.
+
+
+## <a name="operations-management-suite"></a>Operations Management Suite
+A documentação técnica anterior relacionada com a gestão do Azure incluía o Operations Management Suite (OMS), que é um agrupamento dos seguintes serviços de gestão do Azure:
+
+- Automatização do Azure
+- Azure Backup
+- Log Analytics
+- Site Recovery
+
+Estamos a deixar de descrever este agrupamento na nossa documentação técnica porque expandimos a gestão completa no Azure no sentido de incluir outros serviços. Nenhum dos serviços que integram o OMS foram alterados e cada um deles ainda desempenha um papel fundamental na gestão dos seus recursos e aplicações do Azure. Deve centrar-se nas tarefas de gestão que tem de realizar e nos diferentes serviços do Azure que funcionam em conjunto para cada tarefa.

@@ -1,12 +1,12 @@
 ---
-title: "Criar uma Aplicação Java do Service Fabric | Microsoft Docs"
-description: "Neste início rápido, vai criar uma aplicação em Java para o Azure, utilizando o exemplo de aplicação de serviços fiáveis do Service Fabric."
+title: Criar uma Aplicação Java do Service Fabric | Microsoft Docs
+description: Neste início rápido, vai criar uma aplicação em Java para o Azure, utilizando o exemplo de aplicação de serviços fiáveis do Service Fabric.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
 manager: msfussell
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: quickstart
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0b284194abbbdd38524c0ae74ab7e05977d6883f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cc5f685efdf3ed680acf4d95185c58b4c43f5ac5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Início Rápido: implementar uma aplicação de serviços fiáveis do Service Fabric em Java no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores. 
@@ -30,11 +30,10 @@ Este guia de introdução mostra como implementar a sua primeira aplicação de 
 
 Neste início rápido, vai aprender a:
 
-> [!div class="checklist"]
-> * Utilize o Eclipse como uma ferramenta para as suas aplicações de Java do Service Fabric
-> * Implementar a aplicação no seu cluster local 
-> * Implementar a aplicação num cluster no Azure
-> * Escalar horizontalmente a aplicação em vários nós
+* Utilize o Eclipse como uma ferramenta para as suas aplicações de Java do Service Fabric
+* Implementar a aplicação no seu cluster local 
+* Implementar a aplicação num cluster no Azure
+* Escalar horizontalmente a aplicação em vários nós
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de início rápido:
@@ -81,21 +80,40 @@ Agora, pode adicionar um conjunto de opções de voto e começar a recolher voto
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Configurar o Cluster do Azure Service Fabric
 Para implementar a aplicação num cluster no Azure, crie o seu próprio cluster.
 
-Party clusters são clusters do Service Fabric gratuitos e de tempo limitado, alojados no Azure. Estes são executados pela equipa do Service Fabric, onde qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. Para obter acesso a um Party Cluster, [siga as instruções](http://aka.ms/tryservicefabric). 
+Os clusters comemorativos são clusters do Service Fabric gratuitos e de tempo limitado, alojados no Azure e executados pela equipa do Service Fabric. Pode utilizar os clusters comemorativos para implementar aplicações e obter informações sobre a plataforma. O cluster utiliza um certificado autoassinado para a segurança de "nó para nó" e de "cliente para nó".
 
-Para realizar operações de gestão no cluster de grupo seguro, pode utilizar o Service Fabric Explorer, a CLI ou o PowerShell. De modo a utilizar o Service Fabric Explorer, tem de transferir o ficheiro PFX do site do Cluster de Grupo e importar o certificado para o seu arquivo de certificados (Windows ou Mac) ou para o próprio browser (Ubuntu). Não há nenhuma palavra-passe para os certificados autoassinados do cluster de grupo. 
-
-Para realizar operações de gestão com o Powershell ou a CLI, vai precisar do PFX (Powershell) ou do PEM (CLI). Para converter o PFX num ficheiro PEM, execute o seguinte comando:  
-
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
-```
-
-Para obter informações sobre como criar o seu próprio cluster, veja [Crie um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Inicie sessão e adira a um [cluster do Linux](http://aka.ms/tryservicefabric). Transfira o certificado PFX para o seu computador ao clicar na ligação **PFX**. Clique na hiperligação **Leia-me** para localizar a palavra-passe do certificado e instruções sobre como configurar vários ambientes para utilizar o certificado. Mantenha as páginas de **Boas-vindas** e **Leia-me** abertas, irá utilizar algumas das instruções nos passos seguintes. 
 
 > [!Note]
+> Há um número limitado de clusters comemorativos por hora. Se obtiver uma mensagem um erro ao tentar inscrever-se num cluster comemorativo, pode ter de aguardar algum tempo e tentar novamente ou pode seguir estes passos em [Criar um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) para criar um cluster na sua subscrição. 
+>
 > O serviço de Spring Boot está configurado para escutar tráfego de entrada na porta 8080. Certifique-se de que a porta está aberta no seu cluster. Se estiver a utilizar um Cluster de Grupo, esta porta estará aberta.
 >
+
+O Service Fabric fornece várias ferramentas que pode utilizar para gerir um cluster e as respetivas aplicações:
+
+- O Service Fabric Explorer, uma ferramenta baseada no browser.
+- A CLI (Interface de Linha de Comandos) do Service Fabric, que é executada na CLI 2.0 do Azure.
+- Comandos do PowerShell. 
+
+Neste início rápido,vai utilizar a CLI do Service Fabric e o Service Fabric Explorer. 
+
+Para utilizar a CLI, terá de criar um ficheiro PEM com base no ficheiro PFX que transferiu. Para converter o ficheiro, utilize o seguinte comando. (Para os clusters comemorativos, pode copiar um comando específico para o ficheiro PFX, a partir das instruções da página **Leia-me**.)
+
+    ```bash
+    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+    ``` 
+
+De modo a utilizar o Service Fabric Explorer, tem de importar o ficheiro PFX de certificado que transferiu do site do Cluster Comemorativo para o seu arquivo de certificados (Windows ou Mac) ou para o próprio browser (Ubuntu). Precisará da palavra-passe da chave privada do PFX, que pode obter na página **Leia-me**.
+
+Utilize o método que preferir para importar o certificado para o seu sistema. Por exemplo:
+
+- No Windows: faça duplo clique no ficheiro PFX e siga as instruções para instalar o certificado no seu arquivo pessoal, `Certificates - Current User\Personal\Certificates`. Em alternativa, pode utilizar o comando do PowerShell das instruções **Leia-me**.
+- No Mac: faça duplo clique no ficheiro PFX e siga as instruções para instalar o certificado na sua Keychain.
+- No Ubuntu: o Mozilla Firefox é o browser predefinido do Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu browser e, em seguida, clique em **Opções**. Na página **Preferências**, utilize a caixa de pesquisa para procurar "certificados". Clique em **Ver Certificados**, selecione o separador **Os Seus Certificados**, clique em **Importar** e siga as instruções para importar o certificado.
+ 
+   ![Instalar o certificado no Firefox](./media/service-fabric-quickstart-java/install-cert-firefox.png) 
+
 
 ### <a name="add-certificate-information-to-your-application"></a>Adicionar informações de certificados à sua aplicação
 
@@ -104,7 +122,7 @@ Têm de ser adicionados thumbprints de certificados à sua aplicação, uma vez 
 1. Precisará do thumbprint do seu certificado no ficheiro ```Voting/VotingApplication/ApplicationManiest.xml``` ao executar num cluster seguro. Execute o seguinte comando para extrair o thumbprint do certificado.
 
     ```bash
-    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
 2. No ```Voting/VotingApplication/ApplicationManiest.xml```, adicione o seguinte fragmento de código na etiqueta **ApplicationManifest**. O **X509FindValue** deverá ser o thumbprint do passo anterior (sem ponto e vírgula). 
@@ -136,16 +154,16 @@ Agora que a aplicação e o cluster estão prontos, pode implementá-los num clu
 
     ![Cloud da Caixa de diálogo Publicar](./media/service-fabric-quickstart-java/cloudjson.png)
 
-3. Abra o browser favorito e aceda à aplicação em **http://\<ConnectionIPOrURL>:8080**. 
+3. Abra o browser e aceda à aplicação em **http://\<ConnectionIPOrURL>:8080**. 
 
     ![Cloud de front-end da aplicação](./media/service-fabric-quickstart-java/runningcloud.png)
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Dimensionar aplicações e serviços num cluster
-Os serviços podem ser facilmente dimensionados num cluster para se prepararem para alterações à carga nos serviços. Para dimensionar um serviço, tem de alterar o número de instâncias em execução no cluster. Existem várias formas de dimensionar os seus serviços. Pode utilizar scripts ou comandos na CLI do Service Fabric (sfctl). Neste exemplo, estamos a utilizar o Service Fabric Explorer.
+Os serviços podem ser facilmente dimensionados num cluster para se prepararem para alterações à carga nos serviços. Para dimensionar um serviço, tem de alterar o número de instâncias em execução no cluster. Existem várias formas de dimensionar os seus serviços, por exemplo, pode utilizar scripts ou comandos da CLI do Service Fabric (sfctl). Nos passos seguintes, vai utilizar o Service Fabric Explorer.
 
 O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acedido num browser, navegando para a porta (19080) de gestão HTTP dos clusters; por exemplo `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 
-Para dimensionar o serviço de front-end da Web, execute os seguintes passos:
+Para dimensionar o serviço de front-end da Web, faça o seguinte:
 
 1. Abra o Service Fabric Explorer no seu cluster - por exemplo, `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 2. Clique nas reticências (três pontos) junto ao nó **fabric:/Voting/VotingWeb**, na vista de árvore, e escolha**Dimensionar Serviço**.
@@ -161,17 +179,17 @@ Para dimensionar o serviço de front-end da Web, execute os seguintes passos:
 
     Agora, pode ver que o serviço tem duas instâncias e na vista de árvore vê em que nós as instâncias são executadas.
 
-Através desta simples tarefa de gestão, duplicámos os recursos disponíveis para o nosso serviço de front-end processar a carga de utilizador. É importante compreender que não precisa de várias instâncias de um serviço para o executar de forma fiável. Se um serviço falhar, o Service Fabric certifica-se de que uma nova instância de serviço é executado no cluster.
+Através desta simples tarefa de gestão, duplicou os recursos disponíveis para o serviço de front-end processar a carga de utilizador. É importante compreender que não precisa de várias instâncias de um serviço para que o mesmo seja executado de forma fiável. Se um serviço falhar, o Service Fabric certifica-se de que uma nova instância do serviço é executada no cluster.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste início rápido, aprendeu a:
 
-> [!div class="checklist"]
-> * Utilize o Eclipse como uma ferramenta para as suas aplicações de Java do Service Fabric
-> * Implementar aplicações Java no seu cluster local 
-> * Implementar aplicações Java num cluster no Azure
-> * Escalar horizontalmente a aplicação em vários nós
+* Utilize o Eclipse como uma ferramenta para as suas aplicações de Java do Service Fabric
+* Implementar aplicações Java no seu cluster local 
+* Implementar aplicações Java num cluster no Azure
+* Escalar horizontalmente a aplicação em vários nós
 
-* Saiba mais sobre a [depuração de serviços no Java com o Eclipse](service-fabric-debugging-your-application-java.md)
-* Saiba mais sobre a [configuração da integração contínua e implementação com o Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
-* Veja outros [Exemplos de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+Para saber mais sobre como trabalhar com aplicações Java no Service Fabric, avance para o tutorial para aplicações Java.
+
+> [!div class="nextstepaction"]
+> [Implementar uma aplicação Java](./service-fabric-tutorial-create-java-app.md)

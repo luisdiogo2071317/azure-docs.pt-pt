@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 3/6/2018
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 92073cd29f29c1ddf5863e23c4a12dfdf8e21598
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurar o Ambiente de Serviço de Aplicações com túnel forçado
 
@@ -49,6 +49,8 @@ Para ativar o ASE para aceder diretamente à Internet mesmo que a rede virtual d
 
 Se fizer estas duas alterações, o tráfego destinado à Internet que provém da sub-rede do Ambiente de Serviço de Aplicações não fica forçado à ligação do ExpressRoute.
 
+Se a rede já estiver a encaminhar tráfego no local, em seguida, terá de criar a sub-rede para alojar a sua ASE e configurar o UDR para a mesma antes de tentar implementar o ASE.  
+
 > [!IMPORTANT]
 > As rotas definidas num UDR têm de ser suficientemente específicas para terem precedência sobre quaisquer rotas anunciadas pela configuração do ExpressRoute. O exemplo anterior utiliza o intervalo de endereços abrangente 0.0.0.0/0. Podem ser potencialmente substituídas por acidente por anúncios de rota que utilizam intervalos de endereço mais específicos.
 >
@@ -56,13 +58,16 @@ Se fizer estas duas alterações, o tráfego destinado à Internet que provém d
 
 ![Acesso direto à Internet][1]
 
-## <a name="configure-your-ase-with-service-endpoints"></a>Configurar o ASE com Pontos Finais de Serviço
+
+## <a name="configure-your-ase-with-service-endpoints"></a>Configurar o ASE com Pontos Finais de Serviço ##
 
 Para encaminhar todo o tráfego de saída do ASE, exceto o que vai para o SQL do Azure e o Armazenamento do Azure, efetue os seguintes passos:
 
 1. Crie uma tabela de rotas e atribua-a à sub-rede do ASE. Localize os endereços que correspondem à sua região em [Endereços de gestão do Ambiente de Serviço de Aplicações][management]. Crie rotas para esses endereços com um salto seguinte da Internet. Isto é necessário porque o tráfego de gestão do Ambiente de Serviço de Aplicações tem de responder a partir do mesmo endereço para que foi enviado.   
 
-2. Ativar Pontos Finais de Serviço com o SQL do Azure e o Armazenamento do Azure através da sub-rede do ASE
+2. Ativar Pontos Finais de Serviço com o SQL do Azure e o Armazenamento do Azure através da sub-rede do ASE.  Depois de concluído este passo, pode configurar a VNet com túnel forçado.
+
+Para criar o seu ASE numa rede virtual que já está configurada para encaminhar todo o tráfego no local, terá de criar o seu ASE utilizando um modelo do Resource Manager.  Não é possível criar um ASE com o portal para uma sub-rede já existente.  Ao implementar o ASE numa VNet que já está configurada para encaminhar o tráfego de saída no local, terá de criar o seu ASE utilizando um modelo do resource manager, que lhe permite especificar uma sub-rede já existente. Para obter detalhes sobre como implementar um ASE com um modelo, leia [Criar um Ambiente de Serviço de Aplicações através de um modelo][template].
 
 Os Pontos Finais de Serviço permitem restringir o acesso aos serviços multi-inquilino a um conjunto de sub-redes e redes virtuais do Azure. Pode ler mais sobre Pontos Finais de Serviço na documentação [Pontos Finais de Serviço de Rede Virtual][serviceendpoints]. 
 
@@ -70,7 +75,7 @@ Quando ativar Pontos Finais de Serviço num recurso, são criadas rotas com uma 
 
 Quando estão ativados Pontos Finais de Serviço numa sub-rede com uma instância do SQL do Azure, todas as instâncias do SQL do Azure ligadas a partir dessa sub-rede precisam de ter Pontos Finais de Serviço ativados. Se quiser aceder a várias instâncias de SQL do Azure a partir da mesma sub-rede, não pode ativar Pontos Finais de Serviço numa instância do SQL do Azure e não na outra.  O Armazenamento do Azure não tem um comportamento semelhante ao SQL do Azure.  Quando ativar Pontos Finais de Serviço com o Armazenamento do Azure, pode bloquear o acesso a esse recurso a partir da sua sub-rede, mas pode continuar a aceder a outras contas de Armazenamento do Azure, mesmo que não tenham Pontos Finais de Serviço ativados.  
 
-Se configurar um túnel forçado com um dispositivo de filtro de rede, lembre-se de que o ASE tem um número de dependências além do SQL do Azure e do Armazenamento do Azure. Tem de permitir esse tráfego ou o ASE não funcionará corretamente.
+Se configurar um túnel forçado com um dispositivo de filtro de rede, lembre-se de que o ASE tem dependências além do SQL do Azure e do Armazenamento do Azure. Tem de permitir o tráfego dessas dependências ou o ASE não funcionará corretamente.
 
 ![Túnel forçado com pontos finais de serviço][2]
 

@@ -89,28 +89,30 @@
       href: concepts-service.md
 - name: Guias de procedimentos
   items:
-    - name: Gerir inscrições de dispositivos
-      items:
-        - name: Gerir inscrições de dispositivos com o portal do Azure
-          href: how-to-manage-enrollments.md
-        - name: Gerir inscrições de dispositivos com o os SDKs de Serviço
-          href: how-to-manage-enrollments-sdks.md
-    - name: Revogar o acesso a dispositivos
-      href: how-to-revoke-device-access-portal.md
-    - name: Anular o aprovisionamento de dispositivos
-      href: how-to-unprovision-devices.md
-    - name: Efetuar uma prova de posse dos certificados de AC X.509
-      href: how-to-verify-certificates.md
-    - name: Utilizar o HSM com o SDK
-      href: use-hsm-with-sdk.md
-    - name: Controlar o acesso ao Serviço de Aprovisionamento
-      href: how-to-control-access.md
-    - name: Utilize a CLI do Azure para gerir o serviço de aprovisionamento de dispositivos
-      href: how-to-manage-dps-with-cli.md
-    - name: Utilizar as ferramentas do SDK para programar
-      href: how-to-use-sdk-tools.md
-    - name: Ligar ao MXChip IoT DevKit
+    - name: Ligar o MXChip IoT DevKit ao Hub IoT
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Gerir a configuração do aprovisionamento de dispositivos
+      items:
+        - name: Configurar certificados de AC verificados
+          href: how-to-verify-certificates.md
+        - name: Gerir o desaprovisionamento
+          href: how-to-unprovision-devices.md
+        - name: Gerir a anulação de inscrições
+          href: how-to-revoke-device-access-portal.md
+        - name: Gerir inscrições - Portal
+          href: how-to-manage-enrollments.md
+        - name: Gerir inscrições - SDKs de Serviço
+          href: how-to-manage-enrollments-sdks.md
+    - name: Gerir o serviço de aprovisionamento de dispositivos
+      items:
+        - name: Configurar o serviço de aprovisionamento de dispositivos com a CLI do Azure
+          href: how-to-manage-dps-with-cli.md
+        - name: Controlar o acesso às APIs do Serviço de Aprovisionamento
+          href: how-to-control-access.md
+    - name: Utilizar os mecanismos de atestado com o SDK
+      href: use-hsm-with-sdk.md
+    - name: Utilizar as ferramentas do SDK para desenvolvimento
+      href: how-to-use-sdk-tools.md
 - name: Referência
   items:
     - name: REST

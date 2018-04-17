@@ -85,8 +85,6 @@
           href: backup-azure-files.md
         - name: FAQ de como fazer uma cópia de segurança das partilhas de Ficheiros do Azure
           href: backup-azure-files-faq.md
-        - name: Resolver problemas da Cópia de Segurança das partilhas de Ficheiros do Azure
-          href: troubleshoot-azure-files.md
     - name: VMs do Azure
       items:
         - name: Preparar a VM
@@ -181,18 +179,20 @@
           href: backup-azure-delete-vault.md
     - name: Resolução de problemas
       items:
-        - name: Problemas de cópias de segurança de VMs do Azure no portal do Azure
+        - name: Mensagens de erro de cópia de segurança da VM de IaaS
           href: backup-azure-vms-troubleshoot.md
-        - name: 'Falha na Cópia de Segurança de VM do Azure: não foi possível comunicar com o agente da VM relativamente ao estado do instantâneo - o tempo limite da subtarefa de instantâneo da VM foi excedido'
+        - name: O agente do Azure Backup (MARS) ou a extensão da VM excederam o limite de tempo
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Problemas relacionados com cópias de segurança lentas de ficheiros e pastas no Azure Backup
+        - name: A cópia de segurança de ficheiros e pastas de está lenta
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Resolução de problemas do Azure Backup Server
+        - name: Servidor do Backup do Azure
           href: backup-azure-mabs-troubleshoot.md
-        - name: Resolver Problemas do System Center Data Protection Manager
+        - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Resolução de problemas do Azure Backup Agent
+        - name: Agente do Backup do Azure (MARS)
           href: backup-azure-mars-troubleshoot.md
+        - name: Cópia de segurança das partilhas de Ficheiros do Azure
+          href: troubleshoot-azure-files.md
 - name: Referência
   items:
     - name: Azure PowerShell
