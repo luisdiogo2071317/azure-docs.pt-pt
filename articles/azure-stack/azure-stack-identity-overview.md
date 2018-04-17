@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral de identidade para a pilha do Azure | Microsoft Docs"
+title: Descrição geral de identidade para a pilha do Azure | Microsoft Docs
 description: Saiba mais sobre os sistemas de identidade que pode utilizar com a pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/22/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: deebe5d8ff4c35c4507d2daf5c15025a1810d865
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.reviewer: ''
+ms.openlocfilehash: 607c7938a789b3504a425057645b291bd4c8235b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Descrição geral de identidade para a pilha do Azure
 
@@ -52,12 +52,12 @@ Contas de utilizador (identidades) são contas padrão que autenticam indivíduo
 Como criar e gerir utilizadores e grupos depende a solução de identidade que utilizar. 
 
 Na pilha do Azure, as contas de utilizador: 
-- São criados no  *username@domain*  formato. Apesar do AD FS mapeia as contas de utilizador para uma instância do Active Directory, AD FS não suporta a utilização do  *\<domínio >\<alias >* formato. 
+- São criados no *username@domain* formato. Apesar do AD FS mapeia as contas de utilizador para uma instância do Active Directory, AD FS não suporta a utilização do  *\<domínio >\<alias >* formato. 
 - Pode ser configurado para utilizar a autenticação multifator. 
 - Estão limitadas para o diretório onde se primeiro de registar, que é o diretório da sua organização.
 - Podem ser importados a partir dos diretórios no local. Para obter mais informações, consulte [integrar os diretórios no local ao Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect). 
 
-Quando inicia sessão portal de inquilinos da sua organização, utilize o  *https://portal.local.azurestack.external*  URL. 
+Quando inicia sessão portal de inquilinos da sua organização, utilize o *https://portal.local.azurestack.external* URL. 
 
 ### <a name="guest-users"></a>Utilizadores convidados
 Os utilizadores convidados são contas de utilizador de outros inquilinos do diretório que tenham sido concedidos acesso aos recursos no seu diretório. Para suportar os utilizadores convidados, pode utiliza o Azure AD e ativar o suporte para vários inquilinos. Quando o suporte está ativado, pode convidar os utilizadores convidados para aceder aos recursos no seu inquilino de diretório, que por sua vez, permite as respetivas colaboração com organizações fora. 
@@ -145,10 +145,10 @@ Para aplicações e utilizadores, a arquitetura de pilha do Azure é descrita po
 
 ### <a name="authenticate-to-azure-resource-manager"></a>Autenticar para o Azure Resource Manager
 Para autenticar com o fornecedor de identidade e receber um Web Token JSON, tem de ter as seguintes informações: 
-1.  **URL para o sistema de identidade (autoridade)**: O URL que pode ser contactado o fornecedor de identidade. Por exemplo,  *https://login.windows.net* . 
+1.  **URL para o sistema de identidade (autoridade)**: O URL que pode ser contactado o fornecedor de identidade. Por exemplo, *https://login.windows.net*. 
 2.  **O URI de ID de aplicação para o Azure Resource Manager**: O identificador exclusivo para o Azure Resource Manager que está registado com o seu fornecedor de identidade. Também é exclusivo para cada instalação de pilha do Azure.
 3.  **Credenciais**: A credencial que utilizar para autenticação com o fornecedor de identidade. 
-4.  **URL para o Azure Resource Manager**: O URL é a localização do serviço do Azure Resource Manager. Por exemplo,  *https://management.azure.com*  ou  *https://management.local.azurestack.external* .
+4.  **URL para o Azure Resource Manager**: O URL é a localização do serviço do Azure Resource Manager. Por exemplo, *https://management.azure.com* ou *https://management.local.azurestack.external*.
 
 Quando um principal (um cliente, aplicação ou utilizador) faz um pedido de autenticação para aceder a um recurso, o pedido tem de incluir:
 - Credenciais de um principal.
@@ -169,9 +169,9 @@ Quando todas as validações estiverem concluídas, o Gestor de recursos do Azur
 
 ### <a name="use-role-based-access-control"></a>Utilizar o controlo de acesso baseado em funções  
 Baseada em funções controlo de acesso (RBAC) na pilha do Azure é consistente com a implementação no Microsoft Azure. Pode gerir o acesso aos recursos através da atribuição de função RBAC adequada aos utilizadores, grupos e aplicações. Para obter informações sobre como utilizar o RBAC com pilha do Azure, consulte os artigos seguintes:
-- [Introdução ao controlo de acesso baseado em funções no portal do Azure](/azure/active-directory/role-based-access-control-what-is).
-- [Utilizar o controlo de acesso baseado em funções para gerir o acesso aos recursos da sua subscrição do Azure](/azure/active-directory/role-based-access-control-configure).
-- [Criar funções personalizadas para controlo de acesso em funções do Azure](/azure/active-directory/role-based-access-control-custom-roles).
+- [Introdução ao controlo de acesso baseado em funções no portal do Azure](/azure/role-based-access-control/overview).
+- [Utilizar o controlo de acesso baseado em funções para gerir o acesso aos recursos da sua subscrição do Azure](/azure/role-based-access-control/role-assignments-portal).
+- [Criar funções personalizadas para controlo de acesso em funções do Azure](/azure/role-based-access-control/custom-roles).
 - [Gerir o controlo de acesso baseado em funções](azure-stack-manage-permissions.md) na pilha do Azure.
 
 

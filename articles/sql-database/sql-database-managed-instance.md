@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ba57530c5708216ca7c990025d513144dcdf82a4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância geridos (pré-visualização)?
 
@@ -64,7 +64,7 @@ A tabela seguinte mostra várias propriedades, acessíveis através do Transact 
 | **Vantagens de PaaS** | **Continuidade do negócio** |
 | --- | --- |
 |Não é a compra de hardware e gestão <br>Nenhuma gestão de sobrecarga de gerir a infraestrutura subjacente <br>Aprovisionamento rápido e dimensionamento de serviço <br>Atualização de versão e de aplicação de patches automatizada <br>Integração com outros serviços de dados PaaS |SLA de 99,99% disponibilidade  <br>Incorporada na elevada disponibilidade <br>Dados protegidos com cópias de segurança automatizadas <br>Período de retenção de cópias de segurança configurável de cliente (fixo para pré-visualização pública de 7 dias) <br>Cópias de segurança iniciada pelo utilizador <br>Capacidade de restaurar ponto na base de dados do tempo |
-|**Segurança e conformidade** | **Management**|
+|**Segurança e conformidade** | **Gestão**|
 |Ambiente isolado (integração de VNet, service de inquilino único, cálculo dedicado e armazenamento <br>Encriptação de dados em trânsito <br>Autenticação do Azure AD, suporte de início de sessão único <br>Respeite as normas de conformidade mesmo como base de dados SQL do Azure <br>Auditoria do SQL <br>Deteção de ameaças |API de Gestor de recursos do Azure para automatizar o aprovisionamento de serviço e dimensionamento <br>Funcionalidade portal do Azure para o serviço manual de aprovisionamento e dimensionamento <br>Serviço de migração de dados 
 
 ![O início de sessão único](./media/sql-database-managed-instance/sso.png) 
@@ -74,7 +74,7 @@ A tabela seguinte mostra várias propriedades, acessíveis através do Transact 
 O modelo de compra baseado em vCore proporciona a flexibilidade, o controlo, a transparência e uma forma simples de traduzir requisitos no local carga de trabalho para a nuvem. Este modelo permite-lhe dimensionar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para cópia de segurança para as poupanças de 30 por cento com o [benefício de utilização de híbrida do Azure para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Um núcleo virtual representa a CPU lógica oferecida com a opção de escolha entre gerações de hardware.
-- Gen 4 CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) 2.4 GHz processadores.
+- As CPUs Lógicas de Geração 4 baseiam-se nos processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz.
 - Gen 5 CPUs lógicas baseiam-se no Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores.
 
 A tabela seguinte ajuda-o a compreender como selecionar a configuração ideal do computação, memória, armazenamento e recursos de e/s.
@@ -131,7 +131,7 @@ A seguir descreve as funcionalidades principais da camada de serviços de objeti
 
 Instância gerida proporcionar o isolamento de segurança adicionais de outros inquilinos na nuvem do Azure. Isolamento de segurança inclui: 
 
-- Implementação de rede virtual nativa e a conectividade ao seu ambiente no local utilizando o Azure Express Route ou VPN Gateway 
+- [Implementação de rede virtual nativo](sql-database-managed-instance-vnet-configuration.md) e a conectividade ao seu ambiente no local utilizando o Azure Express Route ou VPN Gateway 
 - Ponto final do SQL Server está exposta apenas através de um endereço IP privado, permitindo que a conectividade segura do Azure privado ou redes híbridas
 - Single-inquilino com a infraestrutura subjacente dedicada (computação, armazenamento)
 
@@ -185,7 +185,13 @@ O serviço de migração de base de dados do Azure é um serviço completamente 
 
 ### <a name="backup-and-restore"></a>Cópia de segurança e restauro  
 
-A abordagem de migração tira partido das cópias de segurança do SQL Server para o armazenamento de Blobs do Azure. Cópias de segurança armazenadas no blob storage do Azure podem ser diretamente restauradas na instância geridos. 
+A abordagem de migração tira partido das cópias de segurança do SQL Server para o armazenamento de Blobs do Azure. Cópias de segurança armazenadas no blob storage do Azure podem ser diretamente restauradas na instância geridos. Para restaurar uma base de dados existente do SQL Server para uma instância de gerido, pode:
+
+- Utilize [o serviço de migração de dados (DMS)](/sql/dma/dma-overview). Para um tutorial, consulte [migrar para uma instância geridos utilizando o serviço de migração de base de dados do Azure (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados
+- Utilize o [comando T-SQL RESTORE](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+  - Para um tutorial que mostra como restaurar Wide a World Importers - ficheiro de cópia de segurança da base de dados padrão, consulte [restaurar um ficheiro de cópia de segurança para uma instância geridos](sql-database-managed-instance-restore-from-backup-tutorial.md). Este tutorial mostra que tem de carregar um ficheiro de cópia de segurança para o armazenamento do blogue do Azure e segura-la utilizando uma chave de assinatura (SAS) de acesso partilhado.
+  - Para obter informações sobre o restauro a partir do URL, consulte [restaurar nativo a partir do URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- [Importar de um ficheiro BACPAC](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>Funcionalidades do SQL Server suportadas 
 
@@ -217,5 +223,6 @@ Gerido instância ativar administrador de sistema focar-se naquilo que realmente
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para funcionalidades e a lista de comparação, consulte [funcionalidades comuns do SQL Server](sql-database-features.md).
+- Para obter mais informações sobre a configuração da VNet, veja [Configuração de VNet de Instância Gerida](sql-database-managed-instance-vnet-configuration.md).
 - Para um tutorial que cria uma instância geridos e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância geridos](sql-database-managed-instance-tutorial-portal.md).
 - Para obter um tutorial, utilizando o Azure Database Migration Service (DMS) para migração, veja [Migração de Instância Gerida com o DMS](../dms/tutorial-sql-server-to-managed-instance.md).

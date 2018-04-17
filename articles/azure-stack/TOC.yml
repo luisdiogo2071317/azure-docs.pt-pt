@@ -55,11 +55,11 @@
         - name: Requisitos do PKI de implementação de pilha do Azure
           href: azure-stack-pki-certs.md
           items:
-            - name: Obter certificados PKI de pilha do Azure
+            - name: Gerar os certificados PKI
               href: azure-stack-get-pki-certs.md
             - name: Preparar os certificados PKI de pilha do Azure
               href: azure-stack-prepare-pki-certs.md
-            - name: Validar os certificados PKI de pilha do Azure
+            - name: Validar os certificados PKI
               href: azure-stack-validate-pki-certs.md
         - name: Integração de identidade
           href: azure-stack-integrate-identity.md
@@ -286,8 +286,6 @@
           href: azure-stack-diagnostics.md
         - name: Validação de pilha do Azure
           href: azure-stack-diagnostic-test.md
-        - name: Voltar a implementar o Development Kit do Azure Stack
-          href: azure-stack-redeploy.md
 - name: Referência
   items:
     - name: Azure Stack do PowerShell
