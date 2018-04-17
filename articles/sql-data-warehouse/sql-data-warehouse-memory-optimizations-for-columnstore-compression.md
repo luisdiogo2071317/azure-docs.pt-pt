@@ -1,11 +1,11 @@
 ---
-title: "Melhorar o desempenho do índice columnstore - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas que comprime um índice columnstore em cada rowgroup."
+title: Melhorar o desempenho do índice columnstore - Azure SQL Data Warehouse | Microsoft Docs
+description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas que comprime um índice columnstore em cada rowgroup.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6484f457731bb1b97f01df339eaf1b0aebf924c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizar a forma de qualidade de rowgroup para columnstore
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 Tamanho DWU e a classe de recursos de utilizador em conjunto determinam a quantidade de memória está disponível para uma consulta do utilizador. Para aumentar a concessão de memória para uma consulta de carga, pode aumentar o número de DWUs ou aumentar a classe de recursos.
 
 - Para aumentar as DWUs, consulte [como aumentar o desempenho?](quickstart-scale-compute-portal.md)
-- Para alterar a classe de recursos para uma consulta, consulte [alterar um exemplo de classe de recursos de utilizador](resource-classes-for-workload-management.md#assigning-resource-classes).
+- Para alterar a classe de recursos para uma consulta, consulte [alterar um exemplo de classe de recursos de utilizador](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
 Por exemplo, no DWU 100 um utilizador na classe de recurso smallrc pode utilizar a 100 MB de memória para cada distribuição. Para obter mais detalhes, consulte [simultaneidade no SQL Data Warehouse](resource-classes-for-workload-management.md).
 

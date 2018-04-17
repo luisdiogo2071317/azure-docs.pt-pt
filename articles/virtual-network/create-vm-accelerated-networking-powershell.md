@@ -1,12 +1,12 @@
 ---
-title: "Criar uma máquina virtual do Azure com acelerados rede | Microsoft Docs"
-description: "Saiba como criar uma máquina virtual Linux com acelerados da rede."
+title: Criar uma máquina virtual do Azure com acelerados rede | Microsoft Docs
+description: Saiba como criar uma máquina virtual Linux com acelerados da rede.
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: jdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: c0017b8759a1f01b010172be562ed869d1d51a25
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f3c8853331121fc1e267f6c569279f7d8df907b5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual do Windows com acelerados da rede
 
@@ -61,7 +61,7 @@ Existem as seguintes limitações ao utilizar esta capacidade:
 * **A criação de VM:** A NIC com redes na melhoria ativada só podem ser anexado a uma VM quando é criada a VM. O NIC não pode ser ligado a uma VM existente. Se adicionar a VM para um disponibilidade existente, todas as VMs no conjunto de disponibilidade tem também de ter acelerados rede ativada.
 * **Apenas a implementação através do Gestor de recursos do Azure:** não é possível implementar máquinas virtuais (clássicas) com acelerados da rede.
 
-Embora este artigo fornece os passos para criar uma máquina virtual com redes na melhoria com o Azure PowerShell, também pode [criar uma máquina virtual com redes na melhoria no portal do Azure](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando criar uma máquina virtual com um sistema operativo suportado e o tamanho da VM no portal, em **definições**, selecione **ativado** em **acelerados redes**. Depois de criar a máquina virtual, tem de concluir as instruções em [confirmar que o controlador está instalado no sistema operativo](#confirm-the-driver-is-installed-in-the-operating-system).
+Embora este artigo fornece os passos para criar uma máquina virtual com redes na melhoria com o Azure PowerShell, também pode [criar uma máquina virtual com redes na melhoria no portal do Azure](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando criar uma máquina virtual no portal, em **definições**, selecione **ativado**, em **acelerados redes**. A opção para ativar na melhoria de redes não aparece no portal, salvo se tiver selecionado um [sistema operativo suportado](#supported-operating-systems) e [tamanho da VM](#supported-vm-instances). Depois de criar a máquina virtual, tem de concluir as instruções em [confirmar que o controlador está instalado no sistema operativo](#confirm-the-driver-is-installed-in-the-operating-system).
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 

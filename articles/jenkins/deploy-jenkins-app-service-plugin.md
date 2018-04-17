@@ -1,12 +1,12 @@
 ---
 title: Implementar no App Service do Azure utilizando o plug-in de Jenkins | Microsoft Docs
-description: "Saiba como utilizar o plug-in de Jenkins de serviço de aplicações do Azure para implementar uma aplicação web Java no Azure no Jenkins"
+description: Saiba como utilizar o plug-in de Jenkins de serviço de aplicações do Azure para implementar uma aplicação web Java no Azure no Jenkins
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementar no App Service do Azure utilizando o plug-in de Jenkins 
 
@@ -39,7 +39,7 @@ Se ainda não tiver um mestre Jenkins, começar a utilizar o [modelo de soluçã
 * [Plug-in do Jenkins Git cliente](https://plugins.jenkins.io/git-client) versão 2.4.6 
 * [Plug-in do docker Commons](https://plugins.jenkins.io/docker-commons) versão 1.4.0
 * [Credenciais do Azure](https://plugins.jenkins.io/azure-credentials) versão 1.2
-* [App Service do Azure](https://plugins.jenkins.io/azure-app-server) versão 0.1
+* [App Service do Azure](https://plugins.jenkins.io/azure-app-service) versão 0.1
 
 Pode utilizar o plug-in de Jenkins para implementar uma aplicação web em qualquer idioma que é suportado pelas aplicações Web, como c#, PHP, Java e Node.js. Neste tutorial, utilizamos uma [simple aplicação de web de Java do Azure](https://github.com/azure-devops/javawebappsample). Para copiar o repositório à sua própria conta do GitHub, selecione o **bifurcação** botão no canto superior direito da interface do GitHub.  
 > [!NOTE]
@@ -54,7 +54,7 @@ sudo apt-get install -y maven
 
 Para implementar a aplicação Web para contentores, instale Docker no mestre de Jenkins ou o agente da VM que é utilizado para a compilação. Para obter instruções, consulte [instalar Docker no Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-##<a name="service-principal"></a>Adicionar um principal de serviço do Azure para as credenciais de Jenkins
+##<a name="service-principal"></a> Adicionar um principal de serviço do Azure para as credenciais de Jenkins
 
 Precisa de um principal de serviço do Azure para implementar no Azure. 
 
@@ -90,7 +90,7 @@ Antes de configurar a tarefa no Jenkins, precisará de um plano do App Service d
 ### <a name="set-up-the-jenkins-job"></a>Configurar a tarefa de Jenkins
 
 1. Crie um novo **freestyle** projeto no Dashboard do Jenkins.
-2. Configurar o **gestão da origem de código** campo a utilizar o repositório de cópia local do [simple aplicação de web de Java do Azure](https://github.com/azure-devops/javawebappsample). Forneça o **URL do repositório** valor. Por exemplo: http://github.com/&lt;your_ID > / javawebappsample.
+2. Configurar o **gestão da origem de código** campo a utilizar o repositório de cópia local do [simple aplicação de web de Java do Azure](https://github.com/azure-devops/javawebappsample). Forneça o **URL do repositório** valor. Por exemplo: http://github.com/ &lt;your_ID > / javawebappsample.
 3. Adicione um passo para compilar o projeto com o Maven, adicionando o **executar shell** comando. Neste exemplo, é necessário um comando adicional para mudar o nome de \*.war ficheiro na pasta de destino para **ROOT.war**:   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Antes de configurar a tarefa no Jenkins, precisa de uma aplicação web no Linux
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Configurar a tarefa de Jenkins para Docker
 
 1. Crie um novo **freestyle** projeto no Dashboard do Jenkins.
-2. Configurar o **gestão da origem de código** campo a utilizar o repositório de cópia local do [simple aplicação de web de Java do Azure](https://github.com/azure-devops/javawebappsample). Forneça o **URL do repositório** valor. Por exemplo: http://github.com/&lt;your_ID > / javawebappsample.
+2. Configurar o **gestão da origem de código** campo a utilizar o repositório de cópia local do [simple aplicação de web de Java do Azure](https://github.com/azure-devops/javawebappsample). Forneça o **URL do repositório** valor. Por exemplo: http://github.com/ &lt;your_ID > / javawebappsample.
 3. Adicione um passo para compilar o projeto com o Maven, adicionando um **executar shell** comando. Inclua a seguinte linha de comando:
     ```bash
     mvn clean package

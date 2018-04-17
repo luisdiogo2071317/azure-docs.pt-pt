@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS"
-description: "Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS"
+title: Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS
+description: Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS
 
@@ -120,7 +120,7 @@ Esta solução utilizados os seguintes serviços do Azure. Detalhes da arquitetu
 >- Gateway de Aplicação
 >- Azure Active Directory
 >- V2 de ambiente de serviço de aplicações
->- Análise de registos do OMS
+>- Log Analytics
 >- Azure Key Vault
 >- Grupos de Segurança de Rede
 >- BD SQL do Azure
@@ -173,7 +173,7 @@ Cada um dos NSGs ter específicas portas e protocolos abertos para a operação 
 
 Cada um dos NSGs ter específicas portas e protocolos abertos para o trabalho seguro e correto da solução. Além disso, as configurações seguintes estão ativadas para cada NSG:
 - Ativado [eventos e registos de diagnóstico](/azure/virtual-network/virtual-network-nsg-manage-log) são armazenados na conta de armazenamento 
-- Ligado a análise de registos do OMS para o [diagnóstico do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Ligado a análise de registos para o [diagnóstico do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 #### <a name="subnets"></a>Sub-redes
  Certifique-se de que cada sub-rede está associada a respetiva NSG correspondente.
@@ -203,12 +203,12 @@ A instância de SQL Database do Azure utiliza as seguintes medidas de segurança
 
 ### <a name="logging-and-auditing"></a>Registo e auditoria
 
-[Operations Management Suite (OMS)](/azure/operations-management-suite/) pode fornecer o Contoso Webstore com o registo de um vasto conjunto de toda a atividade de utilizador e de sistema, incluem registo de dados de cardholder. As alterações podem ser revistas e podem ser verificadas em termos de exatidão. 
+[Análise de registo](https://azure.microsoft.com/services/log-analytics) pode fornecer o Contoso Webstore com o registo de um vasto conjunto de toda a atividade de utilizador e de sistema, incluem registo de dados de cardholder. As alterações podem ser revistas e podem ser verificadas em termos de exatidão. 
 
-- **Registos de atividade:**[registos de atividade](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações aprofundadas as operações que foram executadas no recursos na sua subscrição.  
-- **Os registos de diagnóstico:**[registos de diagnóstico](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são emitidos por cada recurso de todos os registos.   Estes registos incluem registos de sistema de eventos do Windows, armazenamento de Blobs do Azure, tabelas e registos de fila.
+- **Registos de atividade:**[registos de atividade](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações aprofundadas as operações que foram executadas no recursos na sua subscrição.
+- **Os registos de diagnóstico:**[registos de diagnóstico](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são emitidos por cada recurso de todos os registos. Estes registos incluem registos de sistema de eventos do Windows, armazenamento de Blobs do Azure, tabelas e registos de fila.
 - **Registos de firewall:** o Gateway de aplicação fornece completa diagnóstico e aceder a registos. Estão disponíveis recursos de Gateway de aplicação que tenham WAF ativada de registos de firewall.
-- **Arquivo de registo:** todos os registos de diagnóstico são configurados para escrever uma conta de armazenamento do Azure centralizada e encriptados para arquivo com um período de retenção definido (2 dias). Os registos, em seguida, estão ligados ao Log Analytics do Azure para o processamento, armazenamento e dashboarding. [Análise de registo](https://azure.microsoft.com/services/log-analytics) é um serviço do OMS que ajuda a recolher e analisar dados gerados pelos recursos na sua nuvem e no local ambientes.
+- **Arquivo de registo:** todos os registos de diagnóstico são configurados para escrever uma conta de armazenamento do Azure centralizada e encriptados para arquivo com um período de retenção definido (2 dias). Os registos, em seguida, estão ligados ao Log Analytics do Azure para o processamento, armazenamento e dashboarding. [Análise de registo](https://azure.microsoft.com/services/log-analytics) é um serviço que ajuda a recolher e analisar dados gerados pelos recursos na sua nuvem e no local ambientes.
 
 ### <a name="encryption-and-secrets-management"></a>Gestão de encriptação e segredos
 
@@ -224,7 +224,7 @@ As seguintes tecnologias de fornecem a identidade de capacidades de gestão no a
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) é multi-inquilino baseado na nuvem diretório e identidade do serviço de gestão da Microsoft. Todos os utilizadores para a solução foram criados no Azure Active Directory, incluindo os utilizadores que acedem a base de dados do SQL Server.
 - Autenticação para a aplicação é executada a utilizar o Azure AD. Para obter mais informações, consulte [integrar aplicações com o Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications). Além disso, a encriptação de coluna de base de dados também utiliza o Azure AD para autenticar a aplicação a SQL Database do Azure. Para obter mais informações, consulte [sempre encriptados: proteger os dados sensíveis na base de dados SQL](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) Deteta potenciais vulnerabilidades que afetam as identidades da organização, configura as respostas automatizadas detetadas ações suspeitas relacionada com as identidades da organização, e investiga incidentes suspeitas e executa uma ação adequada resolvê-los.
-- [Azure baseada em funções controlo de acesso (RBAC)](/azure/active-directory/role-based-access-control-configure) permite precisamente direcionadas para gestão de acesso ao Azure. Acesso de subscrição está limitado ao administrador da subscrição e o acesso do Cofre de chaves do Azure é restringido a todos os utilizadores.
+- [Azure baseada em funções controlo de acesso (RBAC)](/azure/role-based-access-control/role-assignments-portal) permite precisamente direcionadas para gestão de acesso ao Azure. Acesso de subscrição está limitado ao administrador da subscrição e o acesso do Cofre de chaves do Azure é restringido a todos os utilizadores.
 
 Para saber mais sobre como utilizar as funcionalidades de segurança da base de dados do Azure SQL, consulte o [aplicação de demonstração do Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample) exemplo.
    
@@ -266,7 +266,7 @@ Uma máquina virtual foi criada como um jumpbox (anfitrião de bastion) com as s
 
 [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) fornece uma vista centralizada de estado de segurança dos seus recursos do Azure. De forma rápida, pode verificar que os controlos de segurança adequados são cumpridos e corretamente configurado e que possa identificar rapidamente quaisquer recursos que necessitam da atenção.  
 
-[Azure Advisor](/azure/advisor/advisor-overview) é um consultor de nuvem personalizado que o ajuda a seguir as melhores práticas para otimizar as implementações do Azure. Este analisa a telemetria de utilização e configuração do recurso e, em seguida, recomenda soluções que podem ajudar a melhorar a eficácia de custo, desempenho, elevada disponibilidade e segurança dos seus recursos Azure.
+[Azure Advisor](/azure/advisor/advisor-overview) é um consultor de nuvem personalizado que o ajuda a seguir as melhores práticas para otimizar as implementações do Azure. Ele analisa a sua telemetria de configuração e utilização de recursos e, em seguida, recomenda soluções que o podem ajudar a melhorar a rentabilidade, o desempenho, a elevada disponibilidade e a segurança dos seus recursos do Azure.
 
 [Microsoft Antimalware](/azure/security/azure-security-antimalware) para máquinas virtuais e serviços Cloud do Azure é a capacidade de proteção em tempo real, que ajuda a identificar e remover vírus, spyware e outro software malicioso, com alertas configuráveis ao conhecido malicioso ou indesejável software tenta instalar-se ou executar nos seus sistemas do Azure.
 
@@ -278,11 +278,11 @@ Utilize [Application Insights](https://azure.microsoft.com/services/application-
 
 #### <a name="log-analytics"></a>Log analytics
 
-[Análise de registo](https://azure.microsoft.com/services/log-analytics/) é um serviço no Operations Management Suite (OMS) que o ajuda a recolher e analisar dados gerados pelos recursos na sua nuvem e no local ambientes.
+[Análise de registo](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure ajuda-o a recolher e analisar dados gerados pelos recursos na sua nuvem e no local ambientes.
 
-#### <a name="oms-solutions"></a>Soluções do OMS
+#### <a name="management-solutions"></a>Soluções de gestão
 
-Estas soluções adicionais do OMS devem ser consideradas e configuradas:
+Estas soluções de gestão adicional devem ser consideradas e configuradas:
 - [Log Analytics da Atividade](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Análise de Redes do Azure](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Análise SQL do Azure](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,9 +338,9 @@ Se ocorrerem problemas durante a implementação, consulte [FAQ e resolução de
     
     Para obter instruções de utilização detalhada, consulte [instruções de Script – implementar e configurar recursos do Azure](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. OMS registo e monitorização. Assim que a solução for implementada, uma [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) pode ser aberta a área de trabalho e os modelos de exemplo fornecidos no repositório de solução podem ser utilizados para ilustrar a forma como pode ser um dashboard de monitorização configurado. Para os modelos do OMS de exemplo, consulte o [omsDashboards pasta](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Tenha em atenção que os dados devem ser recolhidos no OMS para modelos para implementar corretamente. Isto pode demorar até uma hora ou mais, dependendo da atividade do site.
+3. Registo e monitorização. Assim que a solução for implementada, pode ser aberta uma área de trabalho de análise de registos e os modelos de exemplo fornecidos no repositório de solução podem ser utilizados para ilustrar a forma como pode ser configurado um dashboard de monitorização. Para os modelos de exemplo, consulte o [omsDashboards pasta](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Tenha em atenção que os dados devem ser recolhidos na análise de registos para modelos para implementar corretamente. Isto pode demorar até uma hora ou mais, dependendo da atividade do site.
  
-    Quando configurar o registo do OMS, considere incluindo estes recursos:
+    Quando configurar o registo de análise de registos, considere incluindo estes recursos:
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups
@@ -371,7 +371,7 @@ A solução foi revista pela Coalfire sistemas, Inc. (PCI-DSS qualificado segura
 
 ## <a name="disclaimer-and-acknowledgements"></a>Exclusão de responsabilidade e confirmações
 
-Setembro de 2017
+*Setembro de 2017*
 
 - Este documento destina-se apenas a fins informativos. MICROSOFT E AVYAN NÃO TORNAR NÃO OFERECE NENHUMA GARANTIA, EXPRESSA, IMPLÍCITA OU ESTATUTARIAMENTE AS INFORMAÇÕES NESTE DOCUMENTO. Este documento é fornecido "como-está." As informações e opiniões expressados neste documento, incluindo URLs e outras referências de Web site da Internet, podem ser alteradas sem aviso prévio. Os clientes ler este documento da sua responsabilidade utilizá-la.  
 - Este documento não fornece aos clientes com quaisquer direitos legais a nenhuma propriedade intelectual em qualquer produto da Microsoft ou Avyan ou soluções.  
@@ -388,7 +388,7 @@ Setembro de 2017
 ### <a name="document-authors"></a>Autores de documentos
 
 - *O Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan Consulting)*
+- *Gururaj Pandurangi (consultadoria Avyan)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Repositório de código"

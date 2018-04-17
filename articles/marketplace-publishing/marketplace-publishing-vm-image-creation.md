@@ -1,11 +1,11 @@
 ---
-title: "Criar uma imagem de máquina virtual para o Azure Marketplace | Microsoft Docs"
-description: "Instruções detalhadas sobre como criar uma imagem de máquina virtual para o Azure Marketplace para outras pessoas comprar."
+title: Criar uma imagem de máquina virtual para o Azure Marketplace | Microsoft Docs
+description: Instruções detalhadas sobre como criar uma imagem de máquina virtual para o Azure Marketplace para outras pessoas comprar.
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cb1d529f8e3eaabb4d49e8bbea03cab8e838cfa2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Neste artigo, **passo 2**, explica como preparar os discos rígidos virtuais (VHDs) que vai implementar no Azure Marketplace. Os VHDs são a base do SKU. O processo é diferente dependendo se está a fornecer um SKU baseado em Windows ou baseado em Linux. Este artigo abrange ambos os cenários. Este processo pode ser executado em paralelo com [conta criação e registo][link-acct-creation].
@@ -68,8 +68,8 @@ O VHD de sistema operativo para a imagem VM tem de ser baseada em imagem base ap
 
 Para começar, crie uma VM a partir de um dos seguintes imagens, localizado no [portal do Microsoft Azure][link-azure-portal]:
 
-* Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
-* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
+* Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1] [link-datactr-2008-r2])
+* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [padrão][link-sql-2014-std], [Web] [ link-sql-2014-web])
 * SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [padrão][link-sql-2012-std], [Web] [ link-sql-2012-web])
 
 Estas ligações encontram-se igualmente disponíveis no Portal de Publicação, na página SKU.
@@ -430,7 +430,7 @@ Seguem-se os passos para gerar o SAS URL utilizando o Explorador de armazenament
 
 Seguem-se os passos para gerar o URL de SAS, utilizando a CLI do Azure
 
-1.  Transferir o Microsoft Azure CLI de [aqui](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Também pode encontrar ligações diferentes para  **[Windows](http://aka.ms/webpi-azure-cli)**  e  **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Transferir o Microsoft Azure CLI de [aqui](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Também pode encontrar ligações diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** e  **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
 2.  Uma vez é transferido, instale o
 
@@ -446,7 +446,7 @@ Seguem-se os passos para gerar o URL de SAS, utilizando a CLI do Azure
 
     b. **`<Storage Account Key>`**: Dê a sua chave de conta do storage
 
-    c. **`<Permission Start Date>`**: Para salvaguardar para a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 26 de Outubro de 2016, em seguida, valor deve ser 25/10/2016. Se utilizar o Azure CLI 2.0 (az command), forneça a data e a hora no início e fim de datas, por exemplo: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: Para salvaguardar para a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 25 de Outubro de 2016, em seguida, valor deve ser 25/10/2016. Se utilizar o Azure CLI 2.0 (az command), forneça a data e a hora no início e fim de datas, por exemplo: 10-25-2016T00:00:00Z.
 
     d. **`<Permission End Date>`**: Selecione uma data que seja, pelo menos, 3 semanas após o **data de início**. O valor deve ser **11/02/2016**. Se utilizar o Azure CLI 2.0 (az command), forneça a data e a hora no início e fim de datas, por exemplo: 11-02-2016T00:00:00Z.
 

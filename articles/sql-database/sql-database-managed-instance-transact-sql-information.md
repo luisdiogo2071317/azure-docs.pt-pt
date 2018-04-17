@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0fe0b5d3120833b8472fcdaee366a5d1f2818600
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server 
 
@@ -239,7 +239,7 @@ Para obter mais informações, consulte [FILESTREAM](https://docs.microsoft.com/
 ### <a name="linked-servers"></a>Servidores ligados
  
 Servidores ligados na instância gerida suportam um número limitado de destinos: 
-- Suportado destinos: SQL Server, base de dados do SQL Server, instância geridos e SQL Server numa máquina virtual.
+- Suportado destinos: SQL Server e base de dados SQL
 - Não suportado destinos: ficheiros, Analysis Services e outros RDBMS.
 
 Operações
@@ -419,4 +419,4 @@ Pode haver perfil de correio de base de dados apenas um e tem de ser chamado `Az
 
 - Para obter detalhes sobre a instância geridos, consulte [o que é uma instância gerido?](sql-database-managed-instance.md)
 - Para funcionalidades e a lista de comparação, consulte [funcionalidades comuns do SQL Server](sql-database-features.md).
-- Para um tutorial, consulte [criar uma instância geridos](sql-database-managed-instance-tutorial-portal.md).
+- Para um tutorial mostrar como criar uma nova instância geridos, consulte [criação de uma instância geridos](sql-database-managed-instance-create-tutorial-portal.md).

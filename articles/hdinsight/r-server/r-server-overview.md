@@ -10,16 +10,14 @@ ms.assetid: 6dc21bf5-4429-435f-a0fb-eea856e0ea96
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: nitinme
-ms.openlocfilehash: 19334e78124d1e388bc760659385388d89953644
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 19c286db9a8a2aa537badc83d98a1b74b73e9873
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introdução ao servidor R e as capacidades de R de open source do HDInsight
 
@@ -65,7 +63,7 @@ As funcionalidades seguintes estão incluídas no servidor R no HDInsight.
 | Categoria de funcionalidade | Descrição |
 |------------------|-------------|
 | R-ativado | [Pacotes de R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) para soluções escritas no R, com uma distribuição de código aberto do R e a infraestrutura de tempo de execução para a execução do script. |
-| Python-enabled | [Módulos do Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) para soluções de escritas no Python, com uma distribuição de código aberto da infraestrutura de tempo de execução para a execução do script e Python.  
+| Ativar o Python | [Módulos do Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) para soluções de escritas no Python, com uma distribuição de código aberto da infraestrutura de tempo de execução para a execução do script e Python.  
 | [Modelos de formação previamente](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | Para análise visual e análise de dados de sentimento de texto, pronto para pontuar os dados fornece. |
 | [Implementar e consumir](r-server-operationalize.md) | Operacionalizar o seu servidor e implementar soluções como um serviço web. |
 | [execução remota](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-server-or-client) | Iniciem sessões remotas no servidor de R na sua rede da sua estação de trabalho do cliente. |
@@ -147,5 +145,5 @@ Os preços que estão associados um cluster do HDInsight com o servidor de R est
 Para obter mais informações sobre como utilizar o R Server nos clusters do HDInsight, consulte os seguintes tópicos:
 
 * [Introdução ao cluster de servidor R no HDInsight](r-server-get-started.md)
-* [Opções de contexto do cluster de servidor R no HDInsight de computação](r-server-compute-contexts.md)
-* [Opções de armazenamento do Azure para o cluster de servidor R no HDInsight](r-server-storage.md)
+* [Opções do contexto de cálculo para o cluster do R Server no HDInsight](r-server-compute-contexts.md)
+* [Opções do Armazenamento do Azure para o cluster do R Server no HDInsight](r-server-storage.md)

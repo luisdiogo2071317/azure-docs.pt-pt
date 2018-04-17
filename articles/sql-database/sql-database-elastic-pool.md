@@ -7,14 +7,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 6c2e4e7f99aeec3028e8df520dc6896234b5c969
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 930b5607f343b87adc253cc99d74ddf28235a50b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Ajudar a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos
 
@@ -74,7 +74,7 @@ As regras básicas seguintes relacionadas com a contagem e a utilização de bas
 
 ### <a name="minimum-number-of-databases"></a>Número mínimo de bases de dados
 
-Se a quantidade de recursos das bases de dados é mais de 1,5 x os recursos necessários para o agrupamento, um conjunto elástico é mais económico.
+Se a quantidade de agregação de recursos das bases de dados é mais de 1,5 x os recursos necessários para o agrupamento, um conjunto elástico é mais económico.
 
 ***Com base em DTU compra exemplo de modelo***<br>
 Para que a relação de custo-eficácia de um conjunto de 100 eDTUs seja superior à utilização de níveis de desempenho para bases de dados individuais, são necessárias, pelo menos, duas bases de dados S3 ou 15 bases de dados S0.
@@ -254,8 +254,8 @@ Para criar e mover bases de dados dentro de conjuntos elásticos existentes ou p
 | --- | --- |
 |[Criar base de dados (SQL Database do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria uma nova base de dados num conjunto existente ou como uma base de dados. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [Falha de ALTER DATABASE (base de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Mova uma base de dados para, de ou entre conjuntos elásticos.|
-|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
-|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Devolve estatísticas de utilização de recursos para todos os conjuntos de bases de dados elásticas um servidor lógico. Para cada conjunto de bases de dados elásticas, não há uma linha para cada segundo 15 reporting janela (quatro linhas por minuto). Isto inclui a CPU, e/s, registo, o consumo de armazenamento e utilização de pedido/sessão em simultâneo por todas as bases de dados no conjunto.|
+|[REMOVER a base de dados (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
+|[sys.elastic_pool_resource_stats (SQL Database do Azure)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Devolve estatísticas de utilização de recursos para todos os conjuntos de bases de dados elásticas um servidor lógico. Para cada conjunto de bases de dados elásticas, não há uma linha para cada segundo 15 reporting janela (quatro linhas por minuto). Isto inclui a CPU, e/s, registo, o consumo de armazenamento e utilização de pedido/sessão em simultâneo por todas as bases de dados no conjunto.|
 |[sys.database_service_objectives (SQL Database do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve o edition (camada de serviço), o objetivo de serviço (escalão de preço) e o nome do conjunto elástico, se existir, para uma base de dados SQL do Azure ou um Azure SQL Data Warehouse. Se tem sessão iniciada base de dados mestra num servidor de base de dados do Azure SQL, devolve informações sobre todas as bases de dados. Para o Azure SQL Data Warehouse, tem de estar ligado à base de dados mestra.|
 
 ## <a name="manage-elastic-pools-and-databases-using-the-rest-api"></a>Gerir conjuntos elásticos e bases de dados utilizando a API REST

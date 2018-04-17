@@ -1,20 +1,20 @@
 ---
-title: "Base de dados SQL do Azure gerida configuração de VNet instância | Microsoft Docs"
-description: "Este tópico descreve as opções de configuração para uma rede virtual (VNet) com uma instância de gerido da base de dados do Azure SQL."
+title: Base de dados SQL do Azure gerida configuração de VNet instância | Microsoft Docs
+description: Este tópico descreve as opções de configuração para uma rede virtual (VNet) com uma instância de gerido da base de dados do Azure SQL.
 services: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: e724a660f8ba2373cefdabe8595908b7bb42f4d6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bccc2d52c592101a23338e57791a992441e80047
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurar uma VNet para instância gerida de base de dados SQL do Azure
 
@@ -66,13 +66,13 @@ Se planeia implementar várias instâncias gerido dentro da sub-rede e precisa o
 Criar uma rede virtual do Azure é um pré-requisito para a criação de uma instância geridos. Pode utilizar o portal do Azure, [PowerShell](../virtual-network/quick-create-powershell.md), ou [CLI do Azure](../virtual-network/quick-create-cli.md). A secção seguinte mostra os passos no portal do Azure. Os detalhes aqui descritos se aplicam a cada um destes métodos.
 
 1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
-2. Localize e, em seguida, clique em **rede Virtual**, certifique-se a **Resource Manager** está selecionado como o modo de implementação e, em seguida, clique em **criar**.
+2. Localize e, em seguida, clique em **Rede Virtual**, certifique-se de que **Resource Manager** está selecionado como o modo de implementação e, em seguida, clique em **Criar**.
 
-   ![criar rede virtual](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
+   ![criação de rede virtual](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
 
 3. Preencha o formulário de rede virtual com as informações pedidas, de forma semelhante a captura de ecrã seguinte:
 
-   ![formulário de criar rede virtual](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
+   ![formulário de criação de rede virtual](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
 
 4. Clique em **Criar**.
 
@@ -88,28 +88,28 @@ Criar uma rede virtual do Azure é um pré-requisito para a criação de uma ins
 
    Certifique-se de que os pontos finais de serviço opção permanece **desativado**. 
 
-   ![formulário de criar rede virtual](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
+   ![formulário de criação de rede virtual](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
 
 ## <a name="create-the-required-route-table-and-associate-it"></a>Criar a tabela de rotas necessária e associe-a
 
 1. Iniciar sessão no portal do Azure  
-2. Localize e, em seguida, clique em **tabela de rotas**e, em seguida, clique em **criar** na página de tabela de rota.
+2. Localize e, em seguida, clique em **Tabela de rotas** e, em seguida, clique em **Criar** na página Tabela de rotas.
 
-   ![tabela de rotas criar formulário](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
+   ![formulário de criação de tabela de rotas](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
 
 3. Crie uma rota de Internet de salto seguinte 0.0.0.0/0, de forma como as capturas de ecrã seguintes:
 
-   ![adicionar a tabela de rotas](./media/sql-database-managed-instance-tutorial/route-table-add.png)
+   ![adição de tabela de rotas](./media/sql-database-managed-instance-tutorial/route-table-add.png)
 
-   ![Rota](./media/sql-database-managed-instance-tutorial/route.png)
+   ![rota](./media/sql-database-managed-instance-tutorial/route.png)
 
 4. Associe esta rota de sub-rede para a instância geridos, de forma como as capturas de ecrã seguintes:
 
     ![sub-rede](./media/sql-database-managed-instance-tutorial/subnet.png)
 
-    ![tabela de rotas de conjunto](./media/sql-database-managed-instance-tutorial/set-route-table.png)
+    ![definir tabela de rotas](./media/sql-database-managed-instance-tutorial/set-route-table.png)
 
-    ![conjunto de tabela de rota guardado](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
+    ![definir a gravação da tabela de rotas](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
 
 
 Quando tiver sido criada a sua VNet, está pronto para criar a sua instância geridos.  
@@ -145,5 +145,5 @@ Se Sim, consulte o artigo [configurar um DNS personalizado](sql-database-managed
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma descrição geral, consulte [o que é uma instância geridos](sql-database-managed-instance.md)
-- Para um tutorial que mostra como criar uma VNet, criar uma instância geridos e restaurar uma base de dados a partir de uma cópia de segurança da base de dados, consulte [criar uma instância do Azure SQL da base de dados geridos](sql-database-managed-instance-tutorial-portal.md).
+- Para um tutorial que mostra como criar uma VNet, criar uma instância geridos e restaurar uma base de dados a partir de uma cópia de segurança da base de dados, consulte [criar uma instância do Azure SQL da base de dados geridos](sql-database-managed-instance-create-tutorial-portal.md).
 - Para problemas DNS, consulte [configurar um DNS personalizado](sql-database-managed-instance-custom-dns.md)

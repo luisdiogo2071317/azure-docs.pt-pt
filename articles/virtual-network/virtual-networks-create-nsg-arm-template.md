@@ -1,6 +1,6 @@
 ---
-title: "Criar grupos de segurança de rede - modelo do Azure Resource Manager | Microsoft Docs"
-description: "Saiba como criar e implementar grupos de segurança de rede através de um modelo Azure Resource Manager."
+title: Criar grupos de segurança de rede - modelo do Azure Resource Manager | Microsoft Docs
+description: Saiba como criar e implementar grupos de segurança de rede através de um modelo Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1fc210ac5e28efe10be27f8b5a752788d3d5a5a3
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Criar rede grupos de segurança através de um modelo Azure Resource Manager
 
@@ -104,7 +104,7 @@ O modelo de exemplo disponível no repositório público utiliza um ficheiro de 
 Para implementar o modelo ARM que transferiu com o PowerShell, siga os passos abaixo:
 
 1. Se nunca tiver utilizado o Azure PowerShell, siga as instruções no [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) instalar e configurá-la.
-2. Execute o  **`New-AzureRmResourceGroup`**  cmdlet para criar um grupo de recursos utilizando o modelo.
+2. Execute o **`New-AzureRmResourceGroup`** cmdlet para criar um grupo de recursos utilizando o modelo.
 
     ```powershell
     New-AzureRmResourceGroup -Name TestRG -Location uswest `

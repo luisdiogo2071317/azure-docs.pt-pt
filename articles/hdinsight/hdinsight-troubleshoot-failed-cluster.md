@@ -2,25 +2,23 @@
 title: Resolver problemas de um cluster do HDInsight lento ou falhar - Azure HDInsight | Microsoft Docs
 description: Diagnosticar e resolver problemas de um cluster do HDInsight lento ou falhar.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: bd026169062788fa7587cb6357b3764fbfdb24fb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Resolver problemas de um cluster do HDInsight lento ou a falhar
 
@@ -87,7 +85,7 @@ Cada cluster do HDInsight baseia-se em vários serviços do Azure e, no software
 
 Apache Ambari fornece gestão e monitorização de um cluster do HDInsight com uma IU da web e uma API REST. Ambari está incluído nos clusters do HDInsight baseado em Linux. Selecione o **Cluster Dashboard** painel na página de HDInsight portal do Azure.  Selecione o **dashboard de cluster do HDInsight** painel para abrir a IU do Ambari e introduza as credenciais de início de sessão do cluster.  
 
-![Ambari UI](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
+![IU do Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
 
 Para abrir uma lista de vistas de serviço, selecione **vistas do Ambari** na página do portal do Azure.  Esta lista depende de quais bibliotecas estão instaladas. Por exemplo, poderá ver o Gestor de filas YARN, a vista do Hive e a vista de Tez.  Selecione uma ligação de serviço para ver informações do serviço de configuração e.
 
@@ -209,7 +207,7 @@ Para diagnosticar estes problemas:
 
     Pode haver casos em que as interações com WebHCat forem efetuadas com êxito, mas as tarefas estão a falhar.
 
-    Recolhe o resultado da consola da tarefa como Templeton `stderr` no `statusdir`, muitas vezes, que é útil para resolução de problemas. `stderr`contém o identificador da aplicação YARN da consulta real.
+    Recolhe o resultado da consola da tarefa como Templeton `stderr` no `statusdir`, muitas vezes, que é útil para resolução de problemas. `stderr` contém o identificador da aplicação YARN da consulta real.
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Passo 4: Consulte a pilha de ambiente e versões
 

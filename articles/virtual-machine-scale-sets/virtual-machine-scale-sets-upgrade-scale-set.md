@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquina virtual
 Ao longo do ciclo de vida das suas aplicações, poderá ter de modificar ou atualizar o conjunto de dimensionamento de máquina virtual. Estas atualizações podem incluir como atualizar a configuração do conjunto de dimensionamento, ou alterar a configuração da aplicação. Este artigo descreve como modificar um conjunto com as REST APIs, o Azure PowerShell ou o Azure CLI 2.0 de dimensionamento existente.
@@ -347,6 +347,7 @@ Algumas propriedades só podem ser definidas quando criar o conjunto de dimensio
 - Zonas de Disponibilidade
 - publicador de referência da imagem
 - oferta de referência da imagem
+- Tipo de conta de armazenamento de disco de SO de geridos
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Propriedades que só podem ser alteradas com base no valor atual
 Algumas propriedades podem ser alteradas com exceções dependendo do valor atual. Estas propriedades incluem:

@@ -1,6 +1,6 @@
 ---
-title: "Controlo de acesso de Blueprint - automatização de aplicações FedRAMP Web - conformidade e segurança do Azure"
-description: "Automatização de aplicações FedRAMP Web - controlo de acesso"
+title: Controlo de acesso de Blueprint - automatização de aplicações FedRAMP Web - conformidade e segurança do Azure
+description: Automatização de aplicações FedRAMP Web - controlo de acesso
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3d30f889c4d7ed0dafcf8559e8987090c03f4d5e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-ac"></a>Controlo de acesso (AC)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de controlo de acesso que endereços objetivo, âmbito, funções, responsabilidades, compromisso de gestão, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação da política de controlo de acesso e controlos de acesso associados; analisa e atualiza a política de controlo de acesso atual [atribuição: frequência definida de organização]; procedimentos de controlo de acesso e [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.a** organização identifica e seleciona os seguintes tipos de contas de sistema de informações para suportar as funções de negócio/missions organizacional: [atribuição: tipos de conta de sistema de informações definidas pela organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.b** organização atribui gestores de conta para contas de informações do sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.c** organização estabelece condições para a associação de grupo e a função.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.d** organização Especifica os utilizadores autorizados de informações do sistema de, associação de grupo e a função e acesso autorizações (ou seja, privilégios) e outros atributos (conforme necessário) para cada conta.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -99,9 +99,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="account-management"></a>Gestão de Contas
 
-**AC-2.e** A organização necessita de aprovações por [atribuição: técnico definido pela organização ou funções] para pedidos a criar informações de contas do sistema.
+**2.e de AC** A organização necessita de aprovações por [atribuição: técnico definido pela organização ou funções] para pedidos a criar informações de contas do sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.f** organização cria, ativa, modifica, desativa e remove as contas de sistema de informações em conformidade com [atribuição: procedimentos definido pela organização ou condições].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -129,11 +129,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.g** organização monitoriza a utilização de contas de informações do sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a auditoria e segurança do OMS dashboard da solução identidade e acesso. Este dashboard permite gestores de conta para monitorizar a utilização de contas de sistema de informações. |
+| **Cliente** | Este blueprint implementa o dashboard de identidade e acesso de auditoria e segurança da solução. Este dashboard permite gestores de conta para monitorizar a utilização de contas de sistema de informações. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.h** organização notifica gestores de conta contas já não são necessárias; quando os utilizadores são terminados ou transferidos; e a utilização do sistema de informações individuais ou necessidade de saber as alterações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.i** organização autoriza o acesso ao sistema de informações com base numa autorização de acesso válido; utilização prevista sistema; e outros atributos conforme exigido pela organização ou funções de negócio/missions associado.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.j** organização revê as contas para conformidade com os requisitos de gestão de conta [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.k** organização estabelece um processo para emitir novamente as credenciais da conta partilhada/grupo (se for implementado) quando os indivíduos são removidos do grupo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,11 +199,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (1)** organização emprega automatizados mecanismos para suportar a gestão de contas de informações do sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a auditoria e segurança do OMS dashboard da solução identidade e acesso. Este dashboard permite gestores de conta para monitorizar a utilização de contas de sistema de informações. OMS pode ser configurado para enviar alertas quando a atividade atípica for suspeito ou outros eventos predefinidos ocorrem. |
+| **Cliente** | Este blueprint implementa o dashboard de identidade e acesso de auditoria e segurança da solução. Este dashboard permite gestores de conta para monitorizar a utilização de contas de sistema de informações. Pode ser configurado para enviar alertas quando a atividade atípica for suspeito ou outros eventos predefinidos ocorrem. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (2)** o sistema de informações automaticamente [seleção: Remove; desativa] temporárias e emergência contas após [atribuição: organização definidos pelo período de tempo para cada tipo de conta].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (3)** o sistema de informações desativa automaticamente contas inativas após [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,11 +241,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (4)** o sistema de informações automaticamente as auditorias de ações de criação, modificação, ativar, desativar e remoção de conta e notifica, [atribuição: técnico definido pela organização ou funções].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa os seguintes tipos de conta de sistema: os utilizadores do Azure Active Directory, os utilizadores do sistema operativo Windows, conta de serviço do SQL Server. Ações de gestão de conta do Azure Active Directory geram um evento no registo de atividade do Azure; Ações de gestão de conta de nível de SO geram um evento no registo do sistema. Estes registos recolhidos através da análise de registos e armazenados no repositório de OMS. OMS pode ser configurado para enviar alertas quando ocorrem eventos predefinidos.  |
+| **Cliente** | Este blueprint implementa os seguintes tipos de conta de sistema: os utilizadores do Azure Active Directory, os utilizadores do sistema operativo Windows, conta de serviço do SQL Server. Ações de gestão de conta do Azure Active Directory geram um evento no registo de atividade do Azure; Ações de gestão de conta de nível de SO geram um evento no registo do sistema. Estes registos são recolhidos através da análise de registos e armazenados na área de trabalho de análise de registos. Análise de registos pode ser configurado para enviar alertas quando ocorrem eventos predefinidos.  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (5)** organização exige que os utilizadores terminar quando [atribuição: definido de organização-período de tempo de inatividade esperada ou a descrição de quando deve terminar].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (7) .a** organização estabelece e gere contas de utilizador com privilégios de acordo com um esquema de acesso baseado em funções que organiza os privilégios e acesso de sistema de informações permitido em funções.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -283,11 +283,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (7) .b** organização monitoriza atribuições de função com privilégios.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS da identidade e o Dashboard de acesso. Este dashboard permite gestores de conta para monitorizar a utilização de contas de sistema de informações. Esta solução pode ser consultada para comunicar atribuições de função com privilégios. |
+| **Cliente** | Este blueprint implementa a solução de auditoria de segurança e identidade e o Dashboard de acesso. Este dashboard permite gestores de conta para monitorizar a utilização de contas de sistema de informações. Esta solução pode ser consultada para comunicar atribuições de função com privilégios. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **.C AC-2 (7)** a organização demora [atribuição: ações definidas por organização] quando já não são adequadas atribuições de função com privilégios.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (9)** organização apenas permite a utilização de contas de grupo/partilhado que cumpram [atribuição: condições definido pela organização para estabelecer as contas de grupo/partilhado].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (10)** o sistema de informações termina as credenciais da conta partilhada/grupo quando membros deixam o grupo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (11)** impõe o sistema de informações [atribuição: circunstâncias definido de organização e/ou condições de utilização] para [atribuição: contas do sistema de informações definidas pela organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -353,11 +353,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (12) .a** organização monitoriza as contas de sistema de informações para [atribuição: definido de organização atípica utilização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a auditoria e segurança do OMS dashboard da solução identidade e acesso. Este dashboard permite gestores de conta para monitorizar tentativas de acesso relativamente aos recursos implementados. |
+| **Cliente** | Este blueprint implementa o dashboard de identidade e acesso de auditoria e segurança da solução. Este dashboard permite gestores de conta para monitorizar tentativas de acesso relativamente aos recursos implementados. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -367,11 +367,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (12) .b** organização atípica utilização de contas de sistema de informações para os relatórios [atribuição: técnico definido pela organização ou funções].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a auditoria e segurança do OMS dashboard da solução identidade e acesso. Este dashboard permite gestores de conta para monitorizar tentativas de acesso relativamente aos recursos implementados. Esta solução pode ser configurada para enviar alertas quando a atividade atípica for suspeito ou outros eventos predefinidos ocorrem. |
+| **Cliente** | Este blueprint implementa o dashboard de identidade e acesso de auditoria e segurança da solução. Este dashboard permite gestores de conta para monitorizar tentativas de acesso relativamente aos recursos implementados. Esta solução pode ser configurada para enviar alertas quando a atividade atípica for suspeito ou outros eventos predefinidos ocorrem. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (13)** organização desativa as contas de utilizadores está a representar um risco significativo dentro [atribuição: organização definidos pelo período de tempo] de deteção do risco.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 3** o sistema de informações impõe autorizações aprovadas para acesso lógico a recursos de sistema e informações de acordo com as políticas de controlo de acesso aplicáveis.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 4** o sistema de informações impõe autorizações aprovadas para controlar o fluxo de informações no sistema e entre sistemas interligados com base nos [atribuição: políticas de controlo de fluxo de informações definidas pela organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-4 (8)** impõe do sistema de informações através de controlo de fluxo de informações [atribuição: filtros de política de segurança definido para organização] como base para tomar decisões de controlo de fluxo para [atribuição: informações definidas pela organização fluxos].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-4 (21)** o sistema de informações separa logicamente ou fisicamente através de fluxos de informações [atribuição: mecanismos definido de organização e/ou técnicas] para realizar [atribuição: definido de organização necessário separations por tipos de informações].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 5.a** organização separa [atribuição: definido de organização deveres do indivíduos].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 5.b** organização documentos separação de deveres do indivíduos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 5.c** organização define autorizações de acesso de sistema de informações para suportar a separação de deveres.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 6** a organização utiliza o princípio do menor privilégio, permitindo apenas autorizados acessos de utilizadores (ou processos agir em nome dos utilizadores) que são necessários para realizar tarefas atribuídas de acordo com missions organizacionais e funções de negócio.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (1)** organização explicitamente autoriza o acesso a [atribuição: funções de segurança definido por organização (implementadas no hardware, software e firmware) e informações de segurança relevantes].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (2)** organização exige que os utilizadores de contas de informações do sistema ou funções, com acesso a [atribuição: funções de segurança definido pela organização ou informações de segurança relevantes], utilizar contas sem privilégios ou funções, quando aceder a funções de nonsecurity.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (3)** organização autoriza o acesso à rede [atribuição: definido de organização comandos com privilégios] apenas para [atribuição: definido organização apelativa necessidades operacionais] e documentos a lógica por detrás para esse acesso a plano de segurança para o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (5)** organização restringe contas com privilégios no sistema de informações para [atribuição: técnico definido pela organização ou funções].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **.A AC-6 (7)** as revisões de organização [atribuição: frequência definida de organização] os privilégios atribuídos a [atribuição: funções definidas pelo organização ou classes de utilizadores] para validar a necessidade desses privilégios.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (7) .b** a organização é reatribuído ou remove privilégios, se necessário, para refletir corretamente necessidades de negócio/missão organizacional.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (8)** impede que o sistema de informações [atribuição: software definida pelo organização] execução níveis superiores privilégios que os utilizadores executar o software.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -605,11 +605,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (9)** o sistema de informações auditorias a execução das funções com privilégios.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa o serviço de análise de registos no OMS. Implementado VMs e o Azure contas de armazenamento do diagnostics são ligadas origens para análise de registos assegurar que a execução das funções com privilégios é auditada. |
+| **Cliente** | Este blueprint implementa o serviço de análise de registos. Implementado VMs e o Azure contas de armazenamento do diagnostics são ligadas origens para análise de registos assegurar que a execução das funções com privilégios é auditada. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (10)** o sistema de informações impede que utilizadores não privilegiados executar funções com privilégios para incluir a desativação, circumventing, ou alterar implementado as proteções de segurança/medidas preventivas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 7.a** o sistema de informações impõe um limite de [atribuição: número definido de organização] tentativas de início de sessão inválido consecutivo por um utilizador durante uma [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **7 de AC** o sistema de informações automaticamente [seleção: bloqueia o conta de nó de um [atribuição: organização definidos pelo período de tempo]; bloqueia o conta/nó até libertados por um administrador; atrasa a seguinte linha de início de sessão, de acordo com [ Atribuição: algoritmo atraso definido de organização]] quando for excedido o número máximo de tentativas sem êxito.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-7 (2)** o sistema de informações elimina/eliminações seletivas de informações a partir de [atribuição: definido de organização dispositivos móveis] com base no [atribuição: definida organização remover/limpar requisitos/técnicas] depois [atribuição: tentativas de início de sessão do número definido de organização] dispositivos sem consecutivos.
 
-**Responsabilidades:**`Not Applicable`
+**Responsabilidades:** `Not Applicable`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 8.a** apresenta o sistema de informações aos utilizadores [atribuição: sistema definido de organização utilizar mensagem de notificação ou faixa] antes de conceder acesso ao sistema que fornece avisos de privacidade e segurança consistente com as federal aplicável leis, as ordens executivo, diretivas, políticas, regulamentos, normas e orientações e Estados que os utilizadores estão a aceder a um E.U.A. Sistema de informações de Government; utilização do sistema de informações pode ser monitorizada, registadas e estão sujeitos a auditoria; utilização não autorizada do sistema de informações é penalidades proibidas e sujeito a criminal e civis; e utilização do sistema informações indica consentimento para monitorização e registo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 8.b** o sistema de informações mantém a mensagem de notificação ou uma faixa no ecrã até que os utilizadores aceitar as condições de utilização e tome as ações explícitas para iniciar sessão ou continuar a aceder ao sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 8.c** o sistema de informações para sistemas acessíveis publicamente apresenta informações de utilização do sistema [atribuição: condições definidas de organização], antes de conceder mais acesso; apresenta referências, se existir, para monitorização, gravação, ou auditoria que são consistentes com accommodations de privacidade para esses sistemas que geralmente proíbem essas atividades; e inclui uma descrição das utilizações autorizadas do sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 10** o sistema de informações limita o número de sessões em simultâneo para cada [atribuição: conta definida pelo organização e/ou tipo de conta] para [atribuição: número definido de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 11.a** o sistema de informações impede o acesso adicional ao sistema iniciando um bloqueio de sessão após [atribuição: organização definidos pelo período de tempo] de inatividade ou após a receção de um pedido de um utilizador.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 11.b** o sistema de informações mantém o bloqueio de sessão até que o utilizador reestablishes acesso através de procedimentos de identificação e autenticação estabelecidos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -759,7 +759,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) de AC-11** o sistema de informações conceals, através do bloqueio de sessão, as informações anteriormente visíveis no ecrã com uma imagem publicamente visível.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -773,7 +773,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-12** o sistema de informações automaticamente termina uma sessão de utilizador após [atribuição: condições definido pela organização ou que seja necessário desligar sessões de eventos de Acionador].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) de AC-12 .a** o sistema de informações proporciona uma capacidade de fim de sessão para comunicações iniciada pelo utilizador sessões sempre que a autenticação é utilizada para obter acesso a [atribuição: recursos de informações definidas pela organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -801,7 +801,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) de AC-12 .b** o sistema de informações apresenta uma mensagem de fim de sessão explícita para os utilizadores que indiquem a terminação fiável de sessões de comunicações autenticadas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -815,7 +815,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 14.a** identifica a organização [atribuição: ações de organização definido pelo utilizador] que podem ser efetuadas no sistema informações sem identificação ou autenticação consistente com as funções de negócio/missions organizacional.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -829,7 +829,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 14.b** organização documentos e fornece suporte lógica por detrás no plano de segurança para o sistema de informações, as ações do utilizador não exigir autenticação ou de identificação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -843,7 +843,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 17.a** organização estabelece e documentos as restrições de utilização, requisitos de configuração/ligação e documentação de orientação de implementação para cada tipo de acesso remoto permitido.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -857,7 +857,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 17.b** organização autoriza o acesso remoto para o sistema de informações antes de permitir que essas ligações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -871,11 +871,11 @@ ms.lasthandoff: 02/11/2018
 
 **17 de AC (1)** o sistema de informações monitoriza e controlos de métodos de acesso remoto.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint fornece acesso remoto para o sistema de informações através do portal do Azure, através de ligações de ambiente de trabalho remoto através de um jumpbox e através de uma aplicação web implementada de cliente. Acede através do portal do Azure e sessões de ambiente de trabalho remotas é auditada e pode ser monitorizado através do OMS. O cliente tem de implementar controlos de acesso remoto, conforme necessário, para a aplicação web. |
+| **Cliente** | Este blueprint fornece acesso remoto para o sistema de informações através do portal do Azure, através de ligações de ambiente de trabalho remoto através de um jumpbox e através de uma aplicação web implementada de cliente. Acede através do portal do Azure e sessões de ambiente de trabalho remotas é auditada e pode ser monitorizado através da análise de registos. O cliente tem de implementar controlos de acesso remoto, conforme necessário, para a aplicação web. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -885,7 +885,7 @@ ms.lasthandoff: 02/11/2018
 
 **17 de AC (2)** o sistema de informações implementa mecanismos criptográficos para proteger a confidencialidade e a integridade das sessões de acesso remoto.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -899,7 +899,7 @@ ms.lasthandoff: 02/11/2018
 
 **17 de AC (3)** todos os acessos remotos através de rotas de sistema informações [atribuição: número definido de organização] geridos pontos de controlo de acesso de rede.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -913,7 +913,7 @@ ms.lasthandoff: 02/11/2018
 
 **17 de AC (4) .a** organização autoriza a execução de comandos com privilégios e acesso a informações relevantes de segurança através do acesso remoto apenas para [atribuição: organização definido pelo necessidades].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -927,7 +927,7 @@ ms.lasthandoff: 02/11/2018
 
 **17 de AC (4) .b** organização documentos a lógica por detrás para esse acesso no plano de segurança para o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -941,7 +941,7 @@ ms.lasthandoff: 02/11/2018
 
 **17 de AC (9)** organização fornece a capacidade de expeditiously desligar ou desative o acesso remoto para o sistema de informações na [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -955,7 +955,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 18.a** organização estabelece as restrições de utilização, requisitos de configuração/ligação e orientação de implementação para o acesso sem fios.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -969,7 +969,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 18.b** organização autoriza o acesso sem fios para o sistema de informações antes de permitir que essas ligações.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -983,7 +983,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) de AC-18** o sistema de informações protege o acesso sem fios para o sistema através da autenticação de [seleção (um ou mais): os utilizadores; dispositivos] e encriptação.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -997,7 +997,7 @@ ms.lasthandoff: 02/11/2018
 
 **18 de AC (3)** capacidades internamente incorporadas componentes do sistema informações antes de emissão e a implementação de redes sem fios desativa a organização, quando não se destina a utilização,.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -1011,7 +1011,7 @@ ms.lasthandoff: 02/11/2018
 
 **18 de AC (4)** organização identifica e explicitamente autoriza os utilizadores com permissão para configurar independentemente das capacidades de rede sem fios.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -1025,7 +1025,7 @@ ms.lasthandoff: 02/11/2018
 
 **18 de AC (5)** organização seleciona antennas de botões de opção e calibrates níveis de energia de transmissão para reduzir a probabilidade de que podem ser recebidos sinais utilizáveis fora da organização controlada limites.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -1039,7 +1039,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 19.a** organização estabelece as restrições de utilização, requisitos de configuração, requisitos de ligação e orientação de implementação para dispositivos móveis controladas por organização.
 
-**Responsabilidades:**`Not Applicable`
+**Responsabilidades:** `Not Applicable`
 
 |||
 |---|---|
@@ -1053,7 +1053,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 19.b** organização autoriza a ligação dos dispositivos móveis para sistemas de informações organizacionais.
 
-**Responsabilidades:**`Not Applicable`
+**Responsabilidades:** `Not Applicable`
 
 |||
 |---|---|
@@ -1067,7 +1067,7 @@ ms.lasthandoff: 02/11/2018
 
 **19 de AC (5)** organização emprega [seleção: encriptação de dispositivo completo; encriptação contentor] para proteger a confidencialidade e a integridade das informações no [atribuição: definido de organização dispositivos móveis].
 
-**Responsabilidades:**`Not Applicable`
+**Responsabilidades:** `Not Applicable`
 
 |||
 |---|---|
@@ -1081,7 +1081,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 20.a** organização estabelece termos e condições, consistentes com quaisquer relações de fidedignidade estabelecidas com outras organizações proprietário, operar, e/ou a manutenção de sistemas de informação externo, permitindo autorizado indivíduos para aceder ao sistema de informações de sistemas de informação externo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -1095,7 +1095,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 20.b** organização estabelece termos e condições, consistentes com quaisquer relações de fidedignidade estabelecidas com outras organizações proprietário, operar, e/ou a manutenção de sistemas de informação externo, permitindo autorizado indivíduos para processar e armazenar ou transmitir informações controlado de organização através de sistemas de informação externo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -1109,7 +1109,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) de AC-20** organização permite que as pessoas autorizadas a utilizar um sistema de informações externas para aceder ao sistema de informações ou para processar e armazenar ou transmitir informações controlado de organização apenas quando a organização verifica a implementação de controlos de segurança necessárias no sistema externo conforme especificado na política de segurança de informações da organização e planear a segurança; ou mantém aprovados informações de contratos de ligação ou processamento de sistema com a entidade de organização que aloja o sistema externo de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -1123,7 +1123,7 @@ ms.lasthandoff: 02/11/2018
 
 **(2) de AC-20** organização [seleção: restringe; proíbe] a utilização de dispositivos de armazenamento portátil organização controladas por pessoas autorizadas em sistemas externos de informações.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -1137,7 +1137,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 21.a** organização facilita as informações de partilha, permitindo que os utilizadores autorizados determinar se autorizações de acesso atribuídas ao parceiro de partilha correspondem as restrições de acesso nas informações para [atribuição: organização informações definidas pela partilha circunstâncias onde o critério de utilizador é necessário].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -1151,7 +1151,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 21.b** organização emprega [atribuição: definido de organização automatizada mecanismos ou processos manuais] para ajudar os utilizadores nas decisões de informações de partilha/colaboração.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -1165,7 +1165,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 22.a** organização designa indivíduos autorizados a publicar informações para um sistema de informações acessível publicamente.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -1179,7 +1179,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 22.b** organização trains pessoas autorizadas, para se certificar de que informações acessíveis publicamente contêm informações nonpublic.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -1193,7 +1193,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 22.c** organização revê o conteúdo proposto de informações antes de proceder no sistema para se certificar de que as informações nonpublic não estão incluídas informações acessível publicamente.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -1207,7 +1207,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 22.d** organização revê o conteúdo no sistema informações acessível publicamente para nonpublic informações [atribuição: frequência definida de organização] e remove a essas informações, se detetado.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

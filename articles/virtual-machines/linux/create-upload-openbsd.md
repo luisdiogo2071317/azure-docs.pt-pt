@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 23ca965b12afc8931a67d32e3a11a4aa9777a5d5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6c0eae36874c6d2738385c4530cc208a0b1362c4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Criar e carregar uma imagem de disco OpenBSD para o Azure
 Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que contém o sistema de operativo OpenBSD. Depois de carregá-lo, pode utilizá-lo como a sua própria imagem para criar uma máquina virtual (VM) no Azure através da CLI do Azure.
@@ -30,7 +30,7 @@ Este artigo pressupõe que tem os seguintes itens:
 
 * **Uma subscrição do Azure** -se não tiver uma conta, pode criar um em apenas alguns minutos. Se tiver uma subscrição do MSDN, consulte [crédito do Azure mensal para subscritores do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Caso contrário, saiba como [criar uma conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).  
 * **Azure CLI 2.0** -Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-azure-cli) instalado e registado sua conta do Azure com [início de sessão az](/cli/azure/reference-index#az_login).
-* **Sistema de operativo OpenBSD instalado num ficheiro. vhd** -tem de ser instalado um sistema de operativo OpenBSD suportado (6.1 versão) para um disco rígido virtual. Existem várias ferramentas para criar ficheiros. vhd. Por exemplo, pode utilizar uma solução de virtualização, tais como o Hyper-V para criar o ficheiro. vhd e instalar o sistema operativo. Para obter instruções sobre como instalar e utilizar o Hyper-V, consulte [instalar o Hyper-V e criar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
+* **Sistema de operativo OpenBSD instalado num ficheiro. vhd** - um OpenBSD suportado de sistema operativo ([versão 6.1 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.1/amd64/)) tem de ser instalado num disco rígido virtual. Existem várias ferramentas para criar ficheiros. vhd. Por exemplo, pode utilizar uma solução de virtualização, tais como o Hyper-V para criar o ficheiro. vhd e instalar o sistema operativo. Para obter instruções sobre como instalar e utilizar o Hyper-V, consulte [instalar o Hyper-V e criar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 
 ## <a name="prepare-openbsd-image-for-azure"></a>Preparar a imagem de OpenBSD para o Azure

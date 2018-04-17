@@ -16,21 +16,19 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 89a4216a3893892eedd6c216c7e0e5d51cf64749
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Acelerador de escrita de mensagens em fila do Azure para implementações de SAP
 Acelerador de escrita do Azure é uma funcionalidade que está a obter implementada para VMs de série M exclusivamente. O acelerador de escrita do Azure não está disponível com quaisquer outro-série da VM no Azure, exceto a série M. Como o nome de Estados, o objetivo da funcionalidade é melhorar a latência de e/s de escritas contra o Premium Storage do Azure. 
 
->[!NOTE]
-> Neste momento, o acelerador de escrita do Azure está em pré-visualização pública e necessita de listagem de branco do seu ID de subscrição do Azure
-
 A funcionalidade de acelerador de escrita do Azure está disponível para implementação de série M como pré-visualização pública em:
 
 - US2 oeste
+- US2 leste
 - Europa ocidental
 - Sudeste Asiático
 
@@ -44,8 +42,15 @@ Acelerador do Azure escrever só funciona em conjunto com [discos geridos pelo A
 
 Existem limites de VHDs de armazenamento do Azure Premium por VM que pode ser suportado pelo Azure escrever acelerador. Os limites atuais são:
 
-- 16 VHDs para um M128xx VM
-- 8 VHDs para um M64xx VM
+
+| SKU DE VM | Número de discos de escrever o acelerador | Escrever acelerador IOPS por VM |
+| --- | --- | --- |
+| M128ms | 16 | 8000 |
+| M128s | 16 | 8000 |
+| M64ms | 8 | 4000 |
+| M64s | 8 | 4000 | 
+
+
 
 > [!IMPORTANT]
 > Se pretender ativar ou desativar o Azure escrever acelerador para um volume existente que está incorporado fora vários discos de armazenamento do Azure Premium e repartidos a utilização de gestores de volume ou disco do Windows, espaços de armazenamento do Windows, Windows Escalamento horizontal servidor (SOFS), Linux LVM de ficheiros ou MDADM, todos os discos para criar o volume tem de ser ativado ou desativado para escrever acelerador nos passos separados. **Antes de ativar ou desativar a escrita acelerador em tal configuração de, encerre a VM do Azure**. 

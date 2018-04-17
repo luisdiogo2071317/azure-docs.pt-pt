@@ -1,12 +1,12 @@
 ---
 title: Proteger os dados pessoais com controlos de identidades e acessos do Azure | Microsoft Docs
-description: "Identidade do Azure e acesso controla ajudar a proteger os dados pessoais e pode ser útil complying com Regulamento de proteção de dados gerais (GDPR)"
+description: Identidade do Azure e acesso controla ajudar a proteger os dados pessoais e pode ser útil complying com Regulamento de proteção de dados gerais (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.custom: ''
+ms.openlocfilehash: 45b148a9ccbd7c801821f23586810872a4a0d50d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e o multi-factor Authentication: proteger os dados pessoais com controlos de identidades e acessos
 
@@ -83,11 +83,11 @@ Para obter mais informações e instruções sobre como começar a PIM do AAD, c
 
 ### <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
 
-[Controlo de acesso baseado em funções do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) ajuda os administradores do Azure, gerir o acesso aos recursos do Azure, permitindo a concessão de permissões de acesso com base na função atribuída ao utilizador. Pode segregar funções dentro de uma equipa e conceder apenas a quantidade de acesso a utilizadores, grupos e aplicações que precisam para desempenhar as suas funções.
+[Controlo de acesso baseado em funções do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) ajuda os administradores do Azure, gerir o acesso aos recursos do Azure, permitindo a concessão de permissões de acesso com base na função atribuída ao utilizador. Pode segregar funções dentro de uma equipa e conceder apenas a quantidade de acesso a utilizadores, grupos e aplicações que precisam para desempenhar as suas funções.
 
 O acesso baseado em funções pode ser concedido aos utilizadores através do portal do Azure, das ferramentas da Linha de Comandos do Azure ou de APIs de Gestão do Azure.
 
-Para obter mais informações sobre noções básicas do RBAC do Azure, consulte [introdução ao controlo de acesso baseado em funções no Portal do Azure.](https://docs.microsoft.com/active-directory/role-based-access-control-what-is)
+Para obter mais informações sobre noções básicas do RBAC do Azure, consulte [introdução ao controlo de acesso baseado em funções no Portal do Azure.](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>Como gerir o RBAC do Azure com o PowerShell
 
@@ -111,7 +111,7 @@ Pode utilizar os cmdlets do PowerShell para gerir o RBAC do Azure, incluindo as 
 
 - Lista de funções personalizadas
 
-Para obter instruções sobre como gerir o RBAC do Azure com o PowerShell, consulte [baseada em funções gerir acesso com o Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
+Para obter instruções sobre como gerir o RBAC do Azure com o PowerShell, consulte [baseada em funções gerir acesso com o Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 ### <a name="azure-multi-factor-authentication"></a>Multi-Factor Authentication do Azure
 
@@ -135,7 +135,7 @@ Se não tiver licenças atualmente tem de aceder através do processo de determi
 
     ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-4. Clique em **guardar**
+4. Clicar em **Guardar**
 
 Nesta janela também tem a opção para transferir o servidor MFA. Pode obter detalhes adicionais sobre como o tamanho e planear a implementação, revendo o artigo [introdução com o servidor multi-factor Authentication do Azure](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
@@ -184,6 +184,6 @@ Para informações sobre como configurar as definições da MFA do Azure para co
 
 - [Perguntas mais frequentes sobre o Multi-Factor Authentication do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [Resolução de problemas de controlo de acesso baseado em funções](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [Resolução de problemas de controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)
 
 - [Proteção de identidade do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

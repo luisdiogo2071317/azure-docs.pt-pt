@@ -28,8 +28,8 @@ Quando se liga a VMs, deve utilizar a criptografia de chave pública para fornec
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
-Utilizar [controlo de acesso baseado em funções (RBAC)](../articles/active-directory/role-based-access-control-what-is.md), pode segregar funções na sua equipa e conceder apenas a quantidade de acesso aos utilizadores na sua VM que precisam para desempenhar as suas funções. Em vez de dar everybody sem restrições permissões na VM, pode permitir que apenas determinadas ações. Pode configurar o controlo de acesso para a VM com o [portal do Azure](../articles/active-directory/role-based-access-control-configure.md), utilizando o [CLI do Azure](https://docs.microsoft.com/cli/azure/role), ou[Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md).
+Utilizar [controlo de acesso baseado em funções (RBAC)](../articles/role-based-access-control/overview.md), pode segregar funções na sua equipa e conceder apenas a quantidade de acesso aos utilizadores na sua VM que precisam para desempenhar as suas funções. Em vez de dar everybody sem restrições permissões na VM, pode permitir que apenas determinadas ações. Pode configurar o controlo de acesso para a VM com o [portal do Azure](../articles/role-based-access-control/role-assignments-portal.md), utilizando o [CLI do Azure](https://docs.microsoft.com/cli/azure/role), ou[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Siga os passos para monitorizar a segurança da máquina virtual, utilizando o Centro de segurança do Azure para [Linux](../articles/virtual-machines/linux/tutorial-azure-security.md) ou [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md).

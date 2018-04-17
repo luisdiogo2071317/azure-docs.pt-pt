@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3a4026b56522da6c6efede4b8b7a542efc8a776d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como aprovisionar novos inquilinos e registe-os no catálogo
 
@@ -63,7 +63,7 @@ Base de dados de aprovisionamento tem de ser parte da sua estratégia de gestão
 
 A aplicação de base de dados por inquilino Wingtip bilhetes Aprovisiona novos inquilinos ao copiar uma base de dados do modelo com o nome _basetenantdb_, que é implementado no servidor de catálogo. Aprovisionamento pode ser integrado na aplicação como parte de uma experiência de inscrição. É também pode ser suportado offline utilizando scripts. Este tutorial explicar aprovisionamento através do PowerShell. 
 
-Aprovisionamento de scripts cópia o _basetenantdb_ base de dados para criar uma nova base de dados do inquilino num agrupamento elástico. Em seguida, os scripts de inicializar a base de dados com informações específicas de inquilino e registá-lo no mapa de partições horizontais catálogo. Bases de dados de inquilino são nomes fornecido com base no nome do inquilino. Este esquema de nomenclatura não é uma parte crucial do padrão. O catálogo mapeia a chave de inquilino para o nome de base de dados, pelo que pode ser utilizada qualquer convenção de nomenclatura. 
+Aprovisionamento de scripts cópia o _basetenantdb_ base de dados para criar uma nova base de dados do inquilino num agrupamento elástico. A base de dados do inquilino é criada no servidor de inquilino mapeado para o _newtenant_ alias de DNS. Este alias mantém uma referência para o servidor utilizado para aprovisionar novos inquilinos e é atualizado para apontar para um servidor de inquilino de recuperação nos tutoriais de recuperação após desastre ([DR via georestore](saas-dbpertenant-dr-geo-restore.md), [DR via georeplication](saas-dbpertenant-dr-geo-replication.md)). Em seguida, os scripts de inicializar a base de dados com informações específicas de inquilino e registá-lo no mapa de partições horizontais catálogo. Bases de dados de inquilino são nomes fornecido com base no nome do inquilino. Este esquema de nomenclatura não é uma parte crucial do padrão. O catálogo mapeia a chave de inquilino para o nome de base de dados, pelo que pode ser utilizada qualquer convenção de nomenclatura. 
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts de aplicação de base de dados por inquilino Wingtip bilhetes SaaS
@@ -83,7 +83,7 @@ Para compreender como a aplicação de bilhetes Wingtip implementa novo inquilin
 
 2. Para adicionar um ponto de interrupção, coloque o cursor em qualquer lugar na linha que indica que *inquilino novo '*. Em seguida, prima F9.
 
-   ![Breakpoint](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Ponto de interrupção](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Para executar o script, prima F5.
 

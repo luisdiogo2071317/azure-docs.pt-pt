@@ -1,11 +1,11 @@
 ---
 title: As filas de armazenamento do Azure e filas do Service Bus comparados e contrasted | Microsoft Docs
-description: "Analisa as diferenças e semelhanças entre dois tipos de filas oferecidas pelo Azure."
+description: Analisa as diferenças e semelhanças entre dois tipos de filas oferecidas pelo Azure.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>As filas de armazenamento e de filas do Service Bus - comparados e contrasted
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidas pelo Microsoft Azure hoje: as filas de armazenamento e de filas do Service Bus. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
@@ -39,7 +39,7 @@ Ao determinar o objetivo de uma determinada solução se adequa a tecnologia que
 
 Como um arquiteto de solução/programador, **deve considerar a utilização de filas de armazenamento** quando:
 
-* A aplicação tem de armazenar mais de 80 GB de mensagens numa fila, em que as mensagens têm uma duração mais curta mais de 7 dias.
+* A aplicação tem de armazenar mais de 80 GB de mensagens numa fila.
 * A aplicação pretende controlar o progresso para processar uma mensagem dentro da fila. Isto é útil se o trabalho processar uma mensagem de falha. Uma função de trabalho subsequente, em seguida, pode utilizar essas informações para continuar a partir de onde parou o trabalho anterior.
 * Precisa de registos do lado do servidor de todas as transações executadas contra as filas.
 
@@ -51,7 +51,6 @@ Como um arquiteto de solução/programador, **deve considerar a utilização de 
 * A solução tem de ser capaz de suportar a deteção automática de duplicados.
 * Pretender que a aplicação para processar mensagens como fluxos de longa execução paralelas (mensagens estão associadas a um fluxo utilizando o [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) propriedade na mensagem). Neste modelo, cada nó na aplicação de consumo compete para fluxos, por oposição a mensagens. Quando recebe uma transmissão em fluxo para um nó de consumo, o nó pode examinar o estado do fluxo do Estado da aplicação através de transações.
 * A solução requer comportamento transacional e atomicity ao enviar ou receber várias mensagens numa fila.
-* A time-to-live (TTL) uma característica da carga de trabalho específicas da aplicação pode exceder o período de 7 dias.
 * A aplicação processa mensagens que podem exceder 64 KB, mas irá limitar abordagem é improvável 256 KB.
 * Lidar com um requisito para fornecer um modelo de acesso baseado em funções para diferentes direitos/permissões e de filas para os remetentes e os recetores.
 * O tamanho da fila não irá aumentar com mais de 80 GB.
@@ -107,7 +106,7 @@ Esta secção compara as capacidades avançadas disponibilizadas pelas filas de 
 | Atualização no local |**Sim** |**Sim** |
 | Registo de transações do lado do servidor |**Sim** |**Não** |
 | Métricas do Storage |**Sim**<br/><br/>**Minutos de métricas**: fornece métricas em tempo real para a API de disponibilidade, TPS, chamar contagens, contagens de erro e muito mais, todos em tempo real (agregados por minuto e comunicou dentro de alguns minutos a partir do que aconteceu apenas na produção. Para obter mais informações, consulte [sobre análise as métricas do Storage](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Sim**<br/><br/>(em massa consultas ao chamar [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| Gestão de estado |**Não** |**Sim**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
+| Gestão de estados |**Não** |**Sim**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | Auto-reencaminhamento de mensagens |**Não** |**Sim** |
 | Remover a função de fila |**Sim** |**Não** |
 | Grupos de mensagem |**Não** |**Sim**<br/><br/>(através da utilização de sessões de mensagens) |
@@ -132,8 +131,8 @@ Esta secção compara as filas de armazenamento e de filas do Service Bus da per
 | Critérios de comparação | Filas de armazenamento | Filas de Service Bus |
 | --- | --- | --- |
 | Tamanho máximo da fila |**500 TB**<br/><br/>(limitado a um [única capacidade das contas de armazenamento](../storage/common/storage-introduction.md#queue-storage)) |**1 GB para 80 GB**<br/><br/>(definido após a criação de uma fila e [ativar a criação de partições](service-bus-partitioning.md) – consulte a secção "Informações adicionais") |
-| Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB quando utilizar **Base64** codificação)<br/><br/>Azure suporta mensagens grandes através da combinação de filas e blobs – ponto em que pode colocar em fila até 200 GB para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo o cabeçalho e corpo, tamanho do cabeçalho máximo: 64 KB).<br/><br/>Depende do [camada de serviço](service-bus-premium-messaging.md). |
-| TTL da mensagem máximo |**7 dias** |**TimeSpan.Max** |
+| Tamanho da mensagem máximo |**64 KB**<br/><br/>(48 KB quando utilizar **Base64** codificação)<br/><br/>Azure suporta mensagens grandes através da combinação de filas e blobs – ponto em que pode colocar em fila até 200 GB para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo o cabeçalho e corpo, tamanho do cabeçalho máximo: 64 KB).<br/><br/>Depende do [camada de serviço](service-bus-premium-messaging.md). |
+| TTL da mensagem máximo |**Infinita** (a partir da api-version 2017-07-27) |**TimeSpan.Max** |
 | Número máximo de filas |**Ilimitado** |**10,000**<br/><br/>(por espaço de nomes do serviço) |
 | Número máximo de clientes em simultâneo |**Ilimitado** |**Ilimitado**<br/><br/>(limite de ligações simultâneas 100 apenas se aplica a comunicação baseada no protocolo TCP) |
 

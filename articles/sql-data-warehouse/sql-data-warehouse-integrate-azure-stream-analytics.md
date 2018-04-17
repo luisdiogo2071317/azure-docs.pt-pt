@@ -1,25 +1,20 @@
 ---
 title: Utilizam o Azure Stream Analytics com o SQL Data Warehouse | Microsoft Docs
-description: "Sugestões para utilizar o Azure Stream Analytics com o Azure SQL Data Warehouse para desenvolver soluções."
+description: Sugestões para utilizar o Azure Stream Analytics com o Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
-manager: barbkess
-editor: 
-ms.assetid: 8aeb2247-20c5-4a29-b327-30a8ce09dfdc
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 10/31/2016
-ms.author: cakarst;barbkess
-ms.openlocfilehash: c5c0450cba541a9346f023057345c5fc9b147903
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 597953be29241d3c92f9d4e0d256fcb7a1643ccc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Utilizam o Azure Stream Analytics com o SQL Data Warehouse
 O Azure Stream Analytics é um serviço completamente gerido que fornece processamento de eventos complexos baixa latência, elevada disponibilidade e dimensionável através de transmissão em fluxo de dados na nuvem. Pode aprender as noções básicas através da leitura [introdução ao Azure Stream Analytics][Introduction to Azure Stream Analytics]. Em seguida, pode saber como criar uma solução ponto-a-ponto Stream Analytics, seguindo o [começar a utilizar o Azure Stream Analytics] [ Get started using Azure Stream Analytics] tutorial.
@@ -70,7 +65,7 @@ Clique no botão de verificação para adicionar este resultado da tarefa e cert
 
 Quando a ligação à base de dados for bem sucedida, verá uma notificação na parte inferior do portal. Pode clicar em ligação de teste na parte inferior para testar a ligação à base de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma descrição geral de integração, consulte [descrição geral da integração do SQL Data Warehouse][SQL Data Warehouse integration overview].
 
 Para obter mais sugestões de desenvolvimento, veja [SQL Data Warehouse development overview (Descrição geral do desenvolvimento no SQL Data Warehouse)][SQL Data Warehouse development overview].

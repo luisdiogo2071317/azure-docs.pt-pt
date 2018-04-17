@@ -64,7 +64,7 @@ Em seguida, medir os requisitos de desempenho máximo da sua aplicação ao long
 | Min. Latência | | | |
 | Latência média de | | | |
 | Um máximo de CPU | | | |
-| CPU média | | | |
+| CPU Média | | | |
 | Um máximo de Memória | | | |
 | Memória média | | | |
 | Profundidade de fila | | | |
@@ -87,14 +87,14 @@ Os contadores de PerfMon estão disponíveis para processador, memória e, como 
 | --- | --- | --- | --- |
 | **IOPS ou de transações por segundo** |Número de pedidos de e/s emitido para o disco de armazenamento por segundo. |Leituras de disco/seg <br> Escritas de disco/seg |tps <br> r/s <br> w/s |
 | **Leituras de disco e de escrita** |% de leituras exibidas as operações executadas no disco. |% Tempo de leitura do disco <br> % De tempo de escrita de disco |r/s <br> w/s |
-| **Débito** |Quantidade de dados lidas ou escritas para o disco por segundo. |Bytes lidos/seg de disco <br> Bytes de escrita de disco/seg |kB_read/s <br> kB_wrtn/s |
+| **Débito** |Quantidade de dados lidas ou escritas para o disco por segundo. |Bytes Lidos de Disco/seg <br> Bytes Escritos em Disco/seg |kB_read/s <br> kB_wrtn/s |
 | **Latência** |Total de tempo para concluir um pedido de e/s de disco. |Médio disco seg/leitura <br> Média de disco seg/escrita |await <br> svctm |
 | **Tamanho de e/s** |O tamanho de e/s pedidos problemas para os discos de armazenamento. |Bytes de média de disco/leitura <br> Bytes de média de disco/escrita |avgrq sz |
 | **Profundidade de fila** |Número de e/s pendentes pedidos a aguardar para ser formulário de leitura ou escrita para o disco de armazenamento. |Comprimento da fila de disco |avgqu sz |
 | **Máx. Memória** |Quantidade de memória necessária para executar a aplicação facilmente |% Dos Bytes consolidados em utilização |Utilizar vmstat |
 | **Máx. CPU** |Quantidade de CPU necessária para executar a aplicação facilmente |% Tempo do processador |% util |
 
-Saiba mais sobre [iostat](http://linuxcommand.org/man_pages/iostat1.html) e [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Saiba mais sobre [iostat](https://linux.die.net/man/1/iostat) e [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 ## <a name="optimizing-application-performance"></a>Otimizar o desempenho de aplicações
 Os principais fatores que influenciam o desempenho de uma aplicação em execução no armazenamento Premium são natureza de e/s pedidos, tamanho da VM, o tamanho do disco, número de discos, colocação em cache do disco, Multithreading e profundidade de fila. Pode controlar algumas destes fatores com botões fornecidos pelo sistema. A maioria das aplicações poderão não dão-lhe uma opção para alterar o tamanho de e/s e a profundidade de fila diretamente. Por exemplo, se estiver a utilizar o SQL Server, não é possível escolher a profundidade de fila e de tamanho de e/s. SQL Server escolhe os ideal e/s tamanho e a fila de profundidade valores para obter o desempenho mais. É importante compreender os efeitos de ambos os tipos de fatores no desempenho da aplicação, para que possa aprovisionar os recursos adequados para satisfazer as necessidades de desempenho.
@@ -140,10 +140,10 @@ Eis um exemplo sobre como pode calcular o débito/largura de banda e IOPS para a
 
 | Requisito da aplicação | Tamanho de e/s | IOPS | Débito/largura de banda |
 | --- | --- | --- | --- |
-| IOPS máximo |8 KB |5,000 |40 MB por segundo |
+| IOPS Máx. |8 KB |5.000 |40 MB por segundo |
 | Débito máximo |1024 KB |200 |200 MB por segundo |
 | Débito máximo + IOPS elevado |64 KB |3,200 |200 MB por segundo |
-| IOPS máximo + débito elevado |32 KB |5,000 |160 MB por segundo |
+| IOPS máximo + débito elevado |32 KB |5.000 |160 MB por segundo |
 
 Para obter IOPS e largura de banda superior ao valor máximo de um disco de armazenamento premium único, utilize vários discos premium repartidos em conjunto. Por exemplo, stripe dois P30 discos para obter um IOPS combinado de IOPS 10 000 ou um débito combinado de 400 MB por segundo. Conforme explicado na secção seguinte, tem de utilizar um tamanho VM que suporte o combinado IOPS e débito do disco.
 
@@ -236,14 +236,14 @@ Para obter mais informações sobre como funciona o BlobCache, consulte interior
 | **Tipo de disco** | **Definição de Cache predefinida** |
 | --- | --- |
 | Disco do SO |ReadWrite |
-| Disco de dados |Nenhuma |
+| Disco de dados |Nenhum |
 
 Seguem-se as definições de cache do disco recomendado para discos de dados
 
 | **Definição de colocação em cache em disco** | **Recomendação sobre quando utilizar esta definição** |
 | --- | --- |
 | Nenhuma |Configure a cache de anfitriões como None para só de escrita e pesado de escrita de discos. |
-| Só de leitura |Configure a cache de anfitriões como só de leitura para só de leitura e de leitura-escrita de discos. |
+| ReadOnly |Configure a cache de anfitriões como só de leitura para só de leitura e de leitura-escrita de discos. |
 | ReadWrite |Configure a cache de anfitriões como ReadWrite apenas se a aplicação processa corretamente ao escrever dados em cache persistentes discos quando necessário. |
 
 *Só de leitura*  
@@ -391,7 +391,7 @@ Execute os passos abaixo para transfira a cópia de segurança cache
 
 Depois de disco de cache é preparado, prossiga com os cenários de teste listados abaixo. Para executar o teste de Iometer, utilizar, pelo menos, três threads de trabalho para **cada** volume de destino. Para cada thread de trabalho, selecione o volume de destino, defina a profundidade de fila e selecione uma das especificações de teste guardado, conforme mostrado na tabela abaixo, para executar o cenário de teste correspondente. A tabela também mostra resultados esperados para o IOPS e débito ao executar estes testes. Para todos os cenários, são utilizados um tamanho de e/s pequeno de 8KB e uma profundidade de fila elevada de 128.
 
-| Cenário de teste | Volume de destino | Nome | resultado |
+| Cenário de teste | Volume de destino | Nome | Resultado |
 | --- | --- | --- | --- |
 | Um máximo de IOPS de leitura |CacheReads |RandomWrites\_8 K |50 000 IOPS |
 | Um máximo de Escrever IOPS |NoCacheWrites |RandomReads\_8 K |64,000 IOPS |
@@ -563,7 +563,7 @@ Enquanto executa o teste, poderá ver o número de combinado leitura e escrita I
 *Máximo combinado de débito*  
 Para obter o máximo combinado de leitura e escrita débito, utilize um tamanho de bloco maior e a profundidade de fila grande com vários threads efetuar leituras e escritas. Pode utilizar um tamanho de bloco de 64KB e a profundidade de fila de 128.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Saiba mais sobre o Premium Storage do Azure:
 
 * [Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md)  

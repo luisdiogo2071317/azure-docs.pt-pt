@@ -1,6 +1,6 @@
 ---
-title: "Segurança e do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - auditoria Accountability"
-description: "Automatização de aplicações FedRAMP Web - auditoria e Accountability"
+title: Segurança e do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - auditoria Accountability
+description: Automatização de aplicações FedRAMP Web - auditoria e Accountability
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: c37d027882882c637585d745ce81111ba30f6257
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: acb0677d48084108a9a5219f92dead10948228c8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="audit-and-accountability-au"></a>Auditoria e Accountability (AU)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de auditoria e accountability endereços objetivo, âmbito, funções, responsabilidades, compromisso de gestão, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação da auditoria accountability de política e auditoria associada e controlos de accountability; analisa e atualiza a política de auditoria e accountability atual [atribuição: frequência definida de organização]; e procedimentos de auditoria e accountability [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,11 +45,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU 2.a** organização determina que o sistema de informações é capaz de auditoria os seguintes eventos: [atribuição: definido de organização auditável eventos].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Capacidade de auditoria para este blueprint é fornecida pelo Monitor do Azure e o serviço de análise de registos no OMS. Monitor do Azure fornece registos de auditoria de detalhado sobre a atividade associados a recursos implementados. Estas e registos de nível de SO são recolhidos através da análise de registos e armazenados no repositório de OMS. Análise de registos está correlacionada com dados de auditoria em recursos implementados por esta solução e pode ser expandido para a aplicação web implementada de cliente. |
+| **Cliente** | Capacidade de auditoria para este blueprint é fornecida pelo Monitor do Azure e o serviço de análise de registos. Monitor do Azure fornece registos de auditoria de detalhado sobre a atividade associados a recursos implementados. Estas e registos de nível de SO são recolhidos através da análise de registos e armazenados na área de trabalho de análise de registos. Análise de registos está correlacionada com dados de auditoria em recursos implementados por esta solução e pode ser expandido para a aplicação web implementada de cliente. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 2.b** organização coordena a função de auditoria de segurança com outras entidades organizacionais necessidade de informações relacionadas com a auditoria para melhorar a suporte mútua e para o orientar a seleção de syslogs eventos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 2.c** organização fornece uma lógica por detrás de razão pela qual os eventos auditável considerados ser suficiente suportar as investigações de após o facto de incidentes de segurança.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 2.d** organização determina se os seguintes eventos são a serem auditados no sistema de informações: [atribuição: definido de organização auditada eventos (o subconjunto dos eventos auditável definido no recomeço AU-2), juntamente com a frequência (ou auditoria situation requiring) para cada evento identificado].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-2 (3)** organização revê e atualiza os eventos auditados [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 3** o sistema de informações gera registos de auditoria que contenham informações que estabelece o tipo de evento ocorreu, quando o evento ocorreu, onde o evento ocorreu, a origem do evento, o resultado do evento e a identidade de qualquer utilizadores individuais ou assuntos associados ao evento.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -129,11 +129,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU-3 (1)** o sistema de informações gera registos de auditoria que contém as seguintes informações adicionais: [atribuição: definida organização adicionais, informações mais detalhadas].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Eventos de registo de atividade do Azure utilizam um esquema de detalhado que contém campos de mais de 20 tipos de informações de auditoria. Para além do registo de atividade, este blueprint implementa a solução de análise de registos na OMS que suporta um conjunto diverso de origens de dados, incluindo os registos do Windows, Linux registos, registos de diagnóstico do Azure e os registos de cliente.  |
+| **Cliente** | Eventos de registo de atividade do Azure utilizam um esquema de detalhado que contém campos de mais de 20 tipos de informações de auditoria. Para além do registo de atividade, este blueprint implementa a solução de análise de registos, que suporta um conjunto diverso de origens de dados, incluindo os registos do Windows, Linux registos, registos de diagnóstico do Azure e os registos de cliente.  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-3 (2)** o sistema de informações fornece uma gestão centralizada e a configuração do conteúdo para serem capturadas nos registos de auditoria gerados por [atribuição: os componentes do sistema de informações definidas pela organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 4** organização aloca a capacidade de armazenamento de registos de auditoria em conformidade com [atribuição: requisitos de armazenamento de registos de auditoria definido de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 5.a** os alertas de sistema de informações [atribuição: técnico definido pela organização ou funções] na eventualidade de ocorrer uma falha no processamento de auditoria.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 5.b** o sistema de informações efetua as seguintes ações adicionais: [atribuição: definido de organização ações a executar (por exemplo, encerrar o sistema de informações, substituir os registos de auditoria mais antigos, parar geração de registos de auditoria)].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-5 (1)** o sistema de informações fornece um aviso para [atribuição: definido de organização técnico, funções de e/ou localizações] dentro [atribuição: organização definidos pelo período de tempo] quando o volume de armazenamento de registos de auditoria alocado atinge [ Atribuição: percentagem definido de organização] do repositório máximo capacidade de armazenamento de registos de auditoria.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-5 (2)** o sistema de informações fornece um alerta em [atribuição: organização definidos pelo período em tempo real] para [atribuição: definido de organização técnico, funções de e/ou localizações] quando ocorrem os seguintes eventos de falha de auditoria: [atribuição: definido pelo organização falha eventos de auditoria que necessitam de alertas em tempo real].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 6.a** organização revê e analisa os registos de auditoria de sistema de informações [atribuição: frequência definida de organização] indicações de [atribuição: definido de organização inapropriada ou invulgar atividade].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-6. b** organização findings para os relatórios [atribuição: técnico definido pela organização ou funções].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-6 (1)** organização emprega automatizados mecanismos para integrar a revisão de auditoria, análise e relatórios processos para suportar processos organizacionais para investigação e resposta a atividades suspeitas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -269,11 +269,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU-6 (3)** analisa a organização e correlaciona auditar registos em diferentes repositórios de obter deteção situational toda a organização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de análise de registos OMS para centralizar os dados de auditoria em recursos implementados, que suporta a deteção situational toda a organização. Os clientes podem optar por obter integrar a análise de registos com outros sistemas. |
+| **Cliente** | Este blueprint implementa a solução de análise de registos para centralizar os dados de auditoria em recursos implementados, que suporta a deteção situational toda a organização. Os clientes podem optar por obter integrar a análise de registos com outros sistemas. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -283,11 +283,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU-6 (4)** o sistema de informações fornece a capacidade de centralmente rever e analisar registos de auditoria de vários componentes no sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de análise de registos OMS para centralizar os dados de auditoria em recursos implementados, suporte revisão centralizada, análises e relatórios. |
+| **Cliente** | Este blueprint implementa a solução de análise de registos para centralizar os dados de auditoria em recursos implementados, suporte revisão centralizada, análises e relatórios. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -297,11 +297,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU-6 (5)** organização integra-se a análise de registos de auditoria com a análise das [seleção (um ou mais): a análise de informações de dados de desempenho; sistema informações informações; de monitorização de vulnerabilidade [Atribuição: recolhidos a partir de outras origens de dados/informações definidas pela organização]] para melhorar ainda mais a capacidade de identificar a atividade inapropriada ou invulgar.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Esta solução fornece uma vista abrangente do postura de segurança. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções do OMS implementadas, a integração de dados de registo e dos dados de vulnerabilidade de avaliação de patch e de linha de base. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança. Esta solução fornece uma vista abrangente do postura de segurança. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções de análise de registos implementadas, a integração de dados de registo e dos dados de vulnerabilidade de avaliação de patch e de linha de base. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-6 (6)** organização está correlacionada com informações a partir de registos de auditoria com as informações obtidas de acesso físico para melhorar ainda mais a capacidade de identificar a atividade suspeita, inadequada, invulgar ou malevolent de monitorização.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-6 (7)** organização Especifica as ações permitidas para cada [seleção (um ou mais): o processo de sistema de informações; a função de utilizador] associado a revisão, análise e relatórios de informações de auditoria.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-6 (10)** organização ajusta o nível de revisão de auditoria, análise e relatórios no sistema informações quando existe uma alteração de risco com base nas informações de imposição da lei, intelligence ou outras fontes credível de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -353,11 +353,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU 7.a** o sistema de informações fornece uma redução de auditoria e a capacidade de geração de relatórios que suporte a pedido de auditoria revisão, análise e os requisitos e as investigações de após o facto de incidentes de segurança de relatórios.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. |
+| **Cliente** | Este blueprint implementa a solução de análise de registos. Análise de registos fornece serviços de monitorização do Azure através da recolha de dados a partir dos recursos geridos para um repositório central. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -367,11 +367,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU 7** o sistema de informações fornece uma auditoria redução de capacidade e de relatório geração que não altera o conteúdo original ou tempo ordenação dos registos de auditoria.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. O conteúdo e a hora ordenação dos registos de auditoria não são alterados quando recolhidos através da análise de registos. |
+| **Cliente** | Este blueprint implementa a solução de análise de registos. Análise de registos fornece serviços de monitorização do Azure através da recolha de dados a partir dos recursos geridos para um repositório central. O conteúdo e a hora ordenação dos registos de auditoria não são alterados quando recolhidos através da análise de registos. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -381,11 +381,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU-7 (1)** o sistema de informações fornece a capacidade de processar registos de auditoria para eventos de interesse em [atribuição: campos definidos de organização auditoria nos registos de auditoria].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa a solução de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. O Log Analytics inclui uma poderosa linguagem de consultas, para extrair os dados armazenados no repositório. |
+| **Cliente** | Este blueprint implementa a solução de análise de registos. Análise de registos fornece serviços de monitorização do Azure através da recolha de dados a partir dos recursos geridos para um repositório central. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. O Log Analytics inclui uma poderosa linguagem de consultas, para extrair os dados armazenados no repositório. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 8.a** o sistema de informações utiliza os relógios de sistema interno para gerar carimbos de data / hora para registos de auditoria.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 8.b** o sistema de informações regista carimbos de data / hora para os registos de auditoria que podem ser mapeados para Hora Universal Coordenada (UTC) ou a hora de Greenwich (GMT) e cumpre [atribuição: granularidade definido de organização de medição de hora].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **.A AU-8 (1)** o sistema de informações compara os relógios de sistema de informações internas [atribuição: frequência definida de organização] com [atribuição: origem de hora de autoritativo definido de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-8 (1) .b** o sistema de informações sincroniza os relógios de sistema interno para a origem de hora autoritativo quando a diferença de tempo é superior ao [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 9** o sistema de informações protege as ferramentas de auditoria e informações de auditoria de acesso não autorizado, alteração e eliminação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -465,11 +465,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU-9 (2)** o sistema de informações efetua cópias de segurança registos de auditoria [atribuição: frequência definida de organização] para um sistema fisicamente diferente ou componente do sistema que o sistema ou componente a ser auditada.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa o serviço de análise de registos no OMS. Implementado VMs e o Azure contas de armazenamento do diagnostics origens ligada à análise de registos e mantidas em separado da respetiva origem. Dados recolhidos pelo OMS no praticamente em tempo real. |
+| **Cliente** | Este blueprint implementa o serviço de análise de registos. Implementado VMs e o Azure contas de armazenamento do diagnostics origens ligada à análise de registos e mantidas em separado da respetiva origem. Dados recolhidos pelo análise de registos em praticamente em tempo real. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -479,11 +479,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU-9 (3)** mecanismos criptográficos para proteger a integridade das ferramentas de auditoria e informações de auditoria de implementa o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa o serviço de análise de registos no OMS. Análise de registos assegura que recebidos dados de uma origem fidedigna validando certificados e a integridade dos dados com a autenticação do Azure. |
+| **Cliente** | Este blueprint implementa o serviço de análise de registos. Análise de registos assegura que recebidos dados de uma origem fidedigna validando certificados e a integridade dos dados com a autenticação do Azure. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-9 (4)** organização autoriza o acesso à gestão da funcionalidade de auditoria apenas [atribuição: definido de organização subconjunto de utilizadores privilegiados].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -508,11 +508,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU 10** o sistema de informações protege contra uma pessoa (ou processo agir em nome de um indivíduo) falsely negar ter efetuado [atribuição: ações organização-definido para ser abrangidos pelo não rejeição].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Capacidade de auditoria para este blueprint é fornecida pelo Monitor do Azure e o serviço de análise de registos no OMS. Monitor do Azure fornece registos de auditoria de detalhado sobre a atividade associados a recursos implementados. Estas e registos de nível de SO são recolhidos através da análise de registos e armazenados no repositório de OMS. Estes registos continham registos detalhados de eventos do sistema de informações e podem ajudar a proteger contra não rejeição. Além disso, o acesso aos dados de registo é restringido através de controlo de acesso baseado em funções para impedir que unauthored modificação ou eliminação de dados de registo. |
+| **Cliente** | Capacidade de auditoria para este blueprint é fornecida pelo Monitor do Azure e o serviço de análise de registos. Monitor do Azure fornece registos de auditoria de detalhado sobre a atividade associados a recursos implementados. Estas e registos de nível de SO são recolhidos através da análise de registos e armazenados na área de trabalho de análise de registos. Estes registos continham registos detalhados de eventos do sistema de informações e podem ajudar a proteger contra não rejeição. Além disso, o acesso aos dados de registo é restringido através de controlo de acesso baseado em funções para impedir que unauthored modificação ou eliminação de dados de registo. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -522,11 +522,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU 11** organização mantém os registos de auditoria para [atribuição: organização definidos pelo período de tempo consistente com a política de retenção de registos] para fornecer suporte para as investigações de após o facto de incidentes de segurança e para cumprir os regulamentares e requisitos de retenção de informações organizacionais.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa o serviço de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. Depois de recolhidos, os dados retidos durante um ano por configuração de análise de registos. |
+| **Cliente** | Este blueprint implementa o serviço de análise de registos. Análise de registos fornece serviços de monitorização do Azure através da recolha de dados a partir dos recursos geridos para um repositório central. Depois de recolhidos, os dados retidos durante um ano por configuração de análise de registos. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -536,7 +536,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 12.a** o sistema de informações fornece a capacidade de geração de registos de auditoria para os eventos auditável definidos no AU 2 um. no [atribuição: os componentes do sistema de informações definidas pela organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -550,7 +550,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 12.b** permite que o sistema de informações [atribuição: técnico definido pela organização ou funções] para selecionar os eventos auditável estão a ser auditadas ao componentes específicos do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -564,7 +564,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU 12.c** o sistema de informações gera registos de auditoria para os eventos definidos no AU 2.d. com o conteúdo definido no AU-3.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -578,11 +578,11 @@ ms.lasthandoff: 02/11/2018
 
 **AU-12 (1)** o sistema de informações compila registos de auditoria da [atribuição: os componentes do sistema de informações definidas pela organização] para um registo de auditoria de (lógico ou físico) de todo sistema que é o tempo-correlacionada com dentro [atribuição: organização definido pelo nível de tolerância para a relação entre os carimbos de data / hora de registos individuais no registo de auditoria].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa o serviço de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. Carimbos de data / hora de registo de auditoria não é alterados, assim, o registo de auditoria é correlacionado de tempo. |
+| **Cliente** | Este blueprint implementa o serviço de análise de registos. Análise de registos fornece serviços de monitorização do Azure através da recolha de dados a partir dos recursos geridos para um repositório central. Carimbos de data / hora de registo de auditoria não é alterados, assim, o registo de auditoria é correlacionado de tempo. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -592,7 +592,7 @@ ms.lasthandoff: 02/11/2018
 
 **AU-12 (3)** o sistema de informações fornece a capacidade para [atribuição: indivíduos definido pela organização ou funções] para alterar a auditoria para ser efetuada no [atribuição: componentes do sistema de informações definidas pela organização] em [ Atribuição: critérios definidos de organização selecionável eventos] dentro [atribuição: limiares de tempo definido pelo organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

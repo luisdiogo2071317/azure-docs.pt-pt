@@ -17,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: dfda95d2340d7dd57ac7b4d7ed7b0665c8e9294e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 11dc0e5f6ee398b2a745ed60cbc166e2a1697c3e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrar o tráfego de rede com um grupo de segurança de rede utilizando a CLI do Azure
 
-Pode filtrar o tráfego de rede de entrada para e de saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Grupos de segurança de rede contêm regras de segurança que filtrar o tráfego de rede pelo endereço IP, porta e protocolo. Regras de segurança são aplicadas a recursos implementados numa sub-rede. Neste artigo, saiba como:
+Pode filtrar o tráfego de rede de entrada para e de saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Grupos de segurança de rede contêm regras de segurança que filtrar o tráfego de rede pelo endereço IP, porta e protocolo. Regras de segurança são aplicadas a recursos implementados numa sub-rede. Neste artigo, vai aprender a:
 
 * Criar regras de grupo e de segurança de um segurança de rede
 * Criar uma rede virtual e associar um grupo de segurança de rede a uma sub-rede
@@ -239,8 +239,8 @@ Quando já não é necessário utilizar [eliminação do grupo de az](/cli/azure
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, criou um grupo de segurança de rede e associados-la a uma sub-rede de rede virtual. Para obter mais informações sobre grupos de segurança de rede, consulte [descrição geral de grupo de segurança de rede](security-overview.md) e [gerir um grupo de segurança de rede](virtual-network-manage-nsg-arm-ps.md).
+Neste artigo, criou um grupo de segurança de rede e associados-la a uma sub-rede de rede virtual. Para obter mais informações sobre grupos de segurança de rede, consulte [descrição geral de grupo de segurança de rede](security-overview.md) e [gerir um grupo de segurança de rede](manage-network-security-group.md).
 
 Tráfego de rotas do Azure entre sub-redes por predefinição. Em vez disso, pode optar por encaminhar o tráfego entre sub-redes através de uma VM, que serve como uma firewall, por exemplo. Para saber como, consulte [criar uma tabela de rota](tutorial-create-route-table-cli.md).

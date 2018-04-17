@@ -16,12 +16,12 @@ Estes recursos IaaS clássicos são suportados durante a migração
 * Redes Virtuais
 * Gateways de VPN
 * Express Route Gateways _(na mesma subscrição que a rede Virtual apenas)_
-* Grupos de Segurança de Rede 
-* Tabelas de Rota 
-* IPs Reservados 
+* Grupos de Segurança de Rede
+* Tabelas de Rota
+* IPs Reservados
 
 ## <a name="supported-scopes-of-migration"></a>Suportado âmbitos de migração
-Existem 4 diferentes formas para concluir a migração de recursos de computação, rede e armazenamento. Estes são 
+Existem 4 diferentes formas para concluir a migração de recursos de computação, rede e armazenamento. Estes são
 
 * Migração de máquinas virtuais (não numa rede virtual)
 * Migração de máquinas virtuais (numa rede virtual)
@@ -77,7 +77,7 @@ As seguintes funcionalidades não são atualmente suportadas. Pode, opcionalment
 | Computação | Imagens da máquina virtual. | Os blobs VHD atrás destes discos serão obter migrados quando é migrada a conta de armazenamento |
 | Rede | ACLs de ponto final. | Remova as ACLs de ponto final e repita a migração. |
 | Rede | Gateway de Aplicação | Remova o Gateway de aplicação antes de iniciar a migração e, em seguida, recriar o Gateway de aplicação depois de concluída a migração. |
-| Rede | Redes virtuais utilizando o VNet Peering. | Migrar para o Gestor de recursos de rede Virtual e, em seguida, ponto. Saiba mais sobre [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). | 
+| Rede | Redes virtuais utilizando o VNet Peering. | Migrar para o Gestor de recursos de rede Virtual e, em seguida, ponto. Saiba mais sobre [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### <a name="unsupported-configurations"></a>Configurações não suportadas
 As seguintes configurações não são atualmente suportadas.
@@ -85,7 +85,7 @@ As seguintes configurações não são atualmente suportadas.
 | Serviço | Configuração | Recomendação |
 | --- | --- | --- |
 | Resource Manager |Função de acesso baseado em controlo (RBAC) para os recursos clássicos |Porque o URI dos recursos é modificado após a migração, é recomendado que planeie as atualizações de política do RBAC que precisam para ocorrer após a migração. |
-| Computação |Associado uma VM de várias sub-redes |Atualize a configuração de sub-rede para fazer referência apenas a sub-redes. |
+| Computação |Associado uma VM de várias sub-redes |Atualize a configuração de sub-rede para referenciar apenas uma sub-rede. Esta operação pode requerer a remover a VM a um NIC secundário (o que faz referência a outra sub-rede) e reattach-lo após a migração foi concluída. |
 | Computação |Máquinas virtuais que pertencem a uma rede virtual, mas não tem uma sub-rede explícita atribuída |Pode, opcionalmente, elimine a VM. |
 | Computação |Máquinas virtuais que possuem alertas, políticas de dimensionamento automático |A migração atravessa e estas definições são ignoradas. Recomenda-se vivamente que, de avaliar o seu ambiente antes de efetuar a migração. Em alternativa, pode reconfigurar as definições de alerta depois de concluída a migração. |
 | Computação |Extensões de VM de XML (BGInfo 1.*, depurador do Visual Studio, Web Deploy e depuração remota) |Não é suportada. Recomenda-se que remova estas extensões da máquina virtual para continuar a migração ou serão removidos automaticamente durante o processo de migração. |

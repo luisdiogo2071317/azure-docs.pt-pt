@@ -1,27 +1,22 @@
 ---
-title: Controladores para o SQL Data Warehouse | Microsoft Docs
-description: "Cadeias de ligação e controladores para o SQL Data Warehouse"
+title: Cadeias de ligação para o Azure SQL Data Warehouse | Microsoft Docs
+description: Cadeias de ligação para o SQL Data Warehouse
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: 5c91f423-b550-4734-8094-c7f2c418ac8d
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 6950fff1c899510ce9291393aa3f6cb9774c994d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 3445de83ff29ecf60cbd6d021b431f444284858c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="drivers-for-azure-sql-data-warehouse"></a>Controladores para o armazém de dados SQL do Azure
+# <a name="connection-strings-for-azure-sql-data-warehouse"></a>Cadeias de ligação para o Azure SQL Data Warehouse
 Pode ligar ao SQL Data Warehouse com vários protocolos de aplicação diferente, tal como [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP] [ PHP] e [JDBC][JDBC]. Seguem-se alguns exemplos de cadeias de ligações para cada protocolo.  Também pode utilizar o portal do Azure para criar a cadeia de ligação.  Para criar a cadeia de ligação no portal do Azure, navegue até ao painel da base de dados, em *Essentials* clique em *Mostrar cadeias de ligação de base de dados*.
 
 ## <a name="sample-adonet-connection-string"></a>Cadeia de ligação do ADO.NET de exemplo

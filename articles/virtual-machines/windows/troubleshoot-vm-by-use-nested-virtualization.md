@@ -12,31 +12,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/06/2018
 ms.author: genli
-ms.openlocfilehash: 2743a00404a2ee990147dfb6e73e9c2369eb4753
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9026b702e6e0d27817955c70c733bf372005dd4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Resolver um problema VM do Azure através da Virtualização aninhada no Azure
 
-Este artigo mostra como criar um ambiente de Virtualização aninhada no Microsoft Azure, pelo que pode montar o disco do problema VM no anfitrião Hyper-V (VM de recuperação) para fins de resolução de problemas.
+Este artigo mostra como criar um ambiente de Virtualização aninhada no Microsoft Azure, pelo que pode montar o disco do problema VM no anfitrião Hyper-V (Rescue VM) para fins de resolução de problemas.
 
-## <a name="prerequisite"></a>Pré-requisito
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para montar o problema VM, a VM de recuperação tem de cumprir os pré-requisitos seguintes:
+Para montar o problema VM, a VM Rescue tem de cumprir os seguintes pré-requisitos:
 
--   A VM de recuperação tem de ser a mesma localização que o problema VM.
+-   A VM Rescue tem de ser a mesma localização que o problema VM.
 
--   A VM de recuperação tem de estar no mesmo grupo de recursos como o problema VM.
+-   A VM Rescue tem de estar no mesmo grupo de recursos como o problema VM.
 
--   A VM de recuperação tem de utilizar o mesmo tipo de conta de armazenamento (Standard ou Premium) como o problema VM.
+-   A VM Rescue tem de utilizar o mesmo tipo de conta de armazenamento (Standard ou Premium) como o problema VM.
 
-## <a name="step-1-create-a-recovery-vm-and-install-hyper-v-role"></a>Passo 1: Criar uma VM de recuperação e instalar a função Hyper-V
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Passo 1: Criar uma VM Rescue e instalar a função Hyper-V
 
-1.  Crie uma nova VM de recuperação:
+1.  Crie uma nova VM Rescue:
 
     -  Sistema operativo: Windows Server 2016 Datacenter
 
@@ -46,13 +46,13 @@ Para montar o problema VM, a VM de recuperação tem de cumprir os pré-requisit
 
     -  Selecione o mesmo tipo de armazenamento como o problema VM (Standard ou Premium).
 
-2.  Depois da VM de recuperação é criado, ambiente de trabalho remoto para a VM de recuperação.
+2.  Depois da VM Rescue é criado, ambiente de trabalho remoto para a VM Rescue.
 
 3.  No Gestor de servidor, selecione **gerir** > **para adicionar funções e funcionalidades**.
 
 4.  No **tipo de instalação** secção, selecione **instalação baseada em funções ou baseada em funcionalidade**.
 
-5.  No **servidor de destino selecione** secção, certifique-se de que a VM de recuperação está selecionada.
+5.  No **servidor de destino selecione** secção, certifique-se de que a VM Rescue está selecionada.
 
 6.  Selecione o **função Hyper-V** > **adicionar funcionalidades**.
 
@@ -70,25 +70,25 @@ Para montar o problema VM, a VM de recuperação tem de cumprir os pré-requisit
 
 13. Permitir que o servidor instalar a função Hyper-V. Esta ação demora alguns minutos e o servidor será reiniciado automaticamente.
 
-## <a name="step-2-create-the-problem-vm-on-the-recovery-vms-hyper-v-server"></a>Passo 2: Criar o problema VM no servidor de Hyper-V a VM de recuperação
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Passo 2: Criar o problema VM no servidor de Hyper-V a VM Rescue
 
 1.  Registe o nome do disco no problema VM e, em seguida, elimine o problema VM. Certifique-se de que mantém anexados todos os discos. 
 
-2.  Anexe o disco de SO do seu problema VM como um disco de dados da VM de recuperação.
+2.  Anexe o disco de SO do seu problema VM como um disco de dados da Rescue VM.
 
-    1.  Depois do problema que VM é eliminada, vá para a VM de recuperação.
+    1.  Depois do problema que VM é eliminada, vá para a VM Rescue.
 
     2.  Selecione **discos**e, em seguida, **adicionar disco de dados**.
 
     3.  Selecione o disco da VM de problema e, em seguida, selecione **guardar**.
 
-3.  Depois do disco tem com êxito ligado ao ambiente de trabalho remoto a VM de recuperação.
+3.  Depois do disco tem com êxito um ambiente de trabalho remoto, ligado à Rescue VM.
 
 4.  Abra a gestão de discos (diskmgmt.msc). Certifique-se de que o disco do problema VM está definida como **Offline**.
 
 5.  Abra o Gestor de Hyper-V: No **Gestor de servidor**, selecione o **função Hyper-V**. O servidor com o botão direito e, em seguida, selecione o **Gestor de Hyper-V**.
 
-6.  No Gestor de Hyper-V, clique com o botão direito a VM de recuperação e, em seguida, selecione **novo** > **Máquina Virtual** > **seguinte**.
+6.  No Gestor de Hyper-V, clique com o botão direito a VM Rescue e, em seguida, selecione **novo** > **Máquina Virtual** > **seguinte**.
 
 7.  Escreva um nome para a VM e, em seguida, selecione **seguinte**.
 
@@ -125,7 +125,7 @@ Para montar o problema VM, a VM de recuperação tem de cumprir os pré-requisit
 
 1.  Depois de obter a VM novamente online, encerre a VM com o Gestor de Hyper-V.
 
-2.  Vá para o [portal do Azure](https://portal.azure.com) e selecione a VM de recuperação > discos, copie o nome do disco. Irá utilizar o nome no próximo passo. Desligar o disco fixo de VM de recuperação.
+2.  Vá para o [portal do Azure](https://portal.azure.com) e selecione a VM Rescue > discos, copie o nome do disco. Irá utilizar o nome no próximo passo. Anular a exposição do disco da Rescue VM fixo.
 
 3.  Aceda a **todos os recursos**, procure o nome do disco e, em seguida, selecione o disco.
 

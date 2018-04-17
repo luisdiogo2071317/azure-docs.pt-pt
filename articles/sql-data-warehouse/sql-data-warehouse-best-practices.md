@@ -1,27 +1,23 @@
 ---
 title: Melhores práticas para o Azure SQL Data Warehouse | Microsoft Docs
-description: Recomendações e melhores práticas que deve saber quando desenvolve soluções para o Azure SQL Data Warehouse. Estas irão ajudá-lo a ser bem-sucedido.
+description: Recomendações e melhores práticas que deve saber quando desenvolve soluções para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 53ad9f654c498f562d66de461a2a489895d0a46b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 7c5eb4d2176e12874a4fd7be8c29f4ce6ffe17ba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Melhores práticas do Azure SQL Data Warehouse
-Este artigo é uma coleção de muitas das melhores práticas que o irão ajudar a obter um desempenho otimizado do Azure SQL Data Warehouse.  Alguns dos conceitos neste artigo são básicos e fáceis de explicar, outros conceitos são mais avançados e apenas falamos por alto neste artigo.  O objetivo deste artigo é proporcionar alguma orientação básica e consciencialização de áreas de foco importantes ao criar o seu armazém de dados.  Cada secção apresenta um conceito e, em seguida, encaminha-o para artigos mais detalhados que abordam o conceito de forma mais aprofundada.
+Este artigo é uma coleção de melhores práticas para ajudar a alcançar um desempenho ideal para o Azure SQL Data Warehouse.  Alguns dos conceitos neste artigo são básicos e fáceis de explicar, outros conceitos são mais avançados e apenas falamos por alto neste artigo.  O objetivo deste artigo é proporcionar alguma orientação básica e consciencialização de áreas de foco importantes ao criar o seu armazém de dados.  Cada secção apresenta um conceito e, em seguida, encaminha-o para artigos mais detalhados que abordam o conceito de forma mais aprofundada.
 
 Se está a começar a utilizar o Azure SQL Data Warehouse, não deixe que este artigo o intimide.  A sequência dos tópicos está maioritariamente por ordem de importância.  Se começar por se concentrar nos primeiros conceitos, estará no bom caminho.  Quando estiver mais familiarizado e à vontade com a utilização do SQL Data Warehouse, regresse e veja mais alguns conceitos.  Não irá demorar muito tempo para que tudo faça sentido.
 
@@ -52,7 +48,7 @@ Apesar do Polybase, também conhecido como tabelas externas, poder ser a forma m
 Veja também [Guide for using PolyBase][Guide for using PolyBase]
 
 ## <a name="hash-distribute-large-tables"></a>Distribuir tabelas grandes por hash
-Por predefinição, as tabelas são distribuídas por Round Robin.  Isto torna mais fácil para os utilizadores começarem a criar tabelas, sem terem de decidir sobre como as respetivas tabelas devem ser distribuídas.  As tabelas Round Robin podem ter um desempenho suficiente para algumas cargas de trabalho, mas, na maioria dos casos, selecionar uma coluna de distribuição irá proporcionar um desempenho muito melhor.  O exemplo mais comum de quando uma tabela distribuída por uma coluna supera de longe uma tabela Round Robin é quando duas tabelas de factos grandes são associadas.  Por exemplo, se tiver uma tabela de pedidos, que é distribuída por order_id, e uma tabela de transações, que também é distribuída por order_id, quando associa a tabela de pedidos à tabela de transações em order_id, esta consulta torna-se uma consulta pass-through, o que significa que podemos eliminar operações de movimento de dados.  Menos passos significam uma consulta mais rápida.  Menos movimento de dados também torna as consultas mais rápidas.  Esta é uma explicação por alto. Ao carregar uma tabela distribuída, certifique-se de que os dados recebidos não estão ordenados na chave de distribuição, uma vez que isto desacelera os carregamentos.  Consulte as ligações abaixo para obter mais detalhes sobre como selecionar uma coluna de distribuição pode melhorar o desempenho e sobre como definir uma tabela distribuída na cláusula WITH da instrução CREATE TABLES.
+Por predefinição, as tabelas são distribuídas por Round Robin.  Isto torna mais fácil para os utilizadores começarem a criar tabelas, sem terem de decidir sobre como as respetivas tabelas devem ser distribuídas.  As tabelas Round Robin podem ter um desempenho suficiente para algumas cargas de trabalho, mas, na maioria dos casos, selecionar uma coluna de distribuição irá proporcionar um desempenho muito melhor.  O exemplo mais comum de quando uma tabela distribuída por uma coluna supera de longe uma tabela Round Robin é quando duas tabelas de factos grandes são associadas.  Por exemplo, se tiver uma tabela de pedidos, que é distribuída por order_id, e uma tabela de transações, que também é distribuída por order_id, quando associa a tabela de pedidos à tabela de transações em order_id, esta consulta torna-se uma consulta pass-through, o que significa que podemos eliminar operações de movimento de dados.  Menos passos significam uma consulta mais rápida.  Menos movimento de dados também torna as consultas mais rápidas.  Esta explicação scratches apenas a superfície. Ao carregar uma tabela distribuída, certifique-se de que os dados recebidos não estão ordenados na chave de distribuição, uma vez que isto desacelera os carregamentos.  Consulte as ligações abaixo para obter mais detalhes sobre como selecionar uma coluna de distribuição pode melhorar o desempenho e sobre como definir uma tabela distribuída na cláusula WITH da instrução CREATE TABLES.
 
 Veja também [Table overview][Table overview] (Descrição geral das tabelas), [Table distribution][Table distribution] (Distribuição de tabelas), [Selecting table distribution][Selecting table distribution] (Selecionar a distribuição de tabelas), [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
@@ -77,7 +73,7 @@ Quando está temporariamente a colocar dados no SQL Data Warehouse, utilizar uma
 Veja também [Temporary tables][Temporary tables] (Tabelas temporárias), [CREATE TABLE][CREATE TABLE] e [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Otimizar tabelas columnstore em cluster
-Os índices columnstore em cluster são uma das formas mais eficientes de armazenar os seus dados no SQL Data Warehouse.  Por predefinição, as tabelas no SQL Data Warehouse são criadas como ColumnStore em Cluster.  Para obter o melhor desempenho das consultas em tabelas columnstore, ter uma boa qualidade de segmento é importante.  Quando as linhas são escritas em tabelas columnstore sob pressão de memória, a qualidade de segmento de columnstore poderá sofrer consequências.  A qualidade de segmento pode ser medida pelo número de linhas num Grupo de Linhas comprimido.  Veja [Causes of poor columnstore index quality][Causes of poor columnstore index quality] (Causas da má qualidade do índice columnstore) no artigo [Table indexes][Table indexes] (Índices de tabela) para obter instruções passo a passo sobre como detetar e melhorar a qualidade do segmento para tabelas columnstore em cluster.  Uma vez que é importante a elevada qualidade dos segmentos de columnstore, é uma boa ideia utilizar os IDs de utilizadores que pertencem à classe de recursos média ou grande para carregar os dados. A utilização de [níveis de serviço](performance-tiers.md#service-levels) inferiores significa que pretende atribuir uma classe de recursos maior ao utilizador de carregamento.
+Os índices columnstore em cluster são uma das formas mais eficientes de armazenar os seus dados no SQL Data Warehouse.  Por predefinição, as tabelas no SQL Data Warehouse são criadas como ColumnStore em Cluster.  Para obter o melhor desempenho das consultas em tabelas columnstore, ter uma boa qualidade de segmento é importante.  Quando as linhas são escritas em tabelas columnstore sob pressão de memória, a qualidade de segmento de columnstore poderá sofrer consequências.  A qualidade de segmento pode ser medida pelo número de linhas num Grupo de Linhas comprimido.  Veja [Causes of poor columnstore index quality][Causes of poor columnstore index quality] (Causas da má qualidade do índice columnstore) no artigo [Table indexes][Table indexes] (Índices de tabela) para obter instruções passo a passo sobre como detetar e melhorar a qualidade do segmento para tabelas columnstore em cluster.  Porque os segmentos de alta qualidade columnstore são importantes, é uma boa ideia utilizar IDs que se encontrem na classe de recursos de médias ou grandes para carregar dados de utilizadores. Utilizando inferiores [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md) significa que pretende atribuir uma maior classe de recursos para o utilizador de carregamento.
 
 Uma vez que as tabelas columnstore geralmente não enviam dados para um segmento de columnstore comprimido até que existam mais de 1 milhão de linhas por tabela e cada tabela do SQL Data Warehouse esteja dividida em 60 tabelas, como regra, as tabelas columnstore não beneficiam uma consulta se a tabela não tiver mais de 60 milhões de linhas.  Para tabelas com menos de 60 milhões de linhas, pode não fazer qualquer sentido ter um índice columnstore.  Também poderá não prejudicar.  Além disso, se dividir os dados, deverá ter em consideração que cada partição tem de ter 1 milhão de linhas para beneficiar de um índice columnstore em cluster.  Se uma tabela tiver 100 partições, terá de ter, pelo menos, 6 milhões de linhas para beneficiar de um arquivo de colunas em cluster (60 distribuições * 100 partições * 1 milhão de linhas).  Se a sua tabela não tiver 6 mil milhões de linhas neste exemplo, reduza o número de partições ou considere a utilização de uma tabela de área dinâmica para dados.  Também poderá ser útil experimentar, para ver se consegue obter um melhor desempenho com uma tabela de área dinâmica para dados com índices secundários, em vez de uma tabela columnstore.
 
@@ -103,7 +99,7 @@ Veja também [Monitor your workload using DMVs][Monitor your workload using DMVs
 ## <a name="other-resources"></a>Outros recursos
 Veja também o nosso artigo de [Troubleshooting][Troubleshooting] (Resolução de Problemas) para consultar problemas comuns e soluções.
 
-Se não encontrar o que procura neste artigo, experimente utilizar a "Pesquisa de documentos" no lado esquerdo desta página para pesquisar todos os documentos do Azure SQL Data Warehouse.  O [Fórum do MSDN do Azure SQL Data Warehouse][Azure SQL Data Warehouse MSDN Forum] foi criado como um local para fazer perguntas a outros utilizadores e ao Grupo de Produto do SQL Data Warehouse.  Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  Se preferir fazer as suas perguntas no Stack Overflow, também temos um [Fórum do Stack Overflow do Azure SQL Data Warehouse][Azure SQL Data Warehouse Stack Overflow Forum].
+Se não encontrar o que procura neste artigo, experimente utilizar a "Pesquisa de documentos" no lado esquerdo desta página para pesquisar todos os documentos do Azure SQL Data Warehouse.  O [fórum do Azure SQL Data Warehouse] [ Azure SQL Data Warehouse MSDN Forum] é um local para que possa fazer perguntas para outros utilizadores e para o grupo de produtos do armazém de dados SQL.  Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  Se preferir fazer as suas perguntas no Stack Overflow, também temos um [Fórum do Stack Overflow do Azure SQL Data Warehouse][Azure SQL Data Warehouse Stack Overflow Forum].
 
 Por último, utilize a página [Comentários do Azure SQL Data Warehouse][Azure SQL Data Warehouse Feedback] para fazer pedidos de funcionalidades.  Adicionar os seus pedidos ou votar noutros pedidos que realmente nos ajudam a priorizar funcionalidades.
 
@@ -124,9 +120,9 @@ Por último, utilize a página [Comentários do Azure SQL Data Warehouse][Azure 
 [Guide for using PolyBase]: ./guidance-for-loading-data.md
 [Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
-[Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
+[Load data with Azure Data Factory]: ../data-factory/load-azure-sql-data-warehouse.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with PolyBase]: ./load-data-wideworldimportersdw.md
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk

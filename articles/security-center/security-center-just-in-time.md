@@ -1,12 +1,12 @@
 ---
-title: "Apenas na máquina virtual de tempo de acesso no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento demonstra como apenas no tempo de acesso VM no Centro de segurança do Azure ajuda-o a controlar o acesso às máquinas virtuais do Azure."
+title: Apenas na máquina virtual de tempo de acesso no Centro de segurança do Azure | Microsoft Docs
+description: Este documento demonstra como apenas no tempo de acesso VM no Centro de segurança do Azure ajuda-o a controlar o acesso às máquinas virtuais do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual utilizando apenas no tempo
 
 Apenas na máquina virtual de tempo (VM), acesso pode ser utilizado para bloquear o tráfego de entrada para as VMs do Azure, reduzir a exposição a ataques, fornecendo acesso fácil para ligar a VMs, quando necessário.
 
 > [!NOTE]
-> O apenas tempo funcionalidade está disponível na camada padrão do Centro de segurança.  Consulte [preços](security-center-pricing.md) para saber mais acerca do Centro de segurança do escalões de preço.
+> O apenas tempo funcionalidade está disponível na camada padrão do Centro de segurança.  Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
 >
 >
 
@@ -41,7 +41,7 @@ Uma forma para reduzir a exposição a um ataque de força bruta é para limitar
 
 Quando o just in time estiver ativado, o Centro de Segurança bloqueia o tráfego de entrada para as suas VMs do Azure através da criação de uma regra NSG. Selecione as portas na VM para o qual vai ser bloqueado a tráfego de entrada. Estas portas são controladas mediante a apenas na solução de tempo.
 
-Quando um utilizador solicita acesso a uma VM, o Centro de segurança verifica se o utilizador tem [controlo de acesso baseado em funções (RBAC)](../active-directory/role-based-access-control-configure.md) permissões que fornecem acesso de escrita para a VM. Se têm permissões de escrita, o pedido é aprovado e o Centro de segurança configura automaticamente os grupos de segurança de rede (NSGs) para permitir tráfego de entrada para as portas de gestão para a quantidade de tempo especificado. Depois do tempo expirou, o Centro de segurança restaura os NSGs para os respetivos Estados de anteriores.
+Quando um utilizador solicita acesso a uma VM, o Centro de segurança verifica se o utilizador tem [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md) permissões que fornecem acesso de escrita para a VM. Se têm permissões de escrita, o pedido é aprovado e o Centro de segurança configura automaticamente os grupos de segurança de rede (NSGs) para permitir tráfego de entrada para as portas de gestão para a quantidade de tempo especificado. Depois do tempo expirou, o Centro de segurança restaura os NSGs para os respetivos Estados de anteriores.
 
 > [!NOTE]
 > Centro de segurança apenas do acesso VM de tempo atualmente suporta apenas as VMs implementadas através do Azure Resource Manager. Para obter mais informações sobre clássica e modelos de implementação do Resource Manager, consulte [vs. de implementação clássica do Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 7c41550d1fe9cf5981406d25599e51aa119eb697
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8ea768c6ba8b404978b78f2cbd272f98af3fa70b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Linux em distribuições aprovadas pelo Azure
 Parceiros fornecer imagens de Linux no Azure Marketplace. Estamos a trabalhar com várias comunidades de Linux para adicionar tipos ainda mais a lista de distribuição aprovadas. Entretanto, para as distribuições que não estão disponíveis no Marketplace, que pode sempre colocar o seus próprios Linux ao seguir as diretrizes no [criar e carregar um disco rígido virtual que contém o sistema operativo Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-generic).
@@ -27,21 +27,21 @@ Parceiros fornecer imagens de Linux no Azure Marketplace. Estamos a trabalhar co
 ## <a name="supported-distributions-and-versions"></a>Distribuições suportadas e as versões
 A tabela seguinte lista as distribuições de Linux e versões que são suportadas no Azure. Consulte [suporte para imagens de Linux no Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) para obter mais informações sobre o suporte para Linux e tecnologia de código aberto no Azure.
 
-Os controladores de serviços de integração Linux (LIS) para o Hyper-V e do Azure são módulos de kernel que Microsoft contribui diretamente para o kernel do Linux a montante.  Alguns controladores LIS estão incorporados em kernel a distribuição por predefinição. Distribuições mais antigas que se baseiam no Red Hat Enterprise (RHEL) CentOS são disponíveis como uma transferência individual no [4.1 versão de serviços de integração do Linux para Hyper-V](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Consulte [requisitos de kernel do Linux](create-upload-generic.md#linux-kernel-requirements) para obter mais informações sobre os controladores de LIS.
+Os controladores de serviços de integração Linux (LIS) para o Hyper-V e do Azure são módulos de kernel que Microsoft contribui diretamente para o kernel do Linux a montante.  Alguns controladores LIS estão incorporados em kernel a distribuição por predefinição. Distribuições mais antigas que se baseiam no Red Hat Enterprise (RHEL) CentOS são disponíveis como uma transferência individual no [4.2 versão de serviços de integração do Linux para Hyper-V e o Azure](https://www.microsoft.com/en-us/download/details.aspx?id=55106). Consulte [requisitos de kernel do Linux](create-upload-generic.md#linux-kernel-requirements) para obter mais informações sobre os controladores de LIS.
 
 O agente Linux do Azure já está instalado previamente nas imagens do Azure Marketplace e está normalmente disponível a partir do repositório de pacote de distribuição. Código de origem pode ser encontrado no [GitHub](https://github.com/azure/walinuxagent).
 
   
 | Distribuição | Versão | Controladores | Agente |
 | --- | --- | --- | --- |
-| CentOS |CentOS 6.3 + 7.0 + |CentOS 6.3: [LIS transferir](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: na kernel |Pacote: [repositório](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) em "WALinuxAgent" <br/>Código de origem: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| CentOS |CentOS 6.3 + 7.0 + |CentOS 6.3: [LIS transferir](https://www.microsoft.com/en-us/download/details.aspx?id=55106)<p>CentOS 6.4 +: na kernel |Pacote: [repositório](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) em "WALinuxAgent" <br/>Código de origem: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |Na kernel |Código de origem: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7.9 +, 8.2 + |Na kernel |Pacote de: no repositório em "waagent" <br/>Código de origem: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4+, 7.0+ |Na kernel |Pacote de: no repositório em "WALinuxAgent" <br/>Código de origem: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7 + 7.1 + |Na kernel |Pacote de: no repositório em "WALinuxAgent" <br/>Código de origem: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| SUSE Linux Enterprise |SLES/SLES para SAP<br>11 SP4<br>12 SP1+|Na kernel |Pacote de:<p> para 11 no [nuvem: ferramentas](https://build.opensuse.org/project/show/Cloud:Tools) repositório<br>para 12 incluídos no módulo "Nuvem pública" em "python-azure-agente"<br/>Código de origem: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| SUSE Linux Enterprise |SLES/SLES para SAP<br>11 SP4<br>12 SP1 +|Na kernel |Pacote de:<p> para 11 no [nuvem: ferramentas](https://build.opensuse.org/project/show/Cloud:Tools) repositório<br>para 12 incluídos no módulo "Nuvem pública" em "python-azure-agente"<br/>Código de origem: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE bissexto 42.2 + |Na kernel |Pacote: [nuvem: ferramentas](https://build.opensuse.org/project/show/Cloud:Tools) repositório em "python-azure-agente" <br/>Código de origem: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |Na kernel |Pacote de: no repositório em "walinuxagent" <br/>Código de origem: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04 +  **<sup>1</sup>** |Na kernel |Pacote de: no repositório em "walinuxagent" <br/>Código de origem: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
   - **<sup>1</sup>**  para Ubuntu 12.04 suporte no Azure, consulte o [aviso EOL](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
 

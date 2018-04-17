@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b0a704a6ac4a317e0d8e280a9353b04f9b4d919b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas mais frequentes de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -262,7 +262,7 @@ Pode fornecer as chaves públicas SSH em texto simples quando criar uma VM com L
  
 nome do elemento linuxConfiguration | Necessário | Tipo | Descrição
 --- | --- | --- | --- |  ---
-ssh | Não | Coleção | Especifica a configuração da chave SSH para um SO Linux
+SSH | Não | Coleção | Especifica a configuração da chave SSH para um SO Linux
 caminho | Sim | Cadeia | Especifica o caminho de ficheiro do Linux em que as chaves SSH ou o certificado deve estar localizado
 keyData | Sim | Cadeia | Especifica uma chave pública de SSH com codificação base64
 
@@ -383,7 +383,7 @@ Para obter mais informações, veja o [Centro de Fidedignidade da Microsoft](htt
 
 ### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Does [identidade de serviço gerida do Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) trabalhar com conjuntos de dimensionamento de máquina virtual?
 
-Sim. Pode ver alguns modelos MSI do exemplo nos modelos de início rápido do Azure. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
+Sim. Pode ver alguns modelos MSI do exemplo nos modelos de início rápido do Azure. Linux: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## <a name="extensions"></a>Extensões
@@ -402,9 +402,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 Pode encontrar o valor extensionName `$vmss`.
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>Existe que um dimensionamento da máquina virtual definir exemplo de modelo que se integra com o Operations Management Suite?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Existe que um dimensionamento da máquina virtual definir exemplo de modelo que se integra com a análise de registos?
 
-Para um dimensionamento da máquina virtual definido exemplo de modelo que se integra com o Operations Management Suite, consulte o segundo exemplo na [implementar um cluster do Service Fabric do Azure e ative a monitorização utilizando a análise de registos](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Para um dimensionamento da máquina virtual definido exemplo de modelo que se integra com a análise de registos, consulte o segundo exemplo na [implementar um cluster do Service Fabric do Azure e ative a monitorização utilizando a análise de registos](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
    
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Extensões aparentemente, executadas em paralelo em conjuntos de dimensionamento de máquina virtual. Isto faz com que a minha extensão de script personalizado falhou. O que posso fazer para corrigir este problema?
 
@@ -693,9 +693,9 @@ Sim, pode utilizar a operação de recriação de imagem para a reposição de u
 
 Para obter mais informações, consulte [gerir todas as VMs num conjunto de dimensionamento de máquina virtual](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>É possível integrar conjuntos de dimensionamento com o Azure OMS (Operations Management Suite)?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>É possível integrar conjuntos de dimensionamento Log Analytics do Azure?
 
-Sim, pode ao instalar a extensão do OMS na escala definir VMs. Eis um exemplo da CLI do Azure:
+Sim, pode ao instalar a extensão de análise de registos na escala definir VMs. Eis um exemplo da CLI do Azure:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
@@ -734,7 +734,7 @@ Quando é criada uma nova VM, a propriedade InstanceView da VM mostra os detalhe
 
 Para obter informações sobre propriedades para cada VM sem fazer chamadas de várias, pode chamar `ListVMInstanceViews` efetuando uma API REST `GET` no URI do recurso seguinte:
 
-/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
+/subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} < subscription_id > /resourceGroups/ < resource_group_name > /providers/Microsoft.Compute/virtualMachineScaleSets/ < scaleset_name > / virtualMachines? $expand = instanceView & $select = instanceView
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Pode passar argumentos da extensão diferentes para diferentes VMs num conjunto de dimensionamento de máquina virtual?
 

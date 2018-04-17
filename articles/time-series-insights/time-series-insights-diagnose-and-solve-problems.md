@@ -1,6 +1,6 @@
 ---
-title: "Diagnosticar e resolver problemas nas informações de séries de tempo do Azure | Microsoft Docs"
-description: "Este artigo descreve como diagnosticar, resolver problemas e resolver problemas comuns que poderá encontrar no seu ambiente de informações de séries de tempo do Azure."
+title: Diagnosticar e resolver problemas nas informações de séries de tempo do Azure | Microsoft Docs
+description: Este artigo descreve como diagnosticar, resolver problemas e resolver problemas comuns que poderá encontrar no seu ambiente de informações de séries de tempo do Azure.
 services: time-series-insights
 ms.service: time-series-insights
 author: venkatgct
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/15/2017
-ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/09/2018
+ms.openlocfilehash: f0c1b8aa99e9ac9c73f57af17490dd3a465a9cac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas no seu ambiente de informações de séries de tempo
 
@@ -45,6 +45,11 @@ Durante o registo de am IoT Hub ou hub de eventos, especifique o grupo de consum
 Quando podem ver dados parcialmente, mas os dados é lagging, existem várias possibilidades a ter em consideração:
 
 ### <a name="possible-cause-a-your-environment-is-getting-throttled"></a>Uma causa possível r: o seu ambiente é obter limitada
+Este é um problema comum quando são aprovisionados ambientes após a criação de uma origem de evento com dados.  Os Hubs IoT do Azure e de Hubs de eventos armazenam dados de cópia de segurança para sete dias.  TSI sempre será iniciada a provenientes do evento de mais antigo (FIFO), da origem do evento.  Por isso, se tiver cinco milhões de eventos numa origem de evento, quando liga a um S1, ambiente de TSI única unidade, TSI irá ler aproximadamente um milhão de eventos por dia.  Isto poderá ser apresentado ver como se se tratasse TSI está com tempos limite de latência de cinco dias à primeira vista.  O que acontece, na verdade, é que o ambiente está a ser limitado.  Se tiver a eventos antigos na sua origem de evento, pode abordam uma de duas formas:
+
+- Limites de retenção da sua origem de evento para ajudar a eliminar eventos antigos que não pretende que apareçam na TSI de alteração
+- Aprovisione um tamanho maior de ambiente (em termos de número de unidades de) para aumentar o débito de eventos antigos.  O ambiente utilizando o exemplo acima, se aumentado nesse mesmo ambiente S1 às cinco unidades durante um dia, deve ser catch-up para agora dentro do dia.  Se a produção de eventos de estado de repouso 1M ou menos eventos diário, pode reduzir a capacidade do evento de volta para baixo para uma unidade após detetou-se de.  
+
 O limite de limitação é imposto com base no tipo SKU do ambiente e a capacidade. Todas as origens de eventos no ambiente de partilham esta capacidade. Se a origem do evento para o seu IoT Hub ou hub de eventos está a enviar dados que ultrapassem os limites impostos, verá limitação e um atraso.
 
 O diagrama seguinte mostra um ambiente de informações de séries de tempo que tem um SKU de S1 e uma capacidade de 3. Pode eventos de 3 milhões de entrada por dia.
@@ -77,6 +82,12 @@ Certifique-se de que o nome e valor em conformidade com as seguintes regras:
 * É o nome da propriedade timestamp _maiúsculas e minúsculas_.
 * O valor da propriedade timestamp que provêm da sua origem de evento, como uma cadeia JSON, deve ter o formato _aaaa-MM-ddTHH. FFFFFFFK_. Um exemplo de uma cadeia de tal é "2008-04-12T12:53Z".
 
-## <a name="next-steps"></a>Passos seguintes
+A forma mais fácil de garantir que o *nome da propriedade timestamp* são capturadas e a funcionar corretamente é a utilização do explorer TSI.  No Explorador de TSI, utilizando o gráfico, selecione um período de tempo depois de que forneceu o *nome da propriedade timestamp*.  Clique com o botão direito a seleção e escolha o *explorar eventos* opção.  O primeiro cabeçalho de coluna deve ser o *nome da propriedade timestamp* e deve ter um *($ts)* junto a palavra *Timestamp*, vez:
+- *(abc)* , que deverá indicar TSI está a ler os valores de dados como cadeias
+- *Ícone de calendário*, que deverá indicar TSI está a ler o valor de dados como *datetime*
+- *#*, que deverá indicar TSI está a ler os valores de dados como um número inteiro
+
+
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter ajuda adicional, iniciar uma conversação a [fórum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 
 - Também pode utilizar [suporte do Azure](https://azure.microsoft.com/support/options/) para as opções de suporte assistido.

@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 26204d5bd61d193a3d08e26f98faf77ecc367a94
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0eda9012e6b6c7207d200a6e550b6bc0b0b09882
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Utilizar réplicas de só de leitura para carregar saldo de consulta só de leitura cargas de trabalho (pré-visualização)
 
@@ -32,7 +32,7 @@ Depois de leitura Escalamento horizontal é ativado para uma base de dados, a li
 
 ## <a name="data-consistency"></a>Consistência dos dados
 
-Uma das vantagens de AlwasyON é que as réplicas sempre estão no estado de uma forma consistente, mas em diferentes pontos no tempo poderão existir alguns latência pequena entre réplicas diferentes. Escalamento de leitura suporta a consistência de nível de sessão. Significa que, se a sessão só de leitura fosse ligado depois de um erro de ligação causado pela indisponibilidade de réplica, podem ser redirecionado para uma réplica que não é atualizado com a réplica de leitura-escrita de 100%. Da mesma forma, se uma aplicação escreve dados através de uma sessão de leitura / escrita e imediatamente lê-la através de uma sessão só de leitura, é possível que as atualizações mais recentes não estão imediatamente visíveis. Isto acontece porque a ação de Refazer de registo de transação para as réplicas é assíncrona.
+Uma das vantagens do AlwaysON é que as réplicas sempre estão no estado de uma forma consistente, mas em diferentes pontos no tempo poderão existir alguns latência pequena entre réplicas diferentes. Escalamento de leitura suporta a consistência de nível de sessão. Significa que, se a sessão só de leitura fosse ligado depois de um erro de ligação causado pela indisponibilidade de réplica, podem ser redirecionado para uma réplica que não é atualizado com a réplica de leitura-escrita de 100%. Da mesma forma, se uma aplicação escreve dados através de uma sessão de leitura / escrita e imediatamente lê-la através de uma sessão só de leitura, é possível que as atualizações mais recentes não estão imediatamente visíveis. Isto acontece porque a ação de Refazer de registo de transação para as réplicas é assíncrona.
 
 > [!NOTE]
 > Latências de replicação na região são baixas e esta situação é raro.

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
 
@@ -85,16 +85,16 @@ Seguem-se os pontos principais que terá de saber sobre como utilizar o RBAC par
 * Pode criar um relatório de quem concedido/revogado que tipo de acesso para/de quem e no qual âmbito utilizando o PowerShell ou a CLI do Azure.
 
 #### <a name="resources"></a>Recursos
-* [Controlo de Acesso Baseado em Funções do Azure Active Directory](../../active-directory/role-based-access-control-configure.md)
+* [Controlo de Acesso Baseado em Funções do Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   Este artigo explica o Controlo de Acesso Baseado em Funções do Azure Active Directory e como funciona.
-* [RBAC: Funções Incorporadas](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: Funções Incorporadas](../../role-based-access-control/built-in-roles.md)
 
   Este artigo fornece detalhes sobre todas as funções incorporadas disponíveis no RBAC.
 * [Compreender a implementação do Resource Manager e a implementação clássica](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   Este artigo explica a implementação do Resource Manager e modelos de implementação clássica e explica as vantagens de utilizar os grupos de recursos e do Resource Manager. Explica como funcionam os computação do Azure, rede e fornecedores de armazenamento sob o modelo Resource Manager.
-* [Gerir o Controlo de Acesso Baseado em Funções com a API REST](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [Gerir o Controlo de Acesso Baseado em Funções com a API REST](../../role-based-access-control/role-assignments-rest.md)
 
   Este artigo mostra como utilizar a API REST para gerir o RBAC.
 * [Referência de API de REST de fornecedor de recursos de armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx)
@@ -427,7 +427,7 @@ Temos três cenários que, se estiver interessados em.
    1.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
 3. O blob é privado e a chave de armazenamento foi utilizada para aceder ao mesmo. Neste caso, o estado do pedido é "**êxito**"e o tipo de autorização é"**autenticado**".
 
-   1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
+   1.0; 2015-11-16T18:32:24.3174537Z; GetBlob; **Êxito**; 206; 59 22; **autenticado**; mystorage...
 
 Pode utilizar o Microsoft Message Analyzer para ver e analisar estes registos. Inclui capacidades de pesquisa e filtrar. Por exemplo, pode querer pesquisar instâncias de GetBlob para ver se a utilização for o que esperar, ou seja, para se certificar de que alguém está não aceder à sua conta do storage inadequada.
 
@@ -507,7 +507,7 @@ Para obter mais informações sobre CORS e como ativá-la, consulte estes recurs
    Se é possível utilizar HTTPS, que fornece segurança ao nível do transporte, em seguida, a utilização de MD5 a verificação é redundante e desnecessários.
 
    Para obter mais informações, consulte o [descrição geral do Azure Blob MD5](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
-2. **O que sobre a conformidade FIPS para EUA Government?**
+2. **O que sobre a conformidade FIPS para EUA Governo dos EUA?**
 
    O Federal informações processamento padrão FIPS (United States) define os algoritmos criptográficos aprovados para utilização pelos E.U.A. Governo Federal dos sistemas de para a proteção de dados confidenciais. Ativar FIPS modo num ambiente de trabalho do Windows server ou indica o SO que devem ser utilizados apenas validados FIPS algoritmos criptográficos. Se uma aplicação utiliza algoritmos não compatíveis, as aplicações irão interromper. Versões de With.NET Framework 4.5.2 ou superior, a aplicação muda automaticamente os algoritmos de criptografia para utilizar algoritmos compatíveis com FIPS quando o computador está no modo FIPS.
 

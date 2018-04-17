@@ -1,25 +1,25 @@
 ---
-title: "Meteorologia previsão a utilizar o Azure Machine Learning com dados a partir do IoT Hub | Microsoft Docs"
-description: "Utilização do Azure Machine Learning para prever a possibilidade de rain com base nos dados relativos à temperatura e humidade que recolhe o seu IoT hub a partir de um sensor."
+title: Meteorologia previsão a utilizar o Azure Machine Learning com dados a partir do IoT Hub | Microsoft Docs
+description: Utilização do Azure Machine Learning para prever a possibilidade de rain com base nos dados relativos à temperatura e humidade que recolhe o seu IoT hub a partir de um sensor.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "Meteorologia previsão de aprendizagem"
+tags: ''
+keywords: Meteorologia previsão de aprendizagem
 ms.assetid: 8ba7d9e7-699c-4448-b353-0f3e1429d198
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
-ms.author: xshi
-ms.openlocfilehash: ec6bd6b053f6546c77508d29065de25739619d96
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 453b4de8a93e897b4455403855438d7705945514
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Meteorologia previsão a utilizar os dados de sensor do seu hub IoT no Azure Machine Learning
 

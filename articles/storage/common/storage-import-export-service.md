@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o Storage do Azure
 Neste artigo, fornecemos instruções passo a passo sobre como utilizar o serviço importar/exportar do Azure para transferir de forma segura grandes quantidades de dados para o Blob storage do Azure e ficheiros do Azure por envio unidades de disco para um centro de dados do Azure. Este serviço também pode ser utilizado para transferir dados do storage do Azure para unidades de disco rígido e são enviados para os sites no local. Dados a partir de uma única unidade de disco SATA interna podem ser importados o Blob storage do Azure ou os ficheiros do Azure. 
@@ -45,7 +45,7 @@ Siga o procedimento abaixo se os dados no disco para serem importados para o Sto
     |Opção  |Descrição  |
     |---------|---------|
     |/j:     |O nome do ficheiro diário de alterações, com a extensão de .jrn. Um ficheiro do diário de alterações é gerado por unidade. É recomendado utilizar o número de série de disco como o nome de ficheiro do diário de alterações.         |
-    |/sk:     |A chave de conta do Storage do Azure.         |
+    |/SK:     |A chave de conta do Storage do Azure.         |
     |/t:     |A letra de unidade do disco para enviada. Por exemplo, unidade `D`.         |
     |/bk:     |A chave do BitLocker para a unidade. A palavra-passe numérica da saída de ` manage-bde -protectors -get D: `      |
     |/srcdir:     |A letra de unidade do disco para enviada seguido `:\`. Por exemplo, `D:\`.         |
@@ -427,7 +427,7 @@ Verificações prévias seguintes são recomendadas para preparar a unidades par
    | --- | --- | --- |
    | Começa por |/ |Exporta todos os blobs na conta de armazenamento |
    | Começa por |/$root / |Exporta todos os blobs no contentor de raiz |
-   | Começa por |/book |Exporta todos os blobs em qualquer contentor que começa com o prefixo **livro** |
+   | Começa por |/Book |Exporta todos os blobs em qualquer contentor que começa com o prefixo **livro** |
    | Começa por |/Music/ |Exporta todos os blobs no contentor **música** |
    | Começa por |música/love |Exporta todos os blobs no contentor **música** que começam com prefixo **adoram** |
    | Igual a |$root/logo.bmp |Blob de exportações **logo.bmp** no contentor de raiz |
@@ -560,7 +560,7 @@ Tamanho do Blob de página máximo é 1TB.
 
 Serviço de importação/exportação do Azure por predefinição encripta com a encriptação bitlocker AES 128, mas isto pode ser aumentado para AES 256 ao encriptar manualmente com o bitlocker antes de dados são copiados. 
 
-Se utilizar [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), segue-se um comando de exemplo
+Se utilizar [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), segue-se um comando de exemplo
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```

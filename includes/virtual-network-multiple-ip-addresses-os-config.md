@@ -1,6 +1,22 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-network
+author: jimdial
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: 1febadbbf7821988600d6feddc94fce25d15e989
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="os-config"></a>Adicionar endereços IP ao sistema operativo de uma VM
 
-Ligue-se e inicie sessão numa VM criada por si com múltiplos endereços IP privados. Tem de adicionar manualmente todos os endereços IP privados (incluindo o principal) que adicionou à VM. Conclua os passos seguintes relativamente ao sistema operativo da sua VM:
+Ligue-se e inicie sessão numa VM criada por si com múltiplos endereços IP privados. Tem de adicionar manualmente todos os endereços IP privados (incluindo o principal) que adicionou à VM. Conclua os passos que seguem para o seu sistema de operativo VM.
 
 ### <a name="windows"></a>Windows
 
@@ -13,17 +29,16 @@ Ligue-se e inicie sessão numa VM criada por si com múltiplos endereços IP pri
     * **Endereço IP**: Introduza o endereço IP privado *Principal*
     * **Máscara de sub-rede**: Conjunto baseado na sua sub-rede. Por exemplo, se a sub-rede for uma sub-rede /24, a máscara de sub-rede será 255.255.255.0.
     * **Gateway predefinido**: O primeiro endereço IP na sub-rede. Se a sua sub-rede for 10.0.0.0/24, o endereço IP do gateway será 10.0.0.1.
-    * Clique em **Utilizar os seguintes endereços de servidor DNS** e introduza os seguintes valores:
+    * Selecione **utilize os seguintes endereços de servidor DNS** e introduza os seguintes valores:
         * **Servidor DNS preferencial**: Se não estiver a utilizar o seu próprio servidor DNS, introduza 168.63.129.16.  Se estiver a utilizar o seu próprio servidor DNS, introduza o endereço IP do seu servidor.
-    * Clique no botão **Avançado** e adicione mais endereços IP. Adicione cada um dos endereços IP privados secundários apresentados no passo 8 ao NIC com a mesma sub-rede especificada para o endereço IP principal.
-        >[!WARNING] 
-        >Se não seguir os passos acima corretamente, poderá perder a conetividade da sua VM. Certifique-se de que as informações introduzidas no passo 5 estão corretas antes de continuar.
+    * Selecione o **avançadas** botão e adicionar endereços IP adicionais. Adicione cada os secundários endereços IP privados, que adicionou à interface de rede do Azure num passo anterior, a interface de rede do Windows que é atribuída o endereço IP principal atribuído à interface de rede do Azure.
+
+        Nunca manualmente deve atribuir o endereço IP público atribuído a uma máquina virtual do Azure dentro do sistema operativo da máquina virtual. Ao definir o endereço IP no sistema operativo manualmente, certifique-se de que é o mesmo endereço como o endereço IP privado atribuído para o Azure [interface de rede](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings), ou pode perder a conectividade à máquina virtual. Saiba mais sobre [endereço IP privado](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) definições. Nunca deve atribuir um endereço IP público do Azure no sistema operativo.
 
     * Clique em **OK** para fechar as definições de TCP/IP e, em seguida, novamente em **OK** para fechar as definições do adaptador. A ligação RDP é restabelecida.
 
 6. A partir de uma linha de comandos, escreva *ipconfig /all*. Todos os endereços IP adicionados por si são apresentados e o DHCP é desativado.
 7. Configure janelas de utilizar o endereço IP privado o principal da configuração de IP no Azure como o endereço IP primário para o Windows. Consulte [acesso não Internet de VM do Windows Azure que tenha vários endereços IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) para obter mais detalhes. 
-
 
 ### <a name="validation-windows"></a>Validação (Windows)
 

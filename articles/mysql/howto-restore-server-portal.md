@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5d6118a47e10763373c9376ca08d328cf22ab3c8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8782befb1548606fe649909a7841eb648c15f1c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para o MySQL no portal do Azure
 
@@ -86,12 +86,16 @@ Se tiver configurado o servidor para cópias de segurança georredundante, um no
 2. O formato **selecionar origem** lista pendente, escolha **cópia de segurança**. Esta ação carrega uma lista de servidores que têm cópias redundantes georreplicação ativadas. Selecione um destas cópias de segurança para ser a origem do novo servidor.
    ![Selecionar origem: Cópia de segurança e a lista de cópias de segurança redundante georreplicação](./media/howto-restore-server-portal/2-georestore.png)
 
+   > [!NOTE]
+   > Quando um servidor é criado pela primeira vez pode não ser imediatamente disponível para o restauro de georreplicação. Poderá demorar algumas horas para os metadados necessários ser preenchido.
+   >
+
 3. Preencha o resto do formulário com as suas preferências. Pode selecionar qualquer **localização**. Depois de selecionar a localização, pode selecionar **escalão de preço**. Por predefinição, são apresentados os parâmetros para o servidor existente que está a restaurar. Pode clicar em **OK** sem efetuar alterações para herdar essas definições. Ou pode alterar **computação geração** (se disponível na região que escolheu), número de **vCores**, **período de retenção de cópia de segurança**, e **cópia de segurança Opção de redundância**. A alteração **escalão de preço** (básica, fins gerais ou com otimização de memória) ou **armazenamento** tamanho durante o restauro não é suportado.
 
 >[!Note]
 >O novo servidor criado pelo Restauro georreplicação tem o mesmo nome de início de sessão de administrador de servidor e palavra-passe que foi válido para o servidor existente no momento que do restauro foi iniciado. A palavra-passe pode ser alterada a partir do novo servidor **descrição geral** página.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre o serviço [cópias de segurança](concepts-backup.md).
 - Saiba mais sobre [continuidade do negócio](concepts-business-continuity.md) opções.

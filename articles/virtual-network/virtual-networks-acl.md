@@ -1,11 +1,11 @@
 ---
-title: "O que é uma lista de controlo de acesso de rede do Azure?"
+title: O que é uma lista de controlo de acesso de rede do Azure?
 description: Saiba mais sobre listas de controlo de acesso no Azure
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: genli
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
-ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: b2239ae6393e74a518522594d36f7b9c30d2a6f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>O que é uma lista de controlo de acesso de ponto final?
 
@@ -47,7 +47,7 @@ Quando é criada uma máquina virtual, uma predefinição ACL é colocada no loc
 
 **Tabela de ACL predefinido de exemplo**
 
-| **N. º de regra** | **Sub-rede remota** | **Ponto final** | **Permitir/recusar** |
+| **N. º de regra** | **Sub-rede remota** | **Endpoint** | **Permitir/recusar** |
 | --- | --- | --- | --- |
 | 100 |0.0.0.0/0 |3389 |Permitir |
 
@@ -69,7 +69,7 @@ No exemplo abaixo, se pretender permitir o acesso ao ponto final do RDP apenas a
 
 **Exemplo – várias regras**
 
-| **N. º de regra** | **Sub-rede remota** | **Ponto final** | **Permitir/recusar** |
+| **N. º de regra** | **Sub-rede remota** | **Endpoint** | **Permitir/recusar** |
 | --- | --- | --- | --- |
 | 100 |65.0.0.0/8 |3389 |Permitir |
 | 200 |159.0.0.0/8 |3389 |Permitir |
@@ -79,7 +79,7 @@ Devido a várias regras podem ser especificadas para um ponto final, tem de exis
 
 **Exemplo – precedência da regra**
 
-| **N. º de regra** | **Sub-rede remota** | **Ponto final** | **Permitir/recusar** |
+| **N. º de regra** | **Sub-rede remota** | **Endpoint** | **Permitir/recusar** |
 | --- | --- | --- | --- |
 | 100 |175.1.0.1/24 |80 |Negar |
 | 200 |175.0.0.0/8 |80 |Permitir |
@@ -89,6 +89,6 @@ ACLs de rede podem ser especificadas um ponto de final de conjunto com balanceam
 
 ![ACLs de rede e conjuntos com balanceamento de carga](./media/virtual-networks-acl/IC674733.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 [Gerir listas de controlo de acesso para pontos finais utilizando o PowerShell](virtual-networks-acl-powershell.md)
 

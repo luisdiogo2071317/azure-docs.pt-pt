@@ -3,7 +3,7 @@ title: Criar um instantâneo de um VHD no Azure | Microsoft Docs
 description: Saiba como criar uma cópia de uma VM do Azure para utilizar como um back cópias de segurança ou de resolução de problemas.
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: c5f4c7224e04b601d7d3fe4da7d8f5f0c02c7039
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9f5a8be8a50a8e8168736899b6dba3c143f56219
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo
 
@@ -37,41 +37,52 @@ Tire um instantâneo de um disco de SO ou dados problemas de VHD para cópia de 
 9. Clique em **Criar**.
 
 ## <a name="use-powershell-to-take-a-snapshot"></a>Utilize o PowerShell para criar um instantâneo
+
 Os passos seguintes mostram como obter o disco VHD para ser copiado, criar as configurações de instantâneo e tirar um instantâneo do disco utilizando o [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
 
-Certifique-se de que tem a versão mais recente do módulo do AzureRM.Compute PowerShell instalado. Execute o seguinte comando para instalá-lo.
+Antes de começar, certifique-se de que tem a versão mais recente do módulo do AzureRM.Compute PowerShell. Este artigo requer a versão do módulo 5.7.0 de AzureRM ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
 
-```
-Install-Module AzureRM.Compute -MinimumVersion 2.6.0
-```
-Para obter mais informações, consulte [controlo de versões do Azure PowerShell](/powershell/azure/overview).
-
-
-1. Defina alguns parâmetros. 
+Defina alguns parâmetros. 
 
  ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
 $location = 'eastus' 
-$dataDiskName = 'myDisk' 
+$vmName = 'myVM'
 $snapshotName = 'mySnapshot'  
 ```
 
-2. Obter o disco VHD seja copiado.
+Obter a VM.
 
  ```azurepowershell-interactive
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
+$vm = get-azurermvm `
+   -ResourceGroupName $resourceGroupName `
+   -Name $vmName
 ```
-3. Crie as configurações de instantâneo. 
+
+Crie a configuração de instantâneo. Neste exemplo, vamos instantâneo o disco do SO.
 
  ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
+$snapshot =  New-AzureRmSnapshotConfig `
+   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+   -Location $location `
+   -CreateOption copy
 ```
-4. Tire o instantâneo.
+   
+> [!NOTE]
+> Se pretende armazenar o instantâneo no armazenamento resiliente para a zona, terá de criá-la numa região que suporte [zonas de disponibilidade](../../availability-zones/az-overview.md) e incluir o `-SkuName Standard_ZRS` parâmetro.   
 
- ```azurepowershell-interactive
-New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
+   
+Tire o instantâneo.
+
+```azurepowershell-interactive
+New-AzureRmSnapshot `
+   -Snapshot $snapshot `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName 
 ```
-Se planear utilizar o instantâneo para criar um disco gerido e ligá-lo uma VM que tem de ser a execução elevada, utilize o parâmetro `-AccountType Premium_LRS` com o comando AzureRmSnapshot de novo. O parâmetro cria o instantâneo, de modo a que seja armazenada como um disco de gerido para Premium. Os discos Premium geridos são mais dispendiosos do que padrão. Por isso, não se esqueça de que precisar realmente Premium antes de poder utilizar esse parâmetro.
+
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

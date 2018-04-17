@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e a conformidade Blueprint - automatização de aplicações FedRAMP Web - sistema e a proteção de comunicações"
-description: "Automatização de aplicações FedRAMP Web - sistema e proteção de comunicações"
+title: Segurança do Azure e a conformidade Blueprint - automatização de aplicações FedRAMP Web - sistema e a proteção de comunicações
+description: Automatização de aplicações FedRAMP Web - sistema e proteção de comunicações
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6749ad50cd1ea1cd4ec6ca2f86fef43a9f1515d9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Proteção de comunicações (SC) e de sistema
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de proteção do sistema e as comunicações que objetivo, âmbito, funções, responsabilidades, gestão de endereços compromisso, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação do sistema e política de proteção de comunicações e sistema associado e controlos de proteção de comunicações; analisa e atualiza a política de proteção atual do sistema e comunicações [atribuição: frequência definida de organização]; e procedimentos de proteção do sistema e comunicações [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 2** o sistema de informações separa a funcionalidade de utilizador (incluindo os serviços de interface de utilizador) da funcionalidade de gestão do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 3** o sistema de informações isola as funções de segurança de funções de nonsecurity.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 4** o sistema de informações impede a transferência não autorizado e não intencional informações através de recursos de sistema partilhado.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 5** o sistema de informações protege contra ou limita os efeitos dos seguintes tipos de ataques denial of service: [atribuição: tipos definidos de organização de recusa de serviço ataques ou referências a origens para essas informações] por empregar [atribuição: as proteções de segurança definido para organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 6** o sistema de informações protege a disponibilidade dos recursos atribuindo [atribuição: recursos definidos pelo organização] por [seleção (um ou mais) prioridade; quota; [Atribuição: as proteções de segurança definido para organização]].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,11 +115,11 @@ ms.lasthandoff: 02/11/2018
 
 **SC 7.a** o sistema de informações monitores e controla a comunicação do limite do sistema externo e em limites internos chaves no sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa um Gateway de aplicação, o Balanceador de carga e configura as regras de grupo de segurança de rede para controlar commutations limites externos e entre sub-redes internas. Gateway de aplicação, o Balanceador de carga e eventos de grupo de segurança de rede e os registos de diagnóstico são recolhidos através da análise de registos do OMS para permitir a monitorização de cliente. |
+| **Cliente** | Este blueprint implementa um Gateway de aplicação, o Balanceador de carga e configura as regras de grupo de segurança de rede para controlar commutations limites externos e entre sub-redes internas. Gateway de aplicação, o Balanceador de carga e eventos de grupo de segurança de rede e os registos de diagnóstico são recolhidos através da análise de registos para permitir a monitorização de cliente. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **7 de SC** o sistema de informações implementa sub-redes dos componentes de sistema acessível publicamente que são [seleção: fisicamente; logicamente] separada das redes organizacionais internas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 7.c** o sistema de informações estabelece ligação a redes externas ou sistemas de informação apenas através de interfaces geridas consiste em dispositivos de proteção de limite dispostos de acordo com uma arquitetura de segurança organizacional.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (3)** organização limita o número de ligações de rede externa para o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (4) .a** organização implementa uma interface gerida para cada serviço telecommunication externo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (4) .b** organização estabelece uma política de fluxo de tráfego para cada interface gerida.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (4) .c** a organização protege a integridade das informações que está a ser transmitidas em cada interface e confidencialidade.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (4) .d** organização documentos cada exceção para a política de fluxo de tráfego com um suporte necessidade de missão/empresarial e a duração de que tem.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -225,9 +225,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="boundary-protection--external-telecommunications-services"></a>Proteção de limite | Serviços de telecomunicações externo
 
-**SC-7 (4).e** A organização revê exceções para a política de fluxo de tráfego [atribuição: frequência definida de organização] e remove as exceções que já não são suportadas por uma necessidade de missão/empresarial explícita.
+**.E SC-7 (4)** A organização revê exceções para a política de fluxo de tráfego [atribuição: frequência definida de organização] e remove as exceções que já não são suportadas por uma necessidade de missão/empresarial explícita.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (5)** o sistema de informações em interfaces geridas nega o tráfego de rede de comunicações por predefinição e permite que o tráfego de comunicações de rede por exceção (ou seja, negar tudo, permitir a exceção).
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (7)** o sistema de informação, juntamente com um dispositivo remoto, impede o dispositivo em simultâneo estabelecer ligações não remoto com o sistema e comunicar através de alguns outra ligação aos recursos na redes externas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (8)** as rotas de sistema de informações [atribuição: tráfego definido de organização comunicações internas] para [atribuição: definido de organização redes externas] através de servidores de proxy em interfaces geridas autenticado.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -277,13 +277,13 @@ ms.lasthandoff: 02/11/2018
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-sc-7-10"></a>NIST 800-53 Control SC-7 (10)
+ ### <a name="nist-800-53-control-sc-7-10"></a>SC de controlo do NIST 800-53-7 (10)
 
 #### <a name="boundary-protection--prevent-unauthorized-exfiltration"></a>Proteção de limite | Impedir Exfiltration não autorizado
 
 **SC-7 (10)** organização impede o exfiltration não autorizado de informações através de interfaces geridas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (12)** implementa a organização [atribuição: mecanismos de proteção de organização-definidos limites baseada no anfitrião] em [atribuição: os componentes do sistema de informações definidas pela organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (13)** isola a organização [atribuição: ferramentas de segurança de informações definidas pela organização, mecanismos e componentes de suporte] de outros componentes do sistema de informações internas implementando fisicamente separadas sub-redes com interfaces geridas para outros componentes do sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (18)** o sistema de informações com segurança falha na eventualidade de ocorrer uma falha de operacional de um dispositivo de proteção de limite.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -333,13 +333,13 @@ ms.lasthandoff: 02/11/2018
 | **Fornecedor (Microsoft Azure)** | Microsoft Azure implementa geograficamente separada redundante servidores de Gateway e de VPN SSL. Quando um sistema de Gateway falha, falhar de forma segura e o acesso é restrito no ambiente. Para estabelecer uma ligação ao ambiente do Microsoft Azure, um utilizador tem de estabelecer uma ligação separada para um servidor de Gateway ativo gerido pelo Microsoft Azure. <br /> Além disso, se falharem a dispositivos de rede do Microsoft Azure (incluindo routers de limite, routers de acesso, balanceadores de carga, comutadores de agregação e TORS), o circuito afetado fica desligado, assim falhar de forma segura. Não pode levar a uma falha de um dispositivo de rede do Microsoft Azure ou fazer com que as informações externas para o sistema para introduzir o dispositivo, nem pode permitir a uma falha de versão não autorizados de informações. Redundância incorporada permite que os recursos do Microsoft Azure para ativação sem afetar a disponibilidade. |
 
 
- ### <a name="nist-800-53-control-sc-7-20"></a>NIST 800-53 Control SC-7 (20)
+ ### <a name="nist-800-53-control-sc-7-20"></a>SC de controlo do NIST 800-53-7 (20)
 
 #### <a name="boundary-protection--dynamic-isolation--segregation"></a>Proteção de limite | Isolamento dinâmico / segregação
 
 **SC-7 (20)** o sistema de informações fornece a capacidade de forma dinâmica isolar/segregar [atribuição: os componentes do sistema de informações definidas pela organização] provenientes de outros componentes do sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -347,13 +347,13 @@ ms.lasthandoff: 02/11/2018
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-sc-7-21"></a>NIST 800-53 Control SC-7 (21)
+ ### <a name="nist-800-53-control-sc-7-21"></a>SC de controlo do NIST 800-53-7 (21)
 
 #### <a name="boundary-protection--isolation-of-information-system-components"></a>Proteção de limite | Isolamento de componentes do sistema de informações
 
 **SC-7 (21)** a organização utiliza mecanismos de proteção de limites para separar [atribuição: os componentes do sistema de informações definidas pela organização] suporte [atribuição: missions definido de organização e/ou funções de negócio].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 8** protege o sistema de informações a [seleção (um ou mais): confidencialidade; integridade] informações transmitidos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-8 (1)** mecanismos criptográficos para implementa o sistema de informações [seleção (um ou mais): impedir a divulgação não autorizada de informações; detetar alterações às informações] durante a transmissão, a menos que caso contrário, protegidos por [atribuição: definido pelo organização alternativas físicas salvaguardas].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 10** o sistema de informações termina a ligação de rede associada a uma sessão de comunicações no fim da sessão ou após [atribuição: organização definidos pelo período de tempo] de inatividade.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-12** organização estabelece e gere chaves criptográficas para criptografia necessária, empregue se encontram dentro do sistema em conformidade com as informações [atribuição: definido de organização requisitos para geração de chaves, distribuição, o armazenamento, acesso e destruição].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) de SC-12** organização mantém a disponibilidade das informações em caso de perda de chaves criptográficas pelos utilizadores.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-12 (2)** organização produz, controla e distribui as chaves criptográficas simétricas utilizando [seleção: NIST compatíveis com FIPS; Tecnologia de gestão de chaves e aprovada] e processos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-12 (3)** organização produz, controla e distribui as chaves criptográficas assimétricas utilizando [seleção: tecnologia de gestão de chaves e aprovado e processos; aprovados certificados de PKI classe 3 ou material para chaves prepositioned; aprovou certificados PKI classe 3 ou 4 de classe e tokens de segurança de hardware que proteger a chave privada do utilizador].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 13** implementa o sistema de informações [atribuição: definido de organização utiliza serviços de criptografia e tipo de criptografia necessário para cada utilização] em conformidade com as leis federal aplicáveis, as ordens executivo, as diretivas, políticas, normas, e normas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 15.a** o sistema de informações proíbe ativação remota de dispositivos de informáticas colaboração com as seguintes exceções: [atribuição: definido de organização exceções onde ativação remota é permitida].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 15.b** o sistema de informações fornece uma indicação explícita de utilização aos utilizadores fisicamente presentes em dispositivos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **17 de SC** organização emite certificados de chaves públicos num [atribuição: política de certificado definidos pelo organização] ou obtém certificados de chaves públicas de um fornecedor de serviços aprovados.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 18.a** organização define aceitável e inaceitável código móvel e as tecnologias de código móvel.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 18.b** organização estabelece as restrições de utilização e as diretrizes de implementação para as tecnologias de código móvel e de código móvel aceitável.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 18.c** organização autoriza, monitoriza e controla a utilização de código móvel dentro do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 19.a** organização estabelece as restrições de utilização e as diretrizes de implementação para voz através de tecnologias de Internet Protocol (VoIP) com base no potencial de causar danos no sistema de informações se utilizado de forma maliciosa.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 19.b** organização autoriza, monitoriza e controla a utilização de VoIP dentro do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 20.a** o sistema de informações fornece origem de dados adicionais artefactos de verificação de autenticação e integridade juntamente com os dados de resolução de nome autoritativo devolve o sistema em resposta a consultas de resolução de nome/endereço externo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 20.b** o sistema de informações fornece os meios para indicar o estado de segurança das zonas subordinadas e (se o subordinado suporta serviços de resolução segura) para ativar a verificação de uma cadeia de fidedignidade entre domínios principais e subordinados, quando funciona como parte de um espaço de nomes hierárquico, distribuído.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-21** o sistema de informações de pedidos e efetua a autenticação de origem de dados e a verificação da integridade dos dados nas respostas de resolução de nome/endereço recebe o sistema de origens autoritativas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **22 de SC** os sistemas de informações que se encontram coletivamente fornecem o serviço de resolução de nome/endereço de uma organização estão com tolerância a falhas e implementar a separação de funções interna/externa.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC 23** o sistema de informações protege a autenticidade das sessões de comunicações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) de SC-23** o sistema de informações invalida identificadores de sessão após a fim de sessão do utilizador ou outro término de sessão.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-24** o sistema de informações não consegue uma [atribuição: conhecido-estado definido pelo organização] para [atribuição: tipos definidos de organização de falhas de] preservam [atribuição: informações de estado do sistema definida de organização] falha.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **28 de SC** protege o sistema de informações a [seleção (um ou mais): confidencialidade; integridade] de [atribuição: definido de organização informações Inativos].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-28 (1)** o sistema de informações implementa mecanismos criptográficos para impedir a divulgação não autorizada e modificação de [atribuição: informações definidas pela organização] em [atribuição: sistema informações definidas pela organização componentes].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-39** o sistema de informações mantém um domínio de execução separado para cada processo em execução.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

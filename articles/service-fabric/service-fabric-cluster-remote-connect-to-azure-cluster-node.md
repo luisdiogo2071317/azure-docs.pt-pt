@@ -3,7 +3,7 @@ title: Estabelecer ligação remota para um nó de cluster do Service Fabric do 
 description: Saiba como ligar remotamente a uma instância de conjunto de dimensionamento (um nó de cluster do Service Fabric).
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: chackdan
-ms.openlocfilehash: 8c7d5446429089a0fc931175b55e81e1ad0c97a0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: aljo
+ms.openlocfilehash: 68e3b8ae5bdaa3ad9f1c470294ef5c3bcf0c1893
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Remoto ligar a uma instância de conjunto de dimensionamento de máquina virtual ou um nó de cluster
 Um recurso de infraestrutura do serviço de cluster em execução no Azure, cada tipo de nó de cluster que definir [configura um dimensionamento independente da máquina virtual](service-fabric-cluster-nodetypes.md).  Pode remoto ligar-se a escala específica conjunto instâncias (ou nós de cluster).  Ao contrário das VMs de instância única, as instâncias do conjunto de dimensionamento não tem os seus próprios endereços IP virtuais. Isto pode ser um desafio quando está a procurar um endereço IP e a porta que pode utilizar para ligar remotamente a uma instância específica.

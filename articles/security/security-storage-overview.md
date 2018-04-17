@@ -1,5 +1,5 @@
 ---
-title: "Funcionalidades de segurança que podem ser utilizadas com o Storage do Azure | Microsoft Docs"
+title: Funcionalidades de segurança que podem ser utilizadas com o Storage do Azure | Microsoft Docs
 description: " Este artigo fornece uma descrição geral das principais funcionalidades de segurança do Azure que podem ser utilizadas com o Storage do Azure. "
 services: security
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: a118bde2290e68c9a741e40cda210d47db918047
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8160ede71930bf4c15969044deb3fced855f03e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-overview"></a>Descrição geral de segurança de armazenamento do Azure
-O Storage do Azure é a solução de armazenamento na nuvem para aplicações modernas que dependem da durabilidade, da disponibilidade e da escalabilidade para satisfazer as necessidades dos seus clientes. Storage do Azure fornece um conjunto completo de capacidades de segurança:
+O Azure Storage é a solução de armazenamento na cloud para aplicações modernas que dependem da durabilidade, da disponibilidade e da escalabilidade para satisfazer as necessidades dos seus clientes. Storage do Azure fornece um conjunto completo de capacidades de segurança:
 
 * A conta de armazenamento pode ser protegida utilizando o controlo de acesso baseado em funções e o Azure Active Directory.
 * Dados podem ser protegidos em trânsito entre uma aplicação e o Azure utilizando a encriptação do lado do cliente, HTTPS ou SMB 3.0.
@@ -44,11 +44,11 @@ Seguem-se as funcionalidades de núcleos para ser abordadas neste artigo:
 * Azure Key Vault
 
 ## <a name="role-based-access-control-rbac"></a>Controlo de Acesso Baseado em Funções (RBAC)
-Pode proteger a sua conta de armazenamento com controlo de acesso baseado em funções (RBAC). Restringir o acesso com base no [precisa de saber](https://en.wikipedia.org/wiki/Need_to_know) e [menor privilégio](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é imperativo para as organizações que pretendem aplicar políticas de segurança para acesso a dados. Estes direitos de acesso são concedidos ao atribuir a função RBAC adequada aos grupos e aplicações num determinado âmbito. Pode utilizar [funções incorporadas do RBAC](../active-directory/role-based-access-built-in-roles.md), tais como contribuinte de conta de armazenamento, para atribuir os privilégios aos utilizadores.
+Pode proteger a sua conta de armazenamento com controlo de acesso baseado em funções (RBAC). Restringir o acesso com base no [precisa de saber](https://en.wikipedia.org/wiki/Need_to_know) e [menor privilégio](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é imperativo para as organizações que pretendem aplicar políticas de segurança para acesso a dados. Estes direitos de acesso são concedidos ao atribuir a função RBAC adequada aos grupos e aplicações num determinado âmbito. Pode utilizar [funções incorporadas do RBAC](../role-based-access-control/built-in-roles.md), tais como contribuinte de conta de armazenamento, para atribuir os privilégios aos utilizadores.
 
 Saiba mais:
 
-* [Controlo de Acesso Baseado em Funções do Azure Active Directory](../active-directory/role-based-access-control-configure.md)
+* [Controlo de Acesso Baseado em Funções do Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="delegated-access-to-storage-objects"></a>Acesso delegado a objetos de armazenamento
 Uma assinatura de acesso partilhado (SAS) concede acesso delegado a recursos na sua conta de armazenamento. O SAS significa que pode conceder que um cliente limitada permissões para objetos na sua conta de armazenamento para um determinado período de tempo e com um conjunto especificado de permissões. Pode conceder estas permissões limitadas sem ter de partilhar as chaves de acesso da conta. O SAS é um URI que abrange nos respetivos parâmetros de consulta todas as informações necessárias para acesso autenticado a um recurso de armazenamento. Para aceder aos recursos de armazenamento com a SAS, o cliente só tem de fornecer a SAS para o método ou construtor adequado.

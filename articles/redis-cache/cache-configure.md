@@ -1,6 +1,6 @@
 ---
 title: Como configurar a Cache de Redis do Azure | Microsoft Docs
-description: "Compreender a configuração de Redis predefinida para a Cache de Redis do Azure e saiba como configurar as instâncias de Cache de Redis do Azure"
+description: Compreender a configuração de Redis predefinida para a Cache de Redis do Azure e saiba como configurar as instâncias de Cache de Redis do Azure
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0cd21c0367a95d3e866137797ac32fc5bdd196c0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Como configurar a Cache de Redis do Azure
 Este tópico descreve as configurações disponíveis para as instâncias de Cache de Redis do Azure. Este tópico também inclui a configuração do servidor de Redis predefinido de instâncias de Cache de Redis do Azure.
@@ -79,7 +79,7 @@ Clique em **registo de atividade** para ver as ações executadas na sua cache. 
 
 ### <a name="access-control-iam"></a>Controlo de acesso (IAM)
 
-O **(IAM) do controlo de acesso** secção fornece suporte para o controlo de acesso baseado em funções (RBAC) no portal do Azure. Esta configuração ajuda as organizações a cumprir os requisitos de gestão de acesso simples e precisamente. Para obter mais informações, consulte [controlo de acesso baseado em funções no portal do Azure](../active-directory/role-based-access-control-configure.md).
+O **(IAM) do controlo de acesso** secção fornece suporte para o controlo de acesso baseado em funções (RBAC) no portal do Azure. Esta configuração ajuda as organizações a cumprir os requisitos de gestão de acesso simples e precisamente. Para obter mais informações, consulte [controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="tags"></a>Etiquetas
 
@@ -233,7 +233,7 @@ Para obter mais informações, consulte [como configurar a persistência para um
 > 
 > 
 
-### <a name="schedule-updates"></a>Atualizações agendadas
+### <a name="schedule-updates"></a>Agendar atualizações
 O **agendar atualizações** painel permite-lhe designar uma janela de manutenção para atualizações do servidor de Redis para a sua cache. 
 
 > [!IMPORTANT]
@@ -241,7 +241,7 @@ O **agendar atualizações** painel permite-lhe designar uma janela de manutenç
 > 
 > 
 
-![Atualizações agendadas](./media/cache-configure/redis-schedule-updates.png)
+![Agendar atualizações](./media/cache-configure/redis-schedule-updates.png)
 
 Para especificar uma janela de manutenção, verifique os dias pretendidos e especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. Tenha em atenção que o tempo de janela de manutenção está em UTC. 
 

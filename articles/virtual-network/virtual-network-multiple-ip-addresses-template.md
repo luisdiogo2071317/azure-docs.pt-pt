@@ -1,12 +1,12 @@
 ---
-title: "Vários endereços IP para máquinas virtuais do Azure - modelo | Microsoft Docs"
-description: "Saiba como atribuir vários endereços IP a uma máquina virtual utilizando um modelo Azure Resource Manager."
-documentationcenter: 
+title: Vários endereços IP para máquinas virtuais do Azure - modelo | Microsoft Docs
+description: Saiba como atribuir vários endereços IP a uma máquina virtual utilizando um modelo Azure Resource Manager.
+documentationcenter: ''
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-an-azure-resource-manager-template"></a>Atribuir vários endereços IP para máquinas virtuais utilizando um modelo Azure Resource Manager
 
@@ -68,7 +68,7 @@ Para implementar o modelo utilizando o portal do Azure, execute os seguintes pas
 1. Modifique o modelo, se assim o desejar. O modelo de implementa os recursos e definições listado no [recursos](#resources) secção deste artigo. Para saber mais sobre modelos e sobre como criá-los, leia o [modelos Authoring Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-network%2ftoc.json)artigo.
 2. Implemente o modelo com um dos seguintes métodos:
     - **Selecione o modelo no portal:** concluir os passos a [implementar recursos do modelo personalizado](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template) artigo. Escolha o modelo já existente com o nome *101-vm-múltiplo-ipconfig*.
-    - **Diretamente:** clique no botão seguinte para abrir o modelo diretamente no portal:<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-multiple-ipconfig%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+    - **Diretamente:** clique no botão seguinte para abrir o modelo diretamente no portal: <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-multiple-ipconfig%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 Independentemente do método que escolher, terá de fornecer valores para o [parâmetros](#parameters) listados anteriormente neste artigo. Após a implementação da VM, ligar à VM e adicionar os endereços IP privados para o sistema operativo é implementada, efetuando os passos a [endereços IP de adicionar a um sistema de operativo VM](#os-config) secção deste artigo. Adicione os endereços IP públicos para o sistema operativo.
 

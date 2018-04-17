@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Criar e gerir servidores SQL Database do Azure e as bases de dados
 
@@ -46,7 +46,7 @@ Um servidor lógico da Base de Dados do Azure:
 - É o recurso principal para bases de dados, conjuntos elásticos e armazéns de dados
 - Fornece um espaço de nomes para armazéns de dados, conjuntos elásticos e bases de dados
 - É um contentor lógico com semântica de duração strong - eliminar um servidor e elimina as bases de dados contidas, conjuntos elásticos e armazéns de dados
-- Em que participou no [controlo de acesso do Azure baseada em funções (RBAC)](/active-directory/role-based-access-control-what-is) -armazéns de dados dentro de um servidor, conjuntos elásticos e bases de dados herdarem direitos de acesso do servidor
+- Em que participou no [controlo de acesso do Azure baseada em funções (RBAC)](/azure/role-based-access-control/overview) -armazéns de dados dentro de um servidor, conjuntos elásticos e bases de dados herdarem direitos de acesso do servidor
 - É um elemento de ordem de elevado de identidade dos armazéns de dados para o recurso do Azure, conjuntos elásticos e bases de dados do fins de gestão (consulte o esquema de URL para as bases de dados e agrupamentos)
 - Coloca recursos numa região
 - Fornece um ponto final de ligação para o acesso à base de dados (<serverName>.database.windows.net)
@@ -79,9 +79,8 @@ Para criar uma base de dados SQL do Azure utilizando o [portal do Azure](https:/
 
 > [!IMPORTANT]
 > Para informações sobre o escalão de preço da base de dados, consulte [escalões de serviço](sql-database-service-tiers.md).
->
 
-Para criar uma instância geridos, consulte [criar uma instância geridos](sql-database-managed-instance-tutorial-portal.md)
+Para criar uma instância geridos, consulte [criar uma instância geridos](sql-database-managed-instance-create-tutorial-portal.md)
 
 ### <a name="manage-an-existing-sql-server"></a>Gerir um servidor existente do SQL Server
 
@@ -134,21 +133,21 @@ Para criar e gerir o servidor SQL do Azure, as bases de dados e firewalls com a 
 |[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Apresenta uma lista de todas as bases de dados e os armazéns de dados num servidor, ou todas as bases de dados num agrupamento elástico|
 |[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Apresenta uma lista de serviços disponíveis objetivos e limites de armazenamento|
 |[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Devolve as utilizações de base de dados|
-|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|Obtém um armazém de dados ou base de dados|
+|[Mostrar de BD do SQL Server AZ](/cli/azure/sql/db#az_sql_db_show)|Obtém um armazém de dados ou base de dados|
 |[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Atualizações de uma base de dados|
 |[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Remove uma base de dados|
 |[az group create](/cli/azure/group#az_group_create)|Cria um grupo de recursos|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Cria um servidor|
 |[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Apresenta uma lista de servidores|
 |[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|Devolve as utilizações de servidor|
-|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Obtém um servidor|
+|[Mostrar do AZ sql server](/cli/azure/sql/server#az_sql_server_show)|Obtém um servidor|
 |[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Um servidor de atualizações|
-|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Elimina um servidor|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Cria uma regra de firewall do servidor|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Apresenta as regras de firewall num servidor|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Mostra os detalhes de uma regra de firewall|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Uma regra de firewall de atualizações|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina uma regra de firewall|
+|[eliminação do AZ sql server](/cli/azure/sql/server#az_sql_server_delete)|Elimina um servidor|
+|[Criar AZ sql server-regra de firewall](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Cria uma regra de firewall do servidor|
+|[lista de regras de firewall de servidor de sql de AZ](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Apresenta as regras de firewall num servidor|
+|[Mostrar de regra de firewall AZ sql server](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Mostra os detalhes de uma regra de firewall|
+|[atualização de regra de firewall AZ sql server](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Uma regra de firewall de atualizações|
+|[Eliminar regra de firewall do AZ sql server](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina uma regra de firewall|
 
 > [!TIP]
 > Para um tutorial de início rápido da CLI do Azure, consulte [criar uma base de dados SQL do Azure único utilizando a CLI do Azure](sql-database-get-started-cli.md). Para scripts de exemplo da CLI do Azure, consulte [CLI de utilização para criar uma base de dados SQL do Azure e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-cli.md) e [CLI de utilização para monitorizar e dimensionar uma base de dados do SQL Server único](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -166,19 +165,19 @@ Para criar e gerir o servidor SQL do Azure, as bases de dados e firewalls com Tr
 | --- | --- |
 |[Criar base de dados (SQL Database do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria uma nova base de dados. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [Falha de ALTER DATABASE (base de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifica uma base de dados SQL do Azure. |
-|[ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Modifica um armazém de dados SQL do Azure.|
-|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
+|[Alterar base de dados (armazém de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Modifica um armazém de dados SQL do Azure.|
+|[REMOVER a base de dados (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
 |[sys.database_service_objectives (SQL Database do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve o edition (camada de serviço), o objetivo de serviço (escalão de preço) e o nome do conjunto elástico, se existir, para uma base de dados SQL do Azure ou um Azure SQL Data Warehouse. Se tem sessão iniciada base de dados mestra num servidor de base de dados do Azure SQL, devolve informações sobre todas as bases de dados. Para o Azure SQL Data Warehouse, tem de estar ligado à base de dados mestra.|
-|[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Devolve o consumo de CPU, memória e e/s, para uma base de dados do SQL Database do Azure. Não existe uma linha para cada 15 segundos, mesmo se não houver nenhuma atividade na base de dados.|
-|[sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Devolve os dados de armazenamento e utilização de CPU para uma base de dados do SQL do Azure. Os dados são recolhidos e agregados em intervalos de cinco minutos.|
-|[sys.database_connection_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contém as estatísticas de eventos de conectividade da base de dados de base de dados do SQL Server, que fornece uma descrição geral da base de dados ligação sucessos e falhas. |
-|[sys.event_log (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Devolve as ligações de base de dados de SQL Database do Azure com êxito, falhas de ligação e impasses. Pode utilizar estas informações para controlar ou resolver problemas relacionados com a atividade de base de dados com base de dados do SQL Server.|
-|[sp_set_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database)|Cria ou atualiza as definições de firewall ao nível do servidor para o servidor de base de dados SQL. Este procedimento armazenado só está disponível na base de dados mestra para o início de sessão principal ao nível do servidor. Só é possível criar uma regra de firewall ao nível do servidor com o Transact-SQL após a primeira regra de firewall ao nível do servidor foi criada por um utilizador com permissões ao nível do Azure|
+|[sys.dm db_resource_stats (SQL Database do Azure)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Devolve o consumo de CPU, memória e e/s, para uma base de dados do SQL Database do Azure. Não existe uma linha para cada 15 segundos, mesmo se não houver nenhuma atividade na base de dados.|
+|[resource_stats (SQL Database do Azure)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Devolve os dados de armazenamento e utilização de CPU para uma base de dados do SQL do Azure. Os dados são recolhidos e agregados em intervalos de cinco minutos.|
+|[sys.database_connection_stats (SQL Database do Azure)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contém as estatísticas de eventos de conectividade da base de dados de base de dados do SQL Server, que fornece uma descrição geral da base de dados ligação sucessos e falhas. |
+|[sys.event_log (SQL Database do Azure)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Devolve as ligações de base de dados de SQL Database do Azure com êxito, falhas de ligação e impasses. Pode utilizar estas informações para controlar ou resolver problemas relacionados com a atividade de base de dados com base de dados do SQL Server.|
+|[sp_set_firewall_rule (SQL Database do Azure)](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database)|Cria ou atualiza as definições de firewall ao nível do servidor para o servidor de base de dados SQL. Este procedimento armazenado só está disponível na base de dados mestra para o início de sessão principal ao nível do servidor. Só é possível criar uma regra de firewall ao nível do servidor com o Transact-SQL após a primeira regra de firewall ao nível do servidor foi criada por um utilizador com permissões ao nível do Azure|
 |[sys.firewall_rules (SQL Database do Azure)](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|Devolve informações sobre as definições de firewall ao nível do servidor associado à sua base de dados de SQL do Microsoft Azure.|
-|[sp_delete_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database)|Remove as definições de firewall ao nível do servidor do seu servidor de base de dados SQL. Este procedimento armazenado só está disponível na base de dados mestra para o início de sessão principal ao nível do servidor.|
-|[sp_set_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Cria ou atualiza as regras de firewall ao nível da base de dados para o seu SQL Database do Azure ou SQL Data Warehouse. Regras de firewall de base de dados podem ser configuradas para a base de dados mestra e para as bases de dados de utilizador na base de dados do SQL Server. Regras de firewall de base de dados são úteis quando utilizar continha os utilizadores de base de dados. |
+|[sp_delete_firewall_rule (SQL Database do Azure)](/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database)|Remove as definições de firewall ao nível do servidor do seu servidor de base de dados SQL. Este procedimento armazenado só está disponível na base de dados mestra para o início de sessão principal ao nível do servidor.|
+|[sp_set_database_firewall_rule (SQL Database do Azure)](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Cria ou atualiza as regras de firewall ao nível da base de dados para o seu SQL Database do Azure ou SQL Data Warehouse. Regras de firewall de base de dados podem ser configuradas para a base de dados mestra e para as bases de dados de utilizador na base de dados do SQL Server. Regras de firewall de base de dados são úteis quando utilizar continha os utilizadores de base de dados. |
 |[sys.database_firewall_rules (SQL Database do Azure)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Devolve informações sobre as definições de firewall ao nível da base de dados associado à sua base de dados de SQL do Microsoft Azure. |
-|[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Remove a definição de firewall ao nível da base de dados do seu SQL Database do Azure ou SQL Data Warehouse. |
+|[sp_delete_database_firewall_rule (SQL Database do Azure)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Remove a definição de firewall ao nível da base de dados do seu SQL Database do Azure ou SQL Data Warehouse. |
 
 
 > [!TIP]

@@ -1,33 +1,35 @@
 ---
-title: Terraform ranhura de implementação do fornecedor do Azure
-description: Terraform com tutorial de ranhura de implementação do fornecedor do Azure
+title: Terraform com ranhuras de implementação do fornecedor do Azure
+description: Tutorial sobre como utilizar Terraform com as ranhuras de implementação do fornecedor do Azure
 keywords: terraform, devops, máquina virtual, do Azure, ranhuras de implementação
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 4/05/2018
 ms.topic: article
-ms.openlocfilehash: 34b16b5fb2b5b574d166693db346ebba15eaa1f9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="using-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Utilizar Terraform à infraestrutura de aprovisionar com as ranhuras de implementação do Azure
+# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Utilizar Terraform à infraestrutura de aprovisionar com as ranhuras de implementação do Azure
 
-[Ranhuras de implementação do Azure](/azure/app-service/web-sites-staged-publishing) permitem-lhe trocar entre versões diferentes da sua aplicação - como produção ou transição - para minimizar o impacto das implementações interrompidas. Este artigo ilustra uma utilização de exemplo de ranhuras de implementação orientando-o através da implementação das duas aplicações através do GitHub e o Azure. Uma aplicação está alojada numa "ranhura de produção", enquanto a aplicação de segundo está alojada na ranhura de "transição". (Os nomes "production" e "transição" são arbitrários e podem ser qualquer coisa que pretende que representa o seu cenário.) Depois de tem configuradas as ranhuras de implementação, em seguida, pode utilizar Terraform ao trocar entre os dois blocos conforme necessário.
+Pode utilizar [ranhuras de implementação do Azure](/azure/app-service/web-sites-staged-publishing) ao trocar entre versões diferentes da sua aplicação. Essa capacidade ajuda-o a minimizar o impacto das implementações interrompidas. 
+
+Este artigo ilustra uma utilização de exemplo de ranhuras de implementação orientando-o através da implementação das duas aplicações através do GitHub e o Azure. Uma aplicação está alojada na ranhura de produção. A aplicação de segundo estiver alojada num bloco de transição. (Os nomes "production" e "transição" são arbitrários e podem ser qualquer coisa que pretende que representa o seu cenário.) Depois de configurar as ranhuras de implementação, pode utilizar Terraform ao trocar entre os dois blocos conforme necessário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Subscrição do Azure** - se não tiver uma subscrição do Azure, criar um [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Conta GitHub** - um [GitHub](http://www.github.com) conta é necessária para copiar e utilizar o teste de repositório do GitHub.
+- **Conta GitHub**: É necessário um [GitHub](http://www.github.com) conta copiar e utilizar o teste de repositório do GitHub.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Criar e aplicar o esquema de Terraform
 
-1. Navegue para o [portal do Azure](http://portal.azure.com)
+1. Navegue para o [portal do Azure](http://portal.azure.com).
 
-1. Abra [Shell de nuvem do Azure](/azure/cloud-shell/overview)e, se não o fez anteriormente - selecione **Bash** como o seu ambiente.
+1. Abra [em nuvem do Azure Shell](/azure/cloud-shell/overview). Se não selecionar um ambiente anteriormente, selecione **Bash** como o seu ambiente.
 
     ![Linha de Shell de nuvem](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
@@ -49,7 +51,7 @@ ms.lasthandoff: 04/06/2018
     mkdir swap
     ```
 
-1. Certifique-se de que ambos os diretórios foram criados com êxito utilizando a `ls` bash comando.
+1. Utilize o `ls` bash comando para verificar que criou com êxito ambos os diretórios.
 
     ![Shell de nuvem depois de criar os diretórios](./media/terraform-slot-walkthru/cloud-shell-after-creating-dirs.png)
 
@@ -59,18 +61,18 @@ ms.lasthandoff: 04/06/2018
     cd deploy
     ```
 
-1. Utilizar o [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), crie um ficheiro denominado `deploy.tf`, que irá conter o [Terraform configuração](https://www.terraform.io/docs/configuration/index.html).
+1. Utilizando o [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), crie um ficheiro denominado `deploy.tf`. Este ficheiro irá conter o [Terraform configuração](https://www.terraform.io/docs/configuration/index.html).
 
     ```bash
     vi deploy.tf
     ```
 
-1. Introduza o modo de inserção, premindo a letra `i` chave.
+1. Introduza o modo de inserção, selecionando a chave.
 
 1. Cole o seguinte código no editor:
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     resource "azurerm_resource_group" "slotDemo" {
@@ -104,15 +106,15 @@ ms.lasthandoff: 04/06/2018
     }
     ```
 
-1. Prima a  **&lt;Esc >** chave para sair do modo de inserção.
+1. Selecione a tecla Esc para sair do modo de inserção.
 
-1. Guarde o ficheiro e saia do editor de vi introduzindo o comando seguinte, em seguida, premindo  **&lt;Enter >**:
+1. Guarde o ficheiro e saia do editor de vi introduzindo o seguinte comando:
 
     ```bash
     :wq
     ```
 
-1. Quando o ficheiro tiver sido criado, pode verificar o respetivo conteúdo.
+1. Agora que criou o ficheiro, verifique o respetivo conteúdo.
 
     ```bash
     cat deploy.tf
@@ -130,7 +132,7 @@ ms.lasthandoff: 04/06/2018
     terraform plan
     ```
 
-1. Aprovisionar os recursos definidos no `deploy.tf` ficheiro de configuração. (Confirmar a ação, introduzindo `yes` na linha de.)
+1. Aprovisionar os recursos que estão definidos no `deploy.tf` ficheiro de configuração. (Confirmar a ação, introduzindo `yes` na linha de.)
 
     ```bash
     terraform apply
@@ -138,15 +140,15 @@ ms.lasthandoff: 04/06/2018
 
 1. Feche a janela da Shell de nuvem.
 
-1. O menu principal portal do Azure, selecione **grupos de recursos**.
+1. No menu principal do portal do Azure, selecione **grupos de recursos**.
 
-    ![Portal do Azure grupos de recursos](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
+    ![Seleção de "Grupos de recursos" no portal](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
 
 1. No **grupos de recursos** separador, selecione **slotDemoResourceGroup**.
 
     ![Grupo de recursos criado pelo Terraform](./media/terraform-slot-walkthru/resource-group.png)
 
-Quando terminar, verá todos os recursos criados pelo Terraform.
+Agora, ver todos os recursos que criou Terraform.
 
 ![Recursos criados pelo Terraform](./media/terraform-slot-walkthru/resources.png)
 
@@ -156,7 +158,7 @@ Antes de testar a criação e a troca de e para as ranhuras de implementação, 
 
 1. Navegue para o [extraordinário terraform repositório no GitHub](https://github.com/Azure/awesome-terraform).
 
-1. Bifurcação o **extraordinário terraform repositório**.
+1. Bifurcação o **extraordinário terraform** repositório.
 
     ![Copiar o repositório do GitHub extraordinário terraform](./media/terraform-slot-walkthru/fork-repo.png)
 
@@ -164,11 +166,11 @@ Antes de testar a criação e a troca de e para as ranhuras de implementação, 
 
 ## <a name="deploy-from-github-to-your-deployment-slots"></a>Implementar a partir do GitHub para as ranhuras de implementação
 
-Uma vez bifurcação o repositório de projeto de teste, configurar os blocos de implementação através dos seguintes passos:
+Depois de copiar o repositório de projeto de teste, configure os blocos de implementação através dos seguintes passos:
 
-1. O menu principal portal do Azure, selecione **grupos de recursos**.
+1. No menu principal do portal do Azure, selecione **grupos de recursos**.
 
-1. Select **slotDemoResourceGroup**.
+1. Selecione **slotDemoResourceGroup**.
 
 1. Selecione **slotAppService**.
 
@@ -182,9 +184,9 @@ Uma vez bifurcação o repositório de projeto de teste, configurar os blocos de
 
 1. Depois de Azure estabelece a ligação e apresenta todas as opções, selecione **autorização**.
 
-1. No **autorização** separador, selecione **autorizar**e forneça as credenciais necessárias para o Azure aceder à sua conta do GitHub. 
+1. No **autorização** separador, selecione **autorizar**e forneça as credenciais que o Azure necessita de aceder à sua conta do GitHub. 
 
-1. Depois de Azure valida as credenciais do GitHub, apresentada uma mensagem a indicar que concluiu o processo de autorização. Selecione **OK** para fechar o **autorização** separador.
+1. Depois de Azure valida as credenciais do GitHub, uma mensagem é apresentada e indica que concluiu o processo de autorização. Selecione **OK** para fechar o **autorização** separador.
 
 1. Selecione **escolha a sua organização** e selecione a sua organização.
 
@@ -204,21 +206,21 @@ Uma vez bifurcação o repositório de projeto de teste, configurar os blocos de
 
 Neste momento, implementou a ranhura de produção. Para implementar o bloco de transição, execute todos os passos anteriores nesta secção com as seguintes alterações:
 
-- No passo 3, **slotAppServiceSlotOne** recursos.
+- No passo 3, selecione o **slotAppServiceSlotOne** recursos.
 
-- Passo 13, selecione o ramo de "a trabalhar" em vez do ramo principal.
+- Passo 13, selecione o ramo de trabalho em vez do ramo principal.
 
     ![Selecione o ramo de trabalho](./media/terraform-slot-walkthru/choose-branch-working.png)
 
 ## <a name="test-the-app-deployments"></a>Testar as implementações de aplicações
 
-Nas secções anteriores, pode configura dois ranhuras - **slotAppService** e **slotAppServiceSlotOne** - para implementar a partir de diferentes ramos no GitHub. Vamos pré-visualizar as aplicações web para validar que que foram implementados com êxito.
+Nas secções anteriores, pode configura dois ranhuras –**slotAppService** e **slotAppServiceSlotOne**– para implementar a partir de diferentes ramos no GitHub. Vamos pré-visualizar as aplicações web para validar que que foram implementados com êxito.
 
-Execute os seguintes passos duas vezes onde no passo 3 selecionar **slotAppService** pela primeira vez e, em seguida, selecione **slotAppServiceSlotOne** na segunda vez:
+Execute os seguintes passos duas vezes. No passo 3, selecione **slotAppService** pela primeira vez e, em seguida, selecione **slotAppServiceSlotOne** na segunda vez.
 
-1. O menu principal portal do Azure, selecione **grupos de recursos**.
+1. No menu principal do portal do Azure, selecione **grupos de recursos**.
 
-1. Select **slotDemoResourceGroup**.
+1. Selecione **slotDemoResourceGroup**.
 
 1. Selecione **slotAppService** ou **slotAppServiceSlotOne**.
 
@@ -239,9 +241,9 @@ Para o **slotAppService** aplicação web, verá uma página com um título de p
 
 Para testar a troca de ranhuras de implementação de dois, execute os seguintes passos:
  
-1. Mudar para o separador do browser em execução **slotAppService** (a aplicação com a página azul). 
+1. Mudar para o separador do browser que está a executar **slotAppService** (a aplicação com a página azul). 
 
-1. Regresse ao portal do Azure num separador separado.
+1. Regresse ao portal do Azure num separador à parte.
 
 1. Abra a Shell de nuvem.
 
@@ -257,12 +259,12 @@ Para testar a troca de ranhuras de implementação de dois, execute os seguintes
     vi swap.tf
     ```
 
-1. Introduza o modo de inserção, premindo a letra `i` chave.
+1. Introduza o modo de inserção, selecionando a chave.
 
 1. Cole o seguinte código no editor:
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     # Swap the production slot and the staging slot
@@ -273,9 +275,9 @@ Para testar a troca de ranhuras de implementação de dois, execute os seguintes
     }
     ```
 
-1. Prima a  **&lt;Esc >** chave para sair do modo de inserção.
+1. Selecione a tecla Esc para sair do modo de inserção.
 
-1. Guarde o ficheiro e saia do editor de vi introduzindo o comando seguinte, em seguida, premindo  **&lt;Enter >**:
+1. Guarde o ficheiro e saia do editor de vi introduzindo o seguinte comando:
 
     ```bash
     :wq
@@ -293,22 +295,22 @@ Para testar a troca de ranhuras de implementação de dois, execute os seguintes
     terraform plan
     ```
 
-1. Aprovisionar os recursos definidos no `swap.tf` ficheiro de configuração. (Confirmar a ação, introduzindo `yes` na linha de.)
+1. Aprovisionar os recursos que estão definidos no `swap.tf` ficheiro de configuração. (Confirmar a ação, introduzindo `yes` na linha de.)
 
     ```bash
     terraform apply
     ```
 
-1. Depois de terminar Terraform troca de ranhuras, volte ao browser que estiver a compor o **slotAppService** aplicação web e atualize a página. 
+1. Após a conclusão da Terraform troca de ranhuras, volte ao browser que estiver a compor o **slotAppService** aplicação web e atualize a página. 
 
-A aplicação web na sua **slotAppServiceSlotOne** testes ranhura tem foram alternados com a ranhura de produção e agora composições verde. 
+A aplicação web na sua **slotAppServiceSlotOne** testes ranhura tem foram alternados com a ranhura de produção e agora é composto no verde. 
 
 ![As ranhuras de implementação tiverem sido alternadas](./media/terraform-slot-walkthru/slots-swapped.png)
 
-Para voltar para a versão de produção original da aplicação, volte a aplicar o plano de Terraform criado a partir de `swap.tf` ficheiro de configuração.
+Para voltar para a versão de produção original da aplicação, volte a aplicar o plano de Terraform que criou a partir de `swap.tf` ficheiro de configuração.
 
 ```bash
 terraform apply
 ```
 
-Depois de alternados, consulte a configuração original.
+Depois da aplicação é alternada, consulte a configuração original.

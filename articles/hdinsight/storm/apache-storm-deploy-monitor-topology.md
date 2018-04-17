@@ -2,7 +2,7 @@
 title: Implementar e gerir topologias Apache Storm no HDInsight | Microsoft Docs
 description: Saiba como implementar, monitorizar e gerir topologias Apache Storm, utilizar o Dashboard Storm no HDInsight. Utilize as ferramentas Hadoop para o Visual Studio.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5e542072-f014-42aa-82d6-2694a76df520
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 92c1a02cd7d435809914e7f5bb43b2f8d6aa0cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 55c92e6408522b8a96a37dbedd99d929af1e49fb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Implementar e gerir topologias Apache Storm no HDInsight baseado em Windows
 
@@ -122,7 +120,7 @@ Selecionar um spout do **Spouts** ou **Bolts** secções apresenta as seguintes 
 
 * **Erros**: quaisquer informações de erro para este spout ou bolt.
 
-## <a name="hdinsight-tools-for-visual-studio"></a>Ferramentas do HDInsight para Visual Studio
+## <a name="hdinsight-tools-for-visual-studio"></a>Ferramentas do HDInsight para o Visual Studio
 
 As ferramentas do HDInsight pode ser utilizadas para submeter topologias de c# ou híbrida ao cluster do Storm. Os seguintes passos utilizarem uma aplicação de exemplo. Para obter informações sobre como criar as seus próprios topologias utilizando as ferramentas do HDInsight, consulte [desenvolver topologias c# utilizando as ferramentas do HDInsight para Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
@@ -182,7 +180,7 @@ Pedidos para a API REST têm de utilizar **autenticação básica**, por isso, u
 
 As informações que são devolvidas a partir da API de REST podem apenas ser utilizáveis do dentro do cluster ou máquinas virtuais no mesmo Azure Virtual Network do cluster. Por exemplo, o nome domínio completamente qualificado (FQDN) devolvido para servidores de Zookeeper não são estar acessível a partir da Internet.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Agora que aprendeu como implementar e monitorizar as topologias através do Dashboard do Storm, saiba como:
 

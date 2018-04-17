@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8d414a7a2ad46fbe63cc6eb8e6a6a41bb76aa432
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c8966f3dfa16010b82d1fe9cd02c63bdde65463c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Marketplace consultadoria serviços
 Com o objetivo da ligação de clientes com os serviços para suportar e expandir a sua utilização do Azure, Azure Marketplace suporta a listagem das ofertas de serviço consultadoria de parceiros de integrador de sistema (TAMA) da Microsoft. 
@@ -48,6 +48,9 @@ As ofertas têm de ser de um dos seguintes cinco tipos serviço (pode listar mai
 Exceto para o *Briefing* o tipo de serviço, consultadoria serviços pode ser oferecido na pessoa (ou seja, no local na localização de um cliente ou instalações de um parceiro) ou virtualmente (ou seja, através de teleconferencing, web conferências protegidas ou remoto implementação). Briefings tem de ser oferecidos pessoalmente.
 
 Para obter mais informações, consulte [competências através do Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
+
+>[!TIP]
+>Esta informação é para os serviços do Azure Marketplace só. Para publicar o storefront Azure Marketplace, que irá tomar esta seleção, selecionando "Azure" no menu pendente "Primário Product" no Portal de parceiros de nuvem. Para publicar AppSource, que irá tomar esta seleção, selecionando "Dynamics 365", "Power BI" ou "Power aplicações", no menu pendente "Primário Product" no Portal de parceiros de nuvem. 
 
 ## <a name="supported-countries"></a>Países/regiões suportadas
 
@@ -95,3 +98,31 @@ Listar a oferta de serviço consultadoria no Azure Marketplace envolve as seguin
 4. **Reveja**: nossa equipa de marketing e editorial revê submissão e otimiza-as para legibilidade, gramática e eficácia. 
 5. **Teste**: submissão preparado para a revisão. 
 6. **Publicar**: quando o utilizador e a Microsoft forem satisfeitas com o conteúdo pré-configurado, a listagem está pronta para começar em direto no Azure Marketplace. A data em direto vá para a lista depende o país/região especificado na sua oferta. Se o catálogo para o seu país/região selecionada já está em direto no Azure Marketplace, será apresentada a listagem dentro de algumas horas. Caso contrário, a listagem aparecerá assim que o catálogo entra em direto.
+
+## <a name="content-review-criteria"></a>Critérios de revisão de conteúdo
+
+Assim que tiver configurado os elementos necessários listados acima, a equipa de revisão conteúdo será confirme que a descrição do seu oferta informativo e concluída para o seu público-alvo. 
+
+Tenha em atenção que o campo de título tem um limite de 50 carateres e tem de transmitir o tipo de duração e o serviço da oferta. Isto é maximizar a otimização de motor de pesquisa. O formato requerido é o seguinte: nome: tipo de duração
+
+Exemplos:
+
+
+|Título de exemplo  |Formato correto  |
+|---------|---------|
+|Introdução ao IoT do Azure na produção    |   Fabrico IoT: avaliação de 2-dia      |
+|Workshop no Toasters inteligentes        |  Toasters inteligentes: 1-Wk Workshop       |
+|  PoC de migração do servidor SQL    | Migração do SQL Server: 3 Wk prova de conceito        |
+
+ 
+Quando rever oferecem descrições e oferecem resumos, a equipa de aplicar os seguintes critérios:
+
+|Tipo de Oferta  |Necessário |Recomendado  |
+|---------|---------|---------|
+|Avaliação    |   Incluir uma agenda de detalhado para avaliações de vários dias ou semanas multi e articule que deliverable pode esperar do cliente      |    Otimizar a sua oferta resumo com as palavras-chave de otimização de motor de pesquisa superior     |
+|Briefing    |   Articule que deliverable pode esperar do cliente. Não se esqueça de que Briefings devem também ser-lhe oferecidas pessoalmente. Se está a fornecer um serviço virtuais, escolha um tipo de oferta diferentes    |  Otimizar a sua oferta resumo com as palavras-chave de otimização de motor de pesquisa superior       |
+|Implementação    |  Incluir uma agenda de detalhado para implementações de vários dias ou semanas multi e articule as alterações de engenharia, artefactos técnicos ou outros objetos que um cliente pode esperar como resultados do engagement       |    Otimizar a sua oferta resumo com as palavras-chave de otimização de motor de pesquisa superior     |
+|Prova de conceito    |    Articule as alterações de engenharia, artefactos técnicos ou outros objetos que um cliente pode esperar como resultados do engagement     | Otimizar a sua oferta resumo com as palavras-chave de otimização de motor de pesquisa superior        |
+|Workshop    |   Inclua uma agenda de detalhado diária, semanal ou mensal, consoante a duração da sua oferta escolhida. Articule quais os objetivos de aprendizagem ou outros materiais a entregar é do seu workshop     |   Otimizar a sua oferta resumo com as palavras-chave da otimização de motor de busca superior      |
+
+No Portal de parceiros de nuvem, pode adicionar à sua lista de formatação utilizando [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Este é um idioma de estrutura simples que irão ajudá-lo a adicionar polaco à sua lista. 

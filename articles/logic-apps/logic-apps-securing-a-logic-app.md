@@ -1,11 +1,11 @@
 ---
 title: Proteger o acesso ao Azure Logic Apps | Microsoft Docs
-description: "Adicione a segurança para proteger o acesso a acionadores, entradas e saídas, parâmetros de ação e serviços utilizado com fluxos de trabalho no Azure Logic Apps."
+description: Adicione a segurança para proteger o acesso a acionadores, entradas e saídas, parâmetros de ação e serviços utilizado com fluxos de trabalho no Azure Logic Apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042fdaa037fe1928fdb81727968a532ddfae0a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-access-to-your-logic-apps"></a>Acesso seguro a suas logic apps
 
@@ -77,7 +77,7 @@ Para além de assinatura de acesso partilhado, pode pretender restringir a chama
 Esta definição pode ser configurada nas definições da aplicação lógica:
 
 1. No portal do Azure, abra a aplicação lógica que pretende adicionar restrições de endereço IP
-1. Clique em de **configuração de controlo de acesso** item de menu em **definições**
+1. Clique em de **definições de fluxo de trabalho** item de menu em **definições**
 1. Especifique a lista de intervalos de endereços IP para ser aceites pelo acionador
 
 Um intervalo IP válido assume o formato `192.168.1.1/255`. Se pretender que a aplicação lógica para accionar apenas como uma aplicação lógica aninhados, selecione o **outras as logic apps** opção. Esta opção escreve uma matriz vazia para o recurso significado apenas chamadas do serviço próprio (as logic apps de principal) acionados com êxito.
@@ -119,7 +119,7 @@ Para adicionar mais protocolos de autorização por cima de uma aplicação lóg
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>Proteger o acesso para gerir ou editar as logic apps
 
-Pode restringir o acesso às operações de gestão numa aplicação lógica, para que apenas utilizadores específicos ou grupos são capazes de efetuar operações no recurso. As Logic apps utilizam o Azure [controlo de acesso baseado em funções (RBAC)](../active-directory/role-based-access-control-configure.md) funcionalidade e pode ser personalizada com as ferramentas do mesmas.  Existem algumas funções incorporadas, que pode atribuir os membros da sua subscrição, bem como:
+Pode restringir o acesso às operações de gestão numa aplicação lógica, para que apenas utilizadores específicos ou grupos são capazes de efetuar operações no recurso. As Logic apps utilizam o Azure [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md) funcionalidade e pode ser personalizada com as ferramentas do mesmas.  Existem algumas funções incorporadas, que pode atribuir os membros da sua subscrição, bem como:
 
 * **Contribuinte de aplicação lógica** -fornece acesso para ver, editar e atualizar uma aplicação lógica.  Não é possível remover o recurso ou efetuar operações de admin.
 * **Operador de aplicação lógica** - pode ver a aplicação lógica histórico de execução e ativar/desativar.  Não é possível editar ou atualizar a definição.
@@ -268,7 +268,7 @@ Muitos conetores geridos para aplicações lógicas fornecem conectividade segur
 
 [Gestão de API do Azure](https://azure.microsoft.com/services/api-management/) tem opções de conectividade no local, incluindo a integração de ExpressRoute e de VPN de site a site para proxy segura e comunicação para sistemas no local. No Designer de aplicação lógica, pode selecionar rapidamente uma API exposta a partir de API Management do Azure dentro de um fluxo de trabalho, que fornece acesso rápido aos sistemas no local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Criar um modelo de implementação](logic-apps-create-deploy-template.md)  
 [Processamento de exceções](logic-apps-exception-handling.md)  
 [Monitorizar as aplicações lógicas](logic-apps-monitor-your-logic-apps.md)  

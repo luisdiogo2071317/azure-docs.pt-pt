@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 03/27/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: fa7d8a9880ff97f30dc583d792e39aa914ea5435
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4c49fa082547dc0de76126df17a888c6c32f03e4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
 As tabelas seguintes contêm os valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
@@ -27,11 +27,11 @@ As tabelas seguintes contêm os valores máximos permitidos para vários compone
 ## <a name="workload-management"></a>Gestão de cargas de trabalhos
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
-| [Unidades do Data Warehouse (DWU)][Data Warehouse Units (DWU)] |DWU máx. para um SQL Data Warehouse único | Otimizado para elasticidade [camada de desempenho](performance-tiers.md): DW6000<br></br>Otimizado para computação [camada de desempenho](performance-tiers.md): DW30000c |
+| [Unidades do Data Warehouse (DWU)][Data Warehouse Units (DWU)] |DWU máx. para um SQL Data Warehouse único | Otimizado para elasticidade [camada de desempenho](memory-and-concurrency-limits.md#performance-tiers): DW6000<br></br>Otimizado para computação [camada de desempenho](memory-and-concurrency-limits.md#performance-tiers): DW30000c |
 | [Unidades do Data Warehouse (DWU)][Data Warehouse Units (DWU)] |Predefinição DTU por servidor |54,000<br></br>Por predefinição, cada SQL server (por exemplo, myserver.database.windows.net) tem uma Quota de DTU de 54,000, que permite até DW6000c. Esta quota é apenas um limite de segurança. Pode aumentar a quota por [criar um pedido de suporte] [ creating a support ticket] e selecionando *Quota* como o tipo de pedido.  Para calcular a DTU necessita de, multiplique a 7.5 pelo total que DWU necessários, ou multiplicar 9.0 pelo cDWU total necessário. Por exemplo:<br></br>DW6000 x 7.5 = 45.000 DTUs<br></br>DW600c x 9.0 = 54,000 DTUs.<br></br>Pode ver o consumo de DTU atual a partir da opção de servidor do SQL Server no portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
 | Ligação à base de dados |Sessões abertas em simultâneo |1024<br/><br/>Cada um das sessões ativas 1024 pode submeter pedidos para uma base de dados do armazém de dados do SQL Server ao mesmo tempo. Tenha em atenção de que existem limites sobre o número de consultas que podem ser executados em simultâneo. Quando o limite de concorrência for excedido, o pedido entra uma fila interna onde deve aguardar para ser processado. |
 | Ligação à base de dados |Memória máxima instruções preparado |20 MB |
-| [Gestão de carga de trabalho][Workload management] |Consultas em simultâneo máximas |32<br/><br/> Por predefinição, o SQL Data Warehouse pode ser executado um máximo de 32 consultas em simultâneo e filas restantes consultas.<br/><br/>O número de consultas em simultâneo pode descrease quando os utilizadores são atribuídos aos superiores classes de recursos ou quando o SQL Data Warehouse tem um inferior [nível de serviço](performance-tiers.md#service-levels). Algumas consultas, como consultas DMV, sempre estão autorizadas a executar. |
+| [Gestão de cargas de trabalho](resource-classes-for-workload-management.md) |Consultas em simultâneo máximas |32<br/><br/> Por predefinição, o SQL Data Warehouse pode ser executado um máximo de 32 consultas em simultâneo e filas restantes consultas.<br/><br/>O número de consultas em simultâneo pode diminuir quando os utilizadores são atribuídos aos superiores classes de recursos ou quando o SQL Data Warehouse tem um inferior [unidade do armazém de dados](memory-and-concurrency-limits.md) definição. Algumas consultas, como consultas DMV, sempre estão autorizadas a executar. |
 | [tempdb][Tempdb] |Máximo GB |399 GB por DW100. Por conseguinte, DWU1000, tempdb é dimensionados de forma a 3.99 TB |
 
 ## <a name="database-objects"></a>Objetos de base de dados

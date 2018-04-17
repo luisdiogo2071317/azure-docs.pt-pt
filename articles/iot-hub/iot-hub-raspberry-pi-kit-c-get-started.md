@@ -2,10 +2,10 @@
 title: Raspberry Pi nuvem (C) - ligar Raspberry Pi ao IoT Hub do Azure | Microsoft Docs
 description: Saiba como configurar e ligar Raspberry Pi ao Azure IoT Hub para Raspberry Pi enviar dados para a plataforma de nuvem do Azure, neste tutorial.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
+tags: ''
 keywords: Azure iot raspberry pi, iothub raspberry pi, dados de envio de raspberry pi na nuvem, raspberry pi na nuvem
 ms.assetid: 68c0e730-1dc8-4e26-ac6b-573b217b302d
 ms.service: iot-hub
@@ -13,14 +13,14 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/12/2017
-ms.author: xshi
+ms.date: 4/11/2018
+ms.author: rangv
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d643647d4103acd511ed270132c844da12f2ac9b
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: ea4a7b4084faf702cf303036b414a9bc9e153840
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Ligar Raspberry Pi IoT Hub (C) do Azure
 
@@ -200,7 +200,7 @@ Deverá ver o seguinte resultado que mostra os dados de sensor e as mensagens qu
 
 ![Saída - dados de sensor enviados do Raspberry Pi ao seu IoT hub](media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Tiver de executar um exemplo de aplicação para recolher dados de sensores e enviá-lo ao seu IoT hub. Para ver as mensagens que o Raspberry Pi foi enviado para os IoT hub ou enviar mensagens sua Raspberry Pi numa interface de linha de comandos, consulte o [gerir dispositivos de cloud messaging com tutorial de iothub Explorador](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 

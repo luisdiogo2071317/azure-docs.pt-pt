@@ -1,11 +1,11 @@
 ---
-title: "Criar uma VM com um endereço IP público estático - CLI do Azure | Microsoft Docs"
-description: "Saiba como criar uma VM com um endereço IP público estático, utilizar a interface de linha de comandos do Azure (CLI)."
+title: Criar uma VM com um endereço IP público estático - CLI do Azure | Microsoft Docs
+description: Saiba como criar uma VM com um endereço IP público estático, utilizar a interface de linha de comandos do Azure (CLI).
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 93b284b207539ed87531b5554d70b2f16170ff7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Criar uma VM com um endereço IP público estático, utilizar a CLI do Azure
 
@@ -145,7 +145,11 @@ Recomenda-se que elimina os recursos criados neste exercício, se não utilizá-
 1. Para ver os recursos no grupo de recursos, execute o `az resource list --resource-group IaaSStory` comando.
 2. Confirme que existem não existem recursos no grupo de recursos, que não sejam os recursos criados pelo script neste artigo. 
 3. Para eliminar todos os recursos criados neste exercício, execute o `az group delete -n IaaSStory` comando. O comando elimina o grupo de recursos e todos os recursos que nele contidos.
+ 
+## <a name="set-ip-addresses-within-the-operating-system"></a>Conjunto de endereços IP no sistema operativo
+
+Nunca manualmente deve atribuir o endereço IP público atribuído a uma máquina virtual do Azure dentro do sistema operativo da máquina virtual. É recomendado que não estaticamente atribui IP privado atribuído à máquina virtual do Azure no sistema operativo de uma VM, exceto se necessário, tais como [atribuir IP múltiplos endereços para uma VM do Windows](virtual-network-multiple-ip-addresses-cli.md). Se definir manualmente o endereço IP privado no sistema operativo, certifique-se de que é o mesmo endereço como o endereço IP privado atribuído para o Azure [interface de rede](virtual-network-network-interface-addresses.md#change-ip-address-settings), ou pode perder a conectividade à máquina virtual. Saiba mais sobre [endereço IP privado](virtual-network-network-interface-addresses.md#private) definições.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Qualquer tráfego de rede possam circular para e da VM criada neste artigo. Pode definir a entrada e saídas regras dentro de um NSG limitam o tráfego que possam circular para e da interface de rede, a sub-rede ou ambos. Para saber mais sobre NSGs, leia o [descrição geral do NSG](virtual-networks-nsg.md) artigo.
+Qualquer tráfego de rede possam circular para e da VM criada neste artigo. Pode definir regras de segurança de entrada e saída dentro de um grupo de segurança de rede que limitam o tráfego que possam circular para e da interface de rede, a sub-rede ou ambos. Para obter mais informações sobre grupos de segurança de rede, consulte [descrição geral de grupo de segurança de rede](security-overview.md).

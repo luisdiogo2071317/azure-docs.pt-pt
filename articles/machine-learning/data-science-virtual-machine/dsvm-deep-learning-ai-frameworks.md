@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 829095c7f9b92f64fd6204481e68b2594a3a0017
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e2a0bdaf0d12a93dcee5a8a2657bb012095bb283
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Arquiteturas de Aprendizagem Profunda e AI
 O [máquinas de virtuais de ciência de dados](http://aka.ms/dsvm) (DSVM) e o [profunda VM Learning](http://aka.ms/dsvm/deeplearning) suporta um número de estruturas de aprendizagem avançada para o ajudar a criar aplicações Artificial Intelligence (AI) com a Análise Preditiva e capacidades cognitivos como imagem e a compreensão de idiomas. 
@@ -140,7 +140,7 @@ Em seguida, abra um browser e ligar ao `http://localhost:54321`.
 | Ferramentas relacionadas no DSVM      | Keras      |
 | Como utilizar / executá-lo?    | Abrir Jupyter, em seguida, procure a pasta de mxnet  |
 
-## <a name="nvidia-digits"></a>NVIDIA DIGITS
+## <a name="nvidia-digits"></a>NVIDIA DÍGITOS
 
 |    |           |
 | ------------- | ------------- |

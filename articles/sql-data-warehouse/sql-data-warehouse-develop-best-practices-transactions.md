@@ -1,30 +1,26 @@
 ---
-title: "Otimizar as transações do SQL Data Warehouse | Microsoft Docs"
-description: "Melhores práticas obter orientações sobre a escrita de atualizações de transação eficiente no Azure SQL Data Warehouse"
+title: Otimizar as transações do Azure SQL Data Warehouse | Microsoft Docs
+description: Saiba como otimizar o desempenho do seu código transacional no Azure SQL Data Warehouse, para minimizar o risco para reverte longo.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: 607c169e3d9e8aa741084392439da383f46cfe0c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 55fc317dc9e7a1401aef8c5431ba04d86822d333
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="optimizing-transactions-for-sql-data-warehouse"></a>Otimizar as transações do SQL Data Warehouse
-Este artigo explica como otimizar o desempenho do seu código transacional, para minimizar o risco para reverte longo.
+# <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Otimizar as transações no Azure SQL Data Warehouse
+Saiba como otimizar o desempenho do seu código transacional no Azure SQL Data Warehouse, para minimizar o risco para reverte longo.
 
 ## <a name="transactions-and-logging"></a>Registo de transações e
-As transações são um componente importante de um motor de base de dados relacional. O SQL Data Warehouse utiliza transações durante a modificação de dados. Podem ser estas transações explícitas ou implícitas. Único `INSERT`, `UPDATE`, e `DELETE` instruções são todos os exemplos de transações implícitas. Utilizam transações explícitas `BEGIN TRAN`, `COMMIT TRAN`, ou `ROLLBACK TRAN`. Transações explícitas são normalmente utilizadas quando várias instruções de modificação têm de ser vinculada em conjunto numa única unidade atómica. 
+As transações são um componente importante de um motor de base de dados relacional. O SQL Data Warehouse utiliza transações durante a modificação de dados. Podem ser estas transações explícitas ou implícitas. As instruções único INSERT, UPDATE e DELETE são todos os exemplos de transações implícitas. Transações explícitas utilizam TRAN começar, TRAN consolidação ou reversão TRAN. Transações explícitas são normalmente utilizadas quando várias instruções de modificação têm de ser vinculada em conjunto numa única unidade atómica. 
 
 O Azure SQL Data Warehouse consolida as alterações à base de dados utilizando os registos de transações. Cada distribuição tem o suas próprias registo de transações. Escritas de registo de transações são automáticas. Não há qualquer configuração necessária. No entanto, embora este processo garante que a operação de escrita introduz uma sobrecarga no sistema. Pode minimizar este impacto ao escrever o código de uma forma eficiente. Código de uma forma eficiente amplamente se insere nas categorias de dois.
 
@@ -33,7 +29,7 @@ O Azure SQL Data Warehouse consolida as alterações à base de dados utilizando
 * Adotar uma padrão para grandes modificações para uma determinada partição da mudança de partições
 
 ## <a name="minimal-vs-full-logging"></a>Mínimo vs. registo completo
-Ao contrário das operações totalmente iniciadas, que utilizam o registo de transações para controlar todas as alterações de linha, operações minimamente iniciadas manter controlar dos alocações de extensão e apenas alterações de dados de metadados. Por conseguinte, o registo mínimo envolve registo apenas as informações necessárias para reverter a transação após uma falha, ou para um pedido explícito (`ROLLBACK TRAN`). Como muito menos informações são registadas no registo de transações, uma operação registada minimamente efetua melhor do que uma operação totalmente registada tamanho da mesma forma. Além disso, como as escritas menos passam o registo de transações, é gerada uma menor quantidade de dados de registo veio e e/s mais eficiente.
+Ao contrário das operações totalmente iniciadas, que utilizam o registo de transações para controlar todas as alterações de linha, operações minimamente iniciadas manter controlar dos alocações de extensão e apenas alterações de dados de metadados. Por conseguinte, o registo mínimo envolve registo apenas as informações necessárias para reverter a transação após uma falha, ou para um pedido explícito (reversão TRAN). Como muito menos informações são registadas no registo de transações, uma operação registada minimamente efetua melhor do que uma operação totalmente registada tamanho da mesma forma. Além disso, como as escritas menos passam o registo de transações, é gerada uma menor quantidade de dados de registo veio e e/s mais eficiente.
 
 Os limites de segurança da transação só se aplicam às operações totalmente iniciadas.
 
@@ -45,7 +41,7 @@ Os limites de segurança da transação só se aplicam às operações totalment
 ## <a name="minimally-logged-operations"></a>Operações minimamente com sessão iniciadas
 As seguintes operações são capazes de minimamente a ser registado:
 
-* CRIAR TABLE AS SELECT ([CTAS][CTAS])
+* CRIAR TABLE AS SELECT ([CTAS](sql-data-warehouse-develop-ctas.md))
 * INSERT..SELECT
 * CRIAR O ÍNDICE
 * ALTER A RECONSTRUÇÃO DO ÍNDICE
@@ -61,20 +57,20 @@ As seguintes operações são capazes de minimamente a ser registado:
 -->
 
 > [!NOTE]
-> As operações de movimento de dados interna (tais como `BROADCAST` e `SHUFFLE`) não são afetadas pelo limite de segurança da transação.
+> Operações de movimento de dados internos (por exemplo, a difusão e SHUFFLE) não são afetadas pelo limite de segurança da transação.
 > 
 > 
 
 ## <a name="minimal-logging-with-bulk-load"></a>Mínimo de registo com o carregamento em massa
-`CTAS` e `INSERT...SELECT` estão ambos em massa operações de carga. No entanto, ambos são deve influenciadas pela definição da tabela de destino e dependem do cenário de carga. A tabela seguinte explica quando operações em massa são totalmente minimamente registadas ou:  
+CTAS e INSERT... SELECIONE é ambas as operações de carregamento em massa. No entanto, ambos são deve influenciadas pela definição da tabela de destino e dependem do cenário de carga. A tabela seguinte explica quando operações em massa são totalmente minimamente registadas ou:  
 
 | Índice principal | Cenário de carga | Modo de registo |
 | --- | --- | --- |
-| Área dinâmica para dados |Qualquer |**Minimal** |
-| Índice em cluster |Tabela de destino vazio |**Minimal** |
-| Índice em cluster |Linhas carregadas não se sobrepõem páginas existentes no destino |**Minimal** |
+| Área dinâmica para dados |Qualquer |**mínimo** |
+| Índice em cluster |Tabela de destino vazio |**mínimo** |
+| Índice em cluster |Linhas carregadas não se sobrepõem páginas existentes no destino |**mínimo** |
 | Índice em cluster |Carregar linhas sobrepõem páginas existentes no destino |Completo |
-| Índice Columnstore em cluster |Tamanho do lote > = 102,400 por partição alinhada distribuição |**Minimal** |
+| Índice Columnstore em cluster |Tamanho do lote > = 102,400 por partição alinhada distribuição |**mínimo** |
 | Índice Columnstore em cluster |Tamanho < 102,400 por distribuição de partição alinhada do batch |Completo |
 
 É importante salientar que quaisquer operações de escrita para atualizar os índices secundários ou agrupado será sempre operações totalmente iniciadas.
@@ -87,7 +83,7 @@ As seguintes operações são capazes de minimamente a ser registado:
 Carregar dados para uma tabela não vazia com um índice em cluster, muitas vezes, pode conter uma mistura de linhas totalmente iniciadas e minimamente com sessão iniciadas. Um índice em cluster é uma árvore com balanceamento (árvore b) de páginas. Se a página a ser escritos já contém as linhas da outra transação, em seguida, estes escritas serão totalmente registadas. No entanto, se a página está vazia, em seguida, a operação de escrita para essa página será minimamente registada.
 
 ## <a name="optimizing-deletes"></a>Otimizar as eliminações
-`DELETE` é uma operação registada completamente.  Se precisar de eliminar uma grande quantidade de dados de uma tabela ou de uma partição, muitas vezes, faz sentido mais `SELECT` os dados que pretende manter, que podem ser executados como uma operação minimamente registada.  Para selecionar os dados, criar uma nova tabela com [CTAS][CTAS].  Depois de criado, utilize [mudar o nome] [ RENAME] ao trocar a sua tabela antiga com a tabela recentemente criada.
+ELIMINAR é uma operação registada completamente.  Se precisar de eliminar uma grande quantidade de dados de uma tabela ou de uma partição, muitas vezes, faz sentido mais `SELECT` os dados que pretende manter, que podem ser executados como uma operação minimamente registada.  Para selecionar os dados, criar uma nova tabela com [CTAS](sql-data-warehouse-develop-ctas.md).  Depois de criado, utilize [mudar o nome](/sql/t-sql/statements/rename-transact-sql) ao trocar a sua tabela antiga com a tabela recentemente criada.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -118,9 +114,9 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Otimizar as atualizações
-`UPDATE` é uma operação registada completamente.  Se precisar de atualizar um grande número de linhas na tabela ou de uma partição, muitas vezes, pode ser muito mais eficiente para utilizar como uma operação registada minimamente [CTAS] [ CTAS] para fazê-lo.
+A ATUALIZAÇÃO é uma operação registada completamente.  Se precisar de atualizar um grande número de linhas na tabela ou de uma partição, muitas vezes, pode ser muito mais eficiente para utilizar como uma operação registada minimamente [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para fazê-lo.
 
-No exemplo abaixo uma tabela completa atualização foi convertida para um `CTAS` para que o registo mínimo é possível.
+No exemplo abaixo uma tabela completa atualização foi convertida para um CTAS para que o registo mínimo é possível.
 
 Neste caso, iremos retrospectively adicionar um período de desconto a de vendas na tabela:
 
@@ -184,7 +180,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > 
 
 ## <a name="optimizing-with-partition-switching"></a>Otimizar com a mudança de partições
-Se deparam com alterações em grande escala no interior de um [tabela partição][table partition], em seguida, uma partição mudar padrão faz sentido. Se a modificação de dados é significativa e abrange várias partições, em seguida, iterating sobre as partições de alcance o mesmo resultado.
+Se deparam com alterações em grande escala no interior de um [tabela partição](sql-data-warehouse-tables-partition.md), em seguida, uma partição mudar padrão faz sentido. Se a modificação de dados é significativa e abrange várias partições, em seguida, iterating sobre as partições de alcance o mesmo resultado.
 
 Os passos para efetuar uma mudança de partições são os seguintes:
 
@@ -416,23 +412,9 @@ O Azure SQL Data Warehouse permite-lhe [pausar, retomar e dimensionar](sql-data-
 
 É o cenário de melhor para permitir a entrada de transações de modificação de dados de voo concluídas antes de colocar em pausa ou dimensionamento do armazém de dados do SQL Server. No entanto, este cenário poderá nem sempre ser prático. Para mitigar o risco de uma reversão longo, considere uma das seguintes opções:
 
-* Reescrever operações através de execução longa [CTAS][CTAS]
+* Reescrever operações através de execução longa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Quebrar a operação em segmentos; utilizar um subconjunto das linhas
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte [transações no SQL Data Warehouse] [ Transactions in SQL Data Warehouse] para saber mais sobre os níveis de isolamento e limites transacionais.  Para obter uma descrição geral de outros melhores práticas, consulte [melhores práticas do SQL Data Warehouse][SQL Data Warehouse Best Practices].
-
-<!--Image references-->
-
-<!--Article references-->
-[Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
-[table partition]: ./sql-data-warehouse-tables-partition.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-[alter index]:https://msdn.microsoft.com/library/ms188388.aspx
-[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
-
-<!-- Other web references -->
+Consulte [transações no SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) para saber mais sobre os níveis de isolamento e limites transacionais.  Para obter uma descrição geral de outros melhores práticas, consulte [melhores práticas do SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

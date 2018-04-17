@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 81d8cc85827b29beaaec03fd258b550948798641
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: a4a2d8d616a503a2b200627a52103b78e573f767
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Criar um conjunto de dimensionamento de Máquina Virtual e implementar uma aplicação altamente disponível no Windows
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos, como CPU, exigência de memória ou tráfego de rede. Neste tutorial, vai implementar um conjunto de dimensionamento de máquinas virtuais no Azure. Saiba como:
@@ -46,7 +46,7 @@ Os conjuntos de dimensionamento suportam até 1000 VMs quando utiliza uma imagem
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
-Criar um conjunto com de dimensionamento de máquina virtual [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet* que utiliza a imagem de plataforma do *Windows Server 2016 Datacenter*. Os recursos de rede do Azure para a rede virtual, o endereço IP público e o Balanceador de carga são criados automaticamente. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias VM no conjunto de dimensionamento:
+Crie um conjunto de dimensionamento de máquinas virtuais com [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet* que utiliza a imagem de plataforma do *Windows Server 2016 Datacenter*. Os recursos de rede do Azure para a rede virtual, o endereço IP público e o balanceador de carga são criados automaticamente. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -64,9 +64,9 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 
 
 ## <a name="deploy-sample-application"></a>Implementar aplicação de exemplo
-Para testar o conjunto de dimensionamento, instale uma aplicação web básica. A extensão de Script personalizado do Azure é utilizado para transferir e executar um script que instale o IIS nas instâncias de VM. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](extensions-customscript.md).
+Para testar o conjunto de dimensionamento, instale uma aplicação Web básica. A Extensão de Script Personalizado do Azure serve para transferir e executar um script que instala o IIS nas instâncias de VM. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](extensions-customscript.md).
 
-Utilize a extensão de Script personalizado para instalar um servidor de web IIS básico. Aplique a Extensão de Script Personalizado que instala o IIS da seguinte forma:
+Utilize a Extensão de Script Personalizado para instalar um servidor Web do IIS básico. Aplique a Extensão de Script Personalizado que instala o IIS da seguinte forma:
 
 ```azurepowershell-interactive
 # Define the script for your Custom Script Extension to run
@@ -96,7 +96,7 @@ Update-AzureRmVmss `
 ```
 
 
-## <a name="test-your-scale-set"></a>Testar o conjunto de dimensionamento
+## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
 Para ver a escala definido em ação, obter o endereço IP público do seu Balanceador de carga com [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIP* criada como parte do conjunto de dimensionamento:
 
 ```azurepowershell-interactive
@@ -116,13 +116,13 @@ Para ver o conjunto de dimensionamento em ação, pode forçar a atualização d
 Ao longo do ciclo de vida do conjunto de dimensionamento, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. O Azure PowerShell fornece uma forma rápida para realizar essas tarefas. Seguem-se algumas tarefas comuns.
 
 ### <a name="view-vms-in-a-scale-set"></a>Ver VMs num conjunto de dimensionamento
-Para ver uma lista de instâncias de VM num conjunto de dimensionamento, utilize [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) da seguinte forma:
+Para ver uma lista das instâncias da VM num conjunto de dimensionamento, utilize [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) da seguinte forma:
 
 ```azurepowershell-interactive
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet"
 ```
 
-O resultado de exemplo seguinte mostra duas instâncias VM no conjunto de dimensionamento:
+O seguinte resultado de exemplo mostra duas instâncias da VM no conjunto de dimensionamento:
 
 ```powershell
 ResourceGroupName                 Name Location             Sku InstanceID ProvisioningState
@@ -131,7 +131,7 @@ MYRESOURCEGROUPSCALESET   myScaleSet_0   eastus Standard_DS1_v2          0      
 MYRESOURCEGROUPSCALESET   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
-Para ver informações adicionais sobre uma instância VM específica, adicione o `-InstanceId` parâmetro [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). O exemplo seguinte visualiza informações sobre a instância de VM *1*:
+Para ver informações adicionais sobre uma instância específica da VM, adicione o parâmetro `-InstanceId` a [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). O seguinte exemplo mostra informações sobre a instância da VM *1*:
 
 ```azurepowershell-interactive
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet" -InstanceId "1"
@@ -174,11 +174,12 @@ $mySubscriptionId = (Get-AzureRmSubscription)[0].Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
+$myScaleSetId = (Get-AzureRmVmss -ResourceGroupName $myResourceGroup -VMScaleSetName $myScaleSet).Id 
 
 # Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
-  -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
+  -MetricResourceId $myScaleSetId `
   -Operator GreaterThan `
   -MetricStatistic Average `
   -Threshold 60 `
@@ -191,7 +192,7 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
 # Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
 $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
-  -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
+  -MetricResourceId $myScaleSetId `
   -Operator LessThan `
   -MetricStatistic Average `
   -Threshold 30 `
@@ -214,7 +215,7 @@ Add-AzureRmAutoscaleSetting `
   -Location $myLocation `
   -Name "autosetting" `
   -ResourceGroup $myResourceGroup `
-  -TargetResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
+  -TargetResourceId $myScaleSetId `
   -AutoscaleProfiles $myScaleProfile
 ```
 

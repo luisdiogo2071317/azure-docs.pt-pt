@@ -1,33 +1,32 @@
 ---
-title: Criar tabela como selecione (CTAS) no SQL Data Warehouse | Microsoft Docs
-description: "Sugestões para programação com a tabela de criar como instrução de select (CTAS) no Azure SQL Data Warehouse para desenvolver soluções."
+title: Criar TABLE AS SELECT (CTAS) no armazém de dados SQL do Azure | Microsoft Docs
+description: Sugestões para programação com a instrução de criar tabela AS SELECIONE (CTAS) no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 68ac9a94-09f9-424b-b536-06a125a653bd
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 12/06/2017
-ms.author: barbkess
-ms.openlocfilehash: a885ba4f455fecd158696faaee38c83c1e4ec0bf
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: cb36cb7d3dd652608620283fe2ea2e6649406be5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>Create Table As Select (CTAS) no SQL Data Warehouse
-Criar tabela como selecionar ou `CTAS` é uma das funcionalidades mais importantes do T-SQL disponíveis. É uma operação totalmente parallelized que cria uma nova tabela com base na saída de uma instrução SELECT. `CTAS`é a forma mais simples e mais rápida para criar uma cópia de uma tabela. Este documento fornece exemplos e melhores práticas para `CTAS`.
+# <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Utilizar CREATE TABLE AS SELECT (CTAS) no armazém de dados SQL do Azure
+Sugestões para programação com a instrução de criar tabela AS SELECIONE (CTAS). o T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
+
+## <a name="what-is-create-table-as-select-ctas"></a>O que é criar tabela AS SELECIONE (CTAS)?
+
+O [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou instrução CTAS é uma das funcionalidades mais importantes de T-SQL disponíveis. É uma operação simultânea que cria uma nova tabela com base na saída de uma instrução SELECT. CTASD é a forma mais simples e mais rápida para criar uma cópia de uma tabela. 
 
 ## <a name="selectinto-vs-ctas"></a>SELECIONAR... NO vs. CTAS
-Pode considerar `CTAS` como uma versão Super-obrigatórios debitada do `SELECT..INTO`.
+Pode considerar CTAS como uma versão de super-obrigatórios debitada o [SELECIONAR... PARA](/sql/t-sql/queries/select-into-clause-transact-sql) instrução.
 
-Segue-se um exemplo de uma simples `SELECT..INTO` instrução:
+Segue-se um exemplo de uma simple SELECT... PARA:
 
 ```sql
 SELECT *
@@ -35,11 +34,11 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-No exemplo acima `[dbo].[FactInternetSales_new]` seria possível criar como tabela de distribuída ROUND_ROBIN com um índice de COLUMNSTORE em cluster no mesmo como estas são as predefinições de tabela no Azure SQL Data Warehouse.
+No exemplo anterior, `[dbo].[FactInternetSales_new]` é criada como tabela de distribuída ROUND_ROBIN com um índice de COLUMNSTORE em cluster, uma vez que estas são as predefinições de tabela no Azure SQL Data Warehouse.
 
-`SELECT..INTO`No entanto não permitem-lhe alterar o método de distribuição ou o tipo de índice como parte da operação. Este é onde `CTAS` é apresentada no.
+SELECIONAR... PARA, no entanto, não permitem-lhe alterar o método de distribuição ou o tipo de índice como parte da operação. Este é onde CTAS é apresentada no.
 
-Converter o valor acima para `CTAS` é bastante simples:
+Converter o exemplo anterior para CTAS é bastante simples:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_new]
@@ -54,7 +53,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-Com `CTAS` conseguir alterar ambas a distribuição dos dados da tabela, bem como o tipo de tabela. 
+Com o CTAS conseguir alterar ambas a distribuição dos dados da tabela, bem como o tipo de tabela. 
 
 > [!NOTE]
 > Se estiver a tentar apenas alterar o índice do seu `CTAS` operação e a tabela de origem é hash distribuída, em seguida, o `CTAS` operação executará melhor se mantém o mesmo tipo de coluna e os dados de distribuição. Evitará cruzada movimento de dados de distribuição durante a operação que é mais eficiente.
@@ -62,7 +61,7 @@ Com `CTAS` conseguir alterar ambas a distribuição dos dados da tabela, bem com
 > 
 
 ## <a name="using-ctas-to-copy-a-table"></a>Utilizar CTAS para copiar uma tabela
-Talvez uma mais comuns das utilizações de `CTAS` está a criar uma cópia de uma tabela para que o pode alterar o DDL. Se, por exemplo, que criou originalmente a tabela como `ROUND_ROBIN` e agora pretende alterá-la a uma tabela distribuída numa coluna, `CTAS` é a forma como iria alterar a coluna de distribuição. `CTAS`Também pode ser utilizado para alterar os tipos de criação de partições, indexar ou coluna.
+Talvez uma mais comuns das utilizações de `CTAS` está a criar uma cópia de uma tabela para que o pode alterar o DDL. Se, por exemplo, que criou originalmente a tabela como `ROUND_ROBIN` e agora pretende alterá-la a uma tabela distribuída numa coluna, `CTAS` é a forma como iria alterar a coluna de distribuição. `CTAS` Também pode ser utilizado para alterar os tipos de criação de partições, indexar ou coluna.
 
 Digamos que criou esta tabela utilizando o tipo de distribuição predefinido da `ROUND_ROBIN` distribuído, desde que não foi especificada nenhuma coluna de distribuição no `CREATE TABLE`.
 
@@ -126,12 +125,12 @@ DROP TABLE FactInternetSales_old;
 ```
 
 > [!NOTE]
-> O Azure SQL Data Warehouse ainda não suporta a criação ou atualização automática de estatísticas.  Para obter o melhor desempenho das consultas, é importante que sejam criadas estatísticas em todas as colunas de todas as tabelas após o primeiro carregamento ou após a ocorrência de quaisquer alterações substanciais nos dados.  Para obter uma explicação detalhada das estatísticas, veja o tópico [Statistics (Estatísticas)][Statistics] no grupo de tópicos Programar.
+> O Azure SQL Data Warehouse ainda não suporta a criação ou atualização automática de estatísticas.  Para obter o melhor desempenho das consultas, é importante que sejam criadas estatísticas em todas as colunas de todas as tabelas após o primeiro carregamento ou após a ocorrência de quaisquer alterações substanciais nos dados.  Para obter uma explicação detalhada das estatísticas, consulte o tópico de [estatísticas] [estatísticas] no grupo de tópicos desenvolver.
 > 
 > 
 
 ## <a name="using-ctas-to-work-around-unsupported-features"></a>Utilizar CTAS para trabalhar em torno de funcionalidades não suportadas
-`CTAS`Também pode ser utilizado para resolver um número de funcionalidades não suportadas listados abaixo. Muitas vezes, isto pode provar a ser uma situação de win/win como não apenas o código estarão em conformidade, mas são, muitas vezes, executados mais rapidamente no armazém de dados do SQL Server. Trata-se como resultado da respetiva estrutura parallelized completamente. Os cenários que podem ser trabalhados em torno com CTAS incluem:
+CTAS também pode ser utilizado para resolver um número de funcionalidades não suportadas listados abaixo. Muitas vezes, isto pode provar a ser uma situação de win/win como não apenas o código estarão em conformidade, mas são, muitas vezes, executados mais rapidamente no armazém de dados do SQL Server. Trata-se como resultado da respetiva estrutura parallelized completamente. Os cenários que podem ser trabalhados em torno com CTAS incluem:
 
 * ASSOCIAÇÕES de ANSI nas atualizações
 * Associações de ANSI em eliminações
@@ -246,9 +245,9 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
 ## <a name="replace-merge-statements"></a>Substitua as instruções de intercalação
-Instruções Merge podem ser substituídas, pelo menos, parte, utilizando `CTAS`. Pode consolidar o `INSERT` e `UPDATE` para uma instrução única. Quaisquer registos eliminados seriam necessária a ser fechado desativar numa instrução segundo.
+Instruções Merge podem ser substituídas, pelo menos, parte, utilizando o CTAS. Pode consolidar a inserção e a ATUALIZAÇÃO para uma instrução única. Quaisquer registos eliminados seriam necessária a ser fechado desativar numa instrução segundo.
 
-Um exemplo de um `UPSERT` está disponível abaixo:
+Segue-se um exemplo de um UPSERT:
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -329,13 +328,13 @@ from ctas_r
 
 O valor armazenado para o resultado é diferente. Como o valor persistente na coluna de resultado é utilizado em outras expressões o erro fica ainda mais significativo.
 
-![][1]
+![Resultados CTAS](media/sql-data-warehouse-develop-ctas/ctas-results.png)
 
 Isto é particularmente importante para migrações de dados. Apesar da consulta segundo é possivelmente mais exata há um problema. Os dados seriam diferentes em comparação com o sistema de origem e que leva a questões de integridade na migração. Este é um dos casos raros, onde a resposta "errada" é realmente o direito!
 
 É o motivo pelo qual que este disparidade entre os dois resultados, vemos para baixo para a conversão de tipo implícito. No exemplo primeiro a tabela define a definição da coluna. Quando a linha é inserida ocorre uma conversão de tipo implícito. No segundo exemplo não há nenhuma conversão implícita do tipo de expressão define o tipo de dados da coluna. Repare também que a coluna no segundo exemplo foi definida como uma coluna de tipo nulo enquanto o primeiro exemplo não tem. Quando a tabela foi criada no primeiro nulidade de coluna de exemplo foi explicitamente definida. No segundo exemplo-foi apenas à esquerda para a expressão e por predefinição este resultaria numa definição de um valor nulo.  
 
-Para resolver estes problemas tem de definir explicitamente a conversão do tipo e a permissão de valores NULL no `SELECT` parte a `CTAS` instrução. Não é possível definir estas propriedades na parte da tabela de criar.
+Para resolver estes problemas tem de definir explicitamente a conversão do tipo e a permissão de valores NULL na parte da instrução CTAS SELECIONE. Não é possível definir estas propriedades na parte da tabela de criar.
 
 O exemplo abaixo demonstra como corrigir o código:
 
@@ -357,7 +356,7 @@ Tenha em atenção o seguinte:
 * A segunda parte do ISNULL é uma constante ou seja, 0
 
 > [!NOTE]
-> Para a permissão de valores NULL ser corretamente defini-lo é vital para utilizar `ISNULL` e não `COALESCE`. `COALESCE`Não é uma função determinista e, por isso, o resultado da expressão será sempre NULLable. `ISNULL`é diferente. É determinística. Por conseguinte quando a segunda parte do `ISNULL` função é uma constante ou um literal, em seguida, o valor resultante será NOT NULL.
+> É vital para utilizar ISNULL e não COALESCE para nulidade corretamente ser definida. COALESCE não é uma função determinista e, por isso, o resultado da expressão será sempre NULLable. ISNULL é diferente. É determinística. Por conseguinte quando a segunda parte da função ISNULL é uma constante ou um literal, em seguida, o valor resultante será NOT NULL.
 > 
 > 
 
@@ -435,19 +434,8 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 Pode ver, por conseguinte, que tipo de consistência e a manutenção nulidade as propriedades de um CTAS é uma boa prática engenharia. Isto ajuda a manter a integridade nos seus cálculos e também garante que é possível comutar a partição.
 
-Consulte a MSDN para obter mais informações sobre como utilizar [CTAS][CTAS]. É uma das instruções mais importantes no Azure SQL Data Warehouse. Certifique-se que compreender exaustivamente.
+Consulte o [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) documentação. É uma das instruções mais importantes no Azure SQL Data Warehouse. Certifique-se que compreender exaustivamente.
 
-## <a name="next-steps"></a>Passos seguintes
-Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento][development overview].
+## <a name="next-steps"></a>Passos Seguintes
+Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-[1]: media/sql-data-warehouse-develop-ctas/ctas-results.png
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-
-<!--MSDN references-->
-[CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
-
-<!--Other Web references-->

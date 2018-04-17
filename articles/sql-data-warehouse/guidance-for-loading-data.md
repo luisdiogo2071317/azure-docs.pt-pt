@@ -1,25 +1,20 @@
 ---
-title: "Melhores práticas de carregamento de dados - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Recomendações para carregar dados e realizar o processo de ELT com o Azure SQL Data Warehouse."
+title: Melhores práticas de carregamento de dados - Azure SQL Data Warehouse | Microsoft Docs
+description: Recomendações e otimizações de desempenho para carregar dados para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 12/13/2017
-ms.author: barbkess
-ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/11/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: a416bf7965a5d297bfea698d318d45f6e47c9c50
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Melhores práticas de carregamento de dados para o Azure SQL Data Warehouse
 Recomendações e otimizações de desempenho para carregar dados para o Azure SQL Data Warehouse. 
@@ -62,11 +57,11 @@ Ligar ao armazém de dados e criar um utilizador. O seguinte código partem do p
 ```
 Para executar uma carga com recursos para as classes de recurso staticRC20, basta iniciar sessão como LoaderRC20 e executá-la.
 
-Execute as cargas em classes de recursos estáticas em vez de dinâmicas. Utilizar as classes estáticas garante os mesmos recursos, independentemente do seu [nível de serviço](performance-tiers.md#service-levels). Se utilizar uma classe de recursos dinâmica, os recursos variam de acordo com o nível de serviço. Nas classes dinâmicas, um nível de serviço mais baixo significa que terá de, provavelmente, utilizar uma classe de recursos maior para o seu utilizador de carregamento.
+Execute as cargas em classes de recursos estáticas em vez de dinâmicas. Utilizar as classes de recurso estático garante que os mesmos recursos, independentemente do [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md). Se utilizar uma classe de recursos dinâmica, os recursos variam de acordo com o nível de serviço. Nas classes dinâmicas, um nível de serviço mais baixo significa que terá de, provavelmente, utilizar uma classe de recursos maior para o seu utilizador de carregamento.
 
 ## <a name="allowing-multiple-users-to-load"></a>Permitir o carregamento por parte de vários utilizadores
 
-Muitas vezes, é necessário ter vários utilizadores a realizar carregamentos para um armazém de dados. O carregamento com [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requer permissões de CONTROLO na base de dados.  A permissão de CONTROL permite controlar o acesso a todos os esquemas. Poderá não querer que todos os utilizadores de carregamento tenham acesso de controlo em todos os esquemas. Para limitar as permissões, utilize a instrução DENY CONTROL.
+Muitas vezes, é necessário ter vários utilizadores a realizar carregamentos para um armazém de dados. A carregar com o [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) necessita de permissões de controlo da base de dados.  A permissão de CONTROL permite controlar o acesso a todos os esquemas. Poderá não querer que todos os utilizadores de carregamento tenham acesso de controlo em todos os esquemas. Para limitar as permissões, utilize a instrução DENY CONTROL.
 
 Por exemplo, considere os esquemas de bases de dados schema_A, para departamento A, e schema_B, para departamento B. Permita que os utilizadores user_A e user_B sejam utilizadores do carregamento PolyBase nos departamentos A e B, respetivamente. Foram concedidas a ambos permissões de base de dados CONTROL. Agora, os criadores dos esquemas A e B bloqueiam os esquemas com DENY.
 
@@ -99,13 +94,13 @@ Uma carga que utilize uma tabela externa pode falhar com o erro *"Query aborted-
 Para corrigir os registos desatualizados, confirme que as definições de tabela externa e de formato de ficheiro externo estão corretas e que os dados externos estão em conformidade com estas definições. Caso um subconjunto de registos de dados externos esteja desatualizado, pode optar por rejeitar esses registos nas suas consultas mediante a utilização das opções de rejeição em CREATE EXTERNAL TABLE (CRIAR TABELA EXTERNA).
 
 ## <a name="inserting-data-into-a-production-table"></a>Inserir dados na tabela de produção
-Um carregamento único para uma pequena tabela com uma instrução [INSERT](/sql/t-sql/statements/insert-transact-sql.md) ou mesmo um recarregamento periódico de uma consulta pode ajustar-se às suas necessidades com uma instrução como `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  No entanto, as inserções individuais não são tão eficientes como os carregamentos em massa. 
+Um carregamento único para uma pequena tabela com uma instrução [INSERT](/sql/t-sql/statements/insert-transact-sql) ou mesmo um recarregamento periódico de uma consulta pode ajustar-se às suas necessidades com uma instrução como `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  No entanto, as inserções individuais não são tão eficientes como os carregamentos em massa. 
 
 Se tiver milhares ou mais de inserções individuais durante o dia, junte-as para poder carregá-las em massa.  Desenvolva os seus processos de modo a que anexem as inserções individuais a um ficheiro e crie outro processo que o carregue periodicamente.
 
 ## <a name="creating-statistics-after-the-load"></a>Criação de estatísticas após o carregamento
 
-Para melhorar desempenho das consultas, é importante criar estatísticas em todas as colunas de todas as tabelas após o primeiro carregamento ou poderão ocorrer alterações substanciais nos dados.  Para obter uma explicação detalhada das estatísticas, veja [Estatísticas][Statistics]. O exemplo seguinte cria estatísticas em cinco colunas da tabela Customer_Speed.
+Para melhorar desempenho das consultas, é importante criar estatísticas em todas as colunas de todas as tabelas após o primeiro carregamento ou poderão ocorrer alterações substanciais nos dados.  Para uma explicação detalhada das estatísticas, consulte [Estatísticas](sql-data-warehouse-tables-statistics.md). O exemplo seguinte cria estatísticas em cinco colunas da tabela Customer_Speed.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -120,22 +115,26 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 Para alternar as chaves da conta de Armazenamento do Azure:
 
-Para cada conta de armazenamento cuja chave mudou, emita [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
+Para cada conta de armazenamento cuja chave mudou, emita [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql).
 
 Exemplo:
 
 A chave original é criada
 
-CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'minha_identidade', SECRET = 'chave1' 
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+    ``` 
 
 Efetue a rotação de chaves da chave 1 para a chave 2
 
-ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'minha_identidade', SECRET = 'chave2' 
+    ```sq;
+    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```
 
 Não é preciso fazer outras alterações às origens de dados externas subjacentes.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para monitorizar o carregamento de dados, veja [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md) (Monitorizar a sua carga de trabalho com redes de perímetro).
 
 

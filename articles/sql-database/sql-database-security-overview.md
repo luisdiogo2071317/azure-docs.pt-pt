@@ -1,6 +1,6 @@
 ---
-title: "Descrição Geral da Segurança da Base de Dados SQL do Azure | Microsoft Docs"
-description: "Saiba mais sobre a segurança da base de dados do Azure SQL e SQL Server, incluindo as diferenças entre a nuvem e o SQL Server no local."
+title: Descrição Geral da Segurança da Base de Dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre a segurança da base de dados do Azure SQL e SQL Server, incluindo as diferenças entre a nuvem e o SQL Server no local.
 services: sql-database
 author: giladm
 manager: craigg
@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6a66c9fe3716935a717dca984d1995ca371d9499
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-your-sql-database"></a>Proteger a sua Base de Dados SQL
 
@@ -48,7 +48,7 @@ Para obter mais informações, consulte [começar com deteção de dados do SQL 
 A Base de Dados SQL protege os seus dados ao limitar o acesso à base de dados com regras de firewall, mecanismos de autenticação que exigem que os utilizadores forneçam a sua identidade e autorização a dados através de permissões e associações baseadas em funções, bem como através de segurança ao nível da linha e máscara de dados dinâmicos. Para ver um debate da utilização das funcionalidades de controlo de acesso na Base de Dados SQL, veja [Controlar o acesso](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> A gestão de bases de dados e servidores lógicos no Azure é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [controlo de acesso baseado em funções no portal do Azure](../active-directory/role-based-access-control-what-is.md).
+> A gestão de bases de dados e servidores lógicos no Azure é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md).
 >
 
 ### <a name="firewall-and-firewall-rules"></a>Firewall e regras de firewall

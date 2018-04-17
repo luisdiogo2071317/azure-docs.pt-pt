@@ -1,24 +1,24 @@
 ---
-title: "Aprovisionar uma máquina de Virtual ciência do Linux (Ubuntu) dados no Azure | Microsoft Docs"
-description: "Configure e crie um dados ciência de Máquina Virtual para Linux (Ubuntu) no Azure para fazer análises e machine learning."
+title: Aprovisionar uma máquina de Virtual ciência do Linux (Ubuntu) dados no Azure | Microsoft Docs
+description: Configure e crie um dados ciência de Máquina Virtual para Linux (Ubuntu) no Azure para fazer análises e machine learning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f3ddebdd02d4766b83f0834979a54552f88179cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionar as máquinas de ciência de dados para Linux (Ubuntu)
 
@@ -167,7 +167,7 @@ Keras é uma alto nível rede neuronal da API no Python é capaz de executar na 
 #### <a name="mxnet"></a>MXNet
 MXNet é uma arquitetura de aprendizagem profunda concebida para eficácia e flexibilidade. Tem enlaces R e Python incluídos no DSVM. Notas de exemplo são incluídas no JupyterHub, e código de exemplo está disponível no /dsvm/samples/mxnet.
 
-#### <a name="nvidia-digits"></a>NVIDIA DIGITS
+#### <a name="nvidia-digits"></a>NVIDIA DÍGITOS
 O NVIDIA profunda Learning GPU formação sistema, conhecido como dígitos, é um sistema para simplificar as tarefas de aprendizagem profunda comuns, como a gestão de dados, estruturar e as redes neurais formação em sistemas GPU e monitorização do desempenho em tempo real com visualização avançada. 
 
 DÍGITOS está disponível como um serviço, denominado dígitos. Inicie o serviço e navegue até à http://localhost:5000 para começar a utilizar.
@@ -221,7 +221,7 @@ Para instalar as bibliotecas adicionais do Python, tem de executar ```conda``` o
 ### <a name="jupyter-notebook"></a>Bloco de notas do Jupyter
 A distribuição de Anaconda também inclui um bloco de notas do Jupyter, um ambiente para partilhar o código e análise. O bloco de notas do Jupyter é acedido através do JupyterHub. Inicie sessão com o nome de utilizador de Linux local e a palavra-passe.
 
-O servidor de bloco de notas do Jupyter foi previamente configurado com o Python 2, Python 3 e R kernels. Não há um ícone de ambiente de trabalho com o nome "De notas do Jupyter" para iniciar o browser para aceder ao servidor de bloco de notas. Se estiver na VM através do cliente SSH ou X2Go, também pode visitar [https://localhost:8000 /](https://localhost:8000/) para aceder ao servidor de bloco de notas do Jupyter.
+O servidor de bloco de notas do Jupyter foi previamente configurado com o Python 2, Python 3 e R kernels. Não há um ícone de ambiente de trabalho com o nome "De notas do Jupyter" para iniciar o browser para aceder ao servidor de bloco de notas. Se estiver na VM através do cliente SSH ou X2Go, também pode visitar [ https://localhost:8000/ ](https://localhost:8000/) para aceder ao servidor de bloco de notas do Jupyter.
 
 > [!NOTE]
 > Continue se obter quaisquer avisos de certificado.
@@ -404,7 +404,7 @@ Agora uma interface gráfica abre-se com um conjunto de separadores. Eis os pass
 7. Clique em de **Evaluate** separador.
 8. Clique em de **risco** botão de opção e clique em **executar** a apresentar dois rastreia de desempenho de risco (Cumulative).
 9. Clique em de **registo** separador para mostrar o código de gerar R para as operações de anteriores.
-   (Resultam de erros na versão atual do Rattle, tem de inserir um  *#*  caráter à frente do *exportar este registo...*  no texto do registo.)
+   (Resultam de erros na versão atual do Rattle, tem de inserir um *#* caráter à frente do *exportar este registo...*  no texto do registo.)
 10. Clique em de **exportar** botão para guardar o ficheiro de script do R denominado *weather_script. R* para a pasta raiz.
 
 Pode sair Rattle e R. Agora pode modificar o script R gerado ou utilizá-lo, dado que está a executá-la em qualquer altura para repetir tudo o que foi concluído dentro da IU Rattle. Especialmente para principiantes em R, esta é uma forma fácil para fazer a análise e machine learning numa interface gráfica simple, ao gerar automaticamente o código no R para modificar e/ou mais rapidamente.

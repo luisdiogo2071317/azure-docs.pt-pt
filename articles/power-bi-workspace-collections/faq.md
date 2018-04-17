@@ -1,12 +1,12 @@
 ---
-title: "Power BI área de trabalho coleções FAQ"
-description: "Perguntas mais frequentes relacionadas com coleções de área de trabalho do Power BI."
+title: Power BI área de trabalho coleções FAQ
+description: Perguntas mais frequentes relacionadas com coleções de área de trabalho do Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 6b33f497a5dbc889945e2147586f79edf1bd9aeb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 6915538e47207ee9a45f2647a84924d79c7b2851
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI área de trabalho coleções FAQ
 
@@ -43,7 +43,7 @@ As aplicações estão significativamente mais poderosas quando, pode tirar part
 Coleções de área de trabalho do Power BI destinam-se para as aplicações que são fornecidas para utilização por terceiros. Se pretender utilizar o serviço de coleções de área de trabalho do Power BI para criar uma aplicação de negócios internos, cada um dos seus utilizadores internos terá um USL Pro do Power BI e organização será cobrada pelo respetivo consumo do serviço de coleções de área de trabalho do Power BI Para além das taxas de Power BI Pro USL. Para evitar incorrer em taxas de Power BI Pro USL e os custos de consumo de coleções de área de trabalho do Power BI para aplicações internas, o serviço do Power BI oferece o suas próprias conteúdo incorporar capacidades fora coleções de área de trabalho do Power BI para sem custos adicionais para Proprietários de BI USL de energia (dev.powerbi.com).
 
 ## <a name="can-power-bi-workspace-collections-be-used-to-create-internal-applications"></a>Coleções de área de trabalho do Power BI pode ser utilizada para criar aplicações internas?
-Não, as coleções de área de trabalho do Power BI só foram concebidas para utilização por utilizadores externos e não deve ser utilizadas dentro de aplicações de negócios internos. Para incorporar conteúdos do Power BI para utilizar em aplicações empresariais internas, deve utilizar o serviço Power BI, e todos os utilizadores que consumam esses conteúdos têm de ter uma licença de subscrição de utilizador do Power BI Free ou do Power BI Pro. Obter mais informações sobre como integrar aplicações internas com o serviço do Power BI estão disponíveis em [https://dev.powerbi.com](https://dev.powerbi.com).
+Não, as coleções de área de trabalho do Power BI só foram concebidas para utilização por utilizadores externos e não deve ser utilizadas dentro de aplicações de negócios internos. Para incorporar conteúdos do Power BI para utilizar em aplicações empresariais internas, deve utilizar o serviço Power BI, e todos os utilizadores que consumam esses conteúdos têm de ter uma licença de subscrição de utilizador do Power BI Free ou do Power BI Pro. Obter mais informações sobre como integrar aplicações internas com o serviço do Power BI estão disponíveis em [ https://dev.powerbi.com ](https://dev.powerbi.com).
 
 ## <a name="is-this-service-available-globally"></a>É este serviço disponível globalmente?
 O serviço de coleções de área de trabalho do Power BI está disponível na maioria dos centros de dados agora. Pode verificar a disponibilidade mais recente sempre [aqui](https://azure.microsoft.com/status/).
@@ -87,7 +87,7 @@ Pode visitar o [página de documentação de coleções de área de trabalho do 
 ## <a name="how-do-i-get-started"></a>Como posso começar?
 Pode começar agora gratuitamente! Se tiver uma subscrição do Azure, pode agora aprovisionar coleções de área de trabalho do Power BI do portal do Azure diretamente. Também pode criar o [conta do Azure gratuita](https://azure.microsoft.com/free/). Assim que tiver aprovisionado o serviço de coleções de área de trabalho do Power BI, pode facilmente utilizar APIs REST do Power BI diretamente, ou utilizar o programador do SDK, disponível no [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). São fornecidos exemplos sobre como tirar partido do programador do SDK.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 [O que é coleções de área de trabalho do Microsoft Power BI](what-are-power-bi-workspace-collections.md)
 [começar com coleções de área de trabalho do Microsoft Power BI](get-started.md)

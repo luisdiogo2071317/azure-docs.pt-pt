@@ -1,9 +1,9 @@
 ---
 title: SQL Server Business Intelligence | Microsoft Docs
-description: "Este tópico utiliza recursos criados com o modelo de implementação clássica e descreve as funcionalidades de Business Intelligence (BI) disponíveis para o SQL Server em execução no Azure máquinas virtuais (VMs)."
+description: Este tópico utiliza recursos criados com o modelo de implementação clássica e descreve as funcionalidades de Business Intelligence (BI) disponíveis para o SQL Server em execução no Azure máquinas virtuais (VMs).
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
-ms.author: asaxton
-ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: maghan
+ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence em Máquinas Virtuais do Azure
 > [!IMPORTANT] 
@@ -69,7 +69,7 @@ Para obter mais informações sobre edições e funcionalidades suportadas pelo 
 A tabela seguinte resume as funcionalidades de Business Intelligence instaladas nas imagens de galeria comuns do Microsoft Azure Virtual Machine para o SQL Server:
 
 * SQL Server 2016 SP1 Enterprise
-* SQL Server 2016 SP1 Standard
+* SQL Server 2016 SP1 padrão
 * SQL Server 2014 SP2 Enterprise
 * SQL Server 2014 SP2 Standard
 * SQL Server 2012 SP3 Enterprise
@@ -83,7 +83,7 @@ A tabela seguinte resume as funcionalidades de Business Intelligence instaladas 
 | **Tabela do Analysis Services** |Não |Suportado no SQL Server 2012, 2014 e 2016 imagens, mas não está instalado por predefinição. Instale outra instância do Analysis Services. Consulte a secção instalar outros serviços do SQL Server e as funcionalidades neste tópico. |
 | **Analysis Services Power Pivot para SharePoint** |Não |A imagem de galeria da máquina de Virtual do Microsoft Azure não inclui SharePoint ou o SharePoint ficheiros de instalação. <sup>1</sup> |
 
-<sup>1</sup> para obter informações adicionais no SharePoint e máquinas virtuais do Azure, consulte [Microsoft Azure arquiteturas para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) e [SharePoint implementação em do Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
+<sup>1</sup> para obter informações adicionais no SharePoint e máquinas virtuais do Azure, consulte [Microsoft Azure arquiteturas para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) e [SharePoint implementação no Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
 
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) Execute o seguinte comando do PowerShell para obter uma lista de serviços instalados que contêm "SQL" no nome do serviço.
 
@@ -216,7 +216,7 @@ Para obter informações sobre as permissões do servidor de relatórios, consul
 Para verificar a configuração, navegue para o Gestor de relatórios na VM.
 
 1. Na VM, inicie o Internet Explorer com privilégios de administrador.
-2. Procure http://localhost/reports na VM.
+2. Navegue até à http://localhost/reports na VM.
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>Para ligar ao portal web remoto, ou o Gestor de relatórios para 2014 e 2012
 Se pretender ligar para o web portal ou o Gestor de relatórios para 2014 e de 2012, a máquina virtual de um computador remoto, crie uma nova máquina virtual ponto final TCP. Por predefinição, o servidor de relatórios escuta pedidos de HTTP no **porta 80**. Se configurar os URLs do servidor de relatórios para utilizar uma porta diferente, tem de especificar esse número de porta as instruções seguintes.
@@ -225,7 +225,7 @@ Se pretender ligar para o web portal ou o Gestor de relatórios para 2014 e de 2
 2. Abra a porta 80 na firewall da máquina virtual.
 3. Navegar para o portal web ou report manager, utilizando a Máquina Virtual do Azure **nome DNS** como o nome do servidor no URL. Por exemplo:
    
-    **Servidor de relatórios**: http://uebi.cloudapp.net/reportserver **Web portal**: http://uebi.cloudapp.net/reports
+    **Servidor de relatórios**: http://uebi.cloudapp.net/reportserver **Web portal**:   http://uebi.cloudapp.net/reports
    
     [Configurar uma Firewall para acesso ao servidor de relatórios](https://msdn.microsoft.com/library/bb934283.aspx)
 

@@ -3,29 +3,29 @@ title: Aprovisionar uma máquina de Virtual de ciência de dados de CentOS do Li
 description: Configure e crie uma Máquina Virtual de ciência de dados de Linux no Azure para fazer análises e machine learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: 7f683fff142a3654249560ed5299ed3cd7cb9cce
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: gokuma
+ms.openlocfilehash: 1a201974749acbbb9607e42e67d1935f437f9ca1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de ciência de dados de CentOS do Linux no Azure
 
 A Máquina Virtual de ciência de dados de Linux é uma baseado em CentOS máquina virtual do Azure que vem com uma coleção de ferramentas pré-instaladas. Estas ferramentas são frequentemente utilizadas para fazer a análise de dados e machine learning. Os componentes de chaves de software incluídos são:
 
 * Sistema operativo: Distribuição Linux CentOS.
-* Microsoft R Server Developer Edition
+* Edição de programador do Microsoft R
 * Distribuição do Python anaconda (versões 2.7 e 3.5), incluindo bibliotecas de análise de dados mais populares
 * JuliaPro - uma distribuição organizada de idioma de Leonor com bibliotecas de análise de dados e científicos populares
 * Instância de Spark autónomo e de nó único Hadoop (HDFS, Yarn)

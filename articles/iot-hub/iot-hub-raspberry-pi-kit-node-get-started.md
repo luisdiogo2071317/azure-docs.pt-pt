@@ -2,10 +2,10 @@
 title: Raspberry Pi nuvem (Node.js) - ligar Raspberry Pi ao IoT Hub do Azure | Microsoft Docs
 description: Saiba como configurar e ligar Raspberry Pi ao Azure IoT Hub para Raspberry Pi enviar dados para a plataforma de nuvem do Azure, neste tutorial.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
+tags: ''
 keywords: Azure iot raspberry pi, iothub raspberry pi, dados de envio de raspberry pi na nuvem, raspberry pi na nuvem
 ms.assetid: b0e14bfa-8e64-440a-a6ec-e507ca0f76ba
 ms.service: iot-hub
@@ -13,14 +13,14 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/14/2017
-ms.author: xshi
+ms.date: 4/11/2018
+ms.author: rangv
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7bf423fd05d6651bf16693e6d6930fada8b5da70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e7db2f78a5c1a942f64a2c0a40068fffe90749d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ligar Raspberry Pi ao IoT Hub do Azure (Node.js)
 
@@ -205,7 +205,7 @@ Ative a Pi utilizando o micro cabo USB e a fonte de alimentação. Utilize o cab
 
 1. Guarde e saia, escrevendo O controlo > introduza > X de controlo.
 
-### <a name="run-the-sample-application"></a>Executar a aplicação de exemplo
+### <a name="run-the-sample-application"></a>Executar o exemplo de aplicação
 
 Execute a aplicação de exemplo, executando o seguinte comando:
 
@@ -221,7 +221,7 @@ Deverá ver o seguinte resultado que mostra os dados de sensor e as mensagens qu
 
 ![Saída - dados de sensor enviados do Raspberry Pi ao seu IoT hub](media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Tiver de executar um exemplo de aplicação para recolher dados de sensores e enviá-lo ao seu IoT hub. Para ver as mensagens que o Raspberry Pi foi enviado para o seu IoT hub, ou enviar mensagens para a sua Raspberry Pi numa interface de linha de comandos, consulte o [gerir dispositivos de cloud messaging com tutorial de iothub Explorador](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 

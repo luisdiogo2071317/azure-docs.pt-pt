@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações Web de três camadas oficial do RU"
-description: "Segurança do Azure e conformidade Blueprint - automatização de aplicações Web de três camadas oficial do RU"
+title: Segurança do Azure e conformidade Blueprint - automatização de aplicações Web de três camadas oficial do RU
+description: Segurança do Azure e conformidade Blueprint - automatização de aplicações Web de três camadas oficial do RU
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Segurança do Azure e conformidade Blueprint - automatização de aplicações Web de três camadas oficial do RU
 
@@ -185,7 +185,7 @@ Nestas VNets ainda são geridas como recursos separados, mas aparece como uma pa
 
 ### <a name="identity"></a>Identidade
 
-**Serviços de domínio do Active Directory**: esta arquitetura fornece uma implementação de serviços de domínio do Active Directory no Azure. Para ver as recomendações específicas na implementação do Active Directory no Azure, consulte os artigos seguintes:
+**Serviços de domínio do Active Directory**: esta arquitetura fornece uma implementação de serviços de domínio do Active Directory no Azure. Para obter recomendações específicas sobre a implementação do Active Directory no Azure, veja os artigos seguintes:
 
 [Expandir os serviços de domínio do Active Directory (AD DS) para o Azure](https://docs.microsoft.com/azure/guidance/guidance-identity-adds-extend-domain).
 
@@ -211,7 +211,7 @@ Os clientes também podem considerar utilizar um [modelo administrativo de segur
 
 **Gestão de recursos**: recursos do Azure como VMs, VNets e Balanceadores de carga são geridos pelo agrupá-los em conjunto para [grupos de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). Em seguida, podem ser atribuídas a funções de controlo de acesso baseado em recursos para cada grupo de recursos para restringir o acesso apenas aos utilizadores autorizados.
 
-**Limitações de controlo de acesso**: Utilize [controlo de acesso baseado em funções](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) para gerir os recursos na sua aplicação utilizar [funções personalizadas](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) RBAC pode ser utilizada para restringir as operações que DevOps pode executar em cada camada. Quando a concessão de permissões, utilize o [princípio do menor privilégio](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Inicie sessão todas as operações administrativas e realizar auditorias regulares para garantir que as alterações de configuração foram planeadas.
+**Limitações de controlo de acesso**: Utilize [controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) para gerir os recursos na sua aplicação utilizar [funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC pode ser utilizada para restringir as operações que DevOps pode executar em cada camada. Quando a concessão de permissões, utilize o [princípio do menor privilégio](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registe todas as operações administrativas e realize auditorias regulares para garantir que as alterações de configuração foram planeadas.
 
 **Acesso à Internet**: esta arquitetura de referência utilises [Gateway de aplicação do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) como Balanceador de gateway e de carga com acesso à internet. Alguns clientes também podem considerar utilizar aplicações virtuais de rede de terceiros para camadas adicionais de segurança como alternativa de rede a [Gateway de aplicação do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 

@@ -1,32 +1,26 @@
 ---
-title: Como utilizar o Blob storage do Azure do iOS | Microsoft Docs
-description: "Armazene dados não estruturados na nuvem com o Blob Storage do Azure (armazenamento de objetos)."
+title: Como utilizar o armazenamento de objeto (Blob) do iOS - Azure | Microsoft Docs
+description: Armazene dados não estruturados na nuvem com o Blob Storage do Azure (armazenamento de objetos).
 services: storage
 documentationcenter: ios
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: f238804e6031fcf3f194695a06bf5b88733a27b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como utilizar o Blob storage do iOS
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
+Este artigo mostra como efetuar cenários comuns utilizando o armazenamento de Blobs do Microsoft Azure. Os exemplos são escritos em Objective-C e utilize o [biblioteca de clientes do Storage do Azure para iOS](https://github.com/Azure/azure-storage-ios). Os cenários abrangidos incluem carregar, listar, transferir e eliminar blobs. Para obter mais informações sobre os blobs, consulte o [passos](#next-steps) secção. Também pode transferir o [aplicação de exemplo](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rapidamente a utilização do Storage do Azure numa aplicação iOS.
 
-## <a name="overview"></a>Descrição geral
-Este artigo irá mostrar como efetuar cenários comuns utilizando o armazenamento de Blobs do Microsoft Azure. Os exemplos são escritos em Objective-C e utilize o [biblioteca de clientes do Storage do Azure para iOS](https://github.com/Azure/azure-storage-ios). Os cenários abrangidos incluem **carregar**, **listagem**, **transferir**, e **eliminar** blobs. Para obter mais informações sobre os blobs, consulte o [passos](#next-steps) secção. Também pode transferir o [aplicação de exemplo](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rapidamente a utilização do Storage do Azure numa aplicação iOS.
+## <a name="what-is-blob-storage"></a>O que é o Blob storage?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -91,7 +85,7 @@ Se estiver a utilizar o Swift, terá de criar um cabeçalho de bridging e import
 
 1. Criar um ficheiro de cabeçalho `Bridging-Header.h`e adicione a instrução de importação acima.
 2. Vá para o *definições de criação* separador e procure *cabeçalho de Bridging Objective-C*.
-3. Faça duplo clique no campo de *cabeçalho de Bridging Objective-C* e adicione o caminho para o ficheiro de cabeçalho:`ProjectName/Bridging-Header.h`
+3. Faça duplo clique no campo de *cabeçalho de Bridging Objective-C* e adicione o caminho para o ficheiro de cabeçalho: `ProjectName/Bridging-Header.h`
 4. Compilar o projeto (⌘ + B) para verificar que o cabeçalho de bridging foi captado pelo Xcode.
 5. Começar a utilizar a biblioteca diretamente no ficheiro qualquer Swift, não é necessário para instruções de importação.
 
@@ -222,7 +216,7 @@ O exemplo seguinte mostra como listar todos os blobs num contentor. Quando efetu
 
 * **continuationToken** -o representa de token de continuação onde deve começar a operação de listagem. Se não for fornecido nenhum token, este irá listar blobs a partir do início. Pode ser apresentado qualquer número de blobs, do zero até um máximo de conjunto. Mesmo que este método devolve zero resultados, se `results.continuationToken` não é nil, poderão existir mais blobs no serviço que não foi indicados.
 * **prefixo** -pode especificar o prefixo a utilizar para a lista de blob. Apenas os blobs que começam com este prefixo serão apresentados.
-* **useFlatBlobListing** - tal como mencionado no [nomenclatura e referência de contentores e blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) secção, embora o serviço Blob é um esquema de armazenamento simples, é possível criar uma hierarquia virtual ao nomear blobs com informações de caminho. No entanto, não plana listagem não é atualmente suportada. Esta funcionalidade estará disponível brevemente. Por agora, este valor deve ser **Sim**.
+* **useFlatBlobListing** - tal como mencionado no [nomenclatura e referência de contentores e blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) secção, embora o serviço Blob é um esquema de armazenamento simples, é possível criar uma hierarquia virtual ao nomear blobs com o caminho informações. No entanto, não plana listagem não é atualmente suportada. Esta funcionalidade estará disponível brevemente. Por agora, este valor deve ser **Sim**.
 * **blobListingDetails** -pode especificar quais os itens a incluir quando listar os blobs
   * _AZSBlobListingDetailsNone_: listar apenas consolidados blobs e devolve os metadados de blob.
   * _AZSBlobListingDetailsSnapshots_: listar blobs consolidados e instantâneos do blob.
@@ -382,7 +376,7 @@ O exemplo seguinte mostra como eliminar um contentor.
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu como utilizar o Blob Storage a partir do iOS, siga estas ligações para saber mais sobre a biblioteca de iOS e o serviço de armazenamento.
 
 * [Biblioteca de clientes do Storage do Azure para iOS](https://github.com/azure/azure-storage-ios)

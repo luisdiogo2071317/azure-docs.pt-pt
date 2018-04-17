@@ -1,8 +1,8 @@
 ---
 title: As respostas a alertas no Log Analytics do Azure | Microsoft Docs
-description: "Alertas na análise de registos identificar informações importantes na sua área de trabalho do Azure e podem proativamente notificá-lo de problemas ou da invocação ações para tentar corrigir as entradas.  Este artigo descreve como criar uma regra de alerta e detalhes de ações diferentes que podem realizar."
+description: Alertas na análise de registos identificar informações importantes na sua área de trabalho do Azure e podem proativamente notificá-lo de problemas ou da invocação ações para tentar corrigir as entradas.  Este artigo descreve como criar uma regra de alerta e detalhes de ações diferentes que podem realizar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 6a48e4c0ab61e5dcf526bb8b1d8bdc6b0d16f9e7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Adicione ações para regras de alertas na análise de registos
 Quando um [alerta é criado na análise de registos](log-analytics-alerts.md), tem a opção de [configurar a regra de alerta](log-analytics-alerts.md) para efetuar uma ou mais ações.  Este artigo descreve as diferentes ações que estão disponíveis e os detalhes sobre como configurar cada tipo.
@@ -28,7 +28,7 @@ Quando um [alerta é criado na análise de registos](log-analytics-alerts.md), t
 |:--|:--|
 | [E-mail](#email-actions) | Envie um e-mail com os detalhes do alerta para um ou mais destinatários. |
 | [Webhook](#webhook-actions) | Invocar um processo externo através de um pedido de HTTP POST único. |
-| [Runbook](#runbook-actions) | Inicie um runbook na automatização do Azure. |
+| [runbook](#runbook-actions) | Inicie um runbook na automatização do Azure. |
 
 
 ## <a name="email-actions"></a>Ações de e-mail
@@ -70,7 +70,7 @@ Webhooks incluir um URL e um payload formatado em JSON que é os dados enviados 
 | SearchIntervalInSeconds |#searchinterval |Janela de tempo para a regra de alerta. |
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Hora de início para a consulta em formato UTC. |
 | SearchQuery |#searchquery |Consulta de pesquisa de registo utilizada pela regra de alerta. |
-| SearchResults |Consulte abaixo |Registos devolvidos pela consulta no formato JSON.  Limitado para os primeiro 5 000 registos. |
+| SearchResults |Veja abaixo |Registos devolvidos pela consulta no formato JSON.  Limitado para os primeiro 5 000 registos. |
 | WorkspaceID |#workspaceid |ID da sua área de trabalho de análise de registos. |
 
 Por exemplo, poderá especificar o payload personalizado seguinte, que inclui um único parâmetro chamado *texto*.  O serviço que chama o webhook seria possível esperar este parâmetro.
@@ -603,6 +603,7 @@ Segue-se um payload de exemplo para uma ação de runbook numa área de trabalho
                 "a4e29a95-5b4c-408b-80e3-113f9410566e",
                 "00000000-0000-0000-0000-000000000000",
                 "Usage"
+            ]
             ]
         }
         ]

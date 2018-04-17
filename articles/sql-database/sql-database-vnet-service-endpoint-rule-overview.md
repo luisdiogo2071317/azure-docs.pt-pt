@@ -1,6 +1,6 @@
 ---
-title: "Pontos finais de serviço de rede virtuais e regras para a SQL Database do Azure | Microsoft Docs"
-description: "Marcar uma sub-rede como um ponto final de serviço de rede Virtual. Em seguida, o ponto final como uma regra de rede virtual para a ACL de SQL Database do Azure. A base de dados SQL, em seguida, aceita comunicações de todas as máquinas virtuais e outros nós na sub-rede."
+title: Pontos finais de serviço de rede virtuais e regras para a SQL Database do Azure | Microsoft Docs
+description: Marcar uma sub-rede como um ponto final de serviço de rede Virtual. Em seguida, o ponto final como uma regra de rede virtual para a ACL de SQL Database do Azure. A base de dados SQL, em seguida, aceita comunicações de todas as máquinas virtuais e outros nós na sub-rede.
 services: sql-database
 ms.service: sql-database
 author: MightyPen
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b15b3c7f50c23a1c11b2467bfdd2794d52b451ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utilizar pontos finais do serviço de rede Virtual e as regras para a SQL Database do Azure
 
@@ -140,7 +140,7 @@ Para a base de dados SQL do Azure, a funcionalidade de regras de rede virtual te
 Quando utilizar pontos finais de serviço para a SQL Database do Azure, reveja as seguintes considerações:
 
 - **Saída para IPs públicos do Azure SQL da base de dados é necessária**: grupos de segurança de rede (NSGs) devem ser abertos para IPs de base de dados SQL do Azure para permitir a conetividade. Pode fazê-lo utilizando o NSG [etiquetas de serviço](../virtual-network/security-overview.md#service-tags) para a SQL Database do Azure.
-- **Base de dados do Azure para PostgreSQL e o MySQL não são suportadas**: pontos finais de serviço não são suportados para a base de dados do Azure para PostgreSQL ou MySQL. Ativar pontos finais do serviço base de dados do SQL Server irá interromper a conectividade a estes serviços. Temos uma mitigação para este; Contacte  *dmalik@microsoft.com* .
+- **Base de dados do Azure para PostgreSQL e o MySQL não são suportadas**: pontos finais de serviço não são suportados para a base de dados do Azure para PostgreSQL ou MySQL. Ativar pontos finais do serviço base de dados do SQL Server irá interromper a conectividade a estes serviços. Temos uma mitigação para este; Contacte *dmalik@microsoft.com*.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -178,7 +178,7 @@ Armazenamento do Azure tiver implementado a mesma funcionalidade que permite lim
 Se optar por utilizar esta funcionalidade com uma conta de armazenamento que está a ser utilizada por um servidor de SQL do Azure, pode depare com problemas. Em seguida, é uma lista e debate das funcionalidades do Azure SQLDB que são afetados por este.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-O PolyBase costuma é utilizado para carregar dados para o Azure SQLDW das contas do Storage. Se a conta de armazenamento que está a carregar dados a partir de limita o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade do PolyBase à conta. Há uma mitigação para este; Contacte  *dmalik@microsoft.com*  para obter mais informações.
+O PolyBase costuma é utilizado para carregar dados para o Azure SQLDW das contas do Storage. Se a conta de armazenamento que está a carregar dados a partir de limita o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade do PolyBase à conta. Há uma mitigação para este; Contacte *dmalik@microsoft.com* para obter mais informações.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Blob do Azure SQLDB auditoria
 Auditoria de blob pushes registos de auditoria para a sua própria conta de armazenamento. Se esta conta de armazenamento utiliza a funcionalidade de pontos finais do serviço de prevenir irá interromper a conectividade do SQLDB do Azure para a conta de armazenamento.
@@ -315,7 +315,7 @@ A funcionalidade de regra de rede virtual para a SQL Database do Azure está dis
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 

@@ -1,6 +1,6 @@
 ---
-title: "Planear a escala do seu ambiente de informações de séries de tempo do Azure | Microsoft Docs"
-description: "Este artigo descreve como a seguir as melhores práticas quando planear um ambiente de informações de séries de tempo do Azure, incluindo a capacidade de armazenamento, retenção de dados, capacidade de entrada e de monitorização."
+title: Planear a escala do seu ambiente de informações de séries de tempo do Azure | Microsoft Docs
+description: Este artigo descreve como a seguir as melhores práticas quando planear um ambiente de informações de séries de tempo do Azure, incluindo a capacidade de armazenamento, retenção de dados, capacidade de entrada e de monitorização.
 services: time-series-insights
 ms.service: time-series-insights
 author: jasonwhowell
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 5fb158ba162dd199f419f9568de08a7a18c833dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planear o ambiente de informações de séries de tempo do Azure
 
@@ -32,6 +32,8 @@ Tenha em consideração os seguintes atributos para o plano de melhor o ambiente
 - Capacidade de armazenamento
 - Período de retenção de dados
 - Capacidade de entrada 
+- Formação os eventos
+- Garantir que tem os dados de referência
 
 ## <a name="understand-storage-capacity"></a>Compreender a capacidade de armazenamento
 Por predefinição, o Insights de séries de tempo retém dados com base na quantidade de armazenamento aprovisionou (unidades vezes quantidade de armazenamento por unidade) e de entrada.
@@ -74,16 +76,27 @@ Por exemplo, se tiver uma única S1 SKU e os dados de entrada uma taxa de 700 ev
 
 Não pode saber antecipadamente quantidade de dados pretende push. Neste caso, pode encontrar a telemetria dados [IoT Hub do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) e [Event Hubs do Azure](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) no portal do Azure. Esta telemetria pode ajudá-lo a determinar como aprovisionar o seu ambiente. Utilize o **métricas** página no portal do Azure para a origem de evento correspondentes ver a telemetria. Se compreender as métricas de origem do evento, pode planear com mais eficiência e aprovisionar o seu ambiente de informações de séries de tempo.
 
-## <a name="calculate-ingress-requirements"></a>Calcular os requisitos de entrada
+### <a name="calculate-ingress-requirements"></a>Calcular os requisitos de entrada
 
 - O confirme a capacidade de entrada é superior a taxa média de por minuto e de que o seu ambiente é suficientemente grande para processar a entrada prevista equivalente ao 2x a capacidade para inferior a 1 hora.
 
 - Se ocorrerem picos de entrada que última durante um período superior a 1 hora, utilize a taxa de pico de pedidos como a média e aprovisionar um ambiente com capacidade para processar a taxa de pico de pedidos.
  
-## <a name="mitigate-throttling-and-latency"></a>Mitigar limitação e latência
+### <a name="mitigate-throttling-and-latency"></a>Mitigar limitação e latência
 
 Para obter informações sobre como evitar limitação e latência, consulte [mitigar latência e limitação](time-series-insights-environment-mitigate-latency.md). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="shaping-your-events"></a>Formação os eventos
+É importante certificar-se de que forma pode enviar eventos para TSI suporta o tamanho do ambiente estiver a aprovisionar (por outro lado, pode mapear o tamanho do ambiente eventos quantos TSI lê e o tamanho de cada evento).  Da mesma forma, é importante considerar sobre os atributos que poderá querer segmentação e filtrar por ao consultar os dados.  Com isto em mente, sugerimos rever o JSON formação secção do nosso *enviar eventos* documentação [documentação] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events).  Trata-se para a parte inferior da página.  
+
+## <a name="ensuring-you-have-reference-data-in-place"></a>Garantir que tem os dados de referência
+Um conjunto de dados de referência é uma coleção de itens que aumentar os eventos a partir da sua origem de evento. Motor de entrada de informações de séries de tempo associa cada evento da sua origem de evento com a linha de dados correspondente no seu conjunto de dados de referência. Esse evento aumentado fica então disponível para consulta. Esta associação é baseada em colunas de chave primária definidas no seu conjunto de dados de referência.
+
+Tenha em atenção de que os dados de referência não estiver associados retroactively. Isto significa que apenas os dados de entrada atuais e futuras são correspondidos e associados ao conjunto de datas de referência, uma vez que foi configurado e carregado.  Se pretender enviar muitos dados históricos para TSI não carregar ou criar dados de referência na TSI em primeiro lugar, em seguida, poderá ter de fazê-lo novamente o seu trabalho (sugestão, não fun).  
+
+Para obter mais informações sobre como criar, carregar e gerir os seus dados de referência na TSI, aceda ao nosso *referência a dados* documentação [documentação] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+
+
+## <a name="next-steps"></a>Passos Seguintes
 - [Como adicionar uma origem de evento do Hub de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md)
 - [Como adicionar uma origem de evento do IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md)

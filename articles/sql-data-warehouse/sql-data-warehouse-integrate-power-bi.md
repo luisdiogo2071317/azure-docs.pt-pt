@@ -1,11 +1,11 @@
 ---
 title: Utilizar o Power BI com o SQL Data Warehouse | Microsoft Docs
-description: "Sugestões para utilizar o Power BI com o Azure SQL Data Warehouse para desenvolver soluções."
+description: Sugestões para utilizar o Power BI com o Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
 documentationcenter: NA
 author: mlee3gsd
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b12bee87-2268-40c2-81bf-ab27588b32e8
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Utilizar o Power BI com o SQL Data Warehouse
 Como com a base de dados SQL do Azure, SQL Server dados armazém direta estabelecer a ligação permite ao utilizador tirar partido do poderoso pushdown lógica juntamente com as capacidades analíticas do Power BI.  Com ligação direta, as consultas são enviadas para o Azure SQL Data Warehouse em tempo real como explorar os dados.  Isto, combinada com a escala do SQL Data Warehouse, permite aos utilizadores criar relatórios dinâmicos em minutos contra terabytes de dados.  Além disso, a introdução do abrir no botão do Power BI permite aos utilizadores ligar diretamente o Power BI ao seu SQL Data Warehouse sem recolher informações a partir de outras partes do Azure.

@@ -10,13 +10,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
-ms.author: johnkem
-ms.openlocfilehash: a5c05466b21184a73d08190856e00ae95ee3727f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 4/12/2018
+ms.author: dukek
+ms.openlocfilehash: 4264bfd733f586dcdabdee8f29494bfffd9a7a76
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividade do Azure
 O **registo de atividade do Azure** é um registo que fornece informações sobre quaisquer eventos ao nível da subscrição ocorridas no Azure. Este artigo descreve o esquema de eventos por categoria de dados.
@@ -29,7 +29,7 @@ Esta categoria contém o registo de todos os criar, as operações de atualizaç
 {
     "authorization": {
         "action": "Microsoft.Network/networkSecurityGroups/write",
-        "scope": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
+        "scope": "/subscriptions/<subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
     },
     "caller": "rob@contoso.com",
     "channels": "Operation",
@@ -74,7 +74,7 @@ Esta categoria contém o registo de todos os criar, as operações de atualizaç
         "localizedValue": "Administrative"
     },
     "eventTimestamp": "2018-01-29T20:42:31.3810679Z",
-    "id": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
+    "id": "/subscriptions/<subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
     "level": "Informational",
     "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
     "operationName": {
@@ -90,7 +90,7 @@ Esta categoria contém o registo de todos os criar, as operações de atualizaç
         "value": "Microsoft.Network/networkSecurityGroups",
         "localizedValue": "Microsoft.Network/networkSecurityGroups"
     },
-    "resourceId": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+    "resourceId": "/subscriptions/<subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
     "status": {
         "value": "Succeeded",
         "localizedValue": "Succeeded"
@@ -100,7 +100,7 @@ Esta categoria contém o registo de todos os criar, as operações de atualizaç
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-01-29T20:42:50.0724829Z",
-    "subscriptionId": "dd042f02-6b3e-4f79-939a-6a381ffed3c0",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "statusCode": "Created",
         "serviceRequestId": "a4c11dbd-697e-47c5-9663-12362307157d",
@@ -154,7 +154,7 @@ Esta categoria contém o registo de qualquer incidentes de estado de funcionamen
       "localizedValue": "Service Health"
   },
   "eventTimestamp": "2017-07-20T23:30:14.8022297Z",
-  "id": "/subscriptions/mySubscriptionID/events/c5bc4514-6642-2be3-453e-c6a67841b073/ticks/636361902148022297",
+  "id": "/subscriptions/<subscription ID>/events/c5bc4514-6642-2be3-453e-c6a67841b073/ticks/636361902148022297",
   "level": "Warning",
   "operationName": {
       "value": "Microsoft.ServiceHealth/incident/action",
@@ -167,7 +167,7 @@ Esta categoria contém o registo de qualquer incidentes de estado de funcionamen
       "value": null,
       "localizedValue": ""
   },
-  "resourceId": "/subscriptions/mySubscriptionID",
+  "resourceId": "/subscriptions/<subscription ID>",
   "status": {
       "value": "Active",
       "localizedValue": "Active"
@@ -176,7 +176,7 @@ Esta categoria contém o registo de qualquer incidentes de estado de funcionamen
       "value": null
   },
   "submissionTimestamp": "2017-07-20T23:30:34.7431946Z",
-  "subscriptionId": "mySubscriptionID",
+  "subscriptionId": "<subscription ID>",
   "properties": {
     "title": "Network Infrastructure - UK South",
     "service": "Service Fabric",
@@ -194,35 +194,7 @@ Esta categoria contém o registo de qualquer incidentes de estado de funcionamen
   }
 }
 ```
-
-### <a name="property-descriptions"></a>Descrições das propriedades
-Nome do elemento | Descrição
--------- | -----------
-canais | Um dos seguintes valores: "Admin", "Operação"
-correlationId | Normalmente, é um GUID no formato de cadeia. Eventos com que pertencem à mesma ação de uber normalmente partilhar o mesmo correlationId.
-descrição | Descrição do evento.
-eventDataId | O identificador exclusivo de um evento.
-eventName | O título do evento.
-nível | Nível do evento. Um dos seguintes valores: "Críticas", "Error", "Aviso", "Informativa" e "Verboso"
-resourceProviderName | Nome do fornecedor de recursos para o recurso afetado. Se não conhecido, este será nulo.
-resourceType| O tipo de recurso do recurso afetado. Se não conhecido, este será nulo.
-subStatus | Normalmente, é nulo para eventos de estado de funcionamento do serviço.
-eventTimestamp | Timestamp quando o registo de eventos foi gerado e submetido para o registo de atividade.
-submissionTimestamp |   Timestamp quando o evento ficou disponível no registo de atividade.
-subscriptionId | A subscrição do Azure em que este evento foi registado.
-status | Cadeia que descrevem o estado da operação. Alguns valores comuns são: Active Directory, resolvido.
-operationName | Nome da operação. Normalmente, Microsoft.ServiceHealth/incident/action.
-categoria | "ServiceHealth"
-resourceId | Id de recurso do recurso afetado, se conhecida. ID de subscrição é fornecido em contrário.
-Properties.title | O título localizado para esta comunicação. Inglês é o idioma predefinido.
-Properties.Communication | Os detalhes localizados da comunicação com o markup HTML. Inglês é o predefinido.
-Properties.incidentType | Os valores possíveis: AssistedRecovery ActionRequired, informações, incidentes, manutenção, a segurança
-Properties.trackingId | Identifica o incidente que está associado este evento. Utilize esta opção para correlacionar os eventos relacionados com um incidente.
-Properties.impactedServices | Um blob JSON com caráter de escape que descreve os serviços e regiões que são afetadas pelo incidente. Uma lista de serviços, cada um deles tem uma ServiceName e uma lista de ImpactedRegions, cada um deles tem uma RegionName.
-Properties.defaultLanguageTitle | A comunicação em inglês
-Properties.defaultLanguageContent | A comunicação em inglês como markup de html ou texto simples
-Properties.Stage | Os valores possíveis para AssistedRecovery, ActionRequired, informações, incidentes, de segurança: estão ativos, resolvido. Para manutenção são: Active Directory, planeada, em curso, cancelado, Rescheduled, resolvido, concluída
-Properties.communicationId | A comunicação este evento está associado.
+Consulte o [notificações de estado de funcionamento do serviço](./monitoring-service-notifications.md) artigo para obter a documentação sobre os valores nas propriedades.
 
 ## <a name="alert"></a>Alerta
 Esta categoria contém o registo de todas as ativações de alertas do Azure. Um exemplo do tipo de evento que vir esta categoria é "% de CPU no myVM foi superior a 80 para os últimos 5 minutos." Um conceito de alerta de ter uma variedade de sistemas do Azure – pode definir uma regra de algumas ordenação e receber uma notificação quando as condições corresponderem dessa regra. Sempre que um tipo de alerta do Azure suportado 'ativa,' ou as condições são cumpridas para gerar uma notificação, um registo da ativação também é enviado para esta categoria do registo de atividade.
@@ -236,7 +208,7 @@ Esta categoria contém o registo de todas as ativações de alertas do Azure. Um
   "claims": {
     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/alertRules"
   },
-  "correlationId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
+  "correlationId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
   "description": "'Disk read LessThan 100000 ([Count]) in the last 5 minutes' has been resolved for CloudService: myResourceGroup/Production/Event.BackgroundJobsWorker.razzle (myResourceGroup)",
   "eventDataId": "149d4baf-53dc-4cf4-9e29-17de37405cd9",
   "eventName": {
@@ -247,25 +219,25 @@ Esta categoria contém o registo de todas as ativações de alertas do Azure. Um
     "value": "Alert",
     "localizedValue": "Alert"
   },
-  "id": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle/events/149d4baf-53dc-4cf4-9e29-17de37405cd9/ticks/636362258535221920",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle/events/149d4baf-53dc-4cf4-9e29-17de37405cd9/ticks/636362258535221920",
   "level": "Informational",
   "resourceGroupName": "myResourceGroup",
   "resourceProviderName": {
     "value": "Microsoft.ClassicCompute",
     "localizedValue": "Microsoft.ClassicCompute"
   },
-  "resourceId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle",
+  "resourceId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle",
   "resourceType": {
     "value": "Microsoft.ClassicCompute/domainNames/slots/roles",
     "localizedValue": "Microsoft.ClassicCompute/domainNames/slots/roles"
   },
-  "operationId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
+  "operationId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
   "operationName": {
     "value": "Microsoft.Insights/AlertRules/Resolved/Action",
     "localizedValue": "Microsoft.Insights/AlertRules/Resolved/Action"
   },
   "properties": {
-    "RuleUri": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert",
+    "RuleUri": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert",
     "RuleName": "myalert",
     "RuleDescription": "",
     "Threshold": "100000",
@@ -284,7 +256,7 @@ Esta categoria contém o registo de todas as ativações de alertas do Azure. Um
   },
   "eventTimestamp": "2017-07-21T09:24:13.522192Z",
   "submissionTimestamp": "2017-07-21T09:24:15.6578651Z",
-  "subscriptionId": "mySubscriptionID"
+  "subscriptionId": "<subscription ID>"
 }
 ```
 
@@ -322,7 +294,7 @@ O campo de propriedades irá conter valores diferentes consoante a origem do eve
 | properties.resourceId | O ID de recurso provenientes do evento do registo de atividade que provocou a esta regra de alerta de registo de atividade ser ativado. |
 | properties.eventTimestamp | O carimbo de eventos do evento de registo de atividade que provocou a esta regra de alerta de registo de atividade ser ativado. |
 | properties.operationName | O nome de operação do atividade do registo de eventos que provocou a esta regra de alerta de registo de atividade ser ativado. |
-| properties.status | O estado provenientes do evento do registo de atividade que provocou a esta regra de alerta de registo de atividade ser ativado.|
+| Properties.status | O estado provenientes do evento do registo de atividade que provocou a esta regra de alerta de registo de atividade ser ativado.|
 
 #### <a name="properties-for-metric-alerts"></a>Propriedades de alertas métricas
 | Nome do elemento | Descrição |
@@ -332,8 +304,8 @@ O campo de propriedades irá conter valores diferentes consoante a origem do eve
 | properties.RuleDescription | A descrição da regra de alerta métrica (como definido na regra de alerta). |
 | properties.Threshold | O valor de limiar utilizado na avaliação de métrica a regra de alerta. |
 | properties.WindowSizeInMinutes | O tamanho da janela utilizado na avaliação de métrica de regra de alerta. |
-| properties.Aggregation | O tipo de agregação definido na regra de alerta métrica. |
-| properties.Operator | O operador condicional utilizado na avaliação de métrica de regra de alerta. |
+| Propriedades. Agregação | O tipo de agregação definido na regra de alerta métrica. |
+| Propriedades. Operador | O operador condicional utilizado na avaliação de métrica de regra de alerta. |
 | properties.MetricName | O nome da métrica da métrica utilizado na avaliação de métrica de regra de alerta. |
 | properties.MetricUnit | A unidade métrica para a métrica utilizada na avaliação de métrica de regra de alerta. |
 
@@ -349,7 +321,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com a operaç
     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/autoscaleSettings"
   },
   "correlationId": "fc6a7ff5-ff68-4bb7-81b4-3629212d03d0",
-  "description": "The autoscale engine attempting to scale resource '/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
+  "description": "The autoscale engine attempting to scale resource '/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
   "eventDataId": "a5b92075-1de9-42f1-b52e-6f3e4945a7c7",
   "eventName": {
     "value": "AutoscaleAction",
@@ -359,14 +331,14 @@ Esta categoria contém o registo de quaisquer eventos relacionados com a operaç
     "value": "Autoscale",
     "localizedValue": "Autoscale"
   },
-  "id": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup/events/a5b92075-1de9-42f1-b52e-6f3e4945a7c7/ticks/636361956518681572",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup/events/a5b92075-1de9-42f1-b52e-6f3e4945a7c7/ticks/636361956518681572",
   "level": "Informational",
   "resourceGroupName": "myResourceGroup",
   "resourceProviderName": {
     "value": "microsoft.insights",
     "localizedValue": "microsoft.insights"
   },
-  "resourceId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup",
+  "resourceId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup",
   "resourceType": {
     "value": "microsoft.insights/autoscalesettings",
     "localizedValue": "microsoft.insights/autoscalesettings"
@@ -377,8 +349,8 @@ Esta categoria contém o registo de quaisquer eventos relacionados com a operaç
     "localizedValue": "Microsoft.Insights/AutoscaleSettings/Scaledown/Action"
   },
   "properties": {
-    "Description": "The autoscale engine attempting to scale resource '/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
-    "ResourceName": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource",
+    "Description": "The autoscale engine attempting to scale resource '/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
+    "ResourceName": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource",
     "OldInstancesCount": "3",
     "NewInstancesCount": "2",
     "LastScaleActionTime": "Fri, 21 Jul 2017 01:00:51 GMT"
@@ -392,7 +364,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com a operaç
   },
   "eventTimestamp": "2017-07-21T01:00:51.8681572Z",
   "submissionTimestamp": "2017-07-21T01:00:52.3008754Z",
-  "subscriptionId": "mySubscriptionID"
+  "subscriptionId": "<subscription ID>"
 }
 
 ```
@@ -400,7 +372,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com a operaç
 ### <a name="property-descriptions"></a>Descrições das propriedades
 | Nome do elemento | Descrição |
 | --- | --- |
-| chamador | Always Microsoft.Insights/autoscaleSettings |
+| chamador | Sempre Microsoft.Insights/autoscaleSettings |
 | canais | Sempre "Admin, operação" |
 | afirmações | Blob JSON com o tipo de recurso ou SPN (nome principal do serviço), do motor de dimensionamento automático. |
 | correlationId | Um GUID no formato de cadeia. |
@@ -413,7 +385,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com a operaç
 | operationId |Um GUID partilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
 | propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário) que descrevem os detalhes do evento. |
-| properties.Description | Descrição detalhada do que o motor de dimensionamento automático estava a fazer. |
+| Propriedades. Descrição | Descrição detalhada do que o motor de dimensionamento automático estava a fazer. |
 | properties.ResourceName | ID de recurso do recurso afetado (o recursos em que estava a ser efetuada a ação de dimensionamento) |
 | properties.OldInstancesCount | O número de instâncias antes da ação de dimensionamento automático demorou em vigor. |
 | properties.NewInstancesCount | O número de instâncias depois da ação de dimensionamento automático demorou em vigor. |
@@ -443,7 +415,7 @@ Esta categoria contém o registo de todos os alertas gerados pelo centro de segu
         "localizedValue": "Security"
     },
     "eventTimestamp": "2017-10-18T06:02:18.6179339Z",
-    "id": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/events/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/ticks/636439033386179339",
+    "id": "/subscriptions/<subscription ID>/providers/Microsoft.Security/locations/centralus/alerts/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/events/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/ticks/636439033386179339",
     "level": "Informational",
     "operationId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
     "operationName": {
@@ -459,7 +431,7 @@ Esta categoria contém o registo de todos os alertas gerados pelo centro de segu
         "value": "Microsoft.Security/locations/alerts",
         "localizedValue": "Microsoft.Security/locations/alerts"
     },
-    "resourceId": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/2518939942613820660_a48f8653-3fc6-4166-9f19-914f030a13d3",
+    "resourceId": "/subscriptions/<subscription ID>/providers/Microsoft.Security/locations/centralus/alerts/2518939942613820660_a48f8653-3fc6-4166-9f19-914f030a13d3",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -468,7 +440,7 @@ Esta categoria contém o registo de todos os alertas gerados pelo centro de segu
         "value": null
     },
     "submissionTimestamp": "2017-10-18T06:02:52.2176969Z",
-    "subscriptionId": "d4742bb8-c279-4903-9653-9858b17d0c2e",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "accountLogonId": "0x2r4",
         "commandLine": "c:\\mydirectory\\doubleetension.pdf.exe",

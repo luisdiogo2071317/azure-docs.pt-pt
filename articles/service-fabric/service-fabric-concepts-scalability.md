@@ -1,11 +1,11 @@
 ---
-title: "Escalabilidade dos serviços do Service Fabric | Microsoft Docs"
-description: "Descreve como dimensionar serviços do Service Fabric"
+title: Escalabilidade dos serviços do Service Fabric | Microsoft Docs
+description: Descreve como dimensionar serviços do Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d8484a4c30fdd17cbb4773e6ff822b73efd5c4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Dimensionamento nos recursos de infraestrutura de serviço
 Azure Service Fabric torna mais fácil criar aplicações dimensionáveis ao gerir os serviços, partições e réplicas em nós do cluster. Muitas cargas de trabalho a ser executado no mesmo hardware permite a utilização máxima de recursos, mas também fornece flexibilidade em termos de como escolher dimensionar as cargas de trabalho. Este vídeo de Channel 9 descreve como pode criar aplicações dimensionáveis micro-serviços:
@@ -117,12 +117,7 @@ Se aumentar o número de nós, o Service Fabric irá mover algumas das réplicas
 ## <a name="scaling-by-adding-and-removing-nodes-from-the-cluster"></a>Dimensionamento ao adicionar e remover nós do cluster 
 Outra opção de dimensionamento com o Service Fabric está a alterar o tamanho do cluster. Alteração do tamanho do cluster significa adicionar ou remover nós de um ou mais dos tipos de nó do cluster. Por exemplo, considere o caso em que todos os nós do cluster estão ativos. Isto significa que os recursos do cluster estão quase todo consumido. Neste caso, a adição de mais nós para o cluster é a melhor forma de dimensionar. Assim que os novos nós aderirem ao cluster do Gestor de recursos de Cluster do serviço de recursos de infraestrutura move serviços aos mesmos, resultando em carga menos total de nós existentes. Para serviços sem monitorização de estado com uma contagem de instâncias = -1, serviço mais instâncias são criadas automaticamente. Isto permite que algumas chamadas mover de nós existentes para os novos nós. 
 
-Adicionar e remover nós ao cluster podem ser efetuadas através do módulo do PowerShell de Gestor de recursos do Service Fabric do Azure.
-
-```posh
-Add-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName  -NumberOfNodesToAdd 5 
-Remove-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName -NumberOfNodesToRemove 5
-```
+Para obter mais informações, consulte [dimensionamento de clusters](service-fabric-cluster-scaling.md).
 
 ## <a name="putting-it-all-together"></a>Passar todos os em conjunto
 Vamos ideias que tiver abordados aqui e falar através de um exemplo. Considere o seguinte serviço: está a tentar criar um serviço que age como um livro de endereços, que contém nomes e informações de contacto. 

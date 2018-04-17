@@ -1,19 +1,19 @@
 ---
-title: "Instância de geridos de base de dados de SQL do Azure ligar aplicação | Microsoft Docs"
-description: "Este artigo descreve como ligar a aplicação à base de dados geridos instância do SQL do Azure."
+title: Instância de geridos de base de dados de SQL do Azure ligar aplicação | Microsoft Docs
+description: Este artigo descreve como ligar a aplicação à base de dados geridos instância do SQL do Azure.
 ms.service: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: f02311026e3f28d4cf41dfe9b155f928885ae938
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a aplicação à base de dados geridos instância do SQL do Azure
 
@@ -79,4 +79,4 @@ Configurar uma ligação ponto a Site para uma VNet com artigos de autenticaçã
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre a instância geridos, consulte [o que é uma instância geridos](sql-database-managed-instance.md).
-- Para um tutorial, consulte [criar uma instância geridos](sql-database-managed-instance-tutorial-portal.md).
+- Para um tutorial mostrar como criar uma nova instância geridos, consulte [criar uma instância geridos](sql-database-managed-instance-create-tutorial-portal.md).

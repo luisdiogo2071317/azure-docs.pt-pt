@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 8fb20fc9e6249a2d19d62df1ce331ce873d5fd3d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 865b0e485480f5ee7d676d3a6c90cb51fd50d19c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerir os custos ao controlar o volume de dados e a retenção na análise de registos
 Análise de registos está concebido para escala e a recolha de suporte, a indexação e armazenar as quantidades enormes de dados por dia de uma origem na sua empresa ou implementado no Azure.  Apesar de este número pode ser um controlador primário para a sua organização, eficiência de custos é basicamente o controlador subjacente. Para esse fim importante compreender que o custo de uma área de trabalho do registo Analytisc não se encontra apenas com base no volume dos dados recolhidos, também está dependente do plano selecionado e o período de tempo que escolheu armazenar dados gerados a partir de origens de ligado.  
@@ -33,15 +33,14 @@ O custo dos dados pode ser considerável consoante os seguintes fatores:
 - Os dados períodos são mantidos na área de trabalho  
 - Número de soluções de gestão ativado, a origem de dados e a frequência de recolha 
 
+Consulte a documentação de cada solução como fornece uma estimativa da quantidade de dados recolhe.   
+
+Se no escalão de preço "livre", dados estão limitados a retenção de 7 dias. Camadas de "Por nó (OMS)" ou "Por GB (autónomo)", estão disponíveis dados recolhidos nos últimos 31 dias e retenção pode ser aumentada cópias de segurança para 2 anos. Se selecionar um período de retenção mais são aplicáveis encargos. O plano gratuito tem o limite de ingestão diário de 500 MB e, se achar que exceder consistentemente as quantidades permitidas volume, pode alterar a área de trabalho por GB ou camadas por nó para recolher dados além este limite. Pode alterar o tipo de plano em qualquer altura e para obter mais informações sobre preços, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/log-analytics/). 
+
 > [!NOTE]
-> Consulte a documentação de cada solução como fornece uma estimativa da quantidade de dados recolhe.   
+> Em Abril de 2018, iremos [introduzida](https://azure.microsoft.com/en-us/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) um novo modelo de preços para monitorização do Azure. Este modelo adopts um modelo simples "pay as you go" entre o portefólio completado de monitorização de serviços. Saiba mais sobre o [novo modelo de preços](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), como a [avaliar o impacto de mover para este modelo](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) com base nos seus padrões de utilização, e [como optar ativamente por participar no modelo de nova](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
 
-Se tiver o *livres* plano, dados estão limitados a retenção de 7 dias. Para o *autónomo* ou *Paid* camada, os dados recolhidos estão disponíveis nos últimos 31 dias. O *livres* plano tem o limite de ingestão diário de 500 MB e se achar que exceder consistentemente as quantidades permitidas volume, pode alterar a sua área de trabalho para um plano pago para recolher dados além este limite. 
-
-> [!NOTE]
-> Se optar por selecionar um período de retenção mais longo para a camada paga são aplicáveis encargos. Pode alterar o tipo de plano em qualquer altura e para obter mais informações sobre preços, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/log-analytics/). 
-
-Existem duas formas em que o volume de dados pode ser limitada e ajudar a controlam o custo, estes são diária retenção de dados e de extremidade.  
+Independentemente do preço modelo ou camada, gerir o volume de dados é fundmental para controlar os custos. Para além da opção e a configuração de solução específica, dentro de análise de registos, existem duas formas em que o volume de dados pode ser limitada e ajudar a controlam o custo, estes são diária retenção de dados e de extremidade.  
 
 ## <a name="review-estimated-cost"></a>Reveja o custo estimado
 Torna de análise do registo facilitam a compreender o que são provável que os custos com base nos padrões de utilização recente.  Para tal, execute os seguintes passos.  

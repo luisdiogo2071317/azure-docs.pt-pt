@@ -1,12 +1,12 @@
 ---
-title: "Segurança ao nível da linha com coleções de área de trabalho do Power BI"
-description: "Detalhes sobre a segurança ao nível da linha com coleções de área de trabalho do Power BI"
+title: Segurança ao nível da linha com coleções de área de trabalho do Power BI
+description: Detalhes sobre a segurança ao nível da linha com coleções de área de trabalho do Power BI
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.service: power-bi-embedded
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 8c3ce8bc69a098d3133f27a2604f9d564693ea54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 7256e2f798fbc32c098f19f60b62e577300868c7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Segurança ao nível da linha com coleções de área de trabalho do Power BI
 
@@ -89,7 +89,7 @@ Agora, os filtros podem também fluxo da tabela de vendas para o **Item** tabela
 > [!NOTE]
 > Se estiver a utilizar o modo DirectQuery para os seus dados, terá de ativar a filtragem cruzada bidirecional selecionando estas duas opções:
 
-1. **Ficheiro** -> **opções e definições** -> **funcionalidades de pré-visualização** -> **Ativar filtragem cruzada em ambas as direções para DirectQuery**.
+1. **Ficheiro** -> **opções e definições** -> **funcionalidades de pré-visualização** -> **Ativar filtragem cruzada em ambas as direções de DirectQuery** .
 2. **Ficheiro** -> **opções e definições** -> **DirectQuery** -> **permitir sem restrições medidas no modo DirectQuery**.
 
 Para obter mais informações sobre filtragem cruzada bidirecional, transfira o [bidirecional filtragem cruzada no SQL Server Analysis Services 2016 e o Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx) documento.
@@ -117,7 +117,7 @@ Agora, com todas as peças em conjunto, quando um utilizador inicia sessão no n
 
 ![Relatório apresentado na aplicação](media/row-level-security/dashboard-13.png)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 [Segurança ao nível da linha (RLS) com energia](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [Autenticação e autorização nas Coleções de Áreas de Trabalho do Power BI](app-token-flow.md)  

@@ -1,5 +1,5 @@
 ---
-title: "Azure Blueprint de processamento de pagamento - requisitos de acesso físico"
+title: Azure Blueprint de processamento de pagamento - requisitos de acesso físico
 description: Requisito de PCI DSS 9
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 89f7b20a130e988bfe4964d50ae97de788ca4623
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2dbf4d9e2f4ff7b6cdf8e48c24eeee4d036fe195
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>Requisitos de acesso físico para ambientes em conformidade de PCI DSS 
 ## <a name="pci-dss-requirement-9"></a>Requisito de PCI DSS 9
@@ -38,8 +38,8 @@ Qualquer físico aceder a sistemas ou dados que cardholder próxima dados propor
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure é responsável por implementar, imposição e monitorização de segurança de acesso físico para os centros de dados. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure é responsável por implementar, imposição e monitorização de segurança de acesso físico para os centros de dados. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -54,8 +54,8 @@ Qualquer físico aceder a sistemas ou dados que cardholder próxima dados propor
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure é responsável por implementar, imposição e CCTV e mecanismos de controlo de acesso de Biometria de centros de dados de monitorização. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure é responsável por implementar, imposição e CCTV e mecanismos de controlo de acesso de Biometria de centros de dados de monitorização. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -69,8 +69,8 @@ Por exemplo, rede jacks localizadas no áreas públicas e áreas acessíveis par
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não existem nenhum jacks de rede acessível publicamente dentro da plataforma Microsoft Azure. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não existem nenhum jacks de rede acessível publicamente dentro da plataforma Microsoft Azure. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -82,8 +82,8 @@ Por exemplo, rede jacks localizadas no áreas públicas e áreas acessíveis par
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Acesso físico ao Microsoft Azure hardware de rede é controlado rigorosamente por listas de acesso, várias formas de autenticação, físicas barreiras as eficazes para entrada e o requisito de negócio têm de ser aprovadas para aceder ao equipamento da. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Acesso físico ao Microsoft Azure hardware de rede é controlado rigorosamente por listas de acesso, várias formas de autenticação, físicas barreiras as eficazes para entrada e o requisito de negócio têm de ser aprovadas para aceder ao equipamento da. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -98,8 +98,8 @@ Por exemplo, rede jacks localizadas no áreas públicas e áreas acessíveis par
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure é responsável por implementar, imposição e monitorização identificação de segurança e dos funcionários ou contratantes acesso físico ao visitando centros de dados. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure é responsável por implementar, imposição e monitorização identificação de segurança e dos funcionários ou contratantes acesso físico ao visitando centros de dados. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -113,8 +113,8 @@ Por exemplo, rede jacks localizadas no áreas públicas e áreas acessíveis par
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Autorizações de acesso aos datacenters da Microsoft é controlado através de uma lista de autorizados acesso aprovada pela equipa do Centro de dados com base no princípio do menor privilégio. A lista de controlo de acesso é revista, verificar e atualizada trimestralmente.<br /><br />Centros de dados do Microsoft Azure utilizam dispositivos de acesso físico como portas de perímetro, leitores de distintivo acesso eletrónicas, leitores de Biometria, ataques man-traps/portais e passagem anti fazer uma cópia de dispositivos. Dispositivos de distintivo de acesso são monitorizados continuamente. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Autorizações de acesso aos datacenters da Microsoft é controlado através de uma lista de autorizados acesso aprovada pela equipa do Centro de dados com base no princípio do menor privilégio. A lista de controlo de acesso é revista, verificar e atualizada trimestralmente.<br /><br />Centros de dados do Microsoft Azure utilizam dispositivos de acesso físico como portas de perímetro, leitores de distintivo acesso eletrónicas, leitores de Biometria, ataques man-traps/portais e passagem anti fazer uma cópia de dispositivos. Dispositivos de distintivo de acesso são monitorizados continuamente. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -126,8 +126,8 @@ Por exemplo, rede jacks localizadas no áreas públicas e áreas acessíveis par
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure é responsável para a imposição de entregas previamente aprovadas são recebidas na bay carregamento segura que esteja fisicamente isolada de instalações de processamento de informações e é monitorizado pelo empregados autorizados. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure é responsável para a imposição de entregas previamente aprovadas são recebidas na bay carregamento segura que esteja fisicamente isolada de instalações de processamento de informações e é monitorizado pelo empregados autorizados. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -140,8 +140,8 @@ Por exemplo, rede jacks localizadas no áreas públicas e áreas acessíveis par
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure é responsável para a imposição de entregas previamente aprovadas são recebidas na bay carregamento segura que esteja fisicamente isolada de instalações de processamento de informações e é monitorizado pelo empregados autorizados. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure é responsável para a imposição de entregas previamente aprovadas são recebidas na bay carregamento segura que esteja fisicamente isolada de instalações de processamento de informações e é monitorizado pelo empregados autorizados. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -153,8 +153,8 @@ Por exemplo, rede jacks localizadas no áreas públicas e áreas acessíveis par
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Acesso a dados do Microsoft System center tem de ser previamente aprovado e visitantes autorizados são necessários para dar entrada com a segurança física at the point of chegada e fornecer uma prova válida de ID antes de entrada. Destaques indicam claramente empregados. Subcontratados e visitantes recebem destaques temporárias que tem de ser surrendered após partidas da instalações. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Acesso a dados do Microsoft System center tem de ser previamente aprovado e visitantes autorizados são necessários para dar entrada com a segurança física at the point of chegada e fornecer uma prova válida de ID antes de entrada. Destaques indicam claramente empregados. Subcontratados e visitantes recebem destaques temporárias que tem de ser surrendered após partidas da instalações. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -166,8 +166,8 @@ Por exemplo, rede jacks localizadas no áreas públicas e áreas acessíveis par
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Visitantes são necessários para surrender destaques após partidas das qualquer instalação da Microsoft. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Visitantes são necessários para surrender destaques após partidas das qualquer instalação da Microsoft. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -181,8 +181,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure é responsável por manter um registo de visitantes como um registo de auditoria físico da atividade de visitantes para a instalação, bem como gabinetes de computador e centros de dados onde os dados de cardholder forem armazenados ou transmitidos. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure é responsável por manter um registo de visitantes como um registo de auditoria físico da atividade de visitantes para a instalação, bem como gabinetes de computador e centros de dados onde os dados de cardholder forem armazenados ou transmitidos. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -194,8 +194,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -207,8 +207,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -220,8 +220,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -233,8 +233,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -246,8 +246,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -259,8 +259,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -272,8 +272,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -286,8 +286,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -299,8 +299,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -312,8 +312,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore armazena todos os dados na base de dados do Azure SQL. Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -325,8 +325,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | As técnicas de destruição de dados variam consoante o tipo do objeto de dados que está a ser destruído, se, ser subscrições, armazenamento, máquinas virtuais ou bases de dados. No ambiente de multi-inquilino do Microsoft Azure, cuidado atenção é direcionada para Certifique-se de dados do que um cliente não tem permissão para "fuga" para dados de outro cliente ou quando um cliente elimina dados, nenhum outro cliente (incluindo, na maioria dos casos, o cliente uma vez que os dados pertencentes) podem ter acesso a dados eliminados.<br /><br />Microsoft Azure segue NIST 800-88 diretrizes no Sanitização de suporte de dados, a principal preocupação de garantir que os dados de endereço não é libertado inadvertidamente. Estas diretrizes abranger sanitização eletrónica e física. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore podem ser eliminado inteiramente ao eliminar o grupo de recursos utilizados durante a implementação.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | As técnicas de destruição de dados variam consoante o tipo do objeto de dados que está a ser destruído, se, ser subscrições, armazenamento, máquinas virtuais ou bases de dados. No ambiente de multi-inquilino do Microsoft Azure, cuidado atenção é direcionada para Certifique-se de dados do que um cliente não tem permissão para "fuga" para dados de outro cliente ou quando um cliente elimina dados, nenhum outro cliente (incluindo, na maioria dos casos, o cliente uma vez que os dados pertencentes) podem ter acesso a dados eliminados.<br /><br />Microsoft Azure segue NIST 800-88 diretrizes no Sanitização de suporte de dados, a principal preocupação de garantir que os dados de endereço não é libertado inadvertidamente. Estas diretrizes abranger sanitização eletrónica e física. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore podem ser eliminado inteiramente ao eliminar o grupo de recursos utilizados durante a implementação.|
 
 
 
@@ -341,8 +341,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza OMS para registar todas as alterações de sistema.<br /><br />[Operations Management Suite (OMS)](/azure/operations-management-suite/) fornece registos um vasto conjunto de alterações. As alterações podem ser revistas e podem ser verificadas em termos de exatidão. Para obter instruções mais específicas, consulte [orientações de PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Azure para registar todas as alterações de sistema.<br /><br />Análise de registos fornece extenso registo de alterações. As alterações podem ser revistas e podem ser verificadas em termos de exatidão. Para obter instruções mais específicas, consulte [orientações de PCI - registo e auditoria](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -357,8 +357,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece uma arquitetura de referência e uma lista de todos os serviços utilizados na respetiva documentação de implementação.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece uma arquitetura de referência e uma lista de todos os serviços utilizados na respetiva documentação de implementação.|
 
 
 
@@ -373,8 +373,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -390,8 +390,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 
@@ -403,8 +403,8 @@ Manter este registo por um mínimo de três meses, a menos que caso contrário �
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não aplicável.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não aplicável.|
 
 
 

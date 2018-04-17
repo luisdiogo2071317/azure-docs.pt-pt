@@ -1,11 +1,11 @@
 ---
 title: Migrar os dados ao SQL Data Warehouse | Microsoft Docs
-description: "Sugestões para migrar os dados para o Azure SQL Data Warehouse para desenvolver soluções."
+description: Sugestões para migrar os dados para o Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/29/2017
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 0d156bc2eecf8220bd5ff4eb811d91482f216837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fbab223963989eab16cecea2facd9c15ba646d4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-your-data"></a>Migrar os dados
 Podem ser mover os dados de diferentes origens para o SQL Data Warehouse com ferramentas de várias.  ADF cópia, SSIS e bcp podem todos ser utilizadas para atingir este objetivo. No entanto, como a quantidade de dados aumenta necessário pensar sobre interrompendo para baixo o processo de migração de dados para os passos. Isto affords a oportunidade para otimizar a cada passo para o desempenho e resiliência garantir uma migração de dados uniforme.
@@ -178,7 +178,7 @@ O PolyBase também suporta uma funcionalidade conhecida como "transversal da pas
 
 Para obter mais informações sobre como carregar dados com o PolyBase, consulte [PolyBase de utilização para carregar dados para o SQL Data Warehouse][Use PolyBase to load data into SQL Data Warehouse].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a migração, consulte [migrar a sua solução ao SQL Data Warehouse][Migrate your solution to SQL Data Warehouse].
 Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento][development overview].
 
@@ -190,10 +190,11 @@ Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvol
 [ADF samples]: ../data-factory/v1/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
 [development overview]: sql-data-warehouse-overview-develop.md
+[migrar o esquema]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
+[Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 
 <!--MSDN references-->

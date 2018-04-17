@@ -10,11 +10,11 @@ ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c755d171b34d59d2746a965ab3511a0df00c98db
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d464bbfb9f38b184e47911a7224be8ec8679f0be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Armazenar dados no limite com bases de dados do SQL Server
 
@@ -36,10 +36,10 @@ Depois de concluir os tutoriais necessários, devem ter todos os pré-requisitos
 * Um hub IoT do Azure Active Directory.
 * Um dispositivo de limite de IoT com, pelo menos, 2 GB de RAM e uma unidade de disco de 2 GB.
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Extensão de limite de IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
-* [C# para a extensão do Visual Studio Code (com tecnologia OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
+* [Extensão Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Extensão C# para Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Docker](https://docs.docker.com/engine/installation/)
-* [.NET core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
+* [SDK de .NET Core 2.0](https://www.microsoft.com/net/core#windowscmd). 
 * [Python 2.7](https://www.python.org/downloads/)
 * [Script de controlo contorno de IoT](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 * Modelo de AzureIoTEdgeFunction (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
@@ -51,7 +51,7 @@ Contentores Windows e Linux num x64 arquiteturas de processador de trabalho para
 
 Nesta secção, é possível adicionar uma base de dados do MS SQL para o seu dispositivo simulado de limite de IoT. Utilizar a SQL Server 2017 docker contentor imagem, disponível como uma [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) contentor e como um [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/) contentor. 
 
-### <a name="deploy-sql-server-2017"></a>Deploy SQL Server 2017
+### <a name="deploy-sql-server-2017"></a>Implemente o SQL Server de 2017
 
 Por predefinição, o código nesta secção cria um contentor com a edição gratuita do programador do SQL Server de 2017. Se pretender executar em vez disso, as edições de produção, consulte [executar produção imagens contentor](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#production) para obter informações detalhadas. 
 
@@ -98,7 +98,7 @@ No passo 3, adicione a criar as opções para o contentor do SQL Server, que sã
 3. Substitua o `<docker registry address>` com o endereço preenchido o tutorial concluída [pré-visualizar a implementar a função do Azure como um módulo de limite de IoT -](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)
 
    >[!NOTE]
-   >O endereço de registo do contentor é o mesmo que o servidor de início de sessão que copiou do seu registo. Deverá estar no formato `<your container registry name>.azurecr.io`
+   >O endereço do registo de contentores é o mesmo do servidor de início de sessão que copiou a partir do seu registo. Deverá estar no formato `<your container registry name>.azurecr.io`
 
 4. Dependendo do sistema operativo que estiver a executar, Atualize as definições para o módulo SQL com o seguinte código: 
 
@@ -106,7 +106,7 @@ No passo 3, adicione a criar as opções para o contentor do SQL Server, que sã
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
    * Linux:
@@ -297,7 +297,7 @@ Para aplicar as alterações que fez, atualizar a imagem de contentor, publicá-
 2. Com base na plataforma que está a utilizar, expanda o **windows nano** ou **linux x64** pasta. 
 3. Clique com botão direito do **Dockerfile** do ficheiro e selecione **imagem de Docker do módulo de limite de IoT criar**.
 4. Navegue para o **FilterFunction** pasta do projeto e clique em **pasta Selecione como EXE_DIR**.
-5. Na caixa de texto de pop-up na parte superior da janela VS Code, introduza o nome da imagem. Por exemplo, `<your container registry address>/filterfunction:latest`. Se estiver a implementar um registo local, o nome deve ser `<localhost:5000/filterfunction:latest>`.
+5. Na caixa de texto de pop-up na parte superior da janela do VS Code, introduza o nome da imagem. Por exemplo, `<your container registry address>/filterfunction:latest`. Se estiver a implementar um registo local, o nome deve ser `<localhost:5000/filterfunction:latest>`.
 6. Na paleta do comando VS Code, selecione **Edge: imagem de Docker do módulo de limite de Push de IoT**. 
 7. Na caixa de texto de pop-up, introduza o mesmo nome de imagem. 
 8. Na paleta do comando VS Code, selecione **Edge: reiniciar Edge**.
@@ -337,7 +337,7 @@ Ver os seus dados:
    GO
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba como [configurar imagens do SQL Server 2017 contentor no Docker](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker).
 

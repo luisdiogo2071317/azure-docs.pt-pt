@@ -1,12 +1,12 @@
 ---
-title: "Introdução com um exemplo"
-description: "Neste artigo, iremos irá apresenta-o exemplo de introdução de get de coleções de área de trabalho do Power BI."
+title: Introdução com um exemplo
+description: Neste artigo, iremos irá apresenta-o exemplo de introdução de get de coleções de área de trabalho do Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 9049f95c9f81c0217c96469a45561b6cd0b33ae9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 4daa675092bed1788025e7e3f7e7e11d02ef1671
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Introdução ao exemplo de coleções de área de trabalho do Power BI
 
@@ -71,7 +71,7 @@ Checking import state... Succeeded
 
 Neste momento, tem um relatório do Power BI PBIX importado para o seu **área de trabalho**. Agora, vamos ver como executar o **coleções de área de trabalho do Power BI** obter a aplicação web de exemplo foi iniciada.
 
-## <a name="run-the-sample-web-app"></a>Executar a aplicação web de exemplo
+## <a name="run-the-sample-web-app"></a>Executar a aplicação Web de exemplo
 
 O exemplo de aplicação web é uma aplicação de exemplo que apresenta-os relatórios importados para o **área de trabalho**. Eis como configurar o exemplo de aplicação web.
 
@@ -143,7 +143,7 @@ O **vista** gere a apresentação do Power BI **relatórios** e um Power BI **re
 
 | Parte | Descrição |
 | --- | --- |
-| Título |Nome do relatório. |
+| Cargo |Nome do relatório. |
 | Cadeia de consulta |Uma ligação para o ID de relatório. |
 
     <div id="reports-nav" class="panel-collapse collapse">
@@ -254,7 +254,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > [!NOTE]
 > {tableName/fieldName} não pode incluir espaços nem carateres especiais. {fieldValue} aceita um valor único de categoria.  
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 [Cenários comuns de coleção de área de trabalho do Microsoft Power BI](scenarios.md)  
 [Autenticação e autorização nas Coleções de Áreas de Trabalho do Power BI](app-token-flow.md)  

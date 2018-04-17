@@ -5,43 +5,63 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/29/2018
+ms.topic: conceptual
+ms.date: 04/08/2018
 ms.author: raynew
-ms.openlocfilehash: 28ddecc45faa213d1fd536b5ad8690e151037505
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2a6e3052c64ab6a2865a0c24a4876cb2b98d1a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para VMware e replicação do servidor físico para o Azure
 
 Este artigo resume componentes suportados e as definições de recuperação após desastre de VMs de VMware no Azure utilizando [do Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="supported-scenarios"></a>Cenários suportados
+## <a name="replication-scenario"></a>Cenário de replicação
 
 **Cenário** | **Detalhes**
 --- | ---
-VMs VMware | Pode efetuar a recuperação de desastre para o Azure para as VMs de VMware no local. Pode implementar este cenário no portal do Azure ou através do PowerShell.
-Servidores físicos | Pode efetuar a recuperação após desastre para o Azure para servidores físicos do Windows/Linux no local. Pode implementar este cenário no portal do Azure.
+VMs VMware | Replicação de VMs de VMware no local para o Azure. Pode implementar este cenário no portal do Azure ou através do PowerShell.
+Servidores físicos | Replicação de serversto físico de Windows/Linux no local do Azure. Pode implementar este cenário no portal do Azure.
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização no local
 
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-VMware | o vCenter Server 6.5, 6.0, ou 5.5 ou vSphere 6.5, 6.0 ou 5.5 | Recomendamos que utilize um servidor vCenter.
+VMware | o vCenter Server 6.5, 6.0, ou 5.5 ou vSphere 6.5, 6.0 ou 5.5 | Recomendamos que utilize um servidor vCenter.<br/><br/> Recomendamos que o vSphere anfitriões e servidores vcenter Server estão localizados na mesma rede que o servidor de processos. Por predefinição os componentes de servidor de processo executa no servidor de configuração, pelo que esta será a rede na qual configurou o servidor de configuração, a menos que configurar um servidor de processos dedicados. 
 Físico | N/A
 
+## <a name="site-recovery-configuration-server"></a>Servidor de configuração de recuperação de site
+
+O servidor de configuração é uma máquina no local que executa os componentes da recuperação de Site, incluindo o servidor de configuração, o servidor de processos e o servidor de destino principal. Para replicação de VMware, configurar o servidor de configuração com todos os requisitos, utilizando um modelo OVF para criar uma VM de VMware. Para a replicação do servidor físico, configurar a máquina do servidor de configuração manualmente.
+
+**Componente** | **Requisitos**
+--- |---
+Núcleos de CPU | 8 
+RAM | 12 GB
+Número de discos | 3 discos<br/><br/> Discos incluem o disco de SO, disco de cache do servidor de processo e unidade de retenção para reativação pós-falha.
+Espaço livre em disco | 600 GB de espaço necessário para a cache do servidor de processo.
+Espaço livre em disco | 600 GB de espaço necessário para a unidade de retenção.
+Sistema operativo  | Windows Server 2012 R2 ou Windows Server 2016 | 
+Região do sistema operativo | Inglês (en-us) 
+PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") deve ser instalado.
+Funções do Windows Server | Não ative o: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V |
+Políticas de grupo| Não ative o: <br> -Impedi o acesso à linha de comandos. <br> -Impedi o acesso ao registo ferramentas de edição. <br> -Confia lógica para anexos de ficheiros. <br> -Ative a execução do Script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+IIS | Certifique-se de que:<br/><br/> -Não tem um Web site predefinido do pré-existentes <br> -Ativar [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Ativar [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) definição  <br> -Não tiverem pré-existentes Web site/aplicação à escuta na porta 443<br>
+Tipo NIC | VMXNET3 (quando implementado como uma VM de VMware) 
+Tipo de endereço IP | Estático 
+Portas | 443 utilizado de orquestração de canal de controlo)<br>9443 utilizado para o transporte de dados
 
 ## <a name="replicated-machines"></a>Máquinas replicadas
 
-A tabela seguinte resume a replicação de suporte para as VMs VMware e servidores físicos. Recuperação de sites suporta a replicação de qualquer carga de trabalho em execução numa máquina com um sistema operativo suportado.
+Recuperação de sites suporta a replicação de qualquer carga de trabalho em execução numa máquina suportada.
 
 **Componente** | **Detalhes**
 --- | ---
 Definições da máquina | As máquinas que replicam para o Azure tem de cumprir [requisitos do Azure](#azure-vm-requirements).
 Sistema operativo Windows | 64 bits do Windows Server 2016 (Server Core, o servidor com experiência de ambiente de trabalho), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com, pelo menos, SP1. Não é suportado o Windows Server de Nano de 2016.
-Sistema operativo Linux | Red Hat Enterprise Linux: 5.2 para 5.11, 6.1 para 6.9, 7.0 e 7,4 <br/><br/>CentOS: 5.2 para 5.11, 6.1 para 6.9, 7.0 e 7,4 <br/><br/>Servidor Ubuntu 14.04 LTS[ (versões de kernel suportado)](#ubuntu-kernel-versions)<br/><br/>Servidor Ubuntu 16.04 LTS[ (versões de kernel suportado)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versões de kernel suportado)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>Atualizar máquinas replicadas do SP3 para SP4 não é suportada. Para atualizar, desative a replicação e ativá-la novamente após a atualização.
+Sistema operativo Linux | Red Hat Enterprise Linux: 5.2 para 5.11, 6.1 para 6.9, 7.0 e 7,4 <br/><br/>CentOS: 5.2 para 5.11, 6.1 para 6.9, 7.0 e 7,4 <br/><br/>Servidor Ubuntu 14.04 LTS[ (versões de kernel suportado)](#ubuntu-kernel-versions)<br/><br/>Servidor Ubuntu 16.04 LTS[ (versões de kernel suportado)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versões de kernel suportado)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 SP4 do SUSE Linux Enterprise Server 11 <br/><br/>Atualizar máquinas replicadas do SP3 para SP4 não é suportada. Para atualizar, desative a replicação e ativá-la novamente após a atualização.
 
 >[!NOTE]
 >
@@ -78,7 +98,7 @@ Debian 8 | 9.14 | 3.16.0-4-AMD64 para 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 para 4
 
 **Componente** | **Suportado**
 --- | ---
-sistemas de ficheiros | ext3, ext4, XFS.
+sistemas de ficheiros | ext3 ext4, XFS
 Gestor de volumes | LVM2.
 Software MultiPath | Mapeador de dispositivo.
 Dispositivos de armazenamento Paravirtualized | Os dispositivos exportados por controladores paravirtualizados não são suportados.
@@ -123,7 +143,7 @@ Pontos finais de serviço de rede Virtual do Azure<br/><br/> (Firewalls de armaz
 ## <a name="storage"></a>Armazenamento
 **Componente** | **Suportado**
 --- | ---
-Host NFS | Sim para VMware<br/><br/> Não para servidores físicos
+Anfitrião NFS | Sim para VMware<br/><br/> Não para servidores físicos
 SAN (ISCSI) no anfitrião | Sim
 Multipath de anfitrião (MPIO) | Sim, testada com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON
 Convidados/servidor VMDK | Sim

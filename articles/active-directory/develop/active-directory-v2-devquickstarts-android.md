@@ -1,11 +1,11 @@
 ---
-title: "Aplicação Android de v 2.0 do Azure Active Directory | Microsoft Docs"
-description: "Como criar uma aplicação Android que inicia sessão dos utilizadores com tanto pessoais conta Microsoft e trabalho ou escola contas e chamadas a Graph API através da utilização de bibliotecas de terceiros."
+title: Aplicação Android de v 2.0 do Azure Active Directory | Microsoft Docs
+description: Como criar uma aplicação Android que inicia sessão dos utilizadores com tanto pessoais conta Microsoft e trabalho ou escola contas e chamadas a Graph API através da utilização de bibliotecas de terceiros.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
 ms.openlocfilehash: b1c30362a7b14c8f7f0c44d911c46c491b3de3c0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/17/2018
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adicionar início de sessão a uma aplicação Android utilizando uma biblioteca de terceiros com Graph API utilizando o ponto final v 2.0
 A plataforma de identidade da Microsoft utiliza as normas de abertura, como o OAuth2 e o OpenID Connect. Os programadores podem utilizar qualquer biblioteca que pretendem integrar aos nossos serviços. Para ajudar os programadores a utilizar a nossa plataforma com outras bibliotecas, escrevemos algumas instruções como esta para demonstrar como configurar bibliotecas de terceiros para ligar à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementam [a especificação de especificação RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) pode ligar à plataforma de identidade da Microsoft.

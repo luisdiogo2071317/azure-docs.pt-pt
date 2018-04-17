@@ -1,12 +1,12 @@
 ---
-title: "Isolamento na nuvem pública do Azure | Microsoft Docs"
-description: "Saiba mais sobre serviços informáticos baseada na nuvem que incluem uma seleção grande de instâncias de computação e serviços que podem ser dimensionados acima e abaixo automaticamente para satisfazer as necessidades da sua aplicação ou a empresa."
+title: Isolamento na nuvem pública do Azure | Microsoft Docs
+description: Saiba mais sobre serviços informáticos baseada na nuvem que incluem uma seleção grande de instâncias de computação e serviços que podem ser dimensionados acima e abaixo automaticamente para satisfazer as necessidades da sua aplicação ou a empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 996079e0062bf1e24ae2bf24354a94167e6adff3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 ##  <a name="introduction"></a>Introdução
@@ -52,7 +52,7 @@ Na área de trabalho ativada na nuvem, um inquilino pode ser definido com um cli
 Cada diretório do Azure AD é distinto e separado de outros diretórios do Azure AD. Tal como um edifício de escritórios empresariais é um recurso seguro específico apenas para a sua organização, um diretório do Azure AD também foi concebido para ser um recurso com utilização segura apenas para a sua organização. A arquitetura do Azure AD impede que os dados do cliente e as informações de identidade se misturem. Isto significa que os utilizadores e administradores de um diretório do Azure AD não podem, acidental ou intencionalmente, aceder aos dados de outro diretório.
 
 ### <a name="azure-tenancy"></a>Inquilinos do Azure
-Inquilinos do Azure (subscrição do Azure) refere-se para uma relação de "cliente/billing" e um único [inquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) no [do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Isolamento de nível de inquilino no Microsoft Azure é conseguido utilizando o Azure Active Directory e [baseada em funções controlos](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) oferecidas pelo-lo. Cada subscrição do Azure está associada um diretório do Azure Active Directory (AD).
+Inquilinos do Azure (subscrição do Azure) refere-se para uma relação de "cliente/billing" e um único [inquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) no [do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Isolamento de nível de inquilino no Microsoft Azure é conseguido utilizando o Azure Active Directory e [baseada em funções controlos](https://docs.microsoft.com/azure/role-based-access-control/overview) oferecidas pelo-lo. Cada subscrição do Azure está associada um diretório do Azure Active Directory (AD).
 
 Os utilizadores, grupos e a esse diretório de aplicações podem gerir os recursos na subscrição do Azure. Pode atribuir estes direitos de acesso utilizando o portal do Azure, as ferramentas da linha de comandos do Azure e APIs de gestão do Azure. Um inquilino do Azure AD é logicamente isolado com limites de segurança para que nenhum cliente possa aceder ou comprometer conjunta inquilinos, de forma maliciosa ou acidentalmente. Do Azure AD é executado em servidores de "" bare-metal isoladas num segmento de rede segregated, onde filtragem de pacotes ao nível do anfitrião e a Firewall do Windows bloqueiam o tráfego e ligações indesejáveis.
 
@@ -80,7 +80,7 @@ O conceito de contentores de inquilino está profundamente ingrained no serviço
 Mesmo quando os metadados de vários inquilinos do Azure Active Directory são armazenados no mesmo disco físico, não há nenhuma relação entre os contentores que não seja de que é definido pelo serviço de diretório, por sua vez, é ditado pelo administrador de inquilinos.
 
 ### <a name="azure-role-based-access-control-rbac"></a>Controlo de acesso do Azure baseada em funções (RBAC)
-[Azure baseada em funções controlo de acesso (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) ajuda-o a partilhar vários componentes disponíveis dentro de uma subscrição do Azure ao fornecer gestão de acesso detalhada para o Azure. RBAC do Azure permite-lhe segregar funções na sua organização e conceder acesso com base nos quais os utilizadores precisam desempenhar as suas funções. Em vez de dar everybody sem restrições permissões numa subscrição do Azure ou recursos, pode permitir que apenas determinadas ações.
+[Azure baseada em funções controlo de acesso (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) ajuda-o a partilhar vários componentes disponíveis dentro de uma subscrição do Azure ao fornecer gestão de acesso detalhada para o Azure. RBAC do Azure permite-lhe segregar funções na sua organização e conceder acesso com base nos quais os utilizadores precisam desempenhar as suas funções. Em vez de dar everybody sem restrições permissões numa subscrição do Azure ou recursos, pode permitir que apenas determinadas ações.
 
 RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de recursos:
 
@@ -94,7 +94,7 @@ RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de re
 
 O resto das funções do RBAC do Azure permite a gestão de recursos do Azure específicos. Por exemplo, a função de contribuinte de Máquina Virtual permite ao utilizador criar e gerir máquinas virtuais. Se não atribuir-lhes acesso para a rede Virtual do Azure ou a sub-rede que a máquina virtual estabelece ligação ao.
 
-[Funções incorporadas do RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) lista as funções disponíveis no Azure. Especifica as operações e o âmbito de cada função incorporada concede a utilizadores. Se estiver à procura para definir as suas próprias funções para o controlo ainda mais, consulte como criar [funções personalizadas no Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+[Funções incorporadas do RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) lista as funções disponíveis no Azure. Especifica as operações e o âmbito de cada função incorporada concede a utilizadores. Se estiver à procura para definir as suas próprias funções para o controlo ainda mais, consulte como criar [funções personalizadas no Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Algumas outras funcionalidades do Azure Active Directory incluem:
 - Azure AD permite SSO para aplicações SaaS, independentemente de onde estão alojadas. Algumas aplicações estão federadas com o Azure AD e outras utilizam SSO com palavra-passe. Aplicações federadas também podem suportar o aprovisionamento de utilizador e [cofres de palavras de palavra-passe](https://www.techopedia.com/definition/31415/password-vault).
@@ -234,7 +234,7 @@ Para muitas organizações, [encriptação de dados Inativos](https://blogs.micr
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) permite-lhe encriptar os discos de SO e discos de dados utilizados pela máquina virtual IaaS.
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) para máquinas virtuais (VMs) ajuda-o a segurança organizacional do endereço e requisitos de conformidade ao encriptar os discos da VM (incluindo discos de dados e de arranque) com as chaves e as políticas de controlo no [Cofre de chaves do Azure](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) para máquinas virtuais (VMs) ajuda-o a segurança organizacional do endereço e requisitos de conformidade ao encriptar os discos da VM (incluindo discos de dados e de arranque) com as chaves e as políticas de controlo no [chave do Azure Cofre](https://azure.microsoft.com/services/key-vault/).
 
 A solução de encriptação de disco para o Windows é baseada no [a encriptação de unidade BitLocker do Microsoft](https://technet.microsoft.com/library/cc732774.aspx), e a solução de Linux baseia-se no [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
@@ -333,7 +333,7 @@ Implementação do Azure tem várias camadas de isolamento de rede. O diagrama s
 
 [Sub-rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) oferece uma camada adicional de isolamento na rede virtual com base no intervalo de IP. Endereços IP na rede virtual, pode dividir uma rede virtual em várias sub-redes para a organização e de segurança. As VMs e as instâncias de função de PaaS implementadas em sub-redes (nas mesmas ou em diferentes) dentro de uma VNet podem comunicar entre si sem qualquer configuração adicional. Também pode configurar [o grupo de segurança de rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) para permitir ou negar o tráfego de rede para uma instância VM com base em regras configuradas na lista de controlo de acesso (ACL) de NSG. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - [Opções de isolamento de rede para máquinas no Windows redes virtuais do Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
 

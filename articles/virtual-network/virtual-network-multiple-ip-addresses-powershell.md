@@ -1,11 +1,11 @@
 ---
-title: "Vários endereços IP para máquinas virtuais do Azure - PowerShell | Microsoft Docs"
-description: "Saiba como atribuir vários endereços IP a uma máquina virtual utilizando o PowerShell | Gestor de recursos."
+title: Vários endereços IP para máquinas virtuais do Azure - PowerShell | Microsoft Docs
+description: Saiba como atribuir vários endereços IP a uma máquina virtual utilizando o PowerShell | Gestor de recursos.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c44ea62f-7e54-4e3b-81ef-0b132111f1f8
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: b3690ec991add437afdaba3ef22022d49c962b34
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: bfc8f432e868c03d101ca7bfbc6b59f6e98ce29b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP para máquinas virtuais utilizando o PowerShell
 
@@ -194,7 +194,7 @@ Os passos que se seguem explicam como criar um VM de exemplo com vários endere�
 
 ## <a name="add"></a>Adicionar endereços IP para uma VM
 
-Pode adicionar endereços IP públicos e privados a um NIC, efetuando os passos que se seguem. Os exemplos das secções seguintes partem do princípio de que já tem uma VM com as três configurações de IP descritas no [cenário](#Scenario) deste artigo, mas não é necessário que efetuar.
+Pode adicionar endereços IP privados e públicos para a interface de rede do Azure, efetuando os passos que se seguem. Os exemplos das secções seguintes partem do princípio de que já tem uma VM com as três configurações de IP descritas no [cenário](#Scenario) deste artigo, mas não é necessário que efetuar.
 
 1. Abra uma linha de comandos do PowerShell e conclua os restantes passos nesta secção dentro de uma única sessão do PowerShell. Se ainda não tiver PowerShell instalada e configurada, concluir os passos a [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) artigo.
 2. Altere os "valores" a $Variables seguintes para o nome do NIC que pretende adicionar endereço IP e o grupo de recursos e a localização que a NIC existe no:

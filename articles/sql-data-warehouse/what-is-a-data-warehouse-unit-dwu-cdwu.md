@@ -1,24 +1,20 @@
 ---
-title: "Quais são as unidades do Data Warehouse (DWUs, cDWUs) no Azure SQL Data Warehouse? | Microsoft Docs"
-description: "Desempenho ampliação capacidades no Azure SQL Data Warehouse. Aumentar horizontalmente ao ajustar as DWUs, cDWUs, ou colocar em pausa e retomar a recursos de computação para reduzir os custos."
+title: Quais são as unidades do Data Warehouse (DWUs, cDWUs) no Azure SQL Data Warehouse? | Microsoft Docs
+description: Desempenho ampliação capacidades no Azure SQL Data Warehouse. Aumentar horizontalmente ao ajustar as DWUs, cDWUs, ou colocar em pausa e retomar a recursos de computação para reduzir os custos.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: f634bdde2c71f7563df11f686d7ce217311df81d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+author: sqlmojo
+manager: craigg-msft
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/09/2018
+ms.author: joeyong
+ms.reviewer: jrj
+ms.openlocfilehash: 56d59be2074a3047ce19fde3e808354266040864
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
+---
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades do Data Warehouse (DWUs) e computação unidades do Data Warehouse (cDWUs)
 Explica as unidades do Data Warehouse (DWUs) e computação unidades do Data Warehouse (cDWUS) para o Azure SQL Data Warehouse. Inclua recomendações sobre como escolher o número ideal de unidades do data warehouse e como alterar o número. 
@@ -38,6 +34,27 @@ Aumentar as DWUs:
 - Alterações de forma linear desempenho do sistema para análises, agregações e CTAS instruções
 - Aumenta o número de leitores e escritores para operações de carga do PolyBase
 - Aumenta o número máximo de consultas em simultâneo e de ranhuras de concorrência.
+
+## <a name="service-level-objective"></a>Objetivo de nível de serviço
+O objetivo de nível de serviço (SLO) é a definição de escalabilidade que determina o nível de desempenho e custo do seu armazém de dados. Os níveis de serviço para Optimized de computação de dimensionamento de camada de desempenho são medidos em computação unidades do data warehouse (cDWU), por exemplo DW2000c. Optimized para níveis de serviço de elasticidade é medido em DWUs, por exemplo, DW2000. 
+
+Em T-SQL a definição de SERVICE_OBJECTIVE determina o nível de serviço e a camada de desempenho para o seu armazém de dados.
+
+```sql
+--Optimized for Elasticity
+CREATE DATABASE myElasticSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000'
+)
+;
+
+--Optimized for Compute
+CREATE DATABASE myComputeSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000c'
+)
+;
+```
 
 ## <a name="performance-tiers-and-data-warehouse-units"></a>Os escalões de desempenho e unidades do Data Warehouse
 
@@ -209,7 +226,7 @@ Consulte os artigos seguintes para ajudar a compreender alguns conceitos chave d
 [Best practices]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+[SQL DB Contributor]:../role-based-access-control/built-in-roles.md#sql-db-contributor
 
 <!--MSDN references-->
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx

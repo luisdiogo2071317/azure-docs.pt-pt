@@ -1,16 +1,16 @@
 ---
-title: "Grupo de máquinas com o Azure migrar de dependências de máquina | Microsoft Docs"
-description: "Descreve como criar uma avaliação utilizando dependências de máquina com o serviço Azure migrar."
+title: Grupo de máquinas com o Azure migrar de dependências de máquina | Microsoft Docs
+description: Descreve como criar uma avaliação utilizando dependências de máquina com o serviço Azure migrar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/25/2017
 ms.author: raynew
-ms.openlocfilehash: 720380fd14d9eaf4856ad75269a80f2b63a4725f
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 9e8e1fb918d9cd35b12e71abdd23ca101239ae26
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Máquinas de grupo utilizando o mapeamento de dependência de máquina
 
@@ -33,8 +33,8 @@ Para instalar o agente num computador Windows:
 1. Faça duplo clique o agente transferido.
 2. Na página **Bem-vindo**, clique em **Seguinte**. No **termos de licenciamento** página, clique em **concordo** para aceitar a licença.
 3. No **pasta de destino**, manter ou modificar a pasta de instalação predefinida > **seguinte**. 
-4. No **opções de configuração do agente**, selecione **análise de registos do Azure (OMS)** > **seguinte**. 
-5. Clique em **adicionar** para adicionar uma nova área de trabalho do OMS. Colar o ID da área de trabalho e a chave que copiou do portal. Clique em **Seguinte**.
+4. No **opções de configuração do agente**, selecione **Log Analytics do Azure** > **seguinte**. 
+5. Clique em **adicionar** para adicionar uma nova área de trabalho de análise de registos. Colar o ID da área de trabalho e a chave que copiou do portal. Clique em **Seguinte**.
 
 
 Para instalar o agente num computador Linux:
@@ -82,4 +82,4 @@ Quando o grupo for criado, recomenda-se para instalar agentes em todas as máqui
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba como](how-to-create-group-dependencies.md) para otimizar o grupo por visualizar dependências de grupo
-- [Saiba mais](concepts-assessment-calculation.md) sobre como avaliações são calculadas.
+- [Saiba mais](concepts-assessment-calculation.md) sobre como são calculadas as avaliações.

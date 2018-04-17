@@ -1,17 +1,17 @@
 ---
 title: " Gerir o servidor de configuração para a recuperação de desastres do servidor físico com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como gerir um servidor de configuração existente para a recuperação de desastre do servidor físico para o Azure, com o serviço do Azure Site Recovery."
+description: Este artigo descreve como gerir um servidor de configuração existente para a recuperação de desastre do servidor físico para o Azure, com o serviço do Azure Site Recovery.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84969ff04684003a04f99b4fbf7f03be4140a277
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerir o servidor de configuração para a recuperação de desastres do servidor físico
 
@@ -24,7 +24,7 @@ A tabela resume prerequistes para implementar a máquina no local do servidor de
 | **Componente** | **Requisito** |
 | --- |---|
 | Núcleos de CPU| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | Número de discos | 3, incluindo o disco de SO, disco de cache do servidor de processo e unidade de retenção para reativação pós-falha |
 | Espaço livre no disco (cache do servidor de processos) | 600 GB
 | Espaço livre no disco (disco de retenção) | 600 GB|
@@ -36,7 +36,7 @@ A tabela resume prerequistes para implementar a máquina no local do servidor de
 | IIS | -Qualquer Web site predefinido do pré-existente <br> -Ativar [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Ativar [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) definição  <br> -Não pré-existente Web site/aplicação está a escutar na porta 443<br>|
 | Tipo NIC | VMXNET3 (quando implementado como uma VM de VMware) |
 | Tipo de endereço IP | Estático |
-| Acesso à Internet | O servidor precisa de aceder a estes URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (não é necessário para Servidores de Processos de Aumento Horizontal) <br> - time.nist.gov <br> - time.windows.com |
+| Acesso à Internet | O servidor precisa de aceder a estes URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> -dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (não é necessário para servidores de processos de escalamento horizontal) <br> - time.nist.gov <br> - time.windows.com |
 | Portas | 443 (Canal de controlo e orquestração)<br>9443 (Transporte de dados)|
 
 ## <a name="download-the-latest-installation-file"></a>Transferir o ficheiro de instalação mais recente
@@ -255,7 +255,7 @@ Atualize o servidor da seguinte forma:
   * Fornecedor do Microsoft Azure Site Recovery
   * Servidor de processo do servidor de configuração do Microsoft Azure Site Recovery
   * Dependências de servidor de configuração de recuperação de sites de Microsoft Azure
-  * MySQL Server 5.5
+  * Servidor de MySQL 5.5
 4. Execute o comando seguinte a partir e a linha de comandos de administrador.
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration

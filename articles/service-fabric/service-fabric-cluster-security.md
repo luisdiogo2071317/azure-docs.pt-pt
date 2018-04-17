@@ -1,11 +1,11 @@
 ---
 title: Proteger um cluster do Service Fabric do Azure | Microsoft Docs
-description: "Saiba mais sobre cenários de segurança para um cluster do Service Fabric do Azure e as várias tecnologias que pode utilizar para implementá-la."
+description: Saiba mais sobre cenários de segurança para um cluster do Service Fabric do Azure e as várias tecnologias que pode utilizar para implementá-la.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2017
-ms.author: chackdan
-ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: aljo
+ms.openlocfilehash: f60b428ba7fe93713af68851a3e9d246a3b1641b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança de cluster do Service Fabric
 Um cluster do Service Fabric do Azure é um recurso que é proprietário. É da responsabilidade do cliente para proteger os clusters para ajudar a impedir que utilizadores não autorizados a ligar aos mesmos. Um cluster seguro é especialmente importante quando estiver a executar cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não segura, se o cluster expõe pontos finais de gestão para a internet pública, os utilizadores anónimos podem ligar à mesma. Não são suportados clusters de não segura para cargas de trabalho de produção. 
@@ -103,7 +103,7 @@ Normalmente, os certificados de cliente não são emitidos por uma AC de terceir
 > [!NOTE]
 > Todas as operações de gestão num cluster de Service Fabric requerem certificados de servidor. Não não possível utilizar certificados de cliente para gestão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Criar um cluster no Azure utilizando um modelo do Resource Manager](service-fabric-cluster-creation-via-arm.md) 
 * [Criar um cluster utilizando o portal do Azure](service-fabric-cluster-creation-via-portal.md)
 

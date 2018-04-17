@@ -1,24 +1,24 @@
 ---
-title: "Utilizar o serviço de contentor do Azure com Kafka no HDInsight | Microsoft Docs"
-description: "Saiba como utilizar Kafka no HDInsight a partir de imagens do contentor alojadas no serviço de contentor do Azure (AKS)."
+title: Utilizar o serviço de contentor do Azure com Kafka no HDInsight | Microsoft Docs
+description: Saiba como utilizar Kafka no HDInsight a partir de imagens do contentor alojadas no serviço de contentor do Azure (AKS).
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 16513cbd775e200a0821e8786ae823b82c67e437
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Utilizar os serviços de contentor do Azure com Kafka no HDInsight
 
@@ -158,7 +158,7 @@ Neste momento, Kafka e o serviço de contentor do Azure estão em comunicação 
 
 1. Crie um tópico de Kafka que é utilizado pela aplicação de teste. Para obter informações sobre como criar Kafka tópicos, consulte o [criar um cluster de Kafka](apache-kafka-get-started.md) documento.
 
-2. Transferir a aplicação de exemplo do [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test). 
+2. Transferir a aplicação de exemplo do [ https://github.com/Blackmist/Kafka-AKS-Test ](https://github.com/Blackmist/Kafka-AKS-Test). 
 
 3. Editar o `index.js` de ficheiros e alterar as seguintes linhas:
 

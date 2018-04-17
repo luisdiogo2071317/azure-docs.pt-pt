@@ -1,11 +1,11 @@
 ---
 title: Resolver problemas de rotas - Portal | Microsoft Docs
-description: "Saiba como resolver problemas de rotas no modelo de implementação Azure Resource Manager através do Portal do Azure."
+description: Saiba como resolver problemas de rotas no modelo de implementação Azure Resource Manager através do Portal do Azure.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bdd8b6dc-02fb-4057-bb23-8289caa9de89
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 67da2eae5ea04962cd5adeff8edd070c1a3cf95a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Resolver problemas de rotas através do Portal do Azure
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Enquanto o exemplo utiliza apenas as rotas de sistema, os mesmos passos podem se
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Vista rotas eficazes para uma máquina virtual
 Para ver as rotas de agregação que são aplicadas a uma VM, conclua os seguintes passos:
 
-1. Inicie sessão no portal do Azure em https://portal.azure.com. A conta tem de ser atribuída a *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operação para a interface de rede. Para saber como atribuir operações às contas, consulte [criar funções personalizadas para controlo de acesso em funções do Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Inicie sessão no portal do Azure em https://portal.azure.com. A conta tem de ser atribuída a *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operação para a interface de rede. Para saber como atribuir operações às contas, consulte [criar funções personalizadas para controlo de acesso em funções do Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Clique em **todos os serviços**, em seguida, clique em **máquinas virtuais** na lista que é apresentada.
 3. Selecione uma VM para resolver problemas da lista que é apresentado e é apresentado o painel uma VM com as opções.
 4. Clique em **diagnosticar & resolver problemas** e, em seguida, selecione um problema comum. Neste exemplo, **não consigo ligar à minha VM do Windows** está selecionada.

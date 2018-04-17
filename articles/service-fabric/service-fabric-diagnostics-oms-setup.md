@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - configurar a monitorização com o OMS Log Analytics | Microsoft Docs
-description: Saiba como configurar o Operations Management Suite para visualizar e analisar eventos para monitorizar os clusters de Service Fabric do Azure.
+title: Azure Service Fabric - configurar a monitorização com o Log Analytics | Microsoft Docs
+description: Saiba como configurar a análise de registos para visualizar e analisar eventos para monitorizar os clusters de Service Fabric do Azure.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/30/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 807c703eccf336236846212b8a0cadc20ec2bc4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configurar a análise de registos do Operations Management Suite para um cluster
+# <a name="set-up-log-analytics-for-a-cluster"></a>Configurar a análise de registos para um cluster
 
-Pode configurar uma área de trabalho do Operations Management Suite (OMS) através do Azure Resource Manager, o PowerShell ou o Azure Marketplace. Se a manter um modelo do Resource Manager atualizada da sua implementação para utilização futura, utilize o mesmo modelo para configurar o ambiente do OMS. Implementação através do Marketplace é mais fácil se já tiver um cluster implementado com diagnóstico ativado. Se não tiver acesso de nível de subscrição na conta que pretende implementar OMS, implemente utilizando o PowerShell ou o modelo do Resource Manager.
+Pode configurar uma área de trabalho de análise de registos através do Azure Resource Manager, o PowerShell ou o Azure Marketplace. Se a manter um modelo do Resource Manager atualizada da sua implementação para utilização futura, utilize o mesmo modelo para configurar o ambiente do OMS. Implementação através do Marketplace é mais fácil se já tiver um cluster implementado com diagnóstico ativado. Se não tiver acesso de nível de subscrição na conta que pretende implementar OMS, implemente utilizando o PowerShell ou o modelo do Resource Manager.
 
 > [!NOTE]
-> Para configurar o OMS para monitorizar o seu cluster, tem de ter ativado para ver eventos de plataforma ao nível do cluster ou de diagnóstico.
+> Para configurar o registo de análise para monitorizar o seu cluster, tem de ter ativado para ver eventos de plataforma ao nível do cluster ou de diagnóstico.
 
 ## <a name="deploy-oms-by-using-azure-marketplace"></a>Implementar o OMS, utilizando o Azure Marketplace
 
@@ -219,7 +219,7 @@ Quando tiver terminado, siga os passos na secção anterior para ligar a anális
 
 Também pode adicionar outras soluções ou efetue modificações adicionais à sua área de trabalho do OMS através do PowerShell. Para obter mais informações, consulte [Gerir análise de registos com o PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Implementar o agente do OMS](service-fabric-diagnostics-oms-agent.md) para os nós para recolher os contadores de desempenho e recolher estatísticas de docker registos e para os contentores
 * Obter familiarized com o [de registo de pesquisa e consultar](../log-analytics/log-analytics-log-searches.md) funcionalidades disponibilizadas como parte da análise de registos
 * [Utilize o estruturador de vistas para criar vistas personalizadas no Log Analytics](../log-analytics/log-analytics-view-designer.md)

@@ -1,6 +1,6 @@
 ---
-title: "Gestão de configuração de Blueprint - automatização de aplicações FedRAMP Web - de conformidade e segurança do Azure"
-description: "Automatização de aplicações FedRAMP Web - gestão de configuração"
+title: Gestão de configuração de Blueprint - automatização de aplicações FedRAMP Web - de conformidade e segurança do Azure
+description: Automatização de aplicações FedRAMP Web - gestão de configuração
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 356eccac6af2780c02d1cd935d41891b5f89f1a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-management-cm"></a>Gestão de configuração (CM)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de gestão de configuração que endereços objetivo, âmbito, funções, responsabilidades, compromisso de gestão, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação da política de gestão de configuração e controlos de gestão de configuração associados; analisa e atualiza a política de gestão de configuração atual [atribuição: frequência definida de organização]; e procedimentos de gestão de configuração [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 2** organização desenvolvidas pela organização, documentos e mantém sob o controlo de configuração, uma configuração de linha de base atual do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-2 (1) .a** organização revê e atualiza a configuração de linha de base do sistema de informações [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-2 (1) .b** organização revê e atualiza a configuração de linha de base do sistema de informações quando necessário devido a [circunstâncias atribuição definido de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-2 (1) .c** organização revê e atualiza a configuração de linha de base do sistema informações como parte integrante das instalações de componente do sistema de informações e atualizações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-2 (2)** organização emprega automatizados mecanismos para manter uma configuração de linha de base atualizadas, completas, exata e prontamente disponíveis do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-2 (3)** mantém a organização [atribuição: organização-definido versões anteriores das configurações de linha de base do sistema informações] para suportar a reversão.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **.A CM-2 (7)** os problemas de organização [atribuição: dispositivos, sistemas informações definidas pela organização ou componentes do sistema] com [atribuição: configurações definido de organização] para indivíduos estiverem em deslocação para localizações de que a organização Considere do risco significativo.
 
-**Responsabilidades:**`Not Applicable`
+**Responsabilidades:** `Not Applicable`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **.B CM-2 (7)** a organização aplica [atribuição: as proteções de segurança definido para organização] para os dispositivos quando os indivíduos devolvem.
 
-**Responsabilidades:**`Not Applicable`
+**Responsabilidades:** `Not Applicable`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 3.a** organização determina os tipos de alterações para o sistema de informações que são controladas por configuração.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 3.b** organização revê alterações propostas controlado de configuração para o sistema de informações e aprova ou disapproves essas alterações com consideração explícita de análises de impacto de segurança.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 3.c** a configuração de documentos da organização uma alteração das decisões associadas com o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 3.d** organização implementa alterações aprovadas controlado de configuração para o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3.e** A organização mantém os registos de alterações controlado de configuração para o sistema de informações para [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 3.f** organização auditorias e revê actividades associadas a alterações controlado de configuração para o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 3.g** organização coordena e fornece supervisão para atividades de controlo de alterações de configuração através de [atribuição: elemento de controlo para alteração de configuração definida por organização (por exemplo, AD, placa)] que convenes [seleção ( um ou mais): [atribuição: frequência definida de organização]; [Atribuição: condições de alteração de configuração definida pelo organização]].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (1) .a** organização emprega mecanismos automáticos para documentos propostas de alterações para o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (1) .b** organização emprega mecanismos automatizados para o notificar [atribuição: autoridades de aprovação definido organizados] de alterações propostas às informações de sistema e o pedido de alterar a aprovação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (1) .c** organização emprega automatizados mecanismos para realçar propostas de alterações para o sistema de informações que não foram aprovados ou disapproved por [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (1) .d** organização emprega automatizados mecanismos para proibir alterações para o sistema de informações até aprovações designadas são recebidas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (1).e** A organização utiliza mecanismos automatizados para todas as alterações para o sistema de informações de documentos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **.F CM-3 (1)** organização emprega mecanismos automatizados para o notificar [atribuição: técnico definido de organização] quando alterações aprovadas para o sistema de informações estão concluídas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (2)** organização testes, valida e documentos alterações para o sistema de informações antes de implementar as alterações no sistema operacional.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (4)** a organização necessita de um representante de segurança de informações para ser um membro do [atribuição: elemento de controlo de alterações de configuração de definido de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (6)** organização garante que os mecanismos criptográficos utilizada para fornecer [atribuição: as proteções de segurança definido para organização] estão em gestão de configuração.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 4** organização analisa as alterações para o sistema de informações para determinar o potencial impactos de segurança antes da implementação de alteração.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-4 (1)** organização analisa as alterações para o sistema de informações num ambiente de teste separada antes da implementação num ambiente operacional, procurando impactos de segurança devidos a falhas, fragilidades, incompatibilidade ou intencional malice.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 5** organização define, documentos, aprova e impõe restrições de acesso físicas e lógicas associadas a alterações no sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) de 5 CM** o sistema de informações impõe restrições de acesso e suporta a auditoria das ações de imposição.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-5 (2)** organização revê as alterações de sistema de informações [atribuição: frequência definida de organização] e [atribuição: circunstâncias definido de organização] para determinar se ocorreram alterações não autorizadas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-5 (3)** o sistema de informações impede a instalação do [atribuição: componentes de software e firmware definido de organização] sem verificação que o componente foi digitalmente assinado com um certificado que é reconhecido e aprovadas pela organização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-5 (5) .a** organização limita privilégios para alterar os componentes de informações do sistema e informações relacionadas com o sistema dentro de um ambiente operacional ou de produção.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-5 (5) .b** organização revê e reevaluates privilégios [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 6.a** organização estabelece e documentos definições de configuração para produtos de tecnologia de informação utilizadas dentro do sistema de informações utilizando [atribuição: listas de verificação de configuração de segurança definido para organização] que refletem o modo mais restritivo consistente com a requisitos operacionais.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-6. b** organização implementa as definições de configuração.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-6. c** organização identifica, documentos e aprova qualquer desvios em relação às definições de configuração estabelecida para [atribuição: os componentes do sistema de informações definidas pela organização] com base no [atribuição: definido de organização requisitos operacionais de].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 6.d** os monitores de organização e controlos de alterações das definições de configuração em conformidade com políticas organizacionais e procedimentos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-6 (1)** organização emprega automatizados mecanismos para gerir centralmente, aplicam-se e verifique as definições de configuração do [atribuição: os componentes do sistema de informações definidas pela organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -563,11 +563,11 @@ ms.lasthandoff: 02/11/2018
 
 **CM-6 (2)** organização emprega [atribuição: as proteções de segurança definido para organização] para responder a alterações não autorizadas a [atribuição: definições de configuração definida pelo organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este blueprint implementa Automation DSC do Azure. Parte do Azure Operations Management Suite (OMS), o DSC de automatização pode ser configurado para gerar um alerta ou para resolver erros de configuração quando detetado. |
+| **Cliente** | Este blueprint implementa Automation DSC do Azure. Automation DSC pode ser configurado para gerar um alerta ou para resolver erros de configuração quando detetado. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 7.a** a organização configurar o sistema de informações para fornecer apenas as capacidades essenciais.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **7 CM** organização proíbe ou restringe a utilização das seguintes funções, portas, protocolos, e/ou serviços: [atribuição: organização proibidas ou restritas as funções definidas pelo, portas, protocolos e/ou serviços].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-7 (1) .a** organização analisa o sistema de informações [atribuição: frequência definida de organização] para identificar os serviços, protocolos, portas e desnecessárias e/ou nonsecure funções.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-7 (1) .b** desativa a organização [atribuição: serviços no sistema informações consideradas ser desnecessários e/ou nonsecure, protocolos, portas e funções definidas pelo organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-7 (2)** em conformidade com a execução do programa de impede que o sistema de informações [seleção (um ou mais): [atribuição: políticas definidas pelo organização sobre software programa e restrições de utilização]; as regras de autorização os termos de licenciamento e condições de utilização do programa de software].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-7 (5) .a** identifica a organização [atribuição: programas de software definida pelo organização autorizado a executar no sistema informações].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-7 (5) .b** a organização utiliza uma política de negar-all, permitir pelos exceções para permitir a execução de programas de software autorizada no sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-7 (5) .c** organização revê e atualiza a lista de programas de software autorizada [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 8.a** organização desenvolvidas pela organização e documentos um inventário dos componentes do sistema de informações que reflete o atual sistema de informações com precisão; inclui todos os componentes dentro do limite do sistema de informações de autorização; se encontra em o nível de granularidade considerar necessário para controlar e relatórios; e inclui [atribuição: informações definidas pela organização considerar necessárias para alcançar accountability de componente do sistema de informações eficazes].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 8.b** organização revê e atualiza o inventário de componente do sistema de informações [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) de 8 CM** organização atualiza o inventário dos componentes do sistema de informações como parte integrante das instalações de componente, remoção e atualizações do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **(2) de 8 CM** organização emprega mecanismos automatizados para o ajudar a manter um inventário atualizado, completo, exata e prontamente disponível dos componentes do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **.A CM-8 (3)** organização emprega mecanismos automatizados [atribuição: frequência definida de organização] para detetar a presença dos componentes de hardware, software e firmware não autorizadas no sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -759,7 +759,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-8 (3) .b** organização efetua as seguintes ações quando são detetados componentes não autorizados: [seleção (um ou mais): desativa o acesso à rede por esses componentes; isola os componentes; notifica [atribuição: definido de organização técnico ou funções]].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -773,7 +773,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-8 (4)** organização inclui as informações de inventário de componente de sistema de informações, um meio para identificar por [seleção (um ou mais): nome; a posição; a função], indivíduos responsáveis/responsável para administrar esses componentes .
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-8 (5)** organização verifica se todos os componentes dentro do limite do sistema de informações de autorização não são duplicados em outros inventários de componente do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -801,7 +801,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 9.a** organização desenvolvidas pela organização, documentos e implementa um esquema de gestão de configuração para o sistema de informações que endereços funções, responsabilidades e os processos de gestão de configuração e procedimentos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -815,7 +815,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 9.b** organização desenvolvidas pela organização, documentos e implementa um esquema de gestão de configuração para o sistema de informações que estabelece um processo para ciclo de identificação de itens de configuração ao longo da vida de desenvolvimento do sistema e Gerir a configuração dos itens de configuração.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -829,7 +829,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 9.c** organização desenvolvidas pela organização, documentos e implementa um esquema de gestão de configuração para o sistema de informações que define a configuração de itens para o sistema de informações e coloca os itens de configuração em configuração gestão.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -843,7 +843,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 9.d** organização desenvolvidas pela organização, documentos e implementa um esquema de gestão de configuração para o sistema de informações que protege o plano de gestão de configuração de divulgação não autorizada e modificação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -857,7 +857,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 10.a** a organização utiliza o software e a documentação associada em conformidade com contratos de contrato e leis de direitos de autor.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -871,7 +871,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 10.b** organização controla a utilização de software e a documentação associada protegidos pelo licenças quantidade para controlar o copiar e a distribuição.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -885,7 +885,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 10.c** organização controla e documentos a utilização de tecnologia para se certificar de que esta capacidade não é utilizada para a distribuição não autorizada, apresentar, desempenho ou reprodução do obra de partilha de ficheiros de ponto a ponto.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -899,7 +899,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-10 (1)** organização estabelece as seguintes restrições sobre a utilização de software open source para: [atribuição: restrições definidas pelo organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -913,7 +913,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 11.a** organização estabelece [atribuição: as políticas definidas pelo organização] que rege a instalação de software pelos utilizadores.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -927,7 +927,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 11.b** organização impõe as políticas de instalação de software através de [atribuição: os métodos definidos pelo organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -941,7 +941,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 11.c** organização monitoriza a conformidade com a política em [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -955,7 +955,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-11 (1)** os alertas de sistema de informações [atribuição: técnico definido pela organização ou funções] quando a instalação do software não autorizada é detetada.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: aa74596906206ba4460e80af9015955c0b848cd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 718990b69cc75709af819ad7df9a77ad0f8f33ce
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual Linux com acelerados da rede
 
@@ -66,7 +66,7 @@ Existem as seguintes limitações ao utilizar esta capacidade:
 * **A criação de VM:** A NIC com redes na melhoria ativada só podem ser anexado a uma VM quando é criada a VM. O NIC não pode ser ligado a uma VM existente. Se adicionar a VM para um disponibilidade existente, todas as VMs no conjunto de disponibilidade tem também de ter acelerados rede ativada.
 * **Apenas a implementação através do Gestor de recursos do Azure:** não é possível implementar máquinas virtuais (clássicas) com acelerados da rede.
 
-Embora este artigo fornece os passos para criar uma máquina virtual com redes na melhoria utilizando a CLI do Azure, também pode [criar uma máquina virtual com redes na melhoria no portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando criar uma máquina virtual com um sistema operativo suportado e o tamanho da VM no portal, em **definições**, selecione **ativado** em **acelerados redes**. Depois de criar a máquina virtual, tem de concluir as instruções em [confirmar que está ativada na melhoria de redes](#confirm-that-accelerated-networking-is-enabled).
+Embora este artigo fornece os passos para criar uma máquina virtual com redes na melhoria utilizando a CLI do Azure, também pode [criar uma máquina virtual com redes na melhoria no portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando criar uma máquina virtual no portal, em **definições**, selecione **ativado**, em **acelerados redes**. A opção para ativar na melhoria de redes não aparece no portal, salvo se tiver selecionado um [sistema operativo suportado](#supported-operating-systems) e [tamanho da VM](#supported-vm-instances). Depois de criar a máquina virtual, tem de concluir as instruções em [confirmar que está ativada na melhoria de redes](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 

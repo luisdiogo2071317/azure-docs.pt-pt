@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e conformidade Blueprint - FedRAMP Web automatização de aplicações"
-description: "Segurança do Azure e conformidade Blueprint - FedRAMP Web automatização de aplicações"
+title: Segurança do Azure e conformidade Blueprint - FedRAMP Web automatização de aplicações
+description: Segurança do Azure e conformidade Blueprint - FedRAMP Web automatização de aplicações
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 10ed297180f68fcaf006f2778990879be02f994d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Segurança do Azure e conformidade Blueprint - FedRAMP Web automatização de aplicações
 
@@ -55,7 +55,7 @@ Esta solução utiliza os seguintes serviços do Azure. Detalhes da arquitetura 
 * **Conjuntos de Disponibilidade**
     - (1) controladores de domínio o active Directory
     - (1) nós de cluster do SQL Server e da testemunha
-    - (1) Web/IIS
+    - (1) web/IIS
 * **Rede Virtual do Azure**
     - redes virtuais /16 (1)
     - sub-redes /24 (5)
@@ -76,10 +76,9 @@ Esta solução utiliza os seguintes serviços do Azure. Detalhes da arquitetura 
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Log Analytics do Azure**
+    - (1) área de trabalho de análise de registo
 * **Automatização do Azure**
     - (1) conta de automatização
-* **Operations Management Suite**
-    - (1) área de trabalho OMS
 
 ## <a name="deployment-architecture"></a>Arquitetura de implementação
 
@@ -136,7 +135,7 @@ Encriptação de disco do Azure é utilizado para encriptados discos da máquina
 
 ### <a name="logging-and-auditing"></a>Registo e auditoria
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fornece extenso registo de atividade de utilizador e de sistema, bem como o estado de funcionamento do sistema. 
+[Análise de registo](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fornece extenso registo de atividade de utilizador e de sistema, bem como o estado de funcionamento do sistema. 
 
 - **Registos de atividade:**[registos de atividade](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações aprofundadas as operações que foram executadas no recursos na sua subscrição.
 - **Os registos de diagnóstico:**[registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são emitidos por cada recurso de todos os registos. Estes registos incluem registos de sistema de eventos do Windows, os registos de armazenamento do Azure, os registos de auditoria do Cofre de chaves e os registos de acesso e de firewall de Gateway de aplicação.
@@ -154,7 +153,7 @@ A solução utiliza o Cofre de chaves do Azure para gerir as chaves e segredos.
 As seguintes tecnologias de fornecem a identidade de capacidades de gestão no ambiente do Azure.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) é multi-inquilino baseado na nuvem diretório e identidade do serviço de gestão da Microsoft.
 - Autenticação para uma aplicação web implementada de cliente pode ser efetuada utilizando o Azure AD. Para obter mais informações, consulte [integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
-- [Azure baseada em funções controlo de acesso (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) permite precisamente direcionadas para gestão de acesso ao Azure. Acesso de subscrição está limitado ao administrador da subscrição e acesso a recursos pode ser limitado com base na função de utilizador.
+- [Azure baseada em funções controlo de acesso (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) permite precisamente direcionadas para gestão de acesso ao Azure. Acesso de subscrição está limitado ao administrador da subscrição e acesso a recursos pode ser limitado com base na função de utilizador.
 - Uma instância do Active Directory IaaS implementada fornece gestão de identidades ao nível do SO para as máquinas virtuais do IaaS implementadas.
    
 ### <a name="compute-resources"></a>Calcular recursos
@@ -182,17 +181,17 @@ Um jumpbox de gestão (anfitrião de bastion) fornece uma ligação segura para 
 
 ### <a name="patch-management"></a>Gestão de correção
 
-Máquinas virtuais do Windows implementadas por esta segurança do Azure e a conformidade Blueprint automatização estão configuradas por predefinição para receber as atualizações automáticas do serviço de atualização do Windows. Esta solução também implementa a solução de automatização do Azure de OMS através do qual as implementações de atualização podem ser criadas para implementar patches nos servidores do Windows quando for necessário.
+Máquinas virtuais do Windows implementadas por esta segurança do Azure e a conformidade Blueprint automatização estão configuradas por predefinição para receber as atualizações automáticas do serviço de atualização do Windows. Esta solução também implementa a solução de automatização do Azure através do qual as implementações de atualização podem ser criadas para implementar patches nos servidores do Windows quando for necessário.
 
 ### <a name="operations-management"></a>Gestão de operações
 
 #### <a name="log-analytics"></a>Log analytics
 
-[Análise de registo](https://azure.microsoft.com/services/log-analytics/) é um serviço no Operations Management Suite (OMS) que permite a recolha e análise de dados gerados pelos recursos no Azure e ambientes no local.
+[Análise de registo](https://azure.microsoft.com/services/log-analytics/) é um serviço que permite a recolha e análise de dados gerados pelos recursos no Azure e no local ambientes.
 
-#### <a name="oms-solutions"></a>Soluções do OMS
+#### <a name="management-solutions"></a>Soluções de gestão
 
-As seguintes soluções OMS previamente são instaladas como parte desta solução:
+As seguintes soluções de gestão previamente são instaladas como parte desta solução:
 - [Avaliação do AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
 - [Avaliação de Antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
 - [Automatização do Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bca2629ea4a0c859e92d829b49072fbdf3f9ffe2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bf9069df55352b4d7884e989be741fc42e06bfdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de funcionalidades: base de dados de SQL do Azure versus do SQL Server 
 
@@ -72,20 +72,20 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 |[Máscara de dados dinâmica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Sim](sql-database-dynamic-data-masking-get-started.md)| Sim |
 | [Conjuntos elásticos](sql-database-elastic-pool.md) | Sim | uma única instância geridos pode ter várias bases de dados que partilham o mesmo agrupamento de recursos |
 | [Notificações de eventos](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Não - consulte [alertas](sql-database-insights-alerts-portal.md) | Sim |
-| [Expressions](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Sim | Sim |
+| [Expressões](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Sim | Sim |
 | [Eventos expandidos](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Algumas - consulte [expandido eventos na base de dados SQL](sql-database-xevent-db-diff-from-svr.md) | Sim - consulte [expandido diferenças de eventos ](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [procedimentos armazenados expandidos](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Não | Não |
 [Ficheiros e grupos de ficheiros](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Grupo de ficheiros primário apenas | Sim |
-| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Não | Não |
+| [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Não | Não |
 | [Pesquisa em texto completo](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Breakers palavras de terceiros não são suportados |Breakers palavras de terceiros não são suportados |
 | [Funções](https://docs.microsoft.com/sql/t-sql/functions/functions) | Consulte mais - funções individuais | Sim - consulte [os procedimentos armazenados, funções, aciona diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
-| [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Sim | Não – COPY_ONLY pode restaurar cópias de segurança completas que tomar periodicamente - consulte [diferenças de cópia de segurança](sql-database-managed-instance-transact-sql-information.md#backup) e [restaurar diferenças](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
+| [georrestauro](sql-database-recovery-using-backups.md#geo-restore) | Sim | Não – COPY_ONLY pode restaurar cópias de segurança completas que tomar periodicamente - consulte [diferenças de cópia de segurança](sql-database-managed-instance-transact-sql-information.md#backup) e [restaurar diferenças](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Georreplicação](sql-database-geo-replication-overview.md) | Sim | Não |
 | [Processamento de gráfico](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Sim | Sim |
 | [Otimização dentro da memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sim - [camadas Premium e Critial de negócio](sql-database-in-memory.md) | Não |
 | [Suporte de dados JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Sim | Sim |
 | [Elementos de linguagem](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Consulte mais - elementos individuais |  Sim - consulte [diferenças de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
-| [Servidores ligados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não - consulte [consulta elástica](sql-database-elastic-query-horizontal-partitioning.md) | Apenas para o SQL Server |
+| [Servidores ligados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não - consulte [consulta elástica](sql-database-elastic-query-horizontal-partitioning.md) | Apenas para o SQL Server e base de dados SQL |
 | [Envio de registo](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Elevada disponibilidade](sql-database-high-availability.md) está incluído com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a SQL Database do Azure](sql-database-business-continuity.md) |[Elevada disponibilidade](sql-database-high-availability.md) está incluído com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a SQL Database do Azure](sql-database-business-continuity.md) |
 | [Dados do Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Não | Não |
 | [Registo mínimo na importação em volume](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Não | Não |
@@ -122,7 +122,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Sim | Sim |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sim, com um SSIS gerido num ambiente do Azure Data Factory (ADF), onde estão armazenados os pacotes SSISDB alojadas pelo SQL Database do Azure e executado num [Runtime de integração do Azure SSIS](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). | Sim, com um SSIS gerido no ambiente do Azure Data Factory (ADF), onde estão armazenados os pacotes SSISDB alojada pela instância geridos e executado num [Runtime de integração do Azure SSIS](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sim | Sim |
-| [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
+| [SQL Server do PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
 | [O gerador de perfis do SQL Server](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não - consulte [alargadas de eventos](sql-database-xevent-db-diff-from-svr.md) | Sim |
 | [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Apenas subscritor de replicação de instantâneo e transacional](sql-database-cloud-migrate.md) | Não |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Não - [Consulte Power BI](https://docs.microsoft.com/power-bi/) | Não - [Consulte Power BI](https://docs.microsoft.com/power-bi/) |
