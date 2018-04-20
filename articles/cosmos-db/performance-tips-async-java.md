@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: sngun
 ms.openlocfilehash: 95f6e3d6d9db5a88b5b974daf6e36573b60878a5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -58,11 +58,11 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
     Azure Cosmos BD SQL Async Java SDK suporta consultas paralelas, que lhe permite consultar uma coleção particionada em paralelo (consulte [trabalhar com os SDKs](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) o relacionados e [exemplos de código](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) para obter mais informações). Consultas paralelas são concebidas para melhorar a latência de consulta e débito ao longo do respetivo homólogo série.
 
-    (a) ***otimização setMaxDegreeOfParallelism\: *** paralelo consulta trabalho consultando várias partições em paralelo. No entanto, os dados a partir de uma coleção particionada individuais são obtidos serialmente no que respeita à consulta. Por isso, utilize setMaxDegreeOfParallelism para definir o número de partições que tem a oportunidade de máxima de alcançar a maioria dos consulta performant, fornecida todas as outras condições de sistema permanecer o mesmo. Se não souber o número de partições, pode utilizar setMaxDegreeOfParallelism para definir um elevado número e o sistema escolhe o mínimo (número de partições, entrada fornecido pelo utilizador) como o grau de paralelismo máximo. 
+    (a) ***otimização setMaxDegreeOfParallelism\:***  paralelo consulta trabalho consultando várias partições em paralelo. No entanto, os dados a partir de uma coleção particionada individuais são obtidos serialmente no que respeita à consulta. Por isso, utilize setMaxDegreeOfParallelism para definir o número de partições que tem a oportunidade de máxima de alcançar a maioria dos consulta performant, fornecida todas as outras condições de sistema permanecer o mesmo. Se não souber o número de partições, pode utilizar setMaxDegreeOfParallelism para definir um elevado número e o sistema escolhe o mínimo (número de partições, entrada fornecido pelo utilizador) como o grau de paralelismo máximo. 
 
     É importante ter em atenção as consultas paralelas produzem as vantagens de melhor, se os dados é distribuída uniformemente pelos todas as partições no que respeita à consulta. Se a coleção particionada está particionada uma forma que todos os ou a maioria dos dados devolvidos por uma consulta é concentrated em partições uns (uma partição na pior das hipóteses), em seguida, o desempenho da consulta deverá ser condicionada por essas partições apoio.
 
-    (b) ***otimização setMaxBufferedItemCount\: *** paralela da consulta foi concebida para previamente obtenha os resultados enquanto o lote de resultados atual está a ser processado pelo cliente. A pré-obtenção de ajuda na melhoria geral de latência de uma consulta. setMaxBufferedItemCount limita o número de resultados de pré-obtidos. Definição setMaxBufferedItemCount para o número esperado de resultados devolvidos (ou um número mais alto) permite a consulta para recebem benefícios máximo da pré-a obter.
+    (b) ***otimização setMaxBufferedItemCount\:***  paralela da consulta foi concebida para previamente obtenha os resultados enquanto o lote de resultados atual está a ser processado pelo cliente. A pré-obtenção de ajuda na melhoria geral de latência de uma consulta. setMaxBufferedItemCount limita o número de resultados de pré-obtidos. Definição setMaxBufferedItemCount para o número esperado de resultados devolvidos (ou um número mais alto) permite a consulta para recebem benefícios máximo da pré-a obter.
 
     Pré-obter funciona da mesma forma, independentemente de MaxDegreeOfParallelism e existe uma única memória intermédia de dados de todas as partições.  
 

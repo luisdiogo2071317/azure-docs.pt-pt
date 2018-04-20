@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric CLI sfctl rpm | Microsoft Docs
-description: "Descreve os comandos de rpm sfctl CLI de recursos de infraestrutura de serviço."
+description: Descreve os comandos de rpm sfctl CLI de recursos de infraestrutura de serviço.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 34e7693ea40df2bf12fd6e9be2ef627f30748bcd
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consultar e enviar comandos para o serviço do Gestor de reparação.
@@ -26,7 +26,7 @@ Consultar e enviar comandos para o serviço do Gestor de reparação.
 ## <a name="commands"></a>Comandos
 |Comando|Descrição|
 | --- | --- |
-|    approve-force| Força a aprovação da tarefa reparar indicado.|
+|    force aprovar| Força a aprovação da tarefa reparar indicado.|
 |    eliminar       | Elimina uma tarefa de reparação foi concluída.|
 |    lista         | Obtém uma lista de tarefas de reparação que correspondam aos filtros de indicado.|
 
@@ -44,7 +44,7 @@ Esta API suporta a plataforma de Service Fabric; não se destina a ser utilizado
 ### <a name="global-arguments"></a>Argumentos global
 |Argumento|Descrição|
 | --- | --- |
-|    --debug             | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+|    -debug             | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 |    -ajudar -h           | Mostra esta mensagem de ajuda e saída.|
 |    --o de saída         | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.
 |    – consulta             | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -59,16 +59,16 @@ Esta API suporta a plataforma de Service Fabric; não se destina a ser utilizado
 ### <a name="arguments"></a>Argumentos
 |Argumento|Descrição|
 | --- | --- |
-|    --executor-filter| O nome do executor a reparação cujas tarefas pedidas devem ser incluídas na lista.|
-|    --state-filter   | Um bit a bit-OR dos seguintes valores, especificando que tarefas Estados deve ser incluída na lista de resultados. -1 - criado - 2 - pedida - 4 - a preparar - 8 - aprovada - 16 - em execução - 32 - restaurar - 64 - foi concluída.|
-|    --task-id-filter | Corresponder o prefixo de ID de tarefa reparar.|
+|    -executor filtro| O nome do executor a reparação cujas tarefas pedidas devem ser incluídas na lista.|
+|    -filtro de estado   | Um bit a bit-OR dos seguintes valores, especificando que tarefas Estados deve ser incluída na lista de resultados. -1 - criado - 2 - pedida - 4 - a preparar - 8 - aprovada - 16 - em execução - 32 - restaurar - 64 - foi concluída.|
+|    – o filtro de id de tarefa | Corresponder o prefixo de ID de tarefa reparar.|
 
 ### <a name="global-arguments"></a>Argumentos global
 |Argumento|Descrição|
 | --- | --- |
-|    --debug          | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+|    -debug          | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 |    -ajudar -h        | Mostra esta mensagem de ajuda e saída.|
-|    --o de saída      | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição| json.|
+|    --o de saída      | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição| JSON.|
 |    – consulta          | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 |    -verbose        | Aumente a verbosidade do registo. Utilize - a depuração para os registos de depuração completas.|
 

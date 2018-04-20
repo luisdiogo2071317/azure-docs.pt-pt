@@ -1,11 +1,11 @@
 ---
-title: "Automatizar o aprovisionamento de aplicações a utilizar o SCIM no Azure Active Directory | Microsoft Docs"
-description: "Azure Active Directory podem aprovisionar automaticamente os utilizadores e grupos a qualquer arquivo de aplicação ou identidade que é fronted por um serviço web com a interface definida na especificação de protocolo SCIM"
+title: Automatizar o aprovisionamento de aplicações a utilizar o SCIM no Azure Active Directory | Microsoft Docs
+description: Azure Active Directory podem aprovisionar automaticamente os utilizadores e grupos a qualquer arquivo de aplicação ou identidade que é fronted por um serviço web com a interface definida na especificação de protocolo SCIM
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
 ms.workload: identity
@@ -17,10 +17,10 @@ ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilizar o sistema para a gestão de identidade entre domínios para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory para aplicações
 
@@ -144,7 +144,7 @@ Para efetuar este processo mais fácil, um conjunto de [exemplos de código](htt
   ![][2]
   *Figura 4: Configurar o aprovisionamento no portal do Azure*
     
-6. No **URL de inquilino** campo, introduza o URL e a porta do seu ponto final SCIM expostos a internet. Isto seria algo como http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, onde < endereço ip > é internet expostos IP endereço.  
+6. No **URL de inquilino** campo, introduza o URL e a porta do seu ponto final SCIM expostos a internet. Isto seria algo semelhante ao seguinte http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, onde < endereço ip > é internet expostos endereço IP.  
 7. Se o ponto final SCIM requer um token de portador do OAuth a partir de um emissor diferente do Azure AD, em seguida, copie o token de portador do OAuth necessário para a opção **segredo Token** campo. Se este campo for deixado em branco, o Azure AD irá incluir um token de portador do OAuth emitido a partir do Azure AD com cada pedido. Aplicações que utilizam o Azure AD como um fornecedor de identidade pode validar do Azure AD-emitido token.
 8. Clique em de **Testar ligação** botão com o Azure Active Directory tentam estabelecer ligação ao ponto final do SCIM. Se as tentativas de falharem, são apresentadas informações de erro.  
 9. Se as tentativas para ligar com êxito a aplicação, em seguida, clique em **guardar** para guardar as credenciais de administrador.
@@ -168,7 +168,7 @@ Para desenvolver o seu próprio serviço web que está em conformidade com a esp
 2. [Express route processadores](http://expressjs.com/guide/routing.html) disponíveis para analisar os objetos de pedidos de node.js que representa as chamadas (conforme definido pela especificação SCIM), efetuadas a um serviço web do node.js.   
 
 ### <a name="building-a-custom-scim-endpoint"></a>Criar um ponto final SCIM personalizado
-Utilizar as bibliotecas do CLI, os programadores utilizando essas bibliotecas podem alojar os respetivos serviços dentro qualquer assemblagem de infraestrutura de idioma comum executável ou dentro de serviços de informação Internet. Eis o código de exemplo para alojar um serviço numa assemblagem executável, o endereço http://localhost:9000: 
+Utilizar as bibliotecas do CLI, os programadores utilizando essas bibliotecas podem alojar os respetivos serviços dentro qualquer assemblagem de infraestrutura de idioma comum executável ou dentro de serviços de informação Internet. Eis o código de exemplo para alojar um serviço numa assemblagem executável, no endereço http://localhost:9000: 
 
     private static void Main(string[] arguments)
     {
@@ -288,7 +288,7 @@ Para alojar o serviço dentro de serviços de informação de Internet, um progr
     }
 
 ### <a name="handling-endpoint-authentication"></a>Autenticação de ponto final de processamento
-Pedidos do Azure Active Directory incluem um token de portador do OAuth 2.0.   Qualquer serviço receber o pedido deve autenticar o emissor como sendo o Azure Active Directory em nome de inquilino do Azure Active Directory esperado, para acesso ao serviço web do Azure Active Directory Graph.  No token, o emissor é identificado por uma afirmação de iss, como "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço base do valor de afirmação, https://sts.windows.net, identifica o Azure Active Directory como o emissor, enquanto o segmento de endereço relativo, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, é um identificador exclusivo do Azure Active Directory inquilino em nome que o token foi emitido.  Se o token foi emitido para aceder ao serviço web do Azure Active Directory Graph, em seguida, o identificador do que o serviço, 00000002-0000-0000-c000-000000000000, deve ter o valor de afirmação de aud do token.  
+Pedidos do Azure Active Directory incluem um token de portador do OAuth 2.0.   Qualquer serviço receber o pedido deve autenticar o emissor como sendo o Azure Active Directory em nome de inquilino do Azure Active Directory esperado, para acesso ao serviço web do Azure Active Directory Graph.  No token, o emissor é identificado por uma afirmação de iss, como "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço base do valor de afirmação, https://sts.windows.net, identifica o Azure Active Directory como o emissor, enquanto o caminho relativo de segmento, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 endereços, que é um identificador exclusivo do inquilino do Azure Active Directory no nome que o token foi emitido.  Se o token foi emitido para aceder ao serviço web do Azure Active Directory Graph, em seguida, o identificador do que o serviço, 00000002-0000-0000-c000-000000000000, deve ter o valor de afirmação de aud do token.  
 
 Os programadores através das bibliotecas CLA fornecidas pela Microsoft para a criação de um serviço SCIM podem autenticar pedidos do Azure Active Directory utilizando o pacote de Microsoft.Owin.Security.ActiveDirectory seguindo estes passos: 
 
@@ -349,38 +349,38 @@ Azure Active Directory pode aprovisionar dois tipos de recursos para os serviço
 
 Recursos de utilizador são identificados pelo identificador de esquema, urn: ietf:params:scim:schemas:extension:enterprise:2.0:User, que está incluído nesta especificação de protocolo: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  O mapeamento predefinido de atributos de utilizadores no Azure Active Directory para os atributos de recursos de urn: ietf:params:scim:schemas:extension:enterprise:2.0:User é fornecido na tabela 1, abaixo.  
 
-Grupo de recursos é identificados pelo identificador de esquema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabela 2, abaixo, mostra o mapeamento predefinido de atributos de grupos no Azure Active Directory para os atributos de recursos de http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+Grupo de recursos é identificados pelo identificador de esquema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabela 2, abaixo, mostra o mapeamento predefinido de atributos de grupos no Azure Active Directory para os atributos do http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group recursos.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>1 de tabela: Mapeamento de atributos de utilizador de predefinido
 | Utilizador do Active Directory do Azure | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
 | IsSoftDeleted |ativo |
 | displayName |displayName |
-| Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
+| Facsimile TelephoneNumber |.value phoneNumbers [eq "faxes" do tipo] |
 | givenName |name.givenName |
 | jobTitle |título |
-| capacidade de correio |emails[type eq "work"].value |
+| capacidade de correio |mensagens de correio eletrónico [eq "trabalho" do tipo] .value |
 | mailNickname |externalId |
 | Gestor |Gestor |
-| Mobile |phoneNumbers[type eq "mobile"].value |
+| Mobile |.value phoneNumbers [eq de tipo "móvel"] |
 | objectId |ID |
-| postalCode |addresses[type eq "work"].postalCode |
-| proxy-Addresses |emails[type eq "other"].Value |
+| postalCode |.postalCode endereços [eq "trabalho" do tipo] |
+| Endereços de proxy |mensagens de correio eletrónico [Escreva eq "outro"]. Valor |
 | physical-Delivery-OfficeName |endereços [Escreva eq "outro"]. Formatado |
-| streetAddress |addresses[type eq "work"].streetAddress |
+| StreetAddress |.streetAddress endereços [eq "trabalho" do tipo] |
 | Apelido |name.familyName |
-| Número de telefone |phoneNumbers[type eq "work"].value |
-| user-PrincipalName |userName |
+| Número de telefone |.value phoneNumbers [eq "trabalho" do tipo] |
+| utilizador PrincipalName |userName |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>2 da tabela: O mapeamento de atributos de grupo predefinido
 | Grupo do Azure Active Directory | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
 | displayName |externalId |
-| capacidade de correio |emails[type eq "work"].value |
+| capacidade de correio |mensagens de correio eletrónico [eq "trabalho" do tipo] .value |
 | mailNickname |displayName |
 | membros |membros |
 | objectId |ID |
-| proxyAddresses |emails[type eq "other"].Value |
+| proxyAddresses |mensagens de correio eletrónico [Escreva eq "outro"]. Valor |
 
 ## <a name="user-provisioning-and-de-provisioning"></a>Aprovisionamento de utilizador e aprovisionamento automatizados.
 A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a um serviço SCIM para gerir o ciclo de vida de um utilizador no arquivo de identidade do outro. O diagrama mostra também como um serviço SCIM implementado utilizando as bibliotecas CLI fornecida pela Microsoft para edifício que desses serviços implica esses pedidos chamadas para os métodos de um fornecedor.  
@@ -442,10 +442,10 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a
     }
   ````
   No seguinte exemplo de uma consulta para um utilizador com um valor especificado para o atributo externalId, os valores dos argumentos transmitidos para o método de consulta são: 
-  * parameters.AlternateFilters.Count: 1
+  * parâmetros. AlternateFilters.Count: 1
   * parâmetros. AlternateFilters.ElementAt(0). AttributePath: "externalId"
-  * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
-  * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
+  * parâmetros. AlternateFilters.ElementAt(0). ComparisonOperator: ComparisonOperator.Equals
+  * parâmetros. AlternateFilter.ElementAt(0). ComparisonValue: "jyoung"
   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
 2. Se a resposta a uma consulta para o serviço web para um utilizador com um valor de atributo externalId que corresponde ao valor de atributo de mailNickname de um utilizador não devolver quaisquer utilizadores, em seguida, do Azure Active Directory solicita que o serviço de aprovisionar um utilizador correspondente para o no Azure Active Directory.  Eis um exemplo deste pedido: 
@@ -526,8 +526,8 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a
   ````
   No exemplo de um pedido para obter o estado atual de um utilizador, os valores das propriedades do objeto fornecido como o valor do argumento parâmetros são: 
   
-  * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * Identificador: "54D382A4-2050-4C03-94D1-E769F1D15682"
+  * SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 4. Se um atributo de referência está a ser atualizado, em seguida, o serviço para determinar se o valor do atributo de referência no arquivo de identidade atual fronted pelo serviço já consulta o Azure Active Directory corresponde ao valor desse atributo no Active Directory do Azure Diretório. Para os utilizadores, o atributo só de que o valor atual é consultado desta forma é o atributo de gestor. Eis um exemplo de um pedido para determinar se o atributo de Gestor de um objeto de utilizador em particular tem atualmente um determinado valor: 
   ````
@@ -539,14 +539,14 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a
   Se o serviço foi criado com as bibliotecas de infraestrutura de idioma comum fornecidas pela Microsoft para implementar serviços SCIM, em seguida, o pedido é convertido uma chamada para o método de consulta do fornecedor do serviço. O valor das propriedades do objeto fornecido como o valor do argumento parâmetros são os seguintes: 
   
   * parâmetros. AlternateFilters.Count: 2
-  * parameters.AlternateFilters.ElementAt(x).AttributePath: "id"
-  * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+  * parâmetros. AlternateFilters.ElementAt(x). AttributePath: "id"
+  * parâmetros. AlternateFilters.ElementAt(x). ComparisonOperator: ComparisonOperator.Equals
   * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
+  * parâmetros. AlternateFilters.ElementAt(y). AttributePath: "Gestor"
   * parâmetros. AlternateFilters.ElementAt(y). ComparisonOperator: ComparisonOperator.Equals
   * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-  * parameters.RequestedAttributePaths.ElementAt(0): "id"
-  * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * parâmetros. RequestedAttributePaths.ElementAt(0): "id"
+  * parâmetros. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
   Aqui, o valor do índice x pode ser 0 e o valor de y o índice pode ser 1, ou o valor x, poderá ser 1 e o valor de y pode ser 0, consoante a ordem das expressões de parâmetro de consulta de filtro.   
 
@@ -654,7 +654,7 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a
     No exemplo de um pedido para atualizar um utilizador, o objeto fornecido como o valor do argumento patch tem estes valores de propriedade: 
   
   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
   * (PatchRequest como PatchRequest2). Operations.Count: 1
   * (PatchRequest como PatchRequest2). Operations.ElementAt(0). OperationName: OperationName.Add
   * (PatchRequest como PatchRequest2). Operations.ElementAt(0). Path.AttributePath: "Gestor"
@@ -680,7 +680,7 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a
   O objecto fornecido como o valor do argumento resourceIdentifier tem estes valores de propriedade no exemplo de um pedido para anular o aprovisionamento um utilizador: 
   
   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="group-provisioning-and-de-provisioning"></a>Aprovisionamento de grupo e de aprovisionamento automatizados.
 A ilustração seguinte mostra as mensagens que Azure AcD envia a um serviço SCIM para gerir o ciclo de vida de um grupo num arquivo de identidade do outro.  Essas mensagens diferem das mensagens relativas aos utilizadores de três formas diferentes: 

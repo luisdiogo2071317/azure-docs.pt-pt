@@ -1,12 +1,12 @@
 ---
-title: "Réplica do Azure Service Fabric CLI - sfctl | Microsoft Docs"
-description: "Descreve os comandos de réplica de sfctl CLI de recursos de infraestrutura de serviço."
+title: Réplica do Azure Service Fabric CLI - sfctl | Microsoft Docs
+description: Descreve os comandos de réplica de sfctl CLI de recursos de infraestrutura de serviço.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
 ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Gerir as réplicas que pertencem a partições de serviço.
@@ -55,7 +55,7 @@ Obtém os detalhes da réplica implementada num nó de Service Fabric. As inform
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h             | Mostra esta mensagem de ajuda e saída.|
 | --o de saída           | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta               | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -79,7 +79,7 @@ Obtém o estado de funcionamento de uma réplica de Service Fabric. Utilize Even
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug                  | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug                  | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                | Mostra esta mensagem de ajuda e saída.|
 | --o de saída              | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta                  | Cadeia de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
@@ -96,14 +96,14 @@ A resposta inclui o id, função, o estado, estado de funcionamento, o nome do n
 | --- | --- |
 | – id de partição [necessário]| A identidade da partição.|
 | – id de réplica [necessário]| O identificador da réplica.|
-| --continuation-token  | O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
+| -token de continuação  | O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
 | tempo limite – -t          | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h             | Mostra esta mensagem de ajuda e saída.|
 | --o de saída           | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta               | Cadeia de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
@@ -120,14 +120,14 @@ Os respons incluem o ID, função, o estado, estado de funcionamento, o nome do 
 |Argumento|Descrição|
 | --- | --- |
 | – id de partição [necessário]| A identidade da partição.|
-| --continuation-token  | O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
+| -token de continuação  | O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
 | tempo limite – -t          | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h             | Mostra esta mensagem de ajuda e saída.|
 | --o de saída           | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta               | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -145,14 +145,14 @@ Esta API simula uma falha de réplica do Service Fabric ao remover uma réplica 
 | --nome do nó [necessário]| O nome do nó.|
 | – id de partição [necessário]| A identidade da partição.|
 | – id de réplica [necessário]| O identificador da réplica.|
-| --force-remove        | Remova uma aplicação de Service Fabric ou o serviço forçadamente sem passar a sequência de encerramento correto. Este parâmetro pode ser utilizado para forçadamente eliminar uma aplicação ou serviço para o eliminar é exceder o tempo limite devido a problemas com o código do serviço que impede o correto fechar das réplicas.|
+| -force-remover        | Remova uma aplicação de Service Fabric ou o serviço forçadamente sem passar a sequência de encerramento correto. Este parâmetro pode ser utilizado para forçadamente eliminar uma aplicação ou serviço para o eliminar é exceder o tempo limite devido a problemas com o código do serviço que impede o correto fechar das réplicas.|
 | tempo limite – -t          | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h             | Mostra esta mensagem de ajuda e saída.|
 | --o de saída           | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta               | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -176,7 +176,7 @@ Reinicia uma réplica de serviço de um serviço persistente em execução num n
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h             | Mostra esta mensagem de ajuda e saída.|
 | --o de saída           | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta               | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|

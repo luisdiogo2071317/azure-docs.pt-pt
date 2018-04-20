@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 709a178d99a34adb9c77086e55270fe41ed84551
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Data Warehouse com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -165,10 +165,10 @@ GO
 ```
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Utilize o PolyBase para carregar dados para o Azure SQL Data Warehouse
-Utilizar ** [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) ** é uma forma eficaz de carregar grande quantidade de dados no Azure SQL Data Warehouse com débito elevado. Pode ver um grandes ganhos de débito da utilizando o PolyBase em vez do mecanismo BULKINSERT predefinido. Consulte [copiar o número de referência de desempenho](data-factory-copy-activity-performance.md#performance-reference) com comparação detalhada. Para obter instruções com um caso de utilização, consulte [1 TB no Azure SQL Data Warehouse em 15 minutos de carga com o Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Utilizar **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** é uma forma eficaz de carregar grande quantidade de dados no Azure SQL Data Warehouse com débito elevado. Pode ver um grandes ganhos de débito da utilizando o PolyBase em vez do mecanismo BULKINSERT predefinido. Consulte [copiar o número de referência de desempenho](data-factory-copy-activity-performance.md#performance-reference) com comparação detalhada. Para obter instruções com um caso de utilização, consulte [1 TB no Azure SQL Data Warehouse em 15 minutos de carga com o Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
-* Se os dados de origem estão a ser **Blob do Azure ou do Azure Data Lake Store**e o formato é compatível com o PolyBase, pode copiar diretamente ao Azure SQL Data Warehouse, utilizando o PolyBase. Consulte ** [cópia direta, utilizando o PolyBase](#direct-copy-using-polybase) ** com detalhes.
-* Se o arquivo de dados de origem e o formato não é suportado originalmente pelo PolyBase, pode utilizar o ** [cópia testado utilizando o PolyBase](#staged-copy-using-polybase) ** em vez disso, a funcionalidade. Também fornece a melhor débito automaticamente ao converter os dados em formato compatível com o PolyBase e armazenar os dados no Blob storage do Azure. Em seguida, carrega dados para o SQL Data Warehouse.
+* Se os dados de origem estão a ser **Blob do Azure ou do Azure Data Lake Store**e o formato é compatível com o PolyBase, pode copiar diretamente ao Azure SQL Data Warehouse, utilizando o PolyBase. Consulte **[cópia direta, utilizando o PolyBase](#direct-copy-using-polybase)** com detalhes.
+* Se o arquivo de dados de origem e o formato não é suportado originalmente pelo PolyBase, pode utilizar o **[cópia testado utilizando o PolyBase](#staged-copy-using-polybase)** em vez disso, a funcionalidade. Também fornece a melhor débito automaticamente ao converter os dados em formato compatível com o PolyBase e armazenar os dados no Blob storage do Azure. Em seguida, carrega dados para o SQL Data Warehouse.
 
 Definir o `allowPolyBase` propriedade **verdadeiro** conforme mostrado no exemplo seguinte para o Azure Data Factory para utilizar o PolyBase para copiar dados para o Azure SQL Data Warehouse. Quando definir allowPolyBase como true, pode especificar propriedades específicas do PolyBase utilizando o `polyBaseSettings` grupo de propriedades. consulte o [SqlDWSink](#SqlDWSink) secção para obter detalhes sobre as propriedades que podem ser utilizados com polyBaseSettings.
 
@@ -274,7 +274,7 @@ Para obter uma melhor débito possíveis, considere atribuir maior classe de rec
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>tableName no Azure SQL Data Warehouse
 A tabela seguinte fornece exemplos sobre como especificar o **tableName** propriedade no conjunto de dados JSON para várias combinações de nome de esquema e de tabela.
 
-| DB Schema | Nome da tabela | propriedade JSON tableName |
+| Esquema da BD | Nome da tabela | propriedade JSON tableName |
 | --- | --- | --- |
 | dbo |MyTable |MyTable ou dbo. MyTable ou [dbo]. [MyTable] |
 | dbo1 |MyTable |dbo1. MyTable ou [dbo1]. [MyTable] |
@@ -348,7 +348,7 @@ O mapeamento de é igual a [mapeamento do tipo de dados do SQL Server para ADO.N
 | bigint |Int64 |
 | Binário |Byte[] |
 | bits |Booleano |
-| char |String, Char[] |
+| char |Cadeia, Char [] |
 | data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
@@ -359,23 +359,23 @@ O mapeamento de é igual a [mapeamento do tipo de dados do SQL Server para ADO.N
 | Imagem |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |
-| nchar |String, Char[] |
-| ntext |String, Char[] |
+| nchar |Cadeia, Char [] |
+| ntext |Cadeia, Char [] |
 | um valor numérico |Decimal |
-| nvarchar |String, Char[] |
-| real |Solteiro |
+| nvarchar |Cadeia, Char [] |
+| real |Único |
 | ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | em smallmoney |Decimal |
 | sql_variant |Objeto * |
-| Texto |String, Char[] |
+| Texto |Cadeia, Char [] |
 | hora |TimeSpan |
 | carimbo de data/hora |Byte[] |
 | tinyint |Bytes |
 | uniqueidentifier |GUID |
 | varbinary |Byte[] |
-| varchar |String, Char[] |
+| varchar |Cadeia, Char [] |
 | xml |Xml |
 
 Também pode mapear colunas do conjunto de dados de origem para colunas do conjunto de dados dependente na definição da atividade de cópia. Para obter mais informações, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

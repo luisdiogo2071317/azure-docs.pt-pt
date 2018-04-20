@@ -1,8 +1,8 @@
 ---
-title: "Escrever expressões para mapeamentos de atributos no Azure Active Directory | Microsoft Docs"
-description: "Saiba como utilizar os mapeamentos de expressão para transformar valores de atributo para um formato aceitável durante o aprovisionamento automatizado de objetos de aplicação SaaS no Azure Active Directory."
+title: Escrever expressões para mapeamentos de atributos no Azure Active Directory | Microsoft Docs
+description: Saiba como utilizar os mapeamentos de expressão para transformar valores de atributo para um formato aceitável durante o aprovisionamento automatizado de objetos de aplicação SaaS no Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento para uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para estes, tem de escrever uma expressão de tipo de script que permite-lhe transformar dados dos utilizadores em formatos mais aceitáveis para a aplicação SaaS.
@@ -36,7 +36,7 @@ A sintaxe para expressões para mapeamentos de atributos é reminiscent do Visua
 * Para as constantes string, se precisar de uma barra invertida (\) ou aspas (") na cadeia de-tem de ser caráter de escape correto com o símbolo de barra invertida (\). Por exemplo: "o nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [comutador](#switch)
 
 - - -
 ### <a name="append"></a>Acrescentar
@@ -48,7 +48,7 @@ A sintaxe para expressões para mapeamentos de atributos é reminiscent do Visua
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **source** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem |
+| **origem** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem |
 | **suffix** |Necessário |Cadeia |A cadeia que pretende anexar ao fim do valor de origem. |
 
 - - -
@@ -61,7 +61,7 @@ A sintaxe para expressões para mapeamentos de atributos é reminiscent do Visua
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **source** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem. |
+| **origem** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem. |
 | **inputFormat** |Necessário |Cadeia |Formato esperado do valor de origem. Para formatos suportados, consulte [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Necessário |Cadeia |Formato da data de saída. |
 
@@ -90,9 +90,9 @@ Se um dos valores de origem é um atributo de valor múltiplo, em seguida, cada 
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **source** |Necessário |Cadeia |Normalmente, o nome do atributo. |
-| **start** |Necessário |integer |O índice no **origem** cadeia onde deve começar a subcadeia. Primeiro carácter na cadeia de terão o índice de 1, o segundo caráter de tem índice 2 e assim sucessivamente. |
-| **length** |Necessário |integer |Comprimento da subcadeia. Se o comprimento termina fora do **origem** cadeia, a função irá devolver a subcadeia do **iniciar** índice até o fim do **origem** cadeia. |
+| **origem** |Necessário |Cadeia |Normalmente, o nome do atributo. |
+| **start** |Necessário |número inteiro |O índice no **origem** cadeia onde deve começar a subcadeia. Primeiro carácter na cadeia de terão o índice de 1, o segundo caráter de tem índice 2 e assim sucessivamente. |
+| **comprimento** |Necessário |número inteiro |Comprimento da subcadeia. Se o comprimento termina fora do **origem** cadeia, a função irá devolver a subcadeia do **iniciar** índice até o fim do **origem** cadeia. |
 
 - - -
 ### <a name="not"></a>não
@@ -104,11 +104,11 @@ Se um dos valores de origem é um atributo de valor múltiplo, em seguida, cada 
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **source** |Necessário |Cadeia booleana |Era esperado **origem** os valores são "True" ou "False"... |
+| **origem** |Necessário |Cadeia booleana |Era esperado **origem** os valores são "True" ou "False"... |
 
 - - -
 ### <a name="replace"></a>Substituir
-**Função:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Função:**<br> Substitua (origem oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, modelo)
 
 **Descrição:**<br>
 Substitui os valores dentro de uma cadeia. Este funciona de forma diferente consoante os parâmetros fornecidos:
@@ -131,13 +131,13 @@ Substitui os valores dentro de uma cadeia. Este funciona de forma diferente cons
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **source** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem. |
+| **origem** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem. |
 | **oldValue** |Opcional |Cadeia |Valor a ser substituído na **origem** ou **modelo**. |
 | **regexPattern** |Opcional |Cadeia |Padrão de RegEx para o valor a ser substituído na **origem**. Ou, quando é utilizado replacementPropertyName, padrão, a extrair o valor da propriedade de substituição. |
 | **regexGroupName** |Opcional |Cadeia |Nome do grupo no interior **regexPattern**. Apenas quando é utilizado replacementPropertyName, iremos irá extraia o valor deste grupo como replacementValue da propriedade de substituição. |
 | **replacementValue** |Opcional |Cadeia |Novo valor para substituir antiga com. |
 | **replacementAttributeName** |Opcional |Cadeia |Nome do atributo a ser utilizada para o valor de substituição, quando a origem não tem um valor. |
-| **template** |Opcional |Cadeia |Quando **modelo** valor é fornecido, iremos irá procurar **oldValue** dentro do modelo e substitua-o com o valor de origem. |
+| **modelo** |Opcional |Cadeia |Quando **modelo** valor é fornecido, iremos irá procurar **oldValue** dentro do modelo e substitua-o com o valor de origem. |
 
 - - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
@@ -149,7 +149,7 @@ Substitui os valores dentro de uma cadeia. Este funciona de forma diferente cons
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Necessário |Cadeia |**[appRoleAssignments]** object. |
+| **[appRoleAssignments]** |Necessário |Cadeia |**[appRoleAssignments]**  objeto. |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -161,11 +161,11 @@ Substitui os valores dentro de uma cadeia. Este funciona de forma diferente cons
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **source** |Necessário |Cadeia |**origem** valor para atualizar. |
+| **origem** |Necessário |Cadeia |**Origem** valor para atualizar. |
 
 - - -
 ### <a name="switch"></a>Comutador
-**Função:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Função:**<br> Comutador (origem defaultValue, key1, value1, key2, value2,...)
 
 **Descrição:**<br> Quando **origem** valor correspondências um **chave**, devolve **valor** para esse **chave**. Se **origem** valor não corresponde a quaisquer chaves, devolve **defaultValue**.  **Chave** e **valor** parâmetros tem sempre surgem em pares. A função espera sempre um número par de parâmetros.
 
@@ -173,10 +173,10 @@ Substitui os valores dentro de uma cadeia. Este funciona de forma diferente cons
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **source** |Necessário |Cadeia |**Origem** valor para atualizar. |
+| **origem** |Necessário |Cadeia |**Origem** valor para atualizar. |
 | **defaultValue** |Opcional |Cadeia |Valor predefinido a ser utilizado quando a origem não corresponde a quaisquer chaves. Pode ser uma cadeia vazia (""). |
 | **key** |Necessário |Cadeia |**Chave** para comparar **origem** valor com. |
-| **value** |Necessário |Cadeia |Valor de substituição para o **origem** à chave. |
+| **valor** |Necessário |Cadeia |Valor de substituição para o **origem** à chave. |
 
 ## <a name="examples"></a>Exemplos
 ### <a name="strip-known-domain-name"></a>Nome de domínio conhecidos de faixa
@@ -199,7 +199,7 @@ Se estiver a utilizar uma Sandbox do Salesforce, poderá ter de acrescentar um s
 
 **Entrada/saída de exemplo:** <br>
 
-* **INPUT**: (userPrincipalName): "John.Doe@contoso.com"
+* **ENTRADA**: (userPrincipalName): "John.Doe@contoso.com"
 * **SAÍDA**: "John.Doe@contoso.com.test"
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Gerar o alias do utilizador por concatenar partes do nome próprio e apelido
@@ -210,7 +210,7 @@ Tem de gerar um utilizador alias, efetuando os primeiros 3 letras do nome própr
 
 **Entrada/saída de exemplo:** <br>
 
-* **INPUT** (givenName): "John"
+* **ENTRADA** (givenName): "João"
 * **ENTRADA** (apelido): "Silva"
 * **SAÍDA**: "JohDoe"
 
@@ -222,7 +222,7 @@ Terá de remover os carateres especiais de uma cadeia e converter carateres em m
 
 **Entrada/saída de exemplo:** <br>
 
-* **INPUT** (givenName): "Zoë"
+* **ENTRADA** (givenName): "Zoë"
 * **SAÍDA**: "zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Data de saída como uma cadeia com um formato de determinados
@@ -236,7 +236,7 @@ Por exemplo, que pretende formatar datas para ServiceNow.
 **Entrada/saída de exemplo:**
 
 * **ENTRADA** (extensionAttribute1): "20150123105347.1Z"
-* **OUTPUT**:  "2015-01-23"
+* **SAÍDA**: "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substitua um valor com base num conjunto predefinido de opções
 Tem de definir o fuso horário do utilizador com base no código de estado armazenado no Azure AD. <br>
@@ -248,7 +248,7 @@ Se o código de estado não corresponde a qualquer uma das opções predefinidas
 
 **Entrada/saída de exemplo:**
 
-* **INPUT** (state): "QLD"
+* **ENTRADA** (estado): "QLD"
 * **SAÍDA**: "Austrália/Brisbane"
 
 ## <a name="related-articles"></a>Artigos Relacionados

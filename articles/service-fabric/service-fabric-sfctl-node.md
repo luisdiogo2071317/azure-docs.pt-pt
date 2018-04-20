@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric CLI sfctl nós | Microsoft Docs"
-description: "Descreve os comandos de nó de sfctl CLI de recursos de infraestrutura de serviço."
+title: Azure Service Fabric CLI sfctl nós | Microsoft Docs
+description: Descreve os comandos de nó de sfctl CLI de recursos de infraestrutura de serviço.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-node"></a>sfctl node
 Gerir os nós que formam um cluster.
@@ -33,11 +33,11 @@ Gerir os nós que formam um cluster.
 |    informações          | Obtém as informações sobre um nó específico no cluster de Service Fabric.|
 |    lista          | Obtém a lista de nós no cluster de Service Fabric.|
 |    carregar          | Obtém as informações de carga de um nó de Service Fabric.|
-|    remove-state  | Notifica o Service Fabric que o estado persistente num nó foi permanentemente removido ou perdido.|
+|    remoção de estado  | Notifica o Service Fabric que o estado persistente num nó foi permanentemente removido ou perdido.|
 |    report-health | Envia um relatório de estado de funcionamento no nó de Service Fabric.|
 |    Reiniciar       | Reinicia um nó de cluster do Service Fabric.|
 |    transição    | Inicia ou para um nó de cluster.|
-|    transition-status| Obtém o progresso de uma operação iniciado utilizando StartNodeTransition.|
+|    Estado de transição| Obtém o progresso de uma operação iniciado utilizando StartNodeTransition.|
 
 
 ## <a name="sfctl-node-disable"></a>desativação do nó de sfctl
@@ -57,7 +57,7 @@ Desative um nó de cluster do Service Fabric com a intenção de Desativação e
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug            | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug            | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h          | Mostra esta mensagem de ajuda e saída.|
 | --o de saída        | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta            | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -79,7 +79,7 @@ Ativa um nó de cluster do Service Fabric que está atualmente desativado. Depoi
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug            | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug            | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h          | Mostra esta mensagem de ajuda e saída.|
 | --o de saída        | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta            | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -102,7 +102,7 @@ Obtém o estado de funcionamento de um nó de Service Fabric. Utilize EventsHeal
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug                  | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug                  | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                | Mostra esta mensagem de ajuda e saída.|
 | --o de saída              | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta                  | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -124,7 +124,7 @@ Obtém as informações sobre um nó específico no Cluster.The de recursos de i
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug            | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug            | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h          | Mostra esta mensagem de ajuda e saída.|
 | --o de saída        | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta            | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -139,7 +139,7 @@ Obtém a lista de nós no cluster de Service Fabric. A resposta inclui o nome, o
 
 |Argumento|Descrição|
 | --- | --- |
-| --continuation-token| O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta.      Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
+| -token de continuação| O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta.      Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
 | --node-status-filter| Permite a filtragem de nós com base na NodeStatus. Apenas os nós que o valor do filtro especificado correspondentes são devolvidos. O valor do filtro pode ser um dos seguintes procedimentos. Predefinição: predefinido.|
 | tempo limite – -t     | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
@@ -147,7 +147,7 @@ Obtém a lista de nós no cluster de Service Fabric. A resposta inclui o nome, o
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug          | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug          | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h        | Mostra esta mensagem de ajuda e saída.|
 | --o de saída      | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta          | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -169,7 +169,7 @@ Obtém as informações de carga de um nó de Service Fabric para todas as métr
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug            | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug            | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h          | Mostra esta mensagem de ajuda e saída.|
 | --o de saída        | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta            | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -185,7 +185,7 @@ Reinicia um nó de cluster do Service Fabric já foi iniciado.
 |Argumento|Descrição|
 | --- | --- |
 | --nome do nó [necessário]| O nome do nó.|
-| --create-fabric-dump  | Especifica verdadeiro para criar uma captura do processo de nó de recursos de infraestrutura. Esta é a maiúsculas e minúsculas.  Predefinição: False.|
+| -criar-recursos de infraestrutura-captura  | Especifica verdadeiro para criar uma captura do processo de nó de recursos de infraestrutura. Esta é a maiúsculas e minúsculas.  Predefinição: False.|
 | --node-instance-id | O ID de instância do nó de destino. Se o ID de instância for especificado o nó é reiniciado apenas se corresponder com a instância atual do nó. Um valor predefinido de "0" corresponderia a qualquer ID de instância. O ID de instância pode ser obtido utilizando a consulta do nó de get.  Predefinição: 0.|
 | tempo limite – -t       | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
@@ -193,7 +193,7 @@ Reinicia um nó de cluster do Service Fabric já foi iniciado.
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug            | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug            | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h          | Mostra esta mensagem de ajuda e saída.|
 | --o de saída        | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta            | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -213,14 +213,14 @@ Para iniciar um nó, transmita "Start" para o parâmetro NodeTransitionType. Par
 | --nome do nó [necessário]| O nome do nó.|
 | -tipo de transição de nó [necessário]| Indica o tipo de transição para executar.                       NodeTransitionType.Start inicia um nó de paragem.                       NodeTransitionType. Parar deixa de um nó que está a funcionar. |
 | – id de operação [necessário]| Um GUID que identifica uma chamada desta API.  Isto é transmitido para a API de GetProgress correspondente.|
-| --stop-duration-in-seconds [Required]| A duração, em segundos, para manter o nó parada.  O valor mínimo é 600, o número máximo é 14400. Após este período de tempo expira, o nó automaticamente volta a funcionar.|
+| -stop-duração-na-segundos [necessário]| A duração, em segundos, para manter o nó parada.  O valor mínimo é 600, o número máximo é 14400. Após este período de tempo expira, o nó automaticamente volta a funcionar.|
 | tempo limite – -t                      | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug                           | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug                           | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                         | Mostra esta mensagem de ajuda e saída.|
 | --o de saída                       | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.                       Predefinição: json.|
 | – consulta                           | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|

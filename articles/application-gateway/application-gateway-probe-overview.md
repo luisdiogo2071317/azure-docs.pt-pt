@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/30/2018
 ms.author: victorh
 ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Gateway estado de funcionamento monitorização descrição geral da aplicação
 
@@ -61,7 +61,7 @@ Depois dos critérios de correspondência for especificado, podem ser anexado a 
 
 | Propriedade de pesquisa | Valor | Descrição |
 | --- | --- | --- |
-| URL de Pesquisa |http://127.0.0.1:\<port\>/ |Caminho do URL |
+| URL de Pesquisa |http://127.0.0.1:\<porta\>/ |Caminho do URL |
 | Intervalo |30 |Intervalo de pesquisa em segundos |
 | Tempo limite |30 |Sonda de tempo limite em segundos |
 | Limiar de mau estado de funcionamento |3 |Sonda de contagem de repetições. O servidor de back-end está marcado como após o número de falhas de sonda consecutivas atinge o limiar de mau estado de funcionamento. |

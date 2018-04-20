@@ -1,12 +1,12 @@
 ---
-title: "Serviço do Azure Service Fabric CLI - sfctl | Microsoft Docs"
-description: "Descreve os comandos de serviço do Service Fabric CLI sfctl."
+title: Serviço do Azure Service Fabric CLI - sfctl | Microsoft Docs
+description: Descreve os comandos de serviço do Service Fabric CLI sfctl.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
 ms.openlocfilehash: 5b30d3732ff00e5bb79e2d58a9f0b3e5b29dedf8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-service"></a>sfctl service
 Criar, eliminar e gerir o serviço, tipos de serviço e pacotes de serviços.
@@ -68,17 +68,17 @@ Cria o serviço do Service Fabric especificado a partir da descrição.
 | -Contagem de instâncias      | A contagem de instâncias. Isto aplica-se apenas a serviços sem monitorização de estado.|
 | --int-scheme          | Indica que o serviço deve ser particionado uniformemente através de um intervalo de números inteiros não assinados.|
 | --int-scheme-count    | O número de partições dentro de número inteiro de chave de intervalo (para um esquema de partição de número inteiro uniforme) para criar.|
-| --int-scheme-high     | O fim do intervalo de número inteiro de chave, se utilizar um esquema de partição de número inteiro uniforme.|
+| – int esquema-alto     | O fim do intervalo de número inteiro de chave, se utilizar um esquema de partição de número inteiro uniforme.|
 | --int-scheme-low      | O início do intervalo de número inteiro de chave, se utilizar um esquema de partição de número inteiro uniforme.|
 | -as métricas de carga        | Lista JSON codificado de métricas utilizadas quando o balanceamento de carga services entre nós.|
 | --min-replica-set-size| A réplica mínimo definir tamanho como um número. Isto aplica-se apenas a serviços com monitorização de estado.|
 | --move-cost           | Especifica o custo de mover para o serviço. Os valores possíveis são: 'Zero', 'Baixa', 'Média', 'Alto'.|
-| --named-scheme        | Indica que o serviço deve ter várias partições com nome.|
-| --named-scheme-list   | JSON codificado lista de nomes para particionar o serviço entre, se utilizar o esquema de partição com nome.|
+| -esquema com o nome        | Indica que o serviço deve ter várias partições com nome.|
+| -com o nome esquema-lista   | JSON codificado lista de nomes para particionar o serviço entre, se utilizar o esquema de partição com nome.|
 | – Estado não persistente  | Se for VERDADEIRO, isto indica que o serviço não tem nenhum estado persistente armazenado no disco local, ou apenas armazena estado na memória.|
 | – lista de políticas de colocação  | JSON codificado lista de políticas de colocação para o serviço e quaisquer associados nomes de domínio. As políticas podem ser um ou mais dos: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
-| --quorum-loss-wait    | A duração máxima, em segundos, para que uma partição pode estar num Estado de perda de quórum. Isto aplica-se apenas a serviços com monitorização de estado.|
-| --replica-restart-wait| A duração, em segundos, entre quando uma réplica fica inativo e quando é criada uma nova réplica. Isto aplica-se apenas a serviços com monitorização de estado.|
+| -espera de perda de quórum    | A duração máxima, em segundos, para que uma partição pode estar num Estado de perda de quórum. Isto aplica-se apenas a serviços com monitorização de estado.|
+| -espera de reinício de réplica| A duração, em segundos, entre quando uma réplica fica inativo e quando é criada uma nova réplica. Isto aplica-se apenas a serviços com monitorização de estado.|
 | --singleton-scheme    | Indica o serviço deve ter uma única partição ou ser um serviço particionado sem.|
 | -modo de espera pela réplica keep  | A duração máxima, em segundos, para o modo de espera réplicas são mantidas antes de a ser removido. Isto aplica-se apenas a serviços com monitorização de estado.|
 | -monitorização de estado            | Indica que o serviço é um serviço com monitorização de estado.|
@@ -90,7 +90,7 @@ Cria o serviço do Service Fabric especificado a partir da descrição.
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h             | Mostra esta mensagem de ajuda e saída.|
 | --o de saída           | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta               | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -106,14 +106,14 @@ Elimina um serviço de recursos de infraestrutura de serviço existente. Um serv
 |Argumento|Descrição|
 | --- | --- |
 | – id de serviço [necessário]| A identidade do serviço. Isto é, geralmente, o nome completo do serviço sem o ' recursos de infraestrutura:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados por com o "~" carateres. Por exemplo, se o nome do serviço fabric: / myapp/app1/svc1 ", a identidade de serviço seria" myapp ~ app1 ~ svc1 "6.0 + e" myapp/app1/svc1"em versões anteriores.|
-| --force-remove      | Remova uma aplicação de Service Fabric ou o serviço forçadamente sem passar a sequência de encerramento correto. Este parâmetro pode ser utilizado para forçadamente eliminar uma aplicação ou serviço para o eliminar é exceder o tempo limite devido a problemas com o código do serviço que impede o correto fechar das réplicas.|
+| -force-remover      | Remova uma aplicação de Service Fabric ou o serviço forçadamente sem passar a sequência de encerramento correto. Este parâmetro pode ser utilizado para forçadamente eliminar uma aplicação ou serviço para o eliminar é exceder o tempo limite devido a problemas com o código do serviço que impede o correto fechar das réplicas.|
 | tempo limite – -t        | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug             | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug             | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h           | Mostra esta mensagem de ajuda e saída.|
 | --o de saída         | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta             | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -135,7 +135,7 @@ Obtém a descrição de um serviço de recursos de infraestrutura de serviço ex
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug             | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug             | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h           | Mostra esta mensagem de ajuda e saída.|
 | --o de saída         | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta             | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -152,7 +152,7 @@ Obtém as informações de estado de funcionamento do serviço especificado. Uti
 | --- | --- |
 | – id de serviço [necessário]| A identidade do serviço. Isto é, geralmente, o nome completo do serviço sem o ' recursos de infraestrutura:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados por com o "~" carateres. Por exemplo, se o nome de serviço é "fabric: / myapp/app1/svc1", seria a identidade de serviço "myapp ~ app1 ~ svc1" 6.0 + e "myapp/app1/svc1" em versões anteriores.|
 | --events-health-state-filter | Permite a filtragem na coleção de objetos de HealthEvent devolvido com base no estado de funcionamento. Os valores possíveis para este parâmetro incluem o valor de número inteiro de um dos seguintes Estados de funcionamento. Apenas os eventos que correspondem ao filtro são devolvidos. Todos os eventos são utilizados para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são enumeração baseada no sinalizador de, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é 6, em seguida, todos os eventos com o valor HealthState OK (2) e de aviso (4) são devolvidos. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso. O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
-|--exclude-health-statistics     | Indica se as estatísticas de estado de funcionamento devem ser devolvidas como parte do resultado da consulta. FALSO por predefinição. As estatísticas mostram o número de elementos subordinados entidades no estado de funcionamento Ok, aviso e erro.|
+|– estatísticas de estado de funcionamento de exclusão     | Indica se as estatísticas de estado de funcionamento devem ser devolvidas como parte do resultado da consulta. FALSO por predefinição. As estatísticas mostram o número de elementos subordinados entidades no estado de funcionamento Ok, aviso e erro.|
 | --partitions-health-state-filter| Permite a filtragem de objetos de estado de funcionamento partições devolvido nos resultados da consulta de estado de funcionamento de serviço com base no respetivo estado de funcionamento. Os valores possíveis para este parâmetro incluem o valor de número inteiro de um dos seguintes Estados de funcionamento. Apenas as partições que correspondem ao filtro são devolvidas. Todas as partições são utilizadas para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são enumeração baseada no sinalizador de, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é "6", em seguida, estado de funcionamento de partições com o valor HealthState OK (2) e de aviso (4) são devolvidas. -Predefinição - valor predefinido. Corresponde a qualquer HealthState.                  O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso. O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
 | tempo limite – -t                 | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
@@ -160,7 +160,7 @@ Obtém as informações de estado de funcionamento do serviço especificado. Uti
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug                      | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug                      | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                    | Mostra esta mensagem de ajuda e saída.|
 | --o de saída                  | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.                  Predefinição: json.|
 | – consulta                      | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -183,7 +183,7 @@ Devolve as informações sobre o serviço especificado que pertencem à aplicaç
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug                 | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug                 | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h               | Mostra esta mensagem de ajuda e saída.|
 | --o de saída             | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta                 | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -199,15 +199,15 @@ Devolve as informações sobre todos os serviços que pertencem à aplicação e
 |Argumento|Descrição|
 | --- | --- |
 | --id da aplicação [necessário]| A identidade da aplicação. Isto é, geralmente, o nome completo da aplicação sem a ' recursos de infraestrutura:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados por com o "~" carateres. Por exemplo, se o nome da aplicação é "fabric: / myapp/app1", a identidade da aplicação seria "myapp ~ app1" 6.0 + e "myapp/app1" em versões anteriores.|
-| --continuation-token    | O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
-| --service-type-name     | O nome do tipo de serviço utilizado para filtrar os serviços a consultar.|
+| -token de continuação    | O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
+| -nome do tipo de serviço     | O nome do tipo de serviço utilizado para filtrar os serviços a consultar.|
 | tempo limite – -t            | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug                 | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug                 | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h               | Mostra esta mensagem de ajuda e saída.|
 | --o de saída             | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta                 | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -231,7 +231,7 @@ Obtém o manifesto que descreve um tipo de serviço. A resposta contém o manife
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug                           | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug                           | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                         | Mostra esta mensagem de ajuda e saída.|
 | --o de saída                       | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.                       Predefinição: json.|
 | – consulta                           | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -253,7 +253,7 @@ Indica, para o cluster do Service Fabric, o que deve tentar recuperar o serviço
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug             | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug             | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h           | Mostra esta mensagem de ajuda e saída.|
 | --o de saída         | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta             | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -269,8 +269,8 @@ Resolva uma partição de serviço do Service Fabric, para obter os pontos finai
 |Argumento|Descrição|
 | --- | --- |
 | – id de serviço [necessário]| A identidade do serviço. Isto é, geralmente, o nome completo do serviço sem o ' recursos de infraestrutura:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados por com o "~" carateres. Por exemplo, se o nome de serviço é "fabric: / myapp/app1/svc1", seria a identidade de serviço "myapp ~ app1 ~ svc1" 6.0 + e "myapp/app1/svc1" em versões anteriores.|
-| --partition-key-type| Tipo de chave para a partição. Este parâmetro é necessário se o esquema de partição para o serviço é Int64Range ou nomeado. Os valores possíveis são seguintes. -Nenhum (1) - indica que o parâmetro PartitionKeyValue não está especificado. Isto é válido para partições com a criação de partições de esquema como Singleton. Este é o valor predefinido. O valor é 1. -Int64Range (2) - indica que o parâmetro de PartitionKeyValue é uma chave de partição int64. Isto é válido para partições com a criação de partições de esquema como Int64Range. O valor é 2. -Com o nome (3) - indica que o parâmetro PartitionKeyValue é um nome da partição. Isto é válido para partições com a criação de partições de esquema como nomeado. O valor é 3.|
-| --partition-key-value  | Chave de partição. Isto é necessário se o esquema de partição para o serviço é Int64Range ou nomeado.|
+| – o tipo de chave de partição| Tipo de chave para a partição. Este parâmetro é necessário se o esquema de partição para o serviço é Int64Range ou nomeado. Os valores possíveis são seguintes. -Nenhum (1) - indica que o parâmetro PartitionKeyValue não está especificado. Isto é válido para partições com a criação de partições de esquema como Singleton. Este é o valor predefinido. O valor é 1. -Int64Range (2) - indica que o parâmetro de PartitionKeyValue é uma chave de partição int64. Isto é válido para partições com a criação de partições de esquema como Int64Range. O valor é 2. -Com o nome (3) - indica que o parâmetro PartitionKeyValue é um nome da partição. Isto é válido para partições com a criação de partições de esquema como nomeado. O valor é 3.|
+| – o valor de chave de partição  | Chave de partição. Isto é necessário se o esquema de partição para o serviço é Int64Range ou nomeado.|
 | --previous-rsp-version | O valor no campo versão da resposta recebida anteriormente. Isto é necessário se o utilizador sabe que o resultado que foi obtido anteriormente está obsoleto.|
 | tempo limite – -t        | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
@@ -278,7 +278,7 @@ Resolva uma partição de serviço do Service Fabric, para obter os pontos finai
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug             | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug             | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h           | Mostra esta mensagem de ajuda e saída.|
 | --o de saída         | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta             | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -300,8 +300,8 @@ Atualiza o serviço especificado utilizando a descrição da atualização indic
 | --min-replica-set-size| A réplica mínimo definir tamanho como um número. Isto aplica-se apenas a serviços com monitorização de estado.|
 | --move-cost           | Especifica o custo de mover para o serviço. Os valores possíveis são: 'Zero', 'Baixa', 'Média', 'Alto'.|
 | – lista de políticas de colocação  | JSON codificado lista de políticas de colocação para o serviço e quaisquer associados nomes de domínio. As políticas podem ser um ou mais dos: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
-| --quorum-loss-wait    | A duração máxima, em segundos, para que uma partição pode estar num Estado de perda de quórum. Isto aplica-se apenas a serviços com monitorização de estado.|
-| --replica-restart-wait| A duração, em segundos, entre quando uma réplica fica inativo e quando é criada uma nova réplica. Isto aplica-se apenas a serviços com monitorização de estado.|
+| -espera de perda de quórum    | A duração máxima, em segundos, para que uma partição pode estar num Estado de perda de quórum. Isto aplica-se apenas a serviços com monitorização de estado.|
+| -espera de reinício de réplica| A duração, em segundos, entre quando uma réplica fica inativo e quando é criada uma nova réplica. Isto aplica-se apenas a serviços com monitorização de estado.|
 | -modo de espera pela réplica keep  | A duração máxima, em segundos, para o modo de espera réplicas são mantidas antes de a ser removido. Isto aplica-se apenas a serviços com monitorização de estado.|
 | -monitorização de estado            | Indica que o serviço de destino é um serviço com monitorização de estado.|
 | – sem monitorização de estado           | Indica que o serviço de destino é um serviço sem estado.|
@@ -312,7 +312,7 @@ Atualiza o serviço especificado utilizando a descrição da atualização indic
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h             | Mostra esta mensagem de ajuda e saída.|
 | --o de saída           | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta               | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|

@@ -1,25 +1,25 @@
 ---
-title: "Gerido identidade de serviço (MSI) para o Azure Active Directory"
-description: "Uma descrição geral da identidade de serviço geridas para recursos do Azure."
+title: Gerido identidade de serviço (MSI) para o Azure Active Directory
+description: Uma descrição geral da identidade de serviço geridas para recursos do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ms.reviewer: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 95980c082b09ad959ab8bbaae0250b40ac08d2c8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Gerido identidade de serviço (MSI) para recursos do Azure
 
@@ -47,7 +47,7 @@ Eis um exemplo de como um MSI do sistema-atribuídas funciona com máquinas virt
 2. O Azure Resource Manager cria um Principal de serviço no Azure AD para representar a identidade da VM. O Principal de serviço é criado no inquilino do Azure AD, que é considerado fidedigno por esta subscrição.
 3. O Azure Resource Manager configura os detalhes de Principal de serviço na extensão de VM do MSI da VM. Este passo inclui a configuração de ID de cliente e o certificado utilizado pela extensão para obter os tokens de acesso do Azure AD.
 4. Agora que a identidade de Principal de serviço da VM é conhecida, pode conceder acesso aos recursos do Azure. Por exemplo, se o seu código tem de chamar o Azure Resource Manager, em seguida, é iria atribuir a VM Principal de serviço a função adequada, utilizando o controlo de acesso baseado em funções (RBAC) no Azure AD.  Se o seu código tem de chamar o Cofre de chaves, teria de conceder o acesso de código para o segredo específico ou a chave no Cofre de chaves.
-5. O código em execução na VM pede um token de um ponto final local que está alojado pela extensão de VM de MSI: oauth2/http://localhost:50342/token. O parâmetro do recurso Especifica o serviço ao qual é enviado o token. Por exemplo, se pretender que o seu código para autenticar para o Azure Resource Manager, teria de utilizar recursos = https://management.azure.com/.
+5. O código em execução na VM pede um token de um ponto final local que está alojado pela extensão de VM de MSI: http://localhost:50342/oauth2/token. O parâmetro do recurso Especifica o serviço ao qual é enviado o token. Por exemplo, se pretender que o seu código para autenticar para o Azure Resource Manager, teria de utilizar recursos =https://management.azure.com/.
 6. A extensão da VM MSI utiliza o respetivo ID de cliente configurada e o certificado para pedir um token de acesso do Azure AD.  Azure AD devolve um token de acesso de Token Web JSON (JWT).
 7. O código envia o token de acesso numa chamada para um serviço que suporta a autenticação do Azure AD.
 
@@ -59,7 +59,7 @@ Utilizar o mesmo diagrama, aqui um exemplo de como um MSI utilizador atribuído 
 2. O Azure Resource Manager cria um Principal de serviço no Azure AD para representar a identidade do MSI. O Principal de serviço é criado no inquilino do Azure AD, que é considerado fidedigno por esta subscrição.
 3. O Azure Resource Manager recebe uma mensagem para configurar os detalhes de Principal de serviço na extensão de VM do MSI da VM. Este passo inclui a configuração de ID de cliente e o certificado utilizado pela extensão para obter os tokens de acesso do Azure AD.
 4. Agora que a identidade de Principal de serviço do MSI é conhecida, pode conceder acesso aos recursos do Azure. Por exemplo, se o seu código tem de chamar o Azure Resource Manager, em seguida, é iria atribuir o MSI Principal de serviço a função adequada, utilizando o controlo de acesso baseado em funções (RBAC) no Azure AD. Se o seu código tem de chamar o Cofre de chaves, teria de conceder o acesso de código para o segredo específico ou a chave no Cofre de chaves. Nota: Não é necessário para concluir passo 4 passo 3. Assim que existe um MSI, pode conceder acesso a recursos, independentemente da que está a ser configurado numa VM ou não.
-5. O código em execução na VM pede um token de um ponto final local que está alojado pela extensão de VM de MSI: oauth2/http://localhost:50342/token. O parâmetro de ID de cliente especifica o nome da identidade MSI para utilizar. Além disso, o parâmetro do recurso Especifica o serviço ao qual é enviado o token. Por exemplo, se pretender que o seu código para autenticar para o Azure Resource Manager, teria de utilizar recursos = https://management.azure.com/.
+5. O código em execução na VM pede um token de um ponto final local que está alojado pela extensão de VM de MSI: http://localhost:50342/oauth2/token. O parâmetro de ID de cliente especifica o nome da identidade MSI para utilizar. Além disso, o parâmetro do recurso Especifica o serviço ao qual é enviado o token. Por exemplo, se pretender que o seu código para autenticar para o Azure Resource Manager, teria de utilizar recursos =https://management.azure.com/.
 6. A extensão da VM MSI verifica se o certificado para o ID de cliente pedida está configurado e os pedidos de um token de acesso do Azure AD. Azure AD devolve um token de acesso de Token Web JSON (JWT).
 7. O código envia o token de acesso numa chamada para um serviço que suporta a autenticação do Azure AD.
 

@@ -10,31 +10,31 @@ ms.topic: article
 manager: carmonm
 tags: top-support-issue
 keywords: Erro de automatização, resolução de problemas, problema
-ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 44200ae9deb1a5c11c81550173b3f6f90b5d62ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Resolução de problemas comuns na automatização do Azure 
 Este artigo fornece erros comuns que pode ocorrer na automatização do Azure e sugere possíveis soluções para resolvê-los de resolução de problemas.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Erros de autenticação quando trabalhar com runbooks de automatização do Azure
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>Cenário: Início de sessão na conta do Azure falhou
-**Erro:** recebe o erro "Unknown_user_type: utilizador tipo desconhecido" quando trabalhar com os cmdlets Add-AzureAccount ou Login-AzureRmAccount.
+**Erro:** recebe o erro "Unknown_user_type: utilizador tipo desconhecido" quando trabalhar com os cmdlets Add-AzureAccount ou Connect-AzureRmAccount.
 
 **Razão para o erro:** este erro ocorre se o nome de recurso de credencial não é válido ou se o nome de utilizador e palavra-passe que utilizou para configurar o recurso de credencial de automatização não são válidos.
 
 **Sugestões de resolução de problemas:** para determinar o que é o problema, siga os passos seguintes:  
 
-1. Certifique-se de que não tem quaisquer carateres especiais, incluindo o ** @ ** caráter no nome do recurso de credencial de automatização que está a utilizar para ligar ao Azure.  
+1. Certifique-se de que não tem quaisquer carateres especiais, incluindo o **@** caráter no nome do recurso de credencial de automatização que está a utilizar para ligar ao Azure.  
 2. Certifique-se de que pode utilizar o nome de utilizador e palavra-passe que são armazenadas na credencial de automatização do Azure no seu editor local do ISE do PowerShell. Pode fazê-lo executando os seguintes cmdlets no ISE do PowerShell:  
 
         $Cred = Get-Credential  
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. Se a autenticação falhar localmente, isto significa que ainda não configurou as credenciais do Azure Active Directory corretamente. Consulte [autenticação no Azure utilizando o Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blogue para obter a conta do Azure Active Directory corretamente configurado.  
 
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>Cenário: Não foi possível encontrar a subscrição do Azure
@@ -105,7 +105,7 @@ Este artigo fornece erros comuns que pode ocorrer na automatização do Azure e 
 **Sugestões de resolução de problemas:** qualquer uma das seguintes soluções corrigir o problema:  
 
 * Verifique se introduziu o nome do cmdlet corretamente.  
-* Certificar-se de que o cmdlet existe na sua conta de automatização e de que existem não está em conflito. Para verificar se o cmdlet está presente, abra um runbook no modo de edição e procure o cmdlet que pretende localizar na biblioteca ou executar **Get-Command ``<CommandName>`` **. Depois de validar que o cmdlet está disponível para a conta e de que não existem nenhum nome entra em conflito com outros cmdlets ou runbooks, adicioná-lo para a tela e certifique-se de que está a utilizar um parâmetro válido definido no runbook.  
+* Certificar-se de que o cmdlet existe na sua conta de automatização e de que existem não está em conflito. Para verificar se o cmdlet está presente, abra um runbook no modo de edição e procure o cmdlet que pretende localizar na biblioteca ou executar **Get-Command ``<CommandName>``** . Depois de validar que o cmdlet está disponível para a conta e de que não existem nenhum nome entra em conflito com outros cmdlets ou runbooks, adicioná-lo para a tela e certifique-se de que está a utilizar um parâmetro válido definido no runbook.  
 * Se tiver um conflito de nomes e o cmdlet está disponível em dois módulos diferentes, pode resolver isto, utilizando o nome completamente qualificado para o cmdlet. Por exemplo, pode utilizar **ModuleName\CmdletName**.  
 * Se estiver a executar o runbook no local num grupo de trabalho híbrida, em seguida, certifique-se de que o módulo/cmdlet está instalado no computador que aloja o worker híbrido.
 
@@ -127,7 +127,7 @@ Este artigo fornece erros comuns que pode ocorrer na automatização do Azure e 
 
 **Sugestões de resolução de problemas:** qualquer uma das seguintes soluções corrigir o problema:
 
-* Certifique-se de que o módulo de acordo com o seguinte formato: ModuleName.Zip ** -> ** ModuleName ou um número de versão ** -> ** (ModuleName.psm1, ModuleName.psd1)
+* Certifique-se de que o módulo de acordo com o seguinte formato: ModuleName.Zip **->** ModuleName ou um número de versão **->** (ModuleName.psm1, ModuleName.psd1)
 * Abra o ficheiro. psd1 e se o módulo tem quaisquer dependências. Se existir, carregar estes módulos para a conta de automatização.
 * Certifique-se de que qualquer .dlls referenciado estão presentes na pasta do módulo.
 

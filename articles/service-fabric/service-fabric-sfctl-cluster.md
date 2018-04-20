@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: c83dc3eeb6ca0d66b0c70236354fd7bab80f355f
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selecione, gerir e operar clusters de Service Fabric.
@@ -27,8 +27,8 @@ Selecione, gerir e operar clusters de Service Fabric.
 
 |Comando|Descrição|
 | --- | --- |
-|    code-versions| Obtém uma lista dos recursos de infraestrutura versões de código aprovisionados num cluster de Service Fabric.|
-|    config-versions | Obtém uma lista dos recursos de infraestrutura versões de configuração que são aprovisionadas num cluster de Service Fabric.|
+|    versões de código| Obtém uma lista dos recursos de infraestrutura versões de código aprovisionados num cluster de Service Fabric.|
+|    versões de configuração | Obtém uma lista dos recursos de infraestrutura versões de configuração que são aprovisionadas num cluster de Service Fabric.|
 |    estado de funcionamento       | Obtém o estado de funcionamento de um cluster do Service Fabric.|
 |    Manifesto     | Obter o manifesto do cluster de Service Fabric.|
 |    cancelamento da operação| Cancela uma operação do índice de falhas induzida pelo utilizador.|
@@ -40,9 +40,9 @@ Selecione, gerir e operar clusters de Service Fabric.
 | Não aprovisionamento     | Anular o provisionamento os pacotes de código ou de configuração de um cluster do Service Fabric.|
 |    atualização         | Comece a atualizar a versão de código ou de configuração de um cluster do Service Fabric.|
 |    retoma de atualização  | Efetuar a atualização do cluster avançar para o domínio de atualização seguinte.|
-|    upgrade-rollback| Reverta a atualização de um cluster do Service Fabric.|
-|    upgrade-status  | Obtém o progresso da atualização do cluster atual.|
-|upgrade-update  | Atualize os parâmetros de atualização de uma atualização de cluster do Service Fabric.|
+|    reversão de atualização| Reverta a atualização de um cluster do Service Fabric.|
+|    Estado de atualização  | Obtém o progresso da atualização do cluster atual.|
+|atualização-atualização  | Atualize os parâmetros de atualização de uma atualização de cluster do Service Fabric.|
 
 
 ## <a name="sfctl-cluster-health"></a>o estado de funcionamento do sfctl cluster
@@ -54,10 +54,10 @@ Obtém o estado de funcionamento de um cluster do Service Fabric. Utilize Events
 
 |Argumento|Descrição|
 | --- | --- |
-| --applications-health-state-filter| Permite a filtragem dos objetos de estado de funcionamento da aplicação devolvidos nos resultados da consulta de estado de funcionamento de cluster com base no respetivo estado de funcionamento. Os valores possíveis para este parâmetro incluem obtido a partir membros ou operações bit a bit em membros de enumeração de HealthStateFilter de valor de número inteiro. Apenas as aplicações que correspondem ao filtro são devolvidas.  Todas as aplicações são utilizadas para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são sinalizador em enumeração, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é 6, em seguida, estado de funcionamento das aplicações com o valor HealthState OK (2) e de aviso (4) são devolvidas. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso. O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
+| – aplicações-estado de funcionamento do Estado do filtro| Permite a filtragem dos objetos de estado de funcionamento da aplicação devolvidos nos resultados da consulta de estado de funcionamento de cluster com base no respetivo estado de funcionamento. Os valores possíveis para este parâmetro incluem obtido a partir membros ou operações bit a bit em membros de enumeração de HealthStateFilter de valor de número inteiro. Apenas as aplicações que correspondem ao filtro são devolvidas.  Todas as aplicações são utilizadas para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são sinalizador em enumeração, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é 6, em seguida, estado de funcionamento das aplicações com o valor HealthState OK (2) e de aviso (4) são devolvidas. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso. O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
 | --events-health-state-filter   | Permite a filtragem na coleção de objetos de HealthEvent devolvido com base no estado de funcionamento. Os valores possíveis para este parâmetro incluem o valor de número inteiro de um dos seguintes Estados de funcionamento. Apenas os eventos que correspondem ao filtro são devolvidos. Todos os eventos são utilizados para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são sinalizador com base na enumeração, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é 6, em seguida, todos os eventos com o valor HealthState OK (2) e de aviso (4) são devolvidos. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso.  O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
-|--exclude-health-statistics                   | Indica se as estatísticas de estado de funcionamento devem ser devolvidas como parte do resultado da consulta. FALSO por predefinição. As estatísticas mostram o número de elementos subordinados entidades no estado de funcionamento Ok, aviso e erro.|
- |   --include-system-application-health-statistics| Indica se as estatísticas de estado de funcionamento devem incluir o fabric: / estatísticas de estado de funcionamento da aplicação de sistema. FALSO por predefinição. Se IncludeSystemApplicationHealthStatistics estiver definido como VERDADEIRO, o estado de funcionamento estatísticas incluem as entidades que pertencem aos recursos de infraestrutura: / aplicação de sistema. Caso contrário, o resultado da consulta inclui estatísticas de estado de funcionamento apenas para aplicações do utilizador. As estatísticas de estado de funcionamento têm de ser incluídas no resultado da consulta para este parâmetro seja aplicada.|
+|– estatísticas de estado de funcionamento de exclusão                   | Indica se as estatísticas de estado de funcionamento devem ser devolvidas como parte do resultado da consulta. FALSO por predefinição. As estatísticas mostram o número de elementos subordinados entidades no estado de funcionamento Ok, aviso e erro.|
+ |   – incluir-sistema--estado de funcionamento-das estatísticas da aplicação| Indica se as estatísticas de estado de funcionamento devem incluir o fabric: / estatísticas de estado de funcionamento da aplicação de sistema. FALSO por predefinição. Se IncludeSystemApplicationHealthStatistics estiver definido como VERDADEIRO, o estado de funcionamento estatísticas incluem as entidades que pertencem aos recursos de infraestrutura: / aplicação de sistema. Caso contrário, o resultado da consulta inclui estatísticas de estado de funcionamento apenas para aplicações do utilizador. As estatísticas de estado de funcionamento têm de ser incluídas no resultado da consulta para este parâmetro seja aplicada.|
 | --nodes-health-state-filter    | Permite a filtragem de objetos de estado de funcionamento nó devolvidos nos resultados da consulta de estado de funcionamento de cluster com base no respetivo estado de funcionamento. Os valores possíveis para este parâmetro incluem o valor de número inteiro de um dos seguintes Estados de funcionamento. Apenas nós que correspondem ao filtro são devolvidos. Todos os nós são utilizados para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são enumeração baseada no sinalizador de, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é "6", em seguida, estado de funcionamento de nós com o valor HealthState OK (2) e de aviso (4) são devolvidas. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso.  O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
 | tempo limite – -t                   | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
@@ -65,7 +65,7 @@ Obtém o estado de funcionamento de um cluster do Service Fabric. Utilize Events
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug                        | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug                        | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                      | Mostra esta mensagem de ajuda e saída.|
 | --o de saída                    | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.                    Predefinição: json.|
 | – consulta                        | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -86,7 +86,7 @@ Obter o manifesto do cluster de Service Fabric. O manifesto do cluster contém a
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug  | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug  | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h| Mostra esta mensagem de ajuda e saída.|
 | --o de saída | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta  | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -100,15 +100,15 @@ Valide e aprovisionar os pacotes de código ou de configuração de um cluster d
 
 |Argumento|Descrição|
 | --- | --- |
-|--cluster-manifest-file-path| O caminho de ficheiro de manifesto do cluster.|
-|    --code-file-path            | Caminho de ficheiro de pacote do código de cluster.|
+|-cluster-manifesto--caminho do ficheiro| O caminho de ficheiro de manifesto do cluster.|
+|    – o caminho de ficheiro de código            | Caminho de ficheiro de pacote do código de cluster.|
 |    tempo limite – -t                | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h  | Mostra esta mensagem de ajuda e saída.|
 | --o de saída| Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -135,7 +135,7 @@ Se ligar ao cluster segura, especifique um certificado (. crt) e o ficheiro de c
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug           | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| -debug           | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h         | Mostra esta mensagem de ajuda e saída.|
 | --o de saída       | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta           | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -149,14 +149,14 @@ Anular o provisionamento os pacotes de código ou de configuração de um cluste
 ### <a name="arguments"></a>Argumentos
 |Argumento|Descrição|
 | --- | --- |
-|--code-version  | A versão de pacote do código de cluster.|
-|    --config-version| O versão do manifesto do cluster.|
+|-versão de código  | A versão de pacote do código de cluster.|
+|    -config-versão| O versão do manifesto do cluster.|
 |    tempo limite – -t    | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 |Argumento|Descrição|
 | --- | --- |
-|--debug         | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+|-debug         | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
  |   -ajudar -h       | Mostra esta mensagem de ajuda e saída.|
  |   --o de saída     | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
  |   – consulta         | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -171,30 +171,30 @@ Valide os parâmetros de atualização fornecidos e comece a atualizar a versão
 |Argumento|Descrição|
 | --- | --- |
 |    --app-health-map                      | JSON codificado dicionário de pares de nome de aplicação e a percentagem máxima mau estado de funcionamento antes de gerar o erro.|
- |   --app-type-health-map                 | JSON codificado dicionário de pares de nome de tipo de aplicação e a percentagem máxima mau estado de funcionamento antes de gerar o erro.|
- |   --code-version                        | A versão de código de cluster.|
- |   --config-version                      | A versão de configuração de cluster.|
+ |   aplicações--tipo-estado de funcionamento-mapa                 | JSON codificado dicionário de pares de nome de tipo de aplicação e a percentagem máxima mau estado de funcionamento antes de gerar o erro.|
+ |   -versão de código                        | A versão de código de cluster.|
+ |   -config-versão                      | A versão de configuração de cluster.|
  |   --delta-health-evaluation             | Permite a avaliação de estado de funcionamento de diferenças em vez de avaliação de estado de funcionamento absoluto após a conclusão de cada domínio de atualização.|
  |   --delta-unhealthy-nodes               | O máximo permitido percentagem de nós degradação de estado de funcionamento permitida durante as atualizações de cluster.  Predefinição: 10. O delta é medido entre o estado de nós no início da atualização e o estado de nós no momento da avaliação de estado de funcionamento. A verificação é executada após a conclusão de atualização cada domínio de atualização para se certificar de que o estado global do cluster está dentro dos limites tolerated.|
  |   -Falha de ação                      | Os valores possíveis incluem: 'Inválido,' 'Reversão', 'Manual'.|
- |   --force-restart                       | Força o reinício.|
+ |   -force-reinício                       | Força o reinício.|
  |   --health-check-retry                  | Tempo limite de tentativas de verificação do Estado de funcionamento é medido em milissegundos.|
- |   --health-check-stable                 | Estado de funcionamento Consulte duração estável, medida em milissegundos.|
-  |  --health-check-wait                   | Duração de espera de verificação do Estado de funcionamento é medido em milissegundos.|
+ |   -estável estado de funcionamento-verificação                 | Estado de funcionamento Consulte duração estável, medida em milissegundos.|
+  |  -espera de verificação de estado de funcionamento                   | Duração de espera de verificação do Estado de funcionamento é medido em milissegundos.|
   |  --replica-set-check-timeout           | Réplica atualização definir um tempo limite de verificação medido em segundos.|
- |   --rolling-upgrade-mode                | Os valores possíveis incluem: 'Inválido', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitorizado'.  Predefinição: UnmonitoredAuto.|
+ |   -implementar atualização-modo                | Os valores possíveis incluem: 'Inválido', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitorizado'.  Predefinição: UnmonitoredAuto.|
   |  tempo limite – -t                          | Tempo limite do servidor em segundos.  Predefinição: 60.|
-  |  --unhealthy-applications              | O máximo permitido percentagem das aplicações mau estado de funcionamento antes de o comunicar um erro. Por exemplo, para permitir a 10% de aplicações para ser mau estado de funcionamento, este valor será 10. A percentagem representa a percentagem máxima de tolerated das aplicações que podem ser mau estado de funcionamento antes do cluster for considerado no erro. Se a percentagem é respeitada, mas existir pelo menos uma aplicação de mau estado de funcionamento, o estado de funcionamento é avaliado como aviso. Esta é calculada dividindo o número de aplicações mau estado de funcionamento e o número total de instâncias de aplicações no cluster, excluindo as aplicações de tipos de aplicação que estão incluídas no ApplicationTypeHealthPolicyMap. O cálculo Arredonda por excesso para tolerar uma falha num pequeno número de aplicações.|
+  |  -mau estado de funcionamento de aplicações              | O máximo permitido percentagem das aplicações mau estado de funcionamento antes de o comunicar um erro. Por exemplo, para permitir a 10% de aplicações para ser mau estado de funcionamento, este valor será 10. A percentagem representa a percentagem máxima de tolerated das aplicações que podem ser mau estado de funcionamento antes do cluster for considerado no erro. Se a percentagem é respeitada, mas existir pelo menos uma aplicação de mau estado de funcionamento, o estado de funcionamento é avaliado como aviso. Esta é calculada dividindo o número de aplicações mau estado de funcionamento e o número total de instâncias de aplicações no cluster, excluindo as aplicações de tipos de aplicação que estão incluídas no ApplicationTypeHealthPolicyMap. O cálculo Arredonda por excesso para tolerar uma falha num pequeno número de aplicações.|
  |   -mau estado de funcionamento de nós                     | O máximo permitido de percentagem de nós mau estado de funcionamento antes de o comunicar um erro. Por exemplo, para permitir a 10% de nós incorreto, este valor será 10. A percentagem representa a percentagem máxima de tolerated de nós que podem ser mau estado de funcionamento antes do cluster for considerado no erro. Se a percentagem é respeitada, mas existir pelo menos um nó de mau estado de funcionamento, o estado de funcionamento é avaliado como aviso. A percentagem é calculada dividindo o número de nós mau estado de funcionamento e o número total de nós no cluster. O cálculo Arredonda por excesso para tolerar uma falha num pequeno número de nós. Em grandes clusters, alguns nós sempre será baixo ou horizontalmente para reparações, pelo que esta percentagem deve ser configurada para tolerar que.|
  |   --upgrade-domain-delta-unhealthy-nodes| O máximo permitido percentagem de nós de domínio de atualização de degradação de estado de funcionamento permitida durante as atualizações de cluster. Predefinição: 15. O delta é medido entre o estado de nós do domínio de atualização no início da atualização e o estado de nós do domínio de atualização no momento da avaliação de estado de funcionamento. A verificação é efetuada uma vez concluída cada conclusão de atualização do domínio de atualização para todos os domínios de atualização para se certificar de que o estado dos domínios de atualização está dentro dos limites tolerated.|
- |   --upgrade-domain-timeout              | Tempo limite do domínio de atualização é medido em milissegundos.|
+ |   -atualização--tempo limite do domínio              | Tempo limite do domínio de atualização é medido em milissegundos.|
  |   -tempo limite de atualização                     | Tempo limite de atualização é medido em milissegundos.|
  |   --warning-as-error                    | Avisos são tratados com a mesma gravidade como erros.|
 
 ### <a name="global-arguments"></a>Argumentos global
 |Argumento|Descrição|
 | --- | --- |
-|--debug                               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+|-debug                               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 |    -ajudar -h                             | Mostra esta mensagem de ajuda e saída.|
 |    --o de saída                           | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv. Predefinição: json.|
 |    – consulta                               | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|

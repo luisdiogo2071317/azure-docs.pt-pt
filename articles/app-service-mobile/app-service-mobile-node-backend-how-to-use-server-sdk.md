@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como utilizar o SDK do Mobile Apps Node.js
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -337,7 +337,7 @@ A maioria das definições no ficheiro azureMobile.js têm uma definição de ap
 | Definição de aplicação | definição de azureMobile.js | Descrição | Valores válidos |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |nome |Nome da aplicação |string |
-| **MS_MobileLoggingLevel** |logging.level |Nível de registo mínimo de mensagens em fila para iniciar sessão |erro, aviso, informações, verbosa, depuração, silly |
+| **MS_MobileLoggingLevel** |Logging.level |Nível de registo mínimo de mensagens em fila para iniciar sessão |erro, aviso, informações, verbosa, depuração, silly |
 | **MS_DebugMode** |depurar |Ativa ou desativa o modo de depuração |TRUE, false |
 | **MS_TableSchema** |data.schema |Nome de esquema predefinido para tabelas SQL |cadeia (predefinição: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Ativa ou desativa o modo de depuração |TRUE, false |

@@ -1,11 +1,11 @@
 ---
-title: "Problemas em iniciar sessão a uma aplicação de galeria configurada para Federado de sessão único-| Microsoft Docs"
-description: "Orientações para os erros específicos quando iniciar sessão uma aplicação que configurou para baseados em SAML federado-início de sessão único com o Azure AD"
+title: Problemas em iniciar sessão a uma aplicação de galeria configurada para Federado de sessão único-| Microsoft Docs
+description: Orientações para os erros específicos quando iniciar sessão uma aplicação que configurou para baseados em SAML federado-início de sessão único com o Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: fa1387c3eb11899bb74418b2ff1af4a5d22a73d9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas em iniciar sessão a uma aplicação de galeria configurada para federado-início de sessão único
 
@@ -31,7 +31,7 @@ Para resolver o problema, tem de verificar a configuração de aplicação no Az
 
 ## <a name="application-not-found-in-directory"></a>Não foi encontrada no diretório de aplicação
 
-*AADSTS70001 de erro: A aplicação com o identificador 'https://contoso.com' não foi encontrada no diretório*.
+*Erro AADSTS70001: Aplicação com o identificador 'https://contoso.com' não foi encontrada no diretório*.
 
 **Uma causa possível**
 
@@ -63,7 +63,7 @@ Depois de ter atualizado o valor do identificador no Azure AD e -correspondênci
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não correspondem aos endereços resposta configurados para a aplicação.
 
-*AADSTS50011 de erro: O endereço de resposta 'https://contoso.com' não correspondem aos endereços resposta configurados para a aplicação*
+*AADSTS50011 de erro: O endereço de respostahttps://contoso.com' não coincide com os endereços de resposta configurados para a aplicação*
 
 **Uma causa possível**
 

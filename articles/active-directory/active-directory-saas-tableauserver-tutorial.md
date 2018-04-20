@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o servidor de Tableau | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e o Tableau servidor."
+title: 'Tutorial: Integração do Azure Active Directory com o servidor de Tableau | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e o Tableau servidor.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
 ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integração do Azure Active Directory com o servidor de Tableau
 
@@ -158,7 +158,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
   
    b. Selecione a caixa de verificação de **SAML de utilização para o início de sessão único**.
    
-   c. URL de retorno de servidor tableau — o URL que os utilizadores do Tableau acederão, tais como http://tableau_server. Não é recomendado utilizar http://localhost. Utilizar um URL com uma barra (por exemplo, http://tableau_server/) não é suportada. Cópia **URL de retorno de servidor Tableau** e cole-o para o Azure AD **URL de início de sessão** textbox em **URLs e de domínio do servidor Tableau** secção.
+   c. URL de retorno de servidor tableau — o URL que os utilizadores do servidor de Tableau acederão, tais como http://tableau_server. Utilizar http://localhost não é recomendada. Utilizar um URL com uma barra (por exemplo, http://tableau_server/) não é suportada. Cópia **URL de retorno de servidor Tableau** e cole-o para o Azure AD **URL de início de sessão** textbox em **URLs e de domínio do servidor Tableau** secção.
    
    d. ID de entidade SAML — o ID de entidade identifica de forma a instalação de servidor Tableau para IdP. Pode introduzir o URL do servidor Tableau novamente aqui, se assim o desejar, mas não tem de ser o URL do servidor Tableau. Cópia **ID de entidade SAML** e cole-o para o Azure AD **identificador** textbox em **URLs e de domínio do servidor Tableau** secção.
      

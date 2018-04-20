@@ -1,8 +1,8 @@
 ---
 title: Mover dados de um servidor de SQL no local para o SQL Azure com o Azure Data Factory | Microsoft Docs
-description: "Configure um pipeline do ADF que composes duas atividades de migração de dados em conjunto mover dados numa base diária entre bases de dados no local e na nuvem."
+description: Configure um pipeline do ADF que composes duas atividades de migração de dados em conjunto mover dados numa base diária entre bases de dados no local e na nuvem.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
 ms.openlocfilehash: 05884fd39db284e268f31987e5ad7a47b9f87ebf
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um servidor SQL no local para o SQL Azure com o Azure Data Factory
 Este tópico mostra como mover dados de uma base de dados do servidor de SQL no local para uma base de dados do SQL do Azure através do Blob Storage do Azure com a fábrica de dados do Azure (ADF).
@@ -113,7 +113,7 @@ São necessários três definições de tabela para este pipeline ADF:
 >
 >
 
-### <a name="adf-table-onprem-sql">Tabela do SQL Server no local</a>
+### <a name="adf-table-onprem-sql"></a>Tabela do SQL Server no local
 A definição de tabela para o SQL Server no local é especificada no seguinte ficheiro JSON:
 
         {
@@ -148,7 +148,7 @@ Copiar a definição de JSON da tabela num ficheiro denominada *onpremtabledef.j
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store">Tabela de BLOBs </a>
+### <a name="adf-table-blob-store"></a>Tabela de BLOBs
 A definição da tabela para a localização de blob de saída é a seguir (mapeia os dados de transmissões no local ao blob do Azure):
 
         {
@@ -178,7 +178,7 @@ Copiar a definição de JSON da tabela num ficheiro denominada *bloboutputtabled
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sql">SQL Server tabela do Azure</a>
+### <a name="adf-table-azure-sql"></a>SQL Server tabela do Azure
 Definição da tabela para o SQL Azure de saída é a seguir (este esquema mapeia dos dados provenientes das blob):
 
     {

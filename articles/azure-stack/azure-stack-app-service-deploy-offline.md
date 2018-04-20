@@ -1,12 +1,12 @@
 ---
-title: "Implementar o serviço de aplicações num ambiente offline na pilha do Azure | Microsoft Docs"
-description: "Orientações detalhadas sobre como implementar o serviço de aplicações num ambiente desligado de pilha do Azure protegidos pelo AD FS."
+title: Implementar o serviço de aplicações num ambiente offline na pilha do Azure | Microsoft Docs
+description: Orientações detalhadas sobre como implementar o serviço de aplicações num ambiente desligado de pilha do Azure protegidos pelo AD FS.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 7a44c5d182aa3c66c07c3dad8c82e171429f2ee4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um fornecedor de recursos do serviço de aplicações para um ambiente desligado de pilha do Azure protegido pelo AD FS
 
@@ -184,6 +184,19 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
 2. Na descrição geral em estado, certifique-se que o **estado** mostra **todas as funções, estará pronto**.
 
     ![Gestão de serviço de aplicações](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> Se optar por implementar uma rede virtual existente e um endereço IP interno para conenct para o servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB.  Para fazê-lo, aceda a WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
+> * Origem: nenhuma
+> * Intervalo de portas de origem: *
+> * Destino: Endereços IP
+> * Intervalo de endereços IP de destino: intervalo de IPs para o servidor de ficheiros
+> * Intervalo de portas de destino: 445
+> * Protocolo: TCP
+> * Ação: permitir
+> * Prioridade: 700
+> * Nome: Outbound_Allow_SMB445
+>
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Testar o serviço de aplicações na pilha do Azure
 
@@ -214,9 +227,9 @@ A partir do technical preview terceiro criar web, a API e o Azure funciona aplic
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Implementar um site WordPress, DNN ou Django (opcional)
 
-1. No portal de inquilinos pilha do Azure, clique em  **+** , vá para o Azure Marketplace, implementar um site do Django e aguarde pela conclusão com êxito. A plataforma de web Django utiliza um ficheiro com base no sistema base de dados do. Não requer quaisquer fornecedores de recursos adicionais, tais como SQL Server ou MySQL.
+1. No portal de inquilinos pilha do Azure, clique em **+**, vá para o Azure Marketplace, implementar um site do Django e aguarde pela conclusão com êxito. A plataforma de web Django utiliza um ficheiro com base no sistema base de dados do. Não requer quaisquer fornecedores de recursos adicionais, tais como SQL Server ou MySQL.
 
-2. Se implementou também um fornecedor de recursos do MySQL, pode implementar um site WordPress no Marketplace. Quando lhe for pedida para parâmetros de base de dados, introduza o nome de utilizador como  *User1@Server1* , com o nome de utilizador e o nome do servidor da sua preferência.
+2. Se implementou também um fornecedor de recursos do MySQL, pode implementar um site WordPress no Marketplace. Quando lhe for pedida para parâmetros de base de dados, introduza o nome de utilizador como *User1@Server1*, com o nome de utilizador e o nome do servidor da sua preferência.
 
 3. Se implementou também um fornecedor de recursos do SQL Server, pode implementar um site DNN do Marketplace. Quando lhe for pedida para parâmetros de base de dados, escolha uma base de dados no computador que executa o SQL Server que está ligada ao seu fornecedor de recursos.
 

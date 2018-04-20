@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
 ms.openlocfilehash: 42932e6d1727a1444c62f565ae3c48dc178aeb2b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Esquema de linguagem de definição de fluxo de trabalho para o Azure Logic Apps
 
@@ -131,7 +131,7 @@ As expressões podem aparecer em qualquer local, um valor de cadeia JSON e sempr
 |Valor JSON|Resultado|  
 |----------------|------------|  
 |"parâmetros de"|Os carateres 'parameters' são devolvidos.|  
-|"parameters[1]"|Os carateres 'parameters [1]' são devolvidos.|  
+|"parâmetros de [1]"|Os carateres 'parameters [1]' são devolvidos.|  
 |"@@"|Uma cadeia de 1 caráter que contém ' @' é devolvido.|  
 |" @"|Uma cadeia de carateres de 2 que contém ' @' é devolvido.|  
   
@@ -168,7 +168,7 @@ Também pode chamar funções dentro de expressões. A tabela seguinte mostra as
 |----------------|----------------|  
 |"@function('Hello')"|Chama o membro da função da definição com a cadeia literal Olá como o primeiro parâmetro.|  
 |"@function('-' Útil s!')"|Chama o membro da função da definição com a cadeia de literal 'É útil!' como o primeiro parâmetro|  
-|"@function().prop1"|Devolve o valor da propriedade prop1 o `myfunction` membro da definição.|  
+|"@function.prop1 ()"|Devolve o valor da propriedade prop1 o `myfunction` membro da definição.|  
 |"@function('Hello').prop1"|Chama o membro da função da definição com a cadeia literal "Olá" como o primeiro parâmetro e devolve a propriedade prop1 do objeto.|  
 |"@function(parameters('Hello'))"|Avalia o parâmetro de Olá e transmite o valor para a função|  
   
@@ -212,12 +212,12 @@ As seguintes funções só se aplicam a cadeias. Também pode utilizar algumas f
 |Nome da função|Descrição|  
 |-------------------|-----------------|  
 |concat|Combina qualquer número de cadeias em conjunto. Por exemplo, se o parâmetro 1 é `p1`, esta função devolve `somevalue-p1-somevalue`: <p>`concat('somevalue-',parameters('parameter1'),'-somevalue')` <p> **Número de parâmetro**: 1... *n* <p> **Nome**: cadeia *n* <p> **Descrição**: necessário. As cadeias de combinar numa cadeia única.|  
-|subcadeia|Devolve um subconjunto de carateres a partir de uma cadeia. Por exemplo, esta função devolve `abc`: <p>`substring('somevalue-abc-somevalue',10,3)` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia a partir da qual foi efetuada a subcadeia. <p> **Número de parâmetro**: 2 <p> **Nome**: índice inicial <p> **Descrição**: necessário. O índice de onde a subcadeia começa no parâmetro 1. <p> **Número de parâmetro**: 3 <p> **Name**: Length <p> **Descrição**: necessário. O comprimento da subcadeia.|  
+|subcadeia|Devolve um subconjunto de carateres a partir de uma cadeia. Por exemplo, esta função devolve `abc`: <p>`substring('somevalue-abc-somevalue',10,3)` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia a partir da qual foi efetuada a subcadeia. <p> **Número de parâmetro**: 2 <p> **Nome**: índice inicial <p> **Descrição**: necessário. O índice de onde a subcadeia começa no parâmetro 1. <p> **Número de parâmetro**: 3 <p> **Nome**: comprimento <p> **Descrição**: necessário. O comprimento da subcadeia.|  
 |Substituir|Substitui uma cadeia com uma determinada cadeia. Por exemplo, esta função devolve `the new string`: <p>`replace('the old string', 'old', 'new')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia é procurada para o parâmetro 2 e atualizada com o parâmetro 3, quando o parâmetro 2 encontra-se no parâmetro 1. <p> **Número de parâmetro**: 2 <p> **Nome**: cadeia antiga <p> **Descrição**: necessário. A cadeia de substituir o parâmetro 3, quando é encontrada uma correspondência no parâmetro 1 <p> **Número de parâmetro**: 3 <p> **Nome**: nova cadeia <p> **Descrição**: necessário. A cadeia é utilizada para substituir a cadeia no parâmetro 2 quando é encontrada uma correspondência no parâmetro 1.|  
 |GUID|Esta função gera uma cadeia exclusiva global (GUID). Por exemplo, esta função pode gerar este GUID: `c2ecc88d-88c8-4096-912c-d6f2e2b138ce` <p>`guid()` <p> **Número de parâmetro**: 1 <p> **Nome**: formato <p> **Descrição**: opcional. Um especificador de formato único indica [como formatar o valor deste Guid](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). O parâmetro de formato pode ser "N", "D", "B", "P" ou "X". Se o formato não for fornecido, "D" é utilizada.|  
 |toLower|Converte uma cadeia em minúsculas. Por exemplo, esta função devolve `two by two is four`: <p>`toLower('Two by Two is Four')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia a converter para maiúsculas e minúsculas inferior. Se um carácter na cadeia de não tiver um equivalente em minúsculas, o caráter está incluído o inalterados na cadeia devolvida.|  
 |toUpper|Converte uma cadeia em maiúsculas. Por exemplo, esta função devolve `TWO BY TWO IS FOUR`: <p>`toUpper('Two by Two is Four')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia a converter para maiúsculas e minúsculas superior. Se um carácter na cadeia de não tiver um equivalente em maiúsculas, caráter está incluído inalterados na cadeia devolvida.|  
-|indexof|Localize o índice de um valor dentro de um caso de cadeia insensitively. Por exemplo, esta função devolve `7`: <p>`indexof('hello, world.', 'world')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia que pode conter o valor. <p> **Número de parâmetro**: 2 <p> **Nome**: cadeia <p> **Descrição**: necessário. O valor a pesquisar o índice da.|  
+|indexOf|Localize o índice de um valor dentro de um caso de cadeia insensitively. Por exemplo, esta função devolve `7`: <p>`indexof('hello, world.', 'world')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia que pode conter o valor. <p> **Número de parâmetro**: 2 <p> **Nome**: cadeia <p> **Descrição**: necessário. O valor a pesquisar o índice da.|  
 |lastindexof|Localize o índice de um valor dentro de um caso de cadeia último insensitively. Por exemplo, esta função devolve `3`: <p>`lastindexof('foofoo', 'foo')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia que pode conter o valor. <p> **Número de parâmetro**: 2 <p> **Nome**: cadeia <p> **Descrição**: necessário. O valor a pesquisar o índice da.|  
 |startswith|Verifica se a cadeia começa com um caso de valor insensitively. Por exemplo, esta função devolve `true`: <p>`startswith('hello, world', 'hello')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia que pode conter o valor. <p> **Número de parâmetro**: 2 <p> **Nome**: cadeia <p> **Descrição**: necessário. O valor de cadeia pode começar a utilizar.|  
 |endswith|Verifica se a cadeia termina com um caso de valor insensitively. Por exemplo, esta função devolve `true`: <p>`endswith('hello, world', 'world')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia que pode conter o valor. <p> **Número de parâmetro**: 2 <p> **Nome**: cadeia <p> **Descrição**: necessário. O valor de cadeia pode terminar com.|  
@@ -237,7 +237,7 @@ Estas funções são úteis no interior de condições e podem ser utilizadas pa
 |e|Devolve true se ambos os parâmetros são verdadeiras. Ambos os argumentos tem de ser em booleanos. Por exemplo, esta função devolve `false`: <p>`and(greater(1,10),equals(0,0))` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 booleano <p> **Descrição**: necessário. O primeiro argumento tem de ser `true`. <p> **Número de parâmetro**: 2 <p> **Nome**: 2 booleano <p> **Descrição**: necessário. O segundo argumento tem de ser `true`.|  
 |ou|Devolve VERDADEIRO se o parâmetro for VERDADEIRO. Ambos os argumentos tem de ser em booleanos. Por exemplo, esta função devolve `true`: <p>`or(greater(1,10),equals(0,0))` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 booleano <p> **Descrição**: necessário. O primeiro argumento que pode ser `true`. <p> **Número de parâmetro**: 2 <p> **Nome**: 2 booleano <p> **Descrição**: necessário. O segundo argumento pode ser `true`.|  
 |não|Devolve true se os parâmetros são `false`. Ambos os argumentos tem de ser em booleanos. Por exemplo, esta função devolve `true`: <p>`not(contains('200 Success','Fail'))` <p> **Número de parâmetro**: 1 <p> **Nome**: booleano <p> **Descrição**: devolve true se os parâmetros são `false`. Ambos os argumentos tem de ser em booleanos. Esta função devolve `true`:  `not(contains('200 Success','Fail'))`|  
-|if|Devolve um valor especificado com base em se a expressão resultou numa `true` ou `false`.  Por exemplo, esta função devolve `"yes"`: <p>`if(equals(1, 1), 'yes', 'no')` <p> **Número de parâmetro**: 1 <p> **Nome**: expressão <p> **Descrição**: necessário. Um valor booleano que determina qual o valor de expressão deve ser devolvido. <p> **Número de parâmetro**: 2 <p> **Nome**: VERDADEIRO <p> **Descrição**: necessário. O valor a devolver se a expressão é `true`. <p> **Número de parâmetro**: 3 <p> **Nome**: False <p> **Descrição**: necessário. O valor a devolver se a expressão é `false`.|  
+|Se|Devolve um valor especificado com base em se a expressão resultou numa `true` ou `false`.  Por exemplo, esta função devolve `"yes"`: <p>`if(equals(1, 1), 'yes', 'no')` <p> **Número de parâmetro**: 1 <p> **Nome**: expressão <p> **Descrição**: necessário. Um valor booleano que determina qual o valor de expressão deve ser devolvido. <p> **Número de parâmetro**: 2 <p> **Nome**: VERDADEIRO <p> **Descrição**: necessário. O valor a devolver se a expressão é `true`. <p> **Número de parâmetro**: 3 <p> **Nome**: False <p> **Descrição**: necessário. O valor a devolver se a expressão é `false`.|  
   
 ### <a name="conversion-functions"></a>Funções de conversão  
 
@@ -245,9 +245,9 @@ Estas funções são utilizadas para a conversão entre cada um dos tipos nativo
   
 - string  
   
-- integer  
+- número inteiro  
   
-- float  
+- Número de vírgula flutuante  
   
 - boolean  
   
@@ -262,7 +262,7 @@ Estas funções são utilizadas para a conversão entre cada um dos tipos nativo
 |Int|Converta o parâmetro para um número inteiro. Por exemplo, esta função devolve 100 como um número, em vez de uma cadeia: <p>`int('100')` <p> **Número de parâmetro**: 1 <p> **Nome**: valor <p> **Descrição**: necessário. O valor que é convertido para um número inteiro.|  
 |string|Converta o parâmetro numa cadeia. Por exemplo, esta função devolve `'10'`: <p>`string(10)` <p>Também pode converter um objeto numa cadeia. Por exemplo, se o `myPar` parâmetro é um objeto com uma propriedade `abc : xyz`, em seguida, esta função devolve `{"abc" : "xyz"}`: <p>`string(parameters('myPar'))` <p> **Número de parâmetro**: 1 <p> **Nome**: valor <p> **Descrição**: necessário. O valor que é convertido numa cadeia.|  
 |json|Converter o parâmetro para um valor de tipo JSON e é o oposto da `string()`. Por exemplo, esta função devolve `[1,2,3]` como uma matriz, em vez de uma cadeia: <p>`json('[1,2,3]')` <p>Da mesma forma, pode converter uma cadeia para um objeto. Por exemplo, esta função devolve `{ "abc" : "xyz" }`: <p>`json('{"abc" : "xyz"}')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia que é convertida para um valor de tipo nativo. <p>O `json()` função suporta XML de entrada demasiado. Por exemplo, o valor do parâmetro: <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>é convertido para este JSON: <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|float|Converta o argumento de parâmetro para um número de vírgula flutuante. Por exemplo, esta função devolve `10.333`: <p>`float('10.333')` <p> **Número de parâmetro**: 1 <p> **Nome**: valor <p> **Descrição**: necessário. O valor que é convertido para um número de vírgula flutuante.|  
+|Número de vírgula flutuante|Converta o argumento de parâmetro para um número de vírgula flutuante. Por exemplo, esta função devolve `10.333`: <p>`float('10.333')` <p> **Número de parâmetro**: 1 <p> **Nome**: valor <p> **Descrição**: necessário. O valor que é convertido para um número de vírgula flutuante.|  
 |bool|Converta o parâmetro booleano. Por exemplo, esta função devolve `false`: <p>`bool(0)` <p> **Número de parâmetro**: 1 <p> **Nome**: valor <p> **Descrição**: necessário. O valor que é convertido para um valor booleano.|  
 |base64|Devolve a representação de base64 de cadeia de entrada. Por exemplo, esta função devolve `c29tZSBzdHJpbmc=`: <p>`base64('some string')` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 de cadeia <p> **Descrição**: necessário. A cadeia de codificar para base64 representação.|  
 |base64ToBinary|Devolve uma representação binária de uma cadeia codificada em base64. Por exemplo, esta função devolve a representação binária do `some string`: <p>`base64ToBinary('c29tZSBzdHJpbmc=')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia codificada em base64.|  
@@ -330,8 +330,8 @@ Estas funções podem ser utilizadas para qualquer um dos tipos de números: **n
 |startOfDay|Devolve o início do dia para um carimbo de cadeia transmitido. Por exemplo `2017-03-15T00:00:00Z`:<br /><br /> `startOfDay('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.<br /><br />**Número de parâmetro**: 2<br /><br /> **Nome**: formato<br /><br /> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").| 
 |startOfMonth|Devolve o início do mês para um carimbo de cadeia transmitido. Por exemplo `2017-03-01T00:00:00Z`:<br /><br /> `startOfMonth('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.<br /><br />**Número de parâmetro**: 2<br /><br /> **Nome**: formato<br /><br /> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").| 
 |dayOfWeek|Devolve o dia do componente de semana de um carimbo de cadeia.  Domingo for 0, segunda é 1 e assim sucessivamente. Por exemplo `3`:<br /><br /> `dayOfWeek('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.| 
-|dayOfMonth|Devolve o dia do componente de mês de um carimbo de cadeia. Por exemplo `15`:<br /><br /> `dayOfMonth('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.| 
-|dayOfYear|Devolve o dia do componente de ano de um carimbo de cadeia. Por exemplo `74`:<br /><br /> `dayOfYear('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.| 
+|DayOfMonth|Devolve o dia do componente de mês de um carimbo de cadeia. Por exemplo `15`:<br /><br /> `dayOfMonth('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.| 
+|DayOfYear|Devolve o dia do componente de ano de um carimbo de cadeia. Por exemplo `74`:<br /><br /> `dayOfYear('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.| 
 |batimentos|Devolve os batimentos serão propriedade timestamp uma cadeia. Por exemplo `1489603019`:<br /><br /> `ticks('2017-03-15T18:36:59Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.| 
   
 ### <a name="workflow-functions"></a>Funções de fluxo de trabalho  

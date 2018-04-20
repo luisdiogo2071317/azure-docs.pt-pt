@@ -1,11 +1,11 @@
 ---
-title: "Gerir a imagem de máquina virtual no Azure Marketplace | Microsoft Docs"
-description: "Guia de detalhado sobre como gerir a imagem de máquina virtual no Azure Marketplace após a publicação inicial"
+title: Gerir a imagem de máquina virtual no Azure Marketplace | Microsoft Docs
+description: Guia de detalhado sobre como gerir a imagem de máquina virtual no Azure Marketplace após a publicação inicial
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/03/2016
 ms.author: mbaldwin;
 ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guia de produção de pós-implementação para ofertas de máquina virtual no Azure Marketplace
 Este artigo explica como pode atualizar uma oferta de máquinas de virtuais em direto no Azure Marketplace. Orienta-o durante o processo de adicionar um ou mais SKUs de novo a uma oferta existente. É também orienta-o processo de remoção de uma oferta de máquinas de virtuais em direto ou o SKU do Marketplace.
@@ -47,7 +47,7 @@ Para adicionar uma nova versão para o SKU listado e voltar a publicar oferta, s
 2. Vá para o **máquinas virtuais** separador e selecione a sua oferta.
 3. No menu à esquerda, clique em de **imagens da VM** separador.
 4. No **SKUs** secção, localize o SKU que pretende atualizar.
-5. Adicionar um novo número de versão para o SKU e clique em de  **+**  botão. A nova versão deve estar num formato X.Y.Z, onde X, Y e Z são números inteiros. Alterações de versão só devem ser incrementais.
+5. Adicionar um novo número de versão para o SKU e clique em de **+** botão. A nova versão deve estar num formato X.Y.Z, onde X, Y e Z são números inteiros. Alterações de versão só devem ser incrementais.
 6. No **URL de VHD de SO** caixa, introduza a assinatura de acesso partilhado URI criado para o VHD de sistema operativo e guardar as alterações.
 
    > [!IMPORTANT]

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: b15b3c7f50c23a1c11b2467bfdd2794d52b451ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utilizar pontos finais do serviço de rede Virtual e as regras para a SQL Database do Azure
 
@@ -129,8 +129,8 @@ Para a base de dados SQL do Azure, a funcionalidade de regras de rede virtual te
 
 - Regras de rede virtual são aplicadas apenas a redes virtuais do Azure Resource Manager; e não a [modelo de implementação clássica] [ arm-deployment-model-568f] redes.
 
-- Pontos finais do serviço de rede virtual no desativar para a SQL Database do Azure também permite que os pontos finais para os serviços MySQL e PostGres Azure. No entanto, com pontos finais no, as tentativas para ligar a partir de pontos finais para as instâncias de MySQL ou Postgres irão falhar.
-    - O motivo subjacente é essa MySQL e PostGres não suportam atualmente a ACL da.
+- Pontos finais do serviço de rede virtual no desativar para a SQL Database do Azure também permite que os pontos finais para os serviços MySQL e PostgreSQL Azure. No entanto, com pontos finais no, as tentativas para ligar a partir de pontos finais para as instâncias de MySQL ou PostgreSQL irão falhar.
+    - O motivo subjacente é que MySQL e PostgreSQL atualmente suporta a ACL da.
 
 - Na firewall, intervalos de endereços IP aplicam-se aos seguintes itens de rede, mas não as regras de rede virtual:
     - [Rede privada virtual (VPN) site a Site (S2S)][vpn-gateway-indexmd-608y]
@@ -225,6 +225,10 @@ Uma lista de várias mensagens de erro de base de dados SQL é documentada [aqui
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Portal pode criar uma regra de rede virtual
 
 Esta secção ilustra a forma como pode utilizar o [portal do Azure] [ http-azure-portal-link-ref-477t] para criar um *regra de rede virtual* na base de dados SQL do Azure. A regra indica a base de dados do SQL Server para aceitar comunicações de uma sub-rede específica que tenha sido etiquetada como sendo uma *ponto final do serviço de rede Virtual*.
+
+> [!NOTE]
+> Certifique-se que o serviço de pontos finais estão ativados para a VNET/sub-rede que pretende adicionar as regras de Firewall de VNET do seu servidor.
+> Se os pontos finais de serviço não estão ativados para a VNET/sub-rede será pedido no portal para ativá-los, clique em ativar no painel no qual pode adiciona a regra.
 
 #### <a name="powershell-alternative"></a>PowerShell alternativa
 

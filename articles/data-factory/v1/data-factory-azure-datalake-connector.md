@@ -15,10 +15,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ce5909bd522ab7af77846af598506ea69058bd5c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copiar os dados e de Data Lake Store utilizando o Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +72,7 @@ Um serviço ligado liga um arquivo de dados para uma fábrica de dados. Criar um
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| **type** | A propriedade de tipo tem de ser definida **AzureDataLakeStore**. | Sim |
+| **tipo** | A propriedade de tipo tem de ser definida **AzureDataLakeStore**. | Sim |
 | **dataLakeStoreUri** | Informações sobre a conta do Azure Data Lake Store. Estas informações demora um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
 | **subscriptionId** | ID de subscrição do Azure à qual pertence a conta de Data Lake Store. | Obrigatório para sink |
 | **resourceGroupName** | Nome do grupo de recursos do Azure à qual pertence a conta de Data Lake Store. | Obrigatório para sink |
@@ -149,7 +149,7 @@ Em alternativa, pode utilizar a autenticação de credenciais de utilizador para
 #### <a name="token-expiration"></a>Expiração do token
 O código de autorização que geram utilizando o **autorizar** botão expira após um determinado período de tempo. A seguinte mensagem de erro significa que o token de autenticação expirou:
 
-Erro de operação de credencial: invalid_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: A concessão de acesso fornecida está expirada ou revogada. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z.
+Erro de operação de credencial: invalid_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: A concessão de acesso fornecida está expirada ou revogada. ID de rastreio: ID de correlação d18629e8-af88-43c5-88e3-d8419eb1fca1: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z.
 
 A tabela seguinte mostra os tempos de expiração de diferentes tipos de contas de utilizador:
 
@@ -240,10 +240,10 @@ O **typeProperties** secção para um conjunto de dados do tipo **AzureDataLakeS
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | **folderPath** |Caminho para o contentor e a pasta no Data Lake Store. |Sim |
-| **fileName** |Nome do ficheiro no Azure Data Lake Store. O **fileName** propriedade é opcional e maiúsculas e minúsculas. <br/><br/>Se especificar **fileName**, a atividade (incluindo cópia) funciona no ficheiro específico.<br/><br/>Quando **fileName** não for especificado, cópia inclui todos os ficheiros no **folderPath** no conjunto de dados de entrada.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída e **preserveHierarchy** não foram especificadas no receptor de atividade, o nome do ficheiro gerado está no formato de dados._ GUID_. txt '. Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |
+| **fileName** |Nome do ficheiro no Azure Data Lake Store. O **fileName** propriedade é opcional e maiúsculas e minúsculas. <br/><br/>Se especificar **fileName**, a atividade (incluindo cópia) funciona no ficheiro específico.<br/><br/>Quando **fileName** não for especificado, cópia inclui todos os ficheiros no **folderPath** no conjunto de dados de entrada.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída e **preserveHierarchy** não foram especificadas no receptor de atividade, o nome do ficheiro gerado está no formato de dados. _GUID_. txt '. Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |
 | **partitionedBy** |O **partitionedBy** propriedade é opcional. Pode utilizá-lo para especificar um caminho dinâmico e um nome de ficheiro para dados de séries de tempo. Por exemplo, **folderPath** podem ser parametrizadas para cada hora dos dados. Para obter detalhes e exemplos, consulte [a propriedade partitionedBy](#using-partitionedby-property). |Não |
-| **format** | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e ** ParquetFormat**. Definir o **tipo** propriedade **formato** para um destes valores. Para obter mais informações, consulte o [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato ](data-factory-supported-file-and-compression-formats.md#parquet-format) secções no [formatos de ficheiro e compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artigo. <br><br> Se pretender copiar ficheiros "como-é" entre arquivos baseados em ficheiros (cópia binário), ignore o `format` secção em ambas as definições do conjunto de dados de entrada e de saída. |Não |
-| **compression** | Especifique o tipo e o nível de compressão de dados. Tipos suportados são **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| **format** | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e  **ParquetFormat**. Definir o **tipo** propriedade **formato** para um destes valores. Para obter mais informações, consulte o [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato ](data-factory-supported-file-and-compression-formats.md#parquet-format) secções no [formatos de ficheiro e compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artigo. <br><br> Se pretender copiar ficheiros "como-é" entre arquivos baseados em ficheiros (cópia binário), ignore o `format` secção em ambas as definições do conjunto de dados de entrada e de saída. |Não |
+| **Compressão** | Especifique o tipo e o nível de compressão de dados. Tipos suportados são **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 ### <a name="the-partitionedby-property"></a>A propriedade partitionedBy
 Pode especificar dinâmica **folderPath** e **fileName** propriedades para dados de séries de tempo com o **partitionedBy** propriedade, funções de Data Factory e variáveis do sistema. Para obter mais informações, consulte o [do Azure Data Factory - as funções e variáveis do sistema](data-factory-functions-variables.md) artigo.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9391072159f26ae8c7d3eba9f023a8e7d62a4e26
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Serviço de aplicações no notas de versão 1 de atualização de pilha do Azure
 
@@ -39,7 +39,7 @@ O serviço de aplicação no número de compilação de 1 de atualização de pi
 ### <a name="prerequisites"></a>Pré-requisitos
 
 > [!IMPORTANT]
-> Novas implementações do serviço de aplicações do Azure na pilha do Azure agora requerem um [certificado de caráter universal de três requerente](azure-stack-app-service-before-you-get-started.md#get-certificates) devido a melhorias na forma no qual o SSO para Kudu agora é processada no App Service do Azure.  O requerente nova é * * *. sso.appservice.<region>. <domainname>.<extension>**
+> Novas implementações do serviço de aplicações do Azure na pilha do Azure agora requerem um [certificado de caráter universal de três requerente](azure-stack-app-service-before-you-get-started.md#get-certificates) devido a melhorias na forma no qual o SSO para Kudu agora é processada no App Service do Azure. O requerente nova é * * *.sso.appservice.<region>.<domainname>.<extension>**
 >
 >
 
@@ -49,11 +49,11 @@ Consulte o [documentação antes de começar a utilizar](azure-stack-app-service
 
 App Service do Azure no Azure pilha Update 1 inclui as seguintes melhorias e correções:
 
-- **Elevada disponibilidade do App Service do Azure** -cargas de trabalho do 1802 de pilha do Azure a atualização ativada para ser implementado em domínios de falha.  Por conseguinte, a infraestrutura de serviço de aplicações é capaz de ser tolerante a falhas, será implementado em vários domínios de falhas.  Por predefinição todas as novas implementações do App Service do Azure irão têm esta capacidade, no entanto, para implementações concluídas antes do Azure pilha 1802 atualização que está a ser aplicada, consulte ao [documentação de domínio de falhas do serviço de aplicações](azure-stack-app-service-fault-domain-update.md)
+- **Elevada disponibilidade do App Service do Azure** -cargas de trabalho do 1802 de pilha do Azure a atualização ativada para ser implementado em domínios de falha. Por conseguinte, a infraestrutura de serviço de aplicações é capaz de ser tolerante a falhas, será implementado em vários domínios de falhas. Por predefinição todas as novas implementações do App Service do Azure tem esta capacidade no entanto, para implementações concluídas antes do Azure pilha 1802 atualização ser aplicada consulte o [documentação de domínio de falhas do serviço de aplicações](azure-stack-app-service-fault-domain-update.md)
 
-- **Implementar na rede virtual existente** -os clientes podem agora implementar o serviço de aplicações na pilha do Azure dentro de uma rede virtual existente.  Implementação de uma rede virtual existente permite aos clientes ligar ao SQL Server e do servidor de ficheiros, necessário para o App Service do Azure, através das portas privadas.  Durante a implementação, os clientes podem selecionar para implementar uma rede virtual existente, no entanto [tem de criar sub-redes para utilização pelo App Service](azure-stack-app-service-before-you-get-started.md#virtual-network) antes da implementação.
+- **Implementar na rede virtual existente** -os clientes podem agora implementar o serviço de aplicações na pilha do Azure dentro de uma rede virtual existente. Implementação de uma rede virtual existente permite aos clientes ligar ao SQL Server e do servidor de ficheiros, necessário para o App Service do Azure, através das portas privadas. Durante a implementação, os clientes podem selecionar para implementar uma rede virtual existente, no entanto [tem de criar sub-redes para utilização pelo App Service](azure-stack-app-service-before-you-get-started.md#virtual-network) antes da implementação.
 
-- Atualizações **inquilino de serviço de aplicações, administrador, portais de funções e as ferramentas do Kudu**.  Consistente com a versão do SDK de Portal de pilha do Azure.
+- Atualizações **inquilino de serviço de aplicações, administrador, portais de funções e as ferramentas do Kudu**. Consistente com a versão do SDK de Portal de pilha do Azure.
 
 - **Atualizações para as seguinte estruturas de aplicações e ferramentas**:
     - Adicionar **.Net Core 2.0** suportar
@@ -105,11 +105,11 @@ App Service do Azure no Azure pilha Update 1 inclui as seguintes melhorias e cor
 
 - Erros de validação de certificado
 
-Alguns clientes tem encontrados problemas quando fornecer certificados para o instalador do serviço de aplicações quando implementar um sistema integrada, devido a validação excessivamente restritiva no instalador do.  O instalador do serviço de aplicação foi lançado novamente, os clientes devem [transferir o instalador atualizado](https://aka.ms/appsvconmasinstaller).  Se continuar a ter problemas de validação de certificados com o instalador atualizado, contacte o suporte.
+Alguns clientes tem encontrados problemas quando fornecer certificados para o instalador do serviço de aplicações quando implementar um sistema integrada, devido a validação excessivamente restritiva no instalador do. O instalador do serviço de aplicação foi lançado novamente, os clientes devem [transferir o instalador atualizado](https://aka.ms/appsvconmasinstaller). Se continuar a ter problemas de validação de certificados com o instalador atualizado, contacte o suporte.
 
 - Problema ao obter o certificado de raiz do Azure pilha do sistema integrado.
 
-Um erro no Get-AzureStackRootCert.ps1 causou uma falha ao obter o certificado de raiz de pilha do Azure ao executar o script num computador que não tenha o certificado de raiz instalado os clientes.  O script também foi novamente lançado, resolver este problema e os clientes de pedido [transferir os scripts de programa auxiliar atualizado](https://aka.ms/appsvconmashelpers).  Se continuar a ter problemas ao obter o certificado de raiz com o script de atualizados, contacte o suporte.
+Um erro no Get-AzureStackRootCert.ps1 causou uma falha ao obter o certificado de raiz de pilha do Azure ao executar o script num computador que não tenha o certificado de raiz instalado os clientes. O script também foi novamente lançado, resolver este problema e os clientes de pedido [transferir os scripts de programa auxiliar atualizado](https://aka.ms/appsvconmashelpers). Se continuar a ter problemas ao obter o certificado de raiz com o script de atualizados, contacte o suporte.
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos relacionados com o processo de atualização
 
@@ -119,12 +119,12 @@ Um erro no Get-AzureStackRootCert.ps1 causou uma falha ao obter o certificado de
 
 - Troca de ranhura não funcionar
 
-Troca de ranhura de site é dividida nesta versão.  Para restaurar a funcionalidade, conclua estes passos:
+Troca de ranhura de site é dividida nesta versão. Para restaurar a funcionalidade, conclua estes passos:
 
-1. Modifique o grupo de segurança de rede ControllersNSG para **permitir** ligações de ambiente de trabalho remotas para as instâncias de controlador do serviço de aplicações.  Substitua o nome do grupo de recursos que implementou o serviço de aplicações no AppService.local.
+1. Modifique o grupo de segurança de rede ControllersNSG para **permitir** ligações de ambiente de trabalho remotas para as instâncias de controlador do serviço de aplicações. Substitua o nome do grupo de recursos que implementou o serviço de aplicações no AppService.local.
 
     ```powershell
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
 
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -146,7 +146,7 @@ Troca de ranhura de site é dividida nesta versão.  Para restaurar a funcionali
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
       ```
 
-2. Navegue para o **CN0 VM** em máquinas virtuais no portal do administrador de pilha do Azure e **clicar em ligar** para abrir uma sessão de ambiente de trabalho remoto com a instância de controlador.  Utilize as credenciais especificadas durante a implementação do serviço de aplicações.
+2. Navegue para o **CN0 VM** em máquinas virtuais no portal do administrador de pilha do Azure e **clicar em ligar** para abrir uma sessão de ambiente de trabalho remoto com a instância de controlador. Utilize as credenciais especificadas durante a implementação do serviço de aplicações.
 3. Iniciar **PowerShell como administrador** e execute o seguinte script
 
     ```powershell
@@ -171,11 +171,11 @@ Troca de ranhura de site é dividida nesta versão.  Para restaurar a funcionali
     ```
 
 4. Feche a sessão de ambiente de trabalho remota.
-5. Reverter o grupo de segurança de rede ControllersNSG para **negar** ligações de ambiente de trabalho remotas para as instâncias de controlador do serviço de aplicações.  Substitua o nome do grupo de recursos que implementou o serviço de aplicações no AppService.local.
+5. Reverter o grupo de segurança de rede ControllersNSG para **negar** ligações de ambiente de trabalho remotas para as instâncias de controlador do serviço de aplicações. Substitua o nome do grupo de recursos que implementou o serviço de aplicações no AppService.local.
 
     ```powershell
 
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
 
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -196,6 +196,18 @@ Troca de ranhura de site é dividida nesta versão.  Para restaurar a funcionali
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
+- Trabalhadores não conseguem alcançar o servidor de ficheiros quando o serviço de aplicações está implementado na rede virtual existente e o servidor de ficheiros só está disponível na rede privada.
+ 
+Se optar por implementar uma rede virtual existente e um endereço IP para ligar ao seu servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB. Para fazê-lo, aceda a WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
+ * Origem: nenhuma
+ * Intervalo de portas de origem: *
+ * Destino: Endereços IP
+ * Intervalo de endereços IP de destino: intervalo de IPs para o servidor de ficheiros
+ * Intervalo de portas de destino: 445
+ * Protocolo: TCP
+ * Ação: permitir
+ * Prioridade: 700
+ * Nome: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemas conhecidos para administradores de nuvem funcionamento do serviço de aplicações do Azure na pilha do Azure
 

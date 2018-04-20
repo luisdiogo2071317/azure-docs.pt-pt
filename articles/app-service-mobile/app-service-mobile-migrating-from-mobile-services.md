@@ -1,11 +1,11 @@
 ---
-title: "Migrar a partir dos Mobile Services a uma aplicação móvel do serviço de aplicações"
-description: "Saiba como migrar facilmente a sua aplicação de Mobile Services a uma aplicação de Mobile do serviço de aplicações"
+title: Migrar a partir dos Mobile Services a uma aplicação móvel do serviço de aplicações
+description: Saiba como migrar facilmente a sua aplicação de Mobile Services a uma aplicação de Mobile do serviço de aplicações
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
 ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="article-top"></a>Migrar o serviço de móvel do Azure existente para o App Service do Azure
 Com o [disponibilidade geral do App Service do Azure], sites de Mobile Services do Azure podem ser migrados facilmente no local para tirar partido de todas as funcionalidades do serviço de aplicações do Azure.  Este documento explica o que esperar quando migrar o seu site de Mobile Services do Azure App Service do Azure.
@@ -269,7 +269,7 @@ As seguintes definições de aplicação adicionais são migrados do seu serviç
 | Definição de aplicação | Descrição |
 |:--- |:--- |
 | **MS\_MobileServiceName** |O nome da sua aplicação |
-| **MS\_MobileServiceDomainSuffix** |O prefixo de domínio. i.e azure-mobile.net |
+| **MS\_MobileServiceDomainSuffix** |O prefixo de domínio. revertidos azure-mobile.net |
 | **MS\_ApplicationKey** |A chave de aplicação |
 | **MS\_MasterKey** |A chave mestra de aplicação |
 
@@ -311,7 +311,7 @@ Diagnóstico está normalmente desativado num serviço de aplicações do Azure.
 4. Selecione **os registos de diagnóstico** sob o menu de funcionalidades.
 5. Clique em **ON** para os seguintes registos: **registo na aplicação (sistema de ficheiros)**, **mensagens de erro detalhadas**, e **rastreio de pedidos falhados**
 6. Clique em **sistema de ficheiros** para registo de servidor Web
-7. Clique em **guardar**
+7. Clicar em **Guardar**
 
 Para ver os registos:
 

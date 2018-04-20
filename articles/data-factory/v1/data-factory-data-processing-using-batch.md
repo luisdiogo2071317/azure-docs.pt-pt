@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 8f0cd8aad2d5c5142fc66c78393b57ff210a7b83
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo através da utilização de fábrica de dados e de Batch
 > [!NOTE]
@@ -42,7 +42,7 @@ Com o serviço Batch, define os recursos de computação do Azure para executar 
 
 Opcionalmente, para saber mais sobre o Batch, consulte o artigo [percurso de aprendizagem do lote](https://azure.microsoft.com/documentation/learning-paths/batch/).
 
-## <a name="why-azure-data-factory"></a>Por que motivo fábrica de dados do Azure?
+## <a name="why-azure-data-factory"></a>Porquê o Azure Data Factory?
 Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o movimento e a transformação de dados. Pode utilizar o Data Factory para criar pipelines de dados geridos que movem os dados no local e na nuvem arquivos de dados para um arquivo de dados centralizada. Um exemplo é Blob storage do Azure. Pode utilizar o Data Factory para processo/transformação dados utilizando os serviços como o Azure HDInsight e o Azure Machine Learning. Também pode agendar pipelines de dados para ser executada de forma agendada (por exemplo, a hora a hora, diariamente e a semanal). Pode monitorizar e gerir pipelines rapidamente para identificar problemas e tomar medidas.
 
   Se não estiver familiarizado com o Data Factory, os artigos seguintes ajudá-lo a compreender a arquitetura de implementação da solução descrita neste artigo:  
@@ -169,7 +169,7 @@ O método tem alguns componentes chave que é necessário compreender:
 * O método utiliza quatro parâmetros:
 
   * **linkedServices**. Este parâmetro é uma lista enumeráveis de serviços ligados para ligar a origens de dados de entrada/saída (por exemplo, armazenamento de BLOBs) à fábrica de dados. Neste exemplo, não há apenas um serviço ligado do tipo de armazenamento do Azure utilizados para a entrada e saída.
-  * **datasets**. Este parâmetro é uma lista enumeráveis de conjuntos de dados. Pode utilizar este parâmetro para obter as localizações e esquemas definidas conjuntos de dados de entrada e de saída.
+  * **conjuntos de dados**. Este parâmetro é uma lista enumeráveis de conjuntos de dados. Pode utilizar este parâmetro para obter as localizações e esquemas definidas conjuntos de dados de entrada e de saída.
   * **atividade**. Este parâmetro representa a entidade de cálculo atual. Neste caso, é um serviço de Batch.
   * **logger**. Pode utilizar o registo para escrever comentários de depuração esse superfície como o registo de "Utilizador" para o pipeline.
 * O método devolve um dicionário que pode ser utilizado encadear atividades personalizadas em conjunto no futuro. Esta funcionalidade ainda não está implementada, por isso, basta devolver um dicionário vazio do método.
@@ -397,7 +397,7 @@ O método tem alguns componentes chave que é necessário compreender:
 
 11. Inicie o Explorador do Windows e vá para o **bin\\depurar** ou **bin\\versão** pasta. A escolha de pasta depende do tipo de compilação.
 
-12. Criar um ficheiro zip **MyDotNetActivity.zip** que contém todos os binários no ** \\bin\\depurar** pasta. Pode querer incluir o MyDotNetActivity. **pdb** para que obtenha detalhes adicionais, tais como o número de linha com o código de origem que causou o problema, quando ocorre uma falha de ficheiros.
+12. Criar um ficheiro zip **MyDotNetActivity.zip** que contém todos os binários no  **\\bin\\depurar** pasta. Pode querer incluir o MyDotNetActivity. **pdb** para que obtenha detalhes adicionais, tais como o número de linha com o código de origem que causou o problema, quando ocorre uma falha de ficheiros.
 
    ![A lista de pasta bin\Debug](./media/data-factory-data-processing-using-batch/image5.png)
 
@@ -664,7 +664,7 @@ Neste passo, vai criar conjuntos de dados para representar os dados de entrada e
 
     A hora de início de cada setor é representada pelo **SliceStart** variável de sistema no fragmento JSON anterior. Seguem-se as horas de início de cada setor.
 
-    | **Slice** | **Start time** (Hora de início)          |
+    | **Setor** | **Start time** (Hora de início)          |
     |-----------|-------------------------|
     | 1         | 2015-11-16T**00**:00:00 |
     | 2         | 2015-11-16T**01**:00:00 |
@@ -674,7 +674,7 @@ Neste passo, vai criar conjuntos de dados para representar os dados de entrada e
 
     O **folderPath** é calculado utilizando a parte ano, mês, dia e hora a hora de início do setor (**SliceStart**). Eis como uma pasta de entrada está mapeada para um setor.
 
-    | **Slice** | **Start time** (Hora de início)          | **Pasta de entrada**  |
+    | **Setor** | **Start time** (Hora de início)          | **Pasta de entrada**  |
     |-----------|-------------------------|-------------------|
     | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
@@ -721,7 +721,7 @@ Neste passo, crie outro conjunto de dados do tipo AzureBlob para representar os 
 
     Um ficheiro/blob de saída é gerado para cada setor de entrada. Eis como um ficheiro de saída é designado para cada setor. Todos os ficheiros de saída são gerados por uma pasta de saída, `mycontainer\\outputfolder`.
 
-    | **Slice** | **Start time** (Hora de início)          | **Ficheiro de saída**       |
+    | **Setor** | **Start time** (Hora de início)          | **Ficheiro de saída**       |
     |-----------|-------------------------|-----------------------|
     | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |

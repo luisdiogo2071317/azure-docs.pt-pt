@@ -1,8 +1,8 @@
 ---
 title: Monitorizar, diagnosticar e resolver problemas de armazenamento do Azure | Microsoft Docs
-description: "Utilize funcionalidades como a análise de armazenamento, o registo do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas relacionados com o Storage do Azure."
+description: Utilize funcionalidades como a análise de armazenamento, o registo do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas relacionados com o Storage do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: fhryo-msft
 manager: jahogg
 editor: tysonn
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.openlocfilehash: b89071048594e1e11efb321da3d0b48005824b46
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -52,7 +52,7 @@ Para obter um guia prática ponto-a-ponto de resolução de problemas em aplica�
   * [Correlacionar dados de registo]
   * [ID do pedido de cliente]
   * [ID do pedido de servidor]
-  * [Timestamps]
+  * [Carimbos]
 * [orientações de resolução de problemas]
   * [métricas mostram AverageE2ELatency alta e baixa AverageServerLatency]
   * [As métricas apresentam uma AverageE2ELatency baixa e uma AverageServerLatency baixa, mas o cliente está a ter latência elevada]
@@ -91,7 +91,7 @@ Este guia destina-se a ser lido principalmente pelos programadores dos serviços
 * Para lhe fornecer os processos necessários e ferramentas para ajudar a decidir se um problema numa aplicação ou um problema relacionado com armazenamento do Azure.
 * Para lhe fornecer orientações acionável para resolver problemas relacionados com o Storage do Azure.
 
-### <a name="how-this-guide-is-organized">Como este guia está organizado</a>
+### <a name="how-this-guide-is-organized"></a>Como este guia está organizado
 A secção "[monitorização do seu serviço de armazenamento]" descreve como monitorizar o estado de funcionamento e desempenho dos seus serviços de armazenamento do Azure através de métricas de análise de armazenamento do Azure (as métricas do Storage).
 
 A secção "[diagnosticar problemas de armazenamento]" descreve como diagnosticar problemas com o registo do Azure Storage Analytics (registo de armazenamento). Também descreve como ativar o registo do lado do cliente utilizando as instalações de uma das bibliotecas de cliente, tais como a biblioteca de clientes de armazenamento para .NET ou o Azure SDK para Java.
@@ -102,7 +102,7 @@ A secção "[orientações de resolução de problemas]" fornece orientações d
 
 O "[Appendices]" incluem informações sobre como utilizar outras ferramentas, como o Wireshark e Netmon, para analisar dados de pacote, o Fiddler para analisar mensagens HTTP/HTTPS, de rede e o Microsoft Message Analyzer para correlacionar dados de registo.
 
-## <a name="monitoring-your-storage-service">O serviço de armazenamento de monitorização</a>
+## <a name="monitoring-your-storage-service"></a>O serviço de armazenamento de monitorização
 Se estiver familiarizado com a monitorização de desempenho do Windows, pode considerar as métricas do Storage como sendo equivalente Storage do Azure de contadores de Monitor de desempenho do Windows. As métricas do Storage, encontrará um conjunto abrangente de métricas (contadores na terminologia de Monitor de desempenho do Windows), tais como a disponibilidade do serviço, número total de pedidos de serviço ou a percentagem de pedidos com êxito ao serviço. Para obter uma lista completa das métricas disponíveis, consulte [armazenamento esquema da tabela de métricas de análise](http://msdn.microsoft.com/library/azure/hh343264.aspx). Pode especificar se pretende que o serviço de armazenamento para recolher e agregar métricas a cada hora ou a cada minuto. Para obter mais informações sobre como ativar as métricas e monitorizar as contas do storage, consulte [ativar as métricas do storage e visualizar dados de métricas](http://go.microsoft.com/fwlink/?LinkId=510865).
 
 Pode escolher as métricas de hora a hora que pretende apresentar no [portal do Azure](https://portal.azure.com) e configurar regras de notificar os administradores por e-mail sempre que uma métrica de hora a hora excede um limiar específico. Para obter mais informações, consulte [receber notificações de alerta](/azure/monitoring-and-diagnostics/monitoring-overview-alerts). 
@@ -124,7 +124,7 @@ Os gráficos na imagem seguinte ilustram como a média que ocorre a cada hora co
 
 O resto esta secção descreve as métricas, deve monitorizar e por que motivo.
 
-### <a name="monitoring-service-health">Monitorização de estado de funcionamento do serviço</a>
+### <a name="monitoring-service-health"></a>Monitorização de estado de funcionamento do serviço
 Pode utilizar o [portal do Azure](https://portal.azure.com) para ver o estado de funcionamento do serviço de armazenamento (e outros serviços do Azure) em todas as regiões do Azure em todo o mundo. Monitorização permite-lhe ver imediatamente se um problema fora do controlo está a afetar o serviço de armazenamento na região que utilizar para a sua aplicação.
 
 O [portal do Azure](https://portal.azure.com) também pode fornecer notificações de incidentes que afetam os vários serviços do Azure.
@@ -132,7 +132,7 @@ Nota: Estas informações estavam anteriormente disponíveis, along com os dados
 
 Enquanto o [portal do Azure](https://portal.azure.com) recolhe informações de estado de funcionamento de dentro de centros de dados do Azure (monitorização do interior-out), pode também considerar adotar uma abordagem de exterior para gerar transações sintéticas que periodicamente aceder a aplicação web alojado no Azure de várias localizações. Os serviços oferecidos por [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) e o Application Insights para Visual Studio Team Services são exemplos desta abordagem. Para mais informações sobre o Application Insights para Visual Studio Team Services, consulte o apêndice "[apêndice 5: monitorizar com o Application Insights para Visual Studio Team Services](#appendix-5)."
 
-### <a name="monitoring-capacity">Capacidade de monitorização</a>
+### <a name="monitoring-capacity"></a>Capacidade de monitorização
 As métricas do Storage apenas armazena as métricas de capacidade para o serviço blob porque blobs normalmente a conta para a maior proporção dos dados armazenados (no momento da escrita, não é possível utilizar as métricas do Storage para monitorizar a capacidade do seu tabelas e filas). Pode encontrar estes dados no **$MetricsCapacityBlob** tabela se tiver ativado a monitorização para o serviço Blob. As métricas do Storage regista estes dados uma vez por dia, e pode utilizar o valor da **RowKey** para determinar se a linha contém uma entidade que está relacionada com a dados de utilizador (valor **dados**) ou dados de análise (valor **análise**). Cada entidade armazenada contém informações sobre a quantidade de armazenamento utilizado (**capacidade** medido em bytes) e o número atual de contentores (**ContainerCount**) e os blobs (**ObjectCount**) em utilização na conta de armazenamento. Para obter mais informações sobre as métricas de capacidade armazenadas no **$MetricsCapacityBlob** tabela, consulte [armazenamento esquema da tabela de métricas de análise](http://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 > [!NOTE]
@@ -142,7 +142,7 @@ As métricas do Storage apenas armazena as métricas de capacidade para o servi�
 
 Para obter ajuda a estimar o tamanho de vários objetos de armazenamento, tais como blobs, consulte a mensagem de blogue [compreender Azure armazenamento faturação – largura de banda, as transações e a capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-### <a name="monitoring-availability">Monitorização de disponibilidade</a>
+### <a name="monitoring-availability"></a>Monitorização de disponibilidade
 Deverá monitorizar a disponibilidade dos serviços de armazenamento na sua conta de armazenamento através da monitorização o valor de **disponibilidade** colunas nas tabelas de métricas de hora a hora ou minutos — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. O **disponibilidade** coluna contém um valor de percentagem que indica a disponibilidade de serviço ou a operação de API representado por linha (o **RowKey** mostra se a linha contém as métricas para o serviço como um todo, ou para uma operação de API específica).
 
 Qualquer valor inferior a 100% indica que alguns pedidos de armazenamento estão a falhar. Pode ver por que motivo falhar, examinando as outras colunas nos dados de métricas que mostram como os números de pedidos com tipos de erro diferente de **ServerTimeoutError**. Deverá ver **disponibilidade** enquadram-se temporariamente inferior a 100% por motivos como tempos limite de servidor transitório enquanto o serviço move partições para melhor pedido de balanceamento de carga; a lógica de repetição na sua aplicação cliente deve processar estas condições intermitentes. O artigo [operações de registadas análise de armazenamento e as mensagens de estado](http://msdn.microsoft.com/library/azure/hh343260.aspx) lista os tipos de transação que inclui as métricas do Storage no respetivo **disponibilidade** cálculo.
@@ -151,7 +151,7 @@ No [portal do Azure](https://portal.azure.com), pode adicionar regras de alertas
 
 O "[orientações de resolução de problemas]" secção deste guia descreve alguns problemas comuns do serviço de armazenamento relacionadas com a disponibilidade.
 
-### <a name="monitoring-performance">Monitorização do desempenho</a>
+### <a name="monitoring-performance"></a>Monitorização do desempenho
 Para monitorizar o desempenho dos serviços de armazenamento, pode utilizar as métricas seguintes das tabelas de métricas de hora a hora e minutos.
 
 * Os valores existentes no **AverageE2ELatency** e **AverageServerLatency** colunas mostram a média do tempo o serviço de armazenamento ou tipo de operação de API está a demorar a pedidos de processo. **AverageE2ELatency** é uma medida de latência de ponto-a-ponto que inclui o tempo necessário para ler o pedido e enviar a resposta para além do tempo que demora a processar o pedido (assim inclui latência de rede quando o pedido atinge o armazenamento serviço); **AverageServerLatency** é uma medida de apenas o tempo de processamento e, por conseguinte, exclui quaisquer latência de rede relacionadas com a comunicar com o cliente. Consulte a secção "[métricas mostram AverageE2ELatency alta e baixa AverageServerLatency]" mais tarde neste guia para um debate do motivo poderão existir uma diferença significativa entre estes dois valores.
@@ -164,7 +164,7 @@ No [portal do Azure](https://portal.azure.com), pode adicionar regras de alertas
 
 O "[orientações de resolução de problemas]" secção deste guia descreve alguns problemas comuns do serviço de armazenamento relacionados com o desempenho.
 
-## <a name="diagnosing-storage-issues">Diagnosticar problemas de armazenamento</a>
+## <a name="diagnosing-storage-issues"></a>Diagnosticar problemas de armazenamento
 Existem várias formas que que pode tornar-se em consideração um problema ou um problema na sua aplicação, incluindo:
 
 * Uma falha de principais que faz com que a aplicação para falhas ou deixe de funcionar.
@@ -181,17 +181,17 @@ Normalmente, problemas relacionados com serviços de armazenamento do Azure enqu
 
 As secções seguintes descrevem os passos que deverá seguir para diagnosticar e resolver problemas em cada um destes quatro categorias. A secção "[orientações de resolução de problemas]" mais adiante neste guia, fornece mais detalhes, para alguns problemas comuns que poderá encontrar.
 
-### <a name="service-health-issues">Problemas de estado de funcionamento de serviço</a>
+### <a name="service-health-issues"></a>Problemas de estado de funcionamento de serviço
 Problemas de estado de funcionamento de serviço normalmente estão fora do controlo. O [portal do Azure](https://portal.azure.com) fornece informações sobre quaisquer problemas em curso com serviços do Azure, incluindo os serviços de armazenamento. Se tiver optado por armazenamento Georredundante com acesso de leitura quando criou a conta de armazenamento, em seguida, se os dados ficam disponíveis na localização principal, a aplicação pode mudar temporariamente para a cópia só de leitura na localização secundária. Para ler a partir do secundário, a aplicação tem de conseguir alternar entre utilizar as localizações de armazenamento primário e secundário e ser capazes de trabalhar no modo de funcionalidade reduzida com dados só de leitura. As bibliotecas de cliente de armazenamento do Azure permitem-lhe definir uma política de repetição pode ler a partir do armazenamento secundário no caso de falha de uma leitura de armazenamento primário. A aplicação também tem de ter em consideração que os dados na localização secundária são eventualmente consistentes. Para obter mais informações, consulte a mensagem de blogue [as opções de redundância do armazenamento do Azure e de armazenamento redundantes do acesso de leitura Georreplicação](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
-### <a name="performance-issues">problemas de desempenho</a>
+### <a name="performance-issues"></a>problemas de desempenho
 O desempenho de uma aplicação pode ser subjetivo, sobretudo na perspetiva do utilizador. Por conseguinte, é importante ter métricas de linha base disponíveis para o ajudar a identificar onde poderá existir um problema de desempenho. Vários fatores, poderão afetar o desempenho de um serviço de armazenamento do Azure da perspetiva de aplicação de cliente. Estes fatores podem operar no serviço de armazenamento, no cliente ou na infraestrutura de rede; Por conseguinte, é importante que tenha uma estratégia para identificar a origem do problema de desempenho.
 
 Depois de identificar a localização provável da causa do problema de métricas de desempenho, em seguida, pode utilizar os ficheiros de registo para encontrar informações detalhadas para diagnosticar e resolver o problema continuar.
 
 A secção "[orientações de resolução de problemas]" mais adiante neste guia fornece mais informações sobre alguns problemas comuns relacionadas com o desempenho poderá encontrar.
 
-### <a name="diagnosing-errors">Erros de diagnóstico</a>
+### <a name="diagnosing-errors"></a>Erros de diagnóstico
 Os utilizadores da sua aplicação podem notificá-lo de erros reportados pela aplicação de cliente. As métricas do Storage também regista contagens dos tipos de erro diferente de serviços de armazenamento como **NetworkError**, **ClientTimeoutError**, ou **AuthorizationError**. Enquanto as métricas do Storage apenas regista contagens dos tipos de erro diferente, pode obter mais detalhes sobre pedidos individuais, examinando o lado do servidor, do lado do cliente e registos de rede. Normalmente, o código de estado HTTP devolvido pelo serviço de armazenamento fornecem uma indicação do motivo pelo qual o pedido falhou.
 
 > [!NOTE]
@@ -207,12 +207,12 @@ Os seguintes recursos são úteis para compreender os códigos de erro e de esta
 * [Códigos de erro do serviço tabela](http://msdn.microsoft.com/library/azure/dd179438.aspx)
 * [Códigos de erro do serviço de ficheiro](https://msdn.microsoft.com/library/azure/dn690119.aspx)
 
-### <a name="storage-emulator-issues">Problemas de emulador de armazenamento</a>
+### <a name="storage-emulator-issues"></a>Problemas de emulador de armazenamento
 O SDK do Azure inclui um emulador do storage que pode executar uma estação de trabalho de desenvolvimento. Este emulador simula maioria do comportamento dos serviços de armazenamento do Azure e é útil durante a programação e teste, permitindo-lhe executar aplicações que utilizam os serviços de armazenamento do Azure sem a necessidade de uma subscrição do Azure e uma conta de armazenamento do Azure.
 
 O "[orientações de resolução de problemas]" secção deste guia descreve alguns problemas comuns encontrados utilizando o emulador de armazenamento.
 
-### <a name="storage-logging-tools">Ferramentas de registo de armazenamento</a>
+### <a name="storage-logging-tools"></a>Ferramentas de registo de armazenamento
 O registo de armazenamento fornece o registo do lado do servidor de pedidos de armazenamento na sua conta do storage do Azure. Para obter mais informações sobre como ativar o registo do lado do servidor e aceder aos dados de registo, consulte [aceder aos dados de registo e ativar o registo de armazenamento](http://go.microsoft.com/fwlink/?LinkId=510867).
 
 A biblioteca de clientes de armazenamento para .NET permite-lhe recolher dados de registo do lado do cliente que está relacionada com operações de armazenamento efetuadas pela sua aplicação. Para obter mais informações, veja [Client-side Logging with the .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkId=510868) (Registo do Lado do Cliente com a Biblioteca de Clientes de Armazenamento .NET).
@@ -222,7 +222,7 @@ A biblioteca de clientes de armazenamento para .NET permite-lhe recolher dados d
 > 
 > 
 
-### <a name="using-network-logging-tools">Utilizar ferramentas de registo de rede</a>
+### <a name="using-network-logging-tools"></a>Utilizar ferramentas de registo de rede
 Pode capturar o tráfego entre o cliente e servidor para fornecer informações detalhadas sobre os dados que são trocar o cliente e o servidor e as condições de rede subjacente. Ferramentas de registo de rede útil incluem:
 
 * [Fiddler](http://www.telerik.com/fiddler) é uma web livre depuração proxy que lhe permite examinar os cabeçalhos e dados do payload de mensagens de pedido e resposta HTTP e HTTPS. Para obter mais informações, consulte [apêndice 1: utilizar o Fiddler para capturar o tráfego HTTP e HTTPS](#appendix-1).
@@ -232,13 +232,13 @@ Pode capturar o tráfego entre o cliente e servidor para fornecer informações 
 
 Em muitos casos, os dados de registo do registo de armazenamento e a biblioteca de clientes de armazenamento serão suficientes para diagnosticar um problema, mas em alguns cenários, poderá ter as informações mais detalhadas que podem fornecer estas ferramentas de registo de rede. Por exemplo, com o Fiddler para ver mensagens de HTTP e HTTPS permite-lhe ver cabeçalho e o payload de dados enviados de e para os serviços de armazenamento, seriam permitem-lhe examinar a forma como uma aplicação cliente repete operações de armazenamento. Analisadores de protocolo, tais como o Wireshark funcionam ao nível do pacote, permitindo-lhe ver os dados TCP, seriam permitem-lhe resolver pacotes perdidas e problemas de conectividade. Analisador de mensagens pode operar em camadas HTTP e TCP.
 
-## <a name="end-to-end-tracing">Rastreio de ponto a ponto</a>
+## <a name="end-to-end-tracing"></a>Rastreio de ponto a ponto
 Utilizando uma variedade de ficheiros de registo de rastreio de ponto a ponto é uma técnica útil para investigar potenciais problemas. Pode utilizar as informações de data/hora dos seus dados de métricas como uma indicação de onde pretende começar a procurar nos ficheiros de registo para as informações detalhadas que o irão ajudar a resolver o problema.
 
-### <a name="correlating-log-data">Correlacionar dados de registo</a>
+### <a name="correlating-log-data"></a>Correlacionar dados de registo
 Ao visualizar registos de aplicações de cliente, rede rastreios e registo de armazenamento do lado do servidor é fundamental para conseguir correlacionar os pedidos entre os diferentes ficheiros de registo. Os ficheiros de registo incluem um número de diferentes campos que são úteis como identificadores de correlação. O ID do pedido de cliente é o campo mais úteis para utilizar para correlacionar entradas nos registos de diferentes. No entanto, por vezes, pode ser útil utilizar o ID de pedido do servidor ou carimbos. As secções seguintes fornecem mais detalhes sobre estas opções.
 
-### <a name="client-request-id">ID do pedido de cliente</a>
+### <a name="client-request-id"></a>ID do pedido de cliente
 A biblioteca de clientes de armazenamento gera automaticamente um ID de pedido de cliente exclusivos para cada pedido.
 
 * No registo do lado do cliente cria a biblioteca de clientes de armazenamento, o ID do pedido de cliente é apresentado no **ID do pedido de cliente** campo cada entrada de registo relacionados com o pedido.
@@ -250,7 +250,7 @@ A biblioteca de clientes de armazenamento gera automaticamente um ID de pedido d
 > 
 > 
 
-### <a name="server-request-id">ID de pedido do servidor</a>
+### <a name="server-request-id"></a>ID de pedido do servidor
 O serviço de armazenamento gera automaticamente os ids de pedido do servidor.
 
 * No registo de registo de armazenamento do lado do servidor, o ID de pedido do servidor é apresentado o **cabeçalho de ID do pedido** coluna.
@@ -473,15 +473,15 @@ Se a aplicação cliente que está a gerar erros de HTTP 403 (proibido), uma cau
 
 | Origem | Verbosidade | Verbosidade | ID de pedido do cliente | Texto de operação |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-… |Iniciar a operação com a localização principal por PrimaryOnly do modo de localização. |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab -… |Iniciar o pedido síncrono https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr = c&amp;Tama = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab -… |A aguardar resposta. |
-| Microsoft.WindowsAzure.Storage |Aviso |2 |85d077ab -… |Excepção emitida ao aguardar pela resposta: O servidor remoto devolveu um erro: proibido (403). |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab -… |Resposta recebida. Código de estado = 403, ID do pedido = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = ETag =. |
-| Microsoft.WindowsAzure.Storage |Aviso |2 |85d077ab -… |Ocorreu uma excepção durante a operação: O servidor remoto devolveu um erro: proibido (403)... |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab -… |A verificar se a operação deve ser repetida. Contagem de tentativas = 0, código de estado HTTP 403, exceção de = = o servidor remoto devolvido um erro: proibido (403)... |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab -… |A localização seguinte foi definida para o servidor primário, o modo de localização. |
-| Microsoft.WindowsAzure.Storage |Erro |1 |85d077ab -… |Política de repetição não permitiu para uma nova tentativa. Falha ao servidor remoto devolveu um erro: proibido (403). |
+| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |Iniciar a operação com a localização principal por PrimaryOnly do modo de localização. |
+| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |Iniciar o pedido síncrono https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14 &amp;sr = c&amp;Tama = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A aguardar resposta. |
+| Microsoft.WindowsAzure.Storage |Aviso |2 |85d077ab-... |Excepção emitida ao aguardar pela resposta: O servidor remoto devolveu um erro: proibido (403). |
+| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |Resposta recebida. Código de estado = 403, ID do pedido = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = ETag =. |
+| Microsoft.WindowsAzure.Storage |Aviso |2 |85d077ab-... |Ocorreu uma excepção durante a operação: O servidor remoto devolveu um erro: proibido (403)... |
+| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A verificar se a operação deve ser repetida. Contagem de tentativas = 0, código de estado HTTP 403, exceção de = = o servidor remoto devolvido um erro: proibido (403)... |
+| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A localização seguinte foi definida para o servidor primário, o modo de localização. |
+| Microsoft.WindowsAzure.Storage |Erro |1 |85d077ab-... |Política de repetição não permitiu para uma nova tentativa. Falha ao servidor remoto devolveu um erro: proibido (403). |
 
 Neste cenário, deve investigar por que motivo o token SAS está prestes a expirar antes do cliente envia o token para o servidor:
 
@@ -519,24 +519,24 @@ Entradas de registo:
 
 | ID do pedido | Texto de operação |
 | --- | --- |
-| 07b26a5d-... |A iniciar o pedido síncrono https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
-| 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| 07b26a5d-... |Iniciar o pedido síncrono https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |StringToSign = HEAD...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, 03 de Jun de 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |A aguardar resposta. |
 | 07b26a5d-... |Resposta recebida. Código de estado 200, ID do pedido de = = eeead849... Content-MD5 = ETag = &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Cabeçalhos de resposta foram processados com êxito, prosseguir com o resto da operação. |
 | 07b26a5d-... |Transferir o corpo da resposta. |
 | 07b26a5d-... |Operação concluída com êxito. |
-| 07b26a5d-... |A iniciar o pedido síncrono https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Iniciar o pedido síncrono https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |A aguardar resposta. |
 | 07b26a5d-... |Resposta recebida. Código de estado = 202, ID do pedido = 6ab2a4cf-..., Content-MD5 = ETag =. |
 | 07b26a5d-... |Cabeçalhos de resposta foram processados com êxito, prosseguir com o resto da operação. |
 | 07b26a5d-... |Transferir o corpo da resposta. |
 | 07b26a5d-... |Operação concluída com êxito. |
-| e2d06d78-... |A iniciar um pedido assíncrono para https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
-| e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |Iniciar um pedido assíncrono para https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
+| e2d06d78-... |StringToSign = HEAD...x-ms-client-request-id:e2d06d78-...x-ms-date:Tue, 03 de Jun de 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |A aguardar resposta. |
-| de8b1c3c-... |A iniciar o pedido síncrono https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |Iniciar o pedido síncrono https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |A preparar a escrever os dados do pedido. |
 | e2d06d78-... |Excepção emitida ao aguardar pela resposta: O servidor remoto devolveu um erro: (404) não encontrado... |
@@ -544,7 +544,7 @@ Entradas de registo:
 | e2d06d78-... |Cabeçalhos de resposta foram processados com êxito, prosseguir com o resto da operação. |
 | e2d06d78-... |Transferir o corpo da resposta. |
 | e2d06d78-... |Operação concluída com êxito. |
-| e2d06d78-... |A iniciar um pedido assíncrono para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| e2d06d78-... |Iniciar um pedido assíncrono para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |A aguardar resposta. |
 | de8b1c3c-... |Escrever os dados no pedido. |
@@ -662,19 +662,19 @@ Normalmente, utilizar o emulador de armazenamento durante o desenvolvimento e te
 * [Erro "o valor para um dos cabeçalhos de HTTP não está no formato correto" quando utilizar o emulador de armazenamento]
 * [Executar o emulador do storage é necessários privilégios administrativos]
 
-#### <a name="feature-X-is-not-working">A funcionalidade "X" não está a funcionar no emulador do storage</a>
+#### <a name="feature-X-is-not-working"></a>A funcionalidade "X" não está a funcionar no emulador do storage
 O emulador de armazenamento não suporta todas as funcionalidades dos serviços de armazenamento do Azure, tais como o serviço de ficheiros. Para obter mais informações, veja [Utilizar o Emulador de Armazenamento do Azure para Programação e Teste](storage-use-emulator.md).
 
 Para essas funcionalidades que não suporta o emulador do storage, utilize o serviço de armazenamento do Azure na nuvem.
 
-#### <a name="error-HTTP-header-not-correct-format">Erro "o valor para um dos cabeçalhos de HTTP não está no formato correto" quando utilizar o emulador de armazenamento</a>
+#### <a name="error-HTTP-header-not-correct-format"></a>Erro "o valor para um dos cabeçalhos de HTTP não está no formato correto" quando utilizar o emulador de armazenamento
 Está a testar a aplicação que utiliza a biblioteca de clientes de armazenamento contra as chamadas de método e emulador de armazenamento local como **CreateIfNotExists** falhar com a mensagem de erro "o valor para um dos cabeçalhos de HTTP não está correto no formato de." Isto indica que a versão do emulador de armazenamento que está a utilizar não suporta a versão da biblioteca de clientes de armazenamento que está a utilizar. A biblioteca de clientes de armazenamento adiciona o cabeçalho **x-ms-version** para todos os pedidos faz. Se o emulador de armazenamento não reconhece o valor de **x-ms-version** cabeçalho, rejeita o pedido.
 
 Pode utilizar os registos de cliente da biblioteca de armazenamento para ver o valor da **cabeçalho x-ms-version** está a enviar. Também pode ver o valor da **cabeçalho x-ms-version** se utilizar o Fiddler para os pedidos de rastreio a partir da sua aplicação de cliente.
 
 Este cenário ocorre normalmente se instalar e utilizar a versão mais recente da biblioteca de clientes de armazenamento sem atualizar o emulador de armazenamento. Deve instalar a versão mais recente do emulador de armazenamento ou utilizar o armazenamento na nuvem em vez do emulador do desenvolvimento e teste.
 
-#### <a name="storage-emulator-requires-administrative-privileges">Executar o emulador do storage é necessários privilégios administrativos</a>
+#### <a name="storage-emulator-requires-administrative-privileges"></a>Executar o emulador do storage é necessários privilégios administrativos
 Lhe for pedido para as credenciais de administrador ao executar o emulador de armazenamento. Isto só ocorre quando está a inicializar o emulador do storage pela primeira vez. Depois de ter iniciado o emulador de armazenamento, não precisa de privilégios administrativos para executá-la novamente.
 
 Para obter mais informações, veja [Utilizar o Emulador de Armazenamento do Azure para Programação e Teste](storage-use-emulator.md). Também pode iniciar o emulador do storage no Visual Studio, será também necessitam de privilégios administrativos.
@@ -834,7 +834,7 @@ Pode encontrar mais informações em [o que é Application Insights](../../appli
 [Correlacionar dados de registo]: #correlating-log-data
 [ID do pedido de cliente]: #client-request-id
 [ID do pedido de servidor]: #server-request-id
-[Timestamps]: #timestamps
+[Carimbos]: #timestamps
 
 [orientações de resolução de problemas]: #troubleshooting-guidance
 [métricas mostram AverageE2ELatency alta e baixa AverageServerLatency]: #metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency
