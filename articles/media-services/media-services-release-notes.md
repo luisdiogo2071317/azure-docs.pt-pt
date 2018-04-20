@@ -1,11 +1,11 @@
 ---
-title: "Notas de versão de Media Services | Microsoft Docs"
-description: "Notas de versão de Media Services"
+title: Notas de versão de Media Services | Microsoft Docs
+description: Notas de versão de Media Services
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20a24aa19989370c6ce82a738193a78f24b0eba9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão de Media Services do Azure
 Estas notas de versão para Media Services do Azure resumem as alterações de versões anteriores e problemas conhecidos.
@@ -47,7 +47,7 @@ Para obter informações sobre o histórico da versão de API de REST dos servi�
 
 ## <a name="october-2017-release"></a>Versão de Outubro de 2017
 > [!IMPORTANT] 
-> Serviços de suporte de dados está a descontinuar o suporte para chaves de autenticação do serviço de controlo de acesso do Azure. No dia 1 de Junho de 2018, já não pode autenticar com o serviços de suporte de dados de back-end através de código através da utilização de chaves do serviço de controlo de acesso. Tem de atualizar o código para utilizar o Azure Active Directory (Azure AD) por [authentication do Azure baseada no AD](media-services-use-aad-auth-to-access-ams-api.md). Procurar avisos sobre esta alteração no portal do Azure.
+> Serviços de suporte de dados está a descontinuar o suporte para chaves de autenticação do serviço de controlo de acesso do Azure. No 22 de Junho de 2018, já não pode autenticar com o serviços de suporte de dados de back-end através de código através da utilização de chaves do serviço de controlo de acesso. Tem de atualizar o código para utilizar o Azure Active Directory (Azure AD) por [authentication do Azure baseada no AD](media-services-use-aad-auth-to-access-ams-api.md). Procurar avisos sobre esta alteração no portal do Azure.
 
 ### <a name="updates-for-october-2017"></a>Atualizações de Outubro de 2017
 #### <a name="sdks"></a>SDKs
@@ -95,7 +95,7 @@ A partir de 1 de Abril de 2017, qualquer registo de tarefas na sua conta mais an
 
 Nos Media Services, um ponto final de transmissão em fluxo representa um serviço de transmissão em fluxo que pode proporcionar o conteúdo diretamente a uma aplicação de leitor de cliente ou a uma rede de entrega de conteúdos (CDN) para uma maior distribuição. Os Media Services também fornecem uma integração perfeita rede de entrega de conteúdos do Azure. O fluxo de saída de um serviço de StreamingEndpoint pode ser uma transmissão em fluxo em direto, um vídeo a pedido ou uma transferência progressiva do seu elemento na sua conta de Media Services. Cada conta de Media Services inclui uma predefinição de ponto final de transmissão em fluxo. Os pontos finais de transmissão em fluxo adicionais podem ser criados com a conta. 
 
-Existem duas versões de transmissão em fluxo pontos finais, 1.0 e 2.0. A partir de 10 de Janeiro de 2017, as contas de serviços de suporte de dados recentemente criadas incluem a predefinição de versão 2.0 ponto final de transmissão em fluxo. Os pontos finais transmissão em fluxo adicionais que adicionar a esta conta também são versão 2.0. Esta alteração não afeta as contas existentes. Os pontos finais de transmissão em fluxo existentes têm a versão 1.0 e podem ser atualizados para a versão 2.0. Existem comportamento, faturação e alterações de funcionalidade com esta alteração. Para obter mais informações, consulte [descrição geral de pontos finais de transmissão em fluxo](media-services-streaming-endpoints-overview.md).
+Existem duas versões de transmissão em fluxo pontos finais, 1.0 e 2.0. A partir de 10 de Janeiro de 2017, as contas de serviços de suporte de dados recentemente criadas incluem a predefinição de versão 2.0 ponto final de transmissão em fluxo. Os pontos finais transmissão em fluxo adicionais que adicionar a esta conta também são versão 2.0. Esta alteração não afeta as contas existentes. Os pontos finais de transmissão em fluxo existentes têm a versão 1.0 e podem ser atualizados para a versão 2.0. Existem comportamento, faturação e alterações de funcionalidade com esta alteração. Para obter mais informações, veja [Streaming endpoints overview](media-services-streaming-endpoints-overview.md) (Descrição geral dos pontos finais de transmissão em fluxo).
 
 Começando com a versão 2.15, os Media Services adicionadas as seguintes propriedades para a entidade de ponto final de transmissão em fluxo:
 
@@ -465,10 +465,10 @@ As seguintes alterações estão incluídas em Junho de 2013 liberta o SDK de Me
 * APIs de relacionadas com a notificação. A partir da versão 2.2.0.0, pode escutar notificações de armazenamento de filas do Azure. Para obter mais informações, consulte [notificações da tarefa processar Media Services](http://msdn.microsoft.com/library/azure/dn261241.aspx).
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property
-    * Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint type
-    * Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription type
-    * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection type
-    * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType type
+    * Tipo de Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint
+    * Tipo de Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription
+    * Tipo de Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection
+    * Tipo de Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType
 * Dependência no cliente do armazenamento SDK 2.0 (Microsoft.WindowsAzure.StorageClient.dll)
 * Dependência de OData 5.5 (Microsoft.Data.OData.dll)
 

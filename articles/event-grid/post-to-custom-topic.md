@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f4323c4e68c639af9a5959af512c1cdd07cdf0c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicar tópico personalizado para a grelha de eventos do Azure
 
@@ -73,7 +73,7 @@ Tópicos personalizado, os dados de nível superior contém os campos mesmos com
 ]
 ```
 
-Para obter uma descrição destas propriedades, consulte [esquema de eventos de grelha de eventos do Azure](event-schema.md).
+Para obter uma descrição destas propriedades, consulte [esquema de eventos de grelha de eventos do Azure](event-schema.md). Quando publicar eventos para um tópico da grelha de eventos, a matriz pode ter um tamanho total de 1 MB. Cada evento na matriz está limitado a 64 KB.
 
 Por exemplo, é um esquema de dados de evento válido:
 
@@ -98,9 +98,10 @@ Após a publicação para o ponto final de tópico, receberá uma resposta. A re
 |Resultado  |Resposta  |
 |---------|---------|
 |Êxito  | 200 OK  |
-|Ponto final incorreto | 404 Não Encontrado |
-|Chave de acesso inválido | 401 não autorizado |
 |Os dados do evento tem um formato incorreto | Pedido de 400 incorreta |
+|Chave de acesso inválido | 401 não autorizado |
+|Ponto final incorreto | 404 Não Encontrado |
+|Evento ou matriz excede os limites de tamanho | Payload 413 demasiado grande |
 
 Existência de erros, o corpo da mensagem tem o seguinte formato:
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: yushwang
 ms.openlocfilehash: b3d9d45da0fb62445867d13c9dff7502af77e8a8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca dos dispositivos de VPN e dos parâmetros IPsec/IKE para ligações do Gateway da Rede de VPNs
 
@@ -160,12 +160,12 @@ A tabela seguinte apresenta as Ofertas de SA IPsec (Modo Rápido de IKE). As ofe
 
 |-  |**Encriptação**|**Autenticação**|**Grupo PFS**|
 |---| ---          |---               |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Nenhuma         |
+| 1 |GCM AES256    |GCM (AES256)      |Nenhum         |
 | 2 |AES256        |SHA1              |Nenhuma         |
 | 3 |3DES          |SHA1              |Nenhuma         |
 | 4 |AES256        |SHA256            |Nenhum         |
 | 5 |AES128        |SHA1              |Nenhuma         |
-| 6 |3DES          |SHA256            |Nenhuma         |
+| 6 |3DES          |SHA256            |Nenhum         |
 
 #### <a name="azure-gateway-as-responder"></a>Gateway do Azure como dispositivo de resposta
 
@@ -176,7 +176,7 @@ A tabela seguinte apresenta as Ofertas de SA IPsec (Modo Rápido de IKE). As ofe
 | 3 |3DES          |SHA1              |Nenhum         |
 | 4 |AES256        |SHA256            |Nenhuma         |
 | 5 |AES128        |SHA1              |Nenhuma         |
-| 6 |3DES          |SHA256            |Nenhuma         |
+| 6 |3DES          |SHA256            |Nenhum         |
 | 7 |DES           |SHA1              |Nenhuma         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |

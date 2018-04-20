@@ -1,11 +1,11 @@
 ---
-title: "Referência de modelo de dados do modelo de API Management do Azure | Microsoft Docs"
-description: "Saiba mais sobre as entidade e tipo representações para itens comuns utilizados em modelos de dados para os modelos de portal do programador na API Management do Azure."
+title: Referência de modelo de dados do modelo de API Management do Azure | Microsoft Docs
+description: Saiba mais sobre as entidade e tipo representações para itens comuns utilizados em modelos de dados para os modelos de portal do programador na API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência de modelo de dados do modelo de API Management do Azure
 Este tópico descreve as representações de entidade e tipo para itens comuns utilizados em modelos de dados para os modelos de portal do programador na API Management do Azure.  
@@ -28,14 +28,14 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 -   [API](#API)  
 -   [Resumo de API](#APISummary)  
 -   [Aplicação](#Application)  
--   [Attachment](#Attachment)  
+-   [Anexo](#Attachment)  
 -   [exemplo de código](#Sample)  
 -   [Comentário](#Comment)  
 -   [Filtragem](#Filtering)  
 -   [Cabeçalho](#Header)  
 -   [Pedido de HTTP](#HTTPRequest)  
 -   [Resposta de HTTP](#HTTPResponse)  
--   [Issue](#Issue)  
+-   [Problema](#Issue)  
 -   [Operação](#Operation)  
 -   [Menu de operação](#Menu)  
 -   [Item de menu de operação](#MenuItem)  
@@ -64,7 +64,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |authenticationSettings|[Definições de autenticação de servidor de autorização](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Coleção de definições de autenticação incluídos nesta API.|  
 |subscriptionKeyParameterNames|objeto|Propriedade opcional que pode ser utilizada para especificar nomes personalizados para os parâmetros de consulta e/ou de cabeçalho que contém a chave de subscrição. Quando esta propriedade está presente, tem de conter, pelo menos, uma das duas propriedades seguintes.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="APISummary">Resumo de API</a>  
+##  <a name="APISummary"></a> Resumo de API  
  O `API summary` entidade tem as seguintes propriedades:  
   
 |Propriedade|Tipo|Descrição|  
@@ -73,7 +73,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |nome|string|Nome da API. Não deve estar vazio. Comprimento máximo é 100 carateres.|  
 |descrição|string|Descrição da API. Não deve estar vazio. Pode incluir a formatação tags HTML. Comprimento máximo é de 1000 carateres.|  
   
-##  <a name="Application">Aplicação</a>  
+##  <a name="Application"></a> Aplicação  
  O `application` entidade tem as seguintes propriedades:  
   
 |Propriedade|Tipo|Descrição|  
@@ -89,7 +89,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |CategoryId|número|A categoria da aplicação (financeiros, entretenimento, etc.)|  
 |DeveloperId|string|O identificador exclusivo do programador que submetido a aplicação.|  
 |Anexos|Coleção de [anexo](#Attachment) entidades.|Os anexos para a aplicação, tais como capturas de ecrã ou ícones.|  
-|Ícone|[Attachment](#Attachment)|O ícone da para a aplicação.|  
+|Ícone|[Anexo](#Attachment)|O ícone da para a aplicação.|  
   
 ##  <a name="Attachment"></a> Anexo  
  O `attachment` entidade tem as seguintes propriedades:  
@@ -101,7 +101,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Tipo|string|O tipo de anexo.|  
 |ContentType|string|O tipo de suporte de dados do anexo.|  
   
-##  <a name="Sample">exemplo de código</a>  
+##  <a name="Sample"></a> exemplo de código  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
@@ -118,7 +118,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |cabeçalhos|Coleção de [cabeçalho](#Header) entidades.|Cabeçalhos para esta operação.|  
 |parâmetros|Coleção de [parâmetro](#Parameter) entidades.|Parâmetros que são definidos para esta operação.|  
   
-##  <a name="Comment">Comentário</a>  
+##  <a name="Comment"></a> Comentário  
  O `API` entidade tem as seguintes propriedades:  
   
 |Propriedade|Tipo|Descrição|  
@@ -144,7 +144,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Anexos|Coleção de [anexo](api-management-template-data-model-reference.md#Attachment) entidades.|Os anexos para o problema.|  
 |Serviços|Coleção de [API](#API) entidades.|As APIs subscrito pelo utilizador que registada o problema.|  
   
-##  <a name="Filtering">Filtragem</a>  
+##  <a name="Filtering"></a> Filtragem  
  O `filtering` entidade tem as seguintes propriedades:  
   
 |Propriedade|Tipo|Descrição|  
@@ -165,7 +165,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Necessário|boolean|Indica se o cabeçalho é necessário.|  
 |readOnly|boolean|Indica se o cabeçalho é só de leitura.|  
   
-##  <a name="HTTPRequest">Pedido de HTTP</a>  
+##  <a name="HTTPRequest"></a> Pedido de HTTP  
  Esta secção descreve o `request` representação.  
   
 |Propriedade|Tipo|Descrição|  
@@ -175,7 +175,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |parâmetros|matriz de [parâmetro](#Parameter)|Coleção de parâmetros de operação de pedido.|  
 |representações|matriz de [representação](#Representation)|Coleção de representações de pedido de operação.|  
   
-##  <a name="HTTPResponse">Resposta de HTTP</a>  
+##  <a name="HTTPResponse"></a> Resposta de HTTP  
  Esta secção descreve o `response` representação.  
   
 |Propriedade|Tipo|Descrição|  
@@ -199,7 +199,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Pedido|[Pedido de HTTP](#HTTPRequest)|Uma entidade que contém detalhes do pedido.|  
 |respostas|matriz de [resposta de HTTP](#HTTPResponse)|Matriz da operação [resposta de HTTP](#HTTPResponse) entidades.|  
   
-##  <a name="Menu">Menu de operação</a>  
+##  <a name="Menu"></a> Menu de operação  
  O `operation menu` entidade tem as seguintes propriedades:  
   
 |Propriedade|Tipo|Descrição|  
@@ -209,7 +209,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Ação|string|O tipo de menu.|  
 |MenuItems|Coleção de [item de menu operação](#MenuItem) entidades.|As operações da API atual.|  
   
-##  <a name="MenuItem">Item de menu de operação</a>  
+##  <a name="MenuItem"></a> Item de menu de operação  
  O `operation menu item` entidade tem as seguintes propriedades:  
   
 |Propriedade|Tipo|Descrição|  
@@ -218,7 +218,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Cargo|string|A descrição da operação.|  
 |httpMethod|string|O método de Http da operação.|  
   
-##  <a name="Paging">Paginação</a>  
+##  <a name="Paging"></a> Paginação  
  O `paging` entidade tem as seguintes propriedades:  
   
 |Propriedade|Tipo|Descrição|  
@@ -229,7 +229,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Mostrartudo|boolean|Indica se deve mo todos os resultados numa única página.|  
 |PageCount|número|O número de páginas de resultados.|  
   
-##  <a name="Parameter">Parâmetro</a>  
+##  <a name="Parameter"></a> Parâmetro  
  Esta secção descreve o `parameter` representação.  
   
 |Propriedade|Descrição|Tipo|  
@@ -242,7 +242,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |tipo|número|Indica se este parâmetro é um parâmetro de caminho (1) ou um parâmetro de cadeia de consulta (2).|  
 |typeName|string|Tipo de parâmetro.|  
   
-##  <a name="Product">Produto</a>  
+##  <a name="Product"></a> Produto  
  O `product` entidade tem as seguintes propriedades:  
   
 |Propriedade|Tipo|Descrição|  
@@ -261,10 +261,10 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |Propriedades|dicionário de cadeia|Propriedades para este fornecedor de autenticação.|  
-|AuthenticationType|string|O tipo de fornecedor. (Azure Active Directory, Facebook início de sessão, a conta do Google, Twitter do Microsoft Account).|  
+|authenticationType|string|O tipo de fornecedor. (Azure Active Directory, Facebook início de sessão, a conta do Google, Twitter do Microsoft Account).|  
 |Legenda|string|Nome a apresentar do fornecedor.|  
   
-##  <a name="Representation">Representação</a>  
+##  <a name="Representation"></a> Representação  
  Esta secção descreve um `representation`.  
   
 |Propriedade|Tipo|Descrição|  
@@ -283,19 +283,19 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |ProductDescription|string|Descrição do produto. Não deve estar vazio. Pode incluir a formatação tags HTML. Comprimento máximo é de 1000 carateres.|  
 |ProductDetailsUrl|string|URL relativo os detalhes do produto.|  
 |state|string|O estado da subscrição. Estados possíveis são:<br /><br /> - `0 - suspended` – a subscrição está bloqueada e o subscritor não é possível chamar as APIs do produto.<br /><br /> - `1 - active` – a subscrição está ativa.<br /><br /> - `2 - expired` – a subscrição atingiu a respetiva data de expiração e foi desativada.<br /><br /> - `3 - submitted` – o pedido de subscrição foi efetuado pelo programador, mas ainda não foi aprovado ou rejeitado.<br /><br /> - `4 - rejected` – o pedido de subscrição foi negado por um administrador.<br /><br /> - `5 - cancelled` – a subscrição foi cancelada pelo administrador ou programador.|  
-|DisplayName|string|Nome a apresentar da subscrição.|  
-|CreatedDate|dateTime|A data a subscrição foi criada, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
+|displayName|string|Nome a apresentar da subscrição.|  
+|CreatedDate|DateTime|A data a subscrição foi criada, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
 |CanBeCancelled|boolean|Indica se a subscrição pode ser cancelada pelo utilizador atual.|  
 |IsAwaitingApproval|boolean|Indica se a subscrição está a aguardar aprovação.|  
-|StartDate|dateTime|A data de início para a subscrição, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
-|ExpirationDate|dateTime|A data de expiração da subscrição, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
-|NotificationDate|dateTime|A data de notificação da subscrição, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
+|StartDate|DateTime|A data de início para a subscrição, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
+|ExpirationDate|DateTime|A data de expiração da subscrição, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
+|NotificationDate|DateTime|A data de notificação da subscrição, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
 |primaryKey|string|A chave primária da subscrição. Comprimento máximo é 256 carateres.|  
 |secondaryKey|string|A chave secundária da subscrição. Comprimento máximo é 256 carateres.|  
 |CanBeRenewed|boolean|Indica se a subscrição pode ser renovada até o utilizador atual.|  
 |HasExpired|boolean|Se a subscrição expirou.|  
 |IsRejected|boolean|Indica se o pedido de subscrição foi negado.|  
-|CancelUrl|string|O Url relativo para cancelar a subscrição.|  
+|cancelUrl|string|O Url relativo para cancelar a subscrição.|  
 |RenewUrl|string|O Url relativo para renovar a subscrição.|  
   
 ##  <a name="SubscriptionSummary"></a> Resumo de subscrição  
@@ -304,7 +304,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |Id|string|Identificador de recurso. Identifica de forma exclusiva a subscrição dentro da instância atual do serviço de API Management. O valor é um URL relativo válido no formato de `subscriptions/{sid}` onde `{sid}` é um identificador de subscrição. Esta propriedade é só de leitura.|  
-|DisplayName|string|O nome a apresentar da subscrição|  
+|displayName|string|O nome a apresentar da subscrição|  
   
 ##  <a name="UserAccountInfo"></a> Informações da conta de utilizador  
  O `user account info` entidade tem as seguintes propriedades:  
@@ -312,8 +312,8 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |FirstName|string|Nome próprio. Não deve estar vazio. Comprimento máximo é 100 carateres.|  
-|LastName|string|Apelido. Não deve estar vazio. Comprimento máximo é 100 carateres.|  
-|E-mail|string|Endereço de correio eletrónico. Não deve estar vazio e tem de ser exclusivos numa instância de serviço. Comprimento máximo é 254 carateres.|  
+|Apelido|string|Apelido. Não deve estar vazio. Comprimento máximo é 100 carateres.|  
+|Email|string|Endereço de e-mail. Não deve estar vazio e tem de ser exclusivos numa instância de serviço. Comprimento máximo é 254 carateres.|  
 |Palavra-passe|string|Palavra-passe da conta de utilizador.|  
 |NameIdentifier|string|Identificador de conta, o mesmo que o e-mail do utilizador.|  
 |ProviderName|string|Nome do fornecedor de autenticação.|  
@@ -324,7 +324,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|E-mail|string|Endereço de correio eletrónico. Não deve estar vazio e tem de ser exclusivos numa instância de serviço. Comprimento máximo é 254 carateres.|  
+|Email|string|Endereço de e-mail. Não deve estar vazio e tem de ser exclusivos numa instância de serviço. Comprimento máximo é 254 carateres.|  
 |Palavra-passe|string|Palavra-passe da conta de utilizador.|  
 |ReturnUrl|string|O URL da página onde o utilizador clica no início de sessão.|  
 |RememberMe|boolean|Indica se deve guardar informações do utilizador atual.|  
@@ -348,9 +348,9 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |UserRegistrationTerms|string|Termos de licenciamento que um utilizador tem de aceitar antes de iniciar sessão.|  
 |UserRegistrationTermsOptions|número|Valor utilizado pelo [inscrição](api-management-page-controls.md#sign-up)controlo de inscrição.|  
 |ConsentAccepted|boolean|Valor utilizado pelo [inscrição](api-management-page-controls.md#sign-up)controlo de inscrição.|  
-|E-mail|string|Endereço de correio eletrónico. Não deve estar vazio e tem de ser exclusivos numa instância de serviço. Comprimento máximo é 254 carateres.|  
+|Email|string|Endereço de e-mail. Não deve estar vazio e tem de ser exclusivos numa instância de serviço. Comprimento máximo é 254 carateres.|  
 |FirstName|string|Nome próprio. Não deve estar vazio. Comprimento máximo é 100 carateres.|  
-|LastName|string|Apelido. Não deve estar vazio. Comprimento máximo é 100 carateres.|  
+|Apelido|string|Apelido. Não deve estar vazio. Comprimento máximo é 100 carateres.|  
 |UserData|string|Valor utilizado pelo [inscrição](api-management-page-controls.md#sign-up) controlo.|  
 |NameIdentifier|string|Valor utilizado pelo [inscrição](api-management-page-controls.md#sign-up)controlo de inscrição.|  
 |ProviderName|string|Nome do fornecedor de autenticação.|

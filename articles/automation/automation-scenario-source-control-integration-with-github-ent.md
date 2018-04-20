@@ -9,10 +9,10 @@ ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: eab61daafe7ef8b5ca2fc1416dc7c04f97b8c671
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Cenário de automatização do Azure – integração de controlo de origem de automatização com o GitHub Enterprise
 
@@ -49,7 +49,7 @@ GitHRWCredential | Recurso de credencial criar para conter o nome de utilizador 
 2. Também é necessária uma área de trabalho de análise de registos com a solução de automatização do Azure ativada e configurada. Se não tiver um que seja associada com a conta de automatização utilizada para instalar e configurar este cenário, é criado e configurado para, quando executar o **New-OnPremiseHybridWorker.ps1** script do runbook worker híbrido.        
 
     > [!NOTE]
-    > Atualmente as seguintes regiões só suportam a integração de automatização com a análise de registos - **Sudeste da Austrália**, **EUA Leste 2**, **Sudeste asiático**, e ** Europa Ocidental**. 
+    > Atualmente as seguintes regiões só suportam a integração de automatização com a análise de registos - **Sudeste da Austrália**, **EUA Leste 2**, **Sudeste asiático**, e  **Europa Ocidental**. 
 
 3. Um computador que possa servir como um trabalho de Runbook híbrida dedicado que aloja também o software de GitHub e manter os ficheiros do runbook (*runbook*. ps1) num diretório de origem no sistema de ficheiros sejam sincronizadas entre GitHub e a automatização conta.
 

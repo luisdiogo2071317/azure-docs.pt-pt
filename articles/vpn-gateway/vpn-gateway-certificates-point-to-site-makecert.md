@@ -1,13 +1,13 @@
 ---
 title: 'Gerar e exportar certificados para ponto a Site: MakeCert: Azure | Microsoft Docs'
-description: "Criar um certificado de raiz autoassinado, exportar a chave pública e gerar os certificados de cliente utilizando o MakeCert."
+description: Criar um certificado de raiz autoassinado, exportar a chave pública e gerar os certificados de cliente utilizando o MakeCert.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
 ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Gerar e exportar certificados para ligações ponto a Site utilizando o MakeCert
 
@@ -100,4 +100,4 @@ Continue com a sua configuração de ponto a Site.
 * Para **Resource Manager** passos de modelo de implementação, consulte [configurar P2S através da autenticação do certificado Azure nativo](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * Para **clássico** passos de modelo de implementação, consulte [configurar uma ligação VPN ponto a Site para uma VNet (clássica)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
-Para informações de resolução de problemas de P2S, [ligações ponto a site de resolução de problemas do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+Para obter informações de resolução de problemas P2S, consulte [Resolução de problemas de ligações ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

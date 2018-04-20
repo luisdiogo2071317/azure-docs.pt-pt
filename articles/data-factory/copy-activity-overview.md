@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/16/2018
 ms.author: jingwang
 ms.openlocfilehash: 3b92aed83e01d223b33f269f0202355836f806c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
@@ -136,7 +136,7 @@ O modelo seguinte de uma atividade de cópia contém uma lista exaustiva de prop
 | Entradas | Especifique o conjunto de dados que criou que aponta para a origem de dados. Atividade de cópia suporta apenas uma única entrada. | Sim |
 | saídas | Especifique o conjunto de dados que criou os pontos de dados sink. Atividade de cópia suporta apenas um único resultado. | Sim |
 | typeProperties | Um grupo de propriedades para configurar a atividade de cópia. | Sim |
-| origem | Especifique o tipo de origem de cópia e as propriedades correspondentes sobre como obter dados.<br/><br/>Saiba os detalhes da secção "Copiar propriedades da atividade" no artigo de conector indicado no [arquivos de dados e formatos suportados](#supported-data-stores-and-formats). | Sim |
+| source | Especifique o tipo de origem de cópia e as propriedades correspondentes sobre como obter dados.<br/><br/>Saiba os detalhes da secção "Copiar propriedades da atividade" no artigo de conector indicado no [arquivos de dados e formatos suportados](#supported-data-stores-and-formats). | Sim |
 | sink | Especifique o tipo de sink de cópia e as propriedades correspondentes como escrever dados.<br/><br/>Saiba os detalhes da secção "Copiar propriedades da atividade" no artigo de conector indicado no [arquivos de dados e formatos suportados](#supported-data-stores-and-formats). | Sim |
 | Tradutor | Especificar mapeamentos de colunas explícita de origem para sink. Aplica-se de que quando o comportamento de cópia predefinido não é possível satisfazer satisfaça as suas necessidades.<br/><br/>Saiba os detalhes da [mapeamento do tipo de esquema e dados](copy-activity-schema-and-type-mapping.md). | Não |
 | cloudDataMovementUnits | Especifique o powerfulness de [Runtime de integração do Azure](concepts-integration-runtime.md) atribuir a cópia de dados.<br/><br/>Saiba os detalhes da [unidades de movimento de dados de nuvem](copy-activity-performance.md). | Não |
@@ -150,7 +150,7 @@ Pode monitorizar a atividade de cópia executar na IU de "Autor e Monitor" da f�
 
 ### <a name="monitor-visually"></a>Monitorizar visualmente
 
-Para monitorizar visualmente a atividade de cópia executar, vá para a fábrica de dados -> **autor & Monitor** -> **separador Monitor**, verá uma lista de pipeline é executada com uma ligação de "Vista atividade estiver em execução" no ** Ações** coluna. 
+Para monitorizar visualmente a atividade de cópia executar, vá para a fábrica de dados -> **autor & Monitor** -> **separador Monitor**, verá uma lista de pipeline é executada com uma ligação de "Vista atividade estiver em execução" no  **Ações** coluna. 
 
 ![Monitorizar execuções de pipeline](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
@@ -173,7 +173,7 @@ Detalhes de execução da atividade de cópia e as características de desempenh
 | Nome da propriedade  | Descrição | Unidade |
 |:--- |:--- |:--- |
 | DataRead | Tamanho dos dados de leitura de origem | Valor Int64 no **bytes** |
-| dataWritten | Tamanho dos dados escrito sink | Valor Int64 no **bytes** |
+| DataWritten | Tamanho dos dados escrito sink | Valor Int64 no **bytes** |
 | filesRead | Número de ficheiros que está a ser copiado ao copiar dados a partir do armazenamento de ficheiros. | Valor Int64 (nenhuma unidade) |
 | filesWritten | Número de ficheiros que está a ser copiado ao copiar dados para armazenamento de ficheiros. | Valor Int64 (nenhuma unidade) |
 | rowsCopied | Número de linhas que está a ser copiados (não aplicável a cópia binária). | Valor Int64 (nenhuma unidade) |

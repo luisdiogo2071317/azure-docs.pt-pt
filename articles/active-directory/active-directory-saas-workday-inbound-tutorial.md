@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas
 
@@ -212,7 +212,7 @@ Neste passo, terá de conceder permissões de política para os dados de trabalh
 
 1. Introduza ativar na caixa de pesquisa e, em seguida, clique na ligação **ativar alterações de política de segurança pendentes**. 
    
-    ![Activate](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activate") 
+    ![Ativar](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "ativar") 
 2. Iniciar a tarefa ativar alterações de política de segurança pendentes ao introduzir um comentário para fins de auditoria e, em seguida, clique em **OK**. 
    
     ![Ativar pendente segurança](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "ativar pendente segurança")   
@@ -364,9 +364,9 @@ Nesta secção, irá configurar a forma como fluem de dados de utilizador do Wor
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  Campo IDdeEmpregado | **Sim** | Escrito no apenas a criar | 
 | **UserID**    |  CN    |   |   Escrito no apenas a criar |
-| **Join("@",[UserID], "contoso.com")**   | userPrincipalName     |     | Escrito no apenas a criar 
+| **Associar ("@", [UserID], "contoso.com")**   | userPrincipalName     |     | Escrito no apenas a criar 
 | **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Escrito no apenas a criar |
-| **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | Criar + atualizar |
+| **Comutador (\[Active Directory\],, "0", "True", "1")** |  AccountDisabled      |     | Criar + atualizar |
 | **FirstName**   | givenName       |     |    Criar + atualizar |
 | **LastName**   |   sn   |     |  Criar + atualizar |
 | **PreferredNameData**  |  displayName |     |   Criar + atualizar |
@@ -374,7 +374,7 @@ Nesta secção, irá configurar a forma como fluem de dados de utilizador do Wor
 | **SupervisoryOrganization**  | Departamento  |     |  Criar + atualizar |
 | **ManagerReference**   | Gestor  |     |  Criar + atualizar |
 | **BusinessTitle**   |  título     |     |  Criar + atualizar | 
-| **AddressLineData**    |  streetAddress  |     |   Criar + atualizar |
+| **AddressLineData**    |  StreetAddress  |     |   Criar + atualizar |
 | **Municipality**   |   l   |     | Criar + atualizar |
 | **CountryReferenceTwoLetter**      |   Co |     |   Criar + atualizar |
 | **CountryReferenceTwoLetter**    |  c  |     |         Criar + atualizar |
@@ -439,7 +439,7 @@ Depois de instalar o agente, execute os comandos do Powershell abaixo para confi
 
 **Comando #5**
 
-> Start-AdSyncAgentSynchronization -Automatic
+> Início AdSyncAgentSynchronization-automática
 
 **Comando #6**
 

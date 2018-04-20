@@ -19,8 +19,8 @@ Não precisará da cadeia de ligação iothubowner para este tutorial de configu
 
 1. No [portal do Azure](https://portal.azure.com/), abra o hub IoT.
 
-2. Clique em **Device Explorer**.
-3. No painel do Device Explorer, clique em **Adicionar** para adicionar um dispositivo ao hub IoT. Em seguida, faça o seguinte:
+2. Clique em **dispositivos IoT**.
+3. No painel de dispositivos do IoT, clique em **adicionar** para adicionar um dispositivo ao seu IoT hub. Em seguida, faça o seguinte:
 
    **ID do Dispositivo**: introduza o ID do novo dispositivo. Os IDs dos dispositivos são sensíveis às maiúsculas e minúsculas.
 
@@ -30,12 +30,15 @@ Não precisará da cadeia de ligação iothubowner para este tutorial de configu
 
    **Ligar dispositivo ao Hub IoT**: clique em **Ativar**.
 
-   ![Adicionar um dispositivo no Device Explorer do hub IoT](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   ![Adicionar um dispositivo em dispositivos IoT do seu IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Clique em **Guardar**.
-5. Depois da criação do dispositivo, abra-o no painel **Device Explorer**.
+5. Depois do dispositivo é criado, abra o dispositivo no **dispositivos IoT** painel.
+
+   ![Lista de dispositivos de IoT no IoT Hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
+
 6. Anote a chave primária da cadeia de ligação.
 
-   ![Obter a cadeia de ligação do dispositivo](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![Obter a cadeia de ligação do dispositivo](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)

@@ -1,11 +1,11 @@
 ---
-title: "Acionadores de fluxo de trabalho e ações - Azure Logic Apps | Microsoft Docs"
-description: "Saiba mais sobre os acionadores e ações para a criação de fluxos de trabalho automatizados e processos com logic apps"
+title: Acionadores de fluxo de trabalho e ações - Azure Logic Apps | Microsoft Docs
+description: Saiba mais sobre os acionadores e ações para a criação de fluxos de trabalho automatizados e processos com logic apps
 services: logic-apps
 author: divyaswarnkar
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
 ms.workload: integration
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: klam; LADocs
 ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Acionadores e ações para fluxos de trabalho de aplicação de lógica
 
@@ -181,7 +181,7 @@ Este acionador tem uma propriedade opcional denominada `schema`:
   
 | Nome do elemento | Necessário | Tipo | Descrição |
 | ------------ | -------- | ---- | ----------- |
-| schema | Não | Objeto | Um esquema JSON que valida o pedido de entrada. Útil para ajudar a saber quais as propriedades para fazer referência de passos de fluxo de trabalho subsequentes. | 
+| Esquema | Não | Objeto | Um esquema JSON que valida o pedido de entrada. Útil para ajudar a saber quais as propriedades para fazer referência de passos de fluxo de trabalho subsequentes. | 
 ||||| 
 
 Para invocar este acionador como um ponto final, tem de chamar o `listCallbackUrl` API. Consulte [API de REST do serviço de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows).
@@ -506,15 +506,15 @@ Existem muitos tipos de ações, cada um com o comportamento exclusivo. Cada tip
 | **Resposta** | Define a resposta para uma chamada. | 
 | **Compor** | Constrói um objeto arbitrário de entradas a ação. | 
 | **Função** | Representa uma função do Azure. | 
-| **Wait** | Aguarda uma quantidade fixa de tempo ou até uma hora específica. | 
-| **Workflow** | Representa um fluxo de trabalho aninhado. | 
+| **Aguarde** | Aguarda uma quantidade fixa de tempo ou até uma hora específica. | 
+| **fluxo de trabalho** | Representa um fluxo de trabalho aninhado. | 
 | **Compor** | Constrói um objeto arbitrário de entradas a ação. | 
 | **Consulta** | Filtra uma matriz baseada numa condição. | 
 | **Selecionar** | Projetos cada elemento de uma matriz para um novo valor. Por exemplo, pode converter uma matriz dos números existentes numa matriz de objetos. | 
-| **Table** | Converte uma matriz de itens numa tabela CSV ou HTML. | 
-| **Terminate** | Deixa de executar um fluxo de trabalho. | 
-| **Wait** | Aguarda uma quantidade fixa de tempo ou até uma hora específica. | 
-| **Workflow** | Representa um fluxo de trabalho aninhado. | 
+| **Tabela** | Converte uma matriz de itens numa tabela CSV ou HTML. | 
+| **Terminar** | Deixa de executar um fluxo de trabalho. | 
+| **Aguarde** | Aguarda uma quantidade fixa de tempo ou até uma hora específica. | 
+| **fluxo de trabalho** | Representa um fluxo de trabalho aninhado. | 
 ||| 
 
 ### <a name="collection-actions"></a>Ações de coleção
@@ -522,7 +522,7 @@ Existem muitos tipos de ações, cada um com o comportamento exclusivo. Cada tip
 | Tipo de ação | Descrição | 
 | ----------- | ----------- | 
 | **If** | Avalia uma expressão e com base no resultado, é executado o ramo correspondente. | 
-| **Switch** | Execute ações diferentes com base nos valores específicos de um objeto. | 
+| **comutador** | Execute ações diferentes com base nos valores específicos de um objeto. | 
 | **ForEach** | Esta ação ciclo itera através de uma matriz e efetua ações internas em cada item de matriz. | 
 | **até** | Esta ação ciclo efetua ações internas até que uma condição resulta como true. | 
 | **Âmbito** | Utilize para agrupar logicamente outras ações. | 

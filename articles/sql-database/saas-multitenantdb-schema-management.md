@@ -1,6 +1,6 @@
 ---
-title: "Gerir o esquema da Base de Dados SQL numa aplicação multi-inquilino | Microsoft Docs"
-description: "Gerir o Esquema para vários inquilinos numa aplicação multi-inquilino que utiliza a Base de Dados SQL do Azure"
+title: Gerir o esquema da Base de Dados SQL numa aplicação multi-inquilino | Microsoft Docs
+description: Gerir o Esquema para vários inquilinos numa aplicação multi-inquilino que utiliza a Base de Dados SQL do Azure
 keywords: tutorial de base de dados sql
 services: sql-database
 author: MightyPen
@@ -12,10 +12,10 @@ ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
 ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerir o esquema de uma aplicação SaaS que utiliza a bases de dados SQL de multi-inquilinos
 
@@ -51,7 +51,7 @@ Neste tutorial, ficará a saber como:
 - O Azure PowerShell tem de estar instalado. Para obter mais informações, consulte [introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Este tutorial utiliza funcionalidades do serviço SQL Database do Azure que se encontrem numa pré-visualização limitada ([tarefas de bases de dados elásticas](sql-database-elastic-database-client-library.md)). Se pretender fazer neste tutorial, forneça o ID de subscrição para  *SaaSFeedback@microsoft.com*  com o requerente = elástico de tarefas de pré-visualização. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Esta pré-visualização é limitada, por isso, contacte  *SaaSFeedback@microsoft.com*  para suporte ou questões relacionados.
+> Este tutorial utiliza funcionalidades do serviço SQL Database do Azure que se encontrem numa pré-visualização limitada ([tarefas de bases de dados elásticas](sql-database-elastic-database-client-library.md)). Se pretender fazer neste tutorial, forneça o ID de subscrição para *SaaSFeedback@microsoft.com* com o requerente = elástico de tarefas de pré-visualização. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Esta pré-visualização é limitada, por isso, contacte *SaaSFeedback@microsoft.com* para suporte ou questões relacionados.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introdução aos padrões de gestão do esquema de SaaS
 

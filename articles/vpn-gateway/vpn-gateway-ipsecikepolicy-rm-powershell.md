@@ -1,11 +1,11 @@
 ---
-title: "Configurar a política de IPsec/IKE para ligações S2S VPN ou VNet a VNet: o Gestor de recursos do Azure: PowerShell | Microsoft Docs"
-description: "Configure a política de IPsec/IKE para ligações S2S ou VNet a VNet com Gateways de VPN do Azure com o Azure Resource Manager e o PowerShell."
+title: 'Configurar a política de IPsec/IKE para ligações S2S VPN ou VNet a VNet: o Gestor de recursos do Azure: PowerShell | Microsoft Docs'
+description: Configure a política de IPsec/IKE para ligações S2S ou VNet a VNet com Gateways de VPN do Azure com o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 19233ccd306f507ef2e36bee878aa9705c115780
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fa1aed76f63e500a6c2849fb9b62a918e85c9fb0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar a política de IPsec/IKE para ligações S2S VPN ou VNet a VNet
 
@@ -44,7 +44,7 @@ Este artigo fornece instruções para criar e configurar uma política de IPsec/
 > 3. Tem de especificar todos os algoritmos e parâmetros para IKE (modo principal) e IPsec (modo rápido). Não é permitida a especificação da política parcial.
 > 4. Consulte o seu especificações de fornecedor do dispositivo VPN para garantir que a política é suportada nos seus dispositivos VPN no local. S2S ou ligações VNet a VNet não é possível estabelecer se as políticas são incompatíveis.
 
-## <a name ="workflow">Parte 1 - fluxo de trabalho para criar e definir políticas de IPsec/IKE</a>
+## <a name ="workflow"></a>Parte 1 - fluxo de trabalho para criar e definir políticas de IPsec/IKE
 Esta secção descreve o fluxo de trabalho para criar e atualizar a política de IPsec/IKE numa ligação S2S VPN ou VNet a VNet:
 1. Criar uma rede virtual e um gateway de VPN
 2. Criar um gateway de rede local para cruzada ligação no local, ou outra rede virtual e um gateway para a ligação VNet a VNet
@@ -54,7 +54,7 @@ Esta secção descreve o fluxo de trabalho para criar e atualizar a política de
 
 As instruções neste artigo ajuda-o a configurar as políticas de IPsec/IKE conforme mostrado no diagrama:
 
-![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![política de ike IPSec](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 ## <a name ="params"></a>Parte 2 - suportado de algoritmos criptográficos & força da codificação chave
 
@@ -111,11 +111,11 @@ A tabela seguinte lista os grupos de Diffie-Hellman correspondente suportado pel
 
 Consulte [RFC3526](https://tools.ietf.org/html/rfc3526) e [RFC5114](https://tools.ietf.org/html/rfc5114) para obter mais detalhes.
 
-## <a name ="crossprem">Parte 3 – criar uma nova ligação S2S VPN com a política de IPsec/IKE</a>
+## <a name ="crossprem"></a>Parte 3 – criar uma nova ligação S2S VPN com a política de IPsec/IKE
 
 Esta secção explica os passos de criação de uma ligação S2S VPN com uma política de IPsec/IKE. Os seguintes passos criar a ligação, conforme mostrado no diagrama:
 
-![s2s-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png)
+![política de s2s](./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png)
 
 Consulte [criar uma ligação S2S VPN](vpn-gateway-create-site-to-site-rm-powershell.md) para obter mais instruções passo a passo para criar uma ligação S2S VPN.
 
@@ -162,7 +162,7 @@ Confirme que muda para o modo do PowerShell para utilizar os cmdlets do Resource
 Abra a consola do PowerShell e ligue-se à sua conta. Utilize o seguinte exemplo para o ajudar na ligação:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -220,7 +220,7 @@ Opcionalmente, pode adicionar "-UsePolicyBasedTrafficSelectors $True" para o cmd
 > Assim que for especificada uma política de IPsec/IKE numa ligação, o gateway de VPN do Azure só irá enviar ou aceitar a proposta de IPsec/IKE com algoritmos criptográficos especificados e força da codificação chave nessa ligação específica. Certifique-se de que o dispositivo VPN no local para a ligação utiliza ou aceita a combinação de política exata, caso contrário, o túnel S2S VPN não irão estabelecer.
 
 
-## <a name ="vnet2vnet">Parte 4 - criar uma nova ligação de VNet a VNet com a política de IPsec/IKE</a>
+## <a name ="vnet2vnet"></a>Parte 4 - criar uma nova ligação de VNet a VNet com a política de IPsec/IKE
 
 Os passos de criação de uma ligação VNet a VNet com uma política de IPsec/IKE são semelhantes de uma ligação S2S VPN. Os scripts de exemplo seguintes criar a ligação, conforme mostrado no diagrama:
 
@@ -305,7 +305,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 
 Depois de concluir estes passos, a ligação é estabelecida dentro de alguns minutos e terá a seguinte topologia de rede, conforme mostrado no início:
 
-![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![política de ike IPSec](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 
 ## <a name ="managepolicy"></a>Parte 5 - política de atualização IPsec/IKE para uma ligação

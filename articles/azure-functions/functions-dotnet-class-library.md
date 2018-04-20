@@ -1,25 +1,25 @@
 ---
-title: "Azure funções c# de referência para programadores"
-description: "Compreenda como desenvolver as funções do Azure com c#."
+title: Azure funções c# de referência para programadores
+description: Compreenda como desenvolver as funções do Azure com c#.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
-ms.author: glenga
-ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: tdykstra
+ms.openlocfilehash: e5310c59cbfe4080911768f29e1b8f635a611e63
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure funções c# de referência para programadores
 
@@ -235,7 +235,7 @@ public static class SimpleExample
 
 ## <a name="async"></a>Async
 
-Para efetuar uma função assíncrona, utilize o `async` palavra-chave e devolver um `Task` objeto.
+Para tornar uma função [assíncrona](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), utilize o `async` palavra-chave e devolver um `Task` objeto.
 
 ```csharp
 public static class AsyncExample
@@ -386,11 +386,11 @@ A tabela seguinte lista os atributos de enlace que estão disponíveis no projet
 | [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
 | [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||
 | [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [fila](functions-bindings-storage-queue.md#output---attributes) |
-| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [ServiceBus](functions-bindings-service-bus.md#output---attributes) |
+| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [Barramento de serviço](functions-bindings-service-bus.md#output---attributes) |
 | [TimerTrigger](functions-bindings-timer.md#attributes) | ||
 | |[ApiHubFile](functions-bindings-external-file.md)| [ApiHubFile](functions-bindings-external-file.md)|
 | |[MobileTable](functions-bindings-mobile-apps.md#input---attributes)| [MobileTable](functions-bindings-mobile-apps.md#output---attributes) | 
-| |[Table](functions-bindings-storage-table.md#input---attributes)| [Table](functions-bindings-storage-table.md#output---attributes)  | 
+| |[Tabela](functions-bindings-storage-table.md#input---attributes)| [Tabela](functions-bindings-storage-table.md#output---attributes)  | 
 | ||[NotificationHub](functions-bindings-notification-hubs.md#attributes) |
 | ||[SendGrid](functions-bindings-sendgrid.md#attributes) |
 | ||[Twilio](functions-bindings-twilio.md#attributes)| 

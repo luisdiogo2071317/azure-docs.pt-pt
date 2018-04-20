@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>As expressões e funções no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ As expressões podem aparecer em qualquer local, um valor de cadeia JSON e sempr
 |Valor JSON|Resultado|  
 |----------------|------------|  
 |"parâmetros de"|Os carateres 'parameters' são devolvidos.|  
-|"parameters[1]"|Os carateres 'parameters [1]' são devolvidos.|  
+|"parâmetros de [1]"|Os carateres 'parameters [1]' são devolvidos.|  
 |"@@"|Uma cadeia de 1 caráter que contém ' @' é devolvido.|  
 |" @"|Uma cadeia de carateres de 2 que contém ' @' é devolvido.|  
   
@@ -61,9 +61,9 @@ As expressões podem aparecer em qualquer local, um valor de cadeia JSON e sempr
 |Valor JSON|Resultado|  
 |----------------|------------|  
 |"@pipeline(). parameters.myString"| Devolve `foo` como uma cadeia.|  
-|"@{pipeline().parameters.myString}"| Devolve `foo` como uma cadeia.|  
-|"@pipeline().parameters.myNumber"| Devolve `42` como um *número*.|  
-|"@{pipeline().parameters.myNumber}"| Devolve `42` como um *cadeia*.|  
+|"@{pipeline ().parameters.myString}"| Devolve `foo` como uma cadeia.|  
+|"@pipeline(). parameters.myNumber"| Devolve `42` como um *número*.|  
+|"@{pipeline ().parameters.myNumber}"| Devolve `42` como um *cadeia*.|  
 |"Resposta é: @{pipeline ().parameters.myNumber}"| Devolve a cadeia `Answer is: 42`.|  
 |"@concat(' Resposta é: ', string(pipeline().parameters.myNumber))"| Devolve a cadeia `Answer is: 42`|  
 |"Resposta é: @ @ {pipeline ().parameters.myNumber}"| Devolve a cadeia `Answer is: @{pipeline().parameters.myNumber}`.|  
@@ -154,12 +154,12 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 |Nome da função|Descrição|  
 |-------------------|-----------------|  
 |concat|Combina qualquer número de cadeias em conjunto. Por exemplo, se for parameter1 `foo,` a seguinte expressão devolvam `somevalue-foo-somevalue`:  `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Número de parâmetro**: 1... *n*<br /><br /> **Nome**: cadeia *n*<br /><br /> **Descrição**: necessário. As cadeias de combinar numa cadeia única.|  
-|subcadeia|Devolve um subconjunto de carateres a partir de uma cadeia. Por exemplo, a seguinte expressão:<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> Devolve:<br /><br /> `foo`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia a partir da qual foi efetuada a subcadeia.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: índice inicial<br /><br /> **Descrição**: necessário. O índice de onde a subcadeia começa no parâmetro 1.<br /><br /> **Número de parâmetro**: 3<br /><br /> **Name**: Length<br /><br /> **Descrição**: necessário. O comprimento da subcadeia.|  
+|subcadeia|Devolve um subconjunto de carateres a partir de uma cadeia. Por exemplo, a seguinte expressão:<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> Devolve:<br /><br /> `foo`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia a partir da qual foi efetuada a subcadeia.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: índice inicial<br /><br /> **Descrição**: necessário. O índice de onde a subcadeia começa no parâmetro 1.<br /><br /> **Número de parâmetro**: 3<br /><br /> **Nome**: comprimento<br /><br /> **Descrição**: necessário. O comprimento da subcadeia.|  
 |Substituir|Substitui uma cadeia com uma determinada cadeia. Por exemplo, a expressão:<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> Devolve:<br /><br /> `the new string`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário.  Se não for encontrado 2 de parâmetro no parâmetro 1, a cadeia é procurado para o parâmetro 2 e atualizado com o parâmetro 3.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: cadeia antiga<br /><br /> **Descrição**: necessário. A cadeia de substituir pelo parâmetro 3 quando é encontrada uma correspondência no parâmetro 1<br /><br /> **Número de parâmetro**: 3<br /><br /> **Nome**: nova cadeia<br /><br /> **Descrição**: necessário. A cadeia é utilizada para substituir a cadeia no parâmetro 2 quando é encontrada uma correspondência no parâmetro 1.|  
 |GUID| Gera uma cadeia exclusiva global (também conhecido como. GUID). Por exemplo, foi possível gerar o seguinte resultado `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: formato<br /><br /> **Descrição**: opcional. Um especificador de formato único indica [como formatar o valor deste Guid](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). O parâmetro de formato pode ser "N", "D", "B", "P" ou "X". Se o formato não for fornecido, "D" é utilizada.|  
 |toLower|Converte uma cadeia em minúsculas. Por exemplo, o seguinte devolve `two by two is four`:  `toLower('Two by Two is Four')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia a converter para maiúsculas e minúsculas inferior. Se um carácter na cadeia de não tiver um equivalente em minúsculas, é incluída inalterados na cadeia devolvida.|  
 |toUpper|Converte uma cadeia em maiúsculas. Por exemplo, a seguinte expressão devolve `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia a converter para maiúsculas e minúsculas superior. Se um carácter na cadeia de não tiver um equivalente em maiúsculas, é incluída inalterados na cadeia devolvida.|  
-|indexof|Localize o índice de um valor dentro de um caso de cadeia insensitively. Por exemplo, a seguinte expressão devolve `7`: `indexof('hello, world.', 'world')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia que pode conter o valor.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. O valor a pesquisar o índice da.|  
+|indexOf|Localize o índice de um valor dentro de um caso de cadeia insensitively. Por exemplo, a seguinte expressão devolve `7`: `indexof('hello, world.', 'world')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia que pode conter o valor.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. O valor a pesquisar o índice da.|  
 |lastindexof|Localize o índice de um valor dentro de um caso de cadeia último insensitively. Por exemplo, a seguinte expressão devolve `3`: `lastindexof('foofoo', 'foo')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia que pode conter o valor.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. O valor a pesquisar o índice da.|  
 |startswith|Verifica se a cadeia começa com um caso de valor insensitively. Por exemplo, a seguinte expressão devolve `true`: `lastindexof('hello, world', 'hello')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia que pode conter o valor.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. O valor de cadeia pode começar a utilizar.|  
 |endswith|Verifica se a cadeia termina com um caso de valor insensitively. Por exemplo, a seguinte expressão devolve `true`: `lastindexof('hello, world', 'world')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia que pode conter o valor.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. O valor de cadeia pode terminar com.|  
@@ -194,16 +194,16 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 |e|Devolve true se ambos os parâmetros são verdadeiras. Ambos os argumentos tem de ser em booleanos. A seguinte devolve `false`:  `and(greater(1,10),equals(0,0))`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: 1 booleano<br /><br /> **Descrição**: necessário. O primeiro argumento tem de ser `true`.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: 2 booleano<br /><br /> **Descrição**: necessário. O segundo argumento tem de ser `true`.|  
 |ou|Devolve true se qualquer um dos parâmetros são VERDADEIRO. Ambos os argumentos tem de ser em booleanos. A seguinte devolve `true`:  `or(greater(1,10),equals(0,0))`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: 1 booleano<br /><br /> **Descrição**: necessário. O primeiro argumento que pode ser `true`.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: 2 booleano<br /><br /> **Descrição**: necessário. O segundo argumento pode ser `true`.|  
 |não|Devolve VERDADEIRO se o parâmetro for `false`. Ambos os argumentos tem de ser em booleanos. A seguinte devolve `true`:  `not(contains('200 Success','Fail'))`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: booleano<br /><br /> **Descrição**: devolve true se o parâmetro é `false`. Ambos os argumentos tem de ser em booleanos. A seguinte devolve `true`:  `not(contains('200 Success','Fail'))`|  
-|if|Devolve um valor especificado com base em se os resultados de expressão fornecido no `true` ou `false`.  Por exemplo, o seguinte devolve `"yes"`: `if(equals(1, 1), 'yes', 'no')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: expressão<br /><br /> **Descrição**: necessário. Um valor booleano que determina qual o valor é devolvido pela expressão.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: VERDADEIRO<br /><br /> **Descrição**: necessário. O valor a devolver se a expressão é `true`.<br /><br /> **Número de parâmetro**: 3<br /><br /> **Nome**: False<br /><br /> **Descrição**: necessário. O valor a devolver se a expressão é `false`.|  
+|Se|Devolve um valor especificado com base em se os resultados de expressão fornecido no `true` ou `false`.  Por exemplo, o seguinte devolve `"yes"`: `if(equals(1, 1), 'yes', 'no')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: expressão<br /><br /> **Descrição**: necessário. Um valor booleano que determina qual o valor é devolvido pela expressão.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: VERDADEIRO<br /><br /> **Descrição**: necessário. O valor a devolver se a expressão é `true`.<br /><br /> **Número de parâmetro**: 3<br /><br /> **Nome**: False<br /><br /> **Descrição**: necessário. O valor a devolver se a expressão é `false`.|  
   
 ## <a name="conversion-functions"></a>Funções de conversão  
  Estas funções são utilizadas para a conversão entre cada um dos tipos nativos no idioma:  
   
 -   string  
   
--   integer  
+-   número inteiro  
   
--   float  
+-   Número de vírgula flutuante  
   
 -   boolean  
   
@@ -216,7 +216,7 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 |Int|Converta o parâmetro para um número inteiro. Por exemplo, a seguinte expressão devolve 100 como um número, em vez de uma cadeia:  `int('100')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um número inteiro.|  
 |string|Converta o parâmetro numa cadeia. Por exemplo, a seguinte expressão devolve `'10'`: `string(10)` também pode converter um objeto de uma cadeia, por exemplo, se o **foo** parâmetro é um objeto com uma propriedade `bar : baz`, em seguida, teria o seguinte devolver `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido numa cadeia.|  
 |json|Converta o parâmetro para um valor de tipo JSON. É o oposto da string(). Por exemplo, a seguinte expressão devolve `[1,2,3]` como uma matriz, em vez de uma cadeia:<br /><br /> `parse('[1,2,3]')`<br /><br /> Da mesma forma, pode converter uma cadeia para um objeto. Por exemplo, `json('{"bar" : "baz"}')` devolve:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia que é convertida para um valor de tipo nativo.<br /><br /> A função de json suporta também a entrada de xml. Por exemplo, o valor do parâmetro:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> é convertido para o seguinte json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|float|Converta o argumento de parâmetro para um número de vírgula flutuante. Por exemplo, a seguinte expressão devolve `10.333`:  `float('10.333')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um número de vírgula flutuante.|  
+|Número de vírgula flutuante|Converta o argumento de parâmetro para um número de vírgula flutuante. Por exemplo, a seguinte expressão devolve `10.333`:  `float('10.333')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um número de vírgula flutuante.|  
 |bool|Converta o parâmetro booleano. Por exemplo, a seguinte expressão devolve `false`:  `bool(0)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um valor booleano.|  
 |Unir|Devolve o objeto não nulo primeiro os argumentos transmitidos. Nota: uma cadeia vazia não é nula. Por exemplo, se não for definidos um parâmetros 1 e 2, esta ação devolve `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Número de parâmetro**: 1... *n*<br /><br /> **Nome**: objeto*n*<br /><br /> **Descrição**: necessário. Os objetos para procurar `null`.|  
 |base64|Devolve a representação de base64 de cadeia de entrada. Por exemplo, a seguinte expressão devolve `c29tZSBzdHJpbmc=`:  `base64('some string')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: 1 de cadeia<br /><br /> **Descrição**: necessário. A cadeia de codificar para base64 representação.|  

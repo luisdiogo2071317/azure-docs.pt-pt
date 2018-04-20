@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: f42f20893a815640378b9d18186c88b782e61284
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: df13f23908aa787bfcc579340ed0aa6cb0d5ed29
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Encriptação de disco do Azure para o Windows e as VMs de Linux IaaS
 Microsoft Azure é vivamente consolidada para assegurar a privacidade dos dados, soberania de dados e permite avançadas, para controlar o Azure alojadas dados através de uma variedade de tecnologias para encriptar, controlar e gerir chaves de encriptação, controlo & auditar o acesso aos dados. Isto proporciona aos clientes do Azure a flexibilidade para escolher a solução que melhor se adeque às suas necessidades de negócio. Neste documento, vamos apresenta-lhe uma nova solução de tecnologia "Do Azure Disk Encryption para o Windows e de Linux IaaS VM" para ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacional. O documento fornece orientações detalhadas sobre como utilizar as funcionalidades de encriptação de disco do Azure, incluindo os cenários suportados e o utilizador experiências.
@@ -665,7 +665,7 @@ Pode desativar a encriptação num Windows em execução ou VM do IaaS Linux atr
 ##### <a name="windows-vm"></a>VM do Windows
 O passo de encriptação de desativar desativa a encriptação do sistema operativo, o volume de dados ou ambos na VM do IaaS em execução do Windows. Não é possível desativar o volume do SO e deixe o volume de dados encriptado. Quando o passo de desativar a encriptação é efetuado, o modelo de VM de serviço de atualizações do modelo de implementação clássica do Azure e a VM do IaaS Windows está marcado como desencriptada. O conteúdo da VM já não é encriptado em pausa. A desencriptação não eliminar o Cofre de chaves e o material de chave de encriptação (chaves de encriptação BitLocker para Windows e o frase de acesso para Linux).
 
-##### <a name="linux-vm"></a>VM com Linux
+##### <a name="linux-vm"></a>VM do Linux
 O passo de encriptação de desativar desativa a encriptação de volume de dados na VM de IaaS Linux em execução. Este passo só funciona se o disco de SO não estiver encriptado.
 
 > [!NOTE]
@@ -720,7 +720,7 @@ Antes de continuar, reveja o *pré-requisitos* secção deste artigo. Depois de 
 
 1. Iniciar uma sessão do Azure PowerShell e inicie sessão na sua conta do Azure com o seguinte comando:
 
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 
 2. Se tiver várias subscrições e pretender especificar um para utilizar, escreva o seguinte para ver as subscrições da sua conta:
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: jeedes
 ms.openlocfilehash: c7f74d3bd8a2f0173f8f3cc69c611696044875a9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Tutorial: Integração do Azure Active Directory com Domo
 
@@ -57,7 +57,7 @@ Para configurar a integração de Domo com o Azure AD, terá de adicionar Domo a
 
 **Para adicionar Domo a partir da galeria, execute os seguintes passos:**
 
-1. No ** [portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -86,11 +86,11 @@ No Domo, atribua o valor do **nome de utilizador** no Azure AD como o valor a **
 
 Para configurar e testar o Azure AD-início de sessão único com Domo, tem de concluir os blocos modulares seguintes:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on) ** - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user) ** - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste Domo](#creating-a-domo-test-user) ** - para ter um homólogo de Britta Simon Domo que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user) ** - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on) ** - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
+3. **[Criar um utilizador de teste Domo](#creating-a-domo-test-user)**  - para ter um homólogo de Britta Simon Domo que está ligada a representação do Azure AD do utilizador.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
+5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
 
@@ -140,7 +140,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |    
     | nome | user.displayname |
-    | e-mail | user.mail |
+    | e-mail | User.Mail |
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 

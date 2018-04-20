@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: f3ddebdd02d4766b83f0834979a54552f88179cb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4715384a0c6eb24a6a4208ca387b8c4a9871d5c7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionar as máquinas de ciência de dados para Linux (Ubuntu)
 
-As máquinas de ciência de dados para o Linux é uma imagem de máquina virtual baseada no Ubuntu que torna mais fácil de iniciar a aprendizagem profunda no Azure. Learning profunda ferramentas incluem:
+As máquinas de ciência de dados para o Linux é uma imagem de máquina virtual baseada no Ubuntu que torna mais fácil começar a utilizar com o machine learning, incluindo learning profunda, no Azure. Learning profunda ferramentas incluem:
 
   * [Caffe](http://caffe.berkeleyvision.org/): uma estrutura de aprendizagem profunda criada para velocidade, expressivity e modularidade
   * [Caffe2](https://github.com/caffe2/caffe2): uma versão de plataforma do Caffe
@@ -31,6 +31,7 @@ As máquinas de ciência de dados para o Linux é uma imagem de máquina virtual
   * [Keras](https://keras.io/): uma alto nível rede neuronal da API no Python para Theano e TensorFlow
   * [MXNet](http://mxnet.io/): uma biblioteca de aprendizagem profunda flexível e eficiente com vários enlaces de idioma
   * [NVIDIA dígitos](https://developer.nvidia.com/digits): um sistema de gráfico que simplifica as tarefas comuns de aprendizagem profunda
+  * [PyTorch](http://pytorch.org/): uma biblioteca Python alto nível com suporte para redes dinâmicas
   * [TensorFlow](https://www.tensorflow.org/): uma biblioteca de open source para intelligence máquina do Google
   * [Theano](http://deeplearning.net/software/theano/): biblioteca Python da para definir, otimizar e avaliação de forma eficiente matemática expressões que envolvem matrizes multidimensionais
   * [Torch](http://torch.ch/): uma estrutura de informática científicos com suporte wide para algoritmos de machine learning
@@ -113,6 +114,14 @@ Eis os passos para criar uma instância da máquina de Virtual de ciência de da
 O aprovisionamento deve demorar cerca de 5-10 minutos. O estado de aprovisionamento da é apresentado no portal do Azure.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Como aceder a máquina de Virtual de ciência de dados para Linux
+
+Pode aceder a DSVM Ubuntu utilizando três métodos:
+1. SSH para sessões de terminais
+2. X2Go sessões gráfica
+3. JupyterHub e JupyterLab para blocos de notas do Jupyter
+
+### <a name="ssh"></a>SSH
+
 Depois de criada a VM, pode iniciar sessão-lo através de SSH. Utilizar as credenciais da conta que criou no **Noções básicas** secção do passo 3 para a interface de shell de texto. No Windows, pode transferir uma ferramenta de cliente SSH como [Putty](http://www.putty.org). Se preferir um ambiente de trabalho gráfico (X Windows sistema), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente X2Go.
 
 > [!NOTE]
@@ -120,7 +129,7 @@ Depois de criada a VM, pode iniciar sessão-lo através de SSH. Utilizar as cred
 > 
 > 
 
-## <a name="installing-and-configuring-x2go-client"></a>Instalar e configurar o cliente X2Go
+### <a name="x2go"></a>X2Go
 A VM com Linux já está a ser aprovisionado com o servidor de X2Go e pronto para aceitar ligações de cliente. Para se ligar no ambiente de trabalho de gráfico de VM com Linux, execute o seguinte procedimento no cliente:
 
 1. Transferir e instalar o cliente X2Go para a sua plataforma de cliente de [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
@@ -134,6 +143,14 @@ A VM com Linux já está a ser aprovisionado com o servidor de X2Go e pronto par
    * **Pastas partilhadas**: Se pretender que diretórios das suas máquinas de cliente instaladas na VM do Linux, adicione os diretórios de máquina do cliente que pretende partilhar com a VM neste separador.
 
 Depois de iniciar sessão para a VM ao utilizar o cliente SSH ou de ambiente de trabalho gráfico XFCE através do cliente X2Go, está pronto para começar a utilizar as ferramentas que estão instaladas e configuradas na VM. No XFCE, pode ver os atalhos de menu de aplicações e ícones do ambiente de trabalho para muitas das ferramentas.
+
+### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub e JupyterLab
+
+Executa o DSVM Ubuntu [JupyterHub](https://github.com/jupyterhub/jupyterhub), um servidor de Jupyter vários utilizador. Para ligar, navegue até à https://your-vm-ip:8000 no seu computador portátil ou ambiente de trabalho, introduza o nome de utilizador e palavra-passe que utilizou para criar a VM e iniciar sessão. Estão disponíveis procurar e experimentar vários blocos de notas do exemplo.
+
+JupyterLab, a próxima geração de blocos de notas do Jupyter e JupyterHub, também está disponível. Para aceder ao mesmo, inicie sessão no JupyterHub, em seguida, navegue para o URL https://your-vm-ip:8000/lab. Pode definir JupyterLab como o servidor de bloco de notas predefinido ao adicionar esta linha para /etc/jupyterhub/jupyterhub_config.py:
+
+    c.Spawner.default_url = '/lab'
 
 ## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Ferramentas instaladas na máquina de Virtual de ciência de dados para Linux
 ### <a name="deep-learning-libraries"></a>Bibliotecas de aprendizagem profunda
@@ -193,30 +210,32 @@ Para iniciar R consola, basta escrevê **R** na shell. Isto leva-o para um ambie
 Há também um script do R para que instale o [pacotes primeiros 20 R](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) se pretender. Este script pode ser executado após são na interface interativa R, que pode ser introduzida (tal como mencionado) escrevendo **R** na shell.  
 
 ### <a name="python"></a>Python
-Para o desenvolvimento com o Python, distribuição Anaconda Python 2.7 e 3.5 foi instalada. Esta distribuição contém o Python base juntamente com cerca de 300 dos pacotes de análise de bibliotecas, engenharia e os dados mais populares. Pode utilizar os editores de texto predefinido. Além disso, pode utilizar Spyder, um IDE do Python que está incluído com as distribuições de Anaconda Python. Spyder necessita de um ambiente de trabalho gráfico ou X11 reencaminhamento. Um atalho para Spyder é fornecido no ambiente de trabalho do gráfico.
+Anaconda Python é instalado com o Python 2.7 e 3.5 ambientes. O ambiente 2.7 denomina _raiz_, e o ambiente 3.5 é denominada _py35_. Esta distribuição contém o Python base juntamente com cerca de 300 dos pacotes de análise de bibliotecas, engenharia e os dados mais populares. 
 
-Uma vez que temos o Python 2.7 e 3.5, terá de ativar especificamente a versão Python pretendida (conda ambiente) que pretende trabalhar na sessão atual. O processo de ativação define a variável de caminho para a versão pretendida do Python.
+O ambiente de py35 é a predefinição. Para ativar o ambiente de raiz (2.7):
 
-Para ativar o ambiente do Python 2.7 conda, execute o seguinte comando a partir da shell:
+    source activate root
 
-    source /anaconda/bin/activate root
+Para ativar o ambiente de py35 novamente:
 
-Python 2.7 está instalado no */anaconda/bin*.
+    source activate py35
 
-Para ativar o ambiente do Python 3.5 conda, execute o seguinte a partir da shell:
+Para invocar uma sessão interativa de Python, basta escrevê **python** na shell. 
 
-    source /anaconda/bin/activate py35
+Instalar as bibliotecas de Python adicionais utilizando ```conda``` ou ````pip```` . Para pip, ative o ambiente correto primeiro se não pretender que a predefinição:
 
+    source activate root
+    pip install <package>
 
-Python 3.5 está instalado no */anaconda/envs/py35/bin*.
+Ou especifique o caminho completo para através do pip:
 
-Para invocar uma sessão interativa de Python, basta escrevê **python** na shell. Se estiver numa interface gráfica ou ter o conjunto de cópias de segurança de reencaminhamento de X11, pode escrever **pycharm** para iniciar o IDE do Python PyCharm.
+    /anaconda/bin/pip install <package>
+    
+Para conda, deve sempre especificar o nome do ambiente (_py35_ ou _raiz_):
 
-Para instalar as bibliotecas adicionais do Python, tem de executar ```conda``` ou ````pip```` comandos em sudo e forneça o caminho completo do Gestor de pacote Python (conda ou pip) para instalar o ambiente do Python correto. Por exemplo:
+    conda install <package> -n py35
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
-
+Se estiver numa interface gráfica ou ter o conjunto de cópias de segurança de reencaminhamento de X11, pode escrever **pycharm** para iniciar o IDE do Python PyCharm. Pode utilizar os editores de texto predefinido. Além disso, pode utilizar Spyder, um IDE do Python que está incluído com as distribuições de Anaconda Python. Spyder necessita de um ambiente de trabalho gráfico ou X11 reencaminhamento. Um atalho para Spyder é fornecido no desktop.s gráfica
 
 ### <a name="jupyter-notebook"></a>Bloco de notas do Jupyter
 A distribuição de Anaconda também inclui um bloco de notas do Jupyter, um ambiente para partilhar o código e análise. O bloco de notas do Jupyter é acedido através do JupyterHub. Inicie sessão com o nome de utilizador de Linux local e a palavra-passe.

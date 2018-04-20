@@ -1,12 +1,12 @@
 ---
 title: Recolher dados do seu ambiente com o Log Analytics do Azure | Microsoft Docs
-description: "Este tópico ajuda-o a compreender como recolher dados e monitorizar computadores alojados no local ou outro ambiente de nuvem com a análise de registos."
+description: Este tópico ajuda-o a compreender como recolher dados e monitorizar computadores alojados no local ou outro ambiente de nuvem com a análise de registos.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recolher dados de computadores no seu ambiente com a análise de registos
 
@@ -68,7 +68,7 @@ As informações abaixo lista as informações de configuração de proxy e de f
 ### <a name="linux-operating-systems"></a>Sistemas operativos Linux
 As distribuições de Linux seguintes são suportadas oficialmente.  No entanto, o agente Linux pode também executar nos outras distribuições não listadas.  Exceto indicação em contrário, todas as versões de secundárias são suportadas para cada versão principais listado.  
 
-* Amazon Linux 2012.09 to 2015.09 (x86/x64)
+* Linux Amazon 2012.09 para 2015.09 (x86/x64)
 * CentOS Linux 5, 6 e 7 (x86/x64)  
 * Oracle Linux 5, 6 e 7 (x86/x64) 
 * Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
