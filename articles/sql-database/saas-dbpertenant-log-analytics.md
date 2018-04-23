@@ -65,7 +65,7 @@ O código fonte da aplicação e scripts de base de dados multi-inquilino Wingti
 
 Análise de registos é um serviço separado que deve ser configurado. Análise de registos recolhe dados de registo, telemetria e métricas numa área de trabalho de análise de registos. Tal como outros recursos no Azure, tem de ser criada uma área de trabalho de análise de registos. A área de trabalho não tem de ser criada no mesmo grupo de recursos, como as aplicações que monitoriza. Se o fizer, por isso, muitas vezes, mais adequado apesar. Para a aplicação de bilhetes Wingtip, utilize um grupo de recursos única para se certificar de que a área de trabalho é eliminada com a aplicação.
 
-1. No ISE do PowerShell, abra *... \\Mestre de MultiTenantDb WingtipTicketsSaaS\\Learning módulos\\monitorização de desempenho e gestão\\Iniciar análise\\* * LogAnalytics.ps1*** de demonstração.
+1. No ISE do PowerShell, abra *..\\Mestre de MultiTenantDb WingtipTicketsSaaS\\Learning módulos\\monitorização de desempenho e gestão\\Iniciar análise\\**LogAnalytics.ps1*** de demonstração.
 2. Para executar o script, prima F5.
 
 Agora pode abrir a análise de registos no portal do Azure ou no portal do Operations Management Suite. Demora alguns minutos para recolher a telemetria na área de trabalho de análise de registos e torná-lo visível. Mais tempo deixar o sistema de recolha de dados de diagnóstico, a experiência é mais interessante. 
