@@ -17,11 +17,11 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 8e04ed7ad16b673597b62d947c3f782ee0d27c7c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 63dfa89af64e500e8ed0292ab282150636e57ab3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>Tutorial: Filtrar o tráfego de rede com um grupo de segurança de rede através do PowerShell
 
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 5.4.1 ou posterior do módulo Azure PowerShell. Execute ` Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure. 
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 5.4.1 ou posterior do módulo Azure PowerShell. Execute ` Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure. 
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
@@ -297,7 +297,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou um grupo de segurança de rede e associou-o a uma sub-rede de rede virtual. Para saber mais sobre os grupos de segurança de rede, veja [Descrição geral dos grupos de segurança de rede](security-overview.md) e [Manage a network security group](virtual-network-manage-nsg-arm-ps.md) (Gerir um grupo de segurança de rede).
+Neste tutorial, criou um grupo de segurança de rede e associou-o a uma sub-rede de rede virtual. Para saber mais sobre os grupos de segurança de rede, veja [Descrição geral dos grupos de segurança de rede](security-overview.md) e [Manage a network security group](manage-network-security-group.md) (Gerir um grupo de segurança de rede).
 
 O Azure encaminha o tráfego entre sub-redes por predefinição. Em alternativa, pode optar por encaminhar o tráfego entre sub-redes através de uma VM que funcione, por exemplo, como uma firewall. Para saber como criar uma tabela de rotas, avance para o tutorial seguinte.
 
