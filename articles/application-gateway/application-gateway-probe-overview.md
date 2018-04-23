@@ -69,7 +69,7 @@ Depois dos critérios de correspondência for especificado, podem ser anexado a 
 > [!NOTE]
 > A porta é a mesma porta as definições de HTTP de back-end.
 
-A sonda predefinida analisa apenas http://127.0.0.1: \<porta\> para determinar o estado de funcionamento. Se precisar de configurar a sonda de estado de funcionamento para ir para um URL personalizado ou modificar todas as outras definições, tem de utilizar das sondas personalizadas conforme descrito nos passos seguintes:
+A sonda predefinida analisa apenas http://127.0.0.1:\<porta\> para determinar o estado de funcionamento. Se precisar de configurar a sonda de estado de funcionamento para ir para um URL personalizado ou modificar todas as outras definições, tem de utilizar das sondas personalizadas conforme descrito nos passos seguintes:
 
 ## <a name="custom-health-probe"></a>Sonda de estado de funcionamento personalizado
 
