@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 3b935d3a3c37b63386dfb2cbd25ceba59d91a998
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f57a4b87c239126d248cba5106e005103d8372b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-security"></a>Segurança da rede
 
@@ -35,7 +35,7 @@ Quando um grupo de segurança de rede está associado à interface de rede e à 
 - **Tráfego de entrada**: O grupo de segurança de rede associado à sub-rede na qual a interface de rede se encontra é avaliado primeiro. Qualquer tráfego permitido através do grupo de segurança de rede associado à sub-rede é, então, avaliado pelo grupo de segurança de rede associado à interface de rede. Por exemplo, poderá precisar de acesso de entrada a uma máquina virtual pela porta 80 na Internet. Se associar um grupo de segurança de rede à interface de rede e à sub-rede na qual a interface se encontra, esse grupo tem de permitir a porta 80. Se tiver permitido apenas esta porta através do grupo associado à sub-rede ou à interface de rede na qual a sub-rede está, a comunicação falha devido às regras de segurança predefinidas. Veja as [regras de segurança predefinidas](#default-security-rules) para obter mais detalhes. Se só tiver aplicado o grupo de segurança de rede à sub-rede ou à interface de rede e esse grupo contiver uma regra que permite o tráfego de entrada na porta 80, por exemplo, a comunicação é feita. 
 - **Tráfego de saída**: o grupo de segurança de rede associado à interface de rede é avaliado primeiro. Qualquer tráfego permitido através do grupo de segurança de rede associado à interface de rede é, então, avaliado pelo grupo de segurança de rede associado à sub-rede.
 
-É possível que não esteja sempre ciente de que os grupos de segurança de rede estão aplicados, quer à interface de rede, quer à sub-rede. Pode ver as [regras de segurança em vigor](virtual-network-nsg-troubleshoot-portal.md) numa interface de rede para ver facilmente as regras agregadas que estão aplicadas à mesma. Também pode utilizar a capacidade [Verificação de fluxo de IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede do Azure para saber se a comunicação é permitida de ou para uma interface de rede. A ferramenta indica se é permitida a comunicação e que regra de segurança de rede permite ou nega o tráfego.
+É possível que não esteja sempre ciente de que os grupos de segurança de rede estão aplicados, quer à interface de rede, quer à sub-rede. Pode ver as [regras de segurança em vigor](virtual-network-network-interface.md#view-effective-security-rules) numa interface de rede para ver facilmente as regras agregadas que estão aplicadas à mesma. Também pode utilizar a capacidade [Verificação de fluxo de IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede do Azure para saber se a comunicação é permitida de ou para uma interface de rede. A ferramenta indica se é permitida a comunicação e que regra de segurança de rede permite ou nega o tráfego.
  
 > [!NOTE]
 > Os grupos de segurança de rede são associados a sub-redes ou a máquinas virtuais e a serviços cloud implementados com o modelo de implementação clássica e não a interfaces de rede no modelo de implementação do Resource Manager. Para saber mais sobre os modelos de implementação do Azure, veja [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Compreender os modelos de implementação do Azure).

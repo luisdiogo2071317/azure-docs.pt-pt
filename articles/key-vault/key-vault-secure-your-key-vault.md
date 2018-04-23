@@ -1,8 +1,8 @@
 ---
 title: Proteger o seu cofre de chaves | Microsoft Docs
-description: "Administre as permissões de acesso ao cofre de chaves para gerir cofres, chaves e segredos. Modelo de autenticação e autorização para o cofre de chaves e como protegê-lo"
+description: Administre as permissões de acesso ao cofre de chaves para gerir cofres, chaves e segredos. Modelo de autenticação e autorização para o cofre de chaves e como protegê-lo
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a769d15fe79a56d623399d0d38b6dd9c060db36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-your-key-vault"></a>Proteger o seu cofre de chaves
 O Cofre de Chaves do Azure é um serviço em nuvem que protege chaves e segredos de encriptação (como certificados, cadeias de ligação e palavras-passe) das suas aplicações na nuvem. Uma vez que estes dados são confidenciais e vitais para a sua atividade, é fundamental proteger o acesso aos seus cofres de chaves, de modo a que só os utilizadores e as aplicações com autorização possam aceder aos mesmos. Este artigo disponibiliza uma descrição geral do modelo de acesso do cofre de chaves, explica a autenticação e a autorização e descreve como proteger o acesso ao cofre de chaves das suas aplicações com um exemplo.
@@ -76,7 +76,7 @@ Cada subscrição do Azure tem um Azure Active Directory. Os utilizadores, grupo
 
 Com o modelo Azure Resource Manager, o cofre de chaves é criado num grupo de recursos e o acesso ao plano de gestão desse cofre é controlado com o Azure Active Directory. Por exemplo, pode conceder a utilizadores ou grupos a capacidade de gerir cofres de chave num grupo de recursos específico.
 
-Pode conceder acesso a utilizadores, grupos e aplicações com um âmbito específico através da atribuição de funções RBAC adequadas. Por exemplo, para conceder acesso a um utilizador para gerir cofres de chaves, seria atribuída uma função predefinida “Contribuinte do cofre de chaves” a esse utilizador com um âmbito específico. Neste caso, o âmbito seria uma subscrição, um grupo de recursos ou apenas um cofre de chaves específico. As funções atribuídas ao nível da subscrição aplicam-se a todos os grupos de recursos e recursos nessa subscrição. As funções atribuídas ao nível do grupo de recursos aplicam-se a todos os recursos nesse grupo de recursos. As funções atribuídas a um recurso específico só se aplicam a esse recurso. Existem várias funções predefinidas (veja [RBAC: Built-in roles (RBAC: Funções Incorporadas)](../active-directory/role-based-access-built-in-roles.md)) e, se estas não satisfizerem as suas necessidades, também pode definir as suas próprias funções.
+Pode conceder acesso a utilizadores, grupos e aplicações com um âmbito específico através da atribuição de funções RBAC adequadas. Por exemplo, para conceder acesso a um utilizador para gerir cofres de chaves, seria atribuída uma função predefinida “Contribuinte do cofre de chaves” a esse utilizador com um âmbito específico. Neste caso, o âmbito seria uma subscrição, um grupo de recursos ou apenas um cofre de chaves específico. As funções atribuídas ao nível da subscrição aplicam-se a todos os grupos de recursos e recursos nessa subscrição. As funções atribuídas ao nível do grupo de recursos aplicam-se a todos os recursos nesse grupo de recursos. As funções atribuídas a um recurso específico só se aplicam a esse recurso. Existem várias funções predefinidas (veja [RBAC: Built-in roles (RBAC: Funções Incorporadas)](../role-based-access-control/built-in-roles.md)) e, se estas não satisfizerem as suas necessidades, também pode definir as suas próprias funções.
 
 > [!IMPORTANT]
 > Tenha em conta que, se um utilizador tiver as permissões de Contribuinte (RBAC) para um plano de gestão do cofre de chaves, esse utilizador pode conceder acesso a ele próprio ao plano de dados mediante a definição da política de acesso do cofre de chaves, que controla o acesso ao plano de dados. Por este motivo, é recomendado controlar rigorosamente quem tem acesso de “Contribuinte” aos seus cofres de chaves, para garantir que só pessoas autorizadas podem aceder e gerir os cofres de chaves, as chaves, os segredos e os certificados.
@@ -134,9 +134,9 @@ Agora, vamos ver quais são as permissões de acesso ao cofre de chaves de que c
 | Função de Utilizador | Permissões do plano de gestão | Permissões do plano de dados |
 | --- | --- | --- |
 | Equipa de Segurança |Contribuinte do cofre de chaves |Chaves: criar cópia de segurança, criar, eliminar, obter, importar, listar, restaurar <br> Segredos: todas |
-| Programadores/operadores |Permissão de implementação de cofre de chaves, para que as VMs por eles implementadas possam obter segredos a partir do cofre de chaves |Nenhuma |
+| Programadores/operadores |Permissão de implementação de cofre de chaves, para que as VMs por eles implementadas possam obter segredos a partir do cofre de chaves |Nenhum |
 | Auditores |Nenhuma |Chaves: listar<br>Segredos: listar |
-| Aplicação |Nenhuma |Chaves: assinar<br>Segredos: obter |
+| Aplicação |Nenhum |Chaves: assinar<br>Segredos: obter |
 
 > [!NOTE]
 > Os auditores precisam da permissão de listar para chaves e segredos, para que possam inspecionar atributos de chaves e segredos que não são emitidos nos registos, como etiquetas e datas de ativação e expiração.
@@ -204,19 +204,19 @@ Este exemplo mostra um cenário simples. Os cenários da vida real podem ser mai
 > 
 
 ## <a name="resources"></a>Recursos
-* [Controlo de Acesso Baseado em Funções do Azure Active Directory](../active-directory/role-based-access-control-configure.md)
+* [Controlo de Acesso Baseado em Funções do Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
   
   Este artigo explica o Controlo de Acesso Baseado em Funções do Azure Active Directory e como funciona.
-* [RBAC: Funções Incorporadas](../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: Funções Incorporadas](../role-based-access-control/built-in-roles.md)
   
   Este artigo mostra todas as funções incorporadas disponíveis no RBAC.
 * [Compreender a implementação do Resource Manager e a implementação clássica](../azure-resource-manager/resource-manager-deployment-model.md)
   
   Este artigo explica os modelos de implementação Resource Manager e de implementação clássica e explica as vantagens de utilizar o Resource Manager e os grupos de recursos.
-* [Gerir o Controlo de Acesso Baseado em Funções com o Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+* [Gerir o Controlo de Acesso Baseado em Funções com o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
   
   Este artigo explica como gerir o controlo de acesso baseado em funções com o Azure PowerShell
-* [Gerir o Controlo de Acesso Baseado em Funções com a API REST](../active-directory/role-based-access-control-manage-access-rest.md)
+* [Gerir o Controlo de Acesso Baseado em Funções com a API REST](../role-based-access-control/role-assignments-rest.md)
   
   Este artigo mostra como utilizar a API REST para gerir o RBAC.
 * [Controlo de Acesso Baseado em Funções para o Microsoft Azure no Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)

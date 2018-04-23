@@ -1,11 +1,11 @@
 ---
-title: "Azure ExpressRoute para Fornecedores de Soluções em Nuvem | Microsoft Docs"
-description: "Este artigo fornece informações para Fornecedores de Serviço em Nuvem que pretendem incorporar os serviços do Azure e ExpressRoute nas suas ofertas."
+title: Azure ExpressRoute para Fornecedores de Soluções em Nuvem | Microsoft Docs
+description: Este artigo fornece informações para Fornecedores de Serviço em Nuvem que pretendem incorporar os serviços do Azure e ExpressRoute nas suas ofertas.
 documentationcenter: na
 services: expressroute
 author: richcar
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9991da5d5ab6f43cc8c5ebf1672d7da0f1ad061e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Fornecedores de Soluções em Nuvem (CSP)
 A Microsoft fornece serviços de hiper escala para revendedores e distribuidores (CSP) tradicionais de forma a aprovisionar novos serviços e soluções para os seus clientes sem a necessidade de investir no desenvolvimento destes novos serviços. Para permitir que o Fornecedor de Soluções em Nuvem (CSP) possa gerir diretamente estes novos serviços, a Microsoft disponibiliza programas e APIs que permitem ao CSP gerir os recursos do Microsoft Azure em nome dos seus clientes. Um destes recursos é o ExpressRoute. O ExpressRoute permite ao CSP ligar os recursos existentes do cliente aos serviços do Azure. O ExpressRoute é uma ligação privada de comunicações de alta velocidade para serviços no Azure. 
@@ -65,7 +65,7 @@ Este cenário de conectividade exige que o cliente se ligue diretamente através
 
 A escolha entre estas duas opções baseia-se nas necessidades do seu cliente e suas necessidades atuais para fornecer serviços do Azure Os detalhes destes modelos e o controlo de acesso baseado na função associada, funcionamento em rede e padrões de estrutura de identidade são abordados em detalhe nas seguintes ligações:
 
-* **Controlo de acesso baseado na função (RBAC)** – O RBAC baseia-se no Azure Active Directory.  Para obter mais informações sobre o Azure RBAC, veja [aqui](../active-directory/role-based-access-control-configure.md).
+* **Controlo de acesso baseado na função (RBAC)** – O RBAC baseia-se no Azure Active Directory.  Para obter mais informações sobre o Azure RBAC, veja [aqui](../role-based-access-control/role-assignments-portal.md).
 * **Funcionamento em Rede** – Aborda os vários tópicos do funcionamento em rede no Microsoft Azure.
 * **Azure Active Directory (Azure AD)** – Azure AD fornece a gestão de identidade para o Microsoft Azure e aplicações SaaS de terceiros. Para obter mais informações sobre o Azure AD, veja [aqui](https://azure.microsoft.com/documentation/services/active-directory/).  
 

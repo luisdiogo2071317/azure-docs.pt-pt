@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 079eb7b89ff3d6c1e4ec0de6136cd934ba3a1f70
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Criar uma Aplicação Ruby no Serviço de Aplicações no Linux
 
@@ -53,34 +53,6 @@ rails server
 ```
 
 Com o seu browser, navegue para `http://localhost:3000` para testar a aplicação localmente.
-
-![Hello-world](./media/quickstart-ruby/hello-world.png)
-
-## <a name="modify-app-to-display-welcome-message"></a>Modificar a aplicação para apresentar a mensagem de boas-vindas
-
-Modifique a aplicação para apresentar uma mensagem de boas-vindas. Em primeiro lugar, tem de configurar uma rota ao modificar o ficheiro *~/workspace/ruby-docs-hello-world/config/routes.rb* para incluir uma rota chamada `hello`.
-
-  ```ruby
-  Rails.application.routes.draw do
-      #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-      root 'application#hello'
-  end
-  ```
-
-Altere o controlador da aplicação, de modo a que devolva a mensagem como HTML no browser. 
-
-Abra *~/workspace/hello-world/app/controllers/application_controller.rb* para editar. Modifique a classe `ApplicationController` para se parecer ao exemplo de código seguinte:
-
-  ```ruby
-  class ApplicationController > ActionController :: base
-    protect_from_forgery with: :exception
-    def hello
-      render html: "Hello, world from Azure Web App on Linux!"
-    end
-  end
-  ```
-
-A sua aplicação está agora configurada. No browser, navegue para `http://localhost:3000` para confirmar a página de destino de raiz.
 
 ![Hello World configurado](./media/quickstart-ruby/hello-world-configured.png)
 
