@@ -1,6 +1,6 @@
 ---
-title: "Servidor físico à arquitetura de replicação do Azure no Azure Site Recovery | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral da arquitetura de utilizada quando replicar servidores físicos no local para o Azure com o serviço do Azure Site Recovery e componentes"
+title: Servidor físico à arquitetura de replicação do Azure no Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece uma descrição geral da arquitetura de utilizada quando replicar servidores físicos no local para o Azure com o serviço do Azure Site Recovery e componentes
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article

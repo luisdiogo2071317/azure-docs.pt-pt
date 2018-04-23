@@ -1,11 +1,11 @@
 ---
-title: "Monitorizar aplicações no App Service do Azure | Microsoft Docs"
-description: "Saiba como monitorizar aplicações no App Service do Azure utilizando o portal do Azure."
+title: Monitorizar aplicações no App Service do Azure | Microsoft Docs
+description: Saiba como monitorizar aplicações no App Service do Azure utilizando o portal do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: btardif
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
 ms.workload: na

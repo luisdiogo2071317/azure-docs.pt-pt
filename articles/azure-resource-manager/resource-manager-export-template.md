@@ -2,7 +2,7 @@
 title: Exportar um modelo do Azure Resource Manager | Microsoft Docs
 description: Utilize o Azure Resource Manager para exportar um modelo a partir de um grupo de recursos existente.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn

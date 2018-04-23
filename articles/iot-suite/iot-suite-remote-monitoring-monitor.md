@@ -1,7 +1,7 @@
 ---
-title: "Avançadas de monitorização na solução de monitorização remota - Azure | Microsoft Docs"
-description: "Este tutorial mostra como monitorizar dispositivos com o dashboard de solução de monitorização remota."
-services: 
+title: Avançadas de monitorização na solução de monitorização remota - Azure | Microsoft Docs
+description: Este tutorial mostra como monitorizar dispositivos com o dashboard de solução de monitorização remota.
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt

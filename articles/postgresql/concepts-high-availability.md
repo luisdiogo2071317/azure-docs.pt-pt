@@ -1,6 +1,6 @@
 ---
 title: Conceitos de elevada disponibilidade da base de dados do Azure para PostgreSQL
-description: "Este artigo fornece informações de elevada disponibilidade, quando utilizar a base de dados do Azure para PostgreSQL."
+description: Este artigo fornece informações de elevada disponibilidade, quando utilizar a base de dados do Azure para PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

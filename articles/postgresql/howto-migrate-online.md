@@ -1,6 +1,6 @@
 ---
-title: "Migração de período de indisponibilidade mínimo para a base de dados do Azure para PostgreSQL"
-description: "Este artigo descreve como efetuar uma migração de período de indisponibilidade mínimo extrair uma base de dados PostgreSQL para um ficheiro de informação, restaurar a base de dados PostgreSQL a partir de um ficheiro de arquivo criado pelo pg_dump na base de dados do Azure para PostgreSQL e configurar a carga inicial e sincronização de dados contínuos da base de dados de origem para a base de dados de destino utilizando Attunity replicar para Migrations da Microsoft."
+title: Migração de período de indisponibilidade mínimo para a base de dados do Azure para PostgreSQL
+description: Este artigo descreve como efetuar uma migração de período de indisponibilidade mínimo extrair uma base de dados PostgreSQL para um ficheiro de informação, restaurar a base de dados PostgreSQL a partir de um ficheiro de arquivo criado pelo pg_dump na base de dados do Azure para PostgreSQL e configurar a carga inicial e sincronização de dados contínuos da base de dados de origem para a base de dados de destino utilizando Attunity replicar para Migrations da Microsoft.
 services: postgresql
 author: HJToland3
 ms.author: jtoland

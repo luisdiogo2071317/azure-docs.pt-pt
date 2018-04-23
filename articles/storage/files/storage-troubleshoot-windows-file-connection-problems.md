@@ -1,8 +1,8 @@
 ---
-title: "Resolução de problemas de ficheiros do Azure no Windows | Microsoft Docs"
-description: "Resolução de problemas de ficheiros do Azure no Windows"
+title: Resolução de problemas de ficheiros do Azure no Windows | Microsoft Docs
+description: Resolução de problemas de ficheiros do Azure no Windows
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
 editor: na

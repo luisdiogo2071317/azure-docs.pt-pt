@@ -1,5 +1,5 @@
 ---
-title: "Migrar uma base de dados utilizando a importação e exportação na base de dados do Azure para PostgreSQL"
+title: Migrar uma base de dados utilizando a importação e exportação na base de dados do Azure para PostgreSQL
 description: Descreve como extrair uma base de dados PostgreSQL para um ficheiro de script e importar os dados para a base de dados de destino do que o ficheiro.
 services: postgresql
 author: rachel-msft

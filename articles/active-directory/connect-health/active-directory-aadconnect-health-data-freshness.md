@@ -1,11 +1,11 @@
 ---
-title: "O Azure AD Connect Health - dados de estado de funcionamento do serviço não estão até alerta data | Microsoft Docs"
-description: "Este documento descreve a causa do alerta de \"dados de estado de funcionamento do serviço não estão atualizados\" e como resolução de problemas."
+title: O Azure AD Connect Health - dados de estado de funcionamento do serviço não estão até alerta data | Microsoft Docs
+description: Este documento descreve a causa do alerta de "dados de estado de funcionamento do serviço não estão atualizados" e como resolução de problemas.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhiweiw
 manager: maheshu
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Boxcryptor | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Boxcryptor."
+title: 'Tutorial: Integração do Azure Active Directory com Boxcryptor | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Boxcryptor.
 services: active-directory
 documentationCenter: na
 author: jeevansd

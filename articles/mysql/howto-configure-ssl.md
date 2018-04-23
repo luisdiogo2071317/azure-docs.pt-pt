@@ -1,6 +1,6 @@
 ---
-title: "Configurar a conectividade SSL liguem de forma segura à base de dados do Azure para MySQL"
-description: "Instruções sobre como configurar corretamente a base de dados do Azure para o MySQL e aplicações associadas a corretamente utilizar ligações SSL"
+title: Configurar a conectividade SSL liguem de forma segura à base de dados do Azure para MySQL
+description: Instruções sobre como configurar corretamente a base de dados do Azure para o MySQL e aplicações associadas a corretamente utilizar ligações SSL
 services: mysql
 author: ajlam
 ms.author: andrela

@@ -1,11 +1,11 @@
 ---
-title: "Encaminhamento e expressões de etiqueta"
-description: "Este tópico explica as expressões de encaminhamento e a etiqueta de notification hubs do Azure."
+title: Encaminhamento e expressões de etiqueta
+description: Este tópico explica as expressões de encaminhamento e a etiqueta de notification hubs do Azure.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
 ms.workload: mobile

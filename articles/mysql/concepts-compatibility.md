@@ -1,6 +1,6 @@
 ---
-title: "Controladores de MySQL e compatibilidade de ferramentas de gestão"
-description: "Este artigo descreve os controladores de MySQL e ferramentas de gestão que são compatíveis com a base de dados do Azure para MySQL."
+title: Controladores de MySQL e compatibilidade de ferramentas de gestão
+description: Este artigo descreve os controladores de MySQL e ferramentas de gestão que são compatíveis com a base de dados do Azure para MySQL.
 services: mysql
 author: ajlam
 ms.author: andrela

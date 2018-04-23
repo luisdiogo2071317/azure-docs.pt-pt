@@ -1,6 +1,6 @@
 ---
-title: "Cópia de segurança e restauro da base de dados do Azure para MySQL"
-description: "Saiba mais sobre as cópias de segurança automáticas e restaurar a base de dados do Azure para o servidor de MySQL."
+title: Cópia de segurança e restauro da base de dados do Azure para MySQL
+description: Saiba mais sobre as cópias de segurança automáticas e restaurar a base de dados do Azure para o servidor de MySQL.
 services: mysql
 author: kamathsun
 ms.author: sukamat

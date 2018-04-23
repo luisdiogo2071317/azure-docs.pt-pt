@@ -1,6 +1,6 @@
 ---
-title: "Bibliotecas de ligação para base de dados do Azure para PostgreSQL"
-description: "Este artigo descreve bibliotecas vários controladores de que os programadores podem utilizar quando programação de aplicações para ligar e consultar a base de dados do Azure para PostgreSQL e."
+title: Bibliotecas de ligação para base de dados do Azure para PostgreSQL
+description: Este artigo descreve bibliotecas vários controladores de que os programadores podem utilizar quando programação de aplicações para ligar e consultar a base de dados do Azure para PostgreSQL e.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

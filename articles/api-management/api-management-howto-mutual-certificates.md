@@ -1,11 +1,11 @@
 ---
-title: "Proteger serviços de back-end utilizando o cliente de autenticação de certificado - API Management do Azure | Microsoft Docs"
-description: "Saiba como proteger serviços de back-end utilizando a autenticação de certificado de cliente na API Management do Azure."
+title: Proteger serviços de back-end utilizando o cliente de autenticação de certificado - API Management do Azure | Microsoft Docs
+description: Saiba como proteger serviços de back-end utilizando a autenticação de certificado de cliente na API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

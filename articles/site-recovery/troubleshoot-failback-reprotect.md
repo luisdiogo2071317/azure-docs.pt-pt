@@ -1,12 +1,12 @@
 ---
-title: "Resolver problemas de falhas durante a reativação pós-falha no local a partir do Azure e Proteja novamente para o Azure, posteriormente | Microsoft Docs"
-description: "Este artigo descreve formas de resolver erros comuns no falhar no local a partir do Azure e durante reproteção"
+title: Resolver problemas de falhas durante a reativação pós-falha no local a partir do Azure e Proteja novamente para o Azure, posteriormente | Microsoft Docs
+description: Este artigo descreve formas de resolver erros comuns no falhar no local a partir do Azure e durante reproteção
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rajani-janaki-ram
 manager: gauravd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article

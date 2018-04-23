@@ -1,6 +1,6 @@
 ---
 title: Conceitos de servidor na base de dados do Azure para MySQL
-description: "Este tópico fornece considerações e diretrizes para trabalhar com a base de dados do Azure para servidores MySQL."
+description: Este tópico fornece considerações e diretrizes para trabalhar com a base de dados do Azure para servidores MySQL.
 services: mysql
 author: ajlam
 ms.author: andrela

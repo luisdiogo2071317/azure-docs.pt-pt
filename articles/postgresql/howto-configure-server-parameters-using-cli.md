@@ -1,6 +1,6 @@
 ---
-title: "Configure os parâmetros de serviço na base de dados do Azure para PostgreSQL"
-description: "Este artigo descreve como configurar os parâmetros de serviço na base de dados do Azure para PostgreSQL utilizando a linha de comandos da CLI do Azure."
+title: Configure os parâmetros de serviço na base de dados do Azure para PostgreSQL
+description: Este artigo descreve como configurar os parâmetros de serviço na base de dados do Azure para PostgreSQL utilizando a linha de comandos da CLI do Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

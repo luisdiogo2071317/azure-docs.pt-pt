@@ -1,11 +1,11 @@
 ---
-title: "Mensagens EDIFACT para a integração do enterprise B2B - Azure Logic Apps | Microsoft Docs"
-description: "Mensagens de Exchange EDIFACT no formato EDI para integração do enterprise B2B com Azure Logic Apps"
+title: Mensagens EDIFACT para a integração do enterprise B2B - Azure Logic Apps | Microsoft Docs
+description: Mensagens de Exchange EDIFACT no formato EDI para integração do enterprise B2B com Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.service: logic-apps
 ms.workload: integration

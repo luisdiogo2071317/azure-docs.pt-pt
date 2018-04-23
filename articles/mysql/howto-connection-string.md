@@ -1,6 +1,6 @@
 ---
-title: "Ligar aplicações Azure base de dados MySQL"
-description: "Este documento apresenta as cadeias de ligação suportado atualmente para aplicações ligar à base de dados do Azure para MySQL, incluindo, ADO.NET (c#), JDBC, Node.js, ODBC, PHP, Python e Ruby."
+title: Ligar aplicações Azure base de dados MySQL
+description: Este documento apresenta as cadeias de ligação suportado atualmente para aplicações ligar à base de dados do Azure para MySQL, incluindo, ADO.NET (c#), JDBC, Node.js, ODBC, PHP, Python e Ruby.
 services: mysql
 author: mswutao
 ms.author: wuta

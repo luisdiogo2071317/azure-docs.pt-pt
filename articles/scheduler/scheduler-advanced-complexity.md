@@ -1,11 +1,11 @@
 ---
-title: "Criar agendas complexas e periodicidade avançada com o agendador do Azure"
-description: "Saiba como criar agendas complexas e periodicidade avançada com o agendador do Azure."
+title: Criar agendas complexas e periodicidade avançada com o agendador do Azure
+description: Saiba como criar agendas complexas e periodicidade avançada com o agendador do Azure.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.service: scheduler
 ms.workload: infrastructure-services

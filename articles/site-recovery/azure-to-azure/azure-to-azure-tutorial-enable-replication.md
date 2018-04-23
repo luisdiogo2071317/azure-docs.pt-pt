@@ -1,6 +1,6 @@
 ---
-title: "Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery (Pré-visualização)"
-description: "Saiba como configurar a recuperação após desastre de VMs do Azure para uma região diferente do Azure, utilizando o serviço Azure Site Recovery."
+title: Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery (Pré-visualização)
+description: Saiba como configurar a recuperação após desastre de VMs do Azure para uma região diferente do Azure, utilizando o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm

@@ -1,7 +1,7 @@
 ---
-title: "Resolver problemas de dispositivos na solução de monitorização remota - Azure | Microsoft Docs"
-description: "Este tutorial mostra como resolver problemas e remediar problemas de dispositivos na solução de monitorização remota."
-services: 
+title: Resolver problemas de dispositivos na solução de monitorização remota - Azure | Microsoft Docs
+description: Este tutorial mostra como resolver problemas e remediar problemas de dispositivos na solução de monitorização remota.
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt

@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric CLI sfctl partição | Microsoft Docs"
-description: "Descreve os comandos de partição de sfctl CLI de recursos de infraestrutura de serviço."
+title: Azure Service Fabric CLI sfctl partição | Microsoft Docs
+description: Descreve os comandos de partição de sfctl CLI de recursos de infraestrutura de serviço.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference

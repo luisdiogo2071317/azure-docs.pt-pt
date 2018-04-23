@@ -1,6 +1,6 @@
 ---
-title: "Cópia de segurança e restauro da base de dados do Azure para PostgreSQL"
-description: "Saiba mais sobre as cópias de segurança automáticas e restaurar a base de dados do Azure para o servidor de PostgreSQL."
+title: Cópia de segurança e restauro da base de dados do Azure para PostgreSQL
+description: Saiba mais sobre as cópias de segurança automáticas e restaurar a base de dados do Azure para o servidor de PostgreSQL.
 services: postgresql
 author: kamathsun
 ms.author: sukamat

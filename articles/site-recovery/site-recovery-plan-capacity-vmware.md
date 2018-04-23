@@ -1,5 +1,5 @@
 ---
-title: "Planear a capacidade e Dimensionar para replicação de VMware no Azure com o Azure Site Recovery | Microsoft Docs"
+title: Planear a capacidade e Dimensionar para replicação de VMware no Azure com o Azure Site Recovery | Microsoft Docs
 description: Utilize este artigo para a capacidade de plano e a escala quando replicar VMs de VMware para o Azure com o Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman

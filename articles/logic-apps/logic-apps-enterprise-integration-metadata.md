@@ -1,11 +1,11 @@
 ---
-title: "Gerir metadados de artefacto da conta integração - Azure Logic Apps | Microsoft Docs"
-description: "Adicionar ou obter metadados de artefacto de contas de automatização do Azure Logic Apps"
+title: Gerir metadados de artefacto da conta integração - Azure Logic Apps | Microsoft Docs
+description: Adicionar ou obter metadados de artefacto de contas de automatização do Azure Logic Apps
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration

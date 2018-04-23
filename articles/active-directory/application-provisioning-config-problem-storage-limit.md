@@ -1,11 +1,11 @@
 ---
-title: "Problema ao guardar as credenciais de administrador ao configurar o aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD | Microsoft Docs"
-description: "Como resolver problemas comuns deparam quando configurar aprovisionamento de utilizadores a uma aplicação já listados na Galeria de aplicações do Azure AD"
+title: Problema ao guardar as credenciais de administrador ao configurar o aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD | Microsoft Docs
+description: Como resolver problemas comuns deparam quando configurar aprovisionamento de utilizadores a uma aplicação já listados na Galeria de aplicações do Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

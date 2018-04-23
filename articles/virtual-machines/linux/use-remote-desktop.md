@@ -1,12 +1,12 @@
 ---
 title: Utilizar o ambiente de trabalho remoto para uma VM com Linux no Azure | Microsoft Docs
-description: "Saiba como instalar e configurar o ambiente de trabalho remoto (xrdp) para ligar a uma VM com Linux no Azure com as ferramentas gráficas"
+description: Saiba como instalar e configurar o ambiente de trabalho remoto (xrdp) para ligar a uma VM com Linux no Azure com as ferramentas gráficas
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux

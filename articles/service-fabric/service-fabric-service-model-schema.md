@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric modelo XML esquema descrições dos serviços de | Microsoft Docs"
-description: "Descreve o esquema XML do modelo de serviço do Service Fabric."
+title: Azure Service Fabric modelo XML esquema descrições dos serviços de | Microsoft Docs
+description: Descreve o esquema XML do modelo de serviço do Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: xml
 ms.topic: article

@@ -1,6 +1,6 @@
 ---
-title: "Configurar alertas de métricas da base de dados do Azure para PostgreSQL no portal do Azure"
-description: "Este artigo descreve como configurar e alertas de métrica de acesso para a base de dados do Azure para PostgreSQL do portal do Azure."
+title: Configurar alertas de métricas da base de dados do Azure para PostgreSQL no portal do Azure
+description: Este artigo descreve como configurar e alertas de métrica de acesso para a base de dados do Azure para PostgreSQL do portal do Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

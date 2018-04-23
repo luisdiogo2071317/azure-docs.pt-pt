@@ -1,7 +1,7 @@
 ---
-title: "Gestão de dispositivos na solução de monitorização remota - Azure | Microsoft Docs"
-description: "Este tutorial mostra como gerir dispositivos ligados à solução de monitorização remota."
-services: 
+title: Gestão de dispositivos na solução de monitorização remota - Azure | Microsoft Docs
+description: Este tutorial mostra como gerir dispositivos ligados à solução de monitorização remota.
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt

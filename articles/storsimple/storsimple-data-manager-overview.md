@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral do Gestor de dados do Microsoft Azure StorSimple | Microsoft Docs"
-description: "Fornece uma descrição geral do serviço StorSimple Manager de dados"
+title: Descrição geral do Gestor de dados do Microsoft Azure StorSimple | Microsoft Docs
+description: Fornece uma descrição geral do serviço StorSimple Manager de dados
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article

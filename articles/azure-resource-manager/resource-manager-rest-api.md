@@ -1,11 +1,11 @@
 ---
 title: APIs REST do Resource Manager | Microsoft Docs
-description: "Uma descrição geral dos exemplos de autenticação e a utilização de REST APIs do Resource Manager"
+description: Uma descrição geral dos exemplos de autenticação e a utilização de REST APIs do Resource Manager
 services: azure-resource-manager
 documentationcenter: na
 author: navalev
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e8d7a1d2-1e82-4212-8288-8697341408c5
 ms.service: azure-resource-manager
 ms.devlang: na

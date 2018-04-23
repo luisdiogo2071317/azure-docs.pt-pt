@@ -1,12 +1,12 @@
 ---
-title: "Suporte SSH para o serviço de aplicações do Azure no Linux | Microsoft Docs"
-description: "Saiba como utilizar o SSH com o serviço de aplicações do Azure no Linux."
-keywords: "serviço de aplicações do Azure, aplicação web, linux, oss"
+title: Suporte SSH para o serviço de aplicações do Azure no Linux | Microsoft Docs
+description: Saiba como utilizar o SSH com o serviço de aplicações do Azure no Linux.
+keywords: serviço de aplicações do Azure, aplicação web, linux, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
 ms.workload: na

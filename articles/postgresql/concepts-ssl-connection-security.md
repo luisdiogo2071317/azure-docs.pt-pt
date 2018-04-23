@@ -1,13 +1,13 @@
 ---
 title: Configurar a conectividade SSL na base de dados do Azure para PostgreSQL
-description: "As instruções e informações para configurar a base de dados do Azure para PostgreSQL e aplicações associadas a corretamente utilizar ligações SSL."
+description: As instruções e informações para configurar a base de dados do Azure para PostgreSQL e aplicações associadas a corretamente utilizar ligações SSL.
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
 manager: kfile
 ms.service: postgresql
-ms.custom: 
+ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
 ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966

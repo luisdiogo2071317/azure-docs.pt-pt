@@ -1,6 +1,6 @@
 ---
-title: "Migração de período de indisponibilidade mínimo para a base de dados do Azure para MySQL"
-description: "Este artigo descreve como efetuar uma migração de período de indisponibilidade mínimo de uma base de dados MySQL à base de dados do Azure para o MySQL e como configurar carga inicial e a sincronização de dados contínua da base de dados de origem para a base de dados de destino utilizando Attunity replicar para a Microsoft Migrações."
+title: Migração de período de indisponibilidade mínimo para a base de dados do Azure para MySQL
+description: Este artigo descreve como efetuar uma migração de período de indisponibilidade mínimo de uma base de dados MySQL à base de dados do Azure para o MySQL e como configurar carga inicial e a sincronização de dados contínua da base de dados de origem para a base de dados de destino utilizando Attunity replicar para a Microsoft Migrações.
 services: mysql
 author: HJToland3
 ms.author: jtoland

@@ -1,8 +1,8 @@
 ---
-title: "Dashboards e navegação no Azure Application Insights | Microsoft Docs"
-description: "Crie vistas da sua chaves gráficos APM e consultas."
+title: Dashboards e navegação no Azure Application Insights | Microsoft Docs
+description: Crie vistas da sua chaves gráficos APM e consultas.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
