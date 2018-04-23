@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 04/01/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 5f10bc981581de12b816a45a6c6d704c42024b67
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bef2e3088bf3f3d32f59b382792608fbf3a03a60
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL e uma base de dados do SQL Server no local
 
@@ -29,7 +29,7 @@ Este exemplo do PowerShell configura a Sincronização de Dados (Pré-visualiza�
 
 Este exemplo requer a versão 4.2 ou posterior do módulo do Azure PowerShell. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
  
-Execute `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Execute `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure (Pré-visualização)](../sql-database-sync-data.md).
 
@@ -101,7 +101,7 @@ $IncludedColumnsAndTables =  "[SalesLT].[Address].[AddressID]",
 $MetadataList = [System.Collections.ArrayList]::new($IncludedColumnsAndTables)
 
 
-add-azurermaccount 
+Connect-AzureRmAccount 
 select-azurermsubscription -SubscriptionId $SubscriptionId
 
 # Use this section if it is safe to show password in the script.

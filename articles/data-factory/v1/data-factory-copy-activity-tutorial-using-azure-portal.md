@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Criar um pipeline do Azure Data Factory para copiar dados (portal do Azure) | Microsoft Docs'
-description: "Neste tutorial, vai utilizar o portal do Azure para criar um pipeline do Azure Data Factory com uma Atividade de Cópia, para copiar dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure."
+description: Neste tutorial, vai utilizar o portal do Azure para criar um pipeline do Azure Data Factory com uma Atividade de Cópia, para copiar dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7f42cfda1684b7ff5bd2a1655154b6a11d4ffd31
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c4e8de6b229fe027e43a2b13f2a7ad54b7c3eaf2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar o portal do Azure para criar um pipeline do Data Factory e copiar dados 
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline pode conter uma
    6. Clique em **Criar**.
       
       > [!IMPORTANT]
-      > Para criar instâncias do Data Factory, tem de ser um membro da função [Contribuinte do Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) ao nível do grupo de recursos/subscrição.
+      > Para criar instâncias do Data Factory, tem de ser um membro da função [Contribuinte do Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) ao nível do grupo de recursos/subscrição.
       > 
       > O nome da fábrica de dados pode ser registado como um nome DNS no futuro e, por conseguinte, ficar publicamente visível.                
       > 

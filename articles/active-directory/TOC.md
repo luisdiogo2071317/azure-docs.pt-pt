@@ -134,24 +134,24 @@
 #### [Com certificados](active-directory-reporting-api-with-certificates.md)
 
 ## Gerir palavras-passe
-### [Descrição geral de palavras-passe](active-directory-passwords-overview.md)
+### [Descrição geral de palavras-passe](authentication/active-directory-passwords-overview.md)
 ### Documentos do utilizador
 #### [Repor ou alterar a palavra-passe](active-directory-passwords-update-your-own-password.md)
 #### [Melhores práticas de palavra-passe](active-directory-secure-passwords.md)
 #### [Registar-se na reposição personalizada de palavra-passe](active-directory-passwords-reset-register.md)
-### [SSPR - Como funciona](active-directory-passwords-how-it-works.md)
-### [SSPR - Guia de implementação](active-directory-passwords-best-practices.md)
+### [SSPR - Como funciona](authentication/concept-sspr-howitworks.md)
+### [SSPR - Guia de implementação](authentication/howto-sspr-deployment.md)
 ### [SSPR e o Windows 10](active-directory-passwords-login.md)
-### [SSPR - Políticas](active-directory-passwords-policy.md)
-### [SSPR - Personalização](active-directory-passwords-customize.md)
-### [SSPR - Requisitos de dados](active-directory-passwords-data.md)
-### [SSPR - Relatórios](active-directory-passwords-reporting.md)
+### [SSPR - Políticas](authentication/concept-sspr-policy.md)
+### [SSPR - Personalização](authentication/concept-sspr-customization.md)
+### [SSPR - Requisitos de dados](authentication/howto-sspr-authenticationdata.md)
+### [SSPR - Relatórios](authentication/howto-sspr-reporting.md)
 ### Administradores de TI: repor palavras-passe
 #### [Portal do Azure](active-directory-users-reset-password-azure-portal.md)
-### [Licenciar a SSPR](active-directory-passwords-licensing.md)
+### [Licenciar a SSPR](authentication/concept-sspr-licensing.md)
 ### [Repetição de escrita de palavras-passe](active-directory-passwords-writeback.md)
-### [Resolução de problemas](active-directory-passwords-troubleshoot.md)
-### [FAQ](active-directory-passwords-faq.md)
+### [Resolução de problemas](authentication/active-directory-passwords-troubleshoot.md)
+### [FAQ](authentication/active-directory-passwords-faq.md)
 
 
 ## Gerir dispositivos

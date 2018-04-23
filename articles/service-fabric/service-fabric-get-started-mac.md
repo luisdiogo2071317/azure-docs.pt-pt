@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 76bbe686d07ff83bff6271f62793713194938212
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f6813d98782d31dc780da21f78aafbbfdfc5e688
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >
     >Recomendamos que aumente os recursos alocados ao Docker quando testar aplicações grandes. Pode fazê-lo selecionando o **Ícone do Docker** e, em seguida, selecionando **Avançadas** para ajustar o número de núcleos e memória.
 
-2. Num novo diretório, crie um ficheiro com o nome `.Dockerfile` para criar a Imagem do Service Fabric:
+2. Num novo diretório, crie um ficheiro com o nome `Dockerfile` para criar a Imagem do Service Fabric:
 
     ```dockerfile
     FROM microsoft/service-fabric-onebox
@@ -86,7 +86,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >[!TIP]
     > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões específicas, visite a página do [Hub do Docker](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
 
-3. Para criar a imagem reutilizável a partir do `.Dockerfile`, abra um terminal e `cd` para o diretório que contém o `.Dockerfile` e, em seguida, execute:
+3. Para criar a imagem reutilizável a partir do `Dockerfile`, abra um terminal e `cd` para o diretório que contém o `Dockerfile` e, em seguida, execute:
 
     ```bash 
     docker build -t mysfcluster .

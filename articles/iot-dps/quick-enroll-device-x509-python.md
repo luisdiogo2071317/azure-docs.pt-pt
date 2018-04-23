@@ -1,22 +1,22 @@
 ---
-title: "Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos do Azure com Python | Microsoft Docs"
-description: "Manual de Início Rápido do Azure - Inscrever os dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure com o SDK do serviço de aprovisionamento Python"
+title: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos do Azure com Python | Microsoft Docs
+description: Manual de Início Rápido do Azure - Inscrever os dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure com o SDK do serviço de aprovisionamento Python
 services: iot-dps
-keywords: 
-author: msebolt
+keywords: ''
+author: bryanla
 ms.author: v-masebo
 ms.date: 01/25/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9cd16ddcd5dfbcd68be37e2988e57604082a338f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a5aef91b4af5668f1b34f029ccd443c9eed01e34
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Inscrever os dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos no Hub IoT com o SDK do serviço de aprovisionamento Python
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]

@@ -1,11 +1,11 @@
 ---
-title: "Ligar uma rede virtual do Azure a outra VNet com uma ligação VNet a VNet: PowerShell | Microsoft Docs"
-description: "Ligue redes virtuais entre si com uma ligação VNet a VNet e o PowerShell."
+title: 'Ligar uma rede virtual do Azure a outra VNet com uma ligação VNet a VNet: PowerShell | Microsoft Docs'
+description: Ligue redes virtuais entre si com uma ligação VNet a VNet e o PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8f2ecf4f10c5506b79adb033c67c41a4b1e17777
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a96326e23a2ed913ccab8a23666a4f408157d3da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com o PowerShell
 
@@ -153,7 +153,7 @@ Utilizamos os seguintes valores nos exemplos:
 2. Ligar à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Verifique as subscrições da conta.
@@ -349,7 +349,7 @@ Este passo tem de ser realizado no contexto da nova subscrição. Esta parte pod
 2. Estabelecer ligação à subscrição 5. Abra a consola do PowerShell e ligue-se à sua conta. Utilize o seguinte exemplo para o ajudar na ligação:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Verifique as subscrições da conta.

@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 0c1c9364d6d7071e0aa454889417eeec3807f406
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3a06374119851560d517704b817fb9bf18728059
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Conceber uma Base de Dados do Azure para MySQL com a CLI do Azure
 
@@ -48,30 +48,6 @@ O exemplo seguinte cria um grupo de recursos com o nome `myresourcegroup` na loc
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-## <a name="add-the-extension"></a>Adicionar a extensão
-Adicione a extensão atualizada de gestão da Base de Dados do Azure para MySQL, com o comando seguinte:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Certifique-se de que tem a versão de extensão correta instalada. 
-```azurecli-interactive
-az extension list
-```
-
-O JSON de retorno deve incluir o seguinte: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Se não for devolvida a versão 0.0.5, execute o seguinte para atualizar a extensão: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Criar uma Base de Dados do Azure para o servidor MySQL

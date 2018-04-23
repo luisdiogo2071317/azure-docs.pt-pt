@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: fdc88f4ba893eed516aeca174e68fdda12a42a0f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7434de9fa176f608655606772e079cb7631dde93
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Criar uma máquina virtual e uma conta de armazenamento para uma aplicação dimensionável
 
@@ -25,7 +25,7 @@ Este tutorial é a primeira parte de uma série. Este tutorial mostra como imple
 Na primeira parte da série, saiba como:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage
+> * Create a storage account
 > * Criar uma máquina virtual
 > * Configurar uma extensão de script personalizado
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -43,7 +43,7 @@ Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/mo
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Create a storage account
  
 O exemplo carrega 50 ficheiros grandes para um contentor de blobs numa conta de Armazenamento do Azure. Uma conta de armazenamento fornece um espaço de nomes exclusivo para armazenar e aceder aos objetos de dados de armazenamento do Azure. Crie uma conta de armazenamento no grupo de recursos que criou através do comando [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount).
 
@@ -129,7 +129,7 @@ Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 Na primeira parte da série, aprendeu como criar uma conta de armazenamento, implementar uma máquina virtual e configurar a máquina virtual com os pré-requisitos necessários, tais como:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage
+> * Create a storage account
 > * Criar uma máquina virtual
 > * Configurar uma extensão de script personalizado
 

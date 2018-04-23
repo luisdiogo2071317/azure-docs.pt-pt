@@ -1,13 +1,13 @@
 ---
-title: "Início Rápido do Azure - Fazer uma cópia de segurança de uma VM com o PowerShell | Microsoft Docs"
-description: "Saiba como fazer cópias de segurança das suas máquinas virtuais com o Azure PowerShell"
+title: Início Rápido do Azure - Fazer uma cópia de segurança de uma VM com o PowerShell | Microsoft Docs
+description: Saiba como fazer cópias de segurança das suas máquinas virtuais com o Azure PowerShell
 services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 55de58770bd91e000c12b42c8eeac92fb8c0a710
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91303368f96b477f0756e4d3b9d19601797f0ba8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure com o PowerShell
 O módulo Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que podem ser armazenados em cofres de recuperação georredundantes. Este artigo mostra em detalhe como fazer uma cópia de segurança de uma máquina virtual (VM) com o módulo Azure PowerShell. Também pode executar estes passos com a [CLI do Azure](quick-backup-vm-cli.md) ou o [portal do Azure](quick-backup-vm-portal.md).
@@ -31,10 +31,10 @@ Este início rápido requer a versão 4.4 ou posterior do módulo Azure PowerShe
 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão na sua subscrição do Azure com o comando `Login-AzureRmAccount` e siga as instruções no ecrã.
+Inicie sessão na sua subscrição do Azure com o comando `Connect-AzureRmAccount` e siga as instruções no ecrã.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Da primeira vez que utilizar o Azure Backup, tem de registar o fornecedor do Serviço de Recuperação do Azure na sua subscrição com [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider).

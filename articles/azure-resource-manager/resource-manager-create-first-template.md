@@ -13,11 +13,11 @@ ms.devlang: na
 ms.date: 03/30/2018
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: adf7d6ad04b9c341eac2172e09da3cb1f044aa62
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 38ed7040c4f1497192c8c37887dc6281aa7935ea
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Criar e implementar o seu primeiro modelo do Azure Resource Manager
 Este tópico explica os passos de criação do primeiro modelo do Azure Resource Manager. Os modelos do Resource Manager são ficheiros JSON que definem os recursos que precisa de implementar para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções do Azure, veja [Descrição geral do Azure Resource Manager](resource-group-overview.md). Se dispõe de recursos existentes e pretende obter um modelo para esses recursos, veja [Exportar um modelo do Azure Resource Manager a partir de recursos existentes](resource-manager-export-template.md).
@@ -79,7 +79,7 @@ Está pronto para implementar este modelo. Utilize o PowerShell ou a CLI do Azur
 * Para o PowerShell, utilize os seguintes comandos a partir da pasta que contém o modelo:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    
    New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json

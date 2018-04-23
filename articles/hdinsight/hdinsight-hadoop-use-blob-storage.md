@@ -1,9 +1,9 @@
 ---
-title: "Consultar dados a partir do armazenamento do Azure compatível com HDFS - Azure HDInsight | Microsoft Docs"
-description: "Saiba como consultar dados a partir do armazenamento do Azure e do Azure Data Lake Store para armazenar os resultados da sua análise."
-keywords: "armazenamento de blobs, hdfs, dados estruturados, dados não estruturados, data lake store, entrada do Hadoop, saída do Hadoop, armazenamento de hadoop, entrada do hdfs, saída do hdfs, armazenamento do hdfs, wasb azure"
+title: Consultar dados a partir do armazenamento do Azure compatível com HDFS - Azure HDInsight | Microsoft Docs
+description: Saiba como consultar dados a partir do armazenamento do Azure e do Azure Data Lake Store para armazenar os resultados da sua análise.
+keywords: armazenamento de blobs, hdfs, dados estruturados, dados não estruturados, data lake store, entrada do Hadoop, saída do Hadoop, armazenamento de hadoop, entrada do hdfs, saída do hdfs, armazenamento do hdfs, wasb azure
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 7e60e33330357d08d69e3372fd3eea1aadb4a141
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 60b9f7f7a60872bd7d151d7ec890ba3a77be9263
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utilizar o armazenamento do Azure com clusters do Azure HDInsight
 
@@ -126,7 +126,7 @@ Se tiver [instalado e configurado o Azure PowerShell][powershell-install], pode 
     $StorageAccountName = "<New Azure Storage Account Name>"
     $containerName = "<New Azure Blob Container Name>"
 
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId $SubscriptionID
 
     # Create resource group
@@ -220,7 +220,7 @@ O script seguinte transfere um blob de blocos para a pasta atual. Antes de execu
     $blob = "example/data/sample.log" # The name of the blob to be downloaded.
 
     # Use Add-AzureAccount if you haven't connected to your Azure subscription
-    Login-AzureRmAccount 
+    Connect-AzureRmAccount 
     Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
 
     Write-Host "Create a context object ... " -ForegroundColor Green

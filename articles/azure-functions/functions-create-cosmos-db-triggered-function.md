@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 60836bd88335dc5c58423bad94b6a95e9782c474
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9ba7d8c403a7778a52b858a41ad41bca405cb199
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função acionada pelo Azure Cosmos DB
 
@@ -111,7 +111,7 @@ Em seguida, ligue à sua conta do Azure Cosmos DB e crie a coleção **Tarefas**
     | **ID da Coleção** | Itens | O nome da coleção nova. Isto deve corresponder ao nome definido no enlace de função.  |
     | **Capacidade de armazenamento** | Fixa (10 GB)|Utilize o valor predefinido. Este valor é a capacidade de armazenamento da base de dados. |
     | **Débito** |400 RU| Utilize o valor predefinido. Se pretender reduzir a latência, pode aumentar o débito mais tarde. |
-    | **[Chave de partição](../cosmos-db/partition-data.md#design-for-partitioning)** | /categoria|Uma chave de partição que distribui uniformemente os dados para cada partição. É importante selecionar a chave de partição correta para criar coleções com bom desempenho. | 
+    | **[Chave de partição](../cosmos-db/partition-data.md#design-for-scale)** | /categoria|Uma chave de partição que distribui uniformemente os dados para cada partição. É importante selecionar a chave de partição correta para criar coleções com bom desempenho. | 
 
 1. Clique em **OK** para criar a coleção **Tarefas**. Pode demorar um curto período de tempo para a coleção ser criada.
 

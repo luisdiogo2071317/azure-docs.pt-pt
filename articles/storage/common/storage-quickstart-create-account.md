@@ -1,5 +1,5 @@
 ---
-title: "Início Rápido do Azure – Criar uma conta de armazenamento | Microsoft Docs"
+title: Início Rápido do Azure – Criar uma conta de armazenamento | Microsoft Docs
 description: Aprenda a criar rapidamente uma nova conta de armazenamento com o portal do Azure, o Azure PowerShell ou a CLI do Azure.
 services: storage
 author: tamram
@@ -9,13 +9,13 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 600689dfe2d572a83382522f6bea1ec5bf0f3883
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="create-a-storage-account"></a>Criar uma conta do Storage
+# <a name="create-a-storage-account"></a>Create a storage account
 
 Uma conta de armazenamento do Azure oferece um espaço de nomes exclusivo na cloud para armazenar e aceder aos seus objetos de dados no Armazenamento do Azure. Uma conta de armazenamento contém quaisquer blobs, ficheiros, filas, tabelas e discos que cria nessa conta. 
 
@@ -65,10 +65,10 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Inicie sessão na sua subscrição do Azure com o comando `Login-AzureRmAccount` e siga as instruções no ecrã para autenticar.
+Inicie sessão na sua subscrição do Azure com o comando `Connect-AzureRmAccount` e siga as instruções no ecrã para autenticar.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)

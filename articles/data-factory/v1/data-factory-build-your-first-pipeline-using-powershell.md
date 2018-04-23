@@ -1,11 +1,11 @@
 ---
-title: "Criar a primeira fábrica de dados (PowerShell) | Microsoft Docs"
-description: "Neste tutorial, irá criar um exemplo de pipeline do Azure Data Factory com o Azure PowerShell."
+title: Criar a primeira fábrica de dados (PowerShell) | Microsoft Docs
+description: Neste tutorial, irá criar um exemplo de pipeline do Azure Data Factory com o Azure PowerShell.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 22ec1236-ea86-4eb7-b903-0e79a58b90c7
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: bea8f944e59774abdb70f0f1cad37cfe0749b195
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 915c2eb6be14520d8a6eeccf173ac30b70eca45b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Neste passo, utiliza o Azure PowerShell para criar um Azure Data Factory com o n
 1. Inicie o Azure PowerShell e execute o seguinte comando. Mantenha o Azure PowerShell aberto até ao fim deste tutorial. Se o fechar e reabrir, terá de executar os comandos novamente.
    * Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no portal do Azure.
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```    
    * Execute o comando seguinte para ver todas as subscrições para esta conta.
     ```PowerShell

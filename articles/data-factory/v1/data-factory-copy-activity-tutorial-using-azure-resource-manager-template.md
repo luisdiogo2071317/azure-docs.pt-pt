@@ -2,10 +2,10 @@
 title: 'Tutorial: Criar um pipeline com o Modelo do Resource Manager| Microsoft Docs'
 description: Neste tutorial, vai criar um pipeline do Azure Data Factory com um modelo do Azure Resource Manager. Este pipeline copia os dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6d4006389fffe999ce83d3c2535505869ecc0519
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c8f96ffa44cb584cef3c3a5f785c20469aac38bd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar o modelo do Azure Resource Manager para criar um pipeline do Data Factory e copiar dados 
 > [!div class="op_single_selector"]
@@ -319,7 +319,7 @@ Crie um ficheiro JSON com o nome **ADFCopyTutorialARM Parameters.json** que cont
    * Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no portal do Azure.
    
     ```PowerShell
-    Login-AzureRmAccount    
+    Connect-AzureRmAccount      
     ```  
    * Execute o comando seguinte para ver todas as subscrições para esta conta.
    

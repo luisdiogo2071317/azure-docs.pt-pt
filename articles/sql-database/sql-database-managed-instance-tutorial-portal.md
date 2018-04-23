@@ -12,10 +12,10 @@ ms.date: 03/14/2018
 ms.author: bonova
 manager: craigg
 ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Criar uma MI no portal do Azure
 
@@ -203,9 +203,9 @@ Os passos seguintes mostram como criar uma segunda sub-rede na VNet para uma má
    | ------ | --------------- | ----------- |
    |**Nome**|Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Intervalo de endereços (bloco CIDR)**|Qualquer intervalo de endereços válido dentro da VNet (utilizar a predefinição)||
-   |**Grupo de segurança de rede**|Nenhum||
-   |**Tabela de rotas**|Nenhum||
-   |**Pontos finais de serviço**|Nenhum||
+   |**Grupo de segurança de rede**|Nenhuma||
+   |**Tabela de rotas**|Nenhuma||
+   |**Pontos finais de serviço**|Nenhuma||
 
    ![detalhes da sub-rede vm](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)
 

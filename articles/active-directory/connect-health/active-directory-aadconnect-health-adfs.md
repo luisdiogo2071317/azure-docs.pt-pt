@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 630a633cf8657d43d6416d316928830634c9bf48
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d416c8953f1e41c04a39141c79e0b1568c1dccb3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorizar o AD FS utilizando o Azure AD Connect Health
 A seguinte documentação é específica para monitorizar a infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre a monitorização do Azure AD Connect (Sincronização) com o Azure AD Connect Health, consulte [Utilizar Azure AD Connect Health para Sincronização](active-directory-aadconnect-health-sync.md). Além disso, para obter informações sobre a monitorização dos Serviços de Domínio do Active Directory com o Azure AD Connect Health, consulte [Utilizar Azure AD Connect Health com AD DS](active-directory-aadconnect-health-adds.md).
@@ -127,7 +127,7 @@ Além disso, é possível que um único endereço IP tente vários inícios de s
 
 > [!NOTE]
 > Para utilizar este relatório, tem de se certificar de que a auditoria do AD FS está ativada. Para obter mais informações, consulte [Ativar Auditoria do AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Para aceder à pré-visualização, precisa da permissão do Administrador Global ou do [Leitor de Segurança](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#security-reader).  
+> Para aceder à pré-visualização, precisa da permissão do Administrador Global ou do [Leitor de Segurança](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader).  
 > 
 
 ### <a name="what-is-in-the-report"></a>Novidades do relatório

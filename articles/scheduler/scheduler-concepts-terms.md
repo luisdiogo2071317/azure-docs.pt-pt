@@ -1,11 +1,11 @@
 ---
 title: Conceitos, termos e entidades do Scheduler | Microsoft Docs
-description: "Conceitos, terminologia e hierarquia de entidades do Agendador do Azure, incluindo tarefas e coleções de tarefas.  Mostra um exemplo abrangente de uma tarefa agendada."
+description: Conceitos, terminologia e hierarquia de entidades do Agendador do Azure, incluindo tarefas e coleções de tarefas.  Mostra um exemplo abrangente de uma tarefa agendada.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Conceitos, terminologia e hierarquia de entidades do Agendador
 ## <a name="scheduler-entity-hierarchy"></a>Hierarquia de entidades do Agendador
@@ -176,9 +176,9 @@ Se uma tarefa do Agendador falhar, é possível especificar uma política de rep
 
 Para definir uma política de repetição, é possível especificar duas definições adicionais: um intervalo entre tentativas (**retryInterval**) e o número de tentativas (**retryCount**).
 
-O intervalo entre tentativas, especificado com o objeto **retryInterval**, é o intervalo entre as repetições. O valor predefinido é 30 segundos, o valor mínimo configurável é 15 segundos e o valor máximo é 18 meses. As tarefas nas coleções de tarefas gratuitas têm um valor configurável mínimo de 1 hora.  Está definido no formato ISO 8601. Do mesmo modo, o valor de número de tentativas é especificado com o objeto **retryCount**; é o número de vezes que é tentada uma repetição. O valor predefinido é 4 e o valor máximo é 20\. O **retryInterval** e o **retryCount** são opcionais. São fornecidos os respetivos valores predefinidos se **retryType** estiver definido como **fixed** e não existirem valores especificados explicitamente.
+O intervalo entre tentativas, especificado com o objeto **retryInterval**, é o intervalo entre as repetições. O valor predefinido é 30 segundos, o valor mínimo configurável é 15 segundos e o valor máximo é 18 meses. Está definido no formato ISO 8601. Do mesmo modo, o valor de número de tentativas é especificado com o objeto **retryCount**; é o número de vezes que é tentada uma repetição. O valor predefinido é 4 e o valor máximo é 20\. O **retryInterval** e o **retryCount** são opcionais. São fornecidos os respetivos valores predefinidos se **retryType** estiver definido como **fixed** e não existirem valores especificados explicitamente.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
  [O que é o Scheduler?](scheduler-intro.md)
 
  [Começar a utilizar o Scheduler no portal do Azure](scheduler-get-started-portal.md)
