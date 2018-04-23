@@ -7,14 +7,14 @@ author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utilizar pontos finais do serviço de rede Virtual e as regras para a SQL Database do Azure
 
@@ -140,7 +140,7 @@ Para a base de dados SQL do Azure, a funcionalidade de regras de rede virtual te
 Quando utilizar pontos finais de serviço para a SQL Database do Azure, reveja as seguintes considerações:
 
 - **Saída para IPs públicos do Azure SQL da base de dados é necessária**: grupos de segurança de rede (NSGs) devem ser abertos para IPs de base de dados SQL do Azure para permitir a conetividade. Pode fazê-lo utilizando o NSG [etiquetas de serviço](../virtual-network/security-overview.md#service-tags) para a SQL Database do Azure.
-- **Base de dados do Azure para PostgreSQL e o MySQL não são suportadas**: pontos finais de serviço não são suportados para a base de dados do Azure para PostgreSQL ou MySQL. Ativar pontos finais do serviço base de dados do SQL Server irá interromper a conectividade a estes serviços. Temos uma mitigação para este; Contacte *dmalik@microsoft.com*.
+- **Base de dados do Azure para PostgreSQL e o MySQL não são suportadas**: pontos finais de serviço não são suportados para a base de dados do Azure para PostgreSQL ou MySQL. Ativar pontos finais do serviço base de dados do SQL Server irá interromper a conectividade a estes serviços. Temos uma mitigação para isto, e pode contactar *dmalik@microsoft.com* para obter mais informações.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -178,7 +178,7 @@ Armazenamento do Azure tiver implementado a mesma funcionalidade que permite lim
 Se optar por utilizar esta funcionalidade com uma conta de armazenamento que está a ser utilizada por um servidor de SQL do Azure, pode depare com problemas. Em seguida, é uma lista e debate das funcionalidades do Azure SQLDB que são afetados por este.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-O PolyBase costuma é utilizado para carregar dados para o Azure SQLDW das contas do Storage. Se a conta de armazenamento que está a carregar dados a partir de limita o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade do PolyBase à conta. Há uma mitigação para este; Contacte *dmalik@microsoft.com* para obter mais informações.
+O PolyBase costuma é utilizado para carregar dados para o Azure SQLDW das contas do Storage. Se a conta de armazenamento que está a carregar dados a partir de limita o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade do PolyBase à conta. Existe uma mitigação para este e pode contactar *dmalik@microsoft.com* para obter mais informações.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Blob do Azure SQLDB auditoria
 Auditoria de blob pushes registos de auditoria para a sua própria conta de armazenamento. Se esta conta de armazenamento utiliza a funcionalidade de pontos finais do serviço de prevenir irá interromper a conectividade do SQLDB do Azure para a conta de armazenamento.
@@ -227,8 +227,9 @@ Uma lista de várias mensagens de erro de base de dados SQL é documentada [aqui
 Esta secção ilustra a forma como pode utilizar o [portal do Azure] [ http-azure-portal-link-ref-477t] para criar um *regra de rede virtual* na base de dados SQL do Azure. A regra indica a base de dados do SQL Server para aceitar comunicações de uma sub-rede específica que tenha sido etiquetada como sendo uma *ponto final do serviço de rede Virtual*.
 
 > [!NOTE]
-> Certifique-se que o serviço de pontos finais estão ativados para a VNET/sub-rede que pretende adicionar as regras de Firewall de VNET do seu servidor.
-> Se os pontos finais de serviço não estão ativados para a VNET/sub-rede será pedido no portal para ativá-los, clique em ativar no painel no qual pode adiciona a regra.
+> Se pretender adicionar um ponto final de serviço para as regras de firewall de VNet do seu servidor de SQL Database do Azure, primeiro certifique-se de que o serviço de pontos finais estão ativados para a sub-rede.
+>
+> Se a pontos finais de serviço não estão ativados para a sub-rede, o portal do pede-lhe para ativá-los. Clique em de **ativar** botão no mesmo painel no qual pode adiciona a regra.
 
 #### <a name="powershell-alternative"></a>PowerShell alternativa
 

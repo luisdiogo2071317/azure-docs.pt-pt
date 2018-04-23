@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 2b77167992704bd342d67dc03b66af1e55955532
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 761013ad82fb8fa7d84e7929341d2e7d9e2d724c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Melhores práticas de segurança de controlo de acesso e gestão de identidades do Azure
 Muitas considere identidade seja de nova camada de limites para segurança, tendo mais essa função da perspetiva centrada em rede tradicional. Este evolução do pivot principal de segurança de atenção e investimentos provenientes do facto de que perimeters de rede têm de se cada vez mais porous e esse defesa de perímetro não pode ser como efetiva à medida que uma vez foram antes da explosão de [BYOD ](http://aka.ms/byodcg) dispositivos e aplicações em nuvem.
@@ -88,7 +88,7 @@ Ao ativar a MFA do Azure para os seus utilizadores, que está a adicionar uma se
 
 Por exemplo: impor o MFA do Azure para os seus utilizadores e configurá-lo para utilizar uma chamada telefónica ou mensagem de texto como verificação. Se as credenciais do utilizador estão comprometidas, o atacante não é capaz de aceder a qualquer recurso uma vez que não têm acesso para o telefone do utilizador. As organizações que não adicione camadas adicionais de proteção de identidade sejam mais suscetíveis de ataque de roubo de credenciais, que pode levar ao comprometimento de dados.
 
-Uma alternativa para as organizações que pretende manter a autenticação completa controlo no local é utilizar [do servidor multi-factor Authentication Azure](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), também denominado MFA no local. Através deste método, irá ainda ser capaz de impôr a autenticação multifator, mantendo o MFA server no local.
+Uma alternativa para as organizações que pretende manter a autenticação completa controlo no local é utilizar [do servidor multi-factor Authentication Azure](../active-directory/authentication/howto-mfaserver-deploy.md), também denominado MFA no local. Através deste método, irá ainda ser capaz de impôr a autenticação multifator, mantendo o MFA server no local.
 
 Para obter mais informações sobre o MFA do Azure, consulte o artigo [introdução ao Azure multi-factor Authentication na nuvem](../active-directory/authentication/howto-mfa-getstarted.md).
 

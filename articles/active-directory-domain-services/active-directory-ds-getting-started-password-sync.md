@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 5d65ce4c199c9ddc54e0120fe1c456a95a34f649
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4122052e48e57a27492433d01ee93536a9bbcf35
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Ativar a sincronização de hash de palavras-passe com o Azure Active Directory Domain Services
 Em tarefas anteriores, ativou o Azure Active Directory Domain Services do seu inquilino do Azure Active Directory (Azure AD). A tarefa seguinte consiste em ativar a sincronização de hashes de palavras-passe necessária para a autenticação NT LAN Manager (NTLM) e Kerberos com os Serviços de Domínio do Azure AD. Assim que a sincronização de hash de palavras-passe estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa.
@@ -64,7 +64,7 @@ Seguem-se as instruções que tem de fornecer aos utilizadores, para que possam 
     ![Clicar em "Alterar palavra-passe"](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
    > [!TIP]
-   > Se a opção **Alterar palavra-passe** não estiver apresentada na página do Painel de Acesso, certifique-se de que a sua organização configurou a [gestão de palavras-passe no Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+   > Se a opção **Alterar palavra-passe** não estiver apresentada na página do Painel de Acesso, certifique-se de que a sua organização configurou a [gestão de palavras-passe no Azure AD](../active-directory/authentication/quickstart-sspr.md).
    >
    >
 4. Na página **Alterar palavra-passe**, escreva a palavra-passe existente (antiga), escreva uma palavra-passe nova e, em seguida, confirme-a.
@@ -77,7 +77,7 @@ Uns minutos depois de ter alterado a palavra-passe, a nova palavra-passe pode se
 
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Como atualizar a sua própria palavra-passe](../active-directory/active-directory-passwords-update-your-own-password.md)
-* [Introdução à Gestão de Palavras-passe no Azure AD](../active-directory/active-directory-passwords-getting-started.md)
+* [Introdução à Gestão de Palavras-passe no Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Ativar a sincronização de hashes de palavras-passe com o Azure Active Directory Domain Services de um inquilino do Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administrar um domínio gerido pelo Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)
 * [Associar uma máquina virtual do Windows a um domínio gerido do Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
