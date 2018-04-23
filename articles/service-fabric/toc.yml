@@ -238,6 +238,8 @@
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Movimento de serviço
               href: service-fabric-cluster-resource-manager-movement-cost.md
+            - name: Serviços de dimensionamento automático
+              href: service-fabric-cluster-resource-manager-autoscaling.md
     - name: Monitorização e diagnóstico
       items:
         - name: Descrição geral da monitorização
@@ -261,8 +263,6 @@
           href: service-fabric-health-introduction.md
         - name: Eventos de estado de funcionamento do relatório
           href: service-fabric-report-health.md
-        - name: Monitorizar com o OMS
-          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Integrar com a Gestão de API
       href: service-fabric-api-management-overview.md
 - name: Guias de procedimentos
@@ -405,6 +405,10 @@
               href: service-fabric-securing-containers.md
             - name: Configurar o gMSA para contentores do Windows
               href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: Configurar cópias de segurança periódicas (Clusters no Azure)
+          href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
+        - name: Configurar cópias de segurança periódicas (Clusters Autónomos)
+          href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
         - name: Migrar a aplicação de Java antiga para suportar Maven
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Trabalhar num ambiente de desenvolvimento do Windows/VS
@@ -555,6 +559,8 @@
               href: service-fabric-diagnostics-oms-setup.md
             - name: Adicionar Agente do OMS
               href: service-fabric-diagnostics-oms-agent.md
+            - name: Monitorizar com o OMS
+              href: service-fabric-diagnostics-event-analysis-oms.md
             - name: Contentores de monitor
               href: service-fabric-diagnostics-oms-containers.md
         - name: Analisar com o Application Insights

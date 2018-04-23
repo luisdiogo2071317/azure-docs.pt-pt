@@ -45,6 +45,7 @@
 ### [Devolver uma mensagem do Twitter com as Funções do Azure](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 ### [Envie mensagens para um servidor MQTT com APIs Eclipse Paho](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [Monitorizar o sensor magnético e enviar notificações por e-mail com as Funções do Azure](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
+### [Controlar MXChip IoT DevKit RGB LED através de dispositivos duplos do Azure](iot-hub-arduino-iot-devkit-az3166-devkit-state.md)
 
 # Guias de procedimentos
 ## Planear
@@ -120,7 +121,7 @@
 #### [Dispositivo de back-end .NET/.NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Back-end de Java/Dispositivo Java](iot-hub-java-java-twin-how-to-configure.md)
 #### [Back-end em Python/dispositivo Python](iot-hub-python-python-twin-how-to-configure.md)
-### Utilizar tarefas de dispositivo para atualizar o firmware do dispositivo
+### Utilizar dispositivos duplos para atualizar o firmware do dispositivo
 #### [Back-end de Node/Dispositivo Node](iot-hub-node-node-firmware-update.md)
 #### [Back-end de .NET/Dispositivo Node.js](iot-hub-csharp-node-firmware-update.md)
 #### [Dispositivo de back-end .NET/.NET](iot-hub-csharp-csharp-firmware-update.md)
@@ -173,7 +174,7 @@
 ## [Java (Serviço)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Dispositivos)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Node.js (Dispositivos)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
-## [Node.js (Serviço)](https://docs.microsoft.com/javascript/api/azure-iothub)
+## [Node.js (Serviço)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [SDK de dispositivo para C](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Fornecedor de Recursos)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

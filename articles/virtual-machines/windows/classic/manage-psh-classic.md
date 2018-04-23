@@ -73,7 +73,7 @@ Execute este comando:
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## <a name="attach-a-data-disk"></a>Anexar um disco de dados
-Esta tarefa requer alguns passos. Em primeiro lugar, utilize o *** Add-AzureDataDisk *** cmdlet para adicionar o disco para o objeto de $vm. Em seguida, utilize **Update-AzureVM** cmdlet para atualizar a configuração da VM.
+Esta tarefa requer alguns passos. Em primeiro lugar, utilize o ****Add-AzureDataDisk**** cmdlet para adicionar o disco para o objeto de $vm. Em seguida, utilize **Update-AzureVM** cmdlet para atualizar a configuração da VM.
 
 Também vai ter de decidir entre anexar um disco novo ou um que contenha dados. Para um novo disco, o comando cria o ficheiro. vhd e anexa-lo.
 

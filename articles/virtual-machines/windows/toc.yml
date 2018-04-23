@@ -421,6 +421,8 @@
           href: troubleshoot-activation-problems.md
         - name: Falhas de alocação
           href: allocation-failure.md
+        - name: Falhas de alocação - VM clássica
+          href: allocation-failure-classic.md
         - name: Reimplementar uma VM
           href: redeploy-to-new-node.md
         - name: Mensagens de erro comuns
