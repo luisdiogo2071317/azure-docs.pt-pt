@@ -11,6 +11,12 @@
 ### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
 ### [CLI do Azure](create-routebased-vpn-gateway-cli.md)
 
+# Amostras
+## [Criar um gateway de VPN](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md)
+## [Ponto a Site - Autenticação RADIUS](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md)
+## [Ponto a Site - Autenticação de certificados](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md)
+## [Site a Site](./scripts/vpn-gateway-sample-site-to-site-powershell.md)
+
 # Conceitos
 ## [Planear e conceber para o Gateway de VPN](vpn-gateway-plan-design.md)
 ## [Acerca das definições do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md)
@@ -19,8 +25,9 @@
 ## [Acerca do Gateway de VPN e BGP](vpn-gateway-bgp-overview.md)
 ## [Acerca da conectividade de elevada disponibilidade](vpn-gateway-highlyavailable.md)
 ## [Acerca das ligações Ponto a Site](point-to-site-about.md)
+## [Acerca do encaminhamento Ponto a Site](vpn-gateway-about-point-to-site-routing.md)
 
-# Procedimento
+# Guias de procedimentos
 ## Configurar ligações Site a Site
 ### [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
