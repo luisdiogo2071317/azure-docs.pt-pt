@@ -1,5 +1,5 @@
 ---
-title: "Como utilizar sys_schema para otimização de desempenho e manutenção de base de dados na base de dados do Azure para MySQL"
+title: Como utilizar sys_schema para otimização de desempenho e manutenção de base de dados na base de dados do Azure para MySQL
 description: Este artigo descreve como utilizar sys_schema para encontrar problemas de desempenho e manter a base de dados na base de dados do Azure para MySQL.
 services: mysql
 author: ajlam

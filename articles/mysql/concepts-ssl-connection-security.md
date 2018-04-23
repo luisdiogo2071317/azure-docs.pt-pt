@@ -1,6 +1,6 @@
 ---
 title: Conectividade SSL para a base de dados do Azure para MySQL
-description: "Informações para configurar a base de dados do Azure para o MySQL e aplicações associadas a corretamente utilizar ligações SSL"
+description: Informações para configurar a base de dados do Azure para o MySQL e aplicações associadas a corretamente utilizar ligações SSL
 services: mysql
 author: JasonMAnderson
 ms.author: janders

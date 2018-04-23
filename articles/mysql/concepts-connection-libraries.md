@@ -1,6 +1,6 @@
 ---
-title: "Bibliotecas de ligação para base de dados do Azure para MySQL"
-description: "Este artigo apresenta uma lista de cada biblioteca ou controlador programas de cliente podem utilizar ao ligar à base de dados do Azure para MySQL."
+title: Bibliotecas de ligação para base de dados do Azure para MySQL
+description: Este artigo apresenta uma lista de cada biblioteca ou controlador programas de cliente podem utilizar ao ligar à base de dados do Azure para MySQL.
 services: mysql
 author: mswutao
 ms.author: wutao

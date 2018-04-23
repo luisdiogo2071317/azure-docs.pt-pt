@@ -1,11 +1,11 @@
 ---
 title: Cadeia do connnection de arquivo de imagem do Azure Service Fabric | Microsoft Docs
-description: "Compreender a cadeia de ligação do arquivo de imagens"
+description: Compreender a cadeia de ligação do arquivo de imagens
 services: service-fabric
 documentationcenter: .net
 author: alexwun
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
 ms.service: service-fabric
 ms.devlang: dotnet

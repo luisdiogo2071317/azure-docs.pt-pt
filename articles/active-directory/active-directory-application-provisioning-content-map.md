@@ -1,8 +1,8 @@
 ---
-title: "Problemas de configuração e o aprovisionamento de utilizadores a uma aplicação\""
-description: "Problemas de configuração e o aprovisionamento de utilizadores a uma aplicação\""
+title: Problemas de configuração e o aprovisionamento de utilizadores a uma aplicação"
+description: Problemas de configuração e o aprovisionamento de utilizadores a uma aplicação"
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
 ms.service: active-directory

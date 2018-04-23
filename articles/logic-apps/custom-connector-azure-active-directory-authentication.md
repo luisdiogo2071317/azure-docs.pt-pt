@@ -1,12 +1,12 @@
 ---
 title: Proteger conectores personalizados com o Azure AD - Azure Logic Apps | Microsoft Docs
-description: "Adicionar segurança e autenticação à sua API e ao seu conector com o Azure Active Directory (Azure AD)"
+description: Adicionar segurança e autenticação à sua API e ao seu conector com o Azure Active Directory (Azure AD)
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na

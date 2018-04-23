@@ -9,10 +9,10 @@ ms.date: 03/19/2018
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 4a47b30b30e15bbd3df4f70b2a6f63b4ab167aea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 | Categoria | Arquivo de dados | Suportado como origem | Suportado como sink | Suportado pelo [IR do Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Suportado pelo [IR autoalojado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -21,14 +21,14 @@ ms.lasthandoff: 03/23/2018
 | &nbsp; |[Azure Data Lake Store](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Base de Dados do Azure para MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Base de Dados do Azure para PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  |
-| &nbsp; |[File Storage do Azure](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Armazenamento de Ficheiros do Azure](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Base de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Índice do Azure Search](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Table Storage do Azure](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **Base de Dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
-| &nbsp; |[Desagregação (Beta)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
+| &nbsp; |[Drill (Beta)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
 | &nbsp; |[Greenplum (Beta)](../articles/data-factory/connector-greenplum.md) |✓ | |✓ |✓  |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |✓ | |✓ |✓  |
@@ -61,8 +61,8 @@ ms.lasthandoff: 03/23/2018
 | **Protocolo genérico** |[HTTP genérico](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[OData genérico](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[ODBC genérico](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
-| **Os serviços e aplicações** |[Amazon Marketplace Web Service (Beta)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
-| &nbsp; |[Serviço de dados comum para as aplicações](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
+| **Serviços e aplicações** |[Amazon Marketplace Web Service (Beta)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
+| &nbsp; |[Common Data Service for Apps](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur (Beta)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
@@ -72,18 +72,18 @@ ms.lasthandoff: 03/23/2018
 | &nbsp; |[Magento (Beta)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
 | &nbsp; |[Marketo (Beta)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Eloqua (Beta)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  |
-| &nbsp; |[PayPal (Beta)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  |
+| &nbsp; |[Paypal (Beta)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  |
 | &nbsp; |[QuickBooks (Beta)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Nuvem de serviço do Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Nuvem SAP para o cliente (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |✓ | |✓ |✓ |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify (Beta)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
-| &nbsp; |[Parênteses (Beta)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
+| &nbsp; |[Square (Beta)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
 | &nbsp; |[Tabela Web (tabela HTML)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
 | &nbsp; |[Xero (Beta)](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
 | &nbsp; |[Zoho (Beta)](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  |
 
 > [!NOTE]
-> Qualquer conector marcada como *Beta* significa que pode experimentar e envie-nos comentários. Se pretender efetuar uma dependência em conectores de Beta na sua solução, entre em contacto com [suporte do Azure](https://azure.microsoft.com/support/).
+> Qualquer conector marcado como *Beta* significa que o pode experimentar e enviar-nos comentários. Se quiser efetuar uma dependência em conectores Beta para a sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).

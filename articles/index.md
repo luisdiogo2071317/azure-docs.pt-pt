@@ -1156,7 +1156,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/active-directory-domain-services">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory para Domain Services</p>
+                                                <p>Azure Active Directory Domain Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2849,7 +2849,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Centro de IoT</h3>
-                                                    <p>Experimente o SaaS para IoT, sem precisar de conhecimentos sobre a cloud</p>
+                                                    <p>Experimente o SaaS para IoT, sem precisar de experiência na cloud</p>
                                                 </div>
                                             </div>
                                         </div>

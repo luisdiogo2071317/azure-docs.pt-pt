@@ -1,12 +1,12 @@
 ---
-title: "Proteger uma implementação de aplicação multicamada SAP NetWeaver utilizando o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como proteger o SAP NetWeaver implementações de aplicações utilizando o Azure Site Recovery."
+title: Proteger uma implementação de aplicação multicamada SAP NetWeaver utilizando o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como proteger o SAP NetWeaver implementações de aplicações utilizando o Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na

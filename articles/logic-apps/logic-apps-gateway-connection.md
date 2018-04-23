@@ -1,12 +1,12 @@
 ---
 title: Aceder a origens de dados no local para Azure Logic Apps | Microsoft Docs
 description: Configurar o gateway de dados no local para que possa aceder a origens de dados no local a partir das logic apps
-keywords: "aceder a dados no local, a transferência de dados, a encriptação e origens de dados"
+keywords: aceder a dados no local, a transferência de dados, a encriptação e origens de dados
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 6cb4449d-e6b8-4c35-9862-15110ae73e6a
 ms.service: logic-apps
 ms.devlang: na

@@ -1,11 +1,11 @@
 ---
 title: Proteger mensagens B2B com certificados no Azure Logic Apps | Microsoft Docs
-description: "Adicione certificados para proteger mensagens B2B com o pacote de integração do Enterprise"
+description: Adicione certificados para proteger mensagens B2B com o pacote de integração do Enterprise
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.service: logic-apps
 ms.workload: integration

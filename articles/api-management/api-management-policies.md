@@ -1,11 +1,11 @@
 ---
-title: "Políticas de API Management do Azure | Microsoft Docs"
-description: "Saiba mais sobre as políticas disponíveis para utilização na API Management do Azure."
+title: Políticas de API Management do Azure | Microsoft Docs
+description: Saiba mais sobre as políticas disponíveis para utilização na API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

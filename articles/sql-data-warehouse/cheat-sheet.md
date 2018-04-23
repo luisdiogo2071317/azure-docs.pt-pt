@@ -3,18 +3,18 @@ title: Referência rápida para o Azure SQL Data Warehouse | Microsoft Docs
 description: Encontre ligações e melhores práticas para criar rapidamente as suas soluções do Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: acomet
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/17/2018
 ms.author: acomet
-ms.reviewer: mausher,igorstan,jrj
-ms.openlocfilehash: 1e09dc2f3c7e7aa4ae98ef98a8957454a1beee6b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.reviewer: igorstan
+ms.openlocfilehash: 172780512dd179d91300459987ad0ba683727859
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Referência rápida do Azure SQL Data Warehouse
 Esta referência rápida disponibiliza sugestões e melhores práticas úteis para criar as suas soluções do Azure SQL Data Warehouse. Antes de começar, saiba mais sobre cada passo detalhadamente em [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Padrões e Antipadrões de Cargas de Trabalho do Azure SQL Data Warehouse), que explica do que se trata e não se trata o SQL Data Warehouse.

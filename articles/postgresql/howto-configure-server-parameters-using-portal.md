@@ -1,6 +1,6 @@
 ---
-title: "Configurar parâmetros de servidor na base de dados do Azure para PostgreSQL através do portal do Azure"
-description: "Este artigo descreve como configurar os parâmetros de servidor na base de dados do Azure para PostgreSQL através do portal do Azure."
+title: Configurar parâmetros de servidor na base de dados do Azure para PostgreSQL através do portal do Azure
+description: Este artigo descreve como configurar os parâmetros de servidor na base de dados do Azure para PostgreSQL através do portal do Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

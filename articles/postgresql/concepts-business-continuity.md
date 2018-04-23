@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral da continuidade do negócio com a base de dados do Azure para PostgreSQL"
-description: "Descrição geral da continuidade do negócio com a base de dados do Azure para PostgreSQL."
+title: Descrição geral da continuidade do negócio com a base de dados do Azure para PostgreSQL
+description: Descrição geral da continuidade do negócio com a base de dados do Azure para PostgreSQL.
 services: postgresql
 author: kamathsun
 ms.author: sukamat

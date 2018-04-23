@@ -1,6 +1,6 @@
 ---
-title: "VMware para a arquitetura da replicação do Azure no Azure Site Recovery | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral da arquitetura de utilizada quando replicar VMs de VMware no local para o Azure com o Azure Site Recovery e componentes"
+title: VMware para a arquitetura da replicação do Azure no Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece uma descrição geral da arquitetura de utilizada quando replicar VMs de VMware no local para o Azure com o Azure Site Recovery e componentes
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article

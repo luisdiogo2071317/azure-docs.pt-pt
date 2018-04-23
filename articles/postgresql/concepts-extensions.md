@@ -1,6 +1,6 @@
 ---
-title: "Utilizar extensões de PostgreSQL na base de dados do Azure para PostgreSQL"
-description: "Descreve a capacidade de expandir a funcionalidade da base de dados utilizando as extensões na base de dados do Azure para PostgreSQL."
+title: Utilizar extensões de PostgreSQL na base de dados do Azure para PostgreSQL
+description: Descreve a capacidade de expandir a funcionalidade da base de dados utilizando as extensões na base de dados do Azure para PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

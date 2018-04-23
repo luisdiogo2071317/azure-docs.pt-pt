@@ -1,6 +1,6 @@
 ---
 title: Registos do servidor da base de dados do Azure para MySQL
-description: "Descreve os registos disponíveis na base de dados do Azure para o MySQL e os parâmetros disponíveis de ativação de níveis de registo diferentes."
+description: Descreve os registos disponíveis na base de dados do Azure para o MySQL e os parâmetros disponíveis de ativação de níveis de registo diferentes.
 services: mysql
 author: rachel-msft
 ms.author: raagyema

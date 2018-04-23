@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric CLI - sfctl | Microsoft Docs
-description: "Descreve os comandos de sfctl CLI de recursos de infraestrutura de serviço."
+description: Descreve os comandos de sfctl CLI de recursos de infraestrutura de serviço.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference

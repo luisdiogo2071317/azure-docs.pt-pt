@@ -1,11 +1,11 @@
 ---
-title: "Utilizar o serviço de API Management para gerar pedidos de HTTP"
-description: "Saiba como utilizar políticas de pedido e resposta na API Management chamar serviços externos a partir da sua API"
+title: Utilizar o serviço de API Management para gerar pedidos de HTTP
+description: Saiba como utilizar políticas de pedido e resposta na API Management chamar serviços externos a partir da sua API
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
 ms.devlang: dotnet

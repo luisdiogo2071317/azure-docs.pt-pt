@@ -1,6 +1,6 @@
 ---
-title: "Configurar alertas de métricas da base de dados do Azure para o MySQL no portal do Azure"
-description: "Este artigo descreve como configurar e alertas de métrica de acesso para a base de dados do Azure para MySQL do portal do Azure."
+title: Configurar alertas de métricas da base de dados do Azure para o MySQL no portal do Azure
+description: Este artigo descreve como configurar e alertas de métrica de acesso para a base de dados do Azure para MySQL do portal do Azure.
 services: mysql
 author: rachel-msft
 ms.author: raagyema

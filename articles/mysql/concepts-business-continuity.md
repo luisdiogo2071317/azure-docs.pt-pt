@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral da continuidade do negócio com a base de dados do Azure para MySQL"
-description: "Descrição geral da continuidade do negócio com a base de dados do Azure para MySQL."
+title: Descrição geral da continuidade do negócio com a base de dados do Azure para MySQL
+description: Descrição geral da continuidade do negócio com a base de dados do Azure para MySQL.
 services: mysql
 author: kamathsun
 ms.author: sukamat

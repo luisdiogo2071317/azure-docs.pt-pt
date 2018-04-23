@@ -1,8 +1,8 @@
 ---
-title: "Replicar máquinas virtuais de Hyper-V em nuvens VMM utilizando o Azure Site Recovery e o PowerShell (Resource Manager) | Microsoft Docs"
-description: "Replicar máquinas virtuais de Hyper-V em nuvens VMM utilizando o Azure Site Recovery e o PowerShell"
+title: Replicar máquinas virtuais de Hyper-V em nuvens VMM utilizando o Azure Site Recovery e o PowerShell (Resource Manager) | Microsoft Docs
+description: Replicar máquinas virtuais de Hyper-V em nuvens VMM utilizando o Azure Site Recovery e o PowerShell
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: Rajani-Janaki-Ram
 manager: rochakm
 editor: raynew

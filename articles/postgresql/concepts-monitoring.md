@@ -1,6 +1,6 @@
 ---
-title: "Monitorização na base de dados do Azure para PostgreSQL"
-description: "Este artigo descreve as métricas de monitorização e alertas da base de dados do Azure para PostgreSQL, incluindo as estatísticas de CPU, de armazenamento e de ligação."
+title: Monitorização na base de dados do Azure para PostgreSQL
+description: Este artigo descreve as métricas de monitorização e alertas da base de dados do Azure para PostgreSQL, incluindo as estatísticas de CPU, de armazenamento e de ligação.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

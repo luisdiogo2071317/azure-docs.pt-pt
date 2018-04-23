@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Rollbar | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Rollbar."
+title: 'Tutorial: Integração do Azure Active Directory com Rollbar | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Rollbar.
 services: active-directory
 documentationCenter: na
 author: jeevansd

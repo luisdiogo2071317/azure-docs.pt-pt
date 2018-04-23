@@ -1,8 +1,8 @@
 ---
 title: Explore os dados num cluster de Hadoop e criar modelos no Azure Machine Learning | Microsoft Docs
-description: "Para um cenário ponto-a-ponto, a utilização de um cluster de Hadoop do HDInsight para criar e implementar um modelo a utilizar o processo de ciência de dados de equipa."
+description: Para um cenário ponto-a-ponto, a utilização de um cluster de Hadoop do HDInsight para criar e implementar um modelo a utilizar o processo de ciência de dados de equipa.
 services: machine-learning,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun

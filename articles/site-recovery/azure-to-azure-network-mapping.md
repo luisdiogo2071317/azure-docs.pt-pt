@@ -1,11 +1,11 @@
 ---
-title: "Mapear redes virtuais entre duas regiões do Azure no Azure Site Recovery | Microsoft Docs"
-description: "O Azure Site Recovery coordena a replicação, ativação pós-falha e recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre a ativação pós-falha para o Azure ou para um datacenter secundário."
+title: Mapear redes virtuais entre duas regiões do Azure no Azure Site Recovery | Microsoft Docs
+description: O Azure Site Recovery coordena a replicação, ativação pós-falha e recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre a ativação pós-falha para o Azure ou para um datacenter secundário.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
+editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na

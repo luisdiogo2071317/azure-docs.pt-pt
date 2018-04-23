@@ -1,7 +1,7 @@
 ---
-title: "Detetar problemas de dispositivos na solução de monitorização remota - Azure | Microsoft Docs"
-description: "Este tutorial mostra como utilizar as regras e ações para detetar automaticamente problemas baseadas em limiares dispositivos na solução de monitorização remota."
-services: 
+title: Detetar problemas de dispositivos na solução de monitorização remota - Azure | Microsoft Docs
+description: Este tutorial mostra como utilizar as regras e ações para detetar automaticamente problemas baseadas em limiares dispositivos na solução de monitorização remota.
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt

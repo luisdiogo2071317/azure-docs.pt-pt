@@ -2,10 +2,10 @@
 title: Autorizar a contas de programador com OAuth 2.0 na API Management do Azure | Microsoft Docs
 description: Saiba como autorizar os utilizadores com OAuth 2.0 na API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

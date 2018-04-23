@@ -1,6 +1,6 @@
 ---
-title: "Base de dados do Azure para PostgreSQL vídeos"
-description: "Esta página apresenta uma lista de conteúdo de vídeo relevante para a base de dados do Azure de aprendizagem para PostgreSQL."
+title: Base de dados do Azure para PostgreSQL vídeos
+description: Esta página apresenta uma lista de conteúdo de vídeo relevante para a base de dados do Azure de aprendizagem para PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

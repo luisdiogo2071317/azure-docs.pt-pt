@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 2e4c424bb26a3b268ec893ca40dcdce7d7469217
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0d168c0a127c037c1bca2a6b875e9b3d5707ba70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: Transmitir dados para o Azure Databricks com os Hubs de Eventos
 
@@ -109,7 +109,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 Para receber um fluxo de tweets, crie uma aplicação no Twitter. Siga as instruções para criar uma aplicação no Twitter e registe os valores que precisa para concluir este tutorial.
 
-1. A partir de um browser, aceda a [Gestão de Aplicações do Twitter](http://twitter.com/app) e selecione **Criar Nova Aplicação**.
+1. A partir de um browser, aceda a [Gestão de Aplicações do Twitter](https://apps.twitter.com/) e selecione **Criar Nova Aplicação**.
 
     ![Criar aplicação do Twitter](./media/databricks-stream-from-eventhubs/databricks-create-twitter-app.png "Criar aplicação do Twitter")
 

@@ -1,11 +1,11 @@
 ---
-title: "As políticas de API Management do Azure | Microsoft Docs"
-description: "Saiba como criar, editar e configurar políticas na API Management."
+title: As políticas de API Management do Azure | Microsoft Docs
+description: Saiba como criar, editar e configurar políticas na API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

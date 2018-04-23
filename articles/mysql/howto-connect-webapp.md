@@ -1,6 +1,6 @@
 ---
-title: "Ligar o App Service do Azure existente à base de dados do Azure para MySQL"
-description: "Instruções sobre como corretamente ligar um serviço de aplicações do Azure existente à base de dados do Azure para o MySQL"
+title: Ligar o App Service do Azure existente à base de dados do Azure para MySQL
+description: Instruções sobre como corretamente ligar um serviço de aplicações do Azure existente à base de dados do Azure para o MySQL
 services: mysql
 author: ajlam
 ms.author: andrela

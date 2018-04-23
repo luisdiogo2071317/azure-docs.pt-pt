@@ -1,6 +1,6 @@
 ---
 title: Conceitos de elevada disponibilidade da base de dados do Azure para MySQL
-description: "Este tópico fornece informações de elevada disponibilidade, quando utilizar a base de dados do Azure para MySQL"
+description: Este tópico fornece informações de elevada disponibilidade, quando utilizar a base de dados do Azure para MySQL
 services: mysql
 author: jasonwhowell
 ms.author: jasonh

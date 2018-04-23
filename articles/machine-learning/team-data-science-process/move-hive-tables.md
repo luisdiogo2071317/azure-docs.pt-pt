@@ -2,7 +2,7 @@
 title: Criar as tabelas do Hive e carregar dados do Blob Storage do Azure | Microsoft Docs
 description: Criar as tabelas do Hive e carregar os dados no blob para tabelas de ramo de registo
 services: machine-learning,storage
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun

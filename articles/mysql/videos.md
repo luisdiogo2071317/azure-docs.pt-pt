@@ -1,6 +1,6 @@
 ---
-title: "Base de dados do Azure para MySQL vídeos"
-description: "Esta página apresenta uma lista de conteúdo de vídeo relevante para a base de dados do Azure de aprendizagem para MySQL, Microsoft geridos MySQL oferta no Azure."
+title: Base de dados do Azure para MySQL vídeos
+description: Esta página apresenta uma lista de conteúdo de vídeo relevante para a base de dados do Azure de aprendizagem para MySQL, Microsoft geridos MySQL oferta no Azure.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh

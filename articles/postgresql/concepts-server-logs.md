@@ -1,6 +1,6 @@
 ---
 title: Os registos do servidor na base de dados do Azure para PostgreSQL
-description: "Este artigo descreve como base de dados do Azure para PostgreSQL gera registos de consulta e o erro e retenção de registo como está configurada."
+description: Este artigo descreve como base de dados do Azure para PostgreSQL gera registos de consulta e o erro e retenção de registo como está configurada.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

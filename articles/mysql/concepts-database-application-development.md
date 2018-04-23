@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral do desenvolvimento de aplicações da base de dados para a base de dados do Azure para MySQL"
-description: "Apresenta as considerações de design que um programador deve seguir ao escrever o código da aplicação para ligar à base de dados do Azure para MySQL"
+title: Descrição geral do desenvolvimento de aplicações da base de dados para a base de dados do Azure para MySQL
+description: Apresenta as considerações de design que um programador deve seguir ao escrever o código da aplicação para ligar à base de dados do Azure para MySQL
 services: mysql
 author: ajlam
 ms.author: andrela

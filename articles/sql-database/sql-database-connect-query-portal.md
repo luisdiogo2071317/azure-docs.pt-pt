@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 97b14de64c4aa6bf134f2c293e4bb8b5725810d3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6e9dbeb5915f98ec4d08d8656b6b338ea78117da
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portal do Azure: Utilizar o Editor de consultas SQL para ligar e consultar dados
 
-O Editor de consultas SQL é uma ferramenta de consulta de browser que oferece uma forma simples e eficiente de executar consultas SQL na Base de Dados SQL do Azure ou no Azure SQL Data Warehouse sem sair do portal do Azure. Este tutorial de início rápido demonstra como utilizar o Editor de consultas para ligar a uma base de dados SQL e, em seguida, utilizar as instruções Transact-SQL para consultar, inserir, atualizar e eliminar dados na base de dados.
+O Editor de consultas SQL é uma ferramenta de consulta de browser que oferece uma forma simples e eficiente de executar consultas SQL na Base de Dados SQL do Azure ou no Azure SQL Data Warehouse sem sair do portal do Azure. Este início rápido demonstra como utilizar o Editor de consultas para ligar a uma base de dados SQL e, em seguida, utilizar as instruções de Transact-SQL para consultar, inserir, atualizar e eliminar dados na base de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

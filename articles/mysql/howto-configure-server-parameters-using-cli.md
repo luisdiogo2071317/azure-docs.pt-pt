@@ -1,6 +1,6 @@
 ---
-title: "Configure os parâmetros de serviço na base de dados do Azure para MySQL"
-description: "Este artigo descreve como configurar os parâmetros de serviço na base de dados do Azure para MySQL utilizando o utilitário de linha de comandos da CLI do Azure."
+title: Configure os parâmetros de serviço na base de dados do Azure para MySQL
+description: Este artigo descreve como configurar os parâmetros de serviço na base de dados do Azure para MySQL utilizando o utilitário de linha de comandos da CLI do Azure.
 services: mysql
 author: rachel-msft
 ms.author: raagyema

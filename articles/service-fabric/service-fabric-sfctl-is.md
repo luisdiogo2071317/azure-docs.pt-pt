@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric CLI - sfctl é | Microsoft Docs"
-description: "Descreve a CLI de recursos de infraestrutura de serviço sfctl é comandos."
+title: Azure Service Fabric CLI - sfctl é | Microsoft Docs
+description: Descreve a CLI de recursos de infraestrutura de serviço sfctl é comandos.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference

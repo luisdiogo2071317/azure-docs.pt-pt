@@ -1,6 +1,6 @@
 ---
 title: Conceitos de servidor na base de dados do Azure para PostgreSQL
-description: "Este artigo fornece considerações e diretrizes para configurar e gerir a base de dados do Azure para servidores de PostgreSQL."
+description: Este artigo fornece considerações e diretrizes para configurar e gerir a base de dados do Azure para servidores de PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
