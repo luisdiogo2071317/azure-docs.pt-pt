@@ -1,120 +1,485 @@
 ---
-title: "Documentação de Segurança do Azure - Tutoriais | Microsoft Docs"
-description: "Saiba como personalizar as opções de segurança nos serviços do Azure para cumprir os requisitos das implementações dos serviços e os dados na cloud."
+title: Documentação da Segurança do Azure | Microsoft Docs
+description: A segurança integra todos os aspetos do Azure, sem exceção. O Azure oferece vantagens de segurança exclusivas que derivam de inteligência de segurança global, sofisticados controlos orientados para o cliente e de uma infraestrutura protegida segura. Esta poderosa combinação ajuda a proteger os seus dados e aplicações, confere suporte aos seus esforços de conformidade e garante segurança económica para organizações de todas as dimensões.
 services: security
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 03/30/2018
 ms.author: carolz
-ms.openlocfilehash: 930546e0b5847ee088dc08a48e8a0f9d610c5839
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50c80e95d81e67e1e176152cfbecabb09ecda80d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="security-documentation"></a>Documentação da Segurança
+# <a name="azure-security-documentation"></a>Documentação da Segurança do Azure
 
-Saiba como utilizar a segurança do Azure para proteger serviços e os dados na cloud. Tutoriais e outra documentação ajudam-o a personalizar as opções de segurança nos serviços do Azure para cumprir os requisitos das implementações.
+A segurança integra todos os aspetos do Azure, sem exceção. O Azure oferece vantagens de segurança exclusivas que derivam de inteligência de segurança global, sofisticados controlos orientados para o cliente e de uma infraestrutura protegida segura. Esta poderosa combinação ajuda a proteger os seus dados e aplicações, confere suporte aos seus esforços de conformidade e garante segurança económica para organizações de todas as dimensões.
 
-<ul class="panelContent cardsFTitle">
-    <li>
+<ul class="cardsFTitle panelContent">
+    <li style="-ms-flex: 0 1 100%; flex: 0 1 100%">
+        <div class="cardSize">
+            <div class="cardPadding" style="padding-bottom: 0;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img alt="" src="https://docs.microsoft.com/en-us/media/common/i_overview.svg" data-linktype="external" data-hoverimage="">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h2 style="margin-top: 0">Saiba mais sobre a segurança do Azure</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<ul class="cardsZ panelContent featuredContent">
+    <li style="list-style: none;">
         <a href="/azure/security/azure-security">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/security.svg" alt="" />
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Estou a pensar adotar o Azure para a minha empresa. O que tem o Azure para oferecer?</p>
                         </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Saiba mais sobre a Segurança do Azure</h3>
                     </div>
                 </div>
             </div>
-        </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/security/azure-security-getting-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+    <li style="list-style: none;">
+        <a href="http://aka.ms/sharedresponsibility">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Como é que a Microsoft partilha responsabilidades de segurança com a minha organização?</p>
                         </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introdução à Segurança do Azure</h3>
                     </div>
                 </div>
             </div>
-        </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/security/security-network-overview">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+    <li style="list-style: none;">
+        <a href="/azure/security/azure-isolation">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Como é que o Azure isola os meus recursos face a outros clientes do Azure?</p>
                         </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introdução à Segurança de Rede</h3>
                     </div>
                 </div>
             </div>
-        </div>
         </a>
     </li>
-    <li>
+    <li style="list-style: none;">
         <a href="/azure/security/security-storage-overview">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Descrição geral da segurança do armazenamento</p>
                         </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introdução à Segurança do Armazenamento</h3>
                     </div>
                 </div>
             </div>
-        </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/security/security-virtual-machines-overview">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+    <li style="list-style: none;">
+        <a href="/azure/security/azure-security-network-security-best-practices">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Descrição geral da segurança de rede</p>
                         </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introdução à Segurança das Máquinas Virtuais</h3>
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security/security-azure-encryption-overview">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Descrição geral da encriptação de dados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security/azure-log-audit">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Quais são as opções de monitorização e de registo disponíveis no Azure?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security/azure-security-encryption-atrest">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Como é que o Azure protege os meus dados inativos?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security/azure-security-disk-encryption">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Como posso encriptar máquinas virtuais do Azure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </a>
     </li>
 </ul>
 
----
+<ul class="cardsL panelContent singlePanelContent" style="display:flex!important;"> 
+    <li style="list-style: none;">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <div class="ico64Link"><img src="https://docs.microsoft.com/en-us/media/common/i_article.svg" alt="" /></div>
+                        <h3>Documentação técnica</h3>
+                        <ul class="noBullet">
+                            <li style="list-style: none;">
+                                <a class="barLink" href="http://aka.ms/SecurityResponsepaper">Resposta de segurança do Azure na cloud</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/azure-threat-detection">Deteção avançada de ameaças do Azure</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/azure-network-security">Segurança de rede do Azure</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li style="list-style: none;">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <div class="ico64Link"><img src="https://docs.microsoft.com/en-us/media/common/i_guidelines.svg" alt="" /></div>
+                        <h3>Melhores práticas</h3>
+                        <ul class="noBullet">
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/azure-security-network-security-best-practices">Segurança de rede</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/azure-security-data-encryption-best-practices">Segurança de dados</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/azure-security-best-practices-vms">Segurança de máquinas virtuais</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/azure-security-identity-management-best-practices">Identidade e acesso</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/azure-security-iaas">Segurança de IaaS</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/azure-service-fabric-security-best-practices">Segurança do Service Fabric</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/azure-security-global-admin">Proteger as contas de Administrador do Azure</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li style="list-style: none;">
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                     <div class="ico64Link"><img src="https://docs.microsoft.com/en-us/media/common/i_tasks.svg" alt="" /></div>
+                     <h3>Listas de verificação</h3>
+                     <ul class="noBullet">
+                        <li style="list-style: none;">
+                            <a class="barLink" href="/azure/security/azure-database-security-checklist">Proteger bases de dados</a>
+                        </li>
+                        <li style="list-style: none;">
+                            <a class="barLink" href="/azure/security/azure-operational-security-checklist">Segurança operacional</a>
+                        </li>
+                        <li style="list-style: none;">
+                            <a class="barLink" href="/azure/security/azure-service-fabric-security-checklist">Segurança do Service Fabric</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+</ul>
 
+<ul class="cardsFTitle panelContent">
+    <li style="-ms-flex: 0 1 100%; flex: 0 1 100%">
+        <div class="cardSize">
+            <div class="cardPadding" style="padding-bottom: 0;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img alt="" src="https://docs.microsoft.com/en-us/media/common/i_cloud-security.svg" data-linktype="external" data-hoverimage="">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h2 style="margin-top: 0">Conformidade</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
+<ul class="panelContent cardsZ">
+    <li style="list-style: none;">
+        <a href="/azure/security/blueprints/financial-services-regulated-workloads">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">FFIEC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security/blueprints/azure-health">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">HIPAA/HITRUST</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security/blueprints/payment-processing-blueprint">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">PCI DSS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security/manage-personal-data-azure">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">GDPR</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security/blueprints/fedramp">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">FEDRAMP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security/blueprints/uk-official-three-tier-applications-overview">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">UK-OFFICIAL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+
+<ul class="cardsFTitle panelContent">
+    <li style="-ms-flex: 0 1 100%; flex: 0 1 100%">
+        <div class="cardSize">
+            <div class="cardPadding" style="padding-bottom: 0;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img alt="" src="https://docs.microsoft.com/en-us/media/common/i_best-practices.svg" data-linktype="external" data-hoverimage="">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h2 style="margin-top: 0">Recursos e Serviços</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<ul class="panelContent cardsZ">
+    <li style="list-style: none;">
+        <a href="https://www.microsoft.com/en-us/trustcenter/">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Centro de Confiança MSFT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=security&page=1">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Parceiros de segurança do Azure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security/azure-security-cyber-services">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Consultoria de cibersegurança</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security/azure-security-pen-testing">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Testes de intrusão</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security-center/">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Centro de Segurança do Azure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/key-vault/">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Azure Key Vault</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/security/azure-security-disk-encryption">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Encriptação de Disco</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/information-protection/understand-explore/what-is-information-protection">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Azure Information Protection</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="list-style: none;">
+        <a href="/azure/multi-factor-authentication/">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
+                        <div class="cardText">
+                            <p style="font-size: 1.12rem;">Multi-Factor Authentication (MFA)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
