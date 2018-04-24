@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 02849fb63a8d696fa4296f5ec885a2d24f9adca1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7112b8af792dc245c1a2a68e130328d82b4958b3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integre os diretórios no local ao Azure Active Directory
 O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Isto permite-lhe fornecer uma identidade comum para o utilizadores das aplicações do Office 365, do Azure e do SaaS integradas com o Azure AD. Este tópico descreve o planeamento, a implementação e os passos de operação. É uma coleção de ligações para os tópicos relacionados com esta área.
@@ -97,7 +97,7 @@ A [filtragem](active-directory-aadconnectsync-configure-filtering.md) é utiliza
 
 A [sincronização de hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) sincroniza o hash de palavra-passe no Active Directory para o Azure AD. O utilizador final pode utilizar a mesma palavra-passe no local e na nuvem, mas geri-la apenas numa única localização. Uma vez que utiliza o Active Directory no local como autoridade,pode também utilizar a sua própria política de palavras-passe.
 
-A [repetição de escrita de palavras-passe](../active-directory-passwords-getting-started.md) permitirá que os utilizadores alterem e reponham as respetivas palavras-passe na nuvem e a aplicação da sua política de palavras-passe no local.
+A [repetição de escrita de palavras-passe](../authentication/quickstart-sspr.md) permitirá que os utilizadores alterem e reponham as respetivas palavras-passe na nuvem e a aplicação da sua política de palavras-passe no local.
 
 A [repetição de escrita do dispositivo](active-directory-aadconnect-feature-device-writeback.md) permitirá que um dispositivo registado no Azure AD seja rescrito no Active Directory no local, para que possa ser utilizado para acesso condicional.
 
@@ -110,7 +110,7 @@ A [atualização automática](active-directory-aadconnect-feature-automatic-upgr
 | --- | --- |
 |Configurar a filtragem | [Sincronização do Azure AD Connect: configurar a filtragem](active-directory-aadconnectsync-configure-filtering.md)|
 |Sincronização de hash de palavra-passe | [Sincronização do Azure AD Connect: implementar a sincronização de hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
-|Repetição de escrita de palavras-passe | [Introdução à gestão de palavras-passe](../active-directory-passwords-getting-started.md)|
+|Repetição de escrita de palavras-passe | [Introdução à gestão de palavras-passe](../authentication/quickstart-sspr.md)|
 |Repetição de escrita do dispositivo | [Ativar a repetição de escrita do dispositivo no Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |Impedir eliminações acidentais | [Sincronização do Azure AD Connect: impedir eliminações acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Atualização automática | [Azure AD Connect: atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md)|

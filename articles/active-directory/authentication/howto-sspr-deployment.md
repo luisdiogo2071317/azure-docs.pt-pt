@@ -16,19 +16,19 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 22086a0d9fc774b75e1b0873188b16fc548d0791
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como implementar com êxito a reposição personalizada de palavras-passe
 
 Para garantir uma suave implementação da funcionalidade de reposição personalizada de palavra-passe (SSPR) do Azure Active Directory (Azure AD), a maioria dos clientes realizam os passos seguintes:
 
-1. [Ative a reposição de palavras-passe no seu diretório](../active-directory-passwords-getting-started.md).
-2. [Configurar as permissões do Active Directory no local para repetição de escrita de palavras-passe](../active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Configurar a repetição de escrita de palavras-passe](../active-directory-passwords-writeback.md#configure-password-writeback) para gravar palavras-passe do Azure AD no seu diretório local.
+1. [Ative a reposição de palavras-passe no seu diretório](quickstart-sspr.md).
+2. [Configurar as permissões do Active Directory no local para repetição de escrita de palavras-passe](howto-sspr-writeback.md#active-directory-permissions).
+3. [Configurar a repetição de escrita de palavras-passe](howto-sspr-writeback.md#configure-password-writeback) para gravar palavras-passe do Azure AD no seu diretório local.
 4. [Atribuir e verificar as licenças necessárias](concept-sspr-licensing.md).
 5. Determinar se quer fazer uma implementação gradual. Se quiser implementar a SSPR gradualmente, pode limitar o acesso a um grupo de utilizadores, para que possa criar um programa-piloto com um grupo específico. Para implementar num grupo específico, defina o comutador **Reposição Personalizada de Palavras-passe Ativada** como **Selecionada** e selecione o grupo de segurança que vai poder utilizar a reposição de palavras-passe. 
 6. Preencha os [dados de autenticação](howto-sspr-authenticationdata.md) necessários para os seus utilizadores se registarem, como o telefone do escritório, o número de telemóvel e o endereço de e-mail alternativo.
@@ -41,7 +41,7 @@ Para garantir uma suave implementação da funcionalidade de reposição persona
    > [!NOTE]
    > Alterar esta opção de um grupo selecionado para todos os utilizadores, não invalida os dados de autenticação existentes que um utilizador registou como parte de um grupo de teste. Os utilizadores que estão configurados e têm dados de autenticação registados continuam a funcionar.
 
-12. [Permita que os utilizadores do Windows 10 reponham as palavras-passe no ecrã de início de sessão](../active-directory-passwords-login.md).
+12. [Permita que os utilizadores do Windows 10 reponham as palavras-passe no ecrã de início de sessão](tutorial-sspr-windows.md).
 
    > [!IMPORTANT]
    > Teste a SSPR com um utilizador e não com um administrador, pois a Microsoft aplica requisitos de autenticação fortes às contas de administrador do Azure. Para obter mais informações sobre a política de palavras-passe de administrador, veja o nosso artigo sobre a [política de palavras-passe](concept-sspr-policy.md#administrator-password-policy-differences).
@@ -90,7 +90,7 @@ Deve [preencher os dados de autenticação dos seus utilizadores](howto-sspr-aut
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
 * [Quais são as opções de política da SSPR?](concept-sspr-policy.md)
-* [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](../active-directory-passwords-writeback.md)
+* [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](howto-sspr-writeback.md)
 * [Como posso comunicar a atividade da SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
 * [Creio que algo está a funcionar incorretamente. Como posso resolver problemas da SSPR?](active-directory-passwords-troubleshoot.md)

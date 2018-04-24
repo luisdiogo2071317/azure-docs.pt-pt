@@ -15,17 +15,17 @@ ms.date: 08/25/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 286ef523c1ba0ce76c412b319469c2627aade200
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0e0838aafdeb76339d79a8db1b3548407670dede
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o AD FS no Windows Server
 
 Se utilizar os Serviços de Federação do Active Directory (AD FS) e pretender proteger os recursos na nuvem ou no local, poderá configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o AD FS. Esta configuração aciona a verificação de dois passos para pontos finais de alto valor.
 
-Neste artigo, discutimos a utilização do Servidor Multi-Factor Authentication do Azure com o AD FS no Windows Server 2012 R2 ou no Windows Server 2016. Para obter mais informações, leia sobre como [proteger recursos na nuvem e no local através do Servidor Multi-Factor Authentication do Azure com o AD FS 2.0](../../multi-factor-authentication/multi-factor-authentication-get-started-adfs-adfs2.md).
+Neste artigo, discutimos a utilização do Servidor Multi-Factor Authentication do Azure com o AD FS no Windows Server 2012 R2 ou no Windows Server 2016. Para obter mais informações, leia sobre como [proteger recursos na nuvem e no local através do Servidor Multi-Factor Authentication do Azure com o AD FS 2.0](howto-mfaserver-adfs-2.md).
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Proteger o Windows Server AD FS com o Servidor Multi-Factor Authentication do Azure
 
@@ -40,11 +40,11 @@ Antes de começar, tenha em atenção as seguintes informações:
 * Se a sua organização utilizar os métodos de verificação por mensagem de texto ou por aplicação móvel, as cadeias definidas nas Definições da Empresa incluirão um marcador de posição <$*application_name*$>. No servidor do MFA v7.1, pode fornecer um nome de aplicação que substitui este marcador de posição. Na versão v7.0 e anteriores, este marcador de posição não é substituído automaticamente quando utiliza o adaptador AD FS. Nestas versões mais antigas, remova o marcador de posição das cadeias adequadas quando proteger o AD FS.
 * A conta que utiliza para iniciar sessão tem de ter direitos de utilizador para criar grupos de segurança no seu serviço do Active Directory.
 * O assistente de instalação do adaptador AD FS do Multi-Factor Authentication cria um grupo de segurança chamado PhoneFactor Admins na sua instância do Active Directory. Este adiciona, em seguida, a conta de serviço do AD FS do seu serviço de federação a este grupo. Verifique se o grupo PhoneFactor Admins foi criado no controlador de domínio e se a conta de serviço do AD FS faz parte deste grupo. Se necessário, adicione manualmente a conta de serviço do AD FS ao grupo PhoneFactor Admins no seu controlador de domínio.
-* Para obter informações sobre como instalar o SDK do Serviço Web com o portal de utilizador, veja [implementar o portal de utilizador do Servidor Multi-Factor Authentication do Azure.](../../multi-factor-authentication/multi-factor-authentication-get-started-portal.md)
+* Para obter informações sobre como instalar o SDK do Serviço Web com o portal de utilizador, veja [implementar o portal de utilizador do Servidor Multi-Factor Authentication do Azure.](howto-mfaserver-deploy-userportal.md)
 
 ### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Instalar o Servidor Multi-Factor Authentication do Azure localmente no servidor AD FS
 
-1. Transfira e instale o Servidor Multi-Factor Authentication do Azure no seu servidor AD FS. Para obter informações de instalação, consulte a [introdução ao Servidor Multi-Factor Authentication do Azure](../../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+1. Transfira e instale o Servidor Multi-Factor Authentication do Azure no seu servidor AD FS. Para obter informações de instalação, consulte a [introdução ao Servidor Multi-Factor Authentication do Azure](howto-mfaserver-deploy.md).
 2. Na consola de gestão do Servidor Multi-Factor Authentication do Azure, clique no ícone **AD FS**. Selecione as opções **Permitir inscrição de utilizadores** e **Permitir que os utilizadores selecionem o método**.
 3. Selecione outras opções adicionais que pretende especificar para a sua organização.
 4. Clique em **Instalar Adaptador AD FS**.
@@ -162,4 +162,4 @@ Para ajudar na resolução de problemas do Adaptador AD FS do Servidor MFA, util
 
 ## <a name="related-topics"></a>Tópicos relacionados
 
-Para obter ajuda para resolução de problemas, veja [Azure Multi-Factor Authentication FAQs (FAQ do Multi-Factor Authentication do Azure)](../../multi-factor-authentication/multi-factor-authentication-faq.md)
+Para obter ajuda para resolução de problemas, veja [Azure Multi-Factor Authentication FAQs (FAQ do Multi-Factor Authentication do Azure)](multi-factor-authentication-faq.md)
