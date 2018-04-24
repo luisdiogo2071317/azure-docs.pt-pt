@@ -1,6 +1,6 @@
 ---
-title: "Principal de serviço do cluster de Kubernetes do Azure"
-description: "Criar e gerir um principal de serviço do Azure Active Directory para um cluster de Kubernetes no AKS"
+title: Principal de serviço do cluster de Kubernetes do Azure
+description: Criar e gerir um principal de serviço do Azure Active Directory para um cluster de Kubernetes no AKS
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 6a908d23394b7fed7b2024b6fe6419f808611d89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Principais de serviço com o Azure Container Service (AKS)
 
@@ -40,7 +40,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ss
 
 ## <a name="use-an-existing-sp"></a>Utilizar um SP existente
 
-Pode ser utilizado ou pré-criado um principal de serviço existente do Azure AD para utilização num cluster do AKS. Isto é útil ao implementar um cluster a partir do portal do Azure, onde tem de fornecer as informações do principal de serviço. Quando utilizar um principal de serviço existente, o segredo do cliente tem de ser configurado como uma palavra-passe.
+Pode ser utilizado ou pré-criado um principal de serviço existente do Azure AD para utilização num cluster do AKS. Isto é útil ao implementar um cluster a partir do Portal do Azure, onde tem de fornecer as informações do principal de serviço. Quando utilizar um principal de serviço existente, o segredo do cliente tem de ser configurado como uma palavra-passe.
 
 ## <a name="pre-create-a-new-sp"></a>Pré-criar um novo SP
 
@@ -70,7 +70,7 @@ Quando utilizar um principal de serviço pré-criado, forneça o `appId` e a `pa
 az aks create --resource-group myResourceGroup --name myAKSCluster --service-principal <appId> --client-secret <password>
 ```
 
-Se estiver a implementar um cluster AKS utilizando o portal do Azure, introduza o `appId` valor no campo **ID de cliente do principal de serviço** e o campo `password` valor o **Segredo de cliente do principal de serviço** no formulário de configuração do cluster AKS.
+Se estiver a implementar um cluster AKS utilizando o Portal do Azure, introduza o `appId` valor no campo **ID de cliente do principal de serviço** e o campo `password` valor o **Segredo de cliente do principal de serviço** no formulário de configuração do cluster AKS.
 
 ![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-service-principal/sp-portal.png)
 
@@ -80,10 +80,10 @@ Quando utilizar principais de serviço do AKS e do Azure AD, tenha em atenção 
 
 * O principal de serviço para Kubernetes faz parte da configuração do cluster. No entanto, não utilize a identidade para implementar o cluster.
 * Cada principal de serviço está associado a uma aplicação do Azure AD. O principal de serviço para um cluster de Kubernetes pode ser associado a qualquer nome de aplicação do Azure AD válido (por exemplo: `https://www.contoso.org/example`). O URL para a aplicação não tem de ser um ponto final real.
-* Quando especificar o principal de serviço **ID de Cliente**, pode utilizar o valor do `appId` (como mostrado neste artigo) ou o principal de serviço correspondente `name` (por exemplo, `https://www.contoso.org/example`).
+* Quando especificar o principal de serviço **ID de Cliente**, utilize o valor do `appId` (como mostrado neste artigo) ou o principal de serviço correspondente `name` (por exemplo, `https://www.contoso.org/example`).
 * Em VMs do nó e mestras no cluster de Kubernetes, as credenciais do principal de serviço são armazenadas no ficheiro `/etc/kubernetes/azure.json`.
 * Quando utilizar o comando `az aks create` para gerar automaticamente o principal de serviço, as credenciais do principal de serviço são escritas no ficheiro `~/.azure/acsServicePrincipal.json` na máquina utilizada para executar o comando.
-* Ao eliminar um cluster do AKS que tenha sido criado pelo `az aks create`, o principal de serviço que foi criado automaticamente não é eliminado. Pode utilizar `az ad sp delete --id $clientID` para eliminá-lo.
+* Ao eliminar um cluster do AKS que tenha sido criado pelo `az aks create`, o principal de serviço que foi criado automaticamente não é eliminado. Utilize `az ad sp delete --id $clientID` para eliminá-lo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

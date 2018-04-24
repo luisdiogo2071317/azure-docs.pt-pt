@@ -195,6 +195,8 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: Ativar a opção Manter a sessão iniciada
                   href: active-directory-b2c-reference-kmsi-custom.md
+            - name: A controlar o comportamento do utilizador
+              href: active-directory-b2c-custom-guide-eventlogger-appins.md
             - name: Resolução de problemas
               items:
                 - name: Recolher registos com o Application Insights

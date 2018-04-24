@@ -1,6 +1,6 @@
 ---
 title: Compor uma cena na cloud - Azure Batch
-description: "Tutorial - como apresentar uma cena Autodesk 3DS Max com o Arnold, através do Serviço Batch Rendering e da Interface de Linha de Comandos do Azure"
+description: Tutorial - como apresentar uma cena Autodesk 3DS Max com o Arnold, através do Serviço Batch Rendering e da Interface de Linha de Comandos do Azure
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/05/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0531406ce50cf8cb549965d1f30b327afe52b003
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f8a93e873f79e99777fe2d8675c9426f5fc5ecda
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: compor uma cena com o Azure Batch 
 
@@ -50,7 +50,7 @@ az group create \
     --location eastus2
 ```
 
-Utilize o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) para criar uma conta de armazenamento para fins gerais no seu grupo de recursos. Para este tutorial, utilize a conta de armazenamento para armazenar uma cena 3ds Max de entrada e a saída composta.
+Utilize o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) para criar uma conta de Armazenamento do Microsoft Azure no seu grupo de recursos. Para este tutorial, utilize a conta de armazenamento para armazenar uma cena 3ds Max de entrada e a saída composta.
 
 ```azurecli-interactive
 az storage account create \
