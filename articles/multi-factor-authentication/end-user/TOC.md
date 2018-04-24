@@ -12,4 +12,5 @@
 ## Utilizar a aplicação de autenticação da Microsoft
 ### [Introdução à aplicação](microsoft-authenticator-app-how-to.md)
 ### [Iniciar sessão com o telemóvel](microsoft-authenticator-app-phone-signin-faq.md)
+### [Cópia de segurança e credenciais de recuperação da conta](microsoft-authenticator-app-backup-and-recovery.md)
 ### [FAQs](microsoft-authenticator-app-faq.md)

@@ -29,7 +29,7 @@
       href: app-service-web-get-started-html.md
 - name: Tutoriais
   items:
-    - name: 1 - Aplicação com BD
+    - name: Aplicação com BD
       items:
         - name: .NET Core com BD SQL
           href: app-service-web-tutorial-dotnetcore-sqldb.md
@@ -43,14 +43,18 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Python com PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 - Alojar API RESTful
+    - name: Aceder à BD SQL em segurança
+      href: app-service-web-tutorial-connect-msi.md
+    - name: Alojar uma API RESTful
       href: app-service-web-tutorial-rest-api.md
-    - name: 2 - Mapear Domínio Personalizado
+    - name: Mapear um Domínio Personalizado
       href: app-service-web-tutorial-custom-domain.md
-    - name: 3 - Vincular Certificado SSL
+    - name: Vincular o Certificado SSL
       href: app-service-web-tutorial-custom-ssl.md
-    - name: 4 - Adicionar a CDN
+    - name: Adicionar a CDN
       href: app-service-web-tutorial-content-delivery-network.md
+    - name: Autenticar utilizadores
+      href: app-service-web-tutorial-auth-aad.md
 - name: Amostras
   items:
     - name: CLI do Azure
@@ -67,6 +71,8 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: Funcionalidade do SO
       href: web-sites-available-operating-system-functionality.md
+    - name: IPs de entrada e de saída
+      href: app-service-ip-addresses.md
     - name: Autenticação e autorização
       href: app-service-authentication-overview.md
     - name: Ligações híbridas
@@ -139,8 +145,10 @@
               href: app-service-mobile-how-to-configure-microsoft-authentication.md
             - name: Autenticar com o Twitter
               href: app-service-mobile-how-to-configure-twitter-authentication.md
-        - name: Personalizar authN/authZ
+        - name: Personalizar autenticação
           href: app-service-authentication-how-to.md
+        - name: Restringir IPs
+          href: app-service-ip-restrictions.md
         - name: Utilizar a Identidade do Serviço Gerido
           href: app-service-managed-service-identity.md
         - name: Utilizar o certificado SSL no código da aplicação
