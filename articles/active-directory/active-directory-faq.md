@@ -1,11 +1,11 @@
 ---
 title: FAQ do Azure Active Directory | Microsoft Docs
-description: "As FAQ do Azure Active Directory respondem a perguntas comuns sobre o Azure e o Azure Active Directory, gestão de palavras-passe e acesso à aplicação."
+description: As FAQ do Azure Active Directory respondem a perguntas comuns sobre o Azure e o Azure Active Directory, gestão de palavras-passe e acesso à aplicação.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: be5f5a6c39e27ae7fedab32fea12f5cf9b7cd3bd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-faq"></a>FAQ do Azure Active Directory
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -29,7 +29,7 @@ Para obter mais informações, consulte [What is Azure Active Directory? (O que 
 ## <a name="access-azure-and-azure-active-directory"></a>Aceder ao Azure e Azure Active Directory
 **P: Por que motivo recebo “Não foram encontradas subscrições” ao tentar aceder ao Azure AD no portal do Azure?**
 
-**R:** Para aceder ao portal do Azure, cada utilizador precisa de permissões com uma subscrição do Azure. Se tiver uma subscrição paga do Office 365 ou do Azure AD, aceda a [https://aka.ms/accessAAD](https://aka.ms/accessAAD) com um passo único de ativação. Caso contrário, terá de ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) gratuita ou uma subscrição paga.
+**R:** Para aceder ao portal do Azure, cada utilizador precisa de permissões com uma subscrição do Azure. Se tiver uma subscrição paga do Office 365 ou do Azure AD, aceda a [https://aka.ms/accessAAD](https://aka.ms/accessAAD) com apenas um passo único de ativação. Caso contrário, terá de ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) gratuita ou uma subscrição paga.
 
 Para obter mais informações, consulte:
 
@@ -112,18 +112,18 @@ Para obter mais informações, consulte [Monitor your on-premises identity infra
 
 **R:** a repetição de palavras-passe é feita em tempo real.
 
-Para mais informações, consulte [Introdução à gestão de palavras-passe](active-directory-passwords-getting-started.md)
+Para mais informações, consulte [Introdução à gestão de palavras-passe](authentication/quickstart-sspr.md)
 
 - - -
 **P: Posso utilizar a repetição de palavras-passe com palavras-passe geridas por um administrador?**
 
 **R:** Sim, se tiver ativado a repetição de palavras-passe, as operações de palavras-passe feitas por um administrador são repetidas no ambiente local.  
 
-Para obter mais respostas a perguntas relacionadas com palavras-passe, consulte [Password management frequently asked questions (Perguntas mais frequentes da gestão de palavras-passe)](active-directory-passwords-faq.md).
+Para obter mais respostas a perguntas relacionadas com palavras-passe, consulte [Password management frequently asked questions (Perguntas mais frequentes da gestão de palavras-passe)](authentication/active-directory-passwords-faq.md).
 - - -
 **P: O que posso fazer se não me lembrar da palavra-passe do Office 365/Azure AD quando tentar alterar a minha palavra-passe?**
 
-**R:** Para este tipo de situação, existem algumas opções.  Utilize a reposição de palavra-self-service (SSPR) se estiver disponível.  A SSPR funciona consoante a forma como está configurada.  Para mais informações, veja [How does the password reset portal work (Como funciona o portal de reposição de palavras-passe)](active-directory-passwords-best-practices.md).
+**R:** Para este tipo de situação, existem algumas opções.  Utilize a reposição de palavra-self-service (SSPR) se estiver disponível.  A SSPR funciona consoante a forma como está configurada.  Para mais informações, veja [How does the password reset portal work (Como funciona o portal de reposição de palavras-passe)](authentication/howto-sspr-deployment.md).
 
 Para os utilizadores do Office 365, o administrador pode repor a palavra-passe através dos passos descritos em [Reset user passwords (Repor palavras-passe de utilizador)](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 

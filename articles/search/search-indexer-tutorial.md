@@ -1,25 +1,19 @@
 ---
 title: Tutorial sobre como indexar bases de dados SQL do Azure no Azure Search | Microsoft Docs
-description: "Pesquise as bases de dados SQL do Azure para extrair dados pesquisáveis e preencher um índice de Pesquisa do Azure."
-services: search
-documentationcenter: 
+description: Pesquise as bases de dados SQL do Azure para extrair dados pesquisáveis e preencher um índice de Pesquisa do Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: abf121ec369d84dd307416d2c08971d9096de4a8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Como pesquisar bases de dados SQL do Azure com indexadores do Azure Search
 
@@ -95,7 +89,7 @@ Pode encontrar o ponto final do serviço de pesquisa e a chave no portal. A chav
 4. Copie e cole-o como a primeiro entrada em **appsettings.json** no Visual Studio.
 
   > [!Note]
-  > Os nomes de serviço fazem parte do ponto final que inclui search.windows.net. Se tiver curiosidade, pode ver o URL completo em **Essentials**, na página Descrição Geral. O URL é semelhante a https://nome-do-seu-serviço.search.windows.net
+  > Os nomes de serviço fazem parte do ponto final que inclui search.windows.net. Se tiver curiosidade, pode ver o URL completo em **Essentials**, na página Descrição Geral. O URL tem um aspeto semelhante a este exemplo: https://your-service-name.search.windows.net
 
 5. À esquerda, em **Definições** > **Chaves**, copie uma das chaves de administrador e cole-a como a segunda entrada em **appsettings.json**. As chaves são cadeias alfanuméricas geradas para o seu serviço durante o aprovisionamento e são necessárias para acesso autorizado para operações do mesmo. 
 

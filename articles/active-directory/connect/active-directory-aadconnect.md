@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: bd2b65c31e7736346957dde4edfb7c32894c833e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7112b8af792dc245c1a2a68e130328d82b4958b3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integre os diretórios no local ao Azure Active Directory
 O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Isto permite-lhe fornecer uma identidade comum para o utilizadores das aplicações do Office 365, do Azure e do SaaS integradas com o Azure AD. Este tópico descreve o planeamento, a implementação e os passos de operação. É uma coleção de ligações para os tópicos relacionados com esta área.
 
 > [!IMPORTANT]
 > [O Azure AD Connect é a melhor forma de ligar o seu diretório no local ao Azure AD e ao Office 365. É uma excelente altura para atualizar o Azure AD Connect do Microsoft Azure Active Directory Sync (DirSync) ou do Azure AD Sync, uma vez que estas ferramentas foram preteridas e deixaram de ser suportadas em 13 de abril de 2017.](active-directory-aadconnect-dirsync-deprecated.md)  Além disso:
+
+
+
 > 
 > - Sincronizar utilizadores com o Azure AD é uma **funcionalidade gratuita** que não requer que os clientes tenham subscrições pagas.
 >- Os utilizadores sincronizados **não recebem automaticamente** *qualquer* licença. Os administradores retêm controlo total sobre o contrato de licença. 
@@ -51,6 +54,10 @@ O Azure Active Directory Connect é constituído por três componentes principai
 * Monitorização do Estado de Funcionamento - o Azure AD Connect Health pode proporcionar uma monitorização robusta e uma localização central no Portal do Azure para visualizar esta atividade. Para obter informações adicionais, consulte [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## <a name="install-azure-ad-connect"></a>Instalar o Azure AD Connect
+
+> [!IMPORTANT]
+> A Microsoft não suporta a modificação ou operação de sincronizações do Azure AD Connect fora das ações anteriormente documentadas. Qualquer destas ações pode resultar num estado inconsistente ou não suportado da sincronização do Azure AD Connect. Como resultado, a Microsoft não pode possível fornecer o suporte técnico para implementações deste tipo.
+
 Pode encontrar a transferência do Azure AD Connect no [Centro de Transferências da Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Solução | Cenário |
@@ -90,7 +97,7 @@ A [filtragem](active-directory-aadconnectsync-configure-filtering.md) é utiliza
 
 A [sincronização de hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) sincroniza o hash de palavra-passe no Active Directory para o Azure AD. O utilizador final pode utilizar a mesma palavra-passe no local e na nuvem, mas geri-la apenas numa única localização. Uma vez que utiliza o Active Directory no local como autoridade,pode também utilizar a sua própria política de palavras-passe.
 
-A [repetição de escrita de palavras-passe](../active-directory-passwords-getting-started.md) permitirá que os utilizadores alterem e reponham as respetivas palavras-passe na nuvem e a aplicação da sua política de palavras-passe no local.
+A [repetição de escrita de palavras-passe](../authentication/quickstart-sspr.md) permitirá que os utilizadores alterem e reponham as respetivas palavras-passe na nuvem e a aplicação da sua política de palavras-passe no local.
 
 A [repetição de escrita do dispositivo](active-directory-aadconnect-feature-device-writeback.md) permitirá que um dispositivo registado no Azure AD seja rescrito no Active Directory no local, para que possa ser utilizado para acesso condicional.
 
@@ -103,7 +110,7 @@ A [atualização automática](active-directory-aadconnect-feature-automatic-upgr
 | --- | --- |
 |Configurar a filtragem | [Sincronização do Azure AD Connect: configurar a filtragem](active-directory-aadconnectsync-configure-filtering.md)|
 |Sincronização de hash de palavra-passe | [Sincronização do Azure AD Connect: implementar a sincronização de hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
-|Repetição de escrita de palavras-passe | [Introdução à gestão de palavras-passe](../active-directory-passwords-getting-started.md)|
+|Repetição de escrita de palavras-passe | [Introdução à gestão de palavras-passe](../authentication/quickstart-sspr.md)|
 |Repetição de escrita do dispositivo | [Ativar a repetição de escrita do dispositivo no Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |Impedir eliminações acidentais | [Sincronização do Azure AD Connect: impedir eliminações acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Atualização automática | [Azure AD Connect: atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md)|
